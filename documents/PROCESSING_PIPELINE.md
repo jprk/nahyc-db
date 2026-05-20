@@ -8,7 +8,7 @@ Proces je plně automatizovaný a sestává z několika fází:
 Surová data jsou obvykle dodávána od partnerů projektu (např. v Excelu nebo CSV). Tato data se ukládají v podsložkách adresáře `data/` a zpracovávají se jednoúčelovými skripty.
 
 * **Sinay:** Detailní popis zpracování a obohacení původních slovenských zákonů (využití AI skriptu `tools/process_laws.py`) naleznete v [0README.md adresáře Sinay](../data/20250712_Sinay/0README.md).
-* **Haltuf:** Skript `tools/process_haltuf.py` konsoliduje rozsáhlé tabulky ve formátu CSV.
+* **Haltuf:** Detailní popis fází zpracování Haltufových tabulek (včetně využití dočasných adresářů a skriptů `tools/extract_tables.py` a `tools/process_haltuf.py`) naleznete v [0README.md adresáře Haltuf](../data/20250915_Haltuf/0README.md).
 * **Prokop:** Detailní popis dvoufázového zpracování norem z původního DOCX dokumentu (využití skriptů `tools/read_docx.py` a `tools/parse_norms.py`) naleznete v [0README.md adresáře Prokop](../data/20250303_Prokop/0README.md).
 
 ## 2. Obohacení dat (AI Enrichment)
