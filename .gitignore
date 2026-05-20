@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.openapi_key
+
+# App directory artifacts
+app/Web.zip
+
+# DB directory artifacts
+db/nahyc_regulatory_db.eapx
+
+# Text folder artifacts
+text/*.md
+!text/0README.md
+text/*.pdf
