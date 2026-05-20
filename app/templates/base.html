@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Regulačních Dokumentů H2</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Phosphor Icons for beautifully crisp SVGs -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="brand">
+                <i class="ph-fill ph-drop-half-bottom brand-icon"></i>
+                <span class="brand-text">H2 Regulatory <span class="brand-highlight">DB</span></span>
+            </div>
+            <div class="nav-links" style="align-items: center;">
+                <a href="#" class="nav-link active">Databáze</a>
+                <a href="https://www.cistadoprava.cz/nahyc-m/" class="nav-link">O Projektu</a>
+                <img src="{{ url_for('static', filename='logos/tacr.png') }}" alt="TAČR logo" width="48" height="48">
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 RICE FEL ZČU and partners.
+                <br />Created with the support of the Technology Agency of the Czech
+                Republic under grant agreement No. TN02000007.
+            </p>
+            {# Partner logos - left #}
+            <div
+                style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; margin-top: 0rem; padding: 0rem 1rem;">
+                <img src="{{ url_for('static', filename='logos/zcu_fel.svg')}}" alt="ZČU FEL"
+                    style="height: 64px; width: auto;" />
+                <img src="{{ url_for('static', filename='logos/cdv.svg')}}" alt="CDV"
+                    style="height: 24px; width: auto;" />
+                <img src="{{ url_for('static', filename='logos/vsb_cs.svg')}}" alt="VŠB"
+                    style="height: 32px; width: auto;" />
+                <img src="{{ url_for('static', filename='logos/hytep.jpg')}}" alt="HYTEP"
+                    style="height: 32px; width: auto;" />
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script for toggles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle accordion row expansions
+            document.querySelectorAll('.document-row').forEach(row => {
+                row.addEventListener('click', (e) => {
+                    // Don't expand if clicking a direct link
+                    if (e.target.tagName.toLowerCase() === 'a') return;
+
+                    const isExpanded = row.classList.contains('expanded');
+                    // Close all others
+                    document.querySelectorAll('.document-row.expanded').forEach(r => {
+                        if (r !== row) {
+                            r.classList.remove('expanded');
+                            const arrow = r.querySelector('.expand-icon');
+                            if (arrow) arrow.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current
+                    row.classList.toggle('expanded');
+                    const arrow = row.querySelector('.expand-icon');
+                    if (arrow) {
+                        arrow.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Předpisy a normy <br> pro <span class="text-gradient">vodíkové technologie</span></h1>
+        <p class="hero-subtitle">Prohledejte přes 300 národních i mezinárodních regulačních předpisů, zákonů a norem
+            souvisejících s výstavbou, instalací a provozem.</p>
+    </div>
+</section>
+
+<section class="search-section">
+    <form class="search-glass-panel" method="GET" action="{{ url_for('index') }}">
+
+        <div class="search-main-input-wrapper">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" name="q" class="search-input"
+                placeholder="Hledat v názvu nebo popisu... (např. Energetický zákon)"
+                value="{{ request.args.get('q', '') }}">
+            <button type="submit" class="btn-primary">Vyhledat <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+        <div class="filters-grid">
+            <div class="filter-group">
+                <label>Typ Dokumentu</label>
+                <select name="type_id" class="filter-select" onchange="this.form.submit()">
+                    <option value="">-- Všechny typy --</option>
+                    {% for t in types %}
+                    <option value="{{ t.id }}" {% if request.args.get('type_id')==t.id|string %}selected{% endif %}>{{
+                        t.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Odpovědný Orgán / DG</label>
+                <select name="source_id" class="filter-select" onchange="this.form.submit()">
+                    <option value="">-- Všechny zdroje --</option>
+                    {% for s in sources %}
+                    <option value="{{ s.id }}" {% if request.args.get('source_id')==s.id|string %}selected{% endif %}>{{
+                        s.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Oblast (Klíčové slovo)</label>
+                <select name="keyword_id" class="filter-select" onchange="this.form.submit()">
+                    <option value="">-- Všechny oblasti --</option>
+                    {% for k in keywords %}
+                    <option value="{{ k.id }}" {% if request.args.get('keyword_id')==k.id|string %}selected{% endif %}>
+                        {{ k.keyword }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group action-group">
+                <a href="{{ url_for('index') }}" class="btn-secondary">Reset Filtry <i class="ph ph-x-circle"></i></a>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="results-section">
+
+    <div class="results-header">
+        <h2 class="results-title">Nalezené dokumenty <span class="badge">{{ documents|length }}</span></h2>
+        {% if documents|length == 100 %}
+        <p class="results-warning"><i class="ph ph-info"></i> Zobrazeno prvních 100 výsledků. Upřesněte hledání.</p>
+        {% endif %}
+    </div>
+
+    {% if documents %}
+    <div class="table-glass-container">
+        <div class="data-table">
+            <div class="table-header">
+                <div class="th col-type">Typ</div>
+                <div class="th col-title">Název dokumentu</div>
+                <div class="th col-source">Původce</div>
+                <div class="th col-action"></div>
+            </div>
+
+            <div class="table-body">
+                {% for doc in documents %}
+                <!-- Document Row Summary -->
+                <div class="document-row">
+                    <div class="row-visible">
+                        <div class="td col-type">
+                            <span class="type-tag">{{ doc.type_name if doc.type_name else 'Neznámý' }}</span>
+                        </div>
+                        <div class="td col-title">
+                            <div class="doc-title">{{ doc.title }}</div>
+                            <div class="doc-tags">
+                                {% if doc.language %}
+                                <span class="meta-tag"><i class="ph ph-translate"></i> {{ doc.language }}</span>
+                                {% endif %}
+                                {% if doc_tags.get(doc.id) %}
+                                {% for tag in doc_tags[doc.id] %}
+                                <span class="keyword-tag">{{ tag }}</span>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="td col-source">
+                            <span class="source-text">{{ doc.source_name if doc.source_name else '-' }}</span>
+                        </div>
+                        <div class="td col-action">
+                            <i class="ph ph-caret-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Details Area -->
+                    <div class="row-details">
+                        <div class="details-grid">
+                            <div class="detail-block">
+                                <h4>Platnost od</h4>
+                                <p>{{ doc.effective_date if doc.effective_date else 'Neuvedeno' }}</p>
+                            </div>
+                            <div class="detail-block detail-description">
+                                <h4>Poznámka / Zkrácený text</h4>
+                                <p>{{ doc.description if doc.description else 'Žádná bližší specifikace není k
+                                    dispozici.' }}</p>
+                            </div>
+                            <div class="detail-block action-block">
+                                {% if doc.url %}
+                                <a href="{{ doc.url }}" target="_blank" class="btn-external">
+                                    Přejít na zdroj <i class="ph ph-arrow-up-right"></i>
+                                </a>
+                                {% else %}
+                                <span class="btn-disabled">Zdroj nedostupný</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <i class="ph-duotone ph-file-search"></i>
+        <h3>Žádné dokumenty nenalezeny</h3>
+        <p>Zkuste upravit filtry vyhledávání nebo zvolit jiná klíčová slova.</p>
+    </div>
+    {% endif %}
+
+</section>
+
+{% endblock %}
