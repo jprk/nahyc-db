@@ -9,7 +9,7 @@ Surová data jsou obvykle dodávána od partnerů projektu (např. v Excelu nebo
 
 * **Sinay:** Původní slovenský seznam (např. `20250927_sinay_zakony.xlsx`) se zpracovává pomocí AI skriptů.
 * **Haltuf:** Skript `tools/process_haltuf.py` konsoliduje rozsáhlé tabulky ve formátu CSV.
-* **Prokop:** Normy (např. extrahované z Markdown textů) zpracovává skript `tools/parse_norms.py`.
+* **Prokop:** Detailní popis dvoufázového zpracování norem z původního DOCX dokumentu (využití skriptů `tools/read_docx.py` a `tools/parse_norms.py`) naleznete v [0README.md adresáře Prokop](../data/20250303_Prokop/0README.md).
 
 ## 2. Obohacení dat (AI Enrichment)
 Syrová data jsou často nekompletní. Pomocí skriptů využívajících model GPT (OpenAI) se automaticky dohledávají chybějící prvky:
