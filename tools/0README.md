@@ -15,3 +15,4 @@ Tento adresář sdružuje rozličné pomocné a analytické Python skripty urče
 * `create_xmi.py` - Vytváří XMI soubor pro import struktury databáze do nástroje Enterprise Architect (ukládá do `/db`).
 * `plantuml_draw.py` - Skript pro vygenerování diagramu z PlantUML definice struktury databáze.
 * `read_docx.py` - Pomocný skript pro extrakci textu z .docx souborů.
+* `extract_tables.py` - Skript pro extrakci jednotlivých tabulek z komplexních vícestránkových XLSX souborů do samostatných CSV.
