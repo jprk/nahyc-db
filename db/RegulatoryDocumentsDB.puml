@@ -1,0 +1,48 @@
+@startuml
+title Regulatory Documents Database UML Diagram
+skinparam classAttributeIconSize 0
+class Document {
+  Integer id
+  String title
+  String description
+  Integer type_id
+  Integer source_id
+  String language
+  String url
+  String file_path
+  Date effective_date
+  Integer version
+  DateTime created_at
+  DateTime updated_at
+}
+class DocumentVersion {
+  Integer id
+  Integer document_id
+  Integer version
+  String file_path
+  String change_log
+  DateTime created_at
+}
+class DocumentType {
+  Integer id
+  String name
+  String description
+}
+class Keyword {
+  Integer id
+  String keyword
+}
+class DocumentKeyword {
+  Integer document_id
+  Integer keyword_id
+}
+class DocumentSource {
+  Integer id
+  String name
+}
+DocumentVersion --> Document
+Document --> DocumentType
+DocumentKeyword --> Document
+DocumentKeyword --> Keyword
+Document --> DocumentSource
+@enduml
