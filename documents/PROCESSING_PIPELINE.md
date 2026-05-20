@@ -7,7 +7,7 @@ Proces je plně automatizovaný a sestává z několika fází:
 ## 1. Příjem a primární zpracování zdrojových dat
 Surová data jsou obvykle dodávána od partnerů projektu (např. v Excelu nebo CSV). Tato data se ukládají v podsložkách adresáře `data/` a zpracovávají se jednoúčelovými skripty.
 
-* **Sinay:** Původní slovenský seznam (např. `20250927_sinay_zakony.xlsx`) se zpracovává pomocí AI skriptů.
+* **Sinay:** Detailní popis zpracování a obohacení původních slovenských zákonů (využití AI skriptu `tools/process_laws.py`) naleznete v [0README.md adresáře Sinay](../data/20250712_Sinay/0README.md).
 * **Haltuf:** Skript `tools/process_haltuf.py` konsoliduje rozsáhlé tabulky ve formátu CSV.
 * **Prokop:** Detailní popis dvoufázového zpracování norem z původního DOCX dokumentu (využití skriptů `tools/read_docx.py` a `tools/parse_norms.py`) naleznete v [0README.md adresáře Prokop](../data/20250303_Prokop/0README.md).
 
