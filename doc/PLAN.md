@@ -5,8 +5,9 @@
 **Status:** Steps 0 and 1 executed 2026-09-07, extended through 2026-09-09
 (4th source `Sinay_Normy` — Slovak/German norms — wired in with a
 jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1344 records
-from 2230 raw). Steps 2–3 and the agentic architecture in §3 are still
-proposals.
+from 2230 raw). §4 (full-text acquisition for laws + source screening)
+designed and implemented 2026-09-09. Steps 2–3 and the agentic
+architecture in §3 are still proposals.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -637,7 +638,7 @@ layer-A `ALTER`s only add `identifier`, `institution_type`, `jurisdiction`,
   already model enums as separate value tables, or
 - a single `Document.metadata_json` JSON column as a faster interim step.
 
-Not decided yet — see §4.
+Not decided yet — see §5.
 
 ### 3.5 Why `verification_evidence` isn't implemented as literally specified
 
@@ -648,7 +649,7 @@ scripts ever have that.** `deduplicate_db.py`, `enrich_eu_laws.py`,
 structured spreadsheet metadata (titles, dates, keyword lists) supplied by
 partners — there is no raw legislative text anywhere in `data/` to check a
 quote against. Building genuine verbatim-quote verification needs the
-Parser Agent plus real document fetching, which §4 defers along with the
+Parser Agent plus real document fetching, which §5 defers along with the
 rest of the LangGraph architecture.
 
 What was actually implemented instead, in the same anti-hallucination
@@ -662,7 +663,114 @@ instructions; no verbatim check was bolted onto them, because there is
 nothing to check it against. This is a stated limitation, not a gap that
 was silently dropped.
 
-## 4. Open decisions
+## 4. Full-text acquisition (laws + norms) — NEW, requested 2026-09-09, not yet designed
+
+**Why this is needed, and why it doesn't have to wait for §3's full agentic
+build-out:** every merge/dedup/similarity decision this pipeline makes
+today rests on nothing but a title, a short annotation (often absent —
+1311/2230 raw records have none), and a handful of metadata fields. The
+Step 1 follow-ups already flagged this as a real weakness ("cosine
+similarity over bare titles is inherently weak for terse/technical titles
+that share domain vocabulary" — noted, deferred, never implemented). Having
+each law's actual full text (and whatever can legitimately be captured for
+each norm) available would give embeddings, LLM extraction, and human
+review all a far richer signal — this is the concrete mechanism to finally
+fix that deferred weakness, not just a nice-to-have alongside it.
+
+**Scope, as specified by the user:**
+- **Laws** — full text, from EUR-Lex (EU law), e-Sbírka (Czech law), and
+  "relevant Slovak sources" (i.e. Slov-Lex, the Slovak national law portal
+  — not named anywhere in this repo today despite the project already
+  having a whole Sinay/Slovak-legislation branch), plus "possibly other
+  national sources" (unspecified so far; German material is tracked via
+  `Sinay_Normy`'s roadmap data today, but never fetched as full text).
+- **Norms** (ČSN/STN/EN/ISO/DIN/...) — explicitly **not** open access, a
+  fundamentally different legal situation from laws. Confirmed directly
+  this session (Step 1 follow-up #7): the ČSN online registry's own Terms
+  of Use state the documents are copyrighted by ÚNMZ/CEN/CENELEC/ISO/IEC
+  and explicitly forbid bulk or software-automated downloading. **This
+  pipeline must never attempt to scrape or download the actual protected
+  standard text.** What's asked for instead is best-effort capture of
+  whatever is *legitimately* publicly available per norm — an abstract or
+  scope statement, table of contents, a publisher's own free preview/
+  citation page — strictly bounded at what's freely published, never the
+  paywalled document itself.
+
+**Relationship to existing plan sections:**
+- This concretizes §3.3 item 1 ("Source screening... Query EUR-Lex/e-Sbírka/
+  ČAS APIs directly") — that bullet already implied documents get fetched
+  (§3.2's Parser Agent row exists specifically to parse "raw PDFs/scans"
+  source screening "will return"), but never named Slovak sources, "other
+  national sources," or the laws-vs-norms legal distinction at all.
+- The Parser Agent (§3.2) is the natural next stage after fetching — clean
+  text out of a raw PDF/HTML page — but per §5 decision 1 (harden-existing-
+  scripts-only scope), that agent and the rest of the LangGraph build-out
+  were explicitly deferred. Full-text acquisition for *laws* doesn't need
+  to wait on that: EUR-Lex/e-Sbírka/Slov-Lex already publish current
+  legislation in machine-readable HTML/XML, not scanned PDFs needing VLM
+  layout parsing — a plain fetch-and-store script (same style as
+  `check_csn_validity.py`) is realistic well before the agentic system.
+
+**Designed and implemented 2026-09-09** (via a dedicated `/plan` session,
+as flagged above). Decisions taken: storage in a new git-ignored
+`data/fulltext/` (not a MariaDB column — Step 2 hasn't happened yet, so
+there's nowhere in the DB to put it), scoped to laws only (norms stay
+paywalled/never fetched, unchanged), plus active source screening for
+records without a URL or for documents not yet in the corpus at all —
+querying real APIs, not guessing.
+
+- **`src/tools/fetch_fulltext.py`**: fetches `odkaz_hlavni`/`odkaz_eu`/
+  `odkaz_sk` for every `Haltuf_Dokumenty`/`Sinay_Zakony` record that has
+  one (almost all of them — direct `eur-lex.europa.eu` PDF/HTML links for
+  Haltuf, `zakonyprolidi.cz`/`slov-lex.sk` per-document pages for Sinay),
+  into `data/fulltext/<zdroj_dat>/`. `Prokop_Normy`/`Sinay_Normy` are
+  skipped unconditionally and visibly — this script must never be
+  extended to fetch norm text. `data/fulltext_manifest.json` (small,
+  git-tracked, no document content) makes reruns idempotent and is what a
+  future Step 2 loader can use to populate `Document.file_path` without
+  re-fetching anything.
+- **Source screening — real APIs found and verified working while
+  building this, not assumed from documentation alone:**
+  - **`src/tools/screen_eurlex.py`**: the EUR-Lex Cellar SPARQL endpoint
+    (`publications.europa.eu/webapi/rdf/sparql`) is public and
+    unauthenticated — confirmed with a live `bif:contains` full-text
+    query over `cdm:expression_title`. Diffs matched CELEX ids (via a
+    year/number extraction, e.g. `32014R0559` → `2014/559`) against the
+    corpus's own znacka values and reports only genuinely new ones.
+  - **`src/tools/screen_esbirka.py`**: e-Sbírka's actual public REST API
+    (`sbr-externi`, per its own frontend config) turned out to require
+    Ministry-of-Interior client registration — not something this script
+    can obtain — and doesn't resolve anonymously anyway (dead-ends at an
+    internal port). Found a separate, real, public, unauthenticated
+    Linked Open Data SPARQL endpoint instead
+    (`opendata.eselpoint.gov.cz/sparql`, covering the same content,
+    individual acts addressable by ELI). **Disclosed limitation**: a
+    full-text hit there doesn't reliably back-link to its owning act's
+    citation in a scrapeable way (unlike EUR-Lex's CELEX-in-the-triple
+    convenience) — every hit is reported as an *unresolved* candidate for
+    human triage rather than guessing which law it belongs to.
+  - **`src/tools/screen_slovlex.py`**: Slov-Lex has no confirmed public
+    API or full-text search (only a paid third-party service) and its
+    search UI is a JS-only SPA — genuinely not screenable for new
+    documents right now. Scoped down, honestly, to what actually is
+    achievable: checking that the `odkaz_sk` links already in the corpus
+    still resolve (confirmed useful — `slov-lex.sk` is known to
+    restructure its URLs; a direct link 301s twice before landing today).
+  - All three write to a single, git-tracked review file,
+    `data/fulltext_screening_candidates.json` (one key per source) —
+    never an auto-write into `database_merged_raw.json`, same principle
+    as `data/dedup_review_queue.json`.
+- **Tests**: `tests/test_fetch_fulltext.py`,
+  `tests/test_screen_eurlex.py`/`_esbirka.py`/`_slovlex.py` — pure diffing/
+  parsing logic plus HTTP layers mocked, no real network calls in the
+  suite itself; 43 new tests (110 total, all passing).
+- **Not done in this pass** (see the plan file's "explicitly out of
+  scope" section): wiring fetched text into embeddings/dedup similarity
+  or into MariaDB — Step 2 still hasn't happened, this only builds
+  acquisition + storage + manifest. Consuming it is a later, separate
+  step, same as the deferred "embed title+annotation" idea above.
+
+## 5. Open decisions
 
 - ~~Engine (SQLite vs. MariaDB)~~ — **resolved: MariaDB**, database name
   `h2regdocs`, credentials in a repo-root `.env` (git-ignored, confirmed in
