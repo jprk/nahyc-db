@@ -235,9 +235,10 @@ Original plan (executed as amended above):
     carries forward any `anotace_poznamka` a re-run's own sources don't
     themselves provide, keyed by `(zdroj_dat, nazev_cz)`. This closes the
     root cause permanently, not just this one recovery.
-  - **Re-run results:** raw regeneration restored all 157 previously-lost
-    annotations automatically (0 additional loss) and populated `znacka`
-    for 147/179 Haltuf records. Deduplication now produces **139 records**
+  - **Re-run results (superseded by follow-up #6/#7 below):** raw
+    regeneration restored all 157 previously-lost annotations automatically
+    (0 additional loss) and populated `znacka` for 147/179 Haltuf records.
+    Deduplication now produces **139 records**
     (down from 159) — deterministic `znacka` matches jumped from 8 to 40
     clusters, 0 bad cross-`znacka` merges (checked programmatically), all
     5 distinct `62282-*` standard parts still correctly separate. The
@@ -287,6 +288,137 @@ Original plan (executed as amended above):
   the same treaty are genuinely different documents, same risk shape as the
   `62282-3-*` multi-part standards — plus empty-title junk rows) and 2/48
   Sinay records still get no `znacka`.
+- **Follow-up #5, found by auditing the deduplicated output itself
+  (2026-09-09):** a real correctness bug, not a naming-convention gap —
+  scanning the 133-record output for any `znacka` value appearing on more
+  than one final record found **7 values across 16 records that should
+  have been 7**. Root cause: the deterministic pre-pass correctly grouped
+  these into one cluster each (proven same document by exact reference
+  number), but hand-off to the LLM lost that guarantee — `gpt-4o-mini`
+  sometimes failed to actually collapse a cross-language (EN/CZ) pair or a
+  very sparse (title-only, repeated many times) cluster into one record,
+  even though nothing about *which* document it was was in question.
+  Fixed in three parts:
+  1. `validate_merge()` now also rejects an LLM merge that leaves two
+     output records sharing the same `znacka` (previously only checked for
+     an *invented* one), routing it through the same retry/escalate path.
+  2. The retry loop was silently useless for this exact failure mode: at
+     `temperature=0.0`, resending an identical prompt reproduces the same
+     wrong output. Retries now include the specific rejection reason and a
+     pointed correction instruction.
+  3. **The real fix:** added `is_pure_znacka_cluster()` — when *every*
+     record in a cluster shares the same core `znacka` (zero probabilistic
+     judgment involved, unlike a mixed deterministic+semantic cluster),
+     skip the LLM entirely and merge with new `programmatic_merge()`
+     (longest title wins, list fields unioned, blank scalars backfilled
+     from any member). There's no identity question left for an LLM to
+     get wrong. Confirmed via a real run: two clusters that had failed all
+     3 LLM retries (13-record `EN 17127` family, 6-record `2012/18/EU`
+     pair) both merged correctly and instantly once routed here instead.
+  - **Re-run results:** **0 remaining exact-`znacka` duplicates** in the
+    output (verified programmatically). **123 final records.** Every one
+    of this run's 51 merges went through the programmatic path — 0 LLM
+    calls needed for merging at all this time (only embeddings), which is
+    also a meaningful cost reduction. Record-accounting re-verified: 281
+    raw → 11 no-title (excluded) + 270 accounted for across all audit-log
+    clusters, matches exactly. Gray-zone report: 54 pairs (unchanged — this
+    fix didn't touch clustering, only what happens after). Reloaded into
+    `h2regdocs` (123 records), app re-verified.
+- **Follow-up #6 (2026-09-09): resolved the `"ISO X"` vs `"ČSN (EN) ISO X"`
+  ambiguity by querying the authoritative source instead of guessing.**
+  Per domain guidance: a bare `"ISO X"` and its Czech national adoption
+  (`"ČSN ISO X"` or `"ČSN EN ISO X"`, whichever form is current) are the
+  same document in a different language and should merge — but `"ČSN ISO
+  X"` and `"ČSN EN ISO X"` for the same number are two different *national
+  adoption routes* that can't both be valid at once, so which is current
+  needs checking against a real registry, not assuming.
+  - Built `src/tools/check_csn_validity.py`, querying the free public
+    catalog search at `csnonline.agentura-cas.cz/podrobne.aspx` (an
+    ASP.NET WebForms POST with `__VIEWSTATE`/`__EVENTVALIDATION` handling)
+    — this is the free catalog/metadata search, distinct from and NOT
+    governed by the *paid* "ČSN online pro jednotlivce" subscription's
+    Terms of Use (that document only restricts bulk PDF downloads from the
+    authenticated full-text service). Rate-limited, for occasional
+    targeted lookups, not a crawler.
+  - **Confirmed against the registry** for all 3 pending groups: `ISO
+    14687` → only `"ČSN ISO 14687"` exists (no EN variant at all,
+    currently valid); `ISO 19880-1` → only `"ČSN ISO 19880-1"` exists (2
+    editions: 2020 withdrawn 1.9.2025, 2025 currently valid); `ISO
+    11114-1` → only `"ČSN EN ISO 11114-1"` exists (currently valid
+    edition from 6.2021, several older withdrawn editions). **In all 3
+    cases, the "ČSN EN ISO X" variant our data claimed to have doesn't
+    exist in the registry at all** — meaning that designation in our raw
+    source data (mostly Haltuf, one Prokop row) is itself a data-entry
+    error, not a real second standard. Not silently corrected in the
+    source files — flagging here rather than rewriting Prokop's/Haltuf's
+    own "Značka"/title values based on an external source without asking.
+  - **Found and fixed a real bug while investigating case 2 (`19880-1`):**
+    `extract_znacka_from_title()`'s case C (leading code + dash) matched a
+    dash with NO required surrounding whitespace, so a bare part-numbered
+    code like `"ČSN EN ISO 19880-1"` was wrongly truncated to `"ČSN EN ISO
+    19880"` — the internal hyphen in `-1` was mistaken for a prose
+    separator. Fixed by requiring actual whitespace on both sides of the
+    dash (verified against the same test cases as follow-up #3/#4, zero
+    regressions). Re-ran the full pipeline: **122 final records**, 0
+    duplicate-`znacka`, 0 bad merges, record-accounting re-verified
+    (281 = 11 no-title + 270 clustered). Reloaded into `h2regdocs`, app
+    re-verified.
+- **Follow-up #7 (2026-09-09): wired `check_csn_validity.py` into
+  `deduplicate_db.py` as an automated pipeline step**, plus a refactor for
+  testability and a full unit test suite (`tests/test_build_unified_db.py`,
+  `tests/test_deduplicate_db.py`, 44 tests total). This is a concrete,
+  working instance of §3.2's Research Agent pattern — tool-calling an
+  external source to fill a gap our own data can't resolve, never
+  auto-merging without a clear, single, confirmed answer.
+  - `deduplicate_db.py`'s inline clustering code was extracted into a
+    standalone `build_clusters(valid_data, similarity_threshold)` — pure,
+    independent of the OpenAI embeddings call, unit-testable with
+    synthetic vectors instead of hitting the network.
+  - New `find_iso_csn_ambiguous_groups()` (pure) + `resolve_iso_csn_ambiguity()`
+    (injectable `csn_search` callable, defaults to a real rate-limited
+    lookup): after the main merge loop, groups final records by bare digit
+    core (`digit_core()`) where `core_znacka` still differs and at least
+    one mentions "ISO", queries the registry for `f"ISO {core}"`, and
+    merges the group under the registry's confirmed designation **only
+    when exactly one currently-valid designation is found** — a lookup
+    failure, no match, or more than one valid designation (contradicting
+    "only one can be valid at a time") leaves the group untouched with a
+    new audit-log entry (`csn_lookup_failed` / `csn_lookup_inconclusive` /
+    `merged_by_csn_registry`) for a human to look at instead. Wrapped in a
+    try/except in `main()` too — a total failure of this step (e.g.
+    `requests`/`bs4` missing) logs a warning and never blocks the rest of
+    the pipeline.
+  - Found and fixed a small cosmetic bug while verifying this end-to-end:
+    `programmatic_merge()`'s `zdroj_dat` field wasn't splitting an
+    already-comma-joined value from a prior merge before deduplicating,
+    so re-merging across previously-merged clusters (exactly what this new
+    step does) could produce `"Prokop_Normy, Haltuf_Dokumenty, Prokop_Normy"`.
+    Fixed to split on `", "` first.
+  - **Re-run results:** the registry confirmed and merged all 3 pending
+    groups from follow-up #5/#6 (`ISO 14687` → `ČSN ISO 14687`, `ISO
+    19880-1` → `ČSN ISO 19880-1`, `ISO 11114-1` → `ČSN EN ISO 11114-1`) —
+    exactly matching the manual verification done earlier in chat, now
+    automatic on every future run. **119 final records** (down from 122),
+    0 duplicate-`znacka`. Reloaded into `h2regdocs`, app re-verified.
+  - **Test suite:** `tests/test_build_unified_db.py` covers every
+    `extract_znacka_from_title()` pattern found this session (leading
+    dash-separated, bare code, no-separator EU number, trailing OJ
+    bracket, Czech `Sb.`/Slovak `Z. z.` citations with messy spacing,
+    EU/ES/EÚ normalization, the amends-vs-own-number precedence, the
+    part-number-dash regression, the no-false-positive-on-`RID` case).
+    `tests/test_deduplicate_db.py` covers `normalize_znacka`/`core_znacka`/
+    `digit_core`, `validate_merge` (both rejection modes), 
+    `is_pure_znacka_cluster`, `programmatic_merge`, `match_type_for_group`,
+    `build_clusters` (synthetic embeddings — same-znacka-despite-dissimilar
+    -titles, different-znacka-vetoes-identical-embeddings, semantic
+    fallback, one-sided-znacka-doesn't-veto), the new ISO/ČSN resolution
+    functions (mocked registry), and `deduplicate_cluster_with_llm`
+    (mocked OpenAI client: first-try success, retry-with-corrective
+    -feedback, all-retries-exhausted, API-exception-retried). Also fixed
+    the pre-existing `tests/test_search.py`, which hardcoded an exact
+    title string that a since-improved merge decision legitimately
+    changed — rewritten to match by law number instead of exact title
+    text, so it survives future title-selection changes.
 - **Broader design point raised during review, not implemented:** cosine
   similarity over bare titles is inherently weak for terse/technical titles
   that share domain vocabulary; it would be stronger run over

@@ -4,6 +4,7 @@ import logging
 import datetime
 import pathlib
 import math
+import re
 import time
 from openai import OpenAI
 
@@ -61,14 +62,25 @@ def core_znacka(znacka):
     return zn
 
 def validate_merge(cluster_records, merged_records):
-    """Rejects a merge that invents a znacka not present in the input cluster
-    (the one deterministic signal we can check without a source document)."""
+    """Rejects a merge that (a) invents a znacka not present in the input
+    cluster, or (b) still leaves two output records sharing the same
+    znacka — the LLM sometimes fails to actually merge a cross-language
+    (EN/CZ) pair or very sparse (title-only) records even when the
+    deterministic znacka pre-pass already proved they're the same
+    document. These are the two checks we can make without a source
+    document to verify against."""
     input_znacka = {normalize_znacka(r.get("znacka", "")) for r in cluster_records}
     input_znacka.discard("")
+    seen_output_znacka = set()
     for r in merged_records:
         zn = normalize_znacka(r.get("znacka", ""))
-        if zn and zn not in input_znacka:
-            return False, zn
+        if not zn:
+            continue
+        if zn not in input_znacka:
+            return False, f"invented znacka '{zn}'"
+        if zn in seen_output_znacka:
+            return False, f"left {zn!r} split across multiple output records instead of merging them"
+        seen_output_znacka.add(zn)
     return True, None
 
 def deduplicate_cluster_with_llm(cluster_records):
@@ -95,17 +107,31 @@ Merging Rules:
 5. "zdroj_dat": Combine the sources into a comma-separated string (e.g. "Sinay_Zakony, Haltuf_Dokumenty").
 6. Keep other metadata like "typ_dokumentu", "sekce", "kategorie_trida", "platnost" by picking the most descriptive/accurate one.
 7. "znacka": Never invent a reference number. Only use a value that already appears on one of the input records.
+8. CRITICAL: if two or more input records share the exact same non-empty "znacka", they are GUARANTEED to be the same document (verified by exact reference-number match before you ever saw them) — you MUST merge every one of them into a single output record, even if their titles look different (e.g. one is a Czech translation and the other is the English original). Never leave two output records with the same "znacka".
 '''
 
+    user_content = json.dumps({"records": cluster_records}, ensure_ascii=False)
     last_error = None
     for attempt in range(1, MAX_LLM_ATTEMPTS + 1):
         try:
+            # On a retry, tell the model exactly what was wrong with its
+            # last attempt — at temperature=0.0, resending an identical
+            # prompt after a validation failure would likely just
+            # reproduce the same wrong output.
+            user_message = user_content
+            if last_error:
+                user_message = (
+                    f"{user_content}\n\nYour previous attempt was rejected: {last_error} "
+                    "Fix this and try again — pay special attention to rule 8: any input "
+                    "records sharing the same non-empty znacka MUST end up as one output record."
+                )
+
             completion = client.chat.completions.create(
                 model="gpt-4o-mini",
                 response_format={ "type": "json_object" },
                 messages=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": json.dumps({"records": cluster_records}, ensure_ascii=False)}
+                    {"role": "user", "content": user_message}
                 ],
                 temperature=0.0
             )
@@ -118,9 +144,9 @@ Merging Rules:
             if not merged_records and isinstance(result_json, list):
                 merged_records = result_json
 
-            valid, bad_znacka = validate_merge(cluster_records, merged_records)
+            valid, reason = validate_merge(cluster_records, merged_records)
             if not valid:
-                last_error = f"LLM vrátilo neexistující značku '{bad_znacka}', která není v žádném vstupním záznamu."
+                last_error = f"Neplatné sloučení: {reason}."
                 logging.warning(f"Pokus {attempt}/{MAX_LLM_ATTEMPTS} zamítnut: {last_error}")
                 if attempt < MAX_LLM_ATTEMPTS:
                     time.sleep(RETRY_BACKOFF_SECONDS * attempt)
@@ -140,6 +166,62 @@ Merging Rules:
 
     logging.error(f"Shluk se nepodařilo sloučit po {MAX_LLM_ATTEMPTS} pokusech: {last_error}")
     return None, last_error
+
+def is_pure_znacka_cluster(records):
+    """True if every record in the cluster has a non-empty znacka and they
+    all share the same core value — i.e. every member is certainly the
+    same document, with zero probabilistic (semantic-similarity) judgment
+    involved. For these, no LLM call is needed at all: which document this
+    is isn't in question, only which field values to keep — and it turns
+    out gpt-4o-mini isn't reliably able to actually collapse a large or
+    very sparse (title-only) pure cluster into one record even when told
+    to, so skip that failure mode entirely rather than retry around it."""
+    cores = [core_znacka(r.get("znacka", "")) for r in records]
+    return all(cores) and len(set(cores)) == 1
+
+def programmatic_merge(cluster_records):
+    """Deterministic merge for a pure znacka cluster (see
+    is_pure_znacka_cluster): start from the most complete title, union
+    list fields, backfill blank scalar fields from any member that has a
+    value. No LLM involved — there's no identity judgment left to make."""
+    best = max(cluster_records, key=lambda r: len(r.get("nazev_cz", "")))
+    merged = dict(best)
+
+    keywords, gestors, sources = [], [], []
+    for r in cluster_records:
+        for kw in r.get("klicova_slova", []):
+            if kw not in keywords:
+                keywords.append(kw)
+        for g in r.get("gestor", []):
+            if g not in gestors:
+                gestors.append(g)
+        # Split on ', ' first — a record here may itself already be the
+        # (comma-joined) result of an earlier programmatic_merge, e.g. when
+        # resolve_iso_csn_ambiguity merges across already-merged clusters.
+        for src in r.get("zdroj_dat", "").split(", "):
+            src = src.strip()
+            if src and src not in sources:
+                sources.append(src)
+        for field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk", "nazev_eu", "nazev_sk",
+                      "platnost", "ratifikovan", "jazyk", "typ_dokumentu", "sekce",
+                      "kategorie_trida", "anotace_poznamka"):
+            if not merged.get(field) and r.get(field):
+                merged[field] = r.get(field)
+
+    merged["klicova_slova"] = keywords
+    merged["gestor"] = gestors
+    merged["zdroj_dat"] = ", ".join(sources)
+
+    # Prefer a "ČSN"-prefixed znacka (the more formal/complete citation) if
+    # any member has one, else whatever's there — all members share the
+    # same core already, this is purely cosmetic.
+    znackas = [r.get("znacka", "").strip() for r in cluster_records if r.get("znacka", "").strip()]
+    csn_variant = next((z for z in znackas if z.lower().startswith("čsn ")), None)
+    merged["znacka"] = csn_variant or znackas[0]
+
+    merged.pop("_search_text", None)
+    merged.pop("_embedding", None)
+    return merged
 
 def match_type_for_group(records):
     """Whether a cluster's members were joined by an exact znacka match
@@ -169,6 +251,145 @@ class UnionFind:
         rx, ry = self.find(x), self.find(y)
         if rx != ry:
             self.parent[rx] = ry
+
+def build_clusters(valid_data, similarity_threshold=0.85):
+    """Groups records (each already carrying a pre-computed '_embedding')
+    into clusters: a deterministic pass unions any records sharing a core
+    znacka regardless of title similarity, then a semantic pass unions
+    remaining pairs above similarity_threshold — vetoed when both records
+    have different non-empty core znacka (two different reference numbers
+    means two different documents, full stop, no matter how similar their
+    titles score). Returns a list of index-groups (each a list of indices
+    into valid_data), not the records themselves — kept pure/deterministic
+    and independent of the OpenAI/network calls that produce embeddings,
+    so it's unit-testable with synthetic vectors.
+    """
+    n = len(valid_data)
+    uf = UnionFind(n)
+
+    znacka_index = {}
+    for i, item in enumerate(valid_data):
+        zn = core_znacka(item.get("znacka", ""))
+        if zn:
+            if zn in znacka_index:
+                uf.union(i, znacka_index[zn])
+            else:
+                znacka_index[zn] = i
+
+    znacka_normalized = [core_znacka(item.get("znacka", "")) for item in valid_data]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if uf.find(i) == uf.find(j):
+                continue
+            if znacka_normalized[i] and znacka_normalized[j] and znacka_normalized[i] != znacka_normalized[j]:
+                continue
+            sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
+            if sim > similarity_threshold:
+                uf.union(i, j)
+
+    groups = {}
+    for i in range(n):
+        root = uf.find(i)
+        groups.setdefault(root, []).append(i)
+    return list(groups.values())
+
+def digit_core(znacka):
+    """The bare numeric/part-number core of a znacka, e.g. '14687' or
+    '19880-1' from 'ČSN EN ISO 19880-1' — used only to group candidate
+    ISO/ČSN designation variants for the registry check below, never for
+    merge decisions elsewhere (it's deliberately looser than core_znacka)."""
+    return " ".join(re.findall(r"\d[\d./-]*\d|\d+", znacka or ""))
+
+def find_iso_csn_ambiguous_groups(final_dataset):
+    """Finds groups of final records that share a digit_core but differ in
+    core_znacka and mention 'ISO' — the exact shape of the 'ISO X' /
+    'ČSN ISO X' / 'ČSN EN ISO X' ambiguity that only the ČSN registry (not
+    our own title text) can resolve: which national-adoption form is
+    actually currently valid. Returns {digit_core: [indices into
+    final_dataset]}."""
+    by_core = {}
+    for idx, r in enumerate(final_dataset):
+        zn = r.get("znacka", "").strip()
+        if not zn or "iso" not in zn.lower():
+            continue
+        core = digit_core(zn)
+        if core:
+            by_core.setdefault(core, []).append(idx)
+
+    return {
+        core: idxs for core, idxs in by_core.items()
+        if len(idxs) > 1
+        and len({core_znacka(final_dataset[i]["znacka"]) for i in idxs}) > 1
+    }
+
+def resolve_iso_csn_ambiguity(final_dataset, csn_search=None):
+    """Best-effort: for each ambiguous ISO/ČSN group, asks the ČSN online
+    registry (see check_csn_validity.py) which national-adoption form is
+    actually currently valid, and merges the group under that confirmed
+    designation. Never blocks or fails the pipeline: a lookup error, no
+    match, or more than one currently-valid designation (contradicting the
+    assumption that only one can be valid at a time) just leaves the group
+    untouched with a logged note for a human to look at — no blind merge
+    without a clear, single, confirmed answer.
+
+    csn_search is injectable as `query -> [{"designation", "is_valid", ...}]`
+    for testing; defaults to a real (rate-limited, single-session) lookup
+    against csnonline.agentura-cas.cz.
+
+    Returns (final_dataset, log_entries) — does not mutate its argument.
+    """
+    if csn_search is None:
+        import requests
+        from check_csn_validity import search as _search, USER_AGENT
+
+        session = requests.Session()
+        session.headers.update({"User-Agent": USER_AGENT})
+        csn_search = lambda query: _search(session, query)
+
+    ambiguous = find_iso_csn_ambiguous_groups(final_dataset)
+    log_entries = []
+    if not ambiguous:
+        return final_dataset, log_entries
+
+    indices_to_remove = set()
+    additions = []
+
+    for core, idxs in ambiguous.items():
+        records = [final_dataset[i] for i in idxs]
+        summary = [{"znacka": r.get("znacka", ""), "nazev_cz": r.get("nazev_cz", "")} for r in records]
+        query = f"ISO {core}"
+
+        try:
+            results = csn_search(query)
+        except Exception as e:
+            log_entries.append({
+                "digit_core": core, "query": query, "action": "csn_lookup_failed",
+                "error": str(e), "records": summary,
+            })
+            continue
+
+        valid_designations = {r["designation"].strip() for r in results if r.get("is_valid") and r.get("designation")}
+        if len(valid_designations) != 1:
+            log_entries.append({
+                "digit_core": core, "query": query, "action": "csn_lookup_inconclusive",
+                "valid_designations_found": sorted(valid_designations), "records": summary,
+            })
+            continue
+
+        canonical = next(iter(valid_designations))
+        merged = programmatic_merge(records)
+        merged["znacka"] = canonical
+        additions.append(merged)
+        indices_to_remove.update(idxs)
+        log_entries.append({
+            "digit_core": core, "query": query, "action": "merged_by_csn_registry",
+            "canonical_znacka": canonical, "records": summary,
+        })
+
+    if indices_to_remove:
+        final_dataset = [r for i, r in enumerate(final_dataset) if i not in indices_to_remove] + additions
+
+    return final_dataset, log_entries
 
 def main():
     input_file = REPO_ROOT / "data" / "database_merged_raw.json"
@@ -223,43 +444,10 @@ def main():
 
     # 2. Shlukování (Clustering): deterministický průchod přes shodnou
     # znacku, sloučený se sémantickým shlukováním podle podobnosti
-    # embeddingů, přes společnou Union-Find strukturu — shoda ZNACKY
-    # spojí záznamy do shluku bez ohledu na to, co říká cosine similarity.
-    n = len(valid_data)
-    uf = UnionFind(n)
-    similarity_threshold = 0.85
-
-    logging.info("Zahajuji deterministický průchod podle značky (znacka)...")
-    znacka_index = {}
-    for i, item in enumerate(valid_data):
-        zn = core_znacka(item.get("znacka", ""))
-        if zn:
-            if zn in znacka_index:
-                uf.union(i, znacka_index[zn])
-            else:
-                znacka_index[zn] = i
-
-    logging.info(f"Zahajuji sémantické shlukování s prahem podobnosti {similarity_threshold}...")
-    znacka_normalized = [core_znacka(item.get("znacka", "")) for item in valid_data]
-    for i in range(n):
-        for j in range(i + 1, n):
-            if uf.find(i) == uf.find(j):
-                continue
-            # Two different, non-empty reference numbers mean two different
-            # documents, full stop — no title similarity can override that
-            # (e.g. multi-part standards like "ČSN EN 62282-3-300" vs
-            # "...-3-200" score above the semantic threshold on title alone).
-            if znacka_normalized[i] and znacka_normalized[j] and znacka_normalized[i] != znacka_normalized[j]:
-                continue
-            sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
-            if sim > similarity_threshold:
-                uf.union(i, j)
-
-    groups = {}
-    for i in range(n):
-        root = uf.find(i)
-        groups.setdefault(root, []).append(i)
-    clusters = list(groups.values())
+    # embeddingů — shoda ZNACKY spojí záznamy do shluku bez ohledu na to,
+    # co říká cosine similarity; různá ZNACKA naopak sloučení vetuje bez
+    # ohledu na podobnost názvu (viz build_clusters).
+    clusters = build_clusters(valid_data, similarity_threshold=0.85)
 
     logging.info(f"Vytvořeno {len(clusters)} shluků unikátních dokumentů.")
 
@@ -289,6 +477,17 @@ def main():
                 "cluster_id": idx, "records": cluster_summary, "match_type": match_type,
                 "action": "kept_separate", "timestamp": datetime.datetime.now().isoformat()
             })
+        elif is_pure_znacka_cluster(clean_cluster):
+            # Každý záznam ve shluku má stejnou (jádrovou) značku — jde
+            # nepochybně o týž dokument, žádné rozhodování o identitě není
+            # potřeba, sloučíme deterministicky bez volání LLM.
+            logging.info(f"--- Shluk {idx+1} ({len(clean_cluster)} prvků, match_type={match_type}) — programové sloučení (čistá shoda značky) ---")
+            final_dataset.append(programmatic_merge(clean_cluster))
+            audit_log.append({
+                "cluster_id": idx, "records": cluster_summary, "match_type": match_type,
+                "action": "merged", "merge_method": "programmatic",
+                "timestamp": datetime.datetime.now().isoformat()
+            })
         else:
             # Potenciální duplicita -> vyřeší LLM
             logging.info(f"--- Zpracovávám shluk {idx+1} ({len(clean_cluster)} prvků, match_type={match_type}) ---")
@@ -312,10 +511,27 @@ def main():
                 final_dataset.extend(merged)
                 audit_log.append({
                     "cluster_id": idx, "records": cluster_summary, "match_type": match_type,
-                    "action": "merged", "timestamp": datetime.datetime.now().isoformat()
+                    "action": "merged", "merge_method": "llm",
+                    "timestamp": datetime.datetime.now().isoformat()
                 })
 
-    # 4. Uložení
+    # 4. Vyřešení nejednoznačných ISO/ČSN variant proti registru ČSN online
+    # (best-effort — chyba sítě nebo nejednoznačný výsledek nikdy nezastaví
+    # zbytek pipeline, jen se zaloguje k ručnímu přezkoumání).
+    logging.info("Ověřuji nejednoznačné ISO/ČSN varianty proti registru ČSN online...")
+    try:
+        final_dataset, csn_log_entries = resolve_iso_csn_ambiguity(final_dataset)
+        for entry in csn_log_entries:
+            entry["timestamp"] = datetime.datetime.now().isoformat()
+            audit_log.append(entry)
+        n_merged = sum(1 for e in csn_log_entries if e["action"] == "merged_by_csn_registry")
+        n_other = len(csn_log_entries) - n_merged
+        if csn_log_entries:
+            logging.info(f"Registr ČSN online: {n_merged} skupin(a) sloučeno, {n_other} ponecháno k přezkoumání.")
+    except Exception as e:
+        logging.warning(f"Ověření proti registru ČSN online selhalo, pokračuji bez něj: {e}")
+
+    # 5. Uložení
     logging.info(f"Ukládám {len(final_dataset)} záznamů do {output_file}")
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(final_dataset, f, ensure_ascii=False, indent=4)

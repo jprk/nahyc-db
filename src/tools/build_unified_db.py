@@ -45,8 +45,12 @@ def extract_znacka_from_title(title):
         return ' '.join(m.group(0).split())
 
     # Case C: a leading code followed by a ' - ' separator, e.g.
-    # "(EU) 2024/1788 - SMĚRNICE ..." / "2014/68/EU - DIRECTIVE ...".
-    m = re.match(r'^(.{1,60}?)\s*-\s*\S', t, re.DOTALL)
+    # "(EU) 2024/1788 - SMĚRNICE ..." / "2014/68/EU - DIRECTIVE ...". Requires
+    # whitespace on BOTH sides of the dash — a bare part-numbered code like
+    # "ČSN EN ISO 19880-1" has a hyphen with no surrounding spaces, which
+    # must fall through to case E instead (this used to wrongly truncate
+    # to "ČSN EN ISO 19880", dropping the "-1").
+    m = re.match(r'^(.{1,60}?)\s+-\s+\S', t, re.DOTALL)
     if m:
         candidate = ' '.join(m.group(1).split())
         if re.search(r'\d', candidate):
