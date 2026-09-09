@@ -1,18 +1,24 @@
 import os
-import sqlite3
+import pathlib
+
+import pymysql
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, g
 
 app = Flask(__name__)
 
-# The database is located in the 'Databaze' folder
-DB_PATH = os.path.join('..', 'db', 'regulatory_documents.db')
+REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
+load_dotenv(REPO_ROOT / ".env")
+
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(DB_PATH)
-        # Required to return dictionaries instead of tuples
-        db.row_factory = sqlite3.Row
+        db = g._database = pymysql.connect(
+            host=os.environ["DB_HOST"], port=int(os.environ["DB_PORT"]),
+            user=os.environ["DB_USER"], password=os.environ["DB_PASSWORD"],
+            database=os.environ["DB_NAME"], cursorclass=pymysql.cursors.DictCursor,
+        )
     return db
 
 @app.teardown_appcontext
@@ -23,78 +29,85 @@ def close_connection(exception):
 
 def get_filters():
     db = get_db()
-    types = db.execute("SELECT id, name FROM document_types ORDER BY name").fetchall()
-    sources = db.execute("SELECT id, name FROM document_sources ORDER BY name").fetchall()
-    keywords = db.execute("SELECT id, keyword FROM keywords ORDER BY keyword").fetchall()
+    with db.cursor() as cur:
+        cur.execute("SELECT id, name FROM DocumentType ORDER BY name")
+        types = cur.fetchall()
+        cur.execute("SELECT id, name FROM DocumentSource ORDER BY name")
+        sources = cur.fetchall()
+        cur.execute("SELECT id, keyword FROM Keyword ORDER BY keyword")
+        keywords = cur.fetchall()
     return types, sources, keywords
 
 @app.route('/')
 def index():
     db = get_db()
-    
+
     # Query parameters
     search_query = request.args.get('q', '').strip()
     type_id = request.args.get('type_id', '')
     source_id = request.args.get('source_id', '')
     keyword_id = request.args.get('keyword_id', '')
-    
+
     types, sources, keywords = get_filters()
-    
+
     # Build query
     base_query = '''
-        SELECT MIN(d.id) as id, d.title, d.description, dt.name as type_name, 
+        SELECT MIN(d.id) as id, d.title, d.description, dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url
-        FROM documents d
-        LEFT JOIN document_types dt ON d.type_id = dt.id
-        LEFT JOIN document_sources ds ON d.source_id = ds.id
-        LEFT JOIN document_keywords dk ON d.id = dk.document_id
+        FROM Document d
+        LEFT JOIN DocumentType dt ON d.type_id = dt.id
+        LEFT JOIN DocumentSource ds ON d.source_id = ds.id
+        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1
     '''
     params = []
-    
+
     if search_query:
-        base_query += " AND (d.title LIKE ? OR d.description LIKE ?)"
+        base_query += " AND (d.title LIKE %s OR d.description LIKE %s)"
         params.extend([f'%{search_query}%', f'%{search_query}%'])
-        
+
     if type_id:
-        base_query += " AND d.type_id = ?"
+        base_query += " AND d.type_id = %s"
         params.append(type_id)
-        
+
     if source_id:
-        base_query += " AND d.source_id = ?"
+        base_query += " AND d.source_id = %s"
         params.append(source_id)
-        
+
     if keyword_id:
-        base_query += " AND dk.keyword_id = ?"
+        base_query += " AND dk.keyword_id = %s"
         params.append(keyword_id)
-        
+
     base_query += " GROUP BY d.title ORDER BY d.title ASC LIMIT 100"
-    
-    documents = db.execute(base_query, params).fetchall()
-    
-    # Fetch keywords for documents to display as tags
-    doc_ids = [doc['id'] for doc in documents]
-    doc_tags = {}
-    if doc_ids:
-        placeholders = ','.join('?' * len(doc_ids))
-        tags_query = f'''
-            SELECT dk.document_id, k.keyword
-            FROM keywords k
-            JOIN document_keywords dk ON k.id = dk.keyword_id
-            WHERE dk.document_id IN ({placeholders})
-        '''
-        tags = db.execute(tags_query, doc_ids).fetchall()
-        for tag in tags:
-            doc_id = tag['document_id']
-            if doc_id not in doc_tags:
-                doc_tags[doc_id] = []
-            doc_tags[doc_id].append(tag['keyword'])
-    
-    return render_template('index.html', 
-                           documents=documents, 
+
+    with db.cursor() as cur:
+        cur.execute(base_query, params)
+        documents = cur.fetchall()
+
+        # Fetch keywords for documents to display as tags
+        doc_ids = [doc['id'] for doc in documents]
+        doc_tags = {}
+        if doc_ids:
+            placeholders = ','.join(['%s'] * len(doc_ids))
+            tags_query = f'''
+                SELECT dk.document_id, k.keyword
+                FROM Keyword k
+                JOIN DocumentKeyword dk ON k.id = dk.keyword_id
+                WHERE dk.document_id IN ({placeholders})
+            '''
+            cur.execute(tags_query, doc_ids)
+            tags = cur.fetchall()
+            for tag in tags:
+                doc_id = tag['document_id']
+                if doc_id not in doc_tags:
+                    doc_tags[doc_id] = []
+                doc_tags[doc_id].append(tag['keyword'])
+
+    return render_template('index.html',
+                           documents=documents,
                            doc_tags=doc_tags,
-                           types=types, 
-                           sources=sources, 
+                           types=types,
+                           sources=sources,
                            keywords=keywords,
                            request=request)
 
