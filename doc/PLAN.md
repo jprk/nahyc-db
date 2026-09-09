@@ -2,9 +2,11 @@
 
 **Project:** NAHYC DP004 — Vodíkový technologický inkubátor
 **Date:** 2026-09-07
-**Status:** Steps 0 and 1 executed 2026-09-07 (MariaDB `h2regdocs`
-provisioned and reloaded with the re-hardened dataset). Steps 2–3 and the
-agentic architecture in §3 are still proposals.
+**Status:** Steps 0 and 1 executed 2026-09-07, extended through 2026-09-09
+(4th source `Sinay_Normy` — Slovak/German norms — wired in with a
+jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1344 records
+from 2230 raw). Steps 2–3 and the agentic architecture in §3 are still
+proposals.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -419,6 +421,105 @@ Original plan (executed as amended above):
     title string that a since-improved merge decision legitimately
     changed — rewritten to match by law number instead of exact title
     text, so it survives future title-selection changes.
+- **Follow-up #8 (2026-09-09): two previously-unparsed Sinay raw sources.**
+  `data/20250712_Sinay/raw/Zoznam_noriem_vodik-11_02_2025.pdf` (84-page,
+  gridline-less 4-column export of Slovak/foreign standards) and
+  `.../Zoznam_noriem_Vodik_Road_map_Nemecko_Priradenie_STN_VERZIA_2024_06_27b.xlsx`
+  (German H2 standardization roadmap, ~960 rows) were never processed.
+  New `src/tools/parse_sinay_norms.py`:
+  - PDF: no table gridlines, so pdfplumber's own detection found nothing —
+    reconstructed the table from word x-position clustering into 4 columns,
+    with row boundaries anchored on the Designation column. Two bugs found
+    and fixed before trusting the output: long designations wrapping their
+    trailing `YYYY.MM` onto a second line were creating bogus empty-title
+    rows (merged back into the previous designation), and wrapped URLs
+    were getting a stray space inserted mid-string (stripped).
+  - **980 PDF + 969 XLSX = 1949 records**, schema matching
+    `data/20250303_Prokop/normy_vodik.json` (this is norms content, not
+    laws) plus one new field: **`Jurisdikce`** — this source is majority
+    Slovak (STN) and German norms, which are NOT valid in Czechia just
+    because they share an EN/ISO ancestor with a ČSN (explicit user
+    guidance). `classify_jurisdikce()` derives it from the designation/
+    issuing-body text (STN→SK; DVGW/DIN/VDI/DASt/DGUV/BVEG/BAuA→DE;
+    ISO/IEC→mezinárodní; CEN/CENELEC/EIGA/bare-EN-number→EU;
+    ASTM/ASME/API/CGA/ANSI/...→US; CSA→CA; BSI→UK; AFNOR→FR; NEN→NL; else
+    `"neurčeno"` — fails safe rather than guesses). Distribution: 758 SK,
+    383 DE, 345 mezinárodní, 205 neurčeno, 148 US, 99 EU, 5 CA, 4 FR, 2 UK.
+  - Output: `data/20250712_Sinay/sinay_normy_processed.json`. Not wired
+    into `build_unified_db.py` at this point — see follow-up #9.
+- **Follow-up #9 (2026-09-09): wired Sinay_Normy into the pipeline, and
+  found a real cross-jurisdiction merge bug doing it.**
+  - `build_unified_db.py` gained a 4th source branch (`Sinay_Normy`) and a
+    `jurisdikce` field on every record: `"CZ"` for Prokop (unambiguous —
+    these are ČSN norms), per-record from the parser for Sinay_Normy, left
+    unset (`""`) for Sinay_Zakony/Haltuf (both mix jurisdictions per
+    record with no reliable per-row marker of their own — not confidently
+    classified without deeper work than was asked for here).
+  - `deduplicate_db.py`'s `build_clusters()` (both the deterministic and
+    semantic passes) and `is_pure_znacka_cluster()` now veto a merge
+    whenever two records have a **known, differing** jurisdikce — e.g. a
+    Slovak STN and a Czech ČSN adoption of the same EN standard share a
+    core `znacka` but must never become one record. An unset/`"neurčeno"`
+    jurisdikce on either side never blocks a match — only two *known*,
+    *different* values do.
+  - **Bug found in a real run, before it reached the database:**
+    `resolve_iso_csn_ambiguity()` (follow-up #7) predates `jurisdikce` and
+    had no awareness of it — it grouped by bare digit-core only, so it
+    merged a **Slovak STN amendment record into a Czech ČSN record**
+    (`STN EN ISO 11114-1/Zmena` into `ČSN EN ISO 11114-1`) and mislabeled
+    some purely-foreign draft-standard clusters (no CZ record at all) with
+    a `"ČSN ..."` designation as if one of them were the actual Czech
+    standard. Caught by inspecting the audit log before running
+    `init_db.py` — restored the pre-run backup, fixed
+    `find_iso_csn_ambiguous_groups()` to exclude any record with a known
+    non-CZ jurisdikce from consideration entirely (this function's whole
+    job is resolving presumed-CZ ambiguity; a foreign norm having a
+    matching CZ standard is a cross-reference fact, never a merge — see
+    below), re-ran clean. **Lesson:** every merge-capable code path needs
+    the jurisdiction guard independently: build_clusters, is_pure_znacka_
+    cluster, AND resolve_iso_csn_ambiguity all had to be checked — adding
+    a new field doesn't retroactively protect code written before it.
+  - **Second, smaller bug found in the same pass:** the Sinay PDF uses
+    `-` and `–` (en dash) interchangeably for the same date separator
+    (e.g. `"STN EN ISO 11114-1/ – 2020.12"` vs `"...  / - 2020.12"`),
+    silently defeating exact-`znacka` deduplication. Fixed in
+    `normalize_znacka()` (dash-variant folding).
+  - New `src/tools/check_foreign_norm_csn_equivalents.py` — the actual
+    "does the SK/DE norm have a ČSN equivalent" cross-reference: for every
+    SK/DE-jurisdiction record with an ISO/EN-style core, queries the ČSN
+    registry (deduplicated to unique queries first — 644 candidate records
+    collapsed to 332 unique queries) and reports whether exactly one
+    currently-valid ČSN designation exists. **This is deliberately a
+    report, never a merge** — `data/20250712_Sinay/sinay_normy_csn_equivalents.json`,
+    not a database write. Results: 299/332 (covering 571 source
+    designation variants) have a confirmed, currently-valid ČSN
+    equivalent; 23 ambiguous (2+ valid ČSN designations — needs a human
+    look); 10 found in the registry but not currently valid.
+  - `analyze_similarities.py` got the same jurisdikce veto as
+    `build_clusters`, and — necessary at this corpus size — both vetoes
+    were moved to run *before* the expensive `cosine_similarity` call
+    instead of after (2219 valid records ⇒ ~2.46M pairs; computing
+    embedding dot-products for all of them instead of skipping
+    cheaply-vetoed ones first was the difference between finishing in
+    under a minute and a 5+ minute run that had to be killed and restarted
+    once already this session).
+  - **Re-run results:** 2230 raw records (up from 281 — the new source
+    dominates) → **1344 final deduplicated records**. Gray-zone report:
+    345 → 57 pairs (2,450,524 excluded by the znacka veto, 8 by the
+    jurisdikce veto specifically — confirming the two vetoes catch mostly
+    overlapping but not identical cases). Reloaded into `h2regdocs` (1344
+    records), app re-verified. New tests added for the jurisdiction veto
+    (including a direct regression test reproducing the STN-into-ČSN bug)
+    and the dash-normalization fix; 55 tests total, all passing.
+  - **Known, disclosed residual:** 2 exact-`znacka` duplicate pairs remain
+    (e.g. `"ASTM F1624-12"` appears once from Prokop tagged `"CZ"` and once
+    from Sinay_Normy tagged `"US"`). This is the jurisdiction veto correctly
+    erring safe, not a bug: Prokop's own `Značka` column occasionally cites
+    a foreign standard directly (no `ČSN`/`STN` national-adoption prefix at
+    all), so the blanket `Prokop→"CZ"` assignment is imprecise for those
+    specific rows — fixing it precisely would need the same per-record
+    classification logic as `classify_jurisdikce()`, applied to Prokop's
+    own data too. Narrow (2 pairs total), not chased further.
 - **Broader design point raised during review, not implemented:** cosine
   similarity over bare titles is inherently weak for terse/technical titles
   that share domain vocabulary; it would be stronger run over

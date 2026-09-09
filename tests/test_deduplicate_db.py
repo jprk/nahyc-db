@@ -28,6 +28,16 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
         self.assertEqual(dedup.normalize_znacka(""), "")
         self.assertEqual(dedup.normalize_znacka(None), "")
 
+    def test_normalize_folds_dash_variants_to_a_plain_hyphen(self):
+        # The Sinay PDF source uses "-" and "–" (en dash) interchangeably
+        # for the same date separator — without folding, these silently
+        # defeat exact-match deduplication (found in a real run,
+        # doc/PLAN.md Step 1 follow-up #9).
+        self.assertEqual(
+            dedup.normalize_znacka("STN EN ISO 11114-1/ – 2020.12"),
+            dedup.normalize_znacka("STN EN ISO 11114-1/ - 2020.12"),
+        )
+
     def test_core_strips_csn_prefix_only(self):
         self.assertEqual(dedup.core_znacka("ČSN EN 17127"), "en 17127")
         self.assertEqual(dedup.core_znacka("EN 17127"), "en 17127")
@@ -85,6 +95,16 @@ class IsPureZnackaClusterTestCase(unittest.TestCase):
     def test_false_when_cores_differ(self):
         records = [make_record(znacka="EN 17127"), make_record(znacka="EN 17339")]
         self.assertFalse(dedup.is_pure_znacka_cluster(records))
+
+    def test_false_when_known_jurisdictions_conflict_despite_same_core(self):
+        records = [make_record(znacka="EN 17124", jurisdikce="CZ"),
+                   make_record(znacka="EN 17124", jurisdikce="SK")]
+        self.assertFalse(dedup.is_pure_znacka_cluster(records))
+
+    def test_true_when_one_side_has_unknown_jurisdiction(self):
+        records = [make_record(znacka="EN 17124", jurisdikce="CZ"),
+                   make_record(znacka="EN 17124", jurisdikce="")]
+        self.assertTrue(dedup.is_pure_znacka_cluster(records))
 
 
 class ProgrammaticMergeTestCase(unittest.TestCase):
@@ -183,6 +203,46 @@ class BuildClustersTestCase(unittest.TestCase):
         clusters = dedup.build_clusters(data)
         self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1})})
 
+    def test_matching_core_znacka_but_conflicting_jurisdiction_stays_separate(self):
+        # E.g. a Czech ČSN and a Slovak STN adoption of the same EN
+        # standard — same core znacka, but legally distinct documents.
+        # This is the exact scenario doc/PLAN.md Step 1 follow-up #8
+        # exists to prevent (a bare foreign "EN 17124" reference sharing
+        # its core with a Czech "ČSN EN 17124" is the realistic case —
+        # core_znacka doesn't strip "STN ", so this exercises the veto
+        # directly against a shared core rather than via a real STN string).
+        data = [
+            make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
+            make_record(znacka="EN 17124", jurisdikce="SK", _embedding=self.IDENTICAL_B),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0}), frozenset({1})})
+
+    def test_three_records_same_core_split_into_two_jurisdiction_islands(self):
+        data = [
+            make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
+            make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_B),
+            make_record(znacka="EN 17124", jurisdikce="SK", _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1}), frozenset({2})})
+
+    def test_unknown_jurisdiction_does_not_veto_a_same_core_match(self):
+        data = [
+            make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
+            make_record(znacka="EN 17124", jurisdikce="", _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1})})
+
+    def test_neurceno_jurisdiction_does_not_veto_a_same_core_match(self):
+        data = [
+            make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
+            make_record(znacka="EN 17124", jurisdikce="neurčeno", _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1})})
+
 
 class FindIsoCsnAmbiguousGroupsTestCase(unittest.TestCase):
     def test_finds_a_group_split_by_the_en_infix(self):
@@ -202,6 +262,43 @@ class FindIsoCsnAmbiguousGroupsTestCase(unittest.TestCase):
             make_record(znacka=""),
         ]
         self.assertEqual(dedup.find_iso_csn_ambiguous_groups(dataset), {})
+
+    def test_excludes_a_known_non_cz_jurisdiction_record_from_the_group(self):
+        # Regression: this exact scenario merged a Slovak STN amendment
+        # record into a Czech ČSN record in a real run (2026-09-09,
+        # doc/PLAN.md Step 1 follow-up #9) before this filter existed —
+        # find_iso_csn_ambiguous_groups predates jurisdikce and originally
+        # had no awareness of it at all.
+        dataset = [
+            make_record(znacka="ČSN EN ISO 11114-1", jurisdikce="CZ"),
+            make_record(znacka="ISO 11114-1", jurisdikce="CZ"),
+            make_record(znacka="STN EN ISO 11114-1/Zmena", jurisdikce="SK"),
+        ]
+        groups = dedup.find_iso_csn_ambiguous_groups(dataset)
+        self.assertEqual(set(groups.keys()), {"11114-1"})
+        self.assertEqual(set(groups["11114-1"]), {0, 1})  # index 2 (SK) excluded
+
+    def test_all_foreign_group_is_never_flagged_even_if_ambiguous_among_itself(self):
+        # A cluster of purely non-CZ draft-standard citations (no CZ
+        # record at all) must never be surfaced here either — resolving
+        # it would mislabel foreign/draft documents with a "ČSN ..."
+        # designation as if one of them were the actual Czech standard.
+        dataset = [
+            make_record(znacka="prEN ISO 22734-1", jurisdikce="DE"),
+            make_record(znacka="ISO/FDIS 22734-1", jurisdikce="mezinárodní"),
+        ]
+        self.assertEqual(dedup.find_iso_csn_ambiguous_groups(dataset), {})
+
+    def test_unknown_jurisdiction_records_still_participate(self):
+        # A record with no jurisdikce info at all (e.g. Haltuf, which
+        # doesn't populate it) is still a valid candidate — only a KNOWN
+        # non-CZ jurisdiction excludes a record.
+        dataset = [
+            make_record(znacka="ISO 14687", jurisdikce=""),
+            make_record(znacka="ČSN EN ISO 14687", jurisdikce="CZ"),
+        ]
+        groups = dedup.find_iso_csn_ambiguous_groups(dataset)
+        self.assertEqual(set(groups.get("14687", [])), {0, 1})
 
 
 class ResolveIsoCsnAmbiguityTestCase(unittest.TestCase):

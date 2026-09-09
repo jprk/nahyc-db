@@ -2,6 +2,7 @@ import os
 import json
 import pathlib
 import math
+import re
 from openai import OpenAI
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -25,18 +26,35 @@ def cosine_similarity(v1, v2):
         return 0.0
     return dot_product / (magnitude1 * magnitude2)
 
+_DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
+
+
 def core_znacka(znacka):
     """Mirrors deduplicate_db.py's core_znacka (duplicated, not imported,
     to avoid triggering that module's own API-key/logging setup on
     import): normalizes a znacka and strips the optional Czech
     national-adoption 'ČSN' prefix, so 'ČSN EN 17127' and 'EN 17127'
-    compare as the same underlying standard."""
+    compare as the same underlying standard. Also folds en/em-dash
+    variants to a plain hyphen (see deduplicate_db.normalize_znacka)."""
     if not znacka:
         return ""
-    zn = " ".join(str(znacka).split()).strip().lower()
+    zn = _DASH_VARIANTS_RE.sub("-", str(znacka))
+    zn = " ".join(zn.split()).strip().lower()
     if zn.startswith("čsn "):
         zn = zn[len("čsn "):]
     return zn
+
+
+def _jurisdikce_known(jurisdikce):
+    return bool(jurisdikce) and jurisdikce != "neurčeno"
+
+
+def _jurisdikce_conflict(a, b):
+    """Mirrors deduplicate_db.py's _jurisdikce_conflict: a Slovak STN and
+    a Czech ČSN adoption of the same EN/ISO standard are legally distinct
+    documents, not candidates for this report even at high title
+    similarity — see doc/PLAN.md Step 1 follow-up #8/#9."""
+    return _jurisdikce_known(a) and _jurisdikce_known(b) and a != b
 
 def main():
     input_file = REPO_ROOT / "data" / "database_merged_raw.json"
@@ -81,23 +99,37 @@ def main():
     print("Vektorizace dokončena. Počítám podobnosti...")
 
     znacka_of = [core_znacka(item.get("znacka", "")) for item in valid_data]
+    jurisdikce_of = [item.get("jurisdikce", "") for item in valid_data]
 
     results = []
     excluded_diff_znacka = 0
-    # Avoid calculating duplicates (i, j) and (j, i)
+    excluded_jurisdikce = 0
+    # Avoid calculating duplicates (i, j) and (j, i). Both vetoes are
+    # checked BEFORE the (expensive, O(embedding_dim)) similarity call,
+    # not after — with the corpus now in the thousands of records, the
+    # O(n²) pair count makes that reordering the difference between
+    # minutes and an unusable runtime (found the hard way running this
+    # against the full corpus after adding jurisdikce, 2026-09-09).
     for i in range(len(valid_data)):
         for j in range(i + 1, len(valid_data)):
+            # Two different, non-empty reference numbers mean two
+            # different documents regardless of title similarity (same
+            # rule as deduplicate_db.py's merge veto) — excluding these
+            # keeps this report to genuine candidates instead of norms
+            # that just happen to share domain vocabulary.
+            if znacka_of[i] and znacka_of[j] and znacka_of[i] != znacka_of[j]:
+                excluded_diff_znacka += 1
+                continue
+            # A Slovak STN or German norm and a Czech ČSN adoption of the
+            # same EN/ISO standard are legally distinct documents — never
+            # a dedup candidate no matter how similar their titles score.
+            if _jurisdikce_conflict(jurisdikce_of[i], jurisdikce_of[j]):
+                excluded_jurisdikce += 1
+                continue
+
             sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
             # The user asked for similarity between 0.75 and 0.85
             if 0.75 <= sim < 0.85:
-                # Two different, non-empty reference numbers mean two
-                # different documents regardless of title similarity (same
-                # rule as deduplicate_db.py's merge veto) — excluding these
-                # keeps this report to genuine candidates instead of norms
-                # that just happen to share domain vocabulary.
-                if znacka_of[i] and znacka_of[j] and znacka_of[i] != znacka_of[j]:
-                    excluded_diff_znacka += 1
-                    continue
                 # Store titles and the source for clarity
                 title1 = valid_data[i]["_search_text"].replace('\n', ' ')
                 source1 = valid_data[i].get("zdroj_dat", "")
@@ -106,7 +138,8 @@ def main():
                 results.append((sim, f"{title1} ({source1})", f"{title2} ({source2})"))
 
     print(f"Nalezeno {len(results)} párů v požadovaném rozsahu "
-          f"({excluded_diff_znacka} dalších vyloučeno pro prokazatelně odlišnou značku).")
+          f"({excluded_diff_znacka} vyloučeno pro prokazatelně odlišnou značku, "
+          f"{excluded_jurisdikce} pro konflikt jurisdikce).")
 
     # Seřadit sestupně podle podobnosti
     results.sort(key=lambda x: x[0], reverse=True)
@@ -117,7 +150,9 @@ def main():
         f.write("Následující tabulka obsahuje páry dokumentů, které mají sémantickou podobnost (Cosine Similarity) v rozmezí 0.75 až 0.85. Jsou seřazeny sestupně.\n\n")
         f.write(f"Páry, kde oba záznamy mají vyplněnou, ale vzájemně odlišnou značku "
                 f"(tedy prokazatelně odlišné dokumenty), jsou z tohoto přehledu vyloučeny "
-                f"({excluded_diff_znacka} vyloučeno).\n\n")
+                f"({excluded_diff_znacka} vyloučeno). Stejně tak páry s konfliktní jurisdikcí "
+                f"(např. slovenská STN vs. česká ČSN adopce téže EN/ISO normy — právně odlišné "
+                f"dokumenty bez ohledu na podobnost názvu) — {excluded_jurisdikce} vyloučeno.\n\n")
         f.write("| Podobnost | Dokument 1 | Dokument 2 |\n")
         f.write("| :---: | :--- | :--- |\n")
         for sim, doc1, doc2 in results:

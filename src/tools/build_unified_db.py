@@ -116,6 +116,7 @@ def build_unified_db():
     file_prokop = base_dir / "20250303_Prokop" / "normy_vodik.json"
     file_sinay = base_dir / "20250712_Sinay" / "sinay_zakony_processed.json"
     file_haltuf = base_dir / "20250915_Haltuf" / "haltuf_combined.json"
+    file_sinay_normy = base_dir / "20250712_Sinay" / "sinay_normy_processed.json"
 
     output_file = base_dir / "database_merged_raw.json"
 
@@ -151,7 +152,11 @@ def build_unified_db():
                 "ratifikovan": "",
                 "gestor": [],
                 "jazyk": "",
-                "anotace_poznamka": item.get("Anotace", "").strip()
+                "anotace_poznamka": item.get("Anotace", "").strip(),
+                # Prokop = ČSN norms — unambiguously CZ-valid. See
+                # jurisdikce note on the Sinay_Normy branch below for why
+                # this field exists at all.
+                "jurisdikce": "CZ",
             }
             if not record["anotace_poznamka"]:
                 prev = previous_annotations.get((record["zdroj_dat"], record["nazev_cz"]))
@@ -193,7 +198,12 @@ def build_unified_db():
                 "ratifikovan": "",
                 "gestor": gestor,
                 "jazyk": "",
-                "anotace_poznamka": ""
+                "anotace_poznamka": "",
+                # Left unset (not "CZ"): this source mixes Czech law
+                # equivalents with the original Slovak text under
+                # nazev_sk — not confidently one single jurisdiction per
+                # record without deeper work than was asked for here.
+                "jurisdikce": "",
             }
             prev = previous_annotations.get((record["zdroj_dat"], record["nazev_cz"]))
             if prev:
@@ -237,7 +247,12 @@ def build_unified_db():
                 "ratifikovan": item.get("Ratifikován", "").strip(),
                 "gestor": gestor,
                 "jazyk": item.get("Jazyková verze", "").strip(),
-                "anotace_poznamka": item.get("Poznámka", "").strip()
+                "anotace_poznamka": item.get("Poznámka", "").strip(),
+                # Left unset: Haltuf mixes EU regulations, Czech laws, and
+                # bare EN/ISO standard codes with no per-record
+                # jurisdiction marker of its own — not confidently
+                # classified without deeper work than was asked for here.
+                "jurisdikce": "",
             }
             # Attempt to map EUR-lex links to odkaz_eu heuristically
             if "eur-lex.europa.eu" in record["odkaz_hlavni"]:
@@ -254,7 +269,56 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Haltuf data: {e}")
 
-    # 4. Save combined to JSON
+    # 4. Process Sinay Norms (STN/German standards — see
+    # src/tools/parse_sinay_norms.py). Unlike the other three sources,
+    # this one is majority NOT Czech: an STN (Slovak) or German (DIN/VDI/
+    # DVGW/...) norm is not automatically valid in Czechia just because it
+    # shares an EN/ISO ancestor with a ČSN — "jurisdikce" (populated
+    # per-record by the parser) exists specifically so this pipeline can
+    # tell them apart and never conflate a foreign adoption with a Czech
+    # one, however similar their reference numbers or titles look. See
+    # doc/PLAN.md Step 1 follow-up #8 and deduplicate_db.py's jurisdiction
+    # veto in build_clusters().
+    try:
+        data_sinay_normy = load_json(file_sinay_normy)
+        for item in data_sinay_normy:
+            klicova_slova = item.get("Klíčová slova", "")
+            if klicova_slova and klicova_slova != "-":
+                klicova_slova = [x.strip() for x in klicova_slova.split(",") if x.strip()]
+            else:
+                klicova_slova = []
+
+            record = {
+                "zdroj_dat": "Sinay_Normy",
+                "nazev_cz": item.get("Název", "").strip(),
+                "znacka": item.get("Značka", "").strip(),
+                "typ_dokumentu": "Norma",
+                "sekce": item.get("Sekce", "").strip(),
+                "kategorie_trida": item.get("Kategorie", "").strip(),
+                "klicova_slova": klicova_slova,
+                "odkaz_hlavni": item.get("Link", "").strip(),
+                "nazev_eu": "",
+                "odkaz_eu": "",
+                "nazev_sk": "",
+                "odkaz_sk": "",
+                "platnost": item.get("Platnost", "").strip(),
+                "ratifikovan": "",
+                "gestor": [],
+                "jazyk": "",
+                "anotace_poznamka": item.get("Anotace", "").strip(),
+                "jurisdikce": item.get("Jurisdikce", "").strip(),
+            }
+            if not record["anotace_poznamka"]:
+                prev = previous_annotations.get((record["zdroj_dat"], record["nazev_cz"]))
+                if prev:
+                    record["anotace_poznamka"] = prev
+                    restored_count += 1
+            unified_db.append(record)
+        print(f"Loaded {len(data_sinay_normy)} records from Sinay Normy.")
+    except Exception as e:
+        print(f"Error loading Sinay Normy data: {e}")
+
+    # 5. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(unified_db, f, ensure_ascii=False, indent=4)
 

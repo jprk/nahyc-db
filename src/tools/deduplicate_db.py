@@ -46,11 +46,20 @@ def cosine_similarity(v1, v2):
         return 0.0
     return dot_product / (magnitude1 * magnitude2)
 
+_DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
+
+
 def normalize_znacka(znacka):
-    """Normalizes a znacka (reference number) for exact-match comparison."""
+    """Normalizes a znacka (reference number) for exact-match comparison.
+    Also folds en-dash/em-dash/minus-sign variants to a plain hyphen — the
+    Sinay PDF source uses "–" (en dash) and "-" (hyphen) interchangeably
+    for the same date separator (e.g. "STN EN ISO 11114-1/ – 2020.12" vs
+    "STN EN ISO 11114-1/ - 2020.12"), which otherwise silently defeats
+    exact-match deduplication."""
     if not znacka:
         return ""
-    return " ".join(str(znacka).split()).strip().lower()
+    znacka = _DASH_VARIANTS_RE.sub("-", str(znacka))
+    return " ".join(znacka.split()).strip().lower()
 
 def core_znacka(znacka):
     """Strips the optional Czech national-adoption prefix ('ČSN') so that
@@ -175,9 +184,18 @@ def is_pure_znacka_cluster(records):
     is isn't in question, only which field values to keep — and it turns
     out gpt-4o-mini isn't reliably able to actually collapse a large or
     very sparse (title-only) pure cluster into one record even when told
-    to, so skip that failure mode entirely rather than retry around it."""
+    to, so skip that failure mode entirely rather than retry around it.
+
+    Also requires no known jurisdiction conflict among members — belt and
+    suspenders alongside build_clusters' own veto: programmatic_merge does
+    no identity judgment at all, so a cluster that slipped through with,
+    say, a Czech and a Slovak record in it would get silently flattened
+    into one record with no safety net otherwise."""
     cores = [core_znacka(r.get("znacka", "")) for r in records]
-    return all(cores) and len(set(cores)) == 1
+    if not (all(cores) and len(set(cores)) == 1):
+        return False
+    known_jurisdikce = {r.get("jurisdikce", "") for r in records if _jurisdikce_known(r.get("jurisdikce", ""))}
+    return len(known_jurisdikce) <= 1
 
 def programmatic_merge(cluster_records):
     """Deterministic merge for a pure znacka cluster (see
@@ -252,6 +270,24 @@ class UnionFind:
         if rx != ry:
             self.parent[rx] = ry
 
+def _jurisdikce_known(jurisdikce):
+    """"" and "neurčeno" both mean "we don't actually know" — neither
+    should ever veto a match; only two DIFFERENT known jurisdictions
+    should."""
+    return bool(jurisdikce) and jurisdikce != "neurčeno"
+
+
+def _jurisdikce_conflict(a, b):
+    """True only when both sides have a known jurisdiction and it
+    differs — e.g. a Slovak STN vs a Czech ČSN adoption of the same EN/ISO
+    standard are legally distinct documents no matter how identical their
+    reference number or title look (see doc/PLAN.md Step 1 follow-up #8).
+    An unknown/unset jurisdiction on either side never blocks a match —
+    it just means this source doesn't carry that information, not that
+    there's a genuine conflict."""
+    return _jurisdikce_known(a) and _jurisdikce_known(b) and a != b
+
+
 def build_clusters(valid_data, similarity_threshold=0.85):
     """Groups records (each already carrying a pre-computed '_embedding')
     into clusters: a deterministic pass unions any records sharing a core
@@ -259,29 +295,41 @@ def build_clusters(valid_data, similarity_threshold=0.85):
     remaining pairs above similarity_threshold — vetoed when both records
     have different non-empty core znacka (two different reference numbers
     means two different documents, full stop, no matter how similar their
-    titles score). Returns a list of index-groups (each a list of indices
-    into valid_data), not the records themselves — kept pure/deterministic
-    and independent of the OpenAI/network calls that produce embeddings,
-    so it's unit-testable with synthetic vectors.
+    titles score) OR a known jurisdiction conflict (see
+    _jurisdikce_conflict). Returns a list of index-groups (each a list of
+    indices into valid_data), not the records themselves — kept
+    pure/deterministic and independent of the OpenAI/network calls that
+    produce embeddings, so it's unit-testable with synthetic vectors.
     """
     n = len(valid_data)
     uf = UnionFind(n)
 
-    znacka_index = {}
-    for i, item in enumerate(valid_data):
-        zn = core_znacka(item.get("znacka", ""))
-        if zn:
-            if zn in znacka_index:
-                uf.union(i, znacka_index[zn])
-            else:
-                znacka_index[zn] = i
+    znacka_of = [core_znacka(item.get("znacka", "")) for item in valid_data]
+    jurisdikce_of = [item.get("jurisdikce", "") for item in valid_data]
 
-    znacka_normalized = [core_znacka(item.get("znacka", "")) for item in valid_data]
+    # Deterministic pass. A shared core znacka can span more than one
+    # jurisdiction "island" (e.g. 3 Czech ČSN records + 2 Slovak STN
+    # records, all citing the same EN number) — union each new record
+    # with any EXISTING same-core record it doesn't conflict with
+    # (Union-Find transitivity extends that to the whole compatible
+    # island), never with one it does.
+    core_to_indices = {}
+    for i, core in enumerate(znacka_of):
+        if not core:
+            continue
+        bucket = core_to_indices.setdefault(core, [])
+        compatible = next((j for j in bucket if not _jurisdikce_conflict(jurisdikce_of[i], jurisdikce_of[j])), None)
+        if compatible is not None:
+            uf.union(i, compatible)
+        bucket.append(i)
+
     for i in range(n):
         for j in range(i + 1, n):
             if uf.find(i) == uf.find(j):
                 continue
-            if znacka_normalized[i] and znacka_normalized[j] and znacka_normalized[i] != znacka_normalized[j]:
+            if znacka_of[i] and znacka_of[j] and znacka_of[i] != znacka_of[j]:
+                continue
+            if _jurisdikce_conflict(jurisdikce_of[i], jurisdikce_of[j]):
                 continue
             sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
             if sim > similarity_threshold:
@@ -306,11 +354,28 @@ def find_iso_csn_ambiguous_groups(final_dataset):
     'ČSN ISO X' / 'ČSN EN ISO X' ambiguity that only the ČSN registry (not
     our own title text) can resolve: which national-adoption form is
     actually currently valid. Returns {digit_core: [indices into
-    final_dataset]}."""
+    final_dataset]}.
+
+    CRITICAL: only ever groups records with a CZ or unknown jurisdikce
+    ("", "CZ", "neurčeno") — this function's whole point is finding the
+    Czech ČSN designation for what's presumed-CZ ambiguity (e.g. Prokop's
+    own bare "ISO X" vs "ČSN EN ISO X" rows). A record with a KNOWN
+    non-CZ jurisdikce (SK, DE, US, EU, mezinárodní, ...) is EXCLUDED
+    entirely, never a candidate to merge here — a Slovak STN or German
+    norm is a legally distinct document from a Czech ČSN even when the
+    registry confirms a matching CZ standard exists (see
+    check_foreign_norm_csn_equivalents.py, which handles that case
+    correctly, as a cross-reference *report*, never a merge). Silently
+    merging a foreign record in here and relabelling it with a "ČSN ..."
+    znacka would be exactly the conflation this whole field exists to
+    prevent — this was a real bug, found and fixed 2026-09-09 (see
+    doc/PLAN.md Step 1 follow-up #9)."""
     by_core = {}
     for idx, r in enumerate(final_dataset):
         zn = r.get("znacka", "").strip()
         if not zn or "iso" not in zn.lower():
+            continue
+        if _jurisdikce_known(r.get("jurisdikce", "")) and r.get("jurisdikce") != "CZ":
             continue
         core = digit_core(zn)
         if core:
