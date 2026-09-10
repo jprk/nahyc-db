@@ -2,13 +2,15 @@
 
 **Project:** NAHYC DP004 — Vodíkový technologický inkubátor
 **Date:** 2026-09-07
-**Status:** Steps 0, 1 and 2 executed 2026-09-07–2026-09-09 (4th source
-`Sinay_Normy` — Slovak/German norms — wired in with a jurisdiction-aware
-dedup guard; MariaDB `h2regdocs` now holds 1344 fully-loaded records,
-including `identifier`/`jurisdikce`/`DocumentVersion`, from 2230 raw). §4
-(full-text acquisition for laws + source screening) designed and
-implemented 2026-09-09. Step 3 and the agentic architecture in §3 are
-still proposals.
+**Status:** Steps 0, 1, 2 and 3a executed 2026-09-07–2026-09-10 (4th
+source `Sinay_Normy` — Slovak/German norms — wired in with a
+jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1367
+`Document` rows — 1344 from the pipeline + 23 from V02's bibliography —
+plus a fully-loaded process layer B, U1–U7, from `doc/NAHYC DP004 V02 -
+Popis procesů.docx`). §4 (full-text acquisition for laws + source
+screening) designed and implemented 2026-09-09. Step 3b (layer D —
+compliance pathway) and the agentic architecture in §3 are still
+deferred/proposals.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -597,13 +599,98 @@ Original plan (executed as amended above):
   client (`/`, search, and all three filter routes still return 200) —
   confirmed purely additive, nothing it already depended on changed.
 
-### Step 3 — Populate process layers B–D
+### Step 3a — Populate process layer B + node_document from V02 — DONE 2026-09-10
 
-- Populate process layer B from the V02 text (separate, larger effort —
-  analytical extraction, not just scripting), then layer C links and layer D
-  compliance scaffolding, per the migration plan already written in
-  `Konsolidace-DB-popis.md` §9. (The schema itself is already in place from
-  Step 0 — this step is about content, not DDL.)
+Neither V02 nor V03 (the source documents `Konsolidace-DB-popis.md`/
+`-schema.sql` cite throughout) existed anywhere in this repository —
+confirmed by exploration before this step could even be scoped. The user
+then uploaded both: `doc/NAHYC DP004 V02 - Popis procesů.docx` and
+`doc/NAHYC DP004 V03 - Popis regulatorního a procesního rámce.docx`.
+
+Full-document exploration found a sharp split: **V02 is highly
+structured** (every U1–U7 section repeats the same 11 H3 subsections,
+with real Word tables for subjects/branch-outputs) and maps almost 1:1
+onto layer B — genuinely extractable by a parser. **V03 is layer D — the
+compliance pathway** (`technology_type`, `project_criterion`,
+`node_activation_rule`, `use_case_scenario`, `scenario_*`) — thin, mostly
+prose, and V03's own text (§5.7/7.2/7.3, "metodický nesoulad") says
+formalizing activation rules is still an **open, unresolved methodological
+gap**, not something to script or guess. Per the user's explicit decision
+(2026-09-10), layer D was scoped out of this step entirely — see **Step
+3b** below.
+
+- **`src/tools/parse_v02_processes.py`** (new): parses the docx (via
+  `python-docx`, newly added to `.venv`) into
+  `data/v02_processes_parsed.json`. Two real structural exceptions found
+  and handled explicitly rather than forced into the generic pattern:
+  **U2** doesn't use lettered "Větev X" branch headings like U4–U7 — it
+  uses "Krok 1–4" headings, with the real A–D branching living as a table
+  *inside* "Krok 2 — Větvení procesu"; **U5** has a "Průřezově — ATEX
+  klasifikace" H4 that isn't a branch at all, it's a modifier applying
+  across U5's real branches. Also handled: two different list-formatting
+  conventions in the source (`List Paragraph`-styled bullets for
+  U1–U3/problems everywhere, vs. plain `Normal` paragraphs for
+  U4–U7's inputs/steps) — `extract_list_items()` prefers `List Paragraph`
+  when present, else falls back to `Normal` paragraphs minus the
+  colon-terminated intro sentence, verified against every node's actual
+  content before relying on it.
+- **`src/tools/load_process_layer.py`** (new): loads the parsed JSON into
+  `node_description`, `node_branch`, `branch_step`, `node_input`,
+  `node_output`, `subject`, `node_subject`, `node_problem`, and the
+  layer-C `node_document` link table — reusing `init_db.py`'s
+  `get_connection()`/`get_or_create()` pattern. Citation matching (for
+  `node_document` and the 59-entry bibliography) never guesses: a
+  citation matched by digit-core (Czech laws/decrees, EU regulations) or
+  exact text-core (technical norm codes, carefully NOT collapsing e.g.
+  `STN EN 17124` into `ČSN EN 17124` — verified with a direct regression
+  test) links to the existing `Document`; bibliography entries with no
+  citation pattern at all (internal NAHYC/HYTEP/EHTA/academic sources)
+  get a new `Document` row (`DocumentType` `"Bibliografický pramen"`,
+  plus a seed `DocumentVersion` row matching Step 2's own invariant);
+  anything that looks like a citation but doesn't match an existing
+  `Document` goes to `data/process_layer_review_queue.json` instead of
+  being silently dropped or risking a duplicate row.
+- **Real bug found and fixed while first running this against the live
+  DB**: `node_branch.branch_code` is `VARCHAR(5)` — the cross-cutting
+  "Průřezově" heading doesn't fit as its own code (only single-letter
+  A/B/C/D codes were anticipated). Fixed by using a short marker code
+  (`"X"`) with the full description kept in `branch_name`.
+  **Second bug, found while verifying `DocumentVersion` parity**:
+  `load_process_layer.py` must run *after* `init_db.py` and needs its
+  own TRUNCATE-and-reload reset (`node_document` has `ON DELETE
+  RESTRICT` on `Document` — re-running `init_db.py` alone would leave it
+  pointing at deleted rows). Added `reset_layer_b_tables()`, documented
+  the ordering dependency directly in the script.
+- **Tests**: `tests/test_parse_v02_processes.py` (25 tests) and
+  `tests/test_load_process_layer.py` (12 tests) — pure helper functions
+  with synthetic fixtures, no real docx/DB access. 165 tests total.
+- **Load results**: 7/7 nodes with a `node_description`, 22 branches
+  (2 linear MAIN + U2's Krok-based A–D + 15 lettered across U4–U7 + U5's
+  cross-cutting), 75 steps, 46 inputs, 21 outputs, 38 subjects/47
+  subject-links, 37 problems, 23 `node_document` LEGAL_BASIS links, 23
+  new bibliography `Document` rows (1344 → 1367 total). 26 items in the
+  review queue — genuine gaps (laws/norms V02 cites that aren't yet in
+  the 1344-record corpus, e.g. živnostenský zákon, REACH/CLP, ČSN 73
+  0804) or a bibliography entry that mentions a norm without itself
+  being one (e.g. an IROP funding-conditions document citing EN
+  17124/17127) — a disclosed, narrow limitation of the "does this entry
+  contain a citation pattern" heuristic, not a crash or a guess.
+  `app/app.py` re-verified via the Flask test client (unaffected — layer
+  B/C are new tables/rows, nothing `app.py` already queries changed).
+
+### Step 3b — Populate process layer D (compliance pathway) — deferred
+
+Layer D (`technology_type`, `project_criterion`, `node_activation_rule`,
+`use_case_scenario`, `scenario_value_chain`, `scenario_technology`,
+`scenario_node`, `scenario_document`) represents the **compliance
+pathway** — matching a concrete project profile against formalized
+activation criteria. Sourced from V03, which is thin on this content and
+explicitly states (§5.7/7.2/7.3) that activation-rule formalization is
+still an open methodological gap, not a ready-made table to transcribe.
+**Deferred to a separate, later-scoped pass per the user's explicit
+decision (2026-09-10)** — not silently dropped, and not attempted as a
+guess. (The schema itself is already in place from Step 0 — this step is
+about content, not DDL.)
 
 ## 3. Agentic architecture for ongoing operations
 

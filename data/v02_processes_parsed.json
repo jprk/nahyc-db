@@ -1,0 +1,1836 @@
+{
+  "nodes": {
+    "U1": {
+      "description": {
+        "purpose": "Ověření, zda je zamýšlená vodíková instalace přípustná v konkrétním území z hlediska souladu s územně plánovací dokumentací a ochrany veřejných zájmů.",
+        "role_in_phase": "Vstupní rozhodovací uzel celé procesní sítě. Při negativním výsledku projekt nepokračuje do dalších uzlů; investor musí změnit lokalitu, koncepci záměru nebo iniciovat změnu územního plánu.",
+        "trigger_condition": "Záměr investora umístit vodíkovou instalaci (výrobní, skladovací, distribuční nebo servisní) jako stavební záměr do konkrétní lokality.",
+        "key_decision_point": "Posouzení souladu záměru s funkčním využitím území podle platného územního plánu. U vodíkových instalací je problematické, že nejsou v územních plánech výslovně pojmenovány — zařazení probíhá analogicky.",
+        "v01_link_description": "Proces územní kompatibility je v databázi V01 evidován jako samostatný procesní uzel. Databáze obsahuje vazby na relevantní právní předpisy (stavební zákon, prováděcí vyhlášky), typové kategorie projektů (elektrolýza, skladování, VČS, vozidla) a navazující procesní uzly (U2, U3, U5, U6). Databáze umožňuje filtrovat, které právní předpisy a dotčené orgány jsou relevantní pro konkrétní typ instalace a lokality."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "záměr investora s identifikací lokality,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "základní technický popis instalace (typ zařízení, kapacita, půdorysné nároky, provozní charakter),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "údaje o vazbách na technickou infrastrukturu (elektřina, voda, plyn, dopravní napojení),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "informace o způsobu využití vodíku (vlastní spotřeba, dodávka třetím stranám, čerpací stanice).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "MAIN",
+          "branch_name": null,
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": true,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Podání žádosti o vydání územního rozhodnutí nebo ekvivalentního aktu."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Posouzení souladu záměru s územně plánovací dokumentací — klíčový rozhodovací bod, který může projekt zastavit."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Zapojení dotčených orgánů a vyžádání jejich stanovisek (životní prostředí, bezpečnost, infrastruktura)."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Posouzení vlivů záměru na okolní využití území a vyhodnocení připomínek účastníků řízení."
+            },
+            {
+              "step_number": 5,
+              "title": null,
+              "description": "Vydání rozhodnutí o umístění stavby."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor",
+          "abbreviation": null,
+          "process_role": "Žadatel — předkládá záměr a podklady"
+        },
+        {
+          "name": "Stavební úřad",
+          "abbreviation": null,
+          "process_role": "Rozhodující orgán — posuzuje soulad a vydává rozhodnutí"
+        },
+        {
+          "name": "Dotčené orgány",
+          "abbreviation": null,
+          "process_role": "Vydávají závazná stanoviska k ochraně veřejných zájmů (životní prostředí, požární ochrana, hygiena, ochrana vod)"
+        },
+        {
+          "name": "Vlastníci sousedních pozemků",
+          "abbreviation": null,
+          "process_role": "Účastníci řízení — mohou vznášet námitky"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": null,
+          "document_name": "Rozhodnutí o umístění stavby nebo jiný formálně závazný akt (např. územní souhlas, společné povolení). Rozhodnutí stanovuje podmínky pro navazující projektovou přípravu.",
+          "description": "Proces je uzavřen vydáním rozhodnutí o umístění stavby nebo jiného formálně závazného aktu. Rozhodnutí potvrzuje nebo vylučuje přípustnost umístění instalace v daném území, stanovuje základní podmínky pro navazující projektovou přípravu a tvoří závazný podklad pro stavební řízení (U3). Proces se neuzavírá realizací stavby — ta je předmětem navazujících uzlů.",
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Nejednoznačná funkční klasifikace",
+          "description": "Nejednoznačná funkční klasifikace — vodíkové instalace nejsou v územních plánech výslovně uvedeny jako samostatná kategorie. Stavební úřady je zařazují analogicky, což vede k rozdílným výkladům (energetika vs. průmysl vs. technická infrastruktura).",
+          "seq_no": 1
+        },
+        {
+          "title": "Rozdílná praxe stavebních úřadů",
+          "description": "Rozdílná praxe stavebních úřadů — absence jednotné metodiky pro posuzování vodíkových záměrů způsobuje, že stejný typ instalace může být v různých obcích posuzován odlišně.",
+          "seq_no": 2
+        },
+        {
+          "title": "Předčasné uplatňování detailních požadavků",
+          "description": "Předčasné uplatňování detailních požadavků — dotčené orgány někdy vyžadují v územní fázi podrobnosti, které jsou relevantní až pro stavební řízení (U3) nebo bezpečnostní posouzení (U5).",
+          "seq_no": 3
+        },
+        {
+          "title": "Kumulativní vlivy v areálech",
+          "description": "Kumulativní vlivy v areálech — u projektů umisťovaných do existujících průmyslových areálů může dojít ke kumulaci vlivů s jinými provozy, což komplikuje posouzení přípustnosti.",
+          "seq_no": 4
+        }
+      ],
+      "legal_basis_citations": [
+        "283/2021"
+      ]
+    },
+    "U2": {
+      "description": {
+        "purpose": "Určení, jakým způsobem a v jaké intenzitě budou posouzeny vlivy vodíkové instalace na životní prostředí. Jde o rozhodovací strom s větvením — od konstatování, že posouzení se nevyžaduje, přes zjišťovací řízení a plnou EIA až po integrované povolení (IPPC).",
+        "role_in_phase": "Uzel s největší procesní nejistotou u vodíkových projektů. Výsledek určuje časovou a administrativní náročnost celé předrealizační fáze. Nesouhlasné závazné stanovisko EIA nebo zamítnutí integrovaného povolení zastavuje projekt.",
+        "trigger_condition": "Konkretizace technických parametrů záměru (kapacita, spotřeba vody, nakládání s látkami) a lokality. Klíčová otázka: spadá záměr do kategorií záměrů přílohy zákona o EIA nebo do kategorií činností přílohy zákona o IPPC?",
+        "key_decision_point": "Screeningové posouzení — zařazení záměru do kategorie I (povinná EIA), kategorie II (zjišťovací řízení) nebo mimo kategorie (bez EIA). Paralelně se posuzuje, zda záměr spadá pod IPPC. U vodíkových instalací je problematické, že nejsou v přílohách zákonů výslovně pojmenovány.",
+        "v01_link_description": "Proces environmentálního režimu je v databázi V01 evidován jako samostatný procesní uzel s vnitřním větvením. Databáze obsahuje vazby na relevantní právní předpisy (zákon o EIA, zákon o IPPC, vodní zákon, zákon o ovzduší, zákon o ochraně přírody), prahové hodnoty a kategorie záměrů podle příloh příslušných zákonů, typové kategorie projektů (elektrolýza, skladování, VČS, vozidla) s indikací pravděpodobného environmentálního režimu, navazující procesní uzly (U1, U3, U5, U6, U7). Databáze umožňuje pro konkrétní typ instalace a její parametry orientačně určit, které větve environmentálního režimu budou pravděpodobně aktivovány."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "technický popis záměru s parametry relevantními pro posouzení vlivů (kapacita výroby/skladování, spotřeba vody, zdroje energie, manipulace s nebezpečnými látkami),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "identifikace lokality včetně údajů o jejím environmentálním kontextu (blízkost chráněných území, vodních zdrojů, obytné zástavby),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "údaje o předpokládaných emisích, hluku, vibracích a odpadech,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "informace o nakládání s vodami (odběr, úprava, vypouštění),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "údaje o kumulativních vlivech s existujícími provozy v lokalitě,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "výsledky předběžných konzultací s orgány ochrany životního prostředí (pokud proběhly).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "MAIN",
+          "branch_name": null,
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": true,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Investor (případně ve spolupráci s projektantem) vyhodnotí, zda záměr spadá do některé z kategorií záměrů podle přílohy č. 1 zákona o EIA. Rozhodující jsou parametry jako kapacita zařízení, objem skladovaných látek, spotřeba vody a lokalizace vůči chráněným územím. Současně se posoudí, zda záměr spadá pod zákon o IPPC."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Podle zařazení do větve investor absolvuje příslušné řízení. U plné EIA zahrnuje kroky: oznámení záměru → dokumentace EIA → posudek → veřejné projednání → závazné stanovisko. U IPPC: žádost o integrované povolení → vyjádření dotčených orgánů → veřejné projednání → rozhodnutí."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Bez ohledu na výsledek větvení jsou u většiny vodíkových záměrů nutná dílčí stanoviska dalších institucí: vodoprávní orgán — k nakládání s vodami (odběr, vypouštění, ochranná pásma vodních zdrojů), orgán ochrany ovzduší — k emisím a provozu stacionárních zdrojů, orgán ochrany přírody — k zásahům do krajinného rázu, ochranných pásem, chráněných druhů, orgán odpadového hospodářství — k nakládání s odpady z výstavby a provozu."
+            }
+          ]
+        },
+        {
+          "branch_code": "A",
+          "branch_name": "Bez posouzení",
+          "activation_condition": "Záměr nespadá do žádné kategorie přílohy zákona o EIA ani IPPC.",
+          "description": "Investor získá vyjádření příslušného orgánu, že posuzování se nevyžaduje. Proces pokračuje dílčími stanovisky (krok 4).",
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Investor získá vyjádření příslušného orgánu, že posuzování se nevyžaduje. Proces pokračuje dílčími stanovisky (krok 4)."
+            }
+          ]
+        },
+        {
+          "branch_code": "B",
+          "branch_name": "Zjišťovací řízení",
+          "activation_condition": "Záměr spadá do kategorie II přílohy č. 1 zákona o EIA (podlimitní záměry, u nichž se zjišťuje, zda mohou mít významný vliv).",
+          "description": "Příslušný orgán provede zjišťovací řízení a rozhodne, zda je nutná plná EIA. Pokud ne, vydá závěr zjišťovacího řízení a proces pokračuje krokem 4.",
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Příslušný orgán provede zjišťovací řízení a rozhodne, zda je nutná plná EIA. Pokud ne, vydá závěr zjišťovacího řízení a proces pokračuje krokem 4."
+            }
+          ]
+        },
+        {
+          "branch_code": "C",
+          "branch_name": "Plná EIA",
+          "activation_condition": "Záměr spadá do kategorie I přílohy č. 1 zákona o EIA, nebo zjišťovací řízení určilo nutnost plného posouzení.",
+          "description": "Zpracování dokumentace EIA, veřejné projednání, posudek, závazné stanovisko. Proces je časově i administrativně nejnáročnější.",
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Zpracování dokumentace EIA, veřejné projednání, posudek, závazné stanovisko. Proces je časově i administrativně nejnáročnější."
+            }
+          ]
+        },
+        {
+          "branch_code": "D",
+          "branch_name": "Integrované povolení (IPPC)",
+          "activation_condition": "Záměr spadá pod přílohu č. 1 zákona o IPPC (průmyslové činnosti nad stanovené prahové hodnoty).",
+          "description": "Řízení o vydání integrovaného povolení, které nahrazuje řadu dílčích rozhodnutí. Může probíhat souběžně s EIA nebo na ni navazovat.",
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Řízení o vydání integrovaného povolení, které nahrazuje řadu dílčích rozhodnutí. Může probíhat souběžně s EIA nebo na ni navazovat."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor",
+          "abbreviation": null,
+          "process_role": "Žadatel — předkládá oznámení záměru, dokumentaci EIA, žádost o integrované povolení"
+        },
+        {
+          "name": "Příslušný orgán EIA (krajský úřad nebo MŽP)",
+          "abbreviation": null,
+          "process_role": "Vede zjišťovací řízení a proces EIA; vydává závazné stanovisko"
+        },
+        {
+          "name": "Příslušný orgán IPPC (krajský úřad)",
+          "abbreviation": null,
+          "process_role": "Vede řízení o integrovaném povolení; vydává integrované povolení"
+        },
+        {
+          "name": "Vodoprávní úřad",
+          "abbreviation": null,
+          "process_role": "Vydává povolení k nakládání s vodami"
+        },
+        {
+          "name": "ČIŽP (Česká inspekce životního prostředí)",
+          "abbreviation": "ČIŽP",
+          "process_role": "Dotčený orgán — vydává vyjádření v rámci EIA i IPPC"
+        },
+        {
+          "name": "Orgán ochrany přírody",
+          "abbreviation": null,
+          "process_role": "Vydává stanoviska k zásahům do krajiny a chráněných území"
+        },
+        {
+          "name": "Zpracovatel dokumentace EIA",
+          "abbreviation": null,
+          "process_role": "Autorizovaná osoba zpracovávající dokumentaci a posudek EIA"
+        },
+        {
+          "name": "Veřejnost",
+          "abbreviation": null,
+          "process_role": "Účastní se veřejného projednání; může podávat připomínky"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": "A",
+          "document_name": "Vyjádření orgánu, že posuzování se nevyžaduje; dílčí stanoviska dotčených orgánů",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "B",
+          "document_name": "Závěr zjišťovacího řízení (kladný = pokračuje se bez plné EIA, nebo záporný = nutná plná EIA); dílčí stanoviska",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "C",
+          "document_name": "Závazné stanovisko EIA (souhlasné s podmínkami / nesouhlasné); dílčí stanoviska",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "D",
+          "document_name": "Rozhodnutí o vydání integrovaného povolení (nahrazuje řadu dílčích stanovisek)",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Nejasné zařazení do kategorií EIA",
+          "description": "Nejasné zařazení do kategorií EIA — příloha č. 1 zákona o EIA neobsahuje výslovnou kategorii pro výrobu vodíku elektrolýzou. Záměr může být analogicky zařazen pod „chemickou výrobu\", „energetická zařízení\" nebo „průmyslové provozy\", přičemž každé zařazení má jiné prahové hodnoty a procesní důsledky.",
+          "seq_no": 1
+        },
+        {
+          "title": "Nejasné zařazení pod IPPC",
+          "description": "Nejasné zařazení pod IPPC — příloha č. 1 zákona o IPPC obsahuje kategorii „výroba anorganických chemikálií\", pod kterou by výroba vodíku mohla spadat. Interpretace se však liší — někteří odborníci argumentují, že elektrolýza vody není „chemická výroba\" v tradičním smyslu.",
+          "seq_no": 2
+        },
+        {
+          "title": "Interakce více environmentálních režimů",
+          "description": "Interakce více environmentálních režimů — u vodíkových instalací se typicky překrývají požadavky zákona o EIA, vodního zákona, zákona o ovzduší a zákona o prevenci závažných havárií. Koordinace těchto režimů není legislativně upravena a závisí na praxi příslušných orgánů.",
+          "seq_no": 3
+        },
+        {
+          "title": "Kumulativní vlivy",
+          "description": "Kumulativní vlivy — při umisťování instalace do existujícího průmyslového areálu je nutné posoudit kumulativní vlivy se stávajícími provozy, což významně komplikuje dokumentaci EIA.",
+          "seq_no": 4
+        },
+        {
+          "title": "Vodní režim elektrolýzy",
+          "description": "Vodní režim elektrolýzy — spotřeba demineralizované vody a nakládání s koncentráty z úpravny vody vytváří specifický vodoprávní režim, který nemá přímou analogii v jiných typech energetických staveb.",
+          "seq_no": 5
+        },
+        {
+          "title": "Časová náročnost",
+          "description": "Časová náročnost — plná EIA trvá typicky 12–18 měsíců, integrované povolení obdobně. Kombinace obou procesů může prodloužit předrealizační fázi o 2–3 roky, což je u vodíkových projektů často zásadní překážka ekonomické životaschopnosti.",
+          "seq_no": 6
+        }
+      ],
+      "legal_basis_citations": [
+        "100/2001",
+        "114/1992",
+        "201/2012",
+        "254/2001",
+        "541/2020",
+        "76/2002"
+      ]
+    },
+    "U3": {
+      "description": {
+        "purpose": "Ověření, zda je konkrétní technické řešení vodíkové instalace proveditelné z hlediska stavebního práva, technických norem a bezpečnostních požadavků. Stavební povolení je formální předpoklad zahájení realizace stavby.",
+        "role_in_phase": "Třetí sekvenční uzel procesní sítě. Navazuje na územní rozhodnutí (U1) a environmentální posouzení (U2). Představuje přechod od koncepční fáze (kde a za jakých podmínek) k technické fázi (jak konkrétně).",
+        "trigger_condition": "Pravomocné územní rozhodnutí nebo územní souhlas (U1) a závazné stanovisko EIA nebo integrované povolení, pokud bylo vyžadováno (U2). Alternativně může být aktivován jako součást společného povolení sloučeného s územním řízením.",
+        "key_decision_point": "Posouzení projektové dokumentace — zda technické řešení splňuje stavební, bezpečnostní a environmentální požadavky. U vodíkových instalací je kritická absence specifických českých technických norem a nedostatek rutinní praxe stavebních úřadů.",
+        "v01_link_description": "Proces stavebního povolení je v databázi V01 evidován jako samostatný procesní uzel. Databáze obsahuje vazby na relevantní právní předpisy (stavební zákon, prováděcí vyhlášky, technické normy), typové kategorie projektů (elektrolýza, skladování, VČS, vozidla) s indikací specifických požadavků na projektovou dokumentaci, navazující procesní uzly (U1, U2, U5, U6), kontrolní seznamy pro ověření úplnosti žádosti o stavební povolení. Databáze umožňuje pro konkrétní typ instalace vygenerovat orientační seznam dotčených orgánů a požadovaných příloh žádosti."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "projektovou dokumentace zpracovaná autorizovanou osobou v rozsahu stanoveném prováděcí vyhláškou,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "pravomocné územní rozhodnutí nebo územní souhlas (výstup U1),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "závazná stanoviska dotčených orgánů (výstupy U1 a U2) — životní prostředí, požární ochrana, hygiena, bezpečnost práce,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "stanoviska správců technické infrastruktury k napojení na sítě (elektřina, voda, plyn, kanalizace),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "doklady o vlastnickém nebo jiném právu k pozemku a stavbě,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "u vodíkových instalací navíc: bezpečnostní dokumentace (protokoly o klasifikaci nebezpečných látek, návrh ochranných pásem, požárně bezpečnostní řešení).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "MAIN",
+          "branch_name": null,
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": true,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Podání žádosti o stavební povolení — investor předkládá žádost s úplnou projektovou dokumentací a povinnými přílohami stavebnímu úřadu."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Kontrola úplnosti — stavební úřad prověří formální úplnost žádosti. Při nedostatcích vyzve k doplnění; řízení se přerušuje."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Posouzení projektové dokumentace — stavební úřad posoudí soulad návrhu s územním rozhodnutím, obecnými technickými požadavky na stavby, závaznými stanovisky dotčených orgánů a technickými normami."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Ústní jednání a místní šetření — stavební úřad může nařídit ústní jednání, případně spojené s místním šetřením, zejména u záměrů s bezpečnostními riziky."
+            },
+            {
+              "step_number": 5,
+              "title": null,
+              "description": "Vypořádání námitek účastníků — vlastníci sousedních nemovitostí a další účastníci mohou vznášet námitky, které stavební úřad vypořádá v rozhodnutí."
+            },
+            {
+              "step_number": 6,
+              "title": null,
+              "description": "Vydání stavebního povolení — stavební úřad vydá rozhodnutí, kterým stavbu povolí, povolí s podmínkami, nebo žádost zamítne."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor (stavebník)",
+          "abbreviation": null,
+          "process_role": "Žadatel — předkládá žádost a projektovou dokumentaci"
+        },
+        {
+          "name": "Autorizovaný\nprojektant",
+          "abbreviation": null,
+          "process_role": "Zpracovatel projektové dokumentace v požadovaném rozsahu a kvalitě"
+        },
+        {
+          "name": "Stavební úřad",
+          "abbreviation": null,
+          "process_role": "Rozhodující orgán — posuzuje soulad a vydává stavební povolení"
+        },
+        {
+          "name": "Dotčené orgány",
+          "abbreviation": null,
+          "process_role": "Vydávají závazná stanoviska k požární ochraně, hygieně, bezpečnosti práce, ochraně životního prostředí"
+        },
+        {
+          "name": "HZS (Hasičský\nzáchranný sbor)",
+          "abbreviation": "HZS",
+          "process_role": "Posuzuje požárně bezpečnostní řešení stavby — u vodíkových instalací klíčový dotčený orgán"
+        },
+        {
+          "name": "Správci sítí",
+          "abbreviation": null,
+          "process_role": "Vydávají stanoviska k připojení na technickou infrastrukturu"
+        },
+        {
+          "name": "Vlastníci sousedních pozemků",
+          "abbreviation": null,
+          "process_role": "Účastníci řízení — mohou vznášet námitky"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": null,
+          "document_name": "Stavební povolení (nebo společné povolení) stanovující podmínky pro provádění stavby (technologické postupy, lhůty, bezpečnostní opatření, povinnosti stavebníka). Povolení má omezenou platnost — stavba musí být zahájena ve stanovené lhůtě.",
+          "description": "Proces je uzavřen vydáním stavebního povolení (nebo společného povolení). Rozhodnutí potvrzuje, že projektová dokumentace splňuje technické, bezpečnostní a právní požadavky, stanovuje podmínky pro provádění stavby (technologické postupy, lhůty, bezpečnostní opatření), určuje povinnosti stavebníka při realizaci (oznámení zahájení stavby, stavební dozor, kontrolní prohlídky), tvoří závazný podklad pro kolaudaci a uvedení stavby do provozu. Stavební povolení má omezenou platnost — stavba musí být zahájena ve lhůtě stanovené v rozhodnutí, jinak povolení pozbývá platnosti. U vodíkových projektů, kde předrealizační fáze trvá roky, je tento aspekt prakticky významný.",
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Nedostatek zkušeností stavebních úřadů",
+          "description": "Nedostatek zkušeností stavebních úřadů — vodíkové instalace jsou pro většinu stavebních úřadů novou kategorií staveb. Chybí rutinní praxe při posuzování projektové dokumentace zahrnující manipulaci s vodíkem pod vysokým tlakem.",
+          "seq_no": 1
+        },
+        {
+          "title": "Absence specifických technických norem",
+          "description": "Absence specifických technických norem — české technické normy dosud nepokrývají všechna specifika vodíkových staveb. Projektanti se odvolávají na zahraniční normy (ISO, EN), jejichž právní závaznost v českém stavebním řízení může být zpochybněna.",
+          "seq_no": 2
+        },
+        {
+          "title": "Iterace s bezpečnostním režimem (U5)",
+          "description": "Iterace s bezpečnostním režimem (U5) — požadavky hasičského záchranného sboru a orgánů prevence závažných havárií mohou vést k opakovaným úpravám projektové dokumentace, což prodlužuje řízení.",
+          "seq_no": 3
+        },
+        {
+          "title": "Nutnost koordinace stanovisek dotčených orgánů",
+          "description": "Nutnost koordinace stanovisek dotčených orgánů — u vodíkových instalací je počet dotčených orgánů vyšší než u běžných staveb. Koordinace jejich (někdy protichůdných) požadavků klade vysoké nároky na projektanta.",
+          "seq_no": 4
+        },
+        {
+          "title": "Společné povolení vs. samostatné řízení",
+          "description": "Společné povolení vs. samostatné řízení — rozhodnutí, zda využít institut společného povolení, závisí na konkrétních okolnostech. Ne vždy je sloučení řízení výhodné — u složitějších záměrů může společné řízení paradoxně trvat déle.",
+          "seq_no": 5
+        }
+      ],
+      "legal_basis_citations": [
+        "283/2021"
+      ]
+    },
+    "U4": {
+      "description": {
+        "purpose": "Určení právního režimu provozu vodíkové instalace a získání oprávnění k výrobě, skladování, distribuci nebo prodeji vodíku. Řeší otázku, zda a na základě jakého právního titulu smí investor vodík legálně provozovat jako podnikatelskou činnost.",
+        "role_in_phase": "Uzel s nejvyšší variabilitou — průběh se zásadně liší podle obchodního modelu (vlastní spotřeba vs. prodej jako energie vs. prodej jako palivo vs. prodej jako chemikálie). Novela energetického zákona č. 469/2023 Sb. (účinná od 1. 1. 2024) poprvé explicitně zahrnula vodík do energetické legislativy.",
+        "trigger_condition": "Rozhodnutí o obchodním modelu — kdo je odběratelem vodíku a jakým způsobem bude vodík dodáván. Klíčová otázka: je výroba/distribuce/prodej vodíku podnikatelskou činností, nebo jde o vlastní spotřebu?",
+        "key_decision_point": "Klasifikace vodíku — stejná instalace může současně spadat pod energetický zákon, zákon o pohonných hmotách a chemický zákon. Legislativa nestanoví hierarchii ani koordinační mechanismus mezi těmito režimy.",
+        "v01_link_description": "Proces energeticko-provozního oprávnění je v databázi V01 evidován jako procesní uzel s vnitřním větvením podle obchodního modelu. Databáze obsahuje vazby na relevantní právní předpisy (energetický zákon, zákon o pohonných hmotách, živnostenský zákon, chemický zákon), klasifikační schéma vodíku (energie / palivo / chemikálie / vlastní spotřeba), typové kategorie projektů s indikací pravděpodobně požadovaných oprávnění, navazující procesní uzly (U3, U5, U6, U7). Databáze umožňuje pro konkrétní obchodní model a typ instalace orientačně určit, která oprávnění budou vyžadována."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "rozhodnutí o obchodním modelu — kdo je odběratelem vodíku a jakým způsobem bude vodík dodáván,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "technické parametry instalace relevantní pro licenční řízení (kapacita, tlak, čistota vodíku, způsob měření),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "doklady o odborné způsobilosti provozovatele (požadované u regulovaných činností),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "doklady o vlastnickém nebo jiném právu k provozovně,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "u licence ERÚ: finanční zajištění a prokázání schopnosti plnit technické a bezpečnostní podmínky,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "u koncese na pohonné hmoty: složení kauce (zákon o pohonných hmotách stanovuje kauci ve výši 20 mil. Kč pro distributory pohonných hmot).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "A",
+          "branch_name": "Vlastní spotřeba",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "ohlášení živnosti (volné nebo vázané podle rozsahu),"
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "splnění požadavků chemického zákona, pokud množství skladovaného vodíku přesahuje prahové hodnoty,"
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "registrace u České inspekce životního prostředí (pokud je to vyžadováno)."
+            }
+          ]
+        },
+        {
+          "branch_code": "B",
+          "branch_name": "Licence na výrobu/distribuci energie (ERÚ)",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "podání žádosti o licenci u Energetického regulačního úřadu,"
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "prokázání odborné způsobilosti a bezúhonnosti žadatele,"
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "prokázání technické způsobilosti provozovny,"
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "prokázání finančního zajištění,"
+            },
+            {
+              "step_number": 5,
+              "title": null,
+              "description": "vydání licence — typicky v řádu měsíců."
+            },
+            {
+              "step_number": 6,
+              "title": null,
+              "description": "Od 1. 1. 2024 (novela č. 469/2023 Sb.) je vodík explicitně zahrnut do energetického zákona, čímž odpadá předchozí interpretační nejistota o aplikovatelnosti tohoto režimu."
+            }
+          ]
+        },
+        {
+          "branch_code": "C",
+          "branch_name": "Koncese na pohonné hmoty",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "získání koncese podle zákona o pohonných hmotách,"
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "složení kauce (20 mil. Kč pro distributory),"
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "splnění požadavků na kvalitu paliva (EN 17124:2022),"
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "registrace čerpací stanice a její technické vybavení podle EN 17127:2020."
+            }
+          ]
+        },
+        {
+          "branch_code": "D",
+          "branch_name": "Vázaná živnost na výrobu nebezpečných chemikálií",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "získání oprávnění k vázané živnosti „Výroba nebezpečných chemických látek\","
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "splnění požadavků REACH a CLP na registraci a klasifikaci,"
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "zajištění bezpečnostních listů a dokumentace pro odběratele."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Větve se mohou kombinovat — instalace produkující vodík současně pro energetické účely a jako pohonnou hmotu musí splnit požadavky více režimů."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor (provozovatel)",
+          "abbreviation": null,
+          "process_role": "Žadatel — podává žádost o příslušné oprávnění"
+        },
+        {
+          "name": "ERÚ (Energetický regulační úřad)",
+          "abbreviation": "ERÚ",
+          "process_role": "Vydává licence na výrobu, distribuci a skladování energie z vodíku"
+        },
+        {
+          "name": "Živnostenský úřad",
+          "abbreviation": null,
+          "process_role": "Vydává živnostenská oprávnění (volná i vázaná živnost)"
+        },
+        {
+          "name": "Celní úřad / MPO",
+          "abbreviation": null,
+          "process_role": "Správa koncesí na pohonné hmoty; registrace distributorů"
+        },
+        {
+          "name": "ČIŽP (Česká inspekce životního prostředí)",
+          "abbreviation": "ČIŽP",
+          "process_role": "Dozor nad nakládáním s chemickými látkami"
+        },
+        {
+          "name": "Český statistický úřad",
+          "abbreviation": null,
+          "process_role": "Eviduje produkci vodíku pro statistické účely"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": "A",
+          "document_name": "Živnostenské oprávnění; případně registrace dle chemického zákona",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "B",
+          "document_name": "Licence ERÚ na výrobu/distribuci/skladování energie",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "C",
+          "document_name": "Koncese na distribuci pohonných hmot; registrace čerpací stanice",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "D",
+          "document_name": "Oprávnění k vázané živnosti; registrace REACH/CLP",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Souběh více právních režimů",
+          "description": "Souběh více právních režimů — stejná instalace může současně spadat pod energetický zákon, zákon o pohonných hmotách a chemický zákon. Legislativa nestanoví hierarchii ani koordinační mechanismus mezi těmito režimy, což vede k duplicitním požadavkům a nejistotě investorů.",
+          "seq_no": 1
+        },
+        {
+          "title": "Novost právní úpravy",
+          "description": "Novost právní úpravy — novela č. 469/2023 Sb. je účinná teprve od 1. 1. 2024. Správní praxe ERÚ při vydávání licencí na vodíkové aktivity se teprve formuje; chybí ustálená rozhodovací praxe a metodické pokyny.",
+          "seq_no": 2
+        },
+        {
+          "title": "Kauce u pohonných hmot",
+          "description": "Kauce u pohonných hmot — požadavek kauce 20 mil. Kč pro distributory pohonných hmot představuje pro menší projekty vodíkových čerpacích stanic nepřiměřenou finanční bariéru, která neodpovídá objemu distribuce.",
+          "seq_no": 3
+        },
+        {
+          "title": "Hranice vlastní spotřeby",
+          "description": "Hranice vlastní spotřeby — zákon přesně nevymezuje, kdy výroba vodíku přestává být „vlastní spotřebou\" a stává se podnikatelskou činností vyžadující licenci. Případ, kdy provozovatel dodává vodík několika spřízněným subjektům v areálu, je interpretačně sporný.",
+          "seq_no": 4
+        },
+        {
+          "title": "Měření a evidence produkce",
+          "description": "Měření a evidence produkce — u vodíku jako nového regulovaného paliva nejsou dosud plně stanoveny požadavky na měření produkce, kvalitativní parametry a statistické výkaznictví, což komplikuje plnění licenčních podmínek.",
+          "seq_no": 5
+        }
+      ],
+      "legal_basis_citations": [
+        "1907/2006",
+        "311/2006",
+        "350/2011",
+        "455/1991",
+        "458/2000"
+      ]
+    },
+    "U5": {
+      "description": {
+        "purpose": "Stanovení bezpečnostního režimu vodíkové instalace a zajištění opatření k ochraně osob, majetku a životního prostředí před riziky spojenými s manipulací s vodíkem — extrémně hořlavým plynem (H220) s širokým rozmezím výbušnosti (4–75 % obj.) a nízkou iniciační energií.",
+        "role_in_phase": "Uzel s nejvyšším počtem zpětných vazeb v procesní síti. Zahrnuje tři vzájemně propojené složky: prevenci závažných havárií (PZH/Seveso), požární ochranu a režim vyhrazených technických zařízení (tlaková zařízení). Výstupy ovlivňují téměř všechny ostatní uzly.",
+        "trigger_condition": "Aktivován u každé vodíkové instalace bez výjimky — vodík je vždy klasifikován jako nebezpečná látka. Intenzita se liší: malé instalace (obecné požadavky), střední (vyhrazená technická zařízení), velké (plný režim PZH včetně bezpečnostní zprávy a havarijních plánů).",
+        "key_decision_point": "Zařazení instalace do skupiny PZH (A/B/pod prahem) podle celkového množství vodíku; ATEX klasifikace prostor (skupina výbušnosti IIC — nejpřísnější třída); klasifikace tlakových zařízení (I.–IV. třída). Každé zařazení aktivuje jiný rozsah dokumentace a podmínek.",
+        "v01_link_description": "Proces bezpečnostního režimu je v databázi V01 evidován jako procesní uzel se třemi paralelními větvemi (PZH, požární ochrana, vyhrazená technická zařízení). Databáze obsahuje vazby na relevantní právní předpisy (zákon o PZH, zákon o požární ochraně, zákon o vyhrazených technických zařízeních, ATEX nařízení), prahové hodnoty pro zařazení do skupin PZH, technické normy pro vodíkové instalace (ČSN, ISO, EN), typové kategorie projektů s indikací pravděpodobného bezpečnostního režimu a navazující procesní uzly (U1, U2, U3, U4, U6). Databáze umožňuje pro konkrétní typ instalace a její parametry orientačně určit, které bezpečnostní režimy budou aktivovány a jaká dokumentace bude vyžadována."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "technický popis instalace s údaji o množství vodíku v jednotlivých částech systému (výrobní, skladovací, distribuční),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "provozní parametry (tlak, teplota, průtok, skupenství vodíku),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "situační výkres s vyznačením bezpečnostních vzdáleností od okolní zástavby, veřejných komunikací a jiných provozů,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "dokumentace o klasifikaci prostor s nebezpečím výbuchu (ATEX zóny),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "návrh požárně bezpečnostního řešení stavby,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "identifikace tlakových zařízení a jejich zařazení do tříd podle nařízení vlády,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 7,
+          "description": "údaje o bezpečnostních systémech (detekce úniků, havarijní ventilace, nouzové odstavení, přetlakové pojistky).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "A",
+          "branch_name": "Prevence závažných havárií (PZH)",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Posouzení množství nebezpečných látek — investor vypočte celkové množství vodíku přítomného v instalaci a porovná s prahovými hodnotami přílohy zákona č. 224/2015 Sb."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Zařazení do skupiny — instalace je zařazena do skupiny A (nižší práh), skupiny B (vyšší práh) nebo pod prahové hodnoty."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Zpracování bezpečnostní dokumentace — u skupiny A: bezpečnostní program; u skupiny B: bezpečnostní zpráva a vnitřní havarijní plán. Pod prahem: bez povinné dokumentace PZH."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Schválení krajským úřadem — krajský úřad posuzuje dokumentaci PZH a vydává souhlas."
+            }
+          ]
+        },
+        {
+          "branch_code": "B",
+          "branch_name": "Požární ochrana",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Zpracování požárně bezpečnostního řešení (PBŘ) — autorizovaný inženýr zpracuje PBŘ jako součást projektové dokumentace. U vodíkových instalací zahrnuje specifická rizika (hořlavý plyn, vysoké tlaky, ATEX zóny)."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Posouzení HZS — Hasičský záchranný sbor posuzuje PBŘ a vydává závazné stanovisko."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Stanovení podmínek — HZS může stanovit podmínky pro realizaci a provoz (systémy detekce, havarijní ventilace, přístupové cesty pro zásah)."
+            }
+          ]
+        },
+        {
+          "branch_code": "C",
+          "branch_name": "Vyhrazená technická zařízení",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Identifikace a klasifikace tlakových zařízení — všechna tlaková zařízení v instalaci (zásobníky, kompresory, potrubí) jsou zařazena do tříd podle nařízení vlády č. 192/2022 Sb."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Posouzení TIČR — Technická inspekce České republiky posuzuje zařízení I. třídy (nejvyšší riziko). U ostatních tříd postačuje posouzení revizním technikem."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Stanovení revizního režimu — určení intervalů a rozsahu revizí a zkoušek tlakových zařízení."
+            }
+          ]
+        },
+        {
+          "branch_code": "X",
+          "branch_name": "ATEX klasifikace",
+          "activation_condition": null,
+          "description": "Průřezová podmínka platící napříč ostatními větvemi tohoto uzlu.",
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Klasifikace prostor s nebezpečím výbuchu (zóny 0, 1, 2 pro plyny) probíhá jako součást projektové přípravy a prolíná se všemi třemi větvemi. Výsledek ATEX klasifikace určuje požadavky na veškeré elektrické a mechanické vybavení v daných prostorech (certifikace Ex). Pro vodík platí skupina výbušnosti IIC (nejvyšší nebezpečí)."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor (provozovatel)",
+          "abbreviation": null,
+          "process_role": "Odpovědný za zpracování bezpečnostní dokumentace a zajištění bezpečnostních opatření"
+        },
+        {
+          "name": "Autorizovaný bezpečnostní inženýr",
+          "abbreviation": null,
+          "process_role": "Zpracovatel požárně bezpečnostního řešení a dokumentace PZH"
+        },
+        {
+          "name": "HZS (Hasičský záchranný sbor)",
+          "abbreviation": "HZS",
+          "process_role": "Posuzuje PBŘ; vydává závazné stanovisko k požární bezpečnosti; schvaluje havarijní plány"
+        },
+        {
+          "name": "Krajský úřad (odbor PZH)",
+          "abbreviation": null,
+          "process_role": "Posuzuje dokumentaci prevence závažných havárií; vydává souhlas pro skupinu A a B"
+        },
+        {
+          "name": "TIČR (Technická inspekce ČR)",
+          "abbreviation": "TIČR",
+          "process_role": "Posuzuje vyhrazená technická zařízení I. třídy; vydává odborná stanoviska"
+        },
+        {
+          "name": "Revizní technik",
+          "abbreviation": null,
+          "process_role": "Provádí revize a zkoušky tlakových, plynových a elektrických zařízení nižších tříd"
+        },
+        {
+          "name": "OIP (Oblastní inspektorát práce)",
+          "abbreviation": "OIP",
+          "process_role": "Dozor nad bezpečností práce s vyhrazenými technickými zařízeními"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": "A",
+          "document_name": "Souhlas krajského úřadu s dokumentací PZH (bezpečnostní program nebo bezpečnostní zpráva); vnitřní havarijní plán",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "B",
+          "document_name": "Závazné stanovisko HZS k požárně bezpečnostnímu řešení stavby",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "C",
+          "document_name": "Odborné stanovisko TIČR (u I. třídy); revizní zprávy; stanovení revizního režimu",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "Průřezově",
+          "document_name": "Dokumentace ATEX klasifikace prostor; protokol o zařazení Ex zón",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Překryv tří bezpečnostních režimů",
+          "description": "Překryv tří bezpečnostních režimů — PZH, požární ochrana a režim vyhrazených technických zařízení jsou upraveny samostatnými zákony s různými příslušnými orgány. U vodíkových instalací se všechny tři režimy uplatňují současně, ale legislativa nestanoví koordinační mechanismus. Investor musí komunikovat se třemi nezávislými orgány, jejichž požadavky mohou být nesourodé.",
+          "seq_no": 1
+        },
+        {
+          "title": "Nejasné prahové hodnoty PZH",
+          "description": "Nejasné prahové hodnoty PZH — zákon č. 224/2015 Sb. stanovuje prahové hodnoty pro nebezpečné látky, ale u vodíku v různých formách (stlačený, zkapalněný, absorbovaný v metal-hydridech) může být výpočet celkového množství interpretačně sporný.",
+          "seq_no": 2
+        },
+        {
+          "title": "Bezpečnostní vzdálenosti bez jednotné metodiky",
+          "description": "Bezpečnostní vzdálenosti bez jednotné metodiky — pro vodíkové instalace neexistuje v ČR jednotná metodika pro stanovení bezpečnostních vzdáleností. Používají se zahraniční standardy (ISO/TR 15916, NFPA 2), jejichž právní závaznost je nejistá.",
+          "seq_no": 3
+        },
+        {
+          "title": "ATEX klasifikace pro vodík",
+          "description": "ATEX klasifikace pro vodík — vodík spadá do skupiny výbušnosti IIC (nejvyšší třída), což vyžaduje nejpřísnější certifikaci vybavení. Dostupnost certifikovaných komponent pro skupinu IIC je omezenější a nákladnější než pro běžnější skupiny (IIA, IIB).",
+          "seq_no": 4
+        },
+        {
+          "title": "Iterace s projektovou dokumentací",
+          "description": "Iterace s projektovou dokumentací — požadavky HZS a orgánů PZH často vedou k opakovaným úpravám projektové dokumentace, protože vodíkové technologie nejsou pro tyto orgány rutinní záležitostí. Tento iterativní proces prodlužuje předrealizační fázi.",
+          "seq_no": 5
+        }
+      ],
+      "legal_basis_citations": [
+        "116/2016",
+        "133/1985",
+        "192/2022",
+        "1999/92/ES",
+        "2012/18/EU",
+        "2014/34/EU",
+        "224/2015",
+        "246/2001",
+        "250/2021",
+        "406/2004",
+        "ČSN 73 0804"
+      ]
+    },
+    "U6": {
+      "description": {
+        "purpose": "Zajištění technicky a smluvně podloženého přístupu vodíkové instalace k sítím a zdrojům nezbytným pro provoz — zejména k elektrizační soustavě, zdroji vody, případně plynárenské soustavě a dopravní infrastruktuře. Bez zajištěného připojení je projekt nerealizovatelný.",
+        "role_in_phase": "Konvergenční uzel procesní sítě — přijímá vstupy z většiny předchozích uzlů a jeho výstupy přímo determinují ekonomickou životaschopnost projektu. Odlišný charakter od ostatních uzlů: nejedná se o správní řízení, ale o technickou a obchodní interakci s provozovateli sítí.",
+        "trigger_condition": "Konkretizace technických parametrů instalace (elektrický příkon, spotřeba vody, způsob distribuce vodíku). Proces je ideálně aktivován souběžně s územním řízením (U1), protože dostupnost infrastruktury zásadně ovlivňuje volbu lokality.",
+        "key_decision_point": "Posouzení technické proveditelnosti připojení — zejména zda má elektrizační soustava v dané lokalitě dostatečnou kapacitu pro velký příkon elektrolyzéru (desítky MW). Nedostatečná kapacita vyžaduje posílení sítě v řádu let a desítek milionů Kč, což může projekt ekonomicky zablokovat.",
+        "v01_link_description": "Proces připojení k infrastruktuře je v databázi V01 evidován jako procesní uzel s paralelními větvemi (elektřina, voda, plyn, doprava). Databáze obsahuje vazby na relevantní právní předpisy (energetický zákon, vodní zákon, zákon o vodovodech a kanalizacích, zákon o pozemních komunikacích), provozovatele infrastrukturních sítí v ČR (ČEPS, distribuční společnosti, vodárenské společnosti), typové kategorie projektů s indikací dominantních infrastrukturních požadavků a navazující procesní uzly (U1, U2, U3, U4, U5, U7). Databáze umožňuje pro konkrétní typ instalace a lokalitu orientačně určit, které infrastrukturní větve budou aktivovány a jaké jsou předpokládané lhůty a náklady."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "technická specifikace odběru elektrické energie (příkon v MW, napěťová úroveň, diagram zatížení, požadavky na kvalitu dodávky),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "specifikace potřeby vody (množství v m³/den, kvalitativní parametry, režim odběru — kontinuální/přerušovaný),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "specifikace nakládání s odpadními vodami (množství, kvalita, způsob předčištění),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "údaje o předpokládané produkci vodíku a způsobu jeho distribuce (potrubí, cisternová přeprava, místní spotřeba),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "situační výkres s vyznačením tras přípojek a napojovacích bodů,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "výsledky předběžného jednání s provozovateli sítí (pokud proběhlo).",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 7,
+          "description": "U elektrolyzérů je dominantním vstupem specifikace elektrického příkonu — instalace o kapacitě 1 MW spotřebovává přibližně 50–55 kWh na 1 kg vodíku, přičemž projekty v řádu desítek MW představují pro distribuční soustavu významný odběr srovnatelný s velkými průmyslovými podniky.",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "A",
+          "branch_name": "Připojení k elektrizační soustavě",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Žádost o připojení — investor podává žádost u příslušného provozovatele distribuční soustavy (nebo přímo u ČEPS, pokud jde o připojení na přenosovou úroveň). Žádost obsahuje požadovaný příkon a technické parametry."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Posouzení technické proveditelnosti — provozovatel soustavy vyhodnotí, zda má síť v daném místě dostatečnou kapacitu. U velkých elektrolyzérů (desítky MW) je pravděpodobné, že bude nutné posílení sítě."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Vydání podmínek připojení — provozovatel stanoví technické podmínky, bod připojení a podíl investora na nákladech připojení."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Uzavření smlouvy o připojení — smluvní ujednání o technických a obchodních podmínkách včetně harmonogramu realizace přípojky."
+            },
+            {
+              "step_number": 5,
+              "title": null,
+              "description": "Realizace přípojky — fyzické vybudování přípojky, které může trvat měsíce až roky v závislosti na rozsahu nutného posílení sítě."
+            }
+          ]
+        },
+        {
+          "branch_code": "B",
+          "branch_name": "Zajištění zdroje vody",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Identifikace zdroje — veřejný vodovod, vlastní studna, povrchový odběr nebo kombinace. Volba závisí na požadovaném množství a kvalitě."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Žádost o připojení k vodovodu — u veřejného vodovodu podání žádosti u provozovatele vodovodu; u vlastního zdroje žádost o povolení k odběru podzemních/povrchových vod u vodoprávního úřadu."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Řešení odpadních vod — demineralizace vody pro elektrolýzu produkuje koncentráty, které vyžadují řešení — vypouštění do kanalizace (se souhlasem provozovatele), vlastní čistírna nebo odvoz."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Uzavření smluv — smlouvy o dodávce vody a odvádění odpadních vod."
+            }
+          ]
+        },
+        {
+          "branch_code": "C",
+          "branch_name": "Připojení k plynárenské soustavě (pokud relevantní)",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Posouzení přípustnosti vtláčení — pokud je záměrem vtláčet vodík do plynárenské soustavy, je nutné posoudit kompatibilitu s existující infrastrukturou (limity pro příměs vodíku v zemním plynu)."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Jednání s provozovatelem soustavy — podmínky připojení, kvalitativní požadavky na vtláčený plyn, měření."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Uzavření smlouvy — smlouva o přístupu k plynárenské soustavě a vtláčení."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Tato větev je v současnosti spíše výjimečná — většina vodíkových projektů v ČR distribuuje vodík jiným způsobem než vtláčením do plynárenské soustavy."
+            }
+          ]
+        },
+        {
+          "branch_code": "D",
+          "branch_name": "Dopravní napojení",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Posouzení dopravní zátěže — zejména u čerpacích stanic a skladovacích areálů je nutné posoudit vliv na okolní komunikace."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Povolení sjezdu na pozemní komunikaci — u nových lokalit vyžaduje souhlas správce komunikace."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Řešení logistiky přepravy vodíku — pokud je vodík distribuován cisternovou přepravou, musí být zajištěn přístup pro ADR vozidla."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor",
+          "abbreviation": null,
+          "process_role": "Žadatel — podává žádosti o připojení a uzavírá smlouvy"
+        },
+        {
+          "name": "ČEPS (Česká přenosová soustava)",
+          "abbreviation": "ČEPS",
+          "process_role": "Provozovatel přenosové soustavy — připojení na úrovni VVN (110+ kV)"
+        },
+        {
+          "name": "Distributoři elektřiny (ČEZ, E.ON, PRE)",
+          "abbreviation": null,
+          "process_role": "Provozovatelé distribučních soustav — připojení na úrovni VN/NN"
+        },
+        {
+          "name": "ERÚ",
+          "abbreviation": null,
+          "process_role": "Regulátor — stanovuje pravidla připojení, řeší spory"
+        },
+        {
+          "name": "Provozovatel vodovodu",
+          "abbreviation": null,
+          "process_role": "Zajišťuje připojení k veřejnému vodovodu a odvádění odpadních vod"
+        },
+        {
+          "name": "Vodoprávní úřad",
+          "abbreviation": null,
+          "process_role": "Vydává povolení k odběru podzemních/povrchových vod"
+        },
+        {
+          "name": "Provozovatel plynárenské soustavy",
+          "abbreviation": null,
+          "process_role": "Podmínky připojení a vtláčení vodíku do plynárenské soustavy"
+        },
+        {
+          "name": "Správce komunikace",
+          "abbreviation": null,
+          "process_role": "Povoluje napojení na pozemní komunikace"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": "A",
+          "document_name": "Smlouva o připojení k elektrizační soustavě; technické podmínky připojení; harmonogram realizace přípojky",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "B",
+          "document_name": "Smlouva o dodávce vody; povolení k odběru (u vlastního zdroje); smlouva o odvádění odpadních vod",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "C",
+          "document_name": "Smlouva o přístupu k plynárenské soustavě (pokud relevantní)",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "D",
+          "document_name": "Povolení sjezdu; posouzení dopravní zátěže",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Nedostatečná kapacita distribuční soustavy",
+          "description": "Nedostatečná kapacita distribuční soustavy — existující distribuční sítě v průmyslových zónách a rurálních oblastech často nemají dostatečnou kapacitu pro připojení velkých elektrolyzérů. Posílení sítě vyžaduje investici provozovatele soustavy a lhůty 2–3 roky, které často překračují harmonogram vodíkového projektu.",
+          "seq_no": 1
+        },
+        {
+          "title": "Nepředvídatelné náklady na připojení",
+          "description": "Nepředvídatelné náklady na připojení — podíl investora na nákladech připojení k elektrizační soustavě může dosáhnout desítek milionů Kč a není znám v rané fázi projektu. Tato nejistota komplikuje ekonomické modelování a rozhodování o investici.",
+          "seq_no": 2
+        },
+        {
+          "title": "Zajištění původu elektřiny pro RFNBO",
+          "description": "Zajištění původu elektřiny pro RFNBO — pokud je cílem certifikace vodíku jako RFNBO (U7), musí investor prokázat, že elektřina pochází z obnovitelných zdrojů. Požadavky na časovou a geografickou korelaci mezi výrobou elektřiny a výrobou vodíku představují specifickou výzvu, která přesahuje standardní proces připojení k soustavě.",
+          "seq_no": 3
+        },
+        {
+          "title": "Vodní režim elektrolýzy",
+          "description": "Vodní režim elektrolýzy — potřeba demineralizované vody a nakládání s koncentráty z úpravny nemají přímou analogii v jiných energetických stavbách. Provozovatelé vodovodů nemusí mít zkušenost s tímto typem odběratele a podmínky připojení se stanovují individuálně.",
+          "seq_no": 4
+        },
+        {
+          "title": "Vtláčení vodíku do plynárenské soustavy",
+          "description": "Vtláčení vodíku do plynárenské soustavy — regulatorní rámec pro vtláčení vodíku do stávající plynárenské infrastruktury je v ČR dosud neúplný. Chybí standardizované smlouvy, technické podmínky i limity pro příměs vodíku v zemním plynu.",
+          "seq_no": 5
+        },
+        {
+          "title": "Časová koordinace",
+          "description": "Časová koordinace — připojení k soustavě vyžaduje souběh s územním řízením (U1), stavebním řízením (U3) a bezpečnostním režimem (U5). Zpoždění v jednom procesu se přenáší do ostatních.",
+          "seq_no": 6
+        }
+      ],
+      "legal_basis_citations": [
+        "13/1997",
+        "254/2001",
+        "274/2001",
+        "458/2000"
+      ]
+    },
+    "U7": {
+      "description": {
+        "purpose": "Ověření, zda vyrobený vodík splňuje kvalitativní, environmentální a regulatorní požadavky umožňující jeho uvedení na trh v deklarované kategorii — zejména jako RFNBO (obnovitelné palivo nebiologického původu), nízkouhlíkový vodík nebo kvalitativně certifikované palivo (EN 17124:2022).",
+        "role_in_phase": "Koncový uzel procesní sítě s primárně ekonomickým a regulatorním významem. Neřeší technickou realizovatelnost projektu, ale jeho tržní pozici. Certifikace RFNBO umožňuje přístup k dotacím, plnění regulatorních kvót a realizaci cenové prémie za „zelený\" vodík. U projektů pro vlastní spotřebu může být irelevantní.",
+        "trigger_condition": "Záměr deklarovat vodík jako RFNBO, prodávat jako palivo (EN 17124:2022), dodávat do plynárenské soustavy nebo uplatnit záruky původu. Proces se neaktivuje u výroby pro vlastní spotřebu bez nároku na certifikaci. Časově aktivován v pozdní fázi přípravy — po rozhodnutí o obchodním modelu (U4) a zajištění zdroje elektřiny (U6).",
+        "key_decision_point": "Splnění kritérií delegovaných aktů EU pro RFNBO — zejména prokázání adicionality obnovitelného zdroje, časové a geografické korelace a emisního prahu. V českém kontextu komplikováno omezenou kapacitou OZE a nedokončenou transpozicí do národní legislativy.",
+        "v01_link_description": "Proces certifikace produktu je v databázi V01 evidován jako koncový uzel procesní sítě. Databáze obsahuje vazby na: relevantní právní předpisy (RED II/III, delegované akty EU, zákon o pohonných hmotách, připravovaná legislativa k zárukám původu), technické normy (EN 17124:2022, EN 17127:2020), kritéria RFNBO certifikace (adicionalita, korelace, emisní práh), typové kategorie projektů s indikací relevance certifikace, předchozí procesní uzly ovlivňující dosažitelnost certifikace (U4, U6). Databáze umožňuje pro konkrétní obchodní model a zdroj elektřiny orientačně posoudit, zda je certifikace RFNBO dosažitelná a ekonomicky smysluplná."
+      },
+      "inputs": [
+        {
+          "seq_no": 1,
+          "description": "specifikace výrobního procesu a jeho vliv na čistotu vodíku,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 2,
+          "description": "certifikovaná měřicí zařízení na výstupu výroby,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 3,
+          "description": "protokoly o kvalitě vodíku (čistota, příměsi).",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 4,
+          "description": "prokázání původu elektřiny z obnovitelných zdrojů (smlouva o nákupu elektřiny — PPA, nebo vlastní zdroj OZE),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 5,
+          "description": "prokázání splnění kritéria adicionality — elektřina musí pocházet z nového obnovitelného zdroje (s výjimkami),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 6,
+          "description": "prokázání časové korelace — výroba vodíku musí časově odpovídat výrobě obnovitelné elektřiny (hodinová korelace od roku 2030),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 7,
+          "description": "prokázání geografické korelace — obnovitelný zdroj a elektrolyzér musí být ve stejné nabídkové zóně elektřiny nebo v propojené zóně,",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 8,
+          "description": "výpočet emisí skleníkových plynů v životním cyklu podle metodiky (EU) 2023/1185 — emise musí být ≤ 3,38 kg CO₂eq/kg H₂ (tj. 70% úspora oproti fosilní referenci).",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 9,
+          "description": "registrace v systému záruk původu (jakmile bude v ČR implementován),",
+          "is_specific_to_hydrogen": false
+        },
+        {
+          "seq_no": 10,
+          "description": "údaje o výrobě vodíku (množství, čas, způsob výroby, uhlíková intenzita).",
+          "is_specific_to_hydrogen": false
+        }
+      ],
+      "branches": [
+        {
+          "branch_code": "A",
+          "branch_name": "Kvalitativní certifikace (jakost vodíku)",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Instalace certifikovaných měřicích zařízení — na výstupu výrobního procesu musí být instalována měřidla schválená pro obchodní měření vodíku."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Průběžné monitorování kvality — ověření, že vodík splňuje parametry EN 17124:2022 (čistota ≥ 99,97 %, limity na příměsi — H₂O, O₂, N₂, CO, CO₂, síra, formaldehyd, uhlovodíky a další)."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Certifikace akreditovanou laboratoří — nezávislé ověření kvalitativních parametrů."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Vydání certifikátu kvality — průběžná dokumentace kvality dodávaného vodíku."
+            }
+          ]
+        },
+        {
+          "branch_code": "B",
+          "branch_name": "Certifikace RFNBO (původ a udržitelnost)",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Prokázání původu elektřiny — investor dokládá, že elektřina použitá pro elektrolýzu pochází z obnovitelných zdrojů v souladu s delegovanými akty (EU) 2023/1184 a 2023/1185."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Ověření kritéria adicionality — prokázání, že obnovitelný zdroj splňuje požadavky na „novost\" (uvedení do provozu max. 36 měsíců před elektrolyzérem, s výjimkami pro určité zóny a období)."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Ověření časové a geografické korelace — prokázání, že výroba vodíku odpovídá výrobě obnovitelné elektřiny v čase (měsíční korelace do 2030, poté hodinová) a prostoru (stejná nabídková zóna)."
+            },
+            {
+              "step_number": 4,
+              "title": null,
+              "description": "Výpočet emisí v životním cyklu — kvantifikace emisí skleníkových plynů podle metodiky delegovaného aktu; emise musí být ≤ 3,38 kg CO₂eq/kg H₂."
+            },
+            {
+              "step_number": 5,
+              "title": null,
+              "description": "Audit certifikačním orgánem — nezávislý certifikační orgán ověří splnění všech kritérií."
+            },
+            {
+              "step_number": 6,
+              "title": null,
+              "description": "Vydání certifikátu RFNBO — dokládá, že vodík splňuje kritéria pro obnovitelná paliva nebiologického původu."
+            }
+          ]
+        },
+        {
+          "branch_code": "C",
+          "branch_name": "Záruky původu",
+          "activation_condition": null,
+          "description": null,
+          "output_document": null,
+          "is_default": false,
+          "steps": [
+            {
+              "step_number": 1,
+              "title": null,
+              "description": "Registrace v systému záruk původu — v ČR dosud probíhá implementace systému záruk původu pro vodík v souladu s RED III."
+            },
+            {
+              "step_number": 2,
+              "title": null,
+              "description": "Průběžná evidence výroby — měření a dokumentace výroby vodíku s vazbou na zdroj energie."
+            },
+            {
+              "step_number": 3,
+              "title": null,
+              "description": "Vydání záruk původu — obchodovatelné certifikáty prokazující obnovitelný původ vodíku."
+            }
+          ]
+        }
+      ],
+      "subjects": [
+        {
+          "name": "Investor (výrobce vodíku)",
+          "abbreviation": null,
+          "process_role": "Žadatel o certifikaci; odpovědný za dokumentaci a průběžné plnění podmínek"
+        },
+        {
+          "name": "Certifikační orgán (třetí strana)",
+          "abbreviation": null,
+          "process_role": "Provádí audit a vydává certifikát RFNBO; ověřuje splnění delegovaných aktů EU"
+        },
+        {
+          "name": "Akreditovaná laboratoř",
+          "abbreviation": null,
+          "process_role": "Ověřuje kvalitativní parametry vodíku (EN 17124:2022)"
+        },
+        {
+          "name": "OTE (Operátor trhu s elektřinou)",
+          "abbreviation": "OTE",
+          "process_role": "Správce systému záruk původu v ČR (předpokládaná role po implementaci)"
+        },
+        {
+          "name": "ERÚ",
+          "abbreviation": null,
+          "process_role": "Regulátor — dozor nad plněním podmínek pro obnovitelnou energii"
+        },
+        {
+          "name": "MPO (Ministerstvo průmyslu a obchodu)",
+          "abbreviation": "MPO",
+          "process_role": "Gestorský orgán pro transpozici RED III a implementaci systému certifikace"
+        },
+        {
+          "name": "Dodavatel elektřiny / provozovatel OZE",
+          "abbreviation": null,
+          "process_role": "Dokládá původ elektřiny z obnovitelných zdrojů (PPA, záruky původu elektřiny)"
+        }
+      ],
+      "outputs": [
+        {
+          "branch_code": "A",
+          "document_name": "Certifikát kvality vodíku (shoda s EN 17124:2022); průběžné protokoly o jakosti",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "B",
+          "document_name": "Certifikát RFNBO vydaný nezávislým certifikačním orgánem; dokumentace auditu",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        },
+        {
+          "branch_code": "C",
+          "document_name": "Záruky původu registrované v národním systému (po implementaci)",
+          "description": null,
+          "enables_next_node": null,
+          "is_project_blocking": false
+        }
+      ],
+      "problems": [
+        {
+          "title": "Zpřísnění pravidel po roce 2027",
+          "description": "Zpřísnění pravidel po roce 2027 — delegované akty EU stanovují přechodné období s mírnějšími požadavky na časovou korelaci (měsíční do 2030, poté hodinová). Projekty uvedené do provozu po roce 2027 budou podléhat přísnějším podmínkám, což vytváří tlak na urychlení realizace. Česká vodíková strategie explicitně upozorňuje na potřebu dokončit projekty před tímto datem.",
+          "seq_no": 1
+        },
+        {
+          "title": "Nedokončená transpozice do české legislativy",
+          "description": "Nedokončená transpozice do české legislativy — systém záruk původu pro vodík je v ČR dosud v přípravě. Investoři nemají právní jistotu ohledně konkrétního mechanismu certifikace a registrace na národní úrovni.",
+          "seq_no": 2
+        },
+        {
+          "title": "Kritérium adicionality",
+          "description": "Kritérium adicionality — požadavek, aby obnovitelný zdroj elektřiny byl „nový\" (uvedený do provozu max. 36 měsíců před elektrolyzérem), omezuje možnost využití existujících OZE. V českém kontextu, kde je kapacita OZE relativně omezená, představuje toto kritérium praktickou bariéru.",
+          "seq_no": 3
+        },
+        {
+          "title": "Náklady na certifikaci",
+          "description": "Náklady na certifikaci — audit nezávislým certifikačním orgánem a průběžné monitorování plnění podmínek představují provozní náklady, které mohou být u menších projektů nepřiměřené ve vztahu k přínosu certifikace.",
+          "seq_no": 4
+        },
+        {
+          "title": "Ekonomická nejistota",
+          "description": "Ekonomická nejistota — tržní prémie za „zelený\" vodík (oproti konvenčnímu) je dosud nestabilní a závisí na regulatorním vývoji. Investor musí rozhodovat o investici do RFNBO certifikace v podmínkách značné nejistoty ohledně budoucí hodnoty certifikátu.",
+          "seq_no": 5
+        },
+        {
+          "title": "Měření a evidence",
+          "description": "Měření a evidence — požadavky na přesnost měření produkce vodíku a jeho kvalitativních parametrů nejsou v českém právním prostředí dosud plně standardizovány. Český statistický úřad a ERÚ teprve formují metodiku evidence.",
+          "seq_no": 6
+        }
+      ],
+      "legal_basis_citations": [
+        "2018/2001",
+        "2023/1184",
+        "2023/1185",
+        "2023/1804",
+        "2023/2413",
+        "268/2009",
+        "311/2006",
+        "EN ISO 17268"
+      ]
+    }
+  },
+  "node_document_examples": {
+    "U1": [
+      "283/2021"
+    ],
+    "U2": [
+      "100/2001",
+      "76/2002"
+    ],
+    "U3": [
+      "283/2021"
+    ],
+    "U4": [],
+    "U5": [
+      "224/2015",
+      "250/2021"
+    ],
+    "U6": [],
+    "U7": []
+  },
+  "bibliography": [
+    {
+      "ref_id": 1,
+      "text": "Ministerstvo průmyslu a obchodu ČR. Vodíková strategie České republiky — aktualizace 2024. Praha: MPO, 2024."
+    },
+    {
+      "ref_id": 2,
+      "text": "NAHYC. Základní koncept rozvoje ostrovních řešení (výstup NAHYC DP001-V01). 2024."
+    },
+    {
+      "ref_id": 3,
+      "text": "NAHYC. Optimalizace parametrů VČS a jejího zásobování (výstup NAHYC DP001-V04-O). 2024."
+    },
+    {
+      "ref_id": 4,
+      "text": "NAHYC. Vodíkový inkubátor — zdůvodnění dílčího projektu DP004. Prosinec 2024."
+    },
+    {
+      "ref_id": 5,
+      "text": "Metodika vodíkových údolí. (metodický dokument k přípravě vodíkových údolí v ČR)."
+    },
+    {
+      "ref_id": 6,
+      "text": "HYTEP — Česká vodíková technologická platforma. Instrukce: Výroba vodíku elektrolýzou vody z hlediska živnostenského oprávnění. Praha: HYTEP, leden 2024."
+    },
+    {
+      "ref_id": 7,
+      "text": "HYTEP. Aktualizace oprávnění k výrobě vodíku. Praha: HYTEP, duben 2024."
+    },
+    {
+      "ref_id": 8,
+      "text": "HYTEP. Případová studie výstavby elektrolyzéru v několika režimech výroby. Praha: HYTEP, 2023."
+    },
+    {
+      "ref_id": 9,
+      "text": "HYTEP. Co znamená evropská Dohoda o čistém průmyslu pro vodík. Praha: HYTEP, březen 2025."
+    },
+    {
+      "ref_id": 10,
+      "text": "HYTEP. Pravidla pro výrobu vodíku jsou příliš přísná. Praha: HYTEP, květen 2025."
+    },
+    {
+      "ref_id": 11,
+      "text": "European Hydrogen Technology and Training Alliance. EHTA Modul 1 — Vodíkové čerpací stanice (česká verze). EHTA."
+    },
+    {
+      "ref_id": 12,
+      "text": "European Hydrogen Technology and Training Alliance. EHTA Modul 2 — Vodíková vozidla (česká verze). EHTA."
+    },
+    {
+      "ref_id": 13,
+      "text": "European Hydrogen Technology and Training Alliance. EHTA Modul 4 — Skladování a přeprava vodíku (česká verze). EHTA."
+    },
+    {
+      "ref_id": 14,
+      "text": "European Hydrogen Technology and Training Alliance. EHTA Modul 5 — Elektrolýza: Výroba vodíku (česká verze). EHTA."
+    },
+    {
+      "ref_id": 15,
+      "text": "European Hydrogen Technology and Training Alliance. EHTA Modul 5 — Elektrolýza: Výroba vodíku (česká verze). EHTA. [V textu citováno jako zdroj k technickým parametrům výroby.]"
+    },
+    {
+      "ref_id": 16,
+      "text": "Progresivní rozvoj vodíkového hospodářství. Řež: Ústav jaderného výzkumu Řež (ÚJV), 2022."
+    },
+    {
+      "ref_id": 17,
+      "text": "Ekonomické zhodnocení VČS s lokální výrobou. Diplomová práce. Praha: České vysoké učení technické v Praze (ČVUT), 2023."
+    },
+    {
+      "ref_id": 18,
+      "text": "Elektrolýza. Bakalářská práce. Brno: Vysoké učení technické v Brně (VUT), 2017."
+    },
+    {
+      "ref_id": 19,
+      "text": "Vodíkové technologie pro ekologické energetické hospodářství. Bakalářská práce. Brno: Vysoké učení technické v Brně (VUT), 2018."
+    },
+    {
+      "ref_id": 20,
+      "text": "Příloha — Vysvětlení a změny zadávací dokumentace č. 1 (vodíková čerpací stanice). IROP / Ministerstvo pro místní rozvoj."
+    },
+    {
+      "ref_id": 21,
+      "text": "Podmínky dotace VČS — IROP (požadavky na shodu s EN 17127:2020 a EN 17124:2022). Integrovaný regionální operační program."
+    },
+    {
+      "ref_id": 22,
+      "text": "Přikryl, J., Ševčík, J., Kremlík, V., Michalík, J., Streit, L., Blahník, V., Plisková, S. (ZČU); Přikryl, V., Vahalík, B., Svejkovská, A. (CDV); Prokop, L., Seidl, D. (VŠB-TUO); Sochor, J., Weissová, Š. (HYTEP). NAHYC DP004 V01 — Databáze regulačních předpisů a předrealizačních procesů. 2026."
+    },
+    {
+      "ref_id": 23,
+      "text": "Vodík: Cesta inovací (prezentace). Informační materiál k vodíkovým technologiím."
+    },
+    {
+      "ref_id": 24,
+      "text": "Zákon č. 283/2021 Sb., o územním plánování a stavebním řádu (stavební zákon). In: Sbírka zákonů ČR, částka 128/2021."
+    },
+    {
+      "ref_id": 25,
+      "text": "Zákon č. 100/2001 Sb., o posuzování vlivů na životní prostředí a o změně některých souvisejících zákonů (zákon o posuzování vlivů na životní prostředí), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 26,
+      "text": "Zákon č. 76/2002 Sb., o integrované prevenci a omezování znečištění, o integrovaném registru znečišťování a o změně některých zákonů (zákon o integrované prevenci), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 27,
+      "text": "Zákon č. 254/2001 Sb., o vodách a o změně některých zákonů (vodní zákon), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 28,
+      "text": "Zákon č. 201/2012 Sb., o ochraně ovzduší, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 29,
+      "text": "Zákon č. 114/1992 Sb., o ochraně přírody a krajiny, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 30,
+      "text": "Zákon č. 541/2020 Sb., o odpadech, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 31,
+      "text": "Zákon č. 458/2000 Sb., o podmínkách podnikání a o výkonu státní správy v energetických odvětvích a o změně některých zákonů (energetický zákon), ve znění pozdějších předpisů, zejména novely č. 469/2023 Sb. účinné od 1. 1. 2024."
+    },
+    {
+      "ref_id": 32,
+      "text": "Zákon č. 311/2006 Sb., o pohonných hmotách a čerpacích stanicích pohonných hmot a o změně některých souvisejících zákonů (zákon o pohonných hmotách), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 33,
+      "text": "Zákon č. 455/1991 Sb., o živnostenském podnikání (živnostenský zákon), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 34,
+      "text": "Zákon č. 350/2011 Sb., o chemických látkách a chemických směsích a o změně některých zákonů (chemický zákon), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 35,
+      "text": "Zákon č. 224/2015 Sb., o prevenci závažných havárií způsobených vybranými nebezpečnými chemickými látkami nebo chemickými směsmi a o změně zákona č. 634/2004 Sb., o správních poplatcích (zákon o prevenci závažných havárií), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 36,
+      "text": "Zákon č. 133/1985 Sb., o požární ochraně, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 37,
+      "text": "Zákon č. 250/2021 Sb., o bezpečnosti práce v souvislosti s provozem vyhrazených technických zařízení a o změně souvisejících zákonů."
+    },
+    {
+      "ref_id": 38,
+      "text": "Zákon č. 274/2001 Sb., o vodovodech a kanalizacích pro veřejnou potřebu a o změně některých zákonů (zákon o vodovodech a kanalizacích), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 39,
+      "text": "Zákon č. 13/1997 Sb., o pozemních komunikacích, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 40,
+      "text": "Vyhláška č. 246/2001 Sb., o stanovení podmínek požární bezpečnosti a výkonu státního požárního dozoru (vyhláška o požární prevenci), ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 41,
+      "text": "Vyhláška č. 268/2009 Sb., o technických požadavcích na stavby, ve znění pozdějších předpisů."
+    },
+    {
+      "ref_id": 42,
+      "text": "Nařízení vlády č. 192/2022 Sb., o vyhrazených tlakových zařízeních a požadavcích na zajištění jejich bezpečnosti."
+    },
+    {
+      "ref_id": 43,
+      "text": "Nařízení vlády č. 406/2004 Sb., o bližších požadavcích na zajištění bezpečnosti a ochrany zdraví při práci v prostředí s nebezpečím výbuchu."
+    },
+    {
+      "ref_id": 44,
+      "text": "Nařízení vlády č. 116/2016 Sb., o posuzování shody zařízení a ochranných systémů určených k použití v prostředí s nebezpečím výbuchu při jejich dodávání na trh."
+    },
+    {
+      "ref_id": 45,
+      "text": "Nařízení Evropského parlamentu a Rady (ES) č. 1907/2006 ze dne 18. prosince 2006 o registraci, hodnocení, povolování a omezování chemických látek (REACH). Úř. věst. L 396, 30. 12. 2006."
+    },
+    {
+      "ref_id": 46,
+      "text": "Nařízení Evropského parlamentu a Rady (ES) č. 1272/2008 ze dne 16. prosince 2008 o klasifikaci, označování a balení látek a směsí (CLP). Úř. věst. L 353, 31. 12. 2008."
+    },
+    {
+      "ref_id": 47,
+      "text": "Směrnice Evropského parlamentu a Rady (EU) 2018/2001 ze dne 11. prosince 2018 o podpoře využívání energie z obnovitelných zdrojů (RED II). Úř. věst. L 328, 21. 12. 2018."
+    },
+    {
+      "ref_id": 48,
+      "text": "Směrnice Evropského parlamentu a Rady (EU) 2023/2413 ze dne 18. října 2023, kterou se mění směrnice (EU) 2018/2001 (RED III). Úř. věst. L, 2023/2413, 31. 10. 2023."
+    },
+    {
+      "ref_id": 49,
+      "text": "Nařízení Komise v přenesené pravomoci (EU) 2023/1184 ze dne 10. února 2023, kterým se doplňuje směrnice (EU) 2018/2001, pokud jde o metodiku stanovení podrobných pravidel pro produkci obnovitelných kapalných a plynných paliv nebiologického původu (RFNBO). Úř. věst. L 157, 20. 6. 2023."
+    },
+    {
+      "ref_id": 50,
+      "text": "Nařízení Komise v přenesené pravomoci (EU) 2023/1185 ze dne 10. února 2023, kterým se doplňuje směrnice (EU) 2018/2001, pokud jde o minimální práh úspor emisí skleníkových plynů u recyklovaných uhlíkových paliv a metodiku pro stanovení úspor emisí skleníkových plynů z RFNBO. Úř. věst. L 157, 20. 6. 2023."
+    },
+    {
+      "ref_id": 51,
+      "text": "Nařízení Evropského parlamentu a Rady (EU) 2023/1804 ze dne 13. září 2023 o zavádění infrastruktury pro alternativní paliva (AFIR). Úř. věst. L 234, 22. 9. 2023."
+    },
+    {
+      "ref_id": 52,
+      "text": "Směrnice Evropského parlamentu a Rady 2012/18/EU ze dne 4. července 2012 o kontrole nebezpečí závažných havárií s přítomností nebezpečných látek (Seveso III). Úř. věst. L 197, 24. 7. 2012."
+    },
+    {
+      "ref_id": 53,
+      "text": "Směrnice Evropského parlamentu a Rady 1999/92/ES ze dne 16. prosince 1999 o minimálních požadavcích na zlepšení bezpečnosti a ochrany zdraví zaměstnanců vystavených riziku výbušných prostředí (ATEX — pracoviště). Úř. věst. L 23, 28. 1. 2000."
+    },
+    {
+      "ref_id": 54,
+      "text": "Směrnice Evropského parlamentu a Rady 2014/34/EU ze dne 26. února 2014 o harmonizaci právních předpisů členských států týkajících se zařízení a ochranných systémů určených k použití v prostředí s nebezpečím výbuchu (ATEX — výrobky). Úř. věst. L 96, 29. 3. 2014."
+    },
+    {
+      "ref_id": 55,
+      "text": "ČSN EN 17124:2022. Vodík jako palivo — Specifikace produktu a zajištění kvality — Protonové výměnné membránové (PEM) palivové články pro vozidla. Praha: ÚNMZ, 2022."
+    },
+    {
+      "ref_id": 56,
+      "text": "ČSN EN 17127:2020. Vodík jako palivo — Plnicí stanice — Vodíkové plnicí stanice pro osobní vozidla. Praha: ÚNMZ, 2020."
+    },
+    {
+      "ref_id": 57,
+      "text": "EN ISO 17268. Plnicí zařízení pro plynný vodík pro motorová vozidla. CEN/ISO."
+    },
+    {
+      "ref_id": 58,
+      "text": "ČSN 73 0804. Požární bezpečnost staveb — Výrobní objekty. Praha: ÚNMZ."
+    },
+    {
+      "ref_id": 59,
+      "text": "ČSN EN ISO 4126-1. Bezpečnostní pojistná zařízení proti nadměrnému tlaku — Část 1: Pojistné ventily. Praha: ÚNMZ."
+    }
+  ]
+}

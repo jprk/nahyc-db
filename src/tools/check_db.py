@@ -1,7 +1,8 @@
 """Diagnostic report for the `h2regdocs` MariaDB database — row counts per
 table, Step 2 load-health checks (identifier coverage, DocumentVersion
-parity), and a spot-check for a known regression-anchor record
-(`458/2000 Sb.`, also used in `tests/test_search.py`).
+parity), Step 3a load-health checks (layer B/node_document coverage), and
+a spot-check for a known regression-anchor record (`458/2000 Sb.`, also
+used in `tests/test_search.py`).
 
 Usage: `.venv/bin/python src/tools/check_db.py`
 """
@@ -17,6 +18,10 @@ load_dotenv(REPO_ROOT / ".env")
 
 TABLES = ["Document", "DocumentType", "DocumentSource", "Keyword",
           "DocumentKeyword", "DocumentVersion"]
+
+LAYER_B_TABLES = ["node_description", "node_branch", "branch_step", "node_input",
+                   "node_output", "subject", "node_subject", "node_problem",
+                   "node_document"]
 
 
 def get_connection():
@@ -52,6 +57,18 @@ def report(conn):
     """)
     dupes = c.fetchall()
     print(f"Documents with more than one DocumentVersion row: {len(dupes)} (expect 0)")
+
+    print("\n--- Step 3a load health (layer B + node_document) ---")
+    for table in LAYER_B_TABLES:
+        c.execute(f"SELECT COUNT(*) AS n FROM {table}")
+        print(f"{table}: {c.fetchone()['n']}")
+    c.execute("SELECT COUNT(DISTINCT node_id) AS n FROM node_description")
+    print(f"Nodes with a node_description row: {c.fetchone()['n']} / 7")
+    c.execute("""
+        SELECT node_id, COUNT(*) AS n FROM node_document
+        WHERE link_type = 'LEGAL_BASIS' GROUP BY node_id ORDER BY node_id
+    """)
+    print("node_document (LEGAL_BASIS) per node:", c.fetchall())
 
     print("\n--- Spot-check: 458/2000 Sb. ---")
     c.execute("""
