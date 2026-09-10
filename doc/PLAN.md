@@ -2,12 +2,13 @@
 
 **Project:** NAHYC DP004 — Vodíkový technologický inkubátor
 **Date:** 2026-09-07
-**Status:** Steps 0 and 1 executed 2026-09-07, extended through 2026-09-09
-(4th source `Sinay_Normy` — Slovak/German norms — wired in with a
-jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1344 records
-from 2230 raw). §4 (full-text acquisition for laws + source screening)
-designed and implemented 2026-09-09. Steps 2–3 and the agentic
-architecture in §3 are still proposals.
+**Status:** Steps 0, 1 and 2 executed 2026-09-07–2026-09-09 (4th source
+`Sinay_Normy` — Slovak/German norms — wired in with a jurisdiction-aware
+dedup guard; MariaDB `h2regdocs` now holds 1344 fully-loaded records,
+including `identifier`/`jurisdikce`/`DocumentVersion`, from 2230 raw). §4
+(full-text acquisition for laws + source screening) designed and
+implemented 2026-09-09. Step 3 and the agentic architecture in §3 are
+still proposals.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -538,14 +539,63 @@ Original plan (executed as amended above):
   hard way:** `build_unified_db.py` is not safe to re-run casually — always
   back up `data/database_merged_raw.json` first.
 
-### Step 2 — Load into the real schema
+### Step 2 — Load into the real schema — DONE 2026-09-09
 
-- Write the field mapping from Pipeline A's vocabulary (`nazev_cz`, `znacka`,
-  `typ_dokumentu`, …) to `Document` / `DocumentType` / `DocumentSource` /
-  `Keyword` / `DocumentVersion` in MariaDB, populating the new `identifier`
-  column (added in the Konsolidace schema) from `znacka`.
-- This is the step that has never actually happened: it is what turns the
-  JSON exercise into an actual queryable database.
+- **`src/tools/init_db.py` rewritten** to populate every Konsolidace-added
+  column, not just the 7 pre-Konsolidace ones: `identifier` (← `znacka`),
+  a new `Document.jurisdikce` column (see below), and one `DocumentVersion`
+  row per `Document` (`version=1, is_current=TRUE` — no real version
+  history exists in the JSON, so "first load is version 1, current" is the
+  correct seed, not a simplification). Kept the existing TRUNCATE-and-reload
+  architecture and `get_or_create` helper pattern; extracted the new
+  mapping logic into small, pure, unit-tested functions
+  (`resolve_identifier`, `resolve_document_type`, `normalize_jurisdikce`,
+  `build_gestor_jurisdiction_map`, `resolve_source_jurisdiction`).
+- **Schema correction, found and fixed while implementing this step:**
+  `Konsolidace-DB-popis.md` §4.2 claimed "jurisdiction is a property of the
+  source, not the document" (V03 §6.4) — **empirically false for this
+  corpus**: 1276/1344 records (95%, nearly all norms) have a *blank*
+  `gestor`, so they'd all collapse onto one shared `DocumentSource` row
+  spanning 11 different `jurisdikce` values. Added a new, additive
+  `Document.jurisdikce VARCHAR(20) NULL` column instead (applied directly
+  to the live `h2regdocs` plus appended to `Konsolidace-DB-schema.sql` for
+  future fresh installs) — this is now the authoritative per-document
+  field. `DocumentSource.institution_type`/`.jurisdiction` are kept as a
+  best-effort *supplement* only for the ~68 records with a real, non-blank
+  `gestor` (verified: zero real gestor→jurisdikce conflicts exist there).
+  `Konsolidace-DB-popis.md` corrected in place (§3, §4.1, §4.2, §8.3, §9)
+  rather than left standing as documented-but-wrong.
+- **`typ_dokumentu` numeric-code cleanup**: 44 records (all
+  `Haltuf_Dokumenty`) carry leaked category-id junk (`"1"`, `"2"`, `"9"`,
+  …) instead of a real type label. `resolve_document_type()` folds any
+  blank/purely-numeric value to a fallback `"Nezařazeno"` `DocumentType`
+  rather than creating junk rows — contained entirely in the loader, not
+  fixed upstream in `build_unified_db.py` (deliberate scope choice).
+- **`identifier` collision handling**: `Document.identifier` is
+  `VARCHAR(100) UNIQUE NULL`. Verified against the actual 1344-record
+  corpus: only 2 genuine duplicate `znacka` values exist (`ASTM F1624-12`
+  CZ+US, `DIN EN 10216-2` DE+EU — both the already-disclosed Step 1
+  follow-up #9 residual), plus one record whose `znacka` is a
+  177-character multi-standard bundle (a Sinay PDF-parsing artifact) that
+  exceeds the column's 100-char limit. `resolve_identifier()` leaves
+  `identifier` NULL (with a printed warning) for a collision or an
+  oversized value rather than crashing the load or silently truncating.
+- **`src/tools/check_db.py` rewritten** from one hardcoded query into a
+  reusable load-health report: row counts per table, identifier/jurisdikce
+  coverage, `DocumentVersion` 1:1-with-`Document` parity check, and a
+  `458/2000 Sb.` spot-check (the same anchor `tests/test_search.py` uses).
+- **Tests**: new `tests/test_init_db.py` (21 tests, no real DB needed —
+  same mocking-free pure-function style as `tests/test_deduplicate_db.py`'s
+  `build_clusters`). 128 tests total, all passing.
+- **Load results**: 1344 `Document` rows, 1344 `DocumentVersion` rows
+  (1:1, all `is_current=TRUE`), 39 `DocumentSource`, 3 `DocumentType`
+  (`Norma`/`Zákon`/`Nezařazeno`), 255 `Keyword`, 3262 `DocumentKeyword`.
+  1337/1344 identifiers resolved, 1268/1344 `jurisdikce` resolved (the gap
+  is `Sinay_Zakony`/`Haltuf_Dokumenty` records, which `build_unified_db.py`
+  never assigns a per-record `jurisdikce` to — a pre-existing, disclosed
+  gap from Step 1, not new). `app/app.py` re-verified via the Flask test
+  client (`/`, search, and all three filter routes still return 200) —
+  confirmed purely additive, nothing it already depended on changed.
 
 ### Step 3 — Populate process layers B–D
 
