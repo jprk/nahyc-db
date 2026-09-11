@@ -228,10 +228,12 @@ generuje `data/document_relations_auto.json` nad
   aspoň jeden národní člen (dítě) — každé dítě dostane `ADOPTS` hranu ke
   KAŽDÉMU rodiči ve skupině (víc mezinárodních vydání ve skupině = víc
   hran, záměrně žádné hádání, které konkrétní vydání dítě adoptovalo).
-  Ověřeno na reálném korpusu: 13 skupin, 17 hran (2026-09-11) — mnohem
-  méně, než kolik STN/ČSN/DIN adopcí v korpusu skutečně existuje, protože
-  drtivá většina nemá svůj mezinárodní protějšek vůbec sebraný jako
-  vlastní záznam (to je mezera v ÚPLNOSTI dat, ne v mechanismu propojení).
+  Ověřeno na reálném korpusu: 15 hran (2026-09-11, po konsolidaci verzí
+  přes `link_document_versions.py`) — mnohem méně, než kolik STN/ČSN/DIN
+  adopcí v korpusu skutečně existuje, protože drtivá většina nemá svůj
+  mezinárodní protějšek vůbec sebraný jako vlastní záznam (to je mezera v
+  ÚPLNOSTI dat, ne v mechanismu propojení — na rozdíl od R1.3 níže, kde
+  tato mezera byla uzavřena).
 - **R1.3 (transpozice směrnice EU — `IMPLEMENTS`)**: pro každý záznam,
   jehož VLASTNÍ značka NENÍ ve tvaru EU aktu (`is_eu_act_znacka()` —
   "(EU) NNNN/RRRR", "RRRR/NNNN/EU" apod.), vytáhne z jeho
@@ -255,10 +257,23 @@ generuje `data/document_relations_auto.json` nad
   do `data/eu_transposition_missing_targets.json` k lidskému rozhodnutí,
   zda tu chybějící EU normu přidat (stejný princip jako Krok 1 follow-up
   #17's `data/v03_layer_d_draft.json`-style doplnění chybějících
-  dokumentů) — ověřeno na reálném korpusu (2026-09-11): 6 takových
-  kandidátů (`201/2012 Sb.`, `56/2001 Sb.`, `458/2000 Sb.`, každý cituje
-  po dvě chybějící EU normy), 0 hotových `IMPLEMENTS` hran (cílové EU akty
-  zatím nejsou v korpusu vlastními záznamy).
+  dokumentů). **Doplněno 2026-09-11**: všech 6 nalezených kandidátů
+  (`201/2012 Sb.` → `(EU) 2013/732` + `2010/75/EU`; `56/2001 Sb.` →
+  `(EU) 2018/858` + `2007/46/ES`; `458/2000 Sb.` → `(EU) 2019/692` +
+  `2009/73/ES`) bylo jednotlivě ověřeno přímo na eur-lex.europa.eu (název,
+  typ aktu, datum přijetí, CELEX číslo, oficiální české znění + odkaz na
+  Úřední věstník) a přidáno jako nové `Document` řádky —
+  `data/eu_transposition_targets.json`, nový zdroj zapojený do
+  `build_unified_db.py` stejným způsobem jako V02 Bibliografie výše.
+  Nikdy neodhadováno: každý přidaný název/datum/CELEX pochází přímo z
+  EUR-Lexu, ne z paměti/domněnky. Vedlejší zjištění při ověřování: záznam
+  `56/2001 Sb.` cituje `(EU) 2018/858` nesprávně jako "směrnici" — jde ve
+  skutečnosti o NAŘÍZENÍ (potvrzeno na EUR-Lexu i v jeho českém úředním
+  znění); nový `Document` řádek používá správný typ (`Nařízení EU`),
+  zdrojový citující text ponechán beze změny (mimo rozsah této opravy).
+  `data/eu_transposition_missing_targets.json` je nyní prázdný. Ověřeno na
+  reálném korpusu (2026-09-11): 6 hotových `IMPLEMENTS` hran, 0
+  zbývajících kandidátů.
 
 ### 4.5 `DocumentType` — rozšíření
 

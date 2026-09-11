@@ -376,6 +376,17 @@ def build_clusters(valid_data, similarity_threshold=0.85):
     indices into valid_data), not the records themselves — kept
     pure/deterministic and independent of the OpenAI/network calls that
     produce embeddings, so it's unit-testable with synthetic vectors.
+
+    The conflict check is evaluated at the ISLAND level, not just the pair
+    being directly compared — real bug found 2026-09-11: a record with an
+    unknown/blank jurisdikce individually conflicts with neither a known-CZ
+    nor a known-"mezinárodní" record, so a purely pairwise check lets
+    Union-Find transitivity silently bridge two otherwise-correctly-vetoed
+    conflicting islands through it (e.g. Haltuf_Dokumenty's several blank-
+    jurisdikce "ISO 14687" rows bridging Sinay_Normy's "mezinárodní" ISO
+    14687 into Prokop_Normy's "CZ" ČSN ISO 14687 in one real run). See
+    _try_union() below and its dedicated regression test in
+    tests/test_deduplicate_db.py.
     """
     n = len(valid_data)
     uf = UnionFind(n)
@@ -383,20 +394,31 @@ def build_clusters(valid_data, similarity_threshold=0.85):
     znacka_of = [core_znacka(item.get("znacka", "")) for item in valid_data]
     jurisdikce_of = [item.get("jurisdikce", "") for item in valid_data]
 
+    # island_jurisdikce[root] = the set of distinct KNOWN jurisdikce values
+    # among all members currently unioned under that root — never allowed
+    # to exceed size 1 (see _try_union).
+    island_jurisdikce = {
+        i: ({jurisdikce_of[i]} if _jurisdikce_known(jurisdikce_of[i]) else set())
+        for i in range(n)
+    }
+
+    def try_union(i, j):
+        return _try_union(uf, island_jurisdikce, i, j)
+
     # Deterministic pass. A shared core znacka can span more than one
     # jurisdiction "island" (e.g. 3 Czech ČSN records + 2 Slovak STN
     # records, all citing the same EN number) — union each new record
-    # with any EXISTING same-core record it doesn't conflict with
-    # (Union-Find transitivity extends that to the whole compatible
-    # island), never with one it does.
+    # with any EXISTING same-core record it doesn't conflict with at the
+    # island level (Union-Find transitivity extends that to the whole
+    # compatible island), never with one it does.
     core_to_indices = {}
     for i, core in enumerate(znacka_of):
         if not core:
             continue
         bucket = core_to_indices.setdefault(core, [])
-        compatible = next((j for j in bucket if not _jurisdikce_conflict(jurisdikce_of[i], jurisdikce_of[j])), None)
-        if compatible is not None:
-            uf.union(i, compatible)
+        for j in bucket:
+            if try_union(i, j):
+                break
         bucket.append(i)
 
     for i in range(n):
@@ -405,17 +427,35 @@ def build_clusters(valid_data, similarity_threshold=0.85):
                 continue
             if znacka_of[i] and znacka_of[j] and znacka_of[i] != znacka_of[j]:
                 continue
-            if _jurisdikce_conflict(jurisdikce_of[i], jurisdikce_of[j]):
-                continue
             sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
             if sim > similarity_threshold:
-                uf.union(i, j)
+                try_union(i, j)
 
     groups = {}
     for i in range(n):
         root = uf.find(i)
         groups.setdefault(root, []).append(i)
     return list(groups.values())
+
+
+def _try_union(uf, island_jurisdikce, i, j):
+    """Unions i and j only if doing so would not create an island
+    containing more than one distinct KNOWN jurisdikce value — checked
+    against each side's CURRENT island (not just i and j themselves), so
+    transitivity can never bridge two conflicting known jurisdictions
+    through an unknown/blank one. Returns True if unioned (or already in
+    the same island), False if rejected as a conflict. Mutates
+    island_jurisdikce in place on a successful union."""
+    ri, rj = uf.find(i), uf.find(j)
+    if ri == rj:
+        return True
+    combined = island_jurisdikce[ri] | island_jurisdikce[rj]
+    if len(combined) > 1:
+        return False
+    uf.union(i, j)
+    new_root = uf.find(i)
+    island_jurisdikce[new_root] = combined
+    return True
 
 def digit_core(znacka):
     """The bare numeric/part-number core of a znacka, e.g. '14687' or

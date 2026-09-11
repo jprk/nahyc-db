@@ -1,23 +1,5 @@
 [
   {
-    "from_identifier": "ČSN ISO 14687",
-    "to_identifier": "ISO 14687/ - 2019.11",
-    "relation_type": "ADOPTS",
-    "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
-  },
-  {
-    "from_identifier": "ČSN ISO 14687",
-    "to_identifier": "ISO 14687/ - 2025.02",
-    "relation_type": "ADOPTS",
-    "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
-  },
-  {
-    "from_identifier": "ČSN ISO 14687",
-    "to_identifier": "ISO 14687",
-    "relation_type": "ADOPTS",
-    "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
-  },
-  {
     "from_identifier": "STN EN ISO 11114-4/ - 2017.10",
     "to_identifier": "ISO 11114-4",
     "relation_type": "ADOPTS",
@@ -84,6 +66,12 @@
     "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
   },
   {
+    "from_identifier": "ČSN ISO 14687",
+    "to_identifier": "ISO 14687/ - 2019.11",
+    "relation_type": "ADOPTS",
+    "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
+  },
+  {
     "from_identifier": "DIN ISO 21087",
     "to_identifier": "ISO 21087/ - 2019.06",
     "relation_type": "ADOPTS",
@@ -100,5 +88,41 @@
     "to_identifier": "ISO 21011/ - 2008.02",
     "relation_type": "ADOPTS",
     "note": "Národní/EU adopce mezinárodní normy (stejné mezinárodní jádro značky) — viz doc/PLAN.md §6, R1.4."
+  },
+  {
+    "from_identifier": "201/2012 Sb.",
+    "to_identifier": "(EU) 2013/732",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
+  },
+  {
+    "from_identifier": "201/2012 Sb.",
+    "to_identifier": "2010/75/EU",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
+  },
+  {
+    "from_identifier": "56/2001 Sb.",
+    "to_identifier": "(EU) 2018/858",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
+  },
+  {
+    "from_identifier": "56/2001 Sb.",
+    "to_identifier": "2007/46/ES",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
+  },
+  {
+    "from_identifier": "458/2000 Sb.",
+    "to_identifier": "(EU) 2019/692",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
+  },
+  {
+    "from_identifier": "458/2000 Sb.",
+    "to_identifier": "2009/73/ES",
+    "relation_type": "IMPLEMENTS",
+    "note": "Národní zákon cituje tento akt EU ve vlastním poli nazev_eu/odkaz_eu — viz doc/PLAN.md §6, R1.3."
   }
 ]

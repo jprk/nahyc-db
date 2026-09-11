@@ -2113,5 +2113,64 @@ built a repeatable mechanism instead of a one-off manual review:
   to delete this earlier but it was still on disk (122774 bytes) —
   confirmed untracked and gitignored (`.gitignore` line 16) before
   removing, so this was a plain filesystem `rm`, no git history involved.
-  This closes out the last open item on the requirements-compliance punch
-  list (see `doc/requirements_check_report.md`).
+  This closed out the requirements-compliance punch list as it stood at
+  the time (see `doc/requirements_check_report.md`) — R1.3/R1.4's own
+  data-completeness follow-up (below) was raised separately afterward.
+- **R1.3 data-completeness gap closed, 2026-09-11: the 6 missing EU-act
+  `Document` rows were added.** `data/eu_transposition_missing_targets.json`
+  named 6 real EU acts (directives/a regulation/an implementing decision)
+  cited by 3 national laws already in the corpus (`201/2012 Sb.`,
+  `56/2001 Sb.`, `458/2000 Sb.`) but missing as their own records — each
+  verified individually against eur-lex.europa.eu (official title, act
+  type, adoption date, CELEX number, plus the official Czech-language
+  title and Official Journal reference) before being added, never
+  guessed. New source `data/eu_transposition_targets.json`, wired into
+  `build_unified_db.py` as a 6th source exactly like V02 Bibliography.
+  Real data-quality finding surfaced during verification: the citing
+  record for `56/2001 Sb.` mislabels `(EU) 2018/858` as a "směrnice"
+  (directive) — confirmed via EUR-Lex (CELEX 32018R0858, and its own
+  Czech-language text) that it's actually a **Regulation**; the new
+  `Document` row uses the correct type (`Nařízení EU`), the pre-existing
+  citing text was left untouched (out of scope). Result: R1.3 now has 6
+  real `IMPLEMENTS` edges (`AMENDS` ×1, `IMPLEMENTS` ×6, `ADOPTS` ×15),
+  `eu_transposition_missing_targets.json` is empty.
+  - **A real, more serious bug was found and fixed along the way**: the
+    full pipeline re-run needed for this addition (`build_unified_db.py`
+    → `deduplicate_db.py` → ...) unexpectedly merged an international
+    `ISO 14687` (jurisdikce `mezinárodní`) into a Czech `ČSN ISO 14687`
+    (jurisdikce `CZ`) — exactly the cross-jurisdiction merge this whole
+    pipeline's jurisdikce veto exists to prevent. Root cause:
+    `build_clusters()`'s jurisdikce-conflict veto was checked only
+    *pairwise* (`_jurisdikce_conflict(i, j)`) — a record with an unknown/
+    blank jurisdikce individually conflicts with neither a known-CZ nor a
+    known-"mezinárodní" record, so Union-Find transitivity could silently
+    bridge two correctly-vetoed, directly-conflicting islands *through*
+    it. Real trigger: several `Haltuf_Dokumenty` rows ("ISO 14687"/"ČSN EN
+    ISO 14687") carry a blank jurisdikce and bridged `Sinay_Normy`'s
+    "mezinárodní" ISO 14687 into `Prokop_Normy`'s "CZ" ČSN ISO 14687 in
+    this run — non-deterministic (this same latent bug has presumably
+    existed since Krok 1, only sometimes masked by GPT-4o-mini's own
+    unreliability at actually collapsing such a mixed-jurisdikce cluster,
+    see `is_pure_znacka_cluster`'s docstring). Fixed by checking the
+    conflict at the **island** level instead of the pair: `_try_union()`
+    tracks each island's current set of known jurisdikce values and
+    rejects a union if combining two islands would ever exceed size 1 —
+    closing the transitivity loophole regardless of processing order.
+    New regression test
+    `test_bridging_unknown_jurisdiction_record_never_joins_two_known_conflicting_islands`
+    in `tests/test_deduplicate_db.py` reproduces the exact bug (fails
+    before the fix, passes after). Re-verified against the real corpus
+    post-fix: `ISO 14687` (mezinárodní) and `ČSN ISO 14687` (CZ) correctly
+    remain separate `Document` rows; `dedup_review_queue.json` empty.
+  - Verified: 306 tests total pass (1 new regression test), full pipeline
+    re-run end to end (`build_unified_db.py` → `deduplicate_db.py` →
+    `link_document_versions.py` → `init_db.py` →
+    `link_document_relations_auto.py` → `load_document_relations.py` →
+    `load_process_layer.py`), `process_layer_review_queue.json` unchanged
+    (still only the 2 known, previously-reviewed `EN ISO 17268`
+    ambiguity items), `check_requirements.py`'s R1.3 section confirms `6`
+    `IMPLEMENTS` rows, Flask smoke test OK. Documented in
+    `doc/konsolidace/Konsolidace-DB-popis.md` §4.4,
+    `src/tools/0README.md` (`build_unified_db.py` and `deduplicate_db.py`
+    entries), `tests/0README.md`, and `doc/requirements_check_report.md`
+    (R1.3 now PASS).

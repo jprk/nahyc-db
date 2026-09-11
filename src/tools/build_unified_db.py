@@ -377,7 +377,30 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading V02 Bibliography data: {e}")
 
-    # 6. Save combined to JSON
+    # 6. EU Transposition Targets — doc/REQUIREMENTS.md R1.3, 2026-09-11: a
+    # small, hand-curated set of the EU acts (directives/regulations/an
+    # implementing decision) that real national-law records in this corpus
+    # (201/2012 Sb., 56/2001 Sb., 458/2000 Sb.) cite in their own nazev_eu/
+    # odkaz_eu but that were, until now, missing from the corpus entirely —
+    # found by src/tools/link_document_relations_auto.py and written to
+    # data/eu_transposition_missing_targets.json, then verified one by one
+    # directly against eur-lex.europa.eu (title/date/type/CELEX number, and
+    # the official Czech-language title + Official Journal reference) before
+    # being added here — never guessed. Already in final record shape (no
+    # raw spreadsheet exists behind these), so this block just appends it
+    # as-is, same as V02 Bibliography above. Adding these lets
+    # link_document_relations_auto.py's find_eu_transposition_pairs()
+    # produce real `IMPLEMENTS` edges instead of only missing-target
+    # candidates (see doc/PLAN.md §6).
+    file_eu_transposition_targets = base_dir / "eu_transposition_targets.json"
+    try:
+        data_eu_transposition_targets = load_json(file_eu_transposition_targets)
+        unified_db.extend(data_eu_transposition_targets)
+        print(f"Loaded {len(data_eu_transposition_targets)} records from EU Transposition Targets.")
+    except Exception as e:
+        print(f"Error loading EU Transposition Targets data: {e}")
+
+    # 7. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(unified_db, f, ensure_ascii=False, indent=4)
 

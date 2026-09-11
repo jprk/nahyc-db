@@ -311,6 +311,35 @@ class BuildClustersTestCase(unittest.TestCase):
         clusters = dedup.build_clusters(data)
         self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1}), frozenset({2})})
 
+    def test_bridging_unknown_jurisdiction_record_never_joins_two_known_conflicting_islands(self):
+        # Real bug found 2026-09-11: a CZ record and a "mezinárodní" record
+        # sharing a core znacka are correctly vetoed from joining directly
+        # (see test_matching_core_znacka_but_conflicting_jurisdiction_stays_separate
+        # above), but a THIRD record with the same core and an unknown/
+        # blank jurisdikce individually conflicts with neither side -- and
+        # Union-Find transitivity used to let it silently bridge the two
+        # apart islands into one, flattening a Czech ČSN adoption together
+        # with the international ISO standard it adopts (exactly the two-
+        # separate-records-linked-by-ADOPTS shape R1.4 depends on, not a
+        # dedup merge). Real corpus case that surfaced this: Haltuf_Dokumenty
+        # carries several blank-jurisdikce "ISO 14687"/"ČSN EN ISO 14687"
+        # rows that bridged Sinay_Normy's "mezinárodní" ISO 14687 into
+        # Prokop_Normy's "CZ" ČSN ISO 14687 in one real pipeline run. The
+        # invariant that must hold regardless of processing order: no
+        # single island may ever contain more than one distinct KNOWN
+        # jurisdikce value.
+        data = [
+            make_record(znacka="ISO 14687", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
+            make_record(znacka="ISO 14687", jurisdikce="", _embedding=self.IDENTICAL_A),
+            make_record(znacka="ISO 14687", jurisdikce="mezinárodní", _embedding=self.IDENTICAL_A),
+        ]
+        clusters = dedup.build_clusters(data)
+        jurisdikce_of = [r["jurisdikce"] for r in data]
+        for cluster in clusters:
+            known = {jurisdikce_of[i] for i in cluster if dedup._jurisdikce_known(jurisdikce_of[i])}
+            self.assertLessEqual(len(known), 1,
+                                  f"cluster {cluster} mixes conflicting known jurisdikce: {known}")
+
     def test_unknown_jurisdiction_does_not_veto_a_same_core_match(self):
         data = [
             make_record(znacka="EN 17124", jurisdikce="CZ", _embedding=self.IDENTICAL_A),
