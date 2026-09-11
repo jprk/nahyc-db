@@ -2174,3 +2174,50 @@ built a repeatable mechanism instead of a one-off manual review:
     `src/tools/0README.md` (`build_unified_db.py` and `deduplicate_db.py`
     entries), `tests/0README.md`, and `doc/requirements_check_report.md`
     (R1.3 now PASS).
+
+## 7. Data-quality flagging — needs_review (NEW, 2026-09-11)
+
+User found this by using the new R2.5 export: some catalog entries have a
+meaningless title/znacka and/or no description at all — e.g. a `"Norma"`
+with `znacka` `"CEN/TC 326 Natural Gas Vehicles"` (a technical-committee
+name, not a designation) and `nazev_cz` `"- Fuelling and Operation"` (an
+orphaned continuation fragment), empty description. Root cause: a real,
+narrow parsing bug in `parse_sinay_norms.py`'s coordinate-based PDF-table
+reconstruction — a single wrapped line split across the wrong columns.
+Explicit instruction: never silently show/export a record like this —
+flag it for manual intervention, but (per the user's explicit choice,
+over hiding it) keep showing it in search/export with a visible marker.
+
+- New `src/tools/init_db.py` functions, all pure/unit-tested:
+  `is_garbled_znacka()` (bare edition-date suffix like `"- 2024.09"`, or a
+  bare `CEN|CENELEC|ISO|IEC/TC` committee reference), `is_fragment_title()`
+  (starts with a stray dash/colon or a `"N-N:"` part fragment, or is
+  lowercase-starting text that isn't a legitimate lowercase Czech/Slovak
+  legal-title convention like `"zákon č. ..."`/`"vyhláška č. ..."` —
+  excluded explicitly so real law titles are never mistaken for
+  fragments), and `detect_data_quality_issues()` combining both plus a
+  missing-description check into a list of Czech-language reasons.
+- New `Document.needs_review BOOLEAN` / `review_reason VARCHAR(500)`,
+  computed at import time (same pattern as `lifecycle_state`/
+  `restricted_fulltext` — never a `GENERATED` column, since detection
+  needs real string-shape logic, not a small controlled vocabulary).
+  `init_db.py` also writes every flagged record to new
+  `data/incomplete_records_review_queue.json` (same convention as every
+  other `*_review_queue.json` in this pipeline) — detection never
+  guesses/repairs a fix, only flags for a human.
+- `app/app.py`'s shared `build_document_query()` now also selects
+  `needs_review`/`review_reason`; `index.html` renders a visible
+  "Vyžaduje kontrolu" badge (new `.review-flag` CSS class, matching the
+  existing `.meta-tag`/`.keyword-tag` look) with `review_reason` as its
+  tooltip — the record itself is NOT hidden or excluded from search/
+  export, exactly as the user specified. `_rows_for_export()`'s explicit
+  `EXPORT_FIELDS` whitelist means these two new columns never leak into
+  CSV/JSON/XML exports (out of scope for this pass — the ask was about
+  the browsable catalog, not the export payload).
+- Verified: 13 new unit tests, 319 tests total pass, real corpus (2026-
+  09-11): 411/1192 documents flagged (409 missing description, 14
+  fragment titles, 8 garbled znacka — some overlap, e.g. the two examples
+  above carry all three). Flask smoke test confirms the badge renders
+  with the correct tooltip text; export confirmed clean of the two new
+  fields. Documented in `doc/konsolidace/Konsolidace-DB-popis.md` §4.1,
+  `src/tools/0README.md`, `tests/0README.md`.

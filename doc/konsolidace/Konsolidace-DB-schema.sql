@@ -152,6 +152,22 @@ ALTER TABLE DocumentVersion
 ALTER TABLE DocumentType
   ADD COLUMN restricted_fulltext BOOLEAN NOT NULL DEFAULT FALSE;
 
+-- Uživatelský nález, 2026-09-11: export (R2.5) odhalil záznamy s
+-- nesmyslným titulkem a/nebo chybějícím popisem — např. `znacka` "CEN/TC
+-- 326 Natural Gas Vehicles" + `nazev_cz` "- Fuelling and Operation"
+-- (jeden zalomený řádek zdrojové PDF tabulky rozdělený `parse_sinay_
+-- normy.py`'s souřadnicovou rekonstrukcí do špatných sloupců). Namísto
+-- tichého zobrazení/exportu takového záznamu se PŘI IMPORTU (`src/tools/
+-- init_db.py`'s `detect_data_quality_issues()`) označí k ruční kontrole —
+-- nikdy se needhaduje/needopraví automaticky. `app/app.py` zobrazuje
+-- viditelný příznak přímo v katalogu (uživatelův výslovný požadavek:
+-- záznam zůstává vidět, ALE nese označení, že je ve frontě k revizi).
+-- Detekce zapisuje i `data/incomplete_records_review_queue.json` (stejná
+-- konvence jako ostatní `*_review_queue.json` v této pipeline).
+ALTER TABLE Document
+  ADD COLUMN needs_review BOOLEAN NOT NULL DEFAULT FALSE,
+  ADD COLUMN review_reason VARCHAR(500) NULL;
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

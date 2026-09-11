@@ -414,7 +414,8 @@ main {
 }
 
 .meta-tag,
-.keyword-tag {
+.keyword-tag,
+.review-flag {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -433,6 +434,18 @@ main {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-secondary);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 2026-09-11: visible marker for a Document flagged by
+   detect_data_quality_issues() (init_db.py) and put into
+   data/incomplete_records_review_queue.json — the record still shows
+   normally, this is only a caution indicator (title attribute carries
+   the specific reason(s), see index.html). */
+.review-flag {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    cursor: help;
 }
 
 .source-text {

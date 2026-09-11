@@ -9,7 +9,82 @@ from init_db import (
     build_gestor_jurisdiction_map, resolve_source_jurisdiction,
     resolve_document_versions, classify_lifecycle_state, FALLBACK_DOCUMENT_TYPE,
     is_restricted_document_type, resolve_file_path,
+    is_garbled_znacka, is_fragment_title, detect_data_quality_issues,
 )
+
+
+class IsGarbledZnackaTestCase(unittest.TestCase):
+    """2026-09-11, user-reported: some Sinay_Normy records have a znacka
+    that isn't a real designation at all — a wrapped PDF-table line split
+    across the wrong columns."""
+
+    def test_edition_only_znacka_is_garbled(self):
+        self.assertTrue(is_garbled_znacka("- 2024.09"))
+        self.assertTrue(is_garbled_znacka("- 2024-09"))
+        self.assertTrue(is_garbled_znacka("– 2020.04"))
+
+    def test_committee_only_znacka_is_garbled(self):
+        self.assertTrue(is_garbled_znacka("CEN/TC 326 Natural Gas Vehicles"))
+        self.assertTrue(is_garbled_znacka("IEC/TC 31 Equipment for explosive"))
+
+    def test_real_designations_are_not_garbled(self):
+        self.assertFalse(is_garbled_znacka("STN EN ISO 11114-4/ - 2017.10"))
+        self.assertFalse(is_garbled_znacka("ISO 14687"))
+        self.assertFalse(is_garbled_znacka("458/2000 Sb."))
+
+    def test_blank_is_not_garbled(self):
+        # A missing znacka is a separate, already-handled case
+        # (resolve_identifier) — not what this check is for.
+        self.assertFalse(is_garbled_znacka(""))
+        self.assertFalse(is_garbled_znacka(None))
+
+
+class IsFragmentTitleTestCase(unittest.TestCase):
+    def test_dash_or_colon_prefixed_titles_are_fragments(self):
+        self.assertTrue(is_fragment_title("- Fuelling and Operation"))
+        self.assertTrue(is_fragment_title("1-5: Schéma pre bezpečnostné profily IEC 62443"))
+
+    def test_lowercase_continuation_is_a_fragment(self):
+        self.assertTrue(is_fragment_title("lubricants and related products of petroleum"))
+        self.assertTrue(is_fragment_title("je možné nájsť na stránkach jednotlivých komisií"))
+
+    def test_legitimate_lowercase_legal_titles_are_not_fragments(self):
+        self.assertFalse(is_fragment_title("zákon č. 224/2015 Sb., o prevenci závažných havárií"))
+        self.assertFalse(is_fragment_title("vyhláška č. 94/2004 Z. z."))
+        self.assertFalse(is_fragment_title("nařízení vlády č. 1/2008 Sb."))
+
+    def test_normal_capitalized_title_is_not_a_fragment(self):
+        self.assertFalse(is_fragment_title("Hydrogen fuel quality - Product specification"))
+
+    def test_blank_is_not_a_fragment(self):
+        self.assertFalse(is_fragment_title(""))
+        self.assertFalse(is_fragment_title(None))
+
+
+class DetectDataQualityIssuesTestCase(unittest.TestCase):
+    def test_clean_record_has_no_issues(self):
+        item = {"znacka": "ISO 14687", "nazev_cz": "Kvalita vodíkového paliva",
+                "anotace_poznamka": "Specifikace kvality vodíku pro vozidla."}
+        self.assertEqual(detect_data_quality_issues(item), [])
+
+    def test_garbled_znacka_and_fragment_title_both_flagged(self):
+        item = {"znacka": "CEN/TC 326 Natural Gas Vehicles",
+                "nazev_cz": "- Fuelling and Operation", "anotace_poznamka": ""}
+        reasons = detect_data_quality_issues(item)
+        self.assertEqual(len(reasons), 3)  # garbled znacka + fragment title + missing description
+
+    def test_missing_description_alone_is_flagged(self):
+        item = {"znacka": "ISO 14687", "nazev_cz": "Real Title", "anotace_poznamka": ""}
+        reasons = detect_data_quality_issues(item)
+        self.assertEqual(len(reasons), 1)
+
+    def test_title_falls_back_to_nazev_sk_then_nazev_eu(self):
+        item = {"znacka": "ISO 1", "nazev_cz": "", "nazev_sk": "- fragment zo slovenčiny",
+                "anotace_poznamka": "popis"}
+        self.assertTrue(detect_data_quality_issues(item))
+        item2 = {"znacka": "ISO 1", "nazev_cz": "", "nazev_sk": "",
+                 "nazev_eu": "Real EU Title", "anotace_poznamka": "popis"}
+        self.assertEqual(detect_data_quality_issues(item2), [])
 
 
 class IsRestrictedDocumentTypeTestCase(unittest.TestCase):

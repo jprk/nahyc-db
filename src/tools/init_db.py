@@ -10,6 +10,7 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 JSON_PATH = REPO_ROOT / "data" / "database_merged_deduplicated.json"
 FULLTEXT_MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+INCOMPLETE_RECORDS_QUEUE_PATH = REPO_ROOT / "data" / "incomplete_records_review_queue.json"
 
 # Truncation order respects FK dependencies (children before parents).
 TRUNCATE_ORDER = ["DocumentKeyword", "DocumentVersion", "Document", "Keyword",
@@ -162,6 +163,68 @@ def resolve_file_path(item, manifest):
     return None
 
 
+# 2026-09-11, user-reported: some Sinay_Normy records export/display with a
+# meaningless title or missing description (e.g. znacka "CEN/TC 326 Natural
+# Gas Vehicles" + nazev_cz "- Fuelling and Operation" — a single wrapped
+# line from parse_sinay_norms.py's coordinate-based PDF-table reconstruction
+# split across the wrong columns). Rather than silently displaying these,
+# every such record is flagged (Document.needs_review/review_reason below)
+# so a human can find and fix the source data — never guessed/repaired
+# automatically, same review-queue philosophy as everywhere else in this
+# pipeline.
+_EDITION_ONLY_ZNACKA_RE = re.compile(r"^[-–—]\s*\d{4}(\.\d{2}|-\d{2})?$")
+_COMMITTEE_ONLY_ZNACKA_RE = re.compile(r"\b(CEN|CENELEC|ISO|IEC)/TC\b", re.IGNORECASE)
+_FRAGMENT_TITLE_START_RE = re.compile(r"^([-–—:]|\d+(-\d+)*\s*:)")
+# Real Czech/Slovak legal-document titles conventionally start lowercase
+# ("zákon č. ... Sb., o ...") — excluded so they're never mistaken for a
+# fragment just for not starting with a capital letter.
+_LEGITIMATE_LOWERCASE_TITLE_RE = re.compile(
+    r"^(zákon|vyhlášk|nařízení|nariaden|smernic|směrnic|usnesení|sdělení|"
+    r"vykonávacie|opatrenie)\w*\b", re.IGNORECASE)
+
+
+def is_garbled_znacka(znacka):
+    """True when znacka is not a real document designation: just an
+    edition-date suffix with nothing before it ("- 2024.09"), or a bare
+    technical-committee reference ("CEN/TC 326 Natural Gas Vehicles") —
+    both real parsing-artifact shapes found in this corpus."""
+    zn = (znacka or "").strip()
+    return bool(_EDITION_ONLY_ZNACKA_RE.match(zn)) or bool(_COMMITTEE_ONLY_ZNACKA_RE.search(zn))
+
+
+def is_fragment_title(title):
+    """True when a title looks like a wrapped continuation line rather
+    than a real title: starts with a stray dash/colon, a "N-N:" part
+    fragment, or lowercase text that isn't one of the legitimate
+    lowercase-starting Czech/Slovak legal-document title conventions."""
+    t = (title or "").strip()
+    if not t:
+        return False
+    if _FRAGMENT_TITLE_START_RE.match(t):
+        return True
+    if re.match(r"^[a-záčďéěíňóřšťúůýž]", t) and not _LEGITIMATE_LOWERCASE_TITLE_RE.match(t):
+        return True
+    return False
+
+
+def detect_data_quality_issues(item):
+    """Returns a list of Czech-language reasons this record should be
+    flagged for manual review, or [] if none apply. Checked: a garbled
+    znacka (see is_garbled_znacka), a fragment-looking title (see
+    is_fragment_title — checked against nazev_cz, falling back to
+    nazev_sk/nazev_eu the same way title resolution does at import time),
+    and a missing description. Never guesses a fix — only flags."""
+    reasons = []
+    if is_garbled_znacka(item.get("znacka")):
+        reasons.append("značka není platné označení dokumentu")
+    title = (item.get("nazev_cz") or item.get("nazev_sk") or item.get("nazev_eu") or "")
+    if is_fragment_title(title):
+        reasons.append("název vypadá jako useknutý fragment textu")
+    if not (item.get("anotace_poznamka") or "").strip():
+        reasons.append("chybí popis/anotace dokumentu")
+    return reasons
+
+
 def normalize_jurisdikce(jurisdikce):
     """Returns the `Document.jurisdikce` value — blank -> None, else the
     stripped value verbatim (including "neurčeno", which is a real,
@@ -288,6 +351,7 @@ def import_json_data(db_conn):
     seen_identifiers = set()
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
     fulltext_manifest = load_fulltext_manifest()
+    incomplete_records = []
 
     for item in data:
         title = item.get("nazev_cz", "").strip()
@@ -320,6 +384,9 @@ def import_json_data(db_conn):
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
         jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
         file_path = resolve_file_path(item, fulltext_manifest)
+        review_reasons = detect_data_quality_issues(item)
+        needs_review = bool(review_reasons)
+        review_reason = "; ".join(review_reasons) or None
 
         type_id = get_or_create(
             cursor, "DocumentType", {"name": doc_type},
@@ -337,12 +404,20 @@ def import_json_data(db_conn):
         cursor.execute("""
             INSERT INTO Document
             (title, description, type_id, source_id, language, url,
-             effective_date, identifier, jurisdikce, file_path)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             effective_date, identifier, jurisdikce, file_path,
+             needs_review, review_reason)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
-              effective_date, identifier, jurisdikce, file_path))
+              effective_date, identifier, jurisdikce, file_path,
+              needs_review, review_reason))
 
         doc_id = cursor.lastrowid
+
+        if needs_review:
+            incomplete_records.append({
+                "document_id": doc_id, "znacka": item.get("znacka", ""),
+                "title": title, "reasons": review_reasons,
+            })
 
         for v in resolve_document_versions(item):
             cursor.execute("""
@@ -375,7 +450,13 @@ def import_json_data(db_conn):
                     pass
 
     db_conn.commit()
+
+    with open(INCOMPLETE_RECORDS_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(incomplete_records, f, ensure_ascii=False, indent=2)
+
     print("Import complete.")
+    print(f"{len(incomplete_records)} documents flagged for manual review -> "
+          f"{INCOMPLETE_RECORDS_QUEUE_PATH}")
 
 
 if __name__ == "__main__":
@@ -400,5 +481,7 @@ if __name__ == "__main__":
     print(f"Documents with a resolved identifier: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM Document WHERE file_path IS NOT NULL")
     print(f"Documents with a locally-cached full text (file_path): {c.fetchone()[0]}")
+    c.execute("SELECT COUNT(*) FROM Document WHERE needs_review = TRUE")
+    print(f"Documents flagged needs_review: {c.fetchone()[0]}")
 
     conn.close()

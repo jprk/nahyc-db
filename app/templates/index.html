@@ -95,6 +95,11 @@
                         <div class="td col-title">
                             <div class="doc-title">{{ doc.title }}</div>
                             <div class="doc-tags">
+                                {% if doc.needs_review %}
+                                <span class="review-flag" title="{{ doc.review_reason }}">
+                                    <i class="ph ph-warning"></i> Vyžaduje kontrolu
+                                </span>
+                                {% endif %}
                                 {% if doc.language %}
                                 <span class="meta-tag"><i class="ph ph-translate"></i> {{ doc.language }}</span>
                                 {% endif %}

@@ -70,7 +70,7 @@ def build_document_query(filters, limit=None):
     base_query = '''
         SELECT d.id, d.title, d.description, dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url,
-               d.file_path, dt.restricted_fulltext
+               d.file_path, dt.restricted_fulltext, d.needs_review, d.review_reason
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
