@@ -10,6 +10,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from parse_sinay_norms import (
     classify_jurisdikce, _pdf_row_to_record, is_placeholder_designation,
     merge_designation_continuations, parse_xlsx, _XLSX_SHEET, _XLSX_HEADER_ROW,
+    split_multi_part_designation_row,
 )
 
 
@@ -96,6 +97,25 @@ class ClassifyJurisdikceTestCase(unittest.TestCase):
         # IEC) -- must still classify by their real national prefix.
         self.assertEqual(classify_jurisdikce("STN ISO 14687"), "SK")
         self.assertEqual(classify_jurisdikce("DIN EN IEC 60079-11", "Norm (IEC/TC31)"), "DE")
+
+    def test_bare_en_iso_designation_is_eu_not_mezinarodni(self):
+        # Step 1 follow-up #16: a bare "EN ISO"/"EN IEC" combination (no
+        # national prefix) is the CEN/CENELEC-level European adoption of
+        # the ISO/IEC standard -- distinct from a bare "ISO ####" citation
+        # (no European ratification at all), so it must be "EU", not
+        # "mezinárodní". Real corpus cases: "prEN ISO 22734-1", "prEN ISO
+        # 24078", "prEN ISO 24490" (all previously misclassified
+        # "mezinárodní" via the generic \bISO\b marker).
+        self.assertEqual(classify_jurisdikce("EN ISO 14687"), "EU")
+        self.assertEqual(classify_jurisdikce("prEN ISO 22734-1"), "EU")
+        self.assertEqual(classify_jurisdikce("FprEN ISO 24078"), "EU")
+        self.assertEqual(classify_jurisdikce("EN IEC 60079-11"), "EU")
+
+    def test_national_prefix_before_en_iso_is_unaffected_by_bare_check(self):
+        # "STN EN ISO ..." / "ČSN EN ISO ..." are national adoptions of
+        # the EN ISO standard, not the bare EN ISO designation itself --
+        # must still classify by their real national prefix.
+        self.assertEqual(classify_jurisdikce("STN EN ISO 14687"), "SK")
 
 
 class PdfRowToRecordTestCase(unittest.TestCase):
@@ -192,6 +212,45 @@ class MergeDesignationContinuationsTestCase(unittest.TestCase):
         self.assertEqual(merge_designation_continuations([]), [])
 
 
+class SplitMultiPartDesignationRowTestCase(unittest.TestCase):
+    """Step 1 follow-up #16: a single XLSX row can represent a whole
+    multi-part standard family (real case: "STN EN 1514", 7 parts, 7
+    edition dates, one real amendment) with both the designation and
+    title cells holding one line per part."""
+
+    def test_splits_real_en_1514_shape(self):
+        designation = ("STN EN 1514-1/ – 2001.04\n"
+                        "STN EN 1514-2+A1/ – 2021.07\n"
+                        "STN EN 1514-3/ – 2001.04")
+        title = ("Príruby a prírubové spoje. Rozmery tesnení pre príruby s označením PN. \n"
+                 "Časť 1: Nekovové ploché tesnenia s vložkami alebo bez nich\n"
+                 "Časť 2: Špirálovo vinuté tesnenia pre oceľové príruby\n"
+                 "Časť 3: Nekovové tesnenia s PTFE plášťom")
+        parts = split_multi_part_designation_row(designation, title)
+        self.assertEqual(len(parts), 3)
+        self.assertEqual(parts[0], ("STN EN 1514-1/ – 2001.04",
+                                     "Príruby a prírubové spoje. Rozmery tesnení pre príruby s označením PN. "
+                                     "Časť 1: Nekovové ploché tesnenia s vložkami alebo bez nich"))
+        self.assertEqual(parts[1][0], "STN EN 1514-2+A1/ – 2021.07")
+        self.assertTrue(parts[1][1].endswith("Časť 2: Špirálovo vinuté tesnenia pre oceľové príruby"))
+
+    def test_no_common_preamble_still_pairs_up(self):
+        designation = "STN EN 1-1\nSTN EN 1-2"
+        title = "Časť 1: Prvá\nČasť 2: Druhá"
+        parts = split_multi_part_designation_row(designation, title)
+        self.assertEqual(parts, [("STN EN 1-1", "Časť 1: Prvá"), ("STN EN 1-2", "Časť 2: Druhá")])
+
+    def test_ordinary_single_line_row_returns_none(self):
+        self.assertIsNone(split_multi_part_designation_row("STN EN 17124", "Vodíkové palivo"))
+
+    def test_unmatched_line_counts_return_none_rather_than_guess(self):
+        # 2 designation lines vs. 4 title lines -- can't reliably pair up,
+        # must not fabricate a guess.
+        designation = "STN EN 1-1\nSTN EN 1-2"
+        title = "A\nB\nC\nD"
+        self.assertIsNone(split_multi_part_designation_row(designation, title))
+
+
 class ParseXlsxPlaceholderTestCase(unittest.TestCase):
     """Builds a small in-memory workbook matching parse_xlsx's expected
     layout (header row 14, data from row 15, sheet "NRM H2_Bestandsanalyse")
@@ -256,6 +315,29 @@ class ParseXlsxPlaceholderTestCase(unittest.TestCase):
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["Značka"], "ISO 14313")
         self.assertEqual(records[0]["Jurisdikce"], "mezinárodní")
+
+    def test_bare_en_iso_designation_in_stn_column_is_eu_not_slovak(self):
+        # Same reasoning as the bare-ISO case above, for the European
+        # "EN ISO" adoption (Step 1 follow-up #16).
+        records = self._parse([
+            {"stn_designation": "EN ISO 14687", "stn_title": "Vodíkové palivo"},
+        ])
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["Značka"], "EN ISO 14687")
+        self.assertEqual(records[0]["Jurisdikce"], "EU")
+
+    def test_multi_part_row_is_split_end_to_end(self):
+        records = self._parse([
+            {"stn_designation": "STN EN 1-1\nSTN EN 1-2",
+             "stn_title": "Preambule\nČasť 1: Prvá\nČasť 2: Druhá"},
+        ])
+        self.assertEqual(len(records), 2)
+        self.assertEqual(records[0]["Značka"], "STN EN 1-1")
+        self.assertEqual(records[0]["Název"], "Preambule Časť 1: Prvá")
+        self.assertEqual(records[1]["Značka"], "STN EN 1-2")
+        self.assertEqual(records[1]["Název"], "Preambule Časť 2: Druhá")
+        self.assertEqual(records[0]["Jurisdikce"], "SK")
+        self.assertEqual(records[1]["Jurisdikce"], "SK")
 
 
 if __name__ == "__main__":

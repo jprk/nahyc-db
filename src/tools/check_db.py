@@ -48,15 +48,18 @@ def report(conn):
     print(f"Documents with a resolved jurisdikce: {c.fetchone()['n']} / {doc_count}")
     c.execute("SELECT COUNT(*) AS n FROM DocumentVersion")
     version_count = c.fetchone()["n"]
-    print(f"DocumentVersion rows: {version_count} (expect == {doc_count} for a fresh load)")
+    print(f"DocumentVersion rows: {version_count} (>= {doc_count} for a fresh load — "
+          f"some documents have real version history, see below)")
     c.execute("SELECT COUNT(*) AS n FROM DocumentVersion WHERE is_current = TRUE")
-    print(f"DocumentVersion rows with is_current=TRUE: {c.fetchone()['n']} (expect == {doc_count})")
+    print(f"DocumentVersion rows with is_current=TRUE: {c.fetchone()['n']} (expect == {doc_count} "
+          f"— exactly one current version per document, versioned or not)")
     c.execute("""
         SELECT document_id, COUNT(*) AS n FROM DocumentVersion
         GROUP BY document_id HAVING COUNT(*) > 1
     """)
     dupes = c.fetchall()
-    print(f"Documents with more than one DocumentVersion row: {len(dupes)} (expect 0)")
+    print(f"Documents with more than one DocumentVersion row (real version history, "
+          f"e.g. a norm base + amendment — Step 1 follow-up #16): {len(dupes)}")
 
     print("\n--- Step 3a load health (layer B + node_document) ---")
     for table in LAYER_B_TABLES:

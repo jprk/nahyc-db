@@ -37,6 +37,43 @@ ALTER TABLE DocumentVersion
 ALTER TABLE Document
   ADD COLUMN jurisdikce VARCHAR(20) NULL;
 
+-- Krok 1 follow-up #16 dodatek, 2026-09-11: řádná verzní historie normy
+-- (základní vydání + novela/oprava, např. "STN EN 13445-2" -> "+A1")
+-- namísto dvou nesouvisejících Document řádků se stejným názvem.
+-- `version` (V01) je jen neprůhledné pořadové číslo — chybí místo pro
+-- skutečné, citovatelné označení vydání (řetězec značky té konkrétní
+-- edice, např. "STN EN 13445-2+A1/ - 2024.02") a jeho vlastní datum
+-- platnosti. Populuje `src/tools/link_document_versions.py`, viz
+-- doc/PLAN.md Krok 1 follow-up #16.
+ALTER TABLE DocumentVersion
+  ADD COLUMN edition_label  VARCHAR(200) NULL,
+  ADD COLUMN effective_date VARCHAR(200) NULL;
+
+-- Zákon novelizovaný JINÝM, samostatně číslovaným zákonem (na rozdíl od
+-- normy, kde amendment sdílí číslo se základní normou a je tedy jen další
+-- DocumentVersion téhož Document) zůstává navždy samostatný, citovatelný
+-- Document řádek — vlastní `identifier` (číslo zákona), vlastní jméno.
+-- Vztah mezi novelizujícím a novelizovaným zákonem se eviduje zde, NE
+-- jako verze (reálný příklad z korpusu: "426/2021 Sb." AMENDS
+-- "266/1994 Sb." — zákon o dráhách). Pokud korpus někdy získá "úplné
+-- znění" (konsolidovaný přetisk téhož čísla zákona po zapracování
+-- novel), TO by naopak patřilo do DocumentVersion (stejný `identifier`,
+-- nové vydání) — ne sem. Populuje
+-- `src/tools/load_document_relations.py` z ručně kurátorovaného
+-- `data/document_relations.json` (podobný princip jako
+-- `data/v03_layer_d_draft.json` — vyžaduje lidský úsudek, ne
+-- automatické dolování z celého korpusu).
+CREATE TABLE document_relation (
+  id               INT AUTO_INCREMENT PRIMARY KEY,
+  from_document_id INT NOT NULL,  -- novelizující/vztahující se dokument
+  to_document_id   INT NOT NULL,  -- dokument, ke kterému se vztahuje
+  relation_type    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES') NOT NULL,
+  note             VARCHAR(500) NULL,
+  CONSTRAINT fk_drel_from FOREIGN KEY (from_document_id) REFERENCES Document(id) ON DELETE CASCADE,
+  CONSTRAINT fk_drel_to   FOREIGN KEY (to_document_id)   REFERENCES Document(id) ON DELETE CASCADE,
+  CONSTRAINT uq_drel UNIQUE (from_document_id, to_document_id, relation_type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

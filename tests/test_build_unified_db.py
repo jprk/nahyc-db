@@ -22,6 +22,12 @@ class ResolveProkopJurisdikceTestCase(unittest.TestCase):
         self.assertEqual(resolve_prokop_jurisdikce("ČSN ISO 14687"), "CZ")
         self.assertEqual(resolve_prokop_jurisdikce("ČSN EN 17127"), "CZ")
 
+    def test_bare_en_iso_designation_is_eu_not_cz(self):
+        # Step 1 follow-up #16: the European (CEN/CENELEC) adoption of an
+        # ISO/IEC standard, no ČSN prefix, is not a ČSN adoption either.
+        self.assertEqual(resolve_prokop_jurisdikce("EN ISO 14687"), "EU")
+        self.assertEqual(resolve_prokop_jurisdikce("prEN ISO 22734-1"), "EU")
+
 
 class ExtractZnackaFromTitleTestCase(unittest.TestCase):
     """Covers every pattern found in the real Haltuf/Sinay data this

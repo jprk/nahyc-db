@@ -151,6 +151,26 @@ def resolve_source_jurisdiction(gestor_name, gestor_jurisdiction_map):
     return None, gestor_jurisdiction_map.get(gestor_name)
 
 
+def resolve_document_versions(item):
+    """Returns the DocumentVersion rows to insert for this record, in
+    order, numbered 1..N: one per entry in its "versions" list (built by
+    link_document_versions.py for a norm base+amendment group — Step 1
+    follow-up #16), each carrying its own real designation/edition-date
+    as edition_label/effective_date; or, when "versions" is absent (the
+    common, unversioned case), the historical single-row behavior
+    (version=1, is_current=True, no edition_label/effective_date)."""
+    versions = item.get("versions")
+    if not versions:
+        return [{"version": 1, "edition_label": None, "effective_date": None, "is_current": True}]
+    return [
+        {"version": i,
+         "edition_label": v.get("edition_label") or None,
+         "effective_date": v.get("effective_date") or None,
+         "is_current": bool(v.get("is_current"))}
+        for i, v in enumerate(versions, start=1)
+    ]
+
+
 def import_json_data(db_conn):
     print(f"Reading from {JSON_PATH}")
 
@@ -219,10 +239,12 @@ def import_json_data(db_conn):
 
         doc_id = cursor.lastrowid
 
-        cursor.execute("""
-            INSERT INTO DocumentVersion (document_id, version, is_current)
-            VALUES (%s, 1, TRUE)
-        """, (doc_id,))
+        for v in resolve_document_versions(item):
+            cursor.execute("""
+                INSERT INTO DocumentVersion
+                (document_id, version, edition_label, effective_date, is_current)
+                VALUES (%s, %s, %s, %s, %s)
+            """, (doc_id, v["version"], v["edition_label"], v["effective_date"], v["is_current"]))
 
         klicova_slova = item.get("klicova_slova", [])
         if not isinstance(klicova_slova, list):

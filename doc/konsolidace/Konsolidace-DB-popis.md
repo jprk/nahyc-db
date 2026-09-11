@@ -90,7 +90,8 @@ https://www.plantuml.com/plantuml), konceptuální přehled
 | A | `DocumentType` | Číselník typů dokumentů | V01 beze změny |
 | A | `DocumentSource` | Číselník zdrojů/institucí | V01 + `institution_type`, `jurisdiction` |
 | A | `Keyword`, `DocumentKeyword` | Řízený slovník + M:N vazba | V01 beze změny |
-| A | `DocumentVersion` | Verze dokumentů | V01 + `is_current` |
+| A | `DocumentVersion` | Verze dokumentů | V01 + `is_current`, `edition_label`, `effective_date` |
+| A | `document_relation` | Vztah mezi dvěma samostatně číslovanými dokumenty (novela zákona jiným zákonem) | nová (Krok 1 follow-up #16) |
 | B | `process_class` | Číselník tříd procesů (7) | V02 |
 | B | `process_node` | Uzly U1–U7 | V02 + `valid_from`/`valid_to` |
 | B | `node_description` | 1:1 narativní texty šablony P6 | V02 |
@@ -146,6 +147,53 @@ pokrývá `title` + `description`.
 | Nový sloupec | Typ | Popis |
 |---|---|---|
 | `is_current` | `BOOLEAN` DEFAULT FALSE | Příznak aktuální platné verze (V03 §6.3: „aktuální platná verze je označena příznakem"). Nejvýše jedna verze dokumentu smí mít TRUE (vynuceno aplikačně, případně triggerem). |
+| `edition_label` | `VARCHAR(200)` NULL | **Doplněno Krokem 1 follow-up #16 (2026-09-11).** Lidsky čitelné, skutečně citovatelné označení TÉTO konkrétní verze/vydání (např. `"STN EN 13445-2+A1/ - 2024.02"`) — na rozdíl od `version` (jen neprůhledné pořadové číslo 1, 2, …). Vždy verbatim převzato ze zdrojové značky té edice, nikdy nevymýšleno. |
+| `effective_date` | `VARCHAR(200)` NULL | Vlastní datum platnosti TÉTO verze (na rozdíl od `Document.effective_date`, které po naplnění verzí odráží nejnovější/aktuální edici). Stejná „volný text" filozofie jako `Document.effective_date`. |
+
+Naplňuje `src/tools/link_document_versions.py`: detekuje skupiny záznamů
+sdílející jádro značky (bez novelizační přípony `+A1`/`/A1`/`/AC` a bez
+datové přípony edice) i jurisdikci, a alespoň jeden člen skupiny musí
+nést skutečnou novelizační příponu (jinak jde jen o shodu titulků, ne o
+verzní pár — to je práce `deduplicate_db.py`, ne tohoto skriptu). Řadí
+podle novelizační úrovně (`+A1` < `+A2`, `/AC` počítáno jako úroveň 1) —
+záměrně NE podle volně-textového `platnost`/edice-data, které v tomto
+korpusu není spolehlivě autoritativním datem konkrétní edice (nalezeno:
+jeden základní záznam má v `platnost` cizí datum interního sledování
+pracovní položky, ne datum vlastního vydání). `src/tools/init_db.py`
+načte jeden `DocumentVersion` řádek na položku seznamu `versions`
+(chybí-li seznam — běžný, neverzovaný případ — zachovává historické
+chování: jeden řádek, `version=1`, `is_current=TRUE`, bez
+`edition_label`/`effective_date`).
+
+### 4.4 `document_relation` — nová tabulka
+
+**Doplněno Krokem 1 follow-up #16 (2026-09-11).** Zákon novelizovaný
+JINÝM, samostatně číslovaným zákonem (na rozdíl od normy výše, kde
+novelizační přípona sdílí číslo se základní normou a je tedy jen další
+`DocumentVersion` téhož `Document`) zůstává navždy samostatný, citovatelný
+`Document` řádek — vlastní `identifier`, vlastní název. Vztah mezi
+novelizujícím a novelizovaným zákonem (reálný příklad z korpusu:
+`426/2021 Sb.` AMENDS `266/1994 Sb.` — zákon o dráhách) se eviduje zde,
+NE jako verze. Pokud korpus někdy získá „úplné znění" (konsolidovaný
+přetisk téhož čísla zákona po zapracování novel), TO by naopak patřilo
+do `DocumentVersion` (stejný `identifier`, nové vydání) — ne sem.
+
+| Sloupec | Typ | Popis |
+|---|---|---|
+| `from_document_id` | `INT` NOT NULL, FK → `Document.id` | Novelizující/vztahující se dokument. |
+| `to_document_id` | `INT` NOT NULL, FK → `Document.id` | Dokument, ke kterému se vztahuje. |
+| `relation_type` | `ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES')` NOT NULL | Typ vztahu. |
+| `note` | `VARCHAR(500)` NULL | Volný text (odůvodnění/kontext vztahu). |
+
+Naplňuje `src/tools/load_document_relations.py` z ručně kurátorovaného
+`data/document_relations.json` — detekce napříč celým korpusem
+vyžaduje lidský úsudek (novelizující zákon obvykle ve svém vlastním
+názvu cituje novelizovaný zákon jménem/předmětem, ne číslem — např.
+"426/2021 Sb. - novela Zákona o drahách"), proto se zde záměrně
+nezkouší automatické dolování nad celým korpusem, stejný princip jako
+`data/v03_layer_d_draft.json`. Nenapárované položky (neznámý
+`identifier` nebo `relation_type`) jdou do
+`data/document_relations_review_queue.json`, nikdy se nehádají.
 
 ---
 

@@ -7,8 +7,38 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from init_db import (
     resolve_identifier, resolve_document_type, normalize_jurisdikce,
     build_gestor_jurisdiction_map, resolve_source_jurisdiction,
-    FALLBACK_DOCUMENT_TYPE,
+    resolve_document_versions, FALLBACK_DOCUMENT_TYPE,
 )
+
+
+class ResolveDocumentVersionsTestCase(unittest.TestCase):
+    """Step 1 follow-up #16: a record without a "versions" list (the
+    common case) keeps the historical single-row behavior; one with a
+    "versions" list (built by link_document_versions.py for a norm
+    base+amendment group) gets one DocumentVersion row per entry, in
+    order, with its own edition_label/effective_date/is_current."""
+
+    def test_no_versions_list_is_the_historical_single_row(self):
+        rows = resolve_document_versions({"znacka": "STN EN 1"})
+        self.assertEqual(rows, [{"version": 1, "edition_label": None,
+                                  "effective_date": None, "is_current": True}])
+
+    def test_versions_list_becomes_one_row_each_in_order(self):
+        item = {"versions": [
+            {"znacka": "STN EN 1/ - 2021.08", "edition_label": "STN EN 1/ - 2021.08",
+             "effective_date": "Veröffentlicht-Publikovaný / 2021-08", "is_current": False},
+            {"znacka": "STN EN 1+A1/ - 2024.02", "edition_label": "STN EN 1+A1/ - 2024.02",
+             "effective_date": "od 02/2024", "is_current": True},
+        ]}
+        rows = resolve_document_versions(item)
+        self.assertEqual([r["version"] for r in rows], [1, 2])
+        self.assertEqual([r["is_current"] for r in rows], [False, True])
+        self.assertEqual(rows[1]["edition_label"], "STN EN 1+A1/ - 2024.02")
+        self.assertEqual(rows[1]["effective_date"], "od 02/2024")
+
+    def test_empty_versions_list_falls_back_to_single_row(self):
+        self.assertEqual(resolve_document_versions({"versions": []}),
+                          resolve_document_versions({}))
 
 
 class ResolveIdentifierTestCase(unittest.TestCase):

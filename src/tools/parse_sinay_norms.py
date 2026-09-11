@@ -85,23 +85,42 @@ _BARE_EN_DESIGNATION_RE = re.compile(r"^(?:pr|F\s*pr)?EN\s+\d", re.IGNORECASE)
 # designation carries no STN prefix at all).
 _BARE_ISO_IEC_DESIGNATION_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
 
+# A designation that IS a bare "EN ISO .../EN IEC ..." combination — no
+# national prefix at all (e.g. "EN ISO 14687", "prEN ISO 22734-1") — is
+# specifically the CEN/CENELEC-level European adoption of the ISO/IEC
+# standard, one rung below a national adoption (e.g. "STN EN ISO 14687")
+# and NOT the same thing as a bare "ISO 14687" citation (which has no
+# European ratification at all) — must be "EU", not "mezinárodní".
+# Checked right after the bare-ISO/IEC check and before the main marker
+# loop, since the loop's own generic `\bISO\b` marker would otherwise
+# match first and misclassify it as "mezinárodní" (found via real corpus
+# cases: "prEN ISO 22734-1", "prEN ISO 24078", "prEN ISO 24490" — Step 1
+# follow-up #16).
+_BARE_EN_ISO_DESIGNATION_RE = re.compile(
+    r"^(?:pr|F\s*pr)?EN\s+(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
+
 
 def classify_jurisdikce(znacka, kategorie=""):
     """Best-effort jurisdiction from the designation/issuing-body text.
     A bare international ISO/IEC designation (no national prefix) is
-    always "mezinárodní", checked before anything else — see
-    `_BARE_ISO_IEC_DESIGNATION_RE`. Otherwise checked in order —
-    national-adoption markers (STN, then the German ones) FIRST, before
-    the international/European ISO/IEC/CEN/EIGA markers, so a national
-    adoption's own catalog entry citing the international committee that
-    originated the standard doesn't override its real (national)
-    jurisdiction — see `_JURISDICTION_MARKERS`. Returns "neurčeno" rather
-    than guess when nothing matches — same fail-safe philosophy as
-    extract_znacka_from_title() in build_unified_db.py.
+    always "mezinárodní", and a bare "EN ISO"/"EN IEC" combination (the
+    European adoption of an ISO/IEC standard, no national prefix) is
+    always "EU" — both checked before anything else, see
+    `_BARE_ISO_IEC_DESIGNATION_RE`/`_BARE_EN_ISO_DESIGNATION_RE`.
+    Otherwise checked in order — national-adoption markers (STN, then the
+    German ones) FIRST, before the international/European ISO/IEC/CEN/EIGA
+    markers, so a national adoption's own catalog entry citing the
+    international committee that originated the standard doesn't override
+    its real (national) jurisdiction — see `_JURISDICTION_MARKERS`.
+    Returns "neurčeno" rather than guess when nothing matches — same
+    fail-safe philosophy as extract_znacka_from_title() in
+    build_unified_db.py.
     """
     znacka = znacka.strip()
     if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka):
         return "mezinárodní"
+    if _BARE_EN_ISO_DESIGNATION_RE.match(znacka):
+        return "EU"
     haystack = f"{znacka} {kategorie}"
     for pattern, jurisdikce in _JURISDICTION_MARKERS:
         if re.search(pattern, haystack, re.IGNORECASE):
@@ -320,6 +339,42 @@ _XLSX_HEADER_ROW = 14
 _XLSX_DATA_START_ROW = 15
 _XLSX_AG_COLUMN_RANGE = range(24, 64)  # AG 1.1.1 .. AG 5.3 (UAK/AK summary columns 64-80 excluded — redundant, coarser)
 
+# A single XLSX row can represent a whole multi-part standard family in
+# one go: the STN-designation cell (column 3) and the title cell (column
+# 5) both hold multiple designations/part-titles joined by embedded
+# newlines, one part per line (found: "STN EN 1514", a family of 7 parts
+# with 7 different edition dates and one real amendment, "-2+A1" — Step
+# 1 follow-up #16). Left unsplit, this collapses 7 real, individually
+# citable standards into one row with an unusable 190+ character
+# "znacka" (already silently dropped by init_db.py's identifier-length
+# guard). Confirmed a one-off in the raw source (only this one row has
+# this shape), not a systemic pattern needing a broader rule.
+_PART_TITLE_LINE_RE = re.compile(r"^(?:Časť|Part|Diel)\s+\d+\s*:", re.IGNORECASE)
+
+
+def split_multi_part_designation_row(stn_designation, stn_title):
+    """Splits a composite multi-part row into (designation, title) pairs,
+    one per part, or returns None for an ordinary single-designation row.
+    The designation cell's lines pair up positionally with the title
+    cell's lines; if the title cell has exactly one extra leading line
+    that doesn't itself look like a per-part line, that line is a shared
+    preamble prepended to every part's own title instead of consumed as
+    a part of its own. Deliberately conservative: any shape it doesn't
+    recognize returns None rather than guess, leaving the caller to fall
+    back to the historical (single, crammed) record."""
+    designation_lines = [ln.strip() for ln in stn_designation.split("\n") if ln.strip()]
+    if len(designation_lines) < 2:
+        return None
+    title_lines = [ln.strip() for ln in stn_title.split("\n") if ln.strip()]
+    common_prefix = ""
+    if len(title_lines) == len(designation_lines) + 1 and not _PART_TITLE_LINE_RE.match(title_lines[0]):
+        common_prefix, title_lines = title_lines[0], title_lines[1:]
+    if len(title_lines) != len(designation_lines):
+        return None
+    if common_prefix:
+        return [(d, f"{common_prefix} {t}".strip()) for d, t in zip(designation_lines, title_lines)]
+    return list(zip(designation_lines, title_lines))
+
 
 def _xlsx_cell(ws, row, col):
     val = ws.cell(row=row, column=col).value
@@ -391,24 +446,43 @@ def parse_xlsx(path=XLSX_PATH):
                     if ag_headers.get(col) and _xlsx_cell(ws, row_idx, col).lower() == "x"]
         klicova_slova = ", ".join(keywords) if keywords else "-"
 
-        # If the STN column (3) is populated, that's direct evidence of a
-        # Slovak adoption — more reliable than the general heuristic. EXCEPT
-        # when the STN column itself just holds the bare international
-        # designation (no distinguishing national number was ever assigned,
-        # e.g. "ISO 14313") — that's still the international standard, not
-        # a real national adoption, so let classify_jurisdikce()'s own
-        # bare-ISO/IEC check apply instead of blindly trusting the column.
-        if stn_designation and not _BARE_ISO_IEC_DESIGNATION_RE.match(stn_designation):
-            jurisdikce = "SK"
-        else:
-            jurisdikce = classify_jurisdikce(znacka, kategorie)
+        def _jurisdikce_for(designation):
+            # If the STN column (3) is populated, that's direct evidence
+            # of a Slovak adoption — more reliable than the general
+            # heuristic. EXCEPT when the STN column itself just holds the
+            # bare international designation (no distinguishing national
+            # number was ever assigned, e.g. "ISO 14313") or the bare
+            # European "EN ISO"/"EN IEC" adoption (e.g. "EN ISO 14687", no
+            # STN prefix) — neither is a real Slovak national adoption, so
+            # let classify_jurisdikce()'s own bare-ISO/IEC / bare-EN-ISO
+            # checks apply instead of blindly trusting the column.
+            if stn_designation and not (_BARE_ISO_IEC_DESIGNATION_RE.match(designation)
+                                         or _BARE_EN_ISO_DESIGNATION_RE.match(designation)):
+                return "SK"
+            return classify_jurisdikce(designation, kategorie)
+
+        split_parts = split_multi_part_designation_row(stn_designation, stn_title) if stn_designation else None
+        if split_parts:
+            for part_designation, part_title in split_parts:
+                records.append({
+                    "Sekce": "",
+                    "Značka": part_designation,
+                    "Název": part_title,
+                    "Kategorie": kategorie,
+                    "Jurisdikce": _jurisdikce_for(part_designation),
+                    "Platnost": platnost,
+                    "Anotace": anotace,
+                    "Klíčová slova": klicova_slova,
+                    "Link": "",
+                })
+            continue
 
         records.append({
             "Sekce": "",
             "Značka": znacka,
             "Název": nazev,
             "Kategorie": kategorie,
-            "Jurisdikce": jurisdikce,
+            "Jurisdikce": _jurisdikce_for(znacka),
             "Platnost": platnost,
             "Anotace": anotace,
             "Klíčová slova": klicova_slova,

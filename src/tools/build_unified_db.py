@@ -21,16 +21,28 @@ def load_json(filepath):
 # two already duplicate other jurisdikce-adjacent logic independently).
 _BARE_ISO_IEC_DESIGNATION_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
 
+# A bare "EN ISO"/"EN IEC" combination (the European, CEN/CENELEC-level
+# adoption, no ČSN prefix) is likewise not a ČSN adoption — see
+# parse_sinay_norms.py's own `_BARE_EN_ISO_DESIGNATION_RE` (duplicated for
+# the same independent-module reason as above; Step 1 follow-up #16).
+_BARE_EN_ISO_DESIGNATION_RE = re.compile(
+    r"^(?:pr|F\s*pr)?EN\s+(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
+
 
 def resolve_prokop_jurisdikce(znacka):
     """Prokop is a curated ČSN-adjacent hydrogen-standards list — almost
     all entries are real ČSN adoptions, unambiguously CZ-valid, but a bare
     international ISO/IEC designation (see `_BARE_ISO_IEC_DESIGNATION_RE`)
-    is the international standard itself, not a ČSN adoption, and must
-    never be marked CZ just because of which source file it came from
-    (see doc/PLAN.md Step 1 follow-up #14)."""
-    if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka.strip()):
+    is the international standard itself, and a bare "EN ISO"/"EN IEC"
+    combination (see `_BARE_EN_ISO_DESIGNATION_RE`) is its European
+    adoption — neither is a ČSN adoption, and must never be marked CZ just
+    because of which source file it came from (see doc/PLAN.md Step 1
+    follow-up #14/#16)."""
+    znacka = znacka.strip()
+    if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka):
         return "mezinárodní"
+    if _BARE_EN_ISO_DESIGNATION_RE.match(znacka):
+        return "EU"
     return "CZ"
 
 

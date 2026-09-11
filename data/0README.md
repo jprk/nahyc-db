@@ -12,3 +12,8 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 
 * `v02_processes_parsed.json` — strukturovaný výstup `src/tools/parse_v02_processes.py` (rozpad `doc/NAHYC DP004 V02 - Popis procesů.docx` na uzly U1–U7 + bibliografii), vstup pro `src/tools/load_process_layer.py`.
 * `process_layer_review_queue.json` — nenapárované citace předpisů/norem a bibliografické položky vyžadující lidskou kontrolu (generuje `load_process_layer.py`, stejný princip jako `dedup_review_queue.json`).
+
+## Verzní historie dokumentů (od 2026-09-11, viz `doc/PLAN.md` Krok 1 follow-up #16)
+
+* `document_relations.json` — ručně kurátorovaný seznam vztahů mezi dvěma samostatně číslovanými dokumenty (zákon novelizovaný jiným zákonem, viz `Konsolidace-DB-popis.md` §4.4) — vstup pro `src/tools/load_document_relations.py`. Detekce napříč celým korpusem vyžaduje lidský úsudek, proto malý a ručně udržovaný, stejný princip jako `v03_layer_d_draft.json` (viz `doc/PLAN.md` Krok 3b).
+* `document_relations_review_queue.json` — nenapárované položky ze `document_relations.json` (neznámý `identifier` nebo `relation_type`) vyžadující lidskou kontrolu (generuje `load_document_relations.py`).

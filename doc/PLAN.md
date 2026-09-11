@@ -13,11 +13,11 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#15 (2026-09-11) found and fixed real
+itself: Step 1 follow-ups #10–#16 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194→1191→1188 records; only 1 of
-the original 2 known cross-jurisdiction `identifier` collisions remains —
-the other turned out to be a classification bug, not a genuine
+duplicate-title audit (1344→1200→1196→1194→1191→1188→1176 records; only 1
+of the original 2 known cross-jurisdiction `identifier` collisions
+remains — the other turned out to be a classification bug, not a genuine
 cross-jurisdiction duplicate). `CSA ANSI GSV 4.1`→`HGV 4.1` (typo),
 `ISO 7105`→`STN 65 1312-2` (withdrawn) and `EIGA 121/14`/`IGC Doc 121/14`
 (org-rename alias) resolved, each a one-time data correction and/or
@@ -29,8 +29,16 @@ Follow-up #15 generalized a jurisdikce bug found via the `ISO 7105`/`ISO
 14313` cases: a bare international ISO/IEC designation was being marked
 CZ/SK in three places, purely because of its source column/file — now
 fixed, with a beneficial ripple effect on several other cross-source
-merges. A dedicated review/cross-check working mode for the database
-interface is a flagged future need, not designed yet. The agentic
+merges. Follow-up #16 fixed the same kind of bug for bare "EN ISO"
+designations (→`EU`, not `mezinárodní`), fixed a real parsing bug
+(`STN EN 1514` collapsing 7 standards into one unusable record), and
+designed + implemented a real version-history data model: norm
+base+amendment pairs now populate multiple `DocumentVersion` rows on one
+`Document` (17 groups linked), while a law amended by a separately-
+numbered act uses a new `document_relation` table instead (1 real
+example loaded: `426/2021 Sb.` AMENDS `266/1994 Sb.`). A dedicated
+review/cross-check working mode for the database interface is a flagged
+future need, not designed yet. The agentic
 architecture in §3 remains a
 proposal.
 **Source:** §3 below reconciles this plan against
@@ -988,6 +996,144 @@ Original plan (executed as amended above):
     (1211 `Document` rows, same +23 bibliography offset as before),
     `app/app.py` re-verified (single merged `EIGA 121/14` record, `ISO
     7105` search surfaces the corrected `STN 65 1312-2` record).
+- **Follow-up #16 (2026-09-11): three requests — a further jurisdikce
+  fix (bare "EN ISO"/"EN IEC" → `EU`), a parsing bug found while
+  auditing the deferred "amendment pairs" (`STN EN 1514`, one row =
+  7 real standards crammed into one), and a proper version-history data
+  model for norm base+amendment pairs, checked against the law-amendment
+  case too.**
+  - **Bare "EN ISO"/"EN IEC" (no national prefix) is `EU`, not
+    `mezinárodní`.** A European (CEN/CENELEC) adoption of an ISO/IEC
+    standard is one rung below a national adoption (e.g. `"STN EN ISO
+    14687"`) and NOT the same thing as a bare `"ISO 14687"` citation
+    (no European ratification at all) — but the marker loop's own
+    generic `\bISO\b`/`\bIEC\b` rule was matching first and collapsing
+    both into `"mezinárodní"`. Real cases found: `"prEN ISO 22734-1"`,
+    `"prEN ISO 24078"`, `"prEN ISO 24490"` (all Sinay_Normy). Fixed with
+    a new `_BARE_EN_ISO_DESIGNATION_RE`, checked right after the
+    existing bare-ISO/IEC check (both in `classify_jurisdikce()` and the
+    `parse_xlsx()` STN-column override), and mirrored in
+    `build_unified_db.py`'s `resolve_prokop_jurisdikce()` (no triggering
+    Prokop record currently, added defensively for consistency). 6 new
+    tests.
+  - **A real bug found while re-examining the amendment pairs: `"STN EN
+    1514"` collapsed 7 real standards into one unusable record.** One
+    row in the raw XLSX (`Zoznam_noriem_Vodik_Road_map...b.xlsx`, row
+    266) holds a single cell listing all 7 parts of the `EN 1514` family
+    (`-1`, `-2+A1`, `-3`, `-4`, `-6`, `-7`, `-8`), each with its own
+    edition date, joined by embedded newlines — same shape for the title
+    cell. The parser took the whole blob as one 190+ character `znacka`,
+    already silently dropped by `init_db.py`'s identifier-length guard
+    (a pre-existing, previously-unexplained WARNING in every pipeline
+    run's output). Confirmed a genuine one-off in the raw source (only
+    this one row has this shape, checked corpus-wide) — not a systemic
+    pattern needing a general rule. Fixed with
+    `split_multi_part_designation_row()` in `parse_sinay_norms.py`:
+    pairs the designation cell's lines with the title cell's lines
+    positionally (tolerating one shared preamble line before the
+    per-part title lines), emitting N separate records instead of one;
+    returns `None` (falls back to the historical single-record
+    behavior) for any shape it doesn't confidently recognize, rather
+    than guessing. 4 new unit tests plus an end-to-end `parse_xlsx()`
+    test. Re-run: XLSX now extracts 975 records (was 969, +6 net for the
+    7-way split of this one row), all 7 `STN EN 1514-*` parts now
+    correctly present and separately citable (alongside the pre-existing
+    `"STN EN 1514 (súbor)"` family-level catalog entry, which is a real,
+    distinct STN catalog concept — bundled purchase of the whole family —
+    not a duplicate of the 7 individual parts).
+  - **Version-history data model, designed for norms and checked
+    against the law-amendment case.** The two cases are NOT the same
+    shape, confirmed by checking the corpus for a real law-amendment
+    example (found: `"426/2021 Sb."`, titled "novela Zákona o drahách",
+    amends `"266/1994 Sb."` — two separate, permanently distinct Document
+    rows, each with its own real citation number):
+    - **A norm's amendment (`+A1`/`/A1`/`/AC`) IS the same document, a
+      later edition of the same designation** — this is exactly what the
+      already-existing `DocumentVersion` table (with `is_current`,
+      added at V03) is for, and it was never actually being used that
+      way: every record got exactly one `DocumentVersion` row, so a
+      base/amendment pair was two unrelated-looking `Document` rows that
+      merely happened to share a title.
+    - **A law amended by a separately-numbered act is NOT a new version
+      of the same document** — both remain their own citable `Document`
+      rows forever; the relationship between them is a different kind of
+      fact entirely, modeled with a new table, not `DocumentVersion`.
+      (If the corpus ever gains "úplné znění" — a consolidated republished
+      text under the SAME law number after folding in amendments — THAT
+      case would map to `DocumentVersion`, same as a norm's amendment;
+      not implemented now, no such record currently in the corpus.)
+    - **Schema (`doc/konsolidace/Konsolidace-DB-schema.sql`, applied to
+      live `h2regdocs`)**: `ALTER TABLE DocumentVersion ADD COLUMN
+      edition_label VARCHAR(200), ADD COLUMN effective_date VARCHAR(200)`
+      — `version` alone is an opaque ordinal; `edition_label` carries the
+      actual, verbatim, citable designation string for that edition,
+      `effective_date` its own free-text validity note (same convention
+      as `Document.effective_date`). New `document_relation` table
+      (`from_document_id`, `to_document_id`, `relation_type` — `AMENDS` /
+      `REPEALS` / `IMPLEMENTS` / `CONSOLIDATES`, `note`) for the law
+      case. Full description in `Konsolidace-DB-popis.md` §4.3/§4.4.
+    - **`src/tools/link_document_versions.py`** (new): groups records by
+      an amendment-marker-and-edition-date-stripped designation core
+      (`version_group_key()` — deliberately more tolerant than
+      `deduplicate_db.normalize_znacka()`, since stripping an embedded
+      `/A1` can remove the very `/` that suffix-stripping needs) plus
+      jurisdikce, requiring at least one member to carry a real
+      amendment marker (never sweeps in a coincidental title/core match
+      with no amendment evidence — that's `deduplicate_db.py`'s job).
+      Orders by `amendment_level()` (0 = base, 1 = `+A1`/`/AC`, 2 =
+      `+A2`, …) — deliberately NOT by the free-text `platnost`/edition
+      date, which this corpus does not reliably carry as the specific
+      edition's own real date (found while checking: one base record's
+      `platnost` carries an unrelated internal work-item-tracking date,
+      `"2023-05"`, instead of its own real 2015 publication date).
+      Merges each group into one record: the highest-amendment-level
+      member's own fields become the current/top-level fields, keywords
+      and sources are unioned, and a `versions` list records every
+      member's own designation/date/current-flag. Run AFTER
+      `deduplicate_db.py`, BEFORE `init_db.py`; rewrites
+      `database_merged_deduplicated.json` in place. 16 new tests.
+    - **`init_db.py`**: `resolve_document_versions()` replaces the old
+      hardcoded single-row insert — a record without a `"versions"` list
+      (the common, unversioned case) keeps the exact historical
+      behavior (`version=1, is_current=TRUE`, no label/date); one WITH a
+      list gets one `DocumentVersion` row per entry, numbered in order,
+      each with its own `edition_label`/`effective_date`/`is_current`. 3
+      new tests. `check_db.py`'s health report updated to treat >1
+      version per document as expected/reported, not an error (the old
+      "expect == doc_count"/"expect 0" wording assumed every document
+      had exactly one version, no longer true).
+    - **`src/tools/load_document_relations.py`** (new, small): loads
+      `data/document_relations.json` — a short, HAND-curated list (like
+      `data/v03_layer_d_draft.json`; detecting this reliably across the
+      whole corpus needs human judgement, since an amending act's title
+      typically names the amended law by subject, not by citation
+      number) — into `document_relation`, matching by `Document.identifier`.
+      Unmatched identifiers/relation types go to
+      `data/document_relations_review_queue.json`, never guessed.
+      Currently populated with the one real, confirmed example:
+      `"426/2021 Sb." AMENDS "266/1994 Sb."`. 4 new tests.
+  - **Re-run results**: full pipeline re-run (`parse_sinay_norms.py` →
+    `build_unified_db.py` → `deduplicate_db.py` →
+    `link_document_versions.py` → `init_db.py` →
+    `load_document_relations.py` → `load_process_layer.py`).
+    Deduplicated 1188→1193 (net +5 from the EN 1514 split, after the
+    usual small LLM-merge-non-determinism noise) →
+    **1176 after version-linking** (17 base+amendment groups found and
+    merged — matches the count from the earlier "amendment pairs" audit,
+    plus 2 more surfaced by this script's designation-core grouping,
+    which is stronger evidence than the earlier exact-title check: `STN
+    EN 746-1` and `STN EN 88-2`, the latter verified by hand — its
+    "different" title is the same standard retitled with its pressure
+    range restated in kPa instead of mbar/bar, 500 mbar–5 bar = 50–500
+    kPa). `h2regdocs` reloaded: 1199 `Document` rows (1176 + 23
+    bibliography), 1216 `DocumentVersion` rows (1199 + 17 real second
+    editions), exactly 1199 with `is_current=TRUE`, 1
+    `document_relation` row loaded cleanly. 230 tests total, all
+    passing. `app/app.py` re-verified.
+  - **Not done this pass**: no attempt to mine the corpus for more
+    law-amendment relationships beyond the one confirmed example — needs
+    human judgement per case, not a pattern to automate (see
+    `load_document_relations.py`'s own docstring).
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

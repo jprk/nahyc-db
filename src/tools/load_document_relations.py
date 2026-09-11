@@ -1,0 +1,100 @@
+"""Loads document-to-document relationships (a law amended by a separate,
+independently-numbered law — e.g. "426/2021 Sb." AMENDS "266/1994 Sb.")
+into `document_relation` — see doc/PLAN.md Step 1 follow-up #16.
+
+Deliberately NOT the same mechanism as a norm's amendment (that's a
+DocumentVersion of the SAME document, populated by
+link_document_versions.py): a law amended by a separate act keeps both
+acts as their own permanently citable Document rows forever, so this is
+a relationship between two rows, not a version of one.
+
+Source, `data/document_relations.json`, is a small, hand-curated list —
+detecting this reliably across the whole corpus needs human judgement
+(an amending act's title usually names the amended law by subject, e.g.
+"novela Zákona o drahách", not by its own citation number), not a title/
+designation pattern, so this deliberately does not attempt corpus-wide
+automatic detection (same "needs a human" philosophy as
+data/v03_layer_d_draft.json).
+
+Unmatched identifiers are logged to
+data/document_relations_review_queue.json for human correction, never
+silently skipped or guessed. Safe to re-run: TRUNCATEs document_relation
+before loading (same convention as load_process_layer.py's own reset).
+"""
+import json
+import pathlib
+import sys
+
+BASE_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = BASE_DIR.parent.parent
+RELATIONS_PATH = REPO_ROOT / "data" / "document_relations.json"
+REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "document_relations_review_queue.json"
+
+sys.path.insert(0, str(BASE_DIR))
+from init_db import get_connection  # noqa: E402
+
+VALID_RELATION_TYPES = {"AMENDS", "REPEALS", "IMPLEMENTS", "CONSOLIDATES"}
+
+
+def fetch_document_identifier_map(cursor):
+    cursor.execute("SELECT id, identifier FROM Document WHERE identifier IS NOT NULL")
+    return {identifier: doc_id for doc_id, identifier in cursor.fetchall()}
+
+
+def resolve_relations(relations, identifier_map):
+    """Splits `relations` into (resolved, unresolved): resolved entries
+    carry `from_document_id`/`to_document_id`; unresolved ones (either
+    identifier not found, or an unrecognized relation_type) are returned
+    as-is, annotated with why, for the review queue."""
+    resolved, unresolved = [], []
+    for rel in relations:
+        relation_type = rel.get("relation_type", "")
+        from_id = identifier_map.get(rel.get("from_identifier", ""))
+        to_id = identifier_map.get(rel.get("to_identifier", ""))
+        problems = []
+        if relation_type not in VALID_RELATION_TYPES:
+            problems.append(f"unrecognized relation_type {relation_type!r}")
+        if from_id is None:
+            problems.append(f"from_identifier {rel.get('from_identifier')!r} not found")
+        if to_id is None:
+            problems.append(f"to_identifier {rel.get('to_identifier')!r} not found")
+        if problems:
+            unresolved.append({**rel, "_problems": problems})
+            continue
+        resolved.append({**rel, "from_document_id": from_id, "to_document_id": to_id})
+    return resolved, unresolved
+
+
+def main():
+    if not RELATIONS_PATH.exists():
+        print(f"Vstupní soubor neexistuje: {RELATIONS_PATH}")
+        return
+
+    with open(RELATIONS_PATH, "r", encoding="utf-8") as f:
+        relations = json.load(f)
+
+    conn = get_connection()
+    cursor = conn.cursor()
+    identifier_map = fetch_document_identifier_map(cursor)
+
+    resolved, unresolved = resolve_relations(relations, identifier_map)
+
+    cursor.execute("TRUNCATE TABLE document_relation")
+    for rel in resolved:
+        cursor.execute("""
+            INSERT INTO document_relation
+            (from_document_id, to_document_id, relation_type, note)
+            VALUES (%s, %s, %s, %s)
+        """, (rel["from_document_id"], rel["to_document_id"],
+              rel["relation_type"], rel.get("note") or None))
+    conn.commit()
+
+    with open(REVIEW_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(unresolved, f, ensure_ascii=False, indent=2)
+
+    print(f"Načteno {len(relations)} vztahů, {len(resolved)} uloženo do document_relation, "
+          f"{len(unresolved)} nenapárováno -> {REVIEW_QUEUE_PATH}")
+
+
+if __name__ == "__main__":
+    main()
