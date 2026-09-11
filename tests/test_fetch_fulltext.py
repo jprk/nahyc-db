@@ -29,10 +29,37 @@ class IsFetchableSourceTestCase(unittest.TestCase):
         self.assertTrue(ff.is_fetchable_source("Sinay_Zakony"))
 
 
+class IsNormDesignationTestCase(unittest.TestCase):
+    """doc/REQUIREMENTS.md R4.1, 2026-09-11: a second, source-independent
+    guard -- a law source (e.g. Haltuf_Dokumenty) can still carry a stray
+    norm citation of its own (real corpus cases: "ISO 14687", "ČSN EN
+    17127", "DIN EN ISO 22734")."""
+
+    def test_norm_designations_detected_regardless_of_source(self):
+        for zn in ("ISO 14687", "ČSN EN 17127", "ČSN EN ISO 17268",
+                   "DIN EN ISO 22734", "STN ISO 1", "EN 50129"):
+            self.assertTrue(ff.is_norm_designation(zn), zn)
+
+    def test_law_designations_are_not_norms(self):
+        for zn in ("183/2006 Sb.", "(EU) 2016/797", "458/2000 Sb."):
+            self.assertFalse(ff.is_norm_designation(zn), zn)
+
+    def test_blank_is_not_a_norm(self):
+        self.assertFalse(ff.is_norm_designation(""))
+        self.assertFalse(ff.is_norm_designation(None))
+
+
 class IterFetchTargetsTestCase(unittest.TestCase):
     def test_skips_norm_sources_even_with_url(self):
         raw = [{"zdroj_dat": "Prokop_Normy", "znacka": "ISO 14687",
                 "odkaz_hlavni": "https://iso.org/standards.html"}]
+        self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
+
+    def test_skips_norm_shaped_znacka_even_from_a_law_source(self):
+        # Real corpus case: Haltuf_Dokumenty (a law source) also carried a
+        # stray "ČSN EN 17127" entry, fetched before this fix.
+        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "ČSN EN 17127",
+                "odkaz_hlavni": "https://www.technicke-normy-csn.cz/x.html"}]
         self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
 
     def test_skips_records_without_znacka(self):

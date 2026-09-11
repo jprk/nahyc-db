@@ -8,7 +8,10 @@ norms — ČSN/STN/EN/ISO/DIN) are skipped unconditionally: their URLs are
 generic catalog roots, not per-document links, and the actual standard
 text is copyrighted/paywalled (confirmed via the ČSN registry's own Terms
 of Use — see `check_csn_validity.py`'s docstring). This script must never
-be extended to fetch norm text.
+be extended to fetch norm text. `is_norm_designation()` adds a second,
+source-independent guard (2026-09-11, doc/REQUIREMENTS.md R4.1): a law
+source like `Haltuf_Dokumenty` can still carry a handful of stray norm
+citations of its own, which the source-name check alone would miss.
 
 Idempotent: `data/fulltext_manifest.json` (git-tracked — small metadata,
 no document content) records one entry per (source, znacka, URL field).
@@ -39,6 +42,19 @@ MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
 NORM_SOURCES = {"Prokop_Normy", "Sinay_Normy"}
 URL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
 
+# doc/REQUIREMENTS.md R4.1, 2026-09-11: NORM_SOURCES alone is not a
+# reliable guard — found in practice that Haltuf_Dokumenty (a law source,
+# not in NORM_SOURCES) also carries a handful of stray norm citations of
+# its own (e.g. "ISO 14687", "ČSN EN 17127", "DIN EN ISO 22734"), each
+# already fetched before this fix (harmless in practice — the URLs were
+# public catalog/e-shop listing pages, not paid full text, but still the
+# wrong shape of content to treat as this pipeline's cached "full text").
+# A record's own designation shape is a source-independent second check —
+# same precedent as link_document_relations_auto.py's is_eu_act_znacka().
+_NORM_DESIGNATION_RE = re.compile(
+    r"^(?:ČSN|CSN|STN|TNI|DIN|VDE|NF|BS|NEN|ISO|IEC|EN)\b", re.IGNORECASE
+)
+
 SLEEP_SECONDS = 1
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-fulltext-tool/1.0; +research use, low-volume)"
 
@@ -53,6 +69,13 @@ def sanitize_znacka(znacka):
 
 def is_fetchable_source(zdroj_dat):
     return zdroj_dat not in NORM_SOURCES
+
+
+def is_norm_designation(znacka):
+    """True when the designation itself is shaped like a technical
+    standard (ČSN/STN/DIN/ISO/EN/... prefix) regardless of which source
+    the record came from — see NORM_SOURCES note above."""
+    return bool(_NORM_DESIGNATION_RE.match((znacka or "").strip()))
 
 
 def manifest_key(zdroj_dat, znacka, url_field):
@@ -79,7 +102,7 @@ def iter_fetch_targets(raw_data):
         if not is_fetchable_source(zdroj_dat):
             continue
         znacka = (record.get("znacka") or "").strip()
-        if not znacka:
+        if not znacka or is_norm_designation(znacka):
             continue
         for url_field in URL_FIELDS:
             url = first_url(record.get(url_field))

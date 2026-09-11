@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 JSON_PATH = REPO_ROOT / "data" / "database_merged_deduplicated.json"
+FULLTEXT_MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
 
 # Truncation order respects FK dependencies (children before parents).
 TRUNCATE_ORDER = ["DocumentKeyword", "DocumentVersion", "Document", "Keyword",
@@ -29,6 +30,22 @@ _UNKNOWN_JURISDIKCE = {"", "neurčeno"}
 # distinct STN designations (newline-joined) into a single znacka field, a
 # PDF-parsing artifact, not a real single identifier — see doc/PLAN.md Step 2.
 IDENTIFIER_MAX_LENGTH = 100
+
+# doc/REQUIREMENTS.md R4.1, 2026-09-11: DocumentType names whose full text
+# is copyrighted/paywalled — file_path should hold nothing for these, only
+# a metadata `url` pointing at the (paid) publisher/registry. Kept as an
+# explicit, structural flag on DocumentType (not inferred at render time
+# from whether file_path happens to be empty), because relying on that
+# alone is NOT actually safe: found in practice (2026-09-11) that
+# fetch_fulltext.py's own source-based exclusion missed a handful of norm
+# citations that happened to live inside a law source (Haltuf_Dokumenty),
+# giving 2 "Norma"-typed Documents a file_path anyway (harmless in this
+# instance — the cached pages turned out to be public catalog/anti-bot
+# pages, not paid full text, but the wrong content shape regardless — see
+# fetch_fulltext.py's own is_norm_designation() fix). This flag is the
+# actual enforcement layer app/app.py relies on — it must say "no" even
+# when file_path says otherwise.
+RESTRICTED_DOCUMENT_TYPES = {"Norma"}
 
 
 def get_connection():
@@ -103,6 +120,46 @@ def resolve_document_type(typ_dokumentu):
     if not t or _NUMERIC_TYPE_RE.match(t):
         return FALLBACK_DOCUMENT_TYPE
     return t
+
+
+def is_restricted_document_type(doc_type):
+    """R4.1: True when this DocumentType's full text is copyrighted/
+    paywalled (see RESTRICTED_DOCUMENT_TYPES)."""
+    return doc_type in RESTRICTED_DOCUMENT_TYPES
+
+
+def load_fulltext_manifest():
+    """Reads data/fulltext_manifest.json (built by fetch_fulltext.py) —
+    empty dict if it doesn't exist yet (e.g. a fresh checkout that hasn't
+    run that script)."""
+    if FULLTEXT_MANIFEST_PATH.exists():
+        with open(FULLTEXT_MANIFEST_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def resolve_file_path(item, manifest):
+    """R1.7: returns the locally-cached full-text path for this record, or
+    None. The manifest is keyed by the RAW per-source "zdroj_dat|znacka|
+    url_field" triple (see fetch_fulltext.py) — a merged record's own
+    zdroj_dat can be a comma-joined list of contributing sources (see
+    deduplicate_db.py's "', '.join(sources)"), so every component source
+    is tried against every URL field. Never guessed: a record with no
+    manifest hit simply gets no file_path, whether because it's a
+    copyrighted norm (fetch_fulltext.py deliberately excludes those, see
+    its own is_norm_designation()), the fetch failed, or it hasn't run
+    yet — but note this alone is not the access-control mechanism (see
+    RESTRICTED_DOCUMENT_TYPES above), only a best-effort input to it."""
+    znacka = (item.get("znacka") or "").strip()
+    if not znacka:
+        return None
+    sources = [s for s in (item.get("zdroj_dat") or "").split(", ") if s]
+    for source in sources:
+        for url_field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk"):
+            entry = manifest.get(f"{source}|{znacka}|{url_field}")
+            if entry and entry.get("status") == "fetched" and entry.get("local_path"):
+                return entry["local_path"]
+    return None
 
 
 def normalize_jurisdikce(jurisdikce):
@@ -230,6 +287,7 @@ def import_json_data(db_conn):
     cursor = db_conn.cursor()
     seen_identifiers = set()
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
+    fulltext_manifest = load_fulltext_manifest()
 
     for item in data:
         title = item.get("nazev_cz", "").strip()
@@ -261,8 +319,11 @@ def import_json_data(db_conn):
         description = item.get("anotace_poznamka", "").strip()
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
         jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
+        file_path = resolve_file_path(item, fulltext_manifest)
 
-        type_id = get_or_create(cursor, "DocumentType", {"name": doc_type})
+        type_id = get_or_create(
+            cursor, "DocumentType", {"name": doc_type},
+            extra_insert_cols={"restricted_fulltext": is_restricted_document_type(doc_type)})
 
         source_id = None
         if source:
@@ -276,10 +337,10 @@ def import_json_data(db_conn):
         cursor.execute("""
             INSERT INTO Document
             (title, description, type_id, source_id, language, url,
-             effective_date, identifier, jurisdikce)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+             effective_date, identifier, jurisdikce, file_path)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
-              effective_date, identifier, jurisdikce))
+              effective_date, identifier, jurisdikce, file_path))
 
         doc_id = cursor.lastrowid
 
@@ -337,5 +398,7 @@ if __name__ == "__main__":
     print(f"Document versions: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM Document WHERE identifier IS NOT NULL")
     print(f"Documents with a resolved identifier: {c.fetchone()[0]}")
+    c.execute("SELECT COUNT(*) FROM Document WHERE file_path IS NOT NULL")
+    print(f"Documents with a locally-cached full text (file_path): {c.fetchone()[0]}")
 
     conn.close()

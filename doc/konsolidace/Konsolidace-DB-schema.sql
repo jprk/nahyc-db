@@ -132,6 +132,26 @@ ALTER TABLE DocumentVersion
   ADD COLUMN lifecycle_state ENUM('active','superseded','draft')
     NOT NULL DEFAULT 'active';
 
+-- doc/REQUIREMENTS.md R1.7/R4.1 dodatek, 2026-09-11 (viz doc/PLAN.md §6):
+-- `Document.file_path` (V01) existoval, ale nikdy nebyl plněn — R1.7
+-- žádá, aby metadata skutečně zahrnovala file paths. Naplňuje
+-- `src/tools/init_db.py`'s `resolve_file_path()` z
+-- `data/fulltext_manifest.json` (buduje `src/tools/fetch_fulltext.py`) —
+-- tedy jen skutečně stažené, lokálně cachované plné texty. R4.1 zároveň
+-- žádá vynucené rozlišení "metadata vždy veřejná / plný text chráněných
+-- (placených) dokumentů přístup omezen" — `fetch_fulltext.py` už dnes
+-- stahuje výhradně zákony (`NORM_SOURCES` normy nikdy nestahuje), takže
+-- `file_path` je fakticky vždy prázdné u norem, ale to samo o sobě není
+-- vynucující MECHANISMUS, jen náhodný důsledek. `DocumentType.
+-- restricted_fulltext` je proto explicitní, strukturální příznak (typ
+-- `"Norma"` -> TRUE, vše ostatní -> FALSE, `is_restricted_document_type()`
+-- v `init_db.py`) — Flask vrstva (`app/app.py`) jej kontroluje PŘED
+-- vydáním souboru přes novou routu `/fulltext/<id>`, nezávisle na tom,
+-- zda `file_path` je vyplněné, takže pravidlo platí i kdyby se logika
+-- plnění `file_path` v budoucnu změnila.
+ALTER TABLE DocumentType
+  ADD COLUMN restricted_fulltext BOOLEAN NOT NULL DEFAULT FALSE;
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

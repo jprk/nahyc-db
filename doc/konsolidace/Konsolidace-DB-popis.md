@@ -87,7 +87,7 @@ https://www.plantuml.com/plantuml), konceptuální přehled
 | Vrstva | Tabulka | Obsah | Původ |
 |--------|---------|-------|-------|
 | A | `Document` | Regulatorní/metodický dokument (metadata) | V01 + sloupce `identifier`, `jurisdikce` |
-| A | `DocumentType` | Číselník typů dokumentů | V01 beze změny |
+| A | `DocumentType` | Číselník typů dokumentů | V01 + `restricted_fulltext` |
 | A | `DocumentSource` | Číselník zdrojů/institucí | V01 + `institution_type`, `jurisdiction` |
 | A | `Keyword`, `DocumentKeyword` | Řízený slovník + M:N vazba | V01 beze změny |
 | A | `DocumentVersion` | Verze dokumentů | V01 + `is_current`, `edition_label`, `effective_date`, `lifecycle_state` |
@@ -121,7 +121,8 @@ DDL skript pro MariaDB: `Konsolidace-DB-schema.sql`.
 
 ## 4. Vrstva A — regulatorní (změny oproti V01)
 
-Tabulky `DocumentType`, `Keyword`, `DocumentKeyword` zůstávají beze změny.
+Tabulky `Keyword`, `DocumentKeyword` zůstávají beze změny. `DocumentType`
+získalo rozšíření per R4.1 — viz §4.5 níže.
 
 ### 4.1 `Document` — rozšíření
 
@@ -132,9 +133,20 @@ Tabulky `DocumentType`, `Keyword`, `DocumentKeyword` zůstávají beze změny.
 | `jurisdikce_uroven` | `ENUM('mezinárodní','EU','národní')` NULL, **GENERATED** (virtuální, z `jurisdikce`) | **Doplněno per `doc/REQUIREMENTS.md` R1.2 (2026-09-11, viz doc/PLAN.md §6).** Explicitní zařazení do jedné ze tří jurisdikčních úrovní požadovaných R1.2 — `jurisdikce` samo zůstává konkrétní hodnotou (kód konkrétního státu, `EU`, `mezinárodní`, `neurčeno`) a nadále slouží jako veto proti slučování cizích národních adopcí téže normy; `jurisdikce_uroven` je z něj automaticky odvozeno (`CASE`): `jurisdikce = 'mezinárodní'` → `'mezinárodní'`, `jurisdikce = 'EU'` → `'EU'`, jakýkoli jiný nevyprázdněný/ne-"neurčeno" kód (`CZ`, `SK`, `DE`, `US`, `CA`, `FR`, `UK`, budoucí `PL`, …) → `'národní'` — "národní" zde znamená SKUTEČNÝ konkrétní stát, ne vymyšlenou zástupnou hodnotu. `NULL`/`"neurčeno"` (184 dokumentů, 2026-09-11) zůstává čestně `NULL`, ne odhadnuto na některou ze tří úrovní. Jako `GENERATED`/`VIRTUAL` sloupec nepotřebuje žádnou udržovací logiku v `init_db.py` a libovolný budoucí konkrétní stát spadne do `'národní'` bez zásahu do kódu. |
 
 Ostatní pole (`title`, `description`, `type_id`, `source_id`, `language`,
-`url`, `file_path`, `effective_date`, `version`, `created_at`, `updated_at`)
-beze změny. Pole `short_title` z návrhu V02 se nepřebírá — pracovní název
+`url`, `effective_date`, `version`, `created_at`, `updated_at`) beze
+změny. Pole `short_title` z návrhu V02 se nepřebírá — pracovní název
 pokrývá `title` + `description`.
+
+`file_path` (V01, existovalo, ale nikdy nebylo plněno) je **doplněno per
+`doc/REQUIREMENTS.md` R1.7 (2026-09-11)**: `src/tools/init_db.py`'s
+`resolve_file_path()` jej naplní ze skutečně staženého lokálně
+cachovaného plného textu (`data/fulltext_manifest.json`, buduje
+`src/tools/fetch_fulltext.py`) — u sloučeného záznamu se zkouší KAŽDÝ
+přispívající zdroj (`zdroj_dat` může být čárkou spojený seznam) proti
+KAŽDÉMU URL poli. Nikdy neodhadováno: záznam bez zásahu do manifestu
+zůstává `NULL`. Ověřeno na reálném korpusu (2026-09-11): 69 / 1188
+dokumentů. Vystaveno přes novou routu `/fulltext/<id>` v `app/app.py`,
+NIKDY přímo jako statický soubor — viz R4.1 v §4.5 níže.
 
 ### 4.2 `DocumentSource` — rozšíření
 
@@ -247,6 +259,12 @@ generuje `data/document_relations_auto.json` nad
   kandidátů (`201/2012 Sb.`, `56/2001 Sb.`, `458/2000 Sb.`, každý cituje
   po dvě chybějící EU normy), 0 hotových `IMPLEMENTS` hran (cílové EU akty
   zatím nejsou v korpusu vlastními záznamy).
+
+### 4.5 `DocumentType` — rozšíření
+
+| Nový sloupec | Typ | Popis |
+|---|---|---|
+| `restricted_fulltext` | `BOOLEAN` NOT NULL DEFAULT `FALSE` | **Doplněno per `doc/REQUIREMENTS.md` R4.1 (2026-09-11, viz doc/PLAN.md §6).** Explicitní, strukturální příznak: `TRUE` jen pro typ `"Norma"` (`RESTRICTED_DOCUMENT_TYPES` v `src/tools/init_db.py`) — copyrightovaný/placený plný text. R4.1 žádá vynucené pravidlo "metadata vždy veřejná, plný text chráněných dokumentů přístup omezen"; spoléhat jen na to, že `file_path` je u norem prázdné, NENÍ vynucující mechanismus — a ukázalo se to i prakticky: `src/tools/fetch_fulltext.py`'s zdroj-orientovaný filtr (viz §4.1 výše) přehlédl pár normových citací uvnitř zákonového zdroje `Haltuf_Dokumenty`, takže 2 dokumenty typu `"Norma"` skutečně dostaly `file_path` (neškodné — stažené stránky byly veřejné e-shop/katalogové stránky, ne placený text, ale přesto špatný typ obsahu). `app/app.py`'s nová routa `/fulltext/<id>` proto kontroluje TENTO příznak při KAŽDÉM požadavku, nezávisle na tom, zda `file_path` je vyplněné — a správně vrací `403` i pro tyto dva případy. `src/tools/fetch_fulltext.py` navíc dostalo druhou, na zdroji nezávislou kontrolu (`is_norm_designation()` — tvar značky, stejný princip jako `link_document_relations_auto.py`'s `is_eu_act_znacka()`), aby se to při příštím spuštění neopakovalo. |
 
 ---
 

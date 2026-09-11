@@ -110,6 +110,21 @@ def report_db(conn):
     row = c.fetchone()
     print(f"Documents with file_path populated: {row['with_path']} / {row['n']}")
 
+    print("\n--- R4.1 Licensing/visibility rules (DB side) ---")
+    c.execute("SHOW COLUMNS FROM DocumentType LIKE 'restricted_fulltext'")
+    has_flag = bool(c.fetchone())
+    print(f"DocumentType.restricted_fulltext column present: {has_flag}")
+    if has_flag:
+        c.execute("SELECT name, restricted_fulltext FROM DocumentType ORDER BY name")
+        for r in c.fetchall():
+            print(f"  {r['name']!r}: restricted_fulltext={bool(r['restricted_fulltext'])}")
+        c.execute("""
+            SELECT dt.restricted_fulltext AS restricted, COUNT(*) AS n
+            FROM Document d JOIN DocumentType dt ON d.type_id = dt.id
+            WHERE d.file_path IS NOT NULL GROUP BY dt.restricted_fulltext
+        """)
+        print(f"  Documents with file_path, by restricted_fulltext: {c.fetchall()}")
+
     print("\n--- R1.8 Thematic indexing (many-to-many keywords) ---")
     c.execute("SELECT COUNT(*) AS n FROM Keyword")
     kw = c.fetchone()["n"]
@@ -186,14 +201,9 @@ def report_app():
 
     print("\n=== R4.x Access Control & Licensing ===\n")
     print("--- R4.1 Licensing/visibility rules ---")
-    licen_hits = []
-    for path in [APP_DIR / "app.py", APP_DIR / "templates" / "index.html", APP_DIR / "templates" / "base.html"]:
-        found = _grep_lines(_read(path), r"licen|copyright")
-        if found:
-            licen_hits.append((path.name, found))
-    print(f"License/copyright-related logic found in app/: {licen_hits or '(none)'}")
-    print("(see R1.7 above: file_path is 0% populated and never selected by app.py either — "
-          "no mechanism distinguishes a freely-linkable source from a restricted one)")
+    fulltext_route = _grep_lines(_read(APP_DIR / "app.py"), r"def fulltext|restricted_fulltext|abort\(403\)")
+    print(f"app/app.py access-control route evidence: {fulltext_route or '(none — file_path never gated)'}")
+    print("(DB-side restricted_fulltext distribution: see R1.7 in the DB section above)")
 
     print("\n--- R4.2 Central public hub for stakeholders ---")
     print("Not mechanically checkable — qualitative/organizational requirement, left to the agent.")

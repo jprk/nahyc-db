@@ -3,11 +3,12 @@ import pathlib
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, send_file, abort
 
 app = Flask(__name__)
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
+FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
 load_dotenv(REPO_ROOT / ".env")
 
 
@@ -53,7 +54,8 @@ def index():
     # Build query
     base_query = '''
         SELECT d.id, d.title, d.description, dt.name as type_name,
-               ds.name as source_name, d.language, d.effective_date, d.url
+               ds.name as source_name, d.language, d.effective_date, d.url,
+               d.file_path, dt.restricted_fulltext
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
@@ -110,6 +112,42 @@ def index():
                            sources=sources,
                            keywords=keywords,
                            request=request)
+
+@app.route('/fulltext/<int:doc_id>')
+def fulltext(doc_id):
+    """doc/REQUIREMENTS.md R1.7/R4.1, 2026-09-11: serves a document's
+    locally-cached full text (populated by src/tools/fetch_fulltext.py,
+    see Document.file_path), but only when its DocumentType is NOT flagged
+    restricted_fulltext (copyrighted/paywalled standards — see
+    src/tools/init_db.py's RESTRICTED_DOCUMENT_TYPES). This check runs
+    server-side on every request, independent of whether the template
+    happened to render a download link, so metadata (this route's mere
+    existence, the document's title/type/etc.) stays publicly visible
+    while the actual file content stays gated even against a guessed URL.
+    The resolved path is also verified to stay inside FULLTEXT_DIR before
+    being served, even though file_path only ever comes from our own
+    trusted manifest — defense in depth against path traversal."""
+    db = get_db()
+    with db.cursor() as cur:
+        cur.execute('''
+            SELECT d.file_path, dt.restricted_fulltext
+            FROM Document d
+            LEFT JOIN DocumentType dt ON d.type_id = dt.id
+            WHERE d.id = %s
+        ''', (doc_id,))
+        row = cur.fetchone()
+
+    if row is None or not row['file_path']:
+        abort(404)
+    if row['restricted_fulltext']:
+        abort(403)
+
+    full_path = (REPO_ROOT / row['file_path']).resolve()
+    if FULLTEXT_DIR not in full_path.parents or not full_path.is_file():
+        abort(404)
+
+    return send_file(full_path)
+
 
 if __name__ == '__main__':
     # Run the app in debug mode on port 5000

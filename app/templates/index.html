@@ -130,6 +130,11 @@
                                 {% else %}
                                 <span class="btn-disabled">Zdroj nedostupný</span>
                                 {% endif %}
+                                {% if doc.file_path and not doc.restricted_fulltext %}
+                                <a href="{{ url_for('fulltext', doc_id=doc.id) }}" target="_blank" class="btn-external">
+                                    Stažená kopie <i class="ph ph-file-text"></i>
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,55 @@ from init_db import (
     resolve_identifier, resolve_document_type, normalize_jurisdikce,
     build_gestor_jurisdiction_map, resolve_source_jurisdiction,
     resolve_document_versions, classify_lifecycle_state, FALLBACK_DOCUMENT_TYPE,
+    is_restricted_document_type, resolve_file_path,
 )
+
+
+class IsRestrictedDocumentTypeTestCase(unittest.TestCase):
+    def test_norma_is_restricted(self):
+        self.assertTrue(is_restricted_document_type("Norma"))
+
+    def test_laws_and_fallback_are_not_restricted(self):
+        self.assertFalse(is_restricted_document_type("Zákon"))
+        self.assertFalse(is_restricted_document_type("Nařízení EU"))
+        self.assertFalse(is_restricted_document_type(FALLBACK_DOCUMENT_TYPE))
+
+
+class ResolveFilePathTestCase(unittest.TestCase):
+    """R1.7: looks up a record's locally-cached full text in the
+    fetch_fulltext.py manifest, keyed by the RAW per-source
+    "zdroj_dat|znacka|url_field" triple -- a merged record's own zdroj_dat
+    can be a comma-joined list of contributing sources."""
+
+    def test_single_source_hit(self):
+        manifest = {
+            "Haltuf_Dokumenty|(EU) 1300/2014|odkaz_eu": {
+                "status": "fetched", "local_path": "data/fulltext/Haltuf_Dokumenty/x.pdf"},
+        }
+        item = {"znacka": "(EU) 1300/2014", "zdroj_dat": "Haltuf_Dokumenty"}
+        self.assertEqual(resolve_file_path(item, manifest),
+                          "data/fulltext/Haltuf_Dokumenty/x.pdf")
+
+    def test_merged_source_tries_every_component(self):
+        manifest = {
+            "Haltuf_Dokumenty|458/2000 Sb.|odkaz_eu": {
+                "status": "fetched", "local_path": "data/fulltext/Haltuf_Dokumenty/y.pdf"},
+        }
+        item = {"znacka": "458/2000 Sb.", "zdroj_dat": "Sinay_Zakony, Haltuf_Dokumenty"}
+        self.assertEqual(resolve_file_path(item, manifest),
+                          "data/fulltext/Haltuf_Dokumenty/y.pdf")
+
+    def test_failed_fetch_is_not_a_hit(self):
+        manifest = {"Haltuf_Dokumenty|100/2001 Sb.|odkaz_eu": {"status": "failed"}}
+        item = {"znacka": "100/2001 Sb.", "zdroj_dat": "Haltuf_Dokumenty"}
+        self.assertIsNone(resolve_file_path(item, manifest))
+
+    def test_no_manifest_entry_is_none(self):
+        item = {"znacka": "ISO 14687", "zdroj_dat": "Sinay_Normy"}
+        self.assertIsNone(resolve_file_path(item, {}))
+
+    def test_blank_znacka_is_none(self):
+        self.assertIsNone(resolve_file_path({"znacka": "", "zdroj_dat": "Haltuf_Dokumenty"}, {}))
 
 
 class ClassifyLifecycleStateTestCase(unittest.TestCase):

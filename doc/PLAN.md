@@ -2025,3 +2025,46 @@ built a repeatable mechanism instead of a one-off manual review:
   to report the state distribution. Flask smoke test OK. Documented in
   `doc/konsolidace/Konsolidace-DB-popis.md` §4.3 and
   `src/tools/0README.md`/`tests/0README.md`.
+- **R1.7/R4.1 (populate file_path + enforce access control) done,
+  2026-09-11.** `Document.file_path` existed but was 0% populated and
+  never even selected by `app/app.py`. New `resolve_file_path()` in
+  `src/tools/init_db.py` populates it from `data/fulltext_manifest.json`
+  (built by `fetch_fulltext.py`) — for a merged record, every contributing
+  source in its comma-joined `zdroj_dat` is tried against every URL field.
+  Never guessed: no manifest hit means `NULL`, same as today.
+  New `DocumentType.restricted_fulltext BOOLEAN` (`TRUE` only for
+  `"Norma"`) is the actual R4.1 enforcement mechanism — deliberately NOT
+  inferred from "file_path happens to be empty", because that turned out
+  to be unsafe in practice: verifying this surfaced a real gap in
+  `fetch_fulltext.py`'s own norm exclusion — its `NORM_SOURCES` blocklist
+  checks only the RAW record's `zdroj_dat`, and `Haltuf_Dokumenty` (a law
+  source) turned out to also carry a handful of stray norm citations of
+  its own (`ISO 14687`, `ČSN EN 17127`, `DIN EN ISO 22734`, ...), so 2
+  Documents that resolved to type `"Norma"` had already gotten a
+  `file_path` before this fix. Inspected both cached files directly:
+  harmless in this instance (public e-shop/anti-bot pages, not paid
+  normative text), but the wrong content shape regardless, and proof the
+  flag-based gate is load-bearing, not just theoretical. Fixed the root
+  cause too: `fetch_fulltext.py` gained `is_norm_designation()`, a second,
+  source-independent check on the designation's own shape (same precedent
+  as `link_document_relations_auto.py`'s `is_eu_act_znacka()`), so a
+  future rerun won't repeat this.
+  New `app/app.py` route `/fulltext/<id>` is where the gate actually
+  lives: looks up `file_path` + `restricted_fulltext` fresh on every
+  request (never trusts template-render-time state), returns 404 with no
+  `file_path`, 403 when restricted, and validates the resolved path stays
+  inside `data/fulltext/` before `send_file()` (defense in depth against
+  path traversal, even though `file_path` only ever comes from our own
+  manifest). `index.html` shows a "Stažená kopie" link only when
+  `file_path` is set AND `restricted_fulltext` is false.
+  Verified: 11 new unit tests (`tests/test_init_db.py`,
+  `tests/test_fetch_fulltext.py`) + 4 new integration tests in
+  `tests/test_search.py` exercising the real live-DB route (confirmed 403
+  for the 2 real restricted-with-file_path Documents, 200 for an open
+  law, 404 for no-file_path and for a nonexistent id) — 288 tests total
+  pass. Real corpus after reload: 69/1188 Documents with `file_path`, 67
+  open + 2 restricted (both correctly 403'd). `check_requirements.py`
+  extended (R1.7's DB section now also reports the
+  `restricted_fulltext` distribution; R4.1 greps `app/app.py` for the new
+  route/gate). Documented in `doc/konsolidace/Konsolidace-DB-popis.md`
+  §4.1/§4.5 and `src/tools/0README.md`/`tests/0README.md`.
