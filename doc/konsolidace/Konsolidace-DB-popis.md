@@ -183,18 +183,69 @@ do `DocumentVersion` (stejný `identifier`, nové vydání) — ne sem.
 |---|---|---|
 | `from_document_id` | `INT` NOT NULL, FK → `Document.id` | Novelizující/vztahující se dokument. |
 | `to_document_id` | `INT` NOT NULL, FK → `Document.id` | Dokument, ke kterému se vztahuje. |
-| `relation_type` | `ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES')` NOT NULL | Typ vztahu. |
+| `relation_type` | `ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS')` NOT NULL | Typ vztahu. `ADOPTS` doplněno per R1.3/R1.4 (2026-09-11, viz níže). |
 | `note` | `VARCHAR(500)` NULL | Volný text (odůvodnění/kontext vztahu). |
 
-Naplňuje `src/tools/load_document_relations.py` z ručně kurátorovaného
-`data/document_relations.json` — detekce napříč celým korpusem
-vyžaduje lidský úsudek (novelizující zákon obvykle ve svém vlastním
-názvu cituje novelizovaný zákon jménem/předmětem, ne číslem — např.
-"426/2021 Sb. - novela Zákona o drahách"), proto se zde záměrně
-nezkouší automatické dolování nad celým korpusem, stejný princip jako
-`data/v03_layer_d_draft.json`. Nenapárované položky (neznámý
+Naplňuje `src/tools/load_document_relations.py` ze dvou zdrojů: ručně
+kurátorovaný `data/document_relations.json` (zákon novelizovaný jiným
+zákonem — detekce napříč celým korpusem vyžaduje lidský úsudek,
+novelizující zákon obvykle ve svém vlastním názvu cituje novelizovaný
+zákon jménem/předmětem, ne číslem — např. "426/2021 Sb. - novela Zákona
+o drahách" — proto se zde záměrně nezkouší automatické dolování, stejný
+princip jako `data/v03_layer_d_draft.json`) a automaticky vygenerovaný
+`data/document_relations_auto.json` (viz `src/tools/
+link_document_relations_auto.py` níže). Nenapárované položky (neznámý
 `identifier` nebo `relation_type`) jdou do
 `data/document_relations_review_queue.json`, nikdy se nehádají.
+
+**Doplněno per `doc/REQUIREMENTS.md` R1.3/R1.4 (2026-09-11, viz
+doc/PLAN.md §6): `src/tools/link_document_relations_auto.py`** mechanicky
+generuje `data/document_relations_auto.json` nad
+`data/database_merged_deduplicated.json`, ve dvou nezávislých krocích:
+
+- **R1.4 (lokalizace normy — `ADOPTS`)**: seskupí záznamy podle
+  "mezinárodního jádra" značky (`international_core()` — odstraní
+  národní prefix STN/ČSN/DIN/… i případný mezivrstvý prefix "EN " před
+  ISO/IEC, takže "STN EN ISO 11114-4", "EN ISO 11114-4" i "ISO 11114-4"
+  padnou na stejné jádro `iso 11114-4`) a podle jurisdikční ÚROVNĚ
+  (mezinárodní/EU vs. národní — nikoli konkrétní `jurisdikce_uroven`
+  sloupec z DB, ale ekvivalentní logika počítaná přímo nad JSON polem
+  `jurisdikce`, protože tento skript běží PŘED `init_db.py`). Skupina se
+  propojí, jen když obsahuje aspoň jeden mezinárodní/EU člen (rodič) A
+  aspoň jeden národní člen (dítě) — každé dítě dostane `ADOPTS` hranu ke
+  KAŽDÉMU rodiči ve skupině (víc mezinárodních vydání ve skupině = víc
+  hran, záměrně žádné hádání, které konkrétní vydání dítě adoptovalo).
+  Ověřeno na reálném korpusu: 13 skupin, 17 hran (2026-09-11) — mnohem
+  méně, než kolik STN/ČSN/DIN adopcí v korpusu skutečně existuje, protože
+  drtivá většina nemá svůj mezinárodní protějšek vůbec sebraný jako
+  vlastní záznam (to je mezera v ÚPLNOSTI dat, ne v mechanismu propojení).
+- **R1.3 (transpozice směrnice EU — `IMPLEMENTS`)**: pro každý záznam,
+  jehož VLASTNÍ značka NENÍ ve tvaru EU aktu (`is_eu_act_znacka()` —
+  "(EU) NNNN/RRRR", "RRRR/NNNN/EU" apod.), vytáhne z jeho
+  `nazev_eu`/`odkaz_eu` KAŽDOU citovanou značku EU aktu (regulérní výraz
+  na `(EU/ES/EC/EÚ/EEC/EHS) č./No NNNN/RRRR` / `RRRR/NNNN/(ES|EC|EU|…)`
+  tvary — `finditer`, ne jen první shodu, protože jeden text běžně cituje
+  víc aktů najednou), vyloučí sebe-citace (vlastní `znacka` záznamu) a
+  záznamy bez použitelné vlastní značky (prázdná/víceřádková — nemohly by
+  se stejně nikdy stát `from_document_id`). Zde je klíčové, že vylučovací
+  podmínka pro "kdo smí citovat" NENÍ založená na `jurisdikce`/
+  `jurisdikce_uroven`: v tomto korpusu má `jurisdikce` prázdnou hodnotu
+  jak u národních zákonů, tak u samotných aktů EU (zdroje
+  `Sinay_Zakony`/`Haltuf_Dokumenty` ji nikdy nevyplňují u žádného z nich)
+  — jediný spolehlivý signál je TVAR VLASTNÍ ZNAČKY citujícího záznamu.
+  Bez tohoto rozlišení by např. prováděcí nařízení Komise "(EU) 2023/1184"
+  citující svou "rodičovskou" směrnici "(EU) 2018/2001" vytvořilo falešnou
+  `IMPLEMENTS` hranu — reálný vztah, ale ve tvaru EU-akt→EU-akt, ne
+  R1.3's národní-zákon→EU-akt. Pokud takto nalezená EU norma už v korpusu
+  existuje jako vlastní záznam, vytvoří se `IMPLEMENTS` hrana; pokud ne,
+  zapíše se kandidát (národní zákon + citovaná, ale chybějící EU norma)
+  do `data/eu_transposition_missing_targets.json` k lidskému rozhodnutí,
+  zda tu chybějící EU normu přidat (stejný princip jako Krok 1 follow-up
+  #17's `data/v03_layer_d_draft.json`-style doplnění chybějících
+  dokumentů) — ověřeno na reálném korpusu (2026-09-11): 6 takových
+  kandidátů (`201/2012 Sb.`, `56/2001 Sb.`, `458/2000 Sb.`, každý cituje
+  po dvě chybějící EU normy), 0 hotových `IMPLEMENTS` hran (cílové EU akty
+  zatím nejsou v korpusu vlastními záznamy).
 
 ---
 

@@ -91,12 +91,26 @@ CREATE TABLE document_relation (
   id               INT AUTO_INCREMENT PRIMARY KEY,
   from_document_id INT NOT NULL,  -- novelizující/vztahující se dokument
   to_document_id   INT NOT NULL,  -- dokument, ke kterému se vztahuje
-  relation_type    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES') NOT NULL,
+  relation_type    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS') NOT NULL,
   note             VARCHAR(500) NULL,
   CONSTRAINT fk_drel_from FOREIGN KEY (from_document_id) REFERENCES Document(id) ON DELETE CASCADE,
   CONSTRAINT fk_drel_to   FOREIGN KEY (to_document_id)   REFERENCES Document(id) ON DELETE CASCADE,
   CONSTRAINT uq_drel UNIQUE (from_document_id, to_document_id, relation_type)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
+-- doc/REQUIREMENTS.md R1.3/R1.4 dodatek, 2026-09-11 (viz doc/PLAN.md §6):
+-- `ADOPTS` doplněno do `relation_type` — národní (nebo EU) adopce
+-- mezinárodní/EU normy (from_document_id) ADOPTS svůj mezinárodní/EU
+-- původ (to_document_id), např. "STN EN ISO 11114-4" ADOPTS "ISO
+-- 11114-4" — přesně vztah, který R1.4 žádá ("linking an ISO standard to
+-- its ČSN EN ISO counterpart"). `IMPLEMENTS` (existující od Kroku 1
+-- follow-up #16, dosud nepoužité) je pro R1.3 (národní zákon
+-- transponující konkrétní směrnici/nařízení EU) — obojí nově plní
+-- `src/tools/link_document_relations_auto.py`, mechanicky, nad
+-- `data/database_merged_deduplicated.json`; `src/tools/
+-- load_document_relations.py` nyní načítá jak ručně kurátorovaný
+-- `data/document_relations.json`, tak automaticky vygenerovaný
+-- `data/document_relations_auto.json`.
 
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B

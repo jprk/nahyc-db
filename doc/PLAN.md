@@ -1950,3 +1950,46 @@ built a repeatable mechanism instead of a one-off manual review:
   §4.1. `src/tools/check_requirements.py`'s R1.2 section updated to also
   report the tier distribution. 244 tests still pass, `app/app.py`
   re-verified. `doc/requirements_check_report.md` updated: R1.2 now PASS.
+- **R1.3/R1.4 (EU transposition / standard localization links) done,
+  2026-09-11.** New `src/tools/link_document_relations_auto.py`, run
+  before `init_db.py`, mechanically detects both shapes directly from
+  `data/database_merged_deduplicated.json` and writes
+  `data/document_relations_auto.json` (loaded by
+  `load_document_relations.py`'s new `load_relation_sources()` alongside
+  the existing hand-curated `data/document_relations.json`) plus
+  `data/eu_transposition_missing_targets.json` for R1.3 candidates whose
+  target isn't yet a `Document`. `document_relation.relation_type` gained
+  `ADOPTS` alongside the existing `AMENDS`/`REPEALS`/`IMPLEMENTS`/
+  `CONSOLIDATES`.
+  - **R1.4 (`ADOPTS`)**: groups records by `international_core()` (strips
+    national prefix, and a further "EN " layer only when immediately
+    followed by ISO/IEC) and by jurisdikce tier; a group links only with
+    at least one international/EU parent AND at least one national child,
+    every child getting an edge to every parent. 17 real edges found and
+    loaded (e.g. `STN EN ISO 11114-4/... ADOPTS ISO 11114-4`).
+  - **R1.3 (`IMPLEMENTS`)**: for records whose OWN designation is NOT
+    itself EU-act-styled (`is_eu_act_znacka()`), extracts every EU-act
+    reference from `nazev_eu`/`odkaz_eu` (`finditer`, not just the first
+    match — one citation text commonly names several acts) and links to
+    the cited act if it already exists as its own record. **Design fix
+    during this pass**: the citing-side filter deliberately does NOT use
+    `jurisdikce`/`jurisdikce_uroven` — verified against the real corpus
+    that `jurisdikce` is empty for BOTH national laws and EU acts alike in
+    the `Sinay_Zakony`/`Haltuf_Dokumenty` sources, so a tier-based filter
+    would have wrongly excluded the genuine national-law candidates too.
+    The designation *shape* of the citing record is the only reliable
+    signal — without it, an EU delegated/implementing act citing its own
+    parent directive (e.g. `(EU) 2023/1184` citing `(EU) 2018/2001`) would
+    produce a real but wrong-shape (EU-to-EU, not R1.3's national-to-EU)
+    edge; found and excluded 4 such cases from the real corpus. Result: 0
+    `IMPLEMENTS` edges yet (the cited EU acts — e.g. `2019/692`, `2018/858`
+    — aren't in the corpus as their own records, a data-completeness gap,
+    not a mechanism gap), 6 candidates written to
+    `data/eu_transposition_missing_targets.json` for a future decision on
+    whether to add those missing EU-act documents.
+  - Verified: 24 unit tests in new `tests/test_link_document_relations_auto.py`,
+    268 tests total pass, direct SQL confirms 17 `ADOPTS` + 1 pre-existing
+    `AMENDS` = 18 rows in `document_relation`, 0 unresolved in the review
+    queue, Flask smoke test OK. Documented in
+    `doc/konsolidace/Konsolidace-DB-popis.md` §4.4 and
+    `src/tools/0README.md`/`tests/0README.md`.
