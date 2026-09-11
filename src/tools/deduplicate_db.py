@@ -58,6 +58,28 @@ _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar d
 # amendment are a separate, not-yet-resolved question (see doc/PLAN.md).
 _EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")
 
+# Two known document-series names appear in the corpus with an
+# inconsistent "/" vs. " " (vs. no separator at all) between their parts —
+# e.g. "CSA/ANSI HGV 2" vs. "CSA ANSI HGV 2", "IGEM/TD/1" vs. "IGEM TD1" —
+# purely a citation-formatting difference, not a different document.
+# Deliberately a short, explicit allowlist (not a blanket "fold every
+# slash" rule): a generic transformation risks silently merging genuinely
+# different designations elsewhere in the corpus (e.g. "STN CLC/TR
+# 60079-32-1", where the "/" is meaningful). Each regex collapses all
+# separators between the series' own tokens to nothing, so both spellings
+# land on the same normalized form; everything after the series name
+# (edition/part number, title fragment, ...) is left untouched.
+_KNOWN_SERIES_SEPARATOR_RES = [
+    re.compile(r"\bCSA\s*/?\s*ANSI\b", re.IGNORECASE),
+    re.compile(r"\bIGEM\s*/?\s*TD\s*/?\s*1\b", re.IGNORECASE),
+]
+
+
+def _fold_known_series_separators(znacka):
+    for pattern in _KNOWN_SERIES_SEPARATOR_RES:
+        znacka = pattern.sub(lambda m: re.sub(r"[\s/]", "", m.group(0)), znacka)
+    return znacka
+
 
 def normalize_znacka(znacka):
     """Normalizes a znacka (reference number) for exact-match comparison.
@@ -66,10 +88,13 @@ def normalize_znacka(znacka):
     for the same date separator (e.g. "STN EN ISO 11114-1/ – 2020.12" vs
     "STN EN ISO 11114-1/ - 2020.12"), which otherwise silently defeats
     exact-match deduplication. Also strips a trailing edition-date suffix
-    (see `_EDITION_DATE_SUFFIX_RE`) for the same reason."""
+    (see `_EDITION_DATE_SUFFIX_RE`) and folds a couple of known
+    document-series "/" vs. " " spelling inconsistencies (see
+    `_KNOWN_SERIES_SEPARATOR_RES`) for the same reason."""
     if not znacka:
         return ""
-    znacka = _DASH_VARIANTS_RE.sub("-", str(znacka))
+    znacka = _fold_known_series_separators(str(znacka))
+    znacka = _DASH_VARIANTS_RE.sub("-", znacka)
     znacka = " ".join(znacka.split()).strip()
     znacka = _EDITION_DATE_SUFFIX_RE.sub("", znacka)
     return znacka.strip().lower()

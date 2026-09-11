@@ -4,8 +4,8 @@
 **Date:** 2026-09-07
 **Status:** Steps 0, 1, 2 and 3a executed 2026-09-07–2026-09-10 (4th
 source `Sinay_Normy` — Slovak/German norms — wired in with a
-jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1223
-`Document` rows — 1200 from the pipeline + 23 from V02's bibliography —
+jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1219
+`Document` rows — 1196 from the pipeline + 23 from V02's bibliography —
 plus a fully-loaded process layer B, U1–U7, from `doc/NAHYC DP004 V02 -
 Popis procesů.docx`). §4 (full-text acquisition for laws + source
 screening) designed and implemented 2026-09-09; the full corpus was
@@ -13,9 +13,10 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-up #10 (2026-09-11) found and fixed a real
-missed-duplicate normalization bug (1344→1200 records) as part of that
-focus. The agentic architecture in §3 remains a proposal.
+itself: Step 1 follow-ups #10 and #11 (2026-09-11) found and fixed four
+real missed-duplicate/parsing bugs via a systematic duplicate-title audit
+(1344→1200→1196 records). The agentic architecture in §3 remains a
+proposal.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -592,6 +593,72 @@ Original plan (executed as amended above):
     at this point. `app/app.py` re-verified.
   - **Known, disclosed limitation, not new**: this pass did not attempt
     the 11 amendment pairs or the 53 "other" cases — see above.
+- **Follow-up #11 (2026-09-11): analyzed the remaining "other" duplicate-
+  title cases (49, re-counted post-fix-#10) and fixed three more real,
+  narrow bugs found in that analysis** (a fourth category — ISO/IEC
+  draft-vs-final designation pairs, 23 groups — and a fifth — ambiguous
+  body/series renaming, ~9 groups — were left for the amendment-pairs-style
+  deferred pass; a sixth, ~4 groups, are coincidental generic-title
+  collisions between genuinely different documents, not a bug):
+  - **A real bug: "no designation available" placeholder text taken
+    literally as a znacka.** The Sinay PDF/XLSX sources sometimes write
+    an explicit placeholder ("bez označenia" / "keine Nummer vorhanden")
+    into the designation cell instead of leaving it blank — taken
+    literally, two records both saying "no number available," in
+    different languages, were treated as two different *known* znacka
+    values, blocking an otherwise-legitimate same-title merge. Affected
+    **34 records** corpus-wide (17+17), not just the 1 pair that first
+    surfaced it. Fixed in `parse_sinay_norms.py`
+    (`is_placeholder_designation()`, wired into both the PDF and XLSX
+    paths) — these now correctly get an empty znacka. Also had to fix the
+    XLSX row-drop condition, which used to gate on "has a znacka" — a
+    title-bearing row with only a placeholder designation is legitimate
+    content (a real industry guidance document, just with no formal
+    standard number) and must not be silently dropped just because
+    `znacka` ends up empty; the gate now matches `parse_pdf`'s own
+    title-only convention.
+  - **A real parsing-truncation bug.** A long designation wrapping onto a
+    second visual line was only special-cased for a bare "YYYY.MM" date
+    continuation (`_DATE_FRAGMENT_RE`, from follow-up #8) — a *non-date*
+    wrapped tail (e.g. "Sandia Report SAND2012-" / "7321" on the next
+    line, "UL Standard (UL 125, Edition" / "1)") fell through and was
+    silently dropped, truncating the designation. Root-caused against the
+    actual PDF word positions (confirmed: the missing text really is
+    present, one line down, at the same left margin as the designation
+    column — not missing from the source, just not merged back). Fixed
+    with a second, narrow continuation pattern
+    (`_SHORT_CONTINUATION_RE`: a short digits/closing-punctuation-only
+    line is never the start of a new designation). Refactored the merge
+    logic out into a standalone `merge_designation_continuations()` for
+    direct unit testing. Fixed **8 cases** in the PDF source (more than
+    the 5 first spotted via duplicate titles — 3 more had no XLSX
+    counterpart to surface them that way, e.g. "UL Standard (UL 119,
+    Edition 10)"). One structurally different, genuinely ambiguous case
+    ("AGBF- Leitfaden – Wasserstoff" / "und dessen Gefahren") was left
+    unfixed — its PDF layout has the same text duplicated across the
+    designation *and* title columns in a way that doesn't fit this
+    pattern; forcing a fix there risked new false merges elsewhere.
+  - **Trivial separator-formatting variants**: `"CSA/ANSI"` vs.
+    `"CSA ANSI"`, `"IGEM/TD/1"` vs. `"IGEM TD1"` — added a short, explicit
+    allowlist (`_KNOWN_SERIES_SEPARATOR_RES` in `deduplicate_db.py`,
+    mirrored in `analyze_similarities.py`) that folds separators only for
+    these two known series names — deliberately not a blanket
+    "remove every slash" rule, which would risk conflating genuinely
+    different designations elsewhere (e.g. `"STN CLC/TR ..."` vs.
+    `"TNI CLC/TR ..."`, a real but different, deferred question).
+  - **Re-run results**: full pipeline re-run (`parse_sinay_norms.py` →
+    `build_unified_db.py` → `deduplicate_db.py` → `analyze_similarities.py`
+    → `init_db.py` → `load_process_layer.py`). Raw corpus 2230→2225,
+    deduplicated **1200→1196 records**, 0 new bad merges, **0 items in
+    `dedup_review_queue.json`** (down from 1 — the ISO 14687 cluster now
+    fully auto-resolves: `"ISO 14687"` international vs. `"ČSN ISO
+    14687"` Czech, correctly separate, no jurisdiction violation). Known
+    2 cross-jurisdiction `identifier` collisions unchanged. 14 new tests
+    (186 total). `h2regdocs` reloaded (1219 `Document` rows), `app/app.py`
+    re-verified. Remaining "other" duplicate-title groups after this pass:
+    18 (down from 49) — all correctly belonging to the deferred
+    draft-stage/renaming categories or genuine title coincidences, not
+    further bugs.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

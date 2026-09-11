@@ -94,6 +94,26 @@ XLSX_PATH = SINAY_DIR / "raw" / "Zoznam_noriem_Vodik_Road_map_Nemecko_Priradenie
 OUTPUT_PATH = SINAY_DIR / "sinay_normy_processed.json"
 
 
+# The source spreadsheet/PDF sometimes writes an explicit "no designation
+# available" placeholder into the designation cell instead of leaving it
+# blank (found: 17 Slovak + 17 German instances via
+# data/20250712_Sinay/sinay_normy_processed.json). Taken literally, these
+# get treated as if they were real, DIFFERENT znacka values, which then
+# blocks a legitimate same-title merge in deduplicate_db.py (two records
+# both saying "no number available," in different languages, are exactly
+# as un-distinguishing as two blank znacka values — never a genuine
+# non-empty designation).
+_PLACEHOLDER_DESIGNATIONS = {
+    "bez označenia",
+    "keine nummer vorhanden",
+    "ďaľšie súvisiace technické normy",
+}
+
+
+def is_placeholder_designation(text):
+    return (text or "").strip().lower() in _PLACEHOLDER_DESIGNATIONS
+
+
 # ---------------------------------------------------------------------------
 # PDF: Zoznam_noriem_vodik-11_02_2025.pdf
 #
@@ -114,6 +134,16 @@ _PDF_COLUMNS = [
     ("note", 700, 10_000),
 ]
 _DATE_FRAGMENT_RE = re.compile(r"^\d{4}\.\d{2}$")
+# A short (<=6 char) fragment of only digits/closing-punctuation, wrapped
+# onto its own line, is the tail of a long designation that didn't fit on
+# one line — never the start of a genuinely new designation (those always
+# start with a real prefix word/code). Found by testing against the real
+# file: without this, e.g. "Sandia Report SAND2012-" / "NIST Special
+# Publication 800-" / "UL Standard (UL 125, Edition" each silently lost
+# their wrapped numeric tail ("7321" / "207" / "1)"), creating a
+# false-looking duplicate against the same document's complete citation
+# from the other raw source (data/20250712_Sinay/raw/...VERZIA_2024...xlsx).
+_SHORT_CONTINUATION_RE = re.compile(r"^[\d).]{1,6}$")
 _PAGE_FOOTER_RE = re.compile(r"\s*Strana\s+\d+\s+z\s+\d+\s*$")
 _DESIGNATION_DATE_RE = re.compile(r"(\d{4})\.(\d{2})\s*$")
 
@@ -145,6 +175,32 @@ def _group_into_lines(words, tolerance=2.0):
     return lines
 
 
+def merge_designation_continuations(designation_lines):
+    """Merges a bare "YYYY.MM" date continuation, or a short digits/
+    closing-punctuation continuation (see _SHORT_CONTINUATION_RE), into
+    the previous designation — both are the wrapped tail of a long
+    designation split onto its own visual line, not a new row's start.
+    `designation_lines` is a list of (top, text) tuples in document
+    order (as produced by `_group_into_lines`); returns the same shape,
+    with continuation lines folded into the entry before them."""
+    merged = []
+    for top, text in designation_lines:
+        stripped = text.strip()
+        if merged and _DATE_FRAGMENT_RE.match(stripped):
+            prev_top, prev_text = merged[-1]
+            merged[-1] = (prev_top, f"{prev_text} {stripped}")
+        elif merged and _SHORT_CONTINUATION_RE.match(stripped):
+            prev_top, prev_text = merged[-1]
+            # No inserted space when the wrap point was already a hyphen
+            # ("SAND2012-" + "7321" -> "SAND2012-7321", not "SAND2012- 7321");
+            # a space everywhere else ("Edition" + "1)" -> "Edition 1)").
+            sep = "" if prev_text.rstrip().endswith("-") else " "
+            merged[-1] = (prev_top, f"{prev_text}{sep}{stripped}")
+        else:
+            merged.append((top, text))
+    return merged
+
+
 def _parse_pdf_page(page, header_top_max=85):
     words = [w for w in page.extract_words() if w["top"] > header_top_max]
     by_column = {"designation": [], "title": [], "url": [], "note": []}
@@ -154,17 +210,7 @@ def _parse_pdf_page(page, header_top_max=85):
             by_column[column].append(w)
 
     designation_lines = _group_into_lines(by_column["designation"])
-    # Merge a bare "YYYY.MM" continuation line into the previous
-    # designation — it's the wrapped tail of a long designation, not a
-    # new row's start.
-    merged = []
-    for top, text in designation_lines:
-        if merged and _DATE_FRAGMENT_RE.match(text.strip()):
-            prev_top, prev_text = merged[-1]
-            merged[-1] = (prev_top, f"{prev_text} {text.strip()}")
-        else:
-            merged.append((top, text))
-    designation_lines = merged
+    designation_lines = merge_designation_continuations(designation_lines)
 
     rows = []
     for i, (top, text) in enumerate(designation_lines):
@@ -189,6 +235,8 @@ def _parse_pdf_page(page, header_top_max=85):
 
 def _pdf_row_to_record(row):
     designation = row["designation"].strip()
+    if is_placeholder_designation(designation):
+        designation = ""
     title = row["title"].strip()
     note = row["note"].strip()
 
@@ -274,9 +322,11 @@ def parse_xlsx(path=XLSX_PATH):
     for row_idx in range(_XLSX_DATA_START_ROW, ws.max_row + 1):
         stn_designation = _xlsx_cell(ws, row_idx, 3)
         foreign_designation = _xlsx_cell(ws, row_idx, 2)
+        if is_placeholder_designation(stn_designation):
+            stn_designation = ""
+        if is_placeholder_designation(foreign_designation):
+            foreign_designation = ""
         znacka = stn_designation or foreign_designation
-        if not znacka:
-            continue
 
         stn_title = _xlsx_cell(ws, row_idx, 5)
         title_en = _xlsx_cell(ws, row_idx, 10)
@@ -287,6 +337,13 @@ def parse_xlsx(path=XLSX_PATH):
             fallback_title = title_de
         nazev = stn_title or fallback_title
         if not nazev:
+            # A row with neither a real designation nor a title is empty/
+            # junk (mirrors parse_pdf's own title-only gate); a row with a
+            # real title but no formal designation (e.g. an industry
+            # guidance leaflet with only a placeholder "no number
+            # available" cell) is legitimate content and must NOT be
+            # dropped just because `znacka` ends up "" — see
+            # is_placeholder_designation.
             continue
 
         pub_form = _xlsx_cell(ws, row_idx, 1)

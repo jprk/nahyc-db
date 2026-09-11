@@ -64,6 +64,24 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
         self.assertNotEqual(base, amendment)
         self.assertEqual(amendment, "stn en 13445-2+a1")
 
+    def test_normalize_folds_known_series_separator_variants(self):
+        # "CSA/ANSI" vs "CSA ANSI" and "IGEM/TD/1" vs "IGEM TD1" are the
+        # same document series, just written with a "/" vs. " " vs. no
+        # separator at all -- a real duplicate-title case found by
+        # auditing the corpus (doc/PLAN.md Step 1 follow-up #11).
+        self.assertEqual(dedup.normalize_znacka("CSA/ANSI HGV 2"),
+                          dedup.normalize_znacka("CSA ANSI HGV 2"))
+        self.assertEqual(dedup.normalize_znacka("IGEM/TD/1 Edition 6"),
+                          dedup.normalize_znacka("IGEM TD1 Edition 6"))
+
+    def test_normalize_does_not_fold_unrelated_slash_designations(self):
+        # The known-series fold is a narrow allowlist, not a blanket
+        # "remove every slash" rule -- "STN CLC/TR ..." vs "TNI CLC/TR
+        # ..." are a genuinely different, unresolved question (deferred,
+        # not the same fix) and must not be silently conflated.
+        self.assertNotEqual(dedup.normalize_znacka("STN CLC/TR 60079-32-1"),
+                             dedup.normalize_znacka("TNI CLC/TR 60079-32-1"))
+
     def test_core_strips_csn_prefix_only(self):
         self.assertEqual(dedup.core_znacka("ČSN EN 17127"), "en 17127")
         self.assertEqual(dedup.core_znacka("EN 17127"), "en 17127")
