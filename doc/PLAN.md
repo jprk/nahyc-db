@@ -4,8 +4,8 @@
 **Date:** 2026-09-07
 **Status:** Steps 0, 1, 2 and 3a executed 2026-09-07–2026-09-10 (4th
 source `Sinay_Normy` — Slovak/German norms — wired in with a
-jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1219
-`Document` rows — 1196 from the pipeline + 23 from V02's bibliography —
+jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1217
+`Document` rows — 1194 from the pipeline + 23 from V02's bibliography —
 plus a fully-loaded process layer B, U1–U7, from `doc/NAHYC DP004 V02 -
 Popis procesů.docx`). §4 (full-text acquisition for laws + source
 screening) designed and implemented 2026-09-09; the full corpus was
@@ -13,9 +13,14 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10 and #11 (2026-09-11) found and fixed four
-real missed-duplicate/parsing bugs via a systematic duplicate-title audit
-(1344→1200→1196 records). The agentic architecture in §3 remains a
+itself: Step 1 follow-ups #10–#12 (2026-09-11) found and fixed six real
+missed-duplicate/parsing/classification bugs via a systematic
+duplicate-title audit (1344→1200→1196→1194 records; only 1 of the
+original 2 known cross-jurisdiction `identifier` collisions remains —
+the other turned out to be a classification bug, not a genuine
+cross-jurisdiction duplicate). One data-quality question (`CSA ANSI GSV
+4.1`) flagged for the user's own manual resolution, not guessed. The
+agentic architecture in §3 remains a
 proposal.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
@@ -659,6 +664,64 @@ Original plan (executed as amended above):
     18 (down from 49) — all correctly belonging to the deferred
     draft-stage/renaming categories or genuine title coincidences, not
     further bugs.
+- **Follow-up #12 (2026-09-11): analyzed all 18 remaining "other" groups
+  in detail (cross-checking the `anotace_poznamka` text, identical
+  between pairs in most cases — strong independent confirmation of which
+  pairs really are the same document) and fixed two more real bugs found
+  there.**
+  - **A systemic `classify_jurisdikce()` ordering bug, bigger than the
+    audit alone suggested.** `STN` was already checked first (so a
+    Slovak adoption's own catalog entry citing an international
+    committee never overrides its SK jurisdiction) — but the German
+    marker group (`DVGW`/`DIN`/`VDI`/...) was checked *after* the
+    international ISO/IEC/CEN/EIGA group instead of getting the same
+    precedence. A German (`DIN`-prefixed) standard's catalog entry
+    routinely cites the international/European committee that
+    originated it (e.g. `"DIN EN IEC 60079-11"` filed under `"IEC/TC
+    31"`, `"DIN EN 10216-2"` filed under `"CEN/TC 459/SC 10/WG 1"`), so
+    it was being misclassified `mezinárodní`/`EU` instead of `DE`.
+    Checked the *whole* corpus, not just the audit's 18 cases: **45
+    records** affected. Fixed by moving the German marker group to right
+    after `STN` in `_JURISDICTION_MARKERS` — verified safe first: none
+    of the 26 correctly-SK records that also cite a German mirror
+    committee flip, since `STN` still wins ahead of it. Concrete payoff:
+    `"DIN EN 10216-2"` (previously split `DE`/`EU` across two rows,
+    genuinely the same document per its own `anotace_poznamka`) now
+    merges into one record; the other 44 fixes are jurisdikce-accuracy
+    corrections with no merge of their own, but keep the field correct
+    for whatever queries/filters eventually run against it.
+  - **A second edition-year suffix style**: `"ISO 11413 :2019"` (bare
+    colon-year, no month) vs. `"ISO 11413/ - 2019.03"` (the more common
+    Sinay `"/ - YYYY.MM"` form) — same standard. Added
+    `_COLON_YEAR_SUFFIX_RE` alongside the existing edition-date-suffix
+    regex, careful to require a *4-digit* year right after the colon so
+    the corpus's own `"part:2-digit-year"` citation convention
+    (`"CHMC 2:19"`, `"CSA HPIT 1:15 (R2020)"`) is never touched.
+  - **Re-run results**: full pipeline re-run. Deduplicated **1196→1194
+    records** (the two fixes above merging exactly one pair each), 0 new
+    bad merges, review queue still empty, only the one already-known
+    `ASTM F1624-12` cross-jurisdiction `identifier` collision remains (2
+    known collisions → 1 — `DIN EN 10216-2` is no longer one, since it
+    was a mislabeling, not a genuine cross-jurisdiction case). 6 new
+    tests (190 total). `h2regdocs` reloaded (1217 `Document` rows),
+    `app/app.py` re-verified.
+  - **Flagged for manual resolution, not auto-fixed — `CSA ANSI GSV 4.1`
+    vs. `CSA ANSI HGV 4.1`.** Identical `anotace_poznamka`, and per the
+    user's own check against the CSA store (2026-09-11): no `"GSV"`
+    standard exists there (only `CSA/ANSI LNG 4.1` and `CSA/ANSI NGV
+    4.1`) — "GSV" is very likely a data-entry typo for "HGV" in one raw
+    source row, but not confirmed enough to silently rewrite a
+    designation. Also note (same source): the corpus consistently omits
+    the "/" CSA itself uses in its own branding (`"CSA/ANSI"`, not `"CSA
+    ANSI"` — already handled for matching purposes by follow-up #11's
+    separator fold, but the *stored* designations remain un-rewritten,
+    matching this pipeline's general practice of normalizing only for
+    comparison, not silently rewriting source values). **Separately
+    flagged by the user**: the whole `CSA/ANSI HGV *` citation list in
+    this corpus may itself be outdated — needs checking against
+    <https://www.csagroup.org/store/search-results/?search=HGV> before
+    trusting any of these designations/editions as current. Not done in
+    this pass.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

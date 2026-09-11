@@ -64,6 +64,21 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
         self.assertNotEqual(base, amendment)
         self.assertEqual(amendment, "stn en 13445-2+a1")
 
+    def test_normalize_strips_bare_colon_year_suffix(self):
+        # A rarer edition-year style found in the corpus: "ISO 11413 :2019"
+        # (bare colon-year, no month) vs. "ISO 11413/ - 2019.03" (the more
+        # common Sinay "/ - YYYY.MM" form) -- same standard either way.
+        self.assertEqual(dedup.normalize_znacka("ISO 11413 :2019"),
+                          dedup.normalize_znacka("ISO 11413/ - 2019.03"))
+
+    def test_normalize_does_not_strip_a_2_digit_year_part_citation(self):
+        # "CHMC 2:19" and "CSA HPIT 1:15 (R2020)" use "part:2-digit-year"
+        # as their OWN citation convention -- must not be confused with
+        # the 4-digit bare colon-year edition suffix above.
+        self.assertEqual(dedup.normalize_znacka("CHMC 2:19"), "chmc 2:19")
+        self.assertEqual(dedup.normalize_znacka("CSA HPIT 1:15 (R2020)"),
+                          "csa hpit 1:15 (r2020)")
+
     def test_normalize_folds_known_series_separator_variants(self):
         # "CSA/ANSI" vs "CSA ANSI" and "IGEM/TD/1" vs "IGEM TD1" are the
         # same document series, just written with a "/" vs. " " vs. no

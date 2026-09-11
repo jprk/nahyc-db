@@ -40,6 +40,23 @@ class ClassifyJurisdikceTestCase(unittest.TestCase):
         # marker list, and this designation does have a national prefix.
         self.assertEqual(classify_jurisdikce("STN EN 17124/ - 2022.06"), "SK")
 
+    def test_din_designation_wins_over_international_committee_in_kategorie(self):
+        # Real, previously-mismatched cases (doc/PLAN.md Step 1 follow-up
+        # #12): a DIN-adopted standard's own catalog entry often cites the
+        # international/European committee that originated it -- that must
+        # not override the designation's own DE (German) jurisdiction, the
+        # same way STN already wins over a cited international committee.
+        self.assertEqual(classify_jurisdikce("DIN EN IEC 60079-11", "Norm (IEC/TC31)"), "DE")
+        self.assertEqual(classify_jurisdikce("DIN EN 10216-2", "Norm (CEN/TC 459/SC 10/WG 1)"), "DE")
+
+    def test_stn_still_wins_over_a_cited_german_mirror_committee(self):
+        # The reordering that fixed the DIN case above must not disturb
+        # STN's own, already-correct precedence when an STN-adopted
+        # standard's catalog entry cites the German mirror committee.
+        self.assertEqual(
+            classify_jurisdikce("STN EN 13096/ – 2004.12", "Norm (DIN-Normenausschuss Druckgasanlagen)"),
+            "SK")
+
     def test_us_bodies(self):
         for kategorie in ("CGA - Compressed Gas Association", "ASTM International"):
             self.assertEqual(classify_jurisdikce("SOME-CODE", kategorie), "US", msg=kategorie)

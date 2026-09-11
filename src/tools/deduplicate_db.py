@@ -58,6 +58,14 @@ _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar d
 # amendment are a separate, not-yet-resolved question (see doc/PLAN.md).
 _EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")
 
+# A second, rarer edition-year suffix style: "ISO 11413 :2019" (bare
+# colon-year, no month) instead of the "/ - YYYY.MM" form above — same
+# standard as "ISO 11413/ - 2019.03" once both are normalized. Requires a
+# bare 4-digit year right after the colon so real part:edition citations
+# like "CHMC 2:19" or "CSA HPIT 1:15" (2-digit year, a different Sinay
+# citation convention) are never touched.
+_COLON_YEAR_SUFFIX_RE = re.compile(r"\s*:\s*\d{4}\s*$")
+
 # Two known document-series names appear in the corpus with an
 # inconsistent "/" vs. " " (vs. no separator at all) between their parts —
 # e.g. "CSA/ANSI HGV 2" vs. "CSA ANSI HGV 2", "IGEM/TD/1" vs. "IGEM TD1" —
@@ -87,16 +95,19 @@ def normalize_znacka(znacka):
     Sinay PDF source uses "–" (en dash) and "-" (hyphen) interchangeably
     for the same date separator (e.g. "STN EN ISO 11114-1/ – 2020.12" vs
     "STN EN ISO 11114-1/ - 2020.12"), which otherwise silently defeats
-    exact-match deduplication. Also strips a trailing edition-date suffix
-    (see `_EDITION_DATE_SUFFIX_RE`) and folds a couple of known
-    document-series "/" vs. " " spelling inconsistencies (see
-    `_KNOWN_SERIES_SEPARATOR_RES`) for the same reason."""
+    exact-match deduplication. Also strips a trailing edition-date suffix —
+    either the "/ - YYYY.MM" form (`_EDITION_DATE_SUFFIX_RE`) or the rarer
+    bare colon-year form, e.g. "ISO 11413 :2019" (`_COLON_YEAR_SUFFIX_RE`)
+    — and folds a couple of known document-series "/" vs. " " spelling
+    inconsistencies (see `_KNOWN_SERIES_SEPARATOR_RES`) for the same
+    reason."""
     if not znacka:
         return ""
     znacka = _fold_known_series_separators(str(znacka))
     znacka = _DASH_VARIANTS_RE.sub("-", znacka)
     znacka = " ".join(znacka.split()).strip()
     znacka = _EDITION_DATE_SUFFIX_RE.sub("", znacka)
+    znacka = _COLON_YEAR_SUFFIX_RE.sub("", znacka)
     return znacka.strip().lower()
 
 def core_znacka(znacka):

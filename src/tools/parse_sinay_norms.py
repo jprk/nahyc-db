@@ -46,12 +46,23 @@ import pdfplumber
 # ---------------------------------------------------------------------------
 _JURISDICTION_MARKERS = [
     # (regex matched case-insensitively against "znacka kategorie", jurisdiction)
+    # STN and the German markers are checked BEFORE the international
+    # ISO/IEC/CEN/EIGA markers on purpose: a German (or Slovak) national
+    # adoption's own catalog entry often also cites the international/
+    # European committee that originated the standard (e.g. "DIN EN IEC
+    # 60079-11" filed under "IEC/TC 31", "DIN EN 10216-2" filed under
+    # "CEN/TC 459") — checking the international markers first would
+    # misclassify the adoption itself as "mezinárodní"/"EU" instead of its
+    # real national jurisdiction. Found via a duplicate-title audit
+    # (doc/PLAN.md Step 1 follow-up #12): 45 DIN-prefixed records were
+    # misclassified this way before STN's already-correct precedence was
+    # extended to the DE markers too.
     (r"\bSTN\b", "SK"),
+    (r"\bDVGW\b|\bDIN\b|\bVDI\b|\bDASt\b|\bDGUV\b|\bBVEG\b|\bBAuA\b|\bNA\b|\bTRBS\b|\bTRGS\b|\bAD[ -]?2000\b|\bAD-Merkblatt\b",
+     "DE"),
     (r"\bCEN/TC\b|\bCENELEC\b|\bCLC/", "EU"),
     (r"\bEIGA\b", "EU"),
     (r"\bISO/TC\b|\bIEC/TC\b|\bISO\b|\bIEC\b", "mezinárodní"),
-    (r"\bDVGW\b|\bDIN\b|\bVDI\b|\bDASt\b|\bDGUV\b|\bBVEG\b|\bBAuA\b|\bNA\b|\bTRBS\b|\bTRGS\b|\bAD[ -]?2000\b|\bAD-Merkblatt\b",
-     "DE"),
     (r"\bASTM\b|\bASME\b|\bAPI\b|\bCGA\b|\bANSI\b|\bAIAA\b|\bNFPA\b|\bNASA\b|\bAMPP\b|\bNACE\b", "US"),
     (r"\bCSA\b", "CA"),
     (r"\bBSI\b", "UK"),
@@ -65,12 +76,14 @@ _BARE_EN_DESIGNATION_RE = re.compile(r"^(?:pr|F\s*pr)?EN\s+\d", re.IGNORECASE)
 
 def classify_jurisdikce(znacka, kategorie=""):
     """Best-effort jurisdiction from the designation/issuing-body text.
-    Checked in order — STN first (unambiguous, most common), international
-    bodies before national ones sharing a token (e.g. avoid "ISO" text
-    inside an unrelated committee name matching before the real ISO
-    check). Returns "neurčeno" rather than guess when nothing matches —
-    same fail-safe philosophy as extract_znacka_from_title() in
-    build_unified_db.py.
+    Checked in order — national-adoption markers (STN, then the German
+    ones) FIRST, before the international/European ISO/IEC/CEN/EIGA
+    markers, so a national adoption's own catalog entry citing the
+    international committee that originated the standard doesn't
+    override its real (national) jurisdiction — see
+    `_JURISDICTION_MARKERS`. Returns "neurčeno" rather than guess when
+    nothing matches — same fail-safe philosophy as
+    extract_znacka_from_title() in build_unified_db.py.
     """
     znacka = znacka.strip()
     haystack = f"{znacka} {kategorie}"
