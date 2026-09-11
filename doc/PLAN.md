@@ -13,9 +13,9 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#18 (2026-09-11) found and fixed real
+itself: Step 1 follow-ups #10–#19 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189→1191→1186
+duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189→1191→1186→1188
 records; of the #17 step's +13, 12 are genuinely new content — see
 follow-up #17 — and 1 is the usual LLM-merge non-determinism noise
 documented elsewhere in this plan, not a new issue); only 1
@@ -49,7 +49,12 @@ per the user's own research (real current document is Czech, `ČSN
 CLC/TR 60079-32-1`); and extended `link_document_versions.py` with an
 EN-IEC-renumbering fold so `STN EN 60079-11/-14/-17` (a third pair,
 `-14`, found once the mechanism was generalized) now version-link
-correctly too, on top of the 17 amendment pairs (20 total). A dedicated
+correctly too, on top of the 17 amendment pairs (20 total). Follow-up
+#19 re-audited both buckets once more (nothing missed), fixed a real
+title bug in `DIN 50450-2`/`-9` (same copy/fill-down shape as `IEC
+62933-5-1`), and gave every orphaned amendment a durable, queryable
+flag (`data/orphan_amendment_review_queue.json`, 10 entries) instead of
+leaving them only noted in this plan. A dedicated
 review/cross-check working mode for the database interface is a flagged
 future need, not designed yet. The agentic
 architecture in §3 remains a
@@ -1306,6 +1311,65 @@ Original plan (executed as amended above):
     rows are correctly version 1 (2012, not current) and version 2
     (`STN EN IEC 60079-11/ - 2025.03`, current). 240 tests total, all
     passing. `app/app.py` re-verified.
+- **Follow-up #19 (2026-09-11): re-audited the "amendment pairs"/"EN-IEC
+  renaming" and "coincidental generic-title" buckets once more for
+  anything missed, and gave every orphaned amendment a durable,
+  discoverable flag instead of leaving it silently unlinked.**
+  - **Amendment pairs / EN-IEC pairs: nothing missed.** Checked every
+    amendment-marked designation (27 total, including ones already
+    inside a merged `versions` list) against the FULL corpus — not just
+    its own jurisdikce — for a possible base match: the 17+3=20 already
+    linked are correctly linked, the other 10 (`ČSN EN 13445-5+A1`,
+    `STN EN 13136+A1`, `STN EN 16726+A1`, `STN EN 378-1/-3/-4+A1`, `STN
+    EN 50465/A1`, `STN EN 88-3+A1`, `STN EN 1514-2+A1`, `DIN EN ISO
+    11114-1/A1`) have no base anywhere in the corpus, in any
+    jurisdikce — genuinely orphaned, not a missed-jurisdikce bug. Same
+    exhaustive check for the EN/EN-IEC renumbering shape: no split
+    beyond the 3 already linked, within or across jurisdictions.
+  - **Coincidental generic-title bucket: 2 of 3 reconfirmed coincidental,
+    1 turned out to be a real title bug, now fixed.**
+    - `CGA G-5`/`OSHA 1910.103` (both titled "Hydrogen") and `CSA ANSI
+      HGV 4.3`/`4.4` (both "Test methods for hydrogen fueling parameter
+      evaluation") — reconfirmed genuinely different documents sharing a
+      generic title, no new evidence either way (no internal
+      contradiction found in either pair's own source data, unlike the
+      case below).
+    - **`DIN 50450-2`/`DIN 50450-9`: found and fixed a real title bug,
+      same shape as follow-up #18's `IEC 62933-5-1` case.** Both records
+      shared a byte-identical title AND the `-9` record's own annotation
+      didn't match that title's stated topic (annotation described
+      determining oxygen/nitrogen/CO/CO₂/hydrogen/hydrocarbons in
+      hydrogen chloride by gas chromatography; the shared title
+      described a completely different method — oxygen-in-N₂/Ar/He/Ne/H₂
+      via galvanic cell). Root-caused directly in the raw XLSX (rows
+      130/131): row 131's own German title column (correctly reads
+      "…Teil 9: Bestimmung von Sauerstoff, Stickstoff,
+      Kohlenstoffmonooxid, Kohlenstoffdioxid, Wasserstoff und
+      C1-C3-Kohlenwasserstoffen in Chlorwasserstoff mit
+      Gaschromatographie" — matching its own correct annotation) was
+      never carried into the English title column, which instead still
+      held row 130's (`DIN 50450-2`'s) title. Corrected the English
+      title from a translation of row 131's own verified German text, in
+      both the PDF- and XLSX-sourced occurrences (one-time manual data
+      correction, same `sinay_normy_processed.json`-patch limitation as
+      prior fixes). The two records are genuinely different DIN 50450
+      series parts, now correctly distinguishable.
+  - **New: orphaned amendments are now durably flagged, not just noted
+    in this plan.** `link_document_versions.py` gained
+    `find_orphan_amendments()`, writing every amendment-marked record
+    that never joined a valid version group to the new
+    `data/orphan_amendment_review_queue.json` (same review-queue
+    convention as `dedup_review_queue.json`/`process_layer_review_queue.json`/
+    `document_relations_review_queue.json`) — so the 10 orphans above
+    are trackable for a future pass to go find/add their real base
+    editions, rather than only living in this plan's prose. 4 new tests.
+  - **Re-run results**: full pipeline re-run. Deduplicated 1186→1188
+    (net, +2 from the usual `ISO 14687` LLM-merge non-determinism —
+    unrelated to this pass, confirmed via the review queue still only
+    flagging that one recurring cluster). 20 version groups unchanged,
+    10 orphans written. `h2regdocs` reloaded: 1211 `Document` rows, 1231
+    `DocumentVersion` rows. 244 tests total (4 new), all passing.
+    `app/app.py` re-verified.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

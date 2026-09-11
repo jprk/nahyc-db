@@ -40,7 +40,11 @@ free-text `platnost` is not reliably the specific edition's real date).
 Run AFTER deduplicate_db.py, BEFORE init_db.py. Reads and rewrites
 data/database_merged_deduplicated.json in place (same file, still one row
 per real document identity — now some rows carry a "versions" list
-recording their edition history instead of a single flat record).
+recording their edition history instead of a single flat record). Also
+writes data/orphan_amendment_review_queue.json — records with a real
+amendment marker whose base standard was never found anywhere in the
+corpus (Step 1 follow-up #19), flagged for later manual tracking-down
+rather than silently left unlinked and undiscoverable.
 """
 import json
 import pathlib
@@ -49,6 +53,7 @@ import re
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 DEDUP_PATH = REPO_ROOT / "data" / "database_merged_deduplicated.json"
+ORPHAN_QUEUE_PATH = REPO_ROOT / "data" / "orphan_amendment_review_queue.json"
 
 _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
 _AMENDMENT_MARKER_RE = re.compile(r"(\+A\d+|/A\d+|/AC)\b", re.IGNORECASE)
@@ -197,6 +202,20 @@ def link_document_versions(records):
     return result
 
 
+def find_orphan_amendments(records):
+    """Records that carry a real amendment marker (see amendment_level())
+    but never joined a valid version group — meaning their base standard
+    was never collected from any source, so there is nothing to link
+    them to (confirmed corpus-wide, not just within their own
+    jurisdikce — see doc/PLAN.md Step 1 follow-up #18/#19). Returned so
+    a human can track down and add the missing base later, without
+    silently leaving them unflagged."""
+    groups = build_version_groups(records)
+    grouped_ids = {id(m) for group in groups for m in group}
+    return [r for r in records
+            if id(r) not in grouped_ids and amendment_level(r.get("znacka") or "") > 0]
+
+
 def main():
     if not DEDUP_PATH.exists():
         print(f"Vstupní soubor neexistuje: {DEDUP_PATH}")
@@ -206,11 +225,25 @@ def main():
         records = json.load(f)
 
     before = len(records)
-    linked = link_document_versions(records)
     groups = build_version_groups(records)
+    orphans = find_orphan_amendments(records)
+    linked = link_document_versions(records)
 
     with open(DEDUP_PATH, "w", encoding="utf-8") as f:
         json.dump(linked, f, ensure_ascii=False, indent=2)
+
+    with open(ORPHAN_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump([
+            {
+                "znacka": r.get("znacka", ""),
+                "nazev_cz": r.get("nazev_cz", ""),
+                "jurisdikce": r.get("jurisdikce", ""),
+                "note": "Amendment marker present but no base standard found anywhere in the "
+                        "corpus (checked across all jurisdikce) — source never collected the "
+                        "base edition this amends.",
+            }
+            for r in orphans
+        ], f, ensure_ascii=False, indent=2)
 
     print(f"Načteno {before} záznamů, nalezeno {len(groups)} skupin vydání/novel "
           f"({sum(len(g) for g in groups)} záznamů), sloučeno na {len(linked)} celkem.")
@@ -219,6 +252,7 @@ def main():
         label = next(iter(titles)) if len(titles) == 1 else "/".join(titles)
         print(f"  - {label[:70]}: " + ", ".join(m.get("znacka", "") for m in
               sorted(group, key=lambda m: version_sort_key(m["znacka"]))))
+    print(f"{len(orphans)} osiřelá(ch) novela/oprava bez nalezeného základu -> {ORPHAN_QUEUE_PATH}")
 
 
 if __name__ == "__main__":

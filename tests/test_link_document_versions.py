@@ -7,7 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from link_document_versions import (
     version_group_key, amendment_level, version_sort_key,
     _has_en_iec_renumbering, build_version_groups,
-    merge_version_group, link_document_versions,
+    merge_version_group, link_document_versions, find_orphan_amendments,
 )
 
 
@@ -199,6 +199,38 @@ class LinkDocumentVersionsTestCase(unittest.TestCase):
         versioned = [r for r in result if "versions" in r]
         self.assertEqual(len(versioned), 1)
         self.assertEqual(len(versioned[0]["versions"]), 2)
+
+
+class FindOrphanAmendmentsTestCase(unittest.TestCase):
+    """Step 1 follow-up #19: an amendment with no base standard anywhere
+    in the corpus should be flagged, not silently left unlinked and
+    undiscoverable."""
+
+    def test_amendment_with_no_base_anywhere_is_an_orphan(self):
+        records = [
+            _rec("STN EN 1+A1/ - 2024.02", jurisdikce="SK"),
+            _rec("STN EN 9999", jurisdikce="DE"),  # unrelated
+        ]
+        orphans = find_orphan_amendments(records)
+        self.assertEqual(len(orphans), 1)
+        self.assertEqual(orphans[0]["znacka"], "STN EN 1+A1/ - 2024.02")
+
+    def test_amendment_that_found_its_base_is_not_an_orphan(self):
+        records = [
+            _rec("STN EN 1/ – 2021.08"),
+            _rec("STN EN 1+A1/ - 2024.02"),
+        ]
+        self.assertEqual(find_orphan_amendments(records), [])
+
+    def test_base_with_no_amendment_is_never_an_orphan(self):
+        self.assertEqual(find_orphan_amendments([_rec("STN EN 9999")]), [])
+
+    def test_en_iec_renumbering_partner_also_prevents_orphan_status(self):
+        records = [
+            _rec("STN EN 60079-11/ - 2012.11"),
+            _rec("STN EN IEC 60079-11/ - 2025.03"),
+        ]
+        self.assertEqual(find_orphan_amendments(records), [])
 
 
 if __name__ == "__main__":

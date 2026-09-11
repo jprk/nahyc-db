@@ -12,6 +12,7 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 
 * `v02_processes_parsed.json` — strukturovaný výstup `src/tools/parse_v02_processes.py` (rozpad `doc/NAHYC DP004 V02 - Popis procesů.docx` na uzly U1–U7 + bibliografii), vstup pro `src/tools/load_process_layer.py`.
 * `process_layer_review_queue.json` — nenapárované citace předpisů/norem a bibliografické položky vyžadující lidskou kontrolu (generuje `load_process_layer.py`, stejný princip jako `dedup_review_queue.json`).
+* `orphan_amendment_review_queue.json` — Krok 1 follow-up #19 (2026-09-11): novelizační přípony (`+A1`/`/A1`/`/AC`), jejichž základní norma nebyla nalezena nikde v korpusu (ověřeno napříč všemi jurisdikcemi) — generuje `src/tools/link_document_versions.py`, k pozdějšímu dohledání chybějícího základu, stejný princip jako ostatní review-queue soubory.
 
 ## Chybějící dokumenty z bibliografie V02 (od 2026-09-11, viz `doc/PLAN.md` Krok 1 follow-up #17)
 

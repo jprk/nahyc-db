@@ -795,12 +795,54 @@
     "jurisdikce": "CZ"
   },
   {
-    "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty, Sinay_Normy",
-    "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
+    "zdroj_dat": "Sinay_Normy",
+    "nazev_cz": "Hydrogen fuel quality - Product specification",
+    "znacka": "ISO 14687/ - 2019.11",
+    "typ_dokumentu": "Norma",
+    "sekce": "",
+    "kategorie_trida": "",
+    "klicova_slova": [],
+    "odkaz_hlavni": "https://www.iso.org/standards.html",
+    "nazev_eu": "",
+    "odkaz_eu": "",
+    "nazev_sk": "",
+    "odkaz_sk": "",
+    "platnost": "od 11/2019",
+    "ratifikovan": "",
+    "gestor": [],
+    "jazyk": "",
+    "anotace_poznamka": "his document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications.",
+    "jurisdikce": "mezinárodní",
+    "_dedup_status": "flagged_for_review"
+  },
+  {
+    "zdroj_dat": "Sinay_Normy",
+    "nazev_cz": "Hydrogen fuel quality - Product specification",
+    "znacka": "ISO 14687/ - 2025.02",
+    "typ_dokumentu": "Norma",
+    "sekce": "",
+    "kategorie_trida": "",
+    "klicova_slova": [],
+    "odkaz_hlavni": "https://www.iso.org/standards.html",
+    "nazev_eu": "",
+    "odkaz_eu": "",
+    "nazev_sk": "",
+    "odkaz_sk": "",
+    "platnost": "od 02/2025",
+    "ratifikovan": "",
+    "gestor": [],
+    "jazyk": "",
+    "anotace_poznamka": "his document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications.",
+    "jurisdikce": "mezinárodní",
+    "_dedup_status": "flagged_for_review"
+  },
+  {
+    "zdroj_dat": "Sinay_Normy",
+    "nazev_cz": "Hydrogen fuel quality - Product specification",
     "znacka": "ISO 14687",
     "typ_dokumentu": "Norma",
-    "sekce": "Palivové články, Materiály pro vodíkové technologie",
-    "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost, Norm (ISO/TC 197/WG 27)",
+    "sekce": "",
+    "kategorie_trida": "Norm (ISO/TC 197/WG 27)",
     "klicova_slova": [
       "Elektrolyse",
       "Wasserstoffbeschaffenheit",
@@ -815,14 +857,18 @@
       "Sonderfahrzeuge/Spezialfahrzeuge",
       "Gasanalyse"
     ],
-    "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
+    "odkaz_hlavni": "",
+    "nazev_eu": "",
     "odkaz_eu": "",
+    "nazev_sk": "",
     "odkaz_sk": "",
-    "platnost": "od 10/2020, od 11/2019, od 02/2025",
+    "platnost": "Veröffentlicht-Publikovaný / 2019-11",
+    "ratifikovan": "",
     "gestor": [],
     "jazyk": "",
-    "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích. ISO 14687 is an international standard for hydrogen fuel quality.",
-    "jurisdikce": "CZ, mezinárodní"
+    "anotace_poznamka": "This document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications. It is applicable to hydrogen fuelling applications, which are listed in Table 1.",
+    "jurisdikce": "mezinárodní",
+    "_dedup_status": "flagged_for_review"
   },
   {
     "zdroj_dat": "Prokop_Normy",
@@ -1337,28 +1383,6 @@
     "gestor": [],
     "jazyk": "",
     "anotace_poznamka": "Tato norma stanoví všeobecné požadavky na konstrukci, zkoušení a označování Ex zařízení a Ex součástí, určených pro použití ve výbušných atmosférách.\nNormální atmosférické podmínky (ve vztahu k vlastnostem atmosféry týkajících se výbušnosti), za kterých se může předpokládat, že zařízení mohou být provozována jsou:\n\\- teplota -20 °C až +60 °C,\n\\- tlak 80 kPa (0,8 bar) až 110 kPa (1,1 bar), a\n\\- vzduch s normálním obsahem kyslíku 21 %.\nTato norma a další normy doplňující tuto normu uvádí dodatečné požadavky na zkoušky pro Ex zařízení, která pracují mimo normální rozsah teplot, mohou však být vyžadovány další úvahy a dodatečné zkoušky pro zařízení, která pracují mimo normální rozsah atmosférického tlaku a normální obsah kyslíku. Tyto dodatečné zkoušky mohou být zvlášť důležité především s ohledem na typy ochrany, které závisí na zhášení plamene, jako je to u ´pevného závěru d´ (IEC 60079-1) nebo na omezení energie, jako je to u ´jiskrové bezpečnosti i´ (IEC 60079-11).\n**Klíčová slova: -**",
-    "jurisdikce": "CZ"
-  },
-  {
-    "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
-    "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
-    "znacka": "ČSN EN ISO 14687",
-    "typ_dokumentu": "Norma",
-    "sekce": "Kvalita vodíku",
-    "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost",
-    "klicova_slova": [],
-    "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
-    "nazev_eu": "",
-    "odkaz_eu": "",
-    "nazev_sk": "",
-    "odkaz_sk": "",
-    "platnost": "od 10/2020",
-    "ratifikovan": "",
-    "gestor": [
-      "MPO"
-    ],
-    "jazyk": "čeština",
-    "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích.\n**Klíčová slova: -**",
     "jurisdikce": "CZ"
   },
   {
@@ -15719,11 +15743,11 @@
     "znacka": "",
     "typ_dokumentu": "Norma",
     "sekce": "",
-    "kategorie_trida": "CEP - The Clean Energy Partnership",
+    "kategorie_trida": "CEP - The Clean Energy Partnership, Technischer Bericht",
     "klicova_slova": [
       "Befüllungsanlagen"
     ],
-    "odkaz_hlavni": "https://cleanenergypartnership.de/wp-content/uploads/2022/11/2022-11-09_MGR_MAP-Fueling-Protocol-for-35-MPa-Heavy-Duty-Vehicles-20-42.5kg_Wenger-Engineering_Rev1.41-min.pdf",
+    "odkaz_hlavni": "https://cleanenergypartnership.de/en/home-engl",
     "nazev_eu": "",
     "odkaz_eu": "",
     "nazev_sk": "",
@@ -15732,7 +15756,7 @@
     "ratifikovan": "",
     "gestor": [],
     "jazyk": "",
-    "anotace_poznamka": "Dieses Protokoll wurde von der Clean Energy Partnership (CEP) in Auftrag gegeben, da kein Protokoll für 35MPa über 10kg H2-Tankkapazität im Fahrzeug besteht. wird isch mit der ISO 19885-3 ändern.",
+    "anotace_poznamka": "Dieses Protokoll wurde von der Clean Energy Partnership (CEP) in Auftrag gegeben, da kein Protokoll für 35MPa über 10kg H2-Tankkapazität im Fahrzeug besteht. wird isch mit der ISO 19885-3 ändern.\n\nhttps://cleanenergypartnership.de/wp-content/uploads/2022/11/2022-11-09_MGR_MAP-Fueling-Protocol-for-35-MPa-Heavy-Duty-Vehicles-20-42.5kg_Wenger-Engineering_Rev1.41-min.pdf",
     "jurisdikce": "neurčeno"
   },
   {
@@ -18366,7 +18390,9 @@
       "Untertage Gasspeicher"
     ],
     "odkaz_hlavni": "https://www.bveg.de/",
+    "nazev_eu": "",
     "odkaz_eu": "",
+    "nazev_sk": "",
     "odkaz_sk": "",
     "platnost": "Veröffentlicht-Publikovaný / 2011-04",
     "ratifikovan": "",
@@ -19284,12 +19310,12 @@
     "ratifikovan": "",
     "gestor": [],
     "jazyk": "",
-    "anotace_poznamka": "Dieses Dokument legt ein Verfahren zur Bestimmung des Stoffmengenanteils an Sauerstoff, Stickstoff, Kohlenstoffmonooxid, Kohlenstoffdioxid, Wasserstoff und C<(Index)1>-C<(Index)3>-Kohlenwasserstoffen in Chlorwasserstoff aus der Gasphase fest.",
+    "anotace_poznamka": "Die Norm soll das Prüfverfahren zur Bestimmung des Sauerstoffgehaltes in den Träger- und Dotiergasen_N<(Index)2>,_Ar, He,_Ne und H<(Index)2> festlegen.",
     "jurisdikce": "DE"
   },
   {
     "zdroj_dat": "Sinay_Normy",
-    "nazev_cz": "Testing of materials for semiconductor technology; determination of impurities in carrier gases and doping gases; determination of oxygen impurity in N<sub>2</sub>, Ar, He, Ne and H<sub>2</sub> by using a galvanic cell",
+    "nazev_cz": "Testing of materials for semiconductor technology; determination of impurities in carrier gases and doping gases; Part 9: determination of oxygen, nitrogen, carbon monoxide, carbon dioxide, hydrogen and C1-C3 hydrocarbons in hydrogen chloride by gas chromatography",
     "znacka": "DIN 50450-9",
     "typ_dokumentu": "Norma",
     "sekce": "",
@@ -27114,5 +27140,28 @@
     "jazyk": "čeština",
     "anotace_poznamka": "Tento dokument stanovuje minimální požadavky na návrh, instalaci, uvedení do provozu, provoz, kontrolu a údržbu pro zajištění bezpečnosti a tam, kde je to vhodné, pro zajištění provozu veřejných i neveřejných čerpacích stanic, které vydávají plynný vodík do lehkých silničních vozidel (např. elektrických vozidel s palivovými články).\nTento dokument není použitelný pro výdej kryogenního vodíku nebo vodíku pro aplikace s hydridy kovů.\nVzhledem k tomu, že tento dokument je zamýšlen pro poskytnutí minimálních požadavků na čerpací stanice, výrobci mohou přijmout dodatečná bezpečnostní opatření, jak jsou stanovená v metodologii managementu rizik, s cílem zaměřit se na potenciální bezpečnostní rizika konkrétních návrhů a aplikací.\nAčkoli je tento dokument zaměřen na plnění lehkých silničních vozidel na vodík, zahrnuje také požadavky a návod na plnění středně těžkých a těžkých silničních vozidel (např. autobusy, nákladní auta).\nMnoho obecných požadavků obsažených v tomto dokumentu je použitelných na čerpací stanice pro jiné typy vodíkových aplikací, např. čerpací stanice pro motocykly, vysokozdvižné vozíky, tramvaje, vlaky, říční a námořní vozidla, čerpací stanice s vnitřním výdejem, domácí aplikace pro palivová pozemní vozidla, mobilní čerpací stanice nebo neveřejné demonstrační čerpací stanice.\nDalší konkrétní požadavky, které nejsou uvedeny v tomto dokumentu, však mohou být nezbytné pro bezpečný provoz čerpacích stanic.\nTento dokument poskytuje také požadavky a návod na systém pro výrobu, dodávání, skladování, čištění a stlačení vodíku na čerpacích stanicích.",
     "jurisdikce": "CZ"
+  },
+  {
+    "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
+    "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
+    "znacka": "ČSN ISO 14687",
+    "typ_dokumentu": "Norma",
+    "sekce": "Palivové články",
+    "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost",
+    "klicova_slova": [],
+    "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
+    "nazev_eu": "",
+    "odkaz_eu": "",
+    "nazev_sk": "",
+    "odkaz_sk": "",
+    "platnost": "od 10/2020",
+    "ratifikovan": "",
+    "gestor": [
+      "MPO"
+    ],
+    "jazyk": "angličtina",
+    "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích.",
+    "jurisdikce": "CZ",
+    "_dedup_status": "flagged_for_review"
   }
 ]
