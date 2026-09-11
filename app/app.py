@@ -1,15 +1,24 @@
+import csv
+import io
+import json
 import os
 import pathlib
+from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g, send_file, abort
+from flask import Flask, render_template, request, g, send_file, abort, Response
 
 app = Flask(__name__)
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
 load_dotenv(REPO_ROOT / ".env")
+
+# doc/REQUIREMENTS.md R2.5, 2026-09-11: export formats/fields for /export/<fmt>.
+EXPORT_FORMATS = {"csv", "json", "xml"}
+EXPORT_FIELDS = ["title", "description", "type_name", "source_name",
+                  "language", "effective_date", "url", "keywords"]
 
 
 def get_db():
@@ -39,19 +48,25 @@ def get_filters():
         keywords = cur.fetchall()
     return types, sources, keywords
 
-@app.route('/')
-def index():
-    db = get_db()
+def parse_filters(args):
+    """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the four
+    recognized search/filter query params into a plain dict, shared by
+    index() and /export/<fmt> so both apply identical filtering."""
+    return {
+        'q': args.get('q', '').strip(),
+        'type_id': args.get('type_id', ''),
+        'source_id': args.get('source_id', ''),
+        'keyword_id': args.get('keyword_id', ''),
+    }
 
-    # Query parameters
-    search_query = request.args.get('q', '').strip()
-    type_id = request.args.get('type_id', '')
-    source_id = request.args.get('source_id', '')
-    keyword_id = request.args.get('keyword_id', '')
 
-    types, sources, keywords = get_filters()
-
-    # Build query
+def build_document_query(filters, limit=None):
+    """doc/REQUIREMENTS.md R2.1/R2.3/R2.5, 2026-09-11: pure function (no
+    DB access) building the parameterized SQL + params for the filtered
+    document list. Shared by index() (limit=100, the on-screen page) and
+    /export/<fmt> (limit=None, i.e. the full filtered result set — an
+    export must not silently truncate at the UI's page size). Returns
+    (sql, params)."""
     base_query = '''
         SELECT d.id, d.title, d.description, dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url,
@@ -64,29 +79,39 @@ def index():
     '''
     params = []
 
-    if search_query:
+    if filters['q']:
         base_query += " AND (d.title LIKE %s OR d.description LIKE %s)"
-        params.extend([f'%{search_query}%', f'%{search_query}%'])
+        params.extend([f"%{filters['q']}%", f"%{filters['q']}%"])
 
-    if type_id:
+    if filters['type_id']:
         base_query += " AND d.type_id = %s"
-        params.append(type_id)
+        params.append(filters['type_id'])
 
-    if source_id:
+    if filters['source_id']:
         base_query += " AND d.source_id = %s"
-        params.append(source_id)
+        params.append(filters['source_id'])
 
-    if keyword_id:
+    if filters['keyword_id']:
         base_query += " AND dk.keyword_id = %s"
-        params.append(keyword_id)
+        params.append(filters['keyword_id'])
 
-    base_query += " GROUP BY d.id ORDER BY d.title ASC LIMIT 100"
+    base_query += " GROUP BY d.id ORDER BY d.title ASC"
+    if limit is not None:
+        base_query += " LIMIT %s"
+        params.append(limit)
 
+    return base_query, params
+
+
+def fetch_documents_with_tags(db, filters, limit=None):
+    """Runs build_document_query() and attaches each document's keyword
+    tags, exactly like index()'s original inline logic. Returns
+    (documents, doc_tags) — used by both index() and /export/<fmt>."""
+    query, params = build_document_query(filters, limit=limit)
     with db.cursor() as cur:
-        cur.execute(base_query, params)
+        cur.execute(query, params)
         documents = cur.fetchall()
 
-        # Fetch keywords for documents to display as tags
         doc_ids = [doc['id'] for doc in documents]
         doc_tags = {}
         if doc_ids:
@@ -104,6 +129,15 @@ def index():
                 if doc_id not in doc_tags:
                     doc_tags[doc_id] = []
                 doc_tags[doc_id].append(tag['keyword'])
+    return documents, doc_tags
+
+
+@app.route('/')
+def index():
+    db = get_db()
+    filters = parse_filters(request.args)
+    types, sources, keywords = get_filters()
+    documents, doc_tags = fetch_documents_with_tags(db, filters, limit=100)
 
     return render_template('index.html',
                            documents=documents,
@@ -147,6 +181,78 @@ def fulltext(doc_id):
         abort(404)
 
     return send_file(full_path)
+
+
+def _rows_for_export(documents, doc_tags):
+    """doc/REQUIREMENTS.md R2.5/R4.1, 2026-09-11: projects each document
+    row down to exactly EXPORT_FIELDS — deliberately excludes file_path/
+    restricted_fulltext/id, which must never leave via bulk export (see
+    /fulltext/<id> above for that separate, gated channel)."""
+    rows = []
+    for doc in documents:
+        rows.append({
+            'title': doc['title'] or '',
+            'description': doc['description'] or '',
+            'type_name': doc['type_name'] or '',
+            'source_name': doc['source_name'] or '',
+            'language': doc['language'] or '',
+            'effective_date': str(doc['effective_date']) if doc['effective_date'] else '',
+            'url': doc['url'] or '',
+            'keywords': ', '.join(doc_tags.get(doc['id'], [])),
+        })
+    return rows
+
+
+def _export_csv(rows):
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=EXPORT_FIELDS)
+    writer.writeheader()
+    writer.writerows(rows)
+    return Response(
+        buf.getvalue(), mimetype='text/csv',
+        headers={'Content-Disposition': 'attachment; filename=dokumenty.csv'})
+
+
+def _export_json(rows):
+    body = json.dumps(rows, ensure_ascii=False, indent=2)
+    return Response(
+        body, mimetype='application/json',
+        headers={'Content-Disposition': 'attachment; filename=dokumenty.json'})
+
+
+def _export_xml(rows):
+    root = Element('documents')
+    for row in rows:
+        doc_el = SubElement(root, 'document')
+        for field in EXPORT_FIELDS:
+            SubElement(doc_el, field).text = row[field]
+    body = tostring(root, encoding='unicode')
+    return Response(
+        body, mimetype='application/xml',
+        headers={'Content-Disposition': 'attachment; filename=dokumenty.xml'})
+
+
+@app.route('/export/<fmt>')
+def export(fmt):
+    """doc/REQUIREMENTS.md R2.5, 2026-09-11: exports the current
+    filtered/searched result set (same q/type_id/source_id/keyword_id
+    filters as index()) in csv, json, or xml — the FULL filtered set, not
+    the on-screen LIMIT 100 page. Metadata-only per R4.1: never includes
+    file_path/restricted_fulltext (see _rows_for_export() — that's the
+    separate, gated /fulltext/<id> channel above)."""
+    if fmt not in EXPORT_FORMATS:
+        abort(400)
+
+    db = get_db()
+    filters = parse_filters(request.args)
+    documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)
+    rows = _rows_for_export(documents, doc_tags)
+
+    if fmt == 'csv':
+        return _export_csv(rows)
+    if fmt == 'json':
+        return _export_json(rows)
+    return _export_xml(rows)
 
 
 if __name__ == '__main__':

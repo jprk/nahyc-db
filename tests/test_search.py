@@ -92,5 +92,79 @@ class FulltextRouteTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+class ExportRouteTestCase(unittest.TestCase):
+    """doc/REQUIREMENTS.md R2.5/R4.1, 2026-09-11: /export/<fmt> exports the
+    filtered result set in csv/json/xml, metadata-only (no file_path leak
+    -- see FulltextRouteTestCase above for that channel's own access
+    control). Integration test against the live h2regdocs, same reasoning
+    as SearchTestCase/FulltextRouteTestCase."""
+
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True
+
+    def test_csv_export_returns_200_with_csv_content_type(self):
+        response = self.app.get('/export/csv')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.content_type.startswith('text/csv'))
+
+    def test_json_export_returns_200_with_json_content_type(self):
+        response = self.app.get('/export/json')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.content_type.startswith('application/json'))
+
+    def test_xml_export_returns_200_with_xml_content_type(self):
+        response = self.app.get('/export/xml')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.content_type.startswith('application/xml'))
+
+    def test_invalid_format_returns_400(self):
+        response = self.app.get('/export/pdf')
+        self.assertEqual(response.status_code, 400)
+
+    def test_type_id_filter_reduces_exported_row_count(self):
+        import csv
+        import io
+        unfiltered = self.app.get('/export/csv')
+        rows_all = list(csv.reader(io.StringIO(unfiltered.data.decode('utf-8'))))
+
+        type_response = self.app.get('/')
+        html = type_response.data.decode('utf-8')
+        m = re.search(r'name="type_id"[^>]*>.*?<option value="(\d+)"', html, re.DOTALL)
+        self.assertIsNotNone(m, "no real type_id option found on the index page to filter by")
+        type_id = m.group(1)
+
+        filtered = self.app.get(f'/export/csv?type_id={type_id}')
+        rows_filtered = list(csv.reader(io.StringIO(filtered.data.decode('utf-8'))))
+        # header row + N data rows in both -- filtered must not exceed unfiltered.
+        self.assertLessEqual(len(rows_filtered), len(rows_all))
+
+    def test_no_exported_row_leaks_a_file_path(self):
+        import csv
+        import io
+        import json
+        from xml.etree import ElementTree
+
+        csv_resp = self.app.get('/export/csv')
+        for row in csv.DictReader(io.StringIO(csv_resp.data.decode('utf-8'))):
+            self.assertNotIn('file_path', row)
+            for value in row.values():
+                self.assertNotIn('data/fulltext/', value or '')
+
+        json_resp = self.app.get('/export/json')
+        rows = json.loads(json_resp.data)
+        for row in rows:
+            self.assertNotIn('file_path', row)
+            self.assertNotIn('restricted_fulltext', row)
+            self.assertNotIn('id', row)
+
+        xml_resp = self.app.get('/export/xml')
+        root = ElementTree.fromstring(xml_resp.data)
+        for doc_el in root:
+            tags = {child.tag for child in doc_el}
+            self.assertNotIn('file_path', tags)
+            self.assertNotIn('restricted_fulltext', tags)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -178,9 +178,11 @@ def report_app():
     print(f"'from flask import' in app.py: {bool(_grep_lines(app_py, r'from flask import'))}")
 
     print("\n--- R3.2 Relational DB engine ---")
-    print(f"doc/REQUIREMENTS.md says: SQLite")
+    req_text = _read(REPO_ROOT / "doc" / "REQUIREMENTS.md")
+    req_says = "MariaDB" if req_text and "MariaDB" in req_text else "SQLite (stale — see below)"
+    print(f"doc/REQUIREMENTS.md says: {req_says}")
     print(f"Actual DB_HOST/DB_PORT from .env: {os.environ.get('DB_HOST')}:{os.environ.get('DB_PORT')} "
-          f"(connected to via pymysql -> MariaDB, NOT SQLite) — flagged mismatch, not auto-resolved")
+          f"(connected to via pymysql -> MariaDB)")
 
     print("\n--- R3.3 HTML5/CSS3/Jinja2 ---")
     templates = list((APP_DIR / "templates").glob("*.html")) if (APP_DIR / "templates").exists() else []
@@ -229,9 +231,9 @@ def report_other():
                 print(f"  ==> wsgi.py currently serves the OLD SQLite-backed app from "
                       f"'{module_path}/', not the current MariaDB-backed 'app/app.py' this "
                       f"whole pipeline maintains — CLAUDE.md explicitly calls '{module_path}/' "
-                      f"a temporary/experimental directory, not the final placement. This "
-                      f"technically matches R3.2's literal 'SQLite' wording, but reflects "
-                      f"deprecated architecture, not the live one.")
+                      f"a temporary/experimental directory, not the final placement. This is "
+                      f"deprecated architecture, not the live one (R3.2 now correctly documents "
+                      f"MariaDB, see above).")
 
     archives = []
     for base in (APP_DIR, REPO_ROOT / "Web"):

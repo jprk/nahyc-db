@@ -1,6 +1,6 @@
 # Requirements compliance report
 
-**Generated:** 2026-09-11 16:15 · **Commit:** `ebc1f60` + R1.2/R1.3/R1.4/R1.5/R1.7/R4.1 fixes (this commit)
+**Generated:** 2026-09-11 16:15 · **Commit:** `ebc1f60` + R1.2/R1.3/R1.4/R1.5/R1.7/R4.1/R2.5/R3.2 fixes (this commit)
 **Against:** `doc/REQUIREMENTS.md` (dated 2026-09-11 15:37)
 
 Produced by `.claude/agents/requirements-check.md` (mechanical evidence
@@ -31,14 +31,14 @@ an accumulating log.
 | R2.2 Responsive web UI | PASS | `app/templates/base.html`: viewport meta tag present. `app/static/style.css`: two real breakpoints, `@media (max-width: 992px)` and `@media (max-width: 768px)`. | — |
 | R2.3 Combined full-text + structured filters | PASS | Single GET form; `app/app.py` reads `q`, `type_id`, `source_id`, `keyword_id` from `request.args` and ANDs them all onto one query. | — |
 | R2.4 Result metadata summary + hyperlink | PASS | `app/templates/index.html` renders type/title/language/keywords/source/date/description per row, with a conditional hyperlink on `doc.url` (falls back to a disabled "Zdroj nedostupný" label when empty). | — |
-| R2.5 Export readiness (CSV/JSON/XML) | FAIL | No `csv`/`export`/`xml` reference anywhere in `app/app.py` or the templates. | No export route or UI element exists at all — not just "not built yet" but no scaffolding/readiness either. |
+| R2.5 Export readiness (CSV/JSON/XML) | PASS *(fixed 2026-09-11)* | New `/export/<fmt>` route in `app/app.py` (csv/json/xml, `abort(400)` for anything else) exports the current filtered/searched result set — the FULL filtered set, not the on-screen `LIMIT 100` page. Metadata-only (`title, description, type_name, source_name, language, effective_date, url, keywords`) — never `file_path`/`restricted_fulltext`/`id`, per R4.1. 3 new links in `index.html` next to "Reset Filtry". | None — all three formats named in the requirement are implemented, filter-aware, and regression-tested against leaking `file_path`. |
 
 ## R3.x Technical Stack
 
 | Req | Verdict | Evidence | Gap |
 |---|---|---|---|
 | R3.1 Python + Flask backend | PASS | `app/app.py`: `from flask import Flask, render_template, request, g`. | — |
-| R3.2 Relational DB ("currently SQLite") | **MISMATCH** | `doc/REQUIREMENTS.md` says SQLite. The live, actively-maintained app (`app/app.py`) connects to **MariaDB** (`h2regdocs` via `pymysql`, `.env`: `DB_HOST=localhost`, `DB_PORT=3306`) — and `wsgi.py` now correctly points at that app too (fixed, see "Other findings"). | Not a bug to silently "fix" either direction — the requirements doc and reality disagree. A **second**, legacy Flask app at `Web/app.py` genuinely does use `sqlite3` against `Databaze/regulatory_documents.db`, but it is explicitly a temporary/experimental leftover per `CLAUDE.md`, not the canonical app. |
+| R3.2 Relational DB (MariaDB) | PASS *(doc fixed 2026-09-11)* | `doc/REQUIREMENTS.md` now says "currently implemented as MariaDB" (was "SQLite" — a stale-doc mismatch, resolved by updating the doc per the user's explicit choice, not by treating MariaDB as a "deviation"). The live, actively-maintained app (`app/app.py`) connects to MariaDB (`h2regdocs` via `pymysql`, `.env`: `DB_HOST=localhost`, `DB_PORT=3306`) — and `wsgi.py` correctly points at that app too. | None — doc and reality now agree. A **second**, legacy Flask app at `Web/app.py` genuinely does use `sqlite3` against `Databaze/regulatory_documents.db`, but it is explicitly a temporary/experimental leftover per `CLAUDE.md`, not the canonical app. |
 | R3.3 HTML5/CSS3/Jinja2 | PASS | `<!DOCTYPE html>`, CSS3 variables/`@media`/gradients in `style.css`, Jinja2 `{% extends %}`/`{{ }}` throughout `index.html`/`base.html`, rendered via `render_template`. | — |
 | R3.4 Vanilla JS + Phosphor Icons + Google Fonts | PASS | One inline vanilla-JS `<script>` block in `base.html` (accordion expand/collapse, no framework). Phosphor Icons via `<script src="https://unpkg.com/@phosphor-icons/web">` + `ph`/`ph-fill` classes throughout. Google Fonts (`Inter`, `Outfit`) via `fonts.googleapis.com`. No jQuery/Bootstrap-JS/React/Vue found anywhere under `app/`. | — |
 
@@ -52,19 +52,24 @@ an accumulating log.
 ## Other findings (not tied to a specific requirement)
 
 - **`wsgi.py` pointed at the wrong, legacy app — fixed 2026-09-11, commit `ebc1f60`.** It read `from Web.app import app`. `Web/` at the repo root is a real, importable Flask app (`Web/app.py`) — but it was the **old, pre-migration implementation**: plain `sqlite3` against `Databaze/regulatory_documents.db`, lowercase table names (`documents`, `document_types`, ...) that no longer match the current MariaDB PascalCase schema (`Document`, `DocumentType`, ...) this entire session's pipeline builds. `CLAUDE.md` explicitly calls `Databaze/` and `Web/` **temporary/experimental directories, not the final placement** — the canonical app is `app/app.py`. Fixed to `from app.app import app`, verified via direct import. (Interestingly, `Web/app.py`'s own search query already correctly used `SELECT DISTINCT d.id, ...` — the R2.1 grouping bug above was introduced during the migration to `app/app.py`, not inherited from the old app.) Also noteworthy: `wsgi.py` had never actually been committed to this repo's git history before this fix.
-- **Duplicate `Web.zip` archives.** `app/Web.zip` and `Web/Web.zip` were byte-identical (122774 bytes, same MD5). The user removed `Web/Web.zip` (2026-09-11); `app/Web.zip` (122774 bytes) still remains, untouched, in case only one was intended to go.
+- ~~Duplicate `Web.zip` archives.~~ **Resolved 2026-09-11.** `app/Web.zip` and `Web/Web.zip` were byte-identical (122774 bytes, same MD5) leftovers from the repo reorganization. Both are now removed (untracked/gitignored — plain filesystem deletes, no git history involved). `find . -iname "*.zip"` now returns nothing.
 
 ## Punch list
 
 **Cheap, safe, low-risk (no design decision needed):**
 1. ~~`app/app.py:81` — change `GROUP BY d.title` to `GROUP BY d.id` (R2.1).~~ **Done, commit `ebc1f60`.**
 2. ~~Fix `wsgi.py`'s import target.~~ **Done, commit `ebc1f60`.**
-3. `app/Web.zip` (122774 bytes) is still present — confirm with the project owner whether it should be removed too (its twin `Web/Web.zip` already was).
+3. ~~`app/Web.zip` is still present...~~ **Done — removed 2026-09-11.**
 
 **Bigger, needs a design decision from the project owner:**
 4. ~~R1.2 — design the actual 3-tier jurisdiction categorization...~~ **Done, `jurisdikce_uroven` generated column, see above.**
 5. ~~R1.3/R1.4 — decide how to populate `document_relation`...~~ **Mechanism built, `src/tools/link_document_relations_auto.py`, see above.** Remaining, genuinely open: whether to add the missing EU-act `Document` rows named in `data/eu_transposition_missing_targets.json` (would let R1.3 produce real `IMPLEMENTS` edges), and whether to collect the missing international-standard parent records for the STN/ČSN/DIN adoptions that still lack one (would grow R1.4's 17 edges).
 6. ~~R1.5 — decide whether to add a structured lifecycle-state column...~~ **Done, `DocumentVersion.lifecycle_state`, see above.**
 7. ~~R1.7/R4.1 — decide whether `file_path` should actually be populated...~~ **Done, `file_path` populated + `DocumentType.restricted_fulltext` + `/fulltext/<id>` route, see above.**
-8. R2.5 — decide which export formats/scope to actually build (or confirm "modular and extensible" is satisfied structurally without a concrete export feature yet).
-9. R3.2 — resolve the SQLite-vs-MariaDB wording mismatch in `doc/REQUIREMENTS.md` itself (update the doc, or treat MariaDB as an approved deviation).
+8. ~~R2.5 — decide which export formats/scope to actually build...~~ **Done, `/export/<fmt>` (csv/json/xml), see above.**
+9. ~~R3.2 — resolve the SQLite-vs-MariaDB wording mismatch...~~ **Done, `doc/REQUIREMENTS.md` updated, see above.**
+
+**All punch-list items are now resolved (2026-09-11).** Remaining genuinely
+open work is the data-completeness gap noted under R1.3/R1.4 above (adding
+missing EU-act/international-standard `Document` rows) — a data-collection
+decision, not a code/schema gap.

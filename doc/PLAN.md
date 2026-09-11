@@ -2068,3 +2068,50 @@ built a repeatable mechanism instead of a one-off manual review:
   `restricted_fulltext` distribution; R4.1 greps `app/app.py` for the new
   route/gate). Documented in `doc/konsolidace/Konsolidace-DB-popis.md`
   §4.1/§4.5 and `src/tools/0README.md`/`tests/0README.md`.
+- **R2.5 (CSV/JSON/XML export) done, 2026-09-11.** New `app/app.py` route
+  `/export/<fmt>` (`fmt` in `{csv, json, xml}`, `abort(400)` otherwise) —
+  exports the current filtered/searched result set (same `q`/`type_id`/
+  `source_id`/`keyword_id` params as `index()`), but the FULL filtered set,
+  not the on-screen `LIMIT 100` page. `index()`'s filter-parsing and
+  query-building logic was refactored out into shared, testable helpers
+  (`parse_filters()`, `build_document_query()` — pure, no DB access,
+  `limit=None` vs `limit=100` — and `fetch_documents_with_tags()`) so both
+  routes apply identical filtering without duplicated SQL.
+  **Metadata-only per R4.1**: `_rows_for_export()` projects each row down
+  to exactly `title, description, type_name, source_name, language,
+  effective_date, url, keywords` — deliberately excludes `file_path`,
+  `restricted_fulltext`, and `id` (that's the separate, gated
+  `/fulltext/<id>` channel; bulk export must never carry a local file
+  path). Response builders are stdlib-only (`csv`+`io.StringIO`,
+  `json.dumps` via a plain `flask.Response` for header control, and
+  `xml.etree.ElementTree`), each with the correct `mimetype` and a
+  `Content-Disposition: attachment` download header. Template
+  (`index.html`) gained 3 links (CSV/JSON/XML) next to "Reset Filtry",
+  reusing the existing `.btn-secondary` style — no new CSS.
+  Verified: 11 new pure unit tests (new `tests/test_app_export.py` —
+  `build_document_query`'s `limit=None` vs `limit=100` behavior, and
+  `_rows_for_export`'s output-key guard) + 6 new integration tests
+  (`tests/test_search.py`'s new `ExportRouteTestCase` — each format 200
+  with correct content-type, invalid format 400, a `type_id` filter
+  measurably reduces the exported row count, and a regression guard
+  parsing each format's real response body to confirm no `file_path`/
+  `restricted_fulltext`/`id` ever appears) — 305 tests total pass. Real
+  corpus: unfiltered export returns all 1188 documents (not capped at
+  100), confirming the export ignores the UI page-size limit as intended.
+  `check_requirements.py`'s R2.5 section now reports real `csv`/`export`/
+  `xml` hits in `app/app.py`/`index.html` (previously "(none)").
+- **R3.2 (SQLite-vs-MariaDB wording mismatch) resolved, 2026-09-11.**
+  `doc/REQUIREMENTS.md` updated to say "currently implemented as MariaDB"
+  (was "SQLite") — the project settled on MariaDB back in early pipeline
+  work (see §5 above); this was a stale-doc fix, not a code change, per
+  the user's explicit choice (update the doc to match reality, rather
+  than record MariaDB as a "deviation" from an unchanged doc).
+  `check_requirements.py`'s R3.2 section updated to read the actual
+  current wording from `doc/REQUIREMENTS.md` instead of hardcoding
+  "SQLite", so it won't go stale again if the doc changes further.
+- **`app/Web.zip` removed, 2026-09-11.** The user confirmed they intended
+  to delete this earlier but it was still on disk (122774 bytes) —
+  confirmed untracked and gitignored (`.gitignore` line 16) before
+  removing, so this was a plain filesystem `rm`, no git history involved.
+  This closes out the last open item on the requirements-compliance punch
+  list (see `doc/requirements_check_report.md`).

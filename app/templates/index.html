@@ -56,6 +56,9 @@
             </div>
 
             <div class="filter-group action-group">
+                <a href="{{ url_for('export', fmt='csv', **request.args) }}" class="btn-secondary">CSV <i class="ph ph-file-csv"></i></a>
+                <a href="{{ url_for('export', fmt='json', **request.args) }}" class="btn-secondary">JSON <i class="ph ph-file-code"></i></a>
+                <a href="{{ url_for('export', fmt='xml', **request.args) }}" class="btn-secondary">XML <i class="ph ph-file-code"></i></a>
                 <a href="{{ url_for('index') }}" class="btn-secondary">Reset Filtry <i class="ph ph-x-circle"></i></a>
             </div>
         </div>

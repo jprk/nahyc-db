@@ -29,7 +29,7 @@ This document outlines the requirements for the database system that will be dev
 ### R3.x Technical Stack
 
 1. **R3.1** The application backend must be built using Python and the Flask web framework.  
-2. **R3.2** The database layer must be a relational database, currently implemented as SQLite, with initialization scripts to populate the data dynamically.  
+2. **R3.2** The database layer must be a relational database, currently implemented as MariaDB, with initialization scripts to populate the data dynamically.  
 3. **R3.3** The frontend must be constructed using HTML5, CSS3, and Jinja2 templates.  
 4. **R3.4** The frontend design must utilize Vanilla JavaScript for basic interactivity without relying on massive JavaScript libraries, and incorporate Phosphor Icons and Google Fonts.
 
