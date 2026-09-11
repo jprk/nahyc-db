@@ -840,6 +840,19 @@ Original plan (executed as amended above):
         effects offset. No bad merge either way; the review queue is
         doing exactly what it's for. `h2regdocs` reloaded (1217
         `Document` rows), `app/app.py` re-verified.
+      - **Decision (user, 2026-09-11): standard-numbering questions like
+        this are left for manual resolution as they come up, not
+        automated.** Discussed building a lightweight "orphan part
+        number" flagger (e.g. a family with `/2 /3 /4 /5` present but
+        `/1` not fitting the pattern → review queue) using only signals
+        already in the corpus, no external scraping — but validating
+        whether a specific part number is genuinely real still needs
+        authoritative per-family knowledge (sae.org, iso.org, ...) that
+        the corpus alone can't provide and that changes over time, same
+        reason this project never built a CSA/SAE catalog scraper. Not
+        scoped as a task; `"SAE J2601 /1"` and any future case like it
+        get resolved one at a time, by hand, the same way this one was
+        researched.
 - **Follow-up #14 (2026-09-11): `TRBS 3151` / `TRGS 751` are confirmed
   the same document — a genuine schema question, not a dedup bug.** The
   user's own explanation (translated from German, verbatim below) settles
