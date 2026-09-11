@@ -10,7 +10,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from parse_sinay_norms import (
     classify_jurisdikce, _pdf_row_to_record, is_placeholder_designation,
     merge_designation_continuations, parse_xlsx, _XLSX_SHEET, _XLSX_HEADER_ROW,
-    split_multi_part_designation_row,
+    split_multi_part_designation_row, _parse_pdf_page,
 )
 
 
@@ -211,6 +211,19 @@ class MergeDesignationContinuationsTestCase(unittest.TestCase):
     def test_empty_input(self):
         self.assertEqual(merge_designation_continuations([]), [])
 
+    def test_date_fragment_continuation_with_leading_dash_is_merged(self):
+        # 2026-09-11 real bug: this document wraps the "/ - YYYY.MM" suffix
+        # inconsistently -- sometimes the dash stays with the designation
+        # (see test_date_fragment_continuation_is_merged_with_a_space
+        # above), sometimes it wraps to the continuation line instead. Real
+        # corpus case: "STN P CLC IEC/TS 62443-1-5/" + "- 2024.09" (without
+        # this fix, the leading "-" made the continuation fail to match
+        # _DATE_FRAGMENT_RE, so it became a bogus new row that stole the
+        # true row's wrapped title continuation).
+        lines = [(100, "STN P CLC IEC/TS 62443-1-5/"), (112, "- 2024.09")]
+        result = merge_designation_continuations(lines)
+        self.assertEqual(result, [(100, "STN P CLC IEC/TS 62443-1-5/ - 2024.09")])
+
 
 class SplitMultiPartDesignationRowTestCase(unittest.TestCase):
     """Step 1 follow-up #16: a single XLSX row can represent a whole
@@ -338,6 +351,73 @@ class ParseXlsxPlaceholderTestCase(unittest.TestCase):
         self.assertEqual(records[1]["Název"], "Preambule Časť 2: Druhá")
         self.assertEqual(records[0]["Jurisdikce"], "SK")
         self.assertEqual(records[1]["Jurisdikce"], "SK")
+
+
+def _word(text, top, x0, width=None):
+    return {"text": text, "top": top, "x0": x0, "x1": x0 + (width if width is not None else len(text) * 6)}
+
+
+class _FakePage:
+    """Minimal stand-in for a pdfplumber.Page — _parse_pdf_page only ever
+    calls .extract_words()."""
+
+    def __init__(self, words):
+        self._words = words
+
+    def extract_words(self):
+        return self._words
+
+
+class ParsePdfPageTestCase(unittest.TestCase):
+    """2026-09-11, user-reported bug (found via the app's CSV/JSON/XML
+    export showing garbled titles): end-to-end regression tests against
+    _parse_pdf_page(), reproducing the exact real-corpus word layouts that
+    broke before the fix — see merge_designation_continuations and
+    _COMMITTEE_REFERENCE_RE."""
+
+    def test_committee_reference_row_gets_an_empty_title_not_a_fragment(self):
+        # Real case (p.82 of the source PDF): "CEN/TC 326 Natural Gas
+        # Vehicles" all falls in the designation column (x0 < 175), but
+        # "- Fuelling and Operation" (the SAME run-on scope description,
+        # just past the column boundary) used to land in "title" --
+        # producing a bogus fragment title instead of the empty title that
+        # lets parse_pdf() correctly drop this "not a document" row.
+        words = [
+            _word("CEN/TC", 100, 41), _word("326", 100, 78),
+            _word("Natural", 100, 97), _word("Gas", 100, 131), _word("Vehicles", 100, 149),
+            _word("-", 100, 187), _word("Fuelling", 100, 192),
+            _word("and", 100, 229), _word("Operation", 100, 247),
+            _word("https://standards.cencenelec.eu/", 100, 559),
+        ]
+        rows = _parse_pdf_page(_FakePage(words))
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["designation"], "CEN/TC 326 Natural Gas Vehicles")
+        self.assertEqual(rows[0]["title"], "")
+
+    def test_date_continuation_with_leading_dash_does_not_steal_the_next_title(self):
+        # Real case (p.26): a long designation wraps its "/ - YYYY.MM"
+        # suffix with the dash on the CONTINUATION line ("STN P CLC IEC/TS
+        # 62443-1-5/" then "- 2024.09"). Before the fix, "- 2024.09"
+        # started a bogus new row, which then stole the true row's wrapped
+        # title continuation ("1-5: Schéma pre bezpečnostné profily IEC
+        # 62443") instead of it being appended to the real row's title.
+        words = [
+            # Row's designation, wrapping onto a second line as "- 2024.09".
+            _word("STN", 100, 41), _word("P", 100, 61), _word("CLC", 100, 69),
+            _word("IEC/TS", 100, 88), _word("62443-1-5/", 100, 120),
+            _word("-", 112, 41), _word("2024.09", 112, 47),
+            # Title, wrapping across the SAME two visual lines.
+            _word("Informačná", 100, 183), _word("bezpečnosť", 100, 235),
+            _word("Časť", 100, 523),
+            _word("1-5:", 112, 183), _word("Schéma", 112, 202),
+            _word("pre", 112, 237), _word("bezpečnostné", 112, 254),
+            _word("profily", 112, 315), _word("IEC", 112, 346), _word("62443", 112, 363),
+        ]
+        rows = _parse_pdf_page(_FakePage(words))
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["designation"], "STN P CLC IEC/TS 62443-1-5/ - 2024.09")
+        self.assertEqual(rows[0]["title"],
+                          "Informačná bezpečnosť Časť 1-5: Schéma pre bezpečnostné profily IEC 62443")
 
 
 if __name__ == "__main__":

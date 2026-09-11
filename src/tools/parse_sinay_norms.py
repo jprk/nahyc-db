@@ -181,7 +181,17 @@ _PDF_COLUMNS = [
     ("url", 550, 700),
     ("note", 700, 10_000),
 ]
-_DATE_FRAGMENT_RE = re.compile(r"^\d{4}\.\d{2}$")
+_DATE_FRAGMENT_RE = re.compile(r"^-?\s*\d{4}\.\d{2}$")
+# 2026-09-11, user-reported bug: this document writes the trailing
+# "/ - YYYY.MM" suffix's wrap point inconsistently — sometimes the dash
+# stays with the designation ("...15502-3-1/ -" + "2024.08"), sometimes it
+# wraps to the continuation line instead ("...62443-1-5/" + "- 2024.09").
+# The leading "-?" above covers both; a real corpus case that broke before
+# this fix: "STN P CLC IEC/TS 62443-1-5/ - 2024.09" was split into a bogus
+# extra row (designation "- 2024.09"), which then stole the true row's
+# wrapped title continuation ("1-5: Schéma pre bezpečnostné profily IEC
+# 62443") — see tests/test_parse_sinay_norms.py.
+#
 # A short (<=6 char) fragment of only digits/closing-punctuation, wrapped
 # onto its own line, is the tail of a long designation that didn't fit on
 # one line — never the start of a genuinely new designation (those always
@@ -194,6 +204,21 @@ _DATE_FRAGMENT_RE = re.compile(r"^\d{4}\.\d{2}$")
 _SHORT_CONTINUATION_RE = re.compile(r"^[\d).]{1,6}$")
 _PAGE_FOOTER_RE = re.compile(r"\s*Strana\s+\d+\s+z\s+\d+\s*$")
 _DESIGNATION_DATE_RE = re.compile(r"(\d{4})\.(\d{2})\s*$")
+
+# 2026-09-11, user-reported bug: a later section of this PDF (pp. 81-83)
+# isn't the standards table at all — it's an appendix listing the
+# technical committees relevant to hydrogen (e.g. "CEN/TC 326 Natural Gas
+# Vehicles - Fuelling and Operation https://..."), reusing the exact same
+# column template. A committee reference's whole "code + scope
+# description" is really ONE run-on text in the designation position, with
+# no genuine column break — but since it's long, some of it spills past
+# x=175 into what the column split treats as "title", producing a bogus
+# fragment title ("- Fuelling and Operation") instead of the empty title
+# that would let the EXISTING `if row["title"].strip():` filter in
+# parse_pdf() correctly drop it as "not a document" (see this module's own
+# docstring — dropping title-less rows was always the intended handling
+# for exactly this shape of row, it just wasn't reliably triggering).
+_COMMITTEE_REFERENCE_RE = re.compile(r"^(?:ISO|IEC|CEN|CENELEC|CLC)/TC\s+\d+", re.IGNORECASE)
 
 
 def _pdf_column_of(x0):
@@ -224,13 +249,14 @@ def _group_into_lines(words, tolerance=2.0):
 
 
 def merge_designation_continuations(designation_lines):
-    """Merges a bare "YYYY.MM" date continuation, or a short digits/
-    closing-punctuation continuation (see _SHORT_CONTINUATION_RE), into
-    the previous designation — both are the wrapped tail of a long
-    designation split onto its own visual line, not a new row's start.
-    `designation_lines` is a list of (top, text) tuples in document
-    order (as produced by `_group_into_lines`); returns the same shape,
-    with continuation lines folded into the entry before them."""
+    """Merges a "YYYY.MM" (optionally "- YYYY.MM", see _DATE_FRAGMENT_RE)
+    date continuation, or a short digits/closing-punctuation continuation
+    (see _SHORT_CONTINUATION_RE), into the previous designation — both are
+    the wrapped tail of a long designation split onto its own visual line,
+    not a new row's start. `designation_lines` is a list of (top, text)
+    tuples in document order (as produced by `_group_into_lines`); returns
+    the same shape, with continuation lines folded into the entry before
+    them."""
     merged = []
     for top, text in designation_lines:
         stripped = text.strip()
@@ -277,6 +303,15 @@ def _parse_pdf_page(page, header_top_max=85):
         for column in ("title", "url", "note"):
             row[column] = " ".join(row[column])
         row["note"] = _PAGE_FOOTER_RE.sub("", row["note"]).strip()
+        if _COMMITTEE_REFERENCE_RE.match(row["designation"].strip()):
+            # The "title" text isn't a real title at all — it's the tail
+            # of the committee's own run-on scope description that spilled
+            # past the column boundary (see _COMMITTEE_REFERENCE_RE above).
+            # Clearing it (rather than merging it back into designation)
+            # lets parse_pdf()'s existing empty-title filter drop the row,
+            # matching this module's already-documented, deliberate
+            # handling of technical-committee references.
+            row["title"] = ""
         del row["_top"], row["_bottom"]
     return rows
 

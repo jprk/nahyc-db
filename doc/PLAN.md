@@ -2221,3 +2221,73 @@ over hiding it) keep showing it in search/export with a visible marker.
   with the correct tooltip text; export confirmed clean of the two new
   fields. Documented in `doc/konsolidace/Konsolidace-DB-popis.md` §4.1,
   `src/tools/0README.md`, `tests/0README.md`.
+
+**Root cause fixed, 2026-09-11** (user's explicit follow-up request: "try
+to actually fix the `parse_sinay_norms.py` column-misalignment bug", not
+just flag its symptoms). Traced both real garbled-znacka examples to two
+distinct bugs in the PDF-table reconstruction:
+
+1. **A later section of the source PDF (pp. 81-83) isn't the standards
+   table at all** — it's an appendix listing the technical committees
+   relevant to hydrogen (e.g. `"CEN/TC 326 Natural Gas Vehicles -
+   Fuelling and Operation https://..."`), reusing the exact same column
+   template. A committee reference's whole "code + scope description" is
+   really ONE run-on text with no genuine column break, but since it's
+   long, some of it spills past the designation/title boundary (x=175),
+   producing a bogus fragment title instead of the empty title that
+   would let the module's own existing, already-documented filter
+   (`if row["title"].strip():` in `parse_pdf()`) correctly drop it as
+   "not a document" — dropping title-less rows was always the intended
+   handling for exactly this row shape, it just wasn't reliably
+   triggering. New `_COMMITTEE_REFERENCE_RE` (`^(ISO|IEC|CEN|CENELEC|
+   CLC)/TC\s+\d+`) detects this designation shape and clears the bogus
+   title so the existing filter fires — verified against the real PDF:
+   15 such committee-reference lines total, 0 leak through after the fix
+   (most were already correctly dropped since their description was
+   short enough to stay within the designation column; only the longer
+   ones, 6 of the 15, were actually bugged).
+2. **The trailing "/ - YYYY.MM" edition-date suffix wraps inconsistently**
+   — sometimes the dash stays with the designation
+   (`"...15502-3-1/ -"` + `"2024.08"`), sometimes it wraps onto the
+   continuation line instead (`"...62443-1-5/"` + `"- 2024.09"`).
+   `merge_designation_continuations()`'s `_DATE_FRAGMENT_RE` only matched
+   the first (bare `"YYYY.MM"`) shape — broadened to `^-?\s*\d{4}\.\d{2}$`.
+   Without this, the leading-dash continuation started a bogus new row,
+   which then stole the TRUE row's own wrapped title continuation
+   (`"1-5: Schéma pre bezpečnostné profily IEC 62443"`) — exactly the
+   second real example the user reported.
+
+**A separate, important discovery while fixing this**: rerunning
+`parse_sinay_norms.py` naively would have silently destroyed ~11 real,
+valuable hand-curated corrections already accumulated in
+`data/20250712_Sinay/sinay_normy_processed.json` earlier in this session
+(e.g. the `DIN 50450-9` title fix, a cancelled/superseded-norm
+cross-reference for `STN 65 1312-2`/`ISO 7105`) — that file is a
+hand-enriched artifact, not a pure function of the raw PDF/XLSX + parser
+code, and a full regeneration would have reverted all of it back to the
+parser's raw output. Caught this by diffing a fresh parse against the
+git-committed file *before* trusting a full regeneration, then applied
+the fix surgically: patched only the 8 affected records directly (merged
+the 2 date-continuation pairs, removed the 6 committee-reference rows)
+in the existing hand-curated file, leaving every other record — including
+all 11 prior manual corrections — untouched.
+
+Verified: 2 new regression tests in `tests/test_parse_sinay_norms.py`
+(`ParsePdfPageTestCase`, end-to-end against a fake `pdfplumber.Page`
+reproducing the exact real word layouts that broke) + 1 new
+`MergeDesignationContinuationsTestCase` case, 40 tests in that file, 322
+tests total pass. Full pipeline rerun (`build_unified_db` →
+`deduplicate_db` → `link_document_versions` →
+`link_document_relations_auto` → `init_db` → `load_document_relations` →
+`load_process_layer`) — `dedup_review_queue.json` clean, the R1.3/R1.4
+edge counts (6 `IMPLEMENTS`, 15 `ADOPTS`) and the R1.5-era `ISO 14687`/
+`ČSN ISO 14687` jurisdikce separation both hold. Real corpus after the
+fix: `needs_review` count dropped from 411/1192 to 402/1183 — garbled-
+znacka flags went from 8 to 0 (both real cases now genuinely fixed, not
+just flagged), fragment-title flags from 14 to 7 (the remaining 7 are a
+different, not-yet-diagnosed root cause — still correctly caught by the
+flagging mechanism, which is exactly its intended fallback role).
+Flask smoke test confirms the fixed record now shows its full, correct
+title and the old bogus committee-reference title is gone entirely from
+search. Documented in `src/tools/0README.md`, `doc/konsolidace/
+Konsolidace-DB-popis.md` §4.1, `doc/requirements_check_report.md`.
