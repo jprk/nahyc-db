@@ -1874,3 +1874,45 @@ querying real APIs, not guessing.
   matching the schema's existing 100%-normalized convention (confirmed: zero
   JSON columns anywhere in `Konsolidace-DB-schema.sql`). Not built this
   pass — moot until the extraction schema itself is adopted (also deferred).
+
+## 6. Requirements compliance checking (NEW, 2026-09-11)
+
+`doc/REQUIREMENTS.md` (added 2026-09-11) lists 22 numbered requirements
+(R1.1–R4.2) for the DP004 database/app. Since this needs re-checking after
+every significant application change and every future edit to that file,
+built a repeatable mechanism instead of a one-off manual review:
+
+- **`src/tools/check_requirements.py`** (new) — mechanical, deterministic
+  fact-gathering (DB schema/row-count queries + `app/` greps) for every
+  requirement with a checkable answer. Reports raw evidence, never a
+  verdict — see its own docstring and `src/tools/0README.md`.
+- **`.claude/agents/requirements-check.md`** (new) — a project-local Claude
+  Code subagent (`subagent_type: "requirements-check"`, invoked via the
+  `Agent` tool) that re-reads `doc/REQUIREMENTS.md` fresh, runs the script
+  above, adds the judgement calls the script deliberately doesn't make,
+  and writes a full Markdown report to `doc/requirements_check_report.md`
+  (overwritten each run — a current snapshot, same convention as
+  `doc/similarity_analysis.md`). **Note**: a subagent defined mid-session
+  isn't picked up by the already-running `Agent` tool's registry — it only
+  becomes invokable by name after the Claude Code session restarts (or in
+  a fresh session). The first report below was produced by hand, following
+  the exact same procedure the agent definition specifies, as a substitute
+  end-to-end verification.
+- **First report** (`doc/requirements_check_report.md`, commit `12f24ca`):
+  10 PASS, 6 FAIL, 4 PARTIAL, 1 N/A, 1 explicit mismatch (R3.2 — the
+  requirements doc says SQLite; this repo settled on MariaDB back in Step
+  0, see §5 above — an outdated requirements doc, not an open question).
+  Two concrete, cheap, unrelated-to-any-single-requirement bugs surfaced
+  along the way: `app/app.py`'s search query groups by `d.title` instead of
+  `d.id` (R2.1 — would silently merge two real, different documents that
+  happen to share a title, e.g. `CGA G-5`/`OSHA 1910.103`), and `wsgi.py`
+  imports `Web.app` — a genuinely-importable but **deprecated,
+  pre-migration, sqlite3-backed** app (`Web/app.py`, reading
+  `Databaze/regulatory_documents.db` with an entirely different lowercase
+  table-name schema) — not the canonical, actively-maintained
+  `app/app.py` this whole pipeline builds for. Full detail, evidence, and
+  a prioritized punch list (cheap fixes vs. bigger architectural
+  decisions like R1.2's 3-tier jurisdiction categorization or R4.1's
+  access control) are in the report file itself — **not fixed as part of
+  building this tool**, per the user's own scoping: this task was about
+  building the checking mechanism, not acting on what it found.
