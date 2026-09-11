@@ -7,8 +7,40 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from init_db import (
     resolve_identifier, resolve_document_type, normalize_jurisdikce,
     build_gestor_jurisdiction_map, resolve_source_jurisdiction,
-    resolve_document_versions, FALLBACK_DOCUMENT_TYPE,
+    resolve_document_versions, classify_lifecycle_state, FALLBACK_DOCUMENT_TYPE,
 )
+
+
+class ClassifyLifecycleStateTestCase(unittest.TestCase):
+    """doc/REQUIREMENTS.md R1.5: a non-current version is always
+    "superseded" regardless of its own platnost text; a current version is
+    "draft" only when its platnost/effective_date carries a real
+    draft/work-item marker (real corpus strings, German/Czech/Slovak
+    standards-body terminology), else "active"."""
+
+    def test_not_current_is_always_superseded(self):
+        self.assertEqual(classify_lifecycle_state("Veröffentlicht-Publikovaný / 2021-08", False),
+                          "superseded")
+        self.assertEqual(classify_lifecycle_state("Entwurf-Návrh", False), "superseded")
+        self.assertEqual(classify_lifecycle_state("", False), "superseded")
+
+    def test_current_with_draft_marker_is_draft(self):
+        self.assertEqual(classify_lifecycle_state("Entwurf-Návrh", True), "draft")
+        self.assertEqual(
+            classify_lifecycle_state(
+                "Arbeitsdokument (Work Item)-Pracovný dokument (pracovná položka)", True),
+            "draft")
+        self.assertEqual(
+            classify_lifecycle_state(
+                "vorläufiges Arbeitsdokument (PWI)-predbežný pracovný dokument (PWI)", True),
+            "draft")
+
+    def test_current_without_draft_marker_is_active(self):
+        self.assertEqual(classify_lifecycle_state("od 02/2024", True), "active")
+        self.assertEqual(
+            classify_lifecycle_state("Veröffentlicht-Publikovaný / 2023-01", True), "active")
+        self.assertEqual(classify_lifecycle_state("", True), "active")
+        self.assertEqual(classify_lifecycle_state(None, True), "active")
 
 
 class ResolveDocumentVersionsTestCase(unittest.TestCase):
@@ -16,12 +48,22 @@ class ResolveDocumentVersionsTestCase(unittest.TestCase):
     common case) keeps the historical single-row behavior; one with a
     "versions" list (built by link_document_versions.py for a norm
     base+amendment group) gets one DocumentVersion row per entry, in
-    order, with its own edition_label/effective_date/is_current."""
+    order, with its own edition_label/effective_date/is_current. R1.5:
+    every row also gets lifecycle_state via classify_lifecycle_state()."""
 
     def test_no_versions_list_is_the_historical_single_row(self):
         rows = resolve_document_versions({"znacka": "STN EN 1"})
         self.assertEqual(rows, [{"version": 1, "edition_label": None,
-                                  "effective_date": None, "is_current": True}])
+                                  "effective_date": None, "is_current": True,
+                                  "lifecycle_state": "active"}])
+
+    def test_no_versions_list_uses_own_platnost_for_lifecycle_state(self):
+        rows = resolve_document_versions({"znacka": "ISO 23802", "platnost": "Entwurf-Návrh / 2022-08"})
+        self.assertEqual(rows[0]["lifecycle_state"], "draft")
+        # ... but does NOT get written into this row's own effective_date
+        # column (that column keeps its existing "real per-edition date,
+        # never generic platnost text" meaning for the unversioned case).
+        self.assertIsNone(rows[0]["effective_date"])
 
     def test_versions_list_becomes_one_row_each_in_order(self):
         item = {"versions": [
@@ -35,6 +77,19 @@ class ResolveDocumentVersionsTestCase(unittest.TestCase):
         self.assertEqual([r["is_current"] for r in rows], [False, True])
         self.assertEqual(rows[1]["edition_label"], "STN EN 1+A1/ - 2024.02")
         self.assertEqual(rows[1]["effective_date"], "od 02/2024")
+        # The superseded (non-current) member is "superseded" even though
+        # its own platnost ("Veröffentlicht-Publikovaný", i.e. published)
+        # would otherwise read as "active" -- is_current wins.
+        self.assertEqual(rows[0]["lifecycle_state"], "superseded")
+        self.assertEqual(rows[1]["lifecycle_state"], "active")
+
+    def test_versions_list_current_member_with_draft_marker_is_draft(self):
+        item = {"versions": [
+            {"znacka": "IEC 62351-14", "edition_label": "IEC 62351-14",
+             "effective_date": "Entwurf-Návrh", "is_current": True},
+        ]}
+        rows = resolve_document_versions(item)
+        self.assertEqual(rows[0]["lifecycle_state"], "draft")
 
     def test_empty_versions_list_falls_back_to_single_row(self):
         self.assertEqual(resolve_document_versions({"versions": []}),

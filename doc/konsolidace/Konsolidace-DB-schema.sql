@@ -112,6 +112,26 @@ CREATE TABLE document_relation (
 -- `data/document_relations.json`, tak automaticky vygenerovaný
 -- `data/document_relations_auto.json`.
 
+-- doc/REQUIREMENTS.md R1.5 dodatek, 2026-09-11 (viz doc/PLAN.md §6):
+-- `is_current` (V01) je jen binární "je toto nejnovější verze", ne
+-- explicitní životní stav, jak R1.5 žádá ("active, superseded, draft").
+-- `lifecycle_state` NENÍ GENERATED (na rozdíl od `jurisdikce_uroven` výše)
+-- — na rozdíl od `jurisdikce` (pár řízených hodnot) je zdrojový text
+-- (volné pole `platnost`, promítnuté i do `effective_date` u verzovaných
+-- záznamů) nestrukturovaný vícejazyčný text; klasifikace
+-- (`classify_lifecycle_state()` v `src/tools/init_db.py`, pokryto testy)
+-- proto běží v Pythonu při importu, stejně jako `resolve_document_type`
+-- apod. `is_current = FALSE` -> vždy `'superseded'` (nahrazená verze,
+-- bez ohledu na svůj vlastní tehdejší `platnost` text); `is_current =
+-- TRUE` a `platnost`/`effective_date` obsahuje skutečný draft/work-item
+-- marker ("Entwurf"/"Návrh", "Arbeitsdokument"/"pracovný dokument",
+-- "PWI") -> `'draft'`; jinak `'active'`. Reálné markery ověřeny přímo v
+-- korpusu (2026-09-11): 64 záznamů s "Entwurf-Návrh"/"Arbeitsdokument"/
+-- "PWI" apod.
+ALTER TABLE DocumentVersion
+  ADD COLUMN lifecycle_state ENUM('active','superseded','draft')
+    NOT NULL DEFAULT 'active';
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

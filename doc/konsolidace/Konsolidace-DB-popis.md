@@ -90,7 +90,7 @@ https://www.plantuml.com/plantuml), konceptuální přehled
 | A | `DocumentType` | Číselník typů dokumentů | V01 beze změny |
 | A | `DocumentSource` | Číselník zdrojů/institucí | V01 + `institution_type`, `jurisdiction` |
 | A | `Keyword`, `DocumentKeyword` | Řízený slovník + M:N vazba | V01 beze změny |
-| A | `DocumentVersion` | Verze dokumentů | V01 + `is_current`, `edition_label`, `effective_date` |
+| A | `DocumentVersion` | Verze dokumentů | V01 + `is_current`, `edition_label`, `effective_date`, `lifecycle_state` |
 | A | `document_relation` | Vztah mezi dvěma samostatně číslovanými dokumenty (novela zákona jiným zákonem) | nová (Krok 1 follow-up #16) |
 | B | `process_class` | Číselník tříd procesů (7) | V02 |
 | B | `process_node` | Uzly U1–U7 | V02 + `valid_from`/`valid_to` |
@@ -150,6 +150,7 @@ pokrývá `title` + `description`.
 | `is_current` | `BOOLEAN` DEFAULT FALSE | Příznak aktuální platné verze (V03 §6.3: „aktuální platná verze je označena příznakem"). Nejvýše jedna verze dokumentu smí mít TRUE (vynuceno aplikačně, případně triggerem). |
 | `edition_label` | `VARCHAR(200)` NULL | **Doplněno Krokem 1 follow-up #16 (2026-09-11).** Lidsky čitelné, skutečně citovatelné označení TÉTO konkrétní verze/vydání (např. `"STN EN 13445-2+A1/ - 2024.02"`) — na rozdíl od `version` (jen neprůhledné pořadové číslo 1, 2, …). Vždy verbatim převzato ze zdrojové značky té edice, nikdy nevymýšleno. |
 | `effective_date` | `VARCHAR(200)` NULL | Vlastní datum platnosti TÉTO verze (na rozdíl od `Document.effective_date`, které po naplnění verzí odráží nejnovější/aktuální edici). Stejná „volný text" filozofie jako `Document.effective_date`. |
+| `lifecycle_state` | `ENUM('active','superseded','draft')` NOT NULL DEFAULT `'active'` | **Doplněno per `doc/REQUIREMENTS.md` R1.5 (2026-09-11).** Explicitní životní stav TÉTO verze — `is_current` výše je jen binární „je toto nejnovější verze", ne stav, jak R1.5 žádá. NENÍ `GENERATED` (na rozdíl od `Document.jurisdikce_uroven`, R1.2): zdrojový text (volné pole `platnost`, u verzovaných záznamů promítnuté do `effective_date` výše) je nestrukturovaný vícejazyčný text, ne pár řízených hodnot — klasifikace (`classify_lifecycle_state()` v `src/tools/init_db.py`, pokryto testy) proto běží v Pythonu při importu, stejně jako `resolve_document_type()`. Pravidlo: `is_current = FALSE` → vždy `'superseded'` (nahrazená verze, bez ohledu na svůj vlastní tehdejší `platnost` text); `is_current = TRUE` a text obsahuje skutečný draft/work-item marker (`"Entwurf"`/`"Návrh"`, `"Arbeitsdokument"`/`"pracovný dokument"`, `"PWI"` — reálné, ověřené řetězce z korpusu) → `'draft'`; jinak → `'active'`. Ověřeno na reálném korpusu (2026-09-11): `active` 1035, `draft` 153, `superseded` 20 (z 1208 řádků `DocumentVersion`). |
 
 Naplňuje `src/tools/link_document_versions.py`: detekuje skupiny záznamů
 sdílející jádro značky (bez novelizační přípony `+A1`/`/A1`/`/AC` a bez

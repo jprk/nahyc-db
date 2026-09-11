@@ -151,6 +151,38 @@ def resolve_source_jurisdiction(gestor_name, gestor_jurisdiction_map):
     return None, gestor_jurisdiction_map.get(gestor_name)
 
 
+# doc/REQUIREMENTS.md R1.5, 2026-09-11: platnost (in this corpus, a
+# free-text field mixing "od MM/RRRR"-style effective dates, publication
+# stamps like "Veröffentlicht-Publikovaný", and genuine pre-publication
+# work-item markers) is the only place a version's real lifecycle stage
+# ever shows up — never a structured value. These are the actual marker
+# strings found in the corpus (German/Czech/Slovak, standards-body
+# terminology): "Entwurf"/"Návrh" (draft), "Arbeitsdokument"/"pracovný
+# dokument" (work item), "PWI" (ISO/IEC Preliminary Work Item stage).
+_DRAFT_MARKER_RE = re.compile(
+    r"entwurf|návrh|navrh|arbeitsdokument|pracovn[ýy] dokument|\bpwi\b|work item",
+    re.IGNORECASE,
+)
+
+
+def classify_lifecycle_state(platnost, is_current):
+    """Maps a version to one of R1.5's three explicit lifecycle states —
+    never guessed beyond what's actually evidenced: a non-current version
+    (superseded by a later one in its own DocumentVersion history) is
+    always "superseded" regardless of its own platnost text (that text
+    describes its state AT THE TIME, not its current standing relative to
+    a newer edition); a current version whose platnost carries a real
+    draft/work-item marker (see _DRAFT_MARKER_RE) is "draft"; every other
+    current version — including one with empty/unrecognized platnost — is
+    "active", the same default a plain, unversioned, currently-valid
+    document already gets today."""
+    if not is_current:
+        return "superseded"
+    if _DRAFT_MARKER_RE.search(platnost or ""):
+        return "draft"
+    return "active"
+
+
 def resolve_document_versions(item):
     """Returns the DocumentVersion rows to insert for this record, in
     order, numbered 1..N: one per entry in its "versions" list (built by
@@ -158,15 +190,27 @@ def resolve_document_versions(item):
     follow-up #16), each carrying its own real designation/edition-date
     as edition_label/effective_date; or, when "versions" is absent (the
     common, unversioned case), the historical single-row behavior
-    (version=1, is_current=True, no edition_label/effective_date)."""
+    (version=1, is_current=True, no edition_label/effective_date). Every
+    row also gets `lifecycle_state` (R1.5) via classify_lifecycle_state()
+    — for the versioned case, from that member's own platnost (already
+    carried as its effective_date, see link_document_versions.py); for the
+    unversioned case, from the record's own top-level platnost (not itself
+    stored as this row's effective_date, to avoid changing that column's
+    existing "only a real per-edition date, never generic platnost text"
+    meaning for the common case)."""
     versions = item.get("versions")
     if not versions:
-        return [{"version": 1, "edition_label": None, "effective_date": None, "is_current": True}]
+        platnost = item.get("platnost", "")
+        return [{"version": 1, "edition_label": None, "effective_date": None,
+                  "is_current": True,
+                  "lifecycle_state": classify_lifecycle_state(platnost, True)}]
     return [
         {"version": i,
          "edition_label": v.get("edition_label") or None,
          "effective_date": v.get("effective_date") or None,
-         "is_current": bool(v.get("is_current"))}
+         "is_current": bool(v.get("is_current")),
+         "lifecycle_state": classify_lifecycle_state(
+             v.get("effective_date") or "", bool(v.get("is_current")))}
         for i, v in enumerate(versions, start=1)
     ]
 
@@ -242,9 +286,10 @@ def import_json_data(db_conn):
         for v in resolve_document_versions(item):
             cursor.execute("""
                 INSERT INTO DocumentVersion
-                (document_id, version, edition_label, effective_date, is_current)
-                VALUES (%s, %s, %s, %s, %s)
-            """, (doc_id, v["version"], v["edition_label"], v["effective_date"], v["is_current"]))
+                (document_id, version, edition_label, effective_date, is_current, lifecycle_state)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """, (doc_id, v["version"], v["edition_label"], v["effective_date"], v["is_current"],
+                  v["lifecycle_state"]))
 
         klicova_slova = item.get("klicova_slova", [])
         if not isinstance(klicova_slova, list):

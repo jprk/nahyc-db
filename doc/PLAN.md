@@ -1993,3 +1993,35 @@ built a repeatable mechanism instead of a one-off manual review:
     queue, Flask smoke test OK. Documented in
     `doc/konsolidace/Konsolidace-DB-popis.md` §4.4 and
     `src/tools/0README.md`/`tests/0README.md`.
+- **R1.5 (explicit lifecycle state) done, 2026-09-11.** New
+  `DocumentVersion.lifecycle_state ENUM('active','superseded','draft')
+  NOT NULL DEFAULT 'active'` — `is_current` (V01) is only a binary
+  "is this the latest version" flag, not a state, as R1.5 requires.
+  Deliberately NOT a `GENERATED` column (unlike R1.2's
+  `jurisdikce_uroven`): the source text is the free-text `platnost` field
+  (for versioned records, already carried into that version's own
+  `effective_date` by `link_document_versions.py`), an unstructured,
+  multilingual field, not a small controlled vocabulary — so classifying
+  it is done in Python (`classify_lifecycle_state()` in
+  `src/tools/init_db.py`, unit-tested) at import time, same convention as
+  `resolve_document_type()`. Rule: `is_current = FALSE` → always
+  `'superseded'` (a replaced version, regardless of its own platnost text
+  at the time); `is_current = TRUE` and the text carries a real
+  draft/work-item marker → `'draft'`; otherwise → `'active'`. Real marker
+  strings verified directly in the corpus (German/Czech/Slovak
+  standards-body terminology): `"Entwurf"`/`"Návrh"` (draft),
+  `"Arbeitsdokument"`/`"pracovný dokument"` (work item), `"PWI"`
+  (ISO/IEC Preliminary Work Item stage) — deliberately NOT the broader,
+  looser guesses tried during exploration (`"pripravovan"`,
+  `"rozpracovan"`, `"ve schvalov"` never actually appear in this corpus).
+  Verified: 8 new unit tests in `tests/test_init_db.py` (26 total in that
+  file), 273 tests total pass, schema change applied directly to the live
+  `h2regdocs`, full `init_db.py` reload confirms real corpus distribution
+  `active` 1035 / `draft` 153 / `superseded` 20 (of 1208 `DocumentVersion`
+  rows) — a substantial, genuinely-evidenced draft population, not a
+  handful of edge cases. `document_relation`/`node_document` FK-dependent
+  rows survived the reload unchanged (deterministic re-import order keeps
+  `Document.id` stable). `check_requirements.py`'s R1.5 section extended
+  to report the state distribution. Flask smoke test OK. Documented in
+  `doc/konsolidace/Konsolidace-DB-popis.md` §4.3 and
+  `src/tools/0README.md`/`tests/0README.md`.

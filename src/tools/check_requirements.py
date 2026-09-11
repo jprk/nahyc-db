@@ -93,6 +93,10 @@ def report_db(conn):
     print(f"DocumentVersion columns: {cols}")
     print(f"Explicit lifecycle-state column beyond boolean is_current: "
           f"{'yes' if any(c not in ('id', 'document_id', 'version', 'file_path', 'change_log', 'created_at', 'is_current', 'edition_label', 'effective_date') for c in cols) else 'no'}")
+    if "lifecycle_state" in cols:
+        c.execute("SELECT lifecycle_state, COUNT(*) AS n FROM DocumentVersion GROUP BY lifecycle_state ORDER BY n DESC")
+        for r in c.fetchall():
+            print(f"  lifecycle_state {r['lifecycle_state']!r}: {r['n']}")
 
     print("\n--- R1.6 Authoritative source table ---")
     c.execute("SELECT COUNT(*) AS n FROM DocumentSource")
