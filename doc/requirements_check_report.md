@@ -1,6 +1,6 @@
 # Requirements compliance report
 
-**Generated:** 2026-09-11 16:00 · **Commit:** `ebc1f60`
+**Generated:** 2026-09-11 16:15 · **Commit:** `ebc1f60` + R1.2 fix (this commit)
 **Against:** `doc/REQUIREMENTS.md` (dated 2026-09-11 15:37)
 
 Produced by `.claude/agents/requirements-check.md` (mechanical evidence
@@ -14,7 +14,7 @@ an accumulating log.
 | Req | Verdict | Evidence | Gap |
 |---|---|---|---|
 | R1.1 Record uniqueness | PARTIAL | `Document.identifier` has a real `UNIQUE` constraint (`uq_document_identifier`). 1165/1211 documents have a non-NULL identifier. | The other 46 have `identifier IS NULL` — MariaDB allows unlimited NULLs under a UNIQUE constraint, so these bypass the physical uniqueness guarantee entirely (mostly known, disclosed residuals — cross-jurisdiction identifier collisions and one designation too long for the column — but the *mechanism* doesn't "physically prevent" every case as worded). |
-| R1.2 Jurisdictional tiering (int'l / EU / national) | FAIL | `Document.jurisdikce` has **11 distinct values**: `SK`(398), `DE`(250), `mezinárodní`(198), `NULL`(99), `neurčeno`(85), `US`(72), `EU`(56), `CZ`(47), `CA`(3), `FR`(2), `UK`(1). | No 3-tier categorization exists at all — `SK`/`DE`/`US`/`CA`/`FR`/`UK`/`CZ` are all "national" in different countries with no column saying so; `neurčeno`/`NULL` are neither. Needs either a computed/derived tier column or a second field capturing the abstract tier separately from the concrete jurisdiction code. |
+| R1.2 Jurisdictional tiering (int'l / EU / national) | PASS *(fixed 2026-09-11)* | New `Document.jurisdikce_uroven ENUM('mezinárodní','EU','národní')`, a `GENERATED ALWAYS AS (...) VIRTUAL` column derived from `jurisdikce` — always in sync, no separate maintenance logic. Distribution: `národní` 773 (`SK`/`DE`/`US`/`CZ`/`CA`/`FR`/`UK` — any real country code, incl. future ones like `PL`, with no code change needed), `mezinárodní` 198, `EU` 56, `NULL` 184 (the pre-existing `neurčeno`/unknown residual — left honestly unclassified, not force-guessed into one of the three tiers). | `jurisdikce` itself is unchanged and still the veto used to keep national adoptions of the same standard from merging — `jurisdikce_uroven` is the new, additional 3-tier categorization R1.2 asks for. |
 | R1.3 EU→national transposition links | FAIL | `document_relation` table exists with an `IMPLEMENTS` enum value made for exactly this. Actual rows: `AMENDS` ×1, `IMPLEMENTS` ×0. | Mechanism exists, unused — no EU directive is currently linked to the national law/regulation that transposes it. |
 | R1.4 Standard localization linking (ISO ↔ ČSN EN ISO) | FAIL | Same `document_relation` table; no relation type or rows exist connecting an international standard to its national adoption (e.g. `ISO 14687` ↔ `ČSN ISO 14687`, kept correctly un-merged all session via the jurisdikce veto, but never explicitly *linked* either). | This is the literal "disconnected records" problem the requirement names. The jurisdikce veto (this session's extensive work) prevents wrongly *merging* them, but nothing connects them as *related*. |
 | R1.5 Lifecycle & version control (active/superseded/draft) | PARTIAL | `DocumentVersion` columns: `id, document_id, version, file_path, change_log, created_at, is_current, edition_label, effective_date`. `is_current` is a plain boolean. 20 documents have real multi-row version history (Step 1 follow-up #16/#18). | No explicit `draft` state — a "not current" version reads as generically superseded, with no way to distinguish a genuinely-superseded edition from a not-yet-published draft (a real, recurring corpus shape this session kept finding — "Arbeitsdokument"/"Entwurf-Návrh" statuses only ever live in free-text `platnost`, not a structured column). |
@@ -62,7 +62,7 @@ an accumulating log.
 3. Resolve or delete the duplicate `Web.zip` archives once their purpose is confirmed.
 
 **Bigger, needs a design decision from the project owner:**
-4. R1.2 — design the actual 3-tier jurisdiction categorization (a derived/computed tier, or a second column) without breaking the existing fine-grained `jurisdikce` values this session's extensive dedup work depends on.
+4. ~~R1.2 — design the actual 3-tier jurisdiction categorization...~~ **Done, `jurisdikce_uroven` generated column, see above.**
 5. R1.3/R1.4 — decide how to populate `document_relation` for EU→national transposition and international-standard→national-adoption localization at scale (currently only 1 manually-curated row exists for a different case entirely).
 6. R1.5 — decide whether to add a structured lifecycle-state column (e.g. an enum: `active`/`superseded`/`draft`) versus continuing to rely on free-text `platnost`.
 7. R1.7/R4.1 — decide whether `file_path` should actually be populated (e.g. from the already-existing `data/fulltext_manifest.json`/`data/fulltext/` downloads) and, if so, design real access-control logic gating it by document type/license — currently there is no enforcement mechanism at all.

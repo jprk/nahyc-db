@@ -37,6 +37,30 @@ ALTER TABLE DocumentVersion
 ALTER TABLE Document
   ADD COLUMN jurisdikce VARCHAR(20) NULL;
 
+-- doc/REQUIREMENTS.md R1.2 dodatek, 2026-09-11: `jurisdikce` samo o sobě
+-- je konkrétní hodnota (STN/DIN/ČSN národní kód, "EU", "mezinárodní",
+-- "neurčeno") a slouží jako veto proti slučování cizích národních adopcí
+-- téže EN/ISO normy — to zůstává beze změny. R1.2 ale požaduje explicitní
+-- zařazení KAŽDÉHO dokumentu do jedné ze TŘÍ úrovní: mezinárodní / EU /
+-- národní — "národní" znamená SKUTEČNÝ konkrétní stát (CZ, DE, SK, US,
+-- CA, FR, UK, budoucí PL, ...), ne jednu vymyšlenou hodnotu "národní"
+-- nahrazující ho. `jurisdikce_uroven` je GENERATED (virtuální, vždy
+-- synchronní s `jurisdikce`, žádná zvláštní udržovací logika v
+-- `init_db.py`) — libovolný BUDOUCÍ konkrétní stát automaticky spadne
+-- do "národní" bez zásahu do kódu. `NULL`/`"neurčeno"` (184 dokumentů,
+-- 2026-09-11) zůstává čestně NULL, ne odhadnuto na některou ze tří
+-- úrovní — viz doc/PLAN.md §6.
+ALTER TABLE Document
+  ADD COLUMN jurisdikce_uroven ENUM('mezinárodní','EU','národní')
+    GENERATED ALWAYS AS (
+      CASE
+        WHEN jurisdikce = 'mezinárodní' THEN 'mezinárodní'
+        WHEN jurisdikce = 'EU' THEN 'EU'
+        WHEN jurisdikce IS NULL OR jurisdikce = 'neurčeno' THEN NULL
+        ELSE 'národní'
+      END
+    ) VIRTUAL;
+
 -- Krok 1 follow-up #16 dodatek, 2026-09-11: řádná verzní historie normy
 -- (základní vydání + novela/oprava, např. "STN EN 13445-2" -> "+A1")
 -- namísto dvou nesouvisejících Document řádků se stejným názvem.

@@ -70,9 +70,17 @@ def report_db(conn):
     print("\n--- R1.2 Jurisdictional tiering (should be exactly int'l/EU/national) ---")
     c.execute("SELECT jurisdikce, COUNT(*) AS n FROM Document GROUP BY jurisdikce ORDER BY n DESC")
     rows = c.fetchall()
-    print(f"Distinct jurisdikce values found: {len(rows)}")
+    print(f"Distinct jurisdikce (concrete) values found: {len(rows)}")
     for r in rows:
         print(f"  {r['jurisdikce']!r}: {r['n']}")
+    c.execute("SHOW COLUMNS FROM Document LIKE 'jurisdikce_uroven'")
+    tier_col = c.fetchone()
+    print(f"Document.jurisdikce_uroven column present: {bool(tier_col)}"
+          + (f" (type: {tier_col['Type']})" if tier_col else ""))
+    if tier_col:
+        c.execute("SELECT jurisdikce_uroven, COUNT(*) AS n FROM Document GROUP BY jurisdikce_uroven ORDER BY n DESC")
+        for r in c.fetchall():
+            print(f"  tier {r['jurisdikce_uroven']!r}: {r['n']}")
 
     print("\n--- R1.3/R1.4 Document-to-document relations (transposition / localization) ---")
     c.execute("SELECT relation_type, COUNT(*) AS n FROM document_relation GROUP BY relation_type")

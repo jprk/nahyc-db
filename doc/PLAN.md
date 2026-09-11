@@ -1920,6 +1920,33 @@ built a repeatable mechanism instead of a one-off manual review:
   results, not 1); `wsgi.py` now `from app.app import app` (verified via
   direct import — also, `wsgi.py` turned out to have never actually been
   committed to this repo's git history before this fix). The report file
-  was regenerated to reflect both as done. Still open: the duplicate
-  `Web.zip` archives (`app/Web.zip` == `Web/Web.zip`, byte-identical) and
-  every "bigger, needs a design decision" item in the punch list.
+  was regenerated to reflect both as done. The user then manually removed
+  `Web/Web.zip` (one of the two byte-identical duplicate archives —
+  `app/Web.zip` still remains, untouched, in case only one was intended).
+- **R1.2 (3-tier jurisdiction categorization) done, 2026-09-11.** Per the
+  user's explicit wording: "national" must mean the actual national
+  state (`CZ`, `DE`, `SK`, `PL`, ...), not an invented placeholder value —
+  so this is an *additional* categorization layer, not a replacement for
+  the existing, fine-grained `jurisdikce` column (still the veto this
+  whole session's dedup work depends on to keep national adoptions of the
+  same standard from merging). New `Document.jurisdikce_uroven
+  ENUM('mezinárodní','EU','národní')`, a `GENERATED ALWAYS AS (...)
+  VIRTUAL` column (MariaDB computes it automatically from `jurisdikce` on
+  every read — no separate maintenance logic needed in `init_db.py`, and
+  any future real country code, e.g. `PL`, automatically falls into
+  `'národní'` with no code change). Mapping: `jurisdikce = 'mezinárodní'`
+  → tier `'mezinárodní'`; `jurisdikce = 'EU'` → tier `'EU'`; any other
+  non-empty, non-`'neurčeno'` value (a real country code) → tier
+  `'národní'`; `NULL`/`'neurčeno'` → tier `NULL` — left honestly
+  unclassified rather than force-guessed into one of the three tiers
+  (184 of 1211 documents, 2026-09-11 — the same pre-existing
+  unknown-jurisdikce residual, not a new gap). Verified via a full
+  `init_db.py` TRUNCATE-and-reload (the generated column needs no special
+  handling — it's simply absent from the INSERT column list and MariaDB
+  computes it anyway) and a full pipeline re-run: `národní` 773,
+  `mezinárodní` 198, `EU` 56, `NULL` 184. Schema change applied directly
+  to the live `h2regdocs` and persisted in
+  `doc/konsolidace/Konsolidace-DB-schema.sql`/`Konsolidace-DB-popis.md`
+  §4.1. `src/tools/check_requirements.py`'s R1.2 section updated to also
+  report the tier distribution. 244 tests still pass, `app/app.py`
+  re-verified. `doc/requirements_check_report.md` updated: R1.2 now PASS.
