@@ -1913,6 +1913,13 @@ built a repeatable mechanism instead of a one-off manual review:
   `app/app.py` this whole pipeline builds for. Full detail, evidence, and
   a prioritized punch list (cheap fixes vs. bigger architectural
   decisions like R1.2's 3-tier jurisdiction categorization or R4.1's
-  access control) are in the report file itself — **not fixed as part of
-  building this tool**, per the user's own scoping: this task was about
-  building the checking mechanism, not acting on what it found.
+  access control) are in the report file itself.
+- **Both cheap fixes applied and verified (2026-09-11, commit `ebc1f60`)**,
+  per the user's follow-up request: `app/app.py:81` now `GROUP BY d.id`
+  (verified: `CGA G-5`/`OSHA 1910.103` now correctly return as 2 separate
+  results, not 1); `wsgi.py` now `from app.app import app` (verified via
+  direct import — also, `wsgi.py` turned out to have never actually been
+  committed to this repo's git history before this fix). The report file
+  was regenerated to reflect both as done. Still open: the duplicate
+  `Web.zip` archives (`app/Web.zip` == `Web/Web.zip`, byte-identical) and
+  every "bigger, needs a design decision" item in the punch list.

@@ -1,6 +1,6 @@
 # Requirements compliance report
 
-**Generated:** 2026-09-11 15:53 · **Commit:** `12f24ca`
+**Generated:** 2026-09-11 16:00 · **Commit:** `ebc1f60`
 **Against:** `doc/REQUIREMENTS.md` (dated 2026-09-11 15:37)
 
 Produced by `.claude/agents/requirements-check.md` (mechanical evidence
@@ -27,7 +27,7 @@ an accumulating log.
 
 | Req | Verdict | Evidence | Gap |
 |---|---|---|---|
-| R2.1 Search result uniqueness | FAIL | `app/app.py:81`: `base_query += " GROUP BY d.title ORDER BY d.title ASC LIMIT 100"` — groups by **title text**, not `d.id`. | This is the wrong grouping key. It happens to collapse the keyword-join fan-out correctly in the common case, but would also silently merge two genuinely *different* `Document` rows that happen to share a title — real cases exist in this exact corpus (e.g. `CGA G-5` / `OSHA 1910.103`, both titled plain "Hydrogen"; `CSA ANSI HGV 4.3` / `4.4`, both "Test methods for hydrogen fueling parameter evaluation") — one of the two would silently vanish from search results. Cheap, safe fix: `GROUP BY d.id`. |
+| R2.1 Search result uniqueness | PASS *(fixed 2026-09-11, commit `ebc1f60`)* | `app/app.py:81`: `base_query += " GROUP BY d.id ORDER BY d.title ASC LIMIT 100"`. Verified: `CGA G-5`/`OSHA 1910.103` (both titled plain "Hydrogen") now both appear as separate results. | Was: grouped by title text, not `d.id` — collapsed the keyword-join fan-out correctly in the common case, but silently merged genuinely *different* documents sharing a title. Fixed by grouping on the primary key instead. |
 | R2.2 Responsive web UI | PASS | `app/templates/base.html`: viewport meta tag present. `app/static/style.css`: two real breakpoints, `@media (max-width: 992px)` and `@media (max-width: 768px)`. | — |
 | R2.3 Combined full-text + structured filters | PASS | Single GET form; `app/app.py` reads `q`, `type_id`, `source_id`, `keyword_id` from `request.args` and ANDs them all onto one query. | — |
 | R2.4 Result metadata summary + hyperlink | PASS | `app/templates/index.html` renders type/title/language/keywords/source/date/description per row, with a conditional hyperlink on `doc.url` (falls back to a disabled "Zdroj nedostupný" label when empty). | — |
@@ -38,7 +38,7 @@ an accumulating log.
 | Req | Verdict | Evidence | Gap |
 |---|---|---|---|
 | R3.1 Python + Flask backend | PASS | `app/app.py`: `from flask import Flask, render_template, request, g`. | — |
-| R3.2 Relational DB ("currently SQLite") | **MISMATCH** | `doc/REQUIREMENTS.md` says SQLite. The live, actively-maintained app (`app/app.py`) connects to **MariaDB** (`h2regdocs` via `pymysql`, `.env`: `DB_HOST=localhost`, `DB_PORT=3306`). | Not a bug to silently "fix" either direction — the requirements doc and reality disagree. Complicating this further (see "Other findings" below): a **second**, legacy Flask app at `Web/app.py` genuinely *does* use `sqlite3` against `Databaze/regulatory_documents.db` — and `wsgi.py` currently points at that one, not `app/app.py`. |
+| R3.2 Relational DB ("currently SQLite") | **MISMATCH** | `doc/REQUIREMENTS.md` says SQLite. The live, actively-maintained app (`app/app.py`) connects to **MariaDB** (`h2regdocs` via `pymysql`, `.env`: `DB_HOST=localhost`, `DB_PORT=3306`) — and `wsgi.py` now correctly points at that app too (fixed, see "Other findings"). | Not a bug to silently "fix" either direction — the requirements doc and reality disagree. A **second**, legacy Flask app at `Web/app.py` genuinely does use `sqlite3` against `Databaze/regulatory_documents.db`, but it is explicitly a temporary/experimental leftover per `CLAUDE.md`, not the canonical app. |
 | R3.3 HTML5/CSS3/Jinja2 | PASS | `<!DOCTYPE html>`, CSS3 variables/`@media`/gradients in `style.css`, Jinja2 `{% extends %}`/`{{ }}` throughout `index.html`/`base.html`, rendered via `render_template`. | — |
 | R3.4 Vanilla JS + Phosphor Icons + Google Fonts | PASS | One inline vanilla-JS `<script>` block in `base.html` (accordion expand/collapse, no framework). Phosphor Icons via `<script src="https://unpkg.com/@phosphor-icons/web">` + `ph`/`ph-fill` classes throughout. Google Fonts (`Inter`, `Outfit`) via `fonts.googleapis.com`. No jQuery/Bootstrap-JS/React/Vue found anywhere under `app/`. | — |
 
@@ -51,14 +51,14 @@ an accumulating log.
 
 ## Other findings (not tied to a specific requirement)
 
-- **`wsgi.py` points at the wrong, legacy app.** It reads `from Web.app import app`. `Web/` at the repo root is a real, importable Flask app (`Web/app.py`) — but it is the **old, pre-migration implementation**: plain `sqlite3` against `Databaze/regulatory_documents.db`, lowercase table names (`documents`, `document_types`, ...) that no longer match the current MariaDB PascalCase schema (`Document`, `DocumentType`, ...) this entire session's pipeline builds. `CLAUDE.md` explicitly calls `Databaze/` and `Web/` **temporary/experimental directories, not the final placement** — the canonical app is `app/app.py`. As currently written, `wsgi.py` would deploy the deprecated SQLite app, not the one this whole project has been developing. (Interestingly, `Web/app.py`'s own search query already correctly uses `SELECT DISTINCT d.id, ...` — the R2.1 grouping bug above was introduced during the migration to `app/app.py`, not inherited from the old app.)
-- **Duplicate `Web.zip` archives.** `app/Web.zip` and `Web/Web.zip` are byte-identical (122774 bytes, same MD5). Worth confirming with the project owner whether either is meant to be committed, or if both are stray artifacts from the reorganization.
+- **`wsgi.py` pointed at the wrong, legacy app — fixed 2026-09-11, commit `ebc1f60`.** It read `from Web.app import app`. `Web/` at the repo root is a real, importable Flask app (`Web/app.py`) — but it was the **old, pre-migration implementation**: plain `sqlite3` against `Databaze/regulatory_documents.db`, lowercase table names (`documents`, `document_types`, ...) that no longer match the current MariaDB PascalCase schema (`Document`, `DocumentType`, ...) this entire session's pipeline builds. `CLAUDE.md` explicitly calls `Databaze/` and `Web/` **temporary/experimental directories, not the final placement** — the canonical app is `app/app.py`. Fixed to `from app.app import app`, verified via direct import. (Interestingly, `Web/app.py`'s own search query already correctly used `SELECT DISTINCT d.id, ...` — the R2.1 grouping bug above was introduced during the migration to `app/app.py`, not inherited from the old app.) Also noteworthy: `wsgi.py` had never actually been committed to this repo's git history before this fix.
+- **Duplicate `Web.zip` archives.** `app/Web.zip` and `Web/Web.zip` are byte-identical (122774 bytes, same MD5). Worth confirming with the project owner whether either is meant to be committed, or if both are stray artifacts from the reorganization. Not resolved yet.
 
 ## Punch list
 
 **Cheap, safe, low-risk (no design decision needed):**
-1. `app/app.py:81` — change `GROUP BY d.title` to `GROUP BY d.id` (R2.1).
-2. Decide `wsgi.py`'s correct import target (`app.app`, presumably) and fix it — currently would deploy the wrong, deprecated app if actually used.
+1. ~~`app/app.py:81` — change `GROUP BY d.title` to `GROUP BY d.id` (R2.1).~~ **Done, commit `ebc1f60`.**
+2. ~~Fix `wsgi.py`'s import target.~~ **Done, commit `ebc1f60`.**
 3. Resolve or delete the duplicate `Web.zip` archives once their purpose is confirmed.
 
 **Bigger, needs a design decision from the project owner:**
