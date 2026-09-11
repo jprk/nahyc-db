@@ -52,7 +52,7 @@ def index():
 
     # Build query
     base_query = '''
-        SELECT MIN(d.id) as id, d.title, d.description, dt.name as type_name,
+        SELECT d.id, d.title, d.description, dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
@@ -78,7 +78,7 @@ def index():
         base_query += " AND dk.keyword_id = %s"
         params.append(keyword_id)
 
-    base_query += " GROUP BY d.title ORDER BY d.title ASC LIMIT 100"
+    base_query += " GROUP BY d.id ORDER BY d.title ASC LIMIT 100"
 
     with db.cursor() as cur:
         cur.execute(base_query, params)
