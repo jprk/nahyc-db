@@ -59,6 +59,16 @@ def manifest_key(zdroj_dat, znacka, url_field):
     return f"{zdroj_dat}|{znacka}|{url_field}"
 
 
+def first_url(raw_value):
+    """Some Haltuf odkaz_* cells hold two URLs joined by an embedded
+    newline (an Excel line-break artifact, e.g. the EUR-Lex PDF link
+    followed by an unrelated informational page) — only the first is a
+    real, fetchable document link; sending the whole blob 404s. Splits
+    on any whitespace and returns the first token, or "" for blank/None."""
+    parts = (raw_value or "").split()
+    return parts[0] if parts else ""
+
+
 def iter_fetch_targets(raw_data):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
@@ -72,7 +82,7 @@ def iter_fetch_targets(raw_data):
         if not znacka:
             continue
         for url_field in URL_FIELDS:
-            url = (record.get(url_field) or "").strip()
+            url = first_url(record.get(url_field))
             if url:
                 yield record, url_field, url
 

@@ -48,6 +48,16 @@ def cosine_similarity(v1, v2):
 
 _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
 
+# A trailing "/ - YYYY.MM" (or "/ – YYYY.MM") is a Sinay-parser edition-date
+# suffix, not part of the standard's identity — e.g. "ISO 16111" and
+# "ISO 16111/ - 2018.08" are the same standard. Requires the ".MM" month
+# component (not just a bare trailing year) so a real identifier that
+# happens to end in a year, e.g. "ADR 2025", is never touched. Deliberately
+# does NOT strip an amendment marker before the date (e.g. "/A1 - 2024.02"
+# or "-2+A1/ - 2024.02" keep their "+A1"/"/A1") — a base standard and its
+# amendment are a separate, not-yet-resolved question (see doc/PLAN.md).
+_EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")
+
 
 def normalize_znacka(znacka):
     """Normalizes a znacka (reference number) for exact-match comparison.
@@ -55,11 +65,14 @@ def normalize_znacka(znacka):
     Sinay PDF source uses "–" (en dash) and "-" (hyphen) interchangeably
     for the same date separator (e.g. "STN EN ISO 11114-1/ – 2020.12" vs
     "STN EN ISO 11114-1/ - 2020.12"), which otherwise silently defeats
-    exact-match deduplication."""
+    exact-match deduplication. Also strips a trailing edition-date suffix
+    (see `_EDITION_DATE_SUFFIX_RE`) for the same reason."""
     if not znacka:
         return ""
     znacka = _DASH_VARIANTS_RE.sub("-", str(znacka))
-    return " ".join(znacka.split()).strip().lower()
+    znacka = " ".join(znacka.split()).strip()
+    znacka = _EDITION_DATE_SUFFIX_RE.sub("", znacka)
+    return znacka.strip().lower()
 
 def core_znacka(znacka):
     """Strips the optional Czech national-adoption prefix ('ČSN') so that

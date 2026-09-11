@@ -27,6 +27,7 @@ def cosine_similarity(v1, v2):
     return dot_product / (magnitude1 * magnitude2)
 
 _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
+_EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")  # see deduplicate_db.py
 
 
 def core_znacka(znacka):
@@ -35,11 +36,13 @@ def core_znacka(znacka):
     import): normalizes a znacka and strips the optional Czech
     national-adoption 'ČSN' prefix, so 'ČSN EN 17127' and 'EN 17127'
     compare as the same underlying standard. Also folds en/em-dash
-    variants to a plain hyphen (see deduplicate_db.normalize_znacka)."""
+    variants to a plain hyphen and strips a trailing Sinay-parser
+    edition-date suffix (see deduplicate_db.normalize_znacka)."""
     if not znacka:
         return ""
     zn = _DASH_VARIANTS_RE.sub("-", str(znacka))
-    zn = " ".join(zn.split()).strip().lower()
+    zn = " ".join(zn.split()).strip()
+    zn = _EDITION_DATE_SUFFIX_RE.sub("", zn).lower()
     if zn.startswith("čsn "):
         zn = zn[len("čsn "):]
     return zn

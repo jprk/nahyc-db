@@ -38,6 +38,32 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
             dedup.normalize_znacka("STN EN ISO 11114-1/ - 2020.12"),
         )
 
+    def test_normalize_strips_trailing_edition_date_suffix(self):
+        # A real, previously-missed duplicate: "ISO 16111" (already
+        # merged) and "ISO 16111/ - 2018.08" (still raw Sinay form) are
+        # the same standard — the Sinay parser doesn't always keep the
+        # edition-date suffix, so it must be normalized away for exact
+        # match, not just the dash variant it's written with.
+        self.assertEqual(dedup.normalize_znacka("ISO 16111/ - 2018.08"),
+                          dedup.normalize_znacka("ISO 16111"))
+        self.assertEqual(dedup.normalize_znacka("ISO 16111/ – 2018.08"),
+                          dedup.normalize_znacka("ISO 16111"))
+
+    def test_normalize_does_not_strip_a_bare_trailing_year(self):
+        # Some real znacka values legitimately end in a bare year (e.g.
+        # "ADR 2025") -- only a "/ - YYYY.MM" edition-date suffix (with
+        # the month component) should be stripped, never a bare year.
+        self.assertEqual(dedup.normalize_znacka("ADR 2025"), "adr 2025")
+
+    def test_normalize_keeps_amendment_marker_before_the_date(self):
+        # A base standard and its amendment must NOT become
+        # indistinguishable just because the date suffix is stripped --
+        # that merge decision is deliberately deferred (doc/PLAN.md).
+        base = dedup.normalize_znacka("STN EN 13445-2/ – 2021.08")
+        amendment = dedup.normalize_znacka("STN EN 13445-2+A1/ - 2024.02")
+        self.assertNotEqual(base, amendment)
+        self.assertEqual(amendment, "stn en 13445-2+a1")
+
     def test_core_strips_csn_prefix_only(self):
         self.assertEqual(dedup.core_znacka("ČSN EN 17127"), "en 17127")
         self.assertEqual(dedup.core_znacka("EN 17127"), "en 17127")

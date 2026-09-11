@@ -49,6 +49,29 @@ class IterFetchTargetsTestCase(unittest.TestCase):
         fields = {t[1] for t in targets}
         self.assertEqual(fields, {"odkaz_hlavni", "odkaz_sk"})
 
+    def test_takes_only_the_first_url_when_two_are_newline_joined(self):
+        # A real case found in Haltuf's raw data: an Excel line-break
+        # leaves two URLs in one cell (the real EUR-Lex PDF link, then an
+        # unrelated informational page) -- sending the whole blob 404s.
+        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2016/797",
+                "odkaz_hlavni": "https://eur-lex.europa.eu/x?uri=CELEX:1\n\n"
+                                 "https://transport.ec.europa.eu/unrelated-page"}]
+        targets = list(ff.iter_fetch_targets(raw))
+        self.assertEqual(len(targets), 1)
+        self.assertEqual(targets[0][2], "https://eur-lex.europa.eu/x?uri=CELEX:1")
+
+
+class FirstUrlTestCase(unittest.TestCase):
+    def test_single_url_passes_through(self):
+        self.assertEqual(ff.first_url("https://example.com/x"), "https://example.com/x")
+
+    def test_two_newline_joined_urls_keeps_first(self):
+        self.assertEqual(ff.first_url("https://a.com/x\n\nhttps://b.com/y"), "https://a.com/x")
+
+    def test_blank_or_none_gives_empty_string(self):
+        self.assertEqual(ff.first_url(""), "")
+        self.assertEqual(ff.first_url(None), "")
+
 
 class ExtensionFromUrlTestCase(unittest.TestCase):
     def test_pdf_from_url_suffix(self):

@@ -4,13 +4,18 @@
 **Date:** 2026-09-07
 **Status:** Steps 0, 1, 2 and 3a executed 2026-09-07–2026-09-10 (4th
 source `Sinay_Normy` — Slovak/German norms — wired in with a
-jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1367
-`Document` rows — 1344 from the pipeline + 23 from V02's bibliography —
+jurisdiction-aware dedup guard; MariaDB `h2regdocs` now holds 1223
+`Document` rows — 1200 from the pipeline + 23 from V02's bibliography —
 plus a fully-loaded process layer B, U1–U7, from `doc/NAHYC DP004 V02 -
 Popis procesů.docx`). §4 (full-text acquisition for laws + source
-screening) designed and implemented 2026-09-09. Step 3b (layer D —
-compliance pathway) and the agentic architecture in §3 are still
-deferred/proposals.
+screening) designed and implemented 2026-09-09; the full corpus was
+fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
+(layer D — compliance pathway) was designed 2026-09-10 (full findings +
+exact input shape recorded below) then **postponed at the user's explicit
+direction** — current priority is the regulatory-document database
+itself: Step 1 follow-up #10 (2026-09-11) found and fixed a real
+missed-duplicate normalization bug (1344→1200 records) as part of that
+focus. The agentic architecture in §3 remains a proposal.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
 Consolidation.md` (a Gemini research-agent transcript) — see reconciliation
@@ -540,6 +545,83 @@ Original plan (executed as amended above):
   further step ran. **Lesson recorded here so it isn't rediscovered the
   hard way:** `build_unified_db.py` is not safe to re-run casually — always
   back up `data/database_merged_raw.json` first.
+- **Follow-up #10 (2026-09-11): found and fixed a real missed-duplicate
+  bug while auditing the corpus for exact-once representation** (per the
+  user's decision, 2026-09-10, to postpone Steps 3b/§3 and focus on the
+  regulatory-document database itself). Checking for exact-duplicate
+  normalized titles under different `znacka` values (145 cases) found
+  three categories:
+  - **81 cases: a real normalization gap, fixed.** `normalize_znacka()`
+    folded dash variants but never stripped the Sinay parser's trailing
+    edition-date suffix (`"ISO 16111"` vs `"ISO 16111/ - 2018.08"` — the
+    same standard, one raw record keeps the date, one doesn't) — so these
+    silently failed to merge. Fixed by adding `_EDITION_DATE_SUFFIX_RE`
+    (`/\s*-\s*\d{4}\.\d{2}\s*$`, requiring the `.MM` month component so a
+    real identifier ending in a bare year, e.g. `"ADR 2025"`, is never
+    touched) to both `deduplicate_db.py` and `analyze_similarities.py`'s
+    (duplicated, side-effect-free) `core_znacka()`. Deliberately does
+    **not** strip an amendment marker before the date (`"...+A1/ -
+    2024.02"` keeps its `+A1`) — see the next bullet.
+  - **11 cases: base-standard vs. its amendment** (e.g. `STN EN 13445-2`
+    vs. `.../A1`) — arguably the same document across time (what
+    `DocumentVersion` exists for), currently two separate `Document` rows.
+    **Deferred to a separate pass per the user's explicit decision** —
+    the fix above verified to leave these correctly un-merged (regression
+    test: `test_normalize_keeps_amendment_marker_before_the_date`).
+  - **53 "other" cases**: a mix, mostly legitimate (cross-jurisdiction
+    adoptions of the same IEC/EN standard, e.g. Slovak STN vs. German DIN,
+    already correctly kept separate by the jurisdikce veto) or
+    designation renumbering over time — not chased further this pass.
+  - **Re-run results**: `deduplicate_db.py` → **1200 records** (down from
+    1344 — matches the 145-title-collision finding closely), 2 known
+    cross-jurisdiction `identifier` collisions unchanged (`ASTM F1624-12`,
+    `DIN EN 10216-2`), 0 new bad merges. One new cluster (bare `ISO 14687`
+    vs. its two differently-dated Sinay editions vs. `ČSN ISO 14687`) is
+    *not* a pure-znacka cluster (`CZ` + `mezinárodní` are both "known"
+    jurisdictions per `_jurisdikce_known`), so it went to the LLM path,
+    which couldn't fully collapse it — correctly flagged in
+    `dedup_review_queue.json` rather than guessed. `analyze_similarities.py`
+    re-run: gray-zone pairs 57→62, but "excluded for jurisdikce conflict"
+    jumped 8→1057 and "excluded for different znacka" dropped slightly —
+    expected: many same-title pairs were previously hidden behind the
+    znacka-veto for the wrong reason (date-suffix noise, not a real
+    difference) and now correctly reach the jurisdikce-veto instead.
+    `init_db.py`/`load_process_layer.py` reloaded (1223 `Document` rows —
+    1200 pipeline + 23 bibliography from Step 3a — `DocumentVersion` 1:1,
+    layer B/`node_document` unchanged). 3 new regression tests, 168 total
+    at this point. `app/app.py` re-verified.
+  - **Known, disclosed limitation, not new**: this pass did not attempt
+    the 11 amendment pairs or the 53 "other" cases — see above.
+
+### Full-text fetch completed to the whole corpus (2026-09-11)
+
+Per the same user decision, ran `src/tools/fetch_fulltext.py` (previously
+only smoke-tested with `--limit 5`) to completion against the full raw
+corpus (not just `Sinay_Zakony` — `Haltuf_Dokumenty`'s 164 URL-bearing
+law records had never actually been fetched).
+
+- **Found and fixed a real bug on the first full run**: several Haltuf
+  `odkaz_hlavni`/`odkaz_eu` cells hold **two URLs joined by an embedded
+  newline** (an Excel line-break artifact — the real EUR-Lex PDF link
+  followed by an unrelated informational page), so the whole blob was
+  sent as one URL and 404'd. Added `first_url()` (splits on whitespace,
+  keeps the first token) — fixed 10 of the initial 14 failures. 3 new
+  tests.
+- **Final result: 140/144 URLs fetched** (97%), 105 MB across
+  `data/fulltext/{Haltuf_Dokumenty,Sinay_Zakony}/` (git-ignored, per §4).
+  The 4 remaining failures are genuine, disclosed external limitations,
+  not bugs: `ISO 16111` and `EN 50129` (403/404 — both are actually norm
+  citations that slipped into `Haltuf_Dokumenty`, a reminder that this
+  source's law/norm classification isn't 100% precise, though no
+  paywalled content was captured since both failed), `ADR 2025` and
+  `UNECE Regulation No. 100` (403 — UNECE blocks automated access).
+- All fetched content is born-digital text-layer PDF/HTML (verified: EUR-Lex
+  PDFs open as real multi-page documents, not scans) — no OCR needed,
+  already in a form `fetch_fulltext.py`'s own consumers (or any future
+  text-extraction step) can parse automatically. Extracting *clean* text
+  out of that raw HTML/PDF (stripping site chrome, running a
+  PDF-to-text pass) is a distinct, not-yet-built next step if needed —
+  flagged, not assumed.
 
 ### Step 2 — Load into the real schema — DONE 2026-09-09
 
@@ -678,19 +760,95 @@ gap**, not something to script or guess. Per the user's explicit decision
   `app/app.py` re-verified via the Flask test client (unaffected — layer
   B/C are new tables/rows, nothing `app.py` already queries changed).
 
-### Step 3b — Populate process layer D (compliance pathway) — deferred
+### Step 3b — Populate process layer D (compliance pathway) — designed 2026-09-10, postponed
 
 Layer D (`technology_type`, `project_criterion`, `node_activation_rule`,
 `use_case_scenario`, `scenario_value_chain`, `scenario_technology`,
 `scenario_node`, `scenario_document`) represents the **compliance
 pathway** — matching a concrete project profile against formalized
-activation criteria. Sourced from V03, which is thin on this content and
-explicitly states (§5.7/7.2/7.3) that activation-rule formalization is
-still an open methodological gap, not a ready-made table to transcribe.
-**Deferred to a separate, later-scoped pass per the user's explicit
-decision (2026-09-10)** — not silently dropped, and not attempted as a
-guess. (The schema itself is already in place from Step 0 — this step is
-about content, not DDL.)
+activation criteria. (The schema itself is already in place from Step 0
+— this step is about content, not DDL.)
+
+**Status (2026-09-10): postponed at the user's explicit direction** —
+the project's priority right now is the regulatory-document database
+itself (exact-once representation + automatically-parseable full text
+for downloadable documents), not the process/compliance layers. This
+section records the completed research and the exact input needed, so
+the step can resume later without re-deriving any of it.
+
+**Research findings (two full re-reads of V03, plus a check of whether
+the underlying laws it points to are usable in-repo):**
+- **V03 has zero enumerated, structured content for any layer-D table.**
+  It's conceptually rich (four-domain value chain, four classification
+  lenses, bottom-up methodology) but every layer-D-shaped list already
+  in this document (`ELEKTROLYZER_PEM`/`KAPACITA_ELEKTROLYZERU`-style
+  codes, the "1.2 MW electrolyzer" worked example) turned out to be
+  **the schema author's own illustrative invention, not sourced from
+  V03** — confirmed by direct comparison against the actual document
+  text.
+- **`node_activation_rule` is worse than thin — V03 itself calls it
+  unresolved**: §10.6 states *"Za jakých přesných podmínek se
+  elektrolyzér klasifikuje jako 'výroba plynu' podléhající licenci...
+  tato otázka je klíčová... a její výklad by měl být potvrzen
+  autoritativním zdrojem."*
+- The one real, verbatim, regulator-grade number found anywhere in this
+  repo's material is the **20 million CZK bond (kauce)** for pohonné
+  hmoty distributors (V02, U4 section, tied to `311/2006 Sb.` — itself
+  not yet a `Document` row; flagged in Step 3a's review queue). Every
+  other threshold V03 alludes to (vyhrazená technická zařízení
+  pressure/capacity classes, ATEX zones, Seveso A/B tiers) points at laws
+  that are either not yet `Document` rows (`192/2022 Sb.`) or are
+  `Document` rows with **no fetched full text**
+  (`406/2004`, `116/2016`, `224/2015`, `250/2021 Sb.` — none in
+  `data/fulltext/`; only `100/2001 Sb.` is fetched, and it has no
+  hydrogen-specific content).
+- **`technology_type` and `use_case_scenario` ARE draftable** from V03's
+  own prose (not extraction-ready, but real material to structure): PEM
+  electrolyzer, pressure/cryogenic storage, cylinders/trailers/pipelines,
+  fixed+mobile HRS, FCEV buses/trucks/trains (trains deprioritized by
+  stakeholders), KVET; and 6 named topic areas (§4.2) plus one fully
+  worked scenario (1 MW PEM electrolyzer, bus depot, industrial zone).
+
+**When this resumes, input needed from the user (not extractable, not to
+be guessed) — `project_criterion` and `node_activation_rule`**, in this
+shape, e.g. as `data/v03_layer_d_draft.json`:
+
+```json
+{
+  "technology_type": [
+    {"code": "ELEKTROLYZER_PEM", "name": "...", "description": "..."}
+  ],
+  "use_case_scenario": [
+    {"code": "...", "name": "...", "description": "...",
+     "application_area_code": "MOBILITA|ENERGETIKA|PRUMYSL|PILOTNI",
+     "integration_level_code": "SAMOSTATNA|INTEGROVANA|KOMPLEXNI|OSTROVNI"}
+  ],
+  "project_criterion": [
+    {"code": "KAPACITA_ELEKTROLYZERU", "name": "Instalovaný výkon elektrolyzéru",
+     "data_type": "NUMERIC|BOOLEAN|ENUM|TEXT", "unit": "MW", "description": "..."}
+  ],
+  "node_activation_rule": [
+    {"node_id": "U4", "branch_id_code": "B", "criterion_code": "KAPACITA_ELEKTROLYZERU",
+     "comparator": "EQ|NE|GT|GTE|LT|LTE|IN|IS_TRUE|IS_FALSE",
+     "value": "...", "rule_group": 1, "description": "...",
+     "basis_citation": "458/2000 Sb."}
+  ]
+}
+```
+
+`application_area_code`/`integration_level_code` resolve against the
+already-seeded lookup tables (both 4 rows). `branch_id_code` is optional
+(null = whole node) and resolves against `node_branch` (loaded in Step
+3a). `basis_citation` is optional, matched against `Document.identifier`
+the same way Step 3a's citations were (same review-queue fallback on a
+miss). The planned build (once content exists): a hand-edited JSON
+(nothing left to parse from a docx), loaded by a new
+`src/tools/load_layer_d.py` reusing `load_process_layer.py`'s
+`normalize_citation_core`/`build_document_lookup`/`match_citation`
+rather than reimplementing citation matching a third time, `technology_type`
+and `use_case_scenario` drafted by the assistant from V03's own wording
+first (clearly marked draft/needs-review) — see the user's 2026-09-10
+decision above for the two-track split.
 
 ## 3. Agentic architecture for ongoing operations
 
