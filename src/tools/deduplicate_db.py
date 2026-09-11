@@ -66,6 +66,12 @@ _EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")
 # citation convention) are never touched.
 _COLON_YEAR_SUFFIX_RE = re.compile(r"\s*:\s*\d{4}\s*$")
 
+# A third edition-date suffix style, found on SAE designations: "SAE
+# J2601: 2020-05" (colon-space-YYYY-dash-MM) vs. the bare "SAE J2601" —
+# same standard. Distinct from both suffix styles above (this one has a
+# dash between year and month, not a dot, and isn't preceded by a "/").
+_COLON_YEAR_MONTH_SUFFIX_RE = re.compile(r"\s*:\s*\d{4}-\d{2}\s*$")
+
 # Two known document-series names appear in the corpus with an
 # inconsistent "/" vs. " " (vs. no separator at all) between their parts —
 # e.g. "CSA/ANSI HGV 2" vs. "CSA ANSI HGV 2", "IGEM/TD/1" vs. "IGEM TD1" —
@@ -95,18 +101,20 @@ def normalize_znacka(znacka):
     Sinay PDF source uses "–" (en dash) and "-" (hyphen) interchangeably
     for the same date separator (e.g. "STN EN ISO 11114-1/ – 2020.12" vs
     "STN EN ISO 11114-1/ - 2020.12"), which otherwise silently defeats
-    exact-match deduplication. Also strips a trailing edition-date suffix —
-    either the "/ - YYYY.MM" form (`_EDITION_DATE_SUFFIX_RE`) or the rarer
-    bare colon-year form, e.g. "ISO 11413 :2019" (`_COLON_YEAR_SUFFIX_RE`)
-    — and folds a couple of known document-series "/" vs. " " spelling
-    inconsistencies (see `_KNOWN_SERIES_SEPARATOR_RES`) for the same
-    reason."""
+    exact-match deduplication. Also strips a trailing edition-date suffix
+    — the "/ - YYYY.MM" form (`_EDITION_DATE_SUFFIX_RE`), the bare
+    colon-year form, e.g. "ISO 11413 :2019" (`_COLON_YEAR_SUFFIX_RE`), or
+    the SAE-style colon-year-dash-month form, e.g. "SAE J2601: 2020-05"
+    (`_COLON_YEAR_MONTH_SUFFIX_RE`) — and folds a couple of known
+    document-series "/" vs. " " spelling inconsistencies (see
+    `_KNOWN_SERIES_SEPARATOR_RES`) for the same reason."""
     if not znacka:
         return ""
     znacka = _fold_known_series_separators(str(znacka))
     znacka = _DASH_VARIANTS_RE.sub("-", znacka)
     znacka = " ".join(znacka.split()).strip()
     znacka = _EDITION_DATE_SUFFIX_RE.sub("", znacka)
+    znacka = _COLON_YEAR_MONTH_SUFFIX_RE.sub("", znacka)
     znacka = _COLON_YEAR_SUFFIX_RE.sub("", znacka)
     return znacka.strip().lower()
 

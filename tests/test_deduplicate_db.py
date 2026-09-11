@@ -79,6 +79,15 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
         self.assertEqual(dedup.normalize_znacka("CSA HPIT 1:15 (R2020)"),
                           "csa hpit 1:15 (r2020)")
 
+    def test_normalize_strips_sae_style_colon_year_dash_month_suffix(self):
+        # A third edition-date suffix style, found on SAE designations:
+        # "SAE J2601: 2020-05" vs. the bare "SAE J2601" -- same standard
+        # (see doc/PLAN.md Step 1 follow-up #13, SAE research).
+        self.assertEqual(dedup.normalize_znacka("SAE J2601: 2020-05"),
+                          dedup.normalize_znacka("SAE J2601"))
+        self.assertEqual(dedup.normalize_znacka("SAE J2600: 2015-10"),
+                          dedup.normalize_znacka("SAE J2600"))
+
     def test_normalize_folds_known_series_separator_variants(self):
         # "CSA/ANSI" vs "CSA ANSI" and "IGEM/TD/1" vs "IGEM TD1" are the
         # same document series, just written with a "/" vs. " " vs. no

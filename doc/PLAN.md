@@ -13,14 +13,19 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#12 (2026-09-11) found and fixed six real
+itself: Step 1 follow-ups #10–#13 (2026-09-11) found and fixed seven real
 missed-duplicate/parsing/classification bugs via a systematic
 duplicate-title audit (1344→1200→1196→1194 records; only 1 of the
 original 2 known cross-jurisdiction `identifier` collisions remains —
 the other turned out to be a classification bug, not a genuine
-cross-jurisdiction duplicate). One data-quality question (`CSA ANSI GSV
-4.1`) flagged for the user's own manual resolution, not guessed. The
-agentic architecture in §3 remains a
+cross-jurisdiction duplicate). Two items flagged for the user's own
+manual resolution rather than guessed (`CSA ANSI GSV 4.1`, `SAE J2601
+/1`); follow-up #14 confirmed `TRBS 3151`/`TRGS 751` as one document
+published under two official designations (a German *Verbundregel*) —
+a genuine schema gap (no place for a second identifier), not resolved
+yet. A dedicated review/cross-check working mode for the database
+interface is a flagged future need, not designed yet. The agentic
+architecture in §3 remains a
 proposal.
 **Source:** §3 below reconciles this plan against
 `doc/automation_proposal/Automating Hydrogen Legislation Database
@@ -722,6 +727,129 @@ Original plan (executed as amended above):
     <https://www.csagroup.org/store/search-results/?search=HGV> before
     trusting any of these designations/editions as current. Not done in
     this pass.
+- **Follow-up #13 (2026-09-11): re-checked the (now 14) remaining "other"
+  duplicate-title groups after follow-up #12's fixes — one of them
+  resolved itself:** `"STN EN 60079-7"` vs. `"DIN EN IEC 60079-7"`
+  previously showed as `SK` vs. `mezinárodní` (ambiguous); now correctly
+  `SK` vs. `DE` — a Slovak and a German national adoption of the same
+  IEC standard, unambiguously two separate documents, not a duplicate at
+  all. Direct confirmation the ordering fix works as intended. The other
+  13 groups are unchanged from follow-up #11's categorization (renaming/
+  draft-stage/ambiguous-source-labeling/coincidental-title/already-
+  flagged/already-disclosed) — nothing new to fix.
+  - **SAE J2601 research, recorded for the future norm-searching/
+    downloading work this project will eventually need (per the user,
+    2026-09-11) — not acted on in the corpus yet:**
+    - Authoritative source for SAE standards: <https://www.sae.org/standards>.
+    - `SAE J2601` ("fueling protocols for light duty gaseous hydrogen
+      surface vehicles") has a real family of related, but DIFFERENT,
+      standards: `J2601/2` (heavy-duty vehicles), `J2601/3` (industrial
+      trucks), `J2601/4` (ambient-temperature variable/fixed-orifice
+      protocols for light-duty vehicles), `J2601/5` (high-flow
+      prescriptive protocols for medium/heavy-duty vehicles). **There is
+      no `J2601/1`** — per the user's own check of SAE's site, our
+      corpus's `"SAE J2601 /1"` is most likely just a citation of the
+      base `J2601` itself, not a real distinct part. Not confirmed
+      enough to merge automatically (a guess, not a fact) — left as-is,
+      same as the CSA case above.
+    - **SAE itself is inconsistent about the separator** between the
+      base number and the part number — both `"J2601/2"` and `"J2601-2"`
+      are used for the same standard. `"SAE J2601/2"` and `"SAE
+      J2601/3"` are already in this corpus (confirmed genuinely
+      different documents — "Fueling Protocol for Gaseous Hydrogen
+      Powered Heavy Duty Vehicles" / "...Industrial Trucks" respectively,
+      matching the family list above) — groundwork for a future
+      `_KNOWN_SERIES_SEPARATOR_RES`-style fold if a `"J2601-N"` (dash)
+      variant of one of these ever shows up as a title-duplicate.
+    - **SAE designations carry their revision/approval date as a
+      trailing `_YYYYMM` suffix** on sae.org (e.g. `"J2601-5_202502"` =
+      the edition of `J2601-5` current as of 2025-02) — not present in
+      this corpus's own designations yet, but the same normalization
+      question as follow-ups #10/#12 if it ever is.
+    - **Concretely actionable, found while cross-checking this research
+      against the corpus (not yet fixed, flagged for the user):**
+      - `"SAE J2601"` and `"SAE J2601 /1"` share the exact same clean
+        title ("Fueling Protocols for Light Duty Gaseous Hydrogen Surface
+        Vehicles") — stronger evidence than a title-only match that
+        `"/1"` really is spurious, matching the user's own suspicion.
+      - A **third edition-date-suffix style**, not covered by follow-ups
+        #10/#12: `"NAME: YYYY-MM"` (colon-space-year-dash-month), found
+        on `"SAE J2600: 2015-10"` / `"SAE J2601: 2020-05"` — each has a
+        same-title, bare-designation counterpart (`"SAE J2600"` /
+        `"SAE J2601"`) with a stray `"J260N_YYYYMM "` prefix baked into
+        *that* record's own title, which is why this pair didn't surface
+        in the exact-title duplicate audit (follow-ups #10-#13) — it's a
+        near-duplicate by title, not an exact one. **Fixed** (per the
+        user's decision, 2026-09-11): `_COLON_YEAR_MONTH_SUFFIX_RE` added
+        alongside the other two edition-date-suffix patterns in
+        `deduplicate_db.py`/`analyze_similarities.py`. The `"/1"` question
+        remains explicitly flagged, not touched.
+      - **Re-run results**: 1 new regression test (191 total). Pipeline
+        re-run: `"SAE J2600"`/`"SAE J2600: 2015-10"` and `"SAE
+        J2601"`/`"SAE J2601: 2020-05"` each correctly merged into one
+        record. Total record count stayed at **1194** rather than
+        dropping to 1192 — coincidental, not a problem: the same
+        pre-existing LLM-merge non-determinism already documented
+        elsewhere in this plan (Step 1 follow-up #5) hit the `ISO 14687`
+        cluster this particular run (it had auto-merged cleanly in
+        follow-up #13's run, six records; this run gpt-4o-mini didn't
+        collapse it as fully, eight records, four now correctly
+        `flagged_for_review` instead of silently guessed) — the two
+        effects offset. No bad merge either way; the review queue is
+        doing exactly what it's for. `h2regdocs` reloaded (1217
+        `Document` rows), `app/app.py` re-verified.
+- **Follow-up #14 (2026-09-11): `TRBS 3151` / `TRGS 751` are confirmed
+  the same document — a genuine schema question, not a dedup bug.** The
+  user's own explanation (translated from German, verbatim below) settles
+  what follow-up #11 had flagged as merely "possibly the same rule cited
+  with varying completeness":
+
+  > There is no substantive difference between TRBS 3151 and TRGS 751.
+  > It is one and the same set of rules, published as a so-called
+  > *Verbundregel* (a joint/combined rule with a dual designation).
+  >
+  > **Background on the dual designation**
+  > - **Different legal domains**: TRBS (*Technische Regel für
+  >   Betriebssicherheit* — Technical Rule for Operational Safety)
+  >   specifies the requirements of the Ordinance on Industrial Safety
+  >   and Health (BetrSichV). TRGS (*Technische Regel für Gefahrstoffe* —
+  >   Technical Rule for Hazardous Substances) specifies the
+  >   requirements of the Hazardous Substances Ordinance (GefStoffV).
+  > - **Shared scope**: for filling stations and gas-filling
+  >   installations, the topics of equipment/plant safety (equipment,
+  >   pressure installations) and hazardous-substances law (handling of
+  >   flammable liquids and gases) overlap heavily.
+  > - **Joint development**: the rule set was jointly developed and
+  >   adopted by the Committee for Operational Safety (ABS) and the
+  >   Committee for Hazardous Substances (AGS), specifically to avoid
+  >   contradictions between the two legal domains.
+  >
+  > In practice, it is therefore often simply referred to as
+  > "TRBS 3151 / TRGS 751".
+
+  **This is NOT a "same document, formatted differently" case like the
+  rest of follow-ups #10-#13** — it's one document that is *officially,
+  permanently* published under two designations at once (a genuine
+  `Verbundregel`/joint-rule convention, not a citation inconsistency to
+  normalize away). The Konsolidace schema's `Document.identifier` is a
+  single `VARCHAR(100) UNIQUE` field — it has no place to record a second,
+  equally-official designation for the same row. **Not resolved yet, per
+  the user's own note ("I just do not know if we can handle it in our
+  current schema")** — needs a real decision (e.g. a small
+  `document_alias`/`alternate_identifier` table, or folding the second
+  designation in as a searchable keyword) before this — or any future
+  `Verbundregel`-shaped case — can be merged correctly rather than
+  arbitrarily picking one designation and losing the other.
+- **Future need, flagged by the user (2026-09-11), not scoped yet: a
+  dedicated review/cross-check working mode for the database interface.**
+  Several of the follow-up #10-#14 findings (the `CSA ANSI GSV/HGV`
+  typo, the SAE `J2601`/`"/1"` question, the `TRBS`/`TRGS` dual
+  designation) needed the user's own outside research to resolve
+  confidently — this kind of situation will keep coming up. The user
+  wants a dedicated mode of `app/app.py` (or a successor interface) built
+  specifically for surfacing and resolving these ambiguous near-duplicate
+  cases, rather than working through `doc/PLAN.md` prose each time. Not
+  designed yet — a candidate for its own `/plan` session later.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

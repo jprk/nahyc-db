@@ -29,6 +29,7 @@ def cosine_similarity(v1, v2):
 _DASH_VARIANTS_RE = re.compile(r"[‐-―−]")  # en/em/figure/horizontal-bar dashes, minus sign
 _EDITION_DATE_SUFFIX_RE = re.compile(r"/\s*-\s*\d{4}\.\d{2}\s*$")  # see deduplicate_db.py
 _COLON_YEAR_SUFFIX_RE = re.compile(r"\s*:\s*\d{4}\s*$")  # see deduplicate_db.py
+_COLON_YEAR_MONTH_SUFFIX_RE = re.compile(r"\s*:\s*\d{4}-\d{2}\s*$")  # see deduplicate_db.py
 _KNOWN_SERIES_SEPARATOR_RES = [  # see deduplicate_db.py
     re.compile(r"\bCSA\s*/?\s*ANSI\b", re.IGNORECASE),
     re.compile(r"\bIGEM\s*/?\s*TD\s*/?\s*1\b", re.IGNORECASE),
@@ -52,6 +53,7 @@ def core_znacka(znacka):
     zn = _DASH_VARIANTS_RE.sub("-", zn)
     zn = " ".join(zn.split()).strip()
     zn = _EDITION_DATE_SUFFIX_RE.sub("", zn)
+    zn = _COLON_YEAR_MONTH_SUFFIX_RE.sub("", zn)
     zn = _COLON_YEAR_SUFFIX_RE.sub("", zn).lower()
     if zn.startswith("čsn "):
         zn = zn[len("čsn "):]
