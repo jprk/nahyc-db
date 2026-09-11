@@ -13,12 +13,12 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#17 (2026-09-11) found and fixed real
+itself: Step 1 follow-ups #10–#18 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189 records;
-of the last step's +13, 12 are genuinely new content (see follow-up #17
-below) and 1 is the usual LLM-merge non-determinism noise documented
-elsewhere in this plan, not a new issue); only 1
+duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189→1191
+records; of the #17 step's +13, 12 are genuinely new content — see
+follow-up #17 — and 1 is the usual LLM-merge non-determinism noise
+documented elsewhere in this plan, not a new issue); only 1
 of the original 2 known cross-jurisdiction `identifier` collisions
 remains — the other turned out to be a classification bug, not a genuine
 cross-jurisdiction duplicate). `CSA ANSI GSV 4.1`→`HGV 4.1` (typo),
@@ -39,7 +39,15 @@ designed + implemented a real version-history data model: norm
 base+amendment pairs now populate multiple `DocumentVersion` rows on one
 `Document` (17 groups linked), while a law amended by a separately-
 numbered act uses a new `document_relation` table instead (1 real
-example loaded: `426/2021 Sb.` AMENDS `266/1994 Sb.`). A dedicated
+example loaded: `426/2021 Sb.` AMENDS `266/1994 Sb.`). Follow-up #18
+resolved the two real duplicates found in the deferred "draft-stage"
+bucket (`ISO 11954`/`ISO/TR 11954`, `IEC 62933-5-1`/`IEC/TS 62933-5-1` —
+the latter's title traced to a copy/fill-down error in the raw XLSX),
+confirmed the other 18 pairs are correctly separate (published + an
+in-development revision), and confirmed `STN EN 60079-11/-17` as real
+version pairs needing a small `link_document_versions.py` extension
+(not yet implemented); `TNI`/`STN CLC/TR 60079-32-1` remains open,
+awaiting the user's decision. A dedicated
 review/cross-check working mode for the database interface is a flagged
 future need, not designed yet. The agentic
 architecture in §3 remains a
@@ -1182,6 +1190,93 @@ Original plan (executed as amended above):
     vlády`, `Vyhláška`, `Nařízení EU`). 230 tests still pass (no new
     pure function needed — this was a mechanical, structurally-identical
     5th loading block, same as the existing 4). `app/app.py` re-verified.
+- **Follow-up #18 (2026-09-11): reviewed the deferred "draft-stage" (21
+  groups) and "ambiguous renaming" duplicate-title buckets.** Checked
+  every pair's `platnost`/`kategorie_trida` (draft/work-item status
+  text) and, for the renaming cases, `anotace_poznamka`.
+  - **18 of the 21 draft-stage pairs confirmed correctly separate, not
+    duplicates — no action.** One member explicitly shows draft/work-
+    item status (`"v príprave"`, `"Arbeitsdokument"`, `"Entwurf-Návrh"`)
+    alongside the other's real published edition — a published standard
+    plus a currently-in-development revision/upgrade project, genuinely
+    different lifecycle states already correctly documented by the
+    existing status text.
+  - **2 confirmed real duplicates by the user's own research, fixed as
+    one-time source corrections** (same PDF/XLSX-sourced-record
+    limitation as follow-ups #14/#15 — patched in the generated
+    `sinay_normy_processed.json`, needs reapplying if those sources are
+    ever re-parsed from scratch):
+    - **`ISO 11954`/`ISO/TR 11954`**: per the user, only `ISO/TR
+      11954:2008` and `ISO/TR 11954:2024` exist — no bare "ISO 11954"
+      full standard. Both PDF- and XLSX-sourced occurrences of the bare
+      form (missing `/TR`) corrected to include it. The two real
+      editions (2008, 2024) must stay separate records — but giving them
+      distinct `/ - YYYY.MM` suffixes still collided them, because
+      `normalize_znacka()`'s edition-date-suffix strip deliberately
+      ignores what the actual date is (that's what makes `"ISO 16111"`
+      and `"ISO 16111/ - 2018.08"` correctly merge as the same
+      standard) — the 2008 edition needed a **parenthetical** year,
+      `"ISO/TR 11954 (2008)"`, not matched by any of the three known
+      suffix regexes, to stay distinct from `"ISO/TR 11954/ - 2024.01"`.
+      Kategorie on the 2008 record now notes it's superseded.
+    - **`IEC 62933-5-1`/`IEC/TS 62933-5-1`**: confirmed via
+      `https://webstore.iec.ch/en/publication/72239` that both records'
+      title ("Road vehicles - Compressed gaseous hydrogen...") is simply
+      wrong — the real IEC 62933-5-1:2024 is "Electrical energy storage
+      (EES) systems - Part 5-1: Safety considerations for grid-integrated
+      EES systems", replacing `IEC TS 62933-5-1:2017`. Root-caused
+      directly in the raw XLSX (`Zoznam_noriem_Vodik_Road_map...b.xlsx`,
+      rows 635/636/647): the German/English title columns for these
+      *three* rows were contaminated with an unrelated CGH2-fuel-system
+      title (a copy/fill-down error in the source spreadsheet) — row
+      636 (`IEC 62933-5-2`) escaped the bug in its own OUTPUT record only
+      because its Slovak title column (which the parser prefers) was
+      separately, correctly filled in; rows 635/647 had no such
+      fallback. Corrected both titles to the real IEC-verified text; the
+      corpus's own already-correct `STN EN IEC 62933-5-1/62933-5-2`
+      records (from the PDF source, unaffected by this XLSX bug)
+      confirm the real Slovak-adopted content was never wrong. The
+      `IEC/TS` (2017, superseded) record's `kategorie_trida`/`platnost`
+      now say so explicitly.
+    - **Flagged by the user, not yet acted on**: "there might be other
+      IEC 62933 components ignored by the previous data collection
+      step" — plausible given the confirmed row-636-area corruption, but
+      determining which additional IEC 62933 parts are actually relevant
+      to a hydrogen-focused corpus (most of the series covers general
+      grid battery storage, not hydrogen specifically) needs a scoping
+      decision, not just a lookup. Not investigated further this pass.
+  - **The 3 "ambiguous renaming" cases, re-examined with the user's
+    research:**
+    - **`STN EN 60079-11`(2012)/`STN EN IEC 60079-11`(2025) and `STN EN
+      60079-17`(2014)/`STN EN IEC 60079-17`(2024): confirmed real
+      version pairs** (byte-identical annotations in both pairs; IEC's
+      real 2016+ renumbering of the whole 60079 series, `EN 60079-N` →
+      `EN IEC 60079-N`, plus a genuine edition update years apart) —
+      **not yet linked**: `link_document_versions.py` only groups on an
+      amendment-marker-stripped core (`+A1`/`/A1`/`/AC`); this is a full
+      renumbering with no such marker, so it needs a small, explicit
+      extension (an alias fold, same style as the `EIGA`/`IGC Doc`
+      prefix fold) before these can be version-linked. Not implemented
+      this pass — flagged for a follow-up.
+    - **`TNI CLC/TR 60079-32-1`/`STN CLC/TR 60079-32-1`: still open,
+      needs the user's decision.** Per the user's research (2026-09-11):
+      the real, current document is Czech — `ČSN CLC/TR 60079-32-1
+      (332320)` (confirmed valid at
+      technicke-normy-csn.cz/csn-clc-tr-60079-32-1-332320-180776.html,
+      an older/invalid catalog entry at the `-180775` variant of the
+      same URL) — while the Slovak `TNI CLC/TR 60079-32-1` "does not
+      seem to be valid anymore" and `STN CLC/TR 60079-32-1` (the bare
+      record currently in this corpus, all fields empty except title)
+      "does not seem to exist" at all. Not corrected yet — awaiting the
+      user's explicit call on how to treat these two Slovak-tagged
+      records (mark withdrawn like `ISO 7105`? remove the unverifiable
+      one? something else?), since deleting or reclassifying a record
+      based on "does not seem to" rather than a confirmed source is a
+      bigger step than the other corrections in this follow-up.
+  - **Re-run results**: full pipeline re-run. Deduplicated 1188→1191
+    (net, after the usual small LLM-merge non-determinism noise on the
+    recurring `ISO 14687` cluster — unrelated to this pass's fixes,
+    confirmed via diff). 230 tests still pass. `app/app.py` re-verified.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 
