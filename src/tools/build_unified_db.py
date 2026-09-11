@@ -4,6 +4,7 @@ import re
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
+SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -146,6 +147,52 @@ def load_previous_annotations(output_file):
         if note:
             lookup[(r.get("zdroj_dat", ""), r.get("nazev_cz", ""))] = note
     return lookup
+
+
+def load_site_metadata_cache():
+    """doc/REQUIREMENTS.md-adjacent, doc/PLAN.md §8, 2026-09-11: reads
+    data/site_metadata_cache.json (built by src/tools/
+    fetch_authoritative_metadata.py) — empty dict if it doesn't exist yet
+    (e.g. a fresh checkout that hasn't run that script)."""
+    if SITE_METADATA_CACHE_PATH.exists():
+        return load_json(SITE_METADATA_CACHE_PATH)
+    return {}
+
+
+def record_url(item):
+    """Same precedence as init_db.py's own `url` field resolution:
+    odkaz_hlavni -> odkaz_eu -> odkaz_sk, first non-empty wins."""
+    for field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk"):
+        url = (item.get(field) or "").strip()
+        if url:
+            return url
+    return ""
+
+
+def apply_authoritative_metadata(record, cache):
+    """Attaches nazev_autoritativni/popis_autoritativni/
+    zdroj_autoritativni_url from the site-metadata cache when a
+    successfully-fetched entry exists for this record's URL (or, for
+    Prokop_Normy ČSN records with no per-document URL of their own, its
+    "csn:<znacka>" key) — mutates `record` in place, returns nothing.
+    Deliberately NEVER overwrites nazev_cz/anotace_poznamka: the
+    authoritative title can be in a different language, or simply differ
+    from the spreadsheet-derived one, so it's kept as its own, clearly-
+    provenanced field rather than silently replacing what's already
+    there — downstream consumers that want the verified value use the
+    new field explicitly (see src/tools/init_db.py)."""
+    znacka = (record.get("znacka") or "").strip()
+    url = record_url(record)
+    entry = cache.get(url) if url else None
+    if entry is None and znacka:
+        entry = cache.get(f"csn:{znacka}")
+    if entry is None or entry.get("status") != "fetched":
+        return
+    if entry.get("title"):
+        record["nazev_autoritativni"] = entry["title"]
+    if entry.get("description"):
+        record["popis_autoritativni"] = entry["description"]
+    record["zdroj_autoritativni_url"] = entry.get("zdroj_esbirka_url") or url or None
 
 def build_unified_db():
     base_dir = REPO_ROOT / "data"
@@ -400,7 +447,29 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading EU Transposition Targets data: {e}")
 
-    # 7. Save combined to JSON
+    # 7. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
+    # for records src/sites/esbirka.py could verify, the confirmed
+    # government zdroj_autoritativni_url) from data/site_metadata_cache.json
+    # (built by src/tools/fetch_authoritative_metadata.py) onto every
+    # record with a cached, successfully-fetched entry. Applied here, at
+    # the end of every build, so it survives every rebuild automatically —
+    # this is exactly the trap this session found and worked around for
+    # enrich_annotations.py's edits (see fetch_authoritative_metadata.py's
+    # own docstring): a downstream patch to
+    # database_merged_deduplicated.json is silently discarded by the next
+    # raw rebuild, but reading a persistent, git-tracked cache HERE is not.
+    site_metadata_cache = load_site_metadata_cache()
+    authoritative_count = 0
+    for record in unified_db:
+        apply_authoritative_metadata(record, site_metadata_cache)
+        if "nazev_autoritativni" in record:
+            authoritative_count += 1
+    if authoritative_count:
+        print(f"Applied authoritative title/description to {authoritative_count} record(s) "
+              f"from {SITE_METADATA_CACHE_PATH.relative_to(REPO_ROOT)}.")
+
+    # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(unified_db, f, ensure_ascii=False, indent=4)
 

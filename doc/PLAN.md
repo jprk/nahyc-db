@@ -2291,3 +2291,145 @@ Flask smoke test confirms the fixed record now shows its full, correct
 title and the old bogus committee-reference title is gone entirely from
 search. Documented in `src/tools/0README.md`, `doc/konsolidace/
 Konsolidace-DB-popis.md` §4.1, `doc/requirements_check_report.md`.
+
+## 8. Authoritative per-site title/description extraction (`src/sites/`, NEW, 2026-09-11)
+
+User's proposal: instead of relying on the Haltuf/Sinay/Prokop spreadsheet
+exports for title/description (the direct cause of most `needs_review`
+cases, §7 above), fetch the canonical title/description directly from each
+document's own "single point of authority" website, via a small dedicated
+parser per site. Extends §4 (full-text acquisition) with a parsing layer,
+and closes §5's long-open "Document-parsing sub-layer" decision (scoped
+down to a concrete, non-agentic implementation, not the full §3 LangGraph
+architecture).
+
+**Feasibility research first** (two Explore passes against the real
+corpus + live fetch tests, before any code): of 1183 records, 124 (10.5%)
+have no usable URL at all. Of the rest, the large majority of NORM records
+store only a generic organization homepage or catalog root — `normy.
+normoff.gov.sk` (374 recs, 100% the same root URL), `www.dvgw.de` (102,
+100% homepage), `www.iso.org` (129/136 sharing one generic
+`/standards.html` URL), `www.eiga.eu` (33, 100% homepage), and ~15 more
+domains in the same shape — no per-document parser can help these; the
+stored URL doesn't even identify which document it's for. **Decision:
+explicitly out of scope.** Domains that DO carry genuine per-document
+URLs, with scrapeability confirmed live: `eur-lex.europa.eu` (~43 law
+records + 6 `EU_Transposition_Targets`), `zakonyprolidi.cz` (~35 law
+records), `slov-lex.sk` (~5), and `Prokop_Normy`'s ~33 ČSN-designated norm
+records via the already-existing `check_csn_validity.py` registry
+(`csnonline.agentura-cas.cz` — free, not anti-bot-walled, unlike
+`technicke-normy-csn.cz`, confirmed anti-bot-walled with "BotStopper" and
+never targeted). ~120 records addressable this pass.
+
+**e-Sbírka detour, found while implementing**: the user asked to prefer
+`e-sbirka.gov.cz` (the real government source) over `zakonyprolidi.cz` (a
+private mirror) "where possible." Investigated live: `e-sbirka.gov.cz`'s
+own frontend is an unscrapeable Angular SPA (`<esel-app>` empty shell, no
+server-rendered content at all); its REST API requires Ministry-of-Interior
+client registration (already documented in `screen_esbirka.py`); its
+public LOD SPARQL graph (`opendata.eselpoint.gov.cz`) does expose a
+per-law node addressable by ELI (constructible directly from a Czech
+znacka), and DOES confirm the official citation — but traced several
+levels into the `slovník.gov.cz/datový/sbírka` graph and found the actual
+title text lives nowhere as a simple field: it's structured at the
+individual-paragraph-fragment level (hundreds of nodes per law), not as a
+document-metadata record. **Resolution** (user's explicit call):
+`zakonyprolidi.cz` stays the content source; `src/sites/esbirka.py`
+verifies the citation and attaches the real government URL
+(`https://e-sbirka.gov.cz/sb/{year}/{number}`) as a `zdroj_esbirka_url`
+reference alongside it — never replacing the actual title/description
+text. `REST_API_TODO` comment left in that module: once a registered
+e-Sbírka REST API key is obtained, it's the natural place to extend into
+a full content source (same `{"title", "description"}` return shape).
+
+**Design implemented:**
+- New package **`src/sites/`** — one module per domain, common interface
+  `extract(url, cached_path=None, session=None) -> {"title", "description"} | None`
+  (never raises, `None` on any failure):
+  - `eurlex.py` — resolves a CELEX id from the URL (only when the URL
+    carries one explicitly, `?uri=CELEX:...`; ELI-style/OJ-style URLs
+    deliberately left unresolved, no guessing), queries the public
+    EUR-Lex Cellar SPARQL endpoint (same one `screen_eurlex.py` already
+    uses) for `cdm:expression_title`, preferring Czech over English.
+    Real bug found & fixed while testing against the live endpoint: the
+    CELEX literal in the query MUST carry an explicit `^^xsd:string`
+    datatype annotation, or the query silently returns nothing — even for
+    a CELEX confirmed to exist via a keyword search.
+  - `zakonyprolidi.py` — parses `<meta property="og:title">`/`<meta
+    property="og:description">` (already-cached HTML under
+    `data/fulltext/{Haltuf_Dokumenty,Sinay_Zakony}/` preferred over a
+    live fetch). Verified live: no anti-bot wall — an earlier
+    WebFetch-tool-only 403 turned out to be a tool-specific artifact.
+  - `slovlex.py` — parses the `<script type="application/ld+json">`
+    schema.org `Legislation` block's `name` field (the rendered page is
+    an Angular SPA with no server-rendered body text, but this JSON-LD
+    metadata IS present); falls back to `<title>`.
+  - `esbirka.py` — verification-only, see above.
+- New **`data/site_metadata_cache.json`**: small, git-tracked, keyed by
+  URL (or `"csn:<znacka>"` for ČSN lookups with no per-document URL of
+  their own). Idempotent.
+- New **`src/tools/fetch_authoritative_metadata.py`**: dispatches
+  eligible records from `data/database_merged_raw.json` to the matching
+  `src/sites/*` module or `check_csn_validity.py`, writes results into
+  the cache. `--limit`/`--force` flags, same convention as
+  `fetch_fulltext.py`. Never writes into any `database_*.json` directly.
+- **`build_unified_db.py`** (`apply_authoritative_metadata()`, run at the
+  end of every build, after all 6 sources): attaches
+  `nazev_autoritativni`/`popis_autoritativni`/`zdroj_autoritativni_url`
+  as NEW, separate fields when the cache has a fetched entry for a
+  record's URL — never overwrites `nazev_cz`/`anotace_poznamka` (avoids
+  language-mismatch surprises, keeps the original auditable). Applied
+  here, at the END of every rebuild, so it survives every rebuild
+  automatically — this is exactly the trap found and worked around this
+  session for `enrich_annotations.py`'s edits (its `previous_annotations`
+  restore mechanism reads from `database_merged_raw.json`'s own previous
+  run, keyed by `zdroj_dat`+`nazev_cz` — NOT from
+  `database_merged_deduplicated.json`, so any edit made there is silently
+  discarded on the next raw rebuild; `enrich_annotations.py` itself
+  confirmed never actually run against the live corpus, still dormant).
+- **`init_db.py`**: new `resolve_title()`/`resolve_description()` prefer
+  the authoritative fields, falling back to today's resolution
+  unchanged. Used both for the actual `Document.title`/`description`
+  columns AND inside `detect_data_quality_issues()` — a record whose
+  original `nazev_cz` is garbled but has a real authoritative title is no
+  longer flagged.
+
+**Verified**: 61 new unit tests (`tests/test_sites_*.py` ×4,
+`tests/test_fetch_authoritative_metadata.py`, plus additions to
+`tests/test_build_unified_db.py`/`tests/test_init_db.py`) — mocked
+HTTP/SPARQL, no real network calls in the suite — 383 tests total pass.
+Full live run against the real corpus: 143 cache entries, 107 with a real
+title (35/35 `zakonyprolidi`, 27/33 `csnonline`, 4/5 `slovlex`, 41/70
+`eurlex` — the `eurlex` shortfall is entirely the documented ELI/OJ-style
+URLs this pass deliberately doesn't resolve, not a failure). Full
+pipeline rerun (`build_unified_db` → `fetch_authoritative_metadata` →
+`deduplicate_db` → `link_document_versions` →
+`link_document_relations_auto` → `init_db` → `load_document_relations` →
+`load_process_layer`) — `dedup_review_queue.json` clean, R1.3/R1.4 edge
+counts and the ISO 14687/ČSN ISO 14687 jurisdikce separation both hold.
+Flask smoke test and a direct DB spot-check both confirm a real,
+end-to-end win: `458/2000 Sb.`'s `Document.title` now reads
+`"458/2000 Sb. Energetický zákon"` (the verified zakonyprolidi.cz title),
+not whatever the spreadsheet happened to carry.
+
+**Honest finding on `needs_review`, checked directly rather than
+assumed**: this pass does **not** reduce the 402-record `needs_review`
+count. The ~120 addressable records (laws + `Prokop_Normy`'s ČSN norms)
+turn out to barely overlap with the currently-flagged set at all — the
+flagged 402 are effectively all `Sinay_Normy` (missing description) plus
+a handful of still-undiagnosed fragment titles, entirely outside this
+pass's scope; the law/ČSN records were already "clean" by the review
+heuristics (0 of either population showed up flagged, verified directly,
+not inferred). The real value delivered here is different from what was
+originally expected: **verified, source-confirmed data** replacing
+"whatever the spreadsheet said" for 107 records, plus the reusable
+`src/sites/` infrastructure for future expansion — not a review-queue
+size reduction. Documented honestly rather than restating the original,
+disproven expectation.
+
+**Not done this pass** (future work, not requested): extending to more
+domains, a "search the site by designation" mechanism for the ~650+
+generic-catalog-root norm records (a substantially bigger, differently-
+shaped undertaking), reviving `enrich_annotations.py` as an LLM-based
+fallback tier, migrating `esbirka.py` to a real content source once a
+REST API key is obtained.

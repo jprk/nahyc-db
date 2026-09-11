@@ -4,7 +4,10 @@ import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / "tools"))
 
-from build_unified_db import extract_znacka_from_title, resolve_prokop_jurisdikce
+from build_unified_db import (
+    extract_znacka_from_title, resolve_prokop_jurisdikce,
+    record_url, apply_authoritative_metadata,
+)
 
 
 class ResolveProkopJurisdikceTestCase(unittest.TestCase):
@@ -136,6 +139,69 @@ class ExtractZnackaFromTitleTestCase(unittest.TestCase):
         # "RID" has no digit and must not be force-matched as a code —
         # different RID appendices are genuinely different documents.
         self.assertEqual(extract_znacka_from_title("RID - Přípojek C – Řád pro mezinárodní železniční přepravu"), "")
+
+
+class RecordUrlTestCase(unittest.TestCase):
+    def test_prefers_odkaz_hlavni(self):
+        item = {"odkaz_hlavni": "https://a", "odkaz_eu": "https://b", "odkaz_sk": "https://c"}
+        self.assertEqual(record_url(item), "https://a")
+
+    def test_falls_back_in_order(self):
+        self.assertEqual(record_url({"odkaz_eu": "https://b", "odkaz_sk": "https://c"}), "https://b")
+        self.assertEqual(record_url({"odkaz_sk": "https://c"}), "https://c")
+
+    def test_no_url_is_empty_string(self):
+        self.assertEqual(record_url({}), "")
+
+
+class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
+    """doc/PLAN.md §8, 2026-09-11: the build_unified_db.py-side half of
+    the authoritative per-site title/description overlay."""
+
+    def test_fetched_entry_attaches_new_fields_without_touching_originals(self):
+        record = {"znacka": "458/2000 Sb.", "nazev_cz": "Původní název",
+                  "odkaz_hlavni": "https://www.zakonyprolidi.cz/cs/2000-458",
+                  "anotace_poznamka": ""}
+        cache = {
+            "https://www.zakonyprolidi.cz/cs/2000-458": {
+                "status": "fetched", "title": "458/2000 Sb. Energetický zákon",
+                "description": "Zákon o podmínkách podnikání...",
+                "zdroj_esbirka_url": "https://e-sbirka.gov.cz/sb/2000/458",
+            }
+        }
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "458/2000 Sb. Energetický zákon")
+        self.assertEqual(record["popis_autoritativni"], "Zákon o podmínkách podnikání...")
+        self.assertEqual(record["zdroj_autoritativni_url"], "https://e-sbirka.gov.cz/sb/2000/458")
+        # Original fields are untouched.
+        self.assertEqual(record["nazev_cz"], "Původní název")
+        self.assertEqual(record["anotace_poznamka"], "")
+
+    def test_falls_back_to_fetched_url_when_no_esbirka_reference(self):
+        record = {"znacka": "ISO 14687", "odkaz_hlavni": "https://eur-lex.europa.eu/x"}
+        cache = {"https://eur-lex.europa.eu/x": {
+            "status": "fetched", "title": "T", "description": None, "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["zdroj_autoritativni_url"], "https://eur-lex.europa.eu/x")
+
+    def test_csn_key_used_when_no_url_present(self):
+        record = {"znacka": "ČSN ISO 14687"}
+        cache = {"csn:ČSN ISO 14687": {"status": "fetched", "title": "T", "description": None,
+                                        "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "T")
+
+    def test_failed_status_does_not_attach_anything(self):
+        record = {"znacka": "X", "odkaz_hlavni": "https://a"}
+        cache = {"https://a": {"status": "failed", "title": None, "description": None,
+                                "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertNotIn("nazev_autoritativni", record)
+
+    def test_no_cache_hit_does_not_attach_anything(self):
+        record = {"znacka": "X", "odkaz_hlavni": "https://unrelated"}
+        apply_authoritative_metadata(record, {})
+        self.assertNotIn("nazev_autoritativni", record)
 
 
 if __name__ == "__main__":

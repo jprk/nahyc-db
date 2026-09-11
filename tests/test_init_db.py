@@ -10,6 +10,7 @@ from init_db import (
     resolve_document_versions, classify_lifecycle_state, FALLBACK_DOCUMENT_TYPE,
     is_restricted_document_type, resolve_file_path,
     is_garbled_znacka, is_fragment_title, detect_data_quality_issues,
+    resolve_title, resolve_description,
 )
 
 
@@ -61,6 +62,35 @@ class IsFragmentTitleTestCase(unittest.TestCase):
         self.assertFalse(is_fragment_title(None))
 
 
+class ResolveTitleTestCase(unittest.TestCase):
+    def test_authoritative_title_wins_when_present(self):
+        item = {"nazev_cz": "Original", "nazev_autoritativni": "Authoritative"}
+        self.assertEqual(resolve_title(item), "Authoritative")
+
+    def test_falls_back_to_nazev_cz_then_sk_then_eu(self):
+        self.assertEqual(resolve_title({"nazev_cz": "CZ title"}), "CZ title")
+        self.assertEqual(resolve_title({"nazev_cz": "", "nazev_sk": "SK title"}), "SK title")
+        self.assertEqual(resolve_title({"nazev_cz": "", "nazev_sk": "", "nazev_eu": "EU title"}),
+                          "EU title")
+
+    def test_blank_authoritative_title_does_not_win(self):
+        item = {"nazev_cz": "Original", "nazev_autoritativni": ""}
+        self.assertEqual(resolve_title(item), "Original")
+
+
+class ResolveDescriptionTestCase(unittest.TestCase):
+    def test_authoritative_description_wins_when_present(self):
+        item = {"anotace_poznamka": "Original", "popis_autoritativni": "Authoritative"}
+        self.assertEqual(resolve_description(item), "Authoritative")
+
+    def test_falls_back_to_anotace_poznamka(self):
+        self.assertEqual(resolve_description({"anotace_poznamka": "Original"}), "Original")
+
+    def test_blank_authoritative_description_does_not_win(self):
+        item = {"anotace_poznamka": "Original", "popis_autoritativni": ""}
+        self.assertEqual(resolve_description(item), "Original")
+
+
 class DetectDataQualityIssuesTestCase(unittest.TestCase):
     def test_clean_record_has_no_issues(self):
         item = {"znacka": "ISO 14687", "nazev_cz": "Kvalita vodíkového paliva",
@@ -85,6 +115,19 @@ class DetectDataQualityIssuesTestCase(unittest.TestCase):
         item2 = {"znacka": "ISO 1", "nazev_cz": "", "nazev_sk": "",
                  "nazev_eu": "Real EU Title", "anotace_poznamka": "popis"}
         self.assertEqual(detect_data_quality_issues(item2), [])
+
+    def test_authoritative_title_and_description_fix_an_otherwise_flagged_record(self):
+        # doc/PLAN.md §8, 2026-09-11: a record whose original nazev_cz/
+        # anotace_poznamka would be flagged is NOT flagged once
+        # build_unified_db.py's overlay attached a real authoritative
+        # title/description -- detect_data_quality_issues() checks the
+        # RESOLVED title/description, not the raw spreadsheet fields.
+        item = {"znacka": "CEN/TC 326 Natural Gas Vehicles",
+                "nazev_cz": "- Fuelling and Operation", "anotace_poznamka": "",
+                "nazev_autoritativni": "Real Authoritative Title",
+                "popis_autoritativni": "Real authoritative description."}
+        reasons = detect_data_quality_issues(item)
+        self.assertEqual(reasons, ["značka není platné označení dokumentu"])
 
 
 class IsRestrictedDocumentTypeTestCase(unittest.TestCase):

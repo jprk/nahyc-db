@@ -207,20 +207,53 @@ def is_fragment_title(title):
     return False
 
 
+def resolve_title(item):
+    """doc/PLAN.md §8, 2026-09-11: prefers the verified authoritative
+    title (nazev_autoritativni — attached by build_unified_db.py from
+    data/site_metadata_cache.json, itself built by src/tools/
+    fetch_authoritative_metadata.py querying each document's own
+    "single point of authority" website) over the spreadsheet-derived
+    nazev_cz/nazev_sk/nazev_eu fallback chain. A record with no
+    authoritative hit (the large majority — see that script's own
+    docstring for the honestly-bounded scope) falls back to today's
+    resolution unchanged."""
+    title = (item.get("nazev_autoritativni") or "").strip()
+    if title:
+        return title
+    title = (item.get("nazev_cz") or "").strip()
+    if not title:
+        title = (item.get("nazev_sk") or "").strip()
+        if not title:
+            title = (item.get("nazev_eu") or "").strip()
+    return title
+
+
+def resolve_description(item):
+    """doc/PLAN.md §8: prefers the verified authoritative description
+    (popis_autoritativni) over the spreadsheet-derived anotace_poznamka —
+    same reasoning as resolve_title() above."""
+    description = (item.get("popis_autoritativni") or "").strip()
+    if description:
+        return description
+    return (item.get("anotace_poznamka") or "").strip()
+
+
 def detect_data_quality_issues(item):
     """Returns a list of Czech-language reasons this record should be
     flagged for manual review, or [] if none apply. Checked: a garbled
     znacka (see is_garbled_znacka), a fragment-looking title (see
-    is_fragment_title — checked against nazev_cz, falling back to
-    nazev_sk/nazev_eu the same way title resolution does at import time),
-    and a missing description. Never guesses a fix — only flags."""
+    is_fragment_title — checked against the resolved title, i.e. an
+    authoritative title fixes this even if the underlying nazev_cz is
+    still garbled), and a missing description (same — an authoritative
+    description fixes this too). Never guesses a fix — only flags what's
+    left over after resolve_title()/resolve_description() have already
+    applied whatever authoritative data is available."""
     reasons = []
     if is_garbled_znacka(item.get("znacka")):
         reasons.append("značka není platné označení dokumentu")
-    title = (item.get("nazev_cz") or item.get("nazev_sk") or item.get("nazev_eu") or "")
-    if is_fragment_title(title):
+    if is_fragment_title(resolve_title(item)):
         reasons.append("název vypadá jako useknutý fragment textu")
-    if not (item.get("anotace_poznamka") or "").strip():
+    if not resolve_description(item):
         reasons.append("chybí popis/anotace dokumentu")
     return reasons
 
@@ -354,11 +387,7 @@ def import_json_data(db_conn):
     incomplete_records = []
 
     for item in data:
-        title = item.get("nazev_cz", "").strip()
-        if not title:
-            title = item.get("nazev_sk", "").strip()
-            if not title:
-                title = item.get("nazev_eu", "").strip()
+        title = resolve_title(item)
         if not title:
             continue
 
@@ -380,7 +409,7 @@ def import_json_data(db_conn):
             if not url:
                 url = item.get("odkaz_sk", "").strip()
 
-        description = item.get("anotace_poznamka", "").strip()
+        description = resolve_description(item)
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
         jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
         file_path = resolve_file_path(item, fulltext_manifest)
