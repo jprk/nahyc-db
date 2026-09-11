@@ -13,9 +13,12 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#16 (2026-09-11) found and fixed real
+itself: Step 1 follow-ups #10–#17 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194→1191→1188→1176 records; only 1
+duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189 records;
+of the last step's +13, 12 are genuinely new content (see follow-up #17
+below) and 1 is the usual LLM-merge non-determinism noise documented
+elsewhere in this plan, not a new issue); only 1
 of the original 2 known cross-jurisdiction `identifier` collisions
 remains — the other turned out to be a classification bug, not a genuine
 cross-jurisdiction duplicate). `CSA ANSI GSV 4.1`→`HGV 4.1` (typo),
@@ -1134,6 +1137,51 @@ Original plan (executed as amended above):
     law-amendment relationships beyond the one confirmed example — needs
     human judgement per case, not a pattern to automate (see
     `load_document_relations.py`'s own docstring).
+- **Follow-up #17 (2026-09-11): reviewed the remaining 26
+  `process_layer_review_queue.json` items (13 unique citations, node-
+  level + bibliography) and added the 12 that turned out to be genuine
+  content gaps, not a matching bug.** Cross-checked every citation
+  against the full corpus directly: 12 laws/regulations/norms cited by
+  V02 (nodes U2/U4/U5/U6/U7 and its own bibliography) were simply never
+  in the corpus at all — `114/1992 Sb.` (ochrana přírody a krajiny),
+  `541/2020 Sb.` (odpady), `311/2006 Sb.` (pohonné hmoty — the same law
+  already flagged back in the postponed Step 3b research as the source
+  of the 20 mil. Kč distributor bond), `455/1991 Sb.` (živnostenský
+  zákon), `192/2022 Sb.` (NV o vyhrazených tlakových zařízeních),
+  `246/2001 Sb.` (vyhláška o požární prevenci), `13/1997 Sb.` (pozemní
+  komunikace), `274/2001 Sb.` (vodovody a kanalizace), `268/2009 Sb.`
+  (vyhláška o technických požadavcích na stavby), `(ES) 1907/2006`
+  (REACH), `(ES) 1272/2008` (CLP), `ČSN 73 0804` (požární bezpečnost
+  staveb — výrobní objekty). The 13th, `"EN ISO 17268"`, is a correctly-
+  flagged ambiguity, NOT a gap and NOT touched: the corpus already has
+  `ČSN EN ISO 17268` and `STN EN ISO 17268` (national adoptions), but
+  citation matching deliberately never guesses which jurisdiction's
+  adoption a bare, prefix-less citation means (same philosophy as
+  `core_znacka()`'s ČSN-prefix stripping being scoped to clustering only,
+  never to this exact-match citation lookup).
+  - **New source, `data/v02_bibliography_documents.json`**: a small,
+    hand-curated list of the 12 documents above, in final record shape
+    (titles/identifiers verbatim from the V02 bibliography text; ministry
+    `gestor` assignments are well-established general knowledge for these
+    statutes; `platnost` left blank rather than guessed at the exact
+    effective date, matching this project's established practice).
+    Wired into `build_unified_db.py` as a 5th source
+    (`"V02_Bibliografie"`) — appended as-is, no parsing needed since
+    there's no raw spreadsheet behind it.
+  - **Re-run results**: full pipeline re-run (`build_unified_db.py` →
+    `deduplicate_db.py` → `link_document_versions.py` → `init_db.py` →
+    `load_document_relations.py` → `load_process_layer.py`). All 12 new
+    records survived deduplication untouched (no false merges),
+    `dedup_review_queue.json` empty. `process_layer_review_queue.json`
+    dropped from 26 to exactly 2 (only the `EN ISO 17268` node +
+    bibliography entries remain, as expected). `h2regdocs` reloaded:
+    1212 `Document` rows (+12), `node_document` (LEGAL_BASIS) grew for
+    every citing node (U2 4→6, U4 2→5, U5 8→11, U6 2→4, U7 5→7 — 12 new
+    links total, `311/2006 Sb.` correctly linked from both U4 and U7,
+    spot-checked directly via SQL), 3 new `DocumentType` rows (`Nařízení
+    vlády`, `Vyhláška`, `Nařízení EU`). 230 tests still pass (no new
+    pure function needed — this was a mechanical, structurally-identical
+    5th loading block, same as the existing 4). `app/app.py` re-verified.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

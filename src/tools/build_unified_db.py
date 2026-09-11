@@ -358,7 +358,26 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Sinay Normy data: {e}")
 
-    # 5. Save combined to JSON
+    # 5. V02 Bibliography — a small, hand-curated set of laws/regulations/
+    # norms cited by doc/NAHYC DP004 V02 - Popis procesů.docx (nodes
+    # U2/U4/U5/U6/U7 and its own bibliography) that turned out to be
+    # missing from the corpus entirely (Step 1 follow-up #17) — confirmed
+    # genuinely absent, not a citation-matching bug, by cross-checking
+    # every unmatched load_process_layer.py review-queue entry against
+    # this file before adding it. Already in final record shape (no raw
+    # source spreadsheet exists to parse — verified directly from the V02
+    # bibliography text plus well-established ministry assignments), so
+    # this block just appends it as-is, unlike the four parsed sources
+    # above.
+    file_v02_bibliography = base_dir / "v02_bibliography_documents.json"
+    try:
+        data_v02_bibliography = load_json(file_v02_bibliography)
+        unified_db.extend(data_v02_bibliography)
+        print(f"Loaded {len(data_v02_bibliography)} records from V02 Bibliography.")
+    except Exception as e:
+        print(f"Error loading V02 Bibliography data: {e}")
+
+    # 6. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(unified_db, f, ensure_ascii=False, indent=4)
 
