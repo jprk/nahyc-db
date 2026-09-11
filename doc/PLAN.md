@@ -15,7 +15,7 @@ exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
 itself: Step 1 follow-ups #10–#18 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189→1191
+duplicate-title audit (1344→1200→1196→1194→1191→1188→1176→1189→1191→1186
 records; of the #17 step's +13, 12 are genuinely new content — see
 follow-up #17 — and 1 is the usual LLM-merge non-determinism noise
 documented elsewhere in this plan, not a new issue); only 1
@@ -44,11 +44,12 @@ resolved the two real duplicates found in the deferred "draft-stage"
 bucket (`ISO 11954`/`ISO/TR 11954`, `IEC 62933-5-1`/`IEC/TS 62933-5-1` —
 the latter's title traced to a copy/fill-down error in the raw XLSX),
 confirmed the other 18 pairs are correctly separate (published + an
-in-development revision), and confirmed `STN EN 60079-11/-17` as real
-version pairs needing a small `link_document_versions.py` extension
-(not yet implemented); `TNI`/`STN CLC/TR 60079-32-1` marked withdrawn
+in-development revision); `TNI`/`STN CLC/TR 60079-32-1` marked withdrawn
 per the user's own research (real current document is Czech, `ČSN
-CLC/TR 60079-32-1`). A dedicated
+CLC/TR 60079-32-1`); and extended `link_document_versions.py` with an
+EN-IEC-renumbering fold so `STN EN 60079-11/-14/-17` (a third pair,
+`-14`, found once the mechanism was generalized) now version-link
+correctly too, on top of the 17 amendment pairs (20 total). A dedicated
 review/cross-check working mode for the database interface is a flagged
 future need, not designed yet. The agentic
 architecture in §3 remains a
@@ -1253,12 +1254,25 @@ Original plan (executed as amended above):
       version pairs** (byte-identical annotations in both pairs; IEC's
       real 2016+ renumbering of the whole 60079 series, `EN 60079-N` →
       `EN IEC 60079-N`, plus a genuine edition update years apart) —
-      **not yet linked**: `link_document_versions.py` only groups on an
-      amendment-marker-stripped core (`+A1`/`/A1`/`/AC`); this is a full
-      renumbering with no such marker, so it needs a small, explicit
-      extension (an alias fold, same style as the `EIGA`/`IGC Doc`
-      prefix fold) before these can be version-linked. Not implemented
-      this pass — flagged for a follow-up.
+      **now version-linked (2026-09-11, per the user's follow-up
+      request)**: `link_document_versions.py` extended with an optional
+      `fold_en_iec_renumbering` mode on `version_group_key()` (folds
+      `"EN IEC"` → `"EN"` for grouping only, mirroring the narrow
+      `EIGA`/`IGC Doc` alias-fold style — never a blanket "drop every
+      IEC"). A group is now accepted when it has either a real amendment
+      marker (as before) OR a genuine EN/EN-IEC split among its members
+      (`_has_en_iec_renumbering()`) — this split IS the structural
+      evidence, playing the same role the amendment marker plays for the
+      other shape, so no coincidental-core false positive risk. Ordering
+      (no `platnost`/date reliance, same reasoning as `amendment_level()`)
+      via new `version_sort_key()` = `(amendment_level, has_en_iec)` —
+      an EN-IEC-renumbered designation is structurally never older than
+      a plain "EN ..." sibling of the same part number. Re-running the
+      grouping over the corpus found a **third** real pair by the same
+      shape, not previously spotted: `STN EN 60079-14` (2016) → `STN EN
+      IEC 60079-14` (2025) (near-identical annotation, same part number)
+      — confirms the mechanism generalizes correctly, not just to the
+      two originally-flagged cases. 12 new tests (240 total).
     - **`TNI CLC/TR 60079-32-1`/`STN CLC/TR 60079-32-1`: marked
       withdrawn (user's decision, 2026-09-11), kept as two separate
       records (not merged, not deleted, not renamed to the Czech
@@ -1275,10 +1289,23 @@ Original plan (executed as amended above):
       #15 fix. One-time manual data correction, same PDF/XLSX-sourced-
       record limitation as before (patched in
       `sinay_normy_processed.json`).
-  - **Re-run results**: full pipeline re-run. Deduplicated 1188→1191
-    (net, after the usual small LLM-merge non-determinism noise on the
-    recurring `ISO 14687` cluster — unrelated to this pass's fixes,
-    confirmed via diff). 230 tests still pass. `app/app.py` re-verified.
+  - **Re-run results (data/title fixes + withdrawal notes)**: full
+    pipeline re-run. Deduplicated 1188→1191 (net, after the usual small
+    LLM-merge non-determinism noise on the recurring `ISO 14687` cluster
+    — unrelated to this pass's fixes, confirmed via diff). 230 tests
+    still pass. `app/app.py` re-verified.
+  - **Re-run results (EN-IEC version-linking extension)**: full pipeline
+    re-run (`deduplicate_db.py` → `link_document_versions.py` →
+    `init_db.py`). 20 version groups now (was 17) — the 3 EN-IEC pairs
+    on top of the same 17 amendment pairs. Deduplicated 1191→1186 (3
+    fewer top-level records, one per newly-linked pair, each collapsing
+    2 flat records into 1). `h2regdocs` reloaded: 1209 `Document` rows
+    (1186 + 23 bibliography),
+    1229 `DocumentVersion` rows (1209 + 20 real second editions),
+    spot-checked via SQL that `STN EN 60079-11`'s `DocumentVersion`
+    rows are correctly version 1 (2012, not current) and version 2
+    (`STN EN IEC 60079-11/ - 2025.03`, current). 240 tests total, all
+    passing. `app/app.py` re-verified.
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

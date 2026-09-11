@@ -5,7 +5,8 @@ import unittest
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / "tools"))
 
 from link_document_versions import (
-    version_group_key, amendment_level, build_version_groups,
+    version_group_key, amendment_level, version_sort_key,
+    _has_en_iec_renumbering, build_version_groups,
     merge_version_group, link_document_versions,
 )
 
@@ -45,6 +46,22 @@ class VersionGroupKeyTestCase(unittest.TestCase):
         self.assertNotEqual(version_group_key("STN EN 1106+A1/ - 2024.06"),
                              version_group_key("STN EN 12583+A1/ - 2025.02"))
 
+    def test_en_iec_renumbering_not_folded_by_default(self):
+        # Without the flag, "EN 60079-11" and "EN IEC 60079-11" are
+        # different cores -- the fold is opt-in.
+        self.assertNotEqual(version_group_key("STN EN 60079-11/ - 2012.11"),
+                             version_group_key("STN EN IEC 60079-11/ - 2025.03"))
+
+    def test_en_iec_renumbering_folded_when_requested(self):
+        self.assertEqual(
+            version_group_key("STN EN 60079-11/ - 2012.11", fold_en_iec_renumbering=True),
+            version_group_key("STN EN IEC 60079-11/ - 2025.03", fold_en_iec_renumbering=True))
+
+    def test_en_iec_fold_does_not_collide_different_part_numbers(self):
+        self.assertNotEqual(
+            version_group_key("STN EN 60079-11/ - 2012.11", fold_en_iec_renumbering=True),
+            version_group_key("STN EN IEC 60079-17/ - 2024.04", fold_en_iec_renumbering=True))
+
 
 class AmendmentLevelTestCase(unittest.TestCase):
     def test_unmarked_base_is_zero(self):
@@ -56,6 +73,27 @@ class AmendmentLevelTestCase(unittest.TestCase):
 
     def test_corrigendum_with_no_number_is_one(self):
         self.assertEqual(amendment_level("STN EN 14638-3/AC – 2010.12"), 1)
+
+
+class HasEnIecRenumberingTestCase(unittest.TestCase):
+    def test_detects_en_iec(self):
+        self.assertTrue(_has_en_iec_renumbering("STN EN IEC 60079-11/ - 2025.03"))
+
+    def test_plain_en_is_false(self):
+        self.assertFalse(_has_en_iec_renumbering("STN EN 60079-11/ - 2012.11"))
+
+
+class VersionSortKeyTestCase(unittest.TestCase):
+    def test_en_iec_renumbered_sorts_after_plain_en(self):
+        self.assertLess(version_sort_key("STN EN 60079-11/ - 2012.11"),
+                         version_sort_key("STN EN IEC 60079-11/ - 2025.03"))
+
+    def test_amendment_still_outranks_en_iec_renumbering(self):
+        # An amendment marker is a stronger "later" signal than the bare
+        # EN-IEC renumbering flag (unlikely combination, but the ordering
+        # must still be well-defined).
+        self.assertLess(version_sort_key("STN EN IEC 60079-11/ - 2025.03"),
+                         version_sort_key("STN EN IEC 60079-11+A1/ - 2026.01"))
 
 
 class BuildVersionGroupsTestCase(unittest.TestCase):
@@ -89,6 +127,27 @@ class BuildVersionGroupsTestCase(unittest.TestCase):
         self.assertEqual(len(groups), 1)
         self.assertEqual(len(groups[0]), 2)
 
+    def test_finds_a_real_en_iec_renumbering_pair(self):
+        # Step 1 follow-up #18: STN EN 60079-11 (2012) -> STN EN IEC
+        # 60079-11 (2025), no amendment marker at all -- must still group,
+        # on the strength of the genuine EN/EN-IEC split.
+        records = [
+            _rec("STN EN 60079-11/ - 2012.11"),
+            _rec("STN EN IEC 60079-11/ - 2025.03"),
+            _rec("STN EN 9999", jurisdikce="DE"),
+        ]
+        groups = build_version_groups(records)
+        self.assertEqual(len(groups), 1)
+        self.assertEqual(len(groups[0]), 2)
+
+    def test_two_en_iec_records_alone_are_not_grouped(self):
+        # Both members already renumbered ("EN IEC ...") -- no EN/EN-IEC
+        # split and no amendment marker, so no structural evidence this
+        # is a real version pair (would just be a plain duplicate,
+        # deduplicate_db.py's job).
+        records = [_rec("STN EN IEC 1"), _rec("STN EN IEC 1")]
+        self.assertEqual(build_version_groups(records), [])
+
 
 class MergeVersionGroupTestCase(unittest.TestCase):
     def test_current_version_fields_win_and_versions_list_is_ordered(self):
@@ -111,6 +170,16 @@ class MergeVersionGroupTestCase(unittest.TestCase):
         amendment = _rec("STN EN 1+A1/ - 2024.02", zdroj_dat="Prokop_Normy")
         merged = merge_version_group([base, amendment])
         self.assertEqual(merged["zdroj_dat"], "Prokop_Normy, Sinay_Normy")
+
+    def test_en_iec_renumbered_edition_wins_as_current(self):
+        base = _rec("STN EN 60079-11/ - 2012.11", nazev_cz="Výbušné atmosféry")
+        renumbered = _rec("STN EN IEC 60079-11/ - 2025.03", nazev_cz="Výbušné atmosféry")
+        merged = merge_version_group([base, renumbered])
+        self.assertEqual(merged["znacka"], "STN EN IEC 60079-11/ - 2025.03")
+        versions = merged["versions"]
+        self.assertEqual(versions[0]["znacka"], "STN EN 60079-11/ - 2012.11")
+        self.assertFalse(versions[0]["is_current"])
+        self.assertTrue(versions[1]["is_current"])
 
 
 class LinkDocumentVersionsTestCase(unittest.TestCase):
