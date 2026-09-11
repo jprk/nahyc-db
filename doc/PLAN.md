@@ -46,8 +46,9 @@ the latter's title traced to a copy/fill-down error in the raw XLSX),
 confirmed the other 18 pairs are correctly separate (published + an
 in-development revision), and confirmed `STN EN 60079-11/-17` as real
 version pairs needing a small `link_document_versions.py` extension
-(not yet implemented); `TNI`/`STN CLC/TR 60079-32-1` remains open,
-awaiting the user's decision. A dedicated
+(not yet implemented); `TNI`/`STN CLC/TR 60079-32-1` marked withdrawn
+per the user's own research (real current document is Czech, `ČSN
+CLC/TR 60079-32-1`). A dedicated
 review/cross-check working mode for the database interface is a flagged
 future need, not designed yet. The agentic
 architecture in §3 remains a
@@ -1258,21 +1259,22 @@ Original plan (executed as amended above):
       extension (an alias fold, same style as the `EIGA`/`IGC Doc`
       prefix fold) before these can be version-linked. Not implemented
       this pass — flagged for a follow-up.
-    - **`TNI CLC/TR 60079-32-1`/`STN CLC/TR 60079-32-1`: still open,
-      needs the user's decision.** Per the user's research (2026-09-11):
-      the real, current document is Czech — `ČSN CLC/TR 60079-32-1
-      (332320)` (confirmed valid at
+    - **`TNI CLC/TR 60079-32-1`/`STN CLC/TR 60079-32-1`: marked
+      withdrawn (user's decision, 2026-09-11), kept as two separate
+      records (not merged, not deleted, not renamed to the Czech
+      equivalent — no ČSN record was added here, just the withdrawal
+      note).** Per the user's research: the real, current document for
+      this content is Czech — `ČSN CLC/TR 60079-32-1 (332320)`
+      (confirmed valid at
       technicke-normy-csn.cz/csn-clc-tr-60079-32-1-332320-180776.html,
       an older/invalid catalog entry at the `-180775` variant of the
-      same URL) — while the Slovak `TNI CLC/TR 60079-32-1` "does not
-      seem to be valid anymore" and `STN CLC/TR 60079-32-1` (the bare
-      record currently in this corpus, all fields empty except title)
-      "does not seem to exist" at all. Not corrected yet — awaiting the
-      user's explicit call on how to treat these two Slovak-tagged
-      records (mark withdrawn like `ISO 7105`? remove the unverifiable
-      one? something else?), since deleting or reclassifying a record
-      based on "does not seem to" rather than a confirmed source is a
-      bigger step than the other corrections in this follow-up.
+      same URL) — while neither the Slovak `TNI` nor `STN` designation
+      appears to still be valid. Both records' `kategorie_trida`/
+      `platnost` now say so explicitly and point to the real ČSN
+      designation, same withdrawal-note style as `ISO 7105`'s follow-up
+      #15 fix. One-time manual data correction, same PDF/XLSX-sourced-
+      record limitation as before (patched in
+      `sinay_normy_processed.json`).
   - **Re-run results**: full pipeline re-run. Deduplicated 1188→1191
     (net, after the usual small LLM-merge non-determinism noise on the
     recurring `ISO 14687` cluster — unrelated to this pass's fixes,
