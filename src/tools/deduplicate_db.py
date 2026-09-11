@@ -95,6 +95,23 @@ def _fold_known_series_separators(znacka):
     return znacka
 
 
+# EIGA (European Industrial Gases Association) publishes the same code
+# under its current "EIGA"/"EIGA Doc" prefix and its historical "IGC Doc"
+# prefix (IGC = International Gases Committee, EIGA's former name) — e.g.
+# "EIGA 121/14" and "IGC Doc 121/14" are the SAME 2014 edition, just cited
+# under the old vs. new org name. Stripping only the org-name prefix (not
+# the doc number/edition suffix) is deliberately narrow: two editions of
+# the same code that differ in their edition suffix (e.g. "EIGA Doc
+# 6/19/E" vs. "IGC Doc 6/02/E" — 2019 vs. 2002, a real, different edition,
+# not just a renamed org) still compare unequal after this fold, since only
+# the prefix is touched — see doc/PLAN.md Step 1 follow-up #14.
+_EIGA_IGC_PREFIX_RE = re.compile(r"^(?:EIGA\s+Doc\s+|EIGA\s+|IGC\s+Doc\s+)", re.IGNORECASE)
+
+
+def _fold_eiga_igc_prefix(znacka):
+    return _EIGA_IGC_PREFIX_RE.sub("", znacka)
+
+
 def normalize_znacka(znacka):
     """Normalizes a znacka (reference number) for exact-match comparison.
     Also folds en-dash/em-dash/minus-sign variants to a plain hyphen — the
@@ -107,10 +124,12 @@ def normalize_znacka(znacka):
     the SAE-style colon-year-dash-month form, e.g. "SAE J2601: 2020-05"
     (`_COLON_YEAR_MONTH_SUFFIX_RE`) — and folds a couple of known
     document-series "/" vs. " " spelling inconsistencies (see
-    `_KNOWN_SERIES_SEPARATOR_RES`) for the same reason."""
+    `_KNOWN_SERIES_SEPARATOR_RES`) and the EIGA/IGC Doc organization-name
+    alias (see `_EIGA_IGC_PREFIX_RE`) for the same reason."""
     if not znacka:
         return ""
     znacka = _fold_known_series_separators(str(znacka))
+    znacka = _fold_eiga_igc_prefix(znacka)
     znacka = _DASH_VARIANTS_RE.sub("-", znacka)
     znacka = " ".join(znacka.split()).strip()
     znacka = _EDITION_DATE_SUFFIX_RE.sub("", znacka)

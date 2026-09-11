@@ -73,19 +73,35 @@ _JURISDICTION_MARKERS = [
 
 _BARE_EN_DESIGNATION_RE = re.compile(r"^(?:pr|F\s*pr)?EN\s+\d", re.IGNORECASE)
 
+# A designation that IS the bare international ISO/IEC number itself — no
+# national prefix at all (e.g. "ISO 14313", "ISO/DIS 19880-2", "IEC/TS
+# 62933-5-1") — is, by definition, the international standard, never a
+# national adoption, regardless of anything else nearby (the source row's
+# own "STN column" being populated, or a free-text note that happens to
+# mention "STN" in prose). Checked FIRST, before any other marker — see
+# doc/PLAN.md Step 1 follow-up #14 (the `ISO 7105`/`ISO 14313` cases: one
+# had a note literally reading "...bola do sústavy STN prijatá...", which
+# would otherwise trip the STN marker even though the document's own
+# designation carries no STN prefix at all).
+_BARE_ISO_IEC_DESIGNATION_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
+
 
 def classify_jurisdikce(znacka, kategorie=""):
     """Best-effort jurisdiction from the designation/issuing-body text.
-    Checked in order — national-adoption markers (STN, then the German
-    ones) FIRST, before the international/European ISO/IEC/CEN/EIGA
-    markers, so a national adoption's own catalog entry citing the
-    international committee that originated the standard doesn't
-    override its real (national) jurisdiction — see
-    `_JURISDICTION_MARKERS`. Returns "neurčeno" rather than guess when
-    nothing matches — same fail-safe philosophy as
+    A bare international ISO/IEC designation (no national prefix) is
+    always "mezinárodní", checked before anything else — see
+    `_BARE_ISO_IEC_DESIGNATION_RE`. Otherwise checked in order —
+    national-adoption markers (STN, then the German ones) FIRST, before
+    the international/European ISO/IEC/CEN/EIGA markers, so a national
+    adoption's own catalog entry citing the international committee that
+    originated the standard doesn't override its real (national)
+    jurisdiction — see `_JURISDICTION_MARKERS`. Returns "neurčeno" rather
+    than guess when nothing matches — same fail-safe philosophy as
     extract_znacka_from_title() in build_unified_db.py.
     """
     znacka = znacka.strip()
+    if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka):
+        return "mezinárodní"
     haystack = f"{znacka} {kategorie}"
     for pattern, jurisdikce in _JURISDICTION_MARKERS:
         if re.search(pattern, haystack, re.IGNORECASE):
@@ -376,8 +392,16 @@ def parse_xlsx(path=XLSX_PATH):
         klicova_slova = ", ".join(keywords) if keywords else "-"
 
         # If the STN column (3) is populated, that's direct evidence of a
-        # Slovak adoption — more reliable than the general heuristic.
-        jurisdikce = "SK" if stn_designation else classify_jurisdikce(znacka, kategorie)
+        # Slovak adoption — more reliable than the general heuristic. EXCEPT
+        # when the STN column itself just holds the bare international
+        # designation (no distinguishing national number was ever assigned,
+        # e.g. "ISO 14313") — that's still the international standard, not
+        # a real national adoption, so let classify_jurisdikce()'s own
+        # bare-ISO/IEC check apply instead of blindly trusting the column.
+        if stn_designation and not _BARE_ISO_IEC_DESIGNATION_RE.match(stn_designation):
+            jurisdikce = "SK"
+        else:
+            jurisdikce = classify_jurisdikce(znacka, kategorie)
 
         records.append({
             "Sekce": "",

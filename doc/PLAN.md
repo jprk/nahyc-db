@@ -13,17 +13,23 @@ fetched 2026-09-11 (140/144 downloadable law records, 105 MB). Step 3b
 (layer D — compliance pathway) was designed 2026-09-10 (full findings +
 exact input shape recorded below) then **postponed at the user's explicit
 direction** — current priority is the regulatory-document database
-itself: Step 1 follow-ups #10–#13 (2026-09-11) found and fixed seven real
+itself: Step 1 follow-ups #10–#15 (2026-09-11) found and fixed real
 missed-duplicate/parsing/classification bugs via a systematic
-duplicate-title audit (1344→1200→1196→1194 records; only 1 of the
-original 2 known cross-jurisdiction `identifier` collisions remains —
+duplicate-title audit (1344→1200→1196→1194→1191→1188 records; only 1 of
+the original 2 known cross-jurisdiction `identifier` collisions remains —
 the other turned out to be a classification bug, not a genuine
-cross-jurisdiction duplicate). Two items flagged for the user's own
-manual resolution rather than guessed (`CSA ANSI GSV 4.1`, `SAE J2601
-/1`); follow-up #14 confirmed `TRBS 3151`/`TRGS 751` as one document
-published under two official designations (a German *Verbundregel*) —
-a genuine schema gap (no place for a second identifier), not resolved
-yet. A dedicated review/cross-check working mode for the database
+cross-jurisdiction duplicate). `CSA ANSI GSV 4.1`→`HGV 4.1` (typo),
+`ISO 7105`→`STN 65 1312-2` (withdrawn) and `EIGA 121/14`/`IGC Doc 121/14`
+(org-rename alias) resolved, each a one-time data correction and/or
+narrow normalization fix; `SAE J2601 /1` remains flagged, not acted on.
+Follow-up #14 confirmed `TRBS 3151`/`TRGS 751` as one document published
+under two official designations (a German *Verbundregel*) — a genuine
+schema gap (no place for a second identifier), not resolved yet.
+Follow-up #15 generalized a jurisdikce bug found via the `ISO 7105`/`ISO
+14313` cases: a bare international ISO/IEC designation was being marked
+CZ/SK in three places, purely because of its source column/file — now
+fixed, with a beneficial ripple effect on several other cross-source
+merges. A dedicated review/cross-check working mode for the database
 interface is a flagged future need, not designed yet. The agentic
 architecture in §3 remains a
 proposal.
@@ -886,6 +892,89 @@ Original plan (executed as amended above):
   specifically for surfacing and resolving these ambiguous near-duplicate
   cases, rather than working through `doc/PLAN.md` prose each time. Not
   designed yet — a candidate for its own `/plan` session later.
+
+- **Follow-up #15 (2026-09-11): acted on the two remaining "other"
+  duplicate-title findings and fixed the systemic root cause behind
+  both — a bare international ISO/IEC designation was being marked with
+  a national jurisdikce (CZ/SK) in three separate places, purely because
+  of which source column/file it came from, not because of anything in
+  the designation itself.**
+  - **`ISO 7105` (SK) — marked withdrawn, restored to its real
+    designation, per the user's decision.** Its own source note (already
+    quoted in follow-up #12's write-up) says the actual Slovak adoption
+    was `STN 65 1312-2/ – 1990.09`, cancelled 2006-11-01 without
+    replacement — the record had been carrying the bare international
+    number (`"ISO 7105/ - 1985.06"`) instead. One-time manual data
+    correction (same PDF-sourced-record limitation as follow-up #14's
+    `CSA GSV` fix — patched directly in the generated
+    `sinay_normy_processed.json`, needs reapplying if the PDF is ever
+    re-parsed from scratch): `znacka` → `"STN 65 1312-2/ – 1990.09"`,
+    `Kategorie` → `"STN (zrušená bez náhrady)"`, `Platnost` →
+    `"zrušená 01.11.2006 bez náhrady (pôvodne prijatá 09/1990 na základe
+    ISO 7105:1985)"`, the historical note moved into `Anotace`. Now
+    correctly jurisdikce `SK` (via its own real `STN` prefix, not the
+    bare-ISO override below) and no longer collides with the live
+    international `ISO 7105` record.
+  - **`EIGA 121/14` merged with `IGC Doc 121/14`.** EIGA's former name
+    was IGC (International Gases Committee) — this is the *same* 2014
+    edition under the old vs. new org name. Added a narrow prefix fold,
+    `_EIGA_IGC_PREFIX_RE` (`deduplicate_db.py`, mirrored in
+    `analyze_similarities.py`'s `core_znacka()`), stripping only the
+    `"EIGA Doc "`/`"EIGA "`/`"IGC Doc "` prefix — deliberately not the
+    edition/number suffix, so `"EIGA Doc 6/19/E"` (2019) vs. `"IGC Doc
+    6/02/E"` (2002), a genuinely different edition of the same code, not
+    just a renamed org, correctly stays unmerged (regression test
+    included). A third citation style found while checking this,
+    `"EIGA IGC Doc 121/14 (2014)"`, wasn't folded by this narrow rule
+    (different token order) and remains a separate record — noted, not
+    chased further this pass, out of the scope actually asked for.
+  - **Root cause, generalized: "pure ISO is not marked
+    Czech/Slovak/German", per the user's explicit instruction.** Tracing
+    why `ISO 7105` and `ISO 14313` (also flagged in follow-up #12) ended
+    up `SK` at all found the same shape of bug in **three** places, all
+    now fixed:
+    1. `classify_jurisdikce()` (`parse_sinay_norms.py`) could be tripped
+       by an unrelated `STN` substring inside free-text `Kategorie`/note
+       prose (the `ISO 7105` case: its note literally reads "...bola do
+       sústavy STN prijatá..."). Added `_BARE_ISO_IEC_DESIGNATION_RE`
+       (`^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d`), checked FIRST, before any
+       marker — a bare ISO/IEC designation is the international standard
+       by definition, regardless of surrounding text.
+    2. `parse_xlsx()`'s STN-column override (`"SK" if stn_designation
+       else classify_jurisdikce(...)"`) blindly trusted the column being
+       populated — but the `ISO 14313` case shows the column itself can
+       just hold the bare international number, with no distinguishing
+       national number ever assigned. Now skips the override (falls
+       through to `classify_jurisdikce()`, which returns `mezinárodní`)
+       when the STN-column value itself is a bare ISO/IEC designation.
+    3. `build_unified_db.py`'s Prokop branch hardcoded `jurisdikce: "CZ"`
+       for every record on the (until now correct-looking) assumption
+       that Prokop is exclusively a ČSN catalog — but 5 real records
+       (`ISO 22734:2019`, `ISO 11114-2`, `ISO 11114-4`, `ISO 6892-3`,
+       `ISO 19880-9`) are bare international citations, not ČSN
+       adoptions. New `resolve_prokop_jurisdikce()` applies the same
+       bare-ISO/IEC check (duplicated regex, matching this codebase's
+       existing convention of independent per-file copies rather than
+       cross-importing between these scripts).
+  - **Beneficial ripple effect, not separately chased**: removing the
+    false `CZ`/`SK` jurisdikce also un-blocked several previously-stuck
+    cross-source merges that the jurisdikce veto had been (correctly, at
+    the time) keeping apart only because of the bug — `ISO 22734:2019`
+    (Prokop) with `ISO 22734` (Sinay), `ISO 19880-1`, `ISO 19880-9`,
+    `ISO 11114-1`, and a reshuffle of the `ISO 14687` cluster so records
+    that are genuinely just the international standard (previously
+    swept into the `ČSN ISO 14687` cluster only because Prokop's copy
+    was mislabeled `CZ`) now correctly land in the international
+    record, leaving a cleaner, smaller `ČSN EN ISO 14687` cluster for
+    the real ČSN adoption. `dedup_review_queue.json` empty (no new
+    ambiguous clusters).
+  - **Re-run results**: full pipeline re-run
+    (`parse_sinay_norms.py` → `build_unified_db.py` → `deduplicate_db.py`
+    → `init_db.py` → `load_process_layer.py`). Deduplicated **1191→1188
+    records**. 7 new regression tests (198 total). `h2regdocs` reloaded
+    (1211 `Document` rows, same +23 bibliography offset as before),
+    `app/app.py` re-verified (single merged `EIGA 121/14` record, `ISO
+    7105` search surfaces the corrected `STN 65 1312-2` record).
 
 ### Full-text fetch completed to the whole corpus (2026-09-11)
 

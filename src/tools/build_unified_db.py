@@ -9,6 +9,31 @@ def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+
+# A designation that IS the bare international ISO/IEC number itself — no
+# ČSN prefix at all (e.g. "ISO 22734:2019", "ISO 11114-4") — is the
+# international standard, not a ČSN adoption, even though it came in via
+# the Prokop source (a curated hydrogen-standards reading list, not
+# exclusively a ČSN catalog — some entries just cite the international
+# standard directly, not yet/never separately ČSN-numbered). Mirrors
+# parse_sinay_norms.py's own `_BARE_ISO_IEC_DESIGNATION_RE` (duplicated,
+# not imported — this module has no other dependency on that one and the
+# two already duplicate other jurisdikce-adjacent logic independently).
+_BARE_ISO_IEC_DESIGNATION_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
+
+
+def resolve_prokop_jurisdikce(znacka):
+    """Prokop is a curated ČSN-adjacent hydrogen-standards list — almost
+    all entries are real ČSN adoptions, unambiguously CZ-valid, but a bare
+    international ISO/IEC designation (see `_BARE_ISO_IEC_DESIGNATION_RE`)
+    is the international standard itself, not a ČSN adoption, and must
+    never be marked CZ just because of which source file it came from
+    (see doc/PLAN.md Step 1 follow-up #14)."""
+    if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka.strip()):
+        return "mezinárodní"
+    return "CZ"
+
+
 def extract_znacka_from_title(title):
     """Haltuf and Sinay never fill in 'znacka' — the reference number (EU
     act number, EN/ISO/ČSN standard code, Czech "Sb." or Slovak "Z. z." law
@@ -135,10 +160,11 @@ def build_unified_db():
             else:
                 klicova_slova = []
 
+            znacka = item.get("Značka", "").strip()
             record = {
                 "zdroj_dat": "Prokop_Normy",
                 "nazev_cz": item.get("Název", "").strip(),
-                "znacka": item.get("Značka", "").strip(),
+                "znacka": znacka,
                 "typ_dokumentu": "Norma",
                 "sekce": item.get("Sekce", "").strip(),
                 "kategorie_trida": item.get("Kategorie", "").strip(),
@@ -153,10 +179,12 @@ def build_unified_db():
                 "gestor": [],
                 "jazyk": "",
                 "anotace_poznamka": item.get("Anotace", "").strip(),
-                # Prokop = ČSN norms — unambiguously CZ-valid. See
-                # jurisdikce note on the Sinay_Normy branch below for why
-                # this field exists at all.
-                "jurisdikce": "CZ",
+                # Prokop = mostly real ČSN norms, unambiguously CZ-valid —
+                # except a bare international ISO/IEC designation, never a
+                # ČSN adoption regardless of source file. See
+                # resolve_prokop_jurisdikce() and the jurisdikce note on
+                # the Sinay_Normy branch below for why this field exists.
+                "jurisdikce": resolve_prokop_jurisdikce(znacka),
             }
             if not record["anotace_poznamka"]:
                 prev = previous_annotations.get((record["zdroj_dat"], record["nazev_cz"]))

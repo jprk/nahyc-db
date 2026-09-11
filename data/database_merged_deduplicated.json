@@ -42,12 +42,12 @@
         "jurisdikce": "CZ"
     },
     {
-        "zdroj_dat": "Haltuf_Dokumenty, Sinay_Normy",
-        "nazev_cz": "ISO 14687",
+        "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty, Sinay_Normy",
+        "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
         "znacka": "ISO 14687",
         "typ_dokumentu": "Norma",
-        "sekce": "A - výroba, B-Distribuce, C-Skladování, D-Využití obecné, List3_tabulka_r1, Využití - ŽD",
-        "kategorie_trida": "Standardy a normy, Norm (ISO/TC 197/WG 27)",
+        "sekce": "Palivové články, Materiály pro vodíkové technologie",
+        "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost, Norm (ISO/TC 197/WG 27)",
         "klicova_slova": [
             "Elektrolyse",
             "Wasserstoffbeschaffenheit",
@@ -65,12 +65,11 @@
         "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
         "odkaz_eu": "",
         "odkaz_sk": "",
-        "platnost": "",
-        "ratifikovan": "",
+        "platnost": "od 10/2020, od 11/2019, od 02/2025",
         "gestor": [],
-        "jazyk": "angličtina",
-        "anotace_poznamka": "ISO 14687 is an international standard for hydrogen fuel quality.",
-        "jurisdikce": "mezinárodní"
+        "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích. ISO 14687 is an international standard for hydrogen fuel quality.",
+        "jurisdikce": "CZ, mezinárodní",
+        "jazyk": "angličtina"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -193,13 +192,23 @@
         "jurisdikce": "CZ"
     },
     {
-        "zdroj_dat": "Prokop_Normy",
+        "zdroj_dat": "Prokop_Normy, Sinay_Normy",
         "nazev_cz": "ISO 22734:2019 Hydrogen generators using water electrolysis — Industrial, commercial, and residential applications",
         "znacka": "ISO 22734:2019",
         "typ_dokumentu": "Norma",
         "sekce": "Elektrolyzéry",
         "kategorie_trida": "-",
-        "klicova_slova": [],
+        "klicova_slova": [
+            "Elektrolyse",
+            "Wasserstoffbeschaffenheit",
+            "PtX",
+            "Schienenfahrzeuge",
+            "Sonderfahrzeuge/Spezialfahrzeuge",
+            "Sicherheitstechnische Grundsätze",
+            "Explosionsschutz",
+            "Sicherheits- und Integritätsmanagement",
+            "Produktzertifizierung"
+        ],
         "odkaz_hlavni": "https://www.iso.org/standard/69212.html",
         "nazev_eu": "",
         "odkaz_eu": "",
@@ -210,7 +219,7 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "This document defines the construction, safety, and performance requirements of modular or factory-matched hydrogen gas generation appliances, herein referred to as hydrogen generators, using electrochemical reactions to electrolyse water to produce hydrogen.\nThis document is applicable to hydrogen generators that use the following types of ion transport medium:\n— group of aqueous bases;\n— group of aqueous acids;\n— solid polymeric materials with acidic function group additions, such as acid proton exchange membrane (PEM);\n— solid polymeric materials with basic function group additions, such as anion exchange membrane (AEM).\nThis document is applicable to hydrogen generators intended for industrial and commercial uses, and indoor and outdoor residential use in sheltered areas, such as car-ports, garages, utility rooms and similar areas of a residence.\nHydrogen generators that can also be used to generate electricity, such as reversible fuel cells, are excluded from the scope of this document.\nResidential hydrogen generators that also supply oxygen as a product are excluded from the scope of this document.",
-        "jurisdikce": "CZ"
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -310,7 +319,7 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "ISO 11114-4: 2017 specifies test methods and the evaluation of results from these tests in order to qualify steels suitable for use in the manufacture of gas cylinders (up to 3 000 l) for hydrogen and hydrogen bearing embrittling gases.\nThis document only applies to seamless steel gas cylinders.\nThe requirements of this document are not applicable if at least one of the following conditions for the intended gas service is fulfilled:\n\\- the working pressure of the filled embrittling gas is less than 20 % of the test pressure of the cylinder;\n\\- the partial pressure of the filled embrittling gas of a gas mixture is less than 5 MPa (50 bar) in the case of hydrogen and other embrittling gases, with the exception of hydrogen sulphide and methyl mercaptan; in such cases, the partial pressure shall not exceed 0,25 MPa (2,5 bar).\nNOTE In such cases, it is possible to design the cylinder as for ordinary (non-embrittling) gases.",
-        "jurisdikce": "CZ"
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -330,7 +339,7 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "This document gives guidance on the selection and evaluation of compatibility between non-metallic materials for gas cylinders and valves and the gas contents. It is also applicable to tubes, pressure drums and bundles of cylinders.\nThis document covers composite and laminated materials used for gas cylinders. It does not include ceramics, glasses and adhesives.\nThis document considers the influence of the gas in changing the material and mechanical properties (e.g. chemical reaction or change in physical state). The basic properties of the materials, such as mechanical properties required for design purposes (normally available from the materials supplier), are not considered. Other aspects, such as quality of delivered gas, are not considered.\nThe compatibility data given are related to single component gases but can be applicable to gas mixtures.\nThis document does not apply to cryogenic fluids (this is covered in ISO 21010).",
-        "jurisdikce": "CZ"
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
@@ -416,6 +425,26 @@
     },
     {
         "zdroj_dat": "Prokop_Normy",
+        "nazev_cz": "ČSN EN ISO 11114-1 (078609) Lahve na plyny - Kompatibilita materiálů lahve a ventilu s plynným obsahem - Část 1: Kovové materiály",
+        "znacka": "ČSN EN ISO 11114-1",
+        "typ_dokumentu": "Norma",
+        "sekce": "Materiály pro vodíkové technologie",
+        "kategorie_trida": "0786 - Kovové lahve na plyny a příslušenství",
+        "klicova_slova": [],
+        "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-en-iso-11114-1-078609-166053.html",
+        "nazev_eu": "",
+        "odkaz_eu": "",
+        "nazev_sk": "",
+        "odkaz_sk": "",
+        "platnost": "od 07/2021",
+        "ratifikovan": "",
+        "gestor": [],
+        "jazyk": "",
+        "anotace_poznamka": "Tato Tento část ISO 11114dokument uvádí požadavky týkající se výběru bezpečných kombinací kovových materiálů lahve a ventilu s plynným obsahem lahve.\nUvedené údaje o kompatibilitě se vztahují k jednosložkovým plynům a plynným směsím plynů.\nJsou zohledněny bezešvé kovové, svařované kovové a kompozitové lahve na plyny a jejich ventily používané pro stlačené, zkapalněné a rozpuštěné plyny.\nPOZNÁMKA - V tométo části ISO 11114dokumentu se termín ´lahev´ týká přepravitelných tlakových nádob, které zahrnují také velkoobjemové lahve a tlakové sudy.\nHlediska, jakými jsou např. kvalita dodávaného plynného produktu, nejsou zohledněna.",
+        "jurisdikce": "CZ"
+    },
+    {
+        "zdroj_dat": "Prokop_Normy",
         "nazev_cz": "ISO 6892-3:2015 Metallic materials — Tensile testingPart 3: Method of test at low temperature",
         "znacka": "ISO 6892-3",
         "typ_dokumentu": "Norma",
@@ -432,7 +461,7 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "ISO 6892-3:2015 specifies a method of tensile testing of metallic materials at temperatures between +10 °C and -196 °C.\n**Klíčová slova: -**",
-        "jurisdikce": "CZ"
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -479,6 +508,26 @@
     },
     {
         "zdroj_dat": "Prokop_Normy",
+        "nazev_cz": "ISO 11114-1:2020 Gas cylinders — Compatibility of cylinder and valve materials with gas contentsPart 1: Metallic materials",
+        "znacka": "ISO 11114-1",
+        "typ_dokumentu": "Norma",
+        "sekce": "Testování materiálů",
+        "kategorie_trida": "",
+        "klicova_slova": [],
+        "odkaz_hlavni": "https://www.iso.org/standard/76081.html",
+        "nazev_eu": "",
+        "odkaz_eu": "",
+        "nazev_sk": "",
+        "odkaz_sk": "",
+        "platnost": "od 03/2020",
+        "ratifikovan": "",
+        "gestor": [],
+        "jazyk": "",
+        "anotace_poznamka": "This document provides requirements for the selection of safe combinations of metallic cylinder and valve materials and cylinder gas content.\nThe compatibility data given is related to single gases and to gas mixtures.\nSeamless metallic, welded metallic and composite gas cylinders and their valves, used to contain compressed, liquefied and dissolved gases are considered.\nNOTE In this document the term \"cylinder\" refers to transportable pressure receptacles, which also include tubes and pressure drums.\nAspects such as the quality of delivered gas product are not considered.\n**Klíčová slova: -**",
+        "jurisdikce": "mezinárodní"
+    },
+    {
+        "zdroj_dat": "Prokop_Normy, Sinay_Normy",
         "nazev_cz": "ISO 19880-9:2024 Gaseous hydrogen — Fuelling stationsPart 9: Sampling for fuel quality analysis",
         "znacka": "ISO 19880-9",
         "typ_dokumentu": "Norma",
@@ -495,7 +544,7 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "This document outlines requirements for sampling from hydrogen fuelling stations for samples taken at the dispenser. The document defines the best practice for sampling at the nozzle of a hydrogen fuelling station as part of the fuelling station acceptance testing, and ongoing operation.\nFurther, the document describes the minimum safety requirements for sampling.\nThis document is targeted for the sampling from the hydrogen fuelling station dispenser. Many of the generic requirements within this document are applicable to sampling at other locations within the hydrogen fuelling station, which can be carried out for hydrogen quality assurance, see ISO 19880-8, however, further specific requirements that can be necessary for safe sampling are not addressed in this document.\nThe intention of sampling hydrogen is to enable analysis against the requirements of ISO 14687, and by analytical methods validated by protocols described in ISO 21087.\nThis document supersedes, and is an extension to, the guidance published in ISO 19880-1:2020, Annex K.\nNOTE: Analytical methods are divided into on-line analyses and off-line analyses. On-line analysis allows for real time analysis at hydrogen stations and is not covered in this document.\n**Klíčová slova: -**",
-        "jurisdikce": "CZ"
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -535,6 +584,28 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "Tato norma stanoví všeobecné požadavky na konstrukci, zkoušení a označování Ex zařízení a Ex součástí, určených pro použití ve výbušných atmosférách.\nNormální atmosférické podmínky (ve vztahu k vlastnostem atmosféry týkajících se výbušnosti), za kterých se může předpokládat, že zařízení mohou být provozována jsou:\n\\- teplota -20 °C až +60 °C,\n\\- tlak 80 kPa (0,8 bar) až 110 kPa (1,1 bar), a\n\\- vzduch s normálním obsahem kyslíku 21 %.\nTato norma a další normy doplňující tuto normu uvádí dodatečné požadavky na zkoušky pro Ex zařízení, která pracují mimo normální rozsah teplot, mohou však být vyžadovány další úvahy a dodatečné zkoušky pro zařízení, která pracují mimo normální rozsah atmosférického tlaku a normální obsah kyslíku. Tyto dodatečné zkoušky mohou být zvlášť důležité především s ohledem na typy ochrany, které závisí na zhášení plamene, jako je to u ´pevného závěru d´ (IEC 60079-1) nebo na omezení energie, jako je to u ´jiskrové bezpečnosti i´ (IEC 60079-11).\n**Klíčová slova: -**",
+        "jurisdikce": "CZ"
+    },
+    {
+        "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
+        "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
+        "znacka": "ČSN EN ISO 14687",
+        "typ_dokumentu": "Norma",
+        "sekce": "Kvalita vodíku",
+        "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost",
+        "klicova_slova": [],
+        "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
+        "nazev_eu": "",
+        "odkaz_eu": "",
+        "nazev_sk": "",
+        "odkaz_sk": "",
+        "platnost": "od 10/2020",
+        "ratifikovan": "",
+        "gestor": [
+            "MPO"
+        ],
+        "jazyk": "čeština",
+        "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích.\n**Klíčová slova: -**",
         "jurisdikce": "CZ"
     },
     {
@@ -601,6 +672,35 @@
         "jazyk": "",
         "anotace_poznamka": "SAE J2601 establishes the protocol and process limits for hydrogen fueling of vehicles with total volume capacities greater than or equal to 49.7 L. These process limits (including the fuel delivery temperature, the maximum fuel flow rate, the rate of pressure increase, and the ending pressure) are affected by factors such as ambient temperature, fuel delivery temperature, and initial pressure in the vehicle’s compressed hydrogen storage system. SAE J2601 establishes standard fueling protocols based on either a look-up table approach utilizing a fixed pressure ramp rate, or a formula-based approach utilizing a dynamic pressure ramp rate continuously calculated throughout the fill. Both protocols allow for fueling with communications or without communications. The table-based protocol provides a fixed end-of-fill pressure target, whereas the formula-based protocol calculates the end-of-fill pressure target continuously. For fueling with communications, this standard is to be used in conjunction with SAE J2799.\nAn important factor in the performance of hydrogen fueling is the station’s dispensing equipment cooling capability and the resultant fuel delivery temperature. There are three fuel delivery temperature categories denoted by a “T” rating: T40, T30, and T20, where T40 is the coldest. Under reference conditions, SAE J2601 has a performance target of a fueling time of 3 minutes and a state of charge (SOC) of 95 to 100% (with communications), which can be achieved with a T40-rated dispenser. However, with higher fuel delivery temperature dispenser ratings (T30 or T20) and/or at high ambient temperatures, fueling times may be longer.\nTable 1 depicts the scope of SAE J2601 and potential work items for future revisions within this or other documents of the SAE J2601 series. SAE J2601 includes protocols which are applicable for two pressure classes (35 MPa and 70 MPa), three fuel delivery temperatures categories (-40 °C, -30 °C, -20 °C) and compressed hydrogen storage system sizes (total volume classification) from 49.7 to 248.6 L (35 MPa ➔ H35, and 70 MPa ➔ H70), and from 248.6 L and above (H70 only). Future versions of SAE J2601 work may incorporate warmer fuel delivery temperatures (-10 °C and ambient) and smaller total volume capacities for motorcycles and other applications.\nThe fueling protocols herein were developed based on a set of key assumptions described in Section 7 and Appendix A. These assumptions should be carefully considered in the development and implementation of an on-board compressed hydrogen storage system. In particular, hydrogen storage systems with properties which do not fall within the parameters in Table A3 should be further evaluated to confirm compatibility with the protocols herein.\n**Klíčová slova: -**",
         "jurisdikce": "CZ"
+    },
+    {
+        "zdroj_dat": "Prokop_Normy, Sinay_Normy",
+        "nazev_cz": "ISO 19880-1:2020 Gaseous hydrogen — Fuelling stationsPart 1: General requirements",
+        "znacka": "ISO 19880-1",
+        "typ_dokumentu": "Norma",
+        "sekce": "Plnící stanice, včetně rychlosti plnění",
+        "kategorie_trida": "Norm (ISO/TC 197/WG 24)",
+        "klicova_slova": [
+            "Verflüssigung",
+            "Befüllungsanlagen",
+            "Schienenfahrzeuge",
+            "Sonderfahrzeuge/Spezialfahrzeuge",
+            "Gasanalyse",
+            "Sicherheitstechnische Grundsätze",
+            "Explosionsschutz",
+            "Produktzertifizierung"
+        ],
+        "odkaz_hlavni": "https://www.iso.org/standard/71940.html",
+        "nazev_eu": "",
+        "odkaz_eu": "",
+        "nazev_sk": "",
+        "odkaz_sk": "",
+        "platnost": "od 03/2020",
+        "ratifikovan": "",
+        "gestor": [],
+        "jazyk": "",
+        "anotace_poznamka": "This document defines the minimum design, installation, commissioning, operation, inspection and maintenance requirements, for the safety, and, where appropriate, for the performance of public and non-public fuelling stations that dispense gaseous hydrogen to light duty road vehicles (e.g. fuel cell electric vehicles).\nThis document is not applicable to the dispensing of cryogenic hydrogen, or hydrogen to metal hydride applications.\nSince this document is intended to provide minimum requirements for fuelling stations, manufacturers can take additional safety precautions as determined by a risk management methodology to address potential safety risks of specific designs and applications.\nWhile this document is targeted for the fuelling of light duty hydrogen road vehicles, requirements and guidance for fuelling medium and heavy duty road vehicles (e.g. buses, trucks) are also covered.\nMany of the generic requirements within this document are applicable to fuelling stations for other hydrogen applications, including but not limited to the following:\n— fuelling stations for motorcycles, fork-lift trucks, trams, trains, fluvial and marine applications;\n— fuelling stations with indoor dispensing;\n— residential applications to fuel land vehicles;\n— mobile fuelling stations; and\n— non-public demonstration fuelling stations.\nHowever, further specific requirements that can be necessary for the safe operation of such fuelling stations are not addressed in this document.\nThis document provides requirements for and guidance on the following elements of a fuelling station (see Figure 1 and Figure 2):\n— hydrogen production/delivery system:\n— delivery of hydrogen by pipeline, trucked in gaseous and/or liquid hydrogen, or metal hydride storage trailers;\n— on-site hydrogen generators using water electrolysis process or hydrogen generators using fuel processing technologies;\n— liquid hydrogen storage;\n— hydrogen purification systems, as applicable;\n— compression:\n— gaseous hydrogen compression;\n— pumps and vaporizers;\n— gaseous hydrogen buffer storage;\n— pre-cooling device;\n— gaseous hydrogen dispensing systems.\n**Klíčová slova: -**",
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -12200,26 +12300,6 @@
     },
     {
         "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 9: Sampling for fuel quality analysis",
-        "znacka": "ISO 19880-9/ - 2024.07",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "",
-        "klicova_slova": [],
-        "odkaz_hlavni": "https://www.iso.org/standards.html",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "od 07/2024",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "Dieser Normentwurf befasst sich mit der korrekten Probennahme von Wasserstoffproben an Wasserstofftankstellen für die Kraftstoffanalyse",
-        "jurisdikce": "mezinárodní"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
         "nazev_cz": "Gaseous hydrogen - Land vehicle fuel containers",
         "znacka": "ISO 19881/ - 2018.10",
         "typ_dokumentu": "Norma",
@@ -13901,21 +13981,21 @@
     {
         "zdroj_dat": "Sinay_Normy",
         "nazev_cz": "Liquefied anhydrous ammonia for industrial use -- Determination of water content -- Karl Fischer method",
-        "znacka": "ISO 7105/ - 1985.06",
+        "znacka": "STN 65 1312-2/ – 1990.09",
         "typ_dokumentu": "Norma",
         "sekce": "",
-        "kategorie_trida": "ISO 7105: 1985 bola do sústavy STN prijatá ako STN 65 1312-2/ – 1990.09. STN 65 1312-2/ – 1990.09 bola zrušená dňa 01.11.2006 bez náhrady.",
+        "kategorie_trida": "STN (zrušená bez náhrady)",
         "klicova_slova": [],
         "odkaz_hlavni": "https://www.iso.org/standards.html",
         "nazev_eu": "",
         "odkaz_eu": "",
         "nazev_sk": "",
         "odkaz_sk": "",
-        "platnost": "od 06/1985",
+        "platnost": "zrušená 01.11.2006 bez náhrady (pôvodne prijatá 09/1990 na základe ISO 7105:1985)",
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": "\"This International Standard specifies the Karl Fischer direct electrometric method for the determination of the water content of liquefied anhydrous ammonia for industrial use.\nThe method is applicable to products having water contents equal to or greater than 50 mg/kg.\nNOTE — For water contents greater than 1 000 mg/kg, it is preferable to dilute the evaporation residue with anhydrous methanol in accordance with ISO 4276 and titrate an aliquot portion of the diluted solution.\"",
+        "anotace_poznamka": "ISO 7105:1985 bola do sústavy STN prijatá ako STN 65 1312-2/ - 1990.09. STN 65 1312-2/ - 1990.09 bola zrušená dňa 01.11.2006 bez náhrady.",
         "jurisdikce": "SK"
     },
     {
@@ -15831,7 +15911,9 @@
         "sekce": "",
         "kategorie_trida": "EIGA - European Industrial Gases Association",
         "klicova_slova": [
-            "Untertage Gasspeicher"
+            "Untertage Gasspeicher",
+            "Rohrleitungen",
+            "Metallische Werkstoffe"
         ],
         "odkaz_hlavni": "https://www.eiga.eu/",
         "nazev_eu": "",
@@ -15842,7 +15924,7 @@
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": "",
+        "anotace_poznamka": "The scope of this document is for metallic transmission and distribution piping systems carrying pure hydrogen and hydrogen mixtures, as shown in Diagram 1 of Appendix A. It is limited to gaseous products: <ul><li> with a temperature range between -40°C (-40°F) and 175°C (347°F), </li> <li>total pressures from 1 MPa (150 psig) up to 21 MPa (3000 psig) or for stainless steels only partial H2 pressure higher than 0,2 MPa </li><li> concentration criteria defined in Appendix G</li></ul>",
         "jurisdikce": "EU"
     },
     {
@@ -16293,29 +16375,6 @@
         "jazyk": "",
         "anotace_poznamka": "Es werden in dieser Zusammenstellung verschiedene Prüfmethoden und -bedingungen für polymere Werkstoffe unter Wasserstoffeinfluss definiert. Dazu zählen:\n\nAusgasung (mit GC/MS)\nDichte (H2-Quellung)\nZug- und Biegeversuche\nCharpy-Schlagzähigkeit\nPermeabilität\nTribologie/Verschleiß",
         "jurisdikce": "CA"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen pipeline systems",
-        "znacka": "IGC Doc 121/14",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "EIGA - European Industrial Gases Association",
-        "klicova_slova": [
-            "Rohrleitungen",
-            "Metallische Werkstoffe"
-        ],
-        "odkaz_hlavni": "https://www.eiga.eu/",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "Veröffentlicht-Publikovaný / 2014-01",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "The scope of this document is for metallic transmission and distribution piping systems carrying pure hydrogen and hydrogen mixtures, as shown in Diagram 1 of Appendix A. It is limited to gaseous products: <ul><li> with a temperature range between -40°C (-40°F) and 175°C (347°F), </li> <li>total pressures from 1 MPa (150 psig) up to 21 MPa (3000 psig) or for stainless steels only partial H2 pressure higher than 0,2 MPa </li><li> concentration criteria defined in Appendix G</li></ul>",
-        "jurisdikce": "EU"
     },
     {
         "zdroj_dat": "Sinay_Normy",
@@ -18155,9 +18214,7 @@
             "Untertage Gasspeicher"
         ],
         "odkaz_hlavni": "https://www.bveg.de/",
-        "nazev_eu": "",
         "odkaz_eu": "",
-        "nazev_sk": "",
         "odkaz_sk": "",
         "platnost": "Veröffentlicht-Publikovaný / 2004-12",
         "ratifikovan": "",
@@ -25825,65 +25882,6 @@
     },
     {
         "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Gaseous hydrogen - Fuelling stations - Part 1: General requirements",
-        "znacka": "ISO 19880-1",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "Norm (ISO/TC 197/WG 24)",
-        "klicova_slova": [
-            "Verflüssigung",
-            "Befüllungsanlagen",
-            "Schienenfahrzeuge",
-            "Sonderfahrzeuge/Spezialfahrzeuge",
-            "Gasanalyse",
-            "Sicherheitstechnische Grundsätze",
-            "Explosionsschutz",
-            "Produktzertifizierung"
-        ],
-        "odkaz_hlavni": "",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "Veröffentlicht-Publikovaný / 2020-03",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "This document defines the minimum design, installation, commissioning, operation, inspection and maintenance requirements, for the safety, and, where appropriate, for the performance of public and non-public fuelling stations that dispense gaseous hydrogen to light duty road vehicles (e.g. fuel cell electric vehicles).",
-        "jurisdikce": "mezinárodní"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen generators using water electrolysis - Industrial, commercial, and residential applications",
-        "znacka": "ISO 22734",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "Norm (ISO/TC 197)",
-        "klicova_slova": [
-            "Elektrolyse",
-            "Wasserstoffbeschaffenheit",
-            "PtX",
-            "Schienenfahrzeuge",
-            "Sonderfahrzeuge/Spezialfahrzeuge",
-            "Sicherheitstechnische Grundsätze",
-            "Explosionsschutz",
-            "Sicherheits- und Integritätsmanagement",
-            "Produktzertifizierung"
-        ],
-        "odkaz_hlavni": "",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "Veröffentlicht-Publikovaný / 2019-09",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "This standard defines the construction, safety, and performance requirements od hydrogen gas generation appliances, using electrochemical reactions to electrolyse water to produce hydrogen,  of the following types : group of aqueous bases;  group of aqueous acids;  solid polymeric materials with acidic function group additions, such as acid proton exchange membrane (PEM); solid polymeric materials with basic function group additions, such as anion exchange membrane (AEM). In a hydrogen generator electrochemical cell, electricity causes dissociation of water into hydrogen and oxygen molecules. An electric current is passed between two electrodes separated by a conductive electrolyte or “ion transport medium”, producing hydrogen at the negative electrode (cathode) and oxygen at the positive electrode (anode). As water is H2O, twice the volume of hydrogen is produced compared with oxygen.Hydrogen gas produced using electrolysis technology can be utilized immediately or stored for later use.The cell(s), and electrical, gas processing, ventilation, cooling, monitoring equipment and controls are contained within an enclosure. Gas compression, feed water conditioning, and auxiliary equipment may also be included.This document is intended to be used for certification purposes",
-        "jurisdikce": "mezinárodní"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
         "nazev_cz": "Anhydrous ammonia for industrial use -- Evaluation of residue on evaporation -- Gravimetric method",
         "znacka": "ISO 4276",
         "typ_dokumentu": "Norma",
@@ -26827,26 +26825,6 @@
         "jurisdikce": "SK"
     },
     {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Ropný a plynárenský priemysel. Diaľkovodné prepravné systémy. Ventily pre diaľkovody",
-        "znacka": "ISO 14313",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "",
-        "klicova_slova": [],
-        "odkaz_hlavni": "",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "",
-        "jurisdikce": "SK"
-    },
-    {
         "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
         "nazev_cz": "ČSN ISO 19880-1 (656525) Plynný vodík - Čerpací stanice - Část 1: Obecné požadavky",
         "znacka": "ČSN ISO 19880-1",
@@ -26866,46 +26844,6 @@
         ],
         "jazyk": "čeština",
         "anotace_poznamka": "Tento dokument stanovuje minimální požadavky na návrh, instalaci, uvedení do provozu, provoz, kontrolu a údržbu pro zajištění bezpečnosti a tam, kde je to vhodné, pro zajištění provozu veřejných i neveřejných čerpacích stanic, které vydávají plynný vodík do lehkých silničních vozidel (např. elektrických vozidel s palivovými články).\nTento dokument není použitelný pro výdej kryogenního vodíku nebo vodíku pro aplikace s hydridy kovů.\nVzhledem k tomu, že tento dokument je zamýšlen pro poskytnutí minimálních požadavků na čerpací stanice, výrobci mohou přijmout dodatečná bezpečnostní opatření, jak jsou stanovená v metodologii managementu rizik, s cílem zaměřit se na potenciální bezpečnostní rizika konkrétních návrhů a aplikací.\nAčkoli je tento dokument zaměřen na plnění lehkých silničních vozidel na vodík, zahrnuje také požadavky a návod na plnění středně těžkých a těžkých silničních vozidel (např. autobusy, nákladní auta).\nMnoho obecných požadavků obsažených v tomto dokumentu je použitelných na čerpací stanice pro jiné typy vodíkových aplikací, např. čerpací stanice pro motocykly, vysokozdvižné vozíky, tramvaje, vlaky, říční a námořní vozidla, čerpací stanice s vnitřním výdejem, domácí aplikace pro palivová pozemní vozidla, mobilní čerpací stanice nebo neveřejné demonstrační čerpací stanice.\nDalší konkrétní požadavky, které nejsou uvedeny v tomto dokumentu, však mohou být nezbytné pro bezpečný provoz čerpacích stanic.\nTento dokument poskytuje také požadavky a návod na systém pro výrobu, dodávání, skladování, čištění a stlačení vodíku na čerpacích stanicích.",
-        "jurisdikce": "CZ"
-    },
-    {
-        "zdroj_dat": "Prokop_Normy, Sinay_Normy, Haltuf_Dokumenty",
-        "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
-        "znacka": "ČSN ISO 14687",
-        "typ_dokumentu": "Norma",
-        "sekce": "Palivové články, Materiály pro vodíkové technologie",
-        "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost",
-        "klicova_slova": [],
-        "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
-        "odkaz_eu": "",
-        "odkaz_sk": "",
-        "platnost": "od 10/2020",
-        "ratifikovan": "",
-        "gestor": [
-            "MPO"
-        ],
-        "jazyk": "čeština",
-        "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích.",
-        "jurisdikce": "CZ"
-    },
-    {
-        "zdroj_dat": "Prokop_Normy",
-        "nazev_cz": "ČSN EN ISO 11114-1 (078609) Lahve na plyny - Kompatibilita materiálů lahve a ventilu s plynným obsahem - Část 1: Kovové materiály",
-        "znacka": "ČSN EN ISO 11114-1",
-        "typ_dokumentu": "Norma",
-        "sekce": "Materiály pro vodíkové technologie",
-        "kategorie_trida": "0786 - Kovové lahve na plyny a příslušenství",
-        "klicova_slova": [],
-        "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-en-iso-11114-1-078609-166053.html",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "od 07/2021",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "Tato Tento část ISO 11114dokument uvádí požadavky týkající se výběru bezpečných kombinací kovových materiálů lahve a ventilu s plynným obsahem lahve.\nUvedené údaje o kompatibilitě se vztahují k jednosložkovým plynům a plynným směsím plynů.\nJsou zohledněny bezešvé kovové, svařované kovové a kompozitové lahve na plyny a jejich ventily používané pro stlačené, zkapalněné a rozpuštěné plyny.\nPOZNÁMKA - V tométo části ISO 11114dokumentu se termín ´lahev´ týká přepravitelných tlakových nádob, které zahrnují také velkoobjemové lahve a tlakové sudy.\nHlediska, jakými jsou např. kvalita dodávaného plynného produktu, nejsou zohledněna.",
         "jurisdikce": "CZ"
     }
 ]

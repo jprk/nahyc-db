@@ -106,6 +106,22 @@ class NormalizeAndCoreZnackaTestCase(unittest.TestCase):
         self.assertNotEqual(dedup.normalize_znacka("STN CLC/TR 60079-32-1"),
                              dedup.normalize_znacka("TNI CLC/TR 60079-32-1"))
 
+    def test_normalize_folds_eiga_igc_doc_alias_for_the_same_edition(self):
+        # EIGA's former name was IGC (International Gases Committee) --
+        # "EIGA 121/14" and "IGC Doc 121/14" are the same 2014 edition,
+        # just cited under the old vs. new org name (doc/PLAN.md Step 1
+        # follow-up #14).
+        self.assertEqual(dedup.normalize_znacka("EIGA 121/14"),
+                          dedup.normalize_znacka("IGC Doc 121/14"))
+
+    def test_normalize_does_not_fold_different_editions_of_the_same_code(self):
+        # "EIGA Doc 6/19/E" (2019) vs "IGC Doc 6/02/E" (2002) are
+        # DIFFERENT editions of the same underlying code, not just a
+        # renamed org -- only the prefix is folded, so a genuinely
+        # different edition suffix must still compare unequal.
+        self.assertNotEqual(dedup.normalize_znacka("EIGA Doc 6/19/E"),
+                             dedup.normalize_znacka("IGC Doc 6/02/E"))
+
     def test_core_strips_csn_prefix_only(self):
         self.assertEqual(dedup.core_znacka("ČSN EN 17127"), "en 17127")
         self.assertEqual(dedup.core_znacka("EN 17127"), "en 17127")

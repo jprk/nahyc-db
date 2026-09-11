@@ -4,7 +4,23 @@ import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / "tools"))
 
-from build_unified_db import extract_znacka_from_title
+from build_unified_db import extract_znacka_from_title, resolve_prokop_jurisdikce
+
+
+class ResolveProkopJurisdikceTestCase(unittest.TestCase):
+    """Step 1 follow-up #14: Prokop is a curated hydrogen-standards list,
+    not exclusively a ČSN catalog -- a bare international ISO/IEC
+    designation must never be marked CZ just because it came from this
+    source (real cases: "ISO 22734:2019", "ISO 11114-4", "ISO 19880-9")."""
+
+    def test_bare_iso_designation_is_mezinarodni_not_cz(self):
+        self.assertEqual(resolve_prokop_jurisdikce("ISO 22734:2019"), "mezinárodní")
+        self.assertEqual(resolve_prokop_jurisdikce("ISO 11114-4"), "mezinárodní")
+        self.assertEqual(resolve_prokop_jurisdikce("ISO 19880-9"), "mezinárodní")
+
+    def test_real_csn_designation_is_still_cz(self):
+        self.assertEqual(resolve_prokop_jurisdikce("ČSN ISO 14687"), "CZ")
+        self.assertEqual(resolve_prokop_jurisdikce("ČSN EN 17127"), "CZ")
 
 
 class ExtractZnackaFromTitleTestCase(unittest.TestCase):

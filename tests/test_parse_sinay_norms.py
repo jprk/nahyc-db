@@ -72,6 +72,31 @@ class ClassifyJurisdikceTestCase(unittest.TestCase):
         self.assertEqual(classify_jurisdikce("SEP 1970", "SEP – Stahl-Eisen-Prüfblätter"), "neurčeno")
         self.assertEqual(classify_jurisdikce("bez označenia", ""), "neurčeno")
 
+    def test_bare_iso_iec_designation_is_always_mezinarodni(self):
+        # Step 1 follow-up #14: a bare ISO/IEC designation is the
+        # international standard itself, never a national adoption --
+        # even when a free-text "Kategorie"/note field happens to mention
+        # a national body in prose. This is the real ISO 7105 case: its
+        # source note reads "...bola do sústavy STN prijatá..." (was
+        # adopted into the STN system), which would trip the STN marker
+        # if checked before this bare-designation rule.
+        self.assertEqual(classify_jurisdikce("ISO 7105"), "mezinárodní")
+        self.assertEqual(
+            classify_jurisdikce(
+                "ISO 7105/ - 1985.06",
+                "ISO 7105: 1985 bola do sústavy STN prijatá ako STN 65 1312-2/ - 1990.09.",
+            ),
+            "mezinárodní")
+        self.assertEqual(classify_jurisdikce("ISO/DIS 11326"), "mezinárodní")
+        self.assertEqual(classify_jurisdikce("IEC/TS 62933-5-1"), "mezinárodní")
+
+    def test_national_prefix_before_iso_is_unaffected_by_bare_check(self):
+        # "STN ISO ..." / "DIN EN IEC ..." are NOT bare ISO/IEC
+        # designations (they start with the national prefix, not ISO/
+        # IEC) -- must still classify by their real national prefix.
+        self.assertEqual(classify_jurisdikce("STN ISO 14687"), "SK")
+        self.assertEqual(classify_jurisdikce("DIN EN IEC 60079-11", "Norm (IEC/TC31)"), "DE")
+
 
 class PdfRowToRecordTestCase(unittest.TestCase):
     def test_adopted_stn_gets_stn_kategorie_and_platnost_from_date(self):
@@ -216,6 +241,21 @@ class ParseXlsxPlaceholderTestCase(unittest.TestCase):
         ])
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["Značka"], "STN EN 17124")
+
+    def test_bare_iso_designation_in_stn_column_is_not_forced_slovak(self):
+        # Step 1 follow-up #14: the STN column being populated is usually
+        # direct evidence of a real Slovak adoption, but a bare ISO/IEC
+        # designation (no distinguishing national number ever assigned)
+        # in that same column is still the international standard, not a
+        # ČSN/STN-style national adoption -- e.g. the real "ISO 14313"
+        # case, where the "STN column" quotes the international number
+        # itself.
+        records = self._parse([
+            {"stn_designation": "ISO 14313", "stn_title": "Ventily pre diaľkovody"},
+        ])
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["Značka"], "ISO 14313")
+        self.assertEqual(records[0]["Jurisdikce"], "mezinárodní")
 
 
 if __name__ == "__main__":

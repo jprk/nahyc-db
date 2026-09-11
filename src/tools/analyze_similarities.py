@@ -34,6 +34,8 @@ _KNOWN_SERIES_SEPARATOR_RES = [  # see deduplicate_db.py
     re.compile(r"\bCSA\s*/?\s*ANSI\b", re.IGNORECASE),
     re.compile(r"\bIGEM\s*/?\s*TD\s*/?\s*1\b", re.IGNORECASE),
 ]
+_EIGA_IGC_PREFIX_RE = re.compile(  # see deduplicate_db.py
+    r"^(?:EIGA\s+Doc\s+|EIGA\s+|IGC\s+Doc\s+)", re.IGNORECASE)
 
 
 def core_znacka(znacka):
@@ -43,13 +45,15 @@ def core_znacka(znacka):
     national-adoption 'ČSN' prefix, so 'ČSN EN 17127' and 'EN 17127'
     compare as the same underlying standard. Also folds en/em-dash
     variants to a plain hyphen, strips a trailing Sinay-parser
-    edition-date suffix, and folds known document-series separator
-    inconsistencies (see deduplicate_db.normalize_znacka)."""
+    edition-date suffix, and folds known document-series separator and
+    EIGA/IGC Doc org-name inconsistencies (see
+    deduplicate_db.normalize_znacka)."""
     if not znacka:
         return ""
     zn = str(znacka)
     for pattern in _KNOWN_SERIES_SEPARATOR_RES:
         zn = pattern.sub(lambda m: re.sub(r"[\s/]", "", m.group(0)), zn)
+    zn = _EIGA_IGC_PREFIX_RE.sub("", zn)
     zn = _DASH_VARIANTS_RE.sub("-", zn)
     zn = " ".join(zn.split()).strip()
     zn = _EDITION_DATE_SUFFIX_RE.sub("", zn)
