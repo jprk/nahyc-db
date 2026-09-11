@@ -710,18 +710,54 @@ Original plan (executed as amended above):
     was a mislabeling, not a genuine cross-jurisdiction case). 6 new
     tests (190 total). `h2regdocs` reloaded (1217 `Document` rows),
     `app/app.py` re-verified.
-  - **Flagged for manual resolution, not auto-fixed — `CSA ANSI GSV 4.1`
-    vs. `CSA ANSI HGV 4.1`.** Identical `anotace_poznamka`, and per the
-    user's own check against the CSA store (2026-09-11): no `"GSV"`
-    standard exists there (only `CSA/ANSI LNG 4.1` and `CSA/ANSI NGV
-    4.1`) — "GSV" is very likely a data-entry typo for "HGV" in one raw
-    source row, but not confirmed enough to silently rewrite a
-    designation. Also note (same source): the corpus consistently omits
-    the "/" CSA itself uses in its own branding (`"CSA/ANSI"`, not `"CSA
+  - **`CSA ANSI GSV 4.1` vs. `CSA ANSI HGV 4.1` — re-examined 2026-09-11,
+    resolved with a one-time manual data correction (not a code/
+    normalization rule).** Re-reading both full records (not just the
+    earlier CSA-store check) showed identical title ("Hydrogen-dispensing
+    systems"), identical `platnost` (2020-03), and a byte-identical
+    `anotace_poznamka` — with GSV's single keyword
+    (`Sicherheitstechnische Grundsätze`) a subset of HGV's four. Combined
+    with the earlier finding that no `"GSV"` standard exists in the CSA
+    store (only `CSA/ANSI LNG 4.1`, `CSA/ANSI NGV 4.1`) and every other
+    entry in this corpus's `CSA ANSI HGV *` series (2, 3.1, 4.1, 4.10,
+    4.2, 4.3, 4.4, 4.8, 4.9) is spelled "HGV" — this is the same
+    document duplicated under a single-letter typo, not a real second
+    standard. Tracing the typo to its origin found it independently in
+    **both** raw Sinay_Normy sources: (1) the XLSX
+    `data/20250712_Sinay/raw/Zoznam_noriem_Vodik_Road_map_Nemecko_
+    Priradenie_STN_VERZIA_2024_06_27b.xlsx`, sheet "NRM
+    H2_Bestandsanalyse", cell `B88` — corrected in place (GSV → HGV;
+    note the resave via `openpyxl` drops an unsupported Data Validation
+    extension the file carried, per its own load warning — cosmetic,
+    doesn't affect any value read by `parse_sinay_norms.py`); and (2) the
+    PDF `data/20250712_Sinay/raw/Zoznam_noriem_vodik-11_02_2025.pdf`,
+    page 41 — not hand-editable the way an XLSX cell is, so instead
+    corrected directly in the generated intermediate
+    `data/20250712_Sinay/sinay_normy_processed.json` (record index 594,
+    `Značka`). **This JSON-level patch is NOT durable**: a future re-run
+    of `parse_sinay_norms.py` regenerates this file from the raw PDF/XLSX
+    from scratch, and since the XLSX source is now fixed but the PDF
+    source still literally reads "GSV" on page 41, the same single
+    record (the PDF-derived one) would need this exact one-line manual
+    patch reapplied by hand — deliberately not automated, per the
+    decision below. **Decision (user, 2026-09-11): fix the data, not the
+    code** — a generalized normalization rule would be unwarranted for an
+    isolated data-entry slip; revisit only if the official CSA repository/
+    store itself is found to carry the same "GSV" typo. Full pipeline
+    re-run after the fix: `database_merged_deduplicated.json` dropped
+    from 1194→1191 records — 1 from this merge, the other 2 from the
+    pre-existing, already-documented `ISO 14687` LLM merge
+    non-determinism (follow-up #5), not a new issue (confirmed by direct
+    before/after diff). 191 tests still pass, `h2regdocs` reloaded (1214
+    `Document` rows, same historical +23 offset over the JSON count
+    documented previously), Flask smoke test confirms a single
+    "Hydrogen-dispensing systems" / `CSA ANSI HGV 4.1` record with all
+    four keywords merged, no remaining "GSV" anywhere in the corpus. Also
+    still note (unchanged from before): the corpus consistently omits the
+    "/" CSA itself uses in its own branding (`"CSA/ANSI"`, not `"CSA
     ANSI"` — already handled for matching purposes by follow-up #11's
-    separator fold, but the *stored* designations remain un-rewritten,
-    matching this pipeline's general practice of normalizing only for
-    comparison, not silently rewriting source values). **Separately
+    separator fold, but stored designations remain un-rewritten,
+    matching this pipeline's general practice). **Still separately
     flagged by the user**: the whole `CSA/ANSI HGV *` citation list in
     this corpus may itself be outdated — needs checking against
     <https://www.csagroup.org/store/search-results/?search=HGV> before

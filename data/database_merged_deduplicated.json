@@ -42,54 +42,12 @@
         "jurisdikce": "CZ"
     },
     {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen fuel quality - Product specification",
-        "znacka": "ISO 14687/ - 2019.11",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "",
-        "klicova_slova": [],
-        "odkaz_hlavni": "https://www.iso.org/standards.html",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "od 11/2019",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "his document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications.",
-        "jurisdikce": "mezinárodní",
-        "_dedup_status": "flagged_for_review"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen fuel quality - Product specification",
-        "znacka": "ISO 14687/ - 2025.02",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "",
-        "klicova_slova": [],
-        "odkaz_hlavni": "https://www.iso.org/standards.html",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "od 02/2025",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "his document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications.",
-        "jurisdikce": "mezinárodní",
-        "_dedup_status": "flagged_for_review"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen fuel quality - Product specification",
+        "zdroj_dat": "Haltuf_Dokumenty, Sinay_Normy",
+        "nazev_cz": "ISO 14687",
         "znacka": "ISO 14687",
         "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "Norm (ISO/TC 197/WG 27)",
+        "sekce": "A - výroba, B-Distribuce, C-Skladování, D-Využití obecné, List3_tabulka_r1, Využití - ŽD",
+        "kategorie_trida": "Standardy a normy, Norm (ISO/TC 197/WG 27)",
         "klicova_slova": [
             "Elektrolyse",
             "Wasserstoffbeschaffenheit",
@@ -104,18 +62,15 @@
             "Sonderfahrzeuge/Spezialfahrzeuge",
             "Gasanalyse"
         ],
-        "odkaz_hlavni": "",
-        "nazev_eu": "",
+        "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
         "odkaz_eu": "",
-        "nazev_sk": "",
         "odkaz_sk": "",
-        "platnost": "Veröffentlicht-Publikovaný / 2019-11",
+        "platnost": "",
         "ratifikovan": "",
         "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "This document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in vehicular and stationary applications. It is applicable to hydrogen fuelling applications, which are listed in Table 1.",
-        "jurisdikce": "mezinárodní",
-        "_dedup_status": "flagged_for_review"
+        "jazyk": "angličtina",
+        "anotace_poznamka": "ISO 14687 is an international standard for hydrogen fuel quality.",
+        "jurisdikce": "mezinárodní"
     },
     {
         "zdroj_dat": "Prokop_Normy",
@@ -15409,7 +15364,7 @@
         "odkaz_hlavni": "https://cleanenergypartnership.de/en/home-engl",
         "odkaz_eu": "",
         "odkaz_sk": "",
-        "platnost": "",
+        "platnost": "Veröffentlicht-Publikovaný / 2022-11",
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
@@ -15505,12 +15460,15 @@
     {
         "zdroj_dat": "Sinay_Normy",
         "nazev_cz": "Hydrogen-dispensing systems",
-        "znacka": "CSA ANSI GSV 4.1",
+        "znacka": "CSA ANSI HGV 4.1",
         "typ_dokumentu": "Norma",
         "sekce": "",
         "kategorie_trida": "CSA - Canadian Standards Association",
         "klicova_slova": [
-            "Sicherheitstechnische Grundsätze"
+            "Sicherheitstechnische Grundsätze",
+            "Befüllungsanlagen",
+            "Schienenfahrzeuge",
+            "Produktzertifizierung"
         ],
         "odkaz_hlavni": "https://www.csagroup.org/standards/",
         "nazev_eu": "",
@@ -15545,31 +15503,6 @@
         "gestor": [],
         "jazyk": "",
         "anotace_poznamka": "",
-        "jurisdikce": "US"
-    },
-    {
-        "zdroj_dat": "Sinay_Normy",
-        "nazev_cz": "Hydrogen-dispensing systems",
-        "znacka": "CSA ANSI HGV 4.1",
-        "typ_dokumentu": "Norma",
-        "sekce": "",
-        "kategorie_trida": "CSA - Canadian Standards Association",
-        "klicova_slova": [
-            "Befüllungsanlagen",
-            "Schienenfahrzeuge",
-            "Sicherheitstechnische Grundsätze",
-            "Produktzertifizierung"
-        ],
-        "odkaz_hlavni": "https://www.csagroup.org/standards/",
-        "nazev_eu": "",
-        "odkaz_eu": "",
-        "nazev_sk": "",
-        "odkaz_sk": "",
-        "platnost": "Veröffentlicht-Publikovaný / 2020-03",
-        "ratifikovan": "",
-        "gestor": [],
-        "jazyk": "",
-        "anotace_poznamka": "This Standard specifies mechanical and electrical requirements for dispensers of compressed hydrogen gas intended for fuel storage systems integral to fuel cell vehicles at pressures of 25, 35, 50, and 70 MPa.",
         "jurisdikce": "US"
     },
     {
@@ -26936,27 +26869,24 @@
         "jurisdikce": "CZ"
     },
     {
-        "zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty",
+        "zdroj_dat": "Prokop_Normy, Sinay_Normy, Haltuf_Dokumenty",
         "nazev_cz": "ČSN ISO 14687 (656520) Kvalita vodíkového paliva - Specifikace produktu",
         "znacka": "ČSN ISO 14687",
         "typ_dokumentu": "Norma",
-        "sekce": "Palivové články",
+        "sekce": "Palivové články, Materiály pro vodíkové technologie",
         "kategorie_trida": "6565 - Motorová paliva a ostatní výrobky, jakost",
         "klicova_slova": [],
         "odkaz_hlavni": "https://www.technicke-normy-csn.cz/csn-iso-14687-656520-214575.html",
-        "nazev_eu": "",
         "odkaz_eu": "",
-        "nazev_sk": "",
         "odkaz_sk": "",
         "platnost": "od 10/2020",
         "ratifikovan": "",
         "gestor": [
             "MPO"
         ],
-        "jazyk": "angličtina",
+        "jazyk": "čeština",
         "anotace_poznamka": "Tento dokument specifikuje minimální kvalitativní charakteristiky vodíkového paliva, které se distribuuje pro využití v dopravních a stacionárních aplikacích.",
-        "jurisdikce": "CZ",
-        "_dedup_status": "flagged_for_review"
+        "jurisdikce": "CZ"
     },
     {
         "zdroj_dat": "Prokop_Normy",
