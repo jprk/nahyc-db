@@ -225,6 +225,31 @@ class ProgrammaticMergeTestCase(unittest.TestCase):
         self.assertNotIn("_search_text", merged)
         self.assertNotIn("_embedding", merged)
 
+    def test_backfills_authoritative_overlay_fields_from_any_member(self):
+        # doc/PLAN.md §9, 2026-09-13: real bug found live — a cluster's
+        # "best" (longest nazev_cz) member isn't necessarily the one that
+        # actually resolved an authoritative hit (e.g. one raw row's
+        # znacka carries a corpus-side spurious "EN" that failed to
+        # resolve on its own, another doesn't and did) — the fix must
+        # never be silently dropped just because it landed on the
+        # "wrong" (per length) member.
+        records = [
+            make_record(nazev_cz="ČSN EN ISO 19880-1 (656525) Plynný vodík - Delší popisný název",
+                        znacka="ČSN EN ISO 19880-1"),
+            make_record(nazev_cz="ČSN ISO 19880-1", znacka="ČSN ISO 19880-1",
+                        nazev_autoritativni="Plynný vodík - Čerpací stanice",
+                        zdroj_autoritativni_url="https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1",
+                        jurisdikce_autoritativni="CZ"),
+        ]
+        merged = dedup.programmatic_merge(records)
+        # "best" is still picked by longest nazev_cz (unchanged behavior).
+        self.assertTrue(merged["nazev_cz"].startswith("ČSN EN ISO 19880-1"))
+        # ...but the authoritative fields survive from the OTHER member.
+        self.assertEqual(merged["nazev_autoritativni"], "Plynný vodík - Čerpací stanice")
+        self.assertEqual(merged["zdroj_autoritativni_url"],
+                         "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1")
+        self.assertEqual(merged["jurisdikce_autoritativni"], "CZ")
+
 
 class MatchTypeForGroupTestCase(unittest.TestCase):
     def test_deterministic_when_core_znacka_repeats(self):

@@ -6,7 +6,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 
 from build_unified_db import (
     extract_znacka_from_title, resolve_prokop_jurisdikce,
-    record_url, apply_authoritative_metadata,
+    record_url, apply_authoritative_metadata, synthesize_csn_adoption_records,
 )
 
 
@@ -30,6 +30,13 @@ class ResolveProkopJurisdikceTestCase(unittest.TestCase):
         # ISO/IEC standard, no ČSN prefix, is not a ČSN adoption either.
         self.assertEqual(resolve_prokop_jurisdikce("EN ISO 14687"), "EU")
         self.assertEqual(resolve_prokop_jurisdikce("prEN ISO 22734-1"), "EU")
+
+    def test_bare_en_designation_with_no_iso_iec_is_eu_not_cz(self):
+        # doc/PLAN.md §9: a bare "EN 17127" (no ISO/IEC after it) is
+        # itself the CEN/CENELEC original, not a ČSN adoption — real case
+        # found live: "ČSN EN 17127" adopts bare "EN 17127".
+        self.assertEqual(resolve_prokop_jurisdikce("EN 17127"), "EU")
+        self.assertEqual(resolve_prokop_jurisdikce("EN 17339"), "EU")
 
 
 class ExtractZnackaFromTitleTestCase(unittest.TestCase):
@@ -202,6 +209,109 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         record = {"znacka": "X", "odkaz_hlavni": "https://unrelated"}
         apply_authoritative_metadata(record, {})
         self.assertNotIn("nazev_autoritativni", record)
+
+    def test_csn_detail_url_preferred_over_records_own_url(self):
+        # doc/PLAN.md §9: a ČSN match's real provenance is the
+        # Detailnormy.aspx page, not the record's own (often third-party)
+        # odkaz_hlavni.
+        record = {"znacka": "ČSN EN 17127", "odkaz_hlavni": "https://www.technicke-normy-csn.cz/x.html"}
+        cache = {"csn:ČSN EN 17127": {
+            "status": "fetched", "title": "T", "description": None, "zdroj_esbirka_url": None,
+            "zdroj_autoritativni_url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1",
+        }}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["zdroj_autoritativni_url"],
+                         "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1")
+
+    def test_jurisdikce_autoritativni_corrects_jurisdikce_and_keeps_original(self):
+        record = {"znacka": "EN 17127", "jurisdikce": "CZ"}
+        cache = {"csn:EN 17127": {
+            "status": "fetched", "title": "English title", "description": None,
+            "zdroj_esbirka_url": None, "jurisdikce_autoritativni": "EU",
+        }}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["jurisdikce"], "EU")
+        self.assertEqual(record["jurisdikce_puvodni"], "CZ")
+
+    def test_jurisdikce_unchanged_when_already_correct(self):
+        record = {"znacka": "ISO 14687", "jurisdikce": "mezinárodní"}
+        cache = {"csn:ISO 14687": {
+            "status": "fetched", "title": "T", "description": None,
+            "zdroj_esbirka_url": None, "jurisdikce_autoritativni": "mezinárodní",
+        }}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["jurisdikce"], "mezinárodní")
+        self.assertNotIn("jurisdikce_puvodni", record)
+
+
+class SynthesizeCsnAdoptionRecordsTestCase(unittest.TestCase):
+    """doc/PLAN.md §9: builds a brand-new record for a Czech ČSN adoption
+    confirmed by agentura-cas.cz that has no record of its own anywhere
+    in the corpus yet (real case: "ČSN EN 17339", bare "EN 17339" exists
+    but no ČSN-prefixed sibling did)."""
+
+    def test_adds_new_record_when_no_existing_sibling(self):
+        unified_db = [{"znacka": "EN 17339", "jurisdikce": "EU"}]
+        cache = {"csn:EN 17339": {
+            "status": "fetched",
+            "synthesize": {
+                "zdroj_dat": "CSN_Adoption_AgenturaCAS",
+                "znacka": "ČSN EN 17339",
+                "typ_dokumentu": "Norma",
+                "nazev_cz": "Český název",
+                "jurisdikce": "CZ",
+                "odkaz_hlavni": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1",
+                "nazev_autoritativni": "Český název",
+                "zdroj_autoritativni_url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1",
+            },
+        }}
+        added = synthesize_csn_adoption_records(unified_db, cache)
+        self.assertEqual(added, 1)
+        self.assertEqual(len(unified_db), 2)
+        new_record = unified_db[1]
+        self.assertEqual(new_record["znacka"], "ČSN EN 17339")
+        self.assertEqual(new_record["jurisdikce"], "CZ")
+        self.assertEqual(new_record["zdroj_dat"], "CSN_Adoption_AgenturaCAS")
+        self.assertEqual(new_record["nazev_autoritativni"], "Český název")
+
+    def test_skips_when_sibling_already_exists(self):
+        unified_db = [{"znacka": "ČSN EN 17339", "jurisdikce": "CZ"}]
+        cache = {"csn:EN 17339": {
+            "status": "fetched",
+            "synthesize": {
+                "zdroj_dat": "CSN_Adoption_AgenturaCAS",
+                "znacka": "ČSN EN 17339",
+                "typ_dokumentu": "Norma",
+                "nazev_cz": "Český název",
+                "jurisdikce": "CZ",
+            },
+        }}
+        added = synthesize_csn_adoption_records(unified_db, cache)
+        self.assertEqual(added, 0)
+        self.assertEqual(len(unified_db), 1)
+
+    def test_no_synthesize_block_is_a_no_op(self):
+        unified_db = [{"znacka": "EN 17127"}]
+        cache = {"csn:EN 17127": {"status": "fetched", "title": "T"}}
+        added = synthesize_csn_adoption_records(unified_db, cache)
+        self.assertEqual(added, 0)
+        self.assertEqual(len(unified_db), 1)
+
+    def test_idempotent_across_two_matching_synthesize_entries(self):
+        # Two different bare records could, in principle, resolve to the
+        # same ČSN designation — never add it twice.
+        unified_db = []
+        block = {
+            "zdroj_dat": "CSN_Adoption_AgenturaCAS", "znacka": "ČSN EN 17339",
+            "typ_dokumentu": "Norma", "nazev_cz": "X", "jurisdikce": "CZ",
+        }
+        cache = {
+            "csn:EN 17339": {"status": "fetched", "synthesize": block},
+            "csn:Haltuf-duplicate": {"status": "fetched", "synthesize": dict(block)},
+        }
+        added = synthesize_csn_adoption_records(unified_db, cache)
+        self.assertEqual(added, 1)
+        self.assertEqual(len(unified_db), 1)
 
 
 if __name__ == "__main__":

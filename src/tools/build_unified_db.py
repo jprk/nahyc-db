@@ -29,20 +29,29 @@ _BARE_ISO_IEC_DESIGNATION_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.I
 _BARE_EN_ISO_DESIGNATION_RE = re.compile(
     r"^(?:pr|F\s*pr)?EN\s+(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
 
+# A bare "EN <number>" with NO following ISO/IEC (e.g. "EN 17127") is
+# itself a genuine CEN/CENELEC standard, not a re-badging of an ISO/IEC
+# one — it IS the European original (doc/PLAN.md §9, 2026-09-13, found
+# via live agentura-cas.cz lookups: "ČSN EN 17127" is a real national
+# adoption of bare "EN 17127", which must not be marked CZ either).
+_BARE_EN_DESIGNATION_RE = re.compile(r"^(?:pr|F\s*pr)?EN\s+\d", re.IGNORECASE)
+
 
 def resolve_prokop_jurisdikce(znacka):
     """Prokop is a curated ČSN-adjacent hydrogen-standards list — almost
     all entries are real ČSN adoptions, unambiguously CZ-valid, but a bare
     international ISO/IEC designation (see `_BARE_ISO_IEC_DESIGNATION_RE`)
-    is the international standard itself, and a bare "EN ISO"/"EN IEC"
+    is the international standard itself, a bare "EN ISO"/"EN IEC"
     combination (see `_BARE_EN_ISO_DESIGNATION_RE`) is its European
-    adoption — neither is a ČSN adoption, and must never be marked CZ just
+    adoption, and a bare "EN <number>" with no ISO/IEC after it (see
+    `_BARE_EN_DESIGNATION_RE`) is itself a genuine CEN/CENELEC original —
+    none of these is a ČSN adoption, and must never be marked CZ just
     because of which source file it came from (see doc/PLAN.md Step 1
-    follow-up #14/#16)."""
+    follow-up #14/#16, and §9 for the bare-EN case)."""
     znacka = znacka.strip()
     if _BARE_ISO_IEC_DESIGNATION_RE.match(znacka):
         return "mezinárodní"
-    if _BARE_EN_ISO_DESIGNATION_RE.match(znacka):
+    if _BARE_EN_ISO_DESIGNATION_RE.match(znacka) or _BARE_EN_DESIGNATION_RE.match(znacka):
         return "EU"
     return "CZ"
 
@@ -173,14 +182,23 @@ def apply_authoritative_metadata(record, cache):
     """Attaches nazev_autoritativni/popis_autoritativni/
     zdroj_autoritativni_url from the site-metadata cache when a
     successfully-fetched entry exists for this record's URL (or, for
-    Prokop_Normy ČSN records with no per-document URL of their own, its
+    ČSN records with no per-document URL of their own, its
     "csn:<znacka>" key) — mutates `record` in place, returns nothing.
     Deliberately NEVER overwrites nazev_cz/anotace_poznamka: the
     authoritative title can be in a different language, or simply differ
     from the spreadsheet-derived one, so it's kept as its own, clearly-
     provenanced field rather than silently replacing what's already
     there — downstream consumers that want the verified value use the
-    new field explicitly (see src/tools/init_db.py)."""
+    new field explicitly (see src/tools/init_db.py).
+
+    doc/PLAN.md §9, 2026-09-13: for a bare EN/ISO/IEC record confirmed by
+    agentura-cas.cz to be the international original of a Czech ČSN
+    adoption, the cache also carries `jurisdikce_autoritativni` — this
+    field IS applied directly to `record["jurisdikce"]` (unlike title/
+    description, jurisdikce is read as-is by deduplicate_db.py/
+    link_document_relations_auto.py, so a stale/blank value there isn't
+    just cosmetic — it silently breaks the ADOPTS auto-linking). The
+    original raw value is kept under `jurisdikce_puvodni` for audit."""
     znacka = (record.get("znacka") or "").strip()
     url = record_url(record)
     entry = cache.get(url) if url else None
@@ -192,7 +210,60 @@ def apply_authoritative_metadata(record, cache):
         record["nazev_autoritativni"] = entry["title"]
     if entry.get("description"):
         record["popis_autoritativni"] = entry["description"]
-    record["zdroj_autoritativni_url"] = entry.get("zdroj_esbirka_url") or url or None
+    record["zdroj_autoritativni_url"] = (
+        entry.get("zdroj_esbirka_url") or entry.get("zdroj_autoritativni_url") or url or None)
+    if entry.get("jurisdikce_autoritativni") and entry["jurisdikce_autoritativni"] != record.get("jurisdikce"):
+        record["jurisdikce_puvodni"] = record.get("jurisdikce", "")
+        record["jurisdikce"] = entry["jurisdikce_autoritativni"]
+
+
+def synthesize_csn_adoption_records(unified_db, cache):
+    """doc/PLAN.md §9, 2026-09-13: for every cache entry carrying a
+    `synthesize` block (written by fetch_authoritative_metadata.py when
+    agentura-cas.cz confirms a Czech ČSN adoption of a bare EN/ISO/IEC
+    record that has no record of its own anywhere in the corpus yet —
+    e.g. "ČSN EN 17339" for bare "EN 17339"), appends a new minimal
+    record for it. Idempotent by construction: skipped if a record with
+    that exact znacka already exists in `unified_db` (a rerun after the
+    record has since appeared some other way is a no-op, never a
+    duplicate)."""
+    existing = {(r.get("znacka") or "").strip().lower() for r in unified_db}
+    added = 0
+    for entry in cache.values():
+        block = entry.get("synthesize")
+        if not block:
+            continue
+        key = (block.get("znacka") or "").strip().lower()
+        if not key or key in existing:
+            continue
+        record = {
+            "zdroj_dat": block["zdroj_dat"],
+            "nazev_cz": block.get("nazev_cz", ""),
+            "znacka": block["znacka"],
+            "typ_dokumentu": block.get("typ_dokumentu", "Norma"),
+            "sekce": "",
+            "kategorie_trida": "",
+            "klicova_slova": [],
+            "odkaz_hlavni": block.get("odkaz_hlavni", ""),
+            "nazev_eu": "",
+            "odkaz_eu": "",
+            "nazev_sk": "",
+            "odkaz_sk": "",
+            "platnost": "",
+            "ratifikovan": "",
+            "gestor": [],
+            "jazyk": "",
+            "anotace_poznamka": "",
+            "jurisdikce": block.get("jurisdikce", ""),
+        }
+        if block.get("nazev_autoritativni"):
+            record["nazev_autoritativni"] = block["nazev_autoritativni"]
+        if block.get("zdroj_autoritativni_url"):
+            record["zdroj_autoritativni_url"] = block["zdroj_autoritativni_url"]
+        unified_db.append(record)
+        existing.add(key)
+        added += 1
+    return added
 
 def build_unified_db():
     base_dir = REPO_ROOT / "data"
@@ -468,6 +539,11 @@ def build_unified_db():
     if authoritative_count:
         print(f"Applied authoritative title/description to {authoritative_count} record(s) "
               f"from {SITE_METADATA_CACHE_PATH.relative_to(REPO_ROOT)}.")
+
+    synthesized_count = synthesize_csn_adoption_records(unified_db, site_metadata_cache)
+    if synthesized_count:
+        print(f"Added {synthesized_count} new ČSN-adoption record(s) confirmed by "
+              f"agentura-cas.cz with no prior record of their own (doc/PLAN.md §9).")
 
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:

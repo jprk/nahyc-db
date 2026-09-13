@@ -10,7 +10,7 @@ from init_db import (
     resolve_document_versions, classify_lifecycle_state, FALLBACK_DOCUMENT_TYPE,
     is_restricted_document_type, resolve_file_path,
     is_garbled_znacka, is_fragment_title, detect_data_quality_issues,
-    resolve_title, resolve_description,
+    resolve_title, resolve_description, resolve_url,
 )
 
 
@@ -89,6 +89,32 @@ class ResolveDescriptionTestCase(unittest.TestCase):
     def test_blank_authoritative_description_does_not_win(self):
         item = {"anotace_poznamka": "Original", "popis_autoritativni": ""}
         self.assertEqual(resolve_description(item), "Original")
+
+
+class ResolveUrlTestCase(unittest.TestCase):
+    """doc/PLAN.md §9, 2026-09-13: the authoritative source URL (e.g.
+    agentura-cas.cz's Detailnormy.aspx, or e-Sbírka's government
+    reference) wins over whatever the raw spreadsheet cited (often a
+    third-party mirror like technicke-normy-csn.cz) — this is the link
+    app/templates/index.html actually renders as "go to source"."""
+
+    def test_authoritative_url_wins_when_present(self):
+        item = {"odkaz_hlavni": "https://www.technicke-normy-csn.cz/x.html",
+                "zdroj_autoritativni_url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1"}
+        self.assertEqual(resolve_url(item), "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=1")
+
+    def test_falls_back_to_odkaz_hlavni_then_eu_then_sk(self):
+        self.assertEqual(resolve_url({"odkaz_hlavni": "https://a"}), "https://a")
+        self.assertEqual(resolve_url({"odkaz_hlavni": "", "odkaz_eu": "https://b"}), "https://b")
+        self.assertEqual(
+            resolve_url({"odkaz_hlavni": "", "odkaz_eu": "", "odkaz_sk": "https://c"}), "https://c")
+
+    def test_blank_authoritative_url_does_not_win(self):
+        item = {"odkaz_hlavni": "https://a", "zdroj_autoritativni_url": ""}
+        self.assertEqual(resolve_url(item), "https://a")
+
+    def test_no_url_at_all_is_empty_string(self):
+        self.assertEqual(resolve_url({}), "")
 
 
 class DetectDataQualityIssuesTestCase(unittest.TestCase):

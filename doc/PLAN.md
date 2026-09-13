@@ -2470,3 +2470,160 @@ fetches/queries (not just re-reading the cache).
   reliable way to know which historical edition the source spreadsheet's
   `znacka` actually intended — not worth the added complexity for the one
   affected record found in the current corpus.
+
+## 9. `agentura-cas.cz` as the single point of authority for ČSN standards (NEW, 2026-09-13)
+
+Follow-up to §8: the user asked how big a "search by designation" job
+would be for Czech national norms specifically, suspecting
+`technicke-normy-csn.cz` (§8's original ČSN domain, confirmed anti-bot-
+walled, never touched directly) is an independent third-party mirror —
+and asked to check `csnonline.agentura-cas.cz` (already integrated) and
+`seznamcsn.agentura-cas.cz` (not yet investigated) as the real "single
+point of authority." Confirmed live: both are the actual national
+standards body (Česká agentura pro standardizaci, formerly ÚNMZ),
+near-identical ASP.NET backends, `technicke-normy-csn.cz` genuinely
+independent. Once sized, the user asked to actually build it: use
+agentura-cas.cz throughout, re-fetch everything, and — for a record
+whose corpus `znacka` is a bare EN/ISO/IEC designation — represent BOTH
+the international original (its own title) AND the Czech national
+adoption (its own title, with a reference back to the original) as two
+separate documents, "if it exists."
+
+**Key new source found**: `Detailnormy.aspx?k=<katalogové číslo>` — a
+stable, per-standard, GET-able detail page (same on both agentura-cas.cz
+sites), with clean `<span id="...">`-labeled fields: `oznaceni` (Czech
+designation), `nazev` (Czech title), `nazeven` (**English title** — the
+"original"), and a `GridView2` table of `{Označení, Rok vydání}` under
+"Zapracované dokumenty" — the registry's own explicit link from a
+national adoption back to the international standard(s) it adopts.
+`check_csn_validity.fetch_detail()` parses this by catalog number, taken
+from a `search()` result's own `catalog_number` field.
+
+**`check_csn_validity.py`** also gained `find_best_match()`, replacing
+the old "first exact match wins" logic with formatting-tolerant matching
+(`strip_catalog_suffix()` for a trailing `(336000)`-style suffix,
+`split_edition()` for `ED.2` ↔ `ed. 2` spacing/case differences) and a
+prefer-valid-else-most-recent-real-edition tie-break (excluding
+amendment/errata title rows like `Změna ke stažení...`) applied
+uniformly whether the match was exact or base-only — this is the general
+fix that also resolves the `ČSN EN ISO 17268` case §8 left as an
+explicit "leave as-is" exception (confirmed and accepted, not a silent
+side-effect: the general logic is simply more correct).
+
+**`fetch_authoritative_metadata.py`**: `is_csn_norm_record()` widened
+from `Prokop_Normy`-only, ČSN-prefix-only to also cover
+`Haltuf_Dokumenty`/`Sinay_Normy` and bare EN/ISO/IEC designations (the
+corpus's own citation of the international original, "not yet/never
+separately ČSN-numbered"). `fetch_csn_metadata()` now also retries a
+corpus-side "spurious EN" mistake (`ČSN EN ISO 19880-1` → real
+designation `ČSN ISO 19880-1`, confirmed live on both agentura-cas.cz
+sites) as a last-resort fallback — found to apply to BOTH bare and
+already-ČSN-prefixed znacka, not just bare ones as first assumed. For a
+bare/international match: this record's own `nazev_autoritativni`
+becomes the **English** title (refers to the original) and
+`jurisdikce_autoritativni` is set to `"mezinárodní"` (bare ISO/IEC) or
+`"EU"` (bare EN, with or without a following ISO/IEC — same
+CEN/CENELEC-level tier as `build_unified_db.py`'s existing EN-ISO/EN-IEC
+handling); if agentura-cas.cz confirms a Czech adoption exists, a
+`synthesize` block is written unconditionally (see below for why not
+conditionally) so `build_unified_db.py` can add that second document.
+
+**`build_unified_db.py`**: `resolve_prokop_jurisdikce()` had a real,
+narrowly-scoped bug found along the way — a bare `EN <number>` with NO
+following ISO/IEC (e.g. `EN 17127`) fell through both existing regexes
+and defaulted to `"CZ"`, when it's actually the CEN/CENELEC original
+(`"EU"`), exactly like the already-handled `EN ISO`/`EN IEC` case. Fixed
+(`_BARE_EN_DESIGNATION_RE`). `apply_authoritative_metadata()` now also:
+prefers the cache's real `zdroj_autoritativni_url` (the actual
+`Detailnormy.aspx` page) over `record_url()`'s spreadsheet-derived
+fallback — fixing a real gap where a ČSN record's provenance URL
+silently fell back to the record's own (often third-party) URL, since
+`fetch_csn_metadata()` never used to return one at all; and applies
+`jurisdikce_autoritativni` directly to `record["jurisdikce"]` when it
+differs (keeping the original under `jurisdikce_puvodni` for audit — the
+one place in this pipeline where an authoritative field IS applied
+in-place rather than kept side-by-side, because `jurisdikce` is read
+as-is by `deduplicate_db.py`/`link_document_relations_auto.py` and a
+stale value there silently breaks the `ADOPTS` auto-linking, not just
+display). New `synthesize_csn_adoption_records()`: for every cache entry
+carrying a `synthesize` block, appends a new minimal record if no
+existing record in `unified_db` already carries that exact znacka —
+idempotent by construction against the FRESH `unified_db` built from the
+6 real sources every run (see the bootstrapping bug below for why this
+must be the sole gatekeeper, not `fetch_authoritative_metadata.py`).
+
+**Two-documents-plus-a-relation is not new infrastructure** — confirmed
+by research before implementing: `document_relation.relation_type`
+already has an `ADOPTS` value exactly for this ("ISO 14687/ČSN ISO 14687
+jurisdikce separation", §6), `deduplicate_db.py` already refuses to merge
+across a jurisdikce conflict (an international standard and its national
+adoption stay two separate `Document` rows forever), and
+`link_document_relations_auto.py`'s R1.4 `find_localization_pairs()`
+already, mechanically, groups by `international_core(znacka)` +
+`jurisdikce_tier()` and emits `ADOPTS` from every national member to
+every international/EU member of its group — **with zero changes needed
+to that script**, since it already excludes a blank jurisdikce from
+grouping entirely; fixing the corpus's actual jurisdikce values was
+sufficient. Checked the real corpus for the 3 unique bare designations
+found in §8's sizing pass (`EN 17127`, `ISO 14687`, `EN 17339`): the
+first two already had both sides present (just wrong/missing jurisdikce
+and an unresolved ČSN-side title); only `EN 17339` genuinely needed a
+brand-new `ČSN EN 17339` record synthesized from scratch (confirmed live
+to be a real, valid, currently-registered standard with no prior record
+of its own anywhere in this corpus). Deliberately **out of scope**:
+retroactively synthesizing an international-original row for the ~30
+*other* ČSN-prefixed designations in the corpus that have no
+international sibling today — the user's instruction was about records
+already citing the bare form, not a systemic rewrite.
+
+**Two real bugs found and fixed only by actually running the full
+pipeline, not just unit tests**:
+- `deduplicate_db.py`'s `programmatic_merge()` picks its base record by
+  longest `nazev_cz` — not necessarily the cluster member that actually
+  resolved an authoritative hit. Found live: `ČSN ISO 19880-1` (the
+  correctly-spelled Prokop_Normy row, with a resolved title/URL) and
+  `ČSN EN ISO 19880-1` (the spurious-EN Haltuf_Dokumenty rows, longer
+  `nazev_cz`, no resolved title) share a dedup cluster; the merge kept
+  the longer-titled member and silently dropped the resolved
+  `nazev_autoritativni`/`zdroj_autoritativni_url`/etc. entirely. Fixed by
+  adding these fields to the merge's existing backfill-from-any-member
+  list (same fix automatically covers `resolve_iso_csn_ambiguity()`,
+  which reuses the same merge function).
+- A same-run cache-key clobber: several raw rows can share the exact
+  same `"csn:<znacka>"` cache key (repeated citations of the same
+  designation across a source); with `--force`, reprocessing the same
+  key more than once per run let a LATER duplicate's write silently
+  overwrite an EARLIER iteration's `synthesize` block for that same key.
+  Fixed by tracking keys already handled this run and skipping repeats,
+  regardless of `--force` (which still means "ignore the disk cache from
+  a *previous* run," not "reprocess a key already done this run").
+- A related bootstrapping bug, found on a second full rebuild: gating
+  the `synthesize` block on "does this designation already exist in
+  `database_merged_raw.json`" is circular — that file is rebuilt from
+  scratch by `build_unified_db.py` every run and never natively contains
+  a synthesized record (only the synthesize mechanism itself adds one),
+  so after the FIRST successful synthesis, a later `--force` re-fetch
+  would see the designation as "already there" and stop proposing the
+  `synthesize` block — silently losing the record on the next
+  from-scratch rebuild. Fixed by making `fetch_authoritative_metadata.py`
+  always propose the block and letting `build_unified_db.py`'s own
+  check against its FRESH `unified_db` (rebuilt from the 6 real sources
+  every run, so never circular) be the sole gatekeeper.
+
+**Verified end-to-end** (2026-09-13): 455 ČSN lookup attempts, 125 with a
+real title (many of the rest are genuine ISO committee-draft/work-item
+stages — `ISO/AWI`, `ISO/CD`, `ISO/DIS`, `ISO/PWI`, `ISO/WD` — that
+correctly have no Czech adoption yet, not a failure). 7 new
+`ČSN_Adoption_AgenturaCAS`-sourced records added. `document_relations_auto.json`'s
+R1.4 `ADOPTS` edge count rose from 15 to 25, covering all three §8 target
+designations (`EN 17127`, `ISO 14687`, `EN 17339`) automatically, with no
+changes to the linking script. **Zero** `Document.url` rows still point
+at `technicke-normy-csn.cz` (down from 34) — every one either resolved to
+a real `agentura-cas.cz` URL or, where no confirmed match exists,
+correctly kept its original citation. `resolve_url()` (new, mirrors
+`resolve_title()`/`resolve_description()`) makes this the actual link
+`app/templates/index.html` renders as "go to source" — spot-checked live
+against 3 resolved catalog numbers (522022, 521108, 510858), all match
+exactly. `needs_review` rose from 402 to 409 (the 7 synthesized records
+have no description yet, correctly flagged, not silently exempted). Full
+428-test suite passes; full pipeline rerun clean.

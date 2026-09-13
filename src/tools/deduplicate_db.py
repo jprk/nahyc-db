@@ -298,7 +298,18 @@ def programmatic_merge(cluster_records):
                 sources.append(src)
         for field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk", "nazev_eu", "nazev_sk",
                       "platnost", "ratifikovan", "jazyk", "typ_dokumentu", "sekce",
-                      "kategorie_trida", "anotace_poznamka"):
+                      "kategorie_trida", "anotace_poznamka",
+                      # doc/PLAN.md §9, 2026-09-13: a real bug found live —
+                      # "best" (longest nazev_cz) isn't necessarily the
+                      # cluster member that actually resolved an
+                      # authoritative hit (e.g. two raw rows for the same
+                      # norm, one spelled with a corpus-side spurious "EN"
+                      # that failed to resolve, one without that did) —
+                      # without this, the merge silently drops a
+                      # perfectly good verified title/URL/jurisdikce fix.
+                      "nazev_autoritativni", "popis_autoritativni",
+                      "zdroj_autoritativni_url", "jurisdikce_autoritativni",
+                      "jurisdikce_puvodni"):
             if not merged.get(field) and r.get(field):
                 merged[field] = r.get(field)
 

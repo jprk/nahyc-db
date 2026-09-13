@@ -18,11 +18,37 @@ those — the URL itself doesn't identify which document it's for).
   itself (see that module's own docstring), so it only contributes a
   confirmed `zdroj_esbirka_url` reference alongside zakonyprolidi.cz's
   actual title/description text.
-- **`Prokop_Normy`'s ČSN-designated norm records** ("ČSN ..." znacka):
-  looked up against the existing `check_csn_validity.py` registry
-  (`csnonline.agentura-cas.cz` — free, not anti-bot-walled, unlike
-  `technicke-normy-csn.cz`, which this script never touches) for the
-  matching designation's own title.
+- **ČSN-designated norm records** (`Prokop_Normy`/`Haltuf_Dokumenty`/
+  `Sinay_Normy`, whether the corpus's own `znacka` already carries a
+  `ČSN`/`CSN` prefix or is a bare `EN`/`ISO`/`IEC` designation): looked up
+  against `agentura-cas.cz` (Česká agentura pro standardizaci, the actual
+  national standards body — `check_csn_validity.py`'s `csnonline.
+  agentura-cas.cz` search + `Detailnormy.aspx` detail page), the single
+  point of authority for Czech national standards — doc/PLAN.md §9,
+  2026-09-13. `technicke-normy-csn.cz` (an independent third-party
+  mirror the corpus happens to cite for some norms) is never touched
+  directly, still confirmed anti-bot-walled.
+  - For an already-`ČSN`-prefixed `znacka`: resolves this record's own
+    title (as before), now via `check_csn_validity.find_best_match()`
+    (handles catalog-number-suffix/edition-marker formatting mismatches
+    and a stale-first-edition tie-break) and records the real
+    `Detailnormy.aspx` URL as provenance (previously fell back to the
+    record's own, often third-party, URL).
+  - For a **bare** `EN`/`ISO`/`IEC` `znacka` (no national prefix at all —
+    this record's own identity IS the international original): if
+    `agentura-cas.cz` confirms a Czech national adoption exists, this
+    record's `nazev_autoritativni` becomes the adoption's own **English**
+    title (`Anglický název` — "refers to the original", not a Czech
+    label for an international standard) and its `jurisdikce` is
+    corrected to `mezinárodní` (`jurisdikce_autoritativni` — see
+    `build_unified_db.py`). If **no** existing raw record anywhere in
+    the corpus already carries the confirmed ČSN designation, a
+    `synthesize` block is written so `build_unified_db.py` can add that
+    Czech-adoption record itself, with a reference back to the original
+    designation/year (`Zapracované dokumenty` on the detail page) —
+    doc/REQUIREMENTS.md's existing `ADOPTS` relation type/
+    `link_document_relations_auto.py` mechanism then links the two
+    automatically, with no changes needed there.
 
 Idempotent (same convention as `fetch_fulltext.py`): writes to
 `data/site_metadata_cache.json`, keyed by URL (or `csn:<znacka>` for ČSN
@@ -50,7 +76,13 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(BASE_DIR))
 
 from sites import eurlex, zakonyprolidi, slovlex, esbirka  # noqa: E402
-from check_csn_validity import search as csn_search, USER_AGENT as CSN_USER_AGENT  # noqa: E402
+from check_csn_validity import (  # noqa: E402
+    search as csn_search,
+    find_best_match as csn_find_best_match,
+    fetch_detail as csn_fetch_detail,
+    strip_catalog_suffix as csn_strip_catalog_suffix,
+    USER_AGENT as CSN_USER_AGENT,
+)
 from init_db import resolve_file_path, load_fulltext_manifest  # noqa: E402
 
 RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
@@ -60,7 +92,28 @@ SLEEP_SECONDS = 1
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
 
 LAW_SOURCES = {"Haltuf_Dokumenty", "Sinay_Zakony", "EU_Transposition_Targets", "V02_Bibliografie"}
+# doc/PLAN.md §9: sources whose znacka may cite a Czech-adoptable norm —
+# widened from Prokop_Normy-only so a bare EN/ISO/IEC designation found
+# only in Haltuf_Dokumenty/Sinay_Normy (e.g. "EN 17339") is attempted too.
+CSN_ELIGIBLE_SOURCES = {"Prokop_Normy", "Haltuf_Dokumenty", "Sinay_Normy"}
 _CSN_PREFIX_RE = re.compile(r"^(ČSN|CSN)\s+", re.IGNORECASE)
+# A bare designation with no national-body prefix at all is the
+# international original itself (mirrors link_document_relations_auto.py's
+# own national-prefix exclusion logic).
+_INTL_DESIGNATION_RE = re.compile(r"^(EN|ISO|IEC)\b", re.IGNORECASE)
+# Corpus data-quality workaround (doc/PLAN.md §9): some corpus znacka
+# carry a spurious "EN" before "ISO"/"IEC" that the real ČSN designation
+# doesn't have (confirmed live for "ČSN EN ISO 19880-1"/"ČSN EN ISO
+# 14687" -> real designation is "ČSN ISO ..."). Only ever used as a
+# fallback retry, never the first attempt, and only accepted if it
+# yields an unambiguous match.
+_EN_ISO_IEC_RE = re.compile(r"^EN\s+(ISO|IEC)\b", re.IGNORECASE)
+# Same three-way jurisdikce split as build_unified_db.py's
+# resolve_prokop_jurisdikce() (duplicated per that module's own stated
+# convention — each consumer keeps its own copy rather than cross-import
+# between independent pipeline stages): bare ISO/IEC is "mezinárodní",
+# bare EN (with or without a following ISO/IEC) is "EU".
+_BARE_ISO_IEC_RE = re.compile(r"^(?:ISO|IEC)(?:/[A-Z]+)?\s+\d", re.IGNORECASE)
 _SITE_MODULES = {
     "eur-lex.europa.eu": eurlex,
     "zakonyprolidi.cz": zakonyprolidi,
@@ -77,18 +130,31 @@ def is_law_record(item):
 
 
 def is_csn_norm_record(item):
-    return "Prokop_Normy" in _sources(item) and bool(_CSN_PREFIX_RE.match((item.get("znacka") or "").strip()))
+    znacka = (item.get("znacka") or "").strip()
+    if not any(s in CSN_ELIGIBLE_SOURCES for s in _sources(item)):
+        return False
+    if _CSN_PREFIX_RE.match(znacka):
+        return True
+    return bool(_INTL_DESIGNATION_RE.match(znacka))
+
+
+def is_bare_international_znacka(znacka):
+    znacka = (znacka or "").strip()
+    return bool(_INTL_DESIGNATION_RE.match(znacka)) and not _CSN_PREFIX_RE.match(znacka)
+
+
+def bare_jurisdikce_tier(znacka):
+    """"mezinárodní" for a bare ISO/IEC designation, "EU" for a bare EN
+    one (with or without a following ISO/IEC) — only meaningful when
+    `is_bare_international_znacka()` is already true."""
+    return "mezinárodní" if _BARE_ISO_IEC_RE.match((znacka or "").strip()) else "EU"
 
 
 def csn_core(znacka):
     """"ČSN ISO 14687" -> "ISO 14687" — check_csn_validity.py's search()
     expects the base designation, not the ČSN-prefixed form (see its own
-    usage docstring)."""
+    usage docstring). A no-op for an already-bare designation."""
     return _CSN_PREFIX_RE.sub("", (znacka or "").strip())
-
-
-def _normalize_designation(text):
-    return re.sub(r"\s+", " ", (text or "").strip()).lower()
 
 
 def record_url(item):
@@ -121,22 +187,55 @@ def save_cache(cache):
 
 
 def fetch_csn_metadata(znacka, session):
-    """Searches csnonline.agentura-cas.cz for this ČSN designation's own
-    core number and returns {"title": ...} only for the result whose
-    designation matches THIS record's znacka exactly (normalized) — never
-    guesses from a partial/ambiguous match. None if no exact match."""
-    query = csn_core(znacka)
+    """Searches agentura-cas.cz (csnonline) for this ČSN designation and
+    returns the best match (see check_csn_validity.find_best_match() for
+    the formatting-tolerant matching rules — never guesses across a
+    genuinely different designation) plus its Detailnormy.aspx detail
+    page. Also tries the corpus's own spurious-"EN" quirk as a last-resort
+    fallback (see module docstring) — this corpus-data-quality bug shows
+    up on BOTH bare ("EN ISO 19880-1") and already-ČSN-prefixed ("ČSN EN
+    ISO 19880-1") znacka, so the fallback isn't restricted to the bare
+    case; only the "record's own title should switch to English" logic
+    (see main()) is. Returns None if nothing resolves.
+
+    Return shape: {"title", "description", "zdroj_autoritativni_url",
+    "incorporates", "csn_designation", "title_en"} — "title_en"/
+    "incorporates" are only meaningful for a bare-znacka lookup."""
+    znacka = (znacka or "").strip()
+    bare = is_bare_international_znacka(znacka)
+    query = csn_strip_catalog_suffix(csn_core(znacka))
     if not query:
         return None
+    match_target = znacka if not bare else f"ČSN {query}"
     try:
         results = csn_search(session, query)
     except requests.RequestException:
         return None
-    target = _normalize_designation(znacka)
-    for r in results:
-        if _normalize_designation(r.get("designation", "")) == target and r.get("title"):
-            return {"title": r["title"], "description": None}
-    return None
+    best = csn_find_best_match(results, match_target)
+
+    if best is None and _EN_ISO_IEC_RE.match(query):
+        stripped_query = _EN_ISO_IEC_RE.sub(lambda m: m.group(1), query)
+        try:
+            results2 = csn_search(session, stripped_query)
+        except requests.RequestException:
+            results2 = []
+        best = csn_find_best_match(results2, f"ČSN {stripped_query}")
+
+    if best is None:
+        return None
+
+    detail = None
+    if best.get("catalog_number"):
+        detail = csn_fetch_detail(best["catalog_number"], session)
+
+    return {
+        "title": best["title"],
+        "description": None,
+        "zdroj_autoritativni_url": (detail or {}).get("url"),
+        "incorporates": (detail or {}).get("incorporates") or [],
+        "csn_designation": best.get("designation"),
+        "title_en": (detail or {}).get("title_en") if bare else None,
+    }
 
 
 def main():
@@ -152,6 +251,19 @@ def main():
 
     manifest = load_fulltext_manifest()
     cache = load_cache()
+    # Several raw records (duplicate rows across a source's own repeated
+    # citations) can share the exact same cache key (a URL, or "csn:
+    # <znacka>") — with --force, re-processing the same key more than
+    # once in a single run doesn't just waste a request, it can silently
+    # clobber a `synthesize` block a PRIOR iteration for this same key
+    # just wrote (found live, doc/PLAN.md §9): once the first hit adds
+    # the confirmed ČSN designation to `existing_znacka`, a later
+    # duplicate for the same key sees it as "already exists" and writes
+    # a synthesize-less entry over the first one. Each unique key is
+    # therefore handled at most once per invocation, regardless of
+    # --force (which still means "ignore what's on disk from a PREVIOUS
+    # run", not "reprocess a key already handled this run").
+    processed_keys = set()
 
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
@@ -168,8 +280,11 @@ def main():
         module = dispatch_site_module(url) if url else None
 
         if is_law_record(item) and module is not None:
+            if url in processed_keys:
+                continue
             if url in cache and not args.force:
                 continue
+            processed_keys.add(url)
             cached_path = resolve_file_path(item, manifest)
             local_path = str(REPO_ROOT / cached_path) if cached_path else None
             print(f"[{module.__name__.rsplit('.', 1)[-1]}] {znacka} -> {url}")
@@ -190,18 +305,64 @@ def main():
 
         if is_csn_norm_record(item):
             key = f"csn:{znacka}"
+            if key in processed_keys:
+                continue
             if key in cache and not args.force:
                 continue
+            processed_keys.add(key)
             print(f"[csnonline] {znacka}")
             result = fetch_csn_metadata(znacka, csn_session)
-            cache[key] = {
-                "title": result["title"] if result else None,
+            entry = {
+                "title": None,
                 "description": None,
                 "domain": "csnonline.agentura-cas.cz",
                 "znacka": znacka,
                 "zdroj_esbirka_url": None,
-                "status": "fetched" if result else "failed",
+                "zdroj_autoritativni_url": None,
+                "status": "failed",
             }
+            if result:
+                bare = is_bare_international_znacka(znacka)
+                entry.update({
+                    "status": "fetched",
+                    "zdroj_autoritativni_url": result.get("zdroj_autoritativni_url"),
+                })
+                if bare:
+                    # This record's own znacka IS the international
+                    # original — its title stays in English, and its
+                    # jurisdikce is corrected accordingly (doc/PLAN.md §9).
+                    entry["title"] = result.get("title_en")
+                    entry["jurisdikce_autoritativni"] = bare_jurisdikce_tier(znacka)
+                    csn_designation = result.get("csn_designation")
+                    if csn_designation:
+                        # Always propose the synthesize block — whether
+                        # it actually needs to add anything is decided
+                        # solely by build_unified_db.py's own
+                        # synthesize_csn_adoption_records(), checked
+                        # against the FRESH unified_db it just built from
+                        # the 6 real sources on every single run (doc/
+                        # PLAN.md §9 follow-up: checking against THIS
+                        # script's own raw_data snapshot was circular and
+                        # fragile — database_merged_raw.json is rebuilt
+                        # from scratch every run and never natively
+                        # contains a synthesized record on its own, so a
+                        # "already present" check here would silently
+                        # stop proposing it after the very first
+                        # successful synthesis, and a later from-scratch
+                        # rebuild would then lose the record for good).
+                        entry["synthesize"] = {
+                            "zdroj_dat": "CSN_Adoption_AgenturaCAS",
+                            "znacka": csn_designation,
+                            "typ_dokumentu": "Norma",
+                            "nazev_cz": result["title"],
+                            "jurisdikce": "CZ",
+                            "odkaz_hlavni": result.get("zdroj_autoritativni_url") or "",
+                            "nazev_autoritativni": result["title"],
+                            "zdroj_autoritativni_url": result.get("zdroj_autoritativni_url"),
+                        }
+                else:
+                    entry["title"] = result.get("title")
+            cache[key] = entry
             processed += 1
             time.sleep(SLEEP_SECONDS)
             continue

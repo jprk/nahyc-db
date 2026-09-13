@@ -238,6 +238,29 @@ def resolve_description(item):
     return (item.get("anotace_poznamka") or "").strip()
 
 
+def resolve_url(item):
+    """doc/PLAN.md §9, 2026-09-13: prefers the confirmed
+    zdroj_autoritativni_url (the real "single point of authority" —
+    e.g. agentura-cas.cz's own Detailnormy.aspx page, or e-Sbírka's
+    government reference for a Czech law) over the spreadsheet-derived
+    odkaz_hlavni/odkaz_eu/odkaz_sk — this is the link app/templates/
+    index.html actually renders as "go to source", so a record whose
+    title we've already verified against a better source should also
+    send the user there, not to whatever third-party mirror
+    (technicke-normy-csn.cz, or similar) the raw spreadsheet happened to
+    cite. Falls back to today's resolution unchanged when no
+    authoritative URL was found."""
+    url = (item.get("zdroj_autoritativni_url") or "").strip()
+    if url:
+        return url
+    url = (item.get("odkaz_hlavni") or "").strip()
+    if not url:
+        url = (item.get("odkaz_eu") or "").strip()
+        if not url:
+            url = (item.get("odkaz_sk") or "").strip()
+    return url
+
+
 def detect_data_quality_issues(item):
     """Returns a list of Czech-language reasons this record should be
     flagged for manual review, or [] if none apply. Checked: a garbled
@@ -403,11 +426,7 @@ def import_json_data(db_conn):
         language = item.get("jazyk", "").strip()
         effective_date = item.get("platnost", "").strip()
 
-        url = item.get("odkaz_hlavni", "").strip()
-        if not url:
-            url = item.get("odkaz_eu", "").strip()
-            if not url:
-                url = item.get("odkaz_sk", "").strip()
+        url = resolve_url(item)
 
         description = resolve_description(item)
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
