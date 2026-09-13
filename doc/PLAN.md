@@ -2682,3 +2682,22 @@ Sb.`, `262/2006 Sb.` "zákoník práce", ...), and the four Slovak decrees
 the user named (`699/2004`, `94/2004`, `96/2004`, `124/2000 Z. z.`) now
 correctly show `type_name: Vyhláška`. Full test suite (437 tests) passes;
 full pipeline rerun clean.
+
+## 12. Small UI tweaks (NEW, 2026-09-14, user-requested)
+
+- `app/app.py`'s dev-server default port changed 5000 → 5050 (matches
+  what's actually been used to verify this app all session).
+- `app/templates/index.html`: each row's expanded detail now shows
+  "ID záznamu: {{ doc.id }}" (small, muted — `.record-id` in
+  `app/static/style.css`) under "Platnost od", so a user reporting a
+  data error can name the exact record.
+- `app/static/style.css`: `.action-block`'s "Přejít na zdroj"/"Stažená
+  kopie" buttons used to right-align at their own, different natural
+  widths (`align-items: flex-end`, no `gap`) — changed to `align-items:
+  stretch` (both share the wider button's width, matching
+  `.action-group`'s already-existing export-button row) plus `gap:
+  0.5rem` (same value `.action-group`/`.filter-group` already use). The
+  block itself stays `width: fit-content; margin-left: auto` so it still
+  hugs the right edge rather than stretching across the whole grid cell;
+  the ≤992px mobile override resets that back to `width: auto` (full
+  single-column width, still equal-width buttons).

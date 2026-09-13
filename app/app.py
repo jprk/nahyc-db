@@ -302,5 +302,5 @@ def export(fmt):
 
 
 if __name__ == '__main__':
-    # Run the app in debug mode on port 5000
-    app.run(debug=True, port=5000)
+    # Run the app in debug mode on port 5050
+    app.run(debug=True, port=5050)

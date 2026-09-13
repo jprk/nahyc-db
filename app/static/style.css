@@ -492,6 +492,12 @@ main {
     font-size: 0.95rem;
 }
 
+.detail-block p.record-id {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-top: 0.35rem;
+}
+
 .detail-description p {
     color: var(--text-secondary);
     line-height: 1.7;
@@ -501,7 +507,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    /* stretch (not flex-end) so both buttons share the width of the
+       wider one, same intent as .action-group's export button row */
+    align-items: stretch;
+    gap: 0.5rem;
+    /* fit-content so the block itself stays only as wide as its widest
+       button, right-aligned within the grid cell via margin-left: auto */
+    width: fit-content;
+    margin-left: auto;
 }
 
 .btn-external {
@@ -512,6 +525,7 @@ main {
     border-radius: var(--radius-sm);
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     font-weight: 500;
     transition: var(--transition);
@@ -600,7 +614,8 @@ main {
     }
 
     .action-block {
-        align-items: flex-start;
+        width: auto;
+        margin-left: 0;
     }
 }
 
