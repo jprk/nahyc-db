@@ -2641,3 +2641,44 @@ just shows nothing). Both are injected into every template via a new
 muted line below the existing copyright text. Verified live against the
 Flask dev server (not just the unit tests) — both values render
 correctly. 6 new tests in `tests/test_app_export.py`.
+
+## 11. `Sinay_Zakony`'s `DocumentType` was hardcoded to "Zákon" for every record (NEW, 2026-09-14)
+
+User-reported: filtering/browsing by document type "Zákon" (Act) turned up
+EU Regulations, an EU Directive, and Slovak/Czech Vyhlášky ("Vyhláška MV
+SR č. 699/2004", "Vyhláška č. 94/2004 Z. z.", ...) — not Acts at all.
+Root cause confirmed in `build_unified_db.py`: the `Sinay_Zakony` source
+(the CZ/SK/EU law-mapping spreadsheet) unconditionally stamped
+`typ_dokumentu: "Zákon"` on every one of its 48 raw records, regardless
+of what the record's own title actually said it was — this source mixes
+real Acts with Vyhlášky, Nařízení vlády (government regulations), and EU
+acts cited as a Czech law's own EU counterpart (via its `Dokument EU`
+column, which — for a record with no separate CZ/SK equivalent — becomes
+this record's *only* title text, e.g. "Nařízení Evropského parlamentu a
+Rady (EU) 2019/2144").
+
+**Fix**: new `classify_sinay_zakony_typ(nazev)` in `build_unified_db.py`,
+using the same leading-word legal-drafting convention already followed
+by `resolve_prokop_jurisdikce()`'s bare-designation checks — Czech/
+Slovak legislation reliably names its own type as the title's first word
+("Zákon", "Vyhláška", "Nařízení vlády"), and an EU institutional act is
+recognized either by an explicit `"(EU)"`/`"(EÚ)"` marker or a named EU
+institution ("Evropského parlamentu"/"Evropské rady"/"Komise") — checked
+against the real 48-record corpus to confirm this never triggers on a
+genuine national Zákon/Vyhláška/Nařízení vlády title. Two records are
+genuinely unclassifiable and correctly fall through to `""` (→ `init_db.
+py`'s existing `FALLBACK_DOCUMENT_TYPE` = "Nezařazeno", reused rather
+than duplicated): a "Vodíková stratégia..." policy strategy paper (not a
+binding instrument at all) and "(EHK OSN) č. 134" (a UN/ECE vehicle
+regulation — a real international instrument, but not any of the Czech/
+Slovak/EU categories this classifier knows).
+
+**Verified on the real corpus**: before the fix, all 48 `Sinay_Zakony`
+records → `Zákon`. After: `Zákon` 26, `Nařízení EU` 9, `Vyhláška` 6,
+`Nezařazeno` 2, `Směrnice EU` 2, `Nařízení vlády` 2, `Rozhodnutí EU` 1 —
+and post-dedup/import, `DocumentType.name = 'Zákon'` now holds exactly
+17 records, every one a genuine Czech Act (`100/2001 Sb.`, `458/2000
+Sb.`, `262/2006 Sb.` "zákoník práce", ...), and the four Slovak decrees
+the user named (`699/2004`, `94/2004`, `96/2004`, `124/2000 Z. z.`) now
+correctly show `type_name: Vyhláška`. Full test suite (437 tests) passes;
+full pipeline rerun clean.

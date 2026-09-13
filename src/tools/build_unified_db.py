@@ -56,6 +56,54 @@ def resolve_prokop_jurisdikce(znacka):
     return "CZ"
 
 
+# doc/PLAN.md §11, 2026-09-14: Sinay_Zakony used to hardcode every record
+# as "Zákon" (Act), regardless of what it actually is — this source mixes
+# real Acts with Vyhlášky (decrees), Nařízení vlády (government
+# regulations), and EU regulations/directives/decisions cited as a Czech
+# law's EU counterpart. Classified from the record's own resolved title
+# text (the same field extract_znacka_from_title() already runs on), by
+# the same leading-word legal-drafting convention Czech/Slovak legislation
+# already follows — never guessed: an EU institutional act is recognized
+# by an explicit "(EU)"/"(EÚ)" marker OR a named EU institution
+# ("Evropského parlamentu"/"Evropské rady"/"Komise"), verified against
+# the real corpus not to trigger on any genuine national Zákon/Vyhláška/
+# Nařízení vlády title (none of those mention an EU institution by name).
+_EU_INSTITUTION_RE = re.compile(
+    r"\((?:EU|EÚ)\)|evropsk[ée]ho parlamentu|evropskej? rady|\bkomis[ei]", re.IGNORECASE)
+_ZAKON_RE = re.compile(r"^\s*zákon(?:í?k)?\b", re.IGNORECASE)
+_VYHLASKA_RE = re.compile(r"^\s*vyhlá[šs]", re.IGNORECASE)
+_NARIZENI_VLADY_RE = re.compile(r"^\s*(?:nařízení|nariadenie)\s+vlády", re.IGNORECASE)
+_SMERNICE_RE = re.compile(r"směrnice|smernica", re.IGNORECASE)
+_NARIZENI_RE = re.compile(r"nařízení|nariadenie", re.IGNORECASE)
+_ROZHODNUTI_RE = re.compile(r"rozhodnutí|rozhodnutie", re.IGNORECASE)
+
+
+def classify_sinay_zakony_typ(nazev):
+    """Returns the real DocumentType name for a Sinay_Zakony record from
+    its own title text, or "" when genuinely unclear (e.g. a policy
+    strategy paper, or a UN/ECE vehicle regulation — neither is any of
+    the types below; "" falls back to init_db.py's own
+    FALLBACK_DOCUMENT_TYPE, same as a blank/numeric typ_dokumentu
+    elsewhere in this pipeline — never force-guessed into the wrong
+    bucket)."""
+    n = (nazev or "").strip()
+    if _EU_INSTITUTION_RE.search(n):
+        if _SMERNICE_RE.search(n):
+            return "Směrnice EU"
+        if _ROZHODNUTI_RE.search(n):
+            return "Rozhodnutí EU"
+        if _NARIZENI_RE.search(n):
+            return "Nařízení EU"
+        return ""
+    if _ZAKON_RE.match(n):
+        return "Zákon"
+    if _VYHLASKA_RE.match(n):
+        return "Vyhláška"
+    if _NARIZENI_VLADY_RE.match(n):
+        return "Nařízení vlády"
+    return ""
+
+
 def extract_znacka_from_title(title):
     """Haltuf and Sinay never fill in 'znacka' — the reference number (EU
     act number, EN/ISO/ČSN standard code, Czech "Sb." or Slovak "Z. z." law
@@ -343,7 +391,7 @@ def build_unified_db():
                 "zdroj_dat": "Sinay_Zakony",
                 "nazev_cz": nazev_cz,
                 "znacka": extract_znacka_from_title(nazev_cz),
-                "typ_dokumentu": "Zákon",
+                "typ_dokumentu": classify_sinay_zakony_typ(nazev_cz),
                 "sekce": "",
                 "kategorie_trida": "",
                 "klicova_slova": [],

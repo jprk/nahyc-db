@@ -7,6 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from build_unified_db import (
     extract_znacka_from_title, resolve_prokop_jurisdikce,
     record_url, apply_authoritative_metadata, synthesize_csn_adoption_records,
+    classify_sinay_zakony_typ,
 )
 
 
@@ -37,6 +38,71 @@ class ResolveProkopJurisdikceTestCase(unittest.TestCase):
         # found live: "ČSN EN 17127" adopts bare "EN 17127".
         self.assertEqual(resolve_prokop_jurisdikce("EN 17127"), "EU")
         self.assertEqual(resolve_prokop_jurisdikce("EN 17339"), "EU")
+
+
+class ClassifySinayZakonyTypTestCase(unittest.TestCase):
+    """doc/PLAN.md §11, 2026-09-14: Sinay_Zakony used to hardcode every
+    record as "Zákon" — real corpus check found EU regulations/
+    directives/decisions and Czech/Slovak Vyhlášky/Nařízení vlády mixed
+    in under that one label. Every case here is a real title found in
+    the actual corpus (data/database_merged_raw.json), not invented."""
+
+    def test_real_czech_zakon(self):
+        self.assertEqual(
+            classify_sinay_zakony_typ("Zákon č. 458/2000 Sb., o podmínkách podnikání..."), "Zákon")
+        self.assertEqual(
+            classify_sinay_zakony_typ("zákon č. 201/2012 Sb., o ochraně ovzduší"), "Zákon")
+
+    def test_zakonik_is_also_zakon(self):
+        self.assertEqual(classify_sinay_zakony_typ("Zákon č. 262/2006 Sb., zákoník práce"), "Zákon")
+
+    def test_czech_and_slovak_vyhlaska(self):
+        self.assertEqual(
+            classify_sinay_zakony_typ("Vyhláška č. 133/2010 Sb., o jakosti a evidenci pohonných hmot"),
+            "Vyhláška")
+        self.assertEqual(classify_sinay_zakony_typ("Vyhláška MV SR č.699/2004 Z. z"), "Vyhláška")
+        self.assertEqual(classify_sinay_zakony_typ("vyhlášky  č. 94/2004 Z .z."), "Vyhláška")
+
+    def test_narizeni_vlady(self):
+        self.assertEqual(
+            classify_sinay_zakony_typ(
+                "Nařízení vlády č. 378/2001 Sb., kterým se stanoví bližší požadavky..."),
+            "Nařízení vlády")
+
+    def test_eu_regulation_variants(self):
+        self.assertEqual(
+            classify_sinay_zakony_typ("Nařízení Evropského parlamentu a Rady (EU) 2019/2144"),
+            "Nařízení EU")
+        self.assertEqual(
+            classify_sinay_zakony_typ("Delegované nařízení Komise (EU) 2023/1184"), "Nařízení EU")
+        self.assertEqual(
+            classify_sinay_zakony_typ("Nařízení Komise v přenesené pravomoci (EU) 2023/1185"),
+            "Nařízení EU")
+
+    def test_eu_directive_even_with_a_leading_project_label(self):
+        # Real case: the EU marker isn't at the very start of the title.
+        self.assertEqual(
+            classify_sinay_zakony_typ(
+                "REDIII - Smernica Európskeho parlamentu a Rady (EÚ) 2023/2413 z 18. októbra 2023..."),
+            "Směrnice EU")
+
+    def test_eu_commission_decision_without_bracket_marker(self):
+        # Real case: no "(EU)" bracket at all, but "komisie" (Commission)
+        # plus "rozhodnutie" is unambiguous.
+        self.assertEqual(
+            classify_sinay_zakony_typ(
+                "Vykonávacie rozhodnutie komisie 2022/2427 sa stanovujú závery..."),
+            "Rozhodnutí EU")
+
+    def test_genuinely_unclear_falls_back_to_empty_string(self):
+        # A policy strategy paper and a UN/ECE vehicle regulation are
+        # neither — never force-guessed into the wrong bucket.
+        self.assertEqual(classify_sinay_zakony_typ("Vodíková stratégia pre klimaticky neutrálnu Európu"), "")
+        self.assertEqual(classify_sinay_zakony_typ("(EHK OSN) č. 134"), "")
+
+    def test_blank_is_empty_string(self):
+        self.assertEqual(classify_sinay_zakony_typ(""), "")
+        self.assertEqual(classify_sinay_zakony_typ(None), "")
 
 
 class ExtractZnackaFromTitleTestCase(unittest.TestCase):
