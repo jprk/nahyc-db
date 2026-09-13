@@ -1,10 +1,16 @@
+import datetime
 import os
+import subprocess
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.app import build_document_query, _rows_for_export, EXPORT_FIELDS
+from app.app import (
+    build_document_query, _rows_for_export, EXPORT_FIELDS,
+    get_git_version, get_db_last_updated,
+)
 
 
 NO_FILTERS = {'q': '', 'type_id': '', 'source_id': '', 'keyword_id': ''}
@@ -106,6 +112,46 @@ class RowsForExportTestCase(unittest.TestCase):
         }]
         rows = _rows_for_export(documents, {1: ['other-doc-tag']})
         self.assertEqual(rows[0]['keywords'], '')
+
+
+class GetGitVersionTestCase(unittest.TestCase):
+    """Footer version display, 2026-09-13: never raises, and reflects the
+    actual repo this test runs from (a real git checkout in CI/dev)."""
+
+    def test_returns_a_non_empty_string_in_a_real_checkout(self):
+        version = get_git_version()
+        self.assertIsInstance(version, str)
+        self.assertTrue(version)
+
+    def test_git_not_found_returns_none_not_raise(self):
+        import app.app as app_module
+        with unittest.mock.patch.object(
+                app_module.subprocess, "run", side_effect=FileNotFoundError):
+            self.assertIsNone(app_module.get_git_version())
+
+    def test_subprocess_error_returns_none_not_raise(self):
+        import app.app as app_module
+        with unittest.mock.patch.object(
+                app_module.subprocess, "run",
+                side_effect=subprocess.CalledProcessError(1, "git")):
+            self.assertIsNone(app_module.get_git_version())
+
+
+class GetDbLastUpdatedTestCase(unittest.TestCase):
+    def test_returns_the_max_updated_at(self):
+        expected = datetime.datetime(2026, 9, 11, 22, 39, 47)
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"last_updated": expected}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_db_last_updated(db), expected)
+
+    def test_empty_table_returns_none(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"last_updated": None}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertIsNone(get_db_last_updated(db))
 
 
 if __name__ == '__main__':

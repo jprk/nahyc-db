@@ -3,6 +3,7 @@ import io
 import json
 import os
 import pathlib
+import subprocess
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
@@ -14,6 +15,27 @@ app = Flask(__name__)
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
 load_dotenv(REPO_ROOT / ".env")
+
+
+def get_git_version():
+    """Best-effort short description of the running app's own git
+    revision (e.g. "e69e637" or "e69e637-dirty") — shown in the footer so
+    it's clear which deployed code is actually live. Computed once at
+    import time (a running process doesn't change git revision under
+    itself) rather than per-request. Never raises: git not installed, or
+    a deployment that shipped without the .git directory (an exported
+    zip, not this repo's own `zip/v01/` archive) just means it isn't
+    shown — not a startup failure."""
+    try:
+        result = subprocess.run(
+            ["git", "describe", "--tags", "--always", "--dirty"],
+            cwd=REPO_ROOT, capture_output=True, text=True, timeout=5, check=True)
+        return result.stdout.strip() or None
+    except (subprocess.SubprocessError, OSError):
+        return None
+
+
+GIT_VERSION = get_git_version()
 
 # doc/REQUIREMENTS.md R2.5, 2026-09-11: export formats/fields for /export/<fmt>.
 EXPORT_FORMATS = {"csv", "json", "xml"}
@@ -36,6 +58,30 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+
+
+def get_db_last_updated(db):
+    """Last modification timestamp across the document catalog —
+    `Document.updated_at` is already `ON UPDATE CURRENT_TIMESTAMP` (see
+    doc/konsolidace/V01-baseline-schema.sql), so this reflects the most
+    recent pipeline rebuild/init_db.py run without any new tracking
+    needed. None for a genuinely empty table (a fresh, not-yet-seeded
+    database) — never guessed."""
+    with db.cursor() as cur:
+        cur.execute("SELECT MAX(updated_at) AS last_updated FROM Document")
+        row = cur.fetchone()
+    return row["last_updated"] if row else None
+
+
+@app.context_processor
+def inject_footer_info():
+    """Makes git_version/db_last_updated available to every template
+    (the footer lives in base.html, shared by all pages) without every
+    route having to remember to pass them explicitly."""
+    return {
+        "git_version": GIT_VERSION,
+        "db_last_updated": get_db_last_updated(get_db()),
+    }
 
 def get_filters():
     db = get_db()

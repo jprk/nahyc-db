@@ -2627,3 +2627,17 @@ against 3 resolved catalog numbers (522022, 521108, 510858), all match
 exactly. `needs_review` rose from 402 to 409 (the 7 synthesized records
 have no description yet, correctly flagged, not silently exempted). Full
 428-test suite passes; full pipeline rerun clean.
+
+## 10. Footer metadata: DB last-updated + running app's git version (NEW, 2026-09-13)
+
+Small, user-requested addition, unrelated to §9 above: `app/app.py` gained
+`get_db_last_updated()` (`SELECT MAX(updated_at) FROM Document` —
+`Document.updated_at` is already `ON UPDATE CURRENT_TIMESTAMP`, so no new
+tracking was needed) and `get_git_version()` (`git describe --tags
+--always --dirty` against `REPO_ROOT`, computed once at import time,
+never raises — a deployment without git installed or without `.git/`
+just shows nothing). Both are injected into every template via a new
+`@app.context_processor`, and rendered in `base.html`'s footer as a small
+muted line below the existing copyright text. Verified live against the
+Flask dev server (not just the unit tests) — both values render
+correctly. 6 new tests in `tests/test_app_export.py`.

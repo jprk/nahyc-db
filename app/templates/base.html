@@ -43,6 +43,11 @@
                 <br />Created with the support of the Technology Agency of the Czech
                 Republic under grant agreement No. TN02000007.
             </p>
+            {%- if db_last_updated or git_version %}
+            <p class="footer-meta">{%- if db_last_updated %}Databáze aktualizována: {{ db_last_updated.strftime('%Y-%m-%d %H:%M') }}{%- endif -%}
+                {%- if db_last_updated and git_version %} &middot; {% endif -%}
+                {%- if git_version %}Verze aplikace: {{ git_version }}{%- endif -%}</p>
+            {%- endif %}
             {# Partner logos - left #}
             <div
                 style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; margin-top: 0rem; padding: 0rem 1rem;">

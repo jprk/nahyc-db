@@ -564,6 +564,13 @@ main {
     font-size: 0.9rem;
 }
 
+.footer-meta {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin-top: 0.25rem;
+}
+
 /* Animations */
 @keyframes fadeUp {
     from {
