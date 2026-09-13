@@ -2433,3 +2433,40 @@ generic-catalog-root norm records (a substantially bigger, differently-
 shaped undertaking), reviving `enrich_annotations.py` as an LLM-based
 fallback tier, migrating `esbirka.py` to a real content source once a
 REST API key is obtained.
+
+**Manual spot-check against live sources (2026-09-11), requested by the
+user beyond the automated test suite**: a random sample per domain from
+`data/site_metadata_cache.json` was re-verified against fresh live
+fetches/queries (not just re-reading the cache).
+
+- `eurlex`: re-ran the Cellar SPARQL query live for CELEX `32019R0942` —
+  returned title matches the cached value character-for-character.
+- `zakonyprolidi`: re-fetched `192/2022 Sb.`'s live page. Its title in the
+  cache ends in "..." — confirmed this is **not** a truncation artifact of
+  our own code: the site's own `og:title` meta tag genuinely ends in
+  "..." (the CMS truncates long titles for SEO). The `og:description` is
+  separate and carries the full, untruncated text, so no information is
+  actually lost.
+- `slovlex`: re-fetched `699/2004 Z. z.`'s live page (redirect chain to
+  `/ezbierky/...` followed). The JSON-LD `Legislation.name` matches the
+  cached value exactly.
+- `csnonline`: found one real, low-frequency defect. `fetch_csn_metadata()`
+  picks the *first* search result whose designation matches exactly; for
+  a standard with multiple historical editions under the same designation,
+  "first" isn't guaranteed to be the most recent or currently-valid one.
+  Re-checked all 27 cached ČSN entries against fresh live searches: 24/27
+  unaffected (single edition, or identical title text across editions).
+  Of the remaining 3, two "more recent" rows are actually amendment/errata
+  stubs (`Změna ke stažení: Z1...`) — picking "first" accidentally avoided
+  junk there. The third, `ČSN EN ISO 17268`, is a genuine miss: the cache
+  holds the 2017 edition's title ("Plynný vodík - Plnicí rozhraní
+  pozemních vozidel", withdrawn 2020) instead of the 2022 edition's
+  ("Plynný vodík - Spojovací zařízení pro doplňování paliva pro pozemní
+  vozidla na plynný vodík") — and neither is actually current any more,
+  since the designation itself was later retired and split into
+  `ČSN EN ISO 17268-1`. **Decision (user's explicit call): leave as-is.**
+  A robust fix would need to distinguish real edition rows from
+  amendment/errata rows before picking "most recent," and there is no
+  reliable way to know which historical edition the source spreadsheet's
+  `znacka` actually intended — not worth the added complexity for the one
+  affected record found in the current corpus.
