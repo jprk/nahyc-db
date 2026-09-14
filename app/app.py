@@ -94,6 +94,36 @@ def get_filters():
         keywords = cur.fetchall()
     return types, sources, keywords
 
+
+def get_total_document_count(db):
+    """Real count for the hero section's "Search N documents" headline
+    (used to be a hardcoded placeholder, "300") — every Document row,
+    regardless of lifecycle state."""
+    with db.cursor() as cur:
+        cur.execute("SELECT COUNT(*) AS c FROM Document")
+        row = cur.fetchone()
+    return row["c"] if row else 0
+
+
+def get_active_document_count(db):
+    """For the hero section's active/inactive breakdown note. "Active"
+    means the document's CURRENT version's lifecycle_state is 'active' —
+    the same three-way active/superseded/draft distinction DocumentVersion
+    already tracks (see src/tools/init_db.py's classify_lifecycle_state()),
+    not just every row in Document. The inactive ("outdated") count shown
+    alongside it is derived as total - active, not a separate query — so
+    the two numbers always add up to the headline total even for the
+    (currently nonexistent) edge case of a Document with no current
+    version row at all."""
+    with db.cursor() as cur:
+        cur.execute('''
+            SELECT COUNT(DISTINCT d.id) AS c FROM Document d
+            JOIN DocumentVersion dv ON dv.document_id = d.id
+            WHERE dv.is_current = 1 AND dv.lifecycle_state = 'active'
+        ''')
+        row = cur.fetchone()
+    return row["c"] if row else 0
+
 def parse_filters(args):
     """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the four
     recognized search/filter query params into a plain dict, shared by
@@ -184,6 +214,9 @@ def index():
     filters = parse_filters(request.args)
     types, sources, keywords = get_filters()
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=100)
+    total_document_count = get_total_document_count(db)
+    active_document_count = get_active_document_count(db)
+    inactive_document_count = total_document_count - active_document_count
 
     return render_template('index.html',
                            documents=documents,
@@ -191,6 +224,9 @@ def index():
                            types=types,
                            sources=sources,
                            keywords=keywords,
+                           total_document_count=total_document_count,
+                           active_document_count=active_document_count,
+                           inactive_document_count=inactive_document_count,
                            request=request)
 
 @app.route('/fulltext/<int:doc_id>')

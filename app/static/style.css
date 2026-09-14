@@ -158,6 +158,13 @@ main {
     margin: 0 auto;
 }
 
+.hero-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+}
+
 /* Search Section */
 .search-section {
     margin-bottom: 3rem;

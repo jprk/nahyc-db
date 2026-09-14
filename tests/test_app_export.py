@@ -9,7 +9,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.app import (
     build_document_query, _rows_for_export, EXPORT_FIELDS,
-    get_git_version, get_db_last_updated,
+    get_git_version, get_db_last_updated, get_active_document_count,
+    get_total_document_count,
 )
 
 
@@ -152,6 +153,48 @@ class GetDbLastUpdatedTestCase(unittest.TestCase):
         cursor.fetchone.return_value = {"last_updated": None}
         db.cursor.return_value.__enter__.return_value = cursor
         self.assertIsNone(get_db_last_updated(db))
+
+
+class GetTotalDocumentCountTestCase(unittest.TestCase):
+    """The hero headline used to hardcode "300" — this replaces it with a
+    real COUNT(*) of every Document row."""
+
+    def test_returns_the_count(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"c": 1214}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_total_document_count(db), 1214)
+
+    def test_no_rows_returns_zero(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = None
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_total_document_count(db), 0)
+
+
+class GetActiveDocumentCountTestCase(unittest.TestCase):
+    """Feeds the hero section's active/inactive breakdown note — a real
+    count of documents whose CURRENT version's lifecycle_state is
+    'active' (not every Document row — a draft/superseded-only document
+    shouldn't count as active). The "inactive" number shown alongside it
+    is computed by the caller (index()) as total - active, not a
+    separate query — see get_active_document_count()'s own docstring."""
+
+    def test_returns_the_count(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"c": 1061}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_active_document_count(db), 1061)
+
+    def test_no_rows_returns_zero(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = None
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_active_document_count(db), 0)
 
 
 if __name__ == '__main__':
