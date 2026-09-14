@@ -3819,9 +3819,11 @@
   },
   "https://www.slov-lex.sk/pravne-predpisy/SK/ZZZ/2006/134/": {
     "description": null,
-    "domain": "slovlex",
-    "status": "failed",
-    "title": null,
+    "domain": "eurlex",
+    "note": "Manual correction, 2026-09-14 (doc/PLAN.md §13, user-reported): source odkaz_sk (slov-lex.sk/.../ZZZ/2006/134/) is a dead link (confirmed live: slov-lex redirect failure page). This is UN/ECE Regulation No. 134 (hydrogen-fuelled vehicle safety), incorporated into EU law as CELEX 42019X0795 (OJ L 129, 17.5.2019) -- title verified both via WebFetch against eur-lex.europa.eu and independently via src/sites/eurlex.py's own SPARQL query for this CELEX (same title both times).",
+    "status": "fetched",
+    "title": "Předpis Evropské hospodářské komise Organizace spojených národů (EHK OSN) č. 134 – Jednotná ustanovení pro schvalování motorových vozidel a jejich konstrukčních částí z hlediska bezpečnosti vozidel na vodíkový pohon (HFCV) [2019/795]",
+    "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/CS/ALL/?uri=CELEX:42019X0795",
     "zdroj_esbirka_url": null,
     "znacka": "(EHK OSN) č. 134"
   },

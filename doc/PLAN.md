@@ -2701,3 +2701,78 @@ full pipeline rerun clean.
   hugs the right edge rather than stretching across the whole grid cell;
   the ≤992px mobile override resets that back to `width: auto` (full
   single-column width, still equal-width buttons).
+
+## 13. `(EHK OSN) č. 134` (Document id 87): manual correction of a specific bad record (NEW, 2026-09-14, user-reported)
+
+User spotted `id=87`'s title was literally its own citation number,
+`"(EHK OSN) č. 134"` — "looks very suspicious, crosscheck the whole
+record." Root cause: the `Sinay_Zakony` source spreadsheet gives this
+record NO real title at all (both `Dokument CZ`/`Dokument SK` are just
+the bare citation), so it fell straight through to the raw-citation
+fallback. Its `anotace_poznamka` (a vague, partly-wrong paragraph
+mentioning vehicle "emisí" — this regulation has nothing to do with
+emissions) was clearly LLM-generated at some earlier point with nothing
+but the bare citation as input (all 47 *other* `Sinay_Zakony` records
+carry similar-looking annotations, but had real title text to work
+from — this is the one where the input was empty, and it shows).
+
+**Verified independently, twice**: this is UN/ECE Regulation No. 134
+(hydrogen-fuelled vehicle safety), incorporated into EU law as CELEX
+`42019X0795` (OJ L 129, 17.5.2019) — confirmed both via `WebFetch`
+against the real `eur-lex.europa.eu` Czech-language page and,
+separately, by querying `src/sites/eurlex.py`'s own Cellar SPARQL for
+that CELEX directly (same title both times): *"Předpis Evropské
+hospodářské komise Organizace spojených národů (EHK OSN) č. 134 –
+Jednotná ustanovení pro schvalování motorových vozidel a jejich
+konstrukčních částí z hlediska bezpečnosti vozidel na vodíkový pohon
+(HFCV) [2019/795]"*.
+
+**Fixed**:
+- `data/site_metadata_cache.json`: added a manually-verified entry keyed
+  by the record's own `odkaz_sk` (`slov-lex.sk/.../ZZZ/2006/134/`, live-
+  confirmed to be a dead link — a redirect-failure page, not real content;
+  `fetch_authoritative_metadata.py`'s `slovlex` module correctly recorded
+  it as `"failed"`, since there was no automatic way to find the right
+  source from this URL alone) — carries the verified title and the
+  working `zdroj_autoritativni_url` (the EUR-Lex CS "ALL" page —
+  `https://eur-lex.europa.eu/legal-content/CS/ALL/?uri=CELEX:42019X0795`,
+  the user's own pick over the "TXT" variant first used). **Known risk,
+  documented rather than engineered around**: an `--force` re-run of
+  `fetch_authoritative_metadata.py` will re-dispatch this URL to the
+  `slovlex` module, get `"failed"` again, and silently overwrite this
+  manual entry — a rare, deliberate operation, not something to add
+  cross-record protection machinery for one record.
+- The stale `anotace_poznamka` was hand-cleared (not merely overlaid —
+  `popis_autoritativni` only ever *adds*, never suppresses a bad
+  `anotace_poznamka`) directly in the generated `database_merged_raw.json`
+  after one `build_unified_db.py` run, breaking `load_previous_
+  annotations()`'s restore chain for this one record going forward (same
+  precedent as this project's other hand-curated corrections, e.g.
+  `sinay_normy_processed.json`).
+- `data/fulltext_manifest.json`: the cached "full text" file was, itself,
+  the same slov-lex redirect-failure page (real `HTTP 200`, but the body
+  is an error page — `fetch_fulltext.py` had no way to detect this from
+  the status code alone). Marked `"status": "failed"` with an `"error"`
+  note; the useless cached file deleted. Without this, the app would have
+  offered a "Stažená kopie" button serving a useless error page.
+
+**Verified live in the running app**: `id=87` now shows the real title,
+links to the working EUR-Lex page, has no fake download button, and is
+honestly flagged "Vyžaduje kontrolu" (`chybí popis/anotace dokumentu`) —
+no fabricated description was written to replace the bad one.
+
+**Found while cross-checking, left as-is per the user's call**: `id=87`
+is a genuine, pre-existing duplicate of `id=132` (`Haltuf_Dokumenty`,
+`znacka="[2019/795]"`) — the *same* UN/ECE Regulation 134, already
+correctly resolved via the normal `eurlex.py` SPARQL path (its own
+`odkaz_hlavni` is a proper `eur-lex.europa.eu?uri=CELEX:...` URL) to the
+identical Czech title, with a real working PDF `file_path`, `gestor`,
+and English `language`. `deduplicate_db.py` never had a chance to catch
+this: before today's fix the two records' titles looked completely
+unrelated (`"(EHK OSN) č. 134"` vs the full English regulation title),
+and their `znacka` share no common substring either. Shown side-by-side
+to the user; their instruction was to correct `id=87` directly (using
+the EUR-Lex "ALL" URL above), not to merge — `id=132` is left
+untouched, and the two remain separate `Document` rows. Not a systemic
+fix (only this one pair was checked) — a broader duplicate-detection
+pass across the corpus, if wanted, would be separately scoped work.

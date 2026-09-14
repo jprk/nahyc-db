@@ -628,11 +628,10 @@
     "url": "https://www.technicke-normy-csn.cz/csn-iso-19880-1-656525-214583.html"
   },
   "Sinay_Zakony|(EHK OSN) č. 134|odkaz_sk": {
+    "error": "Manual correction, 2026-09-14 (doc/PLAN.md §13): HTTP 200 but the response body is slov-lex.sk's own redirect-failure page (\"Nepodarilo sa prejst na poziadovanu URL adresu...\"), not real document content -- confirmed live. fetch_fulltext.py could not have detected this automatically (real 200 status, no HTTP-level signal it is an error page).",
     "fetched_at": "2026-09-11T00:50:29",
     "http_status": 200,
-    "local_path": "data/fulltext/Sinay_Zakony/EHK_OSN_._134__odkaz_sk.html",
-    "sha256": "0b82b3f384d4e247cb8b83b2ad87309d68fdd5a19e7c3f13d706a5fcf00fb458",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZZ/2006/134/"
   },
   "Sinay_Zakony|(EU) 2019/2144|odkaz_eu": {
