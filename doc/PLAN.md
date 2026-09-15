@@ -2864,3 +2864,169 @@ by the newly-recognized bare Haltuf norm citations). No change needed to
 correctly classified (or genuinely empty) *before* merge, the existing
 backfill-from-any-member logic resolves multi-row records correctly on
 its own. 448-test suite passes; full pipeline rerun clean.
+
+## 15. Source-agnostic schema pivot: split multi-jurisdiction records + superset audit fields (NEW, 2026-09-15, user-directed)
+
+Tagged commit `heterogeneous_version` marks the last state built on the
+per-source model (`zdroj_dat`: which of the three original spreadsheets —
+Prokop/Sinay/Haltuf — a record came from). The user's explicit direction:
+those spreadsheets were only ever "seeds" to establish the legal corpus —
+every pipeline operation from here on should treat every `Document` as a
+homogeneous element, not branch on its origin. The schema should hold
+whatever superset of properties the sources actually provide, instead of
+quietly dropping what doesn't fit today's narrower `Document` table.
+
+**A full-repo audit (not assumed) found most of the pipeline already
+source-agnostic**: `app/app.py` has zero `zdroj_dat` references;
+`deduplicate_db.py`/`link_document_versions.py` only ever concatenate it
+into a provenance string; `link_document_relations_auto.py` was already
+deliberately keyed on `znacka` shape, not source. Only two real
+behavior-branches remained: `fetch_authoritative_metadata.py`'s
+`LAW_SOURCES`/`CSN_ELIGIBLE_SOURCES` and `fetch_fulltext.py`'s
+`NORM_SOURCES` — both switched to a `typ_dokumentu`-based check instead
+(`!= "Norma"` for law-record gating, `== "Norma"` for the norm-only
+gates), now that §11/§14 made `typ_dokumentu` reliably real for every
+source. `doc/REQUIREMENTS.md` R1.6's "independent classification table"
+is unrelated — it's about the document's authoritative *institution*
+(`DocumentSource`, from `gestor`), not which spreadsheet it came from.
+
+**First plan draft rejected by the user.** The initial proposal folded
+`nazev_eu`/`nazev_sk`/`odkaz_eu`/`odkaz_sk` into extra columns on one
+`Document` row. Rejected: the EU version of a law is the legally binding
+original; CZ/SK versions are national implementations *derived from
+it* — these must be **separate, interlinked `Document` rows**, the same
+"split, don't bundle" pattern already used for international-standard↔
+ČSN-adoption (§9's `ADOPTS`). Revised design: reuse the existing
+`IMPLEMENTS` relation for EU→national (same real-world relationship
+R1.3 already models); add a new `NATIONAL_EQUIVALENT` relation type for
+CZ↔SK pairs with no EU parent; no leftover "non-authoritative URL"
+field survives the split — each split-out record just gets the ordinary
+`url`.
+
+**Schema additions** (`doc/konsolidace/Konsolidace-DB-schema.sql`,
+applied live): `document_relation.relation_type` ENUM gains
+`NATIONAL_EQUIVALENT`; `Document` gains five nullable audit/provenance
+columns that survive as themselves (not split into rows) —
+`zdroj_dat` (comma-joined provenance, never branched on), `nazev_
+autoritativni`/`popis_autoritativni`/`zdroj_autoritativni_url` (the
+independently-verified fields, kept alongside `title`/`description`/
+`url` so "is this verified?" stays answerable after they've won), and
+`jurisdikce_puvodni` (§9's pre-correction jurisdikce audit trail).
+Deliberately excluded: `ratifikovan` — checked across all 2248
+pre-pivot raw records, exactly **one** non-blank value exists anywhere
+(`"A=ANO; N=NE"`, a legend fragment leaked into the data column by a
+`process_haltuf.py` extraction bug, not real data) — adding it now would
+surface garbage into a "superset" schema; needs its own root-cause fix
+first, out of scope here.
+
+**`build_unified_db.py`'s new `split_sinay_zakony_row()`** splits one
+Sinay_Zakony spreadsheet row into up to 3 records instead of one row
+with 6 title/url fields: a primary (CZ if present else SK, same
+fallback as before, now with `jurisdikce` set explicitly — previously
+left blank for this whole source), an SK sibling when "Dokument SK" is
+genuinely distinct dual content, and an EU original whenever "Dokument
+EU" is populated. `nazev_eu`/`odkaz_eu` stay on the primary record in
+the intermediate JSON (unchanged) so `link_document_relations_auto.py`'s
+existing R1.3 mechanism can still find and link the now-real EU record —
+**zero changes needed to that script**. The CZ↔SK pairing (nothing
+downstream can recover it later — Czech and Slovak laws don't share a
+common znacka/digit-core the way an EU-act citation does) is captured at
+build time into a new `data/document_relations_split.json`, merged by
+`load_document_relations.py` as a third source alongside the existing
+hand-curated and auto-detected ones.
+
+**Real pre-existing bug fixed as a side effect**: `odkaz_hlavni` used to
+always read `"URL CZ"`, even on a row where the title itself fell back
+to `"Dokument SK"` because `"Dokument CZ"` was blank — 9/48 real rows
+ended up with a blank `odkaz_hlavni` despite a perfectly good `"URL SK"`
+being available.
+
+**Three more real bugs found live, only by actually running the split
+against the full corpus and the database, not by unit tests alone**:
+
+1. **A Slovak-spelled EU citation collided with the same act's
+   correctly-spelled record, but only inside MariaDB.** `extract_znacka_
+   from_title()`'s leading-match cases (B) never normalized the Slovak
+   "EÚ" spelling to "EU" (only the anywhere-in-text case F did) — two
+   Python strings `"(EÚ) 2019/2144"` and `"(EU) 2019/2144"` are distinct
+   to `init_db.py`'s own-run duplicate check, but MariaDB's
+   accent-insensitive collation treats them as the same `identifier`,
+   crashing the `INSERT` with a unique-constraint violation. Fixed:
+   case B now also normalizes `EÚ`→`EU` (deliberately **not** `ES`→`EU`
+   there — `"1999/92/ES"`, the pre-Lisbon designation, is kept literal
+   by an existing, still-passing test; only the accent difference was
+   ever the bug).
+2. **A bare EU citation copy-pasted into "Dokument SK" isn't real
+   Slovak content.** 2/48 rows have `"Dokument SK"` holding nothing but
+   the EU act's own citation (e.g. `"(EÚ) 2019/2144"`) instead of an
+   actual Slovak-language title — splitting it out would create a
+   content-free "document" that's really just the EU original under a
+   different jurisdikce. Detected via `extract_znacka_from_title(sk) ==
+   sk` (the whole cell is consumed by the citation regex, nothing else)
+   and skipped.
+3. **EU Regulations (unlike Directives) apply directly — there is no
+   separate national implementing act — but Sinay's spreadsheet still
+   fills "Dokument CZ"/"Dokument SK" with a copy of the same
+   regulation's own title for these rows.** 10/48 rows (e.g. `"(EU)
+   2023/1184"`, `"(EU) 2019/2144"`) have this shape, confirmed by their
+   own extracted znacka matching `"Dokument EU"`'s. Splitting these
+   produced 2-3 records sharing the *exact same* znacka under different
+   jurisdikce, which then (a) collided as duplicate identifiers in
+   `init_db.py` and, worse, (b) made `link_document_relations_auto.py`'s
+   R1.4 grouping treat the EU-tier copy as "parent" and the CZ/SK-tier
+   copy of the *same* citation as "child", emitting a literal
+   **self-referencing `X ADOPTS X` edge** — which crashed
+   `load_document_relations.py`'s insert on `document_relation`'s
+   unique constraint. Fixed at the root: when a row's primary record and
+   its EU original resolve to the same znacka, collapse to a **single**
+   EU-tier record instead of splitting. Also added a general defensive
+   guard in `find_localization_pairs()` (never link a record to itself
+   via a shared znacka) — this caught one more, unrelated self-loop
+   (`"2010/75/EU"`) rooted in `extract_znacka_from_title()`'s
+   anywhere-in-prose case picking up a *cited* directive's number from a
+   Commission Decision's own title, not the Decision's own designation —
+   a separate, pre-existing extraction imprecision, out of scope to fix
+   generally here, just guarded against.
+
+**A fourth issue, structural rather than a single bug**:
+`document_relations_split.json` is written per raw spreadsheet row,
+before `deduplicate_db.py` merges duplicate rows into one final
+`Document` — the same CZ+SK pair can legitimately appear on more than
+one raw row, resolving to an identical `(from_document_id,
+to_document_id, relation_type)` triple twice. `load_document_relations.py`
+gained a general `dedupe_resolved_relations()` pass (applied to
+resolved relations from *any* source, not just the split one) right
+before the insert loop.
+
+**`init_db.py`**: `import_json_data()`'s `INSERT INTO Document` extended
+with the five new columns, direct pass-through (no resolution logic
+needed — they're audit companions to the already-resolved `title`/
+`description`/`url`/`jurisdikce`).
+
+**Verified end-to-end on the real corpus** (full pipeline rerun:
+`build_unified_db.py` → `deduplicate_db.py` → `link_document_
+versions.py` → `link_document_relations_auto.py` → `init_db.py` →
+`load_document_relations.py` → `load_process_layer.py`; 467-test suite
+passes):
+- Raw unified records: 2248 → 2280 (Sinay_Zakony alone: 48 source rows →
+  80 records — CZ 29, SK 35, EU 16; 10 of the 48 rows collapsed to a
+  single EU-tier record per bug #3 above, not tripled).
+- Deduplicated records: 1191 → 1215 (1238 live `Document` rows including
+  the pre-existing +23 V02-bibliography placeholders `load_process_
+  layer.py` adds, unrelated to this pivot).
+- R1.3 `IMPLEMENTS` edges: 0 (6 candidates stuck in `eu_transposition_
+  missing_targets.json`, missing their target) → **6 edges, 0 missing**
+  — the fix was entirely upstream of `link_document_relations_auto.py`
+  (making the cited EU act a real record); the script itself needed zero
+  changes, exactly as designed.
+- `document_relation` total: 46 rows (`AMENDS` 1, `IMPLEMENTS` 6,
+  `ADOPTS` 25, `NATIONAL_EQUIVALENT` 14 — 18 split-detected pairs minus 4
+  exact-duplicate triples dropped by the new dedupe pass).
+- Spot-checked real triples, e.g. `458/2000 Sb.` (CZ) `IMPLEMENTS`
+  `(EU) 2019/692` (EU, now a real linked record instead of a string on
+  the CZ row); `183/2006 Sb.` (CZ) `NATIONAL_EQUIVALENT` with two
+  distinct Slovak successor laws from the same source row.
+- `fetch_authoritative_metadata.py`/`fetch_fulltext.py` gating reaches
+  the same *kind* of records as before (219 law records / 421 ČSN-
+  eligible / 317 full-text fetch targets on the fresh corpus), now via
+  `typ_dokumentu` instead of `zdroj_dat`.

@@ -3,15 +3,18 @@ URL (`odkaz_hlavni`/`odkaz_eu`/`odkaz_sk` in `data/database_merged_raw.json`)
 and caches it locally under `data/fulltext/` (git-ignored — see
 `doc/PLAN.md` §4).
 
-**Only laws are in scope.** `Prokop_Normy` and `Sinay_Normy` (technical
-norms — ČSN/STN/EN/ISO/DIN) are skipped unconditionally: their URLs are
-generic catalog roots, not per-document links, and the actual standard
-text is copyrighted/paywalled (confirmed via the ČSN registry's own Terms
-of Use — see `check_csn_validity.py`'s docstring). This script must never
-be extended to fetch norm text. `is_norm_designation()` adds a second,
-source-independent guard (2026-09-11, doc/REQUIREMENTS.md R4.1): a law
-source like `Haltuf_Dokumenty` can still carry a handful of stray norm
-citations of its own, which the source-name check alone would miss.
+**Only laws are in scope.** Records classified as `typ_dokumentu ==
+"Norma"` (technical norms — ČSN/STN/EN/ISO/DIN) are skipped
+unconditionally: their URLs are generic catalog roots, not per-document
+links, and the actual standard text is copyrighted/paywalled (confirmed
+via the ČSN registry's own Terms of Use — see `check_csn_validity.py`'s
+docstring). This script must never be extended to fetch norm text.
+Source-agnostic since doc/PLAN.md §15 (2026-09-15) — gated on the
+record's own classified type, not which spreadsheet it came from.
+`is_norm_designation()` adds a second, independent guard (2026-09-11,
+doc/REQUIREMENTS.md R4.1): a law record can still carry a handful of
+stray norm citations of its own, which the `typ_dokumentu` check alone
+would miss.
 
 Idempotent: `data/fulltext_manifest.json` (git-tracked — small metadata,
 no document content) records one entry per (source, znacka, URL field).
@@ -37,20 +40,18 @@ RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
 FULLTEXT_DIR = REPO_ROOT / "data" / "fulltext"
 MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
 
-# Norms sources are never fetched — see module docstring. Everything else
-# in the corpus today is a law source and is fair game.
-NORM_SOURCES = {"Prokop_Normy", "Sinay_Normy"}
 URL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
 
-# doc/REQUIREMENTS.md R4.1, 2026-09-11: NORM_SOURCES alone is not a
-# reliable guard — found in practice that Haltuf_Dokumenty (a law source,
-# not in NORM_SOURCES) also carries a handful of stray norm citations of
-# its own (e.g. "ISO 14687", "ČSN EN 17127", "DIN EN ISO 22734"), each
-# already fetched before this fix (harmless in practice — the URLs were
-# public catalog/e-shop listing pages, not paid full text, but still the
-# wrong shape of content to treat as this pipeline's cached "full text").
-# A record's own designation shape is a source-independent second check —
-# same precedent as link_document_relations_auto.py's is_eu_act_znacka().
+# doc/REQUIREMENTS.md R4.1, 2026-09-11: a typ_dokumentu != "Norma" check
+# alone is not a reliable guard — found in practice that some law records
+# (e.g. from Haltuf_Dokumenty) also carry a handful of stray norm
+# citations of their own (e.g. "ISO 14687", "ČSN EN 17127",
+# "DIN EN ISO 22734"), each already fetched before this fix (harmless in
+# practice — the URLs were public catalog/e-shop listing pages, not paid
+# full text, but still the wrong shape of content to treat as this
+# pipeline's cached "full text"). A record's own designation shape is an
+# independent second check — same precedent as
+# link_document_relations_auto.py's is_eu_act_znacka().
 _NORM_DESIGNATION_RE = re.compile(
     r"^(?:ČSN|CSN|STN|TNI|DIN|VDE|NF|BS|NEN|ISO|IEC|EN)\b", re.IGNORECASE
 )
@@ -67,14 +68,14 @@ def sanitize_znacka(znacka):
     return safe.strip("_") or "unnamed"
 
 
-def is_fetchable_source(zdroj_dat):
-    return zdroj_dat not in NORM_SOURCES
+def is_fetchable_source(typ_dokumentu):
+    return typ_dokumentu != "Norma"
 
 
 def is_norm_designation(znacka):
     """True when the designation itself is shaped like a technical
-    standard (ČSN/STN/DIN/ISO/EN/... prefix) regardless of which source
-    the record came from — see NORM_SOURCES note above."""
+    standard (ČSN/STN/DIN/ISO/EN/... prefix) regardless of the record's
+    typ_dokumentu — see the R4.1 note above."""
     return bool(_NORM_DESIGNATION_RE.match((znacka or "").strip()))
 
 
@@ -98,8 +99,7 @@ def iter_fetch_targets(raw_data):
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
     there's no stable key to file them under."""
     for record in raw_data:
-        zdroj_dat = record.get("zdroj_dat", "")
-        if not is_fetchable_source(zdroj_dat):
+        if not is_fetchable_source(record.get("typ_dokumentu", "")):
             continue
         znacka = (record.get("znacka") or "").strip()
         if not znacka or is_norm_designation(znacka):

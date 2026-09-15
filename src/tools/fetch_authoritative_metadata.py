@@ -7,20 +7,23 @@ URL, not the ~650+ norm records whose stored URL is just a generic
 organization homepage/catalog root (no per-document parser can help
 those — the URL itself doesn't identify which document it's for).
 
-- **Law records** (`Haltuf_Dokumenty`/`Sinay_Zakony`/`EU_Transposition_
-  Targets`/`V02_Bibliografie`) whose URL is on `eur-lex.europa.eu`
-  (`src/sites/eurlex.py`, SPARQL — title only, no description available),
-  `zakonyprolidi.cz` (`src/sites/zakonyprolidi.py`, HTML meta tags — title
-  + description), or `slov-lex.sk` (`src/sites/slovlex.py`, JSON-LD —
-  title only). Every Czech law ("NNN/YYYY Sb." shape) additionally gets
-  its citation verified against `src/sites/esbirka.py` — e-Sbírka is the
-  real government source of record, but doesn't expose a scrapeable title
-  itself (see that module's own docstring), so it only contributes a
-  confirmed `zdroj_esbirka_url` reference alongside zakonyprolidi.cz's
-  actual title/description text.
-- **ČSN-designated norm records** (`Prokop_Normy`/`Haltuf_Dokumenty`/
-  `Sinay_Normy`, whether the corpus's own `znacka` already carries a
-  `ČSN`/`CSN` prefix or is a bare `EN`/`ISO`/`IEC` designation): looked up
+- **Law records** (`is_law_record()` — any record whose own
+  `typ_dokumentu` isn't `"Norma"`; doc/PLAN.md §15 made this
+  source-agnostic, it used to be a `zdroj_dat` allow-list) whose URL is
+  on `eur-lex.europa.eu` (`src/sites/eurlex.py`, SPARQL — title only, no
+  description available), `zakonyprolidi.cz` (`src/sites/zakonyprolidi.py`,
+  HTML meta tags — title + description), or `slov-lex.sk`
+  (`src/sites/slovlex.py`, JSON-LD — title only). Every Czech law
+  ("NNN/YYYY Sb." shape) additionally gets its citation verified against
+  `src/sites/esbirka.py` — e-Sbírka is the real government source of
+  record, but doesn't expose a scrapeable title itself (see that
+  module's own docstring), so it only contributes a confirmed
+  `zdroj_esbirka_url` reference alongside zakonyprolidi.cz's actual
+  title/description text.
+- **ČSN-designated norm records** (`is_csn_norm_record()` —
+  `typ_dokumentu == "Norma"`, likewise source-agnostic, whether the
+  corpus's own `znacka` already carries a `ČSN`/`CSN` prefix or is a bare
+  `EN`/`ISO`/`IEC` designation): looked up
   against `agentura-cas.cz` (Česká agentura pro standardizaci, the actual
   national standards body — `check_csn_validity.py`'s `csnonline.
   agentura-cas.cz` search + `Detailnormy.aspx` detail page), the single
@@ -91,11 +94,6 @@ CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SLEEP_SECONDS = 1
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
 
-LAW_SOURCES = {"Haltuf_Dokumenty", "Sinay_Zakony", "EU_Transposition_Targets", "V02_Bibliografie"}
-# doc/PLAN.md §9: sources whose znacka may cite a Czech-adoptable norm —
-# widened from Prokop_Normy-only so a bare EN/ISO/IEC designation found
-# only in Haltuf_Dokumenty/Sinay_Normy (e.g. "EN 17339") is attempted too.
-CSN_ELIGIBLE_SOURCES = {"Prokop_Normy", "Haltuf_Dokumenty", "Sinay_Normy"}
 _CSN_PREFIX_RE = re.compile(r"^(ČSN|CSN)\s+", re.IGNORECASE)
 # A bare designation with no national-body prefix at all is the
 # international original itself (mirrors link_document_relations_auto.py's
@@ -121,17 +119,28 @@ _SITE_MODULES = {
 }
 
 
-def _sources(item):
-    return [s.strip() for s in (item.get("zdroj_dat") or "").split(", ") if s.strip()]
-
-
 def is_law_record(item):
-    return any(s in LAW_SOURCES for s in _sources(item))
+    """doc/PLAN.md §15, 2026-09-15: source-agnostic — used to be `zdroj_dat
+    in LAW_SOURCES`, now keyed on the record's own `typ_dokumentu`
+    (reliably classified for every source by build_unified_db.py's
+    `classify_law_document_typ()`) instead of which spreadsheet it came
+    from. Deliberately permissive: "not Norma" rather than "a recognized
+    law type", so the handful of genuinely-unclassifiable records (an
+    ADR/RID/UN-ECE regulation, a Commission Communication — `""`) are
+    still attempted here, same coverage as before — they're just not
+    Norma, so the site-based (not ČSN-registry) enrichment path is the
+    right one to try."""
+    return (item.get("typ_dokumentu") or "").strip() != "Norma"
 
 
 def is_csn_norm_record(item):
+    """doc/PLAN.md §15: source-agnostic — used to be `zdroj_dat in
+    CSN_ELIGIBLE_SOURCES`, now `typ_dokumentu == "Norma"` (same
+    classifier as above). No longer misses a norm-shaped record just
+    because it came from a source that wasn't on the old allow-list
+    (e.g. V02_Bibliografie's own norm entries)."""
     znacka = (item.get("znacka") or "").strip()
-    if not any(s in CSN_ELIGIBLE_SOURCES for s in _sources(item)):
+    if (item.get("typ_dokumentu") or "").strip() != "Norma":
         return False
     if _CSN_PREFIX_RE.match(znacka):
         return True

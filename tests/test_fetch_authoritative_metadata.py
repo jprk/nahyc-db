@@ -15,43 +15,54 @@ from sites import eurlex, zakonyprolidi, slovlex
 
 
 class IsLawRecordTestCase(unittest.TestCase):
-    def test_single_law_source(self):
-        self.assertTrue(is_law_record({"zdroj_dat": "Haltuf_Dokumenty"}))
-        self.assertTrue(is_law_record({"zdroj_dat": "Sinay_Zakony"}))
-        self.assertTrue(is_law_record({"zdroj_dat": "EU_Transposition_Targets"}))
-        self.assertTrue(is_law_record({"zdroj_dat": "V02_Bibliografie"}))
+    """doc/PLAN.md §15, 2026-09-15: source-agnostic — keyed on the
+    record's own typ_dokumentu (classify_law_document_typ()'s output),
+    not which spreadsheet it came from. "Not Norma" rather than "a
+    recognized law type", so the handful of genuinely-unclassifiable
+    records (blank typ_dokumentu) are still attempted, same coverage as
+    the old zdroj_dat allow-list."""
 
-    def test_merged_source_with_at_least_one_law_component(self):
-        self.assertTrue(is_law_record({"zdroj_dat": "Sinay_Zakony, Haltuf_Dokumenty"}))
-        self.assertTrue(is_law_record({"zdroj_dat": "Prokop_Normy, Haltuf_Dokumenty"}))
+    def test_recognized_law_types_are_true(self):
+        for typ in ("Zákon", "Vyhláška", "Nařízení vlády", "Nařízení EU",
+                    "Směrnice EU", "Rozhodnutí EU"):
+            self.assertTrue(is_law_record({"typ_dokumentu": typ}), typ)
 
-    def test_norm_only_source_is_false(self):
-        self.assertFalse(is_law_record({"zdroj_dat": "Prokop_Normy"}))
-        self.assertFalse(is_law_record({"zdroj_dat": "Sinay_Normy"}))
+    def test_norma_is_false(self):
+        self.assertFalse(is_law_record({"typ_dokumentu": "Norma"}))
+
+    def test_blank_typ_is_still_true(self):
+        # A genuinely-unclassifiable record (ADR/RID/UN-ECE regulation,
+        # a Commission Communication) — not a Norma, still worth trying
+        # the site-based enrichment path.
+        self.assertTrue(is_law_record({"typ_dokumentu": ""}))
+        self.assertTrue(is_law_record({}))
 
 
 class IsCsnNormRecordTestCase(unittest.TestCase):
-    """doc/PLAN.md §9: widened from Prokop_Normy-only, ČSN-prefix-only to
-    also cover Haltuf_Dokumenty/Sinay_Normy and bare EN/ISO/IEC
-    designations (the international original, not yet/never separately
+    """doc/PLAN.md §9/§15: source-agnostic since §15 — keyed on
+    typ_dokumentu == "Norma" (reliably set for every source by
+    classify_law_document_typ()), not a zdroj_dat allow-list. Covers
+    both an already-ČSN-prefixed znacka and a bare EN/ISO/IEC
+    designation (the international original, not yet/never separately
     ČSN-numbered in the corpus's own znacka)."""
 
-    def test_prokop_normy_with_csn_znacka(self):
-        self.assertTrue(is_csn_norm_record({"zdroj_dat": "Prokop_Normy", "znacka": "ČSN ISO 14687"}))
-        self.assertTrue(is_csn_norm_record({"zdroj_dat": "Prokop_Normy", "znacka": "CSN EN 17127"}))
+    def test_csn_prefixed_norma_is_true(self):
+        self.assertTrue(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "ČSN ISO 14687"}))
+        self.assertTrue(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "CSN EN 17127"}))
 
-    def test_eligible_source_with_bare_international_designation_is_true(self):
-        self.assertTrue(is_csn_norm_record({"zdroj_dat": "Prokop_Normy", "znacka": "ISO 14687"}))
-        self.assertTrue(is_csn_norm_record({"zdroj_dat": "Haltuf_Dokumenty", "znacka": "EN 17339"}))
-        self.assertTrue(is_csn_norm_record({"zdroj_dat": "Sinay_Normy", "znacka": "IEC 60079-0"}))
+    def test_bare_international_designation_norma_is_true(self):
+        self.assertTrue(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "ISO 14687"}))
+        self.assertTrue(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "EN 17339"}))
+        self.assertTrue(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "IEC 60079-0"}))
 
     def test_other_national_prefix_is_false(self):
         # An STN/DIN/etc. designation is a different country's own
         # national adoption, not a bare international original.
-        self.assertFalse(is_csn_norm_record({"zdroj_dat": "Sinay_Normy", "znacka": "STN EN 17127"}))
+        self.assertFalse(is_csn_norm_record({"typ_dokumentu": "Norma", "znacka": "STN EN 17127"}))
 
-    def test_non_eligible_source_is_false_even_with_csn_znacka(self):
-        self.assertFalse(is_csn_norm_record({"zdroj_dat": "Sinay_Zakony", "znacka": "ČSN ISO 14687"}))
+    def test_non_norma_typ_is_false_even_with_csn_znacka(self):
+        self.assertFalse(is_csn_norm_record({"typ_dokumentu": "Zákon", "znacka": "ČSN ISO 14687"}))
+        self.assertFalse(is_csn_norm_record({"typ_dokumentu": "", "znacka": "ČSN ISO 14687"}))
 
 
 class IsBareInternationalZnackaTestCase(unittest.TestCase):

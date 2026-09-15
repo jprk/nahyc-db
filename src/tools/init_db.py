@@ -449,15 +449,29 @@ def import_json_data(db_conn):
                 extra_insert_cols={"institution_type": institution_type,
                                     "jurisdiction": source_jurisdiction})
 
+        # doc/PLAN.md §15, 2026-09-15: zdroj_dat/nazev_autoritativni/
+        # popis_autoritativni/zdroj_autoritativni_url/jurisdikce_puvodni
+        # are direct, literal pass-through — audit/provenance companions
+        # to the already-resolved title/description/url/jurisdikce above,
+        # never themselves resolved further. zdroj_dat is pure
+        # provenance (which spreadsheet(s) contributed this record) —
+        # nothing may branch behavior on it (see fetch_authoritative_
+        # metadata.py/fetch_fulltext.py, switched to typ_dokumentu-based
+        # checks instead).
         cursor.execute("""
             INSERT INTO Document
             (title, description, type_id, source_id, language, url,
              effective_date, identifier, jurisdikce, file_path,
-             needs_review, review_reason)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             needs_review, review_reason,
+             zdroj_dat, nazev_autoritativni, popis_autoritativni,
+             zdroj_autoritativni_url, jurisdikce_puvodni)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
               effective_date, identifier, jurisdikce, file_path,
-              needs_review, review_reason))
+              needs_review, review_reason,
+              item.get("zdroj_dat") or None, item.get("nazev_autoritativni") or None,
+              item.get("popis_autoritativni") or None, item.get("zdroj_autoritativni_url") or None,
+              item.get("jurisdikce_puvodni") or None))
 
         doc_id = cursor.lastrowid
 

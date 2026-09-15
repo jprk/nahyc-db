@@ -127,6 +127,20 @@ def find_localization_pairs(records):
             continue
         for child in children:
             for parent in parents:
+                if child.get("znacka") == parent.get("znacka"):
+                    # doc/PLAN.md §15 follow-up: a record can't ADOPT
+                    # itself. Found live after the §15 split started
+                    # setting jurisdikce explicitly per Sinay_Zakony
+                    # record: extract_znacka_from_title()'s "anywhere in
+                    # prose" case can pick up a DIFFERENT act's number
+                    # that a record's own title merely cites (e.g. a
+                    # Commission Decision on BAT conclusions "podľa
+                    # smernice ... 2010/75/EÚ" isn't itself that
+                    # directive) — coincides with a genuine EU-tier
+                    # record sharing that same (wrongly-extracted) znacka,
+                    # forming a same-identifier self-loop that also
+                    # violates document_relation's unique constraint.
+                    continue
                 pairs.append((child, parent))
     return pairs
 

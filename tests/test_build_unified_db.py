@@ -7,7 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from build_unified_db import (
     extract_znacka_from_title, resolve_prokop_jurisdikce,
     record_url, apply_authoritative_metadata, synthesize_csn_adoption_records,
-    classify_law_document_typ,
+    classify_law_document_typ, split_sinay_zakony_row,
 )
 
 
@@ -463,6 +463,163 @@ class SynthesizeCsnAdoptionRecordsTestCase(unittest.TestCase):
         added = synthesize_csn_adoption_records(unified_db, cache)
         self.assertEqual(added, 1)
         self.assertEqual(len(unified_db), 1)
+
+
+class SplitSinayZakonyRowTestCase(unittest.TestCase):
+    """doc/PLAN.md §15, 2026-09-15: the EU version of a law is the legally
+    binding original, CZ/SK versions are national implementations derived
+    from it -- these become separate, interlinked records instead of
+    extra fields bundled onto one (rejected first draft)."""
+
+    def test_cz_only_row_yields_a_single_primary_record(self):
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb., energetický zákon",
+                "URL CZ": "https://www.zakonyprolidi.cz/cs/2000-458"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(relations, [])
+        primary = records[0]
+        self.assertEqual(primary["jurisdikce"], "CZ")
+        self.assertEqual(primary["odkaz_hlavni"], "https://www.zakonyprolidi.cz/cs/2000-458")
+        self.assertEqual(primary["zdroj_dat"], "Sinay_Zakony")
+
+    def test_sk_only_fallback_yields_a_single_record_with_sk_jurisdikce(self):
+        # doc/PLAN.md §15: also the fix for the pre-existing odkaz_hlavni
+        # bug -- the URL must follow whichever language's text actually
+        # became the title, not always "URL CZ".
+        item = {"Dokument SK": "Vyhláška č. 124/2000 Z. z.",
+                "URL SK": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(relations, [])
+        primary = records[0]
+        self.assertEqual(primary["jurisdikce"], "SK")
+        self.assertEqual(primary["nazev_cz"], "Vyhláška č. 124/2000 Z. z.")
+        self.assertEqual(primary["odkaz_hlavni"], "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/")
+
+    def test_identical_cz_and_sk_text_does_not_spuriously_split(self):
+        # The SK sibling must only appear for genuine dual content, not
+        # when "Dokument SK" merely repeats the same text as "Dokument CZ".
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb.", "URL CZ": "https://a",
+                "Dokument SK": "Zákon č. 458/2000 Sb.", "URL SK": "https://a"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(relations, [])
+
+    def test_genuinely_distinct_cz_and_sk_text_splits_and_links(self):
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb., energetický zákon",
+                "URL CZ": "https://www.zakonyprolidi.cz/cs/2000-458",
+                "Dokument SK": "Vyhláška č. 124/2000 Z. z.",
+                "URL SK": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 2)
+        cz, sk = records
+        self.assertEqual(cz["jurisdikce"], "CZ")
+        self.assertEqual(sk["jurisdikce"], "SK")
+        self.assertEqual(sk["odkaz_hlavni"], "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/")
+        self.assertEqual(len(relations), 1)
+        self.assertEqual(relations[0]["relation_type"], "NATIONAL_EQUIVALENT")
+        self.assertEqual(relations[0]["from_identifier"], cz["znacka"])
+        self.assertEqual(relations[0]["to_identifier"], sk["znacka"])
+
+    def test_sk_column_holding_only_the_bare_eu_citation_does_not_split(self):
+        # doc/PLAN.md §15 follow-up: real corpus bug — "Dokument SK" was a
+        # bare EU-act citation ("(EÚ) ...", not real Slovak text) on a row
+        # whose CZ text is a genuine national implementing act (distinct
+        # own znacka, not itself equal to the EU original's — see
+        # test_eu_regulation_with_direct_effect_collapses_to_a_single_eu_record
+        # for that separate scenario). Splitting the SK citation out would
+        # create a content-free duplicate of the EU original under
+        # jurisdikce SK; also used to crash init_db.py via a MariaDB
+        # accent-insensitive unique-identifier collation clash with the
+        # correctly-spelled "(EU) ..." elsewhere.
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb., energetický zákon",
+                "URL CZ": "https://cz",
+                "Dokument SK": "(EÚ) 2019/2144", "URL SK": "https://sk",
+                "Dokument EU": "Nařízení Evropského parlamentu a Rady (EU) 2019/2144 ze dne 27. listopadu 2019",
+                "URL EU": "https://eu"}
+        records, relations = split_sinay_zakony_row(item)
+        jurisdikce = [r["jurisdikce"] for r in records]
+        self.assertEqual(jurisdikce, ["CZ", "EU"])
+        self.assertEqual(relations, [])
+
+    def test_eu_marker_normalized_even_via_leading_match(self):
+        # doc/PLAN.md §15 follow-up: case B's leading-EU-number match used
+        # to skip the EÚ/ES -> EU normalization that case F already did,
+        # so a Slovak-spelled leading citation ("(EÚ) 2021/535 ...")
+        # produced a znacka distinct (in Python) from the correctly-spelled
+        # "(EU) 2021/535" — but MariaDB's accent-insensitive collation
+        # treats them as the same identifier, crashing the import.
+        item = {"Dokument CZ": "Nařízení Komise (EU) 2021/535 ze dne 31. března 2021",
+                "URL CZ": "https://cz",
+                "Dokument SK": "(EÚ) 2021/535 nariadenie", "URL SK": "https://sk"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 2)
+        self.assertEqual(records[1]["znacka"], "(EU) 2021/535")
+
+    def test_eu_regulation_with_direct_effect_collapses_to_a_single_eu_record(self):
+        # doc/PLAN.md §15 follow-up: real corpus bug — an EU REGULATION
+        # (unlike a directive) applies directly, so Sinay's "Dokument CZ"/
+        # "Dokument SK" columns just repeat the same regulation's own
+        # title rather than naming a genuinely separate national act.
+        # Splitting these produced records whose own znacka literally
+        # equalled the EU record's — link_document_relations_auto.py's
+        # R1.4 then created a self-referencing "X ADOPTS X" edge, which
+        # crashed load_document_relations.py's unique-constraint insert.
+        item = {"Dokument CZ": "Delegované nařízení Komise (EU) 2023/1184",
+                "URL CZ": "https://cz",
+                "Dokument SK": "Delegované nariadenie EK (EÚ) 2023/1184 z 10. februára 2023",
+                "URL SK": "https://sk",
+                "Dokument EU": ("Delegované nařízení Komise (EU) 2023/1184 ze dne 10. února 2023, "
+                                "kterým se doplňuje směrnice ..."),
+                "URL EU": "https://eu"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["jurisdikce"], "EU")
+        self.assertEqual(records[0]["odkaz_hlavni"], "https://eu")
+        self.assertEqual(relations, [])
+
+    def test_eu_original_is_split_out_as_its_own_record(self):
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb.", "URL CZ": "https://cz",
+                "Dokument EU": "Směrnice (EU) 2019/692", "URL EU": "https://eu"}
+        records, relations = split_sinay_zakony_row(item)
+        self.assertEqual(len(records), 2)
+        primary, eu = records
+        self.assertEqual(primary["jurisdikce"], "CZ")
+        self.assertEqual(eu["jurisdikce"], "EU")
+        self.assertEqual(eu["nazev_cz"], "Směrnice (EU) 2019/692")
+        self.assertEqual(eu["odkaz_hlavni"], "https://eu")
+        # No CZ<->SK relation, since no SK sibling was emitted.
+        self.assertEqual(relations, [])
+
+    def test_nazev_eu_and_odkaz_eu_stay_on_primary_for_r1_3_matching(self):
+        # link_document_relations_auto.py's existing R1.3 IMPLEMENTS
+        # detection reads nazev_eu/odkaz_eu straight off the primary
+        # record -- must survive the split unchanged, even though they're
+        # never mapped into a Document column downstream.
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb.", "URL CZ": "https://cz",
+                "Dokument EU": "Směrnice (EU) 2019/692", "URL EU": "https://eu"}
+        records, _ = split_sinay_zakony_row(item)
+        primary = records[0]
+        self.assertEqual(primary["nazev_eu"], "Směrnice (EU) 2019/692")
+        self.assertEqual(primary["odkaz_eu"], "https://eu")
+
+    def test_full_triple_yields_three_records_and_one_relation(self):
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb., energetický zákon", "URL CZ": "https://cz",
+                "Dokument SK": "Vyhláška č. 124/2000 Z. z.", "URL SK": "https://sk",
+                "Dokument EU": "Směrnice (EU) 2019/692", "URL EU": "https://eu"}
+        records, relations = split_sinay_zakony_row(item)
+        jurisdikce = [r["jurisdikce"] for r in records]
+        self.assertEqual(jurisdikce, ["CZ", "SK", "EU"])
+        self.assertEqual(len(relations), 1)
+        self.assertEqual(relations[0]["relation_type"], "NATIONAL_EQUIVALENT")
+
+    def test_gestor_string_is_normalized_to_a_list_on_every_split_record(self):
+        item = {"Dokument CZ": "Zákon č. 458/2000 Sb.", "URL CZ": "https://cz",
+                "Dokument SK": "Vyhláška č. 124/2000 Z. z.", "URL SK": "https://sk",
+                "Gestor CZ": "MPO"}
+        records, _ = split_sinay_zakony_row(item)
+        for record in records:
+            self.assertEqual(record["gestor"], ["MPO"])
 
 
 if __name__ == "__main__":

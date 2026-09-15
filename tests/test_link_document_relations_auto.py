@@ -88,6 +88,20 @@ class FindLocalizationPairsTestCase(unittest.TestCase):
         records = [_rec("ISO 1", jurisdikce="neurčeno"), _rec("STN ISO 1", jurisdikce="SK")]
         self.assertEqual(find_localization_pairs(records), [])
 
+    def test_never_links_a_record_to_itself_via_a_shared_znacka(self):
+        # doc/PLAN.md §15 follow-up: a record can't ADOPT itself. Real
+        # corpus case: a national-jurisdikce record's own znacka was
+        # mis-extracted as the SAME designation as a genuinely separate
+        # EU-tier record (extract_znacka_from_title() picked up a cited
+        # directive's number, not the record's own) -- would otherwise
+        # form a same-identifier self-loop that also violates
+        # document_relation's unique constraint downstream.
+        records = [
+            _rec("2010/75/EU", jurisdikce="EU"),
+            _rec("2010/75/EU", jurisdikce="SK"),
+        ]
+        self.assertEqual(find_localization_pairs(records), [])
+
 
 class DigitCoreTestCase(unittest.TestCase):
     def test_law_style(self):

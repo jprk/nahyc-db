@@ -168,6 +168,41 @@ ALTER TABLE Document
   ADD COLUMN needs_review BOOLEAN NOT NULL DEFAULT FALSE,
   ADD COLUMN review_reason VARCHAR(500) NULL;
 
+-- doc/PLAN.md §15 dodatek, 2026-09-15: "zdrojově agnostický" posun —
+-- uživatel: operace nad databází nemají dál rozlišovat, ze které ze tří
+-- původních tabulek (Prokop/Sinay/Haltuf) záznam vzešel; ty byly jen
+-- "semínka" pro založení korpusu. `zdroj_dat` samo (JSON pole, nikdy
+-- dřív nesahalo do DB) se PONECHÁVÁ jako čistě auditní/provenienční
+-- sloupec (odkud tento záznam skutečně pochází), ALE nic v pipeline ani
+-- v `app/app.py` už na něj nesmí větvit chování (viz `src/tools/
+-- fetch_authoritative_metadata.py`/`fetch_fulltext.py` — přepnuty na
+-- `typ_dokumentu`). `nazev_autoritativni`/`popis_autoritativni`/
+-- `zdroj_autoritativni_url` (doc/PLAN.md §8/§9) a `jurisdikce_puvodni`
+-- (§9) existovaly jen v JSON pipeline artefaktech a nikdy se nedostaly
+-- do `Document` — po sloučení do `title`/`description`/`url`/
+-- `jurisdikce` se ztratilo, zda šlo o ověřenou, nebo jen převzatou
+-- hodnotu. Přidáno jako čistě doplňkové, nikdy nenahrazují resolvované
+-- sloupce.
+ALTER TABLE Document
+  ADD COLUMN zdroj_dat VARCHAR(255) NULL,
+  ADD COLUMN nazev_autoritativni VARCHAR(1000) NULL,
+  ADD COLUMN popis_autoritativni TEXT NULL,
+  ADD COLUMN zdroj_autoritativni_url VARCHAR(500) NULL,
+  ADD COLUMN jurisdikce_puvodni VARCHAR(20) NULL;
+
+-- doc/PLAN.md §15 dodatek, 2026-09-15: `Sinay_Zakony` dřív bal jeden
+-- český zákon + jeho slovenský a unijní protějšek do JEDNOHO záznamu
+-- (pole `nazev_eu`/`odkaz_eu`/`nazev_sk`/`odkaz_sk`) — na výslovné
+-- přání uživatele se nyní štěpí na samostatné, provázané `Document`
+-- záznamy (unijní verze je právně závazný originál, národní verze jsou
+-- jeho odvozeniny). `IMPLEMENTS` (EU→národní) se znovupoužívá beze
+-- změny — přesně vztah, který R1.3 už definuje. Pro pár CZ↔SK bez
+-- unijního rodiče (žádný existující typ relace to nepokrývá) přidán
+-- nový `NATIONAL_EQUIVALENT`.
+ALTER TABLE document_relation
+  MODIFY COLUMN relation_type
+    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT') NOT NULL;
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

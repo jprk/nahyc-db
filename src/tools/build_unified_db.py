@@ -170,13 +170,20 @@ def extract_znacka_from_title(title):
 
     # Case B: a leading EU/ES act number with NO dash separator following it
     # (e.g. "2014/34/EU \nDIRECTIVE ..." — its Czech counterpart has a dash
-    # and is already caught by case C, but this variant isn't).
+    # and is already caught by case C, but this variant isn't). Only the
+    # Slovak "EÚ" spelling is normalized to "EU" here — same abbreviation,
+    # different orthography (unlike "ES", the distinct pre-Lispon
+    # designation, deliberately kept literal — see
+    # test_leading_code_with_dash_separator). Found live (doc/PLAN.md §15):
+    # missing this normalization let a Slovak-spelled "(EÚ) 2019/2144"
+    # collide, only inside MariaDB's accent-insensitive collation, with the
+    # correctly-spelled "(EU) 2019/2144" elsewhere.
     m = re.match(r'^\(?\s*(?:EU|EÚ|ES)\s*\)?\s*\d{3,5}/\d+', t)
     if m:
-        return ' '.join(m.group(0).split())
+        return ' '.join(m.group(0).split()).replace('EÚ', 'EU')
     m = re.match(r'^\d{3,5}/\d+/(?:EU|ES|EÚ)', t)
     if m:
-        return ' '.join(m.group(0).split())
+        return ' '.join(m.group(0).split()).replace('EÚ', 'EU')
 
     # Case C: a leading code followed by a ' - ' separator, e.g.
     # "(EU) 2024/1788 - SMĚRNICE ..." / "2014/68/EU - DIRECTIVE ...". Requires
@@ -215,7 +222,7 @@ def extract_znacka_from_title(title):
         return ' '.join(m.group(0).split()).replace('EÚ', 'EU').replace('ES', 'EU')
     m = re.search(r'\d{3,5}/\d+\s*/\s*(?:EU|ES|EÚ)\b', t)
     if m:
-        return ' '.join(m.group(0).split())
+        return ' '.join(m.group(0).split()).replace('EÚ', 'EU')
 
     # Case E: the whole title IS just a bare code, no separator (e.g.
     # "EN 17339", "ČSN EN ISO 19880-1", "ISO 14687").
@@ -352,6 +359,132 @@ def synthesize_csn_adoption_records(unified_db, cache):
         added += 1
     return added
 
+
+def split_sinay_zakony_row(item):
+    """doc/PLAN.md §15, 2026-09-15: splits one Sinay_Zakony spreadsheet
+    row into up to 3 separate records — the EU version of a law is the
+    legally binding original, CZ/SK versions are national
+    implementations derived from it, so (per the user's explicit
+    direction) they become separate, interlinked records instead of
+    extra fields bundled onto one. Returns (records, relations):
+    `records` is the primary record (index 0, CZ if present else SK —
+    same fallback rule as before) plus an optional SK-sibling and/or
+    EU-original record; `relations` is a list of 0-1 NATIONAL_EQUIVALENT
+    pair dicts (`load_document_relations.py` shape) for a genuine
+    CZ+SK pair from this same row — nothing downstream can recover that
+    pairing later, since Czech and Slovak laws don't share a common
+    znacka/digit-core the way an EU-act citation does.
+
+    The SK sibling is only emitted when "Dokument CZ" AND "Dokument SK"
+    are BOTH present and textually different — genuine dual content, not
+    the primary's own CZ-else-SK fallback (which would otherwise
+    spuriously duplicate the primary record as a second, identical one).
+    Also skipped when "Dokument SK" is itself nothing but a bare EU-act
+    citation (e.g. "(EÚ) 2019/2144") rather than real Slovak-language
+    text — found live (doc/PLAN.md §15): 2/48 rows have this, apparently
+    a copy-paste of the EU citation into the wrong column. Splitting it
+    out would create a content-free "document" that's really just the EU
+    original's own citation under a different jurisdikce, not a genuine
+    Slovak implementation — detected via extract_znacka_from_title(sk)
+    consuming the ENTIRE string (a real title always has more text around
+    the citation).
+    The EU original is emitted whenever "Dokument EU" is non-empty, with
+    no existence check first (unlike §9's ČSN synthesis, which needed
+    live verification) — the spreadsheet's own populated field is
+    already the evidence; ordinary duplicate EU citations across rows/
+    sources are merged downstream by deduplicate_db.py like any other
+    duplicate raw record. `nazev_eu`/`odkaz_eu` stay on the primary
+    record (unchanged) so link_document_relations_auto.py's existing
+    R1.3 mechanism can still find and link the now-real EU record from
+    there — they're just never mapped into a Document column (see
+    init_db.py's import_json_data()).
+
+    Also fixes a real pre-existing bug: odkaz_hlavni used to always read
+    "URL CZ", even on a row where the title itself fell back to
+    "Dokument SK" because "Dokument CZ" was blank (9/48 real rows
+    affected — ended up with a blank odkaz_hlavni despite a perfectly
+    good "URL SK" being available). And sets jurisdikce explicitly
+    ("CZ"/"SK"/"EU") — previously left blank for this whole source."""
+    nazev_cz_raw = item.get("Dokument CZ", "").strip()
+    nazev_sk_raw = item.get("Dokument SK", "").strip()
+    nazev_eu_raw = item.get("Dokument EU", "").strip()
+    url_cz = item.get("URL CZ", "").strip()
+    url_sk = item.get("URL SK", "").strip()
+    url_eu = item.get("URL EU", "").strip()
+
+    gestor = item.get("Gestor CZ", [])
+    if isinstance(gestor, str):
+        gestor = [gestor]
+
+    def _record(nazev, url, jurisdikce, nazev_eu="", odkaz_eu="", nazev_sk="", odkaz_sk=""):
+        return {
+            "zdroj_dat": "Sinay_Zakony",
+            "nazev_cz": nazev,
+            "znacka": extract_znacka_from_title(nazev),
+            "typ_dokumentu": classify_law_document_typ(nazev),
+            "sekce": "",
+            "kategorie_trida": "",
+            "klicova_slova": [],
+            "odkaz_hlavni": url,
+            "nazev_eu": nazev_eu,
+            "odkaz_eu": odkaz_eu,
+            "nazev_sk": nazev_sk,
+            "odkaz_sk": odkaz_sk,
+            "platnost": "",
+            "ratifikovan": "",
+            "gestor": list(gestor),
+            "jazyk": "",
+            "anotace_poznamka": "",
+            "jurisdikce": jurisdikce,
+        }
+
+    # doc/PLAN.md §15 follow-up: an EU REGULATION (unlike a directive)
+    # applies directly — there is no separate national implementing act.
+    # Sinay's spreadsheet still fills "Dokument CZ"/"Dokument SK" with a
+    # (often shortened) copy of the same regulation's own title for these
+    # rows (real corpus cases: 10/48 rows, e.g. "(EU) 2023/1184", "(EU)
+    # 2019/2144" — confirmed by their own extracted znacka matching
+    # "Dokument EU"'s). Splitting these into 2-3 near-identical records
+    # under different jurisdikce would create spurious self-referencing
+    # NATIONAL_EQUIVALENT/ADOPTS edges downstream (a document can't be its
+    # own national counterpart) — collapse to a single EU-tier record,
+    # using the EU column's own (usually fuller) text, instead.
+    eu_znacka = extract_znacka_from_title(nazev_eu_raw) if nazev_eu_raw else ""
+    primary_source_text = nazev_cz_raw or nazev_sk_raw
+    if eu_znacka and primary_source_text and extract_znacka_from_title(primary_source_text) == eu_znacka:
+        return [_record(nazev_eu_raw, url_eu, "EU")], []
+
+    if nazev_cz_raw:
+        primary = _record(nazev_cz_raw, url_cz, "CZ",
+                           nazev_eu=nazev_eu_raw, odkaz_eu=url_eu,
+                           nazev_sk=nazev_sk_raw, odkaz_sk=url_sk)
+    else:
+        primary = _record(nazev_sk_raw, url_sk, "SK", nazev_eu=nazev_eu_raw, odkaz_eu=url_eu)
+
+    records = [primary]
+    relations = []
+
+    sk_is_bare_citation = (
+        nazev_sk_raw
+        and extract_znacka_from_title(nazev_sk_raw) == ' '.join(nazev_sk_raw.split()).replace('EÚ', 'EU'))
+    if nazev_cz_raw and nazev_sk_raw and nazev_sk_raw != nazev_cz_raw and not sk_is_bare_citation:
+        sk_sibling = _record(nazev_sk_raw, url_sk, "SK")
+        records.append(sk_sibling)
+        if primary["znacka"] and sk_sibling["znacka"]:
+            relations.append({
+                "from_identifier": primary["znacka"],
+                "to_identifier": sk_sibling["znacka"],
+                "relation_type": "NATIONAL_EQUIVALENT",
+                "note": ("Sinay_Zakony: český a slovenský národní protějšek "
+                         "stejného předpisu (doc/PLAN.md §15)."),
+            })
+
+    if nazev_eu_raw:
+        records.append(_record(nazev_eu_raw, url_eu, "EU"))
+
+    return records, relations
+
+
 def build_unified_db():
     base_dir = REPO_ROOT / "data"
 
@@ -366,6 +499,11 @@ def build_unified_db():
     restored_count = 0
 
     unified_db = []
+    # doc/PLAN.md §15: CZ<->SK NATIONAL_EQUIVALENT pairs captured while
+    # splitting Sinay_Zakony rows (see below) — nothing downstream can
+    # recover this pairing later, since Czech and Slovak laws don't share
+    # a common znacka/digit-core the way an EU-act citation does.
+    split_relations = []
 
     # 1. Process Prokop Norms
     try:
@@ -413,49 +551,28 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Prokop data: {e}")
 
-    # 2. Process Sinay Zákony
+    # 2. Process Sinay Zákony — doc/PLAN.md §15, 2026-09-15: split_sinay_
+    # zakony_row() (see its own docstring above) turns one spreadsheet row
+    # into up to 3 separate, jurisdiction-tagged records — the EU version
+    # of a law is the legally binding original, CZ/SK versions are
+    # national implementations derived from it, so (per the user's
+    # explicit direction) they become separate, interlinked Document rows
+    # instead of extra fields bundled onto one.
     try:
         data_sinay = load_json(file_sinay)
+        sinay_records_added = 0
         for item in data_sinay:
-            # For Sinay, primarily a Czech law mapping, else falling back to original SK equivalent
-            nazev_cz = item.get("Dokument CZ", "").strip()
-            if not nazev_cz:
-                nazev_cz = item.get("Dokument SK", "").strip()
-
-            gestor = item.get("Gestor CZ", [])
-            if isinstance(gestor, str):
-                gestor = [gestor]
-
-            record = {
-                "zdroj_dat": "Sinay_Zakony",
-                "nazev_cz": nazev_cz,
-                "znacka": extract_znacka_from_title(nazev_cz),
-                "typ_dokumentu": classify_law_document_typ(nazev_cz),
-                "sekce": "",
-                "kategorie_trida": "",
-                "klicova_slova": [],
-                "odkaz_hlavni": item.get("URL CZ", "").strip(),
-                "nazev_eu": item.get("Dokument EU", "").strip(),
-                "odkaz_eu": item.get("URL EU", "").strip(),
-                "nazev_sk": item.get("Dokument SK", "").strip(),
-                "odkaz_sk": item.get("URL SK", "").strip(),
-                "platnost": "",
-                "ratifikovan": "",
-                "gestor": gestor,
-                "jazyk": "",
-                "anotace_poznamka": "",
-                # Left unset (not "CZ"): this source mixes Czech law
-                # equivalents with the original Slovak text under
-                # nazev_sk — not confidently one single jurisdiction per
-                # record without deeper work than was asked for here.
-                "jurisdikce": "",
-            }
-            prev = previous_annotations.get((record["zdroj_dat"], record["nazev_cz"]))
+            records, relations = split_sinay_zakony_row(item)
+            primary = records[0]
+            prev = previous_annotations.get((primary["zdroj_dat"], primary["nazev_cz"]))
             if prev:
-                record["anotace_poznamka"] = prev
+                primary["anotace_poznamka"] = prev
                 restored_count += 1
-            unified_db.append(record)
-        print(f"Loaded {len(data_sinay)} records from Sinay.")
+            unified_db.extend(records)
+            split_relations.extend(relations)
+            sinay_records_added += len(records)
+        print(f"Loaded {sinay_records_added} records from Sinay "
+              f"({len(data_sinay)} source rows, split by jurisdiction).")
     except Exception as e:
         print(f"Error loading Sinay data: {e}")
 
@@ -635,6 +752,15 @@ def build_unified_db():
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(unified_db, f, ensure_ascii=False, indent=4)
+
+    # doc/PLAN.md §15: the Sinay_Zakony CZ<->SK NATIONAL_EQUIVALENT pairs
+    # captured above — written every run, same "just data, no verification
+    # needed" idempotency as the other pipeline outputs.
+    split_relations_file = base_dir / "document_relations_split.json"
+    with open(split_relations_file, 'w', encoding='utf-8') as f:
+        json.dump(split_relations, f, ensure_ascii=False, indent=2)
+    if split_relations:
+        print(f"Wrote {len(split_relations)} NATIONAL_EQUIVALENT pair(s) to {split_relations_file}.")
 
     if previous_annotations:
         print(f"Restored {restored_count} annotation(s) from the previous {output_file.name} "

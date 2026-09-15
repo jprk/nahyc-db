@@ -20,13 +20,19 @@ class SanitizeZnackaTestCase(unittest.TestCase):
 
 
 class IsFetchableSourceTestCase(unittest.TestCase):
-    def test_norms_sources_excluded(self):
-        self.assertFalse(ff.is_fetchable_source("Prokop_Normy"))
-        self.assertFalse(ff.is_fetchable_source("Sinay_Normy"))
+    """doc/PLAN.md §15, 2026-09-15: source-agnostic -- keyed on the
+    record's own typ_dokumentu, not which spreadsheet it came from."""
 
-    def test_law_sources_included(self):
-        self.assertTrue(ff.is_fetchable_source("Haltuf_Dokumenty"))
-        self.assertTrue(ff.is_fetchable_source("Sinay_Zakony"))
+    def test_norma_excluded(self):
+        self.assertFalse(ff.is_fetchable_source("Norma"))
+
+    def test_law_types_included(self):
+        for typ in ("Zákon", "Vyhláška", "Nařízení vlády", "Nařízení EU",
+                    "Směrnice EU"):
+            self.assertTrue(ff.is_fetchable_source(typ), typ)
+
+    def test_blank_typ_is_still_true(self):
+        self.assertTrue(ff.is_fetchable_source(""))
 
 
 class IsNormDesignationTestCase(unittest.TestCase):
@@ -50,15 +56,15 @@ class IsNormDesignationTestCase(unittest.TestCase):
 
 
 class IterFetchTargetsTestCase(unittest.TestCase):
-    def test_skips_norm_sources_even_with_url(self):
-        raw = [{"zdroj_dat": "Prokop_Normy", "znacka": "ISO 14687",
+    def test_skips_norma_typ_even_with_url(self):
+        raw = [{"zdroj_dat": "Prokop_Normy", "typ_dokumentu": "Norma", "znacka": "ISO 14687",
                 "odkaz_hlavni": "https://iso.org/standards.html"}]
         self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
 
-    def test_skips_norm_shaped_znacka_even_from_a_law_source(self):
-        # Real corpus case: Haltuf_Dokumenty (a law source) also carried a
-        # stray "ČSN EN 17127" entry, fetched before this fix.
-        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "ČSN EN 17127",
+    def test_skips_norm_shaped_znacka_even_when_typ_is_not_norma(self):
+        # Real corpus case: a law-typed record also carried a stray
+        # "ČSN EN 17127" entry, fetched before this fix.
+        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "typ_dokumentu": "Zákon", "znacka": "ČSN EN 17127",
                 "odkaz_hlavni": "https://www.technicke-normy-csn.cz/x.html"}]
         self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
 
