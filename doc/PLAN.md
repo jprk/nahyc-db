@@ -3030,3 +3030,15 @@ passes):
   the same *kind* of records as before (219 law records / 421 ČSN-
   eligible / 317 full-text fetch targets on the fresh corpus), now via
   `typ_dokumentu` instead of `zdroj_dat`.
+
+**Manually browsed a real CZ/SK/EU triple in the running Flask app**
+(no UI template changes needed or made — §7 correctly predicted the
+split records "show up as ordinary searchable `Document` rows already"):
+`458/2000 Sb.` (id=90, CZ, `Zákon`, links to its e-Sbírka page) is
+`NATIONAL_EQUIVALENT` to `250/2012 Z. z.` (id=91, SK, `Zákon`, links to
+slov-lex.sk) and `IMPLEMENTS` `(EU) 2019/692` (id=103, EU, `Směrnice
+EU`, links to eur-lex.europa.eu) — three separate, correctly-tagged,
+correctly-linked search results instead of one row with 6 bundled
+title/url fields. The SK sibling correctly shows a `needs_review` flag
+(no `anotace_poznamka` of its own, expected for a split-out record) and
+inherits the primary's `gestor`-derived source list, as designed.
