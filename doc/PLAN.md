@@ -2776,3 +2776,91 @@ the EUR-Lex "ALL" URL above), not to merge — `id=132` is left
 untouched, and the two remain separate `Document` rows. Not a systemic
 fix (only this one pair was checked) — a broader duplicate-detection
 pass across the corpus, if wanted, would be separately scoped work.
+
+## 14. `DocumentType` correctness audit — `Haltuf_Dokumenty`'s own `typ_dokumentu` was never classified at all (NEW, 2026-09-15, user-reported)
+
+Follow-up to §11: the user spotted several more misclassified records in
+the default view (`id=96/97/100` should be `Směrnice EU`/`Nařízení EU`,
+`id=109/147` `Nařízení vlády`, `id=67/108` `Zákon`, `id=139` `Vyhláška`)
+and asked for a full "typ" correctness audit, focused on `Nezařazeno`.
+**Note for future sessions**: `Document.id` is NOT stable across a
+pipeline rerun (`init_db.py` `TRUNCATE`s and reinserts every run, so ids
+are reassigned by processing order) — most of the user's cited ids still
+matched live at investigation time, but one (`id=147`) had already
+drifted to an unrelated `Norma` record from an earlier fix's rebuild.
+Investigated by title/znacka, not by chasing stale id numbers.
+
+**Root cause, much broader than the cited examples**: `Haltuf_Dokumenty`
+sets `"typ_dokumentu": item.get("Typ_ID", "").strip()` — a **raw,
+uninterpreted numeric category id** straight from the spreadsheet ("1",
+"2", "9", "10", ...), never translated into a real `DocumentType` name.
+Checked: **all 179 of 179 raw `Haltuf_Dokumenty` records** had a blank or
+purely-numeric `typ_dokumentu`, so every one fell to `init_db.py`'s
+`FALLBACK_DOCUMENT_TYPE` ("Nezařazeno") on import, unless it happened to
+dedup-merge with a correctly-typed `Sinay_Zakony`/`Prokop_Normy`/
+`Sinay_Normy` sibling row citing the same document — and even that safety
+net was unreliable: `deduplicate_db.py`'s `programmatic_merge()` copies
+`typ_dokumentu` from whichever cluster member has the *longest*
+`nazev_cz`, with no notion of "prefer a real classification over numeric
+junk" — a genuine bug found live (`201/2012 Sb.` has both a
+correctly-`"Zákon"`-classified `Sinay_Zakony` row and a numeric-junk
+`Haltuf_Dokumenty` row; the Haltuf one, longer, won the merge and
+silently overwrote the correct type). Mapping the numeric ids to real
+category names (a lookup table) was considered and rejected: no such
+table exists anywhere in the pipeline, and it would be an indirect,
+harder-to-verify proxy for what's already reliably readable straight
+from the record's own title text — the same "first word states the
+type" legal-drafting convention already exploited for §11.
+
+**Fixed**: `classify_sinay_zakony_typ()` generalized to
+`classify_law_document_typ()` and reused for **both** sources (was
+Sinay_Zakony-only), broadened to also correctly classify:
+- **A compound-noun `Zákon` form** ("Energetický zákon", "Stavební
+  zákon", "novela Zákona o drahách") — Haltuf frequently names a
+  well-known Act this way, not "Zákon č. ... Sb." — so `_ZAKON_RE` is no
+  longer anchored to the start of the title, only Vyhláška/Nařízení
+  vlády still are (verified: broadening this specific check doesn't
+  trigger on any genuine EU-act title in either corpus — none mention
+  "zákon" in their own designation text at all).
+- **English-language EU act titles** — Haltuf carries a parallel English
+  row for most EU acts ("DIRECTIVE OF THE EUROPEAN PARLIAMENT...",
+  "COMMISSION REGULATION...", "DECISION OF THE EUROPEAN CENTRAL
+  BANK...") — added `directive`/`regulation`/`decision` and `European
+  Parliament`/`Council`/`Commission`/`European Central Bank` (also in
+  Czech: "Evropské centrální banky") as recognized institution/type
+  markers alongside the existing Czech/Slovak/`"(EU)"`/`"(EÚ)"` ones.
+- **A second real bug, found only by running this against the full
+  corpus rather than a handful of hand-picked cases**: matching by fixed
+  check priority (Směrnice, then Rozhodnutí, then Nařízení) misclassifies
+  an act that states its own type up front but *also* cites a different
+  act of a different type later in its own title (amending/repealing
+  clauses are common in EU legislative titles) — e.g. `(EU) 2023/1804`
+  is itself a **Nařízení** that repeals a directive
+  ("... a o zrušení směrnice 2014/94/EU"), and `(EU) 2024/1789` is a
+  **Nařízení** that also cites a Decision and repeals another Nařízení.
+  Fixed by matching on **earliest keyword position** in the text instead
+  of a fixed priority order.
+- **Bare norm designations** embedded among Haltuf's law citations
+  ("ČSN EN 17127", "EN 17339", "DIN EN ISO 22734", ...) now classify as
+  `"Norma"` (same designation-prefix shape as `fetch_fulltext.py`'s own
+  `is_norm_designation()`) instead of `"Nezařazeno"`.
+- Genuinely non-EU international instruments (ADR, RID, UN/ECE
+  regulations like `(EHK OSN) č. 134`/`"UNECE Regulation No. 100"`) — and
+  a Commission *Communication* (policy paper, not a binding type)
+  — correctly stay unclassified: verified they cite "Regulation"/
+  "Agreement" too, but with no EU/CZ/SK institution attached, so the
+  EU-institution gate never opens and the national-prefix checks don't
+  match either.
+
+**Verified end-to-end on the real corpus**: `Nezařazeno` dropped from
+(effectively) all ~226 combined `Sinay_Zakony`+`Haltuf_Dokumenty` records
+down to **6**, every one individually confirmed genuinely unclassifiable
+(the Communication, `(EHK OSN) č. 134`, ADR 2025, RID ×2, UNECE R100) —
+none silently force-guessed. All of the user's cited examples now show
+the correct type (`Zákon` 26, `Nařízení EU` 26, `Směrnice EU` 13,
+`Vyhláška` 8, `Nařízení vlády` 5, `Rozhodnutí EU` 3 — plus `Norma` rising
+by the newly-recognized bare Haltuf norm citations). No change needed to
+`deduplicate_db.py`'s merge logic itself: once every raw record is
+correctly classified (or genuinely empty) *before* merge, the existing
+backfill-from-any-member logic resolves multi-row records correctly on
+its own. 448-test suite passes; full pipeline rerun clean.

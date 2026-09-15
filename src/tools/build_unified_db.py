@@ -56,46 +56,85 @@ def resolve_prokop_jurisdikce(znacka):
     return "CZ"
 
 
-# doc/PLAN.md §11, 2026-09-14: Sinay_Zakony used to hardcode every record
-# as "Zákon" (Act), regardless of what it actually is — this source mixes
-# real Acts with Vyhlášky (decrees), Nařízení vlády (government
-# regulations), and EU regulations/directives/decisions cited as a Czech
-# law's EU counterpart. Classified from the record's own resolved title
-# text (the same field extract_znacka_from_title() already runs on), by
-# the same leading-word legal-drafting convention Czech/Slovak legislation
-# already follows — never guessed: an EU institutional act is recognized
-# by an explicit "(EU)"/"(EÚ)" marker OR a named EU institution
-# ("Evropského parlamentu"/"Evropské rady"/"Komise"), verified against
-# the real corpus not to trigger on any genuine national Zákon/Vyhláška/
-# Nařízení vlády title (none of those mention an EU institution by name).
+# doc/PLAN.md §11/§14, 2026-09-14/15: Sinay_Zakony used to hardcode every
+# record as "Zákon" (Act) and Haltuf_Dokumenty's own typ_dokumentu is just
+# a raw, uninterpreted numeric category id (e.g. "9", "10") from its own
+# spreadsheet — both sources mix real Acts with Vyhlášky (decrees),
+# Nařízení vlády (government regulations), EU regulations/directives/
+# decisions, bare norm designations, and the occasional genuine UN/ECE or
+# multilateral-treaty citation that's none of the above. Classified from
+# the record's own resolved title text (the same field
+# extract_znacka_from_title() already runs on) by the same leading-word
+# legal-drafting convention Czech/Slovak legislation already follows,
+# extended with the English equivalents Haltuf's own English-language
+# title rows use ("Directive"/"Regulation"/"Decision"/"Commission") —
+# never guessed: an EU institutional act is recognized by an explicit
+# "(EU)"/"(EÚ)" marker or a named EU institution (European Parliament/
+# Council/Commission/European Central Bank, in Czech, Slovak, or
+# English), verified against the real corpus (both sources, ~230 records)
+# not to trigger on any genuine national Zákon/Vyhláška/Nařízení vlády
+# title, nor on a genuine non-EU international instrument (ADR, RID,
+# UN/ECE regulations — these correctly stay unclassified: they cite
+# "Regulation"/"Agreement" too, but without any EU/CZ/SK institution or
+# body attached, so the EU-institution gate never opens for them and the
+# national-prefix checks below don't match them either).
 _EU_INSTITUTION_RE = re.compile(
-    r"\((?:EU|EÚ)\)|evropsk[ée]ho parlamentu|evropskej? rady|\bkomis[ei]", re.IGNORECASE)
-_ZAKON_RE = re.compile(r"^\s*zákon(?:í?k)?\b", re.IGNORECASE)
+    r"\((?:EU|EÚ)\)|evropsk[ée]ho parlamentu|evropskej? rady|\bkomis[ei]|"
+    r"evropsk[ée] centráln[íí] banky|european parliament|european central bank|"
+    r"\bof the council\b|\bcommission\b", re.IGNORECASE)
+# Not anchored at the start (unlike Vyhláška/Nařízení vlády below) — Haltuf
+# often uses a compound-noun form ("Energetický zákon", "Stavební zákon",
+# "novela Zákona o drahách") where "zákon" isn't the title's first word.
+_ZAKON_RE = re.compile(r"^\s*zákon(?:í?k)?\b|\bzákon(?:a|ík)?\b", re.IGNORECASE)
 _VYHLASKA_RE = re.compile(r"^\s*vyhlá[šs]", re.IGNORECASE)
 _NARIZENI_VLADY_RE = re.compile(r"^\s*(?:nařízení|nariadenie)\s+vlády", re.IGNORECASE)
-_SMERNICE_RE = re.compile(r"směrnice|smernica", re.IGNORECASE)
-_NARIZENI_RE = re.compile(r"nařízení|nariadenie", re.IGNORECASE)
-_ROZHODNUTI_RE = re.compile(r"rozhodnutí|rozhodnutie", re.IGNORECASE)
+_SMERNICE_RE = re.compile(r"směrnice|smernica|\bdirective\b", re.IGNORECASE)
+_NARIZENI_RE = re.compile(r"nařízení|nariadenie|\bregulation\b", re.IGNORECASE)
+_ROZHODNUTI_RE = re.compile(r"rozhodnutí|rozhodnutie|\bdecision\b", re.IGNORECASE)
+# Same designation-prefix shape as fetch_fulltext.py's own
+# is_norm_designation() (duplicated, not imported — see this module's
+# established convention of keeping each construction branch
+# independent) — Haltuf mixes bare norm citations in among its laws.
+_NORM_DESIGNATION_PREFIX_RE = re.compile(
+    r"^(?:ČSN|CSN|STN|TNI|DIN|VDE|NF|BS|NEN|ISO|IEC|EN)\b", re.IGNORECASE)
 
 
-def classify_sinay_zakony_typ(nazev):
-    """Returns the real DocumentType name for a Sinay_Zakony record from
-    its own title text, or "" when genuinely unclear (e.g. a policy
-    strategy paper, or a UN/ECE vehicle regulation — neither is any of
-    the types below; "" falls back to init_db.py's own
-    FALLBACK_DOCUMENT_TYPE, same as a blank/numeric typ_dokumentu
-    elsewhere in this pipeline — never force-guessed into the wrong
-    bucket)."""
+def classify_law_document_typ(nazev):
+    """Returns the real DocumentType name for a Sinay_Zakony/
+    Haltuf_Dokumenty record from its own title text, or "" when genuinely
+    unclear (e.g. a policy strategy paper, or a UN/ECE/multilateral-treaty
+    regulation — neither is any of the types below; "" falls back to
+    init_db.py's own FALLBACK_DOCUMENT_TYPE, same as a blank/numeric
+    typ_dokumentu elsewhere in this pipeline — never force-guessed into
+    the wrong bucket). Safe to call per-raw-record before deduplication:
+    when one language variant of a multi-row record doesn't state its own
+    type clearly (a real corpus case — a truncated Czech TSI title that
+    omits its own "Nařízení Komise" lead-in) and a same-znacka sibling row
+    does, programmatic_merge()'s existing backfill-from-any-member logic
+    already resolves it post-merge without any change needed there.
+
+    Within a confirmed EU act, the type keyword is matched by EARLIEST
+    position in the text, not a fixed priority order — a real corpus case
+    (`"Nařízení ... (EU) 2023/1804 ... o zrušení směrnice 2014/94/EU"`)
+    states its own type ("Nařízení") up front and only later cites an
+    unrelated directive it repeals; checking `"směrnice"` before
+    `"nařízení"` unconditionally would misclassify it as the repealed
+    act's type instead of its own."""
     n = (nazev or "").strip()
-    if _EU_INSTITUTION_RE.search(n):
-        if _SMERNICE_RE.search(n):
-            return "Směrnice EU"
-        if _ROZHODNUTI_RE.search(n):
-            return "Rozhodnutí EU"
-        if _NARIZENI_RE.search(n):
-            return "Nařízení EU"
+    if not n:
         return ""
-    if _ZAKON_RE.match(n):
+    if _NORM_DESIGNATION_PREFIX_RE.match(n):
+        return "Norma"
+    if _EU_INSTITUTION_RE.search(n):
+        earliest = None
+        for label, pattern in (("Směrnice EU", _SMERNICE_RE),
+                                ("Rozhodnutí EU", _ROZHODNUTI_RE),
+                                ("Nařízení EU", _NARIZENI_RE)):
+            m = pattern.search(n)
+            if m and (earliest is None or m.start() < earliest[0]):
+                earliest = (m.start(), label)
+        return earliest[1] if earliest else ""
+    if _ZAKON_RE.search(n):
         return "Zákon"
     if _VYHLASKA_RE.match(n):
         return "Vyhláška"
@@ -391,7 +430,7 @@ def build_unified_db():
                 "zdroj_dat": "Sinay_Zakony",
                 "nazev_cz": nazev_cz,
                 "znacka": extract_znacka_from_title(nazev_cz),
-                "typ_dokumentu": classify_sinay_zakony_typ(nazev_cz),
+                "typ_dokumentu": classify_law_document_typ(nazev_cz),
                 "sekce": "",
                 "kategorie_trida": "",
                 "klicova_slova": [],
@@ -440,7 +479,7 @@ def build_unified_db():
                 "zdroj_dat": "Haltuf_Dokumenty",
                 "nazev_cz": nazev_cz,
                 "znacka": extract_znacka_from_title(nazev_cz),
-                "typ_dokumentu": item.get("Typ_ID", "").strip(),
+                "typ_dokumentu": classify_law_document_typ(nazev_cz),
                 "sekce": item.get("Sekce", "").strip(),
                 "kategorie_trida": item.get("Třída", "").strip(),
                 "klicova_slova": [],

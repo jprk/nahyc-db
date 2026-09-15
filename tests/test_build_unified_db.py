@@ -7,7 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from build_unified_db import (
     extract_znacka_from_title, resolve_prokop_jurisdikce,
     record_url, apply_authoritative_metadata, synthesize_csn_adoption_records,
-    classify_sinay_zakony_typ,
+    classify_law_document_typ,
 )
 
 
@@ -40,49 +40,70 @@ class ResolveProkopJurisdikceTestCase(unittest.TestCase):
         self.assertEqual(resolve_prokop_jurisdikce("EN 17339"), "EU")
 
 
-class ClassifySinayZakonyTypTestCase(unittest.TestCase):
-    """doc/PLAN.md §11, 2026-09-14: Sinay_Zakony used to hardcode every
-    record as "Zákon" — real corpus check found EU regulations/
-    directives/decisions and Czech/Slovak Vyhlášky/Nařízení vlády mixed
-    in under that one label. Every case here is a real title found in
-    the actual corpus (data/database_merged_raw.json), not invented."""
+class ClassifyLawDocumentTypTestCase(unittest.TestCase):
+    """doc/PLAN.md §11/§14, 2026-09-14/15: Sinay_Zakony used to hardcode
+    every record as "Zákon"; Haltuf_Dokumenty's own typ_dokumentu is just
+    a raw, uninterpreted numeric category id. Real corpus check found EU
+    regulations/directives/decisions and Czech/Slovak Vyhlášky/Nařízení
+    vlády mixed in under one label (Sinay), and effectively no
+    classification at all for Haltuf's 179 records. Every case here is a
+    real title found in the actual corpus
+    (data/database_merged_raw.json), not invented."""
 
     def test_real_czech_zakon(self):
         self.assertEqual(
-            classify_sinay_zakony_typ("Zákon č. 458/2000 Sb., o podmínkách podnikání..."), "Zákon")
+            classify_law_document_typ("Zákon č. 458/2000 Sb., o podmínkách podnikání..."), "Zákon")
         self.assertEqual(
-            classify_sinay_zakony_typ("zákon č. 201/2012 Sb., o ochraně ovzduší"), "Zákon")
+            classify_law_document_typ("zákon č. 201/2012 Sb., o ochraně ovzduší"), "Zákon")
 
     def test_zakonik_is_also_zakon(self):
-        self.assertEqual(classify_sinay_zakony_typ("Zákon č. 262/2006 Sb., zákoník práce"), "Zákon")
+        self.assertEqual(classify_law_document_typ("Zákon č. 262/2006 Sb., zákoník práce"), "Zákon")
 
     def test_czech_and_slovak_vyhlaska(self):
         self.assertEqual(
-            classify_sinay_zakony_typ("Vyhláška č. 133/2010 Sb., o jakosti a evidenci pohonných hmot"),
+            classify_law_document_typ("Vyhláška č. 133/2010 Sb., o jakosti a evidenci pohonných hmot"),
             "Vyhláška")
-        self.assertEqual(classify_sinay_zakony_typ("Vyhláška MV SR č.699/2004 Z. z"), "Vyhláška")
-        self.assertEqual(classify_sinay_zakony_typ("vyhlášky  č. 94/2004 Z .z."), "Vyhláška")
+        self.assertEqual(classify_law_document_typ("Vyhláška MV SR č.699/2004 Z. z"), "Vyhláška")
+        self.assertEqual(classify_law_document_typ("vyhlášky  č. 94/2004 Z .z."), "Vyhláška")
 
     def test_narizeni_vlady(self):
         self.assertEqual(
-            classify_sinay_zakony_typ(
+            classify_law_document_typ(
                 "Nařízení vlády č. 378/2001 Sb., kterým se stanoví bližší požadavky..."),
             "Nařízení vlády")
 
     def test_eu_regulation_variants(self):
         self.assertEqual(
-            classify_sinay_zakony_typ("Nařízení Evropského parlamentu a Rady (EU) 2019/2144"),
+            classify_law_document_typ("Nařízení Evropského parlamentu a Rady (EU) 2019/2144"),
             "Nařízení EU")
         self.assertEqual(
-            classify_sinay_zakony_typ("Delegované nařízení Komise (EU) 2023/1184"), "Nařízení EU")
+            classify_law_document_typ("Delegované nařízení Komise (EU) 2023/1184"), "Nařízení EU")
         self.assertEqual(
-            classify_sinay_zakony_typ("Nařízení Komise v přenesené pravomoci (EU) 2023/1185"),
+            classify_law_document_typ("Nařízení Komise v přenesené pravomoci (EU) 2023/1185"),
+            "Nařízení EU")
+
+    def test_own_type_wins_over_a_later_reference_to_a_different_act_type(self):
+        # doc/PLAN.md §14: real corpus regression — this act states its
+        # own type ("Nařízení") up front and only later cites an
+        # unrelated directive/decision it amends or repeals; the earliest
+        # type-keyword position must win, not a fixed check order (which
+        # would have misread it as the type of the act it repeals).
+        self.assertEqual(
+            classify_law_document_typ(
+                "Nařízení Evropského parlamentu a Rady (EU) 2023/1804 ze dne 13. září 2023 "
+                "o zavádění infrastruktury pro alternativní paliva a o zrušení směrnice 2014/94/EU"),
+            "Nařízení EU")
+        self.assertEqual(
+            classify_law_document_typ(
+                "(EU) 2024/1789 - Nařízení Evropského parlamentu a Rady (EU) 2024/1789 ze dne "
+                "13. června 2024 o vnitřním trhu s plynem ..., o změně nařízení (EU) č. 1227/2011 "
+                "... a rozhodnutí (EU) 2017/684 a o zrušení nařízení (ES) č. 715/2009"),
             "Nařízení EU")
 
     def test_eu_directive_even_with_a_leading_project_label(self):
         # Real case: the EU marker isn't at the very start of the title.
         self.assertEqual(
-            classify_sinay_zakony_typ(
+            classify_law_document_typ(
                 "REDIII - Smernica Európskeho parlamentu a Rady (EÚ) 2023/2413 z 18. októbra 2023..."),
             "Směrnice EU")
 
@@ -90,19 +111,83 @@ class ClassifySinayZakonyTypTestCase(unittest.TestCase):
         # Real case: no "(EU)" bracket at all, but "komisie" (Commission)
         # plus "rozhodnutie" is unambiguous.
         self.assertEqual(
-            classify_sinay_zakony_typ(
+            classify_law_document_typ(
                 "Vykonávacie rozhodnutie komisie 2022/2427 sa stanovujú závery..."),
             "Rozhodnutí EU")
 
     def test_genuinely_unclear_falls_back_to_empty_string(self):
         # A policy strategy paper and a UN/ECE vehicle regulation are
         # neither — never force-guessed into the wrong bucket.
-        self.assertEqual(classify_sinay_zakony_typ("Vodíková stratégia pre klimaticky neutrálnu Európu"), "")
-        self.assertEqual(classify_sinay_zakony_typ("(EHK OSN) č. 134"), "")
+        self.assertEqual(classify_law_document_typ("Vodíková stratégia pre klimaticky neutrálnu Európu"), "")
+        self.assertEqual(classify_law_document_typ("(EHK OSN) č. 134"), "")
 
     def test_blank_is_empty_string(self):
-        self.assertEqual(classify_sinay_zakony_typ(""), "")
-        self.assertEqual(classify_sinay_zakony_typ(None), "")
+        self.assertEqual(classify_law_document_typ(""), "")
+        self.assertEqual(classify_law_document_typ(None), "")
+
+    def test_haltuf_compound_noun_zakon_not_anchored_at_start(self):
+        # doc/PLAN.md §14: Haltuf often names a well-known Act as
+        # "<Adjective> zákon", not "Zákon č. ...".
+        self.assertEqual(classify_law_document_typ("Energetický zákon (č. 458/2000 Sb.)"), "Zákon")
+        self.assertEqual(classify_law_document_typ("Stavební zákon (č. 283/2021 Sb.)"), "Zákon")
+        self.assertEqual(classify_law_document_typ("Zákon o ochraně ovzduší (č. 201/2012 Sb.)"), "Zákon")
+        self.assertEqual(classify_law_document_typ("426/2021 Sb. - novela Zákona o drahách"), "Zákon")
+
+    def test_haltuf_english_eu_act_titles(self):
+        # doc/PLAN.md §14: Haltuf carries an English-language duplicate
+        # row for most EU acts, alongside the Czech one.
+        self.assertEqual(
+            classify_law_document_typ(
+                "2014/34/EU \nDIRECTIVE  OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL\nof 26 February 2014"),
+            "Směrnice EU")
+        self.assertEqual(
+            classify_law_document_typ(
+                "(EU) 1300/2014 - TSI PRM - Commission Regulation of 18 November 2014 on the technical..."),
+            "Nařízení EU")
+        self.assertEqual(
+            classify_law_document_typ(
+                "(EU) 2018/546 - DECISION  OF THE EUROPEAN CENTRAL BANK\nof 15 March 2018 on delegation..."),
+            "Rozhodnutí EU")
+
+    def test_haltuf_european_central_bank_in_czech(self):
+        self.assertEqual(
+            classify_law_document_typ(
+                "Rozhodnutí Evropské centrální banky (EU) 2018/546 ze dne 15. března 2018..."),
+            "Rozhodnutí EU")
+
+    def test_haltuf_bare_norm_designation_is_norma(self):
+        # doc/PLAN.md §14: Haltuf mixes bare norm citations in among its
+        # law records (same designation shapes as fetch_fulltext.py's own
+        # is_norm_designation()).
+        self.assertEqual(classify_law_document_typ("ČSN EN 17127"), "Norma")
+        self.assertEqual(classify_law_document_typ("EN 17339"), "Norma")
+        self.assertEqual(classify_law_document_typ("DIN EN ISO 22734"), "Norma")
+        self.assertEqual(classify_law_document_typ("ISO 16111"), "Norma")
+
+    def test_haltuf_truncated_czech_title_with_no_type_word_falls_back(self):
+        # Real case: this specific Czech-language row never states its
+        # own type (the source data itself omits the "Nařízení Komise"
+        # lead-in) — correctly unclassified here; its English sibling row
+        # (see test_haltuf_english_eu_act_titles above) resolves it, and
+        # programmatic_merge()'s existing backfill picks that up post-merge.
+        self.assertEqual(
+            classify_law_document_typ(
+                "(EU) 1300/2014 - TSI PRM - \nze dne 18. listopadu 2014,\no technických specifikacích..."),
+            "")
+
+    def test_non_eu_international_instruments_stay_unclassified(self):
+        # doc/PLAN.md §14: ADR/RID/UN-ECE regulations cite "Regulation"/
+        # "Agreement" too, but without an EU/CZ/SK institution attached —
+        # never guessed into an EU or national bucket.
+        self.assertEqual(
+            classify_law_document_typ(
+                "ADR 2025 - Agreement concerning the International Carriage of Dangerous Goods by Road"),
+            "")
+        self.assertEqual(
+            classify_law_document_typ(
+                "RID -  Appendix C – Regulation concerning the International Carriage of Dangerous Goods by Rail"),
+            "")
+        self.assertEqual(classify_law_document_typ("UNECE Regulation No. 100 (Revision 2)"), "")
 
 
 class ExtractZnackaFromTitleTestCase(unittest.TestCase):
