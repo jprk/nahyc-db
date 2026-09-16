@@ -1,4 +1,5 @@
 import csv
+import math
 import io
 import json
 import os
@@ -8,7 +9,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g, send_file, abort, Response
+from flask import Flask, render_template, request, g, send_file, abort, Response, url_for
 
 app = Flask(__name__)
 
@@ -124,6 +125,57 @@ def get_active_document_count(db):
         row = cur.fetchone()
     return row["c"] if row else 0
 
+# doc/PLAN.md §16, 2026-09-16: the list was capped at a hardcoded 100
+# rows with a static "showing the first 100" banner and no way to reach
+# the rest, so ~92 % of the corpus was unreachable through the UI.
+PAGE_SIZE = 50
+
+# How many numbered links to show around the current page.
+PAGE_WINDOW = 2
+
+
+def parse_page(args, page_count):
+    """1-based page number from the query string, clamped into range.
+    Garbage ("?page=abc", "?page=-3", "?page=999") falls back to a valid
+    page rather than erroring — a page number is a navigation hint from a
+    URL, not input worth rejecting."""
+    try:
+        page = int(args.get('page', 1))
+    except (TypeError, ValueError):
+        return 1
+    return max(1, min(page, page_count))
+
+
+def build_page_range(page, page_count):
+    """Page numbers to render as links: the first, the last, and a window
+    around the current one. `None` marks an elided gap, so the template
+    can render an ellipsis without recomputing any of this."""
+    if page_count <= 1:
+        return []
+    wanted = {1, page_count}
+    wanted.update(p for p in range(page - PAGE_WINDOW, page + PAGE_WINDOW + 1)
+                  if 1 <= p <= page_count)
+
+    out = []
+    previous = 0
+    for p in sorted(wanted):
+        if previous and p > previous + 1:
+            out.append(None)
+        out.append(p)
+        previous = p
+    return out
+
+
+@app.template_global()
+def page_url(page):
+    """URL for `page` preserving every active filter — the pager must not
+    silently drop the search the user is paging through."""
+    args = {k: v for k, v in request.args.items() if k != 'page'}
+    if page > 1:
+        args['page'] = page
+    return url_for('index', **args)
+
+
 def parse_filters(args):
     """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the four
     recognized search/filter query params into a plain dict, shared by
@@ -136,15 +188,62 @@ def parse_filters(args):
     }
 
 
-def build_document_query(filters, limit=None):
+def build_filter_clause(filters):
+    """The shared WHERE fragment + params behind both the document list
+    and its result count — kept in one place so the two can never drift
+    apart and report different totals."""
+    clause = ""
+    params = []
+
+    if filters['q']:
+        clause += " AND (d.title LIKE %s OR d.description LIKE %s)"
+        params.extend([f"%{filters['q']}%", f"%{filters['q']}%"])
+
+    if filters['type_id']:
+        clause += " AND d.type_id = %s"
+        params.append(filters['type_id'])
+
+    if filters['source_id']:
+        clause += " AND d.source_id = %s"
+        params.append(filters['source_id'])
+
+    if filters['keyword_id']:
+        clause += " AND dk.keyword_id = %s"
+        params.append(filters['keyword_id'])
+
+    return clause, params
+
+
+def build_count_query(filters):
+    """doc/PLAN.md §16, 2026-09-16: total number of documents matching
+    `filters`, for the pager.
+
+    COUNT(DISTINCT d.id), not COUNT(*): the keyword filter needs the
+    DocumentKeyword join, which multiplies a document's rows by its
+    keyword count (3231 links over 1238 documents). A plain COUNT(*)
+    would therefore report several times the real total and paginate
+    into empty pages — the same trap R2.1 exists for, and that commit
+    ebc1f60 had to fix once already with GROUP BY d.id."""
+    clause, params = build_filter_clause(filters)
+    return f'''
+        SELECT COUNT(DISTINCT d.id) AS c
+        FROM Document d
+        LEFT JOIN DocumentType dt ON d.type_id = dt.id
+        LEFT JOIN DocumentSource ds ON d.source_id = ds.id
+        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
+        WHERE 1=1{clause}
+    ''', params
+
+
+def build_document_query(filters, limit=None, offset=None):
     """doc/REQUIREMENTS.md R2.1/R2.3/R2.5, 2026-09-11: pure function (no
     DB access) building the parameterized SQL + params for the filtered
-    document list. Shared by index() (limit=100, the on-screen page) and
-    /export/<fmt> (limit=None, i.e. the full filtered result set — an
+    document list. Shared by index() (one page at a time, see PAGE_SIZE)
+    and /export/<fmt> (limit=None, i.e. the full filtered result set — an
     export must not silently truncate at the UI's page size). Returns
     (sql, params)."""
     base_query = '''
-        SELECT d.id, d.title, d.description, dt.name as type_name,
+        SELECT d.id, d.slug, d.title, d.description, dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url,
                d.file_path, dt.restricted_fulltext, d.needs_review, d.review_reason
         FROM Document d
@@ -153,37 +252,25 @@ def build_document_query(filters, limit=None):
         LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1
     '''
-    params = []
-
-    if filters['q']:
-        base_query += " AND (d.title LIKE %s OR d.description LIKE %s)"
-        params.extend([f"%{filters['q']}%", f"%{filters['q']}%"])
-
-    if filters['type_id']:
-        base_query += " AND d.type_id = %s"
-        params.append(filters['type_id'])
-
-    if filters['source_id']:
-        base_query += " AND d.source_id = %s"
-        params.append(filters['source_id'])
-
-    if filters['keyword_id']:
-        base_query += " AND dk.keyword_id = %s"
-        params.append(filters['keyword_id'])
+    clause, params = build_filter_clause(filters)
+    base_query += clause
 
     base_query += " GROUP BY d.id ORDER BY d.title ASC"
     if limit is not None:
         base_query += " LIMIT %s"
         params.append(limit)
+        if offset:
+            base_query += " OFFSET %s"
+            params.append(offset)
 
     return base_query, params
 
 
-def fetch_documents_with_tags(db, filters, limit=None):
+def fetch_documents_with_tags(db, filters, limit=None, offset=None):
     """Runs build_document_query() and attaches each document's keyword
     tags, exactly like index()'s original inline logic. Returns
     (documents, doc_tags) — used by both index() and /export/<fmt>."""
-    query, params = build_document_query(filters, limit=limit)
+    query, params = build_document_query(filters, limit=limit, offset=offset)
     with db.cursor() as cur:
         cur.execute(query, params)
         documents = cur.fetchall()
@@ -213,7 +300,18 @@ def index():
     db = get_db()
     filters = parse_filters(request.args)
     types, sources, keywords = get_filters()
-    documents, doc_tags = fetch_documents_with_tags(db, filters, limit=100)
+
+    with db.cursor() as cur:
+        count_query, count_params = build_count_query(filters)
+        cur.execute(count_query, count_params)
+        row = cur.fetchone()
+    result_count = row['c'] if row else 0
+
+    page_count = max(1, math.ceil(result_count / PAGE_SIZE))
+    page = parse_page(request.args, page_count)
+
+    documents, doc_tags = fetch_documents_with_tags(
+        db, filters, limit=PAGE_SIZE, offset=(page - 1) * PAGE_SIZE)
     total_document_count = get_total_document_count(db)
     active_document_count = get_active_document_count(db)
     inactive_document_count = total_document_count - active_document_count
@@ -227,7 +325,89 @@ def index():
                            total_document_count=total_document_count,
                            active_document_count=active_document_count,
                            inactive_document_count=inactive_document_count,
+                           result_count=result_count,
+                           page=page,
+                           page_count=page_count,
+                           page_size=PAGE_SIZE,
+                           page_range=build_page_range(page, page_count),
                            request=request)
+
+def fetch_document_detail(db, slug):
+    """Everything the per-document page shows, or None when no document
+    carries that slug. Three of these tables are populated but were never
+    surfaced anywhere in the UI before doc/PLAN.md §16: DocumentVersion
+    (1258 rows, until now read only for the hero's aggregate count),
+    document_relation (46 edges) and the record's own jurisdiction
+    columns."""
+    with db.cursor() as cur:
+        cur.execute('''
+            SELECT d.id, d.slug, d.identifier, d.title, d.description,
+                   d.language, d.effective_date, d.url, d.file_path,
+                   d.jurisdikce, d.jurisdikce_uroven, d.needs_review,
+                   d.review_reason, d.updated_at,
+                   dt.name AS type_name, dt.restricted_fulltext,
+                   ds.name AS source_name
+            FROM Document d
+            LEFT JOIN DocumentType dt ON d.type_id = dt.id
+            LEFT JOIN DocumentSource ds ON d.source_id = ds.id
+            WHERE d.slug = %s
+        ''', (slug,))
+        document = cur.fetchone()
+        if document is None:
+            return None
+
+        cur.execute('''
+            SELECT k.keyword FROM Keyword k
+            JOIN DocumentKeyword dk ON k.id = dk.keyword_id
+            WHERE dk.document_id = %s ORDER BY k.keyword
+        ''', (document['id'],))
+        keywords = [r['keyword'] for r in cur.fetchall()]
+
+        cur.execute('''
+            SELECT version, edition_label, effective_date, is_current, lifecycle_state
+            FROM DocumentVersion WHERE document_id = %s ORDER BY version
+        ''', (document['id'],))
+        versions = cur.fetchall()
+
+        # Both directions in one pass: `direction` tells the template
+        # whether this document is the subject or the object of the
+        # relation, so e.g. an IMPLEMENTS edge can be phrased correctly
+        # from either end rather than always reading as if this record
+        # were the implementing one.
+        cur.execute('''
+            SELECT r.relation_type, 'from' AS direction, r.note,
+                   o.id AS other_id, o.slug AS other_slug,
+                   o.title AS other_title, o.identifier AS other_identifier
+            FROM document_relation r
+            JOIN Document o ON o.id = r.to_document_id
+            WHERE r.from_document_id = %s
+            UNION ALL
+            SELECT r.relation_type, 'to' AS direction, r.note,
+                   o.id AS other_id, o.slug AS other_slug,
+                   o.title AS other_title, o.identifier AS other_identifier
+            FROM document_relation r
+            JOIN Document o ON o.id = r.from_document_id
+            WHERE r.to_document_id = %s
+        ''', (document['id'], document['id']))
+        relations = cur.fetchall()
+
+    return {"document": document, "keywords": keywords,
+            "versions": versions, "relations": relations}
+
+
+@app.route('/dokument/<slug>')
+def document_detail(slug):
+    """doc/PLAN.md §16, 2026-09-16: permanent page for one document.
+
+    Keyed on `Document.slug`, never on `Document.id` — init_db.py
+    TRUNCATEs and reloads on every rebuild, so ids are reassigned and any
+    link built on one silently rots (§14 caught exactly that happening to
+    id 147). See src/tools/slug.py."""
+    detail = fetch_document_detail(get_db(), slug)
+    if detail is None:
+        abort(404)
+    return render_template('document.html', **detail)
+
 
 @app.route('/fulltext/<int:doc_id>')
 def fulltext(doc_id):

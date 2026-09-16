@@ -27,6 +27,7 @@ sys.path.insert(0, str(BASE_DIR))
 
 from init_db import get_connection, get_or_create  # noqa: E402
 from parse_v02_processes import extract_citations  # noqa: E402
+from slug import assign_slugs  # noqa: E402
 
 PARSED_PATH = REPO_ROOT / "data" / "v02_processes_parsed.json"
 REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "process_layer_review_queue.json"
@@ -215,7 +216,14 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
     academic/internal deliverables — gets a new Document row) or looks
     like a law/norm citation that just didn't match, which is NOT
     auto-created (risk of a near-duplicate row) and goes to the review
-    queue instead."""
+    queue instead.
+
+    doc/PLAN.md §16, 2026-09-16: the rows created here need a
+    `Document.slug` too. `init_db.py` assigns slugs over its own import
+    only, and this script runs after it, so without this pass these
+    bibliography entries would be the one slice of the corpus with no
+    permanent URL — invisible to `/dokument/<slug>`."""
+    new_document_ids = []
     for entry in bibliography:
         text = entry["text"]
         citations_in_entry = extract_citations(text)
@@ -236,12 +244,21 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
             VALUES (%s, %s, NULL)
         """, (text[:1000], type_id))
         document_id = cursor.lastrowid
+        new_document_ids.append((document_id, text[:1000]))
         # Same invariant Step 2 established for every Document: exactly
         # one current version, even with no real version history.
         cursor.execute("""
             INSERT INTO DocumentVersion (document_id, version, is_current)
             VALUES (%s, 1, TRUE)
         """, (document_id,))
+
+    # Slugs are assigned in one pass over these rows, using the same
+    # content-derived ordering `slug.assign_slugs()` applies everywhere
+    # else. These entries have no designation, so each resolves to a
+    # hash of its own title and is stable across rebuilds.
+    if new_document_ids:
+        for doc_id, slug in assign_slugs((i, None, t) for i, t in new_document_ids).items():
+            cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
 
 
 def main():

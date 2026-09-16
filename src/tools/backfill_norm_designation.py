@@ -52,16 +52,20 @@ def main():
 
     updates = []  # (id, new_title)
     skipped_no_designation = 0
+    already_prefixed = 0
 
     for doc in documents:
         new_title, changed = format_norm_title(doc["title"], doc["identifier"])
-        if changed:
+        if not changed:
+            skipped_no_designation += 1
+        elif new_title != doc["title"]:
             updates.append((doc["id"], new_title))
         else:
-            skipped_no_designation += 1
+            already_prefixed += 1
 
     print(f"{len(documents)} Norma documents total")
     print(f"  designation prefixed: {len(updates)}")
+    print(f"  already correct: {already_prefixed}")
     print(f"  skipped (no real designation in identifier): {skipped_no_designation}")
 
     if not args.apply:

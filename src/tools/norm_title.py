@@ -15,7 +15,23 @@ of scope here — this module is Norma-specific.
 """
 import re
 
-_EDITION_SUFFIX_RE = re.compile(r"\s*/?\s*-\s*\d{4}(\.\d{2})?\s*$")
+# Two fixes found 2026-09-16 while deriving slugs, both verified against
+# all 509 identifiers this pattern fires on:
+#
+# 1. The 4-digit group must look like a YEAR (19xx/20xx), not just any
+#    number. Without that guard this also ate the tail of designations
+#    whose own number happens to sit after a dash — "ZP-5101" became
+#    "ZP", "SAND2012-7321" became "SAND2012". Restricting it to plausible
+#    years still strips every real artifact, including the bare "-YYYY"
+#    edition suffix US/Australian designations legitimately carry
+#    ("ASME B31.12-2019", "AS 2022-1983"), which SHOULD be stripped.
+# 2. The separator may be an en- or em-dash, not just ASCII "-". The
+#    Sinay source mixes them ("STN EN 1106+A1/ - 2024.06" vs.
+#    "STN EN 13365/A1 – 2003.08"), and 17 records kept their edition date
+#    in the designation — and so in the title — purely because of that
+#    one character. Same class of defect as the dash-continuation bug
+#    parse_sinay_norms.py had to fix in §7.
+_EDITION_SUFFIX_RE = re.compile(r"\s*/?\s*[-–—]\s*(19|20)\d{2}(\.\d{2})?\s*$")
 _HAS_DIGIT_RE = re.compile(r"\d")
 
 

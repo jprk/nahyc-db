@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from language import detect_language, normalize_raw_language
 from norm_title import format_norm_title
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
+from slug import assign_slugs
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
@@ -415,6 +416,7 @@ def import_json_data(db_conn):
     eu_gestor_cache = load_eu_gestor_cache(REPO_ROOT)
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
+    slug_inputs = []
 
     for item in data:
         title = resolve_title(item)
@@ -424,18 +426,6 @@ def import_json_data(db_conn):
         doc_type = resolve_document_type(item.get("typ_dokumentu", ""))
         effective_date = item.get("platnost", "").strip()
         url = resolve_url(item)
-
-        # src/tools/puvodce.py, 2026-09-15/16: "Gestor" is a single
-        # institution — the primary CZ ministry for a national act, or
-        # (2026-09-16 follow-up) the responsible EU body (from
-        # data/eu_gestor_cache.json, see backfill_eu_gestor.py) for an EU
-        # act itself — never the whole raw `gestor` list joined verbatim
-        # (what `init_db.py` used to do). Same one-time fixes as
-        # backfill_puvodce.py/backfill_eu_gestor.py applied directly to
-        # the already-imported DB, kept here too so a future rebuild from
-        # JSON reproduces the same result.
-        gestor, gestor_unresolved_eu_act = resolve_gestor(item, doc_type, url, eu_gestor_cache)
-        source = gestor or ""
 
         description = resolve_description(item)
 
@@ -451,6 +441,24 @@ def import_json_data(db_conn):
             language, language_confident = detect_language(title, description)
 
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
+
+        # src/tools/puvodce.py, 2026-09-15/16: "Gestor" is a single
+        # institution, chosen by document kind — the primary CZ ministry
+        # for a national act, the responsible EU body for an EU act (from
+        # data/eu_gestor_cache.json, see backfill_eu_gestor.py), or the
+        # publishing standards body for a Norma (derived from its own
+        # designation, see standards_body.py) — never the whole raw
+        # `gestor` list joined verbatim, which is what this script used
+        # to do. Same one-time fixes as backfill_puvodce.py /
+        # backfill_eu_gestor.py / backfill_standards_body.py applied
+        # directly to the already-imported DB, kept here too so a future
+        # rebuild from JSON reproduces the same result. Runs after
+        # resolve_identifier() because the Norma branch reads the
+        # RESOLVED identifier — a znacka nulled by a collision must not
+        # silently resolve a body the live DB row can't.
+        gestor, gestor_unresolved_eu_act = resolve_gestor(
+            item, doc_type, url, eu_gestor_cache, identifier=identifier)
+        source = gestor or ""
 
         # src/tools/norm_title.py, 2026-09-15: Norma titles never carried
         # their own designation (e.g. "ČSN EN 17124") — prefix it, same
@@ -545,6 +553,15 @@ def import_json_data(db_conn):
                         (doc_id, kw_id))
                 except pymysql.err.IntegrityError:
                     pass
+
+        slug_inputs.append((doc_id, identifier, title))
+
+    # src/tools/slug.py, 2026-09-16: assigned in one pass over the whole
+    # corpus AFTER the insert loop, never per record — collision suffixes
+    # have to be handed out in a content-derived order to come out the
+    # same on the next rebuild, which is the entire point of the column.
+    for doc_id, slug in assign_slugs(slug_inputs).items():
+        cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
 
     db_conn.commit()
 

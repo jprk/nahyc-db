@@ -203,6 +203,19 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT') NOT NULL;
 
+-- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
+-- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a
+-- `src/tools/init_db.py` při každém běhu tabulku TRUNCATE-uje a nahrává
+-- znovu — id se tedy při každém přesestavení přečíslují (§14 to zachytilo
+-- živě: id 147, na které uživatel odkazoval, mezitím ukazovalo na úplně
+-- jiný záznam). Dokud id sloužilo jen jako popisek v detailu (§12), bylo
+-- to snesitelné; stránka konkrétního dokumentu ale existuje právě proto,
+-- aby se na ni dalo odkazovat, takže potřebuje klíč odvozený z obsahu
+-- záznamu. `slug` plní `src/tools/slug.py` (deterministicky, včetně
+-- pořadí přidělování kolizních přípon) — viz jeho dokumentace.
+ALTER TABLE Document
+  ADD COLUMN slug VARCHAR(160) NULL UNIQUE;
+
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA D (část) — číselníky, na které odkazuje vrstva B
 -- ────────────────────────────────────────────────────────────

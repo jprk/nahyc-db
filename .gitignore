@@ -237,3 +237,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+
+# Běhové logy deduplikace (src/tools/deduplicate_db.py) — generované,
+# neverzované; v kořeni jich leží ~120 z předchozích běhů.
+deduplication_*.log

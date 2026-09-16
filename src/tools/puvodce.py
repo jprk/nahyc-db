@@ -21,6 +21,11 @@ EUR-Lex/Cellar endpoint) instead of `gestor_list()`/`ABBREVIATION_MAP`
 for those three types.
 """
 import json
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from standards_body import resolve_standards_body
 
 # Bare-abbreviation source names found in the raw `gestor` data, mapped
 # to the full name already used elsewhere in the corpus for the same
@@ -88,17 +93,26 @@ def load_eu_gestor_cache(repo_root):
         return json.load(f)
 
 
-def resolve_gestor(item, doc_type, url, eu_gestor_cache):
-    """Returns (gestor_or_None, unresolved_eu_act). For one of
-    EU_ACT_TYPES, looks up `url` in `eu_gestor_cache` (see
-    `backfill_eu_gestor.py` for how that cache is populated) instead of
-    the CZ-ministry `gestor` list — `unresolved_eu_act` is True when the
-    type is an EU act but its `url` has no cache entry (caller should
-    flag it for review, same as `backfill_eu_gestor.py` does for a live
-    miss, rather than silently falling back to a CZ ministry that would
-    be the wrong kind of institution entirely). For every other type,
-    behaves exactly like `resolve_puvodce()`."""
+def resolve_gestor(item, doc_type, url, eu_gestor_cache, identifier=None):
+    """Returns (gestor_or_None, unresolved_eu_act) — one institution,
+    chosen by what kind of document this is:
+
+    * an EU act (EU_ACT_TYPES): the responsible EU body, looked up by
+      `url` in `eu_gestor_cache` (see `backfill_eu_gestor.py` for how
+      that cache is populated) rather than from the CZ-ministry `gestor`
+      list. `unresolved_eu_act` is True when the type is an EU act but
+      its `url` has no cache entry — the caller should flag it for
+      review, as `backfill_eu_gestor.py` does for a live miss, rather
+      than silently falling back to a CZ ministry, which would be the
+      wrong kind of institution entirely.
+    * a `Norma`: the standards body that publishes it, derived from its
+      own designation (`standards_body.py`).
+    * anything else — the national CZ/SK acts: the primary responsible
+      ministry, exactly as `resolve_puvodce()` has always done.
+    """
     if doc_type in EU_ACT_TYPES:
         gestor = eu_gestor_cache.get(url) if url else None
         return gestor, gestor is None
+    if doc_type == "Norma":
+        return resolve_standards_body(identifier), False
     return resolve_puvodce(item), False

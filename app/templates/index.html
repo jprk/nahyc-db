@@ -69,9 +69,11 @@
 <section class="results-section">
 
     <div class="results-header">
-        <h2 class="results-title">Nalezené dokumenty <span class="badge">{{ documents|length }}</span></h2>
-        {% if documents|length == 100 %}
-        <p class="results-warning"><i class="ph ph-info"></i> Zobrazeno prvních 100 výsledků. Upřesněte hledání.</p>
+        <h2 class="results-title">Nalezené dokumenty <span class="badge">{{ result_count }}</span></h2>
+        {% if page_count > 1 %}
+        <p class="results-warning"><i class="ph ph-info"></i>
+            Strana {{ page }} z {{ page_count }} — zobrazeny záznamy
+            {{ (page - 1) * page_size + 1 }}–{{ (page - 1) * page_size + documents|length }}.</p>
         {% endif %}
     </div>
 
@@ -125,7 +127,8 @@
                             <div class="detail-block">
                                 <h4>Platnost od</h4>
                                 <p>{{ doc.effective_date if doc.effective_date else 'Neuvedeno' }}</p>
-                                <p class="record-id">ID záznamu: {{ doc.id }}</p>
+                                <p class="record-id">Trvalý odkaz:
+                                    <a href="{{ url_for('document_detail', slug=doc.slug) }}">{{ doc.slug }}</a></p>
                             </div>
                             <div class="detail-block detail-description">
                                 <h4>Poznámka / Zkrácený text</h4>
@@ -133,6 +136,9 @@
                                     dispozici.' }}</p>
                             </div>
                             <div class="detail-block action-block">
+                                <a href="{{ url_for('document_detail', slug=doc.slug) }}" class="btn-external">
+                                    Detail záznamu <i class="ph ph-arrow-right"></i>
+                                </a>
                                 {% if doc.url %}
                                 <a href="{{ doc.url }}" target="_blank" class="btn-external">
                                     Přejít na zdroj <i class="ph ph-arrow-up-right"></i>
@@ -153,6 +159,34 @@
             </div>
         </div>
     </div>
+
+    {% if page_count > 1 %}
+    <nav class="pagination" aria-label="Stránkování výsledků">
+        {% if page > 1 %}
+        <a class="page-link page-nav" href="{{ page_url(page - 1) }}" rel="prev">
+            <i class="ph ph-caret-left"></i> Předchozí</a>
+        {% else %}
+        <span class="page-link page-nav is-disabled"><i class="ph ph-caret-left"></i> Předchozí</span>
+        {% endif %}
+
+        {% for p in page_range %}
+            {% if p is none %}
+            <span class="page-gap">…</span>
+            {% elif p == page %}
+            <span class="page-link is-current" aria-current="page">{{ p }}</span>
+            {% else %}
+            <a class="page-link" href="{{ page_url(p) }}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < page_count %}
+        <a class="page-link page-nav" href="{{ page_url(page + 1) }}" rel="next">
+            Další <i class="ph ph-caret-right"></i></a>
+        {% else %}
+        <span class="page-link page-nav is-disabled">Další <i class="ph ph-caret-right"></i></span>
+        {% endif %}
+    </nav>
+    {% endif %}
     {% else %}
     <div class="empty-state">
         <i class="ph-duotone ph-file-search"></i>

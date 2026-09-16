@@ -368,11 +368,19 @@ class BuildGestorJurisdictionMapTestCase(unittest.TestCase):
         # in the source list.
         records = [{"gestor": "MPO", "jurisdikce": ""},
                    {"gestor": "MPO", "jurisdikce": "CZ"}]
-        self.assertEqual(build_gestor_jurisdiction_map(records), {"MPO": "CZ"})
+        self.assertEqual(build_gestor_jurisdiction_map(records),
+                         {"Ministerstvo průmyslu a obchodu": "CZ"})
 
-    def test_list_gestor_is_joined(self):
+    def test_keyed_by_resolved_single_institution_not_the_raw_list(self):
+        # doc/PLAN.md §16, 2026-09-16: the map is keyed by
+        # puvodce.resolve_puvodce() -- the SAME single-institution value
+        # the import writes to DocumentSource.name -- not by the raw
+        # gestor list joined with ", " as it was before 2026-09-15.
+        # Keying it the old way would silently never match, because
+        # resolve_source_jurisdiction() looks the resolved name up.
         records = [{"gestor": ["MPO", "MŽP"], "jurisdikce": "CZ"}]
-        self.assertEqual(build_gestor_jurisdiction_map(records), {"MPO, MŽP": "CZ"})
+        self.assertEqual(build_gestor_jurisdiction_map(records),
+                         {"Ministerstvo průmyslu a obchodu": "CZ"})
 
 
 class ResolveSourceJurisdictionTestCase(unittest.TestCase):

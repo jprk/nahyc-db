@@ -3042,3 +3042,268 @@ correctly-linked search results instead of one row with 6 bundled
 title/url fields. The SK sibling correctly shows a `needs_review` flag
 (no `anotace_poznamka` of its own, expected for a split-out record) and
 inherits the primary's `gestor`-derived source list, as designed.
+
+## 16. Language, norm designation, Gestor semantics, stable slug, pagination + document page (NEW, 2026-09-15/16, user-reported)
+
+Two sessions' worth of user-reported findings, recorded together because
+each one exposed the next. Commit `c5d40d6` (2026-09-15) shipped the
+first three items below **without a PLAN entry** — and left three
+dangling `doc/PLAN.md §16` references in `src/sites/eurlex.py` and
+`src/sites/0README.md` pointing at a section that did not exist. This
+section retires those references.
+
+### 16.1 Language indicator missing for 94 % of the corpus (2026-09-15)
+
+**User finding:** the language badge showed for only some documents.
+Reality: 1163 of 1238 records had `language` blank or NULL — only ~75
+carried a value, and those were spelled four different ways (`"CZ"`,
+`"čeština"`, `"angličtina"`, `"EN"`). The user asked for EN/CS/SK/DE
+designations on all of them.
+
+New `src/tools/language.py` + `backfill_language.py`:
+`normalize_raw_language()` maps the known raw spellings (note `"CZ"` →
+`CS`: `CZ` is a country code, not a language code), and
+`detect_language()` handles the rest via `langdetect`
+(`DetectorFactory.seed = 0`, so it is deterministic), restricted to the
+four languages the corpus actually contains.
+
+**Real bug found and fixed during the work.** The first implementation
+detected over `title + " " + description`. That confidently
+(`prob > 0.85`) labelled **217 of the 424 `jurisdikce="SK"` records as
+`DE`** — because a large number of records carry a scope/abstract in a
+*different* language than the document itself (a Slovak-titled standard
+whose stored description is the German-language scope text of the
+underlying EN norm), and the long description simply outweighs the short
+title. Fixed by detecting from the **title alone**, with the description
+used only as a fallback when the title is empty or inconclusive, never
+to override a confident title result. Verified on the real corpus:
+417/424 of that subset then resolved to `SK`.
+
+Result: 1218/1238 rows updated (55 raw-value normalisations, 1108
+confident detections, 55 low-confidence ones flagged through the
+existing `needs_review` mechanism rather than silently asserted), **0
+documents left without a language**. Final distribution EN 529 / SK 436
+/ DE 148 / CS 125.
+
+### 16.2 Norm titles never showed their own designation (2026-09-15)
+
+**User finding:** many norms "do not bear identification number ... or do
+bear the number at the end of the title (it shall be at the beginning)".
+
+Root cause: `app/app.py` had never queried or displayed
+`Document.identifier` at all. The only thing the catalogue ever showed
+was `title`, which for essentially every `Norma` record is plain
+descriptive prose with no designation — while a handful of Sinay records
+*did* carry it, but embedded as a trailing `"(DESIGNATION:YYYY)"`
+parenthetical.
+
+New `src/tools/norm_title.py` + `backfill_norm_designation.py` normalise
+both shapes into `"<designation> — <title>"`. 1078 of 1104 `Norma`
+titles were prefixed; 26 were left untouched because they genuinely have
+no designation (German `BVEG`/`AGBF` industry guidance leaflets, each
+one checked by hand). Side effect worth knowing: since the list is
+sorted by `title`, the default browse order is now grouped by
+designation prefix.
+
+Two follow-up defects in `designation_core()` were found on 2026-09-16
+while deriving slugs from the same function, and both had already
+written wrong titles into the database:
+
+* The edition-suffix stripper matched **any** trailing `-NNNN`, so a
+  designation whose own number sits after a dash lost it — `"ZP-5101"`
+  became `"ZP"`, `"SAND2012-7321"` became `"SAND2012"`. Restricted to
+  plausible years (`19xx`/`20xx`), which still strips the real artifact
+  *and* the bare `-YYYY` edition suffix US/Australian designations
+  legitimately carry (`"ASME B31.12-2019"`, `"AS 2022-1983"` — verified
+  against all 509 identifiers the pattern fires on). 3 titles repaired.
+* The separator had to be an ASCII `-`, but the Sinay source mixes in
+  en-dashes (`"STN EN 13365/A1 – 2003.08"`), so **17 records kept their
+  edition date inside the designation, and therefore inside the title**.
+  Same class of defect as the dash-continuation bug `parse_sinay_norms.py`
+  had to fix in §7. 17 titles repaired.
+
+Both repairs recomputed the title from the untouched source JSON rather
+than re-running the backfill over the already-wrong stored value, which
+would have double-prefixed. `backfill_norm_designation.py` also had a
+reporting flaw — it counted "has a designation" as "changed", so it
+always claimed 1078 updates even when every recomputed title was
+byte-identical; it now reports genuine differences only.
+
+### 16.3 "Gestor" (renamed from "Původce") must be ONE institution (2026-09-15/16)
+
+**User finding:** the field "shall be a single institution issuing the
+given document, but very often we have a list of them that seems to be
+hardcoded."
+
+Root cause: `init_db.py` wrote `source = ", ".join(gestor)` — the whole
+raw list, including AI-generated (`enrich_eu_laws.py`) entries that are
+themselves multi-line blobs (a Directorate-General list plus free-text
+commentary). 26 of 41 `DocumentSource` rows were such concatenations.
+
+The semantics needed a user decision, because "gestor" (the ministry
+with substantive responsibility, legitimately plural under Czech joint-
+gestor practice) and "issuer" (the body that enacted the document, always
+singular) are different concepts. **User decision (2026-09-15): keep the
+"primary responsible ministry" concept, reduced to one institution.**
+New `src/tools/puvodce.py` + `backfill_puvodce.py`: take the first clean
+entry of the list, and canonicalise bare abbreviations so `"MPO"` and
+`"Ministerstvo průmyslu a obchodu"` stop being two different rows.
+(`"MZ"` → `Ministerstvo zdravotnictví` was verified from the record that
+uses it — an act on public-health protection — not guessed from the
+abbreviation, since `Ministerstvo zemědělství` was already present and
+would have been the wrong expansion.) 41 → 12 clean rows.
+
+**Then the user asked to check ids 98 and 101 specifically.** Those two
+turned out fine (an official government legislative-plan source confirms
+MPO as lead gestor for RED III), but checking them surfaced a structural
+problem: across the EU-act types, Gestor arbitrarily showed *either* a
+Czech ministry *or* an EU institution, purely according to which happened
+to come first in each record's AI-generated list. **User decision
+(2026-09-16): for an EU act the Gestor is the EU body — the specific
+Directorate-General when available, else the top-level institution — and
+it must come from the authoritative source, not from the erratic local
+data.**
+
+`src/sites/eurlex.py` gained `fetch_responsible_gestor()`, querying the
+EUR-Lex/Cellar SPARQL endpoint for `cdm:resource_legal_responsibility_of_agent`
+(the DG Cellar itself calls "responsible"), falling back to
+`cdm:work_created_by_agent`, with Czech names resolved via
+`skos:prefLabel`. Matching is done through `owl:sameAs` on whichever URL
+shape the record already has (CELEX / ELI / bare `OJ:` reference), which
+sidesteps CELEX reconstruction entirely — EU act numbering flipped
+order in 2015 (`No 402/2013` vs `2023/2405`), so rebuilding an id from a
+designation alone is genuinely ambiguous. 43 of 44 EU acts resolved
+(8 distinct DGs); results cached in `data/eu_gestor_cache.json`, which
+`init_db.py` reads so a rebuild need not repeat ~44 live queries.
+
+**`backfill_puvodce.py` had to be scoped down twice**, each time after
+verifying the conflict live: once to exclude the EU act types (it
+proposed reverting all 43 resolved records to a Czech ministry), and
+again on 2026-09-16 to exclude `Norma` (it proposed reverting 5 ČSN
+standards from `ČAS` back to `Ministerstvo průmyslu a obchodu`). The
+three backfills now own disjoint slices — national acts (60), EU acts
+(44), standards (1104) — and each is idempotent.
+
+### 16.4 R1.6 regression from 16.3, and its repair (2026-09-16)
+
+Collapsing the lists was right, but it left only **108 of 1238**
+documents with any issuing body — **5 of 1104 standards** — and
+`DocumentSource` contained no standard-setting body at all, which
+`doc/REQUIREMENTS.md` R1.6 names explicitly. The requirements checker
+could not see this because its R1.6 probe is `SELECT COUNT(*) FROM
+DocumentSource` with no per-document coverage query.
+
+No lookup was needed to fix it: **1080 `Norma` records carry their
+publisher in the designation** that §16.2 had just moved to the front of
+their titles. New `src/tools/standards_body.py` +
+`backfill_standards_body.py` map the designation's first token to its
+issuing body — curated by reading the actual records behind each token,
+not assumed from the abbreviation. The cases that needed evidence:
+
+* `G`/`GW`/`C`/`ZP`/`Gas-Information`/`G269` (102 records) are all DVGW —
+  the titles cite the "DVGW-Regelwerk" and "DVGW-TRGI" directly and the
+  whole family uses DVGW's own `(A)` Arbeitsblatt / `(M)` Merkblatt
+  convention.
+* `AS` is Standards Australia — the records' own titles say "known as
+  the SAA Anhydrous Ammonia Code".
+* `TNI` is the Slovak series, not the identically-named Czech one: all
+  14 records carry `jurisdikce=SK` and Slovak titles.
+
+Result: 1064/1104 standards resolved across 40 bodies; coverage
+108/1238 (8.7 %) → **1167/1238 (94.3 %)**, `DocumentSource` 19 → 59
+rows. The 40 left alone are 19 with no designation at all plus 21 whose
+leading token this module deliberately does not recognise (`MB`, `SEP`,
+`AR`, `TPP`, `TB.`, `PP`, `PAS`, the parse artefacts `Part`/`Band`/`A1`,
+…) — left without a Gestor rather than guessed at.
+
+### 16.5 The `(EU) 2018/546` record: a CELEX-suffix bug, not bad source data (2026-09-16)
+
+While resolving EU gestors, one record (`(EU) 2018/546`) produced
+"Generální sekretariát" and a title about **Danish state aid to Aarhus
+airport** — an act with nothing to do with the corpus. It was initially
+flagged as inconsistent source data. That diagnosis was wrong.
+
+The source record is internally consistent: an **ECB** decision, with
+`gestor: ['Evropská centrální banka']` and a matching `nazev_cz`. The
+corruption was in `nazev_autoritativni`, written by §8's authoritative
+fetch. Root cause, confirmed against Cellar: the correct CELEX for that
+act **is** `32018D0010(01)` — the ECB numbers it ECB/2018/10, and
+EUR-Lex uses the `(01)` suffix to separate it from the *Commission's*
+decision 2018/10, which is the Aarhus one. `_CELEX_IN_URL_RE` captured
+`(\w+)`, which stops at the parenthesis, so it silently resolved the
+wrong act.
+
+Fixed in `src/sites/eurlex.py` (the suffix is now part of the capture),
+plus a new `eli_candidates_from_designation()` — Cellar does not index
+this act under that CELEX at all, only under `eli/dec/2018/546/oj`.
+With both fixes the record resolves to "Evropská centrální banka",
+independently matching its own source `gestor` field. Repaired
+upstream following §13's precedent — `site_metadata_cache.json` (2
+entries), `data/eu_gestor_cache.json`, and both merged JSON files — not
+only in the database, and the incorrect review flag was cleared.
+
+This was a latent defect since §8 (2026-09-11), not something the recent
+work introduced; only 1 record in the corpus currently has a
+parenthesised CELEX. `(EU) 2023/1234` (id 105) remains genuinely
+unresolvable — Cellar knows neither its CELEX nor its ELI — and is
+flagged for review rather than guessed.
+
+### 16.6 Stable `Document.slug` (2026-09-16)
+
+§14 already recorded that `Document.id` is not stable across a rebuild
+(`init_db.py` TRUNCATEs and reloads, so ids are reassigned by processing
+order — an id the user cited, 147, had already drifted to an unrelated
+record). That was tolerable while ids were only a label in the detail
+accordion (§12), but §16.7's document page exists to be linked, so it
+could not be keyed on one. **User decision: add a deterministic slug
+column.**
+
+`src/tools/slug.py` derives it from the designation
+(`"ČSN EN 17124"` → `csn-en-17124`), falling back to a SHA-1 of the
+title for the 64 records with no real designation. `assign_slugs()` is
+deliberately a whole-corpus function: collision suffixes are handed out
+in a content-derived order, never in input order, or two colliding
+records would swap slugs between rebuilds and reintroduce exactly the
+instability the column removes. 1238 unique slugs, only 2 real
+collisions (both genuine duplicate pairs), and 0 records where the DB id
+would break a tie. Additive `ALTER TABLE Document ADD COLUMN slug
+VARCHAR(160) NULL UNIQUE`.
+
+### 16.7 Pagination and the document page (2026-09-16)
+
+`index()` passed a hardcoded `limit=100` with a static "showing the first
+100" banner and no way to reach the rest, so **~92 % of the corpus was
+unreachable through the UI**.
+
+* Server-rendered pagination (`?page=N`, 50 per page, plain links — no
+  JS framework, R3.4). The count query **must** be
+  `COUNT(DISTINCT d.id)`: the keyword filter needs the `DocumentKeyword`
+  join, which multiplies a document's rows by its keyword count, so a
+  plain `COUNT(*)` would inflate the total and paginate into empty pages
+  — the same R2.1 trap commit `ebc1f60` fixed once already. Verified
+  live by walking all 25 pages: 1238 rows, no duplicates, count exact;
+  and with the heaviest keyword (370 links) still exact. `/export/<fmt>`
+  stays unpaginated.
+* New `GET /dokument/<slug>` + `app/templates/document.html`, surfacing
+  three things that were populated but had never appeared in the UI:
+  **`DocumentVersion`** history (1258 rows, until now read only for the
+  hero's aggregate count — this is what R1.5 was built for),
+  **`document_relation`** (46 edges, rendered in both directions with
+  correct phrasing from each end), and the record's jurisdiction
+  columns. The CZ↔SK↔EU triple the user browsed by hand at the end of
+  §15 is now navigable by clicking. R4.1's full-text gate is reused
+  verbatim, and `/fulltext/<id>` keeps its independent server-side
+  check.
+
+### 16.8 Tests
+
+The modules from `c5d40d6` shipped untested, and the full suite was
+never run for that commit — it had in fact left **two failing tests** in
+`tests/test_init_db.py` (`build_gestor_jurisdiction_map` was re-keyed to
+the resolved institution but its tests still asserted the raw joined
+string). Fixed, and the gap closed: new `tests/test_standards_body.py`,
+`test_slug.py`, `test_language.py`, `test_norm_title.py`,
+`test_puvodce.py`, plus extensions to `test_app_export.py` (pagination,
+the `COUNT(DISTINCT)` guard) and `test_sites_eurlex.py` (multi-URL
+fields, CELEX suffix, ELI candidates, DG-vs-institution selection).
+467 → 580 tests, all passing.

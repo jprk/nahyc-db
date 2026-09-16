@@ -8,7 +8,8 @@ from unittest.mock import MagicMock
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.app import (
-    build_document_query, _rows_for_export, EXPORT_FIELDS,
+    build_document_query, build_count_query, build_page_range, parse_page,
+    _rows_for_export, EXPORT_FIELDS, PAGE_SIZE,
     get_git_version, get_db_last_updated, get_active_document_count,
     get_total_document_count,
 )
@@ -71,6 +72,95 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         sql, params = build_document_query(filters, limit=50)
         self.assertEqual(params, ['%norma%', '%norma%', '1', '2', '3', 50])
         self.assertTrue(sql.rstrip().endswith("LIMIT %s"))
+
+
+class PaginationQueryTestCase(unittest.TestCase):
+    """doc/PLAN.md §16, 2026-09-16: the list is paged instead of capped
+    at a hardcoded 100 rows."""
+
+    def test_offset_is_appended_with_the_limit(self):
+        sql, params = build_document_query(NO_FILTERS, limit=50, offset=100)
+        self.assertIn("LIMIT %s", sql)
+        self.assertIn("OFFSET %s", sql)
+        self.assertEqual(params, [50, 100])
+
+    def test_first_page_needs_no_offset_clause(self):
+        sql, params = build_document_query(NO_FILTERS, limit=50, offset=0)
+        self.assertNotIn("OFFSET", sql)
+        self.assertEqual(params, [50])
+
+    def test_offset_without_a_limit_is_ignored(self):
+        # Export passes limit=None and must never be paged.
+        sql, params = build_document_query(NO_FILTERS, limit=None, offset=500)
+        self.assertNotIn("LIMIT", sql)
+        self.assertNotIn("OFFSET", sql)
+        self.assertEqual(params, [])
+
+    def test_count_query_counts_distinct_documents(self):
+        # NOT COUNT(*): the DocumentKeyword join multiplies a document's
+        # rows by its keyword count, which would inflate the total and
+        # paginate into empty pages (the R2.1 trap commit ebc1f60 fixed
+        # once already with GROUP BY d.id).
+        sql, _ = build_count_query(NO_FILTERS)
+        self.assertIn("COUNT(DISTINCT d.id)", sql)
+
+    def test_count_query_applies_the_same_filters_as_the_list(self):
+        filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'keyword_id': '9'}
+        count_sql, count_params = build_count_query(filters)
+        list_sql, list_params = build_document_query(filters, limit=None)
+        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s)",
+                         "AND d.type_id = %s", "AND d.source_id = %s",
+                         "AND dk.keyword_id = %s"):
+            self.assertIn(fragment, count_sql)
+            self.assertIn(fragment, list_sql)
+        self.assertEqual(count_params, list_params)
+
+    def test_page_size_is_positive(self):
+        self.assertGreater(PAGE_SIZE, 0)
+
+
+class ParsePageTestCase(unittest.TestCase):
+    def test_defaults_to_first_page(self):
+        self.assertEqual(parse_page({}, 10), 1)
+
+    def test_reads_a_valid_page(self):
+        self.assertEqual(parse_page({'page': '4'}, 10), 4)
+
+    def test_clamps_out_of_range(self):
+        self.assertEqual(parse_page({'page': '999'}, 10), 10)
+        self.assertEqual(parse_page({'page': '0'}, 10), 1)
+        self.assertEqual(parse_page({'page': '-5'}, 10), 1)
+
+    def test_garbage_falls_back_rather_than_raising(self):
+        self.assertEqual(parse_page({'page': 'abc'}, 10), 1)
+        self.assertEqual(parse_page({'page': ''}, 10), 1)
+
+
+class BuildPageRangeTestCase(unittest.TestCase):
+    def test_single_page_needs_no_pager(self):
+        self.assertEqual(build_page_range(1, 1), [])
+        self.assertEqual(build_page_range(1, 0), [])
+
+    def test_short_range_is_listed_in_full(self):
+        self.assertEqual(build_page_range(1, 4), [1, 2, 3, 4])
+
+    def test_long_range_elides_with_none_as_the_gap_marker(self):
+        got = build_page_range(13, 25)
+        self.assertEqual(got[0], 1)
+        self.assertEqual(got[-1], 25)
+        self.assertIn(None, got)
+        self.assertIn(13, got)
+
+    def test_always_includes_first_current_and_last(self):
+        for page in (1, 2, 12, 24, 25):
+            got = build_page_range(page, 25)
+            self.assertIn(1, got)
+            self.assertIn(page, got)
+            self.assertIn(25, got)
+
+    def test_page_numbers_are_ascending_and_unique(self):
+        numbers = [p for p in build_page_range(13, 25) if p is not None]
+        self.assertEqual(numbers, sorted(set(numbers)))
 
 
 class RowsForExportTestCase(unittest.TestCase):

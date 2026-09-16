@@ -24,14 +24,21 @@ issuing-body signal for those in this corpus.
 EU`/`Směrnice EU`/`Rozhodnutí EU`), a further user finding/decision
 established that "the primary responsible ministry" is the wrong
 concept entirely — Gestor there should be the responsible EU body, per
-`backfill_eu_gestor.py`. Those three types are EXCLUDED here (see the
-`dt.name NOT IN (...)` filter below) so this script's primary-gestor
-reduction never overwrites `backfill_eu_gestor.py`'s authoritative
-result with a Czech ministry that merely happened to be first in the
-same record's AI-generated `gestor` list — verified this would otherwise
-happen: re-running this script after `backfill_eu_gestor.py` proposed
+`backfill_eu_gestor.py`. The same reasoning applies to a technical
+standard, whose Gestor is the standards body that publishes it, per
+`backfill_standards_body.py` (doc/PLAN.md §16). All four of those types
+are EXCLUDED here (see the `dt.name NOT IN (...)` filter below) so this
+script's primary-gestor reduction never overwrites either of those
+authoritative results with a Czech ministry that merely happened to be
+first in the same record's AI-generated `gestor` list — verified twice
+that this would otherwise happen: re-running this script proposed
 reverting all 43 resolved EU-act records back to a CZ ministry before
-this exclusion was added.
+the EU exclusion was added, and 5 ČSN standards from `ČAS` back to
+`Ministerstvo průmyslu a obchodu` before `Norma` was added.
+
+This script therefore now owns exactly the national CZ/SK acts
+(`Zákon`/`Vyhláška`/`Nařízení vlády`/`Nezařazeno`/…) — the one case
+where "which ministry has gesci" is the right question to ask.
 
 Usage: `.venv/bin/python src/tools/backfill_puvodce.py [--apply]`
 (dry-run report only by default; --apply writes to the database)
@@ -145,7 +152,8 @@ def main():
         FROM Document d
         JOIN DocumentSource ds ON d.source_id = ds.id
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
-        WHERE dt.name IS NULL OR dt.name NOT IN ('Nařízení EU', 'Směrnice EU', 'Rozhodnutí EU')
+        WHERE dt.name IS NULL
+           OR dt.name NOT IN ('Nařízení EU', 'Směrnice EU', 'Rozhodnutí EU', 'Norma')
     """)
     documents = cur.fetchall()
 

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="doc-detail">
+
+    <a href="{{ url_for('index') }}" class="back-link"><i class="ph ph-arrow-left"></i> Zpět na katalog</a>
+
+    <header class="doc-header">
+        {% if document.identifier %}
+        <p class="doc-designation">{{ document.identifier }}</p>
+        {% endif %}
+        <h1 class="doc-heading">{{ document.title }}</h1>
+
+        <div class="doc-tags">
+            {% if document.type_name %}
+            <span class="type-tag">{{ document.type_name }}</span>
+            {% endif %}
+            {% if document.language %}
+            <span class="meta-tag"><i class="ph ph-translate"></i> {{ document.language }}</span>
+            {% endif %}
+            {% if document.jurisdikce %}
+            <span class="meta-tag"><i class="ph ph-globe-hemisphere-east"></i> {{ document.jurisdikce }}</span>
+            {% endif %}
+            {% for kw in keywords %}
+            <span class="keyword-tag">{{ kw }}</span>
+            {% endfor %}
+        </div>
+
+        {% if document.needs_review %}
+        <p class="review-banner"><i class="ph ph-warning"></i>
+            <strong>Vyžaduje kontrolu:</strong> {{ document.review_reason }}</p>
+        {% endif %}
+    </header>
+
+    <div class="doc-panels">
+
+        <section class="doc-panel">
+            <h2>Popis</h2>
+            <p>{{ document.description if document.description else 'Žádná bližší specifikace není k dispozici.' }}</p>
+        </section>
+
+        <section class="doc-panel">
+            <h2>Metadata</h2>
+            <dl class="doc-meta">
+                <dt>Gestor</dt>
+                <dd>{{ document.source_name if document.source_name else '—' }}</dd>
+                <dt>Platnost od</dt>
+                <dd>{{ document.effective_date if document.effective_date else 'Neuvedeno' }}</dd>
+                <dt>Jurisdikce</dt>
+                <dd>
+                    {{ document.jurisdikce if document.jurisdikce else 'neurčeno' }}
+                    {%- if document.jurisdikce_uroven %} ({{ document.jurisdikce_uroven }}){% endif %}
+                </dd>
+                <dt>Označení</dt>
+                <dd>{{ document.identifier if document.identifier else '—' }}</dd>
+                <dt>Trvalý odkaz</dt>
+                <dd><code>{{ document.slug }}</code></dd>
+            </dl>
+
+            <div class="doc-actions">
+                {% if document.url %}
+                <a href="{{ document.url }}" target="_blank" class="btn-external">
+                    Přejít na zdroj <i class="ph ph-arrow-up-right"></i></a>
+                {% else %}
+                <span class="btn-disabled">Zdroj nedostupný</span>
+                {% endif %}
+                {# R4.1: the download link appears only for a non-restricted type;
+                   /fulltext/<id> re-checks this server-side regardless. #}
+                {% if document.file_path and not document.restricted_fulltext %}
+                <a href="{{ url_for('fulltext', doc_id=document.id) }}" target="_blank" class="btn-external">
+                    Stažená kopie <i class="ph ph-file-text"></i></a>
+                {% elif document.restricted_fulltext %}
+                <span class="btn-disabled" title="Plný text je chráněn autorským právem nebo zpoplatněn">
+                    Plný text nedostupný <i class="ph ph-lock-simple"></i></span>
+                {% endif %}
+            </div>
+        </section>
+
+        {% if versions %}
+        <section class="doc-panel">
+            <h2>Verze <span class="badge">{{ versions|length }}</span></h2>
+            <table class="doc-table">
+                <thead>
+                    <tr><th>Verze</th><th>Vydání</th><th>Platnost</th><th>Stav</th></tr>
+                </thead>
+                <tbody>
+                    {% for v in versions %}
+                    <tr{% if v.is_current %} class="is-current"{% endif %}>
+                        <td>{{ v.version }}{% if v.is_current %} <span class="meta-tag">aktuální</span>{% endif %}</td>
+                        <td>{{ v.edition_label if v.edition_label else '—' }}</td>
+                        <td>{{ v.effective_date if v.effective_date else '—' }}</td>
+                        <td>{{ v.lifecycle_state }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
+        {% if relations %}
+        <section class="doc-panel">
+            <h2>Souvisejíci dokumenty <span class="badge">{{ relations|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for r in relations %}
+                <li>
+                    <span class="relation-type">
+                        {%- if r.relation_type == 'IMPLEMENTS' -%}
+                            {{ 'transponuje' if r.direction == 'from' else 'je transponován předpisem' }}
+                        {%- elif r.relation_type == 'ADOPTS' -%}
+                            {{ 'přejímá' if r.direction == 'from' else 'je přejat normou' }}
+                        {%- elif r.relation_type == 'AMENDS' -%}
+                            {{ 'novelizuje' if r.direction == 'from' else 'je novelizován předpisem' }}
+                        {%- elif r.relation_type == 'REPEALS' -%}
+                            {{ 'ruší' if r.direction == 'from' else 'je zrušen předpisem' }}
+                        {%- elif r.relation_type == 'CONSOLIDATES' -%}
+                            {{ 'konsoliduje' if r.direction == 'from' else 'je konsolidován předpisem' }}
+                        {%- elif r.relation_type == 'NATIONAL_EQUIVALENT' -%}
+                            národní protějšek
+                        {%- else -%}
+                            {{ r.relation_type }}
+                        {%- endif -%}
+                    </span>
+                    <a href="{{ url_for('document_detail', slug=r.other_slug) }}">
+                        {%- if r.other_identifier %}{{ r.other_identifier }} — {% endif -%}
+                        {{ r.other_title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

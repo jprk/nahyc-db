@@ -23,7 +23,15 @@ import requests
 SPARQL_ENDPOINT = "http://publications.europa.eu/webapi/rdf/sparql"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
 
-_CELEX_IN_URL_RE = re.compile(r"CELEX(?::|%3A)(\w+)", re.IGNORECASE)
+# The trailing "(NN)" is PART of the CELEX id, not noise: EUR-Lex uses it
+# to separate acts that would otherwise share a number. Found 2026-09-16
+# on Decision (EU) 2018/546 of the European Central Bank, whose CELEX is
+# "32018D0010(01)" — the ECB numbers it ECB/2018/10, and the bare
+# "32018D0010" is a completely unrelated COMMISSION decision on Danish
+# state aid to Aarhus airport. A "\w+" capture silently dropped the
+# suffix and resolved that other act instead, which is how the wrong
+# title reached `nazev_autoritativni` for that record.
+_CELEX_IN_URL_RE = re.compile(r"CELEX(?::|%3A)(\w+(?:\(\d{2}\))?)", re.IGNORECASE)
 _ELI_IN_URL_RE = re.compile(r"/eli/([a-z_]+)/(\d{4})/(\d+)/oj")
 _OJ_IN_URL_RE = re.compile(r"uri=OJ:(L_\d+)", re.IGNORECASE)
 
@@ -143,6 +151,12 @@ _TYPE_LETTER_BY_DOCUMENT_TYPE = {
     "Rozhodnutí EU": "D",
 }
 
+_ELI_TYPE_BY_DOCUMENT_TYPE = {
+    "Nařízení EU": "reg",
+    "Směrnice EU": "dir",
+    "Rozhodnutí EU": "dec",
+}
+
 _YEAR_NUMBER_RE = re.compile(r"(\d{2,4})\s*/\s*(\d{2,4})")
 
 
@@ -176,6 +190,28 @@ def celex_candidates_from_designation(text, type_name):
     if _plausible_year(b) and b != a:
         candidates.append(f"3{b}{type_letter}{a:04d}")
     return [f"http://publications.europa.eu/resource/celex/{c}" for c in candidates]
+
+
+def eli_candidates_from_designation(text, type_name):
+    """Same idea as `celex_candidates_from_designation()`, but building
+    the act's ELI instead. Needed because Cellar does not index every act
+    under the CELEX id its own stored URL carries: Decision (EU) 2018/546
+    of the ECB is reachable as `eli/dec/2018/546/oj` but not as
+    `celex/32018D0010(01)`, even though that is its CELEX. Only the
+    year-first reading is offered here — ELI always orders the path as
+    year/number, so unlike CELEX there is nothing to disambiguate."""
+    eli_type = _ELI_TYPE_BY_DOCUMENT_TYPE.get(type_name)
+    if not eli_type:
+        return []
+    m = _YEAR_NUMBER_RE.search(text or "")
+    if not m:
+        return []
+    candidates = []
+    for year, number in ((m.group(1), m.group(2)), (m.group(2), m.group(1))):
+        if _plausible_year(int(year)):
+            candidates.append(
+                f"http://publications.europa.eu/resource/eli/{eli_type}/{int(year)}/{int(number)}/oj")
+    return candidates
 
 
 def resource_uri_from_url(url):
@@ -263,10 +299,10 @@ def fetch_responsible_gestor(url, identifier=None, title=None, type_name=None, s
     session.headers.setdefault("User-Agent", USER_AGENT)
 
     candidates = resource_uris_from_text(url)
-    if identifier:
-        candidates += celex_candidates_from_designation(identifier, type_name)
-    if title:
-        candidates += celex_candidates_from_designation(title, type_name)
+    for text in (identifier, title):
+        if text:
+            candidates += celex_candidates_from_designation(text, type_name)
+            candidates += eli_candidates_from_designation(text, type_name)
 
     for resource_uri in candidates:
         label, resolved = _gestor_from_resource_uri(session, resource_uri)

@@ -86,6 +86,17 @@ def report_db(conn):
     c.execute("SELECT relation_type, COUNT(*) AS n FROM document_relation GROUP BY relation_type")
     rel_rows = c.fetchall()
     print(f"document_relation rows by type: {rel_rows or '(none at all)'}")
+    # doc/PLAN.md §15 added NATIONAL_EQUIVALENT; §16: list the ENUM so a
+    # type present in the schema but unused in the data is visible here
+    # rather than silently absent from the report.
+    c.execute("SHOW COLUMNS FROM document_relation LIKE 'relation_type'")
+    col = c.fetchone()
+    print(f"relation_type ENUM: {col['Type'] if col else '(missing)'}")
+    seen = {r["relation_type"] for r in rel_rows}
+    for declared in ("AMENDS", "REPEALS", "IMPLEMENTS", "CONSOLIDATES",
+                     "ADOPTS", "NATIONAL_EQUIVALENT"):
+        if declared not in seen:
+            print(f"  declared but unused in the data: {declared}")
 
     print("\n--- R1.5 Lifecycle/version state ---")
     c.execute("DESCRIBE DocumentVersion")
@@ -101,6 +112,26 @@ def report_db(conn):
     print("\n--- R1.6 Authoritative source table ---")
     c.execute("SELECT COUNT(*) AS n FROM DocumentSource")
     print(f"DocumentSource rows: {c.fetchone()['n']} (independent classification table exists)")
+    # doc/PLAN.md §16, 2026-09-16: row count alone is NOT enough. A
+    # regression that left 1130 of 1238 documents with no source at all
+    # was invisible here because the table still had rows. R1.6 is about
+    # every DOCUMENT declaring its source, so measure coverage.
+    c.execute("SELECT COUNT(*) AS n, COUNT(source_id) AS with_source FROM Document")
+    row = c.fetchone()
+    pct = (100.0 * row["with_source"] / row["n"]) if row["n"] else 0.0
+    print(f"Documents with a source_id: {row['with_source']} / {row['n']} ({pct:.1f}%)")
+    c.execute("""SELECT dt.name AS type_name, COUNT(*) AS n, COUNT(d.source_id) AS with_source
+                 FROM Document d LEFT JOIN DocumentType dt ON d.type_id = dt.id
+                 GROUP BY dt.name ORDER BY n DESC""")
+    for r in c.fetchall():
+        print(f"  {r['type_name']}: {r['with_source']} / {r['n']}")
+    # R1.6 names standard-setting bodies explicitly, so check they exist.
+    c.execute("""SELECT COUNT(DISTINCT ds.id) AS n FROM DocumentSource ds
+                 JOIN Document d ON d.source_id = ds.id
+                 JOIN DocumentType dt ON d.type_id = dt.id
+                 WHERE dt.name = 'Norma'""")
+    print(f"Distinct sources serving Norma-type documents "
+          f"(standard-setting bodies): {c.fetchone()['n']}")
 
     print("\n--- R1.7 General metadata incl. file paths ---")
     c.execute("DESCRIBE Document")
@@ -109,6 +140,26 @@ def report_db(conn):
     c.execute("SELECT COUNT(*) AS n, COUNT(file_path) AS with_path FROM Document")
     row = c.fetchone()
     print(f"Documents with file_path populated: {row['with_path']} / {row['n']}")
+    # doc/PLAN.md §16: file_path coverage was the only thing measured
+    # here, but the real R1.7 risk is the metadata completeness the
+    # needs_review queue tracks.
+    c.execute("""SELECT COUNT(*) AS n,
+                        COUNT(NULLIF(TRIM(COALESCE(description, '')), '')) AS with_desc,
+                        COUNT(NULLIF(TRIM(COALESCE(language, '')), '')) AS with_lang,
+                        COUNT(identifier) AS with_identifier,
+                        COUNT(slug) AS with_slug,
+                        SUM(needs_review) AS flagged
+                 FROM Document""")
+    row = c.fetchone()
+    print(f"  with description: {row['with_desc']} / {row['n']}")
+    print(f"  with language:    {row['with_lang']} / {row['n']}")
+    print(f"  with identifier:  {row['with_identifier']} / {row['n']}")
+    print(f"  with slug:        {row['with_slug']} / {row['n']}")
+    print(f"  flagged needs_review: {row['flagged']}")
+    c.execute("""SELECT review_reason, COUNT(*) AS n FROM Document
+                 WHERE needs_review = 1 GROUP BY review_reason ORDER BY n DESC LIMIT 10""")
+    for r in c.fetchall():
+        print(f"    {r['n']:5}  {(r['review_reason'] or '')[:90]}")
 
     print("\n--- R4.1 Licensing/visibility rules (DB side) ---")
     c.execute("SHOW COLUMNS FROM DocumentType LIKE 'restricted_fulltext'")
@@ -157,8 +208,14 @@ def report_app():
     print(f"@media rules in style.css: {len(media_queries)} -> {media_queries}")
 
     print("\n--- R2.3 Combined full-text + structured filters ---")
-    filter_reads = _grep_lines(app_py, r"request\.args\.get")
-    print(f"request.args.get(...) reads in app.py: {filter_reads}")
+    # doc/PLAN.md §16, 2026-09-16: this used to grep only for
+    # "request.args.get" and started returning nothing once filter
+    # parsing moved into parse_filters(args) — a false negative, not a
+    # regression in the app. Match both shapes, and name the facets.
+    filter_reads = _grep_lines(app_py, r"(?:request\.)?args\.get")
+    print(f"filter-param reads in app.py: {filter_reads}")
+    for facet in ('q', 'type_id', 'source_id', 'keyword_id'):
+        print(f"  facet {facet!r} parsed: {bool(_grep_lines(app_py, facet))}")
 
     print("\n--- R2.4 Result metadata summary + hyperlink ---")
     print(f"doc.url referenced in index.html: {bool(_grep_lines(index_html, r'doc\.url'))}")
