@@ -78,7 +78,8 @@ REPO_ROOT = BASE_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(BASE_DIR))
 
-from sites import eurlex, zakonyprolidi, slovlex, esbirka  # noqa: E402
+from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff  # noqa: E402
+from norm_title import designation_core  # noqa: E402
 from check_csn_validity import (  # noqa: E402
     search as csn_search,
     find_best_match as csn_find_best_match,
@@ -95,6 +96,9 @@ SLEEP_SECONDS = 1
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
 
 _CSN_PREFIX_RE = re.compile(r"^(ČSN|CSN)\s+", re.IGNORECASE)
+# Slovak national designations — STN, and TNI ("technická normalizačná
+# informácia") which the ÚNMS SR registry catalogues alongside them.
+_STN_PREFIX_RE = re.compile(r"^(STN|TNI)\b", re.IGNORECASE)
 # A bare designation with no national-body prefix at all is the
 # international original itself (mirrors link_document_relations_auto.py's
 # own national-prefix exclusion logic).
@@ -145,6 +149,18 @@ def is_csn_norm_record(item):
     if _CSN_PREFIX_RE.match(znacka):
         return True
     return bool(_INTL_DESIGNATION_RE.match(znacka))
+
+
+def is_stn_norm_record(item):
+    """doc/PLAN.md §17, 2026-09-16: a Slovak standard, looked up against
+    the ÚNMS SR registry (`src/sites/normoff.py`) for its published scope
+    text. Disjoint from `is_csn_norm_record()` by construction — that one
+    matches a ČSN prefix or a BARE EN/ISO/IEC designation, neither of
+    which an "STN …"/"TNI …" designation is, which is exactly why these
+    101 records were never fetched by either existing branch."""
+    if (item.get("typ_dokumentu") or "").strip() != "Norma":
+        return False
+    return bool(_STN_PREFIX_RE.match((item.get("znacka") or "").strip()))
 
 
 def is_bare_international_znacka(znacka):
@@ -253,6 +269,11 @@ def main():
                          help="perform at most N new lookups (for a manual smoke test)")
     parser.add_argument("--force", action="store_true",
                          help="re-fetch even if the cache already has this entry")
+    parser.add_argument("--only-missing-description", action="store_true",
+                         help="skip records that already carry an annotation — use when "
+                              "the point of the run is closing the description gap "
+                              "rather than re-verifying titles, so a public registry "
+                              "isn't queried for data the corpus already has")
     args = parser.parse_args()
 
     with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
@@ -278,6 +299,9 @@ def main():
     session.headers.update({"User-Agent": USER_AGENT})
     csn_session = requests.Session()
     csn_session.headers.update({"User-Agent": CSN_USER_AGENT})
+
+    stn_session = requests.Session()
+    stn_session.headers.update({"User-Agent": normoff.USER_AGENT})
 
     processed = 0
     for item in raw_data:
@@ -310,6 +334,46 @@ def main():
             processed += 1
             if not local_path:
                 time.sleep(SLEEP_SECONDS)
+            continue
+
+        if is_stn_norm_record(item):
+            if args.only_missing_description and (item.get("anotace_poznamka") or "").strip():
+                continue
+            # Keyed by designation, not URL: all 101 of these records
+            # store the same catalog root as their `url`, so there is
+            # nothing per-document to key on — the same reason the ČSN
+            # branch below uses a "csn:<znacka>" key.
+            # The corpus's own znacka carries Sinay's edition suffix
+            # ("STN EN 17339/ - 2025.02"); the registry catalogues the
+            # bare designation and matches nothing otherwise. Same
+            # `designation_core()` norm_title.py uses for titles/slugs.
+            designation = designation_core(znacka)
+            if not designation:
+                continue
+            key = f"stn:{designation}"
+            if key in processed_keys:
+                continue
+            if key in cache and not args.force:
+                continue
+            processed_keys.add(key)
+            print(f"[normoff] {designation}")
+            result = normoff.fetch_by_designation(designation, session=stn_session)
+            cache[key] = {
+                "title": (result or {}).get("title"),
+                "description": (result or {}).get("description"),
+                "domain": "normy.normoff.gov.sk",
+                "znacka": designation,
+                "zdroj_esbirka_url": None,
+                "zdroj_autoritativni_url": (result or {}).get("url"),
+                # The registry publishes a scope for only part of its
+                # catalogue, so "fetched" (we found the record) and
+                # "has a description" are deliberately separate facts.
+                "status": "fetched" if result else "failed",
+                "withdrawn_edition": (result or {}).get("withdrawn"),
+                "catalogue_number": (result or {}).get("catalogue_number"),
+            }
+            processed += 1
+            time.sleep(SLEEP_SECONDS)
             continue
 
         if is_csn_norm_record(item):

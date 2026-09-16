@@ -37,7 +37,17 @@
 
         <section class="doc-panel">
             <h2>Popis</h2>
-            <p>{{ document.description if document.description else 'Žádná bližší specifikace není k dispozici.' }}</p>
+            {% if document.description %}
+            <p>{{ document.description }}</p>
+            {% elif document.popis_priblizny %}
+            {# doc/PLAN.md §17: a title-derived restatement, not the publisher's
+               own scope text — labelled so a reader is never left guessing which
+               of the two they are reading. #}
+            <p class="approximate-label"><i class="ph ph-info"></i> Přibližné shrnutí, neověřeno</p>
+            <p>{{ document.popis_priblizny }}</p>
+            {% else %}
+            <p>Žádná bližší specifikace není k dispozici.</p>
+            {% endif %}
         </section>
 
         <section class="doc-panel">

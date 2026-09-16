@@ -26,3 +26,7 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 ## Gestor EU aktů (od 2026-09-16, uživatelský nález)
 
 * `eu_gestor_cache.json` — klíčováno `Document.url`: pro EU akty (`Nařízení EU`/`Směrnice EU`/`Rozhodnutí EU`) uchovává autoritativní odpovědné Generální ředitelství/instituci dohledané v EUR-Lex/Cellar (`src/sites/eurlex.py`'s `fetch_responsible_gestor()`), viz `src/tools/backfill_eu_gestor.py`. Stejná idempotentní cache konvence jako `fulltext_manifest.json`/`site_metadata_cache.json` — `init_db.py` ji čte při KAŽDÉM běhu (`puvodce.py`'s `load_eu_gestor_cache()`), aby budoucí přesestavení z JSON nemuselo opakovat ~44 živých SPARQL dotazů. Jen úspěšné dohledání se cachuje; nedohledaný záznam (viz `backfill_eu_gestor.py`) se zkusí znovu při příštím běhu.
+
+## Anotace dokumentů (od 2026-09-17, viz `doc/PLAN.md` §17)
+
+* `synthesized_summaries.json` — klíčováno označením normy: **přibližná** česká shrnutí odvozená POUZE z názvu, pro normy, u nichž vydavatel žádný předmět nepublikuje (generuje `src/tools/synthesize_summaries.py`). Záměrně vlastní soubor, ne součást `site_metadata_cache.json` — ta znamená „staženo od zdroje"; sloučením by se ztratil rozdíl mezi ověřeným a odvozeným textem. `build_unified_db.py` ho aplikuje do `popis_priblizny`, nikdy do `description`. Každý záznam nese i `derived_from_title`, `reason`, `model` a `basis: "title-only"`, aby bylo z dat samotných vidět, že text neměl jiný podklad než název.

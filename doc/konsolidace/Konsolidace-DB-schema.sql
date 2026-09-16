@@ -203,6 +203,19 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT') NOT NULL;
 
+-- doc/PLAN.md §17, 2026-09-16: anotace dogenerovaná, ne dohledaná.
+-- Popis dohledaný u vydavatele (a přeložený do češtiny) patří do už
+-- existujícího `popis_autoritativni` — to pole znamená "ověřeno u zdroje".
+-- Pro záznamy, kde vydavatel žádný předmět/abstrakt nepublikuje, vzniká
+-- shrnutí bez opory v cizím textu; to je jiná evidenční kategorie a NESMÍ
+-- splynout s tou první. Proto vlastní sloupec: UI ho vykresluje s
+-- označením "Přibližné shrnutí, neověřeno", `needs_review` zůstává
+-- nastavené, a `Document.description` ho NIKDY nepřebírá (jinak by se
+-- rozdíl ztratil a čtenář by nepoznal, co čte — přesně to, čemu se §13
+-- rozhodlo předejít tím, že se vymyšlený popis raději nenapsal vůbec).
+ALTER TABLE Document
+  ADD COLUMN popis_priblizny TEXT NULL;
+
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a
 -- `src/tools/init_db.py` při každém běhu tabulku TRUNCATE-uje a nahrává

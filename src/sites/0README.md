@@ -55,6 +55,31 @@ konkrétní stránka/služba skutečně vrací.
   přesně to, co potřebujeme — parsuje TOHLE, ne viditelný obsah stránky
   (fallback na `<title>` se svlečenou příponou "| Slov-Lex"). Ověřeno živě
   2026-09-11 s `allow_redirects=True` (3 přesměrování na reálné URL).
+* `normoff.py` - **2026-09-16 (doc/PLAN.md §17)**: slovenský registr norem ÚNMS SR
+  (`normy.normoff.gov.sk`) — jediný modul zde, který si cíl musí nejdřív **dohledat**.
+  Korpus totiž u všech 101 těchto záznamů neukládá odkaz na konkrétní dokument, ale
+  společný kořen katalogu, takže není co stáhnout; `resolve()` proto překládá označení
+  normy na konkrétní katalogový záznam a teprve pak `extract()` čte detailní stránku.
+  Jde o mechanismus „hledání podle označení", který `doc/PLAN.md` §8 odložil jako
+  „podstatně větší a jinak tvarovaný úkol", zde postavený pro nejvýnosnější doménu.
+  Dvě žádosti na označení, obě levné a deterministické: `/vyhladavanie-export/?name=…`
+  vrátí malé CSV se všemi vydáními daného označení (katalogové číslo, název, datum
+  vydání, **datum zrušení**, URL) — použito záměrně místo scrapování HTML výsledků,
+  protože je to strukturované a web to sám nabízí; pak `/norma/<katalogové číslo>/`
+  nese vlastní text „Predmet normy". Volba vydání kopíruje pravidlo, které už
+  `check_csn_validity.find_best_match()` používá pro český registr: přednost má vydání
+  stále platné (prázdné `Dátum zrušenia` — datové pole, ne vykreslený štítek), jinak
+  nejnovější vydané, aby i zrušená norma dala skutečný popisný text místo ničeho.
+  **Nikdy nehádá**: uznává jen PŘESNOU shodu označení (registr na částečné označení
+  ochotně vrací blízké, ale jiné normy) a prázdná buňka „Predmet normy" dá `None`,
+  ne text, který náhodou stojí vedle — dřívější verze modulu takto tiše vytáhla odkaz
+  „Hore" ze zápatí stránky. `designation_variants()` normalizuje jen mezery kolem
+  novelizační přípony (`"STN EN 16898 + A1"` → `"STN EN 16898+A1"`, tentýž dokument);
+  záměrně NEspadne zpět na základní normu, když se nenajde novela
+  (`"STN EN ISO 11114-1/Zmena"` → základ je JINÝ dokument a jeho předmět by popisoval
+  něco jiného). Ověřeno na reálném vzorku: 13 z 20 záznamů má skutečný text předmětu,
+  medián 875 znaků — srovnatelné s autentickými anotacemi, které už v korpusu jsou.
+  Pokryto testy v `tests/test_sites_normoff.py`.
 * `esbirka.py` - **NENÍ zdroj obsahu** — `e-sbirka.gov.cz` je skutečný
   oficiální zdroj českého práva (na rozdíl od `zakonyprolidi.cz`), ale jeho
   vlastní frontend je needostupný Angular SPA (`<esel-app>` prázdná
@@ -79,5 +104,5 @@ konkrétní stránka/služba skutečně vrací.
 
 Pokryto testy v `tests/test_sites_eurlex.py`, `tests/test_sites_
 zakonyprolidi.py`, `tests/test_sites_slovlex.py`,
-`tests/test_sites_esbirka.py` (mockované HTTP/SPARQL, žádná reálná síťová
-volání).
+`tests/test_sites_esbirka.py`, `tests/test_sites_normoff.py` (mockované
+HTTP/SPARQL/CSV, žádná reálná síťová volání).

@@ -243,7 +243,8 @@ def build_document_query(filters, limit=None, offset=None):
     export must not silently truncate at the UI's page size). Returns
     (sql, params)."""
     base_query = '''
-        SELECT d.id, d.slug, d.title, d.description, dt.name as type_name,
+        SELECT d.id, d.slug, d.title, d.description, d.popis_priblizny,
+               dt.name as type_name,
                ds.name as source_name, d.language, d.effective_date, d.url,
                d.file_path, dt.restricted_fulltext, d.needs_review, d.review_reason
         FROM Document d
@@ -342,6 +343,7 @@ def fetch_document_detail(db, slug):
     with db.cursor() as cur:
         cur.execute('''
             SELECT d.id, d.slug, d.identifier, d.title, d.description,
+                   d.popis_priblizny,
                    d.language, d.effective_date, d.url, d.file_path,
                    d.jurisdikce, d.jurisdikce_uroven, d.needs_review,
                    d.review_reason, d.updated_at,

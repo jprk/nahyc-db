@@ -1,10 +1,15 @@
 import json
 import pathlib
 import re
+import sys
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
+
+sys.path.insert(0, str(BASE_DIR))
+from norm_title import designation_core  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
+SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -262,6 +267,41 @@ def load_site_metadata_cache():
     return {}
 
 
+def load_synthesized_summaries():
+    """doc/PLAN.md §17, 2026-09-17: reads data/synthesized_summaries.json
+    (built by src/tools/synthesize_summaries.py) — empty dict if absent.
+
+    Kept in its OWN file rather than in site_metadata_cache.json: that
+    cache means "fetched from the publisher", and these summaries are
+    derived from the standard's title because the publisher offers no
+    scope text at all. Merging the two would erase exactly the
+    distinction §17 exists to preserve."""
+    if SYNTHESIZED_SUMMARIES_PATH.exists():
+        return load_json(SYNTHESIZED_SUMMARIES_PATH)
+    return {}
+
+
+def apply_synthesized_summary(record, summaries):
+    """Attaches `popis_priblizny` — mutates `record` in place.
+
+    Deliberately writes ONLY that field. It must never reach
+    `popis_autoritativni` (which init_db.resolve_description() promotes
+    into `Document.description`), or a title-derived restatement would
+    become indistinguishable from a scope text the publisher actually
+    wrote. A record that already has a real description is skipped
+    outright."""
+    if (record.get("popis_autoritativni") or "").strip():
+        return
+    if (record.get("anotace_poznamka") or "").strip():
+        return
+    znacka = (record.get("znacka") or "").strip()
+    if not znacka:
+        return
+    entry = summaries.get(designation_core(znacka))
+    if entry and entry.get("popis_priblizny"):
+        record["popis_priblizny"] = entry["popis_priblizny"]
+
+
 def record_url(item):
     """Same precedence as init_db.py's own `url` field resolution:
     odkaz_hlavni -> odkaz_eu -> odkaz_sk, first non-empty wins."""
@@ -298,6 +338,13 @@ def apply_authoritative_metadata(record, cache):
     entry = cache.get(url) if url else None
     if entry is None and znacka:
         entry = cache.get(f"csn:{znacka}")
+    if entry is None and znacka:
+        # doc/PLAN.md §17, 2026-09-16: Slovak standards are keyed by the
+        # designation with its edition suffix stripped — all 101 of them
+        # store the same catalog root as their URL, so there is nothing
+        # per-document to key on (the same reason the ČSN branch above
+        # uses "csn:<znacka>").
+        entry = cache.get(f"stn:{designation_core(znacka)}")
     if entry is None or entry.get("status") != "fetched":
         return
     if entry.get("title"):
@@ -743,6 +790,17 @@ def build_unified_db():
     if authoritative_count:
         print(f"Applied authoritative title/description to {authoritative_count} record(s) "
               f"from {SITE_METADATA_CACHE_PATH.relative_to(REPO_ROOT)}.")
+
+    synthesized_summaries = load_synthesized_summaries()
+    approximate_count = 0
+    for record in unified_db:
+        apply_synthesized_summary(record, synthesized_summaries)
+        if record.get("popis_priblizny"):
+            approximate_count += 1
+    if approximate_count:
+        print(f"Applied an APPROXIMATE (title-derived, unverified) summary to "
+              f"{approximate_count} record(s) from "
+              f"{SYNTHESIZED_SUMMARIES_PATH.relative_to(REPO_ROOT)}.")
 
     synthesized_count = synthesize_csn_adoption_records(unified_db, site_metadata_cache)
     if synthesized_count:

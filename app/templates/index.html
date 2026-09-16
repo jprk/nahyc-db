@@ -132,8 +132,14 @@
                             </div>
                             <div class="detail-block detail-description">
                                 <h4>Poznámka / Zkrácený text</h4>
-                                <p>{{ doc.description if doc.description else 'Žádná bližší specifikace není k
-                                    dispozici.' }}</p>
+                                {% if doc.description %}
+                                <p>{{ doc.description }}</p>
+                                {% elif doc.popis_priblizny %}
+                                <p class="approximate-label"><i class="ph ph-info"></i> Přibližné shrnutí, neověřeno</p>
+                                <p>{{ doc.popis_priblizny }}</p>
+                                {% else %}
+                                <p>Žádná bližší specifikace není k dispozici.</p>
+                                {% endif %}
                             </div>
                             <div class="detail-block action-block">
                                 <a href="{{ url_for('document_detail', slug=doc.slug) }}" class="btn-external">

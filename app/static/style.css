@@ -880,3 +880,21 @@ main {
         margin-bottom: 0.7rem;
     }
 }
+
+/* Přibližné (strojově odvozené) shrnutí — doc/PLAN.md §17, 2026-09-17.
+   Vizuálně odlišené od skutečného popisu staženého od vydavatele, aby
+   čtenář vždy věděl, co čte. */
+.approximate-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: var(--warning);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}

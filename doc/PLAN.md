@@ -3307,3 +3307,197 @@ string). Fixed, and the gap closed: new `tests/test_standards_body.py`,
 the `COUNT(DISTINCT)` guard) and `test_sites_eurlex.py` (multi-URL
 fields, CELEX suffix, ELI candidates, DG-vs-institution selection).
 467 → 580 tests, all passing.
+
+## 17. Missing annotations, fetched from the sources rather than generated (NEW, 2026-09-16, user-directed)
+
+**User direction:** *"The missing annotations shall be solved by directly
+going to the document URLs and fetching theirs abstracts or summaries (or
+synthesizing those in case that no abstract is available). The annotations
+are written in Czech even for Slovak / German / English documents."*
+
+458 of 1238 documents carry no description — 407 of them `Norma`.
+
+### 17.1 Why not simply run `enrich_annotations.py`
+
+Assessed before starting, and the answer was no. That script sends the
+model only `Název` + `Typ`, and its own prompt instructs it to *"popiš
+stručně, jakou oblast **obvykle** reguluje"* — family-level generalisation,
+which is precisely the mechanism that produced §13's fabricated
+"emissions" paragraph for a hydrogen-vehicle-safety regulation.
+
+The decisive finding is upstream. The Sinay source
+(`data/20250712_Sinay/sinay_normy_processed.json`) carries an `Anotace`
+column, non-empty for **651 of 1942** rows, and `build_unified_db.py`
+already copies it straight through — which is why **697 `Norma` records
+in the live DB already hold authentic scope abstracts averaging 611
+characters**. The 407 blanks are precisely the complement: the rows where
+the source had no abstract. They are not a processing gap that generation
+can close, and filling them from the title would place ~150-character
+paraphrases indistinguishably beside genuine 611-character scope texts in
+a regulatory reference database.
+
+Hence the user's direction, and this section: **go to the source.**
+
+### 17.2 The obstacle: there is no per-document URL to go to
+
+Only **11 of the 407** store a real per-document URL, and those point at
+`csnonline.agentura-cas.cz`, whose detail page publishes no abstract field
+at all (`check_csn_validity.fetch_detail()` returns designation, title,
+English title and "Zapracované dokumenty" — no scope). The other 396 store
+a **catalog root**: `normy.normoff.gov.sk/` (101), `iso.org/standards.html`
+(73), `dvgw.de/` (42), `webstore.iec.ch/` (17), `eiga.eu/` (16),
+`bveg.de/` (14), and ~10 each for `din.de`/`ptb.de`/`csagroup.org`. 42 have
+no URL at all.
+
+So each domain needs a **designation → detail page** resolution step
+first. That is the "search the site by designation" mechanism §8 deferred
+as *"a substantially bigger, differently-shaped undertaking"*. It is being
+built one domain at a time, highest-yield first, rather than as one push.
+
+### 17.3 `src/sites/normoff.py` — the first domain (101 records)
+
+The ÚNMS SR registry turned out to be well-suited: server-rendered (the
+Slovak government IDSK design system, not a JS SPA), and it publishes a
+**"Predmet normy"** scope field.
+
+Two requests per designation, both cheap and deterministic:
+
+1. `/vyhladavanie-export/?name=<designation>` returns a small CSV of every
+   edition — catalogue number, title, issue date, **withdrawal date**,
+   detail URL. Chosen deliberately over scraping the HTML result list: it
+   is structured, stable, and the site offers it itself.
+2. `/norma/<catalogue number>/` carries the scope text.
+
+Edition choice reuses the rule `check_csn_validity.find_best_match()`
+already applies to the Czech registry — prefer the edition still in force,
+else the most recently issued. Here "in force" is an empty `Dátum
+zrušenia`, i.e. a data field rather than a rendered label, so no HTML
+parsing enters the decision.
+
+**Three things found by testing against the live registry, each now
+guarded:**
+
+- **A naive extractor silently returned page chrome.** Reading "the line
+  after the `Predmet normy:` label" in flattened text produced `"Hore"`
+  (the back-to-top link) for records that have *no* scope — the registry
+  leaves the cell empty rather than omitting the row. Fixed by parsing the
+  actual table structure (`<td class="…title">label</td>` → following
+  `<td>`), so an empty cell yields `None`. Left unguarded this would have
+  written navigation text into ~25 % of the descriptions.
+- **The corpus's own `znacka` carries Sinay's edition suffix**
+  (`"STN EN 17339/ - 2025.02"`), which the registry matches against
+  nothing. The first integrated run cached 4 straight failures before this
+  was spotted; `designation_core()` (the same helper `norm_title.py` uses
+  for titles and slugs) strips it.
+- **Notation differences**: this corpus writes `"STN EN 16898 + A1"`, the
+  registry `"STN EN 16898+A1"`. `designation_variants()` normalises the
+  spacing — but deliberately does **not** fall back to the base standard
+  when an amendment isn't found (`"STN EN ISO 11114-1/Zmena"` →
+  `"STN EN ISO 11114-1"`), because the base is a *different document* and
+  its scope would describe the wrong thing.
+
+Only an EXACT designation match is accepted — the registry willingly
+returns near misses for a partial designation. A bare `EN 12953-9` (not a
+Slovak adoption) correctly resolves to nothing rather than to something
+adjacent.
+
+Measured on a 20-record spread of the 101: **13 with real scope text,
+median 875 characters**, 5 resolved but with no scope published, 2
+unresolved for the notation reasons since fixed.
+
+### 17.4 Storage — fetched and synthesized are kept apart
+
+Per the user's decision:
+
+- **Fetched (and translated to Czech) → `popis_autoritativni`**, the
+  existing "verified from the source" field, blank for all 458 today. This
+  needs no new plumbing: `build_unified_db.apply_authoritative_metadata()`
+  already re-applies it from `data/site_metadata_cache.json` on **every**
+  rebuild, and `init_db.resolve_description()` already prefers it over
+  `anotace_poznamka`.
+- **Synthesized → a new `popis_priblizny`**, rendered with a
+  **"Přibližné shrnutí, neověřeno"** marker and **keeping `needs_review`
+  set**. It must never feed `Document.description`, or the distinction
+  collapses and the database again cannot tell a reader which is which.
+
+`fetch_authoritative_metadata.py` gained an `is_stn_norm_record()` branch,
+keyed `stn:<designation>` — the same designation-keyed convention the ČSN
+branch already uses (`csn:<znacka>`) for records with no per-document URL.
+It is disjoint from the existing branches by construction: `is_csn_norm_record()`
+matches a ČSN prefix or a bare EN/ISO/IEC designation, neither of which an
+`STN …`/`TNI …` designation is — which is exactly why these 391 records
+were never fetched by either. A new `--only-missing-description` flag keeps
+a run targeted at the actual gap rather than re-querying a public registry
+for data the corpus already holds.
+
+### 17.5 Outcome of the fetch tier (2026-09-16)
+
+126 Slovak designations looked up, **121 resolved in the registry (96 %)**,
+**91 carrying real scope text** (median 729 characters — comparable to the
+611-character average of the authentic abstracts already in the corpus).
+The 5 that did not resolve are all amendments or collection markers
+(`/A1`, `/Zmena`, `(súbor)`), refused rather than approximated. A further
+29 resolved but the registry publishes no scope for them.
+
+All 91 were then translated to Czech by `src/tools/translate_annotations.py`
+(31 from Slovak, 60 from English), 0 failures, every result verifying as
+Czech and every original preserved under `description_source`.
+
+One overreach caught in testing: a detector-only rule ("translate anything
+that doesn't look Czech") pulled in two `zakonyprolidi.cz` entries that are
+already Czech — `detect_language()` reads a short Czech legal title as
+Slovak. `TRANSLATABLE_DOMAINS` is now an explicit allow-list; a new domain
+opts in deliberately.
+
+### 17.6 The synthesis tier (2026-09-17, user-directed)
+
+For the remaining **34** — 29 the registry knows but publishes no scope
+for, 5 it has no exact match for — `src/tools/synthesize_summaries.py`
+writes an approximate Czech summary. Per the user's direction, synthesis
+is the fallback *"in case that no abstract is available"*, and it is
+reached only after the fetch tier has genuinely failed for that record.
+
+**The input is the standard's title and nothing else**, because nothing
+else exists: no publisher scope, and no full text (standards are
+copyrighted, `fetch_fulltext.py` skips `typ_dokumentu == "Norma"`
+unconditionally, §4). The design therefore keeps that visible rather than
+papering over it:
+
+- written to its own `data/synthesized_summaries.json`, never into
+  `site_metadata_cache.json` (which means "fetched from the source");
+- carried into `popis_priblizny` only — `build_unified_db.apply_synthesized_summary()`
+  refuses outright if the record already has a `popis_autoritativni` or an
+  `anotace_poznamka`, so an approximation can never displace a real
+  description;
+- `Document.description` stays **empty** and `needs_review` stays **set**:
+  the record still has no real description;
+- the UI renders it under **"Přibližné shrnutí, neověřeno"**, and
+  `/export/<fmt>` does not carry it at all, so no downstream consumer
+  receives a title restatement as if it were a description.
+
+The prompt is narrow for the same reason §13 exists: the model is told to
+restate the subject the title names and is explicitly forbidden to add
+figures, limits, pressures, temperatures, test procedures or applicability
+claims the title does not state. The results bear that out —
+*"Kovové tlakové nádoby na dopravu plynov. Prevádzkové pravidlá"* becomes
+*"Norma se týká provozních pravidel pro kovové tlakové nádoby určené k
+dopravě plynů."* and nothing more.
+
+### 17.7 Result
+
+`src/tools/backfill_descriptions.py` applied both tiers to the live
+database. Of 391 STN/TNI standards: 280 already had a description, **77
+gained the publisher's own scope text** (translated), **34 gained an
+approximate summary**, and **0 were left with neither**.
+
+Corpus-wide: descriptions **780 → 857 of 1238 (63 % → 69 %)**,
+`needs_review` **450 → 374**, records still flagged for a missing
+description **435 → 358**. Zero records carry an approximate summary
+alongside a real description.
+
+What remains unaddressed is the rest of §17.2's table — `iso.org` (73,
+and ISO actively blocks automation per §4), `dvgw.de` (42),
+`webstore.iec.ch` (17), `eiga.eu` (16), `bveg.de` (14) — each needing its
+own `src/sites/` module on the same resolve-then-extract pattern, plus the
+23 `Bibliografický pramen` rows, which never pass through any
+`database_*.json` and are already full citations.

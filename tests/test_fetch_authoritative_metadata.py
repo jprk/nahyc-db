@@ -7,7 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
 from fetch_authoritative_metadata import (
-    is_law_record, is_csn_norm_record, csn_core, record_url,
+    is_law_record, is_csn_norm_record, is_stn_norm_record, csn_core, record_url,
     dispatch_site_module, fetch_csn_metadata, is_bare_international_znacka,
     bare_jurisdikce_tier,
 )
@@ -63,6 +63,36 @@ class IsCsnNormRecordTestCase(unittest.TestCase):
     def test_non_norma_typ_is_false_even_with_csn_znacka(self):
         self.assertFalse(is_csn_norm_record({"typ_dokumentu": "Zákon", "znacka": "ČSN ISO 14687"}))
         self.assertFalse(is_csn_norm_record({"typ_dokumentu": "", "znacka": "ČSN ISO 14687"}))
+
+
+class IsStnNormRecordTestCase(unittest.TestCase):
+    """doc/PLAN.md §17, 2026-09-16: routes Slovak standards to the ÚNMS SR
+    registry for their published scope text. Must be DISJOINT from
+    is_csn_norm_record() — that one matches a ČSN prefix or a bare
+    EN/ISO/IEC designation, neither of which an "STN …"/"TNI …"
+    designation is, which is exactly why these records were never fetched
+    by either existing branch."""
+
+    def test_stn_and_tni_designations(self):
+        self.assertTrue(is_stn_norm_record({"typ_dokumentu": "Norma", "znacka": "STN EN 17127"}))
+        self.assertTrue(is_stn_norm_record({"typ_dokumentu": "Norma", "znacka": "STN P CEN/TS 15502-3-1"}))
+        self.assertTrue(is_stn_norm_record({"typ_dokumentu": "Norma", "znacka": "TNI CEN/TR 17797"}))
+
+    def test_non_norma_type_is_false(self):
+        self.assertFalse(is_stn_norm_record({"typ_dokumentu": "Zákon", "znacka": "STN EN 17127"}))
+
+    def test_disjoint_from_the_csn_branch(self):
+        stn = {"typ_dokumentu": "Norma", "znacka": "STN EN 17127"}
+        csn = {"typ_dokumentu": "Norma", "znacka": "ČSN EN 17127"}
+        bare = {"typ_dokumentu": "Norma", "znacka": "EN 17339"}
+        self.assertTrue(is_stn_norm_record(stn))
+        self.assertFalse(is_csn_norm_record(stn))
+        self.assertFalse(is_stn_norm_record(csn))
+        self.assertFalse(is_stn_norm_record(bare))
+
+    def test_blank_znacka_is_false(self):
+        self.assertFalse(is_stn_norm_record({"typ_dokumentu": "Norma", "znacka": ""}))
+        self.assertFalse(is_stn_norm_record({"typ_dokumentu": "Norma"}))
 
 
 class IsBareInternationalZnackaTestCase(unittest.TestCase):
