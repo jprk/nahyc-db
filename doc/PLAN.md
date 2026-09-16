@@ -4164,3 +4164,70 @@ system libraries are a one-time environment setup step, documented
 inline in that file and in the harvester's own module docstring, not
 part of any install walkthrough a partner following `PROJECT.md` would
 ever need to run.
+
+## 26. Phase 1 continued — `dvgw.de` (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue Phase 1 with `dvgw.de` (101 corpus records
+— higher than §17.2's original estimate of 42, which undercounted),
+now that Playwright is already set up from §25.
+
+**Feasibility investigated live, same discipline as IEC**:
+`www.dvgw.de` itself has no useful content; the real catalog is
+`dvgw-regelwerk.de`. No AWS-WAF-style block here, but BOTH its search
+results and its documents' detail pages are entirely client-side
+JS-rendered (a plain fetch of either sees "JavaScript seems to be
+disabled in your browser") — Playwright is required regardless of the
+WAF question. Two further findings made this a smaller win than
+`eiga.eu`/`iec.ch`:
+
+- **Detail pages are paywalled beyond a title and one short subtitle
+  line** — no real scope paragraph like EIGA or IEC gave us, confirmed
+  live (`arbeitsblatt-g-100/8e3b63`: "You are currently not logged in
+  as a subscriber").
+- **The site's own free-text search is unreliable for exact
+  designation lookup** — tested live against 7 designations (`G 260`,
+  `G 1001`, `G 213`, `G 406`, `GW 129`, `G 685-1`, `ZP 4110`): **0 of 7
+  appeared anywhere in their own search results**, and several
+  distinct queries (`G 1001`, `G 406`) returned the *identical* generic
+  top-3 hits, suggesting the search silently falls back to a fixed
+  popular-documents ranking for a term it doesn't recognize rather
+  than returning nothing. Trusting it would have meant either missing
+  most records or risking a false match — neither acceptable.
+
+**What DOES work, reliably, with no guessing**: DVGW's own curated
+*listing* pages already carry a one-line description alongside every
+entry, no detail-page visit needed — three "special topic" pages (H2
+Industry/Production/Complete edition, paginated via numbered buttons
+that update client-side with no URL change) and three "index" category
+listings (Set of Rules for Gas, for Gas/Water, DVGW Information
+bulletins — these load via infinite scroll instead, a second, different
+pagination UI on the same site). New `src/tools/
+harvest_dvgw_publications.py` harvests all six. **These do not cover
+DVGW's full catalog**: combining all six only resolves **41 of the 101**
+corpus DVGW designations — confirmed by checking coverage after each
+addition (topic pages alone: 40; adding all three index listings: 41,
+barely more). The other 60 are not reachable through this site without
+guessing.
+
+**Per user direction** ("build the 41 and mark the rest as requiring
+review"): new `src/sites/dvgw.py` is the lightweight, network-free
+consumer (same shape as `iec.py`) with `is_dvgw_norm_record()`/`dvgw:
+<designation>` wired into `fetch_authoritative_metadata.py` and
+`build_unified_db.py`'s `apply_authoritative_metadata()` fallback
+cascade (same `_fetched_cache_entry()` discipline §25 already
+established). A DVGW record whose designation isn't in the harvested
+index is **not just silently left with the generic "missing
+description" flag** every other unresolved record gets — it's also
+recorded in a new `data/dvgw_unresolved_review_queue.json`, recomputed
+from the FULL final cache at the end of every `fetch_authoritative_
+metadata.py` run (not just this run's new lookups, so an already-cached
+miss from a previous run still shows up even when this run skipped
+re-processing it) — so it reads as "looked for, genuinely not there
+on this site" rather than being indistinguishable from a record nobody
+has tried yet.
+
+**Result**: 52 designations processed (`--only-missing-description`
+scope), 20 found and translated to Czech, 32 correctly recorded as
+unresolved. Full pipeline rebuild: `needs_review` 349 → 333/1215. Full
+suite: 702 tests, all passing. App smoke-checked live: `G 404 (M)` now
+shows its real (translated) description in a live search.

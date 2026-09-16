@@ -84,7 +84,7 @@ def save_cache(cache):
 # legal title ("Zákon č. 266/1994 Sb. - Zákon o dráhách") as Slovak, so a
 # detector-only rule pulled zakonyprolidi.cz entries — already Czech, from
 # a Czech source — into the batch. A new domain opts in here deliberately.
-TRANSLATABLE_DOMAINS = {"normy.normoff.gov.sk", "eiga.eu", "iec.ch"}
+TRANSLATABLE_DOMAINS = {"normy.normoff.gov.sk", "eiga.eu", "iec.ch", "dvgw.de"}
 
 
 def needs_translation(entry):

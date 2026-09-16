@@ -372,6 +372,18 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         self.assertEqual(record["nazev_autoritativni"], "T")
         self.assertEqual(record["popis_autoritativni"], "D")
 
+    def test_dvgw_key_used_when_no_url_or_csn_stn_eiga_iec_match(self):
+        # doc/PLAN.md §26: DVGW records store only the dvgw.de homepage
+        # — same "catalog root" shape, keyed on dvgw.py's own
+        # designation normalization (Arbeitsblatt/Merkblatt status
+        # suffix strip).
+        record = {"znacka": "G 260 (A)", "odkaz_hlavni": "https://www.dvgw.de/"}
+        cache = {"dvgw:G 260": {"status": "fetched", "title": "T", "description": "D",
+                                "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "T")
+        self.assertEqual(record["popis_autoritativni"], "D")
+
     def test_stale_failed_entry_under_an_earlier_key_does_not_block_a_later_one(self):
         # Regression guard (doc/PLAN.md §25, found live): every bare
         # "IEC ..." znacka already had a stale "csn:<znacka>" entry

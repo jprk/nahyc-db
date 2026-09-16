@@ -11,6 +11,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from norm_title import designation_core  # noqa: E402
 from sites.eiga import normalize_designation as eiga_designation  # noqa: E402
 from sites.iec import normalize_designation as iec_designation  # noqa: E402
+from sites.dvgw import normalize_designation as dvgw_designation  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 
@@ -382,6 +383,13 @@ def apply_authoritative_metadata(record, cache):
         code = iec_designation(znacka)
         if code:
             entry = _fetched_cache_entry(cache, f"iec:{code}")
+    if entry is None and znacka:
+        # doc/PLAN.md §26, 2026-09-17: DVGW technical rules — same
+        # "catalog root, not a per-document URL" shape, keyed on
+        # dvgw.py's own designation normalization.
+        code = dvgw_designation(znacka)
+        if code:
+            entry = _fetched_cache_entry(cache, f"dvgw:{code}")
     if entry is None:
         return
     if entry.get("title"):

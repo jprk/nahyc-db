@@ -88,7 +88,7 @@ REPO_ROOT = BASE_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(BASE_DIR))
 
-from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff, eiga, iec  # noqa: E402
+from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff, eiga, iec, dvgw  # noqa: E402
 from norm_title import designation_core  # noqa: E402
 from check_csn_validity import (  # noqa: E402
     search as csn_search,
@@ -101,6 +101,15 @@ from init_db import resolve_file_path, load_fulltext_manifest  # noqa: E402
 
 RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
 CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
+# doc/PLAN.md §26, 2026-09-17: unlike every other domain's cache miss
+# (which just means "no data available yet, try again after a future
+# fetch/harvest"), a DVGW record not in the harvested index is known,
+# right now, to be permanently unresolvable through this site without
+# guessing (only 41 of 101 corpus designations are ever reachable, see
+# src/sites/dvgw.py) — recorded separately so it reads as "looked for,
+# genuinely not there" rather than being indistinguishable from a
+# record nobody's tried yet.
+DVGW_UNRESOLVED_REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "dvgw_unresolved_review_queue.json"
 
 SLEEP_SECONDS = 1
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
@@ -171,6 +180,20 @@ def is_stn_norm_record(item):
     if (item.get("typ_dokumentu") or "").strip() != "Norma":
         return False
     return bool(_STN_PREFIX_RE.match((item.get("znacka") or "").strip()))
+
+
+def is_dvgw_norm_record(item):
+    """doc/PLAN.md §26, 2026-09-17: a DVGW technical rule, looked up
+    against the LOCAL index `src/tools/harvest_dvgw_publications.py`
+    built — same "no live request at all" shape as `is_iec_norm_record()`
+    and for the same reason (`dvgw-regelwerk.de`'s own search is
+    unreliable for exact designation lookup, confirmed live). Keyed on
+    URL domain, not `znacka` shape — DVGW designations ("G 260 (A)",
+    "GW 302-1 (A)", "ZP 4110", "Gas-Information Nr. 25") don't share one
+    clean prefix the way IEC's do."""
+    if (item.get("typ_dokumentu") or "").strip() != "Norma":
+        return False
+    return "dvgw.de" in record_url(item)
 
 
 _IEC_DESIGNATION_RE = re.compile(r"^(pr\s*EN\s+)?IEC\b", re.IGNORECASE)
@@ -348,6 +371,7 @@ def main():
     eiga_session.headers.update({"User-Agent": eiga.USER_AGENT})
 
     iec_index = iec.load_index()
+    dvgw_index = dvgw.load_index()
 
     processed = 0
     for item in raw_data:
@@ -476,6 +500,33 @@ def main():
             # No sleep: a local index lookup, not a network request.
             continue
 
+        if is_dvgw_norm_record(item):
+            if args.only_missing_description and (item.get("anotace_poznamka") or "").strip():
+                continue
+            designation = dvgw.normalize_designation(znacka)
+            if not designation:
+                continue
+            key = f"dvgw:{designation}"
+            if key in processed_keys:
+                continue
+            if key in cache and not args.force:
+                continue
+            processed_keys.add(key)
+            result = dvgw.lookup(znacka, dvgw_index)
+            print(f"[dvgw] {znacka} -> {designation}: {'found' if result else 'not found'}")
+            cache[key] = {
+                "title": (result or {}).get("title"),
+                "description": (result or {}).get("description"),
+                "domain": "dvgw.de",
+                "znacka": designation,
+                "zdroj_esbirka_url": None,
+                "zdroj_autoritativni_url": None,
+                "status": "fetched" if result else "failed",
+            }
+            processed += 1
+            # No sleep: a local index lookup, not a network request.
+            continue
+
         if is_csn_norm_record(item):
             key = f"csn:{znacka}"
             if key in processed_keys:
@@ -545,6 +596,19 @@ def main():
     print(f"\nDone. {processed} new lookup(s) this run. "
           f"{fetched}/{len(cache)} cache entries carry a real title -> "
           f"{CACHE_PATH.relative_to(REPO_ROOT)}")
+
+    # doc/PLAN.md §26: recomputed from the FULL final cache, not just
+    # this run's new lookups — an already-cached "dvgw:" miss from a
+    # previous run must still show up here even when this run skipped
+    # re-processing it (no --force).
+    dvgw_unresolved = sorted(
+        (v["znacka"] for k, v in cache.items()
+         if k.startswith("dvgw:") and v.get("status") != "fetched"))
+    with open(DVGW_UNRESOLVED_REVIEW_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(dvgw_unresolved, f, ensure_ascii=False, indent=2)
+    if dvgw_unresolved:
+        print(f"{len(dvgw_unresolved)} DVGW designation(s) not in the harvested "
+              f"index -> {DVGW_UNRESOLVED_REVIEW_QUEUE_PATH.relative_to(REPO_ROOT)}")
 
 
 if __name__ == "__main__":
