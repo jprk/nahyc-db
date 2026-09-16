@@ -27,9 +27,14 @@
             {% endfor %}
         </div>
 
-        {% if document.needs_review %}
-        <p class="review-banner"><i class="ph ph-warning"></i>
-            <strong>Vyžaduje kontrolu:</strong> {{ document.review_reason }}</p>
+        {% set badge = review_badge(document) %}
+        {# 'approximate' is deliberately skipped here — the Popis panel just
+           below already carries its own "Přibližné shrnutí, neověřeno"
+           marker right next to the summary itself; repeating it up here
+           would be the same claim said twice in the same viewport. #}
+        {% if badge and badge.severity != 'approximate' %}
+        <p class="review-banner is-{{ badge.severity }}"><i class="ph {{ badge.icon }}"></i>
+            <strong>{{ badge.label }}:</strong> {{ document.review_reason }}</p>
         {% endif %}
     </header>
 

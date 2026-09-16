@@ -176,6 +176,64 @@ def page_url(page):
     return url_for('index', **args)
 
 
+# doc/PLAN.md §18, 2026-09-17: `needs_review` was one undifferentiated
+# red "Vyžaduje kontrolu" flag for everything detect_data_quality_issues()
+# (init_db.py) or the language/EU-gestor backfills ever set it for — 374
+# of 1238 documents (30%), but only 8 of those are an actual DEFECT
+# (a garbled designation, a fragment title, or an EU act whose Gestor
+# couldn't be resolved against EUR-Lex). The other 366 just mean "this
+# record is incomplete", which is a different, much less alarming claim.
+# These substrings are the only DEFECT-shaped reasons any pipeline stage
+# currently produces (src/tools/init_db.py:281-285, backfill_eu_gestor.py's
+# UNRESOLVED_REVIEW_REASON) — matched by substring, not equality, because
+# the EU-gestor and language reasons carry a dynamic "(...)" suffix.
+_DEFECT_REASON_MARKERS = (
+    "značka není platné označení dokumentu",
+    "název vypadá jako useknutý fragment textu",
+    "autoritativní gestor",
+)
+
+REVIEW_SEVERITY = {
+    "defect": {"label": "Vyžaduje opravu", "icon": "ph-warning"},
+    "approximate": {"label": "Přibližné shrnutí, neověřeno", "icon": "ph-info"},
+    "incomplete": {"label": "Neúplné", "icon": "ph-file-dashed"},
+}
+
+
+def classify_review_severity(doc):
+    """None if `doc` isn't flagged at all, else which of three severities
+    its `needs_review` flag actually means:
+
+    * 'defect' — a real data problem, worth the red warning treatment.
+    * 'approximate' — no real description, but `popis_priblizny` carries
+      a title-derived summary (doc/PLAN.md §17) — informational, and
+      already labelled inline where the summary itself is shown.
+    * 'incomplete' — nothing else applies (typically just a missing
+      description, or an auto-detected language worth double-checking).
+
+    Takes a plain dict/row (works for both a DB row and a test double) —
+    reads `needs_review`, `review_reason`, `popis_priblizny`,
+    `description`, nothing else."""
+    if not doc.get('needs_review'):
+        return None
+    reason = doc.get('review_reason') or ''
+    if any(marker in reason for marker in _DEFECT_REASON_MARKERS):
+        return 'defect'
+    has_approximate_summary = (bool((doc.get('popis_priblizny') or '').strip())
+                               and not (doc.get('description') or '').strip())
+    return 'approximate' if has_approximate_summary else 'incomplete'
+
+
+@app.template_global()
+def review_badge(doc):
+    """{'severity', 'label', 'icon'} for `doc`, or None when it isn't
+    flagged — the single call a template needs to render the right badge."""
+    severity = classify_review_severity(doc)
+    if severity is None:
+        return None
+    return {'severity': severity, **REVIEW_SEVERITY[severity]}
+
+
 def parse_filters(args):
     """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the four
     recognized search/filter query params into a plain dict, shared by

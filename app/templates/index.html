@@ -98,9 +98,10 @@
                         <div class="td col-title">
                             <div class="doc-title">{{ doc.title }}</div>
                             <div class="doc-tags">
-                                {% if doc.needs_review %}
-                                <span class="review-flag" title="{{ doc.review_reason }}">
-                                    <i class="ph ph-warning"></i> Vyžaduje kontrolu
+                                {% set badge = review_badge(doc) %}
+                                {% if badge %}
+                                <span class="review-flag is-{{ badge.severity }}" title="{{ doc.review_reason }}">
+                                    <i class="ph {{ badge.icon }}"></i> {{ badge.label }}
                                 </span>
                                 {% endif %}
                                 {% if doc.language %}

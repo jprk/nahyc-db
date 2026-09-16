@@ -11,7 +11,7 @@ from app.app import (
     build_document_query, build_count_query, build_page_range, parse_page,
     _rows_for_export, EXPORT_FIELDS, PAGE_SIZE,
     get_git_version, get_db_last_updated, get_active_document_count,
-    get_total_document_count,
+    get_total_document_count, classify_review_severity, REVIEW_SEVERITY,
 )
 
 
@@ -161,6 +161,69 @@ class BuildPageRangeTestCase(unittest.TestCase):
     def test_page_numbers_are_ascending_and_unique(self):
         numbers = [p for p in build_page_range(13, 25) if p is not None]
         self.assertEqual(numbers, sorted(set(numbers)))
+
+
+class ClassifyReviewSeverityTestCase(unittest.TestCase):
+    """doc/PLAN.md §18, 2026-09-17: needs_review used to be one
+    undifferentiated red "Vyžaduje kontrolu" flag for everything from a
+    garbled designation to a simply-not-yet-written description — 374 of
+    1238 documents, but only 8 of those are an actual defect. This
+    classifier is what tells them apart, so the badge reads honestly."""
+
+    def test_not_flagged_at_all(self):
+        self.assertIsNone(classify_review_severity({'needs_review': 0}))
+        self.assertIsNone(classify_review_severity({'needs_review': False}))
+
+    def test_garbled_designation_is_a_defect(self):
+        doc = {'needs_review': 1, 'review_reason': 'značka není platné označení dokumentu'}
+        self.assertEqual(classify_review_severity(doc), 'defect')
+
+    def test_fragment_title_is_a_defect(self):
+        doc = {'needs_review': 1, 'review_reason': 'název vypadá jako useknutý fragment textu'}
+        self.assertEqual(classify_review_severity(doc), 'defect')
+
+    def test_unresolved_eu_gestor_is_a_defect(self):
+        # The reason string carries a dynamic "(DG/instituce)" suffix —
+        # must match by substring, not equality.
+        doc = {'needs_review': 1,
+               'review_reason': 'EU akt: autoritativní gestor (DG/instituce) se v EUR-Lex/Cellar nepodařilo dohledat'}
+        self.assertEqual(classify_review_severity(doc), 'defect')
+
+    def test_missing_description_alone_is_incomplete_not_a_defect(self):
+        doc = {'needs_review': 1, 'review_reason': 'chybí popis/anotace dokumentu',
+               'popis_priblizny': None, 'description': ''}
+        self.assertEqual(classify_review_severity(doc), 'incomplete')
+
+    def test_uncertain_language_alone_is_incomplete(self):
+        doc = {'needs_review': 1,
+               'review_reason': 'jazyk dokumentu byl automaticky odhadnut, ověřte (DE)'}
+        self.assertEqual(classify_review_severity(doc), 'incomplete')
+
+    def test_approximate_summary_with_no_real_description(self):
+        doc = {'needs_review': 1, 'review_reason': 'chybí popis/anotace dokumentu',
+               'popis_priblizny': 'Norma se zabývá...', 'description': ''}
+        self.assertEqual(classify_review_severity(doc), 'approximate')
+
+    def test_approximate_summary_is_ignored_once_a_real_description_exists(self):
+        # A record that later gained a real description (the fetch tier)
+        # must not still read as merely "approximate" — description wins.
+        doc = {'needs_review': 1, 'review_reason': 'chybí popis/anotace dokumentu',
+               'popis_priblizny': 'Norma se zabývá...', 'description': 'Skutečný popis.'}
+        self.assertEqual(classify_review_severity(doc), 'incomplete')
+
+    def test_defect_marker_wins_even_alongside_an_approximate_summary(self):
+        doc = {'needs_review': 1,
+               'review_reason': 'název vypadá jako useknutý fragment textu; chybí popis/anotace dokumentu',
+               'popis_priblizny': 'Norma se zabývá...', 'description': ''}
+        self.assertEqual(classify_review_severity(doc), 'defect')
+
+    def test_blank_or_missing_fields_do_not_raise(self):
+        self.assertEqual(classify_review_severity({'needs_review': 1}), 'incomplete')
+
+    def test_every_severity_has_a_label_and_icon(self):
+        for severity in ('defect', 'approximate', 'incomplete'):
+            self.assertIn('label', REVIEW_SEVERITY[severity])
+            self.assertIn('icon', REVIEW_SEVERITY[severity])
 
 
 class RowsForExportTestCase(unittest.TestCase):

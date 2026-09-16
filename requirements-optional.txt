@@ -1,0 +1,11 @@
+# doc/PLAN.md §18, 2026-09-17. Needed only by a few exploratory/one-off
+# scripts under src/tools/ — the analyze_*.py family (ad-hoc spreadsheet
+# inspection), process_laws.py, and search_agent.py — none of which are
+# part of the app or the documented pipeline order (see
+# src/tools/0README.md). Install alongside requirements.txt only if
+# you're running one of those specific scripts:
+#
+#   .venv/bin/pip install -r requirements.txt -r requirements-optional.txt
+
+pandas==3.0.5
+duckduckgo_search==8.1.1

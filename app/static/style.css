@@ -447,12 +447,33 @@ main {
    detect_data_quality_issues() (init_db.py) and put into
    data/incomplete_records_review_queue.json — the record still shows
    normally, this is only a caution indicator (title attribute carries
-   the specific reason(s), see index.html). */
+   the specific reason(s), see index.html).
+   doc/PLAN.md §18, 2026-09-17: three severities, not one undifferentiated
+   warning — most of what needs_review flags is "incomplete", not "wrong".
+   .is-defect keeps the original amber/warning treatment; .is-incomplete
+   is deliberately calmer (muted, not amber/red) so it doesn't read as a
+   problem; .is-approximate reuses the same amber as .approximate-label
+   below, since it's the same claim in a different-shaped element. */
 .review-flag {
-    background: rgba(251, 191, 36, 0.15);
-    color: #fbbf24;
-    border: 1px solid rgba(251, 191, 36, 0.3);
     cursor: help;
+}
+
+.review-flag.is-defect {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.review-flag.is-approximate {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.review-flag.is-incomplete {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .source-text {
@@ -738,14 +759,33 @@ main {
     gap: 0.5rem;
 }
 
+/* doc/PLAN.md §18, 2026-09-17: severity variants — see .review-flag above
+   for why 'incomplete' is deliberately calmer than 'defect'. 'approximate'
+   is never rendered here (document.html skips it), kept only so the class
+   isn't a dead end if that changes. */
 .review-banner {
     margin-top: 1rem;
     padding: 0.75rem 1rem;
     border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+.review-banner.is-defect {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: var(--danger);
+}
+
+.review-banner.is-approximate {
     background: rgba(245, 158, 11, 0.12);
     border: 1px solid rgba(245, 158, 11, 0.35);
     color: var(--warning);
-    font-size: 0.9rem;
+}
+
+.review-banner.is-incomplete {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-secondary);
 }
 
 .doc-panels {

@@ -3501,3 +3501,144 @@ and ISO actively blocks automation per §4), `dvgw.de` (42),
 own `src/sites/` module on the same resolve-then-extract pattern, plus the
 23 `Bibliografický pramen` rows, which never pass through any
 `database_*.json` and are already full citations.
+
+## 18. Three-tier `needs_review` severity — most of it isn't a defect (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue with Phase 4 of the demo/handover plan
+(doc/PLAN.md §16's context) — split the flag so "incomplete" and "wrong"
+stop reading as the same thing.
+
+Before this, `needs_review` was one undifferentiated red "Vyžaduje
+kontrolu" badge for whatever reason `detect_data_quality_issues()`
+(`init_db.py`) or the language/EU-gestor backfills ever set it for. Live
+count: **374 of 1238 documents (30 %)** flagged, but only **8** of those
+are an actual defect (7 fragment titles, 1 unresolved EU gestor — 0
+garbled designations currently). The other 366 just mean "this record is
+incomplete" (358 missing a description, 55 with an auto-detected,
+unverified language — the two overlap on some records), which is a much
+less alarming claim than the shared red warning treatment implied.
+
+New `classify_review_severity()` (`app/app.py`) classifies a flagged
+document into exactly one of three severities, matched by substring
+against the five distinct reason templates the whole pipeline currently
+produces (`init_db.py:281-285`, `backfill_eu_gestor.UNRESOLVED_REVIEW_REASON`):
+
+- **defect** — a garbled designation, a fragment title, or an unresolved
+  EU gestor. Keeps the red/amber "Vyžaduje opravu" warning treatment.
+- **approximate** — no real description, but `popis_priblizny` carries a
+  title-derived summary (§17). Rendered "Přibližné shrnutí, neověřeno".
+- **incomplete** — everything else (missing description with no fallback
+  summary either, or just an uncertain auto-detected language). Rendered
+  "Neúplné" in a calm, non-alarming style — informational, not a warning.
+
+Measured on the live corpus: **8 defect / 34 approximate / 332
+incomplete**, summing exactly to 374, zero overlap between defect and
+approximate (a garbled/fragment record that also happens to lack a
+description still reads as "defect" — the more serious claim wins).
+
+`review_badge(doc)` is the single template-facing call
+(`@app.template_global()`), returning `{severity, label, icon}` or `None`.
+Rendered in `index.html`'s row badge (all three severities, same compact
+slot as before) and `document.html`'s header banner — **except
+'approximate' there**, deliberately: the Popis panel immediately below
+already shows the identical "Přibližné shrnutí, neověřeno" marker right
+next to the summary itself, so repeating it in the banner above would be
+the same claim said twice in the same viewport without scrolling. The
+list row doesn't have this problem — the badge sits in the collapsed
+summary, the same marker (already wired in §17.7) only appears once a row
+is expanded, so summary-then-detail is the normal pattern there, not
+duplication.
+
+New CSS severity variants on `.review-flag`/`.review-banner`: `.is-defect`
+(red), `.is-approximate` (the same amber as `.approximate-label`, since
+it is the same claim in a different-shaped element), `.is-incomplete`
+(muted gray, explicitly not amber/red — the one thing this section exists
+to fix). 11 new tests in `tests/test_app_export.py`'s
+`ClassifyReviewSeverityTestCase`, including the dynamic-suffix matching
+(EU-gestor/language reasons carry a "(...)" tail) and the defect-wins-over-
+approximate ordering. 611 tests total, all passing. Verified live: HTML
+still well-formed on every affected page, and the three severities render
+with visibly distinct styling.
+
+## 19. Handover setup — requirements.txt, .env.example, PROJECT.md (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue with Phase 5 of the demo/handover plan
+(§16's context) — a partner cloning this repository could not install it
+(no dependency manifest existed at all — `langdetect`, added 2026-09-15,
+was undeclared), could not configure it (`.env` is gitignored with no
+template), and `PROJECT.md` did not get them to a running app (wrong
+port, wrong paths, no database setup at all).
+
+**`requirements.txt`** — pinned exact versions (`==`, not floors) from
+the working development venv, scoped to what the app and the documented
+pipeline order actually import: Flask, PyMySQL, python-dotenv, requests,
+langdetect, openai, openpyxl, pdfplumber, python-docx, beautifulsoup4.
+`lxml` was considered and left out — every `BeautifulSoup(...)` call in
+`src/sites/`/`src/tools/check_csn_validity.py` explicitly passes
+`"html.parser"`, so nothing in this codebase actually needs it, pinned or
+not. `pandas` and `duckduckgo_search` (used only by the `analyze_*.py`
+exploratory scripts, `process_laws.py`, and `search_agent.py` — none of
+them part of the app or the pipeline) went into a separate
+`requirements-optional.txt` instead of bloating the default install.
+
+Verified, not assumed: installed `requirements.txt` into a genuinely
+fresh venv (no pip cache reuse of the dev environment) and imported every
+module the app and pipeline touch against it — `app.app`, all five
+`src/sites/*` modules, and all 27 `src/tools/*` pipeline/enrichment
+scripts this session's work produced or touched. All import cleanly; one
+of them (`deduplicate_db.py`) even exercises the real `.openapi_key`
+loading path as an import-time side effect.
+
+**`.env.example`** — the five `DB_*` keys `app/app.py` and every
+`src/tools/` script actually read, no values. Confirmed the key names
+match the real (gitignored) `.env` exactly. `.openapi_key` needed no
+template of its own — verified it is correctly gitignored, was never
+tracked, and appears nowhere in git history.
+
+One real finding while writing it: `provision_db.py` used to issue
+`CREATE DATABASE IF NOT EXISTS` using the APP's own `.env` credentials,
+which needs a global `CREATE` privilege — but this project's own live
+account (`h2regdocs`@`localhost`) only has `GRANT ALL` scoped to the
+`h2regdocs` database itself, confirmed by `SHOW GRANTS` (this is also why
+no scratch database could be created to run a true end-to-end rebuild
+rehearsal in §16's verification — the same constraint). So this
+deployment's own database was necessarily provisioned by some OTHER,
+undocumented account, and `.env` alone could never fully provision a
+fresh environment.
+
+**User decision, immediately following**: the app account should never
+need that privilege in the first place — see §20 for the redesign
+(`provision_db.py` now uses a separate admin identity, supplied only for
+this one bootstrap, to create both the database and the app's own
+narrowly-scoped user). Also noted along the way: `provision_db.py` shells
+out to the `mariadb` CLI client (present on this machine, but a system
+package, not a Python dependency `requirements.txt` can express).
+
+**`PROJECT.md` refresh** — corrected every stale claim found: the
+architecture section still described SQLite (`db/regulatory_documents.db`,
+`db/init_db.py`) and CSV-format data, both long superseded by MariaDB and
+the JSON/XLSX pipeline; the directory table didn't mention `src/sites/`,
+`requirements.txt`, or that `/doc` now holds substantial documentation
+(it used to say "zatím prázdné"); and "Používání" said `python app.py` in
+`app/` on port 5000 (it is 5050, via `app/app.py` for development or
+`wsgi.py` for a real deployment).
+
+The rebuilt "Instalace a spuštění" walkthrough deliberately does **not**
+start from `build_unified_db.py`/`deduplicate_db.py` — `data/
+database_merged_deduplicated.json` (the pipeline's own output) is already
+committed to the repository, so the minimal path to a running app is
+`init_db.py` → `load_document_relations.py` → `load_process_layer.py`
+directly against it. Regenerating the corpus from the original partner
+spreadsheets is a separate, longer, and — per §1's own recorded lesson —
+not-safe-to-re-run-casually process, pointed at `doc/PLAN.md` rather than
+duplicated in PROJECT.md.
+
+**What remains genuinely unverified**: whether `provision_db.py` and the
+full install actually succeed end to end against a brand-new, empty
+MariaDB instance. The account available in this environment cannot create
+one (see above), so this was verified as far as it is possible to verify
+without a more privileged account or a second machine — every Python-side
+step (install, imports, the app running, the full test suite) was
+exercised for real; the SQL-provisioning step was read and reasoned about,
+not executed against a scratch target. Flagged here rather than silently
+assumed correct.
