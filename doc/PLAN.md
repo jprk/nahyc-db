@@ -4231,3 +4231,54 @@ scope), 20 found and translated to Czech, 32 correctly recorded as
 unresolved. Full pipeline rebuild: `needs_review` 349 → 333/1215. Full
 suite: 702 tests, all passing. App smoke-checked live: `G 404 (M)` now
 shows its real (translated) description in a live search.
+
+## 27. Phase 1 stopped here — diminishing returns confirmed (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue Phase 1 once more; investigate whatever
+domains remain. Live database breakdown of still-missing descriptions
+at this point: `iso.org` 73 (confirmed blocked, §17.7), *(no URL)* 53
+(not a site-fetchable problem at all), `normy.normoff.gov.sk` 34
+(already attempted, §17 — genuine remaining gaps, not a new domain),
+`dvgw.de` 24 (already attempted, §26), `slov-lex.sk` 20
+(`slovlex.py` exists but is structurally title-only — no description
+ever available from that site), `bveg.de` 14 (already flagged weak —
+no designations to search by), `csnonline.agentura-cas.cz` 11 (already
+attempted, §9), then five untried domains at ~9-10 records each:
+`din.de`, `ptb.de`, `csagroup.org`, `sae.org`,
+`standards.cencenelec.eu`; `eur-lex.europa.eu` 6 (`eurlex.py` exists,
+also structurally title-only); everything else ≤5 each.
+
+Checked the two most promising of the five untried domains live (both
+returned a plain HTTP 200, unlike `cencenelec.eu` which failed to
+connect at all):
+
+- **`csagroup.org`** (10 records, all `CSA`/`CSA/ANSI` hydrogen vehicle
+  fuelling standards): the store page's own search `<input>` exists in
+  the DOM but stays **not visible** even after accepting the cookie
+  consent banner — some other UI state (of ~50 search-related elements
+  found) has to be triggered first, not identified within a
+  proportionate amount of investigation for a 10-record yield.
+- **`sae.org`** (10 records, `SAE J...` ground-vehicle standards): both
+  a guessed detail-page URL and the site's own `/publications/search`
+  endpoint returned a generic JS shell (`<noscript>` present, ~116
+  lines) — no working static entry point found on a quick check.
+
+**Decision: stop Phase 1 here.** The pattern is now consistent across
+seven investigated domains (`normoff.gov.sk` succeeded cleanly; `eiga.eu`
+succeeded after a real correction; `iec.ch` succeeded via a heavier
+Playwright harvest; `dvgw.de` succeeded partially via curated listings;
+`iso.org`, `csagroup.org`, `sae.org` all show real access friction for
+what would be a small yield even if solved) — every domain with real
+remaining volume is either already attempted (with genuine residual
+gaps, not a new opportunity) or structurally incapable of ever
+providing a description (`slov-lex.sk`/`eur-lex.europa.eu`, title-only
+by design) or confirmed/strongly-suspected blocked
+(`iso.org`/`csagroup.org`/`sae.org`). `din.de`/`ptb.de`/
+`cencenelec.eu` were not individually checked, but no reason to expect
+a different outcome given the consistent pattern above — left
+genuinely untried rather than assumed, should a future session want to
+check them specifically.
+
+Corpus-wide state at the end of Phase 1's active work this session:
+`needs_review` 450 → 333/1215 (over the whole Phase 1 arc:
+`normoff.gov.sk`, `eiga.eu`, `iec.ch`, `dvgw.de` combined).
