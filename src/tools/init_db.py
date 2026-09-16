@@ -6,6 +6,10 @@ import re
 import pymysql
 from dotenv import load_dotenv
 
+from language import detect_language, normalize_raw_language
+from norm_title import format_norm_title
+from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
+
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 JSON_PATH = REPO_ROOT / "data" / "database_merged_deduplicated.json"
@@ -298,13 +302,15 @@ def build_gestor_jurisdiction_map(records):
     before that first insert, not discovered from a later record. Verified
     empirically (doc/PLAN.md Step 2): zero real per-gestor jurisdikce
     conflicts exist in the current corpus, so "first non-blank, non-
-    unknown value found" is safe, not an arbitrary pick."""
+    unknown value found" is safe, not an arbitrary pick. Keyed by
+    `resolve_puvodce()` (src/tools/puvodce.py, 2026-09-15) — the same
+    single-institution resolution used for `Document.source_id` below —
+    so lookups by the caller (`resolve_source_jurisdiction()`) actually
+    hit; keying by the old raw joined-gestor string would silently never
+    match once `source` itself stopped being that joined string."""
     mapping = {}
     for item in records:
-        gestor = item.get("gestor", [])
-        if isinstance(gestor, list):
-            gestor = ", ".join(gestor)
-        gestor = (gestor or "").strip()
+        gestor = resolve_puvodce(item) or ""
         if not gestor or gestor in mapping:
             continue
         jurisdikce = (item.get("jurisdikce") or "").strip()
@@ -406,6 +412,7 @@ def import_json_data(db_conn):
     cursor = db_conn.cursor()
     seen_identifiers = set()
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
+    eu_gestor_cache = load_eu_gestor_cache(REPO_ROOT)
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
 
@@ -415,24 +422,52 @@ def import_json_data(db_conn):
             continue
 
         doc_type = resolve_document_type(item.get("typ_dokumentu", ""))
-
-        gestor = item.get("gestor", [])
-        if isinstance(gestor, list):
-            source = ", ".join(gestor)
-        else:
-            source = str(gestor)
-        source = source.strip()
-
-        language = item.get("jazyk", "").strip()
         effective_date = item.get("platnost", "").strip()
-
         url = resolve_url(item)
 
+        # src/tools/puvodce.py, 2026-09-15/16: "Gestor" is a single
+        # institution — the primary CZ ministry for a national act, or
+        # (2026-09-16 follow-up) the responsible EU body (from
+        # data/eu_gestor_cache.json, see backfill_eu_gestor.py) for an EU
+        # act itself — never the whole raw `gestor` list joined verbatim
+        # (what `init_db.py` used to do). Same one-time fixes as
+        # backfill_puvodce.py/backfill_eu_gestor.py applied directly to
+        # the already-imported DB, kept here too so a future rebuild from
+        # JSON reproduces the same result.
+        gestor, gestor_unresolved_eu_act = resolve_gestor(item, doc_type, url, eu_gestor_cache)
+        source = gestor or ""
+
         description = resolve_description(item)
+
+        # src/tools/language.py, 2026-09-15: a raw `jazyk` value (when
+        # present) is normalized to EN/CS/SK/DE spelling; otherwise the
+        # language is detected from title/description — see that module
+        # for why title takes priority over description (many records'
+        # description is scope/abstract text in a different language than
+        # the document itself).
+        language = normalize_raw_language(item.get("jazyk", ""))
+        language_confident = language is not None
+        if language is None:
+            language, language_confident = detect_language(title, description)
+
         identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
+
+        # src/tools/norm_title.py, 2026-09-15: Norma titles never carried
+        # their own designation (e.g. "ČSN EN 17124") — prefix it, same
+        # one-time fix as backfill_norm_designation.py applied directly
+        # to the already-imported DB, kept here too so a future rebuild
+        # from JSON reproduces the same result.
+        if doc_type == "Norma":
+            title, _ = format_norm_title(title, identifier)
+
         jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
         file_path = resolve_file_path(item, fulltext_manifest)
         review_reasons = detect_data_quality_issues(item)
+        if not language_confident:
+            review_reasons.append(f"jazyk dokumentu byl automaticky odhadnut, ověřte ({language})")
+        if gestor_unresolved_eu_act:
+            review_reasons.append(
+                "EU akt: autoritativní gestor (DG/instituce) se v EUR-Lex/Cellar nepodařilo dohledat")
         needs_review = bool(review_reasons)
         review_reason = "; ".join(review_reasons) or None
 

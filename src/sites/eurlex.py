@@ -24,6 +24,22 @@ SPARQL_ENDPOINT = "http://publications.europa.eu/webapi/rdf/sparql"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use, low-volume)"
 
 _CELEX_IN_URL_RE = re.compile(r"CELEX(?::|%3A)(\w+)", re.IGNORECASE)
+_ELI_IN_URL_RE = re.compile(r"/eli/([a-z_]+)/(\d{4})/(\d+)/oj")
+_OJ_IN_URL_RE = re.compile(r"uri=OJ:(L_\d+)", re.IGNORECASE)
+
+# doc/PLAN.md §16, 2026-09-16 ("Gestor" correctness finding): top-level
+# EU institution corporate-body codes, distinguished from Directorate-
+# General codes (ENER, MOVE, ENV, GROW, ...) — both shapes appear
+# interchangeably as `cdm:work_created_by_agent` values in Cellar (a
+# Commission-only implementing act was found putting its DG there too,
+# not just in `cdm:resource_legal_responsibility_of_agent`), so this set
+# is what lets `fetch_responsible_gestor()` tell the two apart.
+_INSTITUTION_CODES_CS = {
+    "COM": "Evropská komise",
+    "EP": "Evropský parlament",
+    "CONSIL": "Rada Evropské unie",
+    "ECB": "Evropská centrální banka",
+}
 
 # Prefers the Czech-language expression title, falling back to English --
 # this corpus is Czech-oriented, but not every EU act has a Czech
@@ -98,3 +114,162 @@ def extract(url, cached_path=None, session=None):
     if not title:
         return None
     return {"title": title, "description": None}
+
+
+def resource_uris_from_text(text):
+    """Like `resource_uri_from_url()`, but returns every candidate found
+    in `text`, in order — needed because a few `Document.url` values in
+    this corpus concatenate more than one URL (a known Excel-paste
+    artifact, same pattern `fetch_fulltext.py`'s `first_url()` already
+    works around elsewhere), and the FIRST one isn't always the one
+    Cellar has an `owl:sameAs` record for (e.g. a consolidated-text CELEX
+    variant, sector "0", pasted before the original act's own sector-"3"
+    CELEX)."""
+    if not text:
+        return []
+    uris = []
+    for m in _CELEX_IN_URL_RE.finditer(text):
+        uris.append(f"http://publications.europa.eu/resource/celex/{m.group(1).upper()}")
+    for m in _ELI_IN_URL_RE.finditer(text):
+        uris.append(f"http://publications.europa.eu/resource/eli/{m.group(1)}/{m.group(2)}/{m.group(3)}/oj")
+    for m in _OJ_IN_URL_RE.finditer(text):
+        uris.append(f"http://publications.europa.eu/resource/oj/{m.group(1)}")
+    return uris
+
+
+_TYPE_LETTER_BY_DOCUMENT_TYPE = {
+    "Nařízení EU": "R",
+    "Směrnice EU": "L",
+    "Rozhodnutí EU": "D",
+}
+
+_YEAR_NUMBER_RE = re.compile(r"(\d{2,4})\s*/\s*(\d{2,4})")
+
+
+def _plausible_year(n):
+    return 1957 <= n <= 2035
+
+
+def celex_candidates_from_designation(text, type_name):
+    """Constructs candidate CELEX ids from a free-text designation (an
+    `identifier` like "(EU) 2022/869", or — when that's blank, e.g. a
+    slov-lex.sk-only record with no stable identifier — the act's number
+    as it appears in the document's own title) plus its `DocumentType`
+    name. Genuinely ambiguous whether the "YYYY/NNN" pair is
+    (year, sequence-number) — the EU's numbering convention flipped this
+    ordering by act type and era (pre-2015 regulations were
+    "No NNN/YYYY", directives and post-2015 acts are "YYYY/NNNN") — so
+    both orderings are returned as candidates when both numbers could
+    plausibly be a year; the caller tries each against Cellar rather than
+    this function guessing. Returns [] for a type with no CELEX letter
+    mapping or a designation with no digit pair at all."""
+    type_letter = _TYPE_LETTER_BY_DOCUMENT_TYPE.get(type_name)
+    if not type_letter:
+        return []
+    m = _YEAR_NUMBER_RE.search(text or "")
+    if not m:
+        return []
+    a, b = int(m.group(1)), int(m.group(2))
+    candidates = []
+    if _plausible_year(a):
+        candidates.append(f"3{a}{type_letter}{b:04d}")
+    if _plausible_year(b) and b != a:
+        candidates.append(f"3{b}{type_letter}{a:04d}")
+    return [f"http://publications.europa.eu/resource/celex/{c}" for c in candidates]
+
+
+def resource_uri_from_url(url):
+    """First Cellar resource URI `resource_uris_from_text()` finds in
+    `url` (a stored `Document.url` normally carries just one), or None."""
+    uris = resource_uris_from_text(url)
+    return uris[0] if uris else None
+
+
+_GESTOR_QUERY_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT ?dg ?agent WHERE {{
+  ?work owl:sameAs <{resource_uri}> .
+  OPTIONAL {{ ?work cdm:resource_legal_responsibility_of_agent ?dg }}
+  OPTIONAL {{ ?work cdm:work_created_by_agent ?agent }}
+}}
+"""
+
+_LABEL_QUERY_TEMPLATE = """
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?label ?lang WHERE {{
+  <{resource_uri}> skos:prefLabel ?label .
+  BIND(LANG(?label) AS ?lang)
+  FILTER(?lang IN ("cs", "en"))
+}}
+"""
+
+_CORPORATE_BODY_PREFIX = "http://publications.europa.eu/resource/authority/corporate-body/"
+
+
+def _corporate_body_label(session, code):
+    bindings = _run_sparql(session, _LABEL_QUERY_TEMPLATE.format(
+        resource_uri=_CORPORATE_BODY_PREFIX + code))
+    by_lang = {b["lang"]["value"]: b["label"]["value"] for b in bindings if "lang" in b and "label" in b}
+    return by_lang.get("cs") or by_lang.get("en") or code
+
+
+def _gestor_from_resource_uri(session, resource_uri):
+    """(dg_label_or_None, resolved_bool) for one Cellar resource URI —
+    resolved=False means the URI itself matched no `owl:sameAs` work at
+    all (caller should try the next candidate), which is different from
+    a real work that simply carries neither signal."""
+    bindings = _run_sparql(session, _GESTOR_QUERY_TEMPLATE.format(resource_uri=resource_uri))
+    if not bindings:
+        return None, False
+
+    def code_of(uri):
+        return uri.rsplit("/", 1)[-1]
+
+    dg_codes = {code_of(b["dg"]["value"]) for b in bindings if "dg" in b}
+    agent_codes = {code_of(b["agent"]["value"]) for b in bindings if "agent" in b}
+    dg_codes |= {c for c in agent_codes if c not in _INSTITUTION_CODES_CS}
+
+    if dg_codes:
+        return _corporate_body_label(session, sorted(dg_codes)[0]), True
+
+    institution_codes = agent_codes & set(_INSTITUTION_CODES_CS)
+    if not institution_codes:
+        return None, True
+    if institution_codes == {"EP", "CONSIL"}:
+        return "Evropský parlament a Rada Evropské unie", True
+    return _INSTITUTION_CODES_CS[sorted(institution_codes)[0]], True
+
+
+def fetch_responsible_gestor(url, identifier=None, title=None, type_name=None, session=None):
+    """Returns the single Czech-language institution/Directorate-General
+    name responsible for the EU act identified by `url` (and, as a
+    fallback when `url` carries no resolvable EUR-Lex/Cellar reference —
+    a slov-lex.sk-only mirror, or a URL Cellar has no record for —
+    `identifier`/`title` + `type_name` to construct a candidate CELEX id;
+    see `celex_candidates_from_designation()`), or None if nothing
+    resolves. Per doc/PLAN.md §16 (2026-09-16 user decision): DG when the
+    authoritative data has one, else the enacting top-level institution.
+
+    Priority per resolved work: `cdm:resource_legal_responsibility_of_agent`
+    (the DG Cellar itself calls "responsible") first; else any
+    `cdm:work_created_by_agent` value that ISN'T one of the top-level
+    institution codes (a Commission-only implementing act was found
+    carrying its DG only there); else the enacting institution(s) from
+    `work_created_by_agent` (typically "Evropská komise" alone for a
+    delegated/implementing act, or "Evropský parlament a Rada Evropské
+    unie" for a co-decided one)."""
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+
+    candidates = resource_uris_from_text(url)
+    if identifier:
+        candidates += celex_candidates_from_designation(identifier, type_name)
+    if title:
+        candidates += celex_candidates_from_designation(title, type_name)
+
+    for resource_uri in candidates:
+        label, resolved = _gestor_from_resource_uri(session, resource_uri)
+        if resolved:
+            return label
+    return None

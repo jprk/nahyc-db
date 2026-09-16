@@ -23,6 +23,22 @@ konkrétní stránka/služba skutečně vrací.
   Klíčový detail nalezený testováním proti reálnému endpointu: CELEX
   literál v SPARQL dotazu MUSÍ nést explicitní `^^xsd:string` typovou
   anotaci, jinak dotaz tiše nevrátí nic, i pro potvrzeně existující CELEX.
+  **2026-09-16 (doc/PLAN.md §16, uživatelský nález — "Gestor" u EU aktů)**:
+  rozšířeno o `fetch_responsible_gestor()`, volané z nového
+  `src/tools/backfill_eu_gestor.py` (ne z `fetch_authoritative_metadata.py`
+  — jiný účel, jiný orchestrátor). Na rozdíl od `celex_from_url()` výše
+  (záměrně jen explicitní `CELEX:` tvar) tahle nová cesta řeší i ELI a
+  holý `OJ:L_...` tvar URL — přes `owl:sameAs` na Cellar `?work` zdroj
+  (`resource_uris_from_text()`/`resource_uri_from_url()`), ne přes
+  CELEX-konstrukci, takže obchází nejednoznačnost otočeného pořadí
+  rok/pořadové číslo u předpisů z doby před rokem 2015. Čte
+  `cdm:resource_legal_responsibility_of_agent` (odpovědné Generální
+  ředitelství) s fallbackem na `cdm:work_created_by_agent` (u čistě
+  Komisí vydaného aktu byl živě nalezen případ, kdy DG je jen tady) a
+  název DG/instituce dotáhne v češtině přes `skos:prefLabel`. Když URL
+  nedá žádnou shodu, `celex_candidates_from_designation()` zkusí
+  sestavit kandidátní CELEX přímo z `identifier`/titulku (obě možná
+  pořadí roku a čísla, nikdy neuhádne jen jedno).
 * `zakonyprolidi.py` - Autoritativní název + popis českého zákona ze
   `zakonyprolidi.cz` (soukromý, ale spolehlivý zrcadlový portál — viz
   `esbirka.py` níže, proč ne přímo oficiální zdroj). Parsuje `<meta
