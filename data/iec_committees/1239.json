@@ -1,0 +1,50 @@
+[
+  {
+    "reference": "IEC 60099-4:2014",
+    "edition": "3.0",
+    "date": "2014-06-30",
+    "title": "Surge arresters - Part 4: Metal-oxide surge arresters without gaps for a.c. systems",
+    "language": "EN-FR, ES",
+    "description": "IEC 60099-4:2014 applies to non-linear metal-oxide resistor type surge arresters without spark gaps designed to limit voltage surges on a.c. power circuits with Us above 1 kV. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. The numerous changes between the second and third editions are listed in the Foreward of the document. Keywords: testing of gapless metal-oxide surge arresters for a.c.power systems"
+  },
+  {
+    "reference": "IEC 60099-5:2018",
+    "edition": "3.0",
+    "date": "2018-01-19",
+    "title": "Surge arresters - Part 5: Selection and application recommendations",
+    "language": "EN-FR, EN",
+    "description": "IEC 60099-5:2018 provides information, guidance, and recommendations for the selection and application of surge arresters to be used in three-phase systems with nominal voltages above 1 kV. It applies to gapless metal-oxide surge arresters as defined in IEC 60099-4, to surge arresters containing both series and parallel gapped structure – rated 52 kV and less as defined in IEC 60099-6 and metal-oxide surge arresters with external series gap for overhead transmission and distribution lines (EGLA) as defined in IEC 60099-8. In Annex J, some aspects regarding the old type of SiC gapped arresters are discussed. Surge arrester residual voltage is a major parameter to which most users have paid a lot of attention to when selecting the type and rating. Typical maximum residual voltages are given in Annex F. It is likely, however, that for some systems, or in some countries, the requirements on system reliability and design are sufficiently uniform, so that the recommendations of the present standard may lead to the definition of narrow ranges of arresters. The user of surge arresters will, in that case, not be required to apply the whole process introduced here to any new installation and the selection of characteristics resulting from prior practice may be continued. Annexes H and I present comparisons and calculations between old line discharge classification and new charge classification. This third edition cancels and replaces the second edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition regarding the new surge arrester classification introduced in IEC 60099-4:2014: a) Expanded discussion of comparison between the old and new classification and how to calculate or estimate the corresponding charge for different stresses. b) New annexes dealing with: - Comparison between line discharge classes and charge classification - Estimation of arrester cumulative charges and energies during line switching Keywords: selection and application of surge arrestors, nominal voltages above 1 kV"
+  },
+  {
+    "reference": "IEC 60099-6:2019",
+    "edition": "2.0",
+    "date": "2019-05-22",
+    "title": "Surge arresters - Part 6: Surge arresters containing both series and parallel gapped structures - System voltage of 52 kV and less",
+    "language": "EN-FR",
+    "description": "IEC 60099-6: 2019 applies to non-linear metal-oxide resistor type surge arresters with spark gaps designed to limit voltage surges on AC power circuits with system voltages Us above 1 kV up to and including 52 kV. This document basically applies to all metal-oxide distribution class surge arresters with internal series and/or parallel gaps and housed in either porcelain or polymeric housings. This second edition cancels and replaces the first edition published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) A new concept of arrester classification and energy withstand testing was introduced: the line discharge classification was replaced by a classification based on repetitive charge transfer rating (Qrs) and thermal charge transfer rating (Qth). The new concept clearly differentiates between impulse and thermal energy handling capability, which is reflected in the requirements as well as in the related test procedures. b) Power-frequency voltage versus time tests – with and without prior duty – were introduced as type tests. c) Requirements and tests on disconnectors were added. d) Definitions for new terms have been added. e) Clause 10 contains particular requirements for polymer-housed surge arresters. These are indicated in the form of replacements, additions or amendments to the original clauses or subclauses concerned. Keywords: testing of metal-oxide surge arresters"
+  },
+  {
+    "reference": "IEC 60099-8:2017",
+    "edition": "2.0",
+    "date": "2017-11-14",
+    "title": "Surge arresters - Part 8: Metal-oxide surge arresters with external series gap (EGLA) for overhead transmission and distribution lines of a.c. systems above 1 kV",
+    "language": "EN-FR, EN",
+    "description": "IEC 60099-8:2017 covers metal-oxide surge arresters with external series gap (externally gapped line arresters (EGLA)) that are applied on overhead transmission and distribution lines, only to protect insulator assemblies from lightning-caused flashovers. This document defines surge arresters to protect the insulator assembly from lightning-caused over-voltages only. Therefore, and since metal-oxide resistors are not permanently connected to the line, the following items are not considered for this document: - switching impulse spark-over voltage; - residual voltage at steep current and switching current impulse; - thermal stability; - long-duration current impulse withstand duty; - power-frequency voltage versus time characteristics of an arrester; - disconnector test; - aging duties by power-frequency voltage. Considering the particular design concept and the special application on overhead transmission and distribution lines, some unique requirements and tests are introduced, such as the verification test for coordination between insulator withstand and EGLA protective level, the follow current interrupting test, mechanical load tests, etc. Designs with the EGLA's external series gap installed in parallel to an insulator are not covered by this document. This second edition cancels and replaces the first edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The Lightning discharge capability test has been completely re-written and re-named to Test to verify the repetitive charge transfer rating, Qrs with lightning discharges to reflect changes introduced in IEC 60099-4 Ed.3 (2014) regarding new methods for rating the energy and charge handling capability of metal-oxide arresters. In addition to testing to evaluate the performance of the MO resistors, procedures for evaluating the performance of the EGLA series gaps have been introduced. - Omissions from Ed. 1 of this standard have been included, notably an RIV test and a means for determining the thermal time constant of the SUV portion of the EGLA. - Definitions for new terms have been added - A number of NOTES in Ed. 1 have been converted to normative requirements Keywords: externally gapped line arresters (EGLA), lightning-caused over-voltages"
+  },
+  {
+    "reference": "IEC 60099-9:2014",
+    "edition": "1.0",
+    "date": "2014-06-26",
+    "title": "Surge arresters - Part 9: Metal-oxide surge arresters without gaps for HVDC converter stations",
+    "language": "EN-FR",
+    "description": "IEC 60099-9:2014 applies to non-linear metal-oxide resistor type surge arresters without spark gaps designed to limit overvoltages in HVDC converter stations of two terminal, multiterminal and back-to-back type up to and including an operating voltage of 1 100 kV. The standard applies in general to porcelain-housed and polymer-housed type arresters but also to gas-insulated metal enclosed arresters (GIS-arresters) solely used as d.c. bus and d.c. line/cable arresters. Arresters for voltage source converters are not covered. Arresters applied on the a.c. systems at the converter station and subjected to power-frequency voltage of 50 or 60 Hz principally without harmonics are tested as per IEC 60099-4. The arresters on a.c.-filters are tested according to this standard. Keywords: testing of gapless metal-oxide surge arrestors for HVDC converter stations"
+  },
+  {
+    "reference": "IEC TR 60099-10:2024",
+    "edition": "1.0",
+    "date": "2024-06-19",
+    "title": "Surge arresters - Part 10: Rationale for tests specified by IEC 60099-4:2014",
+    "language": "EN",
+    "description": "IEC TR 60099-10:2024 is applicable to all tests and arrester types included in IEC 60099-4:2014 and explains the rationale behind each test specified in that document. This document does not contain requirements and is not intended to replace any clauses of IEC 60099-4:2014."
+  }
+]

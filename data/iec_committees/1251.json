@@ -1,0 +1,1106 @@
+[
+  {
+    "reference": "IEC 60747-1:2006",
+    "edition": "2.0",
+    "date": "2006-02-21",
+    "title": "Semiconductor devices - Part 1: General",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-1:2006 gives the general requirements applicable to the discrete semiconductor devices and integrated circuits covered by the other parts of IEC 60747 and IEC 60748 (see Annex A). This second edition of IEC 60747-1 cancels and replaces the first edition (1983) and its amendments 1 (1991), 2 (1993) and 3 (1996). The main changes with respect to the previous edition are listed below: a) The terminology which is now given in the IEV (or which was in conflict with the IEV) has been omitted. b) There has been a general revision of guidance on essential ratings and characteristics. c) The distinction between general and reference methods of measurement has been removed. d) A clause on product discontinuation notice has been added."
+  },
+  {
+    "reference": "IEC 60747-1:2006/COR1:2008",
+    "edition": "2.0",
+    "date": "2008-09-08",
+    "title": "Corrigendum 1 - Semiconductor devices - Part 1: General",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-1:2006/AMD1:2010",
+    "edition": "2.0",
+    "date": "2010-05-19",
+    "title": "Amendment 1 - Semiconductor devices - Part 1: General",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-1:2002",
+    "edition": "1.0",
+    "date": "2002-08-30",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 1: General",
+    "language": "EN-FR, ES",
+    "description": "Applicable to semiconductor devices (discrete devices and integrated circuits) and establishes provisions common to all the other parts of the series. The contents of the corrigendum of August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-1:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-08-12",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 1: General",
+    "language": "EN-FR",
+    "description": "Modification of the validity date: now put at 2007."
+  },
+  {
+    "reference": "IEC 60749-2:2002",
+    "edition": "1.0",
+    "date": "2002-04-12",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 2: Low air pressure",
+    "language": "EN-FR, ES",
+    "description": "Covers the testing of low air pressure on semiconductor devices. The test is intended primarily to determine the ability of component parts and materials to avoid voltage breakdown failures due to the reduced dielectric strength of air and other insulating materials at reduced pressures is only applicable to devices where the operating voltage exceeds 1 000 V. This test is applicable to all semiconductor devices provided they are in cavity type packages. The test is intended for military and space-related applications only. The contents of the corrigendum of August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-2:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-08-12",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 2: Low air pressure",
+    "language": "EN-FR",
+    "description": "Modification of the validity date: now put at 2007."
+  },
+  {
+    "reference": "IEC 60749-3:2017",
+    "edition": "2.0",
+    "date": "2017-03-03",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 3: External visual examination",
+    "language": "EN-FR, EN",
+    "description": "IEC 60749-3:2017 is to verify that the materials, design, construction, markings, and workmanship of a semiconductor device are in accordance with the applicable procurement document. External visual inspection is a non-destructive test and applicable for all package types. The test is useful for qualification, process monitor, or lot acceptance. This edition includes the following significant technical changes with respect to the previous edition: a) reference to the need for ESD protection; b) inclusion of information on the phenomenon of tin whiskers; c) inclusion of an optional report form/checklist."
+  },
+  {
+    "reference": "IEC 60749-4:2017",
+    "edition": "2.0",
+    "date": "2017-03-03",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 4: Damp heat, steady state, highly accelerated stress test (HAST)",
+    "language": "EN-FR, EN",
+    "description": "IEC 60749-4:2017 provides a highly accelerated temperature and humidity stress test (HAST) for the purpose of evaluating the reliability of non-hermetic packaged semiconductor devices in humid environments. This edition includes the following significant technical changes with respect to the previous edition: a) clarification of requirements for temperature, relative humidity and duration detailed in Table 1; b) recommendations that current limiting resistor(s) be placed in the test set-up to prevent test board or DUT damage; c) allowance of additional time-to-test delay or return-to-stress delay."
+  },
+  {
+    "reference": "IEC 60749-5:2023",
+    "edition": "3.0",
+    "date": "2023-12-19",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 5: Steady-state temperature humidity bias life test",
+    "language": "EN-FR",
+    "description": "IEC 60749-5:2023 provides a steady-state temperature and humidity bias life test to evaluate the reliability of non-hermetic packaged semiconductor devices in humid environments. This test method is considered destructive. This edition includes the following significant technical changes with respect to the previous edition: a) The specification of the test equipment is changed to require the need to minimize relative humidity gradients and maximize air flow between semiconductor devices under test; b) The specification of the test equipment fixtures is changed to require the avoidance of condensation on devices under test and on electrical fixtures connecting the devices to the test equipment; c) replacement of references to “virtual junction” with “die”."
+  },
+  {
+    "reference": "IEC 60749-6:2017",
+    "edition": "2.0",
+    "date": "2017-03-03",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 6: Storage at high temperature",
+    "language": "EN-FR, EN",
+    "description": "IEC 60749-6:2017 is to test and determine the effect on all solid state electronic devices of storage at elevated temperature without electrical stress applied. This test is typically used to determine the effects of time and temperature, under storage conditions, for thermally activated failure methods and time-to-failure of solid state electronic devices, including non-volatile memory devices (data-retention failure mechanisms). This test is considered non-destructive but should preferably be used for device qualification. If such devices are used for delivery, the effects of this highly accelerated stress test will need to be evaluated. Thermally activated failure mechanisms are modelled using the Arrhenius equation for acceleration, and guidance on the selection of test temperatures and durations can be found in IEC 60749-43. This edition includes the following significant technical changes with respect to the previous edition: a) additional test conditions; b) clarification of the applicability of test conditions."
+  },
+  {
+    "reference": "IEC 60749-7:2025",
+    "edition": "3.0",
+    "date": "2025-11-27",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 7: Internal moisture content measurement and the analysis of other residual gases",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-7:2025 specifies the testing and measurement of water vapour and other gas content of the atmosphere inside a metal or ceramic hermetically sealed device. The test is used as a measure of the quality of the sealing process and to provide information about the long-term chemical stability of the atmosphere inside the package. It is applicable to semiconductor devices sealed in such a manner but generally only used for high reliability applications such as military or aerospace. Of particular interest is the measurement of the primary sealing gases (or lack thereof), the moisture content, the presence of bombing gases that are indicative of non-hermeticity (e.g. helium), oxygen to argon ratio indicative of room air ~ 20 to 1 (± 10 %), dissimilar concentration of internally sealed gases (e.g. nitrogen, helium) than originally sealed in the device package, the presence of leak test fluid (i.e. fluorocarbon, helium, air), and all other gases to determine if the device meets the specified moisture, hermeticity and other criteria. Also of interest is the measurement of all the other gases since they reflect upon the quality of the sealing process and provide information about the long-term chemical stability of the atmosphere inside the device. The presence of leak test fluorocarbon vapour in the internal gas analysis (IGA) is an indication of failure to meet leak test requirements of IEC 60749‑8. This test is destructive. This edition includes the following significant technical changes with respect to the previous edition: a) This document has been re-written and rearranged to align with the text of MIL-STD-883, Method 1018.10. b) Additional detail has been provided in the calibration requirements."
+  },
+  {
+    "reference": "IEC 60749-8:2002",
+    "edition": "1.0",
+    "date": "2002-08-30",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 8: Sealing",
+    "language": "EN-FR, ES",
+    "description": "Applicable to semiconductor devices (discrete devices and integrated circuits), it determines the leak rate of semiconductor devices. The contents of the corrigenda of April 2003 and August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-8:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-04-23",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 8: Sealing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-8:2002/COR2:2003",
+    "edition": "1.0",
+    "date": "2003-08-12",
+    "title": "Corrigendum 2 - Semiconductor devices - Mechanical and climatic test methods - Part 8: Sealing",
+    "language": "EN-FR",
+    "description": "Modification of the validity date: now put at 2007."
+  },
+  {
+    "reference": "IEC 60749-9:2017",
+    "edition": "2.0",
+    "date": "2017-03-03",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 9: Permanence of marking",
+    "language": "EN-FR, EN",
+    "description": "IEC 60749-9:2017 is to determine whether the marks on solid state semiconductor devices will remain legible when subjected to the application and removal of labels or the use of solvents and cleaning solutions commonly used during the removal of solder flux residue from the printed circuit board manufacturing process. This test is applicable for all package types. It is suitable for use in qualification and/or process monitor testing. The test is considered non-destructive. Electrical or mechanical rejects can be used for the purpose of this test. This edition includes the following significant technical changes with respect to the previous edition: a) revision to Clause 4 Equipment by a complete rewriting of Clause 3 Terms and definitions; b) additional variant – ‘adhesive tape pull test’."
+  },
+  {
+    "reference": "IEC 60749-10:2022",
+    "edition": "2.0",
+    "date": "2022-04-27",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 10: Mechanical shock - device and subassembly",
+    "language": "EN-FR",
+    "description": "IEC 60749-10:2022 is intended to evaluate devices in the free state and assembled to printed wiring boards for use in electrical equipment. The method is intended to determine the compatibility of devices and subassemblies to withstand moderately severe shocks. The use of subassemblies is a means to test devices in usage conditions as assembled to printed wiring boards. Mechanical shock due to suddenly applied forces, or abrupt change in motion produced by handling, transportation or field operation can disturb operating characteristics, particularly if the shock pulses are repetitive. This is a destructive test intended for device qualification. This edition cancels and replaces the first edition published in 2002. This edition includes the following significant technical changes with respect to the previous edition: covers both unattached components and components attached to printed wiring boards; tolerance limits modified for peak acceleration and pulse duration; mathematical formulae added for velocity change and equivalent drop height."
+  },
+  {
+    "reference": "IEC 60749-11:2002",
+    "edition": "1.0",
+    "date": "2002-04-12",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 11: Rapid change of temperature - Two-fluid-bath method",
+    "language": "EN-FR, ES",
+    "description": "Defines the rapid change of temperature test method and the two-fluid-bath method. This test method may also be used, employing fewer cycles, to test the effect of immersion in heated liquids that are used for the purpose of cleaning devices. This test is applicable to all semiconductor devices. It is considered destructive unless otherwise detailed in the relevant specification. The contents of the corrigenda of January 2003 and August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-11:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-01-30",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 11: Rapid change of temperature - Two-fluid-bath method",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-11:2002/COR2:2003",
+    "edition": "1.0",
+    "date": "2003-08-13",
+    "title": "Corrigendum 2 - Semiconductor devices - Mechanical and climatic test methods - Part 11: Rapid change of temperature - Two-fluid-bath method",
+    "language": "EN-FR",
+    "description": "Modification of the validity date: now put at 2007."
+  },
+  {
+    "reference": "IEC 60749-12:2017",
+    "edition": "2.0",
+    "date": "2017-12-13",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 12: Vibration, variable frequency",
+    "language": "EN-FR",
+    "description": "IEC 60749-12:2017 describes a test to determine the effect of variable frequency vibration, within the specified frequency range, on internal structural elements. This is a destructive test. It is normally applicable to cavity-type packages This second edition cancels and replaces the first edition published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with MIL-STD-883J Method 2007, Vibration, variable frequency."
+  },
+  {
+    "reference": "IEC 60749-13:2018",
+    "edition": "2.0",
+    "date": "2018-02-15",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 13: Salt atmosphere",
+    "language": "EN-FR",
+    "description": "IEC 60749-13:2018 describes a salt atmosphere test that determines the resistance of semiconductor devices to corrosion. It is an accelerated test that simulates the effects of severe sea-coast atmosphere on all exposed surfaces. It is only applicable to those devices specified for a marine environment. The salt atmosphere test is considered destructive. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with MIL-STD-883J Method 1009.8, Salt Atmosphere (Corrosion), including information on conditioning and maintenance of the test chamber and mounting of test specimens (including explanatory figures)."
+  },
+  {
+    "reference": "IEC 60749-14:2003",
+    "edition": "1.0",
+    "date": "2003-08-07",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 14: Robustness of terminations (lead integrity)",
+    "language": "EN-FR, ES",
+    "description": "Provides various tests for determining the integrity between the lead/package interface and the lead itself when the lead(s) are bent due to faulty board assembly followed by rework of the part for re-assembly. Applicable to all through-hole devices and surface-mount devices requiring lead forming by the user."
+  },
+  {
+    "reference": "IEC 60749-15:2020",
+    "edition": "3.0",
+    "date": "2020-07-14",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 15: Resistance to soldering temperature for through-hole mounted devices",
+    "language": "EN-FR",
+    "description": "IEC 60749-15:2020 describes a test used to determine whether encapsulated solid state devices used for through-hole mounting can withstand the effects of the temperature to which they are subjected during soldering of their leads by using wave soldering. In order to establish a standard test procedure for the most reproducible methods, the solder dip method is used because of its more controllable conditions. This procedure determines whether devices are capable of withstanding the soldering temperature encountered in printed wiring board assembly operations, without degrading their electrical characteristics or internal connections. This test is destructive and may be used for qualification, lot acceptance and as a product monitor. The heat is conducted through the leads into the device package from solder heat at the reverse side of the board. This procedure does not simulate wave soldering or reflow heat exposure on the same side of the board as the package body. This edition includes the following significant technical changes with respect to the previous edition: - inclusion of new Clause 3, Terms and definitions; - clarification of the use of a soldering iron for producing the heating effect; - inclusion an option to use accelerated ageing."
+  },
+  {
+    "reference": "IEC 60749-16:2003",
+    "edition": "1.0",
+    "date": "2003-01-17",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 16: Particle impact noise detection (PIND)",
+    "language": "EN-FR, ES",
+    "description": "Defines a test aiming at detecting the presence of loose particles inside a cavity device such as, for example, chips of ceramic, pieces of bonding wire or solder balls (prills)."
+  },
+  {
+    "reference": "IEC 60749-17:2019",
+    "edition": "2.0",
+    "date": "2019-03-28",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 17: Neutron irradiation",
+    "language": "EN-FR",
+    "description": "IEC 60749-17:2019 is performed to determine the susceptibility of semiconductor devices to non-ionizing energy loss (NIEL) degradation. The test described herein is applicable to integrated circuits and discrete semiconductor devices and is intended for military- and aerospace-related applications. It is a destructive test. This edition includes the following significant technical changes with respect to the previous edition: updates to better align the test method with MIL-STD 883J, method 1017, including removal of restriction of use of the document, and a requirement to limit the total ionization dose; addition of a Bibliography, including US MIL- and ASTM standards relevant to this test method."
+  },
+  {
+    "reference": "IEC 60749-18:2019",
+    "edition": "2.0",
+    "date": "2019-04-10",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 18: Ionizing radiation (total dose)",
+    "language": "EN-FR",
+    "description": "IEC 60749-18:2019 provides a test procedure for defining requirements for testing packaged semiconductor integrated circuits and discrete semiconductor devices for ionizing radiation (total dose) effects from a cobalt-60 (60Co) gamma ray source. Other suitable radiation sources can be used. This document addresses only steady-state irradiations, and is not applicable to pulse type irradiations. It is intended for military- and aerospace-related applications. It is a destructive test. This edition includes the following significant technical changes with respect to the previous edition: - updates to subclauses to better align the test method with MIL-STD 883J, method 1019, including the use of enhanced low dose rate sensitivity (ELDRS) testing; - addition of a Bibliography, which includes ASTM standards relevant to this test method."
+  },
+  {
+    "reference": "IEC 60749-19:2003",
+    "edition": "1.0",
+    "date": "2003-02-13",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 19: Die shear strength",
+    "language": "EN-FR, ES",
+    "description": "Determines the integrity of materials and procedures used to attach semiconductor die to package headers or other substrates. Generally only applicable to cavity packages or as a process monitor."
+  },
+  {
+    "reference": "IEC 60749-19:2003/AMD1:2010",
+    "edition": "1.0",
+    "date": "2010-07-28",
+    "title": "Amendment 1 - Semiconductor devices - Mechanical and climatic test methods - Part 19: Die shear strength",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-20:2020",
+    "edition": "3.0",
+    "date": "2020-08-31",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 20: Resistance of plastic encapsulated SMDs to the combined effect of moisture and soldering heat",
+    "language": "EN-FR",
+    "description": "IEC 60749-20:2020 provides a means of assessing the resistance to soldering heat of semiconductors packaged as plastic encapsulated surface mount devices (SMDs). This test is destructive. This edition includes the following significant technical changes with respect to the previous edition: - incorporation of a technical corrigendum to IEC 60749-20:2008 (second edition ); - inclusion of new Clause 3; - inclusion of explanatory notes."
+  },
+  {
+    "reference": "IEC 60749-20-1:2019",
+    "edition": "2.0",
+    "date": "2019-06-26",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 20-1: Handling, packing, labelling and shipping of surface-mount devices sensitive to the combined effect of moisture and soldering heat",
+    "language": "EN-FR",
+    "description": "IEC 60749-20-1:2019 applies to all devices subjected to bulk solder reflow processes during PCB assembly, including plastic encapsulated packages, process sensitive devices, and other moisture-sensitive devices made with moisture-permeable materials (epoxies, silicones, etc.) that are exposed to the ambient air. The purpose of this document is to provide SMD manufacturers and users with standardized methods for handling, packing, shipping, and use of moisture/reflow sensitive SMDs that have been classified to the levels defined in IEC 60749-20. These methods are provided to avoid damage from moisture absorption and exposure to solder reflow temperatures that can result in yield and reliability degradation. By using these procedures, safe and damage-free reflow can be achieved, with the dry packing process, providing a minimum shelf life capability in sealed dry-bags from the seal date. This edition includes the following significant technical changes with respect to the previous edition: - updates to subclauses to better align the test method with IPC/JEDEC J-STD-033C, including new sections on aqueous cleaning and dry pack precautions; - addition of two annexes on colorimetric testing of HIC (humidity indicator card) and derivation of bake tables."
+  },
+  {
+    "reference": "IEC 60749-21:2025",
+    "edition": "3.0",
+    "date": "2025-12-09",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 21: Solderability",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-21:2025 establishes a standard procedure for determining the solderability of device package terminations that are intended to be joined to another surface using tin-lead (SnPb) or lead-free (Pb-free) solder for the attachment. This test method provides a procedure for “dip and look” solderability testing of through hole, axial and surface mount devices (SMDs) as well as an optional procedure for a board mounting solderability test for SMDs for the purpose of allowing simulation of the soldering process to be used in the device application. The test method also provides optional conditions for ageing. This test is considered destructive unless otherwise detailed in the relevant specification. NOTE 1 This test method does not assess the effect of thermal stresses which can occur during the soldering process. More details can be found in IEC 60749‑15 or IEC 60749‑20. NOTE 2 If a qualitative test method is preferred, the Wetting balance test method can be found in IEC 60068-2-69. This edition includes the following significant technical changes with respect to the previous edition: - revision to certain operating conditions in line with current working practices."
+  },
+  {
+    "reference": "IEC 60749-22-1:2025",
+    "edition": "1.0",
+    "date": "2025-11-26",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 22-1: Bond strength - Wire bond pull test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-22-1:2025 provides a means for determining the strength and failure mode of a wire bonded to, and the corresponding interconnects on, a die or package bonding surface and can be performed on unencapsulated or decapsulated devices. This test method can be performed on gold alloy, copper alloy, and silver alloy thermosonic (ball and stitch) bonds made of wire ranging in diameter from 15 µm to 76 µm (0,000 6\" to 0,003\"); and on gold alloy, copper alloy, and aluminium alloy ultrasonic (wedge) bonds made of wire ranging in diameter from 18 µm to 600 µm (0,000 7\" to 0,024\"). This wire bond pull test method is destructive. It is appropriate for use in process development, process control, or quality assurance. This test method allows for two distinct methods of pulling wires: a) One method incorporates the use of a hook that is placed under the wire and is then pulled. b) One method requires that after the wire be cut, a clamp is placed on the wire connected to the bond to be tested, and this clamp is used to pull the wire. This test method does not include bond strength testing using wire bond shear testing. Wire bond shear testing is described in IEC 60749-22-2. This first edition, together with the first edition of IEC 60749-22-2:2025, cancels and replaces the first edition of IEC 60749-22 published in 2002. This edition includes the following significant technical changes with respect to the previous edition: a) Major update, including new techniques and use of new materials (e.g. copper wire) involving a complete rewrite as two separate subparts (this document and IEC 60749-22-2). This International Standard is to be used in conjunction with IEC 60749-22-2:2025."
+  },
+  {
+    "reference": "IEC 60749-22-2:2025",
+    "edition": "1.0",
+    "date": "2025-11-26",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 22-2: Bond strength - Wire bond shear test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-22-2:2025 establishes a means for determining the strength of a ball bond to a die or package bonding surface and can be performed on pre-encapsulation or post-encapsulation devices. This measure of bond strength is extremely important in determining two features: a) the integrity of the metallurgical bond which has been formed, and b) the quality of ball bonds to die or package bonding surfaces. This test method covers thermosonic (ball) bonds made with small diameter wire from 15 µm to 76 µm (0,000 6\" to 0,003\"). This test method can only be used when the bonds are large enough to allow for proper contact with the shear test chisel and when there are no adjacent interfering structures that would hinder the movement of the chisel. For consistent shear results the ball height will be at least 4,0 µm (0,000 6 \") for ball bonds, which is the current state of the art for bond shear test equipment at the time of this revision. This test method can also be used on ball bonds that have had their wire removed and on to which a second bond wire (typically a stitch bond) is placed. This is known as \"stitch on ball\" and \"reverse bonding\". See Annex A for additional information. The wire bond shear test is destructive. It is appropriate for use in process development, process control, or quality assurance, or both. This test method can be used on ultrasonic (wedge) bonds, however its use has not been shown to be a consistent indicator of bond integrity. See Annex B for information on performing shear testing on wedge bonds. This test method does not include bond strength testing using wire bond pull testing. Wire bond pull testing is described in IEC 60749-22-1. This first edition, together with the first edition of IEC 60749-22-1, cancels and replaces the first edition IEC 60749-22 published in 2002. This International Standard is to be used in conjunction with IEC 60749-22-1:2025. This edition includes the following significant technical changes with respect to the previous edition: a) Major update, including new techniques and use of new materials (e.g. copper wire) involving a complete rewrite as two separate subparts (this document and IEC 60749‑22‑1)."
+  },
+  {
+    "reference": "IEC 60749-23:2025",
+    "edition": "2.0",
+    "date": "2025-12-09",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 23: High temperature operating life",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-23:2025 specifies the test used to determine the effects of bias conditions and temperature on solid state devices over time. It simulates the device operating condition in an accelerated way and is primarily for device qualification and reliability monitoring. A form of high temperature bias life using a short duration, popularly known as \"burn-in\", can be used to screen for infant-mortality related failures. The detailed use and application of burn-in is outside the scope of this document. This edition includes the following significant technical changes with respect to the previous edition: a) absolute stress test definitions and resultant test durations have been updated."
+  },
+  {
+    "reference": "IEC 60749-24:2025",
+    "edition": "2.0",
+    "date": "2025-11-27",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 24: Accelerated moisture resistance - Unbiased HAST",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-24:2025 specifies unbiased highly accelerated stress testing (HAST). HAST is performed for the purpose of evaluating the reliability of non-hermetically packaged solid-state devices in humid environments. It is a highly accelerated test which employs temperature and humidity under non-condensing conditions to accelerate the penetration of moisture through the external protective material (encapsulant or seal) or along the interface between the external protective material and the metallic conductors which pass through it. Bias is not applied in this test to ensure that the failure mechanisms potentially overshadowed by bias can be uncovered (e.g. galvanic corrosion). This test is used to identify failure mechanisms internal to the package and is destructive. This edition includes the following significant technical changes with respect to the previous edition: a) rearrangement of clauses to reposition requirements; b) addition of two notes to the post-test electrical procedures."
+  },
+  {
+    "reference": "IEC 60749-25:2003",
+    "edition": "1.0",
+    "date": "2003-07-11",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 25: Temperature cycling",
+    "language": "EN-FR, ES",
+    "description": "Provides a test procedure for determining the ability of semiconductor devices and components and/or board assemblies to withstand mechanical stresses induced by alternating high and low temperature extremes. Permanent changes in electrical and/or physical characteristics can result from these mechanical stresses. Applies to single, dual and triple chamber temperature cycling and covers component and solder interconnection testing."
+  },
+  {
+    "reference": "IEC 60749-26:2025",
+    "edition": "5.0",
+    "date": "2025-12-23",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 26: Electrostatic discharge (ESD) sensitivity testing - Human body model (HBM)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60749-26:2025 establishes the procedure for testing, evaluating, and classifying components and microcircuits in accordance with their susceptibility (sensitivity) to damage or degradation by exposure to a defined human body model (HBM) electrostatic discharge (ESD). The purpose of this document is to establish a test method that will replicate HBM failures and provide reliable, repeatable HBM ESD test results from tester to tester, regardless of component type. Repeatable data will allow accurate classifications and comparisons of HBM ESD sensitivity levels. ESD testing of semiconductor devices is selected from this test method, the machine model (MM) test method (see IEC 60749‑27) or other ESD test methods in the IEC 60749 series. Unless otherwise specified, this test method is the one selected. This edition includes the following significant technical changes with respect to the previous edition: a) new definitions have been added; b) text has been added to clarify the designation of and allowances resulting from “low parasitics”. The new designation includes the maximum number of pins of a device that can pass the test procedure."
+  },
+  {
+    "reference": "IEC 60749-27:2006",
+    "edition": "2.0",
+    "date": "2006-07-18",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 27: Electrostatic discharge (ESD) sensitivity testing - Machine model (MM)",
+    "language": "EN-FR",
+    "description": "Establishes a standard procedure for testing and classifying semiconductor devices according to their susceptibility to damage or degradation by exposure to a defined machine model (MM) electrostatic discharge (ESD). It may be used as an alternative test method to the human body model ESD test method. The objective is to provide reliable, repeatable ESD test results so that accurate classifications can be performed. This test method is applicable to all semiconductor devices and is classified as destructive"
+  },
+  {
+    "reference": "IEC 60749-27:2006/AMD1:2012",
+    "edition": "2.0",
+    "date": "2012-09-25",
+    "title": "Amendment 1 - Semiconductor devices - Mechanical and climatic test methods - Part 27: Electrostatic discharge (ESD) sensitivity testing - Machine model (MM)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-28:2022",
+    "edition": "2.0",
+    "date": "2022-03-01",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 28: Electrostatic discharge (ESD) sensitivity testing - Charged device model (CDM) - device level",
+    "language": "EN-FR",
+    "description": "IEC 60749-28:2022 establishes the procedure for testing, evaluating, and classifying devices and microcircuits according to their susceptibility (sensitivity) to damage or degradation by exposure to a defined field-induced charged device model (CDM) electrostatic discharge (ESD). All packaged semiconductor devices, thin film circuits, surface acoustic wave (SAW) devices, opto-electronic devices, hybrid integrated circuits (HICs), and multi-chip modules (MCMs) containing any of these devices are to be evaluated according to this document. To perform the tests, the devices are assembled into a package similar to that expected in the final application. This CDM document does not apply to socketed discharge model testers. This document describes the field-induced (FI) method. An alternative, the direct contact (DC) method, is described in Annex J. The purpose of this document is to establish a test method that will replicate CDM failures and provide reliable, repeatable CDM ESD test results from tester to tester, regardless of device type. Repeatable data will allow accurate classifications and comparisons of CDM ESD sensitivity levels. This edition includes the following significant technical changes with respect to the previous edition: - a new subclause and annex relating to the problems associated with CDM testing of integrated circuits and discrete semiconductors in very small packages; - changes to clarify cleaning of devices and testers."
+  },
+  {
+    "reference": "IEC 60749-29:2011",
+    "edition": "2.0",
+    "date": "2011-04-07",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 29: Latch-up test",
+    "language": "EN-FR",
+    "description": "IEC 60749-29:2011 covers the I-test and the overvoltage latch-up testing of integrated circuits. The purpose of this test is toestablish a method for determining integrated circuit (IC) latch-up characteristics and to define latch-up failure criteria. Latch-up characteristics are used in determining product reliability and minimizing \"no trouble found\" (NTF) and \"electrical overstress\" (EOS) failures due to latch-up. This second edition cancels and replaces the first edition published in 2003 and constitutes a technical revision. The significant changes with respect to the previous edition include: - a number of minor technical changes; - the addition of two new annexes covering the testing of special pins and temperature calculations."
+  },
+  {
+    "reference": "IEC 60749-30:2020",
+    "edition": "2.0",
+    "date": "2020-08-17",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 30: Preconditioning of non-hermetic surface mount devices prior to reliability testing",
+    "language": "EN-FR",
+    "description": "IEC 60749-30:2020 establishes a standard procedure for determining the preconditioning of non-hermetic surface mount devices (SMDs) prior to reliability testing. The test method defines the preconditioning flow for non-hermetic solid-state SMDs representative of a typical industry multiple solder reflow operation. These SMDs are subjected to the appropriate preconditioning sequence described in this document prior to being submitted to specific in-house reliability testing (qualification and/or reliability monitoring) in order to evaluate long term reliability (impacted by soldering stress). This edition includes the following significant technical changes with respect to the previous edition: - inclusion of new Clause 3; - expansion of 6.7 on solder reflow; - inclusion of explanatory notes and clarifications."
+  },
+  {
+    "reference": "IEC 60749-31:2002",
+    "edition": "1.0",
+    "date": "2002-08-30",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 31: Flammability of plastic-encapsulated devices (internally induced)",
+    "language": "EN-FR, ES",
+    "description": "Applicable to semiconductor devices (discrete devices and integrated circuits), this test determines whether the device ignites due to internal heating caused by excessive overloads. The contents of the corrigendum of August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-31:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-08-13",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 31: Flammability of plastic-encapsulated devices (internally induced)",
+    "language": "EN-FR",
+    "description": "Modification of the validity date: now put at 2007."
+  },
+  {
+    "reference": "IEC 60749-32:2002",
+    "edition": "1.0",
+    "date": "2002-08-30",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 32: Flammability of plastic-encapsulated devices (externally induced)",
+    "language": "EN-FR, ES",
+    "description": "Applicable to semiconductor devices (discrete devices and integrated circuits), this test determines whether the device ignites due to external heating. The test uses a needle flame, simulating the effect of small flames which may result from fault conditions within equipment containing the device. The contents of the corrigendum of August 2003 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60749-32:2002/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-08-13",
+    "title": "Corrigendum 1 - Semiconductor devices - Mechanical and climatic test methods - Part 32: Flammability of plastic-encapsulated devices (externally induced)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-32:2002/AMD1:2010",
+    "edition": "1.0",
+    "date": "2010-07-28",
+    "title": "Amendment 1 - Semiconductor devices - Mechanical and climatic test methods - Part 32: Flammability of plastic-encapsulated devices (externally induced)",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60749-33:2004",
+    "edition": "1.0",
+    "date": "2004-03-09",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 33: Accelerated moisture resistance - Unbiased autoclave",
+    "language": "EN-FR, EN, ES",
+    "description": "The unbiased autoclave test is performed to evaluate the moisture resistance integrity of non-hermetically packaged solid-state devices using moisture condensing or moisture saturated steam environments. It is a highly accelerated test which employs conditions of pressure, humidity and temperature under condensing conditions to accelerate moisture penetration through the external protective material or along the interface between the external protective material and the metallic conductors passing through it."
+  },
+  {
+    "reference": "IEC 60749-34:2010",
+    "edition": "2.0",
+    "date": "2010-10-28",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 34: Power cycling",
+    "language": "EN-FR, ES",
+    "description": "IEC 60749-34:2010 describes a test method used to determine the resistance of a semiconductor device to thermal and mechanical stresses due to cycling the power dissipation of the internal semiconductor die and internal connectors. This happens when low-voltage operating biases for forward conduction (load currents) are periodically applied and removed, causing rapid changes of temperature. The power cycling test is intended to simulate typical applications in power electronics and is complementary to high temperature operating life (see IEC 60749-23). Exposure to this test may not induce the same failure mechanisms as exposure to air-to-air temperature cycling, or to rapid change of temperature using the two-fluid-baths method. This test causes wear-out and is considered destructive. This second edition cancels and replaces the first edition published in 2004 and constitutes a technical revision. The significant changes with respect from the previous edition include: - the specification of tighter conditions for more accelerated power cycling in the wire bond fatigue mode; - information that under harsh power cycling conditions high current densities in a thin die metalization might initiate electromigration effects close to wire bonds."
+  },
+  {
+    "reference": "IEC 60749-34-1:2025",
+    "edition": "1.0",
+    "date": "2025-06-20",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 34-1: Power cycling test for power semiconductor module",
+    "language": "EN-FR",
+    "description": "IEC 60749-34-1:2025 describes a test method that is used to determine the capability of power semiconductor modules to withstand thermal and mechanical stress resulting from cycling the power dissipation of the internal semiconductors and the internal connectors. It is based on IEC 60749-34, but is developed specifically for power semiconductor module products, including insulated-gate bipolar transistor (IGBT), metal-oxide-semiconductor field-effect transistor (MOSFET), diode and thyristor. If there is a customer request for an individual use or an application specific guideline (for example ECPE Guideline AQG 324), details of the test method can be based on these requirements if they deviate from the content of this document. This test caused wear-out and is considered destructive."
+  },
+  {
+    "reference": "IEC 60749-35:2006",
+    "edition": "1.0",
+    "date": "2006-07-18",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 35: Acoustic microscopy for plastic encapsulated electronic components",
+    "language": "EN-FR",
+    "description": "Defines the procedures for performing acoustic microscopy on plastic encapsulated electronic components. Provides a guide to the use of acoustic microscopy for detecting anomalies (delamination, cracks, mould-compound voids, etc.) reproducibly and non-destructively in plastic packages."
+  },
+  {
+    "reference": "IEC 60749-36:2003",
+    "edition": "1.0",
+    "date": "2003-02-13",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 36: Acceleration, steady state",
+    "language": "EN-FR, ES",
+    "description": "Provides a test for determining the effects of constant acceleration on cavity-type semiconductor devices. It is an accelerated test designed to indicate types of structural and mechanical weaknesses not necessarily detected in shock and vibration test."
+  },
+  {
+    "reference": "IEC 60749-37:2022",
+    "edition": "2.0",
+    "date": "2022-10-12",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 37: Board level drop test method using an accelerometer",
+    "language": "EN-FR",
+    "description": "IEC 60749-37:2022 provides a test method that is intended to evaluate and compare drop performance of surface mount electronic components for handheld electronic product applications in an accelerated test environment, where excessive flexure of a circuit board causes product failure. The purpose is to standardize the test board and test methodology to provide a reproducible assessment of the drop test performance of surface-mounted components while producing the same failure modes normally observed during product level test. This edition includes the following significant technical changes with respect to the previous edition: - correction of a previous technical error concerning test conditions; - updates to reflect improvements in technology."
+  },
+  {
+    "reference": "IEC 60749-38:2008",
+    "edition": "1.0",
+    "date": "2008-02-12",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 38: Soft error test method for semiconductor devices with memory",
+    "language": "EN-FR",
+    "description": "This part of IEC 60749 establishes a procedure for measuring the soft error susceptibility of semiconductor devices with memory when subjected to energetic particles such as alpha radiation. Two tests are described; an accelerated test using an alpha radiation source and an (unaccelerated) real-time system test where any errors are generated under conditions of naturally occurring radiation which can be alpha or other radiation such as neutron. To completely characterize the soft error capability of an integrated circuit with memory, the device must be tested for broad high energy spectrum and thermal neutrons using additional test methods. This test method may be applied to any type of integrated circuit with memory device."
+  },
+  {
+    "reference": "IEC 60749-39:2021",
+    "edition": "2.0",
+    "date": "2021-11-29",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 39: Measurement of moisture diffusivity and water solubility in organic materials used for semiconductor components",
+    "language": "EN-FR",
+    "description": "IEC 60749-39:2021 details the procedures for the measurement of the characteristic properties of moisture diffusivity and water solubility in organic materials used in the packaging of semiconductor components. These two material properties are important parameters for the effective reliability performance of plastic packaged semiconductors after exposure to moisture and being subjected to high-temperature solder reflow. This edition includes the following significant technical changes with respect to the previous edition: - updated procedure for \"dry weight\" determination."
+  },
+  {
+    "reference": "IEC 60749-40:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 40: Board level drop test method using a strain gauge",
+    "language": "EN-FR",
+    "description": "IEC 60749-40:2011 is intended to evaluate and compare drop performance of a surface mount semiconductor device for handheld electronic product applications in an accelerated test environment, where excessive flexure of a circuit board causes product failure. The purpose is to standardize test methodology to provide a reproducible assessment of the drop test performance of a surface mounted semiconductor devices while duplicating the failure modes normally observed during product level test. This international standard uses a strain gauge to measure the strain and strain rate of a board in the vicinity of a component."
+  },
+  {
+    "reference": "IEC 60749-41:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 41: Standard reliability testing methods of non-volatile memory devices",
+    "language": "EN-FR",
+    "description": "IEC 60749-41:2020 specifies the procedural requirements for performing valid endurance, retention and cross-temperature tests based on a qualification specification. Endurance and retention qualification specifications (for cycle counts, durations, temperatures, and sample sizes) are specified in JESD47 or are developed using knowledge-based methods such as in JESD94."
+  },
+  {
+    "reference": "IEC 60749-42:2014",
+    "edition": "1.0",
+    "date": "2014-08-12",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 42: Temperature and humidity storage",
+    "language": "EN-FR",
+    "description": "IEC 60749-42:2014 provides a test method to evaluate the endurance of semiconductor devices used in high temperature and high humidity environments. This test method is used to evaluate the endurance against corrosion of the metallic interconnection of chips of semiconductor devices contained in plastic moulded and other types of packages. It is also used as a means of accelerating the leakage phenomena due to the moisture penetration through the passivation film and as a pre-conditioning for various kinds of tests."
+  },
+  {
+    "reference": "IEC 60749-44:2016",
+    "edition": "1.0",
+    "date": "2016-07-21",
+    "title": "Semiconductor devices - Mechanical and climatic test methods - Part 44: Neutron beam irradiated single event effect (SEE) test method for semiconductor devices",
+    "language": "EN-FR",
+    "description": "IEC 60749-44:2016 establishes a procedure for measuring the single event effects (SEEs) on high density integrated circuit semiconductor devices including data retention capability of semiconductor devices with memory when subjected to atmospheric neutron radiation produced by cosmic rays. The single event effects sensitivity is measured while the device is irradiated in a neutron beam of known flux. This test method can be applied to any type of integrated circuit. NOTE 1 - Semiconductor devices under high voltage stress can be subject to single event effects including SEB, single event burnout and SEGR single event gate rupture, for this subject which is not covered in this document, please refer to IEC 62396-4. NOTE 2 - In addition to the high energy neutrons some devices can have a soft error rate due to low energy (<1 eV) thermal neutrons. For this subject which is not covered in this document, please refer to IEC 62396-5."
+  },
+  {
+    "reference": "IEC 62047-28:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 28: Performance testing method of vibration-driven MEMS electret energy harvesting devices",
+    "language": "EN",
+    "description": "IEC 62047-28:2017(E) specifies terms and definitions, and a performance testing method of vibration driven MEMS electret energy harvesting devices to determine the characteristic parameters for consumer, industry or any application. This document applies to vibration driven electret energy harvesting devices whose electrodes with a gap below 1 000 μm are covered by dielectric material with trapped charges and are fabricated by MEMS processes such as etching, photolithography or deposition."
+  },
+  {
+    "reference": "IEC 62258-1:2009",
+    "edition": "2.0",
+    "date": "2009-04-07",
+    "title": "Semiconductor die products - Part 1: Procurement and use",
+    "language": "EN-FR",
+    "description": "IEC 62258-1:2009 has been developed to facilitate the production, supply and use of semiconductor die products, including: - wafers, - singulated bare die, - die and wafers with attached connection structures, - minimally or partially encapsulated die and wafers. This standard defines the minimum requirements for the data that are needed to describe such die products and is intended as an aid to the design of and procurement for assemblies incorporating die products. It covers the requirements for data, including: - product identity, - product data, - die mechanical information, - test, quality, assembly and reliability information, - handling, shipping and storage information. The main changes that have been introduced in this edition have been to ensure consistency across all parts of the standard. The ordering of the subclauses, particularly in Clause 6, has been changed to be more logical and the text of some of the requirements has been amended to add requirements on further information as covered by IEC/TR 62258-4, IEC/TR 62258-7 and IEC/TR 62258-8. New requirements include information on permutability of terminals and functional elements (6.6.4) and moisture sensitivity for partially encapsulated devices (8.8)."
+  },
+  {
+    "reference": "IEC 62258-2:2011",
+    "edition": "2.0",
+    "date": "2011-05-25",
+    "title": "Semiconductor die products - Part 2: Exchange data formats",
+    "language": "EN-FR",
+    "description": "IEC 62258-2:2011 specifies the data formats that may be used for the exchange of data which is covered by other parts of the IEC 62258 series, as well as definitions of all parameters used according to the principles and methods of IEC 61360. It introduces a Device Data Exchange (DDX) format, with the prime goal of facilitating the transfer of adequate geometric data between die manufacturer and CAD/CAE user and formal information models that allow data exchange in other formats such as STEP physical file format, in accordance with ISO 10303-21, and XML. The data format has been kept intentionally flexible to permit usage beyond this initial scope. It has been developed to facilitate the production, supply and use of semiconductor die products, including but not limited to wafers, singulated bare die, die and wafers with attached connection structures, minimally or partially encapsulated die and wafers. This standard reflects the DDX data format at version 1.3.0. With respect to the first edition, several parameters have been updated for this edition. This publication is to be read in conjunction with IEC 62258-1:2009 ."
+  },
+  {
+    "reference": "IEC TR 62258-3:2010",
+    "edition": "2.0",
+    "date": "2010-08-06",
+    "title": "Semiconductor die products - Part 3: Recommendations for good practice in handling, packing and storage",
+    "language": "EN-FR, RU",
+    "description": "IEC/TR 62258-3:2010 has been developed to facilitate the production, supply and use of semiconductor die products, including: - wafers, - singulated bare die, - die and wafers with attached connection structures, - and minimally or partially encapsulated die and wafers. This report contains suggested good practice for the handling, packing and storage of die products. Success in manufacture of electronic assemblies containing die products is enhanced by attention to handling, storage and environmental conditions. This report provides guidelines taken from industry experience and is especially useful to those integrating die products into assemblies for the first time. It is also intended as an aid to setting up and auditing facilities that handle or use bare die products, from wafer fabrication to final assembly. This edition includes the following significant technical changes with respect to the previous edition. 1. Special requirements have been added throughout the document for optical die, where applicable. For example see 4.3 paragraph 4 and 10.1.3 paragraph 3. 2. The following new subclauses have been added: - 4.4.6 ESD Guidelines - 5.1 Wafer thinning 3. Subclause 5.2 (Singulation or die separation) has been renamed from the previous Subclause 5.1 (Wafer sawing) and has been expanded to included other methods of singulation or sawing, including: - 5.2.2 Wafer scribing - 5.2.3 Laser cutting - 5.2.4 Dice before grind (DBG) 4. Subclause 5.3.7 (previous edition Subclause 5.2.7) has been changed to include optical and microwave die. 5. In Subclause 6.3, the Subclause 6.3.2 (Specialised wafer tubs) has been added to include wafer taubs specially handle and ship wafers that have not been singulated. 6. Two new Subclauses have been to Clause 6: - 6.9 Handling and packing of thinned die or wafers - 6.10 Packing materials and their reuse 7. A new subclause has been added to Subclause 9.6: - 9.6.3 Use of packing material having sacrificial properties 8. Annex A (Planning checklist) has been updated throughout. 9. In Annex B (Material specifications) a new Subclause has been added: - B.5 Adhesive gel tray material specifications."
+  },
+  {
+    "reference": "IEC TR 62258-4:2012",
+    "edition": "2.0",
+    "date": "2012-08-08",
+    "title": "Semiconductor die products - Part 4: Questionnaire for die users and suppliers",
+    "language": "EN-FR",
+    "description": "IEC/TR 62258-4:2012 has been developed to facilitate the production, supply and use of semiconductor die products, including: - wafers; - singulated bare die; - die and wafers with attached connection structures; - minimally or partially encapsulated die and wafers. This technical report contains a questionnaire, based on the requirements of other parts of IEC 62258, which may be used in negotiations and contracts between suppliers and purchasers of die devices. It is intended to assist all those involved in the supply chain for die devices to comply with the requirements of the IEC 62258-1:2009 and IEC 62258-2:2011 standards. It should be recognized that the tables contained in this technical report form a checklist of information that can potentially be supplied and that it may not be relevant or possible to complete all fields. Different markets may require different subsets of the information requested herein. This edition includes the following significant technical changes with respect to the previous edition: The document checklist was changed to mirror IEC 62258-1:2009 requirements exactly."
+  },
+  {
+    "reference": "IEC 62258-5:2006",
+    "edition": "1.0",
+    "date": "2006-08-29",
+    "title": "Semiconductor die products - Part 5: Requirements for information concerning electrical simulation",
+    "language": "EN-FR, EN",
+    "description": "IEC 62258-5:2006 has been developed to facilitate the production, supply and use of semiconductor die products, including: - wafers; - singulated bare die; - die and wafers with attached connection structures; - minimally or partially encapsulated die and wafers. This part of IEC 62258 specifies the information required to facilitate the use of electrical data and models for simulation of the electrical behaviour and verification of the correct functionality of electronic systems that include bare semiconductor die, with or without connection structures, and/or minimally packaged semiconductor die. It is intended to assist all those involved in the supply chain for die devices to comply with the requirements of IEC 62258-1 and IEC 62258-2. This publication is to be read in conjunction with IEC 62258-1:2009 and IEC 62258-2:2011 ."
+  },
+  {
+    "reference": "IEC 62258-6:2006",
+    "edition": "1.0",
+    "date": "2006-08-28",
+    "title": "Semiconductor die products - Part 6: Requirements for information concerning thermal simulation",
+    "language": "EN",
+    "description": "Determines the information required to facilitate the use of thermal data and models for simulation of the thermal behaviour and verification of the correct functionality of electronic systems that include bare semiconductor die, with or without connection structures, and/or minimally packaged semiconductor die. Intends to assist all those involved in the supply chain for die devices to comply with the requirements of IEC 62258-1 and IEC 62258-2"
+  },
+  {
+    "reference": "IEC TR 62258-7:2007",
+    "edition": "1.0",
+    "date": "2007-08-23",
+    "title": "Semiconductor die products - Part 7: XML schema for data exchange",
+    "language": "EN",
+    "description": "This technical report has been developed to facilitate the production, supply and use of semiconductor die products, including: wafers, singulated bare die, die and wafers attached connection structures and minimally or partially encapsulated die and wafers. This report contains an XML schema that describes the elements needed for data exchange and that will allow the implementation of the requirements of IEC 62258-1, IEC 62258-5 and IEC 62258-6, as well as providing an exchange structure that is complementary to those defined in IEC 62258-2. It is also complementary to and compatible with the questionnaire in IEC/TR 62258-4."
+  },
+  {
+    "reference": "IEC TR 62258-8:2008",
+    "edition": "1.0",
+    "date": "2008-05-14",
+    "title": "Semiconductor die products - Part 8: EXPRESS model schema for data exchange",
+    "language": "EN",
+    "description": "IEC/TR 62258-8:2008(E), which is a technical report, has been developed to facilitate the production, supply and use of semiconductor die products, including wafers; singulated bare die; die and wafers with attached connection structures; minimally or partially encapsulated die and wafers. This Technical Report contains an EXPRESS model schema that describes the elements needed for data exchange and that will allow the implementation of the requirements of the IEC 62258-1, IEC 62258-5 and IEC 62258-6 standards, as well as providing an exchange structure that is complementary to those defined in IEC 62258-2. It is also complementary to and compatible with the questionnaire in IEC 62258-4."
+  },
+  {
+    "reference": "IEC 62373:2006",
+    "edition": "1.0",
+    "date": "2006-07-18",
+    "title": "Bias-temperature stability test for metal-oxide, semiconductor, field-effect transistors (MOSFET)",
+    "language": "EN-FR",
+    "description": "Provides a test procedure for a bias-temperature (BT) stability test of metal-oxide semiconductor, field-effect transistors (MOSFET)"
+  },
+  {
+    "reference": "IEC 62373-1:2020",
+    "edition": "1.0",
+    "date": "2020-07-15",
+    "title": "Semiconductor devices - Bias-temperature stability test for metal-oxide, semiconductor, field-effect transistors (MOSFET) - Part 1: Fast BTI test for MOSFET",
+    "language": "EN-FR",
+    "description": "IEC 62373-1:2020 provides the measurement procedure for a fast BTI (bias temperature instability) test of silicon based metal-oxide semiconductor field-effect transistors (MOSFETs). This document also defines the terms pertaining to the conventional BTI test method."
+  },
+  {
+    "reference": "IEC 62374:2007",
+    "edition": "1.0",
+    "date": "2007-03-29",
+    "title": "Semiconductor devices - Time dependent dielectric breakdown (TDDB) test for gate dielectric films",
+    "language": "EN-FR",
+    "description": "Provides a test method of Time Dependent Dielectric Breakdown (TDDB) for gate dielectric films on semiconductor devices and a product lifetime estimation method of TDDB failure"
+  },
+  {
+    "reference": "IEC 62374-1:2010",
+    "edition": "1.0",
+    "date": "2010-09-29",
+    "title": "Semiconductor devices - Part 1: Time-dependent dielectric breakdown (TDDB) test for inter-metal layers",
+    "language": "EN-FR",
+    "description": "IEC 62374-1:2010 describes a test method, test structure and lifetime estimation method of the time-dependent dielectric breakdown (TDDB) test for inter-metal layers applied in semiconductor devices."
+  },
+  {
+    "reference": "IEC 62415:2010",
+    "edition": "1.0",
+    "date": "2010-05-19",
+    "title": "Semiconductor devices - Constant current electromigration test",
+    "language": "EN-FR",
+    "description": "IEC 62415:2010 describes a method for conventional constant current electromigration testing of metal lines, via string and contacts."
+  },
+  {
+    "reference": "IEC 62416:2010",
+    "edition": "1.0",
+    "date": "2010-04-26",
+    "title": "Semiconductor devices - Hot carrier test on MOS transistors",
+    "language": "EN-FR",
+    "description": "IEC 62416:2010 describes the wafer level hot carrier test on NMOS and PMOS transistors. The test is intended to determine whether the single transistors in a certain (C)MOS process meet the required hot carrier lifetime."
+  },
+  {
+    "reference": "IEC 62417:2010",
+    "edition": "1.0",
+    "date": "2010-04-22",
+    "title": "Semiconductor devices - Mobile ion tests for metal-oxide semiconductor field effect transistors (MOSFETs)",
+    "language": "EN-FR",
+    "description": "IEC 62417:2010 provides a wafer level test procedure to determine the amount of positive mobile charge in oxide layers in metal-oxide semiconductor field effect transistors. It is applicable to both active and parasitic field effect transistors. The mobile charge can cause degradation of microelectronic devices, e.g. by shifting the threshold voltage of MOSFETs or by inversion of the base in bipolar transistors."
+  },
+  {
+    "reference": "IEC 62418:2010",
+    "edition": "1.0",
+    "date": "2010-04-22",
+    "title": "Semiconductor devices - Metallization stress void test",
+    "language": "EN-FR",
+    "description": "IEC 62418:2010 describes a method of metallization stress void test and associated criteria. It is applicable to aluminium (Al) or copper (Cu) metallization."
+  },
+  {
+    "reference": "IEC 62435-1:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 62435-1:2017 on long-term-storage covers the terms, definitions and principles of long-term-storage that can be used in as an obsolescence mitigation strategy. Long-term storage refers to a duration that can be more than 12 months for products scheduled for long duration storage. Philosophy, good working practice, and general means to facilitate the successful long-term-storage of electronic components are also addressed. This standard cancels and replaces IEC/PAS 62435 published in 2005. This first edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62435-2:2017",
+    "edition": "1.0",
+    "date": "2017-01-24",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 2: Deterioration mechanisms",
+    "language": "EN-FR",
+    "description": "IEC 62435-2:2017 is related to deterioration mechanisms and is concerned with the way that components degrade over time depending on the storage conditions applied. This part also includes guidance on test methods that may be used to assess generic deterioration mechanisms. Typically, this part is used in conjunction with IEC 62435-1:2017 for any device long-term storage whose duration may be more than 12 months for product scheduled for long duration storage."
+  },
+  {
+    "reference": "IEC 62435-3:2020",
+    "edition": "1.0",
+    "date": "2020-02-18",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 3: Data",
+    "language": "EN-FR",
+    "description": "IEC 62435-3:2020 describes the aspects of data storage that are necessary for successful use of electronic components being stored after long periods while maintaining traceability or chain of custody. It defines what sort of data needs to be stored alongside the components or dies and the best way to do so in order to avoid losing data during the storage period. As defined in this document, long-term storage refers to a duration that can be more than twelve months for products scheduled for long duration storage. Philosophy, good working practice, and general means to facilitate the successful long-term-storage of electronic components are also addressed. NOTE: In IEC 62435 (all parts), the term \"components\" is used interchangeably with dice, wafers, passives and packaged devices."
+  },
+  {
+    "reference": "IEC 62435-4:2018",
+    "edition": "1.0",
+    "date": "2018-06-05",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 4: Storage",
+    "language": "EN-FR, EN",
+    "description": "IEC 62435-4:2018 specifies long-term storage methods and recommended conditions for long-term storage of electronic components including logistics, controls and security related to the storage facility. Long-term storage refers to a duration that may be more than 12 months for products scheduled for long duration storage. The philosophy of such storage, good working practices and general means to facilitate the successful long-term storage of electronic components are also addressed."
+  },
+  {
+    "reference": "IEC 62435-5:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 5: Die and wafer devices",
+    "language": "EN-FR",
+    "description": "IEC 62435-5:2017 is applicable to long-term storage of die and wafer devices and establishes specific storage regimen and conditions for singulated bare die and partial or complete wafers of die including die with added structures such as redistribution layers and solder balls or bumps or other metallisation. This part also provides guidelines for special requirements and primary packaging that contain the die or wafers for handling purposes. Typically, this part is used in conjunction with IEC 62435-1:2017 for long-term storage of devices whose duration can be more than 12 months for products scheduled for long duration storage."
+  },
+  {
+    "reference": "IEC 62435-6:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 6: Packaged or finished devices",
+    "language": "EN-FR",
+    "description": "IEC 62435-6:2018 on long-term storage applies to packaged or finished devices in long-term storage that can be used as part of obsolescence mitigation strategy. Long-term storage refers to a duration that can be more than 12 months for product scheduled for storage. Philosophy, good working practice, and general means to facilitate the successful long-term storage of electronic components are also addressed."
+  },
+  {
+    "reference": "IEC 62435-7:2020",
+    "edition": "1.0",
+    "date": "2020-12-04",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 7: Micro-electromechanical devices",
+    "language": "EN-FR",
+    "description": "IEC 62435-7:2020 on long-term storage applies to micro-electromechanical devices (MEMS) in long-term storage that can be used as part of obsolescence mitigation strategy. Long-term storage refers to a duration that may be more than 12 months for products scheduled for storage. Philosophy, good working practice, and general means to facilitate the successful long-term storage of electronic components are also addressed."
+  },
+  {
+    "reference": "IEC 62435-8:2020",
+    "edition": "1.0",
+    "date": "2020-07-08",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 8: Passive electronic devices",
+    "language": "EN-FR",
+    "description": "IEC 62435-8:2020 on long-term storage is applied to passive electronic devices in long-term storage that can be used as part of obsolescence mitigation strategy. Long-term storage refers to a duration that can be more than 12 months for product scheduled for storage. Storage typically begins when components are packed at the originating supplier where the pack date or date code are assigned to the product. It is the responsibility of the distributor and the customer to control and manage the aging inventory upon receipt of the dated product. Alternatively, a supplier-customer agreement can be established to manage the aging inventory. Philosophy, good working practice, and general means to facilitate the successful long-term storage of electronic components are also addressed."
+  },
+  {
+    "reference": "IEC 62435-9:2021",
+    "edition": "1.0",
+    "date": "2021-08-25",
+    "title": "Electronic components - Long-term storage of electronic semiconductor devices - Part 9: Special cases",
+    "language": "EN-FR",
+    "description": "IEC 62435-9:2021 specifies storage practices encompassing silicon and semiconductor device building blocks of all types that are integrated together to into products in the form of either packages or boards that can be stored as fully assembled units or partial assemblies. Special attention is given to memories as components and assemblies although methods also apply to heterogeneous components. Guidelines and requirements for customer-supplier interaction are provided to manage the complexity. NOTE In IEC 62435 (all parts), the term \"components\" is used interchangeably with dice, wafers, passives and packaged devices."
+  },
+  {
+    "reference": "IEC 62483:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Environmental acceptance requirements for tin whisker susceptibility of tin and tin alloy surface finishes on semiconductor devices",
+    "language": "EN-FR",
+    "description": "IEC 62483:2013 describes the methodology applicable for environmental acceptance testing of tin-based surface finishes and mitigation practices for tin whiskers on semiconductor devices. This methodology may not be sufficient for applications with special requirements, (i.e. military, aerospace, etc.). Additional requirements may be specified in the appropriate requirements (procurement) documentation. This first edition is based on JEDEC documents JESD201A and JESD22-A121A and replaces IEC/PAS 62483, published in 2006. This first edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The content of IEC/PAS 62483 was added to the content of JESD201A as Annex A. b) A methodology was introduced for environmental acceptance testing of tin-based surface finishes and mitigation practices for tin whiskers. c) A Clause 6 was introduced detailing the reporting requirements of test results."
+  },
+  {
+    "reference": "IEC 62615:2010",
+    "edition": "1.0",
+    "date": "2010-05-31",
+    "title": "Electrostatic discharge sensitivity testing - Transmission line pulse (TLP) - Component level",
+    "language": "EN-FR",
+    "description": "IEC 62615:2010 defines a method for pulse testing to evaluate the voltage current response of the component under test and to consider protection design parameters for electro-static discharge (ESD) human body model (HBM). This technique is known as transmission line pulse (TLP) testing. This document establishes a methodology for both testing and reporting information associated with transmission line pulse (TLP) testing. The scope and focus of this document pertains to TLP testing techniques of semiconductor components. This document should not become alternative method of HBM test standard such as IEC 60749-26. The purpose of the document is to establish guidelines of TLP methods that allow the extraction of HBM ESD parameters on semiconductor devices. This document provides the standard measurement and procedure for the correct extraction of HBM ESD parameters by using TLP."
+  },
+  {
+    "reference": "IEC 62779-1:2016",
+    "edition": "1.0",
+    "date": "2016-02-18",
+    "title": "Semiconductor devices - Semiconductor interface for human body communication - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": "IEC 62779-1:2016 defines general requirements for a semiconductor interface used in human body communication (HBC). It includes general and functional specifications of the interface, as well as limiting values and its operating conditions."
+  },
+  {
+    "reference": "IEC 62779-2:2016",
+    "edition": "1.0",
+    "date": "2016-02-18",
+    "title": "Semiconductor devices - Semiconductor interface for human body communication - Part 2: Characterization of interfacing performances",
+    "language": "EN-FR",
+    "description": "IEC 62779-2:2016 defines a measurement method on electrical performances of an electrode that composes a semiconductor interface for human body communication (HBC). In the measurement method, a signal transmitter is electrically isolated from a signal receiver, so an isolation condition between the transmitter and receiver is maintained to accurately measure the electrode's performances. This part includes general and functional specifications of the measurement method."
+  },
+  {
+    "reference": "IEC 62779-3:2016",
+    "edition": "1.0",
+    "date": "2016-04-26",
+    "title": "Semiconductor devices - Semiconductor interface for human body communication - Part 3: Functional type and its operational conditions",
+    "language": "EN-FR",
+    "description": "IEC 62779-3:2016 defines a functional type of a semiconductor interface for human body communication (HBC). This part includes the categorization of the interface for HBC according to the contact condition; and performance parameters characterizing the interface of each category."
+  },
+  {
+    "reference": "IEC 62779-4:2020",
+    "edition": "1.0",
+    "date": "2020-02-07",
+    "title": "Semiconductor devices - Semiconductor interface for human body communication - Part 4: Capsule endoscope",
+    "language": "EN-FR",
+    "description": "IEC 62779-4:2020 defines general requirements on the electrical performances of a semiconductor interface for capsule endoscope using galvanic coupling human body communication. It includes general and functional specifications of the interface. The semiconductor interface that is covered in this document is the interface to handle or deliver an electrical signal between the capsule endoscope inside the human body and the HBC modem in the receiving device outside the human body. NOTE Additional information on capsule endoscope using the human body communication is provided in Annex A of this document."
+  },
+  {
+    "reference": "IEC 62830-1:2017",
+    "edition": "1.0",
+    "date": "2017-03-03",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 1: Vibration based piezoelectric energy harvesting",
+    "language": "EN-FR",
+    "description": "IEC 62830-1:2017 defines terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of vibration based piezoelectric energy harvesting devices for practical use. This document is applicable to energy harvesting devices for consumer, general industries, military and aerospace applications without any limitations on device technology and size."
+  },
+  {
+    "reference": "IEC 62830-2:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 2: Thermo power based thermoelectric energy harvesting",
+    "language": "EN-FR",
+    "description": "IEC 62830-2:2017 describes procedures and definitions for measuring the thermo power of thin films used in micro-scale thermoelectric energy generators, micro heaters and micro coolers. This part of IEC 62830 specifies the methods of tests and the characteristic parameters of the thermoelectric properties of wire, bulk and thin films which have a thickness of less than 5 mm and energy harvesting devices that have thermoelectric thin films, in order to accurately evaluate their performance and practical uses. This part of IEC 62830 is applicable to energy harvesting devices for consumer, general industries, military and aerospace applications without any limitations of device technology and size."
+  },
+  {
+    "reference": "IEC 62830-3:2017",
+    "edition": "1.0",
+    "date": "2017-03-28",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 3: Vibration based electromagnetic energy harvesting",
+    "language": "EN-FR",
+    "description": "IEC 62830-3:2017 describes terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of vibration based electromagnetic energy harvesting devices. This part of IEC 62830 specifies the methods of tests and the characteristic parameters of the vibration based electromagnetic energy harvesting devices for evaluating their performances accurately and practical use. It is applicable to energy harvesting devices for consumer, general industries, military and aerospace applications without any limitations of device technology, shape and size."
+  },
+  {
+    "reference": "IEC 62830-4:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 4: Test and evaluation methods for flexible piezoelectric energy harvesting devices",
+    "language": "EN-FR",
+    "description": "IEC 62830-4:2019 describes terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of flexible piezoelectric energy harvesting devices for practical use. This document is applicable to energy harvesting devices for consumers, general industries, wearable electronics, military, and biomedical applications without any limitations of device technology and size."
+  },
+  {
+    "reference": "IEC 62830-5:2021",
+    "edition": "1.0",
+    "date": "2021-01-21",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 5: Test method for measuring generated power from flexible thermoelectric devices",
+    "language": "EN-FR",
+    "description": "IEC 62830-5:2021 specifies the test method for measuring generated electric power from flexible thermoelectric devices under bending conditions. This document provides terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance of flexible thermoelectric devices. This document also describes the test conditions such as temperature, temperature difference, contact conditions, insulation and bending radius of flexible thermoelectric devices. This document is applicable to flexible energy harvesting devices for flexible semiconductor devices."
+  },
+  {
+    "reference": "IEC 62830-6:2019",
+    "edition": "1.0",
+    "date": "2019-07-25",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 6: Test and evaluation methods for vertical contact mode triboelectric energy harvesting devices",
+    "language": "EN",
+    "description": "IEC 62830-6:2019(E) defines terms, definitions, symbols, and specifies configurations and test methods to be used to evaluate and determine the performance characteristics of vertical contact mode triboelectric energy harvesting devices for practical use. This document is applicable to energy harvesting devices as power sources for wearable devices and wireless sensors used in healthcare monitoring, consumer electronics, general industries, military and aerospace applications without any limitations on device technology and size."
+  },
+  {
+    "reference": "IEC 62830-7:2021",
+    "edition": "1.0",
+    "date": "2021-03-03",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 7: Linear sliding mode triboelectric energy harvesting",
+    "language": "EN-FR",
+    "description": "IEC 62830-7:2021 defines terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of linear sliding mode triboelectric energy harvesting devices for practical use. This document is applicable to energy harvesting devices for consumer, general industries, military and aerospace applications without any limitations on device technology and size."
+  },
+  {
+    "reference": "IEC 62830-8:2021",
+    "edition": "1.0",
+    "date": "2021-10-22",
+    "title": "Semiconductor devices - Semiconductor devices for energy harvesting and generation - Part 8: Test and evaluation methods of flexible and stretchable supercapacitors for use in low power electronics",
+    "language": "EN",
+    "description": "IEC 62830-8:2021(E) specifies terms, definitions, symbols, test, and evaluation methods used to determine the performance characteristics of flexible and stretchable supercapacitor for practical use in low power electronics such as energy storage devices for energy harvesting, flexible and stretchable electronics, low-power devices, IoT applications, etc. This document is applicable to all the flexible and stretchable supercapacitor for consumers and manufacturers, without any limitations of device technology and size."
+  },
+  {
+    "reference": "IEC 62880-1:2017",
+    "edition": "1.0",
+    "date": "2017-08-23",
+    "title": "Semiconductor devices - Stress migration test standard - Part 1: Copper stress migration test standard",
+    "language": "EN",
+    "description": "IEC 62880-1:2017(E) describes a constant temperature (isothermal) aging method for testing copper (Cu) metallization test structures on microelectronics wafers for susceptibility to stress-induced voiding (SIV). This method is to be conducted primarily at the wafer level of production during technology development, and the results are to be used for lifetime prediction and failure analysis. Under some conditions, the method can be applied to package-level testing. This method is not intended to check production lots for shipment, because of the long test time."
+  },
+  {
+    "reference": "IEC 62951-1:2017",
+    "edition": "1.0",
+    "date": "2017-04-10",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 1: Bending test method for conductive thin films on flexible substrates",
+    "language": "EN",
+    "description": "IEC 62951-1:2017(E) specifies a bending test method to measure the electromechanical properties or flexibility of conductive thin films deposited or bonded on flexible non-conductive substrates. Conductive thin films on flexible substrates are extensively used in flexible electronic devices and flexible semiconductors. Conductive thin films include any films deposited or bonded onto a non-conductive flexible substrate such as thin metal film, transparent conducting electrode, and thin silicon film. The electrical and mechanical behaviours of thin films on flexible substrates differ from those of freestanding films and substrates due to their interfacial interactions and adhesion between the film and substrate. The object of this standard is to establish simple and repeatable test methods for evaluating the electromechanical properties or flexibility of conductive thin films on flexible substrate. The bending test methods include outer bending test and inner bending test."
+  },
+  {
+    "reference": "IEC 62951-2:2019",
+    "edition": "1.0",
+    "date": "2019-04-17",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 2: Evaluation method for electron mobility, sub-threshold swing and threshold voltage of flexible devices",
+    "language": "EN-FR",
+    "description": "IEC 62951-2:2019 specifies terms, definitions, symbols, configurations and evaluation methods that can be used to evaluate and determine the performance characteristics of flexible thin‑film transistor (TFT) devices. This document specifies test methods and characteristic parameters for accurately evaluating the performance and reliability in practical use of flexible TFT devices under the bending status."
+  },
+  {
+    "reference": "IEC 62951-3:2018",
+    "edition": "1.0",
+    "date": "2018-11-07",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 3: Evaluation of thin film transistor characteristics on flexible substrates under bulging",
+    "language": "EN",
+    "description": "IEC 62951-3:2018(E) specifies the method for evaluating thin film transistor characteristics on flexible substrates under bulging. The thin film transistor is fabricated on flexible substrates, including polyethylene terephthalate (PET), polyimide (PI), elastomer and others. The stress is applied by applying a uniformly-distributed pressure to the flexible substrate using the equipment."
+  },
+  {
+    "reference": "IEC 62951-4:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 4: Fatigue evaluation for flexible conductive thin film on the substrate for flexible semiconductor devices",
+    "language": "EN-FR",
+    "description": "IEC 62951-4:2019 specifies an evaluation method of the bending fatigue properties of conductive thin film and flexible substrate for the application at flexible semiconductor devices. The films include any films deposited or bonded onto a non-conductive flexible substrate such as thin metal film, transparent conducting electrode, and thin silicon film used for flexible semiconductor devices. The electrical and mechanical behaviours of films on the substrate are evaluated. The fatigue test methods include dynamic bending fatigue test and static bending fatigue test."
+  },
+  {
+    "reference": "IEC 62951-5:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 5: Test method for thermal characteristics of flexible materials",
+    "language": "EN-FR",
+    "description": "IEC 62951-5:2019 specifies the test method for thermal characteristics of flexible materials. This document includes terms, definitions, symbols, and test methods that can be used to evaluate and determine thermal characteristics of flexible materials for practical use. The measurement method relies on non-contact optical thermometry that is based on temperature dependent optical reflectance. This document is applicable to both substrate and thin-film flexible semiconductor materials that are subjected to bending and stretching."
+  },
+  {
+    "reference": "IEC 62951-6:2019",
+    "edition": "1.0",
+    "date": "2019-05-06",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 6: Test method for sheet resistance of flexible conducting films",
+    "language": "EN-FR",
+    "description": "IEC 62951-6:2019 specifies terms, as well as the test method and report of sheet resistance of the flexible conducting film under bending and folding tests. The measurement methods include the 2-point probe, 4-point probe and Montgomery method, which can be applied to in-situ and ex-situ measurement and the measurements of anisotropic sheet resistance."
+  },
+  {
+    "reference": "IEC 62951-7:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 7: Test method for characterizing the barrier performance of thin film encapsulation for flexible organic semiconductor",
+    "language": "EN-FR",
+    "description": "IEC 62951-7:2019 specifies evaluation conditions and gives a method of measurement as well as a test set-up for the measurement of barrier performance for thin-film layer with ultra‑low permeation rate under both flat and bending conditions. This document also includes the preparation of specimen, electrical contacts, sensor films and calculation procedures. For these purposes, this document provides terms, definitions, symbols, configurations, and test methods including test conditions such as temperature, relative humidity, testing time."
+  },
+  {
+    "reference": "IEC 62951-8:2023",
+    "edition": "1.0",
+    "date": "2023-01-19",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 8: Test method for stretchability, flexibility, and stability of flexible resistive memory",
+    "language": "EN",
+    "description": "IEC 62951-8:2023 (E) defines terms and specifies the test method for evaluating the stretchability, flexibility, and stability of flexible resistive memory. The test method descriptions include experimental procedures and the equipment to be used. It also includes general requirements for test conditions such as the temperature and relative humidity of the testing environment. The test method described in this document focuses on stability evaluation rather than reliability."
+  },
+  {
+    "reference": "IEC 62951-9:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Semiconductor devices - Flexible and stretchable semiconductor devices - Part 9: Performance testing methods of one transistor and one resistor (1T1R) resistive memory cells",
+    "language": "EN",
+    "description": "IEC 62951-9:2022(E) specifies the test methods for evaluating the performance of unipolar-type one transistor one resistor (1T1R) resistive memory cells. The performance test methods in this document include read, forming, SET, RESET, endurance and retention. This document is applicable to flexible devices as well as rigid resistive memory devices without any limitations prone to device technology and size."
+  },
+  {
+    "reference": "IEC 62969-1:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Semiconductor devices - Semiconductor interface for automotive vehicles - Part 1: General requirements of power interface for automotive vehicle sensors",
+    "language": "EN-FR, EN",
+    "description": "IEC 62969-1:2017 provides general requirements for performance evaluations and environmental conditions for the power interface of automotive vehicle sensors. For performance evaluations, various electrical performances such as voltage drop from power source to automotive sensors, AC noises and voltage level are included. For environmental conditions, various test conditions such as temperature, humidity and vibration are included. In addition, terms, definitions, symbols and configurations are covered in this part."
+  },
+  {
+    "reference": "IEC 62969-2:2018",
+    "edition": "1.0",
+    "date": "2018-03-08",
+    "title": "Semiconductor devices - Semiconductor interface for automotive vehicles - Part 2: Efficiency evaluation methods of wireless power transmission using resonance for automotive vehicles sensors",
+    "language": "EN-FR",
+    "description": "IEC 62969-2:2018 specifies procedures and definitions for measuring the efficiency of the wireless power transmission system for the automotive vehicles sensors. This document deals with the power range below 500 mW."
+  },
+  {
+    "reference": "IEC 62969-3:2018",
+    "edition": "1.0",
+    "date": "2018-05-07",
+    "title": "Semiconductor devices - Semiconductor interface for automotive vehicles - Part 3: Shock driven piezoelectric energy harvesting for automotive vehicle sensors",
+    "language": "EN-FR",
+    "description": "IEC 62969-3:2018 describes terms, definitions, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of mechanical shock driven piezoelectric energy harvesting devices for automotive vehicle sensor applications. This document is also applicable to energy harvesting devices for motorbikes, automobiles, buses, trucks and their respective engineering subsystems applications without any limitations of device technology and size."
+  },
+  {
+    "reference": "IEC 62969-4:2018",
+    "edition": "1.0",
+    "date": "2018-06-18",
+    "title": "Semiconductor devices - Semiconductor interface for automotive vehicles - Part 4: Evaluation method of data interface for automotive vehicle sensors",
+    "language": "EN-FR",
+    "description": "IEC 62969-4:2018 specifies a method of directly fault injection test for automotive semiconductor sensor interface that can be used to support the conformance assurance in the vehicle communications interface."
+  },
+  {
+    "reference": "IEC 63068-1:2019",
+    "edition": "1.0",
+    "date": "2019-01-30",
+    "title": "Semiconductor devices - Non-destructive recognition criteria of defects in silicon carbide homoepitaxial wafer for power devices - Part 1: Classification of defects",
+    "language": "EN",
+    "description": "IEC 63068-1:2019(E) gives a classification of defects in as-grown 4H-SiC (Silicon Carbide) epitaxial layers. The defects are classified on the basis of their crystallographic structures and recognized by non-destructive detection methods including bright-field OM (optical microscopy), PL (photoluminescence), and XRT (X-ray topography) images."
+  },
+  {
+    "reference": "IEC 63068-2:2019",
+    "edition": "1.0",
+    "date": "2019-01-30",
+    "title": "Semiconductor devices - Non-destructive recognition criteria of defects in silicon carbide homoepitaxial wafer for power devices - Part 2: Test method for defects using optical inspection",
+    "language": "EN",
+    "description": "IEC 63068-2:2019(E) provides definitions and guidance in use of optical inspection for detecting as-grown defects in commercially available 4H-SiC (Silicon Carbide) epitaxial wafers. Additionally, this document exemplifies optical images to enable the detection and categorization of the defects for SiC homoepitaxial wafers. This document deals with a non-destructive test method for the defects so that destructive methods such as preferential etching are out of scope in this document."
+  },
+  {
+    "reference": "IEC 63068-3:2020",
+    "edition": "1.0",
+    "date": "2020-07-13",
+    "title": "Semiconductor devices - Non-destructive recognition criteria of defects in silicon carbide homoepitaxial wafer for power devices - Part 3: Test method for defects using photoluminescence",
+    "language": "EN-FR",
+    "description": "IEC 63068-3:2020 provides definitions and guidance in use of photoluminescence for detecting as-grown defects in commercially available 4H-SiC (Silicon Carbide) epitaxial wafers. Additionally, this document exemplifies photoluminescence images and emission spectra to enable the detection and categorization of the defects in SiC homoepitaxial wafers."
+  },
+  {
+    "reference": "IEC 63068-4:2022",
+    "edition": "1.0",
+    "date": "2022-07-27",
+    "title": "Semiconductor devices - Non-destructive recognition criteria of defects in silicon carbide homoepitaxial wafer for power devices - Part 4: Procedure for identifying and evaluating defects using a combined method of optical inspection and photoluminescence",
+    "language": "EN",
+    "description": "IEC 63068-4:2022(E) provides a procedure for identifying and evaluating defects in as-grown 4H-SiC (Silicon Carbide) homoepitaxial wafer by systematically combining two test methods of optical inspection and photoluminescence (PL). Additionally, this document exemplifies optical inspection and PL images to enable the detection and categorization of defects in SiC homoepitaxial wafers."
+  },
+  {
+    "reference": "IEC TR 63133:2017",
+    "edition": "1.0",
+    "date": "2017-10-11",
+    "title": "Semiconductor devices - Scan based ageing level estimation for semiconductor devices",
+    "language": "EN",
+    "description": "IEC TR 63133:2017(E) specifies a design technique of performance estimation storage element, which can monitor semiconductor ageing and characterize ageing level. The estimated ageing level can be used to improve the reliability of system."
+  },
+  {
+    "reference": "IEC 63150-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-10",
+    "title": "Semiconductor devices - Measurement and evaluation methods of kinetic energy harvesting devices under practical vibration environment - Part 1: Arbitrary and random mechanical vibrations",
+    "language": "EN-FR",
+    "description": "IEC 63150-1:2019 specifies terms and definitions, and test methods for kinetic energy harvesting devices for one-dimensional mechanical vibrations to determine the characteristic parameters under a practical vibration environment. Such vibration energy harvesting devices often have their own non-linear mechanisms to efficiently capture vibration energy in a broadband frequency range. This document is applicable to vibration energy harvesting devices with different power generation principles (such as electromagnetic, piezoelectric, electrostatic, etc.) and with different non-linear behaviour to the external mechanical excitation."
+  },
+  {
+    "reference": "IEC 63150-2:2025",
+    "edition": "1.0",
+    "date": "2025-10-31",
+    "title": "Semiconductor devices - Measurement and evaluation methods of kinetic energy harvesting devices under practical vibration environment - Part 2: Human arm swing motion",
+    "language": "EN",
+    "description": "IEC 63150-2:2025 specifies terms and definitions, and test methods that can be used to evaluate and determine the performance characteristics of kinetic energy harvesting devices for human arm swing motion. Such kinetic energy harvesting devices often have a rotor with eccentric mass to efficiently capture kinetic energy at very low frequency range, but this document is not limited to rotational energy harvesters. These have different power generation mechanisms (such as electromagnetic, piezoelectric, electrostatic, triboelectric, etc.) with different working principles, and their performance is evaluated with motions relevant to human arm swing, in which large-amplitude low-frequency external mechanical excitations prevail."
+  },
+  {
+    "reference": "IEC 63150-3:2025",
+    "edition": "1.0",
+    "date": "2025-10-31",
+    "title": "Semiconductor devices - Measurement and evaluation methods of kinetic energy harvesting devices under practical vibration environment - Part 3: Human foot impact motion",
+    "language": "EN",
+    "description": "IEC 63150-3:2025 specifies terms and definitions, and test methods of impact-driven energy harvesting devices of which electric energy is generated by impact force of human walking or running motion under practical human motion. This document is applicable to impact-driven energy harvesting devices embedded in wearables, especially, shoe-mounted energy harvesters, whose main element of the power generation is the impact energy. This measuring method is independent of power generation principles (such as piezoelectric, electrostatic, triboelectric, electromagnetic, etc.). According to typical human motion, power generation performance is measured in the condition of large-amplitude and low-frequency external mechanical excitation."
+  },
+  {
+    "reference": "IEC 63229:2021",
+    "edition": "1.0",
+    "date": "2021-04-07",
+    "title": "Semiconductor devices - Classification of defects in gallium nitride epitaxial film on silicon carbide substrate",
+    "language": "EN",
+    "description": "IEC 63229:2021(E) gives guidelines for the definition and classification of defects in GaN epitaxial film grown on SiC substrate. They are identified and described on the basis of examples, mainly by schematic illustrations, optical microscope images, and transmission electron microscope images for these defects. This document covers only defects in as-grown GaN epitaxial film on SiC substrate and does not include defects caused by subsequent processes."
+  },
+  {
+    "reference": "IEC 63244-1:2021",
+    "edition": "1.0",
+    "date": "2021-09-14",
+    "title": "Semiconductor devices - Semiconductor devices for wireless power transfer and charging - Part 1: General requirements and specifications",
+    "language": "EN-FR",
+    "description": "IEC 63244-1:2021 provides general requirements and specifications of the semiconductor devices for the performance and reliability evaluations of wireless power transfer and charging systems. For the performance evaluations, this part covers various characterization parameters and symbols, general system diagrams, and test setups and test conditions. This document also describes classifications of the wireless power transfer technologies."
+  },
+  {
+    "reference": "IEC 63275-1:2022",
+    "edition": "1.0",
+    "date": "2022-04-21",
+    "title": "Semiconductor devices - Reliability test method for silicon carbide discrete metal-oxide semiconductor field effect transistors - Part 1: Test method for bias temperature instability",
+    "language": "EN-FR",
+    "description": "IEC 63275-1:2022 gives a test method to evaluate gate threshold voltage shift of silicon carbide (SiC) power metal-oxide-semiconductor field-effect transistors (MOSFETs) using room temperature readout after applying continuous positive gate-source voltage stress at elevated temperature. The proposed method accepts a certain amount of recovery by allowing large delay times between stress and measurement (up to 10 h)."
+  },
+  {
+    "reference": "IEC 63275-2:2022",
+    "edition": "1.0",
+    "date": "2022-05-11",
+    "title": "Semiconductor devices - Reliability test method for silicon carbide discrete metal-oxide semiconductor field effect transistors - Part 2: Test method for bipolar degradation due to body diode operation",
+    "language": "EN-FR",
+    "description": "IEC 63275-2:2022 gives the test method and a procedure using this method to evaluate the on-state voltage change, on-state resistance change and reverse drain voltage change of silicon carbide (SiC) power MOSFET devices due to body diode operation. This test is not generally requested for Si power transistors."
+  },
+  {
+    "reference": "IEC 63284:2022",
+    "edition": "1.0",
+    "date": "2022-04-21",
+    "title": "Semiconductor devices - Reliability test method by inductive load switching for gallium nitride transistors",
+    "language": "EN-FR",
+    "description": "IEC 63284:2022 covers the protocol of performing a stress procedure and a corresponding test method to evaluate the reliability of gallium nitride (GaN) power transistors by inductive load switching, specifically hard-switching stress"
+  },
+  {
+    "reference": "IEC 63287-1:2021",
+    "edition": "1.0",
+    "date": "2021-08-25",
+    "title": "Semiconductor devices - Generic semiconductor qualification guidelines - Part 1: Guidelines for IC reliability qualification",
+    "language": "EN-FR",
+    "description": "IEC 63287-1:2021 gives guidelines for reliability qualification plans of semiconductor integrated circuit products. This document is not intended for military- and space-related applications. NOTE 1 The manufacturer can use flexible sample sizes to reduce cost and maintain reasonable reliability by this guideline adaptation based on EDR-4708, AEC Q100, JESD47 or other relevant document can also be applicable if it is specified. NOTE 2 The Weibull distribution method used in this document is one of several methods to calculate the appropriate sample size and test conditions of a given reliability project. This first edition of IEC 63287-1 cancels and replaces the first edition of IEC 60749-43 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the document has been renamed and renumbered to distinguish it from the IEC 60749 (all parts); a new section concerning the concept of \"family\" has been added with appropriate renumbering of the existing text."
+  },
+  {
+    "reference": "IEC 63287-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-29",
+    "title": "Semiconductor devices - Guidelines for reliability qualification plans - Part 2: Concept of mission profile",
+    "language": "EN-FR",
+    "description": "IEC 63287-2:2023 gives guidelines for the development of reliability qualification plans using the concept of mission profile, based on the environmental conditioning and proposed usage of the product. This document is not intended for military- and space-related applications."
+  },
+  {
+    "reference": "IEC 63287-3:2026",
+    "edition": "1.0",
+    "date": "2026-08-06",
+    "title": "Semiconductor devices - Generic semiconductor qualification guidelines - Part 3: Guidelines for reliability qualification plans for power semiconductor module",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63287-3:2026 specifies guidelines for a reliability qualification plan for power semiconductor modules to assure reliability targets over the entire product life. Power semiconductor modules with incorporated control circuits are excluded. Clamped packages that need external pressure for being mounted in a system are excluded, e.g. disc-type pressure pack devices. This document is not intended for medical, military, aeronautics and astronautics-related applications. NOTE Throughout the document, the term power semiconductor module refers to multichip semiconductor power modules as defined in IEC 60191-4."
+  },
+  {
+    "reference": "IEC 63287-4:2026",
+    "edition": "1.0",
+    "date": "2026-08-28",
+    "title": "Semiconductor devices - Guidelines for reliability qualification plans - Part 4: Early failure assessment",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63287-4:2026 gives guidelines for the development of reliability qualification plans using the early failure assessment, based on the environmental conditioning and proposed usage of the product. This document is not intended for military- and space-related applications."
+  },
+  {
+    "reference": "IEC TR 63357:2022",
+    "edition": "1.0",
+    "date": "2022-10-11",
+    "title": "Semiconductor devices - Standardization roadmap of fault test method for automotive vehicles",
+    "language": "EN",
+    "description": "IEC TR 63357:2022(E) describes standardization roadmap of fault test methods for integrated circuits used in automotive vehicles. Since automotive vehicles are exposed in harsh environment such as very low or high temperature, vibration, high frequency signals, etc. Therefore, they are tested for possible faults which can be caused by harsh environment. There are several fault test methods and related issues to be standardized. Semiconductor devices used in automotive vehicles are exposed in harsh environment of very high or very low temperature, vibration, high frequency signals, etc. Therefore, they are tested for possible faults which can be caused by harsh environment Evaluation results following this fault test methods will provide robustness of the semiconductor device."
+  },
+  {
+    "reference": "IEC 63364-1:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Semiconductor devices - Semiconductor devices for IoT system - Part 1: Test method of sound variation detection",
+    "language": "EN-FR",
+    "description": "IEC 63364-1:2022 specifies terms, the test method, and the report of sound variation detection system based on IoT. It provides the evaluation method for each part of the sound variation detection system based on IoT in the block diagram, the characterization parameters, symbols, test setups and the conditions. In addition, this document defines the configuration items and criteria of standard space and firing situation for the quality evaluation measurement of sound field variation detection system with IoT."
+  },
+  {
+    "reference": "IEC 63373:2022",
+    "edition": "1.0",
+    "date": "2022-02-10",
+    "title": "Dynamic on-resistance test method guidelines for GaN HEMT based power conversion devices",
+    "language": "EN-FR",
+    "description": "IEC 63373:2022 In general, dynamic ON-resistance testing is a measure of charge trapping phenomena in GaN power transistors. IEC 63373:2022 provides guidelines for testing dynamic ON-resistance of GaN lateral power transistor solutions. The test methods can be applied to the following: a) GaN enhancement and depletion-mode discrete power devices; b) GaN integrated power solutions; c) the above in wafer and package levels. The prescribed test methods can be used for device characterization, production testing, reliability evaluations and application assessments of GaN power conversion devices. This document is not intended to cover the underlying mechanisms of dynamic ON-resistance and its symbolic representation for product specifications."
+  },
+  {
+    "reference": "IEC 63505:2025",
+    "edition": "1.0",
+    "date": "2025-04-08",
+    "title": "Guidelines for measuring the threshold voltage (<em>V</em><sub>T</sub>) of SiC MOSFETs",
+    "language": "EN",
+    "description": "IEC 63505:2025 gives guidance on VT measurement methods and conditioning prior to VT testing in SiC power MOSFETs to reduce or eliminate the effect of the aforementioned hysteresis. The method is applicable for PBTI testing, NBTI and threshold voltage changes caused by switching events are excluded from the scope. SiC MOSFETs have threshold voltage hysteresis caused by transient trap effects, which impacts the evaluation of the actual the VT shift caused by stress tests such as bias temperature instabilities (BTI)."
+  },
+  {
+    "reference": "IEC TR 63571:2025",
+    "edition": "1.0",
+    "date": "2025-05-13",
+    "title": "Semiconductor devices – Estimation method for lifetime conversion from “PART” to “SYSTEM”",
+    "language": "EN",
+    "description": "IEC TR 63571:2025 describes a method to calculate “SYSTEM”-level lifetime from “PART”-level lifetime. It presents a general mathematical theory and simple calculation examples for educational purposes. Of the elements related to “SYSTEM”-level lifetime, software-related elements such as diagnostics are outside the scope of this document."
+  },
+  {
+    "reference": "IEC 63601:2026",
+    "edition": "1.0",
+    "date": "2026-02-03",
+    "title": "Guideline for evaluating bias temperature instability of silicon carbide metal-oxide-semiconductor devices for power electronic conversion",
+    "language": "EN",
+    "description": "IEC 63601:2026 covers SiC-based PECS devices having a gate dielectric region biased to turn devices on and off. This typically refers to MOS devices such as MOSFETs and IGBTs. In this document, only NMOS (N-type MOS) devices are discussed as these are dominant for power device applications; however, the procedures apply to PMOS (P-type MOS) devices as well. This document does not define device failure criteria, acceptable use conditions or acceptable lifetime targets. That is up to the device manufacturers and users. However, it provides stress procedures such that the threshold voltage stability over time as affected by gate bias and temperature can be demonstrated and evaluated."
+  },
+  {
+    "reference": "IEC 63602:2026",
+    "edition": "1.0",
+    "date": "2026-02-09",
+    "title": "Guidelines for representing switching losses of SIC MOSFETs in datasheets",
+    "language": "EN",
+    "description": "IEC 63602:2026 specifies how to correctly display essential parameters of SiC-based PECS devices having a gate dielectric region biased to turn devices on and off. This typically refers to MOS devices such as MOSFETs and IGBTs. In this document, only NMOS devices are discussed as these are dominant for power device applications; however, the procedures apply to PMOS devices as well. In contrast to silicon power MOSFETs certain aspects of SiC power MOSFETs require a dedicated approach in order to represent device parameters correctly in the datasheet. Details are explained in the following paragraphs, among others the most important topics are: - substantially higher switching speeds ad high VDS; - strong impact of test setup (see Clause 5); - impact of body diode as a function of the applied negative gate bias ant the limitations arising for the VG(off) values depending on the actual device. This document does not define device failure criteria, acceptable use conditions or acceptable lifetime targets. That is up to the device manufacturers and users. However, it provides stress procedures such that the threshold voltage stability over time as affected by gate bias and temperature can be demonstrated and evaluated."
+  }
+]

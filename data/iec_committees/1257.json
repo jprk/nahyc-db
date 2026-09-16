@@ -1,0 +1,754 @@
+[
+  {
+    "reference": "IEC 60122-1:2002",
+    "edition": "3.0",
+    "date": "2002-08-09",
+    "title": "Quartz crystal units of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "Specifies the methods of test and general requirements for quartz crystal units of assessed quality using either capability approval or qualification approval procedures."
+  },
+  {
+    "reference": "IEC 60122-1:2002/AMD1:2017",
+    "edition": "3.0",
+    "date": "2017-12-08",
+    "title": "Amendment 1 - Quartz crystal units of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60122-2:2025",
+    "edition": "3.0",
+    "date": "2025-06-27",
+    "title": "Quartz crystal units of assessed quality - Part 2: Guidelines for the use",
+    "language": "EN-FR",
+    "description": "IEC 60122-2:2025 has been compiled in response to a generally expressed desire on the part of both users and manufacturers for guidelines to the use of quartz crystal units for filters and oscillators so that the crystal units may be used to their best advantage. It draws attention to some of the more fundamental questions which will be considered by the user before it places its order for a unit for a new application, and in so doing will, it is hoped, help ensure against unsatisfactory performance, unfavourable cost and non-availability. It is not the function of this document to explain theory, nor to attempt to cover all the eventualities that can arise in practical circumstances. Lastly, it it is not considered as a substitute for close liaison between manufacturer and user. Standard specifications, such as those of the IEC of which these guidelines form a part, and national specifications or detail specifications issued by manufacturers, will define the available combinations of the resonant characteristics and the temperature characteristic. These specifications are compiled to include a wide range of quartz crystal units with standardized performances. It cannot be over-emphasized that it is the responsibility of the user , wherever possible, to select the quartz crystal units from these specifications, when available, even if it can lead to making small modifications to the circuit to enable the use of standard resonators. This applies particularly to the selection of the nominal frequency. This edition includes the following significant technical changes with respect to the previous edition: a) addition of SC cut type and related requirements; b) addition of ageing calculation and low level of drive requirements according to the general specification, c) update of the frequency temperature curve according to the common cut requirements; d) removal of infrequently used product types."
+  },
+  {
+    "reference": "IEC 60122-2-1:1991",
+    "edition": "1.0",
+    "date": "1991-07-22",
+    "title": "Quartz crystal units for frequency control and selection - Part 2: Guide to the use of quartz crystal units for frequency control and selection - Section One: Quartz crystal units for microprocessor clock supply",
+    "language": "EN-FR",
+    "description": "This guide addresses some of the special problems encountered in specifying and using quartz crystal units for frequency control with the integrated circuit oscillators commonly incorporated on microprocessor silicon devices. The special problems include the (usually unspecified) phase delay and parasitic parameters of the active circuits which often result in unpredictable behaviour of the oscillator circuit."
+  },
+  {
+    "reference": "IEC 60122-2-1:1991/AMD1:1993",
+    "edition": "1.0",
+    "date": "1993-09-06",
+    "title": "Amendment 1 - Quartz crystal units for frequency control and selection - Part 2: Guide to the use of quartz crystal units for frequency control and selection - Section One: Quartz crystal units for microprocessor clock supply",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60122-3:2010",
+    "edition": "4.0",
+    "date": "2010-10-11",
+    "title": "Quartz crystal units of assessed quality - Part 3: Standard outlines and lead connections",
+    "language": "EN-FR",
+    "description": "IEC 60122-3:2010 specifies the outline drawing for quartz crystal units with lead enclosures. The main changes with respect to the previous edition are as follows: 12 of the 48 enclosure types contained in the previous edition have been deleted."
+  },
+  {
+    "reference": "IEC 60122-4:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Quartz crystal units of assessed quality - Part 4: Crystal units with thermistors",
+    "language": "EN-FR",
+    "description": "IEC 60122-4:2019 is applicable to crystal units with thermistors mainly used in the field of mobile communication that requires high frequency stability such as local reference signal generator for the mobile phone base station or GPS. This document provides users with technical guidelines of crystal units with thermistors as well as basic knowledge of common crystal units with thermistors"
+  },
+  {
+    "reference": "IEC 60368-1:2000",
+    "edition": "4.0",
+    "date": "2000-03-10",
+    "title": "Piezoelectric filters of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "Specifies the methods of test and general requirements for piezoelectric filters of assessed quality using either capability approval or qualification approval procedures."
+  },
+  {
+    "reference": "IEC 60368-1:2000/AMD1:2004",
+    "edition": "4.0",
+    "date": "2004-08-17",
+    "title": "Amendment 1 - Piezoelectric filters of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60368-2-1:1988",
+    "edition": "2.0",
+    "date": "1988-06-30",
+    "title": "Piezoelectric filters - Part 2-1: Guide to the use of piezoelectric filters - Quartz crystal filters",
+    "language": "EN-FR, RU",
+    "description": "Draws attention to some of the more fundamental questions which should be considered by the user before placing an order for a crystal filter for a new application."
+  },
+  {
+    "reference": "IEC 60368-2-2:1996",
+    "edition": "1.0",
+    "date": "1996-07-25",
+    "title": "Piezoelectric filters - Part 2: Guide to the use of piezoelectricfilters - Section 2: Piezoelectric ceramic filters",
+    "language": "EN-FR",
+    "description": "Describes passive band-pass filters operating over the frequency range of a few kHz to more than 10 MHz which are commercially availa ble as separate and independent units. Draws attention to some funda mental questions which should be considered by the user before he places an order for a new filter."
+  },
+  {
+    "reference": "IEC 60368-3:2010",
+    "edition": "4.0",
+    "date": "2010-11-25",
+    "title": "Piezoelectric filters of assessed quality - Part 3: Standard outlines and lead connections",
+    "language": "EN-FR",
+    "description": "IEC 60368-3:2010 specifies the outline drawing for piezoelectric filters with lead enclosures. This edition includes the following significant technical changes with respect to the previous edition: a) four enclosure types (CF05, CF06, CF07 and CF09) have been deleted from previous edition, IEC 60368-3 Ed. 3.0; b) now standardized enclosures are totally 16 types. These are listed in Table.1."
+  },
+  {
+    "reference": "IEC 60368-4:2000",
+    "edition": "1.0",
+    "date": "2000-08-10",
+    "title": "Piezoelectric filters of assessed quality - Part 4 : Sectional specification - Capability approval",
+    "language": "EN-FR",
+    "description": "Prescribes the preferred ratings and characteristics, with appropriate tests and measuring methods contained in the generic specification, IEC 60368-1, and gives the general performance requirements to be used in detail specifications for piezoelectric filters."
+  },
+  {
+    "reference": "IEC 60368-4-1:2000",
+    "edition": "1.0",
+    "date": "2000-11-09",
+    "title": "Piezoelectric filters of assessed quality - Part 4-1: Blank detail specification - Capability approval",
+    "language": "EN-FR",
+    "description": "Is a supplementary document to the sectional specification and contains requirements for the minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 60444-1:1986",
+    "edition": "2.0",
+    "date": "1986-08-15",
+    "title": "Measurement of quartz crystal unit parameters by zero phase technique in a pi-network - Part 1: Basic method for the measurement of resonance frequency and resonance resistance of quartz crystal units by zero phase technique in a pi-network",
+    "language": "EN-FR, RU",
+    "description": "Specifies a simple method of measurement of resonance frequency and resonance resistance of quartz crystal units and describes a suitable measuring network for use over the frequency range 1 MHz to 200 MHz."
+  },
+  {
+    "reference": "IEC 60444-1:1986/AMD1:1999",
+    "edition": "2.0",
+    "date": "1999-08-13",
+    "title": "Amendment 1 - Measurement of quartz crystal unit parameters by zero phase technique in a pi-network. Part 1: Basic method for the measurement of resonance frequency and resonance resistance of quartz crystal units by zero phase technique in a pi-network",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60444-2:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Measurement of quartz crystal unit parameters by zero phase technique in a pi-network. Part 2: Phase offset method for measurement of motional capacitance of quartz crystal units",
+    "language": "EN-FR, RU",
+    "description": "Describes a method of measuring the motional capacitance of quartz crystal units in the frequency range 1 MHz to 125 MHz with a total measurement error of the order of 5%."
+  },
+  {
+    "reference": "IEC 60444-5:1995",
+    "edition": "1.0",
+    "date": "1995-04-07",
+    "title": "Measurement of quartz crystal units parameters - Part 5: Methods for the determination of equivalent electrical parameters using automatic network analyzer techniques and error correction",
+    "language": "EN-FR",
+    "description": "Gives methods for determining the best representations of modes in quartz crystal resonators by linear equivalent circuits."
+  },
+  {
+    "reference": "IEC 60444-6:2021",
+    "edition": "3.0",
+    "date": "2021-09-01",
+    "title": "Measurement of quartz crystal unit parameters - Part 6: Measurement of drive level dependence (DLD)",
+    "language": "EN-FR",
+    "description": "IEC 60444-6:2021 applies to the measurements of drive level dependence (DLD) of quartz crystal units. Two test methods (A and C) and one referential method (B) are described. “Method A”, based on the p-network according to IEC 60444-5, can be used in the complete frequency range covered by this part of IEC 60444. “Reference Method B”, based on the p-network or reflection method according to IEC 60444-5 or IEC 60444-8 can be used in the complete frequency range covered by this part of IEC 60444. “Method C”, an oscillator method, is suitable for measurements of fundamental mode crystal units in larger quantities with fixed conditions. NOTE The measurement methods specified in this document are not only applicable to AT-cut, but also to other crystal cuts and vibration modes, such as doubly rotated cuts (IT,SC) and to tuning fork crystal units (by using a high impedance test fixture). This edition includes the following significant technical changes with respect to the previous edition: - some equations have been removed and corrected; - it has been specified in the note of the Scope that the measurement methods specified in this document are not only applicable to AT-cut but also to other crystal cuts and vibration modes."
+  },
+  {
+    "reference": "IEC 60444-7:2004",
+    "edition": "1.0",
+    "date": "2004-04-05",
+    "title": "Measurement of quartz crystal unit parameters - Part 7: Measurement of activity and frequency dips of quartz crystal units",
+    "language": "EN-FR, EN",
+    "description": "IEC 60444-7:2004 applies to activity and frequency dips for quartz crystal units over a temperature range."
+  },
+  {
+    "reference": "IEC 60444-8:2016",
+    "edition": "2.0",
+    "date": "2016-12-15",
+    "title": "Measurement of quartz crystal unit parameters - Part 8 : Test fixture for surface mounted quartz crystal units",
+    "language": "EN-FR, EN",
+    "description": "IEC 60444-8:2016 describes test fixtures suitable for leadless surface mounted quartz crystal units in enclosures as defined in IEC 61837 (all parts). These fixtures allow the measurement of (series) resonance frequency, (series) resonance resistance, and equivalent electrical circuit parameters L1, C1 and C0 using the measurement techniques specified in IEC 60444-5 and for the determination of load resonance frequency and load resonance resistance according to IEC TR 60444-4 and IEC 60444-11. Two test fixtures are described in this document: 1) A fixture using the p-network circuit with electrical values as described in IEC 60444-1 for measurements in transmission mode up to 500 MHz. This fixture includes optional means to add physical load capacitors for the measurement of load resonance parameters up to 30 MHz in accordance with IEC 60444-4. The range of load capacitance is 10 pF or more. Calibration of the measurement system and CL adapter board is explained hereinafter. 2) A fixture based on the reflection method, suitable for a frequency range up to 1 200 MHz. No provisions for adding a physical load capacitance are anticipated. Load resonance parameters can be measured by using the method of IEC 60444-11. This edition includes the following significant technical changes with respect to the previous edition: a) modification of Clause 1; b) modification of 5.2; c) modification of 5.3; d) modification of 5.4; e) 6.3 Calibration of the reflection measurement system."
+  },
+  {
+    "reference": "IEC 60444-9:2007",
+    "edition": "1.0",
+    "date": "2007-02-20",
+    "title": "Measurement of quartz crystal unit parameters - Part 9: Measurement of spurious resonances of piezoelectric crystal units",
+    "language": "EN-FR, EN",
+    "description": "IEC 60444-9:2007 describes two methods for determining the spurious (unwanted) modes of piezoelectric crystal resonators. It extends the capabilities and improves the reproducibility and accuracy compared to previous methods."
+  },
+  {
+    "reference": "IEC 60444-11:2026",
+    "edition": "2.0",
+    "date": "2026-04-22",
+    "title": "Measurement of quartz crystal unit parameters - Part 11: Standard method for the determination of the load resonance frequency f<sub>L</sub> and the effective load capacitance C<sub>Leff</sub> using automatic network analyzer techniques and error correction",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60444-11:2026 defines the standard method of measuring load resonance frequency fL at the nominal value of CL, and the determination of the effective load capacitance CLeff at the nominal frequency for crystals with the figure of merit M > 4. This edition includes the following significant technical changes with respect to the previous edition: a) key content of withdrawn IEC TR 60444-4 is reproduced as Annex A; b) some formulae in the first edition have been corrected."
+  },
+  {
+    "reference": "IEC 60483:1976",
+    "edition": "1.0",
+    "date": "1976-01-01",
+    "title": "Guide to dynamic measurements of piezoelectric ceramics with high electromechanical coupling",
+    "language": "EN-FR, RU",
+    "description": "Reviews admittance characteristics and equivalent circuits of ceramic resonators vibrating in simple modes. Contains methods for determining resonator parameters and material constants."
+  },
+  {
+    "reference": "IEC 60642:1979",
+    "edition": "1.0",
+    "date": "1979-01-01",
+    "title": "Piezoelectric ceramic resonators and resonator units for frequency control and selection - Chapter I: Standard values and conditions - Chapter II: Measuring and test conditions",
+    "language": "EN-FR, RU",
+    "description": "Establishes uniform conditions for assessing the mechanical and climatic properties of ceramic resonators, describes test methods, gives recommendations for standard values and gives guidance for the use of such resonators."
+  },
+  {
+    "reference": "IEC 60642:1979/AMD1:1992",
+    "edition": "1.0",
+    "date": "1992-09-30",
+    "title": "Amendment 1 - Piezoelectric ceramic resonators and resonator units for frequency control and selection - Chapter I: Standard values and conditions - Chapter II: Measuring and test conditions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60642-2:1994",
+    "edition": "1.0",
+    "date": "1994-02-08",
+    "title": "Piezoelectric ceramic resonator units - Part 2: Guide to the use of piezoelectric ceramic resonator units",
+    "language": "EN-FR",
+    "description": "Is a guide to the use of piezoelectric ceramic resonator units for oscillators, so that the piezoelectric ceramic resonator units may be used to their best advantage."
+  },
+  {
+    "reference": "IEC 60642-3:1992",
+    "edition": "1.0",
+    "date": "1992-03-15",
+    "title": "Piezoelectric ceramic resonators - Part 3: Standard outlines",
+    "language": "EN-FR",
+    "description": "Gives standard outlines of piezoelectric ceramic resonators."
+  },
+  {
+    "reference": "IEC 60679-1:2017",
+    "edition": "4.0",
+    "date": "2017-07-26",
+    "title": "Piezoelectric, dielectric and electrostatic oscillators of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 60679-1:2017 specifies general requirements for piezoelectric, dielectric and electrostatic oscillators, including Dielectric Resonator Oscillators (DRO) and oscillators using FBAR (hereinafter referred to as \"Oscillator\"), of assessed quality using either capability approval or qualification approval procedures. NOTE Dielectric Resonator Oscillators (DRO) and oscillators using FBAR are under consideration. This edition includes the following significant technical changes with respect to the previous edition: a) the title has been changed; b) additional matters related to oscillator using SAW or MEMS resonator in \"Terms, definitions and general information\" have been included; c) measurement methods of IEC 60679-1:2007 have been removed (they will be moved to IEC 62884 series); d) the content of Annex A has been extended; e) a new term and definition DIXO (Digital interfaced Crystal Oscillator) has been added; f) a new term and definition SSXO (Spread Spectrum Crystal Oscillator) has been added; g) Annex D has been added."
+  },
+  {
+    "reference": "IEC 60679-2:2026",
+    "edition": "2.0",
+    "date": "2026-08-27",
+    "title": "Piezoelectric, dielectric and electrostatic oscillators of assessed quality - Part 2: Guidelines for the use of oscillators",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60679-2:2026 describes the general properties, performance characteristics and usage precautions for quartz crystal oscillators. This document mainly describes crystal oscillators, but some descriptions also apply to oscillators other than crystal units (e.g. MEMS resonators). This edition includes the following significant technical changes with respect to the previous edition: a) some new contents that reflect the latest manufacturing technologies; b) added contents about the operating principle of crystal oscillators; c) added contents about usage precautions for crystal oscillators."
+  },
+  {
+    "reference": "IEC 60679-3:2012",
+    "edition": "3.0",
+    "date": "2012-12-14",
+    "title": "Quartz crystal controlled oscillators of assessed quality - Part 3: Standard outlines and lead connections",
+    "language": "EN-FR",
+    "description": "IEC 60679-3:2012 specifies the outline dimensions and lead connections for quartz crystal controlled oscillators with lead enclosures. This edition includes the following significant technical changes with respect to the previous edition: - CO 01, CO 07, CO 10, CO 17 and CO 18 were deleted; - The current pin layout of CO 06 was deleted. And new pin layout of CO 06 was added as CO 40; - New layout of CO 15 was added as CO 41; - Two new enclosures, CO 42 and CO 43 were added. Therefore revised edition includes 15 types of enclosures as in Table 1 of Clause 5."
+  },
+  {
+    "reference": "IEC 60679-4:1997",
+    "edition": "1.0",
+    "date": "1997-11-28",
+    "title": "Quartz crystal controlled oscillators of assessed quality - Part 4: Sectional Specification - Capability approval",
+    "language": "EN-FR",
+    "description": "IEC 60679-4:1997 applies to quartz crystal controlled oscillators as custom built products or as standard catalogue items and whose quality is assessed on the basis of capability approval. It prescribes the preferred ratings and characteristics, with appropriate tests and measuring methods contained in the generic specification, IEC 60679-1, and gives the general performance requirements to be used in detail specifications for quartz crystal controlled oscillators."
+  },
+  {
+    "reference": "IEC 60679-4-1:1998",
+    "edition": "1.0",
+    "date": "1998-02-19",
+    "title": "Quartz crystal controlled oscillators of assessed quality - Part 4-1: Blank detail specification - Capability approval",
+    "language": "EN-FR",
+    "description": "IEC 60679-4-1:1998 is a supplementary document to the sectional specification and contains requirements for the minimum content of detail specifications. Applies to quartz crystal controlled oscillators as custom built products or as standard catalogue items and whose quality is assessed on the basis of capability approval."
+  },
+  {
+    "reference": "IEC 60679-5:1998",
+    "edition": "1.0",
+    "date": "1998-04-15",
+    "title": "Quartz crystal controlled oscillators of assessed quality - Part 5: Sectional specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "IEC 60679-5:1998 applies to quartz crystal controlled oscillators whose quality is assessed on the basis of capability approval. It prescribes the preferred ratings and characteristics, with appropriate tests and measuring methods contained in the generic specification IEC 60679-1, and gives the general performance requirements to be used in detail specifications for quartz crystal controlled oscillators."
+  },
+  {
+    "reference": "IEC 60679-5-1:1998",
+    "edition": "1.0",
+    "date": "1998-04-29",
+    "title": "Quartz crystal controlled oscillators of assessed quality - Part 5-1: Blank detail specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "IEC 60679-5-1:1998 is a supplementary document to the sectional specification and contains requirements for the minimum content of detail specifications. Applies to quartz crystal controlled oscillators whose quality is assessed on the basis of capability approval."
+  },
+  {
+    "reference": "IEC 60689:2008",
+    "edition": "2.0",
+    "date": "2008-11-27",
+    "title": "Measurement and test methods for tuning fork quartz crystal units in the range from 10 kHz to 200 kHz and standard values",
+    "language": "EN-FR, EN",
+    "description": "IEC 60689:2008 applies to measurements and test methods for tuning fork quartz crystal units in the range from 10 kHz to 200 kHz and standard values for frequency control and selection. This edition includes the following significant technical changes with respect to the previous edition: a) The title of the first edition is Measurements and test methods for 32 kHz quartz crystal units for wrist watches and standard values. The title is modified and the frequency range of this second edition is extended to the range from 10 kHz to 200 kHz. b) The Lissajous method is defined in the first edition as the standard measurement method. The PI network and bridge method are used in this second edition. c) The PI network has a transformer for impedance matching. This composition differs from that of IEC 60444-1."
+  },
+  {
+    "reference": "IEC 60758:2016",
+    "edition": "5.0",
+    "date": "2016-05-18",
+    "title": "Synthetic quartz crystal - Specifications and guidelines for use",
+    "language": "EN-FR, EN",
+    "description": "IEC 60758:2016 applies to synthetic quartz single crystals intended for manufacturing piezoelectric elements for frequency control, selection and optical applications. This edition includes the following significant technical changes with respect to the previous edition: - order rearrangement and review of terms and definitions; - abolition as a standard of the infrared absorbance coefficient α3410; - addition of the value measurement explanation by FT-IR equipment in annex; - addition of the synthetic quartz crystal standards for optical applications."
+  },
+  {
+    "reference": "IEC 60862-1:2015",
+    "edition": "3.0",
+    "date": "2015-08-20",
+    "title": "Surface acoustic wave (SAW) filters of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-03 IEC 60862-1:2015 specifies the methods of test and general requirements for SAW filters of assessed quality using either capability approval or qualification approval procedures. This edition includes the following significant technical changes with respect to the previous edition: - the terms and definitions from IEC 60862-2:2002 are included; - the measurement method for the balanced type filter is described; - the electrostatic discharge (ESD) sensitivity test procedure is considered. The content of the corrigendum 1 (2026-03) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60862-1:2015/COR1:2026",
+    "edition": "3.0",
+    "date": "2026-03-17",
+    "title": "Corrigendum 1 - Surface acoustic wave (SAW) filters of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60862-2:2012",
+    "edition": "3.0",
+    "date": "2012-05-07",
+    "title": "Surface acoustic wave (SAW) filters of assessed quality - Part 2: Guidelines for the use",
+    "language": "EN-FR",
+    "description": "IEC 60862-2:2012 gives practical guidance on the use of SAW filters which are used in telecommunications, measuring equipment, radar systems and consumer products. IEC 60862-1 should be referred to for general information, standard values and test conditions. This part of IEC 60862 includes various kinds of filter configuration, of which the operating frequency range is from approximately 10 MHz to 3 GHz and the relative bandwidth is about 0,02 % to 50 % of the centre frequency. It is not the aim of this standard to explain theory, nor to attempt to cover all the eventualities which may arise in practical circumstances. This standard draws attention to some of the more fundamental questions, which should be considered by the user before he places an order for a SAW filter for a new application. Such a procedure will be the user's insurance against unsatisfactory performance. This edition includes the following significant technical changes with respect to the previous edition: - Clause 3 \"Terms and definitions\" has been deleted to be included in the next edition of IEC 60862-1; - the tapered IDT filter and the RSPUDT filter have been added to the clause of SAW transversal filters. Also DART, DWSF and EWC have been added as variations of SPUDT; - the balanced connection has been added to the subclause of coupled resonator filters; - recent substrate materials have been described; - a subclause about packaging of SAW filters has been added."
+  },
+  {
+    "reference": "IEC 60862-3:2003",
+    "edition": "2.0",
+    "date": "2003-10-08",
+    "title": "Surface acoustic wave (SAW) filters of assessed quality - Part 3: Standard outlines",
+    "language": "EN-FR, ES",
+    "description": "Specifies the outline drawings for surface acoustic wave (SAW) filters with leaded enclosures."
+  },
+  {
+    "reference": "IEC 61019-1:2004",
+    "edition": "1.0",
+    "date": "2004-11-02",
+    "title": "Surface acoustic wave (SAW) resonators - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 61019-1:2004 specifies the methods of test and general requirements for SAW resonators using either capability approval or qualification approval procedures of the IECQ system. This first edition of IEC 61019-1 cancels and replaces the first edition of IEC 61019-1-1 published in 1990 and the first edition of IEC 61019-1-2 published in 1993. It constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61019-2:2005",
+    "edition": "2.0",
+    "date": "2005-05-12",
+    "title": "Surface acoustic wave (SAW) resonators - Part 2: Guide to the use",
+    "language": "EN-FR, EN",
+    "description": "IEC 61019-2:2005 gives practical guidance to the use of surface acoustic wave (SAW) resonators which are used in telecommunications, radio equipments and consumer products. It is to be used in conjunction with IEC 61019-1. The features of SAW resonators are small size, light weight, adjustment-free and high stability,operating frequencies extend to the VHF and UHF ranges. The main changes with respect to the previous editon are listed below: - at the end of 5.1, the edge reflector has been added. Its reference literature has been inserted in the bibliography; - in Table 1, the propagation properties of LiNbO3 (64° Y) have been added; - in Table 3, the clause and subclause numbers have been corrected in order to be consistent with IEC 61019-1 (2004) which has replaced IEC 61019-1-1 (1990) and IEC 61019-1-2 (1993)."
+  },
+  {
+    "reference": "IEC 61019-3:1991",
+    "edition": "1.0",
+    "date": "1991-12-24",
+    "title": "Surface acoustic wave (SAW) resonators - Part 3: Standard outlines and lead connections",
+    "language": "EN-FR",
+    "description": "Loose-leaf booklet containing standard outlines and lead connections of surface acoustic wave (SAW) resonators. Six sheets are included and supplements will be issued as new outlines are developed."
+  },
+  {
+    "reference": "IEC 61080:1991",
+    "edition": "1.0",
+    "date": "1991-12-31",
+    "title": "Guide to the measurement of equivalent electrical parameters of quartz crystal units",
+    "language": "EN-FR",
+    "description": "Constitutes a guide to the measurement of equivalent electrical parameters of quartz crystal units. Quartz crystal units are widely used to stabilize the frequency of oscillators, as well as to provide highly selective filter networks."
+  },
+  {
+    "reference": "IEC 61178-2:1993",
+    "edition": "1.0",
+    "date": "1993-03-31",
+    "title": "Quartz crystal units - A specification in the IEC Quality Assessment System for Electronic Components (IECQ) - Part 2: Sectional specification - Capability approval",
+    "language": "EN-FR",
+    "description": "Applies to quartz crystal units manufactured as custom-built products or as standard catalogue items and whose quality is assessed on the basis of capability approval. Prescribes the preferred ratings and characteristics, with the appropriate tests and measuring methods contained in the generic specification IEC 1178-1 and gives general performance requirements to be used in detail specifications for quartz crystal units."
+  },
+  {
+    "reference": "IEC 61178-2-1:1993",
+    "edition": "1.0",
+    "date": "1993-03-31",
+    "title": "Quartz crystal units - A specification in the IEC Quality Assessment System for Electronic Components (IECQ) - Part 2: Sectional specification - Capability approval - Section 1: Blank detail specification",
+    "language": "EN-FR",
+    "description": "Supplementary document to the sectional specification. Contains requirements for the minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 61178-3:1993",
+    "edition": "1.0",
+    "date": "1993-03-31",
+    "title": "Quartz crystal units - A specification in the IEC Quality Assessment System for Electronic Components (IECQ) - Part 3: Sectional specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "Applies to quartz crystal units the quality of which is assessed on the basis of qualification approval. Prescribes the preferred ratings and characteristics, with the appropriate tests and measuring methods contained in the generic specification IEC 61178-1. Gives general performance requirements to be used in detail specifications for quartz crystal units."
+  },
+  {
+    "reference": "IEC 61178-3-1:1993",
+    "edition": "1.0",
+    "date": "1993-03-31",
+    "title": "Quartz crystal units - A specification in the IEC Quality Assessment System for Electronic Components (IECQ) - Part 3: Sectional specification - Qualification approval - Section 1: Blank detail specification",
+    "language": "EN-FR",
+    "description": "Supplementary document to the sectional specification. Contains requirements for style, layout and minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 61240:2016",
+    "edition": "3.0",
+    "date": "2016-10-24",
+    "title": "Piezoelectric devices - Preparation of outline drawings of surface-mounted devices (SMD) for frequency control and selection - General rules",
+    "language": "EN-FR, EN",
+    "description": "IEC 61240:2016 sets out general rules for drawing all dimensional and geometrical characteristics of a surface-mounted piezoelectric device package (referred to in this document as SMD) in order to ensure mechanical inter-changeability of all outline drawings of the SMDs for frequency control and selection. This edition includes the following significant technical changes with respect to the previous edition: - outline drawings have been changed from three views (top, front and bottom) to that based on ISO layout in the third-angle projection, in which the view from the right has been added to the top, front and bottom views; - reference line and geometrical dimensions of the package for enclosures have been changed for practical use; - information on miniaturized leadless ceramic enclosures of piezoelectric devices (SMD) for frequency control and selection has been included in an annex."
+  },
+  {
+    "reference": "IEC 61253-1:1993",
+    "edition": "1.0",
+    "date": "1993-12-17",
+    "title": "Piezoelectric ceramic resonators - A specification in the IEC quality assessment system for electronic components (IECQ) - Part 1: Generic specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "Establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications for qualification approval and for quality assessment systems for electronic components."
+  },
+  {
+    "reference": "IEC 61253-2:1993",
+    "edition": "1.0",
+    "date": "1993-12-17",
+    "title": "Piezoelectric ceramic resonators - A Specification in the IEC quality assessment system for electronic components (IECQ) - Part 2: Sectional specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "Prescribes preferred ratings and characteristics and selects from the generic specification IEC 61253-1 the appropriate quality assessment procedures, tests and measuring methods."
+  },
+  {
+    "reference": "IEC 61253-2-1:1993",
+    "edition": "1.0",
+    "date": "1993-12-17",
+    "title": "Piezoelectric ceramic resonators - A specification in the IEC quality assessment system for electronic components (IECQ) - Part 2: Sectional specification - Qualification approval - Section 1: Blank detail specification - Assessment level E",
+    "language": "EN-FR",
+    "description": "Contains requirements for style and layout and minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 61261-1:1994",
+    "edition": "1.0",
+    "date": "1994-03-24",
+    "title": "Piezoelectric ceramic filters for use in electronic equipment - A specification in the IEC quality assessment system for electronic components (IECQ) - Part 1: Generic specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "Prescribes terms and methods of test applicable to piezoelectric ceramic filters with a high selectivity and stability intended for use in electronic equipment."
+  },
+  {
+    "reference": "IEC 61261-2:1994",
+    "edition": "1.0",
+    "date": "1994-03-11",
+    "title": "Piezoelectric ceramic filters for use in electronic equipment - A specification in the IEC quality assessment system for electronic components (IECQ) - Part 2: Sectional specification - Qualification approval",
+    "language": "EN-FR",
+    "description": "Prescribes preferred ratings and characteristics and selects from the Generic Specification (IEC 61261-1) the appropriate Quality Assessment procedures, tests and measuring methods and gives general performance requirements for this type of filter."
+  },
+  {
+    "reference": "IEC 61261-2-1:1994",
+    "edition": "1.0",
+    "date": "1994-03-11",
+    "title": "Piezoelectric ceramic filters for use in electronic equipment - A specification in the IEC quality assessment system for electronic components (IECQ) - Part 2: Sectional specification - Qualification approval - Section 1: Blank detail specification - Assessment level E",
+    "language": "EN-FR",
+    "description": "Is a supplementary document to the sectional specification and contains requirements for style, layout and minimum contents of detail specifications."
+  },
+  {
+    "reference": "IEC 61337-1:2004",
+    "edition": "1.0",
+    "date": "2004-11-02",
+    "title": "Filters using waveguide type dielectric resonators - Part 1: Generic specification",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61337-1:2004 applies to filters using waveguide type dielectric resonators of assessed quality using either capability approval or qualification approval procedures. It also lists the test and measurement procedures which may be selected for use in detail specifications for such filters."
+  },
+  {
+    "reference": "IEC 61337-2:2004",
+    "edition": "1.0",
+    "date": "2004-07-06",
+    "title": "Filters using waveguide type dielectric resonators - Part 2: Guidance for use",
+    "language": "EN-FR, EN",
+    "description": "IEC 61337-2:2004-07(en-fr) draws attention to some of the more fundamental questions which should be considered by the user before he places an order for dielectric filters for a new application. It is limited to filters using waveguide type dielectric resonators that are used for microwave applications such as portable phones, cellular base stations and radio links."
+  },
+  {
+    "reference": "IEC 61338-1:2004",
+    "edition": "1.0",
+    "date": "2004-11-02",
+    "title": "Waveguide type dielectric resonators - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 61338-1:2004 applies to waveguide type dielectric resonators of assessed quality using either capability approval or qualification approval procedures. It also lists the test and measurement procedures which may be selected for use in detail specifications for such resonators."
+  },
+  {
+    "reference": "IEC 61338-1-3:1999",
+    "edition": "1.0",
+    "date": "1999-11-30",
+    "title": "Waveguide type dielectric resonators - Part 1-3: General information and test conditions - Measurement method of complex relative permittivity for dielectric resonator materials at microwave frequency",
+    "language": "EN-FR",
+    "description": "Describes the measurement methods of the complex relative permittivity of dielectric resonator materials at microwave frequencies by means of the dielectric rod resonator method short-circuited at both ends by parallel conducting plates."
+  },
+  {
+    "reference": "IEC 61338-1-4:2005",
+    "edition": "1.0",
+    "date": "2005-11-08",
+    "title": "Waveguide type dielectric resonators - Part 1-4: General information and test conditions - Measurement method of complex relative permittivity for dielectric resonator materials at millimetre-wave frequency",
+    "language": "EN-FR, EN",
+    "description": "IEC 61338-1-4:2005-11(en-fr) describes the measurement method of dielectric properties for dielectric resonator materials at millimetre-wave frequency. This standard consists of two measurement methods: a) the dielectric rod resonator method excited by NRD-guide (Non-Radiative Dielectric waveguide) and b) the cut-off waveguide method excited by coaxial cables with small loops."
+  },
+  {
+    "reference": "IEC 61338-1-5:2015",
+    "edition": "1.0",
+    "date": "2015-06-25",
+    "title": "Waveguide type dielectric resonators - Part 1-5: General information and test conditions - Measurement method of conductivity at interface between conductor layer and dielectric substrate at microwave frequency",
+    "language": "EN-FR",
+    "description": "IEC 61338-1-5:2015 describes a measurement method for resistance and effective conductivity at the interface between conductor layer and dielectric substrate, which are called interface resistance and interface conductivity. This first edition cancels and replaces IEC PAS 61338-1-5 published in 2010. This edition includes the following significant technical changes with respect to the previous edition: a) description of technical content related to patents (Japanese patent numbers JP3634966, JP3735501) in the Introduction; b) changes to normative references; c)addition to bibliography."
+  },
+  {
+    "reference": "IEC 61338-2:2004",
+    "edition": "1.0",
+    "date": "2004-05-27",
+    "title": "Waveguide type dielectric resonators - Part 2: Guidelines for oscillator and filter applications",
+    "language": "EN-FR, EN",
+    "description": "IEC 61338-2:2004-05(en-fr) contains guidelines for use, is limited to the waveguide type dielectric resonators that are used for oscillator and filter applications. The applications are oscillators for direct broadcasting or communication satellite systems, oscillators for radio links, voltage-controlled oscillators for mobile communication systems and so on. This standard cancels and replaces IEC PAS 61338-2 published in 2000. This first edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61338-4:2005",
+    "edition": "1.0",
+    "date": "2005-03-23",
+    "title": "Waveguide type dielectric resonators - Part 4: Sectional specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 61338-4:2005-03(en-fr) applies to waveguide type dielectric resonators as custom built products or as standard catalogue items whose quality is assessed on the basis of capability approval. It prescribes the preferred ratings and characteristics with the appropriate tests and measuring methods contained in IEC 61338-1, and gives the general performance requirements to be used in detail specifications for waveguide type dielectric resonators."
+  },
+  {
+    "reference": "IEC 61338-4-1:2005",
+    "edition": "1.0",
+    "date": "2005-03-23",
+    "title": "Waveguide type dielectric resonators - Part 4-1: Blank detail specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 61338-4-1:2005 is a supplementary document to the sectional specification and contains requirements for the minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 61837-1:2012",
+    "edition": "2.0",
+    "date": "2012-04-20",
+    "title": "Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 1: Plastic moulded enclosure outlines",
+    "language": "EN-FR",
+    "description": "IEC 61837-1:2012 deals with standard outlines and terminal lead connections as they apply to SMDs for frequency control and selection in plastic moulded enclosures and is based on IEC 61240. This publication is to be read in conjunction with IEC 61240:1994 ."
+  },
+  {
+    "reference": "IEC 61837-2:2018",
+    "edition": "3.0",
+    "date": "2018-05-08",
+    "title": "Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 2: Ceramic enclosures",
+    "language": "EN-FR, EN",
+    "description": "IEC 61837-2:2018 deals with standard outlines and terminal lead connections as they apply to surface-mounted devices (SMD) for frequency control and selection in ceramic enclosures, and is based on IEC 61240:2016. This edition includes the following significant technical changes with respect to the previous edition: a. revision of the figures to match the notation of the drawings of IEC 61240:2016; b. addition of 7 enclosures as follows: DCC-6/5032A, DCC-6/3225A, DCC-4/3215C, DCC-6/2016A, DCC-2/2012C, DCC-2/1610C, DCC-4/1210C. As a result, this third edition contains a total of 45 enclosure types, which are listed in Table 1."
+  },
+  {
+    "reference": "IEC 61837-2:2018/AMD1:2020",
+    "edition": "3.0",
+    "date": "2020-09-24",
+    "title": "Amendment 1 - Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 2: Ceramic enclosures",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61837-2:2018/AMD2:2026",
+    "edition": "3.0",
+    "date": "2026-06-18",
+    "title": "Amendment 2 - Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 2: Ceramic enclosures",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61837-3:2015",
+    "edition": "2.0",
+    "date": "2015-04-15",
+    "title": "Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 3: Metal enclosures",
+    "language": "EN-FR",
+    "description": "IEC 61837-3:2015 deals with standard outlines and terminal lead connections as they apply to SMDs for frequency control and selection in metal enclosures and is based on IEC 61240 which standardized layout rules of outline drawings of the surface-mounted devices. This edition includes the following significant technical changes with respect to the previous edition: - The outline drawing is defined as one set of drawings consisting of four views, which are the view from above, the front view, the view from the right, and the view from below; the view from the right was drawn optionally in the previous edition. - The height of package (G1) is eliminated, instead total height is expressed by the symbol letter G or with a subscript number. - The dimensions of terminal lead spacing are shown by the centre position of the terminal leads and its basic value e is 2.54 x n mm (n is an integer) and 1,27 x n mm for package dimensions smaller than 6 mm (See IEC 61240:2012, 5.5). If the terminal lead spacing is not a multiple of the basic value, a subscript number such as e1, e2 is attached, e.g. e1, e2, etc. If there are plural spacing values, the subscript number is followed by a hyphen and numbers such as e1-1, e1-2 , etc. - In terminal land areas, the lengths of each terminal pad are now expressed with maximum values for consumer's convenience. They were expressed as minimum values in the previous edition of IEC 61837-3. - If there are plural identical enclosures with different height, each enclosure was expressed by a dash (/) and a two-digit number after the basic type name. The identity references are given in the table of the sheet. - The configurations of the enclosures were revised as shown in Table 1. This publication is to be read in conjunction with IEC 61240:2012 ."
+  },
+  {
+    "reference": "IEC 61837-4:2015",
+    "edition": "2.0",
+    "date": "2015-03-27",
+    "title": "Surface mounted piezoelectric devices for frequency control and selection - Standard outlines and terminal lead connections - Part 4: Hybrid enclosure outlines",
+    "language": "EN-FR",
+    "description": "IEC 61837-4:2015 specifies the outline drawings and terminal lead connections for surface piezoelectric devices with hybrid enclosure outlines and is based on IEC 61240:2012 which standardized layout rules of outline drawings of surface-mounted device. This edition includes the following significant technical changes with respect to the previous edition: - Outline drawing is defined as one set of drawings consisting of four views, which are the view from above, the front view, the view from the right, and the view from below, instead of one set consisting of three views as provided in the previous edition. - The configurations of the enclosures were revised as shown in Table 1. This publication is to be read in conjunction with IEC 61240:2012 ."
+  },
+  {
+    "reference": "IEC TS 61994-1:2007",
+    "edition": "2.0",
+    "date": "2007-08-30",
+    "title": "Piezoelectric and dielectric devices for frequency control and selection - Glossary - Part 1: Piezoelectric and dielectric resonators",
+    "language": "EN",
+    "description": "Gives the terms and definitions for piezoelectric and dielectric resonators representing the present state-of-the-art, which are intended for use in the standards and documents of IEC TC 49. This new edition takes into account new editions of IEC TC 49 publications."
+  },
+  {
+    "reference": "IEC TS 61994-2:2011",
+    "edition": "2.0",
+    "date": "2011-06-17",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 2: Piezoelectric and dielectric filters",
+    "language": "EN-FR",
+    "description": "IEC/TS 61994-2:2011 is a technical specification that gives the terms and definitions for piezoelectric and dielectric filters representing the present state of the art, which are intended for use in the standards and documents of IEC technical committee 49. The main changes with respect to the previous edition are listed below: - definitions updated, - terminology given in orderly sequence, - new terminologies are added, - drawings inserted for easier understanding."
+  },
+  {
+    "reference": "IEC TS 61994-3:2021",
+    "edition": "3.0",
+    "date": "2021-01-28",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 3: Piezoelectric, dielectric and electrostatic oscillators",
+    "language": "EN",
+    "description": "IEC TS 61994-3:2021(E) gives the terms and definitions for piezoelectric, dielectric and electrostatic oscillators representing the state of the art, which are intended for use in the standards and documents of IEC TC 49. The main changes with respect to the previous edition are as listed below: - some definitions have been updated; - the terminology given in IEC 60679-1:2017 has been taken into account; - new terminologies are added."
+  },
+  {
+    "reference": "IEC TS 61994-4-1:2018",
+    "edition": "3.0",
+    "date": "2018-11-16",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 4-1: Piezoelectric materials - Synthetic quartz crystal",
+    "language": "EN",
+    "description": "IEC 61994-4-1:2018 gives the terms and definition for synthetic quartz crystals representing the state of the art, which are intended for manufacturing piezoelectric and optical elements. This edition includes the following significant technical changes with respect to the previous edition: - The new terms and definitions given in IEC 60758:2016 have been taken into account; - The general title has been changed according to the change in the title of TC 49 in 2009."
+  },
+  {
+    "reference": "IEC TS 61994-4-2:2011",
+    "edition": "2.0",
+    "date": "2011-03-08",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 4-2: Piezoelectric and dielectric materials - Piezoelectric ceramics",
+    "language": "EN-FR",
+    "description": "IEC/TS 61994-4-2:2011 specifies the terms and definitions for piezoelectric ceramics representing the present state-of-the-art, which are intended for use in the standards and documents of IEC technical committee 49. The main changes with respect to the previous edition are: - definitions updated; - terminology given in orderly sequence; - drawing inserted for easier understanding the vibration modes."
+  },
+  {
+    "reference": "IEC TS 61994-4-3:2008",
+    "edition": "1.0",
+    "date": "2008-02-22",
+    "title": "Piezoelectric and dielectric devices for frequency control and selection - Glossary - Part 4-3: Materials - Materials for dielectric devices",
+    "language": "EN",
+    "description": "Specifies the terms and definitions for materials applied for devices using waveguide type dielectric resonators representing the state-of-the-art, which are intended for use in the standards and documents of IEC technical committee 49."
+  },
+  {
+    "reference": "IEC TS 61994-4-4:2018",
+    "edition": "3.0",
+    "date": "2018-11-16",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 4-4: Piezoelectric materials - Single crystal wafers for surface acoustic wave (SAW) devices",
+    "language": "EN",
+    "description": "IEC 61994-4-4:2018 gives the terms and definition for single crystal wafers for surface acoustic wave (SAW) devices representing the state of the art. This edition includes the following significant technical changes with respect to the previous edition: - the new terms and definitions given in IEC 62276:2016 have been taken into account; - the general title has been changed according to the change in the title of TC 49 in 2009. - the part title has been changed according to the title of IEC 62276:2016."
+  },
+  {
+    "reference": "IEC TS 61994-5:2023",
+    "edition": "2.0",
+    "date": "2023-09-15",
+    "title": "Piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection - Glossary - Part 5: Piezoelectric sensors",
+    "language": "EN",
+    "description": "IEC TS 61994-5:2023 gives the terms and definitions for sensors representing the state of the art, which are intended for manufacturing piezoelectric elements, cells, modules and the systems. This edition includes the following significant technical changes with respect to the previous edition: New terms and definitions have been added from IEC 63041-1:2021 and IEC 63041-3:2020."
+  },
+  {
+    "reference": "IEC 62276:2025",
+    "edition": "4.0",
+    "date": "2025-03-07",
+    "title": "Single crystal wafers for surface acoustic wave (SAW) device applications - Specifications and measuring methods",
+    "language": "EN-FR",
+    "description": "IEC 62276:2025 applies to the manufacture of synthetic quartz, lithium niobate (LN), lithium tantalate (LT), lithium tetraborate (LBO), and lanthanum gallium silicate (LGS) single crystal wafers intended for use as substrates in the manufacture of surface acoustic wave (SAW) filters and resonators. This edition includes the following significant technical changes with respect to the previous edition: a) The terms and definitions, the technical requirements, sampling frequency, test methods and measurement of transmittance, lightness, colour difference for LN and LT have been added in order to meet the needs of industry development; b) The term “inclusion” (mentioned in 4.13 and 6.10) and its definition have been added because there was no definition for it in Clause 3; c) The specification of LTV and PLTV, and the corresponding description of sampling frequency for LN and LT have been added, because they are the key performance parameters for the wafers; d) The tolerance of Curie temperature specification for LN and LT have been added in order to meet the development requirements of the industry; e) Measurement of thickness, TV5, TTV, LTV and PLTV have been completed, including measurement principle and method of thickness, TV5, TTV, LTV and PLTV."
+  },
+  {
+    "reference": "IEC 62575-1:2015",
+    "edition": "1.0",
+    "date": "2015-10-29",
+    "title": "Radio frequency (RF) bulk acoustic wave (BAW) filters of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62575-1:2015 specifies the methods of test and general requirements for RF BAW filters of assessed quality using either capability approval or qualification approval procedures. Conventional crystal filters standardized in the IEC 60368 series are not covered by this standard."
+  },
+  {
+    "reference": "IEC 62575-2:2012",
+    "edition": "1.0",
+    "date": "2012-07-25",
+    "title": "Radio frequency (RF) bulk acoustic wave (BAW) filters of assessed quality - Part 2: Guidelines for the use",
+    "language": "EN-FR",
+    "description": "IEC 62575-2:2012 gives practical guidance on the use of RF BAW filters which are used in telecommunications, measuring equipment, radar systems and consumer products. General information, standard values and test conditions will be provided in a future IEC standard. This part of IEC 62575 includes various kinds of filter configurations, of which the operating frequency range is from approximately 500 MHz to 10 GHz and the relative bandwidth is about 1 % to 5 % of the centre frequency."
+  },
+  {
+    "reference": "IEC 62604-1:2022",
+    "edition": "2.0",
+    "date": "2022-07-11",
+    "title": "Surface acoustic wave (SAW) and bulk acoustic wave (BAW) duplexers of assessed quality - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62604-1:2022 specifies the methods of test and general requirements for SAW and BAW duplexers of assessed quality using either capability approval or qualification approval procedures. This edition includes the following significant technical changes with respect to the previous edition: - the term \"multiplexer\" has been added to Clause 3. NOTE In this document, SAW and BAW duplexers are treated simultaneously because both duplexers are used in the same manner especially in mobile phones and have the same requirements of characteristics, test method and so on."
+  },
+  {
+    "reference": "IEC 62604-2:2022",
+    "edition": "3.0",
+    "date": "2022-09-01",
+    "title": "Surface acoustic wave (SAW) and bulk acoustic wave (BAW) duplexers of assessed quality - Part 2: Guidelines for the use",
+    "language": "EN-FR",
+    "description": "IEC 62604-2:2022 applies to duplexers which can separate receiving signals from transmitting signals and are key components for two-way radio communications, and which are generally used in mobile phone systems compliant with CDMA systems such as N-CDMA in second generation mobile telecommunication systems (2G), W-CDMA / UMTS (3G) or LTE (4G). These guidelines draw attention to some fundamental questions about the theory of SAW and BAW duplexers and how to use them, which will be considered by the user before he places an order for SAW and BAW duplexers for a new application. Such a procedure will be the user’s insurance against unsatisfactory performance. Because SAW and BAW duplexers have very similar performance for the usage, it is useful and convenient for users that both duplexers are described in one standard. This edition includes the following significant technical changes with respect to the previous edition: - the term \"cross-isolation\" has been added to Clause 3; - multiplexers are described. NOTE In this document, SAW and BAW duplexers are treated simultaneously because both duplexers are used in the same manner, especially in mobile phone systems and have the same requirements of characteristics, test method and so on."
+  },
+  {
+    "reference": "IEC 62761:2014",
+    "edition": "1.0",
+    "date": "2014-02-19",
+    "title": "Guidelines for the measurement method of nonlinearity for surface acoustic wave (SAW) and bulk acoustic wave (BAW) devices in radio frequency (RF)",
+    "language": "EN-FR",
+    "description": "IEC 62761:2014-02(en-fr) gives the measurement method for nonlinear signals generated in the radio frequency (RF) surface acoustic wave (SAW) and bulk acoustic wave (BAW) devices such as filters and duplexers, which are used in telecommunications, measuring equipment, radar systems and consumer products. It includes basic properties of non-linearity, and guidelines to setup the measurement system and to establish the measurement procedure of nonlinear signals generated in SAW/BAW devices."
+  },
+  {
+    "reference": "IEC 62884-1:2017",
+    "edition": "1.0",
+    "date": "2017-06-08",
+    "title": "Measurement techniques of piezoelectric, dielectric and electrostatic oscillators - Part 1: Basic methods for the measurement",
+    "language": "EN-FR, EN",
+    "description": "IEC 62884-1:2017 specifies the measurement techniques for piezoelectric, dielectric and electrostatic oscillators, including Dielectric Resonator Oscillators (DROs) and oscillators using FBAR (hereinafter referred to as \"Oscillator\")"
+  },
+  {
+    "reference": "IEC 62884-2:2017",
+    "edition": "1.0",
+    "date": "2017-08-30",
+    "title": "Measurement techniques of piezoelectric, dielectric and electrostatic oscillators - Part 2: Phase jitter measurement method",
+    "language": "EN-FR, EN",
+    "description": "IEC 62884-2:2017 specifies the methods for the measurement and evaluation of the phase jitter measurement of piezoelectric, dielectric and electrostatic oscillators, including dielectric resonator oscillators (DROs) and oscillators using a thin-film bulk acoustic resonator (FBAR) (hereinafter referred to as an \"Oscillator\") and gives guidance for phase jitter that allows the accurate measurement of RMS jitter. In the measurement method, phase noise measurement equipment or a phase noise measurement system is used. NOTE Dielectric resonator oscillators (DROs) and oscillators using FBAR are under consideration."
+  },
+  {
+    "reference": "IEC 62884-3:2018",
+    "edition": "1.0",
+    "date": "2018-03-22",
+    "title": "Measurement techniques of piezoelectric, dielectric and electrostatic oscillators - Part 3: Frequency aging test methods",
+    "language": "EN-FR, EN",
+    "description": "IEC 62884-3:2018 describes the methods for the measurement and evaluation of frequency aging tests of piezoelectric, dielectric and electrostatic oscillators, including Dielectric Resonator Oscillators (DRO) and oscillators using FBAR (hereinafter referred to as \"Oscillator\"). The purpose of those tests is to provide statistical data supporting aging predictions. This document was developed from the works related to IEC 60679-1:2007 (third edition), the measurement techniques of which were restructured into different parts under a new project reference. This document describes the measurement method for frequency aging only."
+  },
+  {
+    "reference": "IEC 62884-4:2019",
+    "edition": "1.0",
+    "date": "2019-05-06",
+    "title": "Measurement techniques of piezoelectric, dielectric and electrostatic oscillators - Part 4 : Short-term frequency stability test methods",
+    "language": "EN-FR",
+    "description": "IEC 62884-4:2019 describes the methods for the measurement and evaluation of the short-term frequency stability tests of piezoelectric, dielectric and electrostatic oscillators. Its purpose is to unify the test and evaluation methods for short-term frequency stability."
+  },
+  {
+    "reference": "IEC 63041-1:2021",
+    "edition": "2.0",
+    "date": "2021-09-17",
+    "title": "Piezoelectric sensors - Part 1: Generic specifications",
+    "language": "EN-FR",
+    "description": "IEC 63041-1:2021 applies to piezoelectric sensors of resonator, delay-line and non-acoustic types, which are used in physical and engineering sciences, chemistry and biochemistry, medical and environmental sciences, etc. The purpose of this document is to specify the terms and definitions for piezoelectric sensors, and to make sure from a technological perspective that users understand the state-of-art piezoelectric sensors and how to use them correctly. This edition includes the following significant technical changes with respect to the previous edition: - the new terms \"piezoelectric sensor system\" and \"wireless SAW sensor system\" and their definitions have been added; - new types of sensor modules and sensor system have been added; - some symbols of sensor elements are added in Clause 4; - a new Figure B.3 has been added in Annex B; - Annex C has been added."
+  },
+  {
+    "reference": "IEC 63041-2:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Piezoelectric sensors - Part 2: Chemical and biochemical sensors",
+    "language": "EN-FR, EN",
+    "description": "IEC 63041-2:2017 is applicable to piezoelectric chemical sensors mainly used in the field of biological, medical, gas and environmental sciences. It provides users with technical guidelines on biochemical sensors as well as basic knowledge of common chemical sensors."
+  },
+  {
+    "reference": "IEC 63041-3:2026",
+    "edition": "2.0",
+    "date": "2026-02-25",
+    "title": "Piezoelectric sensors - Part 3: Physical sensors",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63041-3:2026 is available as IEC 63041-3:2026 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 63041-3:2026 is applicable to piezoelectric physical sensors mainly used in the field of process control, wireless monitoring, dynamics, thermodynamics, vacuum engineering, and environmental sciences. This document provides users with technical guidelines as well as basic knowledge of common physical sensors. Piezoelectric sensors covered herein are those applied to the detection and measurement of physical quantities such as force, pressure, torque, viscosity, temperature, film thickness, acceleration, vibration, and tilt angle. This edition includes the following significant technical changes with respect to the previous edition: a) Some terms in Clause 3 have been updated to be consistent with IEC TS 61994-5:2023."
+  },
+  {
+    "reference": "IEC 63155:2020",
+    "edition": "1.0",
+    "date": "2020-04-24",
+    "title": "Guidelines for the measurement method of power durability for surface acoustic wave (SAW) and bulk acoustic wave (BAW) devices in radio frequency (RF) applications",
+    "language": "EN-FR",
+    "description": "IEC 63155:2020 defines the measurement method for the determination of the durability of radio frequency (RF) surface acoustic wave (SAW) and bulk acoustic wave (BAW) devices, such as filters and duplexers, with respect to high power RF signals, which are used in telecommunications, measuring equipment, radar systems and consumer products. RF BAW devices include two types: those based on the film bulk acoustic resonator (FBAR) technology and those based on the solidly mounted resonator (SMR) technology. This document includes basic properties of failure of RF SAW/BAW devices, and guidelines to set up the measurement system and to establish the procedure to estimate the time to failure (TF). Since TF is mainly governed by the RF power applied in the devices, discussions are focused on the power durability. It is not the aim of this document to explain the theory, or to attempt to cover all the eventualities which can arise in practical circumstances. This document draws attention to some of the more fundamental questions which will need to be considered by the user before he/she places an order for an RF SAW/BAW device for a new application. Such a procedure will be the user's means of preventing unsatisfactory performance related to premature device failure resulting from high-power exposure of RF SAW/BAW devices."
+  },
+  {
+    "reference": "IEC 63541:2025",
+    "edition": "1.0",
+    "date": "2025-12-19",
+    "title": "Lithium tantalate and lithium niobate crystals for surface acoustic wave (SAW) device applications - Specifications and measuring methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63541:2025 applies to lithium tantalate (LT) and lithium niobate (LN) crystals for surface acoustic wave devices, including the as-grown crystals and lumbered crystals."
+  }
+]

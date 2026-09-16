@@ -1,0 +1,874 @@
+[
+  {
+    "reference": "ISO/IEC 1539-1:2023",
+    "edition": "5.0",
+    "date": "2023-11-17",
+    "title": "Programming languages - Fortran - Part 1: Base language",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 1539-1:2023/COR1:2026",
+    "edition": "5.0",
+    "date": "2026-01-08",
+    "title": "Programming languages - Fortran - Part 1: Base language - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 1539-2:2000",
+    "edition": "2.0",
+    "date": "2000-06-08",
+    "title": "Information technology - Programming languages - Fortran - Part 2: Varying length character strings",
+    "language": "EN",
+    "description": "This part of ISO/IEC 1539 defines facilities in Fortran for the manipulation of character strings of dynamically variable length. This part of ISO/IEC 1539 provides an auxiliary standard for the version of the Fortran language specified by ISO/IEC 1539-1: 1997 and informally known as Fortran 95. A program that conforms with 1539-2: 1994 also conforms with this standard. This part of ISO/IEC 1539 is an auxiliary standard to that defining Fortran 95 in that it defines additional facilities to those defined intrinsically in the primary language standard. A processor conforming to the Fortran 95 standard is not required also to conform to this part of ISO/IEC 1539. However, conformance to this part of ISO/IEC 1539 assumes conformance to the primary Fortran 95 standard. This part of ISO/IEC 1539 prescribes the name of a Fortran module, the name of a derived data type to be used to represent varying-length strings, the interfaces for the procedures and operators to be provided to manipulate objects of this type, and the semantics that are required for each of the entities made accessible by this module. This part of ISO/IEC 1539 does not prescribe the details of any implementation. Neither the method used to represent the data entities of the defined type nor the algorithms used to implement the procedures or operators whose interfaces are defined by this part of ISO/IEC 1539 are prescribed. A conformant implementation may use any representation and any algorithms, subject only to the requirement that the publicly accessible names and interfaces conform to this part of ISO/IEC 1539, and that the semantics are as required by this part of ISO/IEC 1539 and those of ISO/IEC 1539-1 : 1997. It should be noted that a processor is not required to implement this part of ISO/IEC 1539 in order to be a standard conforming Fortran processor, but if a processor implements facilities for manipulating varying length character strings, it is recommended that this be done in a manner that is conformant with this part of ISO/IEC 1539. A processor conforming to this part of ISO/IEC 1539 may extend the facilities provided for the manipulation of varying length character strings as long as such extensions do not conflict with this part of ISO/IEC 1539 or with ISO/IEC 1539-1 : 1997. A module, written in standard conforming Fortran, is referenced in Annex A. This module illustrates one way in which the facilities described in this part of ISO/IEC 1539 could be provided. This module is both conformant with the requirements of this part of ISO/IEC 1539 and, because it is written in standard conforming Fortran, it provides a portable implementation of the required facilities. This module is referenced for information only and is not intended to constrain implementations in any way. This module is a demonstration that at least one implementation, in standard conforming and hence portable Fortran, is possible. It should be noted that this part of ISO/IEC 1539 defines facilities for dynamically varying length strings of characters of default kind only. Throughout this part of ISO/IEC 1539 all references to intrinsic type CHARACTER should be read as meaning characters of default kind. Similar facilities could be defined for non-default kind characters by a separate, if similar, module for each such character kind. This part of ISO/IEC 1539 has been designed, as far as is reasonable, to provide for varying length character strings the facilities that are available for intrinsic fixed length character strings. All the intrinsic operations and functions that apply to fixed length character strings have extended meanings defined by this part of ISO/IEC 1539 for varying length character strings. Also a small number of additional facilities are defined that are appropriate because of the essential differences between the intrinsic type and the varying length derived data type."
+  },
+  {
+    "reference": "ISO/IEC 1989:2023",
+    "edition": "3.0",
+    "date": "2023-01-31",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Programming language COBOL",
+    "language": "EN",
+    "description": "This document specifies the syntax and semantics of COBOL. Its purpose is to promote a high degree of machine independence to permit the use of COBOL on a variety of data processing systems. This document specifies: The form of a compilation group written in COBOL. The effect of compiling a compilation group. The effect of executing run units. The elements of the language for which a conforming implementation is required to supply a definition. The elements of the language for which meaning is explicitly undefined. The elements of the language that are dependent on the capabilities of the processor. This document does not specify: The means whereby a compilation group written in COBOL is compiled into code executable by a processor. The time at which method, function, or program runtime modules are linked or bound to an activating statement, except that runtime binding occurs of necessity when the identification of the appropriate program or method is not known at compile time. The time at which parameterized classes and interfaces are expanded. The mechanism by which locales are defined and made available on a processor. The form or content of error, flagging, or warning messages. The form and content of listings produced during compilation, if any. The form of documentation produced by an implementor of products conforming to this document. The sharing of objects and resources other than files among run units."
+  },
+  {
+    "reference": "ISO/IEC TS 6010:2025",
+    "edition": "1.0",
+    "date": "2025-05-15",
+    "title": "Programming languages - C - A provenance-aware memory object model for C",
+    "language": "EN",
+    "description": "This document specifies the form and establishes the interpretation of programs written in the C programming language. It is not a complete specification of that language but builds upon ISO/IEC 9899:2018 by constraining and clarifying the Memory Object Model."
+  },
+  {
+    "reference": "ISO/IEC 6522:1992",
+    "edition": "2.0",
+    "date": "1992-11-25",
+    "title": "Information technology - Programming languages - PL/1 general purpose subset",
+    "language": "EN",
+    "description": "The language defined is different from those of previous PL/I standards, although substantially upward compatible, at the source program and semantic level. The differences are summarized in appendix A. Specifies the syntax and semantics of conforming PL/I programs. Defines a conforming processor (or conforming implementation) only in terms of those conforming programs. The definition is accomplished by specifying a conceptual PL/I machine which translates and interprets intended PL/I programs."
+  },
+  {
+    "reference": "ISO/IEC 7185:1990",
+    "edition": "2.0",
+    "date": "1990-10-25",
+    "title": "Information technology - Programming languages - Pascal",
+    "language": "EN",
+    "description": "Information technology"
+  },
+  {
+    "reference": "ISO/IEC 8652:2023",
+    "edition": "4.0",
+    "date": "2023-05-02",
+    "title": "Information technology - Programming languages - Ada",
+    "language": "EN",
+    "description": "This document specifies the form and meaning of programs written in Ada. Its purpose is to promote the portability of Ada programs to a variety of computing systems. This document specifies: — The form of a program written in Ada; — The effect of translating and executing such a program; — The manner in which program units can be combined to form Ada programs; — The language-defined library units that a conforming implementation is required to supply; — The permissible variations in conformance to the rules of this document, and the manner in which they are to be documented; — Those violations of the requirements of this document that a conforming implementation is required to detect, and the effect of attempting to translate or execute a program containing such violations; — Those violations of the requirements of this document that a conforming implementation is not required to detect. This document does not specify: — The means whereby a program written in Ada is transformed into object code executable by a processor; — The means whereby translation or execution of programs is invoked and the executing units are controlled; — The size or speed of the object code, or the relative execution speed of different language constructs; — The form or contents of any listings produced by implementations; in particular, the form or contents of error or warning messages; — The effect of unspecified execution; — The size of a program or program unit that will exceed the capacity of a particular conforming implementation."
+  },
+  {
+    "reference": "ISO/IEC 9496:2003",
+    "edition": "4.0",
+    "date": "2003-12-11",
+    "title": "CHILL - The ITU-T programming language",
+    "language": "EN",
+    "description": "ISO/IEC 9496:2003 defines the ITU-T programming language CHILL. CHILL is a strongly typed, block structured and object-oriented language designed primarily for the implementation of large and complex embedded systems. CHILL was designed to provide reliability and run time efficiency, at the same time sufficient flexibility and powerfulness to encompass the required range of applications. CHILL also provides facilities that encourage piecewise and modular development of large systems."
+  },
+  {
+    "reference": "ISO/IEC 9899:2024",
+    "edition": "5.0",
+    "date": "2024-10-31",
+    "title": "Information technology - Programming languages - C",
+    "language": "EN",
+    "description": "This document specifies the form and establishes the interpretation of programs written in the C programming language. It is designed to promote the portability of C programs among a variety of data-processing systems. It is intended for use by implementers and programmers. It specifies: — the representation of C programs; — the syntax and constraints of the C language; — the semantic rules for interpreting C programs; — the representation of input data to be processed by C programs; — the representation of output data produced by C programs; — the restrictions and limits imposed by a conforming implementation of C. This document does not specify: — the mechanism by which C programs are transformed for use by a data-processing system; — the mechanism by which C programs are invoked for use by a data-processing system; — the mechanism by which input data are transformed for use by a C program; — the mechanism by which output data are transformed after being produced by a C program; — the size or complexity of a program and its data that will exceed the capacity of any specific data-processing system or the capacity of a particular processor; — all minimal requirements of a data-processing system that is capable of supporting a conforming implementation. Annex J gives an overview of portability issues that a C program can encounter."
+  },
+  {
+    "reference": "ISO/IEC TS 9922:2024",
+    "edition": "1.0",
+    "date": "2024-11-26",
+    "title": "Programming Languages - Technical specification for C++ extensions for concurrency 2",
+    "language": "EN",
+    "description": "This document builds upon ISO/IEC 14882 by describing requirements for implementations of an interface that computer programs written in the C++ programming language could use to invoke algorithms with concurrent execution. The algorithms described by this document are realizable across a broad class of computer architectures. This document is written as a set of differences from the base standard. Some of the functionality described by this document might be considered for standardization in a future version of C++, but it is not currently part of ISO/IEC 14882:2020. Some of the functionality in this document might never be standardized, and other functionality might be standardized in a substantially different form. The goal of this document is to build widespread existing practice for concurrency in the ISO/IEC 14882:2020 algorithms library. It gives advice on extensions to those vendors who wish to provide them."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 9945:2026",
+    "edition": "2.0",
+    "date": "2026-03-18",
+    "title": "Information technology - Portable Operating System Interface (POSIX™) Base Specifications, Issue 8",
+    "language": "EN",
+    "description": "This document defines a standard operating system interface and environment, including a command interpreter (or “shell”), and common utility programs to support applications portability at the source code level. This document is intended to be used by both application developers and system implementors and comprises four major components (each in an associated volume): General terms, concepts, and interfaces common to all volumes of this standard, including utility conventions and C-language header definitions, are included in the Base Definitions volume. Definitions for system service functions and subroutines, language-specific system services for the C programming language, function issues, including portability, error handling, and error recovery, are included in the System Interfaces volume. Definitions for a standard source code-level interface to command interpretation services (a “shell”) and common utility programs for application programs are included in the Shell and Utilities volume. Extended rationale that did not fit well into the rest of the document structure, which contains historical information concerning the contents of this document and why features were included or discarded by the standard developers, is included in the Rationale (Informative) volume. The following areas are outside the scope of this document: Graphics interfaces Database management system interfaces Record I/O considerations Object or binary code portability System configuration and resource availability This document describes the external characteristics and facilities that are of importance to application developers, rather than the internal construction techniques employed to achieve these capabilities. Special emphasis is placed on those functions and facilities that are needed in a wide variety of commercial applications."
+  },
+  {
+    "reference": "ISO/IEC TR 10034:1990",
+    "edition": "1.0",
+    "date": "1990-03-29",
+    "title": "Guidelines for the preparation of conformity clauses in programming language standards",
+    "language": "EN",
+    "description": "Recognizing the dissimilarity of various language standards, the objective of this Technical Report is to provide guidelines for the preparation of conformity clauses for processors and conformity clauses for programs in language standards, together with an annex containing a checklist to aid in this preparation. It was not considered practical to provide model statements that would be suitable for inclusion in all language standards. Therefore, examples have been given to illustrate the type of issues that should be addressed and it is anticipated that these will be adapted, where appropriate, for inclusion in a particular language standard. It should be borne in mind when reading this document that not all concepts will be applicable to all languages. As examples, language standards do not all specify subsets or permit extensions, and elements that are fully specified by one language standard may be dependent on the processor in another."
+  },
+  {
+    "reference": "ISO/IEC TR 10176:2003",
+    "edition": "4.0",
+    "date": "2003-04-28",
+    "title": "Information technology - Guidelines for the preparation of programming language standards",
+    "language": "EN",
+    "description": "ISO/IEC TR 10176:2003(E) provides guidelines for the preparation of Programming Language Standards. Standards for programming languages are developed by many committees from many countries, with many different editors supporting the effort. ISO thus considered it necessary to develop guidelines so that these standards cover at least the following subjects: Consistent terminology Consistent structure Syntax and semantics Error and exception handling Provisions of options Presentation of source programs Processor dependences Binding strategies to functional standards Conformance definition Internationalization and support of multiple languages Cultural convention related functionality Use of expanded character repertoire for identifiers User documentation The constant additions to ISO/IEC 10646, the Universal character set, necessitate timely updates of ISO/IEC TR 10176 to allow the use of local scripts and characters in programming languages. Annex A of ISO/IEC TR 10176:2003 provides such an expanded collection of characters, recommended for use in programming languages."
+  },
+  {
+    "reference": "ISO/IEC TR 10182:2016",
+    "edition": "1.0",
+    "date": "2016-03-10",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Guidelines for language bindings",
+    "language": "EN",
+    "description": "ISO/IEC TR 10182:2016 is based on experience gained in the standardization of two major areas in information processing. One area covers programming languages. The other area is composed of the services necessary to an application program to achieve a goal. The services are divided into coherent groups, each referred to as a SYSTEM FACILITY, that are accessed through a FUNCTIONAL INTERFACE. The specification of a system facility, referred to as a FUNCTIONAL SPECIFICATION, defines a collection of SYSTEM FUNCTIONS, each of which carries out some well-defined service. Since in principle there is no reason why a particular system facility should not be used by a program, regardless of the language in which is written, is the practice of system facility specifiers to define an 'abstract' functional interface that is language independent. In this way, the concepts in a particular system facility may be refined by experts in that area without regard for language peculiarities. An internally coherent view of a particular system facility is defined, relating the system functions to each other in a consistent way and relating the system functions to other layers within the system facility, including protocols for communication with other objects in the total system. However, if these two areas are standardized independently, it is not possible to guarantee that programs from one operating environment can be moved to another, even if the programs are written in a standard programming language and use only standard system facilities. A language binding of a system facility to a programming language provides language syntax that maps the system facility's functional interface. This allows a program written in the language to access the system functions constituting the system facility in a standard way. The purpose of a language binding is to achieve portability of a program that uses particular facilities in a particular language. Examples of system facilities that have had language bindings developed for them are GKS, NDL, and SQL (see Clause 3). It is anticipated that further language binding development will be required. Some system facilities currently being standardized have no language bindings and additional system facilities will be standardized. There is a possibility of n × m language bindings, where n is the number of languages and m the number of system facilities. The scope of this Technical Report is to classify language binding methods, reporting on particular instances in detail, and to produce suggested guidelines for future language binding standards. Note that the language bindings and the abstract facility interfaces must have a compatible run time representation, but the abstract facility does not necessarily have to be written in the host language. For example, if the application program is using a Pascal language binding and the corresponding facility is written in FORTRAN, there must be a compatible run time representation in that operating environment. How this compatibility is achieved is outside the scope of these guidelines. This is generally a property of the operating environment defined by the implementor, and is reviewed briefly in this Technical Report."
+  },
+  {
+    "reference": "ISO/IEC 10206:1991",
+    "edition": "1.0",
+    "date": "1991-05-02",
+    "title": "Information technology - Progamming languages - Extended Pascal",
+    "language": "EN",
+    "description": "Specifies the syntax and semantics of the programming language by specifying requirements for a processor and for a conforming program. Includes an alphabetical index. Annexes A to G are for information only."
+  },
+  {
+    "reference": "ISO/IEC 10279:1991",
+    "edition": "1.0",
+    "date": "1991-10-17",
+    "title": "Information technology - Programming languages - Full BASIC",
+    "language": "EN",
+    "description": "Specifies the programming language which is derived from the ANSI X3.113-1987. For details of the syntax and semantics see ANSI X3.113-1987. Annexes A and B are for information only."
+  },
+  {
+    "reference": "ISO/IEC 10279:1991/AMD1:1994",
+    "edition": "1.0",
+    "date": "1994-12-22",
+    "title": "Information technology - Programming languages - Full BASIC - Amendment 1: Modules and single character input enhancement",
+    "language": "EN",
+    "description": "Establishes the syntax of programs written using individual character input, or modules, or both; the semantic rules for interpreting the meaning of a BASIC program that uses individual character input, or modules, or both; errors and exceptional circumstances to be detected and also the manner in which such errors and exceptional circumstances are to be handled."
+  },
+  {
+    "reference": "ISO/IEC 10514-1:1996",
+    "edition": "1.0",
+    "date": "1996-05-30",
+    "title": "Information technology - Programming languages - Part 1: Modula-2, Base Language",
+    "language": "EN",
+    "description": "Gives definition of the language Modula-2 and its standard library and specifications for symbols for Modula-2 program representation, lexical and syntactic structure and the semantics of Modula-2 programs, the interface to library modules, modules of the standard library, rules for use of the language, criteria for size and complexity of programs and requirements for implementation."
+  },
+  {
+    "reference": "ISO/IEC 10514-2:1998",
+    "edition": "1.0",
+    "date": "1998-12-03",
+    "title": "Information technology - Programming languages - Part 2: Generics Modula-2",
+    "language": "EN",
+    "description": "1.1 General This part of ISO/IEC 10514 specifies extensions to allow generic programming facilities to be added to the base Modula-2 language defined in International Standard ISO/IEC 10514-1 without altering the meaning of valid programs allowed by the Base Language (except for the use of the new keyword introduced by this standard—see clause 5). 1.2 Specifications included in this part of ISO/IEC 10514 In addition to the specifications included in the Base Language this part of ISO/IEC 10514 provides specifications for: — required symbols for programs written in ISO Standard Modula-2 with Generic extensions; — the lexical structure and semantics of programs written in ISO Standard Modula-2 with Generic extensions; — the syntax of programs written in ISO Standard Modula-2 with Generic extensions; — violations of the rules for the use of the Generic extensions that a conforming implementation is required to detect; — further compliance requirements for implementations, including documentation requirements. 1.3 Relationship to ISO/IEC 10514-1 This part of ISO/IEC 10514 is part two of the multi-part Standard ISO/IEC 10514. This part of ISO/IEC 10514 extends and modifies the Base Language ISO/IEC 10514-1, but the adoption of this part of ISO/IEC 10514 is optional with respect to the Base Language. This part of ISO/IEC 10514 is also independent of any other parts of ISO/IEC 10514, except for part 1, and can be adopted either together with or independently of such other parts. 1.4 Specifications not within the scope of this part of ISO/IEC 10514 In addition to the categories of specifications excluded by the Base Language this part of ISO/IEC 10514 provides no specifications for: — the method by which specific refinements are constructed from generic library modules; — the method by which generic library modules, their associated refining modules, and the refinements produced by these are stored (including any correspondence between the module names and system file names where files are used)."
+  },
+  {
+    "reference": "ISO/IEC 10514-3:1998",
+    "edition": "1.0",
+    "date": "1998-12-03",
+    "title": "Information technology - Programming languages - Part 3: Object Oriented Modula-2",
+    "language": "EN",
+    "description": "1.1 Goals In addition to the goals of the Base Language, the goal of this part of ISO/IEC 10514 is to provide simple extensions to allow object oriented programming facilities to be added to the Base Language defined in International Standard ISO/IEC 10514-1 without altering the meaning of any valid program allowed by the Base Language (except for the use of the new keywords introduced by this standard, see clause 5). 1.2 Specifications included in this part of ISO/IEC 10514 In addition to the specifications included in the Base Language this part of ISO/IEC 10514 provides specifications for: — required symbols for Object Oriented Modula-2 programs; — the lexical structure, the syntactic structure and semantics of Object Oriented Modula-2 programs; — the interface to and the semantics of Object Oriented Modula-2 system modules; — violations of the rules for the use of the object oriented extensions that a conforming implementation is required to detect; — further compliance requirements for implementations, including documentation requirements. 1.3 Relationship to ISO/IEC 10514-1 This part of ISO/IEC 10514 is part three of the multi-part standard ISO/IEC 10514. This part of ISO/IEC 10514 extends and modifies the Base Language ISO/IEC 10514-1, but the adoption of this part of ISO/IEC 10514 is optional with respect to the Base Language. This part of ISO/IEC 10514 is also independent of any other parts of ISO/IEC 10514 except for part 1, and can be adopted either together with or independently of such other parts. 1.4 Specifications not within the scope of this part of ISO/IEC 10514 In addition to the categories of specifications excluded by the Base Language this part of ISO/IEC 10514 provides no specifications for: — the internal representation of the objects and their associated methods; — the implementation of the garbage collector; — the implementation of the tracking mechanism for traced objects."
+  },
+  {
+    "reference": "ISO/IEC 10967-1:2012",
+    "edition": "2.0",
+    "date": "2012-07-11",
+    "title": "Information technology - Language independent arithmetic - Part 1: Integer and floating point arithmetic",
+    "language": "EN",
+    "description": "ISO/IEC 10967-1:2012 specifies properties of many of the integer and floating point datatypes available in a variety of programming languages in common use for mathematical and numerical applications. Its goal is to ensure that the properties of the arithmetic on a conforming datatype are made available to the programmer."
+  },
+  {
+    "reference": "ISO/IEC 10967-2:2001",
+    "edition": "1.0",
+    "date": "2001-08-16",
+    "title": "Information technology - Language independent arithmetic - Part 2: Elementary numerical functions",
+    "language": "EN",
+    "description": "This part of ISO/IEC 10967 de_nes the properties of numerical approximations for many of the real elementary numerical functions available in standard libraries for a variety of programming languages in common use for mathematical and numerical applications. An implementor may choose any combination of hardware and software support to meet the speci_cations of this part. It is the computing environment, as seen by the programmer/user, that does or does not conform to the speci_cations. The term implementation (of this part) denotes the total computing environment pertinent to this part, including hardware, language processors, subroutine libraries, exception handling facilities, other software, and documentation."
+  },
+  {
+    "reference": "ISO/IEC 10967-3:2006",
+    "edition": "1.0",
+    "date": "2006-05-02",
+    "title": "Information technology - Language independent arithmetic - Part 3: Complex integer and floating point arithmetic and complex elementary numerical functions",
+    "language": "EN",
+    "description": "ISO/IEC 10967-3:2005 is based on ISO/IEC 10967-2 and ISO/IEC 10967-1, as well as IEC 60559. ISO/IEC 10967-3:2005 specifies the properties of complex and imaginary integer datatypes and floating point datatypes, basic operations on values of these datatypes as well as some numerical functions for which operand or result values are of imaginary or complex integer datatypes or imaginary or complex floating point datatypes constructed from integer and floating point datatypes satisfying the requirements of ISO/IEC 10967-1. These operations and functions are available in a variety of programming languages in common use for mathematical and numerical applications. The specification includes: Basic imaginary integer and complex integer operations; Non-transcendental imaginary floating point and Cartesian complex floating point operations; Exponentiation, logarithm, radian trigonometric, and hyperbolic operations for imaginary floating point and Cartesian complex floating point; The results produced by an included floating point operation when one or more operand values include IEC 60559 special values; and Program-visible parameters that characterize certain aspects of the operations."
+  },
+  {
+    "reference": "ISO/IEC TR 11017:1998",
+    "edition": "1.0",
+    "date": "1998-03-05",
+    "title": "Information technology - Framework for internationalization",
+    "language": "EN",
+    "description": "This Technical Report presents the framework and recommended model for internationalization and identifies the Services required for the internationalization of information technology. This Technical Report: - discusses the requirements of internationalized Systems and their users, - suggests a concerted, unified approach to internationalization, - recommends Services to fulfil the requirements, and lists the Standards related to the Services. This Technical Report is intended to be a reference for future Standards on the internationalization of information technology, to act as a communication vehicle between those who provide Standards and those who request them, and also to function as a basis for all future ISO/IEC JTC l/SC 22NVG 20 activities. NOTE 1 This Technical Report does not propose any specific solutions for internationalization. Future Standards are expected to provide the solutions, reflecting the directions in this Technical Report. NOTE 2 Internationalization Services consist of internationally generic Services and nationally specific information (data). This Technical Report covers only the internationally generic Portion of Software, so it does not discuss: - preparation of internationalized information technology Systems for localization by a local User. - hardware-related issues or requirements. - requirements related to System ergonomics. NOTE 3 The internationalization solutions and Services available in the mid-late 1980s are the technical basis for this Technical Report."
+  },
+  {
+    "reference": "ISO/IEC 11756:1999",
+    "edition": "2.0",
+    "date": "1999-07-01",
+    "title": "Information technology - Programming languages - M",
+    "language": "EN",
+    "description": "This International Standard describes the M programming language."
+  },
+  {
+    "reference": "ISO/IEC 13210:1999",
+    "edition": "2.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Requirements and Guidelines for Test Methods Specifications and Test Method Implementations for Measuring Conformance to POSIX Standards",
+    "language": "EN",
+    "description": "Abstract: This International Standard defines the requirements and guidelines for test method specifications and test method implementations for measuring conformance to POSIX standards. Test specification standard developers for other Application Programming Interface (API) standards are encouraged to use this standard. This document is aimed primarily at developers and users of test method specifications and implementations."
+  },
+  {
+    "reference": "ISO/IEC 13211-1:1995",
+    "edition": "1.0",
+    "date": "1995-06-01",
+    "title": "Information technology - Programming languages - Prolog - Part 1: General core",
+    "language": "EN",
+    "description": "Designed to promote the applicability and portability of Prolog text and data among a variety of data processing systems. Specifies: the representation of Prolog text; the syntax and constraints of the Prolog language; the semantic rules for interpreting Prolog text; the representation of input data to be processed by Prolog; the representation of output produced by Prolog and the restrictions and limits imposed on a conforming Prolog processor."
+  },
+  {
+    "reference": "ISO/IEC 13211-1:1995/COR1:2007",
+    "edition": "1.0",
+    "date": "2007-11-15",
+    "title": "Information technology - Programming languages - Prolog - Part 1: General core - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13211-1:1995/COR2:2012",
+    "edition": "1.0",
+    "date": "2012-01-30",
+    "title": "Information technology - Programming languages - Prolog - Part 1: General core - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13211-1:1995/COR3:2017",
+    "edition": "1.0",
+    "date": "2017-07-17",
+    "title": "Information technology - Programming languages - Prolog - Part 1: General core - Technical Corrigendum 3",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13211-2:2000",
+    "edition": "1.0",
+    "date": "2000-06-08",
+    "title": "Information technology - Programming languages - Prolog - Part 2: Modules",
+    "language": "EN",
+    "description": "This part of ISO/IEC 13211 is designed to promote the applicability and portability of Prolog modules that contain Prolog text complying with the requirements of the Programming Language Prolog as specified in this part of ISO/IEC 13211. This part of ISO/IEC 13211 specifies: a) The representation of Prolog text that constitutes a Prolog module, b) The constraints that shall be satisfied to prepare Prolog modules for execution, and c) The requirements, restrictions and limits imposed on a conforming Prolog processor that processes modules. This part of ISO/IEC 13211 does not specify: a) The size or number of Prolog modules that will exceed the capacity of any specific data processing system or language processor, or the actions to be taken when the limit is exceeded, b) The methods of activating the Prolog processor or the set of commands used to control the environment in which Prolog modules are prepared for execution, c) The mechanisms by which Prolog modules are loaded, d) The relationship between Prolog modules and the processor-specific file system. 1.1 Notes Notes in this part of ISO/IEC 13211 have no effect on the language, Prolog text, module text or Prolog processors that are defined as conforming to this part of ISO/IEC 13211. Reasons for including a note include: a) Cross references to other clauses and subclauses of this part of ISO/IEC 13211 in order to help readers find their way around, b) Warnings when a built-in predicate as defined in this part of ISO/IEC 13211 has a different meaning in some existing implementations."
+  },
+  {
+    "reference": "ISO/IEC TS 13211-3:2025",
+    "edition": "1.0",
+    "date": "2025-06-04",
+    "title": "Programming languages - Prolog - Part 3: Definite clause grammar rules as an extension of ISO/IEC 13211-1",
+    "language": "EN",
+    "description": "This document promotes the applicability and portability of Prolog grammar rules in data processing systems that support standard Prolog as defined in ISO/IEC 13211–1:1995/Cor 1:2007/Cor 2:2012/Cor 3:2017 and ISO/IEC 13211–2:2000. This document specifies: a) The representation, syntax, and constraints of Prolog grammar rules b) A logical expansion of grammar rules into Prolog clauses c) A set of built-in predicates for parsing with grammar rules"
+  },
+  {
+    "reference": "ISO/IEC 13568:2002",
+    "edition": "1.0",
+    "date": "2002-07-04",
+    "title": "Information technology - Z formal specification notation - Syntax, type system and semantics",
+    "language": "EN",
+    "description": "The following are within the scope of this International Standard: _ the syntax of the Z notation; _ the type system of the Z notation; _ the semantics of the Z notation; _ a toolkit of widely used mathematical operators; _ LATEX [10] and e-mail mark-ups of the Z notation. The following are outside the scope of this International Standard: _ any method of using Z, though an informative annex (E) describes one widely-used convention."
+  },
+  {
+    "reference": "ISO/IEC 13568:2002/COR1:2007",
+    "edition": "1.0",
+    "date": "2007-07-11",
+    "title": "Information technology - Z formal specification notation - Syntax, type system and semantics - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13719-1:1998",
+    "edition": "2.0",
+    "date": "1998-10-15",
+    "title": "Information technology - Portable Common Tool Environment (PCTE) - Part 1: Abstract specification",
+    "language": "EN",
+    "description": "This part of ISO/IEC 13719 specifies PCTE in abstract, programming-language-independent, terms. It specifies the interface supported by any conforming implementation as a set of abstract operation specifications, together with the types of their parameters and results. It is supported by a number of standard bindings, i.e. representations of the interface in standard programming languages. The scope of this part of ISO/IEC 13719 is restricted to a single PCTE installation. It does not specify the means of communication between PCTE installations, nor between a PCTE installation and another system. A number of features are not completely defined in this part of ISO/IEC 13719, some freedom being allowed to the implementor. Some of these are implementation limits, for which constraints are defined (see clause 24). The other implementation-dependent and implementation-defined features are specified in the appropriate places in this Standard. PCTE is an interface to a set of facilities that forms the basis for constructing environments supporting systems engineering projects. These facilities are designed particularly to provide an infrastructure for programs which may be part of such environments. Such programs, which are used as aids to systems development, are often referred to as tools. This part of ISO/IEC 13719 also includes (in annex B) a language standard for the PCTE Data Description Language (DDL), suitable for writing PCTE schema definition sets."
+  },
+  {
+    "reference": "ISO/IEC 13719-2:1998",
+    "edition": "2.0",
+    "date": "1998-10-15",
+    "title": "Information technology - Portable Common Tool Environment (PCTE) - Part 2: C programming language binding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13719-3:1998",
+    "edition": "2.0",
+    "date": "1998-10-15",
+    "title": "Information technology - Portable common tool environment (PCTE) - Part 3: Ada programming language binding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13719-4:1998",
+    "edition": "1.0",
+    "date": "1998-10-15",
+    "title": "Information technology - Portable Common Tool Environment (PCTE) - Part 4: IDL binding (Interface Definition Language)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 13751:2001",
+    "edition": "1.0",
+    "date": "2001-01-18",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Programming language Extended APL",
+    "language": "EN",
+    "description": "This International Standard defines the programming language APL and the environment in which APL programs are executed. Its purpose is to facilitate interchange and promote portability of APL programs and programming skills. This International Standard specifies the syntax and semantics of APL programs and the characteristics of the environment in which APL programs are executed. It also specifies requirements for conformance to this International Standard, including the publication of values and characteristics of implementation properties so that conforming implementations can be meaningfully compared. This International Standard does not specify: ? implementation properties that are likely to vary with the particular equipment or operating system used; ? required values for implementation limits such as APL workspace size or numeric precision; ? the data structures used to represent APL objects; ? the facilities available through shared variables."
+  },
+  {
+    "reference": "ISO/IEC 13816:2007",
+    "edition": "2.0",
+    "date": "2007-10-01",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Programming language ISLISP",
+    "language": "EN",
+    "description": "ISO/IEC 13816:2007 specifies syntax and semantics of the computer programming language ISLisp by specifying requirements for a conforming ISLisp processor and a conforming ISLisp text. The design goals for ISLisp are the following. ISLisp shall be compatible with existing Lisp dialects where feasible. ISLisp shall have as a primary goal to provide basic functionality. ISLisp shall be object-oriented. ISLisp shall be designed with extensibility in mind. ISLisp shall give priority to industrial needs over academic needs. ISLisp shall promote efficient implementations and applications. ISO/IEC 13816:2007 does not specify: the size or complexity of an ISLisp text that exceeds the capacity of any specific data processing system or the capacity of a particular processor, nor the actions to be taken when the corresponding limits are exceeded; the minimal requirements of a data processing system that is capable of supporting an implementation of a processor for ISLisp; the method of preparation of an ISLisp text for execution and the method of activation of this ISLisp text, prepared for execution; the typographical presentation of an ISLisp text published for human reading; extensions that might or might not be provided by the implementation."
+  },
+  {
+    "reference": "ISO/IEC 13817-1:1996",
+    "edition": "1.0",
+    "date": "1996-12-19",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Vienna Development Method - Specification Language - Part 1: Base language",
+    "language": "EN",
+    "description": "Specifies the model based specification language VDM-SL (Vienna Development Method - Specification Language). Contains the mathematical and interchange representation, gives the syntax, the static and the dynamic semantics, and conformity for specification and tools."
+  },
+  {
+    "reference": "ISO/IEC 13886:1996",
+    "edition": "1.0",
+    "date": "1996-03-28",
+    "title": "Information technology - Language-Independent Procedure Calling (LIPC)",
+    "language": "EN",
+    "description": "Specifies a model for procedure calls, and a reference syntax for mapping to and from the model. The syntax is referred to as the Interface Definition Notation. The model includes procedure invocation, parameter passing, completion status and environmental issues."
+  },
+  {
+    "reference": "ISO/IEC TR 14369:2018",
+    "edition": "2.0",
+    "date": "2018-01-30",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Guidelines for the preparation of language-independent service specifications (LISS)",
+    "language": "EN",
+    "description": "ISO/IEC TR 14369:2018 provides guidelines to those concerned with developing specifications of information technology services and their interfaces intended for use by clients of the services, in particular by external applications that do not necessarily all share the environment and assumptions of one particular programming language. The guidelines do not directly or fully cover all aspects of service or interface specifications, but they do cover those aspects required to achieve language independence, i.e. required to make a specification neutral with respect to the language environment from which the service is invoked. The guidelines are primarily concerned with the interface between the service and the external applications making use of the service, including the special case where the service itself is already specified in a language-dependent way but needs to be invoked from environments of other languages. Language bindings, already addressed by ISO/IEC TR 10182, are dealt with by providing advice on how to use the two documents together. ISO/IEC TR 14369:2018 provides technical guidelines, rather than organizational or administrative guidelines for the management of the development process, though in some cases the technical guidelines can have organizational or administrative implications."
+  },
+  {
+    "reference": "ISO/IEC 14515-1:2000",
+    "edition": "1.0",
+    "date": "2000-12-21",
+    "title": "Information technology - Portable Operating System Interface (POSIX®) - Test methods for measuring conformance to POSIX - Part 1: System interfaces",
+    "language": "EN",
+    "description": "ISO/IEC 14515-1:2000(E) (IEEE Std 2003.1-1992) provides a definition of the requirements placed upon providers of POSIX test methods for POSIX.1 (ISO/IEC 9945-1:1990; IEEE Std 1003.1-1990). These requirements consist of a POSIX.1-ordered list of assertions defining those aspects of POSIX.1 that are to be tested and the associated test methods that are to be used in performing those tests. This standard is aimed primarily at POSIX.1 test suite providers and POSIX.1 implementors. This standard specifies those aspects of POSIX.1 that shall be verified by conformance test methods."
+  },
+  {
+    "reference": "ISO/IEC 14515-1:2000/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-08-15",
+    "title": "Information technology - Portable Operating System Interface (POSIX®) - Test methods for measuring conformance to POSIX - Part 1: System interfaces - Amendment 1: Realtime Extension (C Language)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14519:2001",
+    "edition": "2.0",
+    "date": "2001-12-20",
+    "title": "Information technology - POSIX Ada Language Interfaces - Binding for System Application Program Interface (API)",
+    "language": "EN",
+    "description": "Abstract: This standard is part of the POSIX ® series of standards for applications and user inter-faces to open systems. It defines the Ada language bindings as package specifications and accompanying textual descriptions of the application program interface (API). This standard supports application portability at the source code level through the binding between ISO 8652:1995 (Ada) and ISO/IEC 9945-1:1996 (IEEE Std 1003.1-1996) (POSIX) as amended by IEEE P1003.1g/D6.6. Terminology and general requirements, process primitives, the process environment, files and directories, input and output primaries, device- and classspecific functions, language-specific services for Ada, system databases, synchronization, memory management, execution scheduling, clocks and timers, message passing, task management, the XTI and socket detailed network inter-faces, event management, network support functions, and protocol-specific mappings are covered. It also specifies behavior to support the binding that must be provided by the Ada."
+  },
+  {
+    "reference": "ISO/IEC 14882:2024",
+    "edition": "7.0",
+    "date": "2024-10-19",
+    "title": "Programming languages - C++",
+    "language": "EN",
+    "description": "This document specifies requirements for implementations of the C++ programming language. The first such requirement is that they implement the language, so this document also defines C++. Other requirements and relaxations of the first requirement appear at various places within this document. C++ is a general purpose programming language based on the C programming language as described in ISO/IEC 9899:2018 Programming languages — C (hereinafter referred to as the C standard ). C++ provides many facilities beyond those provided by C, including additional data types, classes, templates, exceptions, namespaces, operator overloading, function name overloading, references, free store management operators, and additional library facilities."
+  },
+  {
+    "reference": "ISO/IEC 14977:1996",
+    "edition": "1.0",
+    "date": "1996-12-12",
+    "title": "Information technology - Syntactic metalanguage - Extended BNF",
+    "language": "EN",
+    "description": "Defines a notation, Extended BNF, for specifying the syntax of a linear sequence of symbols. It defines both the logical structure of the notation and its graphical representation."
+  },
+  {
+    "reference": "ISO/IEC 15145:1997",
+    "edition": "1.0",
+    "date": "1997-05-08",
+    "title": "Information technology - Programming languages - FORTH",
+    "language": "EN",
+    "description": "This International Standard specifies an interface between a Forth System and a Forth Program by defining the words provided by a Standard System."
+  },
+  {
+    "reference": "ISO/IEC 15291:1999",
+    "edition": "1.0",
+    "date": "1999-04-29",
+    "title": "Information technology - Programming languages - Ada Semantic Interface Specification (ASIS)",
+    "language": "EN",
+    "description": "The Ada Semantic Interface Specification (ASIS) is an interface between an Ada environment (as defined by ISO/IEC 8652:1995) and any tool requiring information from this environment. An Ada environment includes valuable semantic and syntactic information. ASIS is an open and published callable interface which gives CASE tool and application developers access to this information. ASIS has been designed to be independent of underlying Ada environment implementations, thus supporting portability of software engineering tools while relieving tool developers from needing to understand the complexities of an Ada environment’s proprietary internal representation. Examples of tools that benefit from the ASIS interface include: automated code monitors, browsers, call tree tools, code reformators, coding standards compliance tools, correctness verifiers, debuggers, dependency tree analysis tools, design tools, document generators, metrics tools, quality assessment tools, reverse engineering tools, re-engineering tools, safety and security tools, style checkers, test tools, timing estimators, and translators. This International Standard specifies the form and meaning of the ASIS interface to the Ada compilation environment. This International Standard is applicable to tools and applications needing syntactic and semantic information in the Ada compilation environment."
+  },
+  {
+    "reference": "ISO/IEC 15851:1999",
+    "edition": "1.0",
+    "date": "1999-03-04",
+    "title": "Information technology - Communication protocol - Open MUMPS Interconnect",
+    "language": "EN",
+    "description": "Open MUMPS Interconnect defines a method for network access to MUMPS databases. The proto­col provides all basic operations on the sparse tree-structured MUMPS database."
+  },
+  {
+    "reference": "ISO/IEC 15852:1999",
+    "edition": "1.0",
+    "date": "1999-03-18",
+    "title": "Information technology - Programming languages - M Windowing API",
+    "language": "EN",
+    "description": "The M Windowing API (MWAPI) extends the M programming technology with the addition of capabilities for developing and operating graphical user interface (GUI) applications. For the purposes of this International Standard, an application is defined as a collection of one or more M routines using MWAPI capabilities and a user is a person utilizing such an application."
+  },
+  {
+    "reference": "ISO/IEC TR 15942:2000",
+    "edition": "1.0",
+    "date": "2000-03-16",
+    "title": "Information technology - Programming languages - Guide for the use of the Ada programming language in high integrity systems",
+    "language": "EN",
+    "description": "1 Scope This Technical Report provides guidance on the use of Ada when producing high integrity systems. In producing such applications it is usually the case that adherence to guidelines or standards has to be demonstrated to independent bodies. These guidelines or standards vary according to the application area, industrial sector or nature of the risk involved. For safety applications, the international generic standard is [IEC 61508] of which part 3 is concerned with software. For security systems, the multi-national generic assessment guide is [ISO CD 15408]. For sector-specific guidance and standards there are: Airborne civil avionics : [DO-178B] Nuclear power plants : [IEC 880] Medical systems : [IEC 601-4] Pharmaceutical : [GAMP] For national/regional guidance and standards there are the following: UK Defence : [DS 00-55] European rail : [EN 50128] European security : [ITSEC] US nuclear : [NRC] UK automotive : [MISRA] US medical : [FDA] US space : [NASA] The above standards and guides are referred to as Standards in this Technical Report. The above list is not exhaustive but indicative of the type of Standard to which this Technical Report provides guidance. The specific Standards above are not addressed individually but this Technical Report is synthesized from an analysis of their requirements and recommendations. 1.1 Within the scope This Technical Report assumes that a system is being developed in Ada to meet a standard listed above or one of a similar nature. The primary goal of this Technical Report is to translate general requirements into Ada specific ones. For example, a general standard might require that dynamic testing provides evidence of the execution of all the statements in the code of the application. In the case of generics, this is interpreted by this Technical Report to mean all instantiations of the generic should be executed. ISO/IEC TR 15942:2000 (E) 2 © ISO/IEC 2000 - All rights reserved This Technical Report is intended to provide guidance only, and hence there are no ?shalls'. However, this Technical Report identifies verification and validation issues which should be resolved and documented according to the sector-specific standards being employed. The following topics are within the scope of this Technical Report: _ the choice of features of the language which aid verification and compliance to the standards, _ identification of language features requiring additional verification steps, _ the use of tools to aid design and verification, _ issues concerning qualification of compilers for use on high integrity applications, _ tools, such as graphic design tools, which generate Ada source code which is accessible to users. Tools which generate Ada source code require special consideration. Where generated code may be modified or extended, verification of the extensions and overall system will be assisted if the guidelines have been taken into account. Even where modification is not planned, inspection and analysis of the generated code may be unavoidable unless the generator is trusted or ?qualified' according to an applicable standard. Finally, even if generated code is neither modified nor inspected, the overall verification process may be made more complicated if the code deviates from guidelines intended to facilitate testing and analysis. Potential users of such tools should evaluate their code generation against the guidance provided in this Technical Report. 1.2 Out of scope The following topics are considered to be out of scope with respect to this Technical Report: _ Domain-specific standards, _ Application-specific issues, _ Hardware and system-specific issues, _ Human factor"
+  },
+  {
+    "reference": "ISO/IEC 16509:1999",
+    "edition": "1.0",
+    "date": "1999-10-21",
+    "title": "Information technology - Year 2000 terminology",
+    "language": "EN",
+    "description": "1.1 Scope This standard identiÞes terms and concepts pertinent to the resolution of the Year 2000 issue, including the rollover from the year 1999 to 2000, incorrect recognition of leap years, and values in date Þelds used for non-date purposes, and provides deÞnitions of these terms and descriptions of these concepts. This standard does not speciÞcally address operating system anomalies such as might occur in the year 2038. 1.2 Purpose This standard provides a common lexicon with descriptions and deÞnitions for the Year 2000 issue. These descriptions and deÞnitions may be applied in whole or in part depending on the requirement. This standard is composed of a DeÞnitions Clause (3), a Concepts Clause (4), and two Annexes (A and B). 1.2.1 Concepts A concept is a set of interrelated ideas pertaining to the Year 2000 issue. This standard offers a description of these concepts. This is not an exhaustive list. 1.2.2 DeÞnitions These are focused meanings of terms fundamental to the resolution of the Year 2000 issue. 1.2.3 Annex A This annex outlines remediation techniques currently being used to make system elements Year 2000 compliant. This list of techniques is not exhaustive. It presents only those techniques acknowledged as having gained a signiÞcant amount of industry consensus. Along with the techniques is a list of supporting terms and their explanation. In addition, the annex brießy explains the role of special dates in the development of solutions for the Year 2000 problem. This annex is informative. 1.2.4 Annex B This is a bibliography listing other related publications. 1.3 Conformance Vendors who claim that their products conform to this standard declare that their use of the term ÒYear 2000 CompliantÓ is in accordance with the deÞnition in this standard."
+  },
+  {
+    "reference": "ISO/IEC 17960:2015",
+    "edition": "1.0",
+    "date": "2015-09-17",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Code signing for source code",
+    "language": "EN",
+    "description": "This International Standard specifies a language-neutral and environment-neutral description to define the methodology needed to support the signing of software source code, to enable it to be uniquely identified, and to enable roll-back to signed previous versions. It is intended to be used by originators of software source code and the recipients of their signed source code. This International Standard is designed for transfers of source code among disparate entities. The following areas are outside the scope of this International Standard: - Determination of the trust level of a certification authority; - Format used to track revisions of source code files; - Digital signing of object or binary code; - System configuration and resource availability; - Metadata - This is partially addressed by ISO/IEC 19770‑2; - Transmission and representation issues - Though this could be an issue in implementation, there are techniques such as Portable Document Format (PDF)[1] that can be used to mitigate these issues. This applies in particular to the transmission of digital signatures. [1] ISO 32000-1:2008 Document management ? Portable document format ? Part 1: PDF 1 specifies a digital form for representing electronic documents to enable users to exchange and view electronic documents independent of the environment in which they were created or the environment in which they are viewed or printed."
+  },
+  {
+    "reference": "ISO/IEC TS 17961:2013",
+    "edition": "1.0",
+    "date": "2013-11-15",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - C secure coding rules",
+    "language": "EN",
+    "description": "ISO/IEC TS 17961:2013 specifies rules for secure coding in the C programming language, and code examples. ISO/IEC TS 17961:2013 does not specify the mechanism by which these rules are enforced, or any particular coding style to be enforced. Each rule in this Technical Specification is accompanied by code examples. Two distinct kinds of examples are provided: noncompliant examples demonstrating language constructs that have weaknesses with potentially exploitable security implications; such examples are expected to elicit a diagnostic from a conforming analyzer for the affected language construct; and compliant examples are expected not to elicit a diagnostic."
+  },
+  {
+    "reference": "ISO/IEC TS 17961:2013/COR1:2016",
+    "edition": "1.0",
+    "date": "2016-08-09",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - C secure coding rules - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18009:1999",
+    "edition": "1.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Programming languages - Ada: Conformity assessment of a language processor",
+    "language": "EN",
+    "description": "1.1 This International Standard establishes requirements for certifying an assessment that an Ada language processor conforms to the requirements of the Ada language standard , ISO/IEC 8652. It places requirements on the organization that performs the assessment, the assessment procedures, and the test suite used in the assessment. Finally, it places requirements on the form for the certificate of conformity . 1.2 This International Standard concerns only the assessment of conformity to the language requirements of ISO/IEC 8652. It does not concern the assessment of any other characteristics of a language processor or of the construction process used by the manufacturer of the language processor . NOTE In the sense of [ISO/IEC Guide 23], the Ada language standard , ISO/IEC 8652, is to be regarded as a standard for a specific property rather than a comprehensive product standard. 1.3 This International Standard is intended to be primarily suitable for use by a third party authority although portions of it may also be applied by a supplier (first party) or by a user or purchaser (second party). 1.4 An Ada language processor may be claimed to conform to the requirements of ISO/IEC 8652 regardless of the application of this International Standard . This International Standard prescribes the method for obtaining a certification that an Ada language processor conforms to ISO/IEC 8652. Customers desiring to acquire a language processor certified as conforming should explicitly require that certification by citing this International Standard . 1.5 Certification should not be construed as guaranteeing that the certified product is free of non-conformities or defects; it only certifies that no evidence of non-conformity was found during the certification process."
+  },
+  {
+    "reference": "ISO/IEC TR 18015:2006",
+    "edition": "1.0",
+    "date": "2006-09-04",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Technical Report on C++ Performance",
+    "language": "EN",
+    "description": "The aim of ISO/IEC TR 18015 is to: give the reader a model of time and space overheads implied by use of various C++ language and library features; debunk widespread myths about performance problems in C++; present techniques for use of C++ in applications where performance matters; and present techniques for implementing C++ standard language and library facilities to yield efficient code. The special needs of embedded systems programming are presented, including ROMability and predictability. A separate chapter presents general C and C++ interfaces to the basic hardware facilities of embedded systems."
+  },
+  {
+    "reference": "ISO/IEC TR 18037:2008",
+    "edition": "2.0",
+    "date": "2008-06-11",
+    "title": "Programming languages - C - Extensions to support embedded processors",
+    "language": "EN",
+    "description": "ISO/IEC TR 18037:2008 specifies a series of extensions of the programming language C, which is specified by ISO/IEC 9899:1999. These extensions support embedded processors."
+  },
+  {
+    "reference": "ISO/IEC TS 18661-3:2015",
+    "edition": "1.0",
+    "date": "2015-10-06",
+    "title": "Information Technology - Programming languages, their environments, and system software interfaces - Floating-point extensions for C - Part 3: Interchange and extended types",
+    "language": "EN",
+    "description": "ISO/IEC TS 18661-3:2015 extends programming language C to include types with the arithmetic interchange and extended floating-­‐point formats specified in ISO/IEC/IEEE 60559:2011, and to include functions that support the non-­‐arithmetic interchange formats in that standard."
+  },
+  {
+    "reference": "ISO/IEC TS 18661-4:2025",
+    "edition": "2.0",
+    "date": "2025-03-14",
+    "title": "Programming languages, their environments, and system software interfaces - Floating-point extensions for C - Part 4: Supplementary functions",
+    "language": "EN",
+    "description": "This document specifies extensions to programming language C to include functions corresponding to operations specified and recommended in ISO/IEC 60559, but not supported in ISO/IEC 9899:2024 (also referred to as C23)."
+  },
+  {
+    "reference": "ISO/IEC TS 18661-5:2025",
+    "edition": "2.0",
+    "date": "2025-03-14",
+    "title": "Programming languages, their environments, and system software interfaces - Floating-point extensions for C - Part 5: Supplementary attributes",
+    "language": "EN",
+    "description": "This document specifies extensions to programming language C to include pragmas corresponding to attributes specified and recommended in ISO/IEC 60559 but not supported in ISO/IEC 9899:2024 (also referred to as C23)."
+  },
+  {
+    "reference": "ISO/IEC TS 19216:2018",
+    "edition": "1.0",
+    "date": "2018-04-24",
+    "title": "Programming Languages - C++ Extensions for Networking",
+    "language": "EN",
+    "description": "ISO/IEC TS 19216:2018 describes extensions to the C++ Standard Library. This document specifies requirements for implementations of an interface that computer programs written in the C++ programming language may use to perform operations related to networking, such as operations involving sockets, timers, bu˙er management, host name resolution and internet protocols. This document is applicable to information technology systems that can perform network operations, such as those with operating systems that conform to the POSIX interface. This document is applicable only to vendors who wish to provide the interface it describes."
+  },
+  {
+    "reference": "ISO/IEC TS 19568:2024",
+    "edition": "3.0",
+    "date": "2024-08-26",
+    "title": "Programming Languages - C++ Extensions for Library Fundamentals",
+    "language": "EN",
+    "description": "This document describes extensions to the C++ Standard Library (2). These extensions are classes and functions that are likely to be used widely within a program and/or on the interface boundaries between libraries written by different organizations. It is intended that some of the library components be considered for standardization in a future version of C++. At present, they are not part of any C++ standard. The goal of this document is to build more widespread existing practice for an expanded C++ standard library. It gives advice on extensions to those vendors who wish to provide them."
+  },
+  {
+    "reference": "ISO/IEC TS 19570:2018",
+    "edition": "2.0",
+    "date": "2018-11-15",
+    "title": "Programming Languages - Technical Specification for C++ Extensions for Parallelism",
+    "language": "EN",
+    "description": "This document describes requirements for implementations of an interface that computer programs written in the C++ programming language can use to invoke algorithms with parallel execution. The algorithms described by this document are realizable across a broad class of computer architectures. There is a possibility of a subset of the functionality described by this document being standardized in a future version of C++, but it is not currently part of any C++ standard. There is a possibility of some of the functionality in this document never being standardized, or of it being standardized in a substantially changed form. The goal of this document is to build widespread existing practice for parallelism in the C++ programming language. It gives advice on extensions to those vendors who wish to provide them."
+  },
+  {
+    "reference": "ISO/IEC TR 19768:2007",
+    "edition": "2.0",
+    "date": "2007-11-15",
+    "title": "Information technology - Programming languages - Technical Report on C++ Library Extensions",
+    "language": "EN",
+    "description": "ISO/IEC TR 19768:2007 specifies a series of extensions to the standard library for the programming language C++, as specified by ISO/IEC 14882, in order to build more widespread existing practice for an expanded C++ standard library. Some of the components in ISO/IEC TR 19768:2007 could be considered for standardization in a future version of C++. The specific classes of extensions specified in ISO/IEC TR 19768:2007 are as follows: general utilities such as reference-counted pointers; functional programming; facilities for compile-time type queries; enhanced support for numerical computation; hash tables and other additional container classes; regular expression processing; improved capability with the programming language C, as specified by ISO/IEC 9899."
+  },
+  {
+    "reference": "ISO/IEC TS 19841:2015",
+    "edition": "1.0",
+    "date": "2015-09-16",
+    "title": "Technical Specification for C++ Extensions for Transactional Memory",
+    "language": "EN",
+    "description": "ISO/IEC TS 19841:2015 describes extensions to the C++ Programming Language (1.3) that enable the specification of Transactional Memory. These extensions include new syntactic forms and modifications to existing language and library. The International Standard, ISO/IEC 14882, provides important context and specification for this Technical Specification. This document is written as a set of changes against that specification. Instructions to modify or add paragraphs are written as explicit instructions. Modifications made directly to existing text from the International Standard use green to represent added text and strikethrough to represent deleted text. ISO/IEC TS 19841:2015 is non-normative. Some of the functionality described by this Technical Specification may be considered for standardization in a future version of C++, but it is not currently part any C++ standard. Some of the functionality in this Technical Specification may never be standardized, and other functionality may standardized in a substantially changed form. The goal of this Technical Specification is to build widespread existing practice for Transactional Memory. It gives advice on extensions to those vendors who wish to provide them"
+  },
+  {
+    "reference": "ISO/IEC 20970:2002",
+    "edition": "1.0",
+    "date": "2002-06-27",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - JEFF file format",
+    "language": "EN",
+    "description": "This International Standard can be used with benefits on all kinds of platform. This International Standard's most immediate interest is for deploying portable applications on small footprint devices. This International Standard provides dramatic savings of dynamic memory and execution time without sacrificing any of the flexibility usually attached to the use of non-pre-linked portable code. This International Standard is especially important to provide a complete solution to execute portable programs of which code size is bigger than the available dynamic memory. This International Standard is also very important when fast reactivity of programs is important. By avoiding the extra-processing related to loading into dynamic memory and formatting classes at runtime, this International Standard provides a complete answer to the problem of class-loading slow-down. These benefits are particularly interesting for small devices supporting financial applications. Such applications are often complex and relying on code of significant size, while the pressure of the market often imposes to these devices to be of a low price and, consequently, to be very small footprint platforms. In addition, to not impose unacceptable delays to customers, it is important these applications do not waste time in loading classes into dynamic memory when they are launched but, on the contrary, to be immediately actively processing the transaction with no delay. When using smart cards, there are also some loose real-time constraints that are better handled if it can be granted that no temporary freezing of processing can occur due to class loading. This International Standard can also be of great benefit for devices dealing with real-time applications. In this case, avoiding the delays due to class loading can play an important role to satisfy real-time constraints."
+  },
+  {
+    "reference": "ISO/IEC 21778:2017",
+    "edition": "1.0",
+    "date": "2017-11-15",
+    "title": "Information technology - The JSON data interchange syntax",
+    "language": "EN",
+    "description": "JSON is a lightweight, text-based, language-independent syntax for defining data interchange formats. It was derived from the ECMAScript programming language, but is programming language independent. JSON defines a small set of structuring rules for the portable representation of structured data. The goal of ISO/IEC 21778:2017 is only to define the syntax of valid JSON texts. Its intent is not to provide any semantics or interpretation of text conforming to that syntax. It also intentionally does not define how a valid JSON text might be internalized into the data structures of a programming language. There are many possible semantics that could be applied to the JSON syntax and many ways that a JSON text can be processed or mapped by a programming language. Meaningful interchange of information using JSON requires agreement among the involved parties on the specific semantics to be applied. Defining specific semantic interpretations of JSON is potentially a topic for other specifications. Similarly, language mappings of JSON can also be independently specified. For example, ECMA-262 defines mappings between valid JSON texts and ECMAScript's runtime data structures."
+  },
+  {
+    "reference": "ISO/IEC 23271:2012",
+    "edition": "3.0",
+    "date": "2012-02-13",
+    "title": "Information technology - Common Language Infrastructure (CLI)",
+    "language": "EN",
+    "description": "ISO/IEC 23271:2012 defines the Common Language Infrastructure (CLI) in which applications written in multiple high-level languages can be executed in different system environments without the need to rewrite those applications to take into consideration the unique characteristics of those environments. It consists of six partitions. Partition I describes the overall architecture of the CLI, and provides the normative description of the Common Type System (CTS), the Virtual Execution System (VES), and the Common Language Specification (CLS). It also provides an informative description of the metadata. Partition II provides the normative description of the metadata: its physical layout (as a file format), its logical contents (as a set of tables and their relationships), and its semantics (as seen from a hypothetical assembler, ILAsm). Partition III describes the Common Intermediate Language (CIL) instruction set. Partition IV provides an overview of the CLI Libraries, and a specification of their factoring into Profiles and Libraries. A companion file, CLILibrary.xml, considered to be part of this partition, but distributed in XML format, provides details of each class, value type, and interface in the CLI Libraries. Partition V describes a standard way to interchange debugging information between CLI producers and consumers. Partition VI contains some sample programs written in CIL Assembly Language (ILAsm), information about a particular implementation of an assembler, a machine-readable description of the CIL instruction set which can be used to derive parts of the grammar used by this assembler as well as other tools that manipulate CIL, a set of guidelines used in the design of the libraries of Partition IV, and portability considerations."
+  },
+  {
+    "reference": "ISO/IEC TR 23272:2011",
+    "edition": "3.0",
+    "date": "2011-12-06",
+    "title": "Information technology - Common Language Infrastructure (CLI) -  Information Derived from Partition IV XML File",
+    "language": "EN",
+    "description": "ISO/IEC TR 23272:2011 is intended as an aid for understanding the libraries specified in ISO 23271 (Ecma-335), Partition IV: Profiles and Libraries, which includes a machine-readable specification, in XML, of the types of libraries that comprise standard libraries."
+  },
+  {
+    "reference": "ISO/IEC 23360-1-1:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-1: Common definitions",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. The LSB specification set is divided into modules, each of which provides fundamental system interfaces, libraries, and runtime environment upon which all conforming applications and libraries using that module depend. The modules of the Linux Standard Base are: LSB Core - core components LSB Desktop - desktop related components LSB Languages - runtime languages LSB Imaging - printing and scanning LSB Trial Use - components that are not yet mandatory Interfaces described in the LSB Core module specification are supplemented by other LSB module specifications. All other modules depend on the presence of LSB Core. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. Architecture-specific parts of of an LSB module specification may also contain additional information that is not referenced in the common part. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification."
+  },
+  {
+    "reference": "ISO/IEC 23360-1-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-2: Core specification generic part",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the common part of the Core module of the Linux Standard Base (LSB), LSB Core - Generic. This module provides the fundamental system interfaces, libraries, and runtime environment upon which all conforming applications and libraries depend. LSB Core - Generic, the common part, should be used in conjunction with an architecture-specific part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. Architecture-specific parts of the LSB Core Specification may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-1-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-3: Desktop specification generic part",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the common part of the Desktop module of the Linux Standard Base (LSB). This module provides the fundamental system interfaces, libraries, and runtime environment upon which all conforming applications and libraries depend requiring the LSB Desktop module depend. The common part of LSB Desktop should be used in conjunction with an architecture-specific part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. Architecture-specific parts of LSB Desktop may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-1-4:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-4: Languages specification",
+    "language": "EN",
+    "description": "The LSB Languages specification defines components for runtime languages which are found on an LSB conforming system."
+  },
+  {
+    "reference": "ISO/IEC 23360-1-5:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-5: Imaging specification",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the Imaging module of the Linux Standard Base (LSB). This module provides the fundamental system interfaces, libraries, and runtime environment upon which conforming applications and libraries requiring the LSB Imaging module depend. Interfaces described in LSB Imaging are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Imaging module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC TS 23360-1-6:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 1-6: Graphics and Gtk3 specification",
+    "language": "EN",
+    "description": "The Trial Use Specification defines components which are not required parts of the LSB Specification."
+  },
+  {
+    "reference": "ISO/IEC 23360-2-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 2-2: Core specification for X86-32 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the X86 architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-2-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 2-3: Desktop specification for X86-32 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the X86 architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-3-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 3-2: Core specification for IA64 (Itanium™) architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the Itanium™ architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-3-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 3-3: Desktop specification for IA64 (Itanium TM) architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the Itanium™ architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-4-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 4-2: Core specification for AMD64 (X86-64) architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the X86-64 architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-4-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 4-3: Desktop specification for AMD64 (X86-64) architecture",
+    "language": "EN",
+    "description": "The Linux Standard Base (LSB) defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the X86-64 architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-5-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 5-2: Core specification for PowerPC 32 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the PPC32 architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-5-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 5-3: Desktop specification for PowerPC 32 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the PPC32 architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-6-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 6-2: Core specification for PowerPC 64 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the PPC64 architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-6-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 6-3: Desktop specification for PowerPC 64 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the PPC64 architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-7-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 7-2: Core specification for S390 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the S390 architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-7-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 7-3: Desktop specification for S390 architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the S390 architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC 23360-8-2:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 8-2: Core specification for S390X architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the S390X architecture specific part of the Core module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Core module with those interfaces that differ between architectures. This part should be used in conjunction with LSB Core - Generic, the common part. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of the LSB Core Specification are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Core module are supplemented by other LSB modules. All other modules depend on the presence of LSB Core."
+  },
+  {
+    "reference": "ISO/IEC 23360-8-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-08",
+    "title": "Linux Standard Base (LSB) - Part 8-3: Desktop specification for S390X architecture",
+    "language": "EN",
+    "description": "This document defines a system interface for compiled applications and a minimal environment for support of installation scripts. Its purpose is to enable a uniform industry standard environment for high-volume applications conforming to the LSB. These specifications are composed of two basic parts: a common part describing those parts of the interface that remain constant across all implementations of the LSB, and an architecture-specific part describing the parts of the interface that vary by processor architecture. Together, the common part and the relevant architecture-specific part for a single hardware architecture provide a complete interface specification for compiled application programs on systems that share a common hardware architecture. The LSB contains both a set of Application Program Interfaces (APIs) and Application Binary Interfaces (ABIs). APIs may appear in the source code of portable applications, while the compiled binary of that application may use the larger set of ABIs. A conforming implementation provides all of the ABIs listed here. The compilation system may replace (e.g. by macro definition) certain APIs with calls to one or more of the underlying binary interfaces, and may insert calls to binary interfaces as needed. The LSB is primarily a binary interface definition. Not all of the source level APIs available to applications may be contained in this specification. This is the S390X architecture specific part of the Desktop module of the Linux Standard Base (LSB). This part supplements the common part of the LSB Desktop module with those interfaces that differ between architectures. This part should be used in conjunction with the common part of LSB Desktop. Whenever a section of the common part is supplemented by architecture-specific information, the common part includes a reference to the architecture-specific part. This part may also contain additional information that is not referenced in the common part. Interfaces described in this part of LSB Desktop are mandatory except where explicitly listed otherwise. Interfaces described in the LSB Desktop module supplement those described in the LSB Core module. They do not depend on other LSB modules."
+  },
+  {
+    "reference": "ISO/IEC TR 24715:2006",
+    "edition": "1.0",
+    "date": "2006-10-30",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Technical Report on the Conflicts between the ISO/IEC 9945 (POSIX) and the Linux Standard Base (ISO/IEC 23360)",
+    "language": "EN",
+    "description": "ISO/IEC TR 24715:2006 is based on ISO/IEC 23360 (Linux Standard Base Core Specification 3.1, which was submitted to ISO/IEC on 2005/10/31 for publication), and ISO/IEC 9945:2003 edition dated 2003/8/15 with ISO/IEC 9945:2003/Cor.1:2004 (published 2004/9/15). The scope of this Technical Report is to identify areas of conflict between ISO/IEC 23360 (the Linux Standard Base 3.1 specification) and the ISO/IEC 9945 (POSIX) International Standard. The audience for this Technical Report is the technical workgroups that develop the standards; that is, the Austin Group and the Linux Standard Base workgroup. It is also intended to be of interest to systems engineers, technical managers and procurement officers. This Technical Report is organized in the following sections: Clause 1 provides a list of normative references. Clause 2 provides the terms and definitions used in this document. Clause 3 provides a list of differences that could be possible conflicts or extensions in the System Interfaces. Clause 4 provides a list of differences that could be possible conflicts or extensions in the Shell and Utilities. Appendix A provides background information on the POSIX standards and the LSB."
+  },
+  {
+    "reference": "ISO/IEC TR 24716:2007",
+    "edition": "2.0",
+    "date": "2007-12-10",
+    "title": "Information technology - Programming languages, their environment and system software interfaces - Native COBOL Syntax for XML Support",
+    "language": "EN",
+    "description": "ISO/IEC TR 24716:2007 specifies the syntax and semantics for XML support in COBOL. The purpose of ISO/IEC TR 24716:2007 is to promote a high degree of portability in implementations, even though some elements are subject to trial before completion of a final design suitable for standardization. This specification builds on the syntax and semantics defined in ISO/IEC 1989:2002."
+  },
+  {
+    "reference": "ISO/IEC TS 24718:2025",
+    "edition": "1.0",
+    "date": "2025-01-24",
+    "title": "Information technology - Programming languages - Guidance for the use of the Ada Ravenscar Profile in high integrity systems",
+    "language": "EN",
+    "description": "This document provides guidance on the use of the Ravenscar profile for concurrent Ada software intended for verification up to, and including, the very highest levels of integrity. To this end, this document provides a complete description of the motivations behind the Ravenscar profile, to show how conformant programs can be analysed, and to give examples of usage. This document is aimed at a broad audience, including application programmers, implementers of run-time systems, those responsible for defining company or project guidelines, and academics. Familiarity with the Ada language is assumed."
+  },
+  {
+    "reference": "ISO/IEC TR 24731-1:2007",
+    "edition": "2.0",
+    "date": "2007-08-29",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Extensions to the C library - Part 1: Bounds-checking interfaces",
+    "language": "EN",
+    "description": "ISO/IEC TR 24731-1:2007 provides alternative functions for the C Library (as defined in ISO/IEC 9899:1999) that promote safer, more secure programming. The functions verify that output buffers are large enough for the intended result, and return a failure indicator if they are not. Optionally, failing functions call a \"runtime-constraint handler\" to report the error. Data is never written past the end of an array. All string results are null terminated. In addition, the functions in ISO/IEC TR 24731-1:2007 are re-entrant: they never return pointers to static objects owned by the function. ISO/IEC TR 24731-1:2007 also contains functions that address insecurities with the C input-output facilities."
+  },
+  {
+    "reference": "ISO/IEC TR 24731-2:2010",
+    "edition": "1.0",
+    "date": "2010-11-24",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Extensions to the C library - Part 2: Dynamic Allocation Functions",
+    "language": "EN",
+    "description": "ISO/IEC TR 24731 provides alternative functions for the C library that promote safer, more secure programming. ISO/IEC TR 24731-1 provides simple replacement functions for the library functions of ISO/IEC 9899:1999 that provide bounds checking. Those functions can be used as simple replacements for the original library functions in legacy code. ISO/IEC TR 24731-2:2010 presents replacements for many of these functions that use dynamically allocated memory to ensure that buffer overflow does not occur."
+  },
+  {
+    "reference": "ISO/IEC TR 24733:2011",
+    "edition": "1.0",
+    "date": "2011-10-25",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Extensions for the programming language C++ to support decimal floating-point arithmetic",
+    "language": "EN",
+    "description": "ISO/IEC TR 24733:2011 specifies an extension to the programming language C++, specified by ISO/IEC 14882:2003. The extension provides support for decimal floating-point arithmetic that is consistent with the specification in IEEE 754-2008. ISO/IEC TR 24733:2011 does not consider the binary floating-point arithmetic specified in IEEE 754-2008."
+  },
+  {
+    "reference": "ISO/IEC 24747:2009",
+    "edition": "1.0",
+    "date": "2009-01-05",
+    "title": "Information technology - Programming languages, their environments and system software interfaces - Extensions to the C Library to support mathematical special functions",
+    "language": "EN",
+    "description": "ISO/IEC 24747:2009 defines extensions to the C Standard Library that is defined in the International Standard for the C programming language (ISO/IEC 9899). Unless otherwise specified, the whole of the C Standard Library is included in ISO/IEC 24747:2009 by reference. ISO/IEC 24747:2009 defines library extensions to the C Standard Library to support Mathematical Special functions to be added to <math.h> and <tgmath.h>."
+  },
+  {
+    "reference": "ISO/IEC 24772-1:2024",
+    "edition": "1.0",
+    "date": "2024-10-29",
+    "title": "Programming languages - Avoiding vulnerabilities in programming languages - Part 1: Language-independent catalogue of vulnerabilities",
+    "language": "EN",
+    "description": "This document enumerates approaches and techniques to avoid software programming language vulnerabilities in the development of systems where assured behaviour is required for security, safety, mission-critical and business-critical software. In general, the description of the vulnerabilities and description of avoidance mechanisms are applicable to the software developed, reviewed, or maintained for any application. Vulnerabilities are described in a generic manner that is applicable to a broad range of programming languages."
+  },
+  {
+    "reference": "ISO/IEC TR 24772-2:2020",
+    "edition": "1.0",
+    "date": "2020-04-02",
+    "title": "Programming languages - Guidance to avoiding vulnerabilities in programming languages - Part 2: Ada",
+    "language": "EN",
+    "description": "This document specifies software programming language vulnerabilities to be avoided in the development of systems where assured behaviour is required for security, safety, mission-critical and business-critical software. In general, this document is applicable to the software developed, reviewed or maintained for any application. Vulnerabilities described in this document present the way that the vulnerability described in ISO/IEC TR 24772-1 are manifested in Ada."
+  },
+  {
+    "reference": "ISO/IEC TR 24772-3:2020",
+    "edition": "1.0",
+    "date": "2020-05-20",
+    "title": "Programming languages - Guidance to avoiding vulnerabilities in programming languages - Part 3: C",
+    "language": "EN",
+    "description": "This document specifies software programming language vulnerabilities to be avoided in the development of systems where assured behaviour is required for security, safety, mission-critical and business-critical software. In general, this guidance is applicable to the software developed, reviewed, or maintained for any application. This document describes the way that the vulnerabilities listed in ISO/IEC TR 24772-1 are manifested or avoided in the C language."
+  },
+  {
+    "reference": "ISO/IEC 25436:2006",
+    "edition": "1.0",
+    "date": "2006-11-28",
+    "title": "Information technology - Eiffel: Analysis, Design and Programming Language",
+    "language": "EN",
+    "description": "ISO/IEC 25436:2006 provides the full reference for the Eiffel language. Eiffel is a method of software construction and a language applicable to the analysis, design, implementation and maintenance of software systems. ISO/IEC 25436:2006 covers only the language, with an emphasis on the implementation aspects."
+  },
+  {
+    "reference": "ISO/IEC TR 25438:2006",
+    "edition": "1.0",
+    "date": "2006-07-28",
+    "title": "Information technology - Common Language Infrastructure (CLI) - Technical Report: Common Generics",
+    "language": "EN",
+    "description": "The CLI standard libraries (ISO/IEC 23271) provide a collection of common types that can be used by multiple languages. With the addition of generics to the CLI, the standard libraries have been extended to include a number of common generic types, in particular, collections. However, at present, these libraries do not include many simple generic types found in a number of different languages. Any language which uses these common types must implement them rather than deferring to the CLI library, thereby reducing language inter-operability. ISO/IEC TR 25438:2006 addresses this issue by providing a number of these common types."
+  },
+  {
+    "reference": "ISO/IEC 30170:2012",
+    "edition": "1.0",
+    "date": "2012-04-12",
+    "title": "Information technology - Programming languages - Ruby",
+    "language": "EN",
+    "description": "ISO/IEC 30170:2012 specifies the syntax and semantics of the computer programming language Ruby, and the requirements for conforming Ruby processors, strictly conforming Ruby programs, and conforming Ruby programs. It does not specify the limit of size or complexity of a program text which a conforming processor evaluates, the minimal requirements of a data processing system that is capable of supporting a conforming processor, the method for activating the execution of programs on a data processing system, and the method for reporting syntactic and runtime errors."
+  },
+  {
+    "reference": "ISO 6160:1979",
+    "edition": "1.0",
+    "date": "1979-07-01",
+    "title": "Programming languages - PL/1",
+    "language": "EN, FR",
+    "description": "Adopts ANSI standard X3.53-1976 and French standard NF Z 65-500 as PL/1 programming language standard for the English and French versions, respectively."
+  },
+  {
+    "reference": "ISO 8485:1989",
+    "edition": "1.0",
+    "date": "1989-10-23",
+    "title": "Programming languages - APL",
+    "language": "EN, FR",
+    "description": "Describes the semantics and syntax of the APL progamming language and the environment for the application, interchange and the portability of APL programs. Defines requirements for conformance with the standard."
+  },
+  {
+    "reference": "ISO TR 9547:1988",
+    "edition": "1.0",
+    "date": "1988-03-31",
+    "title": "Programming language processors - Test methods - Guidelines for their development and acceptability",
+    "language": "EN, FR",
+    "description": "This Technical Report type 3 describes a methodology for determining whether a programming language processor possesses the required characteristics stated in the International Standard for the particular programming language for which it is intended."
+  }
+]

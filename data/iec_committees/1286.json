@@ -1,0 +1,1730 @@
+[
+  {
+    "reference": "IEC 60068-2-20:2021",
+    "edition": "6.0",
+    "date": "2021-03-30",
+    "title": "Environmental testing - Part 2-20: Tests - Test Ta and Tb: Test methods for solderability and resistance to soldering heat of devices with leads",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-20:2021 outlines Tests Ta and Tb, applicable to devices with leads and leads themselves. Soldering tests for surface mounting devices (SMD) are described in IEC 60068-2-58. This document provides procedures for determining the solderability and resistance to soldering heat of devices in applications using solder alloys, which are eutectic or near eutectic tin lead (Pb), or lead-free alloys. The procedures in this document include the solder bath method and soldering iron method. The objective of this document is to ensure that component lead or termination solderability meets the applicable solder joint requirements of IEC 61191-3 and IEC 61191-4. In addition, test methods are provided to ensure that the component body can be resistant to the heat load to which it is exposed during soldering. This edition includes the following significant technical changes with respect to the previous edition: - update of and clarification of pre-conditioning (former \"aging\") and its relation to natural aging."
+  },
+  {
+    "reference": "IEC 60068-2-21:2021",
+    "edition": "7.0",
+    "date": "2021-07-08",
+    "title": "Environmental testing - Part 2-21: Tests - Test U: Robustness of terminations and integral mounting devices",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-21:2021 is applicable to all electrical and electronic components whose terminations or integral mounting devices are liable to be submitted to stresses during normal assembly or handling operations and is also applicable to surface mount devices (SMDs). This seventh edition cancels and replaces the sixth edition, published in 2006, and IEC 60068‑2‑77:1999. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: integration of parts of IEC 60068-2-77 (see Annex X); IEC 60068-2-77 is withdrawn with the publication of this document; Annex X is added to show the correlation of the clauses and subclauses in this edition of IEC 60068-2-21 with the clauses in IEC 60068-2-21:2006 and IEC 60068-2-77:1999."
+  },
+  {
+    "reference": "IEC 60068-2-58:2015",
+    "edition": "4.0",
+    "date": "2015-03-27",
+    "title": "Environmental testing - Part 2-58: Tests - Test Td: Test methods for solderability, resistance to dissolution of metallization and to soldering heat of surface mounting devices (SMD)",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-58:2015 outlines test Td, applicable to surface mounting devices (SMD). This standard provides procedures for determining the solderability and resistance to soldering heat of devices in applications using solder alloys, which are eutectic or near eutectic tin lead (Pb), or lead-free alloys. The procedures use either a solder bath or reflow method and are applicable only to specimens or products designed to withstand short term immersion in molten solder or limited exposure to reflow systems. The solder bath method is applicable to SMDs designed for flow soldering and SMDs designed for reflow soldering when the solder bath (dipping) method is appropriate. The reflow method is applicable to the SMD designed for reflow soldering, to determine the suitability of SMDs for reflow soldering and when the solder bath (dipping) method is not appropriate. This edition includes the following significant technical changes with respect to the previous edition: - the addition of Sn-Bi low temperature solder alloy; - the addition of several reflow test conditions in Table 7 - Resistance to soldering heat - Test conditions and severity, reflow method; - introduction of reflow test method for Test Td3: Dewetting and resistance to dissolution of metallization; - implementation of guidance for the choice of a test severity in Clause B.3."
+  },
+  {
+    "reference": "IEC 60068-2-58:2015/AMD1:2017",
+    "edition": "4.0",
+    "date": "2017-07-28",
+    "title": "Amendment 1 - Environmental testing - Part 2-58: Tests - Test Td: Test methods for solderability, resistance to dissolution of metallization and to soldering heat of surface mounting devices (SMD)",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-69:2017",
+    "edition": "3.0",
+    "date": "2017-03-07",
+    "title": "Environmental testing - Part 2-69: Tests - Test Te/Tc: Solderability testing of electronic components and printed boards by the wetting balance (force measurement) method",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-69:2017 outlines test Te/Tc, the solder bath wetting balance method and the solder globule wetting balance method to determine, quantitatively, the solderability of the terminations. Data obtained by these methods are not intended to be used as absolute quantitative data for pass–fail purposes. The procedures describe the solder bath wetting balance method and the solder globule wetting balance method. They are applicable to components and printed boards with metallic terminations and metallized solder pads. This document provides the measurement procedures for solder alloys both with and without lead (Pb). This edition includes the following significant technical changes with respect to the previous edition: - integration of IEC 60068-2-54; - inclusion of tests of printed boards; - inclusion of new component types, and updating test parameters for the whole component list; - inclusion of a new gauge R & R test protocol to ensure that the respective wetting balance equipment is correctly calibrated. The contents of the corrigendum of January 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60068-2-69:2017/COR1:2018",
+    "edition": "3.0",
+    "date": "2018-01-24",
+    "title": "Corrigendum 1 - Environmental testing - Part 2-69: Tests - Test Te/Tc: Solderability testing of electronic components and printed boards by the wetting balance (force measurement)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-69:2017/AMD1:2019",
+    "edition": "3.0",
+    "date": "2019-06-19",
+    "title": "Amendment 1 - Environmental testing - Part 2-69: Tests - Test Te/Tc: Solderability testing of electronic components and printed boards by the wetting balance (force measurement) method",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-82:2019",
+    "edition": "2.0",
+    "date": "2019-05-14",
+    "title": "Environmental testing - Part 2-82: Tests - Test Xw1: Whisker test methods for components and parts used in electronic assemblies",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-82:2019 specifies tests for the whiskering propensity of surface finishes of electric or electronic components and mechanical parts such as punched/stamped parts (for example, jumpers, electrostatic discharge protection shields, mechanical fixations, press‑fit pins and other mechanical parts used in electronic assemblies) representing the finished stage, with tin or tin-alloy finish. Changes of the physical dimensions of mould compounds, plastics and the like during the required test flow are not considered or assessed. The test methods have been developed by using a knowledge-based approach. This edition includes the following significant technical changes with respect to the previous edition: – extension of the scope of the test standard from electronic to electromechanic components and press-fit pins, which are used for assembly and interconnect technology; – significant reduction of the testing effort by a knowledge-based selection of test conditions i.e. tests not relevant for a given materials system can be omitted (see Annex D); – harmonization with JESD 201A by omission of severities M, N for temperature cycling tests; – highly reduced test duration (1 000 h instead of 4 000 h) for damp-heat test by introducing test condition at elevated humidity of 85 % R.H. and a temperature of 85 °C providing increased severity."
+  },
+  {
+    "reference": "IEC 60068-2-83:2025",
+    "edition": "2.0",
+    "date": "2025-05-27",
+    "title": "Environmental testing - Part 2-83: Tests - Test Tf: Solderability testing of electronic components for surface mounting devices (SMD) by the wetting balance method using solder paste",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-83:2025 is available as IEC 60068-2-83:2025 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 60068-2-83:2025 provides methods for comparative investigation of the wettability of the metallic terminations or metallized terminations of SMDs with solder paste. Data obtained by these methods are not intended to be used as absolute quantitative data for pass/fail purposes. NOTE Different solderability test methods for SMD are described in IEC 60068‑2‑58 and IEC 60068‑2‑69. IEC 60068‑2‑58 specifies visual evaluation using solder bath and reflow method, IEC 60068‑2‑69 specifies wetting balance evaluation using solder bath and solder globule method. This edition includes the following significant technical change with respect to the previous edition: a) revise Clause 5 to align with that in IEC 60068‑2‑20:2021."
+  },
+  {
+    "reference": "IEC 60068-2-88:2025",
+    "edition": "1.0",
+    "date": "2025-06-10",
+    "title": "Environmental testing - Part 2-88: Tests – Test XD: Resistance of components and assemblies to liquid cleaning media",
+    "language": "EN-FR",
+    "description": "IEC 60068‑2-88:2025 establishes test methods for the resistance of electronic and electromechanical components, unpopulated circuit boards and assemblies to liquid cleaning media and cleaning processes, which are agreed between user and supplier for applications, where cleaning is required. These tests are not applicable to components, unpopulated circuit boards and assemblies, which are not intended to be subjected to cleaning processes. Tests XD1 and XD2 primarily are intended for qualification testing of components and unpopulated circuit boards suitable for cleaning processes, but can be adopted as well to testing of material compatibility and specific cleaning media used in manufacturing processes of components and unpopulated circuit boards. Test XD3 is intended to determine the resistance of electronic assemblies suitable for cleaning processes to the various cleaning processes to which they are exposed during manufacturing, including the effects of assembly and soldering processes."
+  },
+  {
+    "reference": "IEC TR 60068-3-12:2022",
+    "edition": "3.0",
+    "date": "2022-10-14",
+    "title": "Environmental testing - Part 3-12: Supporting documentation and guidance - Method to evaluate a possible lead-free solder reflow temperature profile",
+    "language": "EN",
+    "description": "IEC TR 60068-3-12:2022(E) which is a Technical Report, describes the creation of temperature-time profiles (in specific envelope profiles) for reflow soldering of electronic assemblies, considering tolerances resulting from the accuracy of the measuring equipment, preparation method and specifications of the manufacturers of components, circuit boards, solder paste, etc.). This edition includes the following significant technical changes with respect to the previous edition: a) Extended purpose Guidance is added on how to create a reflow profile considering the tolerances resulting from the accuracy of the measuring equipment, preparation method and specifications of the component manufacturers (components, PCB, solder paste, etc.). b) Distinction from existing standards The envelope profile given in this document does not represent a temperature-time profile for the qualification of materials but defines the reflow process limits for the soldering of electronic assemblies. The schematic temperature-time-limit curves of the envelope profile are derived from generally valid findings (literature data). Additionally, tolerance considerations are given for all envelope points of the envelope profile. In contrast to IEC TR 60068-3-12:2014, the creation of the envelope profile is not primarily linked to a concrete example. c) Subclause 8.2 presents an approach for establishing a possible temperature profile for a lead-free reflow soldering process using SnAgCu solder paste that is taken from IEC TR 60068-3-12:2014. d) Synergies with existing standards Limit values and tolerances from standards and guidelines for the qualification of materials are included in this document and are listed as examples in the references."
+  },
+  {
+    "reference": "IEC 60068-3-13:2016",
+    "edition": "1.0",
+    "date": "2016-05-13",
+    "title": "Environmental testing - Part 3-13: Supporting documentation and guidance on Test T - Soldering",
+    "language": "EN-FR",
+    "description": "IEC 60068-3-13:2016 provides background information and guidance for writers and users of specifications for electric and electronic components, containing references to the test standards IEC 60068-2-20, IEC 60068-2-58, IEC 60068-2-69, IEC 60068-2-83, and to IEC 61760-1, which defines requirements to the specification of surface mounting components. This first edition cancels and replaces IEC 60068-2-44:1995 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - information for lead-free solders are added; - technical update and restructuring."
+  },
+  {
+    "reference": "IEC TR 60068-3-15:2024",
+    "edition": "1.0",
+    "date": "2024-02-06",
+    "title": "Environmental testing - Part 3-15: Supporting documentation and guidance - Vacuum-assisted reflow soldering",
+    "language": "EN",
+    "description": "IEC TR 60068-3-15:2024 describes vacuum-assisted soldering considering the thermal profiling, soldering methods, suitability of the components and vacuum features of soldering systems. It is based on practical experiences from manufacturers, component, material, and soldering systems suppliers. It supports manufacturers by providing information about the functionality of vacuum and effect of vacuum on components performance."
+  },
+  {
+    "reference": "IEC TR 60068-3-82:2024",
+    "edition": "1.0",
+    "date": "2024-08-15",
+    "title": "Environmental testing - Part 3-82: Supporting documentation and guidance - Confirmation of the performance of whisker test method",
+    "language": "EN",
+    "description": "IEC TR 60068-3-82:2024, which is a Technical Report, provides technical background information on the whisker test methods from IEC 60068-2-82 and guidance on test selection."
+  },
+  {
+    "reference": "IEC 60194-1:2021",
+    "edition": "1.0",
+    "date": "2021-02-09",
+    "title": "Printed boards design, manufacture and assembly - Vocabulary - Part 1: Common usage in printed board and electronic assembly technologies",
+    "language": "EN-FR",
+    "description": "IEC 60194-1:2021 covers terms and definitions closely related with TC91 technology. This document, together with IEC 60194-2:2017, cancel and replace IEC 60194:2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: 1) exclusion of 32 general terms better served by other TCs; 2) exclusion of 47 terms no longer used by the electronic assembly industry; 3) inclusion of 14 new terms related with device embedded substrate technology; 4) inclusion of 113 synonymous terms; 5) removal of identification codes for terms and annexes."
+  },
+  {
+    "reference": "IEC 60194-2:2025",
+    "edition": "2.0",
+    "date": "2025-02-12",
+    "title": "Electronic assembly, design and circuit boards - Vocabulary - Part 2: Common usage in electronic technologies as well as electronic assembly technologies",
+    "language": "EN",
+    "description": "IEC 60194-2:2025 covers terms and definitions related to circuit board and electronic assembly technologies as well as other electronic technologies. The terms have been classified according to the decimal classification code (DCC) and this DCC number appears just below the defined term. The DCC numbering is fully explained in Annex A. A list of terms in alphabetical order with code number is provided in Annex B. This edition includes the following significant technical changes with respect to the previous edition: a) exclusion of 116 terms transferred to IEV; b) inclusion of 9 new terms related to printed electronics and packaging technology; c) revision of definitions of 23 terms reflecting current technology; d) three \"printed wiring\" terms were removed; e) reintroduction of identification codes for terms."
+  },
+  {
+    "reference": "IEC 61188-5-2:2003",
+    "edition": "1.0",
+    "date": "2003-06-24",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 5-2: Attachment (land/joint) considerations - Discrete components",
+    "language": "EN-FR",
+    "description": "Provides information on land pattern geometries used for the surface attachment of discrete electronic components. Provides the appropriate size, shape and tolerances of surface mount land patterns to ensure sufficient area for the appropriate solder fillet, and also allow for inspection, testing and rework of resulting solder joints."
+  },
+  {
+    "reference": "IEC 61188-5-3:2007",
+    "edition": "1.0",
+    "date": "2007-10-30",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 5-3: Attachment (land/joint) considerations - Components with gull-wing leads on two sides",
+    "language": "EN-FR, EN",
+    "description": "IEC 61188-5-3:2007 provides information on land pattern geometries used for the surface attachment of electronic components with gull-wing leads on two sides. The intent of the information presented herein is to provide the appropriate size, shape and tolerances of surface mount land patterns to ensure sufficient area for the appropriate solder fillet, and also allow for inspection, testing and reworking of those solder joints. Each clause contains a specific set of criteria such that the information presented is consistent, providing information on the component, the component dimensions, the solder joint design, and the land pattern dimensions. This publication is to be read in conjunction with IEC 61188-5-1 :2002 ."
+  },
+  {
+    "reference": "IEC 61188-5-4:2007",
+    "edition": "1.0",
+    "date": "2007-10-30",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 5-4: Attachment (land/joint) considerations - Components with J leads on two sides",
+    "language": "EN-FR, EN",
+    "description": "IEC 61188-5-4:2007 provides the component and land pattern dimensions for small outline integrated circuits with \"J\" leads on two sides (SOJ components) used in the reflow soldering process. Basic construction of the SOJ device is also covered. Clause 4 lists the tolerances and target solder joint dimensions used to arrive at the land pattern dimensions."
+  },
+  {
+    "reference": "IEC 61188-5-5:2007",
+    "edition": "1.0",
+    "date": "2007-10-30",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 5-5: Attachment (land/joint) considerations - Components with gull-wing leads on four sides",
+    "language": "EN-FR, EN",
+    "description": "IEC 61188-5-5:2007 provides information on land pattern geometries used for the surface attachment of electronic components with gull-wing leads on four sides. The intent of the information presented herein is to provide the appropriate size, shape and tolerances of surface mount land patterns to ensure sufficient area for the appropriate solder fillet, and also allow for inspection, testing and reworking of those solder joints. This publication is to be read in conjunction with IEC 61188-5-1 :2002 ."
+  },
+  {
+    "reference": "IEC 61188-5-6:2003",
+    "edition": "1.0",
+    "date": "2003-01-23",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 5-6: Attachment (land/joint) considerations - Chip carriers with J-leads on four sides",
+    "language": "EN-FR",
+    "description": "Provides information on land pattern geometries used for the surface attachment of electronic components with J leads on four sides. Provides the appropriate size, shape and tolerances of surface mount land patterns so as to ensure sufficient area for the appropriate solder fillet, and also allows for inspection, testing and reworking of resulting solder joints."
+  },
+  {
+    "reference": "IEC 61188-5-8:2007",
+    "edition": "1.0",
+    "date": "2007-10-30",
+    "title": "Printed board and printed board assemblies - Design and use - Part 5-8: Attachment (land/joint) considerations - Area array components (BGA, FBGA, CGA, LGA)",
+    "language": "EN-FR, EN",
+    "description": "IEC 61188-5-8:2007 provides information on land pattern geometries used for the surface attachment of electronic components with area array terminations in the form of solder balls, solder columns or protective coated lands. The intent of the information presented herein is to provide the appropriate size, shape and tolerances of surface mount land patterns to ensure sufficient area for the appropriate solder joint, and also allow for inspection, testing and reworking of those solder joints. This publication is to be read in conjunction with IEC 61188-5-1:2002 ."
+  },
+  {
+    "reference": "IEC 61188-6-1:2021",
+    "edition": "1.0",
+    "date": "2021-02-23",
+    "title": "Circuit boards and circuit board assemblies - Design and use - Part 6-1: Land pattern design - Generic requirements for land pattern on circuit boards",
+    "language": "EN-FR",
+    "description": "IEC 61188-6-1:2021 specifies the requirements for soldering surfaces on circuit boards. This includes lands and land pattern for surface mounted components and also solderable hole configurations for through-hole mounted components. These requirements are based on the solder joint requirements of the IEC 61191-1, IEC 61191-2, IEC 61191-3 and IEC 61191-4."
+  },
+  {
+    "reference": "IEC 61188-6-2:2021",
+    "edition": "1.0",
+    "date": "2021-02-04",
+    "title": "Circuit boards and circuit board assemblies - Design and use - Part 6-2: Land pattern design - Description of land pattern for the most common surface mounted components (SMD)",
+    "language": "EN-FR",
+    "description": "IEC 61188-6-2:2021 describes the requirements of design and use for soldering surfaces of land pattern on circuit boards. This document includes land pattern for surface mounted components. These requirements are based on the solder joint requirements of IEC 61191‑2:2017."
+  },
+  {
+    "reference": "IEC 61188-6-3:2024",
+    "edition": "1.0",
+    "date": "2024-12-09",
+    "title": "Circuit boards and circuit board assemblies - Design and use - Part 6-3: Land pattern design - Description of land pattern for through hole components (THT)",
+    "language": "EN-FR",
+    "description": "IEC 61188-6-3:2024 specifies the requirements for lands and land pattern on circuit boards for the mounting of components with leads by soldering based on the solder joint requirements of IEC 61191-1 and IEC 61191-3. This part of IEC 61188 specifies the requirements for soldering surfaces on circuit boards. This includes lands and land pattern for surface mounted components and also solderable hole configurations for through hole mounted components. These requirements are based on the solder joint requirements of IEC 61191-1, IEC 61191-2, IEC 61191-3 and IEC 61191-4. This first edition partially cancels and replaces the IEC 61188-5 series of International Standards. The significant technical changes with respect to the previous edition are listed in the Introduction and further detailed information and calculations can be found in Annex A."
+  },
+  {
+    "reference": "IEC 61188-6-4:2019",
+    "edition": "1.0",
+    "date": "2019-05-02",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 6-4: Land pattern design - Generic requirements for dimensional drawings of surface mounted components (SMD) from the viewpoint of land pattern design",
+    "language": "EN-FR",
+    "description": "IEC 61188-6-4:2019 specifies generic requirements for dimensional drawings of SMD from the viewpoint of land pattern design. The purpose of this document is to prevent land pattern design issues caused by lack of information and/or misuse of the information from SMD outline drawing as well as to improve the utilization of IEC 61188 series. This document is applicable to the SMD of semiconductor devices and electrical components."
+  },
+  {
+    "reference": "IEC 61188-7:2017",
+    "edition": "2.0",
+    "date": "2017-04-10",
+    "title": "Printed boards and printed board assemblies - Design and use - Part 7: Electronic component zero orientation for CAD library construction",
+    "language": "EN-FR, EN",
+    "description": "IEC 61188-7:2017 establishes a consistent technique for the description of electronic component orientation, and their land pattern geometries. This facilitates and encourages a common data capture and transfer methodology amongst and between global trading partners. This edition includes the following significant technical changes with respect to the previous edition: a) Figure 1 has been corrected; b) the term “rectangle” has generally been replaced by “polygon”; c) level B has been indicated as preferred level for new libraries."
+  },
+  {
+    "reference": "IEC TR 61188-8:2021",
+    "edition": "1.0",
+    "date": "2021-01-14",
+    "title": "Circuit boards and circuit board assemblies - Design and use - Part 8: 3D shape data for CAD component library",
+    "language": "EN",
+    "description": "IEC TR 61188-8:2021(E) describes the configuration of part shape data of semiconductor devices and electrical components registered in the CAD library. This document mainly describes the configuration of 2D and 3D parts shape data."
+  },
+  {
+    "reference": "IEC 61189-1:1997",
+    "edition": "1.0",
+    "date": "1997-03-27",
+    "title": "Test methods for electrical materials, interconnection structures and assemblies - Part 1: General test methods and methodology",
+    "language": "EN-FR",
+    "description": "This series relates to test methods for printed boards and printed board assemblies, as well as related materials or component robustness, irrespective of their method of manufacture. This part contains test methods for evaluating printed boards and other forms of interconnection structures. The methods are designed to achieve uniformity and reproducibility in the procedures and test methodologies."
+  },
+  {
+    "reference": "IEC 61189-1:1997/AMD1:2001",
+    "edition": "1.0",
+    "date": "2001-08-09",
+    "title": "Amendment 1 - Test methods for electrical materials, interconnection structures and assemblies - Part 1: General test methods and methodology",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61189-2:2006",
+    "edition": "2.0",
+    "date": "2006-05-30",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2: Test methods for materials for interconnection structures",
+    "language": "EN",
+    "description": "Provides a catalogue of test methods representing methodologies and procedures that can be applied to test materials used for manufacturing interconnection structures (printed boards) and assemblies."
+  },
+  {
+    "reference": "IEC 61189-2-501:2022",
+    "edition": "1.0",
+    "date": "2022-02-03",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-501: Test methods for materials for interconnection structures - Measurement of resilience strength and resilience strength retention factor of flexible dielectric materials",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-501:2022 establishes a method suitable for testing the softness of FCCL (Flexible Copper Clad Laminate) products and related materials. This method determines the resilience under specified conditions. The test is performed on the sample as manufactured and without conditioning. The test does not apply to the resilience force lower than 10 mN."
+  },
+  {
+    "reference": "IEC 61189-2-630:2018",
+    "edition": "1.0",
+    "date": "2018-06-05",
+    "title": "Test methods for electrical materials, printed board and other interconnection structures and assemblies - Part 2-630: Test methods for materials for interconnection structures - Moisture absorption after pressure vessel conditioning",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-630:2018 specifies a test method to determine the amount of water absorbed by metal-clad laminates after conditioning in a pressure vessel for 1 h, 2 h, 3 h, 4 h or 5 h."
+  },
+  {
+    "reference": "IEC 61189-2-719:2016",
+    "edition": "1.0",
+    "date": "2016-07-12",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-719: Test methods for materials for interconnection structures - Relative permittivity and loss tangent (500 MHz to 10 GHz)",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-719:2016 specifies a test method of relative permittivity and loss tangent of printed board and assembly materials, expected to be determined 2 to 10 of relative permittivity and 0,001 to 0,050 of loss tangent at 500 MHz to 10 GHz."
+  },
+  {
+    "reference": "IEC 61189-2-720:2024",
+    "edition": "1.0",
+    "date": "2024-03-06",
+    "title": "Test methods for electrical materials, circuit boards and other interconnection structures and assemblies - Part 2-720: Detection of defects in interconnection structures by measurement of capacitance",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-720:2024 provides a method to evaluate specific characteristics of circuit boards by measuring the capacitance between conductor traces and a ground plane and can be used for qualitative comparison of a test specimen to a reference board. This method is not intended for quantitative measurements and for assessment of conformity to a specification."
+  },
+  {
+    "reference": "IEC 61189-2-721:2015",
+    "edition": "1.0",
+    "date": "2015-04-29",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-721: Test methods for materials for interconnection structures - Measurement of relative permittivity and loss tangent for copper clad laminate at microwave frequency using a split post dielectric resonator",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-721:2015 outlines a way to determine the relative permittivity and loss tangent (also called dielectric constant and dissipation factor) of copper clad laminates at microwave frequencies (from 1,1 GHz to 20 GHz) using a split post dielectric resonator (SPDR). IEC 61189-2-721:2015 is applicable to copper clad laminates and dielectric base materials."
+  },
+  {
+    "reference": "IEC 61189-2-801:2023",
+    "edition": "1.0",
+    "date": "2023-07-26",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-801: Thermal conductivity test for base materials",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-801:2023 defines a test method to be followed for thermal performance via carbon ink heating. The method employs a screened-on pattern of carbon ink used to determine the thermal performance of a dielectric layer on a metal base plate."
+  },
+  {
+    "reference": "IEC 61189-2-803:2023",
+    "edition": "1.0",
+    "date": "2023-07-26",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-803: Test methods for Z-axis expansion of base materials and printed boards",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-803:2023 specifies a test method to determine the Z-axis expansion of base materials and printed boards using a thermomechanical analyser (TMA)."
+  },
+  {
+    "reference": "IEC 61189-2-804:2023",
+    "edition": "1.0",
+    "date": "2023-08-25",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-804: Test methods for time to delamination - T260, T288, T300",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-804:2023 specifies a test method to determine the time to delamination of base materials and printed boards using a thermomechanical analyser (TMA). Temperatures used for this evaluation are typically 260 °C, 288 °C and 300 °C, but are not limited to these values."
+  },
+  {
+    "reference": "IEC 61189-2-805:2024",
+    "edition": "1.0",
+    "date": "2024-04-18",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-805: X/Y CTE test for thin base materials by TMA",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-805:2024 defines the method to be followed for the determination of the X/Y coefficient of thermal expansion of thin electrical insulating materials via the use of a thermomechanical analyser (TMA). This method is applicable to materials that are solid for the entire range of temperature used, and that retain sufficient rigidity over the temperature range so that so that irreversible indentation of the specimen by the sensing probe does not occur."
+  },
+  {
+    "reference": "IEC 61189-2-807:2021",
+    "edition": "1.0",
+    "date": "2021-09-03",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 2-807: Test methods for materials for interconnection structures - Decomposition temperature (T<sub>d</sub>) using TGA",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-807:2021 specifies a test method to determine the decomposition temperature (Td) of base laminate materials using thermogravimetric analysis (TGA)."
+  },
+  {
+    "reference": "IEC 61189-2-808:2024",
+    "edition": "1.0",
+    "date": "2024-04-25",
+    "title": "Test methods for electrical materials, printed board and other interconnection structures and assemblies - Part 2-808: Thermal resistance of an assembly by thermal transient method",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-808:2024 describes the thermal transient method to characterize the thermal resistance of an assembly consisting of a heat source (e.g. power device), an attachment material (e.g. solder) and a dielectric layer with electrode. This method is suitable to determine the thermal resistance of materials and assembly methods as well as to optimize the thermal flux to a heat sink. NOTE: This method is not intended to measure and specify the value of the thermal resistance of a dielectric material. For that purpose, other standards exist. Examples are given in Annex A."
+  },
+  {
+    "reference": "IEC 61189-2-809:2024",
+    "edition": "1.0",
+    "date": "2024-12-09",
+    "title": "Test methods for electrical materials, circuit boards and other interconnection structures and assemblies – Part 2-809: X/Y coefficient of thermal expansion (CTE) test for thick base materials by TMA",
+    "language": "EN-FR",
+    "description": "IEC 61189-2-809:2024 defines the method to be followed for the determination of the X/Y coefficient of thermal expansion of electrical insulating materials by the use of a thermomechanical analyser (TMA). This method is applicable to materials that are solid of the entire range of temperature used and retain sufficient hardness and rigidity over the temperature range so that irreversible indentation of the specimen by the sensing probe does not occur."
+  },
+  {
+    "reference": "IEC 61189-3:2007",
+    "edition": "2.0",
+    "date": "2007-10-09",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3: Test methods for interconnection structures (printed boards)",
+    "language": "EN-FR, EN",
+    "description": "IEC 61189-3:2007 is a catalogue of test methods representing methodologies and procedures that can be applied to test materials used for manufacturing interconnection structures (printed boards) and assemblies. The major technical changes with regard to the previous edition concern the addition of 25 new tests, as follows: - 6 V: Visual test methods: 3V01, 3V02 and 3V03; - 7 D: Dimensional test methods: 3D03; - 8 C: Chemical test methods: 3C02, 3C13 and 3C14; - 9 M: Mechanical test methods: 3M01, 3M03, 3M04, 3M07 and 3M09; - 10 E: Electrical test methods: 3E03, 3E04, 3E05, 3E11, 3E12, 3E13, 3E16, 3E17 and 3E18; - 11 N: Environmental test methods: 3N03, 3N07 and 3N12; - 12 X: Miscellaneous test methods: 3X01."
+  },
+  {
+    "reference": "IEC TS 61189-3-301:2016",
+    "edition": "1.0",
+    "date": "2016-07-28",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3-301: Test methods for interconnection structures (printed boards) - Appearance inspection method for plated surfaces on PWB",
+    "language": "EN",
+    "description": "IEC TS 61189-3-301:2016(E) outlines a way to determine the appearance non-uniformity of both the lustre and colour on plated metal surfaces in printed wiring boards (PWBs). The method is applicable to gold, nickel and copper plating in PWBs."
+  },
+  {
+    "reference": "IEC 61189-3-302:2025",
+    "edition": "1.0",
+    "date": "2025-10-22",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3-302: Detection of plating defects in unpopulated circuit boards by computed tomography (CT)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61189-3-302:2025 describes a method for the detection of plating defects in unpopulated circuit boards using computed tomography (CT). This document is applicable to non-destructive testing of metallized holes."
+  },
+  {
+    "reference": "IEC 61189-3-719:2016",
+    "edition": "1.0",
+    "date": "2016-01-05",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3-719: Test methods for interconnection structures (printed boards) - Monitoring of single plated-through hole (PTH) resistance change during temperature cycling",
+    "language": "EN-FR",
+    "description": "IEC 61189-3-719:2016 specifies a test method to monitor the resistance of single plated-through holes (PTHs) in printed circuit boards (PCBs) to determine the PTH durability under thermo-mechanical stress induced by temperature cycling."
+  },
+  {
+    "reference": "IEC 61189-3-913:2016",
+    "edition": "1.0",
+    "date": "2016-01-05",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3-913: Test method for thermal conductivity of electronic circuit boards for high-brightness LEDs",
+    "language": "EN-FR",
+    "description": "IEC 61189-3-913:2016 specifies the test methods for thermal conductivity specific to printed circuit boards for high-brightness LEDs. The test applies to printed circuit boards for high-brightness LEDs with surface mounted LEDs or with device embedded LEDs in electronic control devices (ECDs). This first edition cancels and replaces the first edition of IEC PAS 61189-3-913 published in 2011. This edition constitutes a technical revision. This edition focused only on the test methods for thermal conductivity specific to printed circuit boards for high-brightness LEDs."
+  },
+  {
+    "reference": "IEC TR 61189-3-914:2017",
+    "edition": "1.0",
+    "date": "2017-03-17",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 3-914: Test method for thermal conductivity of printed circuit boards for high-brightness LEDs - Guidelines",
+    "language": "EN",
+    "description": "IEC TR 61189-3-914:2017(E) specifies the detailed procedures and precautions for IEC 61189-3-913."
+  },
+  {
+    "reference": "IEC 61189-5-1:2016",
+    "edition": "1.0",
+    "date": "2016-07-05",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-1: General test methods for materials and assemblies - Guidance for printed board assemblies",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-1:2016 is a catalogue of test methods representing methodologies and procedures that can be applied to test printed board assemblies. This part of IEC 61189 contains the types of content of the IEC 61189-5 series, as well as guidance documents and handbooks for printed board assemblies."
+  },
+  {
+    "reference": "IEC 61189-5-2:2015",
+    "edition": "1.0",
+    "date": "2015-01-08",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-2: General test methods for materials and assemblies - Soldering flux for printed board assemblies",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-2:2015 is a catalogue of test methods representing methodologies and procedures that can be applied to test printed board assemblies. This part of IEC 61189 focuses on test methods for soldering flux based on the existing IEC 61189-5 and IEC 61189-6. In addition, it includes test methods of soldering flux for lead free soldering. This publication is to be read in conjunction with IEC 61189-1:1997 , IEC 61189-2:2006 and IEC 61189-3:2007 ."
+  },
+  {
+    "reference": "IEC 61189-5-3:2015",
+    "edition": "1.0",
+    "date": "2015-01-08",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-3: General test methods for materials and assemblies - Soldering paste for printed board assemblies",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-3:2015 is a catalogue of test methods representing methodologies and procedures that can be applied to test printed board assemblies. This part of IEC 61189 focuses on test methods for soldering paste based on the existing IEC 61189-5 and IEC 61189-6. In addition, it includes test methods of soldering paste for lead free soldering. This publication is to be read in conjunction with IEC 61189-1:1997 , IEC 61189-2:2006 and IEC 61189-3:2007 ."
+  },
+  {
+    "reference": "IEC 61189-5-4:2015",
+    "edition": "1.0",
+    "date": "2015-01-08",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-4: General test methods for materials and assemblies - Solder alloys and fluxed and non-fluxed solid wire for printed board assemblies",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-4:2015 is a catalogue of test methods representing methodologies and procedures that can be applied to test printed board assemblies. This part of IEC 61189 focuses on test methods for solder alloys, fluxed and non-fluxed solid wire, based on existing IEC 61189-5 and IEC 61189-6. In addition, it includes test methods for solder alloys, fluxed and non-fluxed solid wire, and for lead free soldering. This publication is to be read in conjunction with IEC 61189-1:1997 , IEC 61189-2:2006 and IEC 61189-3:2007 ."
+  },
+  {
+    "reference": "IEC 61189-5-301:2021",
+    "edition": "1.0",
+    "date": "2021-03-17",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-301: General test methods for materials and assemblies - Soldering paste using fine solder particles",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-301:2021 specifies methods for testing the characteristics of soldering paste using fine solder particles (hereinafter referred to as solder paste). This document is applicable to the solder paste using fine solder particle such as type 6, type 7 specified in IEC 61190-1-2 or finer particle sizes. This type of solder paste is used for connecting wiring and components in high-density printed circuit boards which are used in electronic or communication equipment and such, equipping fine wiring (e.g., minimum conductor widths and minimum conductor gaps of 60 µm or less). Test methods for the characteristics of solder paste in this document are considering the effect of surface activation force due to the fine sized solder particles which could affect the test result by existing test methods."
+  },
+  {
+    "reference": "IEC 61189-5-501:2021",
+    "edition": "1.0",
+    "date": "2021-01-26",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-501: General test methods for materials and assemblies - Surface insulation resistance (SIR) testing of solder fluxes",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-501:2021 is used to quantify the deleterious effects of flux residues on surface insulation resistance (SIR) in the presence of moisture."
+  },
+  {
+    "reference": "IEC 61189-5-502:2021",
+    "edition": "1.0",
+    "date": "2021-02-03",
+    "title": "Test methods for electrical materials, printed board and other interconnection structures and assemblies - Part 5-502: General test methods for materials and assemblies - Surface Insulation Resistance (SIR) testing of assemblies",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-502:2021 is used for evaluating the changes to the surface insulation resistance of a pre-selected material set on a representative test coupon and quantifies the deleterious effects of improperly used materials and processes that can lead to decreases in electrical resistance."
+  },
+  {
+    "reference": "IEC 61189-5-503:2017",
+    "edition": "1.0",
+    "date": "2017-05-22",
+    "title": "Test methods for electrical materials, printed board and other interconnection structures and assemblies - Part 5-503: General test method for materials and assemblies - Conductive anodic filaments (CAF) testing of circuit boards",
+    "language": "EN-FR, EN",
+    "description": "IEC 61189-5-503:2017 specifies the conductive anodic filament (hereafter referred to as CAF) and specifies not only the steady-state temperature and humidity test, but also a temperature-humidity cyclic test and an unsaturated pressurized vapour test (HAST)."
+  },
+  {
+    "reference": "IEC 61189-5-504:2020",
+    "edition": "1.0",
+    "date": "2020-04-21",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-504: General test methods for materials and assemblies - Process ionic contamination testing (PICT)",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-504:2020 is a test method designed to determine the proportion of soluble ionic residues present upon a circuit board, electronic component or assembly. The conductivity of the solution used to dissolve the ionic residues is measured to evaluate the level of ionic residues."
+  },
+  {
+    "reference": "IEC TR 61189-5-506:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-506: General test methods for materials and assemblies - An intercomparison evaluation to implement the use of fine-pitch test structures for surface insulation resistance (SIR) testing of solder fluxes in accordance with IEC 61189-5-501",
+    "language": "EN",
+    "description": "IEC TR 61189-5-506:2019(E) is an intercomparison supporting the development of IEC 61189-5-501 in relation to the SIR method. This document sets out to validate the introduction of a new 200-µm gap SIR pattern, and was benched marked against existing SIR gap patterns of 318 µm and 500 µm."
+  },
+  {
+    "reference": "IEC 61189-5-601:2021",
+    "edition": "1.0",
+    "date": "2021-02-03",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 5-601: General test methods for materials and assemblies - Reflow soldering ability test for solder joint, and reflow heat resistance test for printed boards",
+    "language": "EN-FR",
+    "description": "IEC 61189-5-601:2021 specifies the reflow soldering ability test method for components mounted on organic rigid printed boards, the reflow heat resistance test method for organic rigid printed boards, and the reflow soldering ability test method for the lands of organic rigid printed boards in applications using solder alloys, which are eutectic or near-eutectic tin-lead (Pb), or lead-free alloys. The printed boards materials for this organic rigid printed boards are epoxide woven E-glass laminated sheets that are specified in IEC 61249-2 (all parts). The objective of this document is to ensure the soldering ability of the solder joint and of the lands of the printed boards. In addition, test methods are provided to ensure that the printed boards can resist the heat load to which they are exposed during soldering."
+  },
+  {
+    "reference": "IEC 61189-11:2013",
+    "edition": "1.0",
+    "date": "2013-05-07",
+    "title": "Test methods for electrical materials, printed boards and other interconnection structures and assemblies - Part 11: Measurement of melting temperature or melting temperature ranges of solder alloys",
+    "language": "EN-FR",
+    "description": "IEC 61189-11:2013 describes the measurement method of melting ranges of solder alloys that are mainly used for wiring of electrical equipment, for electrical and communication equipment, and for other apparatus, as well as for connecting components."
+  },
+  {
+    "reference": "IEC 61190-1-1:2002",
+    "edition": "1.0",
+    "date": "2002-03-25",
+    "title": "Attachment materials for electronic assembly - Part 1-1: Requirements for soldering fluxes for high-quality interconnections in electronics assembly",
+    "language": "EN-FR",
+    "description": "Specifies general requirements for the classification and testing of soldering fluxes for high-quality interconnections in electronics assembly. This standard is a flux characterization, quality control, and procurement document for solder flux and flux containing material in electronics assembly technology."
+  },
+  {
+    "reference": "IEC 61190-1-2:2014",
+    "edition": "3.0",
+    "date": "2014-02-19",
+    "title": "Attachment materials for electronic assembly - Part 1-2: Requirements for soldering pastes for high-quality interconnects in electronics assembly",
+    "language": "EN-FR",
+    "description": "IEC 61190-1-2:2014-02(en-fr) specifies general requirements for the characterization and testing of solder pastes used to make high-quality electronic interconnections in electronics assembly. This standard serves as a quality control document and is not intended to relate directly to the material's performance in the manufacturing process. This edition includes the following significant technical changes with respect to the previous edition: a) modification of the solder powder size in Table 2; b) addition of the information of \"Reflow condition and profile\" in Annex B; c) addition of a new Annex C."
+  },
+  {
+    "reference": "IEC 61190-1-3:2017",
+    "edition": "3.0",
+    "date": "2017-12-13",
+    "title": "Attachment materials for electronic assembly - Part 1-3: Requirements for electronic grade solder alloys and fluxed and non-fluxed solid solder for electronic soldering applications",
+    "language": "EN-FR",
+    "description": "IEC 61190-1-3:2017 prescribes the requirements and test methods for electronic grade solder alloys, for fluxed and non-fluxed bar, ribbon, powder solders and solder paste, for electronic soldering applications and for \"special\" electronic grade solders. For the generic specifications of solder alloys and fluxes, see ISO 9453. This document is a quality control document and is not intended to relate directly to the material's performance in the manufacturing process. This edition includes the following significant technical changes with respect to the previous edition: a) The maximum impurity level of Pb has been revised and the table of lead free solder alloys includes some additional lead free solder alloys."
+  },
+  {
+    "reference": "IEC 61191-1:2018",
+    "edition": "3.0",
+    "date": "2018-09-14",
+    "title": "Printed board assemblies - Part 1: Generic specification - Requirements for soldered electrical and electronic assemblies using surface mount and related assembly technologies",
+    "language": "EN-FR",
+    "description": "IEC 61191-1:2018 prescribes requirements for materials, methods and verification criteria for producing quality soldered interconnections and assemblies using surface mount and related assembly technologies. This part of IEC 61191 also includes recommendations for good manufacturing processes. This edition includes the following significant technical changes with respect to the previous edition: - the requirements have been updated to be compliant with the acceptance criteria in IPC‑A-610F; - the term \"assembly drawing\" has been changed to \"assembly documentation\" throughout; - references to IEC standards have been corrected; - Clause 9 was completely rewritten; - Annex B was removed because there are already procedures for circuit board assemblies."
+  },
+  {
+    "reference": "IEC 61191-2:2017",
+    "edition": "3.0",
+    "date": "2017-05-23",
+    "title": "Printed board assemblies - Part 2: Sectional specification - Requirements for surface mount soldered assemblies",
+    "language": "EN-FR, EN",
+    "description": "IEC 61191-2:2017 gives the requirements for surface mount solder connections. The requirements pertain to those assemblies that are totally surface mounted or to the surface mounted portions of those assemblies that include other related technologies (e.g. through-hole, chip mounting, terminal mounting, etc.). This edition includes the following significant technical changes with respect to the previous edition: a) the requirements have been updated to be compliant with the acceptance criteria in IPC‑A-610F; b) some of the terminology used in the document has been updated; c) references to IEC standards have been corrected; d) five termination styles have been added. The contents of the corrigendum of September 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61191-2:2017/COR1:2019",
+    "edition": "3.0",
+    "date": "2019-09-16",
+    "title": "Corrigendum 1 - Printed board assemblies - Part 2: Sectional specification - Requirements for surface mount soldered assemblies",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61191-3:2017",
+    "edition": "2.0",
+    "date": "2017-05-30",
+    "title": "Printed board assemblies - Part 3: Sectional specification - Requirements for through-hole mount soldered assemblies",
+    "language": "EN-FR, EN",
+    "description": "IEC 61191-3:2017 prescribes requirements for lead and hole solder assemblies. The requirements pertain to those assemblies that totally use through-hole mounting technology (THT), or the THT portions of those assemblies that include other related technologies (i.e.. surface mount, chip mounting, terminal mounting). This edition includes the following significant technical changes with respect to the previous edition: a) The requirements have been updated to be compliant wit the acceptance criteria in IPC-A-610F."
+  },
+  {
+    "reference": "IEC 61191-4:2017",
+    "edition": "2.0",
+    "date": "2017-07-26",
+    "title": "Printed board assemblies - Part 4: Sectional specification - Requirements for terminal soldered assemblies",
+    "language": "EN-FR, EN",
+    "description": "IEC 61191-4:2017 prescribes requirements for terminal soldered assemblies. The requirements pertain to those assemblies that are entirely terminal/wire interconnecting structures or to the terminal/wire portions of those assemblies that include other related technologies (i.e. surface mounting, through-hole mounting, chip mounting). This edition includes the following significant technical changes with respect to the previous edition: The requirements have been updated to be compliant with the acceptance criteria in IPC‑A-610F."
+  },
+  {
+    "reference": "IEC 61191-6:2010",
+    "edition": "1.0",
+    "date": "2010-01-14",
+    "title": "Printed board assemblies - Part 6: Evaluation criteria for voids in soldered joints of BGA and LGA and measurement method",
+    "language": "EN-FR",
+    "description": "IEC 61191-6:2010 specifies the evaluation criteria for voids on the scale of the thermal cycle life, and the measurement method of voids using X-ray observation. This part of IEC 61191 is applicable to the voids generated in the solder joints of BGA and LGA soldered on a board. This part of IEC 61191 is not applicable to the BGA package itself before it is assembled on a board. This standard is applicable also to devices having joints made by melt and re-solidification, such as flip chip devices and multi-chip modules, in addition to BGA and LGA. This standard is not applicable to joints with under-fill between a device and a board, or to solder joints within a device package. This standard is applicable to macrovoids of the sizes of from 10 µm to several hundred micrometres generated in a soldered joint, but is not applicable to smaller voids (typically, planar microvoids) with a size of smaller than 10 µm in diameter. This standard is intended for evaluation purposes and is applicable to research studies, off-line production process control and reliability assessment of assembly."
+  },
+  {
+    "reference": "IEC TR 61191-7:2020",
+    "edition": "1.0",
+    "date": "2020-03-11",
+    "title": "Printed board assemblies - Part 7: Technical cleanliness of components and printed board assemblies",
+    "language": "EN",
+    "description": "IEC TR 61191-7:2020(E) serves as a Technical Report and provides information, how technical cleanliness can be assessed within the electronics assembly industry. Technical cleanliness concerns sources, analysis, reduction and control as well as associated risks of particulate matter, so-called foreign-object debris, on components and electronic assemblies in the electronics industry."
+  },
+  {
+    "reference": "IEC TR 61191-8:2021",
+    "edition": "1.0",
+    "date": "2021-03-19",
+    "title": "Printed board assemblies - Part 8: Voiding in solder joints of printed board assemblies for use in automotive electronic control units - Best practices",
+    "language": "EN",
+    "description": "IEC TR 61191-8:2021(E) gives guidelines for dealing with voiding in surface-mount solder joints of printed board assemblies for use in automotive electronics. This technical report focuses exclusively on voids in solder joints connecting packaged electronic or electromechanical components with printed boards (PBs). Voids in other solder joints (e.g. in a joint between a silicon die and a substrate within an electronic component, solder joints of through-hole components, etc.) are not considered. The technical background for the occurrence of voids in solder joints, the potential impact of voiding on printed board assembly reliability and functionality, the investigation of voiding levels in sample- and series-production by use of X‑ray inspection as well as typical voiding levels in different types of solder joints are discussed. Recommendations for the control of voiding in series production are also given. Annex A collects typical voiding levels of components and recommendations for acceptability."
+  },
+  {
+    "reference": "IEC TR 61191-9:2023",
+    "edition": "1.0",
+    "date": "2023-06-07",
+    "title": "Printed board assemblies - Part 9: Electrochemical reliability and ionic contamination on printed circuit board assemblies for use in automotive applications - Best practices",
+    "language": "EN",
+    "description": "IEC TR 61191-9:2023, which is a Technical Report, applies to electronic and electromechanical automotive circuit board assemblies and describes current best practices for dealing with electrochemical reactions like migration or corrosion and ionic contamination on the surface of a circuit board as one failure mode under humidity load. This document deals with the evaluation of materials and manufacturing processes for the manufacturing of electronic assemblies with focus on their reliability under humidity loads. The electrical operation of a device in a humid environment can trigger electrochemical reactions that can lead to short circuits and malfunctions on the assembly. In this context, a large number of terms and methods are mentioned, such as CAF (conductive anodic filament), anodic migration phenomena, dendrite growth, cathodic migration, ROSE (resistivity of solvent extract), ionic contamination, SIR (surface insulation resistance), impedance spectroscopy, etc., which are used and interpreted differently. The aim of the document is to achieve a uniform use of language and to list the possibilities and limitations of common measurement methods. The focus of the document is on the error pattern of electrochemical migration on the surface of assemblies with cathodic formation of dendrites. Evaluation of different test methods of control units under high humidity load are not part of this document."
+  },
+  {
+    "reference": "IEC PAS 61191-10:2022",
+    "edition": "1.0",
+    "date": "2022-07-18",
+    "title": "Printed board assemblies - Part 10: Application and utilization of protective coatings for electronic assemblies",
+    "language": "EN",
+    "description": "IEC PAS 61191-10:2022(E) provides guidelines which deal with the requirements for the protective coating, its properties, as well as the application of liquid coating materials for electronic assemblies. These guidelines help control in practice the application of protective coatings from the layout to the functional test of the assembly after coating."
+  },
+  {
+    "reference": "IEC 61193-1:2001",
+    "edition": "1.0",
+    "date": "2001-12-19",
+    "title": "Quality assessment systems - Part 1: Registration and analysis of defects on printed board assemblies",
+    "language": "EN-FR",
+    "description": "Defines methods of registration and analysis of defects on soldered printed board assemblies. These methods are described to allow effective comparison of performance between products, processes and production locations, and can serve as a basis for general quality improvement."
+  },
+  {
+    "reference": "IEC 61193-2:2007",
+    "edition": "1.0",
+    "date": "2007-08-30",
+    "title": "Quality assessment systems - Part 2: Selection and use of sampling plans for inspection of electronic components and packages",
+    "language": "EN",
+    "description": "Applies to the inspection of electronic components, packages, and also modules (referred to as \"products in this standard) for use in electronic and electric equipment. It specifies sampling plans for inspection by attributes on the assumption that the acceptance number is zero (Ac = 0), including criteria for sample selection and procedures."
+  },
+  {
+    "reference": "IEC 61193-3:2013",
+    "edition": "1.0",
+    "date": "2013-01-24",
+    "title": "Quality assessment systems - Part 3: Selection and use of sampling plans for printed board and laminate end-product and in-process auditing",
+    "language": "EN-FR",
+    "description": "IEC 61193-3:2013 establishes sampling plans for inspection by attributes, including sample plan selection criteria and implementation procedures for printed board and laminate end-product and in-process auditing. The principles established herein permit the use of different sampling plans that may be applied to an individual attribute or set of attributes, according to classification of importance with regard to form, fit and function."
+  },
+  {
+    "reference": "IEC 61249-2-1:2005",
+    "edition": "1.0",
+    "date": "2005-01-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-1: Reinforced base materials, clad and unclad - Phenolic cellulose paper reinforced laminated sheets, economic grade, copper clad",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of phenolic cellulose paper reinforced copper-clad laminated sheets, economic grade in thicknesses of 0,8 mm up to 3,2 mm. This standard covers materials with different requirements on flammability, designated according to the following: Material 61249-2-1-1: general purpose grade, requirement on flammability not specified; and Material 61249-2-1-2: materials of defined flammability (vertical burning test). These grades of material cover one of two flammability requirements, designated at FV0 or FV1."
+  },
+  {
+    "reference": "IEC 61249-2-2:2005",
+    "edition": "1.0",
+    "date": "2005-01-20",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-2: Reinforced base materials, clad and unclad - Phenolic cellulose paper reinforced laminated sheets, high electrical grade, copper-clad",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of phenolic cellulose paper, reinforced copper-clad laminated sheets of high electrical grade in thicknesses of 0,8 mm to 3,2 mm. This standard covers materials with different requirements on flammability and are designated according to the following: Material 61249-2-2-1; Material 61249-2-2-2; and Material 61249-2-2-3."
+  },
+  {
+    "reference": "IEC 61249-2-4:2001",
+    "edition": "1.0",
+    "date": "2001-12-19",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-4: Reinforced base materials, clad and unclad - Polyester non-woven/woven fibreglass laminated sheet of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of polyester woven fibreglass reinforced surface / non-woven fibreglass reinforced core copper-clad laminated sheet, of defined flammability, in thicknesses of 0,80 mm to 1,60 mm."
+  },
+  {
+    "reference": "IEC 61249-2-5:2003",
+    "edition": "1.0",
+    "date": "2003-11-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-5: Reinforced base materials, clad and unclad - Brominated epoxide cellulose paper reinforced core/woven E-glass reinforced surfaces laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of brominated epoxide cellulose paper reinforced core/woven E-glass reinforced surfaces-laminated sheets of defined flammability, copper-clad in thicknesses of 0,80 mm up to 1,70 mm. The flammability rating is achieved through the use of brominated fire retardants reacted as part of the epoxide polymeric structure."
+  },
+  {
+    "reference": "IEC 61249-2-6:2003",
+    "edition": "1.0",
+    "date": "2003-11-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-6: Reinforced base materials, clad and unclad - Brominated epoxide non-woven/woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of brominated epoxide non-woven/woven reinforced E-glass laminated sheets of defined flammability, copper-clad in thicknesses of 0,80 mm up to 1,70 mm. The flammability rating is achieved through the use of brominated fire retardants reacted as part of the epoxide polymeric structure."
+  },
+  {
+    "reference": "IEC 61249-2-7:2002",
+    "edition": "1.0",
+    "date": "2002-03-05",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-7: Reinforced base materials clad and unclad - Epoxide woven E-glass laminated sheet of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "Gives requirements for properties of epoxide woven E-glass laminated sheet 0,05 mm up to 3,2 mm, of defined flammability, copper-clad."
+  },
+  {
+    "reference": "IEC 61249-2-8:2003",
+    "edition": "1.0",
+    "date": "2003-02-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-8: Reinforced base materials clad and unclad - Modified brominated epoxide woven fibreglass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of modified brominated epoxide woven E-glass reinforced laminate sheets of defined flammability, copper-clad in thicknesses of 0,05 mm up to 3,2 mm. The flammability rating is achieved through the use of brominated fire retardants reacted as part of the epoxide polymeric structure."
+  },
+  {
+    "reference": "IEC 61249-2-9:2003",
+    "edition": "1.0",
+    "date": "2003-02-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-9: Reinforced base materials, clad and unclad - Bismaleimide/triazine modified epoxide or unmodified, woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of bismaleimide/triazine modified epoxide, or unmodified, woven E-glass reinforced laminate sheets of defined flammability, copper-clad in thicknesses of 0,05 mm to 3,2 mm. The flammability rating is achieved through the use of fire retardants contained as an integral part of the epoxide polymeric structure."
+  },
+  {
+    "reference": "IEC 61249-2-10:2003",
+    "edition": "1.0",
+    "date": "2003-02-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-10: Reinforced base materials clad and unclad - Cyanate ester, brominated epoxide, modified or unmodified, woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of cyanate ester, brominated epoxide modified or unmodified woven E-glass laminate sheets of defined flammability, copper-clad, in thicknesses of 0,05 mm to 3,2 mm. The flammability rating is achieved through the use of brominated fire retardants contained as an integral part of the epoxide polymeric structure."
+  },
+  {
+    "reference": "IEC 61249-2-11:2003",
+    "edition": "1.0",
+    "date": "2003-11-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-11: Reinforced base materials, clad and unclad - Polyimide, brominated epoxide modified or unmodified, woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of polyimide, brominated epoxide modified or unmodified, woven E-glass laminated sheets, in thickness of 0,05 mm up to 3,2 mm, of defined flammability, copper-clad. The flammability rating is achieved through the use of brominated fire retardants contained as an integral part of the epoxide polymeric structure if present."
+  },
+  {
+    "reference": "IEC 61249-2-12:1999",
+    "edition": "1.0",
+    "date": "1999-01-29",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-12: Sectional specification set for reinforced base materials, clad and unclad - Epoxide non-woven aramid laminate of defined flammability, copper-clad",
+    "language": "EN-FR, EN, ES",
+    "description": "Gives requirements for properties of epoxide non-woven aramid copper clad laminate of defined flammability, in thicknesses of 0,05 mm up to 6,4 mm."
+  },
+  {
+    "reference": "IEC 61249-2-13:1999",
+    "edition": "1.0",
+    "date": "1999-02-26",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-13: Sectional specification set for reinforced base materials, clad and unclad - Cyanate ester non-woven aramid laminate of defined flammability, copper-clad",
+    "language": "EN-FR, EN, ES",
+    "description": "Gives requirements for properties of cyanate ester non-woven aramid copper-clad laminate of defined flammability, in thicknesses of 0,05 mm up to 6,4 mm."
+  },
+  {
+    "reference": "IEC 61249-2-21:2003",
+    "edition": "1.0",
+    "date": "2003-11-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-21: Reinforced base materials, clad and unclad -  Non-halogenated epoxide woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of non-halogenated epoxide woven E-glass reinforced laminated sheets of defined flammability, copper-clad in thicknesses 0,05 mm up to 3,2 mm. The flammability rating is achieved through the use of non-halogenated inorganic and/or organic compounds acting as fire retardants."
+  },
+  {
+    "reference": "IEC 61249-2-22:2005",
+    "edition": "1.0",
+    "date": "2005-01-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-22: Reinforced base materials clad and unclad - Modified non-halogenated epoxide woven E-glass laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of modified non-halogenated epoxide woven E-glass laminated sheet 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The flammability rating is achieved through the use of phosphorus compounds and/or aluminium hydroxide fire retardants contained as part of the polymeric structure. The glass transition temperature is defined to be between 150 °C to 190 °C."
+  },
+  {
+    "reference": "IEC 61249-2-23:2005",
+    "edition": "1.0",
+    "date": "2005-01-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-23: Reinforced base materials, clad and unclad - Non-halogenated phenolic cellulose paper reinforced laminated sheets, economic grade, copper clad",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of non-halogenated phenolic cellulose paper copper-clad laminated sheets, economic grade, in thicknesses of 0,8 mm up to 3,2 mm. This standard covers materials with different requirements on flammability and are designated according to the following: Material 61249-2-23-1: general purpose grade, requirement on flammability not specified; Material 61249-2-23-2: materials of defined flammability (vertical burning test). These grades of material provide for one of two flammability requirements and designated as FV0 or FV1 in Table 8."
+  },
+  {
+    "reference": "IEC 61249-2-26:2005",
+    "edition": "1.0",
+    "date": "2005-01-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-26: Reinforced base materials clad and unclad - Non-halogenated epoxide non-woven/woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of non-halogenated epoxide non-woven/woven reinforced E-glass laminated sheets of defined flammability (vertical burning test), copper-clad in thicknesses of 0,80 mm up to 1,60 mm. The flammability rating is achieved through the use of non-halogenated inorganic and/or organic compounds acting as fire retardants. These fire retardants are contained as part of polymeric structure or in addition to it. The glass transition temperature is defined to be 95 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-27:2012",
+    "edition": "1.0",
+    "date": "2012-11-29",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-27: Reinforced base materials clad and unclad - Bismaleimide/triazine modified with non-halogenated epoxide woven glass laminate sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-27:2012 gives requirements for properties of bismaleimide/triazine modified with non-halogenated epoxide woven E-glass reinforced laminated sheets of defined flammability (vertical burning test), copper-clad in thicknesses of 0,03 mm up to 1,60 mm. The flammability rating is achieved through the use of non-halogenated inorganic and/or organic compounds acting as fire retardants. These fire retardants are contained as part of polymeric structure or in addition to it. The glass transition temperature is defined to be 160 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-30:2012",
+    "edition": "1.0",
+    "date": "2012-11-29",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-30: Reinforced base materials clad and unclad - Non-halogenated epoxide modified cyanate ester woven glass laminate of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-30:2012 gives requirements for properties of non-halogenated epoxide modified cyanate ester woven glass laminate of defined flammability (vertical burning test), copper-clad in thicknesses of 0,03 mm up to 1,60 mm. The flammability rating is achieved through the use of non-halogenated inorganic and/or organic compounds acting as fire retardants. These fire retardants are contained as part of polymeric structure or in addition to it. The glass transition temperature is defined to be 160 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-31:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-31: Reinforced base materials, clad and unclad - Halogenated modified or unmodified resin system, woven E-glass laminate sheets of defined relative permittivity (equal to or less than 4,1 at 1 GHz) and flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-31:2009 specifies requirements for properties of modified epoxide woven E-glass laminate sheet of a thickness of 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C minimum. The relative permittivity is equal to or less than 4,1 and the dissipation factor is equal to or less than 0,0120 at 1 GHz."
+  },
+  {
+    "reference": "IEC 61249-2-32:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-32: Reinforced base materials, clad and unclad - Halogenated modified or unmodified resin system, woven E-glass laminate sheets of defined relative permittivity (equal to or less than 3,7 at 1 GHz) and flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-32:2009 specifies requirements for properties of modified epoxide woven E-glass laminate sheet of a thickness of 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C minimum. The relative permittivity is equal to or less than 3,7 and the dissipation factor is equal to or less than 0,0070 at 1 GHz."
+  },
+  {
+    "reference": "IEC 61249-2-33:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-33: Reinforced base materials, clad and unclad - Non-halogenated modified or unmodified resin system, woven E-glass laminate sheets of defined relative permittivity (equal to or less than 4,1 at 1 GHz) and flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-33:2009 specifies requirements for properties of non-halogenated modified epoxy woven E-glass laminate sheet of a thickness of 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C minimum. The relative permittivity is equal to or less than 4,1 and the dissipation factor is equal to or less than 0,0120 at 1 GHz."
+  },
+  {
+    "reference": "IEC 61249-2-34:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-34: Reinforced base materials, clad and unclad - Non-halogenated modified or unmodified resin system, woven E-glass laminate sheets of defined relative permittivity (equal to or less than 3,7 at 1 GHz) and flammability (vertical burning test), copper-clad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-34:2009 specifies requirements for properties of non-halogenated epoxide woven E-glass laminate sheet of a thickness of 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C minimum. The relative permittivity is equal to or less than 3,7 and the dissipation factor is equal to or less than 0,0070 at 1 GHz."
+  },
+  {
+    "reference": "IEC 61249-2-35:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-35: Reinforced base materials, clad and unclad - Modified epoxide woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-35:2008 gives requirements for properties of modified brominated epoxide woven E-glass laminate sheet 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C to 200 °C."
+  },
+  {
+    "reference": "IEC 61249-2-36:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-36: Reinforced base materials, clad and unclad - Epoxide woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-36:2008 gives requirements for properties of di-functional brominated epoxide woven E-glass laminate sheet 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-37:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-37: Reinforced base materials, clad and unclad - Modified non-halogenated epoxide woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-37:2008 gives requirements for properties of modified non-halogenated epoxide woven E-glass laminate sheet 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 150 °C to 200 °C."
+  },
+  {
+    "reference": "IEC 61249-2-38:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-38: Reinforced base materials, clad and unclad - Non-halogenated epoxide woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-38:2008 gives requirements for properties of di-functional non-halogenated epoxide woven E-glass laminate sheet 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-39:2012",
+    "edition": "1.0",
+    "date": "2012-11-29",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-39: Reinforced base materials clad and unclad - High performance epoxide and non-epoxide, woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-39:2012 specifies requirements for properties of modified brominated epoxide woven E-glass laminated sheet of a thickness 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 170 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-40:2012",
+    "edition": "1.0",
+    "date": "2012-11-29",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-40: Reinforced base materials, clad and unclad - High performance, non-halogenated epoxide woven E-glass laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-40:2012 specifies requirements for properties of modified non-halogenated epoxide woven E-glass laminated sheet of a thickness of 0,05 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. The glass transition temperature is defined to be 170 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-41:2010",
+    "edition": "1.0",
+    "date": "2010-04-21",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-41: Reinforced base materials clad and unclad - Brominated epoxide cellulose paper/woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-41:2010 gives requirements for properties of brominated epoxide cellulose paper reinforced core/woven E-glass reinforced surface laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of brominated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 100 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-42:2010",
+    "edition": "1.0",
+    "date": "2010-04-21",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-42: Reinforced base materials clad and unclad - Brominated epoxide non-woven/woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-42:2010 gives requirements for properties of brominated epoxide non-woven reinforced core/woven E-glass reinforced surface laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of brominated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 105 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-43:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-43: Reinforced base materials clad and unclad - Non-halogenated epoxide cellulose paper/woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-43:2016 gives requirements for properties of non-halogenated epoxide cellulose paper reinforced core/woven E-glass reinforced surface laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of non-halogenated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 100 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-44:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-44: Reinforced base materials clad and unclad - Non-halogenated epoxide non-woven/woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-44:2016 gives requirements for properties of non-halogenated epoxide non-woven reinforced core/woven E-glass reinforced surface laminate sheets of defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of non-halogenated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 105 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-2-45:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-45: Reinforced base materials clad and unclad - Non-halogenated epoxide non-woven/woven E-glass reinforced laminate sheets of thermal conductivity 1,0 W/(m•K) and defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-2-45:2018 gives requirements for properties of non-halogenated epoxide non‑woven reinforced core/woven E-glass reinforced surface laminate sheets of thermal conductivity and defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of non-halogenated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 105 °C minimum. Thermal conductivity is defined to be (1,0 ± 0,15) W/(m•K)."
+  },
+  {
+    "reference": "IEC 61249-2-46:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-46: Reinforced base materials clad and unclad - Non-halogenated epoxide non-woven/woven E-glass reinforced laminate sheets of thermal conductivity 1,5 W/(m•K) and defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-2-46:2018 gives requirements for properties of non-halogenated epoxide non‑woven reinforced core/woven E-glass reinforced surface laminate sheets of thermal conductivity and defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of non-halogenated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 105 °C minimum. Thermal Conductivity is defined to be (1,5 ± 0,2) W/(m•K)."
+  },
+  {
+    "reference": "IEC 61249-2-47:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-47: Reinforced base materials clad and unclad - Non-halogenated epoxide non-woven/woven E-glass reinforced laminate sheets of thermal conductivity 2,0 W/(m•K) and defined flammability (vertical burning test), copper-clad for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-2-47:2018 gives requirements for properties of non-halogenated epoxide non‑woven reinforced core/woven E-glass reinforced surface laminate sheets of thermal conductivity and defined flammability (vertical burning test), copper-clad for lead-free assembly in thicknesses of 0,60 mm up to 1,70 mm. The flammability rating is achieved through the use of non-halogenated fire retardants reacted as part of the epoxide polymeric structure. The glass transition temperature is defined to be 105 °C minimum. Thermal conductivity is defined to be (2,0 ± 0,30) W/(m•K)."
+  },
+  {
+    "reference": "IEC 61249-2-51:2023",
+    "edition": "1.0",
+    "date": "2023-05-11",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-51: Reinforced base materials, clad and unclad - Base materials for integrated circuit card carrier tape, unclad",
+    "language": "EN-FR",
+    "description": "IEC 61249-2-51:2023 specifies the construction, materials, property requirements, quality assurance, packaging, marking, storage of base materials for integrated circuit card carrier tape, unclad (hereinafter referred to as IC carrier tape base materials). This document is applicable to IC carrier tape base materials, which is a glue-coated material, one side is woven E-glass reinforced epoxy underlayer, and the other side is coated with adhesive and protected by release film."
+  },
+  {
+    "reference": "IEC 61249-2-52:2025",
+    "edition": "1.0",
+    "date": "2025-09-16",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-52: Reinforced base materials clad and unclad - Thermosetting hydrocarbon resin system, woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61249-2-52:2025 gives requirements for properties of the thermosetting hydrocarbon resin system, woven E-glass reinforced laminate sheets of defined flammability (vertical burning test), copper-clad in thicknesses of 0,05 mm up to 3,20 mm."
+  },
+  {
+    "reference": "IEC 61249-2-53:2025",
+    "edition": "1.0",
+    "date": "2025-10-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 2-53: Reinforced base materials clad and unclad - PTFE unfilled laminate sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61249-2-53:2025 specifies requirements for properties of PTFE unfilled reinforced laminated sheet of a thickness 0,05 mm up to 10,0 mm of defined flammability (vertical burning test), copper-clad. This part of IEC 61249 is applicable to the design, manufacture, use of PTFE unfilled reinforced laminated sheet of defined flammability (vertical burning test), copper-clad. Its flame resistance is defined in terms of the flammability requirements of 8.4."
+  },
+  {
+    "reference": "IEC 61249-3-3:1999",
+    "edition": "1.0",
+    "date": "1999-02-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 3-3: Sectional specification set for unreinforced base materials, clad and unclad (intended for flexible printed boards) - Adhesive coated flexible polyester film",
+    "language": "EN-FR, EN, ES",
+    "description": "Gives requirements for flexible polyester (PETP) films coated on one side or both with polyester, acrylic or epoxide type adhesive for use in the fabrication of flexible printed wring. Films coated on only one side are used as a coverlay or covercoat in the fabrication of flexible printed wiring. This coverlay or covercoat is also used to provide local support to areas subjected to mechanical or environmental stress. Films coated on both sides are used as bonding films in the fabrication of printed boards."
+  },
+  {
+    "reference": "IEC 61249-3-4:1999",
+    "edition": "1.0",
+    "date": "1999-02-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 3-4: Sectional specification set for unreinforced base materials, clad and unclad (intended for flexible printed boards) - Adhesive coated flexible polyimide film",
+    "language": "EN-FR, EN, ES",
+    "description": "Gives requirements for flexible polyimide films coated on one side or both sides with acrylic or epoxide type adhesive for use in the fabrication of flexible printed wiring. Films coated on only one side are used as a coverlay or covercoat in the fabrication of flexible printed wiring. This coverlay or covercoat is also used to provide local support to areas subjected to mechanical or environmental stress. Films coated on both sides are used as bonding films in the fabrication of printed boards."
+  },
+  {
+    "reference": "IEC 61249-3-5:1999",
+    "edition": "1.0",
+    "date": "1999-02-10",
+    "title": "Materials for printed boards and other interconnecting structures - Part 3-5: Sectional specification set for unreinforced base materials, clad and unclad (intended for flexible printed boards) - Transfer adhesive films",
+    "language": "EN-FR, EN, ES",
+    "description": "Gives requirements for transfer adhesive films for use in the fabrication of flexible multilayer boards or flex-rigid printed boards."
+  },
+  {
+    "reference": "IEC 61249-3-6:2026",
+    "edition": "1.0",
+    "date": "2026-05-19",
+    "title": "Materials for circuit boards and other interconnecting structures - Part 3-6: Sectional specification set for unreinforced base materials clad and unclad - Polytetrafluoroethylene (PTFE) filled laminate sheets of defined flammability (vertical burning test), copper-clad",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61249-3-6:2026 specifies requirements for properties of polytetrafluoroethylene (PTFE) filled unreinforced laminated sheet of a thickness 0,02 mm up to 3,2 mm, of defined flammability (vertical burning test), copper-clad. This document is applicable to the design, manufacture, use of PTFE filled unreinforced laminated sheet of defined flammability (vertical burning test), copper-clad. Its flame resistance is defined in terms of the flammability requirements of 8.3."
+  },
+  {
+    "reference": "IEC 61249-4-1:2008",
+    "edition": "1.0",
+    "date": "2008-01-30",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-1: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - Epoxide woven E-glass prepreg of defined flammability",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-4-1:2008 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-7 when manufacturing multilayer boards in line with IEC 62326-4. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After lamination according to the supplier's instructions, the glass transition temperature is defined as being 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-2:2005",
+    "edition": "1.0",
+    "date": "2005-09-05",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-2: Sectional specification set for prepreg materials, unclad - Multifunctional epoxide woven E-glass prepreg of defined flammability",
+    "language": "EN",
+    "description": "This part of IEC 61249 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-8 when manufacturing multilayer boards according to IEC 62326-4. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined as 150 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-5:2005",
+    "edition": "1.0",
+    "date": "2005-09-05",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-5: Sectional specification set for prepreg materials, unclad - Polyimide, modified or unmodified, woven E-glass prepreg of defined flammability",
+    "language": "EN",
+    "description": "This part of IEC 61249 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-8 when manufacturing multilayer boards according to IEC 62326-4. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined as 150 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-11:2005",
+    "edition": "1.0",
+    "date": "2005-09-22",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-11: Sectional specification set for prepreg materials, unclad - Non-halogenated epoxide, woven E-glass prepreg of defined flammability",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according IEC 61249-2-7 when manufacturing multilayer boards according to IEC 62326-4. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of non-halogenated fire retardants contained as an integral part of the polymeric structure. After lamination according to the supplier's instructions, the glass transition temperature is defined to be 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-12:2005",
+    "edition": "1.0",
+    "date": "2005-09-05",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-12: Sectional specification set for prepreg materials, unclad - Non-halogenated multifunctional epoxide woven E-glass prepreg of defined flammability",
+    "language": "EN-FR",
+    "description": "This part of IEC 61249 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according IEC 61249-2-7 when manufacturing multilayer boards in conformity with IEC 62326-4. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After lamination according to the supplier's instructions, the glass transition temperature is defined to be 150 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-14:2009",
+    "edition": "1.0",
+    "date": "2009-05-26",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-14: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - Epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-4-14:2009 gives requirements for properties of prepreg that are mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-36 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may also be used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-15:2009",
+    "edition": "1.0",
+    "date": "2009-05-26",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-15: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - Multifunctional epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-4-15:2009 gives requirements for properties of prepreg that are mainly intended to be used as bonding sheets in connection with laminates according IEC 61249-2-35 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may also be used to bond other types of laminates. Prepreg, according to this standard, is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 150 °C and 200 °C."
+  },
+  {
+    "reference": "IEC 61249-4-16:2009",
+    "edition": "1.0",
+    "date": "2009-05-26",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-16: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - Multifunctional non-halogenated epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-4-16:2009 gives requirements for properties of prepreg that are mainly intended to be used as bonding sheets in connection with laminates according IEC 61249-2-37 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may also be used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of non-halogenated flame retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 150 °C and 200 °C."
+  },
+  {
+    "reference": "IEC 61249-4-17:2009",
+    "edition": "1.0",
+    "date": "2009-05-26",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-17: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - Non-halogenated epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR, EN",
+    "description": "IEC 61249-4-17:2009 gives requirements for properties of prepreg that are mainly intended to be used as bonding sheets in connection with laminates according IEC 61249-2-38 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may also be used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of non-halogenated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 120 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-18:2013",
+    "edition": "1.0",
+    "date": "2013-11-04",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-18: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - High performance epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-4-18:2013 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-39 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of brominated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 170 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-4-19:2013",
+    "edition": "1.0",
+    "date": "2013-11-04",
+    "title": "Materials for printed boards and other interconnecting structures - Part 4-19: Sectional specification set for prepreg materials, unclad (for the manufacture of multilayer boards) - High performance non-halogenated epoxide woven E-glass prepreg of defined flammability (vertical burning test) for lead-free assembly",
+    "language": "EN-FR",
+    "description": "IEC 61249-4-19:2013 gives requirements for properties of prepreg that is mainly intended to be used as bonding sheets in connection with laminates according to IEC 61249-2-40 when manufacturing multilayer boards according to IEC 62326-4. Multilayer boards comprised of these materials are suitable for lead-free assembly processes. This material may be also used to bond other types of laminates. Prepreg according to this standard is of defined flammability (vertical burning test). The flammability rating on fully cured prepreg is achieved through the use of non-halogenated fire retardants contained as an integral part of the polymeric structure. After curing of the prepreg according to the supplier's instructions, the glass transition temperature is defined to be 170 °C minimum."
+  },
+  {
+    "reference": "IEC 61249-5-1:1995",
+    "edition": "1.0",
+    "date": "1995-11-28",
+    "title": "Materials for interconnection structures - Part 5: Sectional specification set for conductive foils and films with and without coatings - Section 1: Copper foils (for the manufacture of copper-clad base materials)",
+    "language": "EN-FR, ES",
+    "description": "Gives requirements for properties of copper foil intended for use in the manufacture of copper-clad laminated sheets and of copper-clad flexible materials, used in the manufacture of printed boards."
+  },
+  {
+    "reference": "IEC 61249-5-4:1996",
+    "edition": "1.0",
+    "date": "1996-06-18",
+    "title": "Materials for interconnection structures - Part 5: Sectional specification set for conductive foils and films with or without coatings - Section 4: Conductive inks",
+    "language": "EN-FR, ES",
+    "description": "Details requirements for the qualification of conductive inks, and for conductive inks intended for use as a substitute for metallic finishes on contacts."
+  },
+  {
+    "reference": "IEC 61249-6-3:2023",
+    "edition": "1.0",
+    "date": "2023-06-14",
+    "title": "Materials for printed boards and other interconnecting structures – Part 6-3: Sectional specification set for reinforcement materials - Specification for finished fabric woven from “E” glass for printed boards",
+    "language": "EN-FR",
+    "description": "IEC 61249-6-3:2023 covers finished fabrics woven from ‘‘E’’ glass electrical grade glass fibre yarns that are intended as a reinforcing material in laminated plastics for electrical and electronic use. All fabrics covered by this specification are plain weave. This specification determines the nomenclature, definitions, general and chemical requirements for the glass, and physical requirements for finished woven glass fibre fabrics. Annex A of this document provides a style designator for each finished fabric glass style, with specifications on yarn, fabric count, thickness and weight in both SI and US system. This standard cancels and replaces IEC/PAS 61249-6-3 published in 2011. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61249-7-1:1995",
+    "edition": "1.0",
+    "date": "1995-04-26",
+    "title": "Materials for interconnection structures - Part 7: Sectional specification set for restraining core materials - Section 1: Copper/invar/copper",
+    "language": "EN-FR, ES",
+    "description": "Covers copper-clad Invar material of nominal thickness from 0,1 mm to 2,4 mm supplied in rolls or produced in sheets."
+  },
+  {
+    "reference": "IEC 61249-8-7:1996",
+    "edition": "1.0",
+    "date": "1996-04-26",
+    "title": "Materials for interconnection structures - Part 8: Sectional specification set for non-conductive films and coatings - Section 7: Marking legend inks",
+    "language": "EN-FR, ES",
+    "description": "Details requirements for the qualification of marking inks used for legends and other identifications used on printed boards. Information in this specification will also provide guidance regarding the suitability of printed boards which feature marking inks."
+  },
+  {
+    "reference": "IEC 61249-8-8:1997",
+    "edition": "1.0",
+    "date": "1997-06-24",
+    "title": "Materials for interconnection structures - Part 8: Sectional specification set for non-conductive films and coatings - Section 8: Temporary polymer coatings",
+    "language": "EN-FR, ES",
+    "description": "Provides requirements for the qualification of temporary solder resist coatings. Requirements stated in this specification will also have some limited validity for assessing the suitability of printed boards which are supplied with peelable solder masks."
+  },
+  {
+    "reference": "IEC 61445:2012",
+    "edition": "1.0",
+    "date": "2012-06-21",
+    "title": "Digital Test Interchange Format (DTIF)",
+    "language": "EN",
+    "description": "IEC 61445:2012(E) defines the information content and the data formats for the interchange of digital test program data between DATPGs and automatic test equipment (ATE) for board-level printed circuit assemblies. This information can be broadly grouped into data that defines the following: a) UUT Model; b) Stimulus and Response; c) Fault Dictionary; d) Probe."
+  },
+  {
+    "reference": "IEC 61523-1:2023",
+    "edition": "3.0",
+    "date": "2023-10-11",
+    "title": "Delay and power calculation standards - Part 1: Integrated Circuit (IC) Open Library Architecture (OLA)",
+    "language": "EN",
+    "description": "IEC 61523-1:2023 focuses on delay and power calculation for integrated circuit design with support for modeling logical behavior and signal integrity. The standard specifications covered in this document are as follows: - Description language for timing and power modeling, called the “delay calculation language” (DCL) - Software procedural interface (PI) for communications between EDA applications and compiled libraries of DCL descriptions - Standard file exchange format for parasitic information about the chip design: Standard Parasitic Exchange Format (SPEF) - Informative usage examples - Informative notes. This is an IEC/IEEE dual logo standard."
+  },
+  {
+    "reference": "IEC 61523-3:2004",
+    "edition": "1.0",
+    "date": "2004-09-24",
+    "title": "Delay and power calculation standards - Part 3: Standard Delay Format (SDF) for the electronic design process",
+    "language": "EN",
+    "description": "The Standard Delay Format (SDF)is an existing OVI standard for the representation and interpretation of timing data for use at any stage of the electronic design process.The ASCII data in the SDF le is represented in a tool and language independent way and includes path delays,timing constraint values,inter-connect delays and high level technology parameters. This standard is published with a double logo IEC-IEEE. standard."
+  },
+  {
+    "reference": "IEC 61523-4:2023",
+    "edition": "2.0",
+    "date": "2023-10-11",
+    "title": "Delay and power calculation standards - Part 4: Design and Verification of Low-Power, Energy-Aware Electronic Systems",
+    "language": "EN",
+    "description": "IEC 61523-4:2023 defines the syntax and semantics of a format used to express power intent in energy-aware electronic system design. Power intent includes the concepts and information required for specification and validation, implementation and verification, and modeling and analysis of power-managed electronic systems. This standard also defines the relationship between the power intent captured in this format and design intent captured via other formats (e.g., standard hardware description languages and cell libraries). This is an IEC/IEEE dual logo standard. The contents of the corrigendum 1 (2024-02) have been included in this copy."
+  },
+  {
+    "reference": "IEC 61523-4:2023/COR1:2024",
+    "edition": "2.0",
+    "date": "2024-02-19",
+    "title": "Corrigendum 1 - Delay and power calculation standards - Part 4: Design and Verification of Low-Power, Energy-Aware Electronic Systems",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61636:2021",
+    "edition": "2.0",
+    "date": "2021-06-08",
+    "title": "Software Interface for Maintenance Information Collection and Analysis (SIMICA)",
+    "language": "EN",
+    "description": "IEC 61636:2021 (E) is an implementation-independent specification for a software interface to information systems containing data pertinent to the diagnosis and maintenance of complex systems consisting of hardware, software, or any combination thereof. These interfaces support service definitions for creating application programming interfaces (API) for the access, exchange, and analysis of historical diagnostic and maintenance information. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61636-1:2021",
+    "edition": "2.0",
+    "date": "2021-06-08",
+    "title": "Software Interface for Maintenance Information Collection and Analysis (SIMICA): Exchanging Test Results and Session Information via the eXtensible Markup Language (XML)",
+    "language": "EN",
+    "description": "IEC 61636-1:2021 (E) provides the definition of an exchange format, utilizing XML, for exchanging data resulting from executing tests of a unit under test (UUT) via a test program in an automatic test environment. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61636-2:2023",
+    "edition": "1.0",
+    "date": "2023-01-19",
+    "title": "Software Interface for Maintenance Information Collection and Analysis (SIMICA) - Part 2: Exchanging Maintenance Action Information via the Extensible Markup Language (XML)",
+    "language": "EN",
+    "description": "IEC 61636-2:2023 (E) provides the definition of an exchange format, utilizing XML, for exchanging maintenance action information (MAI) associated with the removal, repair, and replacement of system components to maintain/support an operational system. This standard is published as a double log IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61671:2012",
+    "edition": "1.0",
+    "date": "2012-06-21",
+    "title": "Automatic Test Markup Language (ATML) for Exchanging Automatic Test Equipment and Test Information via XML",
+    "language": "EN",
+    "description": "IEC 61671:2012(E) defines a standard exchange medium for sharing information between components of ATSs. This information includes test data, resource data, diagnostic data, and historic data. The exchange medium is defined using XML. This standard specifies the framework for the family of ATML standards."
+  },
+  {
+    "reference": "IEC 61671-2:2016",
+    "edition": "1.0",
+    "date": "2016-04-08",
+    "title": "Standard for automatic test markup language (ATML) instrument description",
+    "language": "EN",
+    "description": "IEC 61671-2:2016(E) defines an exchange format, utilizing extensible markup language (XML), for both the static description of instrument models, and the specific description of instrument instance information."
+  },
+  {
+    "reference": "IEC 61671-4:2016",
+    "edition": "1.0",
+    "date": "2016-04-08",
+    "title": "Standard for automatic test markup language (ATML) test configuration",
+    "language": "EN",
+    "description": "IEC 61671-4:2016(E) defines an exchange format, utilizing extensible markup language (XML), for identifying all of the hardware, software, and documentation that is needed to test and diagnose a unit under test (UUT) on an ATS."
+  },
+  {
+    "reference": "IEC 61671-5:2016",
+    "edition": "1.0",
+    "date": "2016-04-08",
+    "title": "Standard for automatic test markup language (ATML) test adapter description",
+    "language": "EN",
+    "description": "IEC 61672-5:2016(E) defines an exchange format, utilizing extensible markup language (XML), for both the static description of a test adapter by defining the interface between the unit under test (UUT) and the test station, and the specific description of test adapter instance information."
+  },
+  {
+    "reference": "IEC 61671-6:2016",
+    "edition": "1.0",
+    "date": "2016-04-08",
+    "title": "Standard for automatic test markup language (ATML) test station description",
+    "language": "EN",
+    "description": "IEC 61671-6:2016(E) defines an exchange format, utilizing eXtensible Markup Language (XML), for both the static description of a test station, and the specific description of test station instance information."
+  },
+  {
+    "reference": "IEC 61690-1:2000",
+    "edition": "1.0",
+    "date": "2000-01-31",
+    "title": "Electronic design interchange format (EDIF) - Part 1: Version 3 0 0. (This publication is available in electronic HTML format only)",
+    "language": "EN, FR",
+    "description": "IEC 61690-1:2000 defines the syntax and semantics for EDIF Version 3 0 0. EDIF Version 3 0 0 addresses EDIF Level 0 and Level 1. EDIF Version 3 0 0 completely addresses the Connectivity and Schematic views, including at Level 1 the ability to represent frames. It includes capabilities formerly found in the Document and Graphics views. A series of releases is planned in the near future to address those views not completely addressed in this version."
+  },
+  {
+    "reference": "IEC 61690-2:2000",
+    "edition": "1.0",
+    "date": "2000-01-31",
+    "title": "Electronic design interchange format (EDIF) - Part 2: Version 4 0 0. (This publication is available in electronic HTML format only)",
+    "language": "EN, FR",
+    "description": "IEC 61690-2:2000 defines the syntax and semantics for EDIF Version 4 0 0. EDIF Version 4 0 0 addresses EDIF Level 0 and Level 1. EDIF Version 3 0 0 provides support for Connectivity and Schematics; EDIF Version 4 0 0 offers additional capability by providing support for the representation of Printed Circuit Boards (PCBs) and Multi-chip Modules (MCMs) including technology rules and assembly drawings."
+  },
+  {
+    "reference": "IEC 61691-1-1:2023",
+    "edition": "3.0",
+    "date": "2023-10-11",
+    "title": "Behavioural languages - Part 1-1: VHDL Language Reference Manual",
+    "language": "EN",
+    "description": "IEC 61691-1-1:2023 defines the syntax and semantics of the VHSIC Hardware Description Language (VHDL). The acronym VHSIC (Very High Speed Integrated Circuits) in the language’s name comes from the U.S. government program that funded early work on the standard. This is an IEC/IEEE dual logo standard."
+  },
+  {
+    "reference": "IEC 61691-6:2021",
+    "edition": "2.0",
+    "date": "2021-06-08",
+    "title": "Behavioural languages - Part 6: VHDL Analog and Mixed-Signal Extensions",
+    "language": "EN",
+    "description": "IEC 61691-6:2021(E) defines IEC 61691-6/IEEE Std 1076.1 language, a hardware description language for the description and the simulation of analog, digital, and mixed-signal systems. The language, also informally known as VHDL-AMS, is built on the IEC 61691-1-1/IEEE 1076 (VHDL) language and extends it to provide capabilities of writing and simulating analog and mixed-signal models. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61691-7:2025",
+    "edition": "2.0",
+    "date": "2025-06-25",
+    "title": "Behavioural languages - Part 7: SystemC® Language Reference Manual",
+    "language": "EN",
+    "description": "IEC 61967-7:2025 defines SystemC® with Transaction Level Modeling (TLM) as an ISO standard C++ class library for system and hardware design. SystemC®1 as an ANSI standard C++ class library for system and hardware design. The general purpose of this standard is to provide a C++-based standard for designers and architects who need to address complex systems that are a hybrid between hardware and software. The specific purpose of this standard is to provide a precise and complete definition of the SystemC class library including a TLM library so that a SystemC implementation can be developed with reference to this standard alone. This standard is not intended to serve as a user’s guide or to provide an introduction to SystemC, but it does contain useful information for end users. The changes with respect to the previous edition are provided in Annex D. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61691-8:2021",
+    "edition": "1.0",
+    "date": "2021-07-26",
+    "title": "Behavioural languages - Part 8: Standard SystemC Analog/Mixed-Signal Extensions Language Reference Manual",
+    "language": "EN",
+    "description": "IEC 61691-8:2021(E) defines the Analog/Mixed-Signal extensions for SystemC®, as an ANSI standard C++ class library based on SystemC for system and hardware design including analog/mixed-signal elements. The general purpose of the SystemC AMS extensions is to provide a C++ standard for designers and architects, who need to address complex heterogeneous systems that are a hybrid between hardware and software. This standard is built on the IEEE Std 1666™-2011 (SystemC Language Reference Manual) and extends it to create analog/mixed-signal, multi-disciplinary models to simulate continuous-time, discrete-time, and discrete-event behavior simultaneously. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 61760-1:2026",
+    "edition": "4.0",
+    "date": "2026-06-23",
+    "title": "Surface mounting technology - Part 1: Standard method for the specification of surface mounting components (SMDs)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61760-1:2026 defines requirements for component specifications of electronic components that are intended for usage in surface mounting technology. To this end, it specifies a reference set of process conditions and related test conditions to be considered when compiling component specifications. The objective of this document is to ensure that a wide variety of SMDs can be subjected to the same placement, mounting and subsequent processes (e.g. cleaning, inspection) during assembly. This document defines tests and requirements that are included in any SMD component’s general, sectional or detail specification. In addition, this document provides component users and manufacturers with a reference set of typical process conditions used in surface mounting technology. Some of the requirements for component specifications in this document are also applicable to components with leads intended for mounting on a circuit board, including solderless interconnection technology. Cases for which this is appropriate are indicated in the relevant subclauses. NOTE Solderless interconnection technology refers to a mounting method which is not part of the surface-mounting process and the components do not undergo a soldering operation. Such components are included in this document because the mounting of components for solderless interconnection commonly occurs after the mounting of SMDs. This edition includes the following significant technical changes with respect to the previous edition: a) added new subclause 4.2 - Classification of electronic assemblies; b) added new subclause 4.4.8 - Creepage and clearance distances - Insulation coordination; c) added new subclause 4.9 - Thermal and electrical performance; d) updated Clause 6 - Soldering: now including requirements related to application of low temperature solders; e) added new subclause 6.2.2 - Commonly used solder alloys; f) updated subclause 6.3.6 - Resistance to vacuum during soldering; g) updated subclause 6.3.7 - Resistance to cleaning media and processes - now includes the tests in IEC 60068-2-88, Tests - Test XD: Resistance of components and assemblies to liquid cleaning media; h) added new subclause 6.3.9 - Rework of soldered components; i) added new Annex B - Sustainability."
+  },
+  {
+    "reference": "IEC 61760-2:2021",
+    "edition": "3.0",
+    "date": "2021-07-16",
+    "title": "Surface mounting technology - Part 2: Transportation and storage conditions of surface mounting devices (SMD) - Application guide",
+    "language": "EN-FR",
+    "description": "IEC 61760-2:2021 specifies the transportation and storage conditions for surface mounting devices (SMDs) that are fulfilled in order to enable trouble-free processing of surface mounting devices, both active and passive. (Conditions for printed boards are not taken into consideration.) The object of this document is to ensure that users of SMDs receive and store products that can be further processed (e.g. positioned, soldered) without prejudice to quality and reliability. Improper transportation and storage of SMDs can cause deterioration and result in assembly problems such as poor solderability, delamination and \"popcorning\". Cross-references for references from this edition 3 to the previous edition 2 of this document are listed in Annex X of this document."
+  },
+  {
+    "reference": "IEC 61760-3:2021",
+    "edition": "2.0",
+    "date": "2021-02-03",
+    "title": "Surface mounting technology - Part 3: Standard method for the specification of components for through-hole reflow (THR) soldering",
+    "language": "EN-FR",
+    "description": "IEC 61760-3:2021 gives a reference set of requirements, process conditions and related test conditions to be used when compiling specifications of electronic components that are intended for usage in through-hole reflow soldering technology. The object of this document is to ensure that components with leads intended for through-hole reflow and surface mounting components can be subjected to the same placement and mounting processes. Hereto, this document defines test and requirements that need to be part of any component generic, sectional or detail specification, when through-hole reflow soldering is intended. Furthermore, this document provides component users and manufacturers with a reference set of typical process conditions used in through-hole reflow soldering technology. This edition includes the following significant technical changes with respect to the previous edition: a) change position tolerance requirement (0,4 mm maximum to between 0,2 mm and 0,4 mm); b) introduce through-hole vacant method as a solder paste supply method."
+  },
+  {
+    "reference": "IEC TR 61760-3-1:2022",
+    "edition": "1.0",
+    "date": "2022-06-17",
+    "title": "Surface mounting technology - Part 3-1: Standard method for the specification of components for through hole reflow (THR) soldering – Guidelines for through hole diameter design with solder paste surface printing method",
+    "language": "EN",
+    "description": "IEC TR 61760-3-1:2022(E) supplements IEC 61760-3 to describe examples of solder paste supply methods, the relationship between the terminal position tolerance and the through hole diameter, and provides guidelines for the design of printed circuit boards with solder paste surface printing method, including specific examples."
+  },
+  {
+    "reference": "IEC 61760-4:2026",
+    "edition": "2.0",
+    "date": "2026-05-28",
+    "title": "Surface mounting technology - Part 4: Classification, packaging, labelling and handling of moisture sensitive devices",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61760-4:2026 specifies the classification of moisture sensitive device into moisture sensitivity level related to soldering heat, and provisions for packaging, labelling and handling. It extends the classification and packaging methods to such components, where currently existing standards are not required or not appropriate. For such cases, this document introduces additional moisture sensitivity levels and an alternative method for packaging. This document applies to devices intended for reflow soldering, like surface mount devices, including specific through-hole devices (where the device supplier has specifically documented support for reflow soldering), but not to semiconductor devices, and devices for flow (wave) soldering. NOTE Background of this document and its relation to currently existing standards, e.g. IEC 60749‑20 or J-STD-020F and J-STD-033, are described in the Introduction. This edition includes the following significant technical changes with respect to the previous edition: a) The content is updated to cover the classification conditions given in the new editions of J-STD-020F and IEC 60068-2-58."
+  },
+  {
+    "reference": "IEC TR 61760-5-1:2024",
+    "edition": "1.0",
+    "date": "2024-01-31",
+    "title": "Surface mounting technology - Part 5-1: Surface strain on circuit boards - Strain gauge measurement applied to chip components",
+    "language": "EN",
+    "description": "IEC TR 61760-5-1:2024 describes examples of methods using electrical strain gauges for determination of critical mechanical stresses in assembly processes. These stresses can damage chip type ceramic components, causing so called “bending cracks”. Area-array components are excluded from the scope of this document."
+  },
+  {
+    "reference": "IEC 61926-1:1999",
+    "edition": "1.0",
+    "date": "1999-10-18",
+    "title": "Design automation - Part 1: Standard test language for all systems - Common abbreviated test language for all systems (C/ATLAS)",
+    "language": "EN",
+    "description": "Defines a high order language for electronics testing independent of any specific test system. Can be implemented on automatic test equipement (ATE)"
+  },
+  {
+    "reference": "IEC 62014-4:2025",
+    "edition": "2.0",
+    "date": "2025-06-25",
+    "title": "IP-XACT, Standard Structure for Packaging, Integrating, and Reusing IP within Tool Flows",
+    "language": "EN",
+    "description": "IEC 62014-4:2025 describes an eXtensible Markup Language (XML) schema for meta-data documenting intellectual property (IP) used in the development, implementation, and verification of electronic systems. This schema provides both a standard method to document IP that is compatible with automated integration techniques and a standard method (generators) for linking tools into a system development framework, enabling a more flexible, optimized development environment. Tools compliant with this standard will be able to interpret, configure, integrate, and manipulate IP blocks that comply with the IP meta-data description. The standard is independent of any specific design processes. It does not cover behavioral characteristics of the IP that are not relevant to integration. This standard enables the creation and exchange of IP in a highly automated design environment. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 62014-5:2015",
+    "edition": "1.0",
+    "date": "2015-03-11",
+    "title": "Quality of Electronic and Software Intellectual Property Used in System and System on Chip (SoC) Designs",
+    "language": "EN",
+    "description": "IEC 62014-5:2015(E) defines a standard XML format for representing electronic design intellectual property (IP) quality information, based on an information model for IP quality measurement. It includes a schema and the terms that are relevant for measuring IP quality, including the software that executes on the system. The schema and information model can be focused to represent particular categories of interest to IP users."
+  },
+  {
+    "reference": "IEC 62090:2017",
+    "edition": "2.0",
+    "date": "2017-04-11",
+    "title": "Product package labels for electronic components using bar code and two-dimensional symbologies",
+    "language": "EN-FR, EN",
+    "description": "IEC 62090:2017 applies to labels on the packaging of electronic components for automatic handling in B2B processes. These labels use linear bar code and two-dimensional (2D) symbols. Labels for direct product marking and shipping labels are excluded. Labels required on the packaging of electronic components that are intended for the retail channel of distribution in B2C processes are also excluded from this document. Bar code and 2D symbol markings are used, in general, for automatic identification and automatic handling of components in electronics assembly lines. Intended applications include systems that automate the control of component packages during production, inventory and distribution. This edition includes the following significant technical changes with respect to the previous edition: a) Applicable data elements have been added. Data identifiers of those data elements are “10D”, “14D”, ”2P”, “25L”, “18V”, “V”, “J”, “3S”, “13E”, “33L” and “34L”. b) The following new informative annexes have been added: - Annex C, URL; - Annex D, Examples of data element short titles; - Annex E, Package levels for component package labels."
+  },
+  {
+    "reference": "IEC 62137-1-1:2007",
+    "edition": "1.0",
+    "date": "2007-07-11",
+    "title": "Surface mounting technology - Environmental and endurance test methods for surface mount solder joint - Part 1-1: Pull strength test",
+    "language": "EN-FR, EN",
+    "description": "The test method described in IEC 62137-1-1:2007 is applicable to gull-wing lead surface mounting components. The method is designed to test and evaluate the endurance of the solder joint between component leads and lands on a substrate, by means of a pull type mechanical stress. This test is suitable for evaluating the effects of repeated temperature change on the strength of the solder joint between component terminals and lands on a substrate."
+  },
+  {
+    "reference": "IEC 62137-1-2:2007",
+    "edition": "1.0",
+    "date": "2007-07-25",
+    "title": "Surface mounting technology - Environmental and endurance test methods for surface mount solder joint - Part 1-2: Shear strength test",
+    "language": "EN-FR, EN",
+    "description": "The test method described in IEC 62137-1-2:2007 is applicable to leadless surface mounting components and surface mounting connectors to which pull test is not applicable. It is not applicable to multi-lead components and gull-wing leads. The method is designed to test and evaluate the endurance of the solder joint between component terminals and lands on a substrate, by means of a shear type mechanical stress. This test is applicable to evaluate the effects of repeated temperature change on the strength of the solder joints between terminals and lands on a substrate."
+  },
+  {
+    "reference": "IEC 62137-1-3:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Surface mounting technology - Environmental and endurance test methods for surface mount solder joint - Part 1-3: Cyclic drop test",
+    "language": "EN-FR",
+    "description": "The test method described in IEC 62137-1-3:2008 applies to solder joints between terminals of surface mounting devices (SMDs) and land patterns on printed wiring boards (PWBs). This test is intended to evaluate the strength of the solder joints of larger sized multi-terminal components and other components in devices (e.g. handheld mobile devices) in the event that the device is dropped. The properties of the solder joints (e.g. solder alloy, substrate, mounted device or design, etc.) are evaluated to assist in improving the strength of the solder joints."
+  },
+  {
+    "reference": "IEC 62137-1-4:2009",
+    "edition": "1.0",
+    "date": "2009-01-26",
+    "title": "Surface mounting technology - Environmental and endurance test methods for surface mount solder joint - Part 1-4: Cyclic bending test",
+    "language": "EN-FR",
+    "description": "The test method described in IEC 62137-1-4:2009 applies to surface mount components with a thin and wide basal plane, such as QFP and BGA. This test method evaluates the endurance of the solder joints between component leads and lands on a substrate by cyclic bending of substrate. This test also evaluates the effects of repeated mechanical stress, such as key pushing in cell phones, the strength of the solder joint between component terminals and lands on a substrate."
+  },
+  {
+    "reference": "IEC 62137-1-5:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Surface mounting technology - Environmental and endurance test methods for surface mount solder joints - Part 1-5: Mechanical shear fatigue test",
+    "language": "EN-FR",
+    "description": "IEC 62137-1-5:2009 applies to area array packages, such as BGA. This test method is designed to evaluate the fatigue life of the solder joints between component leads and lands on a substrate as shown in Figure 1. A temperature cyclic approach is generally used to evaluate the reliability of solder joints. Another method is to mechanically cycle the solder joints to shorten the testing time rather than to produce the strains by changing temperatures. The methodology is the imposition of shear deformation on the solder joints by mechanical displacement instead of relative displacement generated by CTE (coefficient of thermal expansion) mismatch, as shown in Figure 2. In place of the temperature cycle test, the mechanical shear fatigue predicts the reliability of the solder joints under repeated temperature change conditions by mechanically cycling the solder joints. In this test method, the evaluation requires first to mount the surface mount component on the substrate by reflow soldering, then cyclic mechanical shear deformation is applied to the solder joints until fracture of the solder joints occurs. The properties of the solder joints (for example solder alloy, substrate, mounted device or design, etc.) are evaluated to assist in improving the strength of the solder joints."
+  },
+  {
+    "reference": "IEC 62137-3:2011",
+    "edition": "1.0",
+    "date": "2011-11-08",
+    "title": "Electronics assembly technology - Part 3: Selection guidance of environmental and endurance test methods for solder joints",
+    "language": "EN-FR",
+    "description": "IEC 62137-3:2011 describes the selection methodology of an appropriate test method for a reliability test for solder joints of various shapes and types of surface mount devices (SMD), array type devices and leaded devices, and lead insertion type devices using various types of solder material alloys. This first edition cancels and replaces IEC/PAS 62137-3, published in 2008, and includes some editorial revisions. The main changes with respect to the PAS include the following: - no technical changes; - some editorial changes and corrections; - for the sake of convenience some constitutive changes."
+  },
+  {
+    "reference": "IEC 62137-4:2014",
+    "edition": "1.0",
+    "date": "2014-10-09",
+    "title": "Electronics assembly technology - Part 4: Endurance test methods for solder joint of area array type package surface mount devices",
+    "language": "EN-FR",
+    "description": "IEC 62137-4:2014 specifies the test method for the solder joints of area array type packages mounted on the printed wiring board to evaluate solder joint durability against thermo-mechanical stress. This part of IEC 62137 applies to the surface mounting semiconductor devices with area array type packages (FBGA, BGA, FLGA and LGA) including peripheral termination type packages (SON and QFN) that are intended to be used in industrial and consumer electrical or electronic equipment. IEC 62137-4 includes the following significant technical changes with respect to IEC 62137:2004: - test conditions for use of lead-free solder are included; - test conditions for lead-free solders are added; - accelerations of the temperature cycling test for solder joints are added."
+  },
+  {
+    "reference": "IEC 62243:2012",
+    "edition": "2.0",
+    "date": "2012-06-21",
+    "title": "Artificial Intelligence Exchange and Service Tie to All Test Environments (AI-ESTATE)",
+    "language": "EN",
+    "description": "IEC 62243:2012(E) defines formal specifications for supporting system diagnosis. These specifications support the exchange and processing of diagnostic information and the control of diagnostic processes. Diagnostic processes include, but are not limited to, testability analysis, diagnosability assessment, diagnostic reasoning, maintenance support, and diagnostic maturation."
+  },
+  {
+    "reference": "IEC 62326-1:2002",
+    "edition": "2.0",
+    "date": "2002-03-05",
+    "title": "Printed boards - Part 1: Generic specification",
+    "language": "EN-FR, ES",
+    "description": "Defines capability approval procedures for printed boards. In addition, a technology approval schedule may also be provided as an alternative for manufacturers employing a system of process control for establishing product conformity. Both CA and TA procedures apply to printed boards irrespective of their methods of manufacture, when they are ready for the mounting of components."
+  },
+  {
+    "reference": "IEC 62326-4:1996",
+    "edition": "1.0",
+    "date": "1996-12-19",
+    "title": "Printed boards - Part 4: Rigid multilayer printed boards with interlayer connections - Sectional specification",
+    "language": "EN-FR, ES",
+    "description": "Applicable to rigid multilayer printed boards irrespective of their method of manufacture. It is the basis on which agreements between manufacturer and user are to be made. Provides additional information necessary to supplement the requirements of the Generic Specification, IEC 62326-1, for the printed boards intended to be accepted under the IECQ system. Establishes uniform requirements, specifies the characteristics to be assessed and the test methods to be used for quality conformance."
+  },
+  {
+    "reference": "IEC 62326-4-1:1996",
+    "edition": "1.0",
+    "date": "1996-12-19",
+    "title": "Printed boards - Part 4: Rigid multilayer printed boards with interlayer connections - Sectional specification - Section 1: Capability detail specification -  Performance levels A, B and C",
+    "language": "EN-FR, ES",
+    "description": "Relates to rigid multilayer printed boards with interlayer connections. Specifies the capability qualifying component, the characteristics to be tested, the test methods and conditions to be applied, and the requirements to be fulfilled for testing capability for performance level A, B or C."
+  },
+  {
+    "reference": "IEC 62326-20:2016",
+    "edition": "1.0",
+    "date": "2016-02-03",
+    "title": "Printed boards - Part 20: Printed circuit boards for high-brightness LEDs",
+    "language": "EN-FR",
+    "description": "IEC 62326-20:2016 specifies the properties of the printed circuit board (hereafter described as PCB) for high-brightness LEDs. Many aspects of the PCB for high-brightness LEDs are identical with those of ordinary PCBs, therefore, some aspects of this standard also describe general aspects. This edition includes the following significant technical changes with respect to the previous edition: a) this edition focuses on the technical content of the printed circuit board for high-brightness LEDs; b) the figures related to the printed circuit board for high-brightness LEDs have been refined."
+  },
+  {
+    "reference": "IEC 62421:2007",
+    "edition": "1.0",
+    "date": "2007-08-24",
+    "title": "Electronics assembly technology - Electronic modules",
+    "language": "EN-FR, EN",
+    "description": "IEC 62421:2007 provides a generic standard of electronic modules on which their sectional standards are based. It provides a definition, business model, interface between the trading partners, and related areas of standardization of electronic modules. In addition a generic set of test method is provided."
+  },
+  {
+    "reference": "IEC 62525:2007",
+    "edition": "1.0",
+    "date": "2007-11-07",
+    "title": "Standard Test Interface Language (STIL) for Digital Test Vector Data",
+    "language": "EN",
+    "description": "Defines a test description language that: Facilitates the transfer of large volumes of digital test vector data from CAE environments to automated test equipment ATE environments; Specifies pattern, format, and timing information sufficient to define the application of digital test vectors to a device under test (DUT); Supports the volume of test vector data generated from structured tests such as scan/automatic test pattern generation (ATPG), integral test techniques such as built-in self test (BIST), and functional test specifications for IC designs and their assemblies, in a format optimized for application in ATE environments."
+  },
+  {
+    "reference": "IEC 62526:2007",
+    "edition": "1.0",
+    "date": "2007-11-07",
+    "title": "Standard for Extensions to Standard Test Interface Language (STIL) for Semiconductor Design Environments",
+    "language": "EN",
+    "description": "Provides an interface between digital test generation tools and test equipment. A test description language is defined that:(a) facilitates the transfer of digital test vector data from CAE to ATE environments;(b) specifies patten, format, and timing information sufficant to define the application of digital test vectors to a DUT;and (c) supports the volume of test vector data generated from structured tests."
+  },
+  {
+    "reference": "IEC 62527:2007",
+    "edition": "1.0",
+    "date": "2007-11-07",
+    "title": "Standard for Extensions to Standard Test Interface Language (STIL) for DC Level Specification",
+    "language": "EN",
+    "description": "STIL language constructs are defined to specify the DC conditions necessary to excute digital vectors on automated test equipment(ATE). STIL language extensions include structures for:(a) specifying the DC conditions for a device under test; specifying DC conditions either globally, by pattern burst, by pattern, or by vector;(c) specifying alternate DC levels;and (d) selecting DC levels and alternate levels within a period, much the same as timed format events."
+  },
+  {
+    "reference": "IEC 62528:2007",
+    "edition": "1.0",
+    "date": "2007-11-07",
+    "title": "Standard Testability Method for Embedded Core-based Integrated Circuits",
+    "language": "EN",
+    "description": "Defines a mechanism for the test of core designs within a system on chip (SoC).This mechanism constitutes a hardware architecture and leverages the core test language (CTL)to faciliate communication between core designers and core integrators."
+  },
+  {
+    "reference": "IEC 62529:2024",
+    "edition": "3.0",
+    "date": "2024-06-27",
+    "title": "Standard for Signal and Test Definition",
+    "language": "EN",
+    "description": "IEC 62529:2024 provides the means to define and describe signals used in testing. It provides a set of common basic signal definitions, built upon formal mathematical specifications, so that signals can be combined to form complex signals usable across all test platforms. The standard provides support for structural textual languages and programming language interfaces for interoperability. This second edition cancels and replaces the first edition, published in 2007, and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62530:2021",
+    "edition": "3.0",
+    "date": "2021-07-26",
+    "title": "SystemVerilog - Unified Hardware Design, Specification, and Verification Language",
+    "language": "EN",
+    "description": "IEC 62530:2021(E) provides the definition of the language syntax and semantics for the IEEE 1800™ SystemVerilog language, which is a unified hardware design, specification, and verification language. The standard includes support for behavioral, register transfer level (RTL), and gate-level hardware descriptions; testbench, coverage, assertion, object-oriented, and constrained random constructs; and also provides application programming interfaces (APIs) to foreign programming languages. This edition corrects errors and clarifies aspects of the language definition in IEEE Std 1800-2012.1 This revision also provides enhanced features that ease design, improve verification, and enhance cross-language interactions. This publication has the status of a double logo IEEE/IEC standard."
+  },
+  {
+    "reference": "IEC 62530-2:2023",
+    "edition": "2.0",
+    "date": "2023-10-11",
+    "title": "SystemVerilog - Part 2: Universal Verification Methodology Language Reference Manual",
+    "language": "EN",
+    "description": "IEC 62530-2:2023 establishes the Universal Verification Methodology (UVM), a set of application programming interfaces (APIs) that defines a base class library (BCL) definition used to develop modular, scalable, and reusable components for functional verification environments. The APIs and BCL are based on the IEEE standard for SystemVerilog, IEEE Std 1800™.1. This is an IEC/IEEE dual logo standard."
+  },
+  {
+    "reference": "IEC 62531:2012",
+    "edition": "2.0",
+    "date": "2012-06-21",
+    "title": "Property Specification Language (PSL)",
+    "language": "EN",
+    "description": "IEC 62531:2012(E) defines the property specification language (PSL), which formally describes electronic system behavior. This standard specifies the syntax and semantics for PSL and also clarifies how PSL interfaces with various standard electronic system design languages. This second edition cancels and replaces the first edition, published in 2007, and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TR 62699-1:2014",
+    "edition": "1.0",
+    "date": "2014-12-16",
+    "title": "Mapping rules and exchange methods for heterogeneous electronic parts libraries - Part 1: Building an integrated search system",
+    "language": "EN",
+    "description": "IEC TR 62699-1:2014 describes mapping rules and exchange methods for the development of general and extendable integrated services utilizing heterogeneous multi-national or multi-enterprise electronic parts library data. The scope of this technical report is as follows: a) identification and classification of mapping types for mapping heterogeneous electronic parts libraries; b) definition of general mapping rules and specific mapping rules commonly applying to various mapping types. The following aspects are out of the scope of this technical report: - schematic definition and management of the electronic parts libraries to be mapped; - maintenance process for the parts libraries during changes."
+  },
+  {
+    "reference": "IEC 62739-1:2013",
+    "edition": "1.0",
+    "date": "2013-06-18",
+    "title": "Test method for erosion of wave soldering equipment using molten lead-free solder alloy - Part 1: Erosion test method for metal materials without surface processing",
+    "language": "EN-FR",
+    "description": "IEC 62739-1:2013 provides an evaluating test method for the erosion of the metallic materials without surface processing intended to be used for lead-free wave soldering equipment as a solder bath and other components which are in contact with the molten solder."
+  },
+  {
+    "reference": "IEC 62739-2:2016",
+    "edition": "1.0",
+    "date": "2016-07-13",
+    "title": "Test method for erosion of wave soldering equipment using molten lead-free solder alloy - Part 2: Erosion test method for metal materials with surface processing",
+    "language": "EN-FR",
+    "description": "IEC 62739-2:2016 provides an evaluating test method for the erosion of the metallic materials with surface processing intended to be used for lead-free wave soldering equipment as a solder bath and other components which are in contact with the molten solder. It aims at prevention of an accident or a fire by predicting a setup and life of a suitable maintenance cycle."
+  },
+  {
+    "reference": "IEC 62739-3:2017",
+    "edition": "1.0",
+    "date": "2017-01-06",
+    "title": "Test method for erosion of wave soldering equipment using molten lead-free solder alloy - Part 3: Selection guidance of erosion test methods",
+    "language": "EN-FR, EN",
+    "description": "IEC 62739-3:2017 describes the selection methodology of an appropriate evaluating test method for the erosion of the metal materials without or with surface processing intended to be used for lead-free wave soldering equipment as a solder bath and other components which are in contact with the molten solder."
+  },
+  {
+    "reference": "IEC TR 62856:2013",
+    "edition": "1.0",
+    "date": "2013-08-07",
+    "title": "Documentation on design automation subjects - The Bird's-eye View of Design Languages (BVDL)",
+    "language": "EN-FR",
+    "description": "IEC/TR 62856:2013 describes features for existing design languages, as well as for enhancing and newly developing design languages belonging to the defined design processes of System on a chip (SoC) which ranges from system level design, SoC design implementation and verification, IP block creation and analog block design down to interface data preparation for manufacturing. Thirty-three design languages have been chosen and each feature of their latest version as of March 2011 is reflected in this report: UML, Esterel, Rosetta, SystemC, SystemC-AMS, IBIS, CITI, TouchStone, BSDL, System Verilog, VHDL, Verilog HDL, UPF, CPF, e language, PSL, FSDB, SDC, DEF, Open Access, SDF, GDS II, OASIS, STIL, WGL, Verilog-A, Verilog-AMS, SPICE, VHDL-AMS, LEF, Liberty, CDL and IP-XACT."
+  },
+  {
+    "reference": "IEC TR 62866:2014",
+    "edition": "1.0",
+    "date": "2014-05-07",
+    "title": "Electrochemical migration in printed wiring boards and assemblies - Mechanisms and testing",
+    "language": "EN-FR",
+    "description": "IEC TR 62866:2014 describes the history of the degradation of printed wiring boards caused by electrochemical migration, the measurement method, observation of the failure and remarks to testing in detail."
+  },
+  {
+    "reference": "IEC 62878-1:2019",
+    "edition": "1.0",
+    "date": "2019-10-14",
+    "title": "Device embedding assembly technology - Part 1: Generic specification for device embedded substrates",
+    "language": "EN-FR, EN",
+    "description": "IEC 62878-1:2019 specifies the generic requirements and test methods for device-embedded substrates. The basic test methods for printed board substrate materials and substrates themselves are specified in IEC 61189-3. This part of IEC 62878 is applicable to device-embedded substrates fabricated by use of organic base material, which includes, for example, active or passive devices, discrete components formed in the fabrication process of electronic printed boards, and sheet-formed components. The IEC 62878 series applies neither to the re-distribution layer (RDL) nor to electronic modules defined in IEC 62421."
+  },
+  {
+    "reference": "IEC 62878-1-1:2015",
+    "edition": "1.0",
+    "date": "2015-05-20",
+    "title": "Device embedded substrate - Part 1-1: Generic specification - Test methods",
+    "language": "EN-FR",
+    "description": "IEC 62878-1-1:2015 specifies the test methods of passive and active device embedded substrates. The basic test methods of printed wiring substrate materials and substrates themselves are specified in IEC 61189-3. This part of IEC 62878 is applicable to device embedded substrates fabricated by use of organic base material, which include for example active or passive devices, discrete components formed in the fabrication process of electronic wiring board, and sheet formed components."
+  },
+  {
+    "reference": "IEC TS 62878-2-1:2015",
+    "edition": "1.0",
+    "date": "2015-03-30",
+    "title": "Device embedded substrate - Part 2-1: Guidelines - General description of technology",
+    "language": "EN-FR",
+    "description": "IEC TS 62878-2-1:2015 describes the basics of device embedding substrate. It is applicable to device embedded substrates fabricated by use of organic base material, which include for example active or passive devices, discrete components formed in the fabrication process of electronic wiring board, and sheet formed components."
+  },
+  {
+    "reference": "IEC TR 62878-2-2:2015",
+    "edition": "1.0",
+    "date": "2015-12-04",
+    "title": "Device embedded substrate - Part 2-2: Guidelines - Electrical testing",
+    "language": "EN-FR",
+    "description": "IEC TR 62878-2-2:2015 describes the necessary information on electrical testing for device embedded substrate. This includes the interconnection open- and short-circuit tests as well as the device functional test. It also provides guidelines by demonstrating the electrical test for device embedded substrate."
+  },
+  {
+    "reference": "IEC TS 62878-2-3:2015",
+    "edition": "1.0",
+    "date": "2015-03-27",
+    "title": "Device embedded substrate - Part 2-3: Guidelines - Design guide",
+    "language": "EN-FR",
+    "description": "IEC TS 62878-2-3:2015 describes the design guide of device embedded substrates. The design guide of device embedded substrate is essentially the same as that of various electronic circuit boards. This part of IEC 62878 enables a thorough understanding of circuit design, structure design, board design, board manufacturing, jisso (assembly processes) and tests of products. It is applicable to device embedded substrates fabricated by use of organic base material, which include for example active or passive devices, discrete components formed in the fabrication process of electronic wiring board, and sheet formed components."
+  },
+  {
+    "reference": "IEC TS 62878-2-4:2015",
+    "edition": "1.0",
+    "date": "2015-03-27",
+    "title": "Device embedded substrate - Part 2-4: Guidelines - Test element groups (TEG)",
+    "language": "EN-FR",
+    "description": "IEC TS 62878-2-4:2015 describes the test element group devices useful when measuring basic properties of device embedded substrates. It is applicable to device embedded substrates fabricated by use of organic base material, which include for example active or passive devices, discrete components formed in the fabrication process of electronic wiring board, and sheet formed components."
+  },
+  {
+    "reference": "IEC 62878-2-5:2019",
+    "edition": "1.0",
+    "date": "2019-09-16",
+    "title": "Device embedding assembly technology - Part 2-5: Guidelines - Implementation of a 3D data format for device embedded substrate",
+    "language": "EN-FR, EN",
+    "description": "IEC 62878-2-5:2019 specifies requirements based on XML schema that represents a design data format for device embedded substrate, which is a board comprising embedded active and passive devices whose electrical connections are made by means of a via, electroplating, conductive paste or printing of conductive material. This data format is to be used for simulation (e.g. stress, thermal, EMC), tooling, manufacturing, assembly, and inspection requirements. Furthermore, the data format is used for transferring information among printed board designers, printed board simulation engineer, manufacturers, and assemblers. IEC 62878-2-5:2019 applies to substrates using organic material. It neither applies to the re-distribution layer (RDL) nor to the electronic modules defined as M-type business model in IEC 62421."
+  },
+  {
+    "reference": "IEC TR 62878-2-7:2019",
+    "edition": "1.0",
+    "date": "2019-03-20",
+    "title": "Device embedding assembly technology - Part 2-7: Guidelines - Accelerated stress testing of passive embedded circuit boards",
+    "language": "EN",
+    "description": "IEC TR 62878-2-7:2019 (E) describes the accelerated stress testing of passive embedded circuit boards. It can be used for screening finished boards, including multilayer and high-density interconnection (HDI) boards. These boards are mainly for mobile devices."
+  },
+  {
+    "reference": "IEC TR 62878-2-8:2021",
+    "edition": "1.0",
+    "date": "2021-07-07",
+    "title": "Device embedding assembly technology - Part 2-8: Guidelines - Warpage control of active device embedded substrate",
+    "language": "EN",
+    "description": "IEC TR 62878-2-8:2021(E) describes a warpage control of active device embedded substrate along with parameters for determining warpage, which are useful during package assembly. Warpage results are explained using warpage driving force, resistance and neutral axis, for typical die embedded substrate, where the discrete active dies are placed in the core of substrate and interconnected to the substrate by direct Cu bonding. The same principles are applicable in other device embedded substrates. Even though the detailed structure of other device embedded substrates might be different, the origin and determination of the parameters of warpage are the same and thus the purpose of this report is to help engineers improve the warpage behaviours of their products by applying this principle."
+  },
+  {
+    "reference": "IEC TR 62878-2-9:2022",
+    "edition": "1.0",
+    "date": "2022-04-27",
+    "title": "Device embedding assembly technology - Part 2-9: Guidelines - Concept of JISSO level in the electronic assembly technology industries",
+    "language": "EN",
+    "description": "IEC TR 62878-2-9:2022(E) comprises the long-term discussion among Jisso International Council (JIC) members during 1999 and 2005, when the interim agreement among all JIC members about the “concept of Jisso” as well as the “Jisso product level” for the common understanding on IEC TC 91 (electronic assembly technology) activities was reached. Further discussion on “Jisso Product Level” could be needed among the current JIC members to finalize it in the near future based on this technical report."
+  },
+  {
+    "reference": "IEC TS 62878-2-10:2024",
+    "edition": "1.0",
+    "date": "2024-01-31",
+    "title": "Device embedding assembly technology - Part 2-10: Design specification for cavity substrate",
+    "language": "EN",
+    "description": "IEC TS 62878-2-10:2024 provides a general specification for the design of cavity substrates."
+  },
+  {
+    "reference": "IEC 62878-2-602:2021",
+    "edition": "1.0",
+    "date": "2021-06-22",
+    "title": "Device embedding assembly technology - Part 2-602: Guideline for stacked electronic module - Evaluation method of inter-module electrical connectivity",
+    "language": "EN-FR",
+    "description": "IEC 62878-2-602:2021 specifies the requirements and evaluation methods of electrical connectivity. It is applicable to stacked electronic modules."
+  },
+  {
+    "reference": "IEC 62878-2-603:2025",
+    "edition": "1.0",
+    "date": "2025-02-25",
+    "title": "Device embedding assembly technology - Part 2-603: Guideline for stacked electronic module - Test method of intra-module electrical connectivity",
+    "language": "EN-FR",
+    "description": "IEC 62878-2-603:2025 specifies the electrical test method to detect electrical connectivity defects of the stacked electronic module caused by the stacking assembly process to stack some stackable electronic modules. This method is realized to make use of bidirectional serial communication bus interface applied to the stackable electronic modules which are assured as \"known good module\" (KGM)."
+  },
+  {
+    "reference": "IEC 63003:2015",
+    "edition": "1.0",
+    "date": "2015-12-14",
+    "title": "Standard for the common test interface pin map configuration for high-density, single-tier electronics test requirements utilizing IEEE Std 1505™",
+    "language": "EN",
+    "description": "IEC 63003:2015(E) the scope is the definition of a pin map utilizing the IEEE 1505 receiver fixture interface (RFI). The pin map defined within this standard shall apply to military and aerospace automatic test equipment (ATE) testing applications."
+  },
+  {
+    "reference": "IEC 63004:2015",
+    "edition": "1.0",
+    "date": "2015-12-14",
+    "title": "Standard for receiver fixture interface",
+    "language": "EN",
+    "description": "IEC 63004:2015(E) the scope is the development of a common receiver fixture interface (RFI) specification that is based upon available commercial standards integrated under a common open architecture. This mechanical/electrical interface is intended to serve government/commercial interest for applications in test, system integration, manufacturing, monitoring, and other functional requirements that demand large contact densities and quick-disconnect mechanical operation."
+  },
+  {
+    "reference": "IEC TR 63017:2015",
+    "edition": "1.0",
+    "date": "2015-12-16",
+    "title": "Flexible printed circuit boards (FPCBs) - Method of compensation of impedance variations",
+    "language": "EN",
+    "description": "IEC TR 63017:2015(E) specifies a compensation method of Cu linewidth according to impeadance reduction by using noise suppression materials (hereafter referred to as NSMs) for FPCBs. This Technical Report presents an optimum result for maintaining a designated performance of FPCBs by using NSMs. It also indicates a measuring method for an impedance variation of FPCBs using NSMs with the prevailing TDR (time domain reflectometry) method. This method is resticted to measuring only the variation of an impedance value in accordance with the variation of the Cu linewidth by using NSMs for FPCBs. This report, however, neither determines nor indicates the structure or material of FPCBs."
+  },
+  {
+    "reference": "IEC TR 63018:2015",
+    "edition": "1.0",
+    "date": "2015-12-16",
+    "title": "Flexible printed circuit boards (FPCBs) - Method to decrease signal loss by using noise suppression materials",
+    "language": "EN",
+    "description": "IEC TR 63018:2015(E) specifies a guideline for improvement of signal loss by using noise suppression materials (hereafter referred to as NSMs) for FPCBs. This Technical Report also indicates a measuring method of signal loss variations of FPCBs using NSMs using network analyzer equipment. In addition, this method only measures the value of the signal loss variation by using NSMs for FPCBs. This report, however, neither determines nor indicates the structure or material of FPCBs."
+  },
+  {
+    "reference": "IEC TR 63051:2017",
+    "edition": "1.0",
+    "date": "2017-01-10",
+    "title": "Documentation on design automation subjects - Mathematical algorithm hardware description languages for system level modeling and verification (HDLMath)",
+    "language": "EN",
+    "description": "IEC TR 63051:2017(E) describes the main functional requirements for an HDLMath language and compares existing HDLMath languages from the viewpoint of designers. It is intended to accelerate the standardization of a mathematical algorithm design language and to help establish a new and good system modeling and verification environment."
+  },
+  {
+    "reference": "IEC 63055:2023",
+    "edition": "2.0",
+    "date": "2023-10-11",
+    "title": "Format for LSI-Package-Board Interoperable design",
+    "language": "EN",
+    "description": "IEC 63055:2023 defines a common interoperable format that will be used for the design of a) large-scale integration (LSI), b) packages for such LSI, and c) printed circuit boards on which the packaged LSIs are interconnected. Collectively, such designs are referred to as LSI-Package-Board (LPB) designs. The format provides a common way to specify information/data about the project management, netlists, components, design rules, and geometries used in LPB designs. This is an IEC/IEEE dual logo standard."
+  },
+  {
+    "reference": "IEC 63251:2023",
+    "edition": "1.0",
+    "date": "2023-11-01",
+    "title": "Test method for mechanical properties of flexible opto-electric circuit boards under thermal stress",
+    "language": "EN-FR",
+    "description": "IEC 63251:2023 defines the thermal endurance test methods for reliability assessment of flexible opto-electric circuit boards. The purpose of this document is to accommodate the uniform thermal characteristics required by the flexible opto-electric circuit in high temperature environments such as automobiles. In particular, this document specifies a test method to inspect the occurrence of colour exchange, deformation and delamination of flexible opto-electric circuit boards under thermal stress."
+  },
+  {
+    "reference": "IEC 63501-2416:2023",
+    "edition": "1.0",
+    "date": "2023-10-17",
+    "title": "Power Modeling to Enable System Level Analysis",
+    "language": "EN",
+    "description": "IEC 63501-2416:2023 describes a parameterized and abstracted power model enabling system, software, and hardware intellectual property (IP)-centric power analysis and optimization. It defines concepts for the development of parameterized, accurate, efficient, and complete power models for systems and hardware IP blocks usable for system power analysis and optimization. These concepts include, but are not limited to, process, voltage, and temperature (PVT) independence; power and thermal management interface; and workload and architecture parameterization. This standard also defines the necessary requirements for the information content of parameterized, accurate, efficient, and complete power models to help guide development and usage of other related power, workload, and functional modeling standards. This standard is published as a double logo IEC-IEEE standard."
+  },
+  {
+    "reference": "IEC 63504-2804:2023",
+    "edition": "1.0",
+    "date": "2023-10-17",
+    "title": "Software-Hardware Interface for Multi-Many-Core",
+    "language": "EN",
+    "description": "IEC 63504-2804:2023 defines an architecture description standard from the software design perspective - this provides a common interface that abstracts the hardware properties that are critical to enable multicore tools. The standard includes performance estimation accuracy for complex processors like Very Long Instruction Word (VLIW) core and complex contention scenarios, description of caches to include uncached memory regions and caches for subsets of memories, properties for coarse power consumption estimation, and reusability by separating eXtensible Markup Language (XML) files for processor description and other memory/communication-related information. This is an IEC/IEEE dual logo standard."
+  },
+  {
+    "reference": "IEC PAS 63702:2026",
+    "edition": "1.0",
+    "date": "2026-06-16",
+    "title": "Classification of additive manufacturing and 3D-printing processes for electronics",
+    "language": "EN",
+    "description": "IEC PAS 63702:2026 describes the classification of additive manufacturing and 3D-printing processes for electronics."
+  },
+  {
+    "reference": "IEC PAS 63720:2026",
+    "edition": "1.0",
+    "date": "2026-08-06",
+    "title": "Rigid circuit board - Routing parameters",
+    "language": "EN",
+    "description": "IEC PAS 63720:2026 defines standardized routing parameter tables applicable to the design of rigid circuit board with mechanically or laser drilled vias. These parameter tables are based on the concept of \"Routing Classes\" initially introduced in the French standard NF-93713 (1971-1989, cancelled: 2019). They are linked to the pitch of electronic components (e.g., BGA, QFN, connector, etc.) and thus allow a better coupling with component and circuit board manufacturers. They can be easily integrated into EDA tools to facilitate the work of designers, while ensuring a common standard of communication between customers and manufacturers. Routing classes should not be confused with IPC performance classes, which are used in the context of circuit board acceptance (IPC-A-600) as well as qualification and performance (IPC-6012) standards. Additional information on circuit board design is provided by IPC-2221 (Generic Standard on Printed Board Design), IPC-2222 (Sectional Design Standard for Rigid Organic Printed Boards) and IPC-2226 (Sectional Design Standard for High Density Interconnect (HDI) Printed Boards). This document is based on French AFNOR Spec 2212 and was submitted as a PAS document."
+  }
+]

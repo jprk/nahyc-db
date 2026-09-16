@@ -1,0 +1,858 @@
+[
+  {
+    "reference": "IEC 60231:1967",
+    "edition": "1.0",
+    "date": "1967-01-01",
+    "title": "General principles of nuclear reactor instrumentation",
+    "language": "EN-FR, RU",
+    "description": "Gives guidance on the provision of reactor instrumentation and recommends standards of good practice. Generally applicable to instruments which have a direct bearing on the overall safety and effective control of the reactor. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60515:2007",
+    "edition": "2.0",
+    "date": "2007-02-23",
+    "title": "Nuclear power plants - Instrumentation important to safety - Radiation detectors - Characteristics and test methods",
+    "language": "EN-FR",
+    "description": "Describes characteristics and tests methods for gas-filled radiation detectors used for the protection of nuclear reactors. Applies to the radiation detectors which are installed external to the core of nuclear reactors and which provide electrical input signals to the reactor's control and instrumentation system."
+  },
+  {
+    "reference": "IEC 60568:2006",
+    "edition": "2.0",
+    "date": "2006-01-23",
+    "title": "Nuclear power plants - Instrumentation important to safety - In-core instrumentation for neutron fluence rate (flux) measurements in power reactors",
+    "language": "EN-FR",
+    "description": "Provides guidance for the design of in-core instrumentation for neutron fluence rate measurements in thermal neutron reactors designed for power production. Applies to on-line in-core neutron detectors, together with associated components and instrumentation, designed for purposes important to reactor safety: protection, information or control."
+  },
+  {
+    "reference": "IEC 60671:2007",
+    "edition": "2.0",
+    "date": "2007-05-23",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Surveillance testing",
+    "language": "EN-FR",
+    "description": "Lays down principles for testing I&C systems performing category A, B and C functions, per IEC 61226, during normal power operation and shutdown, so as to check the functional availability especially with regard to the detection of faults that could prevent the proper operation of the functions important to safety. Covers the possibility of testing at short intervals or continuous surveillance, as well as periodic testing at longer intervals. It also establishes basic rules for the design and application of the test equipment and its interface with the systems important to safety. The main change with respect to the previous edition includes an extension of the scope to cover all systems important to safety, and a requirement gradation for systems and equipment performing category A, B and C functions."
+  },
+  {
+    "reference": "IEC 60709:2018",
+    "edition": "3.0",
+    "date": "2018-04-18",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems important to safety - Separation",
+    "language": "EN-FR",
+    "description": "IEC 60709:2018 is applicable to nuclear power plant instrumentation and control (I&C) and electrical systems and equipment, whose functions are required to be independent due to their contribution to: a redundant or diverse safety group; different defence in depth levels; different safety classes and also with non-classified (NC) systems. This standard is also applicable to temporary installations which are part of those I&C and *electrical systems important to safety (for example, auxiliary equipment for commissioning tests and experiments or mobile power supply systems). This new edition includes the following significant technical changes with respect to the previous edition: include requirements referring to the separation principle in electrical systems important to safety; define separation criteria for I&C and electrical systems in a generic way; align with the new revisions of IAEA documents and broaden the scope to include other aspects of separation."
+  },
+  {
+    "reference": "IEC 60737:2010",
+    "edition": "2.0",
+    "date": "2010-06-28",
+    "title": "Nuclear power plants - Instrumentation important to safety - Temperature sensors (in-core and primary coolant circuit) - Characteristics and test methods",
+    "language": "EN-FR",
+    "description": "IEC 60737:2010 deals with specific requirements for nuclear applications of temperature sensors. It provides guidance which will help to ensure that the reactor conditions do not damage the temperature sensors; it ensures that the in-core temperature measuring system and the sensor installation do not prejudice the safe operation and the availability of the reactor. Is applicable to general aspects of system and component design, manufacturing and test methods for temperature sensors used in-core and for the primary coolant circuit in nuclear power reactors. The main changes with respect to the previous edition are the following additions: - descriptions of the comparative performance of thermocouples and resistance temperature detectors; - discussion of the temperature measuring system requirements for reactors."
+  },
+  {
+    "reference": "IEC 60744:2018",
+    "edition": "2.0",
+    "date": "2018-05-14",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Safety logic assemblies used in systems performing category A functions: Characteristics and test methods",
+    "language": "EN-FR",
+    "description": "IEC 60744:2018 provides requirements and recommendations for the design, construction and test of safety logic assemblies used in safety systems to perform category A safety functions (in accordance with IEC 61226). Safety logic assemblies include logic such as the hardwired logic assembly interfacing computer-based systems to switchgear, actuators or contactors to provide trip or engineered safety feature actuations. Safety logic assemblies are significant parts of a safety system and may include voting logic between redundant channels. This document provides a general description of safety logic assemblies for safety actuators control. The principles to meet dependability objectives are presented. The main features relating to the design requirements are described and explained. This new edition includes the following significant technical changes with respect to the previous edition: a) update of the references to standards published or revised since the issue of the first edition of the current standard, including IEC 61513 and IEC 61226; b) additional requirements for operational and maintenance bypass use; requirements of voting logic; and others."
+  },
+  {
+    "reference": "IEC 60768:2009",
+    "edition": "2.0",
+    "date": "2009-04-29",
+    "title": "Nuclear power plants - Instrumentation important to safety - Equipment for continuous in-line or on-line monitoring of radioactivity in process streams for normal and incident conditions",
+    "language": "EN-FR",
+    "description": "IEC 60768:2009 provides criteria for the design, selection, testing, calibration and functional location of equipment for the monitoring of radioactive substances within plant-process streams during normal operation conditions and anticipated operational occurrences. Is only applicable to continuous in-line or on-line measurement. This new edition includes the following significant technical changes with respect to the previous edition: - it clarifies the definitions; - up-dates the reference to new standards published since the first issue; - updates the units of radiation. This publication is to be read in conjunction with IEC 60951-1:2009 , IEC 60951-2:2009 , IEC 60951-3:2009 and IEC 60951-4:2009 ."
+  },
+  {
+    "reference": "IEC 60772:2018",
+    "edition": "2.0",
+    "date": "2018-05-14",
+    "title": "Nuclear power plants - Instrumentation systems important to safety - Electrical penetration assemblies in containment structures",
+    "language": "EN-FR",
+    "description": "IEC 60772:2018 applies to electrical penetration assemblies (EPAs) in containment structures of nuclear power plants. It covers the engineering safety requirements to be met in the design, calculation, qualification, fabrication, assembly, testing, and installation of EPAs. EPAs provide gas-tight and pressure-resistant penetrations through the containment for one or more electrical circuits. EPA requirements are divided into mechanical (e.g. containment integrity), and electrical or optical aspects regarding safety. The mechanical requirements are valid for all EPAs. This new edition includes the following significant technical changes with respect to the previous edition: a) Adaptation of terminology and definitions to current available IAEA and IEC glossaries. b) Inclusion of various new definitions and requirements."
+  },
+  {
+    "reference": "IEC/IEEE 60780-323:2016",
+    "edition": "1.0",
+    "date": "2016-02-19",
+    "title": "Nuclear facilities - Electrical equipment important to safety - Qualification",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 60780-323:2016 describes the basic requirements for qualifying electrical equipment important to safety and interfaces (electrical and mechanical) that are to be used in nuclear facilities. The principles, methods, and procedures described are intended to be used for qualifying equipment, maintaining and extending qualification, and updating qualification, as required, if the equipment is modified. The qualification requirements in this standard, when met, demonstrate and document the ability of equipment to perform safety function(s) under applicable service conditions, including design basis events and certain design extension conditions, and reduce the risk of environmentally induced common-cause equipment failure. This new edition includes the following main changes with respect to the previous edition IEC 60780:1998 harmonizes in a unique standard qualification practices formerly given by IEC 60780:1998 and IEEE 323:2003 on initial qualification, takes into account the need to reassess and extend the qualified life of electrical equipment regarding projects to extend the operating life of nuclear facilities."
+  },
+  {
+    "reference": "IEC 60880:2006",
+    "edition": "2.0",
+    "date": "2006-05-09",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Software aspects for computer-based systems performing category A functions",
+    "language": "EN-FR",
+    "description": "Provides requirements for the software of computer-based instrumentation and control (I&C) systems of nuclear power plants performing functions of safety category A as defined by IEC 61226. Provides requirements for the purpose of achieving highly reliable software. Addresses each stage of software generation and documentation, including requirements specification, design, implementation, verification, validation and operation."
+  },
+  {
+    "reference": "IEC 60910:2022",
+    "edition": "2.0",
+    "date": "2022-11-15",
+    "title": "Nuclear power plants - Instrumentation important to safety - Containment monitoring for early detection of developing deviations from normal operation in light water reactors",
+    "language": "EN-FR",
+    "description": "IEC 60910:2022 provides requirements for primary and secondary containment parameter monitoring that enable the operator to identify developing deviations from normal operation. The operator can then take corrective action at an early stage to prevent a minor failure from developing into a serious plant failure or an accident condition. This document is directed towards monitoring the primary and secondary containment under normal conditions only. This second edition cancels and replaces the first edition, published in 1988. This edition includes the following significant technical changes with respect to the previous edition: a. Modification of title; b. Integration of new technology and knowledge; c. Drafting directed towards monitoring conditions in containment under normal conditions."
+  },
+  {
+    "reference": "IEC 60911:2025",
+    "edition": "2.0",
+    "date": "2025-06-12",
+    "title": "Nuclear power plants - Instrumentation systems - Measurements for monitoring adequate cooling within the core of pressurized light water reactors",
+    "language": "EN",
+    "description": "IEC 60911:2025 applies to pressurized water reactors (PWRs) and presents requirements for the monitoring of adequate cooling within the core in all operations, including normal and abnormal operations. Requirements for core cooling monitoring during conditions beyond a design basis accident, i.e. a design extension condition of type A or type B, are also covered in this document. This document defines requirements for instrumentation to measure coolant parameters, which are of interest when abnormal conditions arise with either one or two phases of coolant or with gas included in the reactor pressure vessel (RPV). This second edition cancels and replaces the first edition published in 1987. This edition includes the following significant technical changes with respect to the previous edition: a) Modification of the title. b) Integration and merging with the content of IEC 62117:1999 relative to the monitoring of core cooling during cold shutdown. c) Integration of feedback following the 2011 Fukushima accident."
+  },
+  {
+    "reference": "IEC 60951-1:2022",
+    "edition": "3.0",
+    "date": "2022-11-24",
+    "title": "Nuclear facilities - Instrumentation systems important to safety - Radiation monitoring for accident and post-accident conditions - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": "IEC 60951-1:2022 provides general guidance on the design principles and performance criteria for equipment to measure radiation and fluid (gaseous effluents or liquids) radioactivity levels at nuclear facilities during and after design basis accidents (DBA) and design extension conditions (DEC), including severe accident (SA). This document is limited to equipment for continuous monitoring of radioactivity in design basis accidents (DBA), design extension conditions (DEC), including severe accident (SA) and post-accident conditions. The purpose of this document is to lay down general requirements and give examples of acceptable methods for equipment for continuous monitoring of radioactivity within the facility during and after design basis accidents (DBA), design extension conditions (DEC), including severe accident (SA) in nuclear facilities. This third edition cancels and replaces the second edition published in 2009.The main technical changes with regard to the previous edition are as follows. - title modified. - to be consistent with the categorization of the accident condition. - to update the references to new standards published since the second edition. - to update the terms and definitions."
+  },
+  {
+    "reference": "IEC 60951-2:2009",
+    "edition": "2.0",
+    "date": "2009-06-29",
+    "title": "Nuclear power plants - Instrumentation important to safety - Radiation monitoring for accident and post-accident conditions - Part 2: Equipment for continuous off-line monitoring of radioactivity in gaseous effluents and ventilation air",
+    "language": "EN-FR, RU",
+    "description": "IEC 60951-2:2009 provides general guidance on the design principles and performance criteria for equipment for continuous off-line monitoring of radioactivity in gaseous effluents and ventilation air used in nuclear power plants for accident and post-accident conditions. General requirements for technical characteristics, test procedures, radiation characteristics, electrical, mechanical, and environmental characteristics are given in IEC 60951-1. These requirements are applicable in this part unless otherwise stated. The main technical changes with regard to the previous edition are as follows: - clarify the definitions; - up-date the references to new standards published since the first edition; - update the units of radiation. This publication is to be read in conjunction with IEC 60951-1:2009 ."
+  },
+  {
+    "reference": "IEC 60951-3:2022",
+    "edition": "3.0",
+    "date": "2022-11-10",
+    "title": "Nuclear facilities - Instrumentation systems important to safety - Radiation monitoring for accident and post-accident conditions - Part 3: Equipment for continuous high range area gamma monitoring",
+    "language": "EN-FR",
+    "description": "IEC 60951-3:2022 provides general guidance on the design principles and performance criteria for equipment for continuous high range area gamma monitoring in nuclear facilities for accident and post-accident conditions. This document categorizes accident conditions into design basis accidents (DBA) and design extension conditions (DEC), including severe accident (SA). The purpose of this document is to lay down general requirements for equipment for continuous high range area gamma monitoring of radiation within the facility during and after accident conditions in nuclear facilities. This document is applicable to installed dose rate meters that are used to monitor high levels of gamma radiation during and after an accident. This third edition cancels and replaces the second edition published in 2009.The main technical changes with regard to the previous edition are as follows: - Title modified. - To be consistent with the categorization of the accident condition. - To update the references to new standards published since the second edition. - To update the terms and definitions. This standard is to be read in conjunction with IEC 60951-1 ."
+  },
+  {
+    "reference": "IEC 60951-4:2009",
+    "edition": "2.0",
+    "date": "2009-06-29",
+    "title": "Nuclear power plants - Instrumentation important to safety - Radiation monitoring for accident and post-accident conditions - Part 4: Equipment for continuous in-line or on-line monitoring of radioactivity in process streams",
+    "language": "EN-FR, RU",
+    "description": "IEC 60951-4:2009 provides general guidance on the design principles and performance criteria for equipment for continuous in-line or on-line monitoring of radioactivity in process stream in nuclear power plants for accident and post-accident conditions. General requirements for technical characteristics, test procedures, radiation characteristics, electrical, mechanical, and environmental characteristics are given in IEC 60951-1. These requirements are applicable in this part unless otherwise stated. The main technical changes with regard to the previous edition are as follows: - clarify the definitions; - up-date the references to new standards published since the first edition; - update the units of radiation. This publication is to be read in conjunction with IEC 60951-1:2009 ."
+  },
+  {
+    "reference": "IEC 60960:1988",
+    "edition": "1.0",
+    "date": "1988-08-30",
+    "title": "Functional design criteria for a safety parameter display system for nuclear power stations",
+    "language": "EN-FR, RU",
+    "description": "Considers the functional design criteria for a Safety Parameter Display System (SPDS) giving concise information to aid operating personnel, particularly in abnormal conditions. An SPDS is made up of instruments, displays, computer hardware and software either constituting a stand-alone system or integrated into the control room information system. Applies only to control rooms designed in accordance with the IEC control room design standard."
+  },
+  {
+    "reference": "IEC 60964:2018",
+    "edition": "3.0",
+    "date": "2018-11-16",
+    "title": "Nuclear power plants - Control rooms - Design",
+    "language": "EN-FR",
+    "description": "IEC 60964:2018 establishes requirements for the human-machine interface in the main control rooms of nuclear power plants. The document also establishes requirements for the selection of functions, design consideration and organization of the human-machine interface and procedures which are used systematically to verify and validate the functional design. These requirements reflect the application of human factors engineering principles as they apply to the human-machine interface during plant operational states and accident conditions (including design basis and design extension conditions), as defined in IAEA SSR-2/1 and IAEA NP-T-3.16. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) to review the usage of the term “task” ensuring consistency between IEC 60964 and IEC 61839; b) to clarify the role, functional capability, robustness and integrity of supporting services for the MCR to promote its continued use at the time of a severe accident or extreme external hazard; c) to review the relevance of the standard to the IAEA safety guides and IEC SC 45A standards that have been published since IEC 60964:2009 was developed; d) to clarify the role and meaning of “task analysis”, e) to further delineate the relationships with derivative standards (i.e. IEC 61227, IEC 61771, IEC 61772, IEC 61839, IEC 62241 and others of relevance to the control room design); f) to consider its alignment with the Human Factors Engineering principles, specifically with the ones of IAEA safety guide on Human Factors (DS-492) to be issued."
+  },
+  {
+    "reference": "IEC 60965:2016",
+    "edition": "3.0",
+    "date": "2016-02-23",
+    "title": "Nuclear power plants - Control rooms - Supplementary control room for reactor shutdown without access to the main control room",
+    "language": "EN-FR",
+    "description": "IEC 60965:2016 establishes requirements for the Supplementary Control Room provided to enable the operating staff of nuclear power plants to shut down the reactor, where previously operating, and maintain the plant in a safe shut-down state in the event that control of the safety functions can no longer be exercised from the Main Control Room, due to unavailability of the Main Control Room or its facilities. The design has to ensure that the Supplementary Control Room is protected against the hazards, including any localised extreme hazards, leading to the unavailability of the Main Control Room. This new edition includes the following significant technical changes with respect to the previous edition: - requirements associated with regular testing of the supplementary control room (SCR); - requirements to assess the time available during which the reactor will be safe but unattended, in order to move from the main control room (MCR) to the SCR and for the SCR to become operational; - taking into account new requirements laid down by the IAEA."
+  },
+  {
+    "reference": "IEC/IEEE 60980-344:2020",
+    "edition": "1.0",
+    "date": "2020-10-20",
+    "title": "Nuclear facilities - Equipment important to safety - Seismic qualification",
+    "language": "EN-FR, EN",
+    "description": "IEC/IEEE 60980-344:2020 describes methods for establishing seismic qualification procedures that will yield quantitative data to demonstrate that the equipment can meet its performance requirements. This document is applicable to electrical, mechanical, instrumentation and control equipment/components that are used in nuclear facilities. This document provides methods and documentation requirements for seismic qualification of equipment to verify the equipment’s ability to perform its specified performance requirements during and/or after specified seismic demands. This document does not specify seismic demand or performance requirements. Other aspects, relating to quality assurance, selection of equipment, and design and modification of systems, are not part of this document. As seismic qualification is only a part of equipment qualification, this document is used in conjunction with IEC/IEEE 60780-323. The seismic qualification demonstrates equipment’s ability to perform its safety function(s) during and/or after the time it is subjected to the forces resulting from at least one safe shutdown earthquake (SSE/S2). This ability is demonstrated by taking into account, prior to the SSE/S2, the ageing of equipment and the postulated occurrences of a given number of lower intensity operating basis earthquake (OBE/S1). Ageing phenomena to be considered, if specified in the design specification, are those which could increase the vulnerability of equipment to vibrations caused by an SSE/S2."
+  },
+  {
+    "reference": "IEC 60987:2021",
+    "edition": "3.0",
+    "date": "2021-02-03",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Hardware requirements",
+    "language": "EN-FR",
+    "description": "IEC 60987:2021 provides requirements and recommendations for the hardware aspects of I&C systems whatever the technology and applies for all safety classes in a graded manner (as defined by IEC 61513). The requirements defined within this document guide, in particular, the selection of pre-existing components, hardware aspects of system detailed design and implementation and equipment manufacturing. This third edition cancels and replaces the second edition published in 2007. This edition includes the following significant technical changes with respect to the previous edition: a) Title modified; b) Take account of the fact that hardware requirements apply to all I&C technologies, including conventional hardwired equipment, programmable digital equipment or by using a combination of both types of equipment; c) Align the standard with the new revisions of IAEA documents SSR-2/1, which include as far as possible an adaptation of the definitions; d) Replace, as far as possible, the requirements associated with standards published since the edition 2.1, especially IEC 61513, IEC 60880, IEC 62138, IEC 62566 and IEC 62566‑2; e) Review the existing requirements and update the terminology and definitions; f) Extend the scope of the standard to all hardware (computerized and non-computerized) and to all safety classes 1, 2 and 3; g) Complete, update the IEC and IAEA references and vocabulary; h) Check possible impact of other IAEA requirements and recommendations considering extension of the scope of SC 45A; i) Highlight the use of IEC 62566 and IEC 62566-2 for HPD development; j) Introduce specific activities for pre-existing items (selection, acceptability and/or mitigation); k) Introduce clearer requirements for electronic module-level design, manufacturing and control; l) Complete reliability assessment methods; m) Introduce requirements when using automated tests or control activities; n) Complete description of manufacturing control activities (control process, assessment of manufactured equipment, preservation of products); o) Define and ensure the inclusion of a graded approach for dealing with the 3 different classes of equipment and related requirements."
+  },
+  {
+    "reference": "IEC 60988:2009",
+    "edition": "2.0",
+    "date": "2009-08-14",
+    "title": "Nuclear power plants - Instrumentation important to safety - Acoustic monitoring systems for detection of loose parts: characteristics, design criteria and operational procedures",
+    "language": "EN-FR, RU",
+    "description": "IEC 60988:2009 is applicable to on-site systems used for continuous monitoring of structure-borne sound measured at the reactor coolant pressure boundary of light water reactors for the purpose of detecting loose parts. The main technical changes with regard to the previous edition are as follows: - to bring the contents up to date with technology change in some areas and to reconsider and improve the recommendations; - to include considerations and recommendations on digitalization for loose parts monitoring systems to cover requirements for such systems; - to include improved and updated recommendations on storage, information display, alarm level monitor and logic elements; - to give recommendations on functional and performance measures proven in use for operation of the monitoring system including updated details on the necessary actions after detection of a loose part; - to improve the consistency and clarity and the layout of the contents and to correct any errors found in the previous version."
+  },
+  {
+    "reference": "IEC 61031:2020",
+    "edition": "2.0",
+    "date": "2020-07-28",
+    "title": "Nuclear facilities - Instrumentation and control systems - Design, location and application criteria for installed area gamma radiation dose rate monitoring equipment for use during normal operation and anticipated operational occurrences",
+    "language": "EN-FR, EN",
+    "description": "IEC 61031:2020 applies to the design, location and application of installed equipment for monitoring local gamma radiation dose rates within nuclear facilities during normal operation and anticipated operational occurrences. High range area gamma radiation dose rate monitoring equipment for accident conditions currently addressed by IEC 60951-1 and IEC 60951-3 is not within the scope of this document. This document does not apply to the measurement of neutron dose rate. Additional equipment for neutron monitoring may be required, depending on the plant design, if the neutron dose rate makes a substantial contribution to the total dose equivalent to personnel. This document provides guidelines for the design principles, the location, the application, the calibration, the operation, and the testing of installed equipment for continuously monitoring local gamma radiation dose rates in nuclear facilities under normal operation conditions and anticipated operational occurrences. These instruments are normally referred to as area radiation monitors. Portable instruments are also used for this purpose but are not covered by this document."
+  },
+  {
+    "reference": "IEC 61225:2025",
+    "edition": "4.0",
+    "date": "2025-07-08",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems - Requirements for static uninterruptible DC and AC power supply systems",
+    "language": "EN",
+    "description": "IEC 61225:2025 specifies the performance and the functional characteristics of the low voltage static uninterruptible power supply (SUPS) systems in a nuclear power plant (NPP) and, when applicable, in nuclear facilities in general. An uninterruptible power supply (UPS) is an electrical equipment which draws electrical energy from a source, stores it, and maintains the supply in a specified form by means inside the equipment to output terminals. A SUPS has no rotating parts to perform its functions. The specific design requirements for the components of the power supply system are covered by IEC standards and other standards listed in the normative references. Otherwise, specific component-level design requirements are outside the scope of this document."
+  },
+  {
+    "reference": "IEC 61226:2020",
+    "edition": "4.0",
+    "date": "2020-04-29",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems important to safety - Categorization of functions and classification of systems",
+    "language": "EN-FR",
+    "description": "IEC 61226:2020 establishes, for nuclear power plants , a method of assignment of the functions specified for the plant into categories according to their importance to safety. Subsequent classification of the I&C and electrical power systems performing or supporting these functions, based on the assigned category, then determines relevant design criteria. The design criteria, when applied, ensure the achievement of each function in accordance to its importance to safety. In this document, the criteria are those of functionality, reliability, performance, environmental qualification (e.g. seismic) and quality assurance (QA). This edition includes the following significant technical changes with respect to the previous edition: - to align on IAEA requirements, recommendations and terminology, particularly to take into account the replacement of NS-R-1 by SSR 2/1 and publication of SSG 30; - to extend the scope to electrical power systems; - to move the detailed requirements applying to functions and I&C systems to a normative annex, which will be removed after updating IEC 61513."
+  },
+  {
+    "reference": "IEC 61227:2008",
+    "edition": "2.0",
+    "date": "2008-04-29",
+    "title": "Nuclear power plants - Control rooms - Operator controls",
+    "language": "EN-FR",
+    "description": "IEC 61227:2008 identifies the Human-Machine Interface (HMI) requirements for discrete controls, multiplexed conventional systems, and soft control systems. To be used with IEC 60964 and IEC 61772. Is intended for application to the design of new main control rooms in nuclear power plants designed to IEC 60964. This new edition takes into account the fact that computer design engineering techniques have advanced significantly during recent years."
+  },
+  {
+    "reference": "IEC 61250:1994",
+    "edition": "1.0",
+    "date": "1994-01-31",
+    "title": "Nuclear reactors - Instrumentation and control systems important for safety - Detection of leakage in coolant systems",
+    "language": "EN-FR, RU",
+    "description": "Defines the requirements for instrumentation needed to detect leakage from reactor coolant systems of light water nuclear reactors. Methods of leak detection are described, and characteristics of different methods of detection and of differentiating between allowable and abnormal leakages are given."
+  },
+  {
+    "reference": "IEC 61343:1996",
+    "edition": "1.0",
+    "date": "1996-03-20",
+    "title": "Nuclear reactor instrumentation - Boiling light water reactors (BWR) - Measurements in the reactor vessel for monitoring adequate cooling within the core",
+    "language": "EN-FR, RU",
+    "description": "Gives requirements for core cooling monitoring instrumentation to ensure safe operation of BWRs during normal operation and during and after design basis accidents."
+  },
+  {
+    "reference": "IEC 61468:2021",
+    "edition": "2.0",
+    "date": "2021-04-26",
+    "title": "Nuclear power plants - Instrumentation systems important to safety - In-core instrumentation: Characteristics and test methods of self-powered neutron detectors",
+    "language": "EN, RU",
+    "description": "IEC 61468:2021 applies to in-core neutron detectors, viz. self-powered neutron detectors (SPNDs), which are intended for application in systems important for nuclear reactor safety: protection, instrumentation and control. This document contains SPND characteristics and test methods. In this document, the main sources of errors, and the possibilities for their minimization are also considered. This document contains requirements, recommendations and instructions concerning selection of SPND type and characteristics for various possible applications. This document about SPNDs uses the basic requirements of IEC 61513 and IEC 60568 and complements them with more specific provisions in compliance with IAEA Safety Guides. This second edition cancels and replaces the first edition, published in 2000, and its Amendment 1, published in 2003. This edition includes the following significant technical changes with respect to the previous edition: a. Title modified. b. Justify the requirements for SPND characteristics in terms of influencing factors. c. Align the terminology with the current state of the regulatory framework."
+  },
+  {
+    "reference": "IEC 61497:1998",
+    "edition": "1.0",
+    "date": "1998-10-30",
+    "title": "Nuclear power plants - Electrical interlocks for functions important to safety - Recommendations for design and implementation",
+    "language": "EN-FR, RU",
+    "description": "Provides recommendations for the design and implementation of electrical interlocks used actively or passively to prevent unsafe conditions or to ensure specific safe conditions and states during the operation of nuclear power plants."
+  },
+  {
+    "reference": "IEC 61500:2018",
+    "edition": "3.0",
+    "date": "2018-04-20",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Data communication in systems performing category A functions",
+    "language": "EN-FR",
+    "description": "IEC 61500:2018 establishes requirements for data communication which is used in systems performing category A functions in nuclear power plants. It covers also interface requirements for data communication of equipment performing category A functions with other systems including those performing category B and C functions and functions not important to safety. This document gives requirements for functions and properties of on-line plant data communication by reference to IEC 60880 and IEC 60987, produced within the framework of IEC 61513. It requires categorisation of the communication functions in accordance with IEC 61226. This new edition includes the following significant technical changes with respect to the previous edition: - the changes introduced to previously referenced standards have been confirmed to apply; - relevant newly published standards have been referenced; - lessons learned from several industrial applications have been incorporated."
+  },
+  {
+    "reference": "IEC 61501:1998",
+    "edition": "1.0",
+    "date": "1998-11-10",
+    "title": "Nuclear reactor instrumentation - Wide range neutron fluence rate meter - Mean square voltage method",
+    "language": "EN-FR, RU",
+    "description": "Describes the principles, the terminology, the characteristics, the requirements and the testing methods related to instrumentation and measurement of the neutron fluence rate using mean square voltage techniques for nuclear reactor control."
+  },
+  {
+    "reference": "IEC 61502:1999",
+    "edition": "1.0",
+    "date": "1999-11-04",
+    "title": "Nuclear power plants - Pressurized water reactors - Vibration monitoring of internal structures",
+    "language": "EN-FR",
+    "description": "Applies to systems used for monitoring the vibratory behaviour of the internal structures of pressurized water reactors (core barrel, thermal shield, upper and lower core support, etc.) and fuel assemblies on the basis of neutron fluctuations observed outside the vessel and vessel vibrations. The main objective of monitoring is to detect degradation of internal structures."
+  },
+  {
+    "reference": "IEC 61504:2017",
+    "edition": "2.0",
+    "date": "2017-05-11",
+    "title": "Nuclear facilities - Instrumentation and control systems important to safety - Centralized systems for continuous monitoring of radiation and/or levels of radioactivity",
+    "language": "EN-FR",
+    "description": "IEC 61504:2017 supplements IEC 61559-1 and includes radiation monitoring functions important to safety that are outside the scope of IEC 61559-1. It applies to centralized systems having a direct role in the achievement or maintenance of radiation protection in nuclear facilities. These systems perform functions such as: - radiation protection of plant discharge; interlock of control functions to prevent or to mitigate accidental release of radioactive material; - radiation and environmental monitoring functions to support monitoring of and response to accidents; - provide information to process control or safety systems for use in control or interlock functions. This new edition includes the following significant technical changes with respect to the previous edition: - it supplements IEC 61559-1 and integrates IEC 61559-2; - it describes integration of functions including equipment covered by other IEC standards."
+  },
+  {
+    "reference": "IEC 61513:2026",
+    "edition": "3.0",
+    "date": "2026-06-18",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - General requirements for systems",
+    "language": "EN",
+    "description": "IEC 61513:2026 provides requirements and recommendations for the overall I&C which may contain one or several of these technologies. This document highlights also the need for complete and precise requirements, derived from the plant safety goals, as a pre-requisite for generating the comprehensive requirements for the overall I&C, and hence for the individual I&C systems important to safety. This document introduces the concept of a safety lifecycle for the overall I&C including the I&C architecture, and a safety lifecycle for the individual systems. By this, it highlights the relations between the safety objectives of the NPP and the requirements for the architecture of the I&C systems important to safety, and the relations between the I&C architecture and the requirements of the individual systems important to safety. Standards such as ISO/IEC/IEEE 15288 provide an overarching concept of system life cycle provisions covering product-related processes as well business development. The scope of IEC 61513 refers to safety aspects and their demonstration and significantly deepens the considerations of ISO/IEC/IEEE 15288 in this field. The lifecycles illustrated in and followed by this document are not the only ones possible; other lifecycles can be followed, provided that the requirements stated in this document are satisfied. This document applies to the I&C of new nuclear power plants as well as to I&C upgrading or back-fitting of existing plants. This third edition cancels and replaces the second edition, published in 2011. This edition includes the following significant technical changes with respect to the previous edition: - to align this document with the recent IAEA documents SSR-2/1 and SSG-39, - to review the existing requirements and to update the terminology and definitions; - to take account of, as far as possible, requirements associated with standards published or thoroughly revised since the second edition, IEC 62566, IEC 61226, IEC 62138, IEC 60987, IEC 63046 and IEC 63351; - to incorporate the technical requirements related to I&C systems and equipment from IEC 61226:2020, Annex A."
+  },
+  {
+    "reference": "IEC 61771:1995",
+    "edition": "1.0",
+    "date": "1995-12-13",
+    "title": "Nuclear power plants - Main control-room - Verification and validation of design",
+    "language": "EN-FR",
+    "description": "Specifies verification and validation procedures for the design of t he control-room system of nuclear power plants and gives verificatio n and validation criteria for the assignment of functions and for the integrated control-room system."
+  },
+  {
+    "reference": "IEC 61772:2009",
+    "edition": "2.0",
+    "date": "2009-04-29",
+    "title": "Nuclear power plants - Control rooms - Application of visual display units (VDUs)",
+    "language": "EN-FR",
+    "description": "IEC 61772:2009 supplements IEC 60964 and presents design requirements for the application of VDUs in main control rooms of nuclear power plants. Assists the designer in specifying VDU applications including displays on individual workstations and larger displays for group-working or distant viewing. The main technical changes with respect to the previous edition are as follows: - expand the previous text to cover the use of large screen displays, to provide improved recommendations on the use of colour, and to improve the coverage of back-fit or upgrade applications; - present examples of good practice."
+  },
+  {
+    "reference": "IEC TR 61838:2009",
+    "edition": "2.0",
+    "date": "2009-12-14",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Use of probabilistic safety assessment for the classification of functions",
+    "language": "EN-FR",
+    "description": "IEC/TR 61838:2009 provides a survey of some of the methods by which probabilistic risk assessment results can be used to establish \"risk-based\" classification criteria, so as to allow FSEs to be placed within the four categories established within IEC 61226. The safety principles and the usefulness of a risk-based approach to classification are discussed and a description of four different approaches is presented. The main technical changes in this second edition with regard to the previous edition are as follows: - to update the references and the terminology; - to take into account the progress done since edition 1."
+  },
+  {
+    "reference": "IEC 61839:2000",
+    "edition": "1.0",
+    "date": "2000-07-21",
+    "title": "Nuclear power plants - Design of control rooms - Functional analysis and assignment",
+    "language": "EN-FR",
+    "description": "Specifies functional analysis and assignment procedures for the design of the control-room system for nuclear power plants and gives rules for developing criteria for the assignment of functions. Supplements IEC 60964. Is applicable to the design of new control-rooms or to backfits to existing control-rooms."
+  },
+  {
+    "reference": "IEC 61888:2002",
+    "edition": "1.0",
+    "date": "2002-08-20",
+    "title": "Nuclear power plants - Instrumentation important to safety - Determination and maintenance of trip setpoints",
+    "language": "EN-FR",
+    "description": "Defines the requirements for assuring that automatic setpoints for nuclear safety system instrumentation are established and maintained within specified limits in nuclear power plants and nuclear reactor facilities."
+  },
+  {
+    "reference": "IEC 62003:2020",
+    "edition": "2.0",
+    "date": "2020-03-11",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems - Requirements for electromagnetic compatibility testing",
+    "language": "EN-FR",
+    "description": "IEC 62003:2020 establishes requirements for electromagnetic compatibility testing of instrumentation, control, and electrical equipment supplied for use in systems important to safety at nuclear power plants and other nuclear facilities. The document lists the applicable IEC standards (principally the IEC 61000 series) which define the general test methods, and provides the necessary application-specific parameters and criteria to ensure that nuclear safety requirements are met. This second edition cancels and replaces the first edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: a) title modified. b) expand the scope to encompass Electromagnetic Magnetic Compatibility (EMC) considerations for electrical equipment. c) provide guidance for addressing the use of wireless technology. d) enhance the description of the electromagnetic environment to provide clarification when selecting custom test levels or for test exemptions. e) include example information to be contained within an EMC test plan. f) provide guidance for characterization of the electromagnetic environment at the point of installation within a nuclear facility."
+  },
+  {
+    "reference": "IEC TR 62096:2009",
+    "edition": "2.0",
+    "date": "2009-03-24",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Guidance for the decision on modernization",
+    "language": "EN-FR, RU",
+    "description": "IEC/TR 62096:2009 is intended to support owners of a nuclear power plant in the decision-making process and in the preparation for partial or complete modernization of the I&C. For this, it provides a summary of the motivating factors for I&C modernization, the principal options for the elaboration of different scenarios for I&C modernization, the technical and economic criteria for the selection of a long term I&C strategy, the principal aspects to be taken into account for a detailed technical feasibility study. This new edition includes the following significant technical changes with respect to the previous edition: - update on references, taking into account standards published since the previous edition; - update on the terminology, incorporation of a number of clarifications proposed by National Committees."
+  },
+  {
+    "reference": "IEC 62117:1999",
+    "edition": "1.0",
+    "date": "1999-12-10",
+    "title": "Nuclear reactor instrumentation - Pressurized light water reactors (PWR) - Monitoring adequate cooling within the core during cold shutdown",
+    "language": "EN-FR",
+    "description": "Gives requirements for instrumentation to monitor core cooling for safe operation of PWRs during cold shutdown operations when the coolant temperature is below 100 °C. Summarizes good international practices to be used when designing new or upgrading existing PWR core cooling monitors."
+  },
+  {
+    "reference": "IEC 62138:2018",
+    "edition": "2.0",
+    "date": "2018-07-31",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Software aspects for computer-based systems performing category B or C functions",
+    "language": "EN-FR",
+    "description": "IEC 62138:2018 specifies requirements for the software of computer-based instrumentation and control (I&C) systems performing functions of safety category B or C as defined by IEC 61226. It complements IEC 60880 which provides requirements for the software of computer-based I&C systems performing functions of safety category A. It is consistent with, and complementary to, IEC 61513. Requirements that are not specific to software are deferred to IEC 61513. This new edition includes the following significant technical changes with respect to the previous edition: - align the standard with standards published or revised since the first edition, in particular IEC 61513, IEC 60880, IEC 62645 and IEC 62671; - merge two clauses in order to avoid repetitions of text; - introduce requirements on traceability in consistency with IEC 61513; - introduce new annexes."
+  },
+  {
+    "reference": "IEC TR 62235:2005",
+    "edition": "1.0",
+    "date": "2005-03-17",
+    "title": "Nuclear facilities - Instrumentation and control systems important to safety - Systems of interim storage and final repository of nuclear fuel and waste",
+    "language": "EN-FR",
+    "description": "Gives guidelines for the instrumentation and control systems of interim storage and final repository of nuclear fuel and waste. Covers storage at all types of facilities, such as, fuel fabrication plants, nuclear power plants, reprocessing facilities, interim storage facilities, encapsulation facilities and final repositories for operational waste and spent nuclear fuel."
+  },
+  {
+    "reference": "IEC 62241:2004",
+    "edition": "1.0",
+    "date": "2004-11-02",
+    "title": "Nuclear power plants - Main control room - Alarm functions and presentation",
+    "language": "EN-FR",
+    "description": "Provides the functional requirements for the alarm systems in the main control room of nuclear power plants. Establishes the human factors requirements and the design guidelines for alarm presentation for the main control room of nuclear power plants."
+  },
+  {
+    "reference": "IEC 62340:2007",
+    "edition": "1.0",
+    "date": "2007-12-07",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Requirements for coping with common cause failure (CCF)",
+    "language": "EN-FR",
+    "description": "Gives requirements related to the avoidance of CCF of I&C systems that perform category A functions; additionally requires the implementation of independent I&C systems to overcome CCF, while the likelihood of CCF is reduced by strictly applying the overall safety principles of IEC SC 45A (notably IEC 61226, IEC 61513, IEC 60880 and IEC 60709); gives an overview of the complete scope of requirements relevant to CCF."
+  },
+  {
+    "reference": "IEC 62342:2007",
+    "edition": "1.0",
+    "date": "2007-08-20",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Management of ageing",
+    "language": "EN-FR",
+    "description": "Provides strategies, technical requirements, and recommendations for the management of ageing of nuclear power plant instrumentation and control systems and associated equipment. Also includes annexes on test methods, procedures, and technologies that may be used to verify proper operation of such equipment and aim to prevent ageing degradation from having any adverse impact on the plant safety, efficiency, or reliability. Applies to all types of nuclear power plants and relates primarily to safety."
+  },
+  {
+    "reference": "IEC 62385:2007",
+    "edition": "1.0",
+    "date": "2007-06-21",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Methods for assessing the performance of safety system instrument channels",
+    "language": "EN-FR",
+    "description": "Defines the requirements for demonstrating acceptable performance of safety system instrument channels through response time testing, calibration verification, and other means. The same requirements may be adopted for demonstrating the acceptable performance of non-safety systems and other instrument channels."
+  },
+  {
+    "reference": "IEC 62397:2022",
+    "edition": "2.0",
+    "date": "2022-11-23",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Resistance temperature detectors",
+    "language": "EN-FR",
+    "description": "IEC 62397:2022 describes the requirements for resistance temperature detectors (RTDs) suitable for applications in I&C systems important to safety of nuclear power plants. The requirements of RTDs include design, materials, manufacturing, testing, calibration, procurement, and inspection. RTDs used for safety applications in Nuclear Power Plants can be categorized into direct-immersed and thermowell-mounted RTDs. This standard describes the requirements for the design, material selection, procurement, construction, and testing of resistance temperature detectors (RTDs) used in nuclear power plants (NPPs). These RTDs may be used in both the nuclear safety I&C systems and/or in the non-safety-related instrumentation systems. This second edition cancels and replaces the first edition, published in 2007; it also cancels and replaces the first edition of IEC 61224:1993. This edition includes the following significant technical changes with respect to the previous edition."
+  },
+  {
+    "reference": "IEC 62465:2010",
+    "edition": "1.0",
+    "date": "2010-05-11",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Management of ageing of electrical cabling systems",
+    "language": "EN-FR",
+    "description": "IEC 62465:2010 provides strategies, technical requirements, and recommended practices for the management of normal ageing of cabling systems that are important to safety in nuclear power plants. The main requirements are presented in the body of this International Standard followed by a number of informative annexes with examples of cable testing techniques, procedures, and equipment that are available for the nuclear industry to use to ensure that ageing degradation will not impact plant safety. This publication contains colours which are considered to be useful for the correct understanding of its contents."
+  },
+  {
+    "reference": "IEC 62566:2012",
+    "edition": "1.0",
+    "date": "2012-01-26",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Development of HDL-programmed integrated circuits for systems performing category A functions",
+    "language": "EN-FR",
+    "description": "IEC 62566:2012 provides requirements for achieving highly reliable \"HDL-Programmed Devices\" (HPD), for use in I&C systems of nuclear power plants performing functions of safety category A as defined by IEC 61226. The programming of HPDs relies on Hardware Description Languages (HDL) and related software tools. They are typically based on blank FPGAs or similar micro-electronic technologies."
+  },
+  {
+    "reference": "IEC 62566-2:2020",
+    "edition": "1.0",
+    "date": "2020-05-07",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Development of HDL-programmed integrated circuits - Part 2: HDL-programmed integrated circuits for systems performing category B or C functions",
+    "language": "EN-FR",
+    "description": "IEC 62566-2:2020 provides requirements for achieving highly reliable HDL-Programmed Devices (HPDs), for use in I&C systems of nuclear power plants performing functions of safety category B or C as defined by IEC 61226. The programming of HPDs relies on Hardware Description Languages (HDL) and related software tools. They are typically based on blank Field Programmable Gate Arrays (FPGAs) or similar micro-electronic technologies such as Programmable Logic Devices (PLD), Complex Programmable Logic Devices (CPLDs), etc. General purpose integrated circuits such as microprocessors are not HPDs. This document provides requirements on: a) a dedicated HPD life-cycle addressing each phase of the development of HPDs, including specification of requirements, design, implementation, integration and validation, as well as verification activities associated with each phase, b) planning and complementary activities such as modification and production, c) selection of pre-developed components. This includes micro-electronic technologies and Pre-Developed Blocks (PDBs), d) tools used to design, implement and verify HPDs."
+  },
+  {
+    "reference": "IEC/IEEE 62582-1:2024",
+    "edition": "2.0",
+    "date": "2024-09-30",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 1: General",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC/IEEE 62582-1:2024 contains requirements for application of the other parts of IEC/IEEE 62582 related to specific methods for condition monitoring in electrical equipment important to safety of nuclear power plants. It also includes requirements which are common to all methods. The procedures defined in IEC/IEEE 62582 are intended for detailed condition monitoring. IEC/IEEE 62582 specifies condition monitoring methods in sufficient detail to enhance the accuracy and repeatability, and provide standard formats for reporting the results. The methods specified are applicable to electrical equipment containing polymeric materials. Some methods are especially designed for the measurement of condition of a limited range of equipment whilst others can be applied to all types of equipment for which the polymeric parts are accessible."
+  },
+  {
+    "reference": "IEC/IEEE 62582-2:2022",
+    "edition": "2.0",
+    "date": "2022-11-04",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 2: Indenter measurements",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 62582-2:2022 contains methods for condition monitoring of organic and polymeric materials in instrumentation and control systems using the indenter measurement technique in the detail necessary to produce accurate and reproducible measurements. It includes the requirements for the selection of samples, the measurement system and measurement conditions, and the reporting of the measurement results. This document is intended for application to non-energised equipment. This document is published as an IEC/IEEE Dual Logo standard. This second edition cancels and replaces the first edition published in 2011, and its Amendment 1:2016. This edition includes the following significant technical changes with respect to the previous edition: - Modification of the title; - Consideration of publication of IEC/IEEE 60780-323."
+  },
+  {
+    "reference": "IEC/IEEE 62582-3:2024",
+    "edition": "2.0",
+    "date": "2024-07-26",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 3: Elongation at break",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 62582-3:2024 contains methods for condition monitoring of organic and polymeric materials in instrumentation and control systems using tensile elongation techniques in the detail necessary to produce accurate and reproducible measurements. This document includes the requirements for the selection of samples, the measurement system and conditions, and the reporting of the measurement results. The different parts of IEC/IEEE 62582 are measurement standards, primarily for use in the management of ageing in initial qualification and after installation. IEC/IEEE 62582-1 includes requirements for the application of the other parts of IEC/IEEE 62582 and some elements which are common to all methods. This document applies to non-energised equipment. This document is published as an IEC/IEEE Dual Logo standard. This second edition cancels and replaces the first edition published in 2012. This edition includes the following technical changes with respect to the previous edition: a) Updated best practices relating to condition monitoring using the tensile elongation method. b) Updated bibliography, references and context."
+  },
+  {
+    "reference": "IEC/IEEE 62582-4:2022",
+    "edition": "2.0",
+    "date": "2022-11-04",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 4: Oxidation induction techniques",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 62582-4:2022 specifies methods for condition monitoring of organic and polymeric materials in instrumentation and control systems using oxidation induction techniques in the detail necessary to produce accurate and reproducible measurements. It includes the requirements for sample preparation, the measurement system and conditions, and the reporting of the measurement results. This second edition cancels and replaces the first edition published in 2011, and its Amendment 1:2016. This edition includes the following significant technical changes with respect to the previous edition: - Consideration of publication of IEC/IEEE 60780-323; - An example added in Annex B and update; - Annex C added."
+  },
+  {
+    "reference": "IEC/IEEE 62582-5:2015",
+    "edition": "1.0",
+    "date": "2015-06-19",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 5: Optical time domain reflectometry",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 62582-5:2015 contains methods for monitoring the attenuation condition of optical fibres and cables in instrumentation and control systems using optical time domain reflectometer measurements in the detail necessary to produce accurate and reproducible measurements. It includes the requirements for the measurement system and conditions, and the reporting of the measurement results."
+  },
+  {
+    "reference": "IEC/IEEE 62582-6:2019",
+    "edition": "1.0",
+    "date": "2019-10-22",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Electrical equipment condition monitoring methods - Part 6: Insulation resistance",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 62582-6:2019 contains methods for condition monitoring of organic and polymeric materials in instrumentation and control cables using insulation resistance measurements in the detail necessary to produce accurate and reproducible results during simulated accident conditions. It includes the requirements for the measurement system and measurement procedure, and the reporting of the measurement results. NOTE Measurement of insulation resistance during simulated accident conditions with the aim of determining the lowest value during the accident in order to assess cable performance involves special requirements given in this document. Methods for measurement under stable (non-accident) conditions are available in other international standards, e.g. IEC 62631-3-3. The different parts of the IEC/IEEE 62582 series are measurement standards, primarily for use in the management of ageing in initial qualification and after installation. IEC/IEEE 62582-1 includes requirements for the application of the other parts of the IEC/IEEE 62582 series and some elements which are common to all methods. Information on the role of condition monitoring in qualification of equipment important to safety is found in IEC/IEEE 60780-323."
+  },
+  {
+    "reference": "IEC 62645:2019",
+    "edition": "2.0",
+    "date": "2019-11-13",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems - Cybersecurity requirements",
+    "language": "EN-FR",
+    "description": "IEC 62645:2019 establishes requirements and provides guidance for the development and management of effective computer security programmes for I&C programmable digital systems. Inherent to these requirements and guidance is the criterion that the power plant I&C programmable digital system security programme complies with the applicable country’s requirements. This document defines adequate measures for the prevention of, detection of and reaction to malicious acts by digital means (cyberattacks) on I&C programmable digital systems. This includes any unsafe situation, equipment damage or plant performance degradation. This second edition cancels and replaces the first edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: a) to align the standard with the new revisions of ISO/IEC 27001; b) to review the existing requirements and to update the terminology and definitions; c) to take account of, as far as possible, requirements associated with standards published since the first edition; d) to take into account the fact that cybersecurity techniques, but also national practices evolve."
+  },
+  {
+    "reference": "IEC 62646:2016",
+    "edition": "2.0",
+    "date": "2016-10-05",
+    "title": "Nuclear power plants - Control rooms - Computer-based procedures",
+    "language": "EN-FR",
+    "description": "IEC 62646:2016 establishes requirements for the whole life cycle of operating procedures that the designer wishes to computerise. It also provides guidance for making decisions about which types of procedures should be computerised and to what extent. Once computerised, procedures are designated as \"computer-based procedures\" (CBP). This new edition includes the following significant technical changes with respect to the previous edition: clarification of the way in which the standard is to be used in conjunction with related standards. This publication is to be read in conjunction with IEC 60964:2009 and IEC 61839:2000 ."
+  },
+  {
+    "reference": "IEC 62651:2013",
+    "edition": "1.0",
+    "date": "2013-04-29",
+    "title": "Nuclear power plants - Instrumentation important to safety - Thermocouples: characteristics and test methods",
+    "language": "EN-FR",
+    "description": "IEC 62651:2013 describes the requirements for thermocouples suitable for nuclear power plant (NPP) applications. Thermocouples are widely used in NPPs with other temperature measurement devices such as resistance temperature detectors. They are simple and robust and have some specific characteristics (range of measurement and maximum temperature) which make them uniquely suitable for some measurements. The requirements given in this standard for thermocouples include design, materials, manufacturing, testing, calibration, procurement, and inspection."
+  },
+  {
+    "reference": "IEC 62671:2013",
+    "edition": "1.0",
+    "date": "2013-02-20",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Selection and use of industrial digital devices of limited functionality",
+    "language": "EN-FR",
+    "description": "IEC 62671:2013 addresses certain devices that contain embedded software or electronically-configured digital circuits that have not been produced to other IEC Standards which apply to systems and equipment important to safety in nuclear power plants, but which are candidates for use in nuclear power plants. It provides requirements for the selection and evaluation of such devices where they have dedicated, limited, and specific functionality and limited configurability. The contents of the corrigendum of September 2016 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62671:2013/COR1:2016",
+    "edition": "1.0",
+    "date": "2016-09-29",
+    "title": "Corrigendum 1 - Nuclear power plants - instrumentation and control important to safety - Selection and use of industrial digital devices of limited functionality",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62705:2022",
+    "edition": "2.0",
+    "date": "2022-11-22",
+    "title": "Nuclear facilities - Instrumentation and control important to safety - Radiation monitoring systems (RMS): Characteristics and lifecycle",
+    "language": "EN-FR",
+    "description": "IEC 62705:2022 gives requirements for the lifecycle management of radiation monitoring systems (RMS) and gives guidance on the application of existing IEC standards covering the design and qualification of systems and equipment. The purpose of this document is to lay down requirements for the lifecycle management of RMSs and give application guidance. This document is intended to be consistent with the latest versions of International Standards dealing with radiation monitors, sampling of radioactive materials, instruments calibration, hardware and software design, classification, and qualification. This document is applicable to RMSs installed in nuclear facilities intended for use during normal operation, anticipated operational occurrences (AOO), design basis accidents (DBA) and design extension conditions (DEC), including severe accidents (SA). This second edition cancels and replaces the first edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: - modification of the title. - to be consistent with the categorization of the accident condition. - to update the references to new standards published since the first edition. - to update the terms and definitions."
+  },
+  {
+    "reference": "IEC 62765-1:2015",
+    "edition": "1.0",
+    "date": "2015-04-22",
+    "title": "Nuclear powers plants - Instrumentation and control important to safety - Management of ageing of sensors and transmitters - Part 1: Pressure transmitters",
+    "language": "EN-FR",
+    "description": "IEC 62765-1:2015 provides strategies, technical requirements, and recommended practices for the management of ageing to ensure that ageing of pressure transmitters important to safety in nuclear power plants (NPPs) can be identified and that suitable remedial actions are undertaken as necessary to demonstrate that the safety of the plant will not be impaired. This standard is aligned with IEC 62342, which provides guidance on ageing management for I&C systems important to safety in NPPs. This standard, IEC 62765-1, is the first part for pressure transmitters in the IEC 62765 sensor and transmitter series for pressure, temperature, neutron and other sensors."
+  },
+  {
+    "reference": "IEC 62765-2:2019",
+    "edition": "1.0",
+    "date": "2019-01-29",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Management of ageing of sensors and transmitters - Part 2: Temperature sensors",
+    "language": "EN-FR",
+    "description": "IEC 62765-2:2019 identifies minimum requirements and applicable practices for correcting and preventing any potential impacts on nuclear power plant (NPP) safety due to the ageing of temperature sensors, such as NPP resistance temperature detectors (RTDs) and thermocouples (TCs). This document provides strategies, technical requirements, and recommended practices for the management of the ageing of temperature sensors important to safety in nuclear power plants (NPPs) to ensure that ageing can be identified and that suitable remedial actions are undertaken as necessary to demonstrate that the safety of the plant will not be impaired. This document is aligned with IEC 62342, which provides guidance on ageing management for instrumentation and control (I&C) systems important to safety in NPPs"
+  },
+  {
+    "reference": "IEC 62808:2015",
+    "edition": "1.0",
+    "date": "2015-05-19",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Design and qualification of isolation devices",
+    "language": "EN-FR",
+    "description": "IEC 62808:2015 establishes requirements for the design, analysis and qualification of isolation devices used to ensure electrical independence of redundant safety system circuits, or between safety and lower class circuits, as specified in IEC 60709. This standard includes guidance on the determination of the maximum credible fault that is applied to the isolation devices. The maximum credible fault can be used as a basis for the test levels used in testing based on other standards (e.g. IEC TS 61000-6-5 or IEC 62003)."
+  },
+  {
+    "reference": "IEC 62808:2015/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-05-17",
+    "title": "Amendment 1 - Nuclear power plants - Instrumentation and control systems important to safety - Design and qualification of isolation devices",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62855:2016",
+    "edition": "1.0",
+    "date": "2016-08-30",
+    "title": "Nuclear power plants - Electrical power systems - Electrical power systems analysis",
+    "language": "EN-FR",
+    "description": "IEC 62855:2016 provides the electrotechnical engineering guidelines for analysis of AC and DC electrical power systems in nuclear power plants (NPPs) in order to demonstrate that the power sources and the distribution systems have the capability for safe operation and shut down of the NPP, bringing it to a controlled state after an anticipated operational occurrence or accident conditions and finally reaching a safe state. This standard is intended to be used: - for verification of the design of new nuclear power plants; - for demonstrating the adequacy and impact of major modifications of electrical power systems in operating nuclear power plants; - and where there is a requirement to assess and establish operating limits and constraints for existing plants."
+  },
+  {
+    "reference": "IEC 62859:2016",
+    "edition": "1.0",
+    "date": "2016-10-28",
+    "title": "Nuclear power plants - Instrumentation and control systems - Requirements for coordinating safety and cybersecurity",
+    "language": "EN-FR",
+    "description": "IEC 62859:2016 provides a framework to manage the interactions between safety and cybersecurity for nuclear power plant (NPP) systems, taking into account current IEC standards addressing these issues and the specifics of nuclear I&C programmable digital systems. This standard establishes requirements and guidance to: - integrate cybersecurity provisions in nuclear I&C architectures and systems, which are fundamentally tailored for safety; - avoid potential conflicts between safety and cybersecurity provisions; - aid the identification and the leveraging of the potential synergies between safety and cybersecurity."
+  },
+  {
+    "reference": "IEC 62859:2016/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-10-09",
+    "title": "Amendment 1 - Nuclear power plants - Instrumentation and control systems - Requirements for coordinating safety and cybersecurity",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62887:2018",
+    "edition": "1.0",
+    "date": "2018-05-16",
+    "title": "Nuclear power plants - Instrumentation systems important to safety - Pressure transmitters: Characteristics and test methods",
+    "language": "EN-FR",
+    "description": "IEC 62887:2018 lays down specific requirements for nuclear applications of pressure transmitters including design, materials, manufacturing, testing, calibration and inspection. This document is applicable to general aspects of design, manufacturing and test methods for pressure transmitters used in instrumentation systems important to safety in all nuclear power plants (PWR, BWR, FBR, etc.). The consequences of nuclear conditions for pressure transmitters lead to onerous requirements regarding qualification."
+  },
+  {
+    "reference": "IEC 62954:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Nuclear power plants - Control rooms - Requirements for emergency response facilities",
+    "language": "EN-FR",
+    "description": "IEC 62954:2019 presents the requirements for the on-site emergency response facilities (referred to hereinafter as the “ERF”) which are to be used in case of incidents or accidents occurring on the associated Nuclear Power Plant (NPP). The ERF consists of the Emergency Response Centre (ERC), the Technical Support Centre (TSC) and the Operational Support Centre (OSC). It establishes requirements for the ERF features and ERF I&C equipment to: · coordinate on-site operational efforts with respect to safety and radioprotection; · optimize the design in terms of environment control, lighting, power supplies and access control of the ERF; · enhance the identification and resolution of potential conflicts between the traditional operational means and emergency means (MCR/SCR and ERF, operating staff and emergency teams, operational procedures and emergency procedures); · aid the identification and the enhancement of the potential synergies between the traditional operational means and emergency means."
+  },
+  {
+    "reference": "IEC TR 62987:2015",
+    "edition": "1.0",
+    "date": "2015-09-08",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Use of Failure Mode and Effects Analysis (FMEA) and related methods to support the justification of systems",
+    "language": "EN",
+    "description": "IEC TR 62987:2015(E) provides guidance on nuclear-specific issues when applying failure modes and effects analysis (FMEA) and related methods to instrumentation and control systems important to safety in nuclear power plants. The information in this Technical Report complements, for nuclear power plant applications, the procedure for FMEA in IEC 60812."
+  },
+  {
+    "reference": "IEC 62988:2018",
+    "edition": "1.0",
+    "date": "2018-05-07",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Selection and use of wireless devices",
+    "language": "EN-FR",
+    "description": "IEC 62988:2018 establishes requirements relevant to the selection and use of wireless devices in instrumentation and control (I&C) systems important to safety used in nuclear power plants (NPPs). Those I&C systems may fully consist of wireless devices. This document applies to the I&C of new NPPs and to backfit of I&C in existing NPPs. Every wireless device or wireless system that is important to safety is in the scope of this document. Both fixed and mobile devices and all data types (voice, process data, etc.) are included within the scope if they provide a safety classified function. This document restricts the use of wireless devices to systems supporting category C functions according to IEC 61226, excluding explicitly their use for categories A and B. Non-safety devices and systems may use this document as guidelines, for example to ensure that important to safety devices are not disturbed."
+  },
+  {
+    "reference": "IEC 63046:2020",
+    "edition": "1.0",
+    "date": "2020-10-20",
+    "title": "Nuclear power plants - Electrical power system - General requirements",
+    "language": "EN-FR",
+    "description": "IEC 63046:2020 provides requirements and recommendations for the overall Electrical Power System. In particular, it covers interruptible and uninterruptible Electrical Power Systems including the systems supplying the I&C systems; This document is consistent and coherent with IEC 61513. Like IEC 61513, this document also highlights the need for complete and precise requirements, derived from the plant safety goals. Those requirements are prerequisites for generating the comprehensive requirements for the overall Electrical Power System architecture, and for the electrical power supply sub-systems. This document establishes the high level specification and requirement to implement a suitable Electrical Power System in a NPP that supports reactor systems important to safety. It also enables electrical energy production providing the transmission grid with active and reactive power and electro-mechanical inertia."
+  },
+  {
+    "reference": "IEC TR 63084:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Nuclear power plants - Instrumentation and control important to safety - Platform qualification for systems important to safety",
+    "language": "EN",
+    "description": "IEC TR 63084:2017(E) provides an assessment framework and activities for efficient and transparent qualification of I&C platforms for use in nuclear applications important to safety, according to nuclear standards and state of the art. The assessment aims at a pre-qualification of I&C platforms outside the framework of a specific plant design. Qualification is assumed to be pre-requisite for allowing the particular I&C platform to be used for implementation of the safety classified I&C system. It is to enable parties implementing particular plant specific I&C systems to concentrate on application functions, while for basic system functions to rely on platform qualification. Basic means of equipment qualification, as prescribed by the IEC/IEEE 60780-323, are through analysis, type testing and documented operational experience. Other documents applicable for qualification for nuclear use include IEC 61513, IEC 60880, IEC 62138, IEC 62566, IEC 62671 and IEC 61226."
+  },
+  {
+    "reference": "IEC 63096:2020",
+    "edition": "1.0",
+    "date": "2020-10-07",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems - Security controls",
+    "language": "EN",
+    "description": "IEC 63096:2020 provides a catalogue of highly recommended and optional security controls graded (see Clause 5 to Clause 20) in line with the security degrees defined by IEC 62645. These are intended for nuclear I&C programmable digital systems and architecture including related activities (I&C platform development, project engineering, operation and maintenance). This document is intended to be used for designing I&C systems for new NPPs, and modernizing and modifying I&C systems for existing NPPs throughout the I&C programmable digital systems lifecycle. It may also be applicable to other types of nuclear facilities. This document addresses the whole scope of nuclear I&C programmable digital systems, both safety and non-safety classified. The scope of this document also includes sensors, actuators and electrical systems that belong to the I&C control loop. It is also applicable to those parts of electrical systems covered by IEC 63046, which rely on digital programmable technology. For better readability the terms “nuclear I&C programmable digital systems”, “I&C system” or “I&C platform” used in this document implicitly include electrical systems if the electrical system includes a programmable digital systems."
+  },
+  {
+    "reference": "IEC/IEEE 63113:2021",
+    "edition": "1.0",
+    "date": "2021-04-20",
+    "title": "Nuclear facilities - Instrumentation important to safety - Spent fuel pool instrumentation",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 63113:2021 provides criteria for spent fuel pool instrumentation for nuclear power generating stations and other nuclear facilities. The document applies to water filled spent fuel pools where the water volume is necessary to prevent a release of fission products that exceeds allowed operational limits. The purpose of this document is to establish design, performance, qualification, and display criteria for spent fuel pool instrumentation for normal operation, anticipated operational occurrences, design basis events, and design extension conditions (including severe accident conditions)."
+  },
+  {
+    "reference": "IEC TR 63123:2017",
+    "edition": "1.0",
+    "date": "2017-12-14",
+    "title": "Nuclear power plants - Instrumentation, control and electrical power systems - Guidance for the application of IEC 63147:2017/IEEE Std 497™ -2016 in the IAEA / IEC framework",
+    "language": "EN",
+    "description": "IEC TR 63123:2017(E) gives guidance for the application in the IAEA / IEC framework of IEC 63147:2017/IEEE 497 corresponding to the adoption without modification of IEEE 497:2016."
+  },
+  {
+    "reference": "IEC 63147:2017",
+    "edition": "1.0",
+    "date": "2017-12-14",
+    "title": "Criteria for accident monitoring instrumentation for nuclear power generating stations",
+    "language": "EN",
+    "description": "IEC 63147:2017(E) contains the functional and design criteria for accident monitoring instrumentation for new plant designs and nuclear power generating stations desiring to perform design modifications. The purpose of this standard is to establish selection, design, performance, qualification, and display criteria for accident monitoring instrumentation for anticipated operational occurrences, design basis events, and severe accidents. This standard applies to accident monitoring instrumentation intended for use during the following operations: - As required for planned operator action related to accident mitigation, - For assessing plant conditions, safety system performance, and making decisions related to plant response to abnormal events, - For achieving and maintaining safe shutdown following an accident This standard does not apply to the following: - Accident monitoring instrumentation that is intended solely for historical recording or solely for maintenance purposes - Other instrumentation that may be available during accident conditions. This standard is an adoption of IEEE 497-2016 by IEC. When applied in an IAEA / IEC environment this standard is to be used in conjunction with IEC TR 63123."
+  },
+  {
+    "reference": "IEC 63186:2021",
+    "edition": "1.0",
+    "date": "2021-08-30",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Criteria for seismic trip system",
+    "language": "EN-FR",
+    "description": "IEC 63186:2021 specifies the minimum requirements for the design of the seismic trip system, and the components thereof, used in a nuclear power plant to mitigate seismic effects. This system is intended to shut down the reactor in operation automatically before it is significantly impacted by the vibratory ground motion incurred by strong earthquakes. This document is applicable to both the design of new built plants and the upgrading of plants in operation. It may be used for the design of other types of nuclear facilities where normal operation shall be stopped in case of strong seismic motions."
+  },
+  {
+    "reference": "IEC TR 63192:2019",
+    "edition": "1.0",
+    "date": "2019-01-29",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Hazard analysis: A review of current approaches",
+    "language": "EN",
+    "description": "IEC TR 63192:2019 provides the comparison of the hazard analysis requirements between IAEA framework and NRC-IEEE framework of standards and guidance. The hazard analysis requirements in the different standards were compared with a set of comparison criteria, including the safety principle, the safety process, the definitions, the hazard analysis process, etc. This document includes the comparison results of the HA requirements of the safety control systems of other safety industries in Annex C. For a nuclear power plant, the design safety and operation safety shall be analyzed, for example, to meet the IAEA Safety Requirements for Design (SSR-2/1) and Operation (SSR‑2/2). The scope of this document is to survey the state of the art in the hazard analysis for the design of I&C system of NPPs."
+  },
+  {
+    "reference": "IEC TR 63214:2019",
+    "edition": "1.0",
+    "date": "2019-10-29",
+    "title": "Nuclear power plants - Control rooms - Human factors engineering",
+    "language": "EN",
+    "description": "IEC TR 63214:2019 provides a summary of arguments and a technical basis for the development of a new Human Factors Engineering IEC standard and the alignment of IEC 60964. Based on the provided argumentation, the participating members will vote for such an approach. The proposed content of the new standard provides the basis for fruitful discussion within IEC SC 45A WG 8 and raises interest in the development of the new standard. The scope of the new HFE IEC standard will follow a holistic approach towards the design of the plant-wide control rooms and all HMI, including e.g. the local control stations located throughout the plant. The general principle is to consider the complete nuclear installation design as a sociotechnical system, in a holistic and integrated way."
+  },
+  {
+    "reference": "IEC 63260:2020",
+    "edition": "1.0",
+    "date": "2020-05-25",
+    "title": "Guide for incorporating human reliability analysis into probabilistic risk assessments for nuclear power generating stations and other nuclear facilities",
+    "language": "EN",
+    "description": "IEC 63260:2020 provides a structured framework for the incorporation of human reliability analysis (HRA) into probabilistic risk assessments (PRAs). This document is to enhance the analysis of human-system interactions in PRAs, to help ensure reproducible conclusions, and to standardize the documentation of such assessments. To do this, a specific HRA framework is developed from standard practices to serve as a benchmark to assess alternative ways of incorporating HRA into PRA. This standard is an adoption of IEEE 1082-2017 by IEC."
+  },
+  {
+    "reference": "IEC 63272:2024",
+    "edition": "1.0",
+    "date": "2024-08-07",
+    "title": "Nuclear facilities - Electrical power systems - AC interruptible power supply systems",
+    "language": "EN-FR",
+    "description": "IEC 63272:2024 specifies the performance and functional characteristics of the on-site AC interruptible power supply systems and applies to new nuclear facilities and newly installed or upgraded on-site AC interruptible power supply systems. The specific design requirements for the components of the power supply system are defined by the IEC standards listed in the normative references and are outside the scope of this document. The purpose of this document is to provide high level requirements for the design of on-site AC interruptible power supply systems as part of the overall electrical distribution system in a nuclear facility. This document defines the requirements for an electrical designer to establish the design of the AC interruptible electrical power supply for nuclear facilities. It is used in conjunction with Level 1 standard IEC 63046."
+  },
+  {
+    "reference": "IEC 63298:2024",
+    "edition": "1.0",
+    "date": "2024-07-30",
+    "title": "Nuclear power plants - Electrical power systems - Coordination and interaction with electric grid",
+    "language": "EN-FR",
+    "description": "IEC 63298:2024 provide high level requirements and recommendations for the coordination of NPPs and the electric grid; see also item a) of the Introduction. The specific design requirements for components and equipment are covered by other specific IEC standards outside the scope of this document. This document also defines the coordination requirements to ensure that operating instructions for the electric grid and the NPP are developed to provide a means of safe and reliable operation. This document also defines the requirements for the development of a framework for any specific tests that may be deemed necessary for the electric grid and the NPP, such as testing of NPP regulation capabilities and load rejection to house load operation tests."
+  },
+  {
+    "reference": "IEC/IEEE 63332-387:2024",
+    "edition": "1.0",
+    "date": "2024-09-30",
+    "title": "Nuclear facilities - Electrical power systems - Diesel generator units applied as standby power sources",
+    "language": "EN-FR",
+    "description": "IEC/IEEE 63332-387:2024 defines the criteria for the application and testing of diesel generator (DG) units used as safety class standby power supplies in nuclear facilities. In general, the standard applies to new nuclear facilities as well as for upgrading or back-fitting of existing facilities. Existing facilities can voluntarily adopt the requirements to enhance the performance capabilities and reliability of the installed DG units. The standard can be used in applications where highly reliable onsite alternating current (AC) power source is required to maintain plant safety following an event with potential loss of offsite power for an extended duration. This document provides the principal design criteria, the design features, testing, and qualification requirements for the individual DG units that enable them to meet their functional requirements as a part of the standby power supply under the conditions produced by the design basis events catalogued in the plant safety analysis."
+  },
+  {
+    "reference": "IEC TR 63335:2021",
+    "edition": "1.0",
+    "date": "2021-02-04",
+    "title": "Nuclear power plants - Instrumentation and control systems, control rooms and electrical power systems - Specific features of small modular reactors and needs regarding standards",
+    "language": "EN",
+    "description": "IEC TR 63335:2021 identifies a number of issues of particular importance to light water Small Modular Reactors (SMRs), which are not currently adequately addressed by existing IEC SC 45A standards, and that could be considered when revising existing publications or that could be the object of new work item proposals. Whether each of these issues will indeed be addressed, and if so in which publication, will be the decision of each SC 45A working group. Though there are a number of advanced Generation IV SMR projects underway, their specific needs are not covered by this document."
+  },
+  {
+    "reference": "IEC 63351:2024",
+    "edition": "1.0",
+    "date": "2024-09-17",
+    "title": "Nuclear facilities - Human factors engineering - Application to the design of human-machine interfaces",
+    "language": "EN-FR",
+    "description": "IEC 63351:2024 specifies the basic principles and requirements for the application of a human factors engineering (HFE) programme to the design of the human-machine interfaces (HMI) throughout the lifetime of a nuclear facility. The focus of this document is on control rooms and control functions as discussed in the text. This document focuses on the application of a human factors engineering (HFE) programme to the design of the human-machine interfaces throughout the lifetime of a nuclear facility, including consideration of plant modifications. This document is applicable to nuclear facilities such as: nuclear power plants (NPPs), research reactors, uranium enrichment and nuclear fuel fabrication facilities, spent fuel storage and reprocessing facilities."
+  },
+  {
+    "reference": "IEC 63374:2025",
+    "edition": "1.0",
+    "date": "2025-10-10",
+    "title": "Nuclear power plants - Instrumentation systems important to safety - Characteristics and test methods of nuclear reactor reactivity meters",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63374:2025 specifies the characteristics and test methods for reactivity meters. Other methods for measuring reactivity are not addressed in this document. This document provides guidance for the design, production and operation of reactivity meters. This document is applicable to various types of nuclear reactors that can be described by the neutron kinetic point reactor model, such as pressurized water reactors (PWRs), boiling-water reactors (BWRs) or fast breeder reactors (FBRs). This document is applicable to all on-line measuring instruments that directly obtain reactivity values by measuring the neutron flux. The subject relates to the reactor nuclear parameter measurement domain."
+  },
+  {
+    "reference": "IEC TR 63400:2025",
+    "edition": "2.0",
+    "date": "2025-12-15",
+    "title": "Nuclear facilities - Instrumentation, control and electrical power systems important to safety - Structure of the IEC SC 45A standards series",
+    "language": "EN",
+    "description": "IEC TR 63400:2025 augments that description to enable users of individual IEC SC 45A standards to obtain a more comprehensive understanding of the overall structure of the series and its relationship with other standards bodies and standards. The publication of this document and its subsequent editions should also enable minor changes in the structure to be described without the need for amending the common description that is included in the Introduction, item d), of all IEC SC 45A documents."
+  },
+  {
+    "reference": "IEC 63413:2026",
+    "edition": "1.0",
+    "date": "2026-03-17",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Platform qualification",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63413:2026 provides guidance and establishes requirements for the qualification of I&C platforms, according to IEC nuclear standards, aimed to be used in nuclear applications important to safety. Qualification of an I&C platform (also called pre-qualification or generic qualification) is performed as a generic activity outside the framework of a plant-specific application project. Platform qualification aims to fulfil in an anticipated manner all requirements leading to an I&C platform fully suitable for the implementation of a plant-specific application project. The platform qualification covers consequently all I&C platform specific aspects including hardware, software, HPD, engineering tools, environmental qualification, quality and the applied safety life cycle supporting these activities. Platform qualification also considers interaction of platform assemblies. This document applies to I&C platforms under development, as well as to pre-existing I&C platforms. This document provides guidance on what is relevant to I&C platform qualification and what is relevant to the implementation of an I&C system design based on a qualified I&C platform. The objective of this document is to identify those requirements that relate closely to an I&C platform qualification and aims to support a two-step approach for the licensing of I&C systems based on this I&C platform. If the complete qualification of an I&C system is performed in the framework of a plant-specific application, this document does not apply."
+  },
+  {
+    "reference": "IEC TR 63415:2023",
+    "edition": "1.0",
+    "date": "2023-08-30",
+    "title": "Nuclear Power plants - Instrumentation and control systems - Use of formal security models for I&C security architecture design and assessment",
+    "language": "EN",
+    "description": "IEC TR 63415:2023 provides an overview over the formalized modelling and designing of cybersecure architectures to apply for I&C system cybersecurity enforcement at NPPs. The plant-specific risk assessment can use the techniques covered by this TR. This document considers the complex problem of NPP I&C architecture synthesis to address particular issues: - asset classification, - barrier measures assignment, - the information transfer and links conformity with security requirements. This document provides guidance on creating a comprehensive security model applicable to NPP I&C systems that describes NPP I&C cybersecurity architecture and aids in accomplishing the main tasks of I&C system secure design, which are: - specification of system designs with increased determinism that enhance security, - mapping of the security requirements into the security architecture of the I&C system, - definition of the security requirements for information exchange between components within the I&C system, operators and other systems, - assistance in the determination of the security degree assignment with a model-based technique considering asset properties and formal grouping of the assets, design and establishment of security zones boundaries."
+  },
+  {
+    "reference": "IEC 63423:2026",
+    "edition": "1.0",
+    "date": "2026-03-05",
+    "title": "Nuclear power plants - Instrumentation and control systems important to safety - Cable connector assemblies for harsh environment purposes",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63423:2026 applies to cable connector assemblies for harsh environment purposes that are important to safety. It covers the engineering safety aspects to be met in the design, qualification, fabrication, assembling, testing, and installation on site of cable connector assemblies to be operated under accident conditions. This document can be additionally used for cable assemblies that are operated under normal conditions. This document covers cable connector assemblies that are used for the following generic functions: - signal transmission (AC or DC voltage/current; pulses, frequency), or - supplying electrical energy to sensors, transducers, or other devices."
+  },
+  {
+    "reference": "IEC 63435:2025",
+    "edition": "1.0",
+    "date": "2025-10-06",
+    "title": "Nuclear facilities - Human machine interfaces - Operator support systems",
+    "language": "EN",
+    "description": "IEC 63435:2025 specifies the characteristics of operator support systems (OSS) used by the control room staff, maintenance engineers and emergency response staff, establishes general principles for OSS lifecycle and requirements for OSS design following the human factors engineering (HFE) programme. This document also gives the human factors guidelines and the verification and validation (V&V) requirements for OSS design. This document is applicable to new nuclear facilities whose conceptual design is initiated after the publication of this document but it can also be used for designing OSS in existing nuclear facilities."
+  },
+  {
+    "reference": "IEC TR 63468:2023",
+    "edition": "1.0",
+    "date": "2023-05-11",
+    "title": "Nuclear facilities - Instrumentation and control, and electrical power systems - Artificial Intelligence applications",
+    "language": "EN",
+    "description": "IEC TR 63468:2023 overviews the fundamentals of artificial intelligence (AI) as it could potentially be applied within nuclear facilities and identifies proven or potential applications, with the objective to foster better understanding and adoption of AI technologies within such facilities. With the objective of supporting future standard development work of IEC SC 45A in this technical area, this document takes the initiative to propose a structure for SC 45A standard series on nuclear AI applications and recommends setting up a new dedicated working group to be responsible for and coordinate standard development efforts in this particular area, taking into account its cross-cutting nature."
+  },
+  {
+    "reference": "IEC TR 63486:2024",
+    "edition": "1.0",
+    "date": "2024-09-13",
+    "title": "Nuclear facilities - Instrumentation, control and electrical power systems - Cybersecurity risk management approaches",
+    "language": "EN",
+    "description": "IEC TR 63486:2024 provides a cybersecurity framework for digital I&C programmable systems [2]. IEC 62645 [1] aligns strongly with the information security management system (ISMS) elements detailed within ISO/IEC 27001:2013 [2]. The ISO/IEC ISMS structure corresponds to the “I&C digital programmable system cybersecurity program” in the context (as defined in 5.2.1 of IEC 62645:2019 [1]). The scope of this document is to capture the national and international cyber-risk approaches employed to manage cybersecurity risks associated with Instrumentation and Control (I&C) and Electrical Power Systems (EPS) at a Nuclear Power Plant (NPP). This document summarizes an evaluation of cyber-risk approaches that are in use by nuclear facility operators to manage cybersecurity risks. The scope of this document generally follows the exclusions of IEC 62645 which are: - Non-malevolent actions and events such as accidental failures, human errors (except those stated above, such as impacting the performance of cybersecurity controls), and natural events. In particular, good practices for managing applications and data, including backup and restoration related to accidental failure, are out of scope. This document summarizes key insights of the international and cyber-risk approaches used at NPPs regarding the application of ISO/IEC 27005:2018 [5]. The evaluation is based on 11 challenges to cybersecurity risk management and their applicability to NPP risk management. The challenges are detailed in Clause 7. This document also relates the risk management elements of IEC 62645 and IEC 63096."
+  },
+  {
+    "reference": "IEC 60231A:1969",
+    "edition": "1.0",
+    "date": "1969-01-01",
+    "title": "Supplement A - General principles of nuclear reactor instrumentation",
+    "language": "EN-FR, RU",
+    "description": "Includes Clause 5, Protection system, and Clause 9, General alarms. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231B:1972",
+    "edition": "1.0",
+    "date": "1972-01-01",
+    "title": "Supplement B - General principles of nuclear reactor instrumentation - Principles of instrumentation of direct cycle boiling water power reactors",
+    "language": "EN-FR, RU",
+    "description": "Applicable more particularly to instrumentation for direct cycle boiling water power reactors and includes a new clause concerning reactor control. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231C:1974",
+    "edition": "1.0",
+    "date": "1974-01-01",
+    "title": "Third supplement: Instrumentation of gas-cooled graphite-moderated reactors",
+    "language": "EN-FR, RU",
+    "description": "Applicable more particularly to instrumentation for gas-cooled graphite-moderated reactors, Type 1: reactors having metallic natural uranium fuel clad with magnesium alloy, and Type 2: reactors having enriched uranium oxide fuel clad with stainless steel. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231D:1975",
+    "edition": "1.0",
+    "date": "1975-01-01",
+    "title": "Supplement D - General principles of nuclear reactor instrumentation - Principles of instrumentation for pressurized water reactors",
+    "language": "EN-FR, RU",
+    "description": "Applicable more particularly to instrumentation for pressurized water reactors. Deals in particular with measurements of neutron fluence rate (flux). The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231E:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Supplement E - General principles of nuclear reactor instrumentation - Principles of instrumentation of high temperature indirect cycle gas-cooled power reactors (HTGR)",
+    "language": "EN-FR, RU",
+    "description": "Deals more particularly with the measuring equipment for fluence rate of neutrons, fuel temperature, coolant temperature and flow, and with the protection system. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231F:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Supplement F - General principles of nuclear reactor instrumentation - Steam generating, direct cycle, heavy-water moderated reactors",
+    "language": "EN-FR, RU",
+    "description": "Lays down additional standard requirements concerning neutron flux measurements, temperature measurements, measurements on the coolant, and the protection system. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  },
+  {
+    "reference": "IEC 60231G:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Supplement G - General principles of nuclear reactor instrumentation - Liquid-metal cooled fast reactors",
+    "language": "EN-FR, RU",
+    "description": "Deals in particular with measurements: of neutron fluence rate (flux); of residual activity; of the temperature, flow rate, activity and purity of the sodium (or other liquid metal). Deals also with the protection and control systems. The IEC 60231 series of standards is no longer up-to-date and will not be revised by IEC. The standards are maintained for the time being for bibliographical purposes and because they were used in the past for the design of nuclear power plants which are still in operation."
+  }
+]

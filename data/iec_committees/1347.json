@@ -1,0 +1,42 @@
+[
+  {
+    "reference": "IEC 60137:2017",
+    "edition": "7.0",
+    "date": "2017-06-22",
+    "title": "Insulated bushings for alternating voltages above 1000 V",
+    "language": "EN-FR, ES",
+    "description": "IEC 60137:2017 specifies the characteristics and tests for insulated bushings. This standard is applicable to bushings, as defined in Clause 3, intended for use in electrical apparatus, machinery, transformers, switchgear and installations for three-phase alternating current systems, having highest voltage for equipment above 1 000 V and power frequencies of 15 Hz up to and including 60 Hz. Subject to special agreement between purchaser and supplier, this standard may be applied, in part or as a whole, to the following: - bushings used in other than three-phase systems; - bushings for high-voltage direct current systems; - bushings for testing transformers; - bushings for capacitors. Special requirements and tests for transformer bushings in this standard apply also to reactor bushings. This standard is applicable to bushings made and sold separately. Bushings which are a part of an apparatus and which cannot be tested according to this standard should be tested with the apparatus of which they form part. This edition includes the following significant technical changes with respect to the previous edition: - Resin-impregnated synthetic (RIS) bushings has been introduced. - Bushings with Um ≤ 1,1 kV, Um = 1100 kV and Um = 1200 kV have been introduced. - Temperature rise testing has been included for liquid-insulated bushings according to clause to 3.4. - Introducing dry lightning impulse testing as a routine test for all transformer bushings with Um > 72,5 kV. - The altitude correction procedure has been revised ( > 1 000 m). - An explanation about Very Fast Transient (VFT) phenomenon and its impact on bushings has been included. The contents of the corrigendum of May 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60137:2017/COR1:2018",
+    "edition": "7.0",
+    "date": "2018-05-07",
+    "title": "Corrigendum 1 - Insulated bushings for alternating voltages above 1 000 V",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61463:2016",
+    "edition": "2.0",
+    "date": "2016-07-06",
+    "title": "Bushings - Seismic qualification",
+    "language": "EN",
+    "description": "IEC TS 61463:2016(E), which is a Technical Specification, is applicable to alternating current and direct current bushings for highest voltages above 52 kV (or with resonance frequencies placed inside the seismic response spectrum), mounted on transformers, other apparatus or buildings. For bushings with highest voltages less than or equal to 52 kV (or with resonance frequencies placed outside from the seismic response spectrum), due to their characteristics, seismic qualification is not used as far as construction practice and seismic construction practice comply with the state of the art. This document presents acceptable seismic qualification methods and requirements to demonstrate that a bushing can maintain its mechanical properties, insulate and carry current during and after an earthquake. The seismic qualification of a bushing is only performed upon request."
+  },
+  {
+    "reference": "IEC TS 63493-1:2025",
+    "edition": "1.0",
+    "date": "2025-12-11",
+    "title": "Transformer bushings dimensional standardization - Part 1: Medium voltage bushings with <em>U</em><sub>m</sub> from 12 kV up to and including 52 kV and <em>I</em><sub>r</sub> from 630 A up to and including 3 150 A",
+    "language": "EN",
+    "description": "IEC TS 63493-1:2025 specifies the main parameters to facilitate interchangeability or at least to define some frame conditions of MV bushings: - with Um from 12 kV up to and including 52 kV; - Ir from 630 A up to and including 3 150 A. This document deals with non-capacitance graded bushings for Power Transformers, according to the IEC 60076 series (usually for transformer with conservator). In this document only liquid to air bushings are considered. Bushings of liquid-to-liquid and air-to-air type and bushings for transformers with air-cushion in tank are not considered. MV is considered up to 52 kV; this value is used to cover specific insulation levels or for high pollution levels, even if the field of application is very restricted. Both solutions with external insulation in porcelain and polymeric can be used and need to enable interchangeability (in terms of mechanical and electrical performance)."
+  },
+  {
+    "reference": "IEC/IEEE 65700-19-03:2025",
+    "edition": "2.0",
+    "date": "2025-07-15",
+    "title": "Bushings for DC application",
+    "language": "EN",
+    "description": "IEC/IEEE 65700-19-03:2025 applies to outdoor and indoor bushings of any voltage used on DC systems, of capacitance graded or gas insulated types for use as components of liquid-filled converter transformers and smoothing reactors, as well as air-to-air DC bushings. It applies to both line commutated converter (LCC), as well as voltage source converter (VSC) technologies. This document does not apply to the following: - cable terminations (potheads); - bushings for instrument transformers; - bushings for test power supplies; - bushings applied with gaseous insulation (other than air at atmospheric pressure) external to the bushing; - bushings for industrial application; - bushings for traction application; - bushings for distribution class transformers. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision and includes the following significant technical changes with respect to the previous edition: - service experiences as well as established market requirements have been harmonized with existing IEC and IEEE standards, primarily IEC 60137, Insulated bushings for alternating voltages above 1 000 V, and IEEE Std C57.19.00™, IEEE Standard General Requirements and Test Procedures for Outdoor Power Apparatus Bushings; - inclusion of voltage source converter (VSC) technologies."
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "reference": "IEC 60500:2017",
+    "edition": "2.0",
+    "date": "2017-04-10",
+    "title": "Underwater acoustics - Hydrophones - Properties of hydrophones in the frequency range 1 Hz to 500 kHz",
+    "language": "EN-FR",
+    "description": "IEC 60500:2017 specifies the relevant characteristics and properties of hydrophones in the frequency range 1 Hz to 500 kHz, and specifies how to report these characteristics. Provides guidance on the choice of a hydrophone with appropriate performance for a specific application. This standard is applicable to: - hydrophones employing piezoelectric sensor elements, designed to respond to sound pressure in water and measure underwater acoustical signals; - hydrophones with or without an integral pre-amplifier. This new edition includes the following significant technical changes with respect to the previous edition: - the format and scope of IEC 60500 have been changed to be compatible with other IEC standards; - the upper limit of the frequency range of hydrophones has been expanded."
+  },
+  {
+    "reference": "IEC 60565-1:2020",
+    "edition": "1.0",
+    "date": "2020-04-24",
+    "title": "Underwater acoustics - Hydrophones - Calibration of hydrophones - Part 1: Procedures for free-field calibration of hydrophones",
+    "language": "EN-FR",
+    "description": "IEC 60565-1:2020 specifies methods and procedures for free-field calibration of hydrophones, as well as individual electroacoustic transducers that can be used as hydrophones (receivers) and/or projectors (source transducers). Two general types of calibration are covered within this document: absolute calibration using the method of three-transducer spherical-wave reciprocity, and relative calibration by comparison with a reference device which has already been the subject of an absolute calibration. The maximum frequency range of the methods specified in this document is from 200 Hz to 1 MHz. The lowest acoustic frequency of application will depend on a number of factors, and will typically be in the range 200 Hz to 5 kHz depending mainly on the dimensions of the chosen test facility, The highest frequency of application for the methods described here is 1 MHz. Procedures for pressure hydrophone calibration at low frequencies can be found in IEC 60565 2 [1] . Procedures for hydrophone calibration at acoustic frequencies greater than 1 MHz are covered by IEC 62127-2 [2]. Excluded from the scope of this document are low-frequency pressure calibrations of hydrophones, which are described in IEC 60565-2 [1]. Also excluded are calibrations of digital hydrophones and systems, calibration of marine autonomous acoustic recorders, calibration of acoustic vector sensors such as particle velocity sensors and pressure gradient hydrophones, calibration of passive sonar arrays consisting of multiple hydrophones, and calibration of active sonar arrays consisting of projectors and hydrophones. This document presents a description of the requirements for free-field calibration in terms of test facility, equipment and instrumentation, signal processing, and frequency limitations. A description of achievable uncertainty and rules for the presentation of the calibration data are provided. Also included are informative annexes that provide additional guidance on • measurement of directional response of a hydrophone or projector, • measurement of electrical impedance of hydrophones and projectors, • electrical loading corrections, • acoustic far-field criteria in underwater acoustic calibration, • pulsed techniques in free-field calibrations, • assessment of uncertainty in the free-field calibration of hydrophones and projectors, • derivation of the formulae for three-transducer spherical-wave reciprocity calibrations, • calibration using travelling-wave tubes, • calibration of hydrophones using optical interferometry, and • calibrations in reverberant water tanks using continuous signals. IEC 60565-1:2020 together with IEC 60565-2:2019, cancels and replaces the second edition of IEC 60565 published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: 1) removal of all descriptions of methods for pressure calibrations of hydrophones – these are now included in Part 2; 2) removal of the derivations of formulae for free-field reciprocity calibration (both amplitude sensitivity and phase sensitivity) and placement of these into an informative annex; 3) inclusion within the scope of the calibration of the transmitting response of individual source transducers and hydrophones (but not sonar arrays); 4) re-ordering of the sections within the document such that the more general procedures for calibration such as guidance on obtaining conditions of acoustic free-field, far-field, and steady-state, appear before the descriptions of procedures for absolute or relative calibrations; 5) revision of informative Annex A to include guidance on measurement of directional response of a hydrophone or projector; 6) addition of a new informative Annex B on measurement of electrical impedance of hydrophones and projectors; 7) revision of the previous informative annex on electrical loading corrections to include corrections to account for electrical loading by added cables (now Annex C); 8) addition of a new informative Annex D on acoustic far-field criteria in underwater acoustic calibration; 9) revision of the previous informative annex on pulsed techniques in free-field calibrations (now Annex E); 10) revision of the previous informative annex on assessment of uncertainty in the calibration of hydrophones (now Annex F); 11) deletion of the previous informative annex on equivalent circuit of the excitation system for calibration with a vibrating column; 12) addition of a new informative Annex G on derivation of the formulae for three-transducer spherical-wave reciprocity calibration; 13) addition of a new informative Annex H on calibration using travelling-wave tubes; 14) addition of a new informative Annex I on calibration of hydrophones using optical interferometry. 15) addition of a new informative Annex J on calibration in reverberant water tanks using continuous signals."
+  },
+  {
+    "reference": "IEC 60565-2:2019",
+    "edition": "1.0",
+    "date": "2019-09-19",
+    "title": "Underwater acoustics - Hydrophones - Calibration of hydrophones - Part 2: Procedures for low frequency pressure calibration",
+    "language": "EN-FR",
+    "description": "IEC 60565-2:2019 specifies the methods for low frequency pressure calibration of hydrophones at frequencies from 0,01 Hz to several kilohertz depending on calibration method. IEC 60565-2:2019, together with IEC 60565-1, replaces the second edition of IEC 60565 published in 2006. This edition constitutes a technical revision. IEC 60565-2:2019 includes the following significant technical changes with respect to the previous edition. 1) IEC 60565 has been divided into two parts: • Part 1: Procedures for free-field calibration; • Part 2: Procedures for low frequency pressure calibration (this document). 2) A relative calibration method has been added to Clause 8: Calibration by piezoelectric compensation. 3) A relative calibration method has been added to Clause 11: Calibration by vibrating column. 4) Clause 12: Calibration by static pressure transducer, has been added. 5) Annex A: Equivalent circuit of the excitation system for calibration with a vibrating column, has been deleted. 6) Subclauses 9.6, 9.7 and 9.8 have been moved to form a new Annex A: Advanced acoustic coupler calibration methods."
+  },
+  {
+    "reference": "IEC TR 60782:1984",
+    "edition": "1.0",
+    "date": "1984-01-01",
+    "title": "Measurements of ultrasonic magnetostrictive transducers",
+    "language": "EN-FR",
+    "description": "Applies to magnetostrictive transducers, of both laminated metal and ferrite types, designed for producing sonic or ultrasonic acoustic power in liquid or solid media, and for different kinds of ultrasonic processing such as cutting, welding, chemical processing, etc. Transducers for information carrying signals are excluded. The transducers, which may be sonic or ultrasonic, operate at the resonance frequency and are supplied from electric power generators. Specifies the essential characteristics and the preferred methods of measurement for evaluating the performance of transducers. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TR 60854:1986",
+    "edition": "1.0",
+    "date": "1986-10-30",
+    "title": "Methods of measuring the performance of ultrasonic pulse-echo diagnostic equipment",
+    "language": "EN-FR",
+    "description": "Defines parameters and outlines test methods for measuring performance of pulse-echo medical diagnostic systems that employ single-element transducers and operate in the 0.5 MHz to 25 MHz acoustic frequency range. Provides a generally acceptable basis for measuring and reporting the principal performance parameters of complete diagnostic systems. The performance parameters specified, and the corresponding methods of measurement, have been chosen in order to provide a basis for comparison between similar apparatus of different makes intended for the same kind of diagnostic application. The set of results and values obtained from the use of the recommended methods will provide useful criteria for predicting the performance of equipment in appropriate diagnostic applications. In order that the recommendations should be suitable for general applications, methods have been specified which do not require unusual and expensive equipment for their implementation. Where one basic diagnostic system accommodates more than one option in respect of a particular system component, such as the transducer, it is intended that, wherever appropriate, each option be regarded as a separate system. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TR 60886:1987",
+    "edition": "1.0",
+    "date": "1987-03-30",
+    "title": "Investigations on test procedures for ultrasonic cleaners",
+    "language": "EN-FR",
+    "description": "Provides a source of reference for the work which has been carried out in order to evaluate the various test procedures for checking the effectiveness of ultrasonic cleaners. Measures the effectiveness of an ultrasonic cleaner under closely defined conditions so that the performance of different makes and models can be compared. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TR 61088:1991",
+    "edition": "1.0",
+    "date": "1991-09-01",
+    "title": "Characteristics and measurements of ultrasonic piezoceramic transducers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61157:2007",
+    "edition": "2.0",
+    "date": "2007-08-09",
+    "title": "Standard means for the reporting of the acoustic output of medical diagnostic ultrasonic equipment",
+    "language": "EN-FR, EN",
+    "description": "IEC 61157:2007 specifies a standard means and format for the reporting of the acoustic output of medical diagnostic ultrasonic equipment. The numerical values for reporting purposes represent the average values for the maximum output conditions for a given discrete- or combined-operating mode and are derived from measurements made in water. Intensity parameters are specified in this standard, but these are regarded as derived quantities that are meaningful only under certain assumptions related to the ultrasonic field being measured. This International Standard is applicable to medical diagnostic ultrasonic equipment. It provides a set of traceable acoustic parameters describing the acoustic fields. It defines a standard means and format for the reporting of the acoustic output information. It also describes a reduced dataset recommended for equipment generating low acoustic output levels. This second edition cancels and replaces the first edition published in 1992. This edition constitutes a minor revision. The changes with respect to the previous edition are listed hereafter: - maintenance on this standard and the referenced standards IEC 61161 and IEC 62127-1; - and a clause on compliance has been added. The contents of the corrigendum of August 2008 have been included in this copy. The French version of this standard has not been voted upon."
+  },
+  {
+    "reference": "IEC 61157:2007/COR1:2008",
+    "edition": "2.0",
+    "date": "2008-08-12",
+    "title": "Corrigendum 1 - Standard means for the reporting of the acoustic output of medical diagnostic ultrasonic equipment",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61157:2007/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-01-28",
+    "title": "Amendment 1 - Standard means for the reporting of the acoustic output of medical diagnostic ultrasonic equipment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61161:2013",
+    "edition": "3.0",
+    "date": "2013-01-30",
+    "title": "Ultrasonics - Power measurement - Radiation force balances and performance requirements",
+    "language": "EN-FR",
+    "description": "IEC 61161:2013 specifies a method of determining the total emitted acoustic power of ultrasonic transducers based on the use of a radiation force balance; establishes general principles for the use of radiation force balances in which an obstacle (target) intercepts the sound field to be measured; establishes limitations of the radiation force method related to cavitation and temperature rise; establishes quantitative limitations of the radiation force method in relation to diverging and focused beams; provides information on estimating the acoustic power for diverging and focused beams using the radiation force method; and provides information on assessment of overall measurement uncertainties. This International Standard is applicable to the measurement of ultrasonic power up to 1 W based on the use of a radiation force balance in the frequency range from 0,5 MHz to 25 MHz; the measurement of ultrasonic power up to 20 W based on the use of a radiation force balance in the frequency range 0,75 MHz to 5 MHz; the measurement of total ultrasonic power in well-collimated, diverging and focused ultrasonic fields; and to the use of radiation force balances of the gravimetric type or force feedback type. This third edition cancels and replaces the second edition published in 2006. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - whereas the second edition tacitly dealt with circular transducers only, the present edition as far as possible deals with both circular and rectangular transducers, including a number of symbols for rectangular transducers; - attention is paid to focused cases and the influence of scanning has been added; - the method of calibrating the radiation force balance now depends on whether the set-up is used as a primary or as secondary measurement tool; - and Annex B (basic formulae) has been updated and in Annex C the buoyancy change method is mentioned (see also future IEC 62555)."
+  },
+  {
+    "reference": "IEC TS 61206:1993",
+    "edition": "1.0",
+    "date": "1993-04-30",
+    "title": "Ultrasonics - Continuous-wave Doppler systems - Test procedures",
+    "language": "EN-FR, ES",
+    "description": "Describes the test methods for measuring the performance of continuous-wave ultrasonic Doppler flowmeters, velocimeters, or foetal heart detectors and special Doppler test objects for determining various performance properties of Doppler ultrasound systems. Does not include electrical safety and acoustic output. This publication has the status of a type 2 technical report."
+  },
+  {
+    "reference": "IEC 61266:1994",
+    "edition": "1.0",
+    "date": "1994-12-15",
+    "title": "Ultrasonics - Hand-held probe Doppler foetal heartbeat detectors - Performance requirements and methods of measurement and reporting",
+    "language": "EN-FR, ES",
+    "description": "Is applicable to ultrasonic Doppler foetal heartbeat detectors which generate a single ultrasound beam and consist of a hand-held probe which is applied to the maternal abdomen to obtain information on foetal heart activity by means of the Doppler method using continuous wave (c.w) or quasi-continuous wave ultrasound. Establishes - methods of measurement of performances - requirements for the performance and the - reporting of performance"
+  },
+  {
+    "reference": "IEC TR 61390:2022",
+    "edition": "2.0",
+    "date": "2022-09-06",
+    "title": "Ultrasonics - Real-time pulse-echo systems - Test procedures to determine performance specifications",
+    "language": "EN",
+    "description": "IEC TR 61390:2022 describes representative methods of measuring the performance of complete real-time medical ultrasonic imaging equipment in the frequency range 0,5 MHz to 23 MHz. This document is relevant for real-time ultrasonic scanners based on the pulse-echo principle, for the types listed below: - mechanical sector scanner; - electronic phased array sector scanner; - electronic linear array scanner; -electronic curved array sector scanner; - water-bath scanner based on any of the above four scanning mechanisms; - plane-wave/fast imaging scanners; - combination of several of the above methods (e.g. a linear array phased at the edge to produce a sector there to enlarge the field of view. The methods described are based on evaluation of: - sonograms obtained by scanning of tissue mimicking objects (phantoms); - sonograms obtained by scanning of artificial, low- or highly reflective targets in suitable environments; - parameters of the ultrasound field transmitted by the measured scanner. This document does not relate to methods for measuring electrical parameters of the scanner’s electronic systems. IEC TR 61390:2022 cancels and replaces the first edition published in 1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Several additional phantom designs are included in the main body of the document; b) Several additional transducer types are included in the Scope; c) Methods of analysis are presented in new Annex B."
+  },
+  {
+    "reference": "IEC 61391-1:2006",
+    "edition": "1.0",
+    "date": "2006-07-11",
+    "title": "Ultrasonics - Pulse-echo scanners - Part 1: Techniques for calibrating spatial measurement systems and measurement of system point-spread function response",
+    "language": "EN-FR",
+    "description": "Describes methods of calibrating the spatial measurement facilities and point-spread function of ultrasonic imaging equipment in the ultrasonic frequency range 0,5 MHz to 15 MHz. This standard is relevant for ultrasonic scanners based on the pulse echo principle of the types listed below: - mechanical sector scanners; - electronic phased-array sector scanners; - electronic linear-array scanners; - electronic curved-array sector scanners; - water bath scanners based on any of the above four scanning mechanisms; - 3D-volume reconstruction systems."
+  },
+  {
+    "reference": "IEC 61391-1:2006/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-07-10",
+    "title": "Amendment 1 - Ultrasonics - Pulse-echo scanners - Part 1: Techniques for calibrating spatial measurement systems and measurement of point-spread function response",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61391-2:2010",
+    "edition": "1.0",
+    "date": "2010-01-14",
+    "title": "Ultrasonics - Pulse-echo scanners - Part 2: Measurement of maximum depth of penetration and local dynamic range",
+    "language": "EN-FR, EN",
+    "description": "IEC 61391-2:2010 defines terms and specifies methods for measuring the maximum depth of penetration and the local dynamic range of real time ultrasound B MODE scanners. The types of transducers used with these scanners include: - mechanical probes; - electronic phased arrays; - linear arrays; - curved arrays; - two-dimensional arrays; - three-dimensional scanning probes based on a combination of the above types. All scanners considered are based on pulse-echo techniques. The test methodology is applicable for transducers operating in the 1 MHz to 15 MHz frequency range operating both in fundamental mode and in harmonic modes that extend to 15 MHz. However, testing of harmonic modes above 15 MHz is not covered by this standard."
+  },
+  {
+    "reference": "IEC 61685:2001",
+    "edition": "1.0",
+    "date": "2001-07-18",
+    "title": "Ultrasonics - Flow measurement systems - Flow test object",
+    "language": "EN",
+    "description": "Specifies parameters for a flow Doppler test object representing a blood vessel of known diameter at a certain depth in human tissue, carrying a steady flow. Establishes a flow Doppler test object which can be used to assess various aspects of the performance of Doppler diagnostic equipment."
+  },
+  {
+    "reference": "IEC 61689:2022",
+    "edition": "4.0",
+    "date": "2022-03-08",
+    "title": "Ultrasonics - Physiotherapy systems - Field specifications and methods of measurement in the frequency range 0,5 MHz to 5 MHz",
+    "language": "EN-FR",
+    "description": "IEC 61689:2022 is applicable to ultrasonic equipment designed for physiotherapy containing an ultrasonic transducer generating continuous or quasi-continuous (e.g. tone burst) wave ultrasound in the frequency range 0,5 MHz to 5 MHz. This document only relates to ultrasonic physiotherapy equipment employing a single plane non-focusing circular transducer per treatment head, producing static beams perpendicular to the face of the treatment head. This document specifies: - methods of measurement and characterization of the output of ultrasonic physiotherapy equipment based on reference testing methods; - characteristics to be specified by manufacturers of ultrasonic physiotherapy equipment based on reference testing methods; - guidelines for safety of the ultrasonic field generated by ultrasonic physiotherapy equipment; - methods of measurement and characterization of the output of ultrasonic physiotherapy equipment based on routine testing methods; - acceptance criteria for aspects of the output of ultrasonic physiotherapy equipment based on routine testing methods. Therapeutic value and methods of use of ultrasonic physiotherapy equipment are not within the scope of this document. Ultrasonic physiotherapy equipment using ultrasound in the frequency range from 20 kHz to 500 kHz is dealt with in IEC 63009. IEC 61689:2022 cancels and replaces the third edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) The requirement on water oxygen content is specified in 6.1. b) Former recommendations in 6.2 have been changed to become requirements. c) Several definitions in Clause 3 have been updated in line with other TC 87 documents. d) The formerly informative Annex A has been changed to become normative, and now contains details on how conformance with IEC 60601-2-5 requirements is checked. e) Annex D has been considerably shortened and reference to a now withdrawn regulatory document has been removed."
+  },
+  {
+    "reference": "IEC 61828:2020",
+    "edition": "2.0",
+    "date": "2020-12-15",
+    "title": "Ultrasonics - Transducers - Definitions and measurement methods regarding focusing for the transmitted fields",
+    "language": "EN-FR",
+    "description": "IEC 61828:2020 - provides definitions for the transmitted field characteristics of focusing and nonfocusing transducers for applications in medical ultrasound; - relates these definitions to theoretical descriptions, design, and measurement of the transmitted fields of focusing transducers; - gives measurement methods for obtaining defined field characteristics of focusing and nonfocusing transducers; - specifies beam axis alignment methods appropriate for focusing and nonfocusing transducers. IEC 61828:2021 relates to focusing ultrasonic transducers operating in the frequency range appropriate to medical ultrasound (0,5 MHz to 40 MHz) for both therapeutic and diagnostic applications. It shows how the characteristics of the transmitted field of transducers can be described from the point of view of design, as well as measured by someone with no prior knowledge of the construction details of a particular device. The transmitted ultrasound field for a specified excitation is measured by a hydrophone in either a standard test medium (for example, water) or in a given medium. This document applies only to media where the field behaviour is essentially like that in a fluid (i.e. where the influence of shear waves and elastic anisotropy is small), including soft tissues and tissue-mimicking gels. Any aspects of the field that affect their theoretical description or are important in design are also included. These definitions would have use in scientific communications, system design and description of the performance and safety of systems using these devices. IEC 61828:2021 incorporates definitions from other related standards where possible, and supplies more specific terminology, both for defining focusing characteristics and for providing a basis for measurement of these characteristics. IEC 61828:2021 cancels and replaces the first edition published in 2001. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 6 on Measurement procedures has been replaced by Clause 6: \"Acoustic field measurement: equipment\" and Clause 7: \"Measurement procedure\" and related definitions. b) Reorganization of definitions and measurement section to accommodate specific sets of measurements for focusing, nonlinearity, beam axis alignment, beam area, beam maximum, numerical projection, plane wave, high intensity therapeutic ultrasound, multiple sources, spatial impulse response and compound plane waves. Clause 3 has been moved to Annex B. c) The normative references have been updated and the Bibliography has been expanded from 8 to 40 references. d) Twelve figures have been updated and seven new figures (B.1, B.3, B.7, B.10, B.11, B.12, B.13, B.14) have been added to facilitate measurements and be consistent with measurement terminology. e) New measurements have been added for time delays, arrays, plane waves and spatial impulse response. f) Annex A has been expanded to provide general guidance on pulsed waves, system responses, focusing gains and minimum beamwidth estimation. g) New annexes have been added: • Annex B (informative) Rationale for focusing and nonfocusing definitions • Annex E (informative) Uncertainties; • Annex F (informative) Transducer and hydrophone positioning systems; • Annex G (informative) Planar scanning of a hydrophone to determine acoustic output power; • Annex H (informative) Properties of water; In addition, Annex A was reorganized and new Clauses A.1, A.5 and A.6 were added. h) Guidelines for remaining within the manufacturer’s pressure and intensity hydrophone limits and the determination of the extent of nonlinearity in the field have been added."
+  },
+  {
+    "reference": "IEC 61846:2025",
+    "edition": "2.0",
+    "date": "2025-01-30",
+    "title": "Ultrasonics – Therapeutic focused short pressure pulse sources – Characteristics of fields",
+    "language": "EN-FR",
+    "description": "IEC 61846:2025 is applicable to: – therapy equipment using extracorporeally induced focused pressure pulse waves; – therapy equipment producing focused mechanical energy excluding thermal energy. This document does not apply to percutaneous and laser lithotripsy equipment. This document does not apply to: – histotripsy or other therapeutic ultrasound bursts of longer time duration than that of the pressure pulse; – non-focused pressure pulse equipment. This document specifies: – measurable parameters which could be used in the declaration of the acoustic output of extracorporeal focused pressure pulse equipment; – methods of measurement and characterization of the pressure field generated by focused pressure pulse equipment. While this document has been developed for equipment intended for use in lithotripsy, it has been developed such that, as long as no other specific standards are available to be used for other medical applications of therapeutic extracorporeal focused pressure pulse equipment, this document can be used as a guideline. IEC 61846:2025 cancels and replaces the first edition published in 1998. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Change of title: \"pressure pulse lithotripters\" in the previous edition is changed to \"therapeutic focused short pressure pulse sources\" in order to take into account the development in the relevant technical and biomedical applications of such sources, which were originally used only for (kidney) lithotripsy, while recent applications include a wide range for the treatment of, for example, stone diseases, orthopaedic pain, tissue, cardiac and brain diseases. The term \"focused\" was added to differentiate IEC 61846 from IEC 63045. The term \"short\" was added to align the nomenclature to IEC 63045 and to differentiate IEC 61846 from standards in the HIFU and HITU fields. b) Clause 1 and elsewhere in the document: The term \"lithotripsy\" is changed to \"therapy\" in order to account for the wide range of applications beyond stone diseases. c) Clause 3: The \"−6 dB\" parameter definitions are replaced by \"−n dB\" to avoid misconceptions in the significance and use of these parameters and to account for newer findings in literature. Additional \"n MPa\" parameters are introduced for the same reasons. The definitions of \"derived\" parameters are aligned to those in recently published standards, for example IEC 62127-1. New definitions were added which describe parameters appearing in newer relevant literature, for example \"momentum\", \"average positive acoustic pressure\", \"cavitation induction index\", \"pulse to pulse variability\", \"total pressure pulse energy dose\". d) Clause 6: The terms \"focus hydrophone\" and \"field hydrophone\" were removed to account for newer technical developments. New terms distinguish between \"hydrophones for pressure pulse measurements\" and \"hydrophones for quality assurance\". e) Annexes: Descriptions, tables and figures were edited to account for newer literature and standards as well as technical developments."
+  },
+  {
+    "reference": "IEC 61847:2025",
+    "edition": "2.0",
+    "date": "2025-05-20",
+    "title": "Ultrasonics - Surgical systems - Measurement and declaration of the basic output characteristics",
+    "language": "EN-FR",
+    "description": "IEC 61847:2025 specifies: – the essential non-thermal output characteristics of ultrasonic surgical units; – methods of measurement of these output characteristics; – those characteristics to be declared by the manufacturers of such equipment. This document is applicable to equipment which meets the criteria of a), b) and c) below: a) ultrasonic surgical systems operating in the frequency range 20 kHz to 120 kHz; and b) ultrasonic surgical systems whose use is the fragmentation, emulsification, debridement, or cutting of human tissue, whether or not those effects are delivered in conjunction with tissue removal or coagulation; and c) ultrasonic surgical systems in which an acoustic wave is conducted by means of a specifically designed wave guide to deliver energy to the surgical site. This document is not applicable to: – lithotripsy equipment which uses extracorporeally induced pressure pulses, focused through liquid conducting media and the soft tissues of the body; – surgical systems used as part of the therapeutic process (hyperthermia systems); – surgical systems whose mechanism of action is through frictional heat generated by tissue in contact with the wave guide, e.g. clamp coagulators or clamping vibrational cutters; – surgical systems whose mechanism of action is through focused ultrasound for either thermal degradation (high intensity focused ultrasound – HIFU or HITU) or cavitation erosion (Histotripsy) of tissue remote from the ultrasound transducer; – surgical systems whose mechanism of action is through erosion of hard tissues in contact with the applicator tip, e.g. bone cutting or drilling. This document does not deal with the effectiveness or safety of ultrasonic surgical systems. This document does not deal with airborne noise from the systems, which can affect operators and patients. IEC 61847:2025 cancels and replaces the first edition published in 1998. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The upper frequency covered by this document has been raised from 60 kHz to 120 kHz. b) The hydrophone method of measuring ultrasound power is now normative. Because of difficulties in using the calorimetry method of measuring ultrasound power, it is no longer the primary approach. c) It is recognised that some systems can have more than one mode of vibration under user control, and the measurement techniques and declarations have been updated to address this. d) The high-frequency component, which relates to cavitation developed at the applicator tip and the vibration amplitude at which cavitation occurs is addressed. e) Specific requirements for measurement at excursion levels where no cavitation is present, and extrapolation to maximum excursion level(s) are described. f) Guidance is provided to adapt the methodology described to more complex designs and vibration patterns, excursion directions, and their output characteristics. g) Guidance is provided with respect to measurement tank arrangements for different types of systems. h) The list of ultrasound methods and systems not covered by this document was extended to incorporate recent developments. i) Definitions for cavitation related terms were added. j) Requirements for the measurement of directivity characteristics of the applicator tip were changed. k) Annex A was modified and Figure A.1 was added. l) New literature was added, and the references to other standards were updated."
+  },
+  {
+    "reference": "IEC TS 61895:1999",
+    "edition": "1.0",
+    "date": "1999-10-08",
+    "title": "Ultrasonics - Pulsed Doppler diagnostic systems - Test procedures to determine performance",
+    "language": "EN",
+    "description": "This technical specification describes: - test methods for measuring the performance of pulsed Doppler ultrasound systems; - Doppler test objects for carrying out these tests; and applies to - tests made on an overall pulsed Doppler ultrasound system, a system which is not disassembled or disconnected; - tests made on pulsed Doppler ultrasound systems whether they are stand-alone or as part of another ultrasound equipment."
+  },
+  {
+    "reference": "IEC TS 61949:2007",
+    "edition": "1.0",
+    "date": "2007-11-27",
+    "title": "Ultrasonics - Field characterization - In situ exposure estimation in finite-amplitude ultrasonic beams",
+    "language": "EN",
+    "description": "This Technical Specification describes means to allow \"attenuated\" acoustic quantities to be calculated under conditions where the associated acoustic measurements, made in water using standard procedures, may be accompanied by significant finite-amplitude effects. This Technical Specification establishes: - the general concept of the limits of applicability of acoustic measurements in water resulting from finite-amplitude acoustic effects; - a method to ensure that measurements are made under quasi-linear conditions in order to minimise finite-amplitude effects; - the definition of an acoustic quantity appropriate for establishing quasi-linear conditions; - a threshold value for the acoustic quantity as an upper limit for quasi-linear conditions; - a method for the estimation of attenuated acoustic quantities under conditions of nonlinear propagation in water."
+  },
+  {
+    "reference": "IEC 62127-1:2022",
+    "edition": "2.0",
+    "date": "2022-03-25",
+    "title": "Ultrasonics - Hydrophones - Part 1: Measurement and characterization of medical ultrasonic fields",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-08 IEC 62127-1:2022 specifies methods of use of calibrated hydrophones for the measurement in liquids of acoustic fields generated by ultrasonic medical equipment including bandwidth criteria and calibration frequency range requirements in dependence on the spectral content of the fields to be characterized. This document: - defines a group of acoustic parameters that can be measured on a physically sound basis; - defines a second group of parameters that can be derived under certain assumptions from these measurements, and called derived intensity parameters; - defines a measurement procedure that can be used for the determination of acoustic pressure parameters; - defines the conditions under which the measurements of acoustic parameters can be made using calibrated hydrophones; - defines procedures for correcting for limitations caused by the use of hydrophones with finite bandwidth and finite active element size, and for estimating the corresponding uncertainties. IEC 62127-1:2022 cancels and replaces the first edition published in 2007 and Amendment 1:2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) The upper frequency limit of 40 MHz has been removed. b) Hydrophone sensitivity definitions have been changed to recognize sensitivities as complex-valued quantities. c) Procedures and requirements for narrow-band approximation and broadband measurements have been modified; details on waveform deconvolution have been added. d) Procedures for spatial averaging correction have been amended. e) Annex D, Annex E and bibliography have been updated to support the changes of the normative parts. The contents of the Interpretation sheet 1 (2026-08) have been included in this copy."
+  },
+  {
+    "reference": "IEC 62127-1:2022/ISH1:2026",
+    "edition": "2.0",
+    "date": "2026-08-28",
+    "title": "Interpretation Sheet 1 - Ultrasonics - Hydrophones - Part 1: Measurement and characterization of medical ultrasonic fields",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62127-2:2025",
+    "edition": "2.0",
+    "date": "2025-01-07",
+    "title": "Ultrasonics - Hydrophones - Part 2: Calibration for ultrasonic fields",
+    "language": "EN-FR",
+    "description": "IEC 62127-2:2025 specifies: - absolute hydrophone calibration methods; - relative (comparative) hydrophone calibration methods. Recommendations and references to accepted literature are made for the various relative and absolute calibration methods in the frequency range covered by this document. This document is applicable to - hydrophones used for measurements made in water and in the ultrasonic frequency range 50 kHz to 100 MHz; - hydrophones employing piezoelectric sensor elements, designed to measure the pulsed wave and continuous wave ultrasonic fields generated by ultrasonic equipment; - hydrophones with or without a hydrophone pre-amplifier. IEC 62127-2:2025 cancels and replaces the first edition published in 2007, Amendment 1:2013 and Amendment 2:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the upper frequency limit of 40 MHz has been removed; b) hydrophone sensitivity definitions have been changed to recognize sensitivities as complex-valued quantities; c) directional response measurement and effective size determination procedures have been updated in 12.5.1 to align with recent changes in IEC 62127-3; d) Annex F has been amended to comprise a calibration technique for high-frequency complex-valued calibration; e) the reciprocity method description in Annex K was extended to also comprise focusing transducers."
+  },
+  {
+    "reference": "IEC 62127-3:2022",
+    "edition": "2.0",
+    "date": "2022-12-19",
+    "title": "Ultrasonics - Hydrophones - Part 3: Properties of hydrophones for ultrasonic fields",
+    "language": "EN-FR",
+    "description": "IEC 62127-3:2022 specifies relevant hydrophone characteristics. This document is applicable to: - hydrophones employing piezoelectric sensor elements, designed to measure the pulsed and continuous wave ultrasonic fields generated by ultrasonic equipment; - hydrophones used for measurements made in water; - hydrophones with or without an associated pre-amplifier. IEC 62127-3:2022 cancels and replaces the first edition published in 2007 and Amendment 1:2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) The upper frequency limit of 40 MHz has been removed. b) Hydrophone sensitivity definitions have been changed to recognize sensitivities as complex-valued quantities. c) Procedures to determine the effective hydrophone size have been changed according to the rationale outlined in Annex B. d) Requirements on the frequencies for which the effective hydrophone size shall be provided have been changed to achieve practicality for increased frequency bands. e) The new Annex B and Annex C have been added. f) Annex A has been updated to reflect the changes of the normative parts."
+  },
+  {
+    "reference": "IEC 62127-3:2022/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-02-24",
+    "title": "Amendment 1 - Ultrasonics - Hydrophones - Part 3: Properties of hydrophones for ultrasonic fields",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62306:2006",
+    "edition": "1.0",
+    "date": "2006-03-20",
+    "title": "Ultrasonics - Field characterisation - Test objects for determining temperature elevation in diagnostic ultrasound fields",
+    "language": "EN-FR",
+    "description": "This Technical Specification is applicable to medical diagnostic ultrasonic fields. This Technical Specification establishes: - the important characteristics and terminology for test objects containing an embedded thermal sensor to determine ultrasonic heating; - requirements for defining particular types of test object for specific applications; - examples of design features which will ensure that the performance specifications are achieved; - validation procedures; - general test methods for using test objects to determine standardised temperature rises."
+  },
+  {
+    "reference": "IEC 62359:2010",
+    "edition": "2.0",
+    "date": "2010-10-27",
+    "title": "Ultrasonics - Field characterization - Test methods for the determination of thermal and mechanical indices related to medical diagnostic ultrasonic fields",
+    "language": "EN-FR",
+    "description": "IEC 62359:2010 is applicable to medical diagnostic ultrasound fields. It establishes: - parameters related to thermal and non-thermal exposure aspects of diagnostic ultrasonic fields; - methods for the determination of an exposure parameter relating to temperature rise in theoretical tissue-equivalent models, resulting from absorption of ultrasound; - methods for the determination of an exposure parameter appropriate to certain non-thermal effects. This second edition cancels and replaces the first edition, published in 2005. It constitutes a technical revision. Major changes with respect to the previous edition include the following: - The methods of determination set out in the first edition of this standard were based on those contained in the American standard for Real-Time Display of Thermal and Mechanical Acoustic Output Indices on Diagnostic Ultrasound Equipment (ODS) and were intended to yield identical results. While this second edition also follows the ODS in principal and uses the same basic formulae and assumptions (see Annex A), it contains a few significant modifications which deviate from the ODS. - One of the primary issues dealt with in preparing this second edition of IEC 62359 was \"missing\" TI equations. In Edition 1 there were not enough equations to make complete \"at-surface\" and \"below-surface\" summations for TIS and TIB in combined-operating modes. Thus major changes with respect to the previous edition are related to the introduction of new calculations of thermal indices to take into account both \"at-surface\" and \"below-surface\" thermal effects. The contents of the corrigendum of March 2011 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62359:2010/COR1:2011",
+    "edition": "2.0",
+    "date": "2011-03-15",
+    "title": "Corrigendum 1 - Ultrasonics - Field characterization - Test methods for the determination of thermal and mechanical indices related to medical diagnostic ultrasonic fields",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62359:2010/AMD1:2017",
+    "edition": "2.0",
+    "date": "2017-09-29",
+    "title": "Amendment 1 - Ultrasonics - Field characterization - Test methods for the determination of thermal and mechanical indices related to medical diagnostic ultrasonic fields",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62462:2017",
+    "edition": "2.0",
+    "date": "2017-07-26",
+    "title": "Ultrasonics - Output test - Guidance for the maintenance of ultrasound physiotherapy systems",
+    "language": "EN",
+    "description": "IEC TS 62462:2017(E) describes methods meant to assist users of ultrasound physiotherapy systems in checking the performance of such systems. It is applicable primarily to physiotherapists, general medical practitioners, chiropractors, osteopaths, beauty therapists, sports professionals, biomedical engineers, medical physicists, medical device service agents, commercial testers, test houses or manufacturers. This new edition includes the following significant technical change with respect to the previous edition: it includes a novel method for periodic testing regarding possible changes of the effective radiating area using thermochromic absorbers in a new Annex E."
+  },
+  {
+    "reference": "IEC 62555:2013",
+    "edition": "1.0",
+    "date": "2013-11-19",
+    "title": "Ultrasonics - Power measurement - High intensity therapeutic ultrasound (HITU) transducers and systems",
+    "language": "EN-FR",
+    "description": "IEC 62555:2013 establishes general principles relevant to HITU fields for the use of radiation force balances in which an obstacle (target) intercepts the sound field to be measured; specifies a calorimetric method of determining the total emitted acoustic power of ultrasonic transducers based on the measurement of thermal expansion of a fluid-filled target; specifies requirements related to the statement of electrical power characteristics of ultrasonic transducers; provides guidance related to the avoidance of acoustic cavitation during measurement; provides guidance related to the measurement of HITU transducers of different construction and geometry, including collimated, diverging and convergent transducers, and multi-element transducers; provides guidance on the choice of the most appropriate measurement method; and provides information on assessment of overall measurement uncertainties. This International Standard is applicable to the measurement of ultrasonic power generated by HITU equipment up to 500 W in the frequency range from 0,5 MHz to 5 MHz. HITU equipment may generate convergent, collimated or divergent fields. For frequencies less than 500 kHz, no validations exist and the user should assess the uncertainties of the power measurement and measurement system at the frequencies of operation. This International Standard does not apply to ultrasound equipment used for physiotherapy, for lithotripsy for general pain relief."
+  },
+  {
+    "reference": "IEC TS 62556:2014",
+    "edition": "1.0",
+    "date": "2014-04-24",
+    "title": "Ultrasonics - Field characterization - Specification and measurement of field parameters for high intensity therapeutic ultrasound (HITU) transducers and systems",
+    "language": "EN",
+    "description": "IEC TS 62556:2014 is a technical specification applicable to high intensity therapeutic ultrasound (HITU) devices. It specifies the relevant parameters for quantifying the field; the measurement methods at relatively low output levels and methodology for extrapolating these to higher therapeutic level fields; some considerations of sidelobes and pre-focal maxima; and parameters relevant to HITU transducers of different construction and geometry, including non-focusing, focusing with or without lenses, collimated, diverging and convergent transducers, multi-element transducers, scanning transducers and multiple sources. This technical specification is intended to support the ultrasonic measurement requirements given in IEC 60601-2-62. These specifications would have use in quality assurance, safety testing, and the standardization of communications regarding the clinical performance of HITU systems. Where possible, this technical specification incorporates specifications from other related standards. This technical specification does not apply to the following types of devices, which are covered by other standards: lithotripters (see IEC 61846); surgical equipment (see IEC 61847); and physiotherapy devices (see IEC 61689)."
+  },
+  {
+    "reference": "IEC TS 62558:2011",
+    "edition": "1.0",
+    "date": "2011-03-23",
+    "title": "Ultrasonics - Real-time pulse-echo scanners - Phantom with cylindrical, artificial cysts in tissue-mimicking material and method for evaluation and periodic testing of 3D-distributions of void-detectability ratio (VDR)",
+    "language": "EN",
+    "description": "IEC/TS 62558:2011(E) specifies essential characteristics of a phantom and method for the measurement of void-detectability ratio for medical ultrasound systems and related transducers. It is restricted to the aspect of long-term reproducibility of testing results. Medical diagnostic ultrasound systems and related transducers need periodic testing as the quality of medical decisions based on ultrasonic images may decrease over time due to progressive degradation of essential systems characteristics. The TMM (Tissue Mimicking Material) phantom is intended to be used to measure and to enable documentation of changes in void-detectability ratio in periodic tests over years of use. This technical specification establishes: - Important characteristics and requirements for a TMM 3D artificial cyst phantom using anechoic voids - A design example of a 3D artificial cyst phantom, the necessary test equipment and use of relevant computer software algorithms. This technical specification is currently applicable for linear array transducers. A uniformity test prior to void-detectability ratio (VDR) measurement is recommended."
+  },
+  {
+    "reference": "IEC TR 62649:2010",
+    "edition": "1.0",
+    "date": "2010-04-28",
+    "title": "Requirements for measurement standards for high intensity therapeutic ultrasound (HITU) devices",
+    "language": "EN",
+    "description": "IEC/TR 62649:2010(E) is relevant to the measurement and specification of ultrasound fields intended for medical therapeutic purposes. Lithotripsy and physiotherapy are excluded, since there are existing International Standards for these applications. IEC/TR 62649:2010 establishes: - topics where there is a consensus that the development of International Standards would benefit the industries and/or patients; - topics where the writing of standards should start immediately; - topics where the writing of technical specifications should start immediately in order to gain practical experience and establish consensus prior to standardisation; - topics which require future standardisation but where further research is required before initiating the writing of standards or technical specifications. IEC/TR 62649:2010 addresses primarily the requirements for measurement standards related to high intensity therapeutic ultrasound (HITU) [also known as high intensity focused ultrasound (HIFU)] fields which are both high intensity and focused and where the main mechanism for action is thermal. However, aspects of the discussion, conclusions and any resulting standards or technical specifications may also be relevant to therapeutic applications which are either focused or high intensity or where the main mechanism is not thermal. Scientific literature has been reviewed and responses to a questionnaire which was sent to experts around the world are reported."
+  },
+  {
+    "reference": "IEC TS 62736:2023",
+    "edition": "2.0",
+    "date": "2023-01-13",
+    "title": "Ultrasonics - Pulse-echo scanners - Simple methods for periodic testing to verify stability of an imaging system's elementary performance",
+    "language": "EN",
+    "description": "IEC TS 62736:2023 specifies requirements and methods for periodic testing of the quality of diagnostic medical ultrasound systems using reflection-mode (pulse-echo) imaging. Image measurement and interpretation workstations are included. This document includes minimum sets of such tests intended for frequent users of medical ultrasound systems, for quality assurance professionals in their organizations, or those hired from other quality-control and/or service-provider organizations. The procedures are for a wide range of more common diagnostic ultrasound systems, currently operating from 1 MHz to 40 MHz, although available phantoms meet the specifications only from 1 MHz to 23 MHz. The tests are defined in three levels, with the simplest and most cost-effective performed most frequently: - Level 1 comprises five quick tests/observations to be performed daily to monthly by those normally operating the systems. - Level 2 includes one necessary test for all systems in addition to those of Level 1, two Level 1 tests performed more rigorously, two tests that are for special situations or equipment, and one that is just optional, included because it is highly developed. Level 2 tests are performed annually by those with meaningful quality assurance training. - Level 3 extends the two special situations tests to all systems, adds one optional test and includes a periodic review of the QA programme. Frequent distance-measurement accuracy tests are recommended in this document only for certain classes of position encoding that are not now known to be highly stable and without bias. QA in all dimensions is recommended in this document as the first test for such systems. The test methodology is applicable for transducers operating in the 1 MHz to 23 MHz frequency range. The types of transducers used with these scanners include a) electronic phased arrays, b) linear arrays, c) convex arrays, d) mechanical transducers, e) two-dimensional arrays operated in a 2D imaging mode, f) transducers operating in 3D imaging mode for a limited number of sets of reconstructed 2D images, and g) three-dimensional scanning transducers based on a combination of the above types. All tests on scanners considered here evaluate basic pulse-echo techniques and might detect most failures in other modes. Dedicated Doppler systems, or other systems for detection of blood motion, are excluded from this scope as specialized equipment is required to test them. Such test equipment can be specific to the intended application of the Doppler system. This document includes definition of terms and specifies methods for measuring the maximum relative depth of penetration of real-time ultrasound B MODE scanners, though this penetration measure is listed as less frequently applied. IEC TS 62736:2023 cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) expansion of the applicable types of transducers and the frequency range of application; b) extension of test protocols and image assessments, including for very-low-echo spheres; c) revision of phantom designs and their acoustic properties, consistent with the second edition of IEC TS 62791; d) inclusion of luminance tests for system-image display consistency at scanner and remote monitors; e) addition of special considerations for 3D-imaging transducers (Annex D) and workbook examples (Annex E)."
+  },
+  {
+    "reference": "IEC TR 62781:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Ultrasonics - Conditioning of water for ultrasonic measurements",
+    "language": "EN",
+    "description": "IEC/TR 62781:2012(E), which is a technical report, is applicable to all measurements of ultrasonic fields where water is the transmission medium. Water provides an inexpensive and readily available medium with characteristic acoustic impedance comparable to biological tissue. However, basic tap water is far from optimum for ultrasonic measurement as it contains many dissolved, absorbed and suspended contaminants. Measurements can be affected in many ways by these impurities. This technical aims to provide a unified source to establish a water treatment process for ultrasonic measurements. The quality and treatment methods for water used within a radiation force balance (RFB) may be different from that required for hydrophone based acoustic measurements. Chemical based methods of water treatment (e.g. algaecides) may be appropriate for these applications. However, in this document, chemical means are noted but appropriately discouraged for acoustic pressure/intensity measurements. This Technical Report describes methods for: - degassing water to be used in ultrasonic measurements; - to decrease the ionic content of water to be used in ultrasonic measurements; - to decrease the biological content of water to be used in ultrasonic measurements; and - to reduce the suspended particulate content of water to be used in ultrasonic measurements."
+  },
+  {
+    "reference": "IEC TS 62791:2022",
+    "edition": "2.0",
+    "date": "2022-07-18",
+    "title": "Ultrasonics - Pulse-echo scanners - Low-echo sphere phantoms and method for performance testing of grey-scale medical ultrasound scanners applicable to a broad range of transducer types",
+    "language": "EN",
+    "description": "IEC TS 62791:2022 defines terms and specifies methods for quantifying detailed imaging performance of real-time, ultrasound B-mode scanners. Detail is assessed by imaging phantoms containing small, low-echo spherical targets in a tissue-mimicking background and analysing sphere detectability. Specifications are given for phantom properties. In addition, procedures are described for acquiring images, conducting qualitative analysis of sphere detectability, and carrying out quantitative analysis by detecting sphere locations and computing their contrast-to-noise ratios. With appropriate choices in design, results can be applied, for example: • to assess the relative ability of scanner configurations (scanner make and model, scan head and console settings) to delineate the boundary of a tumour or identify specific features of tumours; • to choose scanner control settings, such as frequency or the number and location of transmit foci, which maximize spatial resolution; • to detect defects in probes causing enhanced sidelobes and spurious echoes. The types of transducers used with these scanners include: a) phased arrays, b) linear arrays, c) convex arrays, d) mechanical sector scanners, e) 3-D probes operating in 2-D imaging mode, and f) 3-D probes operating in 3-D imaging mode for a limited number of sets of reconstructed 2 D images. The test methodology is applicable for transducers operating in the 1 MHz to 23 MHz frequency range. IEC TS 62791:2022 cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) It introduces necessary corrections to the analysis methods; these have been published in the literature. b) It increases the range of contrast levels of low-echo spheres in phantoms that meet this Technical Specification. Previous specification was -20 dB, but two additional levels, -6 dB and either -30 dB or, if possible, -40 dB, are now specified. c) It includes a wider range of uses of the methodology, including testing the effectiveness of scanner pre-sets for specific clinical tasks and detecting flaws in transducers and in beamforming. d) It decreases the manufacturing cost by decreasing phantoms' dimensions and numbers of low-echo, backscattering spheres embedded in each phantom."
+  },
+  {
+    "reference": "IEC TR 62799:2013",
+    "edition": "1.0",
+    "date": "2013-09-17",
+    "title": "Models for evaluation of thermal hazard in medical diagnostic ultrasonic fields",
+    "language": "EN",
+    "description": "IEC/TR 62799:2013(E), which is a technical report, provides background information for users of IEC 62359 to understand the relative merits of several of the potential replacements for the thermal index as described in IEC 60601-2-37 and IEC 62359. The report discusses parameters related to thermal aspects of diagnostic ultrasonic fields; and methods for the determination of an exposure parameter relating to temperature rise in theoretical tissue-equivalent models, resulting from absorption of ultrasound. The report is intended to be used: - by those involved in the development and maintenance of IEC 62359; - manufacturers of medical electrical equipment for risk assessment; - and health care regulatory authorities, test houses and other organizations responsible for implementing standards for medical electrical equipment."
+  },
+  {
+    "reference": "IEC TS 62903:2023",
+    "edition": "2.0",
+    "date": "2023-06-13",
+    "title": "Ultrasonics - Measurements of electroacoustical parameters and acoustic output power of spherically curved transducers using the self-reciprocity method",
+    "language": "EN",
+    "description": "IEC TS 62903:2023: a ) establishes the free-field convergent spherical wave self-reciprocity method for ultrasonic transducer calibration, b) establishes the measurement conditions and experimental procedure required to determine the transducer's electroacoustic parameters and acoustic output power using the self-reciprocity method, c) establishes the criteria for checking the reciprocity of these transducers and the linear range of the focused field, and d) provides guiding information for the assessment of the overall measurement uncertainties for radiation conductance. This document is applicable to: 1) circular spherically curved concave focusing transducers without a centric hole working in the linear amplitude range, 2) measurements in the frequency range 0,5 MHz to 15 MHz, and 3) acoustic pressure amplitudes in the focused field within the linear amplitude range. Characterization and sensitivity calibration of hydrophones using the reciprocity method are not addressed in this document but covered in IEC 62127-2 and IEC 60565-1. IEC TS 62903:2023 cancels and replaces the first edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Several quantities are recognized as complex-valued quantities in the definitions and in the main text. b) Annex I was added to provide typical measurement ranges and to provide example calibration results."
+  },
+  {
+    "reference": "IEC TS 63001:2024",
+    "edition": "2.0",
+    "date": "2024-02-08",
+    "title": "Measurement of cavitation noise in ultrasonic baths and ultrasonic reactors",
+    "language": "EN",
+    "description": "IEC TS 63001:2024 provides a technique of measurement and evaluation of ultrasound in liquids for use in cleaning devices, equipment, and ultrasonic reactors. It specifies - the cavitation measurement at frequencies between harmonics of the operating frequency f0, - the cavitation measurement derived by integrating broadband cavitation noise energy, - the cavitation measurement by extraction of broadband spectral components. This document covers the measurement and evaluation of cavitation, but not its secondary effects (cleaning results, sonochemical effects, etc.). Further details regarding the generation of cavitation noise in ultrasonic baths and ultrasonic reactors are provided in Annex A. IEC TS 63001:2024 cancels and replaces the first edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of a new method of measurement: the measurement of integrated broadband cavitation energy between two frequency bounds."
+  },
+  {
+    "reference": "IEC 63009:2019",
+    "edition": "1.0",
+    "date": "2019-07-11",
+    "title": "Ultrasonics - Physiotherapy systems - Field specifications and methods of measurement in the frequency range 20 kHz to 500 kHz",
+    "language": "EN-FR",
+    "description": "IEC 63009:2019 is applicable to ultrasonic equipment designed for physiotherapy containing an ultrasonic transducer generating ultrasound in the frequency range 20 kHz to 500 kHz. This document only relates to ultrasonic physiotherapy equipment employing a single plane non-focusing circular transducer per treatment head, producing static beams perpendicular to the face of the treatment head. This document specifies: • methods of measurement and characterization of the output of ultrasonic physiotherapy equipment based on reference testing methods; • characteristics to be specified by manufacturers of ultrasonic physiotherapy equipment; • methods of measurement and characterization of the output of ultrasonic physiotherapy equipment based on routine testing methods; • acceptance criteria for aspects of the output of ultrasonic physiotherapy equipment. The therapeutic value and methods of use of ultrasonic physiotherapy equipment are not within the scope of this document. Excluded equipment includes, but is not limited to: • equipment in which ultrasound waves are intended to destroy conglomerates (for example stones in the kidneys or the bladder) or tissue of any type; • equipment in which a tool is driven by ultrasound (for example surgical scalpels, phacoemulsifiers, dental scalers or intracorporeal lithotripters); • equipment in which ultrasound waves are intended to sensitize tissue to further therapies (for example radiation or chemotherapy); • equipment in which ultrasound waves are intended to treat cancerous (i.e., malignant) or pre-cancerous tissue, or benign masses, such as High Intensity Focused Ultrasound (HIFU) or High Intensity Therapeutic Ultrasound (HITU)."
+  },
+  {
+    "reference": "IEC 63045:2020",
+    "edition": "1.0",
+    "date": "2020-05-25",
+    "title": "Ultrasonics - Non-focusing short pressure pulse sources including ballistic pressure pulse sources - Characteristics of fields",
+    "language": "EN-FR, EN",
+    "description": "IEC 63045:2020 is applicable to – therapy equipment using extracorporeally induced non-focused or weakly focused pressure pulses; – therapy equipment producing extracorporeally induced non-focused or weakly focused mechanical energy, where the pressure pulses are released as single events of duration up to 25 µs. This document does not apply to – therapy equipment using focusing pressure pulse sources such as extracorporeal lithotripsy equipment; – therapy equipment using other acoustic waveforms like physiotherapy equipment, low intensity ultrasound equipment and HIFU/HITU equipment. This document specifies – measurable parameters which are used in the declaration of the acoustic output of extracorporeal equipment producing a non-focused or weakly focused pressure pulse field, – methods of measurement and characterization of non-focused or weakly focused pressure pulse fields. This document has been developed for equipment intended for use in pressure pulse therapy, for example therapy of orthopaedic pain like shoulder pain, tennis elbow pain, heel spur pain, muscular trigger point therapy, lower back pain, etc. It is not intended to be used for extracorporeal lithotripsy equipment (as described in IEC 61846), physiotherapy equipment using other waveforms (as described in IEC 61689) and HIFU/HITU equipment (see IEC 60601 2-62 and IEC TR 62649)."
+  },
+  {
+    "reference": "IEC TS 63070:2019",
+    "edition": "1.0",
+    "date": "2019-02-15",
+    "title": "Ultrasonics - Field characterization - Infrared imaging techniques for determining temperature elevation in tissue-mimicking material and at the radiation surface of a transducer in still air",
+    "language": "EN",
+    "description": "IEC TS 63070:2019 is applicable to ultrasonic equipment designed for the medical field of application. It covers both diagnostic and therapeutic (physiotherapy and HITU) equipment. This document describes transducer evaluation by the infrared imaging technique using a split TMM-phantom for qualitative and quantitative estimation of temperature distributions in tissue-mimicking material, resulting from absorption of ultrasound and from heating of the transducer itself. This document also describes a method to measure transducer-surface temperature, while the transducer is driven under the still-air condition."
+  },
+  {
+    "reference": "IEC TS 63081:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Ultrasonics - Methods for the characterization of the ultrasonic properties of materials",
+    "language": "EN",
+    "description": "IEC TS 63081:2019: • defines key quantities relevant to ultrasonic materials characterization; • specifies methods for direct measurement of many key ultrasonic materials parameters. This document is applicable to all measurements of properties of passive acoustic materials under drive conditions that are not subject to nonlinear acoustic propagation. Whilst there are materials properties that may be of interest in a nonlinear drive regime, these are currently outside the scope of this document."
+  },
+  {
+    "reference": "IEC 63305:2024",
+    "edition": "1.0",
+    "date": "2024-02-27",
+    "title": "Underwater acoustics - Calibration of acoustic wave vector receivers in the frequency range 5 Hz to 10 kHz",
+    "language": "EN-FR",
+    "description": "IEC 63305:2024 specifies methods and procedures for calibration of vector receivers in the frequency range 5 Hz to 10 kHz, which are applicable to vector receivers based on the two different principles. In addition, it describes an absolute method of inertial vector receiver calibration in air using optical interferometry. Usually, acoustic wave vector receivers are designed and constructed based on one of two principles. One is the sound pressure difference (gradient) principle. When measuring with this sensor, the vector receiver is rigidly fixed on a mount and supported in water. The other is the co-vibrating (inertial) principle. When measuring with this sensor, the vector receiver is suspended on a mount and supported in water in a non-rigid manner, which allows the vector receiver co-vibrate in the same direction as the sound particle in the sound wave field. Many methods have been used to calibrate vector receivers, such as free-field calibration, calibration in standing wave tube and calibration in a travelling wave tube."
+  },
+  {
+    "reference": "IEC 63412-1:2024",
+    "edition": "1.0",
+    "date": "2024-07-16",
+    "title": "Ultrasonics - Shear-wave elastography - Part 1: Specifications for the user interface",
+    "language": "EN-FR",
+    "description": "IEC 63412-1:2024 specifies quantities and parameters which it is essential to provide to the user of shear-wave elastography systems, many in the image headers. This document is applicable to medical-diagnostic, ultrasonic shear-wave elastography systems, exciting (internally or externally) shear waves and tracking their propagation within biological tissue."
+  }
+]

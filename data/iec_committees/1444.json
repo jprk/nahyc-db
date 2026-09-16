@@ -1,0 +1,42 @@
+[
+  {
+    "reference": "CISPR TR 29:2020",
+    "edition": "2.0",
+    "date": "2020-05-07",
+    "title": "Television broadcast receivers and associated equipment - Immunity characteristics - Methods of objective picture assessment",
+    "language": "EN",
+    "description": "CISPR TR 29:2020, which is a technical report, describes the algorithms used for objective picture assessment in immunity tests of analogue and digital TV broadcast receivers and associated equipment. The algorithms used were developed on the basis of the specifications originally included in Annex K of CISPR 20:2002/AMD2:2004, the later edition of which has been replaced by CISPR 35:2016. The method of objective picture assessment described in that annex employs the same interference mechanism and is based on the same wanted signal definition as specified in CISPR 35 for subjective picture assessment. Objective picture assessment, therefore, constitutes an alternative to the subjective method and offers the advantage of direct correlation to the subjective method. This second edition cancels and replaces the first edition published in 2004. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - update of the references, and - editorial improvements."
+  },
+  {
+    "reference": "CISPR 32:2015",
+    "edition": "2.0",
+    "date": "2015-03-31",
+    "title": "Electromagnetic compatibility of multimedia equipment - Emission requirements",
+    "language": "EN-FR, ES",
+    "description": "CISPR 32:2015 applies to multimedia equipment (MME) as defined in 3.1.24 and having a rated r.m.s. AC or DC supply voltage not exceeding 600 V. This publication covers two classes of MME (Class A and Class B). The MME classes are specified in Clause 4. The objectives of this publication are: 1) to establish requirements which provide an adequate level of protection of the radio spectrum, allowing radio services to operate as intended in the frequency range 9 kHz to 400 GHz; 2) to specify procedures to ensure the reproducibility of measurement and the repeatability of results. This second edition cancels and replaces the first edition published in 2012. This edition constitutes a technical revision. The contents of the corrigendum of June 2016 have been included in this copy."
+  },
+  {
+    "reference": "CISPR 32:2015/COR1:2016",
+    "edition": "2.0",
+    "date": "2016-06-28",
+    "title": "Corrigendum 1 - Electromagnetic compatibility of multimedia equipment - Emission requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "CISPR 32:2015/AMD1:2019",
+    "edition": "2.0",
+    "date": "2019-10-01",
+    "title": "Amendment 1 - Electromagnetic compatibility of multimedia equipment - Emission requirements",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "CISPR 35:2016",
+    "edition": "1.0",
+    "date": "2016-08-16",
+    "title": "Electromagnetic compatibility of multimedia equipment - Immunity requirements",
+    "language": "EN-FR",
+    "description": "CISPR 35:2016 applies to multimedia equipment (MME) having a rated AC or DC supply voltage not exceeding 600 V. The objectives of this document are: - to establish requirements which provide an adequate level of intrinsic immunity so that the MME will operate as intended in its environment in the frequency range 0 kHz to 400 GHz; and - to specify procedures to ensure the reproducibility of tests and the repeatability of results."
+  }
+]

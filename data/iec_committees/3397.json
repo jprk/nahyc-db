@@ -1,0 +1,674 @@
+[
+  {
+    "reference": "ISO/IEC 1001:2012",
+    "edition": "1.0",
+    "date": "2012-07-30",
+    "title": "Information technology - File structure and labelling of magnetic tapes for information interchange",
+    "language": "EN",
+    "description": "ISO/IEC 1001:2012 specifies the file structure and the labelling of magnetic tapes for the interchange of information between users of information processing systems. It specifies volume and file structure, basic characteristics of the blocks containing the records constituting the file, recorded labels for identifying files, file sections and volumes of magnetic tapes, and four nested levels of interchange. ISO/IEC 1001:2012 also specifies requirements for the processes which are provided within information processing systems, to enable information to be interchanged between different systems, utilizing recorded magnetic tape as the medium of interchange. For this purpose it specifies the functions to be provided within systems which are intended to originate or receive magnetic tape volumes which conform to it."
+  },
+  {
+    "reference": "ISO/IEC 1863:1990",
+    "edition": "1.0",
+    "date": "1990-04-26",
+    "title": "Information processing - 9-track, 12,7 mm (0,5 in) wide magnetic tape for information interchange using NRZ1 at 32 ftpmm (800 ftpi) - 32 cpmm (800 cpi)",
+    "language": "EN, FR",
+    "description": "Provides a format and recording standard for 9-track, 12,7 mm /0,5 in) wide magnetic tape and reels to be used for information interchange among information processing systems, communication systems, and associated equipment utilizing the 7-bit coded character set specified in ISO 646 or its 7-bit or 8-bit extensions specified in ISO 2022."
+  },
+  {
+    "reference": "ISO/IEC 1864:1992",
+    "edition": "4.0",
+    "date": "1992-06-11",
+    "title": "Information technology - Unrecorded 12,7 mm (0,5 in) wide magnetic tape for information interchange - 32 ftpmm (800 ftpi), NRZ1, 126 ftpmm (3 200 ftpi) phase encoded and 356 ftpmm (9 042 ftpi), NRZ1",
+    "language": "EN",
+    "description": "Specifies the characteristics of the magnetic tape with reel, to enable magnetic and mechanical interchangeability of such tape between information processing systems."
+  },
+  {
+    "reference": "ISO/IEC 3788:1990",
+    "edition": "2.0",
+    "date": "1990-07-24",
+    "title": "Information processing - 9-track, 12,7 mm (0,5 in) wide magnetic tape for information interchange using phase encoding at 126 ftpmm (3 200 ftpi), 63 cpmm (1 600 cpi)",
+    "language": "EN, FR",
+    "description": "Provides a format and recording standard for 9-track, 12,7 (0,5 in) wide magnetic tape and reels to be used for information interchange among information processing systems, communication systems, and associated equipment utilizing the 7-bit coded character set specified in ISO 646 or its 7-bit or 8-bit extensions specified in ISO 2022. References: ISO 962; 1001; 1864."
+  },
+  {
+    "reference": "ISO/IEC 9660:2023",
+    "edition": "1.0",
+    "date": "2023-01-31",
+    "title": "Information processing - Volume and file structure of CD-ROM for information interchange",
+    "language": "EN",
+    "description": "This document specifies the volume and file structure of compact disc read-only memory (CD-ROM) for the interchange of information between users of information processing systems. This document specifies: — the attributes of the volume and the descriptors recorded on it; — the relationship among volumes of a volume set; — the placement of the files; — the attributes of the files; — record structures intended for use in the input or output data streams of an application program when such data streams are required to be organized as sets of records; — three nested levels of medium interchange; — two nested levels of implementation; — requirements for the processes which are provided within information processing systems, to enable information to be interchanged between different systems, utilizing recorded CD-ROM as the medium of interchange; for this purpose, this document specifies the functions to be provided within systems which are intended to originate or receive CD-ROM which conform to this document."
+  },
+  {
+    "reference": "ISO/IEC 9661:1994",
+    "edition": "2.0",
+    "date": "1994-12-22",
+    "title": "Information technology - Data interchange on 12,7 mm wide magnetic tape cartridges - 18 tracks, 1 491 data bytes per millimetre",
+    "language": "EN",
+    "description": "Cancels and replaces the first edition (1988). Specifies the physical and magnetic characteristics of a 12,7 mm wide, 18 track magnetic tape cartridge to enable interchangeability of such cartridges. Also specifies the quality of the recorded signals, the format and recording method thus allowing, together with ISO 1001 for magnetic tape labelling, full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 10089:1991",
+    "edition": "1.0",
+    "date": "1991-05-23",
+    "title": "Information technology - 130 mm rewritable optical disk cartridge for information interchange",
+    "language": "EN, FR",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 10090:1992",
+    "edition": "1.0",
+    "date": "1992-11-05",
+    "title": "Information technology - 90 mm optical disk cartridges, rewritable and read only, for data interchange",
+    "language": "EN",
+    "description": "Specifies the conditions for conformance testing and the Reference Drive; the mechanical and physical characteristics of the cartridge, so as to provide mechanical interchangeability between data processing systems; the format of the information on the disk, both embossed and user-written; the characteristics of the embossed information on the disk; the magneto-optical characteristics of the disk, enabling data processing systems to write data onto the disk; the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk."
+  },
+  {
+    "reference": "ISO/IEC 10149:1995",
+    "edition": "2.0",
+    "date": "1995-07-06",
+    "title": "Information technology - Data interchange on read-only 120 mm optical data disks (CD-ROM)",
+    "language": "EN",
+    "description": "Specifies the characteristics of 120 mm optical disks (CD-ROM) for information interchange between information processing systems and for information storage."
+  },
+  {
+    "reference": "ISO/IEC 10885:1993",
+    "edition": "1.0",
+    "date": "1993-11-11",
+    "title": "Information technology - 356 mm optical disk cartridge for information interchange - Write once",
+    "language": "EN",
+    "description": "Specifies definitions of essential concepts, the environment in which the characteristics shall be tested, the environments in which the cartridge shall be operated and stored, the mechanical, physical and dimensional characteristics of the case and of the optical disk, the optical characteristics and the recording characteristics for recording the information once and for reading it many times, so as to provide physical interchangeability between data processing systems, the format for the physical disposition of the tracks and sectors, the error correction codes, the modulation methods used for recording and the quality of the recorded signals."
+  },
+  {
+    "reference": "ISO/IEC 10995:2011",
+    "edition": "2.0",
+    "date": "2011-06-17",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - Test method for the estimation of the archival lifetime of optical media",
+    "language": "EN",
+    "description": "ISO/IEC 10995:2011 specifies an accelerated aging test method for estimating the life expectancy for the retrievability of information stored on recordable or rewritable optical disks. This test includes details on the following formats: DVD-R/-RW/-RAM, +R/+RW. It can be applied to additional optical disk formats with the appropriate specification substitutions and can be updated in the future as required. ISO/IEC 10995:2011 includes - stress conditions, - assumptions, - ambient conditions: controlled storage conditions, e.g. 25 °C and 50 % RH, using the Eyring model; and uncontrolled storage conditions, e.g. 30 °C and 80 % RH, using the Arrhenius model, - evaluation system description, - specimen preparation, - data acquisition procedure, and - data interpretation."
+  },
+  {
+    "reference": "ISO/IEC 11319:1993",
+    "edition": "1.0",
+    "date": "1993-08-05",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge to enable interchangeability of such cartridges. It also provides a format and recording method, thus allowing, together with ISO 1001 for Magnetic Tape Labelling, full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 11321:1992",
+    "edition": "1.0",
+    "date": "1992-12-30",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DATA/DAT format",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics and also the quality of the recorded signal, the recorded format (DATA/DAT) and the recording method, thereby allowing data interchange between drives by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 11557:1992",
+    "edition": "1.0",
+    "date": "1992-12-30",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DDS-DC format using 60 m and 90 m length tapes",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics and also the quality of the recorded signal, the recording method and the recorded format (Digital Data Storage - Data Compression, DDS-DC), thereby allowing data interchange between drives by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 11558:1992",
+    "edition": "1.0",
+    "date": "1992-08-27",
+    "title": "Information technology - Data compression for information interchange - Adaptive coding with embedded dictionary - DCLZ Algorithm",
+    "language": "EN",
+    "description": "Specifies a lossless compression algorithm (DCLZ - Data Compression according to Lempel and Ziv) to reduce the number of bits required to represent information coded by means of 8-bit bytes. This algorithm is particularly useful when information has to be recorded on an interchangeable medium. Its use is not limited to this application."
+  },
+  {
+    "reference": "ISO/IEC 11559:1993",
+    "edition": "1.0",
+    "date": "1993-08-26",
+    "title": "Information technology - Data interchange on 12,7 mm wide 18-track magnetic tape cartridges - Extended format",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics to enable interchangeability of the cartridges, the quality of the recorded signals, the format and the recording method, thus allowing, together with ISO 1001, full data interchange, extensions to the transformation of data before it is formatted as in ISO 9661. Cartridge and recording method being identical with those described in ISO 9661. The permissible routes for the flow of data are shown in annex H."
+  },
+  {
+    "reference": "ISO/IEC 12042:1993",
+    "edition": "1.0",
+    "date": "1993-12-09",
+    "title": "Information technology - Data compression for information interchange - Binary arithmetic coding algorithm",
+    "language": "EN",
+    "description": "Specifies an algorithm for the reduction of the number of bits required to represent information. This process is known as data compression. The algorithm uses binary arithmetic coding and provides lossless compression and is intended for use in information interchange."
+  },
+  {
+    "reference": "ISO/IEC 12246:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge dual azimuth format for information interchange - Helical scan recording",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge to enable interchangeability of such cartridges. It also specifies the quality of the recorded signals, the format and the recording method, thus allowing, together with ISO 1001 for Magnetic Tape Labelling, full data interchange by means of such magnetic tape cartridges. It is based on ISO/IEC 11319, but uses Dual Azimuth Recording to allow the raw capacity to be doubled. The format supports variable length Logical Records, high speed search, and the use of a registered data compression algorithm."
+  },
+  {
+    "reference": "ISO/IEC 12247:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DDS format using 60 m and 90 m length tapes",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics. Also specifies the quality of the recorded signals, the recorded format and the recording method, thereby allowing data interchange between drives by means of such magnetic tape cartridges. Specifies two types of cartridges referred to as type A (magnetic tape of nominal thickness of 13 µm and a nominal length of up to 60,5 m) and type B (magnetic tape of a nominal thickness of 9 µm and a nominal length of up to 92,0 m)."
+  },
+  {
+    "reference": "ISO/IEC 12248:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DATA/DAT-DC format using 60 m and 90 m length tapes",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 3,81 mm wide magnetic tape cartridge to enable interchangeability of such cartridges. It also specifies the quality of the recorded signals, the recorded format and the recording method, thereby allowing data interchange between drives by means of such magnetic tape cartridges. The format used is known as DATA/DAT-DC. This International Standard specifies two types of cartridges which, for the purpose of this International Standard, are referred to as Type A and Type B. For Type A, the magnetic tape has a nominal thickness of 13 μm and a nominal length of up to 60,5 m. For Type B, the magnetic tape has a nominal thickness of 9 μm a length of up to 92,0 m. Information interchange between systems by means of this International Standard also requires the use, at a minimum, of a labelling and file structure and an interchange code which are agreed upon by the interchange parties. It is not within the scope of this International Standard to specify the labelling and file structure, or the interchange code."
+  },
+  {
+    "reference": "ISO/IEC 12862:2011",
+    "edition": "2.0",
+    "date": "2011-04-27",
+    "title": "Information technology - 120 mm (8,54 Gbytes per side) and 80 mm (2,66 Gbytes per side) DVD recordable disk for dual layer (DVD-R for DL)",
+    "language": "EN",
+    "description": "ISO/IEC 12862:2011 specifies the mechanical, physical and optical characteristics of a 120 mm and an 80 mm dual layer DVD recordable disk to enable the interchange of such disks. It specifies the quality of the pre-recorded, unrecorded and recorded signals, the format of the data, the format of the information zone, the format of the unrecorded zone, and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as a DVD recordable disk for dual layer (DVD-R for DL). ISO/IEC 12862:2011 specifies the following: 120 mm and 80 mm nominal diameter disks that can be either single- or double-sided; the conditions for conformance; the environments in which the disk is to be operated and stored; the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the pre-recorded information on an unrecorded disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; the format of the data and the recorded information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; the characteristics of the signals from pre-recorded and unrecorded areas on the disk, enabling data processing systems to read the pre-recorded information and to write to the disks; the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. ISO/IEC 12862:2011 provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 13170:2009",
+    "edition": "1.0",
+    "date": "2009-11-04",
+    "title": "Information technology - 120 mm (8,54 Gbytes per side) and 80 mm (2,66 Gbytes per side) DVD re-recordable disk for dual layer (DVD-RW for DL)",
+    "language": "EN",
+    "description": "ISO/IEC 13170:2010 specifies the mechanical, physical and optical characteristics of a 120 mm and an 80 mm dual layer DVD re-recordable disk to enable the interchange of such disks. It specifies the quality of the embossed, unrecorded and the recorded signals, the format of the data, the format of the information zone, the format of the unrecorded zone, and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as a DVD re-recordable disk for dual layer (DVD-RW for DL). ISO/IEC 13170:2010 specifies: 120 mm and 80 mm nominal diameter disks that may be either single or double sided; the conditions for conformance; the environments in which the disk is to be operated and stored; the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the embossed information on an unrecorded disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; the format of the data and the recorded information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; the characteristics of the signals from embossed and unrecorded areas on the disk, enabling data processing systems to read the embossed information and to write to the disks; the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. ISO/IEC 13170:2010 provides for interchange of disks between disk drives. Together with an International Standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 13421:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - Data Interchange on 12,7 mm, 48-track magnetic tape cartridges - DLT 1 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 12,7 mm wide, 48-track magnetic tape cartridge, to enable interchangeability of such cartridges. It also specifies the quality of the recorded signals, a format — called Digital Linear Tape 1 (DLT 1) — and a recording method. Together with a labelling standard, e.g. ISO 1001, it allows full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 13481:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - Data interchange on 130 mm optical disk cartridges - Capacity: 1 gigabyte per cartridge",
+    "language": "EN",
+    "description": "Specifies two implementations: Type R/W (data to be written, read and erased many times) and type WO (having write once, read multiple functionality). Specifies the conditions for conformance testing and the reference drive; the environments in which the cartridges are to be operated and stored; the mechanical, physical and dimensional characteristics of the case and of the cartridge; the format of the information on the disk; the characteristics of the embossed information on the disk; the magneto-optical characteristics of the disk; the minimum quality of user-written data on the disk."
+  },
+  {
+    "reference": "ISO/IEC 13549:1993",
+    "edition": "1.0",
+    "date": "1993-12-23",
+    "title": "Information technology - Data interchange on 130 mm optical disk cartridges - Capacity: 1,3 gigabytes per cartridge",
+    "language": "EN",
+    "description": "This International Standard specifies - the conditions for conformance testing; - the environments in which the cartridges are to be operated and stored; - the mechanical, physical and dimensional characteristics of the case and of the cartridges, so as to provide mechanical interchangeability between the data processing systems; - the format of the information on the disk, both embossed and user-written, including the physical disposition of the tracks and sectors, the error correction codes, and the modulation method used; - the characteristics of the embossed information on the disk; - the magneto-optical characteristics of the disk, enabling processing systems to write data onto the disk; - the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk. This International Standard provides for interchange between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 13842:1995",
+    "edition": "1.0",
+    "date": "1995-12-21",
+    "title": "Information technology - 130 mm optical disk cartridges for information interchange - Capacity: 2 Gbytes per cartridge",
+    "language": "EN",
+    "description": "Specifies the conditions for conformance testing and the reference drive, the environments in which the cartridges are to be operated and stored, the mechanical, physical and dimensional characteristics of the cartridge, the format of the information on the disk, the magneto-optical characteristics of the disk and the minimum quality of user-written data on the disk."
+  },
+  {
+    "reference": "ISO/IEC 13923:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DDS-2 format using 120 m length tape",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics of a 3,81 mm wide magnetic tape cartridge to enable physical interchangeability of such cartridges between drives and specifies the quality of the recorded signals, the recording method and the recorded format."
+  },
+  {
+    "reference": "ISO/IEC 13962:1995",
+    "edition": "1.0",
+    "date": "1995-09-07",
+    "title": "Information technology - Data interchange on 12,7 mm, 112-track magnetic tape cartridges - DLT 2 format",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics of a 12,7 mm wide, 112-track magnetic tape cartridge, to enable interchangeability of such cartridges. It also specifies the quality of the recorded signals, a format - called Digital Linear Tape 2 (DLT2) - and a recording method. Together with a labelling standard, e.g. ISO 1001, it allows full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 13963:1995",
+    "edition": "1.0",
+    "date": "1995-05-04",
+    "title": "Information technology - Data interchange on 90 mm optical disk cartridges - Capacity: 230 megabytes per cartridge",
+    "language": "EN",
+    "description": "Specifies the characteristics of 90 mm Optical Disk Cartridges (ODC) with a capacity of 230 Mbytes per cartridge. Specifies three related, but different implementations of such cartridges: Type R/W, type P-ROM and type O-ROM. Provides for interchange between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 14251:1995",
+    "edition": "1.0",
+    "date": "1995-07-27",
+    "title": "Information technology - Data interchange on 12,7 mm 36-track magnetic tape cartridges",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics of 12,7 mm wide, 36-track magnetic tape cartridges to enable interchangeabilty of such cartridges."
+  },
+  {
+    "reference": "ISO/IEC 14417:1999",
+    "edition": "1.0",
+    "date": "1999-04-01",
+    "title": "Information technology - Data recording format DD-1 for magnetic tape cassette conforming to IEC 1016",
+    "language": "EN",
+    "description": "This International Standard specifies the media characteristics, the recorded tape format and file structure requirements to enable information interchange between information processing systems using 19,0 mm wide magnetic tape and cassette conforming to IEC 61016 Section 2."
+  },
+  {
+    "reference": "ISO/IEC 14517:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information technology - 130 mm optical disk cartridges for information interchange - Capacity: 2,6 Gbytes per cartridge",
+    "language": "EN",
+    "description": "Defines a series of related 130 mm optical disk cartridges (ODCs). Gives the conditions for conformance testing and the Reference Drive, mechanical, physical and dimensional characteristics, the format of the information, the magneto-optical characteristics and the minimum quality of user-written data."
+  },
+  {
+    "reference": "ISO/IEC 14833:1996",
+    "edition": "1.0",
+    "date": "1996-03-21",
+    "title": "Information technology - Data interchange on 12,7 mm 128-Track magnetic tape cartridges - DLT 3 format",
+    "language": "EN",
+    "description": "Specifies the physical and magnetic characteristics of a 12,7 mm wide, 128-track magnetic tape cartridge, to enable interchangeability of such cartridges. It also specifies the quality of the recorded signals, a format, called Digital Linear Tape 3 (DLT 3), and a recording method."
+  },
+  {
+    "reference": "ISO/IEC 14840:1996",
+    "edition": "1.0",
+    "date": "1996-09-05",
+    "title": "Information technology - 12,65 mm wide magnetic tape cartridge for information interchange - Helical scan recording - Data-D3-1 format",
+    "language": "EN",
+    "description": "Describes the physical and magnetic characteristics of a magnetic tape cartridge, using magnetic tape 12,65 mm wide, so as to provide physical interchangeability of such cartridges. Specifies the quality of the recorded signals, the recording method and the recorded format."
+  },
+  {
+    "reference": "ISO/IEC 15041:1997",
+    "edition": "1.0",
+    "date": "1997-04-17",
+    "title": "Information technology - Data interchange on 90 mm optical disk cartridges - Capacity: 640 Mbytes per cartridge",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15200:1996",
+    "edition": "1.0",
+    "date": "1996-12-05",
+    "title": "Information technology - Adaptive Lossless Data Compression algorithm (ALDC)",
+    "language": "EN",
+    "description": "Specifies a lossless compression algorithm to reduce the number of bytes required to represent data. The algorithm is known as Adaptive Lossless Data Compression algorithm (ALDC)."
+  },
+  {
+    "reference": "ISO/IEC 15286:1999",
+    "edition": "1.0",
+    "date": "1999-06-10",
+    "title": "Information technology - 130 mm optical disk cartridges for information interchange - Capacity: 5,2 Gbytes per cartridge",
+    "language": "EN",
+    "description": "This International Standard specifies the characteristics of a series of related 130 mm optical disk cartridges (ODCs) by using a number of Type designations. A disk has two sides, called Side A and Side B. Each side can have a nominal capacity of 2,6 Gbytes. Type R/W provides for data to be written, read and erased many times over the recording surface of the corresponding disk side, using the thermo-magnetic and magneto-optical effects. Type P-ROM provides for a part of the disk surface to be pre-recorded and reproduced by stamping or other means. This part of the disk is read without recourse to the magneto-optical effect. All parts which are not pre-recorded provide for data to meet the requirements of Type R/W. Type O-ROM provides for the whole of the disk surface to be pre-recorded and reproduced by stamping or other means. The corresponding disk sides are read without recourse to the magneto-optical effect. Type DOW provides for data to be written and read many times over the recording surface of the corresponding disk side, using the direct overwrite thermomagnetic and magneto-optical effects requiring a single external magnetic field. Type P-DOW provides for a part of the disk surface to be pre-recorded and reproduced by stamping or other means. This part of the disk is read without recourse to the magneto-optical effect. All parts which are not pre-recorded provide for data to meet the requirements of Type DOW. Type WO provides write once, read multiple functionality using the thermo-magnetic and magneto-optical effects. Type WO-DOW provides write once, read multiple functionality using the direct overwrite thermo-magnetic and magneto-optical effects. In addition, for each Type, this International Standard provides for cartridges containing a disk with a sector size of 512 bytes, cartridges containing a disk with a sector size of 1 024 bytes and cartridges containing a disk with a sector size of 2 048 bytes. All sectors of a disk are the same size. This International Standard specifies - the conditions for conformance testing and the Reference Drive; - the environments in which the cartridges are to be operated and stored; - the mechanical, physical and dimensional characteristics of the cartridge, so as to provide mechanical interchangeability between data processing systems; - the format of the information on the disk, both embossed and user-written, including the physical disposition of the tracks and sectors, the error correction codes, the modulation methods used; - the characteristics of the embossed information on the disk; - the magneto-optical characteristics of the disk, enabling processing systems to write data onto the disk; - the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk. This International Standard provides for interchange between optical disk drives. Together with a Standard for volume and file structure it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 15307:1997",
+    "edition": "1.0",
+    "date": "1997-11-20",
+    "title": "Information technology - Data interchange on 12,7 mm 128-track magnetic tape cartridges - DLT 4 format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15521:1998",
+    "edition": "1.0",
+    "date": "1998-06-11",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DDS-3 format using 125 m length tapes",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15718:1998",
+    "edition": "1.0",
+    "date": "1998-07-23",
+    "title": "Information technology - Data interchange on 8 mm wide magnetic tape cartridge - Helical scan recording - HH-1 format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15731:1998",
+    "edition": "1.0",
+    "date": "1998-05-21",
+    "title": "Information technology - 12,65 mm wide magnetic tape cassette for information interchange - Helical scan recording - DTF-1 format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15757:1998",
+    "edition": "1.0",
+    "date": "1998-07-16",
+    "title": "Information technology - Data interchange on 8 mm wide magnetic tape cartridge - Helical scan recording - DA-2 format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15780:1998",
+    "edition": "1.0",
+    "date": "1998-07-23",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge - Helical scan recording - AIT-1 format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15895:1999",
+    "edition": "1.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Data interchange on 12,7 mm 128-track magnetic tape cartridges - DLT 3-XT format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 12,7 mm wide, 128-track magnetic tape cartridge, to enable physical interchangeability of such cartridges between drives. It also specifies the quality of the recorded signals, a format - called Digital Linear Tape 3 Extended (DLT 3-XT) - and a recording method, thereby allowing data interchange between drives. Together with a labelling standard, for instance International Standard ISO 1001 for Magnetic Tape Labelling, it allows full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 15896:1999",
+    "edition": "1.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Data interchange on 12,7 mm 208-track magnetic tape cartridges - DLT 5 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 12,7 mm wide, 208-track magnetic tape cartridge, to enable physical interchangeability of such cartridges between drives. It also specifies the quality of the recorded signals, a format - called Digital Linear Tape 5 (DLT 5) - and a recording method, thereby allowing data interchange between drives. Together with a labelling standard, for instance International Standard ISO 1001 for Magnetic Tape Labelling, it allows full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 16382:2000",
+    "edition": "1.0",
+    "date": "2000-05-18",
+    "title": "Information technology - Data interchange on 12,7 mm 208-track magnetic tape cartridges - DLT 6 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 12,7 mm wide, 208-track magnetic tape cartridge, to enable physical interchangeability of such cartridges between drives. It also specifies the quality of the recorded signals, a format - called Digital Linear Tape 6 (DLT 6) - and a recording method, thereby allowing data interchange between drives. Together with a labelling standard, for instance International Standard ISO 1001 for Magnetic Tape Labelling, it allows full data interchange by means of such magnetic tape cartridges."
+  },
+  {
+    "reference": "ISO/IEC 16448:2002",
+    "edition": "2.0",
+    "date": "2002-04-18",
+    "title": "Information technology - 120 mm DVD - Read-only disk",
+    "language": "EN",
+    "description": "ISO/IEC 16448 specifies the mechanical, physical and optical characteristics of a 120 mm, read-only optical disk to enable the interchange of such disks. It specifies the quality of the recorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as DVD - Read-Only Disk. ISO/IEC 16448 specifies four related but different Types of this disk, the conditions for conformance, the environments in which the disk is to be operated and stored, the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems, the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used, the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. ISO/IEC 16448 provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 16449:2002",
+    "edition": "2.0",
+    "date": "2002-04-18",
+    "title": "Information technology - 80 mm DVD - Read-only disk",
+    "language": "EN",
+    "description": "ISO/IEC 16449 specifies the mechanical, physical and optical characteristics of a 80 mm, read-only optical disk to enable the interchange of such disks. It specifies the quality of the recorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as DVD - Read-Only Disk. ISO/IEC 16449 specifies four related but different Types of this disk, the conditions for conformance, the environments in which the disk is to be operated and stored, the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems, the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used, the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. ISO/IEC 16449 provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 16824:1999",
+    "edition": "1.0",
+    "date": "1999-05-20",
+    "title": "Information technology - 120 mm DVD rewritable disk (DVD-RAM)",
+    "language": "EN",
+    "description": "This International Standard specifies the mechanical, physical and optical characteristics of a 120 mm optical disk to enable interchange of such disks. It specifies the quality of the recorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. This disk is identified as DVD-RAM. This International Standard specifies - two related but different Types of this disk (see clause 7), - the conditions for conformance, - the environments in which the disk is to be tested, operated and stored, - the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems, - the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method, - the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. This International Standard provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems. The optical disks specified by this International Standard may be enclosed in cases according to ISO/IEC 16825 as specified therein."
+  },
+  {
+    "reference": "ISO/IEC 16825:1999",
+    "edition": "1.0",
+    "date": "1999-05-06",
+    "title": "Information technology - Case for 120 mm DVD-RAM disks",
+    "language": "EN",
+    "description": "This International Standard specifies the characteristics of a case for use with 120 mm DVD-RAM disks as specified in ISO/IEC 16824. This International Standard specifies three related, but different implementations of such cases, viz. Type 1 Provides a case for a one-sided (Type 1S) or a two-sided (Type 2S) DVD-RAM disk such that the disk can not be removed from the case. This case is reversible. Type 2 Provides a case for a one-sided DVD-RAM disk (Type 1S) such that the disk may be removed from the case. This case is not reversible. Type 3 Provides a case into which a one-sided DVD-RAM disk (Type 1S) may be inserted, then used as a cartridge. This case is not reversible. This International Standard specifies - the environments in which the cases are to be operated and stored; - the dimensional and mechanical characteristics of the case, so as to provide mechanical interchangeability between data processing systems; This International Standard provides for mechanical interchange between optical disk drives. Together with 120 mm DVD-RAM disks according to ISO/IEC 16824 and a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 16963:2017",
+    "edition": "3.0",
+    "date": "2017-07-25",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - Test method for the estimation of lifetime of optical disks for long-term data storage",
+    "language": "EN",
+    "description": "ISO/IEC 16963:2017 specifies an accelerated ageing test method for estimating the lifetime of the retrievability of information stored on recordable or rewritable optical disks. The method is based on the theoretical assumption that the lifetime of data recorded on an optical disk has a lognormal distribution. Detailed testing is specified for the following formats: DVD-R/RW/RAM disks, +R/+RW disks, CD-R/RW disks and BD recordable/rewritable disks. The testing can be applied to additional optical-disk formats with substitution of the appropriate specifications and can also be updated by the committee in the future as required. ISO/IEC 16963:2017 includes: - stress conditions: - Basic and Rigorous stress-conditions for testing and subsequent analysis using both the Eyring and Arrhenius methods; - ambient storage conditions in which the lifetime of data stored on optical disk is estimated: - a Controlled storage-condition, Temp = 25 °C and RH = 50 %, representing full-time air conditioning. The Eyring method is used to estimate the lifetime under this storage condition; - a Harsh storage-condition, Temp = 30 °C and RH = 80 %, representing the most severe conditions in which users handle and store optical disks. The Arrhenius method is used to estimate the lifetime under this storage condition; - a description of the evaluation system; - procedures for specimen preparation and data acquisition; - definitions and methods used in testing specific disk types; - analysis of test results to determine the lifetime of stored data; - a format for reporting the estimated lifetime of stored data. The methodology includes only the effects of temperature and relative humidity. It does not attempt to model degradation due to complex failure mechanism kinetics, nor does it test for exposure to light, corrosive gases, contaminants, handling, or variations in playback subsystems. Disks exposed to these additional sources of stress or higher levels of temperature and relative humidity are expected to experience shorter usable lifetime."
+  },
+  {
+    "reference": "ISO/IEC 16969:1999",
+    "edition": "1.0",
+    "date": "1999-10-28",
+    "title": "Information technology - Data interchange on 120 mm optical disk cartridges using +RW format - Capacity: 3,0 Gbytes and 6,0 Gbytes",
+    "language": "EN",
+    "description": "This International Standard specifies the mechanical, physical and optical characteristics of 120 mm rewritable optical disks with capacities of 3,0 Gbytes and 6,0 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. These disks are identified as +RW. This International Standard specifies _ two related but different Types of this disk (see clause 7), _ the conditions for conformance, _ the environments in which the disk is to be tested, operated and stored, _ the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems, _ the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method, _ the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. This International Standard provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 17341:2009",
+    "edition": "4.0",
+    "date": "2009-06-10",
+    "title": "Information technology - Data interchange on 120 mm and 80 mm optical disk using +RW format - Capacity: 4,7 Gbytes and 1,46 Gbytes per side (recording speed up to 4X)",
+    "language": "EN",
+    "description": "ISO/IEC 17341:2009 specifies the mechanical, physical and optical characteristics of 120 mm rewritable optical disks with capacities of 4,7 Gbytes and 9,4 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. These disks are identified as +RW. ISO/IEC 17341:2009 also specifies 80 mm disks with capacities of 1,46 Gbytes and 2,92 Gbytes. These disks have the same characteristics as the 120 mm disks, except for some parameters related to the smaller dimensions. All parameters unique for the 80 mm disks are specified in an annex. ISO/IEC 17341:2009 specifies the following: two related but different types of this disk; the conditions for conformance; the environments in which the disk is to be tested, operated and stored; the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method; the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. ISO/IEC 17341:2009 provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 17342:2004",
+    "edition": "1.0",
+    "date": "2004-07-12",
+    "title": "Information technology - 80 mm (1,46 Gbytes per side) and 120 mm (4,70 Gbytes per side) DVD re-recordable disk (DVD-RW)",
+    "language": "EN",
+    "description": "ISO/IEC 17342:2004 specifies the mechanical, physical and optical characteristics of an 80 mm and a 120 mm DVD re-recordable disk to enable the interchange of such disks. It specifies the quality of the pre-recorded, unrecorded and the recorded signals, the format of the data, the format of the information zone, the format of the unrecorded zone, and the recording method, thereby allowing for information interchange by means of such disks."
+  },
+  {
+    "reference": "ISO/IEC 17344:2009",
+    "edition": "4.0",
+    "date": "2009-06-10",
+    "title": "Information technology - Data interchange on 120 mm and 80 mm optical disk using +R format - Capacity: 4,7 Gbytes and 1,46 Gbytes per side (recording speed up to 16X)",
+    "language": "EN",
+    "description": "ISO/IEC 17344:2009 specifies the mechanical, physical and optical characteristics of 120 mm recordable optical disks with capacities of 4,7 Gbytes and 9,4 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written once and read many times using a non-reversible method. These disks are identified as +R. ISO/IEC 17344:2009 also specifies 80 mm disks with capacities of 1,46 Gbytes and 2,92 Gbytes. These disks have the same characteristics as the 120 mm disks, except for some parameters related to the smaller dimensions. All parameters unique for the 80 mm disks are specified in an annex. ISO/IEC 17344:2009 specifies the following: two related but different types of this disk; the conditions for conformance; the environments in which the disk is to be tested, operated and stored; the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method; the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. ISO/IEC 17344:2009 provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 17345:2006",
+    "edition": "2.0",
+    "date": "2006-11-28",
+    "title": "Information technology - Data Interchange on 130 mm Rewritable and Write Once Read Many Ultra Density Optical (UDO) Disk Cartridges - Capacity: 30 Gbytes per Cartridge - First Generation",
+    "language": "EN",
+    "description": "ISO/IEC 17345:2006 specifies the mechanical, physical, and optical characteristics of a 130 mm optical disk cartridge (ODC) that employs thermo-optical Phase Change effects to enable data interchange between such disks. It specifies two types: Type RW (Rewritable) provides for data to be written read and erased many times over the recording surfaces of the disk. Type WORM (Write Once Read Many) provides for data once written to be read a multiplicity of times. This type uses a Write Once Read Many times recording material (written marks cannot be erased and attempted modifications of the written marks are detectable). Multisession (incremental write operations) recording may be performed on Type WORM disks."
+  },
+  {
+    "reference": "ISO/IEC 17346:2005",
+    "edition": "1.0",
+    "date": "2005-02-07",
+    "title": "Information technology - Data interchange on 90 mm optical disk cartridges - Capacity: 1,3 Gbytes per cartridge",
+    "language": "EN",
+    "description": "ISO/IEC 17346:2005 defines the characteristics of 90 mm Optical Disk Cartridges (ODC) with a capacity of 1,3 GB per cartridge. It specifies only Type R/W for 2 048-byte sectors of such cartridges. Type R/W provides for data to be written, read and erased many times over the entire recording surface of the disk using the thermo-magnetic and magneto-optical effects. It is also referred to as \"fully rewritable\". ISO/IEC 17346:2004 provides for 2 048-byte sectors only. All sectors on a disk are of the same size. ISO/IEC 17346:2005 specifies: the conditions for conformance testing and the Reference Drive; the environments in which the cartridges are to be operated and stored; the mechanical and physical characteristics of the cartridge, so as to provide mechanical interchange ability between data processing systems; the format of the information on the disk, both embossed and user-written; including the physical disposition of the tracks and sectors, the error correction codes, and the modulation method used; the characteristics of the embossed information on the disk; the magneto-optical characteristics of the disk, enabling processing systems to write data onto the disk; the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk. ISO/IEC 17346:2005 provides for interchange between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 17462:2000",
+    "edition": "1.0",
+    "date": "2000-10-19",
+    "title": "Information technology - 3,81 mm wide magnetic tape cartridge for information interchange - Helical scan recording - DDS-4 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a 3,81 mm wide magnetic tape cartridge to enable physical interchangeability of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format - called Digital Data Storage 4 (DDS-4) - thereby allowing data interchange between drives by means of such magnetic tape cartridges. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge. Under information interchange circumstances in which a processing algorithm, e.g. for lossless data compression as specified in ISO/IEC 11558, is applied to the host data prior to recording on the tape and a complementary reprocessing algorithm is applied after the data is read from the tape, agreement upon these by the interchange parties is also required."
+  },
+  {
+    "reference": "ISO/IEC 17592:2004",
+    "edition": "1.0",
+    "date": "2004-07-08",
+    "title": "Information technology - 120 mm (4,7 Gbytes per side) and 80 mm (1,46 Gbytes per side) DVD rewritable disk (DVD-RAM)",
+    "language": "EN",
+    "description": "ISO/IEC 17592:2004 specifies the mechanical, physical and optical characteristics of an optical disk, identified as DVD Rewritable Disk (DVD-RAM), to enable interchange of such disks. It specifies the quality of the recorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. Two Types are specified that differ only by their diameter of 120 mm and 80 mm, and the resulting difference of capacity."
+  },
+  {
+    "reference": "ISO/IEC 17594:2004",
+    "edition": "1.0",
+    "date": "2004-07-12",
+    "title": "Information technology - Cases for 120 mm and 80 mm DVD-RAM disks",
+    "language": "EN",
+    "description": "ISO/IEC 17594:2004 specifies the characteristics of a case for use with the 120 mm and 80 mm DVD-RAM disks specified in ISO/IEC 17592. ISO/IEC 17594:2004 specifies nine related, but different implementations of this case. ISO/IEC 17594:2004 specifies: the environments in which the cases are to be operated and stored; the dimensional and mechanical characteristics of the case, so as to provide mechanical interchangeability between data processing systems. ISO/IEC 17594:2004 provides for mechanical interchange between optical disk drives. Together with ISO/IEC 17592 for 120 mm (4,7 Gbytes per side) and 80 mm (1,46 Gbytes per side) DVD-RAM disks and a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 17913:2000",
+    "edition": "1.0",
+    "date": "2000-06-22",
+    "title": "Information technology - 12,7mm 128-track magnetic tape cartridge for information interchange - Parallel serpentine format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of a magnetic tape cartridge, using a magnetic tape 12,7 mm wide, so as to provide physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format known as Parallel Serpentine, thereby allowing data interchange between drives by means of such cartridges. The format supports variable length Logical Records, high speed search, and the use of the algorithm for data compression specified in International Standard ISO/IEC 15200. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specification of the structure and labelling of the information on the interchanged cartridge. Together with a standard for volume and file structure, e.g. International Standard ISO 1001, this International Standard provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 18630:2023",
+    "edition": "1.0",
+    "date": "2023-11-09",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - Quality discrimination method for optical disks and operating method of storage systems for long-term data preservation",
+    "language": "EN",
+    "description": "This document specifies a quality discrimination method for optical disks and the operating method of storage systems for long-term digital data preservation using optical disks and optical disk drives (hereinafter referred to as \"drives\"). It is applicable to recordable (write-once) optical disks which can prevent physical overwriting and deletion by erroneous or intentional operation in contexts where greater importance is given to evidence. It is also applicable to read-only (ROM) optical disks. This document specifies: — combinations of recordable optical disks and drives used for long-term data preservation; — quality discrimination criteria for recordable optical disks and the operation method of long-term storage systems; — a quality test for read-only optical disks and the operation method of long-term storage systems; — quality discrimination criteria for BD recordable disks when adopting defect management."
+  },
+  {
+    "reference": "ISO/IEC 18809:2000",
+    "edition": "1.0",
+    "date": "2000-12-21",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording AIT-1 with MIC format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge containing a memory chip to enable physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format - called Advanced Intelligent Tape No. 1 with Memory In Cartridge (AIT-1 with MIC) - thereby allowing data interchange between drives by means of such magnetic tape cartridges. The System Log is recorded in the MIC. This International Standard specifies two types of cartridge depending on the thickness of the magnetic tape contained in the case. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge."
+  },
+  {
+    "reference": "ISO/IEC 18810:2001",
+    "edition": "1.0",
+    "date": "2001-02-08",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording AIT-2 with MIC format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge containing a memory chip to enable physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format - called Advanced Intelligent Tape No.2 with Memory In Cartridge (AIT-2 with MIC) - thereby allowing data interchange between drives by means of such magnetic tape cartridges. The System Log are recorded in the MIC. This International Standard specifies two types of cartridge depending on the thickness of the magnetic tape contained in the case. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge."
+  },
+  {
+    "reference": "ISO/IEC 18836:2001",
+    "edition": "1.0",
+    "date": "2001-02-08",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording - MammothTape-2 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge to enable physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format called MammothTape-2, and thereby allowing data interchange between drives by means of such magnetic tape cartridges. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge."
+  },
+  {
+    "reference": "ISO/IEC 20061:2001",
+    "edition": "1.0",
+    "date": "2001-11-29",
+    "title": "Information technology - 12,65 mm wide magnetic tape cassette for information interchange - Helical scan recording - DTF-2",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of magnetic tape cassettes, using magnetic tape 12,65 mm wide so as to provide physical interchange of such cassettes between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format, called Digital Tape Format-2 (DTF-2), thereby allowing data interchange between drives by means of such cassettes. The format supports variable length Logical Records, high-speed search, and the use of a registered algorithm for data compression. This International Standard specifies two sizes of cassette. For the purposes of this International Standard the larger cassette is referred to as Type L, and the smaller as Type S. Together with a standard for volume and file structure, e.g. International Standard ISO 1001, this International Standard provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 20062:2001",
+    "edition": "1.0",
+    "date": "2001-12-20",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording - VXA-1 format",
+    "language": "EN",
+    "description": "This International Standard specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge to enable physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format called VXA-1, and thereby allowing data interchange between drives by means of such magnetic tape cartridges. This International Standard specifies three types depending on the length of magnetic tape contained in the case, referred to as Type A, Type B and Type C. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge. If compression is used with this format, it shall be according to International Standard ISO/IEC 15200."
+  },
+  {
+    "reference": "ISO/IEC 20563:2001",
+    "edition": "1.0",
+    "date": "2001-07-05",
+    "title": "Information technology - 80 mm (1,23 Gbytes per side) and 120 mm (3,95 Gbytes per side) DVD-recordable disk (DVD-R)",
+    "language": "EN",
+    "description": "This International Standard specifies the mechanical, physical and optical characteristics of an 80 mm and a 120 mm DVD - Recordable disk to enable the interchange of such disks. It specifies the quality of the pre-recorded, unrecorded and the recorded signals, the format of the data, the format of the information zone, the format of the unrecorded zone, and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as a DVD - Recordable (DVD-R) disk. Once data has been recorded on a DVD-R disk it cannot be modified. It can be read many times. Further data may be appended. This International Standard specifies ? 80 mm and 120 mm nominal diameter disks that may be either single or double sided, ? the conditions for conformance, ? the environments in which the disk is to be operated and stored, ? the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems, ? the format of the pre-recorded information on an unrecorded disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used, ? the format of the data and the recorded information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used, ? the characteristics of the signals from pre-recorded and unrecorded areas on the disk, enabling data processing systems to read the pre-recorded information and to write to the disks, ? the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. This International Standard provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 22050:2002",
+    "edition": "1.0",
+    "date": "2002-10-17",
+    "title": "Information technology - Data interchange on 12,7 mm, 384-track magnetic tape cartridges - Ultrium-1 format",
+    "language": "EN",
+    "description": "ISO/IEC 22050:2002 specifies the physical and magnetic characteristics of magnetic tape cartridges, using magnetic tape 12,65 mm wide so as to provide physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format, thereby allowing data interchange between drives by means of such cartridges. The linearly recorded format, called Ultrium-1, has 384 tracks. It uses a timing based servo for improved track following. The format supports variable length Logical Records, high speed search, and the use of a registered algorithm for data compression. ISO/IEC 22050:2002 specifies four types of cartridges depending on the length of tape contained in the case. These four types are referred to as Type A, Type B, Type C and Type D; their nominal uncompressed capacity is 100 Gbytes, 50 Gbytes, 30 Gbytes and 10 Gbytes, respectively. Together with a standard for volume and file structure this document provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 22051:2002",
+    "edition": "1.0",
+    "date": "2002-10-17",
+    "title": "Information technology - Data interchange on 12,7 mm, 448-track magnetic tape cartridges - SDLT1 format",
+    "language": "EN",
+    "description": "ISO/IEC 22051:2002 specifies the physical and magnetic characteristics of magnetic tape cartridges, using magnetic tape 12,65 mm wide so as to provide physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format, thereby allowing data interchange between drives by means of such cartridges. The linearly recorded format, called Super Digital Linear Tape 1 (SDLT 1), has 448 tracks. It uses a combination of magnetic and optical technologies known as Laser-Guided Magnetic Recording (LGMR). The back surface of the tape presents optically detected servo marks. The format is derived from the DLT Format. It provides for a capacity of 110 Gbytes of uncompressed user data, or typically 220 Gbytes of compressed user data. Together with a standard for volume and file structure this document provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 22091:2002",
+    "edition": "1.0",
+    "date": "2002-10-03",
+    "title": "Information technology - Streaming Lossless Data Compression algorithm (SLDC)",
+    "language": "EN",
+    "description": "ISO/IEC 22091:2002 specifies a lossless compression algorithm to reduce the number of 8-bit bytes required to represent data records and File Marks. The algorithm is known as Streaming Lossless Data Compression algorithm (SLDC). ISO/IEC 22091:2002 is based on ISO/IEC 15220. It extends that algorithm with the addition of control symbols that allow records of different sizes and compressibility, along with File Marks, to be efficiently encoded into an output stream which requires little or no additional control information for later decoding. The numerical identifier according to ISO/IEC 11576 allocated to this algorithm is 6."
+  },
+  {
+    "reference": "ISO/IEC 22092:2002",
+    "edition": "1.0",
+    "date": "2002-07-25",
+    "title": "Information technology - Data interchange on 130 mm magneto-optical disk cartridges - Capacity: 9,1 Gbytes per cartridge",
+    "language": "EN",
+    "description": "ISO/IEC 22092:2002 specifies the mechanical, physical, and optical characteristics of a 130 mm optical disk cartridge (ODC) that employs thermo-magnetic and magneto-optical effects to enable data interchange between such disks. ISO/IEC 22092:2002 specifies two Types, viz. Type R/W provides for data to be written, read and erased many time over the recording surface(s) of the disk. Type WO provides for data once written to be read a multiplicity of times. Data shall not be erased nor amended. Multisession (incremental write operations) recording may be performed on type WO disks. The disk shall be of the same Type if recorded on both sides, A and B. Each side shall have a nominal capacity of 4,58 Gbytes, irrespective of the Type. The format specifies two sector sizes and allows for emulation of two further sizes. ISO/IEC 22092:2002 specifies the conditions for conformance testing and the Reference Drive; the environments in which the cartridges are to be operated and stored; the mechanical, physical and dimensional characteristics of the cartridge so as to provide mechanical interchangeability between data processing systems; the format of the information on the disk, both embossed and user-written, including the physical disposition of the tracks and sectors, the error correction codes, the modulation methods used; the characteristics of the embossed information on the disk; the thermo-magnetic and magneto-optical characteristics of the disk, enabling processing systems to write data onto the disk; the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk. ISO/IEC 22092:2002 provides for interchange between optical disk drives. Together with a standard for volume and file structure it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 22533:2005",
+    "edition": "1.0",
+    "date": "2005-07-08",
+    "title": "Information technology - Data interchange on 90 mm optical disk cartridges - Capacity: 2,3 Gbytes per cartridge",
+    "language": "EN",
+    "description": "ISO/IEC 22533:2005 defines the characteristics of 90 mm Optical Disk Cartridges (ODC) with a capacity of 2,3 GB per cartridge. It specifies only Type R/W for 2 048-byte sectors of such cartridge. Type R/W provides for data to be written, read and erased many times over the entire recording surface of the disk using the thermo-magnetic and magneto-optical effects. It is also referred to as \"fully rewritable\". ISO/IEC 22533:2005 provides for 2 048-byte sectors only. All sectors on a disk are of the same size. ISO/IEC 22533:2005 specifies: the conditions for conformance testing and the Reference Drive; the environments in which the cartridges are to be operated and stored; the mechanical and physical characteristics of the cartridge, so as to provide mechanical interchange ability between data processing systems; the format of the information on the disk, both embossed and user-written, including the physical disposition of the tracks and sectors, the error correction codes and the modulation method used; the characteristics of the embossed information on the disk; the magneto-optical characteristics of the disk, enabling processing systems to write data onto the disk; the minimum quality of user-written data on the disk, enabling data processing systems to read data from the disk. ISO/IEC 22533:2005 provides for interchange between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 23651:2003",
+    "edition": "1.0",
+    "date": "2003-08-19",
+    "title": "Information technology - 8 mm wide magnetic tape cartridge for information interchange - Helical scan recording - AIT-3 format",
+    "language": "EN",
+    "description": "ISO/IEC 23651:2003 specifies the physical and magnetic characteristics of an 8 mm wide magnetic tape cartridge containing a memory chip to enable physical interchange of such cartridges between drives. It also specifies the quality of the recorded signals, the recording method and the recorded format - called Advanced Intelligent Tape No. 3 (AIT-3 format) - thereby allowing data interchange between drives by means of such magnetic tape cartridges. ISO/IEC 23651:2003 specifies two types of cartridge depending on the thickness of the magnetic tape contained in the case. Information interchange between systems also requires, at a minimum, agreement between the interchange parties upon the interchange code(s) and the specifications of the structure and labelling of the information on the interchanged cartridge."
+  },
+  {
+    "reference": "ISO/IEC 23912:2005",
+    "edition": "1.0",
+    "date": "2005-11-03",
+    "title": "Information technology - 80 mm (1,46 Gbytes per side) and 120 mm (4,70 Gbytes per side) DVD Recordable Disk (DVD-R)",
+    "language": "EN",
+    "description": "ISO/IEC 23912:2005 specifies the mechanical, physical and optical characteristics of an 80 mm and a 120 mm DVD Recordable disk to enable the interchange of such disks. It specifies the quality of the pre-recorded, unrecorded and the recorded signals, the format of the data, the format of the information zone, the format of the unrecorded zone, and the recording method, thereby allowing for information interchange by means of such disks. This disk is identified as a DVD Recordable (DVD-R) disk. ISO/IEC 23912:2005 specifies: - 80 mm and 120 mm nominal diameter disks that may be either single or double sided; - the conditions for conformance; - the environments in which the disk is to be operated and stored; - the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems; - the format of the pre-recorded information on an unrecorded disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; - the format of the data and the recorded information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method used; - the characteristics of the signals from pre-recorded and unrecorded areas on the disk, enabling data processing systems to read the pre-recorded information and to write to the disks; and - the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. ISO/IEC 23912:2005 provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 25434:2008",
+    "edition": "3.0",
+    "date": "2008-11-25",
+    "title": "Information technology - Data interchange on 120 mm and 80 mm optical disk using +R DL format - Capacity: 8,55 Gbytes and 2,66 Gbytes per side (recording speed up to 16X)",
+    "language": "EN",
+    "description": "ISO/IEC 25434:2008 specifies the mechanical, physical and optical characteristics of 120 mm recordable optical disks with capacities of 8,55 Gbytes and 17,1 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written once and read many times using a non-reversible method. These disks are identified as +R DL. ISO/IEC 25434:2008 also specifies 80 mm disks with capacities of 2,66 Gbytes and 5,32 Gbytes. These disks have the same characteristics as the 120 mm disks, except for some parameters related to the smaller dimensions. All parameters unique for the 80 mm disks are specified in an annex. ISO/IEC 25434:2008 specifies the following: two related but different Types of this disk; the conditions for conformance; the environments in which the disk is to be tested, operated and stored; the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method; the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. ISO/IEC 25434:2008 provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 26925:2009",
+    "edition": "2.0",
+    "date": "2009-06-10",
+    "title": "Information technology - Data interchange on 120 mm and 80 mm optical disk using +RW HS format - Capacity: 4,7 Gbytes and 1,46 Gbytes per side (recording speed 8X)",
+    "language": "EN",
+    "description": "ISO/IEC 26925:2009 specifies the mechanical, physical and optical characteristics of 120 mm rewritable optical disks with capacities of 4,7 Gbytes and 9,4 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. These disks are identified as +RW HS (High Speed). ISO/IEC 26925:2009 also specifies 80 mm disks with capacities of 1,46 Gbytes and 2,92 Gbytes. These disks have the same characteristics as the 120 mm disks, except for some parameters related to the smaller dimensions. All parameters unique for the 80 mm disks are specified in an annex. ISO/IEC 26925:2009 specifies the following: two related but different types of this disk; the conditions for conformance; the environments in which the disk is to be tested, operated and stored; the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method; the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. ISO/IEC 26925:2009 provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 29121:2021",
+    "edition": "4.0",
+    "date": "2021-01-28",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - Data migration method for optical disks for long-term data storage",
+    "language": "EN",
+    "description": "This document specifies the data migration method for DVD-R, DVD-RW, DVD-RAM, +R, +RW, CD-R, CD-RW, BD Recordable and BD Rewritable disks for long-term data storage. By applying this document for information storage, digital data can be migrated to a next new disk without loss from the present disk if data errors are completely corrected before and during the migration and provided copying of the data is allowed. This document specifies: — a data migration method for long-term data storage; — test methods for measuring maximum data error, including ambient condition, test area, test drive, disk preparation and test execution; — an initial performance test and a periodic performance test that check an error rate of data recorded on the disks with categorized maximum data error tables; — precautions to reduce the possibility of deterioration in order to assure the integrity of the disks during their use, storage, handling or transportation; and — the estimated lifetime of B mig ( B 0,000 1 ) life to determine the test interval for the periodic performance test."
+  },
+  {
+    "reference": "ISO/IEC 29171:2009",
+    "edition": "1.0",
+    "date": "2009-11-09",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - Information Versatile Disk for Removable usage (iVDR) cartridge",
+    "language": "EN",
+    "description": "ISO/IEC 29171:2009 specifies the dimensional, mechanical and physical characteristics of an information Versatile Disk for Removable usage (iVDR) cartridge to enable mechanical interchangeability between data processing systems. An iVDR cartridge can contain hard disk drive technology or other suitable storage technologies. ISO/IEC 29171:2009 specifies the environment in which iVDR cartridges are to be operated and stored, and specifies the dimensions and pin assignments of a connector employed by iVDR cartridges to enable data interchange. Together with ISO/IEC 24739-3 and a standard for volume and file structure, ISO/IEC 29171:2009 enables full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 29642:2009",
+    "edition": "2.0",
+    "date": "2009-06-11",
+    "title": "Information technology - Data interchange on 120 mm and 80 mm optical disk using +RW DL format - Capacity: 8,55 Gbytes and 2,66 Gbytes per side (recording speed 2,4X)",
+    "language": "EN",
+    "description": "ISO/IEC 29642:2009 specifies the mechanical, physical and optical characteristics of 120 mm rewritable optical disks with capacities of 8,55 Gbytes and 17,1 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. The data can be written, read and overwritten many times using the phase change method. These disks are identified as +RW DL. ISO/IEC 29642:2009 also specifies 80 mm disks with capacities of 2,66 Gbytes and 5,32 Gbytes. These disks have the same characteristics as the 120 mm disks, except for some parameters related to the smaller dimensions. All parameters unique for the 80 mm disks are specified in an annex. ISO/IEC 29642:2009 specifies the following: two related but different types of this disk; the conditions for conformance; the environments in which the disk is to be tested, operated and stored; the mechanical, physical and dimensional characteristics of the disk, so as to provide mechanical interchange between data processing systems; the format of the information on the disk, including the physical disposition of the tracks and sectors, the error correcting codes and the coding method; the characteristics of the signals recorded on the disk, thus enabling data processing systems to read the data from the disk. ISO/IEC 29642:2009 provides for the interchange of disks between optical disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 30190:2021",
+    "edition": "3.0",
+    "date": "2021-01-26",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - 120 mm Single Layer (25,0 Gbytes per disk) and Dual Layer (50,0 Gbytes per disk) BD Recordable disk",
+    "language": "EN",
+    "description": "This document specifies mechanical, physical and optical characteristics of a 120 mm recordable optical disk with a capacity of 25,0 Gbytes or 50,0 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. User data can be written once and read many times using a non-reversible method. This disk is identified as BD recordable disk. This document specifies the following: — three related but different types of this disk; — the conditions for conformance; — the environments in which the disk is to be operated and stored; — the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems; — the format of the information on the disk, including the physical disposition of the tracks and sectors; — the error-correcting codes and the coding method used; — the characteristics of the signals recorded on the disk, enabling data processing systems to read data from the disk. This document provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 30191:2021",
+    "edition": "3.0",
+    "date": "2021-01-26",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - 120 mm Triple Layer (100,0 Gbytes single sided disk and 200,0 Gbytes double sided disk) and Quadruple Layer (128,0 Gbytes single sided disk) BD Recordable disk",
+    "language": "EN",
+    "description": "This document specifies the mechanical, physical and optical characteristics of a 120 mm recordable optical disk with a capacity of 100,0 Gbytes, 128,0 Gbytes or 200,0 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. User data can be written once and read many times using a non-reversible method. This disk is identified as BD recordable disk. This document specifies the following: — three related but different types of this disk; — the conditions for conformance; — the environments in which the disk is to be operated and stored; — the mechanical and physical characteristics of the disk, so as to provide mechanical interchange between data processing systems; — the format of the information on the disk, including the physical disposition of the tracks and sectors; — the error correcting codes and the coding method used; — the characteristics of the signals recorded on the disk, enabling data processing systems to read the data from the disk. This document provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 30192:2021",
+    "edition": "3.0",
+    "date": "2021-01-26",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - 120 mm Single Layer (25,0 Gbytes per disk) and Dual Layer (50,0 Gbytes per disk) BD Rewritable disk",
+    "language": "EN",
+    "description": "This document specifies the mechanical, physical and optical characteristics of a 120 mm rewritable optical disk with a capacity of 25,0 Gbytes or 50,0 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. User data can be written, read and overwritten many times using a reversible method. This disk is identified as a BD rewritable disk. This document specifies the following: — two related but different types of this disk; — conditions for conformance; — environments in which the disk is to be operated and stored; — mechanical and physical characteristics of the disk, which allow mechanical interchange between data processing systems; — format of the information on the disk, including the physical disposition of the tracks and sectors; — error-correcting codes and coding method used; — characteristics of the signals recorded on the disk, which enable data processing systems to read data from the disk. This document provides for interchange of disks between drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  },
+  {
+    "reference": "ISO/IEC 30193:2021",
+    "edition": "4.0",
+    "date": "2021-12-08",
+    "title": "Information technology - Digitally recorded media for information interchange and storage - 120 mm triple layer (100,0 Gbytes per disk) BD rewritable disk",
+    "language": "EN",
+    "description": "This document specifies the mechanical, physical and optical characteristics of a 120 mm rewritable optical disk with a capacity of 100,0 Gbytes. It specifies the quality of the recorded and unrecorded signals, the format of the data and the recording method, thereby allowing for information interchange by means of such disks. User data can be written, read and overwritten many times using a reversible method. This disk is identified as a BD rewritable disk. This document specifies the following: — the one disk type; — the conditions for conformance; — the environments in which the disk is to be operated and stored; — the mechanical and physical characteristics of the disk, in order to provide mechanical interchange between data processing systems; — the format of the information on the disk, including the physical disposition of the tracks and sectors; — the error-correcting codes and the coding method used; — the characteristics of the signals recorded on the disk, enabling data processing systems to read data from the disk. This document provides for interchange of disks between disk drives. Together with a standard for volume and file structure, it provides for full data interchange between data processing systems."
+  }
+]

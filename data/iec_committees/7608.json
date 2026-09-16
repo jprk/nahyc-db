@@ -1,0 +1,266 @@
+[
+  {
+    "reference": "ISO/IEC TR 3445:2022",
+    "edition": "1.0",
+    "date": "2022-03-09",
+    "title": "Information technology - Cloud computing - Audit of cloud services",
+    "language": "EN",
+    "description": "This document surveys aspects of the audit of cloud services including: 1) role and responsibilities of parties conducting audit and description of the interactions between the CSC, CSP, and CSN; 2) approaches for conducting audits of cloud services to facilitate confidence in delivering and using cloud services; 3) examples of available frameworks and standards which can be used for audit schemes, for certification, and for authorization. This document builds upon the cloud auditor role as defined in ISO/IEC 17789 and ISO/IEC 22123. This document is applicable to all types and sizes of organizations that need to plan and conduct internal or external audits, and that use, provide and support cloud services. This document is not intended to describe certification or to identify controls that are published elsewhere."
+  },
+  {
+    "reference": "ISO/IEC 5140:2024",
+    "edition": "1.0",
+    "date": "2024-01-19",
+    "title": "Information technology - Cloud computing - Concepts for multi-cloud and the use of multiple cloud services",
+    "language": "EN",
+    "description": "This document specifies foundational concepts for multiple cloud services including multi-cloud, hybrid cloud, inter-cloud and federated cloud."
+  },
+  {
+    "reference": "ISO/IEC TS 5928:2023",
+    "edition": "1.0",
+    "date": "2023-09-29",
+    "title": "Information technology - Cloud computing and distributed platforms - Taxonomy for digital platforms",
+    "language": "EN",
+    "description": "This document specifies a taxonomy related to digital platforms, by providing definitions and supporting information that disambiguates different uses of the term platform as it applies to digital services (such as cloud computing and other distributed computing systems)."
+  },
+  {
+    "reference": "ISO/IEC TS 7339:2024",
+    "edition": "1.0",
+    "date": "2024-12-04",
+    "title": "Information technology - Cloud computing - Overview of platform capabilities type and platform as a service",
+    "language": "EN",
+    "description": "Within the context of digital technology platforms as defined in ISO/IEC TS 5928, this document provides: — a description of the concepts of the platform capabilities type as it appears in various cloud service categories; — a description of the specific cloud service category of platform as a service (PaaS); — descriptions of common technology platform architectures, development approaches, and life cycles of elements of technology platform services, including a high-level description of the popular cloud native computing concept; — recommendations for cloud services that include platform capabilities, including but not limited to PaaS."
+  },
+  {
+    "reference": "ISO/IEC TR 10822-1:2025",
+    "edition": "1.0",
+    "date": "2025-05-15",
+    "title": "Cloud computing - Multi-cloud management - Part 1: Overview and use cases",
+    "language": "EN",
+    "description": "This document is based on ISO/IEC 22123-1, ISO/IEC 22123-3 and ISO/IEC 5140 and provides an overview of the management challenges faced in multi-cloud deployments, as well as the management activities that can be undertaken to address these challenges. Additionally this document provides use cases with user and functional views to further explain the multi-cloud management challenges and activities."
+  },
+  {
+    "reference": "ISO/IEC TS 10866:2024",
+    "edition": "1.0",
+    "date": "2024-11-27",
+    "title": "Information technology - Cloud computing and distributed platforms - Framework and concepts for organizational autonomy and digital sovereignty",
+    "language": "EN",
+    "description": "This document specifies concepts related to the intersection of digital sovereignty, organizational autonomy, and digital platform, and provides a framework enabling organizations to address these concepts. This document is applicable to all organizations and policy makers involved in organizational autonomy and digital sovereignty in cloud services and distributed platforms."
+  },
+  {
+    "reference": "ISO/IEC 17203:2017",
+    "edition": "2.0",
+    "date": "2017-09-21",
+    "title": "Information technology - Open Virtualization Format (OVF) specification",
+    "language": "EN",
+    "description": "The Open Virtualization Format (OVF) Specification describes an open, secure, efficient and extensible format for the packaging and distribution of software to be run in virtual systems. The OVF package enables the authoring of portable virtual systems and the transport of virtual systems between virtualization platforms. This version of the specification (2.1) is intended to allow OVF 1.x tools to work with OVF 2.x descriptors in the following sense: Existing OVF 1.x tools should be able to parse OVF 2.x descriptors. Existing OVF 1.x tools should be able to give warnings/errors if dependencies to 2.x features are required for correct operation. If a conflict arises between the schema, text, or tables, the order of precedence to resolve the conflicts is schema; then text; then tables. Figures are for illustrative purposes only and are not a normative part of the standard. A table may constrain the text but it shall not conflict with it. The profile conforms to the cited CIM Schema classes where used. Any requirements contained in the cited CIM Schema classes shall be met. If a conflict arises the CIM Schema takes precedence. The profile conforms to the cited OVF XML Schema. It may constrain the schema but it shall not conflict with it. If a conflict arises the OVF XML Schema takes precedence."
+  },
+  {
+    "reference": "ISO/IEC 17963:2013",
+    "edition": "1.0",
+    "date": "2013-01-28",
+    "title": "Web Services for Management (WS-Management) Specification",
+    "language": "EN",
+    "description": "ISO/IEC 17963:2013 describes a Web services protocol based on SOAP for use in management‑specific domains. These domains include the management of entities such as PCs, servers, devices, Web services and other applications manageable entities. Services can expose only a WS-Management interface or compose the WS-Management service interface with some of the many other Web service specifications. A crucial application for these services is in the area of systems management. To promote interoperability between management applications and managed resources, ISO/IEC PAS 17963:2012 identifies a core set of Web service specifications and usage requirements that expose a common set of operations central to all systems management. This includes the ability to do the following: a) get, put (update), create, and delete individual resource instances, such as settings and dynamic values; b) enumerate the contents of containers and collections, such as large tables and logs; c) subscribe to events emitted by managed resources; d) execute specific management methods with strongly typed input and output parameters. In each of these areas of scope, ISO/IEC 17963:2013 defines minimal implementation requirements for conformant Web service implementations. An implementation is free to extend beyond this set of operations, and to choose not to support one or more of the preceding areas of functionality if that functionality is not appropriate to the target device or system. ISO/IEC 17963:2013 intends to meet the following requirements: a) constrain Web services protocols and formats so that Web services can be implemented with a small footprint in both hardware and software management services; b) define minimum requirements for compliance without constraining richer implementations; c) ensure backward compatibility and interoperability with WS-Management version 1.0; d) ensure composability with other Web services specifications."
+  },
+  {
+    "reference": "ISO/IEC 18384-1:2016",
+    "edition": "1.0",
+    "date": "2016-05-26",
+    "title": "Information technology - Reference Architecture for Service Oriented Architecture (SOA RA) - Part 1: Terminology and concepts for SOA",
+    "language": "EN",
+    "description": "ISO/IEC 18384-1:2016 establishes vocabulary, guidelines, and general technical principles underlying service oriented architecture (SOA), including principles relating to functional design, performance, development, deployment, and management."
+  },
+  {
+    "reference": "ISO/IEC 18384-2:2016",
+    "edition": "1.0",
+    "date": "2016-06-27",
+    "title": "Information technology - Reference Architecture for Service Oriented Architecture (SOA RA) - Part 2: Reference Architecture for SOA Solutions",
+    "language": "EN",
+    "description": "ISO/IEC 18384-2:2016 describes a Reference Architecture for SOA Solutions which applies to functional design, performance, development, deployment and management of SOA Solutions. It includes a domain-independent framework, addressing functional requirements and non-functional requirements, as well as capabilities and best practices to support those requirements."
+  },
+  {
+    "reference": "ISO/IEC 18384-3:2016",
+    "edition": "1.0",
+    "date": "2016-06-27",
+    "title": "Information technology - Reference Architecture for Service Oriented Architecture (SOA RA) - Part 3: Service Oriented Architecture ontology",
+    "language": "EN",
+    "description": "ISO/IEC 18384-3:2016 defines a formal ontology for service-oriented architecture (SOA), an architectural style that supports service orientation. The terms defined in this ontology are key terms from the vocabulary in ISO/IEC 18384-1."
+  },
+  {
+    "reference": "ISO/IEC 19086-1:2016",
+    "edition": "1.0",
+    "date": "2016-09-21",
+    "title": "Information technology - Cloud computing - Service level agreement (SLA) framework - Part 1: Overview and concepts",
+    "language": "EN",
+    "description": "ISO/IEC 19086-1:2016 seeks to establish a set of common cloud SLA building blocks (concepts, terms, definitions, contexts) that can be used to create cloud Service Level Agreements (SLAs). This document specifies a) an overview of cloud SLAs, b) identification of the relationship between the cloud service agreement and the cloud SLA, c) concepts that can be used to build cloud SLAs, and d) terms commonly used in cloud SLAs. ISO/IEC 19086-1:2016 is for the benefit and use of both cloud service providers and cloud service customers. The aim is to avoid confusion and facilitate a common understanding between cloud service providers and cloud service customers. Cloud service agreements and their associated cloud SLAs vary between cloud service providers, and in some cases different cloud service customers can negotiate different contract terms with the same cloud service provider for the same cloud service. This document aims to assist cloud service customers when they compare cloud services from different cloud service providers. ISO/IEC 19086-1:2016 does not provide a standard structure that can be used for a cloud SLA or a standard set of cloud service level objectives (SLOs) and cloud service qualitative objectives (SQOs) that will apply to all cloud services or all cloud service providers. This approach provides flexibility for cloud service providers in tailoring their cloud SLAs to the particular characteristics of the offered cloud services. ISO/IEC 19086-1:2016 does not supersede any legal requirement."
+  },
+  {
+    "reference": "ISO/IEC 19086-1:2016/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Information technology - Cloud computing - Service level agreement (SLA) framework - Part 1: Overview and concepts - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19086-2:2018",
+    "edition": "1.0",
+    "date": "2018-12-12",
+    "title": "Cloud computing - Service level agreement (SLA) framework - Part 2: Metric model",
+    "language": "EN",
+    "description": "This document establishes common terminology, defines a model for specifying metrics for cloud SLAs, and includes applications of the model with examples. This document establishes a common terminology and approach for specifying metrics. This document is for the benefit of and use for both cloud service providers (CSPs) and cloud service customers (CSCs). This document is intended to complement ISO/IEC 19086-1, ISO/IEC 19086-3 and ISO/IEC 19086-4. This document does not mandate the use of a specific set of metrics for cloud SLAs."
+  },
+  {
+    "reference": "ISO/IEC 19086-2:2018/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-01-27",
+    "title": "Cloud computing - Service level agreement (SLA) framework - Part 2: Metric model - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19086-2:2018/AMD2:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Cloud computing - Service level agreement (SLA) framework - Part 2: Metric model - Amendment 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19086-3:2017",
+    "edition": "1.0",
+    "date": "2017-07-20",
+    "title": "Information technology - Cloud computing - Service level agreement (SLA) framework - Part 3: Core conformance requirements",
+    "language": "EN",
+    "description": "ISO/IEC 19086-3:2017 specifies the core conformance requirements for service level agreements (SLAs) for cloud services based on ISO/IEC 19086‑1 and guidance on the core conformance requirements. This document is for the benefit of and use by both cloud service providers and cloud service customers. ISO/IEC 19086-3:2017 does not provide a standard structure that would be used for cloud SLAs."
+  },
+  {
+    "reference": "ISO/IEC 19086-3:2017/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Information technology - Cloud computing - Service level agreement (SLA) framework - Part 3: Core conformance requirements - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19941:2017",
+    "edition": "1.0",
+    "date": "2017-11-30",
+    "title": "Information technology - Cloud computing - Interoperability and portability",
+    "language": "EN",
+    "description": "ISO/IEC 19941:2017 specifies cloud computing interoperability and portability types, the relationship and interactions between these two cross-cutting aspects of cloud computing and common terminology and concepts used to discuss interoperability and portability, particularly relating to cloud services. ISO/IEC 19941:2017 is related to other standards, namely, ISO/IEC 17788, ISO/IEC 17789, ISO/IEC 19086‑1, ISO/IEC 19944, and in particular, references the cross-cutting aspects and components identified in ISO/IEC 17788 and ISO/IEC 17789 respectively. The goal of this document is to ensure that all parties involved in cloud computing, particularly CSCs, CSPs and cloud service partners (CSNs) acting as cloud service developers, have a common understanding of interoperability and portability for their specific needs. This common understanding helps to achieve interoperability and portability in cloud computing by establishing common terminology and concepts."
+  },
+  {
+    "reference": "ISO/IEC 19944-1:2020",
+    "edition": "1.0",
+    "date": "2020-10-26",
+    "title": "Cloud computing and distributed platforms ─ Data flow, data categories and data use - Part 1: Fundamentals",
+    "language": "EN",
+    "description": "This document — extends the existing cloud computing vocabulary and reference architecture in ISO/IEC 17788 and ISO/IEC 17789 to describe an ecosystem involving devices using cloud services, — describes the various types of data flowing within the devices and cloud computing ecosystem, — describes the impact of connected devices on the data that flow within the cloud computing ecosystem, — describes flows of data between cloud services, cloud service customers and cloud service users, — provides foundational concepts, including a data taxonomy, and — identifies the categories of data that flow across the cloud service customer devices and cloud services. This document is applicable primarily to cloud service providers, cloud service customers and cloud service users, but also to any person or organisation involved in legal, policy, technical or other implications of data flows between devices and cloud services."
+  },
+  {
+    "reference": "ISO/IEC 19944-2:2022",
+    "edition": "1.0",
+    "date": "2022-04-01",
+    "title": "Cloud computing and distributed platforms - Data flow, data categories and data use - Part 2: Guidance on application and extensibility",
+    "language": "EN",
+    "description": "This document provides guidance on the application of the taxonomy and use statements from ISO/IEC 19944-1 in real world scenarios, and how to develop extensions to the data taxonomy, data processing and use categories and data use statements."
+  },
+  {
+    "reference": "ISO/IEC 22123-1:2023",
+    "edition": "2.0",
+    "date": "2023-02-10",
+    "title": "Information technology - Cloud computing - Part 1: Vocabulary",
+    "language": "EN, FR",
+    "description": "This document defines terms used in the field of cloud computing."
+  },
+  {
+    "reference": "ISO/IEC 22123-2:2023",
+    "edition": "1.0",
+    "date": "2023-09-22",
+    "title": "Information technology - Cloud computing - Part 2: Concepts",
+    "language": "EN, FR",
+    "description": "This document specifies concepts used in the field of cloud computing. These concepts expand upon the cloud computing vocabulary defined in ISO/IEC 22123-1 and provide a foundation for other documents that are associated with cloud computing. This document also provides detailed descriptions on the application of these concepts in cloud computing."
+  },
+  {
+    "reference": "ISO/IEC 22123-3:2023",
+    "edition": "1.0",
+    "date": "2023-09-22",
+    "title": "Information technology - Cloud computing - Part 3: Reference architecture",
+    "language": "EN, FR",
+    "description": "This document specifies the cloud computing reference architecture (CCRA)."
+  },
+  {
+    "reference": "ISO/IEC 22624:2020",
+    "edition": "1.0",
+    "date": "2020-02-07",
+    "title": "Information technology - Cloud computing - Taxonomy based data handling for cloud services",
+    "language": "EN",
+    "description": "This document: — describes a framework for the structured expression of data-related policies and practices in the cloud computing environment, based on the data taxonomy in ISO/IEC 19944; — provides guidelines on application of the taxonomy for handling of data based on data subcategory and classification; — covers expression of data-related policies and practices including, but not limited to data geolocation, cross border flow of data, data access and data portability, data use, data management, and data governance; — describes how the framework can be used in codes of conduct for practices regarding data at rest and in transit, including cross border data transfer, as well as remote access to data; — provides use cases for data handling challenges, i.e. control, access and location of data according to ISO/IEC 19944 data categories. This document is applicable primarily to cloud service providers, cloud service customers (CSCs) and cloud service users, but also to any person or organization involved in legal, policy, technical or other implications of taxonomy-based data management in cloud services."
+  },
+  {
+    "reference": "ISO/IEC TR 22678:2019",
+    "edition": "1.0",
+    "date": "2019-01-10",
+    "title": "Information technology - Cloud computing - Guidance for policy development",
+    "language": "EN",
+    "description": "This document provides guidance on the use of international standards as a tool in the development of those policies that govern or regulate cloud service providers (CSPs) and cloud services, and those policies and practices that govern the use of cloud services in organisations. This includes material that explains cloud computing concepts and the role of cloud computing international standards in formulating policies and practices. The document makes references to various international standards. Where possible, these standards are ISO/IEC standards. Where a suitable ISO/IEC standard is not available, references are made to documents published by other WTO-registered standards bodies. As explained in the WTO Agreement on Technical Barriers to Trade (TBT), standards play a vital role in supporting technical regulations and conformity assessment, however this document does not cover matters of trade."
+  },
+  {
+    "reference": "ISO/IEC 23167:2026",
+    "edition": "1.0",
+    "date": "2026-07-24",
+    "title": "Information technology - Cloud computing - Common technologies and techniques",
+    "language": "EN",
+    "description": "This document provides a description of a set of common technologies and techniques used in conjunction with cloud computing. These include: virtual machines (VMs) and hypervisors; containers and container management systems (CMSs); serverless computing; microservices architecture; automation; platform as a service systems and architecture; storage services; security, scalability and networking as applied to the above cloud computing technologies."
+  },
+  {
+    "reference": "ISO/IEC TR 23187:2020",
+    "edition": "1.0",
+    "date": "2020-06-03",
+    "title": "Information technology - Cloud computing - Interacting with cloud service partners (CSNs)",
+    "language": "EN",
+    "description": "This document provides an overview of and guidance on interactions between cloud service partners (CSNs), specifically cloud service brokers, cloud service developers and cloud auditors, and other cloud service roles. In addition, this document describes how cloud service agreements (CSAs) and cloud service level agreements (cloud SLAs) can be used to address those interactions, including the following: — definition of terms and concepts, and provision of an overview for interactions between CSNs and CSCs and CSPs; — description of types of CSN interactions; — description of interactions between CSNs and CSCs; — description of interactions between CSNs and CSPs; — description of elements of CSAs and Cloud SLAs for CSN interactions, both with CSPs and with CSCs."
+  },
+  {
+    "reference": "ISO/IEC TR 23188:2020",
+    "edition": "1.0",
+    "date": "2020-02-11",
+    "title": "Information technology - Cloud computing - Edge computing landscape",
+    "language": "EN",
+    "description": "This document examines the concept of edge computing, its relationship to cloud computing and IoT, and the technologies that are key to the implementation of edge computing. This document explores the following topics with respect to edge computing: — concept of edge computing systems; — architectural foundation of edge computing; — edge computing terminology; — software classifications in edge computing, e.g. firmware, services, applications; — supporting technologies, e.g. containers, serverless computing, microservices; — networking for edge systems, including virtual networks; — data, e.g. data flow, data storage, data processing; — management, of software, of data and of networks, resources, quality of service; — virtual placement of software and data, and metadata; — security and privacy; — real time; — mobile edge computing, mobile devices."
+  },
+  {
+    "reference": "ISO/IEC TR 23613:2020",
+    "edition": "1.0",
+    "date": "2020-05-11",
+    "title": "Information technology - Cloud computing - Cloud service metering elements and billing modes",
+    "language": "EN",
+    "description": "This document describes a sample set of cloud service metering elements and billing modes."
+  },
+  {
+    "reference": "ISO/IEC 23751:2022",
+    "edition": "1.0",
+    "date": "2022-02-15",
+    "title": "Information technology - Cloud computing and distributed platforms - Data sharing agreement (DSA) framework",
+    "language": "EN",
+    "description": "This document establishes a set of building blocks, i.e. concepts, terms, and definitions, including Data Level Objectives (DLOs) and Data Qualitative Objectives (DQOs), that can be used to create Data Sharing Agreements (DSAs). This document is applicable to DSAs where the data is intended to be processed using one or more cloud services or other distributed platforms."
+  },
+  {
+    "reference": "ISO/IEC TR 23951:2025",
+    "edition": "2.0",
+    "date": "2025-04-16",
+    "title": "Information technology - Cloud computing - Best practices for using the cloud service level agreement (SLA) metric model",
+    "language": "EN",
+    "description": "This document provides best practices for using the ISO/IEC 19086-2 metric model, illustrated with examples."
+  },
+  {
+    "reference": "ISO/IEC TR 30102:2012",
+    "edition": "1.0",
+    "date": "2012-12-04",
+    "title": "Information technology - Distributed Application Platforms and Services (DAPS) - General technical principles of Service Oriented Architecture",
+    "language": "EN",
+    "description": "ISO/IEC TR 30102:2012 describes the general technical principles underlying Service Oriented Architecture (SOA), including principles relating to functional design, performance, development, deployment and management. It provides a vocabulary containing definitions of terms relevant to SOA. It includes a domain-independent technical framework, addressing functional requirements and non-functional requirements."
+  }
+]

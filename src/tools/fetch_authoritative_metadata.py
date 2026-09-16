@@ -88,7 +88,7 @@ REPO_ROOT = BASE_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(BASE_DIR))
 
-from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff, eiga  # noqa: E402
+from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff, eiga, iec  # noqa: E402
 from norm_title import designation_core  # noqa: E402
 from check_csn_validity import (  # noqa: E402
     search as csn_search,
@@ -171,6 +171,24 @@ def is_stn_norm_record(item):
     if (item.get("typ_dokumentu") or "").strip() != "Norma":
         return False
     return bool(_STN_PREFIX_RE.match((item.get("znacka") or "").strip()))
+
+
+_IEC_DESIGNATION_RE = re.compile(r"^(pr\s*EN\s+)?IEC\b", re.IGNORECASE)
+
+
+def is_iec_norm_record(item):
+    """doc/PLAN.md §25, 2026-09-17: an IEC-designated norm, looked up
+    against the LOCAL index `src/tools/harvest_iec_publications.py`
+    built — no live request here at all (see `src/sites/iec.py`'s own
+    docstring for why: `www.iec.ch` needs a real browser to pass its
+    WAF, too heavy to run per-record on every fetch pipeline pass).
+    Keyed on the record's own `znacka` prefix, not URL domain — corpus
+    records store `webstore.iec.ch/en/` as a shared catalog-root URL,
+    same shape as STN/EIGA, but an `IEC`/`prEN IEC` designation is
+    already unambiguous on its own."""
+    if (item.get("typ_dokumentu") or "").strip() != "Norma":
+        return False
+    return bool(_IEC_DESIGNATION_RE.match((item.get("znacka") or "").strip()))
 
 
 def is_eiga_norm_record(item):
@@ -329,6 +347,8 @@ def main():
     eiga_session = requests.Session()
     eiga_session.headers.update({"User-Agent": eiga.USER_AGENT})
 
+    iec_index = iec.load_index()
+
     processed = 0
     for item in raw_data:
         if args.limit is not None and processed >= args.limit:
@@ -427,6 +447,33 @@ def main():
             }
             processed += 1
             time.sleep(SLEEP_SECONDS)
+            continue
+
+        if is_iec_norm_record(item):
+            if args.only_missing_description and (item.get("anotace_poznamka") or "").strip():
+                continue
+            designation = iec.normalize_designation(znacka)
+            if not designation:
+                continue
+            key = f"iec:{designation}"
+            if key in processed_keys:
+                continue
+            if key in cache and not args.force:
+                continue
+            processed_keys.add(key)
+            result = iec.lookup(znacka, iec_index)
+            print(f"[iec] {znacka} -> {designation}: {'found' if result else 'not found'}")
+            cache[key] = {
+                "title": (result or {}).get("title"),
+                "description": (result or {}).get("description"),
+                "domain": "iec.ch",
+                "znacka": designation,
+                "zdroj_esbirka_url": None,
+                "zdroj_autoritativni_url": None,
+                "status": "fetched" if result else "failed",
+            }
+            processed += 1
+            # No sleep: a local index lookup, not a network request.
             continue
 
         if is_csn_norm_record(item):

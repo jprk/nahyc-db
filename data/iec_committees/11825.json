@@ -1,0 +1,130 @@
+[
+  {
+    "reference": "IEC TR 62559-1:2019",
+    "edition": "1.0",
+    "date": "2019-01-29",
+    "title": "Use case methodology - Part 1: Concept and processes in standardization",
+    "language": "EN-FR",
+    "description": "IEC TR 62559-1:2019, which is a Technical Report, is the basis for a common use case repository, used to gather use cases within IEC on a common collaborative platform. The repository is used to organize and harmonize use cases in order to provide broadly accepted generic use cases as basis for the further standardization work. This document gives an overview about the individual parts of the IEC 62559 series, provides the background/basics for the use case approach defined therein (like terms or use case types), and introduces processes for collaborative use case collection within IEC. Operational documents like user manuals for software tools like the use case repository are not described in detail as they will be available online and might as well be frequently updated. This first edition, together with the other parts of the IEC TR 62559 series as described in the Introduction, cancels and replaces IEC PAS 62559 published in 2008. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62559-3:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Use case methodology - Part 3: Definition of use case template artefacts into an XML serialized format",
+    "language": "EN-FR, EN",
+    "description": "IEC 62559-3:2017 defines the core concepts and their serialization into XML syntactic format of a use case template, an Actor list and list for detailed requirements This provides a common XML format for importing/exporting use case information between a variety of modelling software and repositories. For complex systems, the use case methodology supports a common understanding of functionalities, Actors and processes across different technical committees or even different organizations. Developed as software engineering tool, the methodology can be used to support the development of standards as it facilitates the analysis of requirements in relation to new or existing standards. Further arguments for the use case methodology and background information are available in IEC 62559-1. This part of IEC 62559 establishes the interfaces between the different use case repositories and/or UML engineering software tools. Once this level of interoperability is achieved, IEC 62559 can provide a reliable mechanism to interpret those XML data in order to represent graphically UML use cases."
+  },
+  {
+    "reference": "IEC SRD 62559-4:2020",
+    "edition": "1.0",
+    "date": "2020-03-27",
+    "title": "Use case methodology - Part 4: Best practices in use case development for IEC standardization processes and some examples for application outside standardization",
+    "language": "EN",
+    "description": "IEC SRD 62559-4:2020 specifies best practices for an entity to engage in a use cases redaction process to determine and describe their user requirements for systems, based on the business needs. It complements the information in IEC TR 62559-1, IEC 62559-2 and IEC 62559-3 by providing users with best practices in: - use cases drafting process, - determining the skill sets of the people required, - use case repository management, and - using use cases for IEC or enterprise projects."
+  },
+  {
+    "reference": "IEC SRD 62913-1:2022",
+    "edition": "2.0",
+    "date": "2022-08-29",
+    "title": "Generic smart grid requirements - Part 1: Specific application of the use case methodology for defining generic smart grid requirements according to the IEC systems approach",
+    "language": "EN",
+    "description": "IEC SRD 62913-1:2022 (E) describes a common approach for IEC technical committees to define generic smart grid requirements for further standardization work. It uses as input the use case methodology defined as part of the IEC 62559 series, and provides a more detailed methodology for describing use cases and extracting requirements from these use cases. This will achieve a consistent and homogeneous description of generic requirements for the different areas which make up the smart grid environment This second edition cancels and replaces the first edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: • it consolidates requirements identification and management and their associated naming rules; • it leverages IEC SRD 63200:2021, Definition of extended SGAM Smart Energy Grid Reference Architecture Model; • it highlights links between use case methodology and other tools and methodologies (i.e. TOGAF/ArchiMate as used in IEC 61968-1:2020)."
+  },
+  {
+    "reference": "IEC SRD 62913-2-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-17",
+    "title": "Generic smart grid requirements - Part 2-1: Grid related domains",
+    "language": "EN",
+    "description": "IEC SRD 62913-2-1 2019 (E) initiates and illustrates the IEC’s systems approach based on Use Cases and involving the identification of generic smart grid requirements for further standardization work for grid related domains – i.e. grid management regrouping: transmission grid management, distribution grid management, microgrids and smart substation automation domains – based on the methods and tools developed in IEC SRD 62913-1. The Grid management domain groups Use Cases and associated requirements common to the EHV, HV and MV/LV networks operations and the business analysis of the general electric network life cycle. Use Cases specific to parts of the general electric network are described in transmission grid management, distribution grid management, microgrids and smart substation automation clauses. This document captures possible “common and repeated usage” of a smart grid system, under the format of “Use Cases” with a view to feeding further standardization activities. Use Cases can be described in different ways and can represent competing alternatives. From there, this document derives the common requirements to be considered by these further standardization activities in term of interfaces between actors interacting with the given system. To this end, Use Case implementations are given for information purposes only. The interface requirements to be considered for later standardization activities are summarized (typically information pieces, communication services and specific non-functional requirements: performance level, security specification, etc.)."
+  },
+  {
+    "reference": "IEC SRD 62913-2-2:2019",
+    "edition": "1.0",
+    "date": "2019-05-17",
+    "title": "Generic smart grid requirements - Part 2-2: Market related domain",
+    "language": "EN",
+    "description": "IEC SRD 62913-2-2:2019(E) initiates and illustrates the IEC’s systems approach based on Use Cases and involving the identification of generic smart grid requirements for further standardization work for market related domains, based on the methods and tools developed in IEC SRD 62913-1. It captures possible “common and repeated usage” of a smart grid system, under the format of “Use Cases” with a view to feeding further standardization activities. Use Cases can be described in different ways and can represent competing alternatives. From there, this document derives the common requirements to be considered by these further standardization activities in terms of interfaces between actors interacting with the given system. To this end, Use Case implementations are given for information purposes only. The interface requirements to be considered for later standardization activities are summarized (typically information pieces, communication services and specific non-functional requirements: performance level, security specification, etc.)."
+  },
+  {
+    "reference": "IEC SRD 62913-2-3:2019",
+    "edition": "1.0",
+    "date": "2019-05-17",
+    "title": "Generic smart grid requirements - Part 2-3: Resources connected to the grid domains",
+    "language": "EN",
+    "description": "IEC SRD 62913-2-3:2019(E) initiates and illustrates the IEC’s systems approach based on Use Cases and involving the identification of generic smart grid requirements for further standardization work for resources connected to the electric power systems – i.e. distributed energy resources, smart home/commercial/industrial/DR-customer energy management, energy storage, and bulk generation domains – based on the methods and tools developed in IEC SRD 62913-1. This document captures possible \"common and repeated usage\" of a smart grid system, under the format of \"Uses Cases\" with a view to feeding further standardization activities. Use Cases can be described in different ways and can represent competing alternatives. From there, this document derives the common requirements to be considered by these further standardization activities in term of interfaces between actors interacting with the given system. To this end, Use Case implementations are given for information purposes only. The interface requirements to be considered for later standardization activities are summarized (typically information pieces, communication services and specific non-functional requirements: performance level, security specification, etc.). This analysis is based on the business input from domain experts as well as existing material on grid management in a smart grid environment when relevant. Table 1 highlights the domains and business Use Cases described in this document. Electric vehicles are on one hand considered as a DER and normally should fit in IEC SRD 62913-2-3; but on the other hand, and for historical reasons, they are separated into two documents and covered in the IEC SRD 62913-2-4 electric transportation domain."
+  },
+  {
+    "reference": "IEC SRD 62913-2-4:2019",
+    "edition": "1.0",
+    "date": "2019-05-17",
+    "title": "Generic smart grid requirements - Part 2-4: Electric transportation related domain",
+    "language": "EN",
+    "description": "IEC SRD 62913-2-4:2019(E) initiates and illustrates the IEC's systems approach based on Use Cases and involving the identification of generic smart grid requirements for further standardization work for the electric transportation domain, based on the methods and tools developed in IEC SRD 62913-1. This document captures possible \"common and repeated usage\" of a smart grid system, under the format of \"Use Cases\" with a view to feeding further standardization activities. Use Cases can be described in different ways and can represent competing alternatives. From there, this document derives the common requirements to be considered by these further standardization activities in terms of interfaces between actors interacting with the given system. To this end, Use Case implementations are given for information purposes only. The interface requirements to be considered for later standardization activities are summarized (typically information pieces, communication services and specific non-functional requirements: performance level, security specification, etc.). This analysis is based on the business input from domain experts as well as existing material on electric transportation in a smart grid environment when relevant."
+  },
+  {
+    "reference": "IEC TR 63097:2017",
+    "edition": "1.0",
+    "date": "2017-11-14",
+    "title": "Smart grid standardization roadmap",
+    "language": "EN",
+    "description": "IEC/TR 63097:2017(E) provides standards users with guidelines to select a most appropriate set of standards and specifications. These standards and specifications are either existing or planned, and are provided by IEC or other bodies also fulfilling use cases. It also aims at creating a common set of guiding principles that can be referenced by end-users and integrators who are responsible for the specification, design, and implementation of Smart Energy Systems. As a living document, this roadmap will be subject to future changes, modifications and additions, and will be incorporated into future editions. At the current stage, the focus remains the “Smart Grids”. This means that the full Smart Energy scope has not been addressed yet (i.e. the consideration necessary to include the interactions with other energies such as gas, and heat) and will be considered in a future edition of this document."
+  },
+  {
+    "reference": "IEC SRD 63199:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Top priority standards development status in the domain of smart energy",
+    "language": "EN",
+    "description": "IEC SRD 63199:2020 presents the current status of the IEC systems committee Smart Energy (SyC SE) development plan for readers (not limited to IEC smart energy related members). The document identifies items that require standardization, their current status and work required, possibly by multiple technical committees or working groups, to address any issues. Since the content of this document represents a snapshot of the dynamic/living standardization processes to be updated, it is subject to future changes. Users’ perspectives are considered. For example, the analysis of influences of each item (development impact and chance to fill gaps) are stated."
+  },
+  {
+    "reference": "IEC SRD 63200:2021",
+    "edition": "1.0",
+    "date": "2021-08-24",
+    "title": "Definition of extended SGAM smart energy grid reference architecture model",
+    "language": "EN",
+    "description": "IEC SRD 63200:2021(E), which is a Systems Reference Deliverable, defines the framework elements, associated ontology, and modelling methodology for designing the Smart energy Grid Reference Architecture using the Smart Grid Architecture Model (SGAM), with potential expansion to describe the interaction between the grid and heat/gas systems, and including easily understandable examples. This document also provides a machine level representation of the concepts associated with the SGAM in the form of an ontology provided in the form of diagrams in Annex A, as well as in the form of a code component. Thus, this document is associated with a code component presented as a ZIP file package."
+  },
+  {
+    "reference": "IEC SRD 63268:2020",
+    "edition": "1.0",
+    "date": "2020-10-29",
+    "title": "Energy and data interfaces of users connected to the smart grid with other smart grid stakeholders - Standardization landscape",
+    "language": "EN",
+    "description": "IEC SRD 63268:2020(E) depicts a comprehensive standardization landscape of the interfaces between the main grid stakeholders and the grid users, grid users comprising DERs and Customer Premises. This document considers the main \"physical\" and \"logical\" interactions (i.e. through wires/functions – power and/or communication) between grid users and grid stakeholders, both from an electrical standpoint and from a data standpoint. Then for each interaction type, the document presents the standardization landscape. This document depicts, as well, the interactions between the grid stakeholders manipulating grid user related data, themselves. Effectively it appears that considering the sole landscape of the interfaces between the grid users and the grid would be very limited without considering the way the data attached to grid users are manipulated/managed within and between the different stakeholders holding these data. Providing a seamless vision of the management of these data is becoming of highest priority. The document focuses exclusively on Distribution grid users, excluding as such \"bulk generation\" grid users and \"transmission connected grid users\", the main reason being that the main breakthrough resulting from the introduction of distributed energy resources affects mostly the Distribution grid users. This document mostly focuses on establishing the standardization landscape for the considered domain, including the IEC entities involved in producing reports, technical specifications and standards related to it. From this assessment a first set of recommendations is issued related to the way IEC addresses this scope."
+  },
+  {
+    "reference": "IEC SRD 63417:2025",
+    "edition": "1.0",
+    "date": "2025-06-19",
+    "title": "Guidance and plan to develop smart energy ontologies",
+    "language": "EN",
+    "description": "IEC SRD 63417:2025 provides guidance and a plan to develop smart energy ontologies and other domain-based ontologies within smart energy to achieve semantic interoperability through various standards, generic and specific ontologies projects. This includes but is not limited to the following. • Assessment of a selection of existing ontologies for the purpose of smart energy applications: – identification of developed ontologies within the energy sectors; – limitations, best practices, and lessons learned; – use and reuse of existing ontologies in the smart energy domain; – cross-domain semantic interoperability support and link to other ontologies. • Guidance and plan for smart energy ontologies development and usage including: – key principles to map or transform existing reference models to the IEC ontology framework; – definition of governance best practices for ontologies applied to process the smart energy domain; – guidance for developing or extending a smart energy ontology. Domain-based ontologies have been developed for semantic interoperability in a specific domain but the interaction of semantically equivalent objects in different ontologies has not been defined. This document helps users and ontology developers to define the complete relationship in different domains and different ontologies for the purpose of smart energy applications."
+  },
+  {
+    "reference": "IEC SRD 63443-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-18",
+    "title": "Distributed energy resource aggregation business - Part 1: System architecture and service scenarios",
+    "language": "EN",
+    "description": "IEC SRD 63443-1:2026 covers the terms and definitions, system composition and a service scenario of Distributed Energy Resource Aggregation Business (ERAB) System that is the convergence of Distributed Energy Resource (DER) units, Controllable loads, ERAB Controller, and a smart volt-ampere meter to measure the performance of the ERAB Controller, separating to Virtual Power Plant whose definition is the group of distributed energy resources which combine to function as a dispatchable unit."
+  },
+  {
+    "reference": "IEC SRD 63460:2025",
+    "edition": "1.0",
+    "date": "2025-01-30",
+    "title": "Architecture and use-cases for EVs to provide grid support functions",
+    "language": "EN",
+    "description": "IEC SRD 63460:2025 The scope of this document is the assessment of how Electric Vehicles (EVs) may (or must) act as Distributed Energy Resources (DER) when they are interconnected to the electric power system through a charging station. Although clearly the main purpose for EV interconnection to the grid is to charge their batteries, EVs are capable of providing grid support functions while interconnected, and in some situations, may be mandated or incentivized to do so. This document provides Use Cases as examples of how EVs might provide such DER functionality, based on the grid support functions defined in IEC 61850-7-420, IEEE 1547:2018, and EN 50549."
+  },
+  {
+    "reference": "IEC Technology Report Cyber security:2019",
+    "edition": ".0",
+    "date": "2019-10-18",
+    "title": "Cyber security and resilience guidelines for the smart energy operational environment",
+    "language": "EN",
+    "description": "The energy business sector is undergoing profound changes. The transition to clean energy is underway and society is increasingly reliant on electrical energy. However, the business environment is more risky and mounting competition requires the continual improvement of end-user services. Simultaneously, the energy sector has accelerated its evolution towards digitization thus heightening its reliance on cyber assets, including systems, controllers and intelligent devices, to manage the delivery of electrical energy. However, these cyber assets present serious challenges and businesses must determine how to cope with the reality of deliberate cyber attacks as well as how to remain resilient in the face of inadvertent cyber threats arising from personnel mistakes, the complexity of systems, equipment failure and natural disaster. Energy businesses that traditionally addressed only the system engineering process must now include cyber security services and technologies. This IEC Technology Report provides guidelines to help executives in the smart energy operational environment understand the necessary cyber security policies, procedures and technologies that need to be implemented. It was prepared by the task force on cyber security in the IEC Systems Committee on Smart energy Working Group 3. This IEC Technology Report is available for free download ."
+  }
+]

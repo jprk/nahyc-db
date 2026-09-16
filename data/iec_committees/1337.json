@@ -1,0 +1,58 @@
+[
+  {
+    "reference": "IEC 60282-1:2020",
+    "edition": "8.0",
+    "date": "2020-04-14",
+    "title": "High-voltage fuses - Part 1: Current-limiting fuses",
+    "language": "EN-FR, ES",
+    "description": "IEC 60282-1:2020 applies to all types of high-voltage current-limiting fuses designed for use outdoors or indoors on alternating current systems of 50 Hz and 60 Hz and of rated voltages exceeding 1 000 V. This eighth edition cancels and replaces the seventh edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: – additional information concerning thermally operated strikers; – the division of ratings, characteristics and type tests into those applicable to all fuses and those applicable to particular fuse-link types and applications; – adjustment of Series II voltages and tests to meet present North American standard system voltages and applications; – clarification of requirements for fuse-links used in surrounding temperatures above 40 °C; and – clarification of homogeneous requirements for fuse-links containing one element."
+  },
+  {
+    "reference": "IEC 60282-2:2008",
+    "edition": "3.0",
+    "date": "2008-04-29",
+    "title": "High-voltage fuses - Part 2: Expulsion fuses",
+    "language": "EN-FR, ES",
+    "description": "IEC 60282-2:2008 provides requirements for expulsion fuses designed for use outdoors or indoors on alternating current systems of 50 Hz and 60 Hz, and of rated voltages exceeding 1 000 V. The main changes with regard to the previous edition include: - Class C has been eliminated; - TRV values have been reviewed and, where appropriate, harmonized with IEC 62271-100:2001, its amendment 1 (2002) and amendment 2 (2006); - tests for non-ceramic insulators have been included; - a lightning surge impulse withstand test for fuse-links has been included; and - an homogeneous series has been redefined."
+  },
+  {
+    "reference": "IEC 60282-4:2020",
+    "edition": "1.0",
+    "date": "2020-04-16",
+    "title": "High-voltage fuses - Part 4: Additional testing requirements for high-voltage expulsion fuses utilizing polymeric insulators",
+    "language": "EN-FR, ES",
+    "description": "IEC 60282-4:2020 applies to expulsion fuses complying with IEC 60282-2 and specifies additional testing requirements for fuses employing a cutout fuse-base that utilizes polymeric insulators."
+  },
+  {
+    "reference": "IEC 60549:2013",
+    "edition": "2.0",
+    "date": "2013-04-23",
+    "title": "High-voltage fuses for the external protection of shunt capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60549:2013 applies to external fuses used with high-voltage capacitors according to IEC 60871-1, Shunt capacitors for a.c. power systems having a rated voltage above 1 000 V - Part 1: General. IEC 60871-1 is applicable to both capacitor units and capacitor banks intended to be used, particularly, for power-factor correction of a.c. power systems, and also to capacitors intended for use in power filter circuits. Fuses according to IEC 60549:2013 are intended to clear either faults inside a capacitor unit to permit continued operation of the remaining parts of the bank in which the unit is connected (unit fuses) or faults on the whole capacitor bank to isolate the bank from the system (line fuses). This second edition cancels and replaces the first edition published in 1976. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - alignment of the document with current IEC document structure requirements; - clarification of certain test requirements. Keywords: external fuses used with high-voltage capacitors, shunt capacitors for a.c.power system"
+  },
+  {
+    "reference": "IEC 60644:2009",
+    "edition": "2.0",
+    "date": "2009-08-11",
+    "title": "Specification for high-voltage fuse-links for motor circuit applications",
+    "language": "EN-FR, ES",
+    "description": "IEC 60644:2009 applies primarily to fuse-links used with motors started direct-on-line on alternating current systems of 50 Hz and 60 Hz. Standardizes time-current characteristics to formulate additional pulse withstand requirements regarding testing and to give guidance for the selection of fuse-links to be used with motors. Note: Fuse-links according to this specification should comply with the requirements of IEC 60282-1. The main changes with regard to the previous edition concern the following: - update of the normative references; - renewal of the figures."
+  },
+  {
+    "reference": "IEC 60644:2009/AMD1:2019",
+    "edition": "2.0",
+    "date": "2019-09-23",
+    "title": "Amendment 1 - Specification for high-voltage fuse-links for motor circuit applications",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62655:2013",
+    "edition": "1.0",
+    "date": "2013-05-22",
+    "title": "Tutorial and application guide for high-voltage fuses",
+    "language": "EN-FR",
+    "description": "IEC/TR 62655:2013 provides information for understanding the construction, operation and application of high-voltage fuses in general. Current-limiting, expulsion, electronic, and other, non-current-limiting, fuses rated above 1 kV a.c. are all covered, as are North American, European and other application practices. As a technical report, this document contains no requirement and is informative only. Key words: high-voltage fuses"
+  }
+]

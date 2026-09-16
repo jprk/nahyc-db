@@ -1,0 +1,1298 @@
+[
+  {
+    "reference": "IEC 61280-1-1:2013",
+    "edition": "2.0",
+    "date": "2013-05-21",
+    "title": "Fibre optic communication subsystem basic test procedures - Part 1-1: Test procedures for general communication subsystems - Transmitter output optical power measurement for single-mode optical fibre cable",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-1-1:2013 applies to fibre optic general communication subsystems. The object of this part is to measure the optical power coupled from the output of a transmitter under test into single-mode optical fibre cable containing dispersion-unshifted fibre or dispersion-shifted fibre. This second edition cancels and replaces the first edition published in 1998. This second edition constitutes a technical revision. The significant technical change with respect to the previous edition is the inclusion of Annex A on how to account for uncertainties. There are editorial corrections throughout the document and updates to references. Keywords: measure the optical power coupled from the output of a transmitter under test into single-mode optical fibre cable containing dispersion-unshifted fibre or dispersion-shifted fibre"
+  },
+  {
+    "reference": "IEC 61280-1-3:2021",
+    "edition": "3.0",
+    "date": "2021-07-05",
+    "title": "Fibre optic communication subsystem test procedures - Part 1-3: General communication subsystems - Measurement of central wavelength, spectral width and additional spectral characteristics",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-1-3:2021 provides definitions and measurement procedures for several wavelength and spectral width properties of an optical spectrum associated with a fibre optic communication subsystem, an optical transmitter, or other light sources used in the operation or test of communication subsystems. This document also provides definitions and measurement procedures for side-mode suppression ratio and signal-to-source spontaneous emission ratio. The measurement is done for the purpose of system construction and/or maintenance. In the case of communication subsystem signals, the optical transmitter is typically under modulation. NOTE Different properties can be appropriate to different spectral types, such as continuous spectra characteristics of light-emitting diodes (LEDs), as well as multilongitudinal-mode (MLM), multitransverse-mode (MTM) and single-longitudinal mode (SLM) spectra, which are characteristic of laser diodes (LDs). This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of measurement of signal-to-source spontaneous emission ratio in 8.9; - change of document title to reflect the additional measurement; - additional information on the resolution bandwidth used in the measurement of the side-mode suppression ratio in 8.8; - use of a calibrated optical wavelength meter for accurate wavelength measurements of single-longitudinal mode lasers."
+  },
+  {
+    "reference": "IEC 61280-1-4:2023",
+    "edition": "3.0",
+    "date": "2023-01-19",
+    "title": "Fibre optic communication subsystem test procedures - Part 1-4: General communication subsystems - Light source encircled flux measurement method",
+    "language": "EN-FR",
+    "description": "IEC 61280-1-4:2023 establishes the characterization process of the encircled flux measurement method of light sources intended to be used with multimode fibre. This document sets forth a procedure for the collection of two-dimensional fibre optic nearfield greyscale data and subsequent reduction to one-dimensional data expressed as a set of three sampled parametric functions of radius from the fibre’s optical centre. Estimation of the fibre core diameter is not an objective of this document. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - improvement of calibration procedure and calibration traceability; - improvement of fibre shaker description and requirements; - addition of pulsed light sources; - removal of a poorly traceable calibration process using a micro positioner."
+  },
+  {
+    "reference": "IEC 61280-2-1:2010",
+    "edition": "2.0",
+    "date": "2010-03-18",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-1: Digital systems - Receiver sensitivity and overload measurement",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-2-1:2010 describes the test procedures applicable to digital fibre optic communication and data systems. The object of this test procedure is to measure the minimum and maximum optical powers required and allowed at the optical input port of a fibre optic system to ensure its operation within specified limits. Another objective is to verify that the guaranteed error performance is obtained at the minimum and the maximum optical input powers specified by the terminal equipment manufacturer. This second edition cancels and replaces the first edition, published in 1998, and constitutes a technical revision. The main changes with respect to the previous edition are: - revised to include the requirements associated with data communication equipment, regenerators and amplifiers; - the term \"jumper lead\" has been replaced by \"test cord\"; - a section for definitions has been added; - a section on measurement uncertainties has been added. This bilingual version (2015-12) corresponds to the monolingual English version, published in 2010-03. Keywords: digital fibre optic communication and data systems, optical input port"
+  },
+  {
+    "reference": "IEC 61280-2-2:2012",
+    "edition": "4.0",
+    "date": "2012-10-25",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-2: Digital systems - Optical eye pattern, waveform and extinction ratio measurement",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-2-2:2012 describes a test procedure to verify compliance with a predetermined waveform mask and to measure the eye pattern and waveform parameters such as rise time, fall time, modulation amplitude and extinction ratio. This fourth edition cancels and replaces the third edition published in 2008 and constitutes a technical revision .This edition includes the following significant technical changes with respect to the previous edition: additional definitions; clarification of test procedures. Keywords: optical eye pattern, waveform, modulation amplitude, extinction ratio The contents of the corrigendum of February 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61280-2-2:2012/COR1:2015",
+    "edition": "4.0",
+    "date": "2015-02-17",
+    "title": "Corrigendum 1 - Fibre optic communication subsystem test procedures - Part 2-2: Digital systems - Optical eye pattern, waveform and extinction ratio measurement",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61280-2-3:2009",
+    "edition": "1.0",
+    "date": "2009-07-14",
+    "title": "Fibre optic communication subsystem tets procedures - Part 2-3: Digital systems - Jitter and wander measurements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-2-3:2009 specifies methods for the measurement of the jitter and wander parameters associated with the transmission and handling of digital signals."
+  },
+  {
+    "reference": "IEC 61280-2-8:2021",
+    "edition": "2.0",
+    "date": "2021-03-02",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-8: Digital systems - Determination of low BER using Q-factor measurements",
+    "language": "EN-FR",
+    "description": "IEC 61280-2-8:2021 specifies two main methods for the determination of low BER values by making accelerated measurements. These include the variable decision threshold method (Clause 5) and the variable optical threshold method (Clause 6). In addition, a third method, the sinusoidal interference method, is described in Annex B. This second edition cancels and replaces the first edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - correction of errors in Formula (8) in 5.5.2 and in a related formula in 5.5.3; - correction of errors in the references to clauses, subclauses, figures, procedures, and in the Bibliography; - alignment of the terms and definitions in 3.1 with those in IEC 61281-1."
+  },
+  {
+    "reference": "IEC 61280-2-9:2009",
+    "edition": "2.0",
+    "date": "2009-02-11",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-9: Digital systems - Optical signal-to-noise ratio measurement for dense wavelength-division multiplexed systems",
+    "language": "EN-FR",
+    "description": "IEC 61280-2-9:2009 provides a parameter definition and a test method for obtaining optical signal-to-noise ratio (OSNR) using apparatus that measures the optical spectrum at a multichannel interface. Because noise measurement is made on an optical spectrum analyzer, the measured noise does not include source relative intensity noise (RIN) or receiver noise. Three implementations for an optical spectrum analyser (OSA) are discussed: - a diffraction-grating-based OSA, - a Michelson interferometer-based OSA, - and a Fabry-Perot-based OSA. This second addition cancels and replaces the first edition published in 2002 and constitutes a technical revision. The main changes from the previous edition are as follows: - A paragraph has been added to the Scope describing the limitations due to signal spectral width and wavelength filtering; - and Annex B has been added to further explain error in measuring noise level due to signal spectral width and wavelength filtering."
+  },
+  {
+    "reference": "IEC 61280-2-10:2005",
+    "edition": "1.0",
+    "date": "2005-07-21",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-10: Digital systems - Time-resolved chirp and alpha-factor measurement of laser transmitters",
+    "language": "EN-FR",
+    "description": "This part of IEC 61280 sets forth standard procedures for measuring time-resolved chirp (TRC) on laser transmitters. The calculation of alpha-factor, a measure of transient chirp, is derived from the measured TRC data. Also covered is a means to verify the TRC set-ups and calculations (Annex A) and a review of laser modulation methods and the relationship of TRC to performance in a transmission system."
+  },
+  {
+    "reference": "IEC 61280-2-11:2006",
+    "edition": "1.0",
+    "date": "2006-01-17",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-11: Digital systems - Averaged Q-factor determination using amplitude histogram evaluation for optical signal quality monitoring",
+    "language": "EN-FR",
+    "description": "This part of IEC 61280 defines the averaged Q-factor and provides a procedure to measure it by using amplitude histogram parameters such as the standard deviation and average level."
+  },
+  {
+    "reference": "IEC 61280-2-12:2014",
+    "edition": "1.0",
+    "date": "2014-05-06",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-12: Digital systems - Measuring eye diagrams and Q-factor using a software triggering technique for transmission signal quality assessment",
+    "language": "EN-FR",
+    "description": "IEC 61280-2-12:2014 defines the procedure for measuring eye diagrams and Q-factor of optical transmission (RZ and NRZ) signals using software triggering technique as shown in 4.1. Keywords: measuring eye diagrams and Q-factor of optical transmission (RZ and NRZ) signals, software triggering technique"
+  },
+  {
+    "reference": "IEC 61280-2-13:2024",
+    "edition": "1.0",
+    "date": "2024-07-17",
+    "title": "Fibre optic communication subsystem test procedures - Part 2-13: Digital systems - Measurement of error vector magnitude",
+    "language": "EN-FR",
+    "description": "IEC 61280-2-13:2024 series defines a procedure for calculating the root-mean-square error vector magnitude of optical n-APSK signals from a set of measured symbols. It specifically defines the normalization of the reference states and a procedure for optimal scaling of the measured symbol states. The procedure described in this document applies to single-polarized optical signals as well as to conventional polarization-multiplexed signals with independently modulated polarization tributaries. In general, it is not advisable to apply these procedures without modification to signals, in which optical amplitude, phase, and polarization state are simultaneously modulated to encode the information data. This document does not specify any signal processing steps for extracting the symbols from the received optical signals, because these steps depend on the optical receiver and can vary with the type of the transmitted n-APSK signal. These and optional additional signal processing steps are defined in application-specific documents."
+  },
+  {
+    "reference": "IEC 61280-4-1:2019",
+    "edition": "3.0",
+    "date": "2019-05-22",
+    "title": "Fibre-optic communication subsystem test procedures - Part 4-1: Installed cabling plant - Multimode attenuation measurement",
+    "language": "EN-FR",
+    "description": "IEC 61280-4-1: 2019 is applicable to the measurement of attenuation of installed optical fibre cabling plant using multimode optical fibre. This cabling plant can include multimode optical fibres, connectors, adapters, splices, and other passive devices. The cabling can be installed in a variety of environments including residential, commercial, industrial, and data centre premises, as well as outside plant environments. The test equipment used in this document has one single fibre connector interface or two single fibre connector interfaces. In this document, the optical fibres that are addressed include sub-categories A1-OMx, where x = 2, 3, 4 and 5 (50/125 μm) and A1-OM1 (62,5/125 μm) multimode optical fibres, as specified in IEC 60793-2-10. The attenuation measurements of the other multimode categories can be made using the approaches of this document, but the source conditions for the other categories have not been defined. This third edition cancels and replaces the second edition, published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) changes to Annex F on encircled flux to harmonise with IEC TR 62614-2, but keeping the encircled flux limits defined in Tables F.2 to F.5 unchanged; b) addition of an equipment cord method in Annex D; c) inclusion of testing bend insensitive multimode optical fibre; d) updates to measurement uncertainty; e) definition of additional cabling configurations; f) changes to Table 5 on spectral requirements. Keywords: measurement of attenuation The contents of the corrigendum of April 2020 and December 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61280-4-1:2019/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-04-22",
+    "title": "Corrigendum 1 - Fibre-optic communication subsystem test procedures - Part 4-1: Installed cabling plant - Multimode attenuation measurement",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61280-4-1:2019/COR2:2022",
+    "edition": "3.0",
+    "date": "2022-12-08",
+    "title": "Corrigendum 2 - Fibre-optic communication subsystem test procedures - Part 4-1: Installed cabling plant - Multimode attenuation measurement",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61280-4-1:2019/AMD1:2021",
+    "edition": "3.0",
+    "date": "2021-12-09",
+    "title": "Amendment 1 - Fibre-optic communication subsystem test procedures - Part 4-1: Installed cabling plant - Multimode attenuation measurement",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61280-4-2:2024",
+    "edition": "3.0",
+    "date": "2024-05-06",
+    "title": "Fibre-optic communication subsystem test procedures - Part 4-2: Installed cabling plant - Single-mode attenuation and optical return loss measurements",
+    "language": "EN-FR",
+    "description": "IEC 62180-4-2:2024 is applicable to the measurements of attenuation and optical return loss of an installed optical fibre cabling plant using single-mode fibre. This cabling plant can include single-mode optical fibres, connectors, adapters, splices, and other passive devices. The cabling can be installed in a variety of environments including residential, commercial, industrial and data centre premises, as well as outside plant environments. This document is applicable to all single-mode fibre types including those designated by IEC 60793-2-50 as Class B fibres. The principles of this document can be applied to cabling plants containing branching devices (splitters) and at specific wavelength ranges in situations where passive wavelength selective components are deployed, such as WDM, CWDM and DWDM devices. This document is not intended to apply to cabling plants that include active devices such as fibre amplifiers or dynamic channel equalizers. This third edition cancels and replaces the second edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of the equipment cord method; b) addition of test limit adjustment related to test cord grades; c) refinements on measurement uncertainties."
+  },
+  {
+    "reference": "IEC 61280-4-3:2022",
+    "edition": "1.0",
+    "date": "2022-07-29",
+    "title": "Fibre optic communication subsystem test procedures - Part 4-3: Installed passive optical networks - Attenuation and optical return loss measurements",
+    "language": "EN-FR",
+    "description": "IEC 61280-4-3: 2022 describes the measurement of attenuation, optical return loss and optical power in installed passive optical networks (PONs) using single-mode fibre. This document specifies two methods for measuring the attenuation before activation of the PON: method A: one-cord method using a light source and a power meter (LSPM); method B: optical time-domain reflectometer (OTDR) method in upstream direction only, with reduction of uncertainties due to the variation of backscatter coefficient. In addition, method C, which is described in informative Annex C, provides an estimate of the attenuation after partial activation of the PON by using a U band filtered optical time-domain reflectometer (FOTDR) in an upstream direction. This publication contains an attached file titled \"Supplemental Data\" in the form of an Excel spread sheet. This file is intended to be used as a complement and does not form an integral part of the standard."
+  },
+  {
+    "reference": "IEC 61280-4-4:2017",
+    "edition": "2.0",
+    "date": "2017-03-07",
+    "title": "Fibre optic communication subsystem test procedures - Part 4-4: Cable plants and links - Polarization mode dispersion measurement for installed links",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-4-4:2017 provides uniform methods of measuring polarization mode dispersion (PMD) of single-mode installed links. An installed link is the optical path between transmitter and receiver, or a portion of that optical path. These measurements can be used to assess the suitability of a given link for high bit rate applications, or to provide insight on the relationships of various related transmission attributes. This document focuses on the measurement methods and requirements for measuring long lengths of installed cabling that can also include other optical elements, such as splices, connectors, amplifiers, chromatic dispersion compensating modules, dense wavelength division multiplexing or multiplexer (DWDM) components, multiplexers, wavelength selective switches, re-configurable optical add drop multiplexer (ROADMS). This document focuses on the apparatus, procedures, and calculations needed to complete measurements. IEC TR 61282-9 explains the theory behind the test methods. This second edition cancels and replaces the first edition published in 2006. This second edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - theory is removed and replaced with a reference to IEC TR 61282-9; - a new method, wavelength scanning OTDR and SOP analysis (WSOSA), is added as Annex G; - a brief description of each method is added to Clause 5; - Methods E and F are converted to informative Annexes E and F; - a new Clause (6) on measurement configurations is added; - a new Clause (7) on measurement considerations is added; - Clause 10 on procedure is expanded; - several of the apparatus diagrams are improved; - several clarifications about what is measured and what is calculated have been made in Annex H."
+  },
+  {
+    "reference": "IEC 61280-4-5:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Fibre-optic communication subsystem test procedures - Part 4-5: Installed cabling plant - Attenuation measurement of MPO terminated fibre optic cabling plant using test equipment with MPO interfaces",
+    "language": "EN-FR, EN",
+    "description": "IEC 61280-4-5:2020 is applicable to the measurement of attenuation and determination of polarity and length of installed multimode and single-mode optical fibre cabling plant, terminated with MPO connectors, using test equipment having an MPO interface. This cabling plant can include multimode or single-mode optical fibres, connectors, adapters, splices, and other passive devices. The cabling can be installed in a variety of environments including residential, commercial, industrial, and data centre premises, as well as outside plant environments. In this document, the optical fibres that are addressed include sub-categories A1-OMx, where x = 2, 3, 4 and 5 (50/125 μm) multimode optical fibres, as specified in IEC 60793-2-10, and category B-652 and B-657 (9/125 μm) single-mode optical fibres, as specified in IEC 60793-2-50. The attenuation measurements of the other multimode and single-mode categories can also be made using a light source and power meter (LSPM) or optical time domain reflectometer (OTDR) utilising an internal or external optical switch having one MPO interface. Multimode measurements are made with an 850 nm source because transceivers used for parallel optics applications having an MPO interface only operate at 850 nm; 1 300 nm measurements are optional. Single-mode measurements are made with a 1 310 nm and/or 1 550 nm source because transceivers used for parallel optics applications having an MPO interface operate at these wavelengths. This document does not include descriptions of cabling that is not exclusively MPO to MPO. The contents of the corrigendum of January 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61280-4-5:2020/COR1:2022",
+    "edition": "1.0",
+    "date": "2022-01-19",
+    "title": "Corrigendum 1 - Fibre-optic communication subsystem test procedures - Part 4-5: Installed cabling plant - Attenuation measurement of MPO terminated fibre optic cabling plant using test equipment with MPO interfaces",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61281-1:2017",
+    "edition": "2.0",
+    "date": "2017-12-15",
+    "title": "Fibre optic communication subsystems - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 61281-1:2017 is a generic specification for fibre optic communication subsystems (FOCSs). The parameters defined herein form a specifiable minimum set of specifications that are common to all fibre optic subsystems. Additional parameters can be used depending on the particular application and technology. Those additional parameters will be specified in the relevant documents, as appropriate. Each specified parameter is measured using one of the test procedures. The use of these parameters for system design is given in design guides. This second edition cancels and replaces the first edition published in 1999. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: addition of new definitions. Keywords: fibre optic communication subsystems (FOCSs)"
+  },
+  {
+    "reference": "IEC TR 61282-3:2006",
+    "edition": "2.0",
+    "date": "2006-10-25",
+    "title": "Fibre optic communication system design guides - Part 3: Calculation of link polarization mode dispersion",
+    "language": "EN",
+    "description": "This technical report provides guidelines for the calculation of polarisation mode dispersion (PMD) in fibre optic systems. It accomodates the statistical variation of PMD and differential group delay (DGD) of optical fibre cables and optical components in an optical link. Example calculations are given, including concatenating individual optical fibre cables. The calculations describe first order PMD only."
+  },
+  {
+    "reference": "IEC TR 61282-4:2013",
+    "edition": "2.0",
+    "date": "2013-11-19",
+    "title": "Fibre optic communication system design guides - Part 4: Accommodation and utilization of non-linear effects",
+    "language": "EN",
+    "description": "IEC/TR 61282-4:2013(E) which is a technical report, is intended to describe physically and analytically non-linear effects in fibre optic systems, their impact on system performance, and ways of minimizing the effects or using them to advantage. It contains some of ITU-T Recommendation G.663 with additional material. This second edition cancels and replaces the first edition, published in 2003, and constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: clarifications on the compensation for nonlinear impairments with digital signal processing. Key words: physically and analytically non-linear effects in fibre optic systems"
+  },
+  {
+    "reference": "IEC TR 61282-5:2019",
+    "edition": "2.0",
+    "date": "2019-07-17",
+    "title": "Fibre optic communication system design guidelines - Part 5: Accommodation and compensation of chromatic dispersion",
+    "language": "EN",
+    "description": "IEC TR 61282-5:2019 which is a Technical Report, describes various techniques for accommodation and compensation of chromatic dispersion in fibre optic communication systems. These techniques include dispersion compensation with passive optical components, advanced dispersion management, and electronic accommodation of dispersion in the transmitters and receivers. This second edition cancels and replaces the first edition, published in 2002, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) extends the application space for dispersion compensation and accommodation to communication systems that employ non-zero dispersion-shifted fibres; b) adds a discussion on the suitability of fibre types for long-haul transmission of wavelength-multiplexed signals; c) updates the dispersion coefficient limits for dispersion-unshifted fibres; d) adds information on the dispersion coefficients of dispersion-shifted fibres; e) updates the naming of the fibre types to the revised naming conventions defined in IEC 60793-2-50:2018; f) updates Table 2 to include the dispersion tolerance of phase-shift-keyed modulation formats used for the transmission of 40 Gbit/s and 100 Gbit/s signals; g) adds information on dispersion management in terrestrial and submarine communication systems; h) extends the description of passive dispersion compensators based on fibre Bragg gratings and etalons; i) adds information on electronic dispersion accommodation in coherent communication systems (including transmitters and receivers); j) updates the description of optical accommodation techniques to include soliton transmission and mid-span spectral inversion; k) extends the list of system parameters for passive dispersion compensators to include wavelength-dependent loss, phase ripple, and latency; l) updates the description of dispersion compensator applications in long-haul communication systems. Keywords: chromatic dispersion"
+  },
+  {
+    "reference": "IEC TR 61282-6:2003",
+    "edition": "1.0",
+    "date": "2003-01-28",
+    "title": "Fibre optic communication system design guides - Part 6: Skew design in parallel optical interconnection systems",
+    "language": "EN-FR",
+    "description": "Describes the definitions, classifications, and tolerance of skew in parallel optical interconnect systems.Examples illustrate the skew design method for allocating skew in the interconnect system.Has the status of a technical report"
+  },
+  {
+    "reference": "IEC TR 61282-7:2003",
+    "edition": "1.0",
+    "date": "2003-01-21",
+    "title": "Fibre optic communication system design guides - Part 7: Statistical calculation of chromatic dispersion",
+    "language": "EN",
+    "description": "Provides methods of representing the process statistics of the chromatic dispersion of optical fibres and related components that may be combined in a link. The presence of chromatic dispersion can induce distortions in signals leading to bit errors depending on; source spectral width; source chirp; bit period; distance. Has the status of a Technical report."
+  },
+  {
+    "reference": "IEC TR 61282-8:2006",
+    "edition": "1.0",
+    "date": "2006-11-15",
+    "title": "Fibre optic communication system design guides - Part 8: Calculating dispersion penalty from measured time-resolved chirp data",
+    "language": "EN",
+    "description": "This part of IEC 61282 provides definitions of dispersion penalty and other related penalties. It describes the direct measurement of these penalties using a BER test set and the calculation of the penalties from time-resolved chirp (TRC) data. Annex A provides the theory for power penalty calculations."
+  },
+  {
+    "reference": "IEC TR 61282-9:2016",
+    "edition": "2.0",
+    "date": "2016-03-24",
+    "title": "Fibre optic communication system design guides - Part 9: Guidance on polarization mode dispersion measurements and theory",
+    "language": "EN",
+    "description": "IEC TR 61282-9:2016(E) which is a Technical Report, describes effects and theory of polarization mode dispersion (PMD) and provides guidance on PMD measurements. This second edition cancels and replaces the first edition published in 2006. This second edition includes the following significant technical changes with respect to the previous edition: - much of the theory has been condensed - focusing only on content that is needed to explain the test method; - symbols have been removed, but abbreviations are retained; - the material in the Clause 5 has been significantly reduced in an effort to avoid repeating what is already in the actual International Standards. Instead, the focus is on explaining the International Standards; - measurement methods that are not found in International Standards have been removed; - there are significant corrections to the modulation phase shift method, particularly in regard to the Mueller set technique; - there are significant corrections to the polarization phase shift method; - the proof of the GINTY interferometric method is presented. This proof also extends to the Fixed Analyser Cosine transfer technique; - another Fixed Analyser method is suggested. This is based on the proof of the GINTY method and is called \"spectral differentiation method\"; - Clause 6 has been renamed \"Limitations\" and refocused on the limitations of the test methods. This Technical Report is not intended to be an engineering manual; - the annexes have been removed; - the bibliography has been much reduced in size; - the introduction has been expanded to include some information on system impairments. Keywords: polarization mode dispersion (PMD)"
+  },
+  {
+    "reference": "IEC TR 61282-10:2013",
+    "edition": "1.0",
+    "date": "2013-01-10",
+    "title": "Fibre optic communication system design guides - Part 10: Characterization of the quality of optical vector-modulated signals with the error vector magnitude",
+    "language": "EN",
+    "description": "IEC/TR 61282-10:2013(E) defines the error vector magnitude (EVM) as a metric for quantifying the quality of an optical vector-modulated (modulation of phase and possibly magnitude) signal from a transmitter or optical transmission link. The considerations required for reproducible measurement results are detailed. The relationships with other related parameters from constellation diagram analysis like error vector, phase error, magnitude error, I-Q offset and time-resolved EVM are described, as well as the relationship between EVM and Q-factor. Key words: error vector magnitude (EVM), quality of an optical vector-modulated signal The contents of the corrigendum of April 2013 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 61282-10:2013/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-04-29",
+    "title": "Corrigendum 1 - Fibre optic communication system design guides - Part 10: Characterization of the quality of optical vector-modulated signals with the error vector magnitude",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61282-12:2016",
+    "edition": "1.0",
+    "date": "2016-02-10",
+    "title": "Fibre optic communication system design guides - Part 12: In-band optical signal-to-noise ratio (OSNR)",
+    "language": "EN",
+    "description": "IEC TR 61282-12:2016(E), which is a Technical Report, provides a definition for in-band optical signal-to-noise ratio (OSNR) that is applicable to situations where the spectral noise power density is not independent of the optical frequency, as assumed in the OSNR definition of IEC 61280-2-9, but is significantly shaped across the optical bandwidth of the signal. Considering the development of multiple measurement methods for different use cases, as detailed in this Technical Report, it is desirable to establish a definition of in-band OSNR that is independent of the method used and, furthermore, is consistent with the OSNR definition of IEC 61280-2-9 in the case of frequency-independent noise power density. Keywords: in-band optical signal-to-noise ratio (OSNR)"
+  },
+  {
+    "reference": "IEC TR 61282-13:2014",
+    "edition": "1.0",
+    "date": "2014-05-06",
+    "title": "Fibre optic communication system design guides - Part 13: Guidance on in-service PMD and CD characterization of fibre optic links",
+    "language": "EN",
+    "description": "IEC/TR 61282-13:2014 which is a technical report, presents general information about in-service measurements of polarization mode dispersion (PMD) and chromatic dispersion (CD) in fibre optic links. It describes the background and need for these measurements, the various methods and techniques developed thus far, and their possible implementations for practical applications. Key words: polarization mode dispersion (PMD), chromatic dispersion (CD), fibre optic links"
+  },
+  {
+    "reference": "IEC TR 61282-14:2024",
+    "edition": "3.0",
+    "date": "2024-04-30",
+    "title": "Fibre optic communication system design guidelines - Part 14: Determination of the uncertainties of attenuation measurements in fibre plants",
+    "language": "EN",
+    "description": "IEC TR 61282-14:2024, which is a Technical Report, establishes a detailed analysis and calculations of the uncertainties related to the measurement of the attenuation of both multimode and single-mode optical fibre cabling, using optical light sources and power meters. It also includes simplified analysis and calculation of the uncertainties related to the measurement of the attenuation of single-mode optical fibre cabling using OTDRs. This document contains an attached file in the form of an Excel spreadsheet. This file is intended to be used as a complement and does not form an integral part of the document. This third edition cancels and replaces the second edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of uncertainties calculation for optical time domain reflectometer (OTDR) measurement methods based on the analysis provided in 61280-4-3; b) addition of uncertainties calculation for passive optical networks (PON); c) update of the list of reference grade connectors; d) addition of probability distribution in Table D.1."
+  },
+  {
+    "reference": "IEC TR 61282-15:2017",
+    "edition": "1.0",
+    "date": "2017-05-04",
+    "title": "Fibre optic communication system design guides - Part 15: Cable plant and link - Testing multi-fibre optic cable plant terminated with MPO connectors",
+    "language": "EN",
+    "description": "IEC TR 61282-15:2017 provides guidance for the testing of multi-fibre cable, multimode or single-mode, terminated with plugs described in IEC 61754­7 (all parts) (multiple-fibre push on – MPO). Guidance is provided on the measurement of attenuation, polarity, length and optical return loss. The cabling can be installed in a variety of environments, including residential, commercial, industrial, and data centre premises, and possibly in outside plant environments. Keywords: attenuation, polarity, length and optical return loss, MPO connectors, multi-fibre cable"
+  },
+  {
+    "reference": "IEC TR 61282-16:2022",
+    "edition": "1.0",
+    "date": "2022-05-10",
+    "title": "Fibre optic communication system design guidelines - Part 16: Coherent receivers and transmitters with high-speed digital signal processing",
+    "language": "EN",
+    "description": "IEC TR 61282-16:2022 is a technical report on coherent optical receiver and transmitter technologies that are employed in fibre optic communication systems as well as in optical test and measurement equipment. This document describes the principle of operation and functional capabilities of coherent optical receivers as well as the operation of optical transmitters used to generate complex vector-modulated signals. It is intended to serve as a technical foundation for other IEC documents and standards related to coherent optical transmission techniques."
+  },
+  {
+    "reference": "IEC 61290-1:2022",
+    "edition": "2.0",
+    "date": "2022-06-07",
+    "title": "Optical amplifiers - Test methods - Part 1: Power and gain parameters",
+    "language": "EN-FR",
+    "description": "IEC 61290-1:2022 applies to all commercially available optical amplifiers (OAs) and optically amplified subsystems. It applies to OAs using optically pumped fibres (optical fibre amplifiers (OFAs) based on either rare-earth doped fibres or on the Raman effect), semiconductors (semiconductor optical amplifiers (SOAs)), and aveguides (planar optical waveguide amplifiers (POWAs)). It is specifically directed to single-channel amplifiers. Test methods for multichannel amplifiers are defined in the IEC 61290-10 series. This document establishes uniform requirements for accurate and reliable measurements of the following OA parameters, as defined in IEC 61291-1:2018, Clause 3: a) nominal output signal power; b) gain; c) reverse gain; d) maximum gain; e) maximum gain wavelength; f) maximum gain variation with temperature; g) gain wavelength band; h) gain wavelength variation; i) gain stability; j) polarization-dependent gain; k) gain ripple (SOA only); l) large-signal output stability; m) saturation output power; n) maximum output signal power; o) maximum total output power. NOTE 1 The applicability of the test methods described in this document to distributed Raman amplifiers is still under study. NOTE 2 All numerical values followed by (‡) are suggested values for which the measurement is assured. Other values are acceptable if verified. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - specification of gain ripple as a new parameter; - specification of test method and test report for gain ripple measurements; - use of the term “measurement uncertainty” instead of “measurement accuracy”."
+  },
+  {
+    "reference": "IEC 61290-1-1:2020",
+    "edition": "4.0",
+    "date": "2020-09-03",
+    "title": "Optical amplifiers - Test methods - Part 1-1: Power and gain parameters - Optical spectrum analyzer method",
+    "language": "EN-FR",
+    "description": "IEC 61290-1-1:2020 applies to all commercially available optical amplifiers (OAs) and optically amplified modules. It applies to OAs using optical fibre amplifiers (OFAs) based on either rare-earth doped fibres or on the Raman effect, semiconductor OAs (SOAs) and planar optical waveguide amplifiers (POWAs). The object of this document is to establish uniform requirements for accurate and reliable measurements, by means of the optical spectrum analyzer (OSA) test method, of the following OA parameters, as defined in IEC 61291-1: - nominal output signal power; - gain; - polarization-dependent gain (PDG); - maximum output signal power; - maximum total output power. In addition, this document provides the test method of: - gain ripple (for SOAs). NOTE All numerical values followed by (‡) are suggested values for which the measurement is assured. The object of this document is specifically directed to single-channel amplifiers. Test methods for multichannel amplifiers are standardized in IEC 61290-10 (all parts). This fourth edition cancels and replaces the third edition published in 2015 and constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: addition of techniques to test gain ripple of SOAs."
+  },
+  {
+    "reference": "IEC 61290-1-2:2026",
+    "edition": "3.0",
+    "date": "2026-02-04",
+    "title": "Optical amplifiers - Test methods - Part 1-2: Power and gain parameters - Electrical spectrum analyzer method",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61290-1-2:2026 applies to all commercially available optical amplifiers (OAs) and optically amplified sub-systems. It applies to OAs using optically pumped fibres (OFAs based on either rare-earth doped fibres or on the Raman effect), semiconductors (SOAs), and planar optical waveguides (POWAs). This document does not apply to polarization-maintaining optical amplifiers. This document defines uniform requirements for accurate and reliable measurements, by means of the electrical spectrum analyzer test method, of the following OA parameters, as defined in IEC 61291-1, Clause 3: a) nominal output signal power; b) gain; c) reverse gain; d) maximum gain; e) polarization-dependent gain. In addition, this test method provides a means for measuring the following parameters: - maximum gain wavelength; - gain wavelength band. This document specifically covers single-channel amplifiers. For multichannel amplifiers, the IEC 61290-10 series applies. NOTE 1 The applicability of the test methods described in this document to distributed Raman amplifiers is for further study. NOTE 2 A test method for polarization-maintaining optical amplifiers is for further study. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of information on the applicability of this document to the scope; b) harmonization of the scope with the IEC 61290-1 series; c) addition of safety recommendations to Clause 4 and Clause 5; d) correction of an error in Clause 7, item e); e) replacement of the term \"wavelength measurement accuracy\" with \"wavelength accuracy\"."
+  },
+  {
+    "reference": "IEC 61290-1-3:2021",
+    "edition": "4.0",
+    "date": "2021-03-01",
+    "title": "Optical amplifiers - Test methods - Part 1-3: Power and gain parameters - Optical power meter method",
+    "language": "EN-FR",
+    "description": "IEC 61290-1-3:2021 applies to all commercially available optical amplifiers (OA) and optically amplified subsystems. It applies to OA using optically pumped fibres (OFA based on either rare-earth doped fibres or on the Raman effect), semiconductors (SOA), and waveguides (POWA). NOTE 1 The applicability of the test methods described in this document to distributed Raman amplifiers is for further study. The object of this document is to establish uniform requirements for accurate and reliable measurements, by means of the optical power meter test method, of the following OA parameters, as defined in IEC 61291-1: - nominal output signal power; - gain; - polarization-dependent gain; - maximum output signal power; - maximum total output power. NOTE 2 All numerical values followed by (‡) are suggested values for which the measurement is assured. Other values can be acceptable upon verification. This document applies to single-channel amplifiers. For multichannel amplifiers, IEC 61290-10 (all parts) applies. This fourth edition cancels and replaces the third edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonization with IEC 61290-1-1; - use of the term \"measurement uncertainty\" instead of \"measurement accuracy\"."
+  },
+  {
+    "reference": "IEC 61290-3:2008",
+    "edition": "2.0",
+    "date": "2008-08-13",
+    "title": "Optical amplifiers - Test methods - Part 3: Noise figure parameters",
+    "language": "EN-FR",
+    "description": "IEC 61290-3:2008 applies to all commercially available optical amplifiers (OAs), including OAs using optically pumped fibres (OFAs based on either rare-earth doped fibres or on the Raman effect), semiconductor optical amplifiers (SOAs) and planar waveguide optical amplifiers (PWOAs). The object of this standard is to provide the general background for OA noise figure parameters measurements and to indicate those IEC standard test methods for accurate and reliable measurements of OA parameters, as defined in IEC 61291-1. This edition includes updates to specifically address additional types of optical amplifiers and to highlight that the IEC 61290-3 series pertains to single-channel amplifiers. References have been added to the documents pertaining to multichannel amplifiers."
+  },
+  {
+    "reference": "IEC 61290-3-1:2003",
+    "edition": "1.0",
+    "date": "2003-08-26",
+    "title": "Optical amplifiers - Test methods - Part 3-1: Noise figure parameters - Optical spectrum analyzer method",
+    "language": "EN-FR",
+    "description": "Applies to commercially available optical amplifiers (OAs) such as optical fibre amplifiers (OFAs), semiconductor optical amplifiers (SOAs) and planar wageguide apmlifiers (PWOAs) as classified in IEC 61292-3.The object is to establish uniform requirements for accurate and reliable measurements, by means of optical spectrum analyzer (OSA) test method, of the following OA parameters, as defined in IEC 61291-1: a) signal-spontaneous noise figure; b) forward amplified spontaneous emission (ASE) power level. The methods outlined in this part of IEC 61290 apply to single-channel stimulus only."
+  },
+  {
+    "reference": "IEC 61290-3-2:2008",
+    "edition": "2.0",
+    "date": "2008-07-21",
+    "title": "Optical amplifiers - Test methods - Part 3-2: Noise figure parameters - Electrical spectrum analyzer method",
+    "language": "EN-FR",
+    "description": "IEC 61290-3-2:2008 applies to optical fibre amplifiers (OFA) using active fibres, containing rare-earth dopants, presently commercially available. Establishes uniform requirements for accurate and reliable measurements, of the noise figure, as defined in 3.1.17 of IEC 61291-1, by means of the electricial spectrum analyzer (ESA) method. This technical revision includes updates to specifically address all types of optical amplifiers - not just optical fibre amplifiers. This standard should be read in conjunction with IEC 61290-3 and IEC 61291-1."
+  },
+  {
+    "reference": "IEC 61290-3-3:2013",
+    "edition": "1.0",
+    "date": "2013-11-07",
+    "title": "Optical amplifiers - Test methods - Part 3-3: Noise figure parameters - Signal power to total ASE power ratio",
+    "language": "EN-FR",
+    "description": "IEC 61290-3-3:2013 applies to all commercially available single channel optical amplifiers (OAs), including OAs using optically pumped fibres (OFAs) based on either rare-earth doped fibres or on the Raman effect, semiconductor optical amplifier modules (SOA modules) and planar optical waveguide amplifiers (POWAs). More specifically, it applies to single channel OAs placed before optical receivers, where there are no optical bandpass filtering elements placed between the OA and the receiver. The object of this part of IEC 61290-3 is to establish uniform requirements for accurate and reliable measurement of the ratio of the signal output power to the total ASE power generated by the OA in the optical bandwidth of the receiver. This quantity is a measure of the spontaneous-spontaneous beat noise at the receiver, and is correlated to the spontaneous-spontaneous noise factor of the OA, Fsp-sp, as defined in IEC 61290-3 and IEC 61291-1. Keywords: single channel optical amplifiers (OAs), semiconductor optical amplifier modules (SOA modules), planar optical waveguide amplifiers (POWAs), measurement of the ratio of the signal output power to the total ASE power generated by the OA in the optical bandwidth of the receiver"
+  },
+  {
+    "reference": "IEC 61290-4-1:2016",
+    "edition": "2.0",
+    "date": "2016-09-26",
+    "title": "Optical amplifiers - Test methods - Part 4-1: Gain transient parameters - Two-wavelength method",
+    "language": "EN-FR",
+    "description": "IEC 61290-4-1:2016 applies to optical amplifiers (OAs) using active fibres (optical fibre amplifiers (OFAs)) containing rare-earth dopants including erbium-doped fibre amplifiers (EDFAs) and optically amplified elementary sub-systems. These amplifiers are commercially available and widely deployed in service provider networks. The object of document is to provide the general background for OFA transients and related parameters, and to describe a standard test method for accurate and reliable measurement of the following transient parameters: - channel addition or removal transient gain overshoot and transient net gain overshoot; - channel addition or removal transient gain undershoot and transient net gain undershoot; - channel addition or removal gain offset; - channel addition or removal transient gain response time constant (settling time). This second edition cancels and replaces the first edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - extended the applicability from only EDFAs to all OFAs; - updated definitions for consistency with other documents in the IEC 61290-4 series. Keywords: optical amplifiers (OAs), optical fibre amplifiers (OFAs), rare-earth dopants, erbium-doped fibre amplifiers"
+  },
+  {
+    "reference": "IEC 61290-4-2:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Optical amplifiers - Test methods - Part 4-2: Gain transient parameters - Broadband source method",
+    "language": "EN-FR",
+    "description": "IEC 61290-4-2:2011 applies to optical amplifiers (OAs) and optically amplified elementary sub-systems. More specifically, it applies to OAs using active fibres (optical fibre amplifiers, OFAs) containing rare-earth dopants, such as erbium doped fibre amplifiers (EDFAs), presently commercially available, as indicated in IEC 61291-1. The object of this part of IEC 61290-4 is to establish uniform requirements for accurate and reliable measurements, by means of the broadband source method, of the transient response of OFAs to dynamic changes in their input power, as defined in IEC 61290-4-1:2011. This publication is to be read in conjunction with IEC 61291-1:2006."
+  },
+  {
+    "reference": "IEC 61290-4-3:2018",
+    "edition": "2.0",
+    "date": "2018-04-27",
+    "title": "Optical amplifiers - Test methods - Part 4-3: Power transient parameters - Single channel optical amplifiers in output power control",
+    "language": "EN-FR",
+    "description": "IEC 61290-4-3:2018 applies to output power controlled optically amplified, elementary sub‑systems. It applies to optical fibre amplifiers (OFAs) using active fibres containing rare‑earth dopants, presently commercially available, as indicated in IEC 61291-1, as well as alternative optical amplifiers that can be used for single channel output power controlled operation, such as semiconductor optical amplifiers (SOAs). The object of this document is to provide the general background for optical amplifiers (OAs) power transients and their measurements and to indicate those IEC standard test methods for accurate and reliable measurements of the following transient parameters: a) transient power response; b) transient power overcompensation response; c) steady-state power offset; d) transient power response time. The stimulus and responses behaviours under consideration include the following: 1. channel power increase (step transient); 2. channel power reduction (inverse step transient); 3. channel power increase/reduction (pulse transient); 4. channel power reduction/increase (inverse pulse transient); 5. channel power increase/reduction/increase (lightning bolt transient); 6. channel power reduction/increase/reduction (inverse lightning bolt transient). These parameters have been included to provide a complete description of the transient behaviour of an output power transient controlled OA. The test definitions defined here are applicable if the amplifier is an OFA or an alternative OA. However, the description in Annex A concentrates on the physical performance of an OFA and provides a detailed description of the behaviour of an OFA; it does not give a similar description of other OA types. Annex B provides a detailed description background of the dynamic phenomenon in output power controlled amplifiers under transient conditions and Annex C details the impact of speed of transient inputs.This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: alignment of the measure of amplified spontaneous emission (ASE) relative to signal power with the definition in IEC 61290-3-3. Keywords: optical amplifiers (OAs) power transients This International Standard is to be used in conjunction with IEC 61291-1:2012"
+  },
+  {
+    "reference": "IEC 61290-4-4:2018",
+    "edition": "1.0",
+    "date": "2018-05-29",
+    "title": "Optical amplifiers - Test methods - Part 4-4: Gain transient parameters - Single channel optical amplifiers with gain control",
+    "language": "EN-FR",
+    "description": "IEC 61290-4-4:2018 applies to optical amplifiers (OAs) and optically amplified elementary sub-systems. More specifically, it applies to OAs using active fibres (optical fibre amplifiers, OFAs) containing rare-earth dopants, such as erbium doped fibre amplifiers (EDFAs), presently commercially available, as indicated in IEC 61291-1. This document provides the general background for optical amplifier gain transients and their measurements and indicates those IEC standard test methods for accurate and reliable measurements of the following transient parameters: a) optical input power increase/decrease transient gain overshoot and transient net gain overshoot; b) optical input power increase/decrease transient gain undershoot and transient net gain undershoot; c) optical input power increase/decrease gain offset; d) optical input power increase/decrease transient gain response constant (settling time). These parameters have been included to provide a complete description of the transient behaviour of gain controlled OA. The parameters defined here are applicable if the amplifier is an OFA or an alternative type of OA. Keywords: optical amplifiers (OAs) gain transients"
+  },
+  {
+    "reference": "IEC 61290-5-1:2006",
+    "edition": "2.0",
+    "date": "2006-05-29",
+    "title": "Optical amplifiers - Test methods - Part 5-1: Reflectance parameters - Optical spectrum analyzer method",
+    "language": "EN-FR",
+    "description": "This part of IEC 61290 applies to all commercially available optical amplifiers (OAs) and optically amplified sub-systems. It applies to OAs using optically pumped fibres (OFAs based on either rare-earth doped fibres or on the Raman effect), semiconductor OAs (SOAs), and waveguides (POWAs)."
+  },
+  {
+    "reference": "IEC 61290-5-2:2003",
+    "edition": "1.0",
+    "date": "2003-10-03",
+    "title": "Optical amplifiers - Test methods - Part 5-2: Reflectance parameters - Electrical spectrum analyser method",
+    "language": "EN-FR",
+    "description": "Applies to optical amplifiers (OFAs) using active fibres, containing rare-earth dopants, presently commercially available. The object is to establish uniform requirements for accurate and reliable measurements, by means of the electrical spectrum analyser test method, of the following OFA parameters, as defined in IEC 61291-1: a) input reflectance; b) output reflectance."
+  },
+  {
+    "reference": "IEC 61290-5-3:2002",
+    "edition": "1.0",
+    "date": "2002-03-05",
+    "title": "Basic specification for optical amplifier test methods - Part 5-3: Test methods for reflectance parameters - Reflectance tolerance test method using electrical spectrum analyzer",
+    "language": "EN-FR",
+    "description": "Applies to commercial optical fibre amplifiers (OFAs) using active fibres. It establishes requirements for accurate measurements, by means of electrical spectrum analyser test method, of the maximum reflectance tolerable at input and output (as defined in clause 3 of IEC 61291-1). The accuracy for reflectance tolerable is +/-0,5dB."
+  },
+  {
+    "reference": "IEC 61290-6-1:1998",
+    "edition": "1.0",
+    "date": "1998-06-11",
+    "title": "Optical fibre amplifiers - Basic specification - Part 6-1: Test methods for pump leakage parameters - Optical demultiplexer",
+    "language": "EN-FR",
+    "description": "Applies to optical fibre amplifiers using active fibres, containing rare-earth dopants, presently commercially available. Establishes uniform requirements for accurate and reliable measurements, by means of the optical demultiplexer test method, of the following OFA parameters: - pump leakage to output; - pump leakage to input."
+  },
+  {
+    "reference": "IEC 61290-7-1:2007",
+    "edition": "2.0",
+    "date": "2007-04-11",
+    "title": "Optical amplifiers - Test methods - Part 7-1: Out-of-band insertion losses - Filtered optical power meter method",
+    "language": "EN-FR",
+    "description": "Applies to optical fibre amplifiers using active fibres, containing rare-earth dopants, presently commercially available. Establishes uniform requirements for accurate and reliable measurements, by means of the filtered optical power meter test method, of the following OFA parameters: - out-of-band insertion loss; - out-of-band reverse insertion loss. The main significant changes are the following: a) the applicability has been extended to all commercially available optical amplifiers, b) Clause 9, EMC, has been added."
+  },
+  {
+    "reference": "IEC 61290-10-1:2009",
+    "edition": "2.0",
+    "date": "2009-03-10",
+    "title": "Optical amplifiers - Test methods - Part 10-1: Multichannel parameters - Pulse method using an optical switch and optical spectrum analyzer",
+    "language": "EN-FR",
+    "description": "IEC 61290-10-1:2009 applies to optical fibre amplifiers (OFAs) using active fibres, containing rare-earth dopants, currently commercially available. The uniform requirements for accurate and reliable measurements of the signal-spontaneous noise figure as defined in 3.1.18 of IEC 61291-1 are established. The test method independently detects amplified signal power and amplified spontaneous emission (ASE) power by launching optical pulses into the OFA under test and synchronously detecting 'on' and 'off' levels of the output pulses by using an optical sampling switch and an optical spectrum analyzer (OSA). This edition is a technical revision with updated references and cautions on proper use of the procedure. This publication is to be read in conjunction with IEC 61291-1:2006 ."
+  },
+  {
+    "reference": "IEC 61290-10-2:2007",
+    "edition": "2.0",
+    "date": "2007-09-18",
+    "title": "Optical amplifiers - Test methods - Part 10-2: Multichannel parameters - Pulse method using a gated optical spectrum analyzer",
+    "language": "EN-FR",
+    "description": "Applies to optical fibre amplifiers (OFA) using active fibres, containing rare-earth dopants, currently commercially available. The object is to establish uniform requirements for accurate and reliable measurements of the signal-spontaneous noise figure as defined in IEC 61291-1.The test method described is, in general, for multichannel applications. Single-channel applications are a special case of multichannel applications. This second edition cancels and replaces the first edition. It is a technical revision with updated references and cautions on proper use of the procedure."
+  },
+  {
+    "reference": "IEC 61290-10-3:2002",
+    "edition": "1.0",
+    "date": "2002-12-13",
+    "title": "Optical amplifiers - Test methods - Part 10-3: Multichannel parameters - Probe methods",
+    "language": "EN-FR, EN",
+    "description": "Applies to commercially available optical fibre amplifiers (OFAs) using active fibres containing rare-earth dopants. Establishes uniform requirements for accurate and reliable measurements of the multichannel gain and noise parameters as defined in IEC 61292-4."
+  },
+  {
+    "reference": "IEC 61290-10-4:2007",
+    "edition": "1.0",
+    "date": "2007-05-23",
+    "title": "Optical amplifiers - Test methods - Part 10-4: Multichannel parameters - Interpolated source subtraction method using an optical spectrum analyzer",
+    "language": "EN-FR",
+    "description": "This part of IEC 61290 applies to all commercially available optical amplifiers (OAs) and optically amplified subsystems. The object of this standard is to establish uniform requirements for accurate and reliable measurements, by means of the interpolated source subtraction method using an optical spectrum analyzer."
+  },
+  {
+    "reference": "IEC 61290-10-5:2014",
+    "edition": "1.0",
+    "date": "2014-05-23",
+    "title": "Optical amplifiers - Test methods - Part 10-5: Multichannel parameters - Distributed Raman amplifier gain and noise figure",
+    "language": "EN-FR",
+    "description": "IEC 61290-10-5:2014 applies to distributed Raman amplifiers (DRAs). DRAs are based on the process whereby Raman pump power is introduced into the transmission fibre, leading to signal amplification within the transmission fibre through stimulated Raman scattering. A detailed overview of the technology and applications of DRAs can be found in IEC TR 61292-6. The object of this standard is to establish uniform requirements for accurate and reliable measurements, using an optical spectrum analyser (OSA), of the following DRA parameters: - channel on-off gain; - pump unit insertion loss; - channel net gain; - channel signal-spontaneous noise figure. Keywords: Raman amplifiers (DRAs), optical spectrum analyser (OSA)"
+  },
+  {
+    "reference": "IEC 61290-11-1:2008",
+    "edition": "2.0",
+    "date": "2008-04-29",
+    "title": "Optical amplifiers - Test methods - Part 11-1: Polarization mode dispersion parameter - Jones matrix eigenanalysis (JME)",
+    "language": "EN-FR",
+    "description": "IEC 61290-11-1:2008 provides information that applies to all commercially available optical amplifiers (OAs) including optical fibre amplifiers (OFAs) using active fibres and semiconductor optical amplifiers (SOAs) using semiconductor gain media. Although the Jones matrix eigenanalysis (JME) test method is in principle also applicable to unpumped (that is, unpowered) OAs, the JME technique in this standard applies to pumped (that is, powered) OAs only. This edition is a technical revision that specifically addresses additional types of optical amplifiers. It also includes updated references."
+  },
+  {
+    "reference": "IEC 61290-11-2:2005",
+    "edition": "1.0",
+    "date": "2005-03-23",
+    "title": "Optical amplifiers - Test methods - Part 11-2: Polarization mode dispersion parameter - Poincaré sphere analysis method",
+    "language": "EN-FR",
+    "description": "Applies to all commercially available optical amplifiers (OAs) including optical fibre amplifiers (OFAs) using active fibres and semiconductor optical amplifiers (SOAs) using semiconductor gain media."
+  },
+  {
+    "reference": "IEC 61291-1:2018",
+    "edition": "4.0",
+    "date": "2018-02-20",
+    "title": "Optical amplifiers - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 61291-1:2018 applies to all commercially available optical amplifiers (OAs) and optically amplified assemblies. It applies to OAs using optically pumped fibres (OFAs based either on rare-earth doped fibres or on the Raman effect), semiconductors (SOAs), and waveguides (POWAs). The object of this document is - to establish uniform requirements for transmission, operation, reliability and environmental properties of OAs, and - to provide assistance to the purchaser in the selection of consistently high-quality OA products for his particular applications. Parameters specified for OAs are those characterizing the transmission, operation, reliability and environmental properties of the OA seen as a \"black box\" from a general point of view. In the sectional and detail specifications a subset of these parameters will be specified according to the type and application of the particular OA device or assembly. This fourth edition cancels and replaces the third edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - terms have been added for parameters from IEC 61290-4-3 and IEC 61290-10-5; - Clause 4 Classification has been removed, since this system is judged to be unused; - the definition of polarization mode dispersion (PMD) has been simplified. Keywords: optical amplifiers (OAs)"
+  },
+  {
+    "reference": "IEC 61291-2:2023",
+    "edition": "5.0",
+    "date": "2023-02-13",
+    "title": "Optical amplifiers - Part 2: Single channel applications - Performance specification template",
+    "language": "EN-FR",
+    "description": "IEC 61292-2:2023 provides a performance specification template applicable to optical amplifiers (OAs) used in single channel applications. Multichannel applications are covered in IEC 61291-4. The objective of this template is to provide a framework for the preparation of performance standards and/or product specifications defining the performance of OA devices used in single channel applications. In addition to the requirements specified in this template, a performance standard or product specification could include other parameters, such as ratings, operating conditions, tests, and pass/fail criteria. For a particular application, product specification writers could add specification parameters and/or groups of specification parameters to this template, without removing the parameters specified in this document. This fifth edition cancels and replaces the fourth edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the test methods for gain ripple in Table 2, Table 4 and Table 6 refer now to the IEC 61290‑1 series; - the SOA definition (3.1.3) refers now to IEC 61931."
+  },
+  {
+    "reference": "IEC 61291-4:2011",
+    "edition": "3.0",
+    "date": "2011-11-24",
+    "title": "Optical amplifiers - Part 4: Multichannel applications - Performance specification template",
+    "language": "EN-FR",
+    "description": "IEC 61291-4:2011 applies to optical amplifier (OA) devices and sub-systems to be used in multichannel applications. For single channel applications, use IEC 61291-2. The object of this performance specification template is to provide a frame for the preparation of detail specifications on the performances of OA devices and sub-systems to be used in multichannel applications. This third edition cancels and replaces the second edition published in 2008 and constitutes a technical revision. The main significant changes are the transient parameter test methods, IEC 61290-4 series, have been added to Tables 1, 2, and 3. This publication is to be read in conjunction with IEC 61291-1:2006."
+  },
+  {
+    "reference": "IEC 61291-5-2:2017",
+    "edition": "2.0",
+    "date": "2017-01-25",
+    "title": "Optical amplifiers - Part 5-2: Qualification specifications - Reliability qualification for optical fibre amplifiers",
+    "language": "EN-FR, EN",
+    "description": "IEC 61291-5-2:2017 applies to optical amplifiers (OAs) and optically amplified, elementary sub-systems for terrestrial applications, using active fibres (optical fibre amplifiers (OFAs)) containing rare-earth dopants, which are commercially available. The black box approach is used in this document. The black box approach is adopted in order to give product specifications which are independent of OA implementation details. For reliability qualification purposes, some information about the internal components is needed; these internal parts are themselves treated as black boxes. This document gives requirements for the evaluation of OA reliability by combining the reliability of such internal black boxes. The object of this document is to specify the minimum list of reliability qualification tests, requirements on failure criteria during testing and on reliability predictions, and give the relevant normative references to establish a standard method for the assessment of the reliability of OFA devices and sub-systems in order to minimize risks and to promote product development and reliability qualification. This second edition cancels and replaces the first edition published in 2002. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) removal of the contents on the relating quality management system from scope, terms and definitions, and the reliability requirements; b) moving fit-rate calculation to Annex B (informative); c) change of requirements for shock test; d) amendment of abbreviations related to changes a) and b). The contents of the corrigendum of May 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61291-5-2:2017/COR1:2019",
+    "edition": "2.0",
+    "date": "2019-05-24",
+    "title": "Corrigendum 1 - Optical amplifiers - Part 5-2: Qualification specifications - Reliability qualification for optical fibre amplifiers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61291-5-2:2017/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-02-24",
+    "title": "Amendment 1 - Optical amplifiers - Part 5-2: Qualification specifications - Reliability qualification for optical fibre amplifiers",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61291-6-1:2008",
+    "edition": "1.0",
+    "date": "2008-08-13",
+    "title": "Optical amplifiers - Part 6-1: Interfaces - Command set",
+    "language": "EN-FR",
+    "description": "IEC 61291-6-1:2008 describes the optical amplifier command set (OACS) for use in communicating with and controlling intelligent optical amplifiers. These amplifiers can receive and possibly respond to such commands by using resident firmware or may be optical amplifiers controlled by a microprocessor. This standard addresses the structure and content of the command set to control optical amplifiers. It does not cover the physical or hardware interface, which is assumed to exist for communication of this command set to the optical amplifier."
+  },
+  {
+    "reference": "IEC TR 61292-1:2022",
+    "edition": "3.0",
+    "date": "2022-05-11",
+    "title": "Optical amplifiers - Part 1: Parameters of optical fibre amplifier components",
+    "language": "EN",
+    "description": "IIEC TR 61292-1:2022 which is a Technical Report, applies to optical components of optical fibre amplifiers (OFAs). This document provides information about the most relevant parameters of these optical components, especially for erbium doped fibre amplifiers (EDFAs) and fibre Raman amplifiers (FRAs). It provides introductory information for a better understanding operation and applications of EDFAs and FRAs . NOTE IEC TR 61292-6 provides more technical information on FRAs. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: Change of document title from \"Parameters of amplifier components\" to \"Parameters of optical fibre amplifier components\"; Addition of parameters for optical components used in fibre Raman amplifiers; Addition of Table 1, listing various documents that specify terms and definitions for optical components used in optical fibre amplifiers; Addition of Figure 2 and Figure 3, showing typical component layouts for distributed and lumped fibre Raman amplifiers; Harmonization of the descriptions of optical component parameters with the definitions in other standards on optical components."
+  },
+  {
+    "reference": "IEC TR 61292-2:2003",
+    "edition": "1.0",
+    "date": "2003-01-20",
+    "title": "Optical amplifier technical reports - Part 2: Theoretical background for noise figure evaluation using the electrical spectrum analyzer",
+    "language": "EN",
+    "description": "Applies to all commercially available optical amplifiers including optical fibre amplifiers using active fibres and semiconductor optical amplifiers using semiconductor gain media. The object is to provide the theoretical background to clause 6 (Calculation) of IEC 61290-3-2."
+  },
+  {
+    "reference": "IEC TR 61292-3:2020",
+    "edition": "2.0",
+    "date": "2020-03-25",
+    "title": "Optical amplifiers - Part 3: Classification, characteristics and applications",
+    "language": "EN",
+    "description": "IEC TR 61292-3:2020 which is a Technical Report, establishes the classification of optical amplifiers (OAs). It also includes a brief description of each amplifier, its general properties, performance, configurations and applications. This second edition cancels and replaces the first edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: document architecture now focuses on EDFA, FRA and SOA; the description of PDFA and TDFA has been moved to the annexes; the EDWA description has been deleted; information on single channel amplification, multi-channel amplification, configuration and control method for EDFA, FRA and SOA has been added; information on future amplifiers, arrayed amplifiers and SDM amplifiers has been added."
+  },
+  {
+    "reference": "IEC TR 61292-4:2023",
+    "edition": "4.0",
+    "date": "2023-01-11",
+    "title": "Optical amplifiers - Part 4: Maximum permissible optical power for the damage-free and safe use of optical amplifiers, including Raman amplifiers",
+    "language": "EN",
+    "description": "IEC TR 61292-4:2023 which is a Technical Report, applies to all commercially available optical amplifiers (OAs), including optical fibre amplifiers (OFAs) using active fibres as well as Raman amplifiers. Semiconductor optical amplifiers (SOAs) using semiconductor gain media are also included. This document provides informative guidelines on the threshold of high optical power that can cause high-temperature damage of the fibre. Also discussed is optical safety for manufacturers and users of optical amplifiers by quoting parts of existing standards and agreements on eye and skin safety. This document identifies the following values for maximum permissible optical power in the optical amplifier for damage-free and safe operation: - the optical power limit that causes thermal damage to the fibre, such as fibre fuse and fibre-coat burning; - the maximum permissible exposure (MPE) to which the eyes/skin can be exposed without consequent injury; - the optical power limit in the fibre that causes MPE on the eyes/skin after free-space propagation from the fibre; - the absolute allowable optical power level for damage-free and safe operation of the optical amplifier by comparing a) and c). The objective of this document is to minimize potential confusion and misunderstanding in the industry that can cause unnecessary alarms and hinder the progress and acceptance of advancing optical amplifier technologies in the market. It is important that the reader always refers to the latest international standards and agreements, because the technologies concerned are rapidly evolving. The present document will be frequently reviewed and updated in a timely manner by incorporating the results of various studies related to OAs and OA-supported optical systems. This fourth edition cancels and replaces the third edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) The technical information has been updated to reflect revisions of the relevant references. b) In particular, the descriptions provided in Clause 5 and Clause 6 have been modified significantly to reflect changes in the cited references. Unnecessary formulas and explanations that overlap with the references have been removed to simplify the document. c) New information has been added to Annex A on optical fibre burning when light enters an optical fibre with a bubble train formed by a fibre fuse."
+  },
+  {
+    "reference": "IEC TR 61292-5:2004",
+    "edition": "1.0",
+    "date": "2004-07-26",
+    "title": "Optical amplifiers - Part 5: Polarization mode dispersion parameter - General information",
+    "language": "EN",
+    "description": "Applies to all commercially available optical amplifiers (OAs) including those using fibres (OFAs), semiconductors (SOAs), and waveguides (POWA), as classified in IEC 61292-3. This Technical Report presents general information about polarization mode dispersion (PMD), related to the application of the two commonly used methods to test PMD in OAs, the Jones matrix eigenanalysis (JME) and the Poincaré sphere analysis (PSA). This report is complementary to the International Standards describing the JME procedure (IEC 61290-11-1) and the PSA procedure (IEC 61290-11-2)."
+  },
+  {
+    "reference": "IEC TR 61292-6:2023",
+    "edition": "2.0",
+    "date": "2023-01-11",
+    "title": "Optical amplifiers - Part 6: Distributed Raman amplification",
+    "language": "EN",
+    "description": "IEC TR 61292-6:2023 which is a Technical Report, relates to distributed Raman amplification (DRA). Its main purpose is to provide background material for future standards related to DRA, such as specifications, test methods and operating procedures. This document covers the following aspects: - general overview of Raman amplification; - applications of DRA; - performance characteristics and test methods related to DRA; - operational issues relating to the deployment of DRA. As DRA is a relatively new technology, and still rapidly evolving, some of the material in this document can become obsolete or irrelevant in a fairly short period of time. This document will be updated frequently to minimize this possibility. This second edition cancels and replaces the first edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - correction of the formula for noise figure; - correction of errors in Figure 10."
+  },
+  {
+    "reference": "IEC TR 61292-7:2011",
+    "edition": "1.0",
+    "date": "2011-11-24",
+    "title": "Optical amplifiers - Part 7: Four wave mixing effect in optical amplifiers",
+    "language": "EN",
+    "description": "IEC/TR 61292-7:2011(E) applies to optical amplifiers (OAs) using active fibres and waveguides, containing rare-earth dopants, currently commercially available. It provides guidance on crosstalk caused by the four-wave mixing (FWM) effect. The object of this technical report is to provide introductory information for understanding of the crosstalk issue raised by the FWM effect."
+  },
+  {
+    "reference": "IEC TR 61292-8:2019",
+    "edition": "1.0",
+    "date": "2019-01-16",
+    "title": "Optical amplifiers - Part 8: High-power amplifiers",
+    "language": "EN",
+    "description": "IEC TR 61292-8:2019, which is a technical report, deals with high-power optical amplifiers. It provides general information relating to high-power optical amplifiers with an output power greater than 500 mW for the fibre communication field. It covers the following aspects: - general information; - example of the optical amplifier's configuration realizing high optical output power; - test method for optical output power and gain; - considerations on high-power optical amplifiers. Potential applications of high-power optical amplifiers are briefly reviewed in Annex A. Informative IEC documents related to high optical power are listed in Annex B. Keywords: high-power amplifiers"
+  },
+  {
+    "reference": "IEC TR 61292-9:2023",
+    "edition": "3.0",
+    "date": "2023-01-11",
+    "title": "Optical amplifiers - Part 9: Semiconductor optical amplifiers (SOAs)",
+    "language": "EN",
+    "description": "IEC TR 61292-9:2023 which is a Technical Report, describes the characteristic features of semiconductor optical amplifiers (SOAs), including the specific features of gain ripple and polarization dependent gain (PDG). This document focuses on amplifying applications of SOAs. Other applications, such as modulation, switching and non-linear functions, are not covered. Potential applications of SOAs, such as reflective SOAs (RSOAs) for the seeded wavelength division multiplexing passive optical network (WDM-PON), are reviewed in Annex A. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - revised definitions for SOAs in 3.1; - added more theoretical background on gain ripple measurements using amplified spontaneous emission (ASE) spectrum in 4.3; - removed the formerly preferred set-up for output power and PDG measurements in Clause 5."
+  },
+  {
+    "reference": "IEC TR 61292-12:2022",
+    "edition": "1.0",
+    "date": "2022-09-28",
+    "title": "Optical amplifiers - Part 12: Fibre amplifiers for space division multiplexing transmission",
+    "language": "EN",
+    "description": "IEC TR 61292-12:2022 which is a Technical Report, provides general information on optical fibre amplifiers for space division multiplexed transmission systems using multi-core, few-mode, and multi-core and few-mode optical fibres. This document describes the classification, concepts, configurations, and implementations of these amplifiers as well as state-of-the-art development technologies, specific features and measurement methods."
+  },
+  {
+    "reference": "IEC 61757:2026",
+    "edition": "2.0",
+    "date": "2026-03-05",
+    "title": "Fibre optic sensors - Generic specification",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61757:2026 defines, classifies, and provides a framework of generic tests or measurement methods for characterizing and specifying fibre optic sensors, including their specific components and subassemblies. The requirements of this document apply to all related fibre optic sensor standards that are part of the IEC 61757 series. Other parts of the IEC 61757 series contain requirements that are specific to sensors that measure particular quantities, and to a particular style or variant of such a fibre optic sensor. This second edition cancels and replaces the first edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) expansion of the list of metrological parameters; b) updates of the terms and definitions; c) updates of the normative references and bibliography; d) updates of the technical descriptions in Annex A."
+  },
+  {
+    "reference": "IEC 61757-1-1:2020",
+    "edition": "2.0",
+    "date": "2020-03-27",
+    "title": "Fibre optic sensors - Part 1-1: Strain measurement - Strain sensors based on fibre Bragg gratings",
+    "language": "EN-FR",
+    "description": "IEC 61757-1-1:2020 defines detail specifications for fibre optic sensors using one or more fibre Bragg gratings (FBG) as the sensitive element for strain measurements. Generic specifications for fibre optic sensors are defined in IEC 61757. This document specifies the most important features and characteristics of a fibre optic sensor for strain measurements, based on use of an FBG as the sensitive element, and defines the procedures for their determination. Furthermore, it specifies basic performance parameters and characteristics of the corresponding measuring instrument to read out the optical signal from the FBG. This document refers to the measurement of static and dynamic strain values in a range of frequencies. A blank detail specification is provided in Annex B. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following technical changes with respect to the previous edition: - update of cited standards; - clarification of definitions and test specifications."
+  },
+  {
+    "reference": "IEC 61757-1-2:2023",
+    "edition": "1.0",
+    "date": "2023-08-16",
+    "title": "Fibre optic sensors - Part 1-2: Strain measurement - Distributed sensing based on Brillouin scattering",
+    "language": "EN-FR",
+    "description": "IEC 61757-1-2: 2023 defines detailed specifications for distributed strain measurements with a fibre optic sensor, also known as \"fibre optic distributed strain sensing\". It is applicable to distributed strain sensing systems (DSS) based on spontaneous or stimulated Brillouin scattering in the optical fibre sensor (strain sensitive element), that is, to sensors capable of measuring absolute strain. This document specifies the most important DSS performance parameters and defines the procedures for their determination."
+  },
+  {
+    "reference": "IEC 61757-1-4:2025",
+    "edition": "1.0",
+    "date": "2025-12-16",
+    "title": "Fibre optic sensors - Part 1-4: Strain measurement - Distributed sensing based on Rayleigh scattering",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61757-1-4:2025 defines the terminology, structure, and measurement methods of distributed fibre optic sensors for absolute strain measurements based on spectral correlation analysis of Rayleigh backscattering signatures in single-mode fibres, where the fibre is the distributed strain measurement element in a measurement range from about 10 m to tens of km. This document also applies to hybrid sensor systems that combine the advantages of Brillouin and Rayleigh backscattering effects to obtain optimal measurement quality. This document also specifies the most important features and performance parameters of these distributed fibre optic strain sensors defines procedures for measuring these features and parameters. This part of IEC 61757 does not apply to point measurements or to dynamic strain measurements. Distributed strain measurements using Brillouin scattering in single-mode fibres are covered in IEC 61757-1-2. The most relevant applications of this strain measurement technique are listed in Annex A, while Annex B provides a short description of the underlying measurement principle."
+  },
+  {
+    "reference": "IEC 61757-2-1:2021",
+    "edition": "1.0",
+    "date": "2021-07-28",
+    "title": "Fibre optic sensors - Part 2-1: Temperature measurement - Temperature sensors based on fibre Bragg gratings",
+    "language": "EN-FR",
+    "description": "IEC 61757-2-1:2021 specifies the terminology, characteristic performance parameters and related test methods of optical temperature sensors based on fibre Bragg gratings (FBG) that carry out temperature measurements in the temperature range between ‑260 °C and 600 °C. Generic specifications for fibre optic sensors are defined in IEC 61757."
+  },
+  {
+    "reference": "IEC 61757-2-2:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Fibre optic sensors - Part 2-2: Temperature measurement - Distributed sensing",
+    "language": "EN-FR, EN",
+    "description": "IEC 61757-2-2:2016 defines detail specifications for distributed temperature measurement by a fibre optic sensor, also known as fibre optic distributed temperature sensing (DTS). DTS includes the use of Raman scattering, Brillouin scattering and Rayleigh scattering effects. In addition, Raman scattering and Rayleigh scattering based measurements are performed with a single-ended fibre configuration only. Brillouin scattering based measurements are performed with a single-ended fibre or fibre loop configuration. The technique accessible from both sides at same time (e. g. Brillouin optical time domain analysis, BOTDA) is referred to here as a loop configuration. Generic specifications for fibre optic sensors are defined in IEC 61757-1:2012. This part of IEC 61757 specifies the most important DTS performance parameters and defines the procedures for their determination. In addition to the group of performance parameters, a list of additional parameters has been defined to support the definition of the measurement specifications and their associated test procedures. The definitions of these additional parameters are provided for informational purposes and should be included with the sets of performance parameters. A general test setup is defined in which all parameters can be gathered through a set of tests. The specific tests are described within the clause for each measurement parameter. This general test setup is depicted and described in Clause 4 along with a list of general information that should be documented based upon the specific DTS instrument and test setup used to measure these parameters as per IEC 61757-2-2. Annex A provides a blank performance parameter table which should be used to record the performance parameter values for a given DTS instrument and chosen optical test setup configuration. Annex B provides guidelines for optional determination of point defect effects. Keywords: fibre optic distributed temperature sensing (DTS) This publication is to be read in conjunction with IEC 61757-1:2012"
+  },
+  {
+    "reference": "IEC 61757-3-2:2022",
+    "edition": "1.0",
+    "date": "2022-03-29",
+    "title": "Fibre optic sensors - Part 3-2: Acoustic sensing and vibration measurement - Distributed sensing",
+    "language": "EN-FR",
+    "description": "IEC 61757-3-2:2022 specifies the terminology, characteristic performance parameters, related test and calculation methods, as well as specific test equipment for interrogation units used in distributed fibre optic acoustic sensing and vibration measurement systems. This document refers to the Rayleigh backscatter and phase detection method by phase-sensitive coherent optical time-domain reflectometry (ϕ-OTDR) only. Quasi-static and low frequency operation modes are not covered by this document. Generic specifications for fibre optic sensors are defined in IEC 61757."
+  },
+  {
+    "reference": "IEC 61757-4-3:2020",
+    "edition": "1.0",
+    "date": "2020-07-30",
+    "title": "Fibre optic sensors - Part 4-3: Electric current measurement - Polarimetric method",
+    "language": "EN-FR",
+    "description": "IEC 61757-4-3: 2020 defines terminology, structure, and a characteristic test method of an optical current sensor using the polarimetric method. It addresses the current sensing element only and not the additional devices that are unique to each application. Generic specifications for fibre optic sensors are defined in IEC 61757. As the specifications of optical polarimetric fibre current sensors required by each user vary depending on the application, this document does not define the required performance values. The required performance values are defined when designing a sensor according to the specific application. The contents of the corrigendum of June 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61757-4-3:2020/COR1:2022",
+    "edition": "1.0",
+    "date": "2022-06-03",
+    "title": "Corrigendum 1 - Fibre optic sensors - Part 4-3: Electric current measurement - Polarimetric method",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61757-5-1:2021",
+    "edition": "1.0",
+    "date": "2021-07-07",
+    "title": "Fibre optic sensors - Part 5-1: Tilt measurement - Tilt sensors based on fibre Bragg gratings",
+    "language": "EN-FR",
+    "description": "IEC 61757-5-1:2021 defines the terminology, structure, characteristics and their measurement method including the procedures, for an optical tilt sensor based on fibre Bragg gratings (FBGs) as the sensitive element."
+  },
+  {
+    "reference": "IEC 61757-6-1:2024",
+    "edition": "1.0",
+    "date": "2024-01-19",
+    "title": "Fibre optic sensors - Part 6-1: Displacement measurement - Displacement sensors based on fibre Bragg gratings",
+    "language": "EN-FR",
+    "description": "IEC 61757-6-1:2024 defines the terminology, structure, and measurement methods of optical displacement sensors based on fibre Bragg gratings (FBGs) as the sensing element. This document also specifies the most important features and characteristics of these fibre optic displacement sensors and defines procedures for measuring these features and characteristics."
+  },
+  {
+    "reference": "IEC 61757-7-3:2024",
+    "edition": "1.0",
+    "date": "2024-04-19",
+    "title": "Fibre optic sensors - Part 7-3: Voltage measurement - Polarimetric method",
+    "language": "EN-FR",
+    "description": "IEC 61757-7-3:2024 defines the terminology, structure, and performance characteristics of fibre optic voltage sensors using a polarimetric measurement method. The document specifies test methods and procedures for measuring key performance parameters of these sensors. It addresses only the voltage sensing element and not the additional devices that are unique to each application. The document does not specify the required performance values of optical polarimetric fibre optic voltage sensors, because these specifications depend on the designated application of the sensor and are typically defined by the user of the sensor. The required performance values are usually defined when designing a sensor for a specific application."
+  },
+  {
+    "reference": "IEC 61757-8-1:2025",
+    "edition": "1.0",
+    "date": "2025-12-12",
+    "title": "Fibre optic sensors - Part 8-1: Pressure measurement – Pressure sensors based on fibre Bragg gratings",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61757-8-1:2025 defines the terminology, structure, and measurement methods of optical pressure sensors for gases or liquids based on a diaphragm in combination with fibre Bragg gratings (FBGs) as the sensing element. This document also specifies the most important features and characteristics of these fibre optic pressure sensors and defines procedures for measuring these features and characteristics."
+  },
+  {
+    "reference": "IEC 62007-1:2015",
+    "edition": "3.0",
+    "date": "2015-03-30",
+    "title": "Semiconductor optoelectronic devices for fibre optic system applications - Part 1: Specification template for essential ratings and characteristics",
+    "language": "EN-FR",
+    "description": "IEC 62007-1:2015 is a specification template for essential ratings and characteristics of the following categories of semiconductor optoelectronic devices to be used in the field of fibre optic systems and subsystems: - semiconductor photoemitters; - semiconductor photoelectric detectors; - monolithic or hybrid integrated optoelectronic devices and their modules. This part of IEC 62007 provides a frame for the preparation of detail specifications for the essential ratings and characteristics. In using this part of IEC 62007, detail specification writers add but do not delete specification parameters and/or groups of specification parameters for particular applications. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. The definitions of some symbols and terms are revised in order to harmonize them with those in other SC 86C documents; A clause on APD-TIA has been added. Keywords: semiconductor optoelectronic devices, semiconductor photoemitters, semiconductor photoelectric detectors, monolithic or hybrid integrated optoelectronic devices"
+  },
+  {
+    "reference": "IEC 62007-1:2015/AMD1:2022",
+    "edition": "3.0",
+    "date": "2022-09-22",
+    "title": "Amendment 1 - Semiconductor optoelectronic devices for fibre optic system applications - Part 1: Specification template for essential ratings and characteristics",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62007-2:2025",
+    "edition": "3.0",
+    "date": "2025-07-11",
+    "title": "Semiconductor optoelectronic devices for fibre optic system applications - Part 2: Measuring methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62007-2:2025 specifies measuring methods for characterizing semiconductor optoelectronic devices that are used in the field of fibre optic digital communication systems and subsystems. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Modification of the definition of “optical fibre pigtail” in 3.1.3; b) Correction of an error in Formula (1) for relative intensity noise; c) Correction of an error in Formula (5); d) Correction of errors in the title of Figure 11 and the text of 4.9 (replaced \"LD\" with \"LED\"); e) Clarification of how to calculate the 1 dB compression in 4.9; f) Corrections of the circuit diagrams in Figure 2, Figure 5, Figure 11, Figure 17, Figure 18, Figure 19, Figure 20, and Figure 21; g) Clarification of the measurement setup in 5.10 (Figure 28)."
+  },
+  {
+    "reference": "IEC 62148-1:2017",
+    "edition": "2.0",
+    "date": "2017-08-31",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 1: General and guidance",
+    "language": "EN-FR, EN",
+    "description": "IEC 62148-1:2017 aims to assure interchangeability in physical interfaces between fibre optic active components and devices supplied by different manufacturers, but it does not guarantee operation between such devices. This second edition cancels and replaces the first edition, published in 2002, and constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: addition of a free space optical coupling interface in Clause 5. Keywords: physical interfaces between fibre optic components"
+  },
+  {
+    "reference": "IEC 62148-2:2010",
+    "edition": "2.0",
+    "date": "2010-12-15",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 2: SFF 10-pin transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62148-2:2010 covers the physical interface specifications for the SFF MT-RJ/LC/MU duplex 10-pin fibre optic transceiver module family. With respect to the previous edition, this edition includes 10-pin SFF-LC, and SFF MU devices. It also cancels and replaces the first edition of IEC 62148-7 and the first edition of IEC 62148-9. This publication is to be read in conjunction with IEC 62148-1:2002 ."
+  },
+  {
+    "reference": "IEC 62148-2:2010/AMD1:2024",
+    "edition": "2.0",
+    "date": "2024-11-19",
+    "title": "Amendment 1 - Fibre optic active components and devices - Package and interface standards - Part 2: SFF 10-pin transceivers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62148-3:2010",
+    "edition": "2.0",
+    "date": "2010-11-25",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 3: SFF 20-pin transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62148-3:2010 covers the physical interface specifications for the SFF MT-RJ/LC/MU duplex 20-pin fibre optic transceiver module family. The intent of this standard is to adequately specify the physical requirements of an optical transceiver that will enable mechanical interchangeability of transceivers complying with this standard both at the printed circuit wiring board and for any panel-mounting requirement. The significant technical change with respect to the previous edition is that this edition includes 20-pin SFF MT-RJ/LC/MU devices. This publication is to be read in conjunction with IEC 62148-1:2002 ."
+  },
+  {
+    "reference": "IEC 62148-5:2003",
+    "edition": "1.0",
+    "date": "2003-02-10",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 5: SC 1x9 fibre optic modules",
+    "language": "EN-FR",
+    "description": "Provides the physical interface specifications for the SC 1x9 fibre optic module family."
+  },
+  {
+    "reference": "IEC 62148-6:2020",
+    "edition": "2.0",
+    "date": "2020-02-25",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 6: ATM-PON transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62148-6:2020 covers the physical interface specification of optical transceivers for asynchronous transfer mode-passive optical network (ATM-PON) systems recommended by the International Telecommunication Union (ITU) as ITU Recommendation G.983.1. This second edition cancels and replaces the first edition published in 2003, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - inconsistency of types in Clause 4 has been resolved; - part and titles list in the Foreword has been deleted; - references have been updated."
+  },
+  {
+    "reference": "IEC 62148-11:2024",
+    "edition": "3.0",
+    "date": "2024-12-16",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 11: 14-pin modulator integrated laser diode modules and pump laser diode modules",
+    "language": "EN-FR",
+    "description": "IEC 62148-11:2024 covers physical interface specifications for 14-pin modulator integrated laser diode transmitter modules and for 14-pin pump laser diode modules. This document specifies the physical requirements of modulator integrated laser diode modules and pump laser diode modules to enable mechanical interchangeability of modules complying with this document, both at the printed circuit board level and with respect to panel mounting requirements. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) change of the document title to better reflect the type of modules covered by this document; b) separation of the electrical and mechanical interface specifications for modulator integrated laser diode modules and for pump laser diode modules into independent subclauses; c) updates of the dimensions specified in Figure 4 to reflect the latest market situation; d) removal of former subclause 6.3 (\"Drawings of footprint\")."
+  },
+  {
+    "reference": "IEC 62148-12:2004",
+    "edition": "1.0",
+    "date": "2004-02-09",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 12: Laser transmitters with a coaxial RF connector",
+    "language": "EN-FR",
+    "description": "IEC 62148-12 covers the physical interface specifications of laser diode devices for optical fibre communication. The intent is to adequately specify the physical requirements of an optical transmitter that will enable mechanical interchangeability of transmitters to this standard both at the printed circuit board and for any panel-mounting requirement."
+  },
+  {
+    "reference": "IEC 62148-12:2004/AMD1:2022",
+    "edition": "1.0",
+    "date": "2022-09-22",
+    "title": "Amendment 1 - Fibre optic active components and devices - Package and interface standards - Part 12: Laser transmitters with a coaxial RF connector",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62148-15:2021",
+    "edition": "3.0",
+    "date": "2021-03-30",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 15: Discrete vertical cavity surface emitting laser packages",
+    "language": "EN-FR",
+    "description": "IEC 62148-15:2021 covers the physical dimension and interface specifications for discrete vertical cavity surface emitting laser (VCSEL) devices in optical telecommunication and optical data transmission applications. The intent of this document is to adequately specify the physical requirements of VCSEL devices that will enable mechanical interchangeability of laser devices or transmitters complying with this document both at the printed circuit wiring board and for any panel-mounting requirement. This third edition cancels and replaces the second edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the classification of optical/electrical interface types is generalized and referred to IEC 62148-1; - a new pin mode is added to Table 1; - several dimensions of the VCSEL TO CAN package are changed in Table 3 to reflect the current state of technology; - Figure 7 is updated to show the complete details of the VCSEL TOSA package."
+  },
+  {
+    "reference": "IEC 62148-16:2009",
+    "edition": "1.0",
+    "date": "2009-08-06",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 16: Transmitter and receiver components for use with LC connector interface",
+    "language": "EN-FR",
+    "description": "IEC 62148-16:2009 covers physical interface specification of transmitter and receiver components for use with LC connector interface. The intent of this part of IEC 62148 is to adequately specify the physical requirements of an optical transmitter and receiver that will enable mechanical interchangeability of transmitters and receivers complying with this standard both at the PCB and for any panel-mounting requirement. This publication is to be read in conjunction with IEC 62148-1:2002 ."
+  },
+  {
+    "reference": "IEC 62148-17:2023",
+    "edition": "2.0",
+    "date": "2023-09-20",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 17: Transmitter and receiver components with dual coaxial RF connectors",
+    "language": "EN-FR",
+    "description": "IEC 62148-17: 2023 defines physical interface specifications for transmitter and receiver components with dual coaxial RF connectors. This second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) IEC 61169-60 was added as a normative reference for SMPM connectors; b) normative reference IEC 60874-1 (withdrawn) was replaced by IEC 61754 (all parts); c) a reference to the terms and definitions of IEC 62007-1 was added in Clause 3; d) a new column “Typical” was added to the tables in Figure 2 and Figure 3 to clarify the meaning of all listed values."
+  },
+  {
+    "reference": "IEC 62148-18:2014",
+    "edition": "1.0",
+    "date": "2014-11-25",
+    "title": "Fiber optic active components and devices - Package and interface standards - Part 18: 40-Gbit/s serial transmitter and receiver components for use with the LC connector interface",
+    "language": "EN-FR, EN",
+    "description": "IEC 62148-18:2014 covers the 40-Gbit/s serial physical interface specification of transmitter and receiver components for use with the LC connector interface. The purpose of this standard is to adequately specify the physical requirements of optical transmitters and receivers that will enable mechanical interchangeability of transmitters and receivers complying with this standard both at the PCB level and for any panel-mounting requirement. Keywords: 40-Gbit/s serial physical interface specification, LC connector"
+  },
+  {
+    "reference": "IEC 62148-19:2019",
+    "edition": "1.0",
+    "date": "2019-05-02",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 19: Photonic chip scale package",
+    "language": "EN-FR",
+    "description": "IEC 62148-19: 2019 covers the photonic chip scale package. The purpose of this document is to specify adequately the physical requirements of optical transmitters and receivers that will enable mechanical interchangeability of transmitters and receivers. Keywords: physical interface for photonic chip scale packages"
+  },
+  {
+    "reference": "IEC 62148-21:2021",
+    "edition": "2.0",
+    "date": "2021-04-22",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 21: Design guidelines of electrical interface of PIC packages using silicon fine-pitch ball grid array (S-FBGA) and silicon fine-pitch land grid array (S-FLGA)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62148-21:2021 covers the design guidelines of the electrical interface for photonic integrated circuit (PIC) packages using silicon fine-pitch ball grid array (S-FBGA) and silicon fine-pitch land grid array (S-FLGA). In this document, the electrical interface for the S-FBGA package is informative. The purpose of this document is to specify adequately the electrical interface of PIC packages composed of optical transmitters and receivers that enable mechanical and electrical interchangeability of PIC packages. This second edition cancels and replaces the first edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: specification of an electric guard band area around the optical terminal area, so as to allow applications with electric signals at higher symbol rates (e.g. 50 Gbaud and 100 Gbaud)."
+  },
+  {
+    "reference": "IEC 62148-22:2023",
+    "edition": "1.0",
+    "date": "2023-02-15",
+    "title": "Fibre optic active components and devices - Package and interface standards - Part 22: 25 Gbit/s directly modulated laser packages with temperature control unit",
+    "language": "EN-FR",
+    "description": "IEC 62148-22: 2023 defines the physical dimensions and interface specifications for directly modulated laser (DML) devices used in optical telecommunication and optical data transmission applications. The intent of this document is to adequately specify the physical requirements for DML devices so as to enable mechanical interchangeability of laser devices or transmitters complying with this document both at the printed circuit board and for any panel-mounting requirements."
+  },
+  {
+    "reference": "IEC 62149-1:2011",
+    "edition": "2.0",
+    "date": "2011-12-07",
+    "title": "Fibre optic active components and devices - Performance standards - Part 1: General and guidance",
+    "language": "EN-FR",
+    "description": "IEC 62149-1:2011 provides references, definitions and rules for creating active fibre optic device performance standards, as well as related information pertinent to the subject. Subsequent parts of IEC 62149 are sequentially numbered and contain performance criteria for specific applications. Each part will be added as the performance criteria become standardised for international use. This second edition cancels and replaces the first edition published in 2004 and its corrigendum 1 (2004). It is a technical revision. The technical change consists of an update in Table A.1."
+  },
+  {
+    "reference": "IEC 62149-2:2014",
+    "edition": "2.0",
+    "date": "2014-05-26",
+    "title": "Fibre optic active components and devices - Performance standards - Part 2: 850 nm discrete vertical cavity surface emitting laser devices",
+    "language": "EN-FR",
+    "description": "IEC 62149-2:2014 covers the performance specification for 850-nm discrete vertical cavity surface emitting laser (VCSEL) devices of transverse multimode types used for fibre optic telecommunication and optical data transmission applications. The performance standard contains a definition of the product performance requirements together with a series of sets of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run on a \"once-off\" basis to prove any product's ability to satisfy the performance standard's requirements. This second edition cancels and replaces the first edition published in 2009 and constitutes a technical revision. The significant technical changes with respect to the previous edition include the introduction of the performance standards for 10 Gbit/s 850-nm wavelength, vertical cavity surface emitting laser (VCSEL) devices and the deletion of the package diagrams and pin configurations in Clause A.4 and Clause B.4 by citing the VCSEL package standard IEC 62148-15 instead. Keywords: 850-nm discrete vertical cavity surface emitting laser (VCSEL) devices, transverse multimode types"
+  },
+  {
+    "reference": "IEC 62149-3:2023",
+    "edition": "4.0",
+    "date": "2023-07-19",
+    "title": "Fibre optic active components and devices - Performance standards - Part 3: Modulator-integrated laser diode transmitters for 40-Gbit/s fibre optic transmission systems",
+    "language": "EN-FR",
+    "description": "IEC 62149-3: 2023 covers the performance specification for electroabsorption (EA) type optical modulators monolithically integrated with laser diodes for 40 Gbit/s fibre optic transmission systems. This document contains definitions for product performance requirements as well as a series of tests and measurements, for which clearly defined conditions, severities and pass/fail criteria are provided. The tests are intended to be run as an initial design verification to prove any product's ability to satisfy this document's requirements. This document is applicable for on-off keying modulation formats. A product that has been shown to meet all the requirements of a performance standard can be declared as compliant with the performance standard but will then be controlled by a quality assurance program. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) specification of pull force for fibre pull test in Table 6 according to fibre type; b) change of symbol for kink free radiant power in Table 4 and Table 5; c) replacement of undefined symbols in Table 7; d) addition of IEC 62149-1 as a normative reference."
+  },
+  {
+    "reference": "IEC 62149-4:2022",
+    "edition": "3.0",
+    "date": "2022-12-16",
+    "title": "Fibre optic active components and devices - Performance standards - Part 4: 1 300 nm fibre optic transceivers for Gigabit Ethernet application",
+    "language": "EN-FR",
+    "description": "IEC 62149-4:2022 defines performance specifications for 1 300 nm fibre optic transceiver modules used for the ISO/IEC/IEEE 8802-3 Gigabit Ethernet application. This document contains definitions for product performance requirements as well as a series of tests and measurements, for which clearly defined conditions, severities and pass/fail criteria are provided. The tests are intended to be run on a \"once-off\" basis to prove any product’s ability to satisfy the performance standard’s requirements. A product that has been shown to meet all the requirements of a performance standard can be declared as complying with the performance standard but will then be controlled by a quality assurance/quality conformance program. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the normative references are updated; - the condition \"for short periods\" in 4.1 is removed; - the absolute limiting rating for soldering temperature in Table 1 is modified; - the maximal optical output power (multimode fibre) in Table 4 is increased from −3,5 dBm to −3 dBm, to align value with the referenced document; - a note is added to Table 7 to clarify that out-of-specification products are not allowed to pass the performance tests."
+  },
+  {
+    "reference": "IEC 62149-4:2022/AMD1:2025",
+    "edition": "3.0",
+    "date": "2025-05-01",
+    "title": "Amendment 1 - Fibre optic active components and devices - Performance standards - Part 4: 1 300 nm fibre optic transceivers for Gigabit Ethernet application",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62149-5:2020",
+    "edition": "3.0",
+    "date": "2020-08-18",
+    "title": "Fibre optic active components and devices - Performance standards - Part 5: ATM-PON transceivers with LD driver and CDR ICs",
+    "language": "EN-FR",
+    "description": "IEC 62149-5:2020 specifies performance on the transceiver modules for asynchronous-transfer-mode passive optical network (ATM-PON) systems recommended by the International Telecommunication Union (ITU) in ITU-T Recommendation G.983.1. This third edition cancels and replaces the second edition published in 2009 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - description of types in Clause 4 has been removed; - titles of reference documents have been updated."
+  },
+  {
+    "reference": "IEC 62149-7:2012",
+    "edition": "1.0",
+    "date": "2012-03-29",
+    "title": "Fibre optic active components and devices - Performance standards - Part 7: 1 310-nm discrete vertical cavity surface emitting laser devices",
+    "language": "EN-FR",
+    "description": "IEC 62149-7:2012 covers the performance specification for 1 310-nm discrete vertical cavity surface emitting laser (VCSEL) devices of transverse single-mode and multimode types used for the fibre optic telecommunication and optical data transmission application in a form of the VCSEL chips mounted on a substrate with wire bonding to their chips' anode and cathode terminals without any fibre pigtails. The performance standard contains a definition of the product performance requirements together with a series of sets of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. Keyword: vertical cavity surface emitting laser (VCSEL)."
+  },
+  {
+    "reference": "IEC 62149-8:2014",
+    "edition": "1.0",
+    "date": "2014-04-24",
+    "title": "Fibre optic active components and devices - Performance standards - Part 8: Seeded reflective semiconductor optical amplifier devices",
+    "language": "EN-FR",
+    "description": "IEC 62149-8:2014 covers the performance specification for seeded reflective semiconductor optical amplifier (RSOA) devices used for fibre optic telecommunication and optical data transmission applications. The performance standard contains a definition of the product performance requirements together with a series of sets of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run on a \"once-off\" basis to prove any product's ability to satisfy the performance standard's requirements. A product that has been shown to meet all the requirements of a performance standard can be declared as complying with the performance standard, but should then be controlled by a quality assurance/quality conformance program. Key words: seeded reflective semiconductor optical amplifier (RSOA) devices"
+  },
+  {
+    "reference": "IEC 62149-9:2014",
+    "edition": "1.0",
+    "date": "2014-04-24",
+    "title": "Fibre optic active components and devices - Performance standards - Part 9: Seeded reflective semiconductor optical amplifier transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62149-9:2014 covers the performance specification for seeded reflective semiconductor optical amplifier (RSOA) transceivers used for the fibre optic telecommunication and optical data transmission applications. The performance standard contains a definition of the product performance requirements together with a series of sets of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run on a \"once-off\" basis to prove any product's ability to satisfy the performance standard's requirements. A product that has been shown to meet all the requirements of a performance standard can be declared as complying with the performance standard, but should then be controlled by a quality assurance/quality conformance program. Key words: seeded reflective semiconductor optical amplifier (RSOA) transceivers"
+  },
+  {
+    "reference": "IEC 62149-10:2018",
+    "edition": "1.0",
+    "date": "2018-11-07",
+    "title": "Fibre optic active components and devices - Performance standards - Part 10: Radio-over-fibre (RoF) transceivers for mobile fronthaul",
+    "language": "EN-FR",
+    "description": "IEC 62149-10:2018 covers the performance specification for radio-over-fibre (RoF) transceivers used for mobile fronthaul systems. The performance standard contains a definition of the product performance requirements together with a series of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run on a one-off basis to prove any product's ability to satisfy the performance standard's requirements. A product that has been shown to meet all the requirements of a performance standard can be declared to be in compliance with the performance standard. Keywords: radio-over-fibre (RoF) transceivers used for mobile fronthaul systems"
+  },
+  {
+    "reference": "IEC 62149-11:2020",
+    "edition": "1.0",
+    "date": "2020-04-28",
+    "title": "Fibre optic active components and devices - Performance standards - Part 11: Multiple channel transmitter/receiver chip scale package with multimode fibre interface",
+    "language": "EN-FR",
+    "description": "IEC 62149-11: 2020 specifies the performance standards for a multiple channel transmitter/receiver chip scale package (CSP) with multimode fibre interface that operates at up to 28 Gbit/s per channel. It specifies the parameters that apply, with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run as an initial design verification to prove any product's ability to satisfy the performance standard's requirements. A product that has been shown to meet all the requirements of a performance standard can be declared as complying with the performance standard, but is then controlled by a quality assurance/quality conformance program."
+  },
+  {
+    "reference": "IEC 62149-12:2023",
+    "edition": "1.0",
+    "date": "2023-02-10",
+    "title": "Fibre optic active components and devices - Performance standards - Part 12: Distributed feedback laser diode device for analogue radio over fibre systems",
+    "language": "EN-FR",
+    "description": "IEC 62149-12:2023 This part of IEC 62149 defines performance specifications for distributed feedback laser diode (DFB-LD) devices used in analogue radio over fibre (RoF) systems. It defines product performance requirements together with a series of tests and measurements with clearly defined conditions, severities, and pass/fail criteria. The tests are intended to be run on a “once-off” basis to prove a product’s ability to satisfy the performance requirements."
+  },
+  {
+    "reference": "IEC 62150-1:2005",
+    "edition": "1.0",
+    "date": "2005-04-27",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 1: General and guidance",
+    "language": "EN-FR",
+    "description": "Provides a series of performance test procedures, including preferred severities designed to assess the ability of active components to perform under expected service conditions. This part of IEC 62150 provides general information that applies to all of these procedures. The object is to provide uniform and reproducible environmental test procedures and measurement procedures, for those preparing specifications for fibre optic active components and devices."
+  },
+  {
+    "reference": "IEC 62150-2:2010",
+    "edition": "2.0",
+    "date": "2010-12-09",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 2: ATM-PON transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62150-2:2010 specifies testing and measuring procedures for fibre optic transceivers for asynchronous-transfer-mode passive optical network (ATM-PON) systems recommended by ITU-T G.983.1. These testing procedures correspond to methods of examining whether the transceivers satisfy the performance specifications defined in IEC 62149-5. The significant technical change to the first edition is: The power meter requires higher saturation power than 2 x Pmean for Pave measurement in Clause 7.3.3."
+  },
+  {
+    "reference": "IEC 62150-3:2015",
+    "edition": "2.0",
+    "date": "2015-05-07",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 3: Optical power variation induced by mechanical disturbance in optical receptacles and transceiver interfaces",
+    "language": "EN-FR, EN",
+    "description": "IEC 62150-3:2015 It has been found that some optical transceivers and receptacles are susceptible to fibre optic cable induced stress when side forces are applied to the mated cable-connector assembly, resulting in variations in the transmitted optical power. The purpose of this part of IEC 62150 is to define physical stress tests to ensure that such optical connections (cable and receptacle) can continue to function within specifications. This standard specifies the test requirements and procedures for qualifying optical devices for sensitivity to coupled power variations induced by mechanical disturbance at the optical ports of the device. This standard applies to active devices with optical receptacle interfaces. This standard describes the testing of transceivers for use with single-mode connectors having either 2,5 mm or 1,25 mm ferrules. This second edition cancels and replaces the first edition published in 2012 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - extension of application field to SC connector interface transceivers in addition to LC connector interface transceivers specified in the first edition as both transceiver interfaces are very important in the industry; - addition of a new Annex E dealing with load value difference for connector type in Method A. Keywords: fibre optic cable induced stress, power variations induced by mechanical disturbance"
+  },
+  {
+    "reference": "IEC 62150-4:2009",
+    "edition": "1.0",
+    "date": "2009-11-20",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 4: Relative intensity noise using a time-domain optical detection system",
+    "language": "EN-FR, EN",
+    "description": "IEC 62150-4:2009 specifies test and measurement procedures for relative intensity noise (RIN). It applies to lasers, laser transmitters, and the transmitter portion of transceivers. This procedure examines whether the device or module satisfies the appropriate performance specification. The procedure is applicable to single longitudinal mode (SLM). An optional section of the procedure presents a controlled return loss to the device-under-test, but is only applicable to devices coupled to SMF. Keywords: relative intensity noise (RIN), single longitudinal mode (SLM)"
+  },
+  {
+    "reference": "IEC 62150-5:2017",
+    "edition": "1.0",
+    "date": "2017-05-11",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 5: Wavelength channel tuning time of tuneable transmitters",
+    "language": "EN-FR",
+    "description": "IEC 62150-5:2017 specifies test and measurement procedures for the wavelength channel tuning time of tuneable transmitters. It applies to laser transmitters, and to the transmitter portion of transceivers. This procedure examines whether the device or module satisfies the appropriate performance specification. The method described in this document uses optical filters to transfer the transition of the output wavelength to the transition of the optical power. This is because the transient response of the output wavelength before stabilization at steady-state of the target wavelength channel is too fast to measure using a wavelength meter or an optical spectrum analyser. Reference optical filter sets are described in Annex A."
+  },
+  {
+    "reference": "IEC 62150-6:2022",
+    "edition": "1.0",
+    "date": "2022-01-28",
+    "title": "Fibre optic active components and devices - Test and measurement procedures - Part 6: Universal mezzanine boards for test and measurement of photonic devices",
+    "language": "EN-FR, EN",
+    "description": "IEC 62150-6:2022 specifies a generic mezzanine board system to support test and measurement of devices based on micro-optical and micro-photonic technologies, including but not limited to photonic integrated circuit (PIC) devices."
+  },
+  {
+    "reference": "IEC TR 62150-7:2024",
+    "edition": "1.0",
+    "date": "2024-09-17",
+    "title": "Fibre optic active components and devices – Test and measurement procedures – Part 7: Calculation methodology of laser safety class for optical transceivers and transmitters",
+    "language": "EN",
+    "description": "IEC TR 62150-7: 2024 which is a technical report, provides simple calculation guidelines for the laser safety class of optical transceivers and transmitters, whose baseline standard is IEC 60825-1. The calculation methodology for Class 1 and Class 1M safety levels is the main scope of this document, because most of optical transceivers and transmitters are specified for these classifications. The calculations and classifications in this document follow IEC 60825-1, which specifically advises that laser safety classifications be based on tests that consider any reasonably foreseeable single-fault condition in the application of a transceiver or transmitter. More information can be found in IEC 60825-1:2014, 5.1."
+  },
+  {
+    "reference": "IEC 62343:2023",
+    "edition": "3.0",
+    "date": "2023-01-06",
+    "title": "Dynamic modules - Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62343:2023 applies to all commercially available optical dynamic modules and devices. It describes the products covered by the IEC 62343 series, defines terminology, fundamental considerations and basic approaches. The object of this document is to: - establish uniform requirements for operation, reliability and environmental properties of dynamic modules (DMs) to be implemented in the appropriate DM standard, and - provide assistance to the purchaser in the selection of consistently high-quality DM products for their particular applications, as well as in the consultation of the appropriate specific DM standard(s). This document covers performance templates, performance standards, reliability qualification requirements, hardware and software interfaces and related testing methods. Since a dynamic module integrates an optical module/device, printed wiring board, and software/firmware, the standards developed in the series will mimic appropriate existing standards. On the other hand, since \"dynamic module\" is a relatively new product category, the dynamic module standards series will not be bound by the existing practices where requirements differ.The safety standards as related to dynamic modules are mostly optical power considerations, which is covered by the IEC 60825 series (see Clause 6). This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of terms and definitions for optical multicast switches (3.8); - revision of Clause 4, listing the requirements for standards in the IEC 62343 series; - addition of Clause 6 (Safety requirements)."
+  },
+  {
+    "reference": "IEC 62343:2023/AMD1:2026",
+    "edition": "3.0",
+    "date": "2026-01-21",
+    "title": "Amendment 1 - Dynamic modules - Generic specification",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62343-1:2019",
+    "edition": "2.0",
+    "date": "2019-02-06",
+    "title": "Dynamic modules - Part 1: Performance standards - General conditions",
+    "language": "EN-FR",
+    "description": "IEC 62343-1:2019 provides general conditions for the standard performance of optical dynamic modules. All performance standards of dynamic modules are based on the general conditions defined in this document. Additional conditions are included in individual performance standards. This second edition cancels and replaces the first edition, published in 2016, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) errors of Table 1 has been corrected; b) the contents of Table A.1 has been revised. Keywords: standard performance of optical dynamic modules"
+  },
+  {
+    "reference": "IEC 62343-1:2019/AMD1:2023",
+    "edition": "2.0",
+    "date": "2023-12-14",
+    "title": "Amendment 1 - Dynamic modules - Part 1: Performance standards - General conditions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62343-1-2:2015",
+    "edition": "2.0",
+    "date": "2015-06-25",
+    "title": "Dynamic modules - Part 1-2: Performance standards - Tuneable chromatic dispersion compensator (non-connectorized)",
+    "language": "EN-FR",
+    "description": "IEC 62343-1-2:2015 contains the recommended minimum initialization test and measurement requirements and severities for optical tuneable chromatic dispersion compensators (TDC). This second edition cancels and replaces the first edition published in 2007. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - substantial addition of definitions and removal of type C performances; - change in the title to reflect standard terminology. Keywords: optical tuneable chromatic dispersion compensators (TDC)"
+  },
+  {
+    "reference": "IEC 62343-1-3:2012",
+    "edition": "2.0",
+    "date": "2012-12-05",
+    "title": "Dynamic modules - Part 1-3: Performance standards - Dynamic gain tilt equalizer (non-connectorized)",
+    "language": "EN-FR",
+    "description": "IEC 62343-1-3:2012 contains the guideline minimum initialization test and measurement requirements and severities, for a dynamic gain tilt equalizer (DGTE). This second edition cancels and replaces the first edition published in 2006. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - a change in the title removing the environmental category; - the addition of Clause 4, Operating and storage conditions; - the inclusion of spectral bands in Clause 5, Test; - a definition of the wavelength range for test requirements in Clause 5, Test; - the removal of the environment tests from the test details and requirements. Keywords: initialization test, measurement requirements, dynamic gain tilt equalizer (DGTE)"
+  },
+  {
+    "reference": "IEC 62343-2-1:2019",
+    "edition": "1.0",
+    "date": "2019-09-16",
+    "title": "Dynamic modules - Part 2-1: Reliability qualification - Test template",
+    "language": "EN-FR",
+    "description": "IEC 62343-2-1:2019 provides a reliability qualification test template for dynamic modules (DMs). The template describes the reliability qualification test items and provides information on requirements or options. Example test conditions are given for information purposes in Annex A. For reliability qualification purposes, some information about the internal components, parts and interconnections is needed. These internal parts are treated as black boxes. This document gives requirements for the evaluation of DM reliability by combining the reliability of such internal black boxes. The object of this reliability qualification test template is to provide a framework for the reliability qualification tests for DMs. Developers of reliability qualification tests for DMs determine the test conditions for each test item by referring to the examples in Annex A. Keywords: dynamic modules (DMs), test requirements for DMs"
+  },
+  {
+    "reference": "IEC 62343-2-1:2019/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-12-14",
+    "title": "Amendment 1 - Dynamic modules - Part 2-1: Reliability qualification - Test template",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62343-3-1:2016",
+    "edition": "2.0",
+    "date": "2016-04-21",
+    "title": "Dynamic modules - Part 3-1: Performance specification templates - Dynamic channel equalizers",
+    "language": "EN-FR, EN",
+    "description": "IEC 62343-3-1:2016 provides a performance specification template for the dynamic channel equalizer (DCE). The object of this performance specification template is to provide a framework for the preparation of detail specifications on the product or performance of dynamic channel equalizers. Additional specification parameters may be included for product specifications or performance specifications. However, specification parameters specified in this standard should not be removed from the product specifications or performance specifications. Technical information regarding dynamic channel equalizers and their applications in DWDM systems is described in IEC TR 62343-6-1. This second edition cancels and replaces the first edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: modification of terms and definitions and references."
+  },
+  {
+    "reference": "IEC 62343-3-2:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Dynamic modules - Part 3-2: Performance specification templates - Optical channel monitor",
+    "language": "EN-FR, EN",
+    "description": "IEC 62343-3-2:2016 provides a performance specification template for optical channel monitors. The objective of this performance specification template is to provide a framework for the performance specification of the optical channel monitor. Additional specification parameters may be included for detailed product specifications or performance specifications. However, specification parameters specified in this document should not be removed from the detail product specifications or performance specifications. This document outlines the parameters that are used to specify the performance of the optical channel monitor. Keywords: optical channel monitor (OCM)"
+  },
+  {
+    "reference": "IEC 62343-3-3:2020",
+    "edition": "2.0",
+    "date": "2020-04-09",
+    "title": "Dynamic modules - Part 3-3: Performance specification templates - Wavelength selective switches",
+    "language": "EN-FR",
+    "description": "IEC 62343-3-3:2020 provides a performance specification template for wavelength selective switches. The object is to provide a framework for the preparation of detail specifications on the performance of wavelength selective switches. Additional specification parameters are often included for detailed product specifications or performance specifications if necessary. However, specification parameters specified in this document are not removed from the detail product specifications or performance specifications. The technical information regarding wavelength selective switches and their applications in DWDM systems with single-mode fibres are described in IEC TR 62343-6-4. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - modification of the normative references; - modification of the terms and definitions."
+  },
+  {
+    "reference": "IEC 62343-3-4:2018",
+    "edition": "1.0",
+    "date": "2018-04-27",
+    "title": "Dynamic modules - Part 3-4: Performance specification templates - Multicast optical switches",
+    "language": "EN-FR",
+    "description": "IEC 62343-3-4: 2018 provides a performance specification template for multicast optical switches. The object is to provide a framework for the preparation of performance specifications or product specifications of multicast optical switches. Specification parameters required in this document are considered as essential in the product specifications or performance specifications. Keywords: multicast optical switch (MCOS)"
+  },
+  {
+    "reference": "IEC 62343-4-1:2016",
+    "edition": "1.0",
+    "date": "2016-03-04",
+    "title": "Dynamic modules - Part 4-1: Software and hardware interface - 1 x 9 wavelength selective switch",
+    "language": "EN-FR, EN",
+    "description": "IEC 62343-4-1:2016 describes and provides specifications for a software and hardware interface for the 1 x 9 wavelength selective switch. These switches can be controlled by resident firmware with this interface. This standard addresses the configuration and function to control a WSS. This interface is intended to enable a user or host to retrieve the switch status and/or adjust relevant switch and attenuation settings."
+  },
+  {
+    "reference": "IEC 62343-5-1:2014",
+    "edition": "2.0",
+    "date": "2014-11-25",
+    "title": "Dynamic modules - Part 5-1: Test methods - Dynamic gain tilt equalizer - Gain tilt settling time measurement",
+    "language": "EN-FR, EN",
+    "description": "IEC 62343-5-1:2014 contains the measurement method of gain tilt settling time for a dynamic gain tilt equalizer (DGTE) to change its gain tilt from an arbitrary initial value to a desired target value. This second edition cancels and replaces the first edition published in 2009. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: change in the title and changes in performance parameter names. Keywords: dynamic gain tilt equalizer (DGTE)"
+  },
+  {
+    "reference": "IEC 62343-5-2:2018",
+    "edition": "1.0",
+    "date": "2018-01-15",
+    "title": "Dynamic modules - Part 5-2: Test methods - 1 x N fixed-grid WSS - Dynamic crosstalk measurement",
+    "language": "EN-FR",
+    "description": "IEC 62343-5-2:2018 describes the measurement methods of dynamic crosstalk during port switching for 1 x N fixed-grid wavelength selective switches (WSSs). The objective of this document is to establish a standard test method for different-channel dynamic crosstalk and same-channel dynamic crosstalk that occur when a particular optical channel signal is switched to the specific branching port against a common port in ITU‑T 50 GHz and 100 GHz fixed grid 1 x N (N ≥ 3) WSSs."
+  },
+  {
+    "reference": "IEC TR 62343-6-1:2011",
+    "edition": "1.0",
+    "date": "2011-02-17",
+    "title": "Dynamic modules - Part 6-1: Dynamic channel equalizers",
+    "language": "EN",
+    "description": "IEC/TR 62343-6-1:2011(E) deals with dynamic channel equalizers (DCE). The report includes a description of the dynamic channel equalization and its benefits in a wavelength division multiplexed (WDM) transmission system and also covers different DCE component technologies that are being used."
+  },
+  {
+    "reference": "IEC TR 62343-6-2:2013",
+    "edition": "2.0",
+    "date": "2013-08-06",
+    "title": "Dynamic modules - Part 6-2: Design guide - Software and hardware interfaces - Survey results",
+    "language": "EN",
+    "description": "IEC/TR 62343-6-2:2013(E) clarifies dynamic module interfaces, which should be standardized, based on the surveys. Annex A is a summary of survey responses by region and Annex B provides survey results specific to the optical channel monitor (OCM). The object of this technical report is to propose a software and hardware interface standard of dynamic modules. The dynamic modules addressed are defined in the IEC 62343 series. This second edition cancels and replaces the first edition published in 2009. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the survey results of the software and hardware interface of OCM have been added as Annex B, which was presented at the IEC Seattle meeting in 2010. The results are in agreement with the general conclusion of the first edition; - OPMON (optical performance monitor) in the body of the text has been changed to OCM (optical channel monitor) for consistency with the latest definitions. Keywords: software and hardware interface standard of dynamic modules"
+  },
+  {
+    "reference": "IEC TR 62343-6-3:2010",
+    "edition": "1.0",
+    "date": "2010-05-31",
+    "title": "Dynamic modules - Part 6-3: Round robin measurement results for group delay ripple of tunable dispersion compensators",
+    "language": "EN",
+    "description": "IEC/TR 62343-6-3:2010(E) describes the round robin measurement results for the group delay ripple (GDR) of tunable dispersion compensators (TDCs). It briefly explains the four typical TDCs measured and four typical methods of measuring group delay (GD), as well as the GDR round robin measurement results of TDCs, and an analysis of repeatability and differences among these measurement methods."
+  },
+  {
+    "reference": "IEC TR 62343-6-4:2017",
+    "edition": "1.0",
+    "date": "2017-01-27",
+    "title": "Dynamic modules - Part 6-4: Design guides - Reconfigurable optical add/drop multiplexer",
+    "language": "EN",
+    "description": "IEC TR 62343-6-4:2017(E) which is a Technical Report on reconfigurable optical add/drop multiplexers (ROADMs), provides a description of the ROADMs in dynamic optical networks and related optical component and module technologies, including wavelength selective switches (WSSs)."
+  },
+  {
+    "reference": "IEC TR 62343-6-5:2014",
+    "edition": "2.0",
+    "date": "2014-06-19",
+    "title": "Dynamic modules - Part 6-5: Design guide - Investigation of operating mechanical shock and vibration tests for dynamic modules",
+    "language": "EN",
+    "description": "IEC TR 62343-6-5:2014 which is a technical report, describes an investigation into operating mechanical shock and vibration for dynamic modules. It also presents the results of a survey on the evaluation and mechanical simulation of mechanical shock and vibration testing. Also included is a study of standardization for operating mechanical shock and vibration test methods. This second edition cancels and replaces the first edition published in 2011. It constitutes technical revision. The main change with respect to the previous edition is the addition of \"Results of a questionnaire on dynamic module operating shock and vibration test conditions\" in Annex A. Keywords: mechanical shock and vibration for dynamic modules, vibration testing"
+  },
+  {
+    "reference": "IEC TR 62343-6-6:2017",
+    "edition": "2.0",
+    "date": "2017-01-06",
+    "title": "Dynamic modules - Part 6-6: Design guide - Failure mode effect analysis for optical units of dynamic modules",
+    "language": "EN",
+    "description": "IEC TR 62343-6-6:2017(E) which is a Technical Report, describes failure mode effect analysis (FMEA) for optical units of dynamic modules. FMEA is one of the effective and useful analysis methods to determine the reliability evaluation test items and conditions that are defined in future reliability qualification documents. In order to estimate the lifetime for a module, there is a typical procedure. The first step is to identify the dominant failure modes. The second step is to determine the acceleration tests according to these failure modes. The third step is to carry out the test. The fourth step is to estimate the acceleration factors. Finally, the fifth step is to calculate the lifetime of the dynamic module. IEC 61300-2 (all parts) defines environment and mechanical tests. This Technical Report describes the dominant failure mode for dynamic modules and relevant tests from IEC 61300­2 (all parts). This second edition cancels and replaces the first edition published in 2011. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of the LCOS based and the DLP based wavelength selective switch (WSS); - addition of the multicast optical switch module (MCOS)."
+  },
+  {
+    "reference": "IEC TR 62343-6-7:2015",
+    "edition": "1.0",
+    "date": "2015-02-17",
+    "title": "Dynamic modules - Part 6-7: Design guide - Optical channel monitor",
+    "language": "EN",
+    "description": "IEC TR 62343-6-7:2015(E) which is a technical report, describes optical channel monitor modules, one of several important classes of dynamic modules that are used in dynamic optical networks. This report includes a description of the necessity of optical channel monitors, specifically in the context of dynamic optical networks, and how this is driving feature and performance requirements. This technical report surveys the different categories of optical channel monitor technologies that are being used and highlights some of their unique characteristics. Also described are different possible approaches for characterizing and specifying the performance of optical channel monitor modules. Keywords: optical channel monitor modules, dynamic optical networks, dynamic modules"
+  },
+  {
+    "reference": "IEC TR 62343-6-8:2011",
+    "edition": "1.0",
+    "date": "2011-11-07",
+    "title": "Dynamic modules - Part 6-8: Categorization study of dynamic performance requirements",
+    "language": "EN",
+    "description": "IEC/TR 62343-6-8:2011(E) outlines the categorization of dynamic performance requirements for dynamic modules. There are many kinds of dynamic modules in the marketplace with many different transient performance requirements. First, they are distinguished between the performance requirements for steady state and the transient state behaviour. Next are the requirements for transient characteristics during the transition period. Finally, a three-level categorization for the transient performance requirements is presented."
+  },
+  {
+    "reference": "IEC TR 62343-6-9:2015",
+    "edition": "1.0",
+    "date": "2015-06-25",
+    "title": "Dynamic modules - Part 6-9: Design guide - Study of mechanisms and measurements of crosstalk in wavelength-selective switches",
+    "language": "EN",
+    "description": "IEC TR 62343-6-9:2015(E) which is a Technical Report, describes a study of the impact of WSS dynamic crosstalk on the optical network and includes dynamic crosstalk measurement examples for three types of WSS. The generating mechanism and the generation factor of dynamic crosstalk in WSS are clarified, and the evaluation of same-channel crosstalk and different-channel crosstalk is shown to be necessary. Keywords: WSS, wavelength selective switch"
+  },
+  {
+    "reference": "IEC TR 62343-6-10:2017",
+    "edition": "1.0",
+    "date": "2017-03-22",
+    "title": "Dynamic modules - Part 6-10: Design guide - Intermediate controller for multiple dynamic module systems",
+    "language": "EN",
+    "description": "IEC TR 62343-6-10:2017(E) which is a Technical Report, discusses the rationale, conceptual definition, and minimum list of functions for an intermediate controller that delivers a dynamic control signal to multiple dynamic modules. These modules are included in an optical-switch-based network node, according to the upper layer controller of software-defined optical networking."
+  },
+  {
+    "reference": "IEC TR 62343-6-11:2019",
+    "edition": "1.0",
+    "date": "2019-11-13",
+    "title": "Dynamic Modules - Part 6-11: Design guidelines - Software and hardware interface for optical multicast switches",
+    "language": "EN",
+    "description": "IEC/TR 62343-6-11: 2019 which is a Technical Report, proposes a software and hardware interface for the optical multicast switch (MCS). This switch can be controlled by resident firmware within the interface that is intended to enable a user or host to retrieve the switch status and/or adjust relevant switch settings. The MCS is defined in IEC 62343-3-4. The technical information regarding MCS and its applications in dense wavelength division multiplexing (DWDM) systems is described in IEC TR 62343-6-4. The objective of this document is a proposal for a software and hardware interface standard of MCS."
+  },
+  {
+    "reference": "IEC TR 62343-6-12:2023",
+    "edition": "1.0",
+    "date": "2023-01-06",
+    "title": "Dynamic modules - Part 6-12: Design guidelines - Survey results on performance specifications for 1 x <em>N</em> wavelength selective switches",
+    "language": "EN",
+    "description": "IEC TR 62343-6-12:2023 which is a Technical Report, reports the results of a recently conducted survey on performance specifications for 1 × N wavelength selective switches. This information is intended to provide a framework for the preparation of performance specification standards for wavelength selective switches. The purpose of this document is to provide guidelines for performance values of the specification items listed in IEC 62343-3-3."
+  },
+  {
+    "reference": "IEC TR 62572-2:2008",
+    "edition": "1.0",
+    "date": "2008-09-08",
+    "title": "Fibre optic active components and devices - Reliability standards - Part 2: Laser module degradation",
+    "language": "EN",
+    "description": "IEC/TR 62572-2:2008(E) provides guidance on: - the testing that a system supplier should ensure is in a place prior to procurement of a laser module from a laser module manufacturer; - a range of activities expected of a system supplier to verify a laser module manufacturer's reliability claims. This technical report deals with reliability assessment of laser modules used for telecommunication guidance on testing, use of failure criteria and reliability predictions is provided."
+  },
+  {
+    "reference": "IEC 62572-3:2016",
+    "edition": "3.0",
+    "date": "2016-02-18",
+    "title": "Fibre optic active components and devices - Reliability standards - Part 3: Laser modules used for telecommunication",
+    "language": "EN-FR, EN",
+    "description": "IEC 62572-3:2016(E) deals with reliability assessment of laser modules used for telecommunication. The aim of this standard is to establish a standard method of assessing the reliability of laser modules in order to minimize risks and to promote product development and reliability and to establish means by which the distribution of failures with time can be determined. This should enable the determination of equipment failure rates for specified end of life criteria. In addition, guidance is given in IEC TR 62572-2. This third edition cancels and replaces the second edition published in 2014. This third edition constitutes a technical revision in which errors in Table 1 and Table 2 have been corrected."
+  },
+  {
+    "reference": "IEC TR 62572-4:2020",
+    "edition": "2.0",
+    "date": "2020-09-08",
+    "title": "Fibre optic active components and devices - Reliability standards - Part 4: Guidelines for optical connector end-face cleaning methods for receptacle style optical transceivers",
+    "language": "EN",
+    "description": "IEC/TR 62572-4:2020, which is a Technical Report, provides guidelines for optical connector end-face cleaning methods for receptacle style optical transceivers. It includes details about handling receptacle style optical transceivers, internal structures of optical transceivers, information on cleaning tools and machines, applicable cleaning methods, and cleaning procedures. Receptacle style optical transceivers as well as optical fibre patch cords are handled by operators and maintenance staff of optical network systems. This document can be used as a guideline to prepare instruction manuals for the operators and maintenance staff of optical network systems. This second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of terms and definitions on multifibre connector interface optical transceivers; - addition of cleaning methods for multifibre connector interface type optical transceivers; - updating URLs for reference websites."
+  },
+  {
+    "reference": "IEC 62614-1:2020",
+    "edition": "1.0",
+    "date": "2020-06-10",
+    "title": "Fibre optics - Multimode launch conditions - Part 1: Launch condition requirements for measuring multimode attenuation",
+    "language": "EN-FR, EN",
+    "description": "IEC 62614-1:2020 describes the launch condition requirements used for measuring multimode attenuation in passive components and in installed cable plants. In this document, the fibre types that are addressed include category A1-OMx, where x = 2, 3, 4 and 5 (50 µm/125 µm), and A1-OM1 (62,5 µm/125 µm) multimode fibres, as specified in IEC 60793-2-10. The nominal test wavelengths detailed are 850 nm and 1 300 nm. This document can be suitable for multimode attenuation measurements for other multimode categories and/or other wavelengths, but the source condition for other categories and wavelengths are not defined here. The purpose of these requirements is as follows: - to ensure consistency of field measurements when different types of test equipment are used; - to ensure consistency of factory measurements when different types of test equipment are used; - to ensure consistency of field measurements when compared with factory measurements. This document describes launch condition requirements for optical attenuation using sources with a controlled encircled flux (EF). This first edition cancels and replaces IEC 62614, published in 2010, and constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 62614: a) increase of the value of the uncertainty attenuation variation coefficient Y for 50 µm core fibre at 1 300 nm, due to launch conditions, to twice the previous value; b) changes to 3.4, 5.6, including Table 5, and some references to remain consistent with IEC 61280-4-1:2019; c) changes to multimode fibre references to be consistent with IEC 60793-2-10:2019."
+  },
+  {
+    "reference": "IEC TR 62614-2:2015",
+    "edition": "1.0",
+    "date": "2015-07-23",
+    "title": "Fibre optics - Multimode launch conditions - Part 2: Determination of launch condition requirements for measuring multimode attenuation",
+    "language": "EN",
+    "description": "IEC TR 62614-2:2015(E) which is a Technical Report, is intended to show the background of encircled flux for the characterization of multimode launch conditions. This includes the selection of the encircled flux and the definition of the encircled flux requirements in conjunction with the implied variation for all multimode attenuation and return loss measurement methods on graded index multimode fibre products. This first edition cancels and replaces IEC TR 61282-11 published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - significant reduction to the clause on uncertainties; - technical edits throughout in addition to updates to key normative references; - incorporation of additional figures related to the wavelength bias between 850 nm and 1 300 nm as well as the encircled flux limit of 10 Gigabit Ethernet VCSELs. This publication contains an attached file titled, \"TR 62614-2 Supplemental Data\", in the form of an Excel spreadsheet. This file is intended to be used as a complement and does not form an integral part of this Technical Report. Keywords: encircled flux, multimode launch conditions"
+  },
+  {
+    "reference": "IEC TR 63072-1:2017",
+    "edition": "1.0",
+    "date": "2017-05-11",
+    "title": "Photonic integrated circuits - Part 1: Introduction and roadmap for standardization",
+    "language": "EN",
+    "description": "IEC TR 63072-1:2017(E) which is a Technical Report, provides an introduction to photonic integrated circuits (PICs) and describes a roadmap for the standardization of PIC technology over the next decade."
+  }
+]

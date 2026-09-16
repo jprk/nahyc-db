@@ -1,0 +1,810 @@
+[
+  {
+    "reference": "IEC TS 62565-1:2023",
+    "edition": "1.0",
+    "date": "2023-05-11",
+    "title": "Nanomanufacturing - Product specifications - Part 1: Basic concepts",
+    "language": "EN",
+    "description": "IEC TS 62565-1:2023 which is a Technical Specification, defines the system of blank detail specifications for nanomaterials and nano-assemblies as well as final nano-enabled products addressed in the nanomanufacturing value chain. It defines the concepts of blank detail specification (BDS), detail specification (DS) and key control characteristic (KCC). Furthermore, it provides guidelines how to develop and use product specifications, particularly the IEC 62565 series, in the field of nanotechnology. This document also provides guidelines regarding the certification and reliability aspects for products specified by a DS and associated KCCs. NOTE 1 The IEC 62565 series uses an open generic structure that can be flexibly adapted to technical developments. The double indexing of the individual parts allows grouping into technology areas without restriction due to an overly strict hierarchical structure. NOTE 2 Key elements of the IEC 62565 series are a consensus-based set of key control characteristics (KCCs) with clear definitions and standardized measurement procedures to measure them."
+  },
+  {
+    "reference": "IEC TS 62565-2-1:2026",
+    "edition": "1.0",
+    "date": "2026-05-07",
+    "title": "Nanomanufacturing - Product specification - Part 2-1: Carbon nanotube-related products - Blank detail specification: single-walled carbon nanotubes in powders and dispersions",
+    "language": "EN",
+    "description": "IEC TS 62565-2-1:2026 which is a Technical Specification, establishes a blank detail specification and format for listing the relevant key control characteristics (KCCs) of single wall carbon nanotubes (SWCNTs). This document is intended to be used for SWCNTs in the form of powders and dispersions. For each KCC listed, methods and existing standards (in cases where they are applicable) for their measurement are indicated. Numeric values to be specified for the properties and characteristics are intentionally left blank and are determined by agreement between customer and supplier. Properties and characteristics not of relevance for a specific application can be classified as not applicable or not specified."
+  },
+  {
+    "reference": "IEC TS 62565-3-6:2026",
+    "edition": "1.0",
+    "date": "2026-02-20",
+    "title": "Nanomanufacturing - Product specification - Part 3-6: Graphene-related products - Blank detail specification: graphene oxide in powders and dispersions",
+    "language": "EN",
+    "description": "IEC TS 62565-3-6:2026 which is a Technical Specification, establishes the blank detail specification for graphene oxide in powders and aqueous dispersions. This document defines a format for specifying key control characteristics (KCCs), including a list of these characteristics and their corresponding standardized measurement procedures, where available. Numeric values are left blank to be determined between the customer and supplier in the detail specification (DS). In the DS, key control characteristics can be added or removed by mutual agreement. If no standardized measurement procedures are available, guidelines in Annex A are presented, which can be used by the involved parties to assure consistent material quality. For non-aqueous solvents, it is crucial to make modifications to address relevant characteristics such as appearance, pH, and viscosity."
+  },
+  {
+    "reference": "IEC TS 62565-4-1:2019",
+    "edition": "1.0",
+    "date": "2019-11-28",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-1: Luminescent nanomaterials - Blank detail specification",
+    "language": "EN",
+    "description": "IEC TS 62565-4-1:2019 establishes a blank detail specification and format for listing essential optical and certain other characteristics of monodisperse luminescent nanomaterials. This document does not address mixtures or agglomerations of luminescent nanomaterials. In addition, this document enables the customer to specify requirements in a standardized manner and to verify through standardized methods that the luminescent nanomaterial meets the required properties. Numeric values to be specified for the properties and characteristics in this document are intentionally left blank and are determined by agreement between customer and material supplier. Properties and characteristics deemed by the customer or supplier as not relevant to a specific application are classified as “not applicable” or “not specified”."
+  },
+  {
+    "reference": "IEC TS 62565-4-2:2018",
+    "edition": "1.0",
+    "date": "2018-05-24",
+    "title": "Nanomanufacturing - Material specifications - Part 4-2: Luminescent nanomaterials - Detail specification for general lighting and display applications",
+    "language": "EN",
+    "description": "IEC TS 62565-4-2:2018 specifies the essential general and optical requirements of monodisperse luminescent nanomaterials used in general lighting and display products to enable their reliable mass production and quality control during the manufacturing process. This document does not address mixtures or agglomerations of luminescent nanomaterials. In addition, this document enables the customer to specify requirements in a standardized manner and to verify through standardized methods that the luminescent nanomaterial meets the required properties."
+  },
+  {
+    "reference": "IEC TS 62565-4-3:2026",
+    "edition": "1.0",
+    "date": "2026-06-10",
+    "title": "Nanomanufacturing - Product specification - Part 4-3: Nanophotonic products - Blank detail specification: quantum dot enabled light emitting diodes",
+    "language": "EN",
+    "description": "IEC TS 62565-4-3:2026, which is a Technical Specification, establishes a blank detail specification (BDS) for quantum dot enabled light emitting diodes (QLEDs) used for printed light emitting diodes (LEDs). This document is intended to be used for display applications. The relevant key control characteristics (KCCs) include optical, physical, chemical, and structural properties of colloidal quantum dots (QDs). For each KCC listed, methods and existing standards for their measurement are reported. The applicability of such methods and standards to different material categories (physical forms) of QDs, for example colloidal solution, inks, films, is indicated. Numeric values for the KCCs are left blank as they will be specified between customer and supplier in the detail specification (DS). In the DS, KCCs can be added or removed if agreed between customer and supplier."
+  },
+  {
+    "reference": "IEC TS 62565-4-4:2025",
+    "edition": "1.0",
+    "date": "2025-04-16",
+    "title": "Nanomanufacturing – Product specification – Part 4-4: Nanophotonic products – Blank detail specification: Quantum dot enabled light conversion films",
+    "language": "EN",
+    "description": "IEC TS 62565-4-4:2025 which is a Technical Specification, establishes a standardized method to determine a blank detail specification (BDS) for - quantum dot enabled light conversion film (Q-LCF). This document is intended to be used for nano-enabled photoelectric display, based on liquid crystal display (LCD). The relevant key control characteristics (KCC) of Q-LCF are listed, including physical, mechanical and optical properties, and stability. For each KCC, measurement methods and existing standards are reported. Numeric values for the KCCs are left blank as they will be specified between customer and supplier in the detail specification (DS). In the DS KCCs can be added or removed if agreed between customer and supplier."
+  },
+  {
+    "reference": "IEC TS 62565-5-1:2023",
+    "edition": "1.0",
+    "date": "2023-06-07",
+    "title": "Nanomanufacturing - Product specifications - Part 5-1: Nanoporous activated carbon - Blank detail specification: Electrochemical capacitors",
+    "language": "EN",
+    "description": "IEC TS 62565-5-1:2023, which is a Technical Specification, establishes a blank detail specification (BDS) for nanoporous activated carbon used for electrochemical capacitors. Numeric values for the key control characteristics are left blank as they will be specified between customer and supplier in the detail specification (DS). In the DS key control characteristics can be added or removed if agreed between customer and supplier."
+  },
+  {
+    "reference": "IEC TS 62565-5-2:2022",
+    "edition": "1.0",
+    "date": "2022-04-21",
+    "title": "Nanomanufacturing - Material specifications - Part 5-2: Nano-enabled electrodes of electrochemical capacitors - Blank detail specification",
+    "language": "EN",
+    "description": "IEC 62565-5-2:2022(E) which is a Technical Specification, establishes a blank detail specification that lists the relevant key control characteristics (KCC) including chemical, physical, structural, and electrochemical characteristics of nano-enabled electrode for electrochemical capacitors. Electrodes of both electric double layer capacitors and pseudo capacitors with nano/ nanostructured materials such as nanoporous activated carbon, graphene, carbon nanotube, carbon black, carbon aerogel, carbon nanomaterial coating collector, etc., are included. For other electrodes, this document can be used for reference. In addition, this document enables the customer to specify requirements in a standardized manner and to verify through standardized methods that the nano-enabled electrode of the electrochemical capacitors meets the required properties."
+  },
+  {
+    "reference": "IEC TS 62565-5-3:2025",
+    "edition": "1.0",
+    "date": "2025-04-16",
+    "title": "Nanomanufacturing – Product specification – Part 5-3: Nanoenabled energy storage – Blank detail specification: silicon nanosized materials for the negative electrode of lithium-ion batteries",
+    "language": "EN",
+    "description": "IEC TS 62565-5-3:2025 which is a Technical Specification, establishes a standardized method to determine a blank detail specification (BDS) for ‭• silicon nanosized materials used for ‭• negative electrode of lithium-ion batteries. This document is intended to be used for silicon nanosized materials for the negative electrode of lithium-ion batteries which have been widely employed in the fields of - portable devices, - power tools, - electric vehicles, and - energy storage system. Numeric values for the key control characteristics are left blank as they will be specified between customer and supplier in the detail specification (DS). In the DS key control characteristics can be added or removed if agreed between customer and supplier."
+  },
+  {
+    "reference": "IEC TS 62607-2-1:2012",
+    "edition": "1.0",
+    "date": "2012-05-29",
+    "title": "Nanomanufacturing - Key control characteristics - Part 2-1: Carbon nanotube materials - Film resistance",
+    "language": "EN",
+    "description": "IEC/TS 62607-2-1:2012(E) which is a technical specification, provides a standardized method for categorizing a grade of commercial carbon nanotubes in terms of their electrical properties to enable a user to select a carbon nanotube material suitable for his application. The method is intended to assess whether the delivered materials from different production batches of the same production process are comparable regarding electrical properties of the final product which are related to electrical conductivity. The correlation between the measured parameters by the proposed method and a relevant product performance parameter has to be established for every application. This specification includes: - definitions of terminology used in this document, - recommendations for sample preparation, - outlines of the experimental procedures to measure sheet resistance of carbon nanotubes in thin films, - methods of interpretation of results and discussion of data analysis, - case studies and, - references."
+  },
+  {
+    "reference": "IEC TS 62607-2-4:2020",
+    "edition": "1.0",
+    "date": "2020-04-09",
+    "title": "Nanomanufacturing - Key control characteristics - Part 2-4: Carbon nanotube materials - Test methods for determination of resistance of individual carbon nanotubes",
+    "language": "EN",
+    "description": "IEC TS 62607-2-4:2020 specifies the test method for determining the resistivity and the contact resistance of an individual CNT and the dependability of the measurement. This document includes: – outlines of the experimental procedures used to measure resistance of carbon nanotubes, – methods of interpretation of results and discussion of data analysis, and – case studies."
+  },
+  {
+    "reference": "IEC TS 62607-2-5:2022",
+    "edition": "1.0",
+    "date": "2022-11-08",
+    "title": "Nanomanufacturing - Key control characteristics - Part 2-5: Carbon nanotube materials - Mass density of vertically-aligned carbon nanotubes: X-ray absorption method",
+    "language": "EN",
+    "description": "IEC TS 62607-2-5:2022 specifies the protocols for determining the mass density of vertically-aligned carbon nanotubes (VACNTs) by X-ray absorption method. This document outlines experimental procedures, data formats, and some case studies. These protocols are applicable to VACNT films with thickness larger than several tens of micrometres. There are no limitations in materials for substrate."
+  },
+  {
+    "reference": "IEC TS 62607-2-6:2024",
+    "edition": "1.0",
+    "date": "2024-08-07",
+    "title": "Nanomanufacturing - Key control characteristics - Part 2-6: Carbon nanotube-related products - Thermal diffusivity of vertically-aligned carbon nanotubes: flash method",
+    "language": "EN",
+    "description": "IEC TS 62607-2-6:2024 which is a technical specification, specifies a protocol for determining the key control characteristic - thermal diffusivity for vertically-aligned carbon nanotube (VACNT) films grown on solid substrates by - flash method. A light pulse from a flash lamp or a laser is irradiated onto the front surface (substrate side) of the VACNT film on solid substrates. Then, the temperature change of the other side of the specimen is monitored in real time after the pulse irradiation. The thermal diffusivity of the VACNT film can be analysed from the time variation of this temperature change. - This method is applicable for evaluating the thermal transport properties of the VACNT films that can be used as thermal interface materials in electronics assembly."
+  },
+  {
+    "reference": "IEC 62607-3-1:2014",
+    "edition": "1.0",
+    "date": "2014-05-22",
+    "title": "Nanomanufacturing - Key control characteristics - Part 3-1: Luminescent nanomaterials - Quantum efficiency",
+    "language": "EN-FR",
+    "description": "IEC 62607-3-1:2014 describes the procedures to be followed and precautions to be observed when performing reproducible measurements of the quantum efficiency of luminescent nanomaterials. Luminescent nanomaterials covered by this method include nano-objects such as quantum dots, nanophosphors, nanoparticles, nanofibers, nanocrystals, nanoplates, and structures containing these materials. The nanomaterials may be dispersed in either a liquid state (e.g., colloidal dispersion of quantum dots) or solid-state (e.g., nanofibers containing luminescent nanoparticles). This standard covers both relative measurements of liquid state luminescent nanomaterials and absolute measurements of both solid and liquid state nanomaterials. Key words: nanotechnology, nano, naloleds"
+  },
+  {
+    "reference": "IEC TS 62607-3-2:2017",
+    "edition": "1.0",
+    "date": "2017-01-10",
+    "title": "Nanomanufacturing - Key control characteristics - Part 3-2: Luminescent nanoparticles - Determination of mass of quantum dot dispersion",
+    "language": "EN",
+    "description": "IEC TS 62607-3-2:2017(E) specifies a method for determining the mass of a sample of QD dispersion after the removal of impurities and surfactant ligands through heating at high temperatures."
+  },
+  {
+    "reference": "IEC TS 62607-3-3:2020",
+    "edition": "1.0",
+    "date": "2020-09-24",
+    "title": "Nanomanufacturing - Key control characteristics - Part 3-3: Luminescent nanomaterials - Determination of fluorescence lifetime of semiconductor quantum dots using time correlated single photon counting (TCSPC)",
+    "language": "EN",
+    "description": "IEC 62607:2020, a Technical Specification, provides a method for determining the fluorescence lifetime of semiconductor quantum dots (QDs) using the time correlated single photon counting (TCSPC) technique. TCSPC is suitable for testing fluorescence lifetime in the range from picoseconds to nanoseconds. This document is only applicable to liquid samples that are stable dispersions of QDs. It is not applicable to solid samples. This document includes: – outlines of the experimental procedures, – data processing, and – case study."
+  },
+  {
+    "reference": "IEC TS 62607-3-5:2026",
+    "edition": "1.0",
+    "date": "2026-08-26",
+    "title": "Nanomanufacturing - Key control characteristics - Part 3-5: Nanophotonic products - Light conversion efficiency of quantum dot enabled light conversion films: luminance meter",
+    "language": "EN",
+    "description": "IEC TS 62607-3-5:2026, which is a Technical Specification, establishes a standardized method to determine the optical key control characteristic • light conversion efficiency for quantum dot enabled light conversion films (Q-LCFs) by • luminance meter. The light conversion efficiency is derived by the photoluminescence spectrum. The typical application areas of this standardized measurement method are the nano-photoelectric display devices using Q-LCF as key component, and other relevant optical conversion devices. WARNING – Persons using this document should be familiar with normal laboratory practice. This document does not purport to address all of the safety problems, if any, associated with its use. It is the responsibility of the user to establish appropriate safety and health practices and to ensure compliance with any national regulatory conditions."
+  },
+  {
+    "reference": "IEC TS 62607-4-1:2015",
+    "edition": "2.0",
+    "date": "2015-08-18",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-1: Cathode nanomaterials for nano-enabled electrical energy storage - Electrochemical characterisation, 2-electrode cell method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-1:2015(E) provides a standardized method for the determination of electrochemical properties of cathode nanomaterials of, for example, lithium-ion batteries utilizing lithium iron phosphate to enable customers to decide whether or not a cathode nanomaterial is usable, and select a cathode nanomaterial suitable for their application. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TS 62607-4-2:2016",
+    "edition": "1.0",
+    "date": "2016-10-24",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-2: Nano-enabled electrical energy storage - Physical characterization of cathode nanomaterials, density measurement",
+    "language": "EN",
+    "description": "IEC TS 62607-4-2:2016(E), which is a Technical Specification, provides a standardized method for the determination of the density of cathode nanomaterials in powder form used for electrical energy storage devices. This method provides users with a key control characteristic to decide whether or not a cathode nanomaterial is usable, or suitable for their application. This document includes definitions of terminology used in this document, recommendations for sample preparation, outlines of the experimental procedures used to measure cathode nanomaterial properties, methods of interpretation of results and discussion of data analysis, case studies, and references."
+  },
+  {
+    "reference": "IEC TS 62607-4-3:2015",
+    "edition": "1.0",
+    "date": "2015-08-18",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-3: Nano-enabled electrical energy storage - Contact and coating resistivity measurements for nanomaterials",
+    "language": "EN",
+    "description": "IEC TS 62607-4-3:2015(E) provides a standardized test method for the measurement of contact and coating resistivity of nano-enabled electrode materials. This method will enable a customer to decide whether or not a coating composite material is usable, and select best combinations of coating composite material with fabrication technologies suitable for their application."
+  },
+  {
+    "reference": "IEC TS 62607-4-4:2016",
+    "edition": "1.0",
+    "date": "2016-10-24",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-4: Nano-enabled electrical energy storage - Thermal characterization of nanomaterials, nail penetration method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-4:2016(E), which is a Technical Specification, provides a measurement method for thermal runaway quality level test for nano-enabled energy storage devices. This method uses comparative measurement to enable a manufacturer to decide whether or not the nanomaterial additives used in energy storage devices are resilient against the thermal runaway caused by a faulty or accidental low resistance connection between two or several internal points depending on the number of stacking electrode layers of the test sample. The nanomaterial additives may mix with the materials of positive and negative electrodes, electrolyte, coated on electrodes or separator. This document includes definitions of terminology, test sample, puncture nail requirements, test procedures, data analysis and methods of interpretation of results and a case study. This document does not apply directly to the safety testing for energy storage device products due to complex safety design schemes embedded in these products."
+  },
+  {
+    "reference": "IEC TS 62607-4-5:2017",
+    "edition": "1.0",
+    "date": "2017-01-12",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-5: Cathode nanomaterials for nano-enabled electrical energy storage - Electrochemical characterization, 3-electrode cell method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-5:2017(E) provides a standardized method for the determination of electrochemical properties of cathode nanomaterials such as lithium iron phosphate (LFP) for electrical energy storage devices. This method will enable the industry to: decide whether or not a cathode nanomaterial is usable, and select a cathode nanomaterial suitable for their application. This document includes: recommendations for sample preparation, outlines of the experimental procedures used to measure cathode nanomaterial properties, methods of interpretation of results and discussion of data analysis, and case studies. NOTE The very purpose of this method is to arrive at a detailed characterization of the electrodes so that individual contribution of the anode and cathode for performance and degradation could be predicted. The method can be applied for characterization of the electrode working as cathode or/and as anode."
+  },
+  {
+    "reference": "IEC TS 62607-4-6:2018",
+    "edition": "1.0",
+    "date": "2018-02-08",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-6: Nano-enabled electrical energy storage devices - Determination of carbon content for nano electrode materials, infrared absorption method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-6:2018(E) provides a method for determination of carbon content of nano electrode materials by infrared absorption spectroscopy method. The method is applicable to carbon contents of mass fraction between 0,001 % and 100 %. This method will enable customers to: a) decide whether or not a nano electrode material is usable, and b) select a nano electrode material with suitable carbon content for its application. This document includes: - recommendations for sample preparation, - outlines of the experimental procedures used to measure electrode nanomaterial properties, - methods of interpretation of results and discussion of data analysis, and - case studies."
+  },
+  {
+    "reference": "IEC TS 62607-4-7:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-7: Nano-enabled electrical energy storage - Determination of magnetic impurities in anode nanomaterials, ICP-OES method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-7:2018 provides a method for the determination of magnetic impurities in anode nanomaterials for energy storage devices using an Inductively Coupled Plasma Optical Emission Spectrometer (ICP-OES), including test overview, reagents, apparatus, test procedures, test results and test report. IEC TS 62607-4-7:2018 applies to the determination of the total content of magnetic impurities (iron, cobalt, chromium, and nickel) ≥ 0,02 mg/kg which can be attracted by magnet."
+  },
+  {
+    "reference": "IEC TS 62607-4-8:2020",
+    "edition": "1.0",
+    "date": "2020-02-07",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-8: Nano-enabled electrical energy storage - Determination of water content in electrode nanomaterials, Karl Fischer method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-8:2020 specifies a test method for the determination of water content in electrode nanomaterials for nano-enabled electrical energy storage devices, using the Karl Fischer coulometric titration method. This document includes: - recommendations for sample preparation, - outlines of the experimental procedures used to measure electrode nanomaterial properties, and - methods of interpretation of results and discussion of data analysis. IEC TS 62607-4-8:2020 is not applicable for samples that can react with the main components of Karl Fischer reagent and produce water, or samples that can react with iodine or iodide ion."
+  },
+  {
+    "reference": "IEC TS 62607-4-9:2026",
+    "edition": "1.0",
+    "date": "2026-07-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-9: Nano-enabled energy storage - Electrochemical characteristics of carbon nanomaterial for the electrodes of electric double-layer capacitors: Coin cell preparation",
+    "language": "EN",
+    "description": "IEC TS 62607-4-9:2026, which is a Technical Specification, establishes a standardized method for assembling • coin-cell EDLCs in order to characterize the electrochemical key control characteristic of carbon nanomaterials. The coin-cell EDLC is fabricated through sequential steps: electrode slurry preparation (mixing), coating, rolling, cutting, weighing, and final assembly. • The document specifies the assembly process and data recording. • The document is applicable for carbon nanomaterials used in EDLC as active material or conductive agents, such as nanoporous activated carbon, carbon aerogel, carbon nanotube, carbon black, graphene, nano graphite sheet, vapour-grown carbon fibre and so on. • Typical application areas of this method are research, manufacturer and downstream user to guide material processing and quality control"
+  },
+  {
+    "reference": "IEC TS 62607-4-10:2026",
+    "edition": "1.0",
+    "date": "2026-07-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-10: Nano-enabled energy storage - Electrochemical characteristics of carbon nanomaterial for the electrodes of electric double-layer capacitors: coin cell method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-10:2026, which is a Technical Specification, establishes standardized methods to determine the electrochemical key control characteristics, including: • specific capacitance, voltage maintenance rate, endurance in cycling and temperature endurance of carbon nanomaterials by determining the standard coin-type EDLC. The electrochemical key control characteristics are derived by calculating the recording curve at the specific charging and discharging process. • The document is applicable for coin-type EDLC assembled from carbon nanomaterials, such as nanoporous activated carbon, carbon aerogel, carbon nanotube, carbon black, graphene, nano graphite sheet, vapor-grown carbon fibre and so on. • Typical application areas of this method are research, manufacturer and downstream use to guide material processing and quality control."
+  },
+  {
+    "reference": "IEC TS 62607-4-11:2026",
+    "edition": "1.0",
+    "date": "2026-03-10",
+    "title": "Nanomanufacturing - Key control characteristics - Part 4-11: Nano-enabled energy storage - Dispersion stability of nano-carbon materials for the electrodes of lithium-ion capacitors: zeta potential method",
+    "language": "EN",
+    "description": "IEC TS 62607-4-11:2026, which is a Technical Specification, specifies the dispersion stability by using the zeta potential (ζ) method for nano-carbon materials for lithium ion capacitors. This document describes not only the dispersion stability of nano-carbon materials but also the effect of different surfactants as well as the evaluation method for testing long-term dispersion stability using the zeta potential (ζ). This document describes: • Dispersion stability of nano-carbon materials using zeta potential (ζ) for electrochemical capacitors using carbon nanomaterials as electrodes • Effect of different surfactants • Evaluation of long-term dispersion stability using the zeta potential (ζ) method"
+  },
+  {
+    "reference": "IEC TS 62607-5-1:2014",
+    "edition": "1.0",
+    "date": "2014-09-03",
+    "title": "Nanomanufacturing - Key control characteristics - Part 5-1: Thin-film organic/nano electronic devices - Carrier transport measurements",
+    "language": "EN",
+    "description": "IEC TS 62607-5-1:2014(E) provides a standardized sample structure for characterizing charge transport properties in thin-film organic/nano electronic devices and a format to report details of the structure which shall be provided with the measurement results. The standardized OTFT testing structure with a contact-area-limited doping can mitigate contact resistance and enable reliable measurement of the charge carrier mobility. The purpose of this Technical Specification is to provide test sample structures for determining the intrinsic charge transport properties of organic thin-film devices. The intention is to provide reliable materials information for OTFTs and to set guidelines for making test sample structures so that materials information is clear and consistent throughout the research community and industry."
+  },
+  {
+    "reference": "IEC TS 62607-5-3:2020",
+    "edition": "1.0",
+    "date": "2020-04-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 5-3: Thin-film organic/nano electronic devices – Measurements of charge carrier concentration",
+    "language": "EN",
+    "description": "IEC TS 62607-5-3:2020 specifies sample structures for evaluating a wide range of charge carrier concentration in organic/nano materials. This specification is provided for both capacitance-voltage (C-V) measurements in metal/insulator/semiconductor stacking structures and Hall-effect measurements with the van der Pauw configuration. Criteria for choosing measurement methods of charge carrier concentration in organic semiconductor layers are also given in this document."
+  },
+  {
+    "reference": "IEC TS 62607-5-4:2022",
+    "edition": "1.0",
+    "date": "2022-12-07",
+    "title": "Nanomanufacturing - Key control characteristics - Part 5-4: Energy band gap measurement of nanomaterials by electron energy loss spectroscopy (EELS)",
+    "language": "EN",
+    "description": "IEC TS 62607-5-4:2022 specifies the measuring method of the band gap energy of a nanomaterial using electron energy loss data of transmission electron microscope. The method specified in this document is applicable to semiconducting and insulating nanomaterials to estimate the band gap. The measurement to get reliable data is performed under the consistent conditions of TEM observation and specimen thickness. The applicable measurement range of band gap energy is more than 2 eV."
+  },
+  {
+    "reference": "IEC TS 62607-6-1:2020",
+    "edition": "1.0",
+    "date": "2020-07-08",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-1: Graphene-based material - Volume resistivity: four probe method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-1:2020 establishes a standardized method to determine the electrical key control characteristic – volume resistivity for powder consisting of graphene-based material like flakes of graphene, few layer graphene and/or reduced graphene oxide after preparation of a sample in pellet form by – four probe method using powder resistivity measurement system. The volume resistivity is a measure of the quality of powder-type graphene products in terms of electrical property and reflects the density-dependency shown in a pellet of powder-type graphene. The volume conductivity can directly be derived from the volume resistivity. Typical application areas are industries that use powder-type graphene products for graphene manufacture, potential developers, and users who produce graphene-based products. As the volume resistivity measured according to this document requires the preparation of a sample in the form of a pellet, this document describes in detail – an apparatus to prepare consistently a test sample, the pellet, – the preparation of the pellet starting from powder-type graphene, – the measurement procedure to measure the volume resistivity (or volume conductivity) of the pellet, and – the data analysis, the interpretation and reporting of the results."
+  },
+  {
+    "reference": "IEC TS 62607-6-2:2023",
+    "edition": "1.0",
+    "date": "2023-04-05",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-2: Graphene - Number of layers: atomic force microscopy, optical transmission, Raman spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-2:2023 establishes a standardized method to determine the key control characteristic - number of layers for graphene flakes by a combination of - atomic force microscopy, - optical transmission, and - Raman spectroscopy"
+  },
+  {
+    "reference": "IEC TS 62607-6-3:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-3: Graphene-based material - Domain size: substrate oxidation",
+    "language": "EN",
+    "description": "IEC TS 62607:2020 establishes a standardized method to determine the structural key control characteristic – domain size for films consisting of graphene grown by chemical vapour deposition (CVD) on copper by – substrate oxidation. It provides a fast, facile and reliable method to evaluate graphene domains formed on copper foil or copper film for understanding the effect of the graphene domain size on properties of graphene and enhancing the performance of high speed, flexible, and transparent devices using CVD graphene. – The domain size determined in accordance with this document will be listed as a key control characteristic in the blank detail specification for graphene IEC 62565-3-1. Domain density is an equivalent measure. – The domain size as derived by this method is defined as the mean value of size of the domains in the observed area specified by supplier in terms of cm2 or µm2. – The method is applicable for graphene grown on copper by CVD. The characterization is done on the copper foil before transfer to the final substrate. – As the method is destructive, the samples cannot be re-launched into the fabrication process."
+  },
+  {
+    "reference": "IEC TS 62607-6-4:2024",
+    "edition": "2.0",
+    "date": "2024-02-28",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-4: Graphene-based materials - Surface conductance: non-contact microwave resonant cavity method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-4:2024 has been prepared by IEC technical committee 113: Nanotechnology for electrotechnical products and systems. It is a Technical Specification. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) changed the document title to better reflect its purpose and application: old title: Graphene – Surface conductance measurement using resonant cavity new title: Graphene based materials – Surface conductance: non-contact microwave resonant cavity method. b) replaced former Figure 1 with new Figure 1 and Figure 2, to better illustrate the method’s fundamentals and its implementation for a non-technical reader. This part of IEC 62607 establishes a standardized method to determine the key control characteristic a) surface conductance for films of graphene and graphene-based materials by the b) non-contact microwave resonant cavity method The non-contact microwave resonant cavity method monitors the microwave resonant frequency shifts and changes in the cavity’s quality factor during the insertion of the specimen into the microwave cavity, as a function of the specimen surface area. The empty cavity is an air-filled standard R100 rectangular waveguide operated at one of the resonant frequency modes, typically at 7,5 GHz [4]. 1) The method is applicable for graphene materials which are synthesized by chemical vapour deposition (CVD) on metal substrates, epitaxial growth on silicon carbide (SiC), obtained from reduced graphene oxide (rGO), or mechanically exfoliated from graphite [5]. 2) This measurement does not explicitly depend on the thickness of the nano-carbon layer. The thickness of the specimen does not need to be known, but it is assumed that the lateral dimensions are uniform over the specimen area. NOTE In some countries, the R100 standard waveguide is referenced as WR-90."
+  },
+  {
+    "reference": "IEC TS 62607-6-5:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-5: Graphene-based materials - Contact and sheet resistance: transmission line measurement",
+    "language": "EN",
+    "description": "IEC TS 62607-6-5:2022(E) establishes a standardized method to determine the key control characteristics contact resistance, and sheet resistance for graphene-based materials and other two-dimensional materials by a transmission line measurement. The method uses test structures applied to the 2D material by photolithographic methods consisting of several metal electrodes with increasing spacing between the electrodes. By a measurement of the voltage drop between different pairs of electrodes, sheet resistance and contact resistance can be calculated. The method can be applied to any other two-dimensional materials which are subject to electrical metal contact on top of the materials. The method provides accurate and reproducible results, if the electrical contact formed between the two-dimensional material and the metal electrodes provides ohmic contact property."
+  },
+  {
+    "reference": "IEC TS 62607-6-6:2021",
+    "edition": "1.0",
+    "date": "2021-10-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-6: Graphene - Strain uniformity: Raman spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-6:2021(E) establishes a standardized method to determine the structural key control characteristic • strain uniformity for single-layer graphene by • Raman spectroscopy. The width of the 2D-peak in the Raman spectrum is analysed to calculate the strain uniformity parameter which is a figure of merit to quantify the influence of nano-scale strain variations on the electronic properties of the layer. The classification will help manufacturers to classify their material quality to provide an upper limit of the electronic performance of the characterized graphene, to decide whether or not the graphene material quality is potentially suitable for various applications."
+  },
+  {
+    "reference": "IEC TS 62607-6-7:2023",
+    "edition": "1.0",
+    "date": "2023-06-07",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-7: Graphene - Sheet resistance: van der Pauw method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-7:2023 establishes a method to determine the key control characteristics sheet resistance RS [measured in ohm per square (Ω/sq)], by the van der Pauw method, vdP. The sheet resistance RS is derived by measurements of four-terminal electrical resistance performed on four electrical contacts placed on the boundary of the planar sample and calculated with a mathematical expression involving the two resistance measurements. The measurement range for RS of the graphene samples with the method described in this document goes from 10−2 Ω/sq to 104 Ω/sq. The method is applicable for CVD graphene provided it is transferred to quartz substrates or other insulating materials (quartz, SiO2 on Si), as well as graphene grown from silicon carbide. The method is complementary to the in-line four-point-probe method (4PP, IEC 62607-6-8) for what concerns the measurement of the sheet resistance and can be applied when it is possible to reliably place contacts on the sample boundary, avoiding the sample being scratched by the 4PP. The outcome of the van der Pauw method is independent of the contact position provided the sample is uniform, which is typically not true for graphene at this stage. This document considers the case of samples with non-strictly uniform conductivity distribution and suggests a way to consider the sample inhomogeneity as a component of the uncertainty on RS."
+  },
+  {
+    "reference": "IEC TS 62607-6-8:2023",
+    "edition": "1.0",
+    "date": "2023-06-07",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-8: Graphene - Sheet resistance: In-line four-point probe",
+    "language": "EN",
+    "description": "IEC TS 62607-6-8:2023 establishes a method to determine the key control characteristic sheet resistance RS [measured in ohm per square (Ω/sq)], by the in-line four-point probe method, 4PP. The sheet resistance RS is derived by measurements of four-terminal electrical resistance performed on four electrodes placed on the surface of the planar sample. The measurement range for RS of the graphene samples with the method described in this document goes from 10−2 Ω/sq to 104 Ω/sq. The method is applicable for CVD graphene provided it is transferred to quartz substrates or other insulating materials (quartz, SiO2 on Si, as well as graphene grown from silicon carbide. The method is complementary to the van der Pauw method (IEC 62607-6-7) for what concerns the measurement of the sheet resistance and can be useful when it is not possible to reliably place contacts on the sample boundary."
+  },
+  {
+    "reference": "IEC TS 62607-6-9:2022",
+    "edition": "1.0",
+    "date": "2022-02-08",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-9: Graphene-based material - Sheet resistance: Eddy current method",
+    "language": "EN",
+    "description": "IEC 62607-6-9:2022(EN) establishes a standardized method to determine the key control characteristic • sheet resistance for films of graphene-based materials by • eddy current method."
+  },
+  {
+    "reference": "IEC TS 62607-6-10:2021",
+    "edition": "1.0",
+    "date": "2021-10-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-10: Graphene-based material - Sheet resistance: Terahertz time-domain spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-10:2021(E) establishes a standardized method to determine the electrical key control characteristic – sheet resistance (Rs) for films of graphene-based materials by – terahertz time domain spectroscopy (THz-TDS). In this technique, a THz pulse is sent to the graphene-based material. The transmitted or reflected THz waveform is measured in the time domain and transformed to the frequency domain by the fast Fourier transform (FFT). Finally, the spectrum is fitted to the Drude model (or another comparable model) to obtain the sheet resistance. • This non-contact inspection method is non-destructive, fast and robust for the mapping of large areas of graphene films, with no upper sample size limit. • The method is applicable for statistical process control, comparison of graphene films produced by different vendors, or to obtain information about imperfections on the microscale such as grain boundaries and defects, etc. • The method is applicable for graphene grown by chemical vapour deposition (CVD) or other methods on or transferred to dielectric substrates, including but not limited to quartz, silica (SiO2), silicon (Si), sapphire, silicon carbide (SiC) and polymers. • The minimum spatial resolution is in the order of 300 µm (at 1 THz) given by the diffraction limited spot size of the THz pulse."
+  },
+  {
+    "reference": "IEC TS 62607-6-11:2022",
+    "edition": "1.0",
+    "date": "2022-02-08",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-11: Graphene - Defect density: Raman spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-11:2022(EN) establishes a standardized method to determine the key control characteristic • defect density nD of graphene films grown by chemical vapour deposition as well as exfoliated graphene flakes by • Raman spectroscopy"
+  },
+  {
+    "reference": "IEC TS 62607-6-12:2024",
+    "edition": "1.0",
+    "date": "2024-06-28",
+    "title": "Nanomanufacturing - Key Control Characteristics - Part 6-12: Graphene - Number of layers: Raman spectroscopy, optical reflection",
+    "language": "EN",
+    "description": "IEC TS 62607-6-12:2024 establishes a standardized method to determine the key control characteristic - number of layers for films consisting of graphene by - Raman spectroscopy and - optical reflection. Criteria for the determination of the number of layers are the G-peak integrated intensity and the optical contrast. Both methods enable to distinguish between graphene and multilayer graphene. However, neither method on its own nor the combination of the two enable a determination of the number of layers in all possible cases (especially regarding all possible stacking angles). But the comparison of the values deduced by each method allows to discriminate whether the determined number of layers is correct and can be specified or not. - The method is applicable to exfoliated graphene and graphene grown on or transferred to a substrate with a small defect density, low surface contamination (e.g. transfer residue) and number of layers up to 5. - The method is suitable for the following substrates: a) glass (soda lime glass or similar with a refractive index between 1,45 and 1,55 at 532 nm); b) oxidized silicon (SiO2 on silicon, with a SiO2 thickness of 90 nm ± 5 nm). - The spatial resolution is in the order of 1 µm given by the spot size of the exciting laser."
+  },
+  {
+    "reference": "IEC TS 62607-6-13:2020",
+    "edition": "1.0",
+    "date": "2020-07-28",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-13: Graphene-based material - Oxygen functional group content: Boehm titration method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-13:2020 establishes a standardized method to determine the chemical key control characteristic • oxygen functional group content on graphite oxide, graphene oxide, reduced graphene oxide and other types of functionalized graphene by • Boehm titration method. In this document, the measured functional groups are carboxyl groups (also in the form of their cyclic anhydrides), lactone groups, hydroxyl groups and reactive carbonyl groups. Oxygen functional groups that exhibit no reactivity such as epoxides cannot be measured The contents of the corrigendum 1 of October 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 62607-6-13:2020/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-10-12",
+    "title": "Corrigendum 1 - Nanomanufacturing - Key control characteristics - Part 6-13: Graphene-based material - Oxygen functional group content: Boehm titration method",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62607-6-14:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-14: Graphene-based material - Defect level: Raman spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-14:2020 establishes a standardized method to determine the structural key control characteristic • defect level for powders consisting of graphene-based material by • Raman spectroscopy. The defect level is derived by the intensity ratio of the D+D′ band and 2D band in Raman spectrum, ID+D′/I2D. • The defect level determined in accordance with this document will be listed as a key control characteristic in the blank detail specification for graphene IEC 62565-3-1 for graphene powder. • The method is applicable for graphene powder or graphene-based material, e.g. reduced graphene oxide (rGO), bilayer graphene, trilayer graphene and few-layer graphene. • Typical application areas are quality control and classification for graphene manufacturers, and product selection for downstream users. • The method described in this document is appropriate if the physical form of graphene is powder."
+  },
+  {
+    "reference": "IEC TS 62607-6-16:2022",
+    "edition": "1.0",
+    "date": "2022-11-17",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-16: Two-dimensional materials - Carrier concentration: Field effect transistor method",
+    "language": "EN",
+    "description": "IEC TS 62607:2022 establishes a standardized method to determine the key control characteristic carrier concentration for semiconducting two-dimensional materials by the field effect transistor (FET) method. For semiconducting two-dimensional materials, the carrier concentration is evaluated using a field effect transistor (FET) test by a measurement of the voltage shift obtained from transfer curve upon doping process. The FET test structure consists of three terminals of source, drain, and gate where voltage is applied to induce the transistor action. Transfer curves are obtained by measuring drain current while applying varied gate voltage and constant drain voltage with respect to the source which is grounded."
+  },
+  {
+    "reference": "IEC TS 62607-6-17:2023",
+    "edition": "1.0",
+    "date": "2023-05-03",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-17: Graphene-based material - Order parameter: X-ray diffraction and transmission electron microscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-17:2023 establishes a standardized method to determine the key control characteristic order parameter for graphene-based material and layered carbon material by X-ray diffraction (XRD) and transmission electron microscopy. The order parameter is analysed from two perspectives: z-axis and x-y-axis. In the z-axis the order parameter is derived from the full width at half maximum (FWHM) of peak (002) in the XRD spectrum. In the x-y-axis, it is derived from the FWHM of peak (100) corresponding to diffraction patterns obtained by SAED (selected area electron diffraction) technique, which is routinely performed on most transmission electron microscopes in the world. The method is applicable for graphene-based material and layered carbon material including graphite, expanded graphite, amorphous carbon, vitreous carbon or glassy carbon, the structures of which are clarified by other characterization techniques. The method is applicable for differentiating few-layer graphene or reduced graphene oxide from layered carbon material. Typical application area is quality control in manufacturing to ensure batch-to-batch reproducibility. NOTE Graphene oxide, one type of graphene-based material, is not within the scope of this document."
+  },
+  {
+    "reference": "IEC TS 62607-6-18:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-18: Graphene-based material - Functional groups: TGA-FTIR",
+    "language": "EN",
+    "description": "IEC TS 62607-6-18:2022(E) establishes a standardized method to determine the chemical key control characteristic functional groups for functionalized graphene-based material and graphene oxide by thermogravimetry analysis (TGA) coupled with Fourier transform infrared spectroscopy (FTIR), referred to as TGA-FTIR. The content of functional groups is derived by changes in mass of the sample as a function of temperature using TGA. Materials evolved during these mass changes are then analysed using coupled FTIR to identify functional groups. The functional groups determined according to this document will be listed as a key control characteristic in the blank detail specification for graphene IEC 62565-3-1 for graphene powder. The method is applicable for functionalized graphene powder and graphene oxide that can be pyrolysed and gasified with elevated temperature during TGA. Typical application areas are quality control for graphene manufacturers, and product selection for downstream users."
+  },
+  {
+    "reference": "IEC TS 62607-6-19:2021",
+    "edition": "1.0",
+    "date": "2021-10-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-19: Graphene-based material - Elemental composition: CS analyser, ONH analyser",
+    "language": "EN",
+    "description": "IEC TS 62607-6-19:2021(E) establishes a standardized method to determine the chemical key control characteristic • elemental composition for powder consisting of graphene-based material by • CS analyser and ONH analyser. The method as described in this document determines the content of carbon (C), sulfur (S), oxygen (O), nitrogen (N) and hydrogen (H). The carbon (C) and sulfur (S) content in graphene powder is derived by the content of converted CO, CO2 and SO2, which is determined by infrared gas detector (IGD) using a non-dispersive infrared adsorption method in CS analyser. The content of oxygen (O), nitrogen (N) and hydrogen (H) in graphene powder is derived by ONH analyser using pyrolysis method. The O content is obtained according to the content of converted CO and CO2, which is determined by IGD using a non-dispersive infrared adsorption method. The N content is obtained according to the content of converted N2, which is determined by a thermal conductivity detector (TCD) method. The H content is obtained by measuring converted H2 or H2O, corresponding to TCD or IGD method. • The method is applicable for graphene, graphene oxide (GO) and reduced graphene oxide (rGO) in powder form."
+  },
+  {
+    "reference": "IEC TS 62607-6-20:2022",
+    "edition": "1.0",
+    "date": "2022-10-11",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-20: Graphene-based material - Metallic impurity content: Inductively coupled plasma mass spectrometry",
+    "language": "EN",
+    "description": "IEC TS 62607-6-20:2022 (EN) IEC TS 62607 establishes a standardized method to determine the chemical key control characteristic - metallic impurity content for powders of graphene-based materials by - inductively coupled plasma mass spectrometry (ICP-MS). The metallic impurity content is derived by the signal intensity of measured elements through MS spectrum of ICP-MS. - The method is applicable for powder of graphene and related materials, including bilayer graphene (2LG), trilayer graphene (3LG), few-layer graphene (FLG), reduced graphene oxide (rGO) and graphene oxide (GO). – The typical application area is in the microelectronics industry, e.g. conductive pastes, displays, etc., for manufacturers to guide material design, and for downstream users to select suitable products."
+  },
+  {
+    "reference": "IEC TS 62607-6-21:2022",
+    "edition": "1.0",
+    "date": "2022-09-22",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-21: Graphene-based material - Elemental composition, C/O ratio: X-ray photoelectron spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-21:2022 establishes a standardized method to determine the chemical key control characteristics - elemental composition, and - C/O ratio for powders of graphene-based materials by - X-ray photoelectron spectroscopy (XPS). The elemental composition (species and relative abundance) is derived by the elemental binding energy and integral peak area at corresponding portion of XPS spectrum. - The elemental composition refers to main elements in graphene powders, typically including carbon (C), oxygen (O), nitrogen (N), sulfur (S) , chloride (Cl) and silicon (Si). - This document is applicable to graphene powders consisting of graphene, bilayer graphene (2LG), trilayer graphene (3LG), few-layer graphene (FLG), graphene nanoplate (GNP), reduced graphene oxide (rGO), graphene oxide (GO), and functionalized graphene powders. - Typical application areas are the microelectronics and thermal management industries, e.g. batteries, integrated circuits, high-frequency electronics. This document can be used by manufacturers in research and development and by downstream users for product selection."
+  },
+  {
+    "reference": "IEC TS 62607-6-22:2022",
+    "edition": "1.0",
+    "date": "2022-11-04",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-22: Graphene-based material - Ash content: Incineration",
+    "language": "EN",
+    "description": "IEC TS 62607-6-22:2022 establishes a standardized method to determine the key control characteristic ash content of powder and dispersion of graphene-based material by incineration. The ash content is derived by residue obtained after incineration under the operating conditions specified in this document, being divided by the mass of the dried test portion. The method is applicable for graphene, graphene oxide and reduced graphene oxide in forms of both dry powder and dispersion. This document can be used as reference for graphite oxide and other modified graphene. Typical application areas of this method are research, manufacturer and downstream user to guide material processing and quality control."
+  },
+  {
+    "reference": "IEC TS 62607-6-23:2025",
+    "edition": "1.0",
+    "date": "2025-11-05",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-23: Graphene-related products - Sheet resistance, carrier density, carrier mobility: Hall bar method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-23:2025, which is a Technical Specification, establishes a standardized method to determine the key control characteristic (KCC): • carrier mobility and sheet resistance for graphene thin films by: • Hall measurement. The carrier mobility is derived by the product of the Hall coefficient and the electric conductivity and the sheet resistance is derived by the product of the longitudinal resistance and the aspect ratio of a Hall device. • The method is applicable for graphene thin film Hall devices with length and width greater than 100 micrometers. The document is developed to complete the fabrication and measurement of devices using cost-effective processes and equipment. Due to the high cost and low cost-performance ratio of photolithography processes and equipment, this document does not utilize photolithography processes and equipment."
+  },
+  {
+    "reference": "IEC TS 62607-6-24:2026",
+    "edition": "1.0",
+    "date": "2026-06-29",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-24: Graphene-related products - Number of layers of graphene: optical contrast",
+    "language": "EN",
+    "description": "IEC TS 62607-6-24:2026 which is a Technical Specification, establishes a standardized method to determine the key control characteristic (KCC) • number of layer distribution for CVD graphene film by • optical contrast measurement The number of layers and number of layer distribution of CVD graphene film is derived by G‑channel contrast values. This method is applicable for clean CVD graphene film without twisted multilayer structures on a SiO2/Si substrate."
+  },
+  {
+    "reference": "IEC TS 62607-6-26:2025",
+    "edition": "1.0",
+    "date": "2025-12-10",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-26: Graphene-related products - Fracture strain and stress, Young’s modulus, residual strain and residual stress: bulge test",
+    "language": "EN",
+    "description": "IEC TS 62607-6-26:2025, which is a Technical Specification, establishes a standardized method to determine the mechanical key control characteristics (KCCs) • Young's modulus (or elastic modulus), • residual strain, • residual stress, and • fracture stress of 2D materials and nanoscale films using the • bulge test. The bulge test is a reliable method where a pressure differential is applied to a freestanding film, and the resulting deformation is measured to derive the mechanical properties. • This method is applicable to a wide range of freestanding 2D materials, such as graphene, and nanometre-thick films with thicknesses typically ranging from 1 nm to several hundred nanometres. • This document ensures the characterization of mechanical properties essential for assessing the structural integrity and performance of materials in applications such as composite additives, flexible electronics, and energy harvesting devices."
+  },
+  {
+    "reference": "IEC TS 62607-6-27:2025",
+    "edition": "1.0",
+    "date": "2025-12-16",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-27: Graphene-related products - Field-effect mobility for layers of two-dimensional materials: field-effect transistor method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-27:2025, which is a Technical Specification, establishes a standardized method to determine the key control characteristic • field-effect mobility for semiconducting two-dimensional (2D) materials by the • field-effect transistor (FET) method. For two-dimensional semiconducting materials, the field-effect mobility is determined by fabricating a FET test structure and measuring the transconductance in a four-terminal configuration. - This method can be applied to layers of semiconducting two-dimensional materials, such as graphene, black phosphorus (BP), molybdenum disulfide (MoS₂), molybdenum ditelluride (MoTe₂), tungsten disulfide (WS₂), and tungsten diselenide (WSe₂). - The four-terminal configuration improves accuracy by eliminating parasitic effects from the probe contacts and cables"
+  },
+  {
+    "reference": "IEC TS 62607-6-28:2025",
+    "edition": "1.0",
+    "date": "2025-09-26",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-28: Graphene-related products - Number of layers for graphene films on a substrate: Raman spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-28:2025, which is a Technical Specification, establishes two standardized methods to determine the key control characteristic • number of layers for graphene layers by • Raman spectroscopy. This document presents two complementary methods for determining the number of layers in graphene-related products: Method A, which analyzes the lineshape of the 2D-peak in the Raman spectrum, and Method B, which measures the Raman intensity from the underlying silicon substrate. The two methods can be employed individually but combining both methods enhances accuracy and extends the detection range for the number of layers and stacking configurations. - The method is intended to be used for graphene layers prepared by mechanical exfoliation, but also can be used with care for other high quality graphene layers, such as graphene layers prepared by chemical vapor deposition. - The method can be used for graphene layers with AB and ABC stacking on a substrate. Its lateral size should be at least 2 µm. - Method A is effective for AB stacked graphene up to 4 layers but becomes less reliable with more layers due to peak overlap. - Method B can detect up to 10 layers in AB and ABC stacking but oxidized silicon substrate (SiO2 on silicon substrate) is required. - The comparison of Method A and Method B can be found in Annex A."
+  },
+  {
+    "reference": "IEC TS 62607-6-30:2024",
+    "edition": "1.0",
+    "date": "2024-08-13",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-30: Graphene-based material - Anion concentration: Ion chromatography method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-30:2024 establishes a standardized method to determine the chemical key control characteristic - anion concentration for powder of graphene-based material by - ion chromatography. In this document, the measured anions are fluoride, chloride, nitrite, bromide, nitrate, sulphate, and phosphate. These anions, present in the extraction solution of graphene-based materials, are separated into distinct elution bands on the ion chromatographic separation column and subsequently measured using a conductivity detector. Quantification of these anions is accomplished by establishing a proportional relationship between the measured signal (peak area or peak height) and the concentration of each anion. This is achieved by calibrating the system using a series of standards containing known amounts of each anion. Subsequently, unknown samples are analysed under the same conditions as the standards to determine their anion concentrations. - Powder of graphene-based material addressed by this document includes graphene oxide, reduced graphene oxide and functionalized graphene, graphene, bilayer graphene, trilayer graphene and few-layer graphene. Note: This document can also be used for other carbonaceous material such as graphite and graphite oxide. - This document targets graphene-based material manufacturers and downstream users to guide their material design, production and quality control."
+  },
+  {
+    "reference": "IEC TS 62607-6-33:2025",
+    "edition": "1.0",
+    "date": "2025-10-28",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-33: Graphene-related products - Defect density of graphene: electron energy loss spectroscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-6-33:2025, which is a Technical Specification, establishes a standardized method to determine the key control characteristic • defect density (%, nm2) of single layer graphene films by • electron energy loss spectroscopy (EELS in transmission electron microscopy (TEM)). This document outlines a method for quantitative measurement of defects in graphene at the nanoscale. The method specified in this document is applicable to single layer graphene acquired via chemical vapour deposition (CVD), roll-to-roll production and exfoliated graphene flakes to estimate the defect density. In order to obtain reliable data, it is essential that the procedure is consistent for each specified condition from the preparation of the TEM specimen to its observation. It is essential to maintain the spatial resolution below 1 nm by alignment of the beam. The dispersion value, which covers the entire energy loss near edge structure (ELNES) region of the carbon-K edge and maintains the highest energy resolution corresponds to 0,1 eV/ch. Defects in graphene are determined by measuring the spectral differences between sp2 hybridized and sp2/sp3 hybridized atoms, which are obtained by calculating the amplitude ratio of the π* and σ* orbital spectra."
+  },
+  {
+    "reference": "IEC TS 62607-6-35:2025",
+    "edition": "1.0",
+    "date": "2025-08-27",
+    "title": "Nanomanufacturing - Key control characteristics - Part 6-35: Graphene-related products - Density: free-pouring, tapping and compressing method",
+    "language": "EN",
+    "description": "IEC TS 62607-6-35:2025, which is a Technical Specification, establishes standardized methods to determine the structural key control characteristics • apparent density (da), • tap density (dt), and • compressed density (dc) for graphene in powder form by • free-pouring, tapping and compressing method."
+  },
+  {
+    "reference": "IEC TS 62607-6-36:2026",
+    "edition": "1.0",
+    "date": "2026-06-10",
+    "title": "<p>Nanomanufacturing - Key control characteristics - Part 6-36: Graphene-related products - Reduction status of graphene oxide and reduced graphene oxide: UV-Vis absorption spectroscopy</p>",
+    "language": "EN",
+    "description": "IEC TS 62607-6-36:2026, which is a Technical Specification, establishes a standardized method to determine the key control characteristic • reduction status for graphene oxide (GO) and reduced graphene oxide (rGO) by • ultraviolet-visible spectroscopy (UV-Vis). The reduction status is not a quantitative value, but rather a compilation (table) of six parameters extracted from UV-Vis absorption spectra. These six parameters can be obtained from GO and rGO as follows: (1) the peak location of GO, (2) the shoulder peak of GO, (3) the full width at half maximum (FWHM) of the main absorption peak of GO, (4) the peak location of rGO, (5) FWHM of the main absorption peak of rGO and (6) the spectral peak shifts between GO and rGO. • The method is applicable to the characterization of GO and rGO materials (where rGO is obtained from the corresponding GO) produced by different reduction techniques, as well as to commercial products in solution or film form. • Individual GO or rGO materials can also be characterized, but only partial parameters can be obtained. Specifically, peak location, FWHM, and shoulder peak can be measured from each GO or rGO material, while peak shift requires both GO and its corresponding rGO for comparison. • The method is suitable for quality assurance and for monitoring the reduction process during the production of rGO. • The method does not provide full chemical analysis. Complementary techniques can be required beyond the UV-Vis spectral features."
+  },
+  {
+    "reference": "IEC TS 62607-7-2:2023",
+    "edition": "1.0",
+    "date": "2023-07-27",
+    "title": "Nanomanufacturing - Key control characteristics - Part 7-2: Nano-enabled photovoltaics - Device evaluation method for indoor light",
+    "language": "EN",
+    "description": "IEC TS 62607-7-2:2023 specifies the efficiency testing of photovoltaic cells (excluding multi-junction cells) under indoor light. Although it is primarily intended for nano-enabled photovoltaic cells (organic thin-film, dye-sensitized solar cells (DSC), and Perovskite solar cells), it can also be applied to other types of photovoltaic cells, such as Si, CIGS, GaAs cells, and so on."
+  },
+  {
+    "reference": "IEC TS 62607-8-1:2020",
+    "edition": "1.0",
+    "date": "2020-04-09",
+    "title": "Nanomanufacturing - Key control characteristics - Part 8-1: Nano-enabled metal-oxide interfacial devices - Test method for defect states by thermally stimulated current",
+    "language": "EN",
+    "description": "IEC TS 62607-8-1:2020 There are two types of thermally stimulated current (TSC) measurement methods, classified by the origin of the current. One is generated by the detrapping of charges. The other one is generated by depolarization. IEC TS 62607-8-1:2020 focuses on the former method, and specifies the measurement method to be developed for determining defect states of nano-enabled metal-oxide interfacial devices. IEC TS 62607-8-1:2020 includes: – outlines of the experimental procedures used to measure TSC, – methods of interpretation of results and discussion of data analysis, and – case studies."
+  },
+  {
+    "reference": "IEC TS 62607-8-2:2021",
+    "edition": "1.0",
+    "date": "2021-01-05",
+    "title": "Nanomanufacturing - Key control characteristics - Part 8-2: Nano-enabled metal-oxide interfacial devices - Test method for the polarization properties by thermally stimulated depolarization current",
+    "language": "EN",
+    "description": "IEC TS 62607-8-2:2021 There are two types of thermally stimulated current (TSC) measurement methods, classified by the origin of the current. One is generated by the detrapping of charges. The other one is generated by depolarization. The latter is frequently called thermally stimulated depolarization current (TSDC). This part of IEC 62607 focuses on the latter method, and specifies the measurement procedures to be developed for determining polarization properties of metal-oxide interfacial devices. IEC TS 62607-8-2:2021 includes: - outlines of the experimental procedures used to measure TSDC, - methods of interpretation of results and discussion of data analysis, and - case studies."
+  },
+  {
+    "reference": "IEC TS 62607-8-3:2023",
+    "edition": "1.0",
+    "date": "2023-10-20",
+    "title": "Nanomanufacturing - Key control characteristics - Part 8-3: Nano-enabled metal-oxide interfacial devices - Analogue resistance change and resistance fluctuation: Electrical resistance measurement",
+    "language": "EN",
+    "description": "IEC TS 62607-8-3:2023 This part of IEC 62607, which is a Technical Specification, specifies a measurement protocol to determine the key control characteristics - analogue resistance change, and - resistance fluctuation for nano-enabled metal-oxide interfacial devices by - electrical resistance measurement. Analogue resistance change as a function of applied voltage pulse is measured in metal-oxide interfacial devices. The linearity in the relationship of the variation of conductance and the pulse number is evaluated using the parameter fitting. The parameter of the resistance fluctuation is simultaneously computed in the fitting process. - This method is applicable for evaluating computing devices composed of the metal-oxide interfacial device, for example, product-sum circuits, which record the learning process as the analogue resistance change."
+  },
+  {
+    "reference": "IEC TS 62607-8-4:2024",
+    "edition": "1.0",
+    "date": "2024-12-16",
+    "title": "Nanomanufacturing – Key control characteristics – Part 8-4: Metal-oxide interfacial devices – Activation energy of electronic trap states: Low-frequency-noise spectroscopy",
+    "language": "EN",
+    "description": "IEC 62607-8-4:2024 specifies a measurement protocol to determine the key control characteristic - activation energy of electronic trap states for metal-oxide interfacial devices by - low-frequency-noise spectroscopy The noise spectra peak temperatures are obtained within a designated temperature range. Activation energies are then calculated based on the frequency dependence of the peak temperatures to analyse the energy levels associated with the electronic trap states. The activation energy is determined by the temperature dependence of the capture time at electron traps under the assumption that it is described by an Arrhenius function. - In metal-oxide interfacial devices, electrical conductance is observed through an oxide nanolayer sandwiched between metal electrodes. - The size of the conductive path in metal-oxide interfacial devices is dependent on the current value and is usually nanoscale in diameter, taking the form of a filamentary wire. This evaluation method is useful for analysing the electronic trap states in nanowires and other miniaturized devices that have nanolayers."
+  },
+  {
+    "reference": "IEC TS 62607-9-1:2021",
+    "edition": "1.0",
+    "date": "2021-10-14",
+    "title": "Nanomanufacturing - Key control characteristics - Part 9-1: Traceable spatially resolved nano-scale stray magnetic field measurements - Magnetic force microscopy",
+    "language": "EN",
+    "description": "IEC TS 62607-9-1:2021(E) establishes a standardized method to characterize spatially varying magnetic fields with a spatial resolution down to 10 nm for flat magnetic specimens by magnetic force microscopy (MFM). MFM primarily detects the stray field component perpendicular to the sample surface. The resolution is achieved by the calibration of the MFM tip using magnetically nanostructured reference materials."
+  },
+  {
+    "reference": "IEC TS 62607-9-2:2024",
+    "edition": "1.0",
+    "date": "2024-07-16",
+    "title": "Nanomanufacturing - Key control characteristics - Part 9-2: Nanomagnetic products - Magnetic field distribution: Magneto-optical indicator film technique",
+    "language": "EN",
+    "description": "IEC TS 62607-9-2:2024, which is a Technical Specification, establishes a standardized method to determine the key control characteristic • magnetic field distribution of nanomagnetic materials, structures and devices by the • magneto-optical indicator film technique. The magnetic field distribution is derived by utilizing a magneto optical indicator film, which is a thin film of magneto-optic material that is placed on the surface of an object exhibiting a spatially varying magnetic field distribution. The Faraday effect is then employed to measure the magnetic field strength by analysing the rotation of the polarization plane of light passing through the magneto-optic film. The method is applicable for measuring the stray field distribution of flat nanomagnetic materials, structures and devices. - The method can especially be used to perform fast quantitative measurements of stray field distributions at the surface of an object. - The magneto-optic indicator film technique (MOIF) is a fast, non-destructive method, making it an attractive option for materials analysis and testing in the industry. - MOIF measurements can be done without any sample preparation and do not rely on specific surface properties of the object. It can be applied to the characterization of rough samples as well as of samples with non-magnetic cover layers. - MOIF can quantitatively measure magnetic field distributions: • with a one-shot measurement which typically takes a few seconds • over areas of several square centimetres (over diameters of up to 15 cm with special techniques) • in a field range from 1 mT to more than 100 mT • with down to 1 µm spatial resolution - Although techniques with nano-scale resolution are suitable for analysing the details of magnetic field structure, their ability to characterize larger areas is limited by their scanning area. Therefore, the MOIF technique is an indispensable complementary method that can offer a more comprehensive understanding of material properties. This document focuses on the calibration procedures, calibrated measurement process, and evaluation of measurement uncertainty to ensure the traceability of quantitative magnetic field measurements obtained through the magneto-optic indicator film technique."
+  },
+  {
+    "reference": "IEC TS 62607-11-1:2025",
+    "edition": "1.0",
+    "date": "2025-08-13",
+    "title": "Nanomanufacturing - Key control characteristics - Part 11-1: Electromagnetic compatibility - Shielding effectiveness of nanomaterials: near-field probe method",
+    "language": "EN",
+    "description": "IEC TS 62607-11-1:2025, which is a Technical Specification, provides a standardized method for measuring shielding effectiveness on nanomaterials including carbon nanotubes (CNTs) in the near-field region. This document provides: - recommendations for sample preparation, - outlines of the experimental procedures to measure shielding effectiveness of CNTs in thin films, - methods of interpretation of results and discussion of data analysis, and - case studies."
+  },
+  {
+    "reference": "IEC TS 62607-12-3:2026",
+    "edition": "1.0",
+    "date": "2026-06-09",
+    "title": "Nanomanufacturing - Key control characteristics - Part 12-3: 2D material-related products - Schottky barrier heights of 2D material-based field-effect transistors: temperature-dependent current–voltage measurements",
+    "language": "EN",
+    "description": "IEC TS 62607-12-3:2026, which is a Technical Specification, establishes a standardized method to determine the key control characteristic • Schottky barrier height (SBH) from the temperature-dependent current–voltage characterization results obtained from two-dimensional (2D) material-based electronic devices. This document • defines the Schottky barrier formed from the interface between a 2D material and a metal; • specifies a 2D device sample for the measurement of the Schottky barrier; • specifies the measurement procedure for the Schottky barrier formed at the interface within 2D devices; • provides proper mathematical formulas used to extract the Schottky barrier formed from 2D-materials-based devices; • provides relevant case studies; and • provides relevant references"
+  },
+  {
+    "reference": "IEC TS 62622:2012",
+    "edition": "1.0",
+    "date": "2012-10-02",
+    "title": "Nanotechnologies - Description, measurement and dimensional quality parameters of artificial gratings",
+    "language": "EN",
+    "description": "IEC/TS 62622:2012(E), which is a technical specification, specifies the generic terminology for the global and local quality parameters of artificial gratings, interpreted in terms of deviations from nominal positions of grating features, and provides guidance on the categorization of measurement and evaluation methods for their determination. This specification is intended to facilitate communication among manufacturers, users and calibration laboratories dealing with the characterization of the dimensional quality parameters of artificial gratings used in nanotechnology. This specification supports quality assurance in the production and use of artificial gratings in different areas of application in nanotechnology. Whilst the definitions and described methods are universal to a large variety of different gratings, the focus is on one-dimensional (1D) and two-dimensional (2D) gratings."
+  },
+  {
+    "reference": "IEC 62624:2009",
+    "edition": "1.0",
+    "date": "2009-08-04",
+    "title": "Test methods for measurement of electrical properties of carbon nanotubes",
+    "language": "EN",
+    "description": "IEC 62624:2009(E) (IEEE 1650:2005) provides methods for the electrical characterization of carbon nanotubes (CNTs). The methods will be independent of processing routes used to fabricate the CNTs."
+  },
+  {
+    "reference": "IEC/IEEE 62659:2015",
+    "edition": "1.0",
+    "date": "2015-09-30",
+    "title": "Nanomanufacturing - Large scale manufacturing for nanoelectronics",
+    "language": "EN",
+    "description": "IEC/IEEE 62659:2015(E) provides a framework for introducing nanoelectronics into large scale, high volume production in semiconductor manufacturing facilities through the incorporation of nanomaterials (e.g. carbon nanotubes, graphene, quantum dots, etc.). Since semiconductor manufacturing facilities need to incorporate practices that maintain high yields, there are very strict requirements for how manufacturing is performed. Nanomaterials represent a potential contaminant in semiconductor manufacturing facilities and need to be introduced in a structured and methodical way."
+  },
+  {
+    "reference": "IEC TR 62834:2013",
+    "edition": "1.0",
+    "date": "2013-09-17",
+    "title": "IEC nanoelectronics standardization roadmap",
+    "language": "EN",
+    "description": "IEC/TR 62834:2013(E), which is a technical report, describes the \"IEC nanoelectronics standardization roadmap\". It intends to establish a common standardization strategy in the area of nano-electrotechnology. It covers the standardization plan from 2009 to 2020 for nanomaterials, nanoscale devices, and nanofabrication processes. The report starts with a situation assessment of the market, the actual technology status, and future evolution. It provides later the list of potential standards to be developed within the concerned timeframe. The goal of this technical report is to build a consensus among members of the nano-electrotechnology community on a framework leading to inputs for consideration in standards development."
+  },
+  {
+    "reference": "IEC TS 62844:2016",
+    "edition": "1.0",
+    "date": "2016-12-14",
+    "title": "Guidelines for quality and risk assessment for nano-enabled electrotechnical products",
+    "language": "EN",
+    "description": "IEC TS 62844:2016(E) provides a recommended methodology for identifying relevant parameters of nanomaterials as well as providing generic guidelines on implementation of quality assessment and environment/health/safety assessment for nano-enabled/nano-enhanced electrotechnical products."
+  },
+  {
+    "reference": "IEC 62860:2013",
+    "edition": "1.0",
+    "date": "2013-08-05",
+    "title": "Test methods for the characterization of organic transistors and materials",
+    "language": "EN",
+    "description": "IEC 62860:2013(E) covers recommended methods and standardized reporting practices for electrical characterization of printed and organic transistors. Due to the nature of printed and organic electronics, significant measurement errors can be introduced if the electrical characterization design-of-experiment is not properly addressed. This standard describes the most common sources of measurement error, particularly for high-impedance electrical measurements commonly required for printed and organic transistors. This standard also gives recommended practices in order to minimize and/or characterize the effect of measurement artifacts and other sources of error encountered while measuring printed and organic transistors. Keywords: electrical characterization, FET, flexible electronics, high impedance, nanocomposite, nanotechnology, OFET, organic electronics, organic transistor, printed electronics, printing, transistor"
+  },
+  {
+    "reference": "IEC 62860-1:2013",
+    "edition": "1.0",
+    "date": "2013-08-05",
+    "title": "Test methods for the characterization of organic transistor-based ring oscillators",
+    "language": "EN",
+    "description": "IEC 62860-1:2013(E) covers recommended methods and standardized reporting practices for electrical characterization of printed and organic ring oscillators. Due to the nature of printed and organic circuits, significant measurement errors can be introduced if the electrical characterization design-of-experiment is not properly addressed. This standard describes the most common sources of measurement error, particularly for high-impedance electrical measurements commonly required for printed and organic ring oscillators. This standard also gives recommended practices in order to minimize and/or characterize the effect of measurement artifacts and other sources of error encountered while measuring printed and organic ring oscillators. Keywords: electrical characterization, high-impedance printing, organic transistor, printed electronics, ring oscillator"
+  },
+  {
+    "reference": "IEC TS 62876-2-1:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Nanotechnology - Reliability assessment - Part 2-1: Nano-enabled photovoltaic devices - Stability test",
+    "language": "EN",
+    "description": "IEC TS 62876-2-1:2018 establishes a general stability testing programme to verify the stability of the performance of nanomaterials and nano-enabled photovoltaic devices (NePV) devices. These devices are used as subassemblies for the fabrication of photovoltaic modules through a combination with other components. This testing programme defines standardized degradation conditions, methodologies and data assessment for technologies. The results of these tests define a stability under standardized degradation conditions for quantitative evaluation of the stability of a new technology. The procedures outlined in this document were designed for NePV, but can be extended to serve as a guideline for other photovoltaic technologies as well."
+  },
+  {
+    "reference": "IEC TS 62876-3-1:2022",
+    "edition": "1.0",
+    "date": "2022-02-18",
+    "title": "Nanomanufacturing - Reliability assessment - Part 3-1: Graphene-based material - Stability: Temperature and humidity test",
+    "language": "EN",
+    "description": "IEC TS 62876-3-1:2022(E) establishes a standardized method to determine the • stability of films of graphene-based material by a • temperature and humidity test. It establishes a general methodology for reliability stress screening (RSS) to qualify the use of graphene-based material in its subsequent product value stage. The intention is to prepare test samples undergoing the same or similar failure mechanisms as the graphene-based material in the final product."
+  },
+  {
+    "reference": "IEC TS 62876-3-2:2026",
+    "edition": "1.0",
+    "date": "2026-04-27",
+    "title": "Nanomanufacturing - Reliability and durability assessment - Part 3-2: Graphene - Ellipsometry measurement of graphene",
+    "language": "EN",
+    "description": "IEC TS 62876-3-2:2026 which is a Technical Specification, establishes a standardized method to determine • volume fraction for graphene by • ellipsometry. Thickness/composition measurements are evaluated by ellipsometry before and after the stability test. By model calculation, the volume fraction of graphene can be evaluated. Since the test method is non‑destructive, it can be used to assess the reliability and durability of graphene films on production lines. • For graphene-capped copper for Cu interconnects in a semiconductor engineering, for example, the reliability and durability of the capping layer are evaluated. • Gas sensors, gas barriers, transparent electrodes for solar cells, etc. are being researched and developed. • This method is useful for non-destructive and quantitative evaluation of the volume fraction of graphene to assess the reliability and durability."
+  },
+  {
+    "reference": "IEC TS 62876-3-4:2025",
+    "edition": "1.0",
+    "date": "2025-12-16",
+    "title": "Nanomanufacturing - Reliability assessment - Part 3-4: Linearity of output characteristics for metal contacted 2D semiconductor devices",
+    "language": "EN",
+    "description": "IEC TS 62876-3-4:2025, which is a Technical Specification, establishes a standardized guideline to assess • reliability of metallic interfaces of Ohmic-contacted field-effect transistors (FETs) using 2D nano-materials by quantifying • linearity of current-voltage (I-V) output curves for devices with various materials combinations of van der Waals (vdW) interfaces. For metallic interfaces with 2D materials (eg. graphene, MoS2, MoTe2, WS2, WSe2, etc) and metals (eg. Ti, Cr, Au, Pd, In, Sb, etc), the reliability of Ohmic contact is quantified. For FETs consisting of 2D materials-based channels (eg. MoS2, MoTe2, WS2, WSe2, etc), the reliability of Ohmic contact when varying contacting metal, channel length, channel thickness, applied voltage, and surface treatment condition is quantified. The reliability of the metallic contacts is quantified from the linearity of I-V characteristics measured over extended time periods."
+  },
+  {
+    "reference": "IEC TS 62876-4-1:2025",
+    "edition": "1.0",
+    "date": "2025-02-25",
+    "title": "Nanomanufacturing – Reliability assessment – Part 4-1: Nanophotonic products – Optical stability test of quantum dot enabled light conversion films: Temperature, humidity and light exposure",
+    "language": "EN",
+    "description": "IEC TS 62876-4-1:2025, which is a Technical Specification, establishes a general reliability testing programme to verify the reliability of the performance of quantum dots nanomaterials, and quantum dot enabled light conversion films (Q-LCFs). The Q-LCF is used as subassemblies for the fabrication of nano-enabled photoelectrical display devices, mainly liquid crystal display (LCD) currently, with other components. This testing programme defines standardized aging conditions, methodologies and data assessment for Q-LCF product. The results of these tests define a stability under standardized aging conditions for quantitative evaluation of the reliability of the Q-LCF. The procedures specified in this document were designed for Q-LCF but can be extended to serve as a guideline for other kinds of light conversion films or related subassemblies as well."
+  },
+  {
+    "reference": "IEC TR 63258:2021",
+    "edition": "1.0",
+    "date": "2021-03-19",
+    "title": "Nanotechnologies - A guideline for ellipsometry application to evaluate the thickness of nanoscale films",
+    "language": "EN",
+    "description": "IEC TR 63258:2021 is a Technical Report focused on the practical protocol of ellipsometry to evaluate the thickness of nanoscale films. This document does not include any specification of the ellipsometers, but suggests how to minimize the data variation to improve data reproducibility."
+  },
+  {
+    "reference": "IEC TS 80004-9:2017",
+    "edition": "1.0",
+    "date": "2017-01-10",
+    "title": "Nanotechnologies - Vocabulary - Part 9: Nano-enabled electrotechnical products and systems",
+    "language": "EN",
+    "description": "IEC TS 80004-9: 2017(E) specifies terms and definitions for electrotechnical products and systems reliant on nanomaterials for their essential functionalities. It is intended to facilitate communications between organizations and individuals in industry and those who interact with them."
+  },
+  {
+    "reference": "ISO TS 10797:2012",
+    "edition": "1.0",
+    "date": "2012-05-19",
+    "title": "Nanotechnologies - Characterization of single-wall carbon nanotubes using transmission electron microscopy",
+    "language": "EN, FR",
+    "description": "ISO/TS 10797:2012 establishes methods for characterizing the morphology of single-wall carbon nanotubes (SWCNTs) and identifying the elemental composition of other materials in SWCNT samples, using transmission electron microscopy and chemical analysis by energy dispersive X-ray spectrometry."
+  },
+  {
+    "reference": "ISO TR 12802:2010",
+    "edition": "1.0",
+    "date": "2010-11-15",
+    "title": "Nanotechnologies - Model taxonomic framework for use in developing vocabularies - Core concepts",
+    "language": "EN, FR",
+    "description": "ISO TR 12802:2010 establishes core concepts for nanotechnology in a model taxonomic framework. It is intended to facilitate communication and promote common understanding."
+  },
+  {
+    "reference": "ISO TR 19733:2019",
+    "edition": "1.0",
+    "date": "2019-03-22",
+    "title": "Nanotechnologies - Matrix of properties and measurement techniques for graphene and related two-dimensional (2D) materials",
+    "language": "EN, FR",
+    "description": "ISO TR 19733:2019 This document provides a matrix which links key properties of graphene and related two-dimensional (2D) materials to commercially available measurement techniques. The matrix includes measurement techniques to characterize chemical, physical, electrical, optical, thermal and mechanical properties of graphene and related 2D materials."
+  },
+  {
+    "reference": "ISO TS 21356-1:2021",
+    "edition": "1.0",
+    "date": "2021-03-12",
+    "title": "Nanotechnologies - Structural characterization of graphene - Part 1: Graphene from powders and dispersions",
+    "language": "EN",
+    "description": "This document specifies the sequence of methods for characterizing the structural properties of graphene, bilayer graphene and graphene nanoplatelets from powders and liquid dispersions using a range of measurement techniques typically after the isolation of individual flakes on a substrate. The properties covered are the number of layers/thickness, the lateral flake size, the level of disorder, layer alignment and the specific surface area. Suggested measurement protocols, sample preparation routines and data analysis for the characterization of graphene from powders and dispersions are given."
+  },
+  {
+    "reference": "ISO TS 22292:2021",
+    "edition": "1.0",
+    "date": "2021-06-14",
+    "title": "Nanotechnologies – 3D image reconstruction of rod-supported nano-objects using transmission electron microscopy",
+    "language": "EN",
+    "description": "ISO TS 22292:2021 This document provides guidance for sample preparation, data acquisition by transmission electron microscopy, data processing, and three-dimensional image reconstruction to measure size and shape parameters of nano-objects on rod-shaped supports. The method is applicable to samples dispersed on or within an electron-transparent rod-shaped support."
+  },
+  {
+    "reference": "ISO TS 23302:2021",
+    "edition": "1.0",
+    "date": "2021-11-30",
+    "title": "Nanotechnologies - Requirements and recommendations for the identification of measurands that characterise nano-objects and materials that contain them",
+    "language": "EN",
+    "description": "ISO TS 23302:2021 This document specifies requirements and recommendations for the identification of measurands to characterize nano-objects and their agglomerates and aggregates, and to assess specific properties relevant to the performance of materials that contain them. It provides recommendations for relevant measurement."
+  },
+  {
+    "reference": "ISO TS 23359:2025",
+    "edition": "1.0",
+    "date": "2025-08-27",
+    "title": "Nanotechnologies - Chemical characterization of graphene-related two-dimensional materials from powders and liquid dispersions",
+    "language": "EN, FR",
+    "description": "ISO TS 23359:2025, which is a Technical Specification, describes methods for characterising the chemical properties of powders or liquid dispersions containing graphene-related two-dimensional materials, using a set of suitable measurement techniques. This document covers the determination of elemental composition, oxygen to carbon ratio, trace metal impurities, weight percentage of chemical species and functional groups present, by use of the following techniques: • X-ray photoelectron spectroscopy (XPS); • thermogravimetric analysis (TGA); • inductively coupled plasma mass spectrometry (ICP-MS); • Fourier-transform infrared spectroscopy (FTIR). This document covers sample preparation, protocols and data analysis for the different techniques."
+  },
+  {
+    "reference": "ISO 80004-1:2023",
+    "edition": "1.0",
+    "date": "2023-07-26",
+    "title": "Nanotechnologies - Vocabulary - Part 1: Core vocabulary",
+    "language": "EN, FR",
+    "description": "ISO 80004-1:2023 This document defines core terms in the field of nanotechnology. This document is intended to facilitate communication between organizations and individuals in industry and those who interact with them."
+  },
+  {
+    "reference": "ISO TS 80004-3:2020",
+    "edition": "2.0",
+    "date": "2020-11-19",
+    "title": "Nanotechnologies - Vocabulary - Part 3: Carbon nano-objects",
+    "language": "EN, FR",
+    "description": "This document defines terms related to carbon nano-objects in the field of nanotechnologies. It is intended to facilitate communication between organizations' and individuals' research, industry and other interested parties and those who interact with them. Additional terms and definitions for graphene and two-dimensional materials (2D) materials are provided in ISO/TS 80004-13. Related carbon nanoscale materials are given in Annex A."
+  },
+  {
+    "reference": "ISO TS 80004-5:2011",
+    "edition": "1.0",
+    "date": "2011-12-01",
+    "title": "Nanotechnologies - Vocabulary - Part 5: Nano/bio interface",
+    "language": "EN-FR",
+    "description": "ISO/TS 80004-5:2011 lists terms and definitions related to the interface between nanomaterials and biology. It is intended to facilitate communications between scientists, engineers, technologists, designers, manufacturers, regulators, NGOs, consumer organizations, members of the public and others with an interest in: - the application or use of nanotechnologies in biology or biotechnology; - the use of biological matter or principles in nanotechnology."
+  },
+  {
+    "reference": "ISO TS 80004-6:2021",
+    "edition": "2.0",
+    "date": "2021-03-23",
+    "title": "Nanotechnologies - Vocabulary - Part 6: Nano-object characterization",
+    "language": "EN, FR",
+    "description": "This document defines terms related to the characterization of nano-objects in the field of nanotechnologies. It is intended to facilitate communication between organizations and individuals in research, industry and other interested parties and those who interact with them."
+  },
+  {
+    "reference": "ISO TS 80004-7:2011",
+    "edition": "1.0",
+    "date": "2011-10-01",
+    "title": "Nanotechnologies - Vocabulary - Part 7: Diagnostics and therapeutics for healthcare",
+    "language": "EN-FR",
+    "description": "ISO/TS 80004-7:2011 is applicable to the use of nanotechnologies in medical diagnostics and therapeutics. Terms relating to the applications of nanotechnology in healthcare might also be addressed in other parts of ISO/TS 80004 and in other documents. Terms relating to the exploitation of material features at the nanoscale for diagnostic or therapeutic purposes in relation to human disease come within the scope of ISO/TS 80004-7:2011. Nanoscale properties can be embodied in materials that contain nanoscale elements, or are themselves of nanoscale dimensions. ISO/TS 80004-7:2011 provides consistent and unambiguous use of terms for healthcare professionals, manufacturers, consumers, technologists, patent agents, regulators, NGOs, and researchers, etc."
+  },
+  {
+    "reference": "ISO TS 80004-8:2020",
+    "edition": "2.0",
+    "date": "2020-11-19",
+    "title": "Nanotechnologies - Vocabulary - Part 8: Nanomanufacturing processes",
+    "language": "EN, FR",
+    "description": "This document defines terms related to nanomanufacturing processes in the field of nanotechnologies. All the process terms in this document are relevant to nanomanufacturing, however, many of the listed processes are not exclusively relevant to the nanoscale. Terms that are not exclusive are noted within the definitions. Depending on controllable conditions, such processes can result in material features at the nanoscale or, alternatively, at larger scales. There are many other terms that name tools, components, materials, systems control methods or metrology methods associated with nanomanufacturing that are beyond the scope of this document. Terms and definitions from other parts of the ISO/TS 80004 series are reproduced in Clause 3 for context and better understanding."
+  },
+  {
+    "reference": "ISO TS 80004-12:2016",
+    "edition": "1.0",
+    "date": "2016-03-17",
+    "title": "Nanotechnologies - Vocabulary - Part 12: Quantum phenomena in nanotechnology",
+    "language": "EN, FR",
+    "description": "ISO/TS 80004-12:2016 lists terms and definitions relevant to quantum phenomena in nanotechnologies. All of these terms are important for nanotechnologies, but it is to be noted that many of them are not exclusively relevant to the nanoscale and can also be used to some extent to refer to larger scales. The list of terms presented does not claim to provide exhaustive coverage of the whole spectrum of quantum concepts and phenomena in nanotechnology. It covers important phenomena as acknowledged by many stakeholders from academia, industry, etc. ISO/TS 80004-12:2016 is intended to facilitate communication between organizations and individuals in industry and those who interact with them."
+  },
+  {
+    "reference": "ISO TS 80004-13:2024",
+    "edition": "2.0",
+    "date": "2024-09-16",
+    "title": "Nanotechnologies - Vocabulary - Part 13: Graphene and related two-dimensional (2D) materials",
+    "language": "EN, FR",
+    "description": "ISO TS 80004-13:2024 This document defines terms for graphene, graphene-related two-dimensional (2D) materials and other 2D materials. It includes related terms for production methods, properties and characterization. It is intended to facilitate communication between organizations and individuals in research, industry and other interested parties and those who interact with them."
+  }
+]

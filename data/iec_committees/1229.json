@@ -1,0 +1,74 @@
+[
+  {
+    "reference": "IEC 62271-1:2017",
+    "edition": "2.0",
+    "date": "2017-07-12",
+    "title": "High-voltage switchgear and controlgear - Part 1: Common specifications for alternating current switchgear and controlgear",
+    "language": "EN-FR, ES",
+    "description": "IEC 62271-1:2017 applies to AC switchgear and controlgear designed for indoor and/or outdoor installation and for operation at service frequencies up to and including 60 Hz and having rated voltages above 1 000 V. This document applies to all high-voltage switchgear and controlgear except as otherwise specified in the relevant IEC standards for the particular type of switchgear and controlgear. This second edition cancels and replaces the first edition published in 2007 and Amendment 1:2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: New numbering in accordance with ISO/IEC directives, Part 2 (2016) and IEEE Std. C37.100.1. 4.1.2 a) The normal service condition for indoor switchgear is limited to one range of 40 °C to -5 °C. 4.1.3 a) The normal service condition for outdoor switchgear is limited to one range of 40 °C to -25 °C. 4.2.2: The specifications from IEC 60071-2:1996 are adopted for altitude correction factors above 1 000 m. 5.2.2: Range I, the rated voltage of 40,5 kV is added Series I Table 1; Table 2 and Table 4 are updated on recommendation of the US National Committee. 6.8: New subclause added for manual operated actuators consistent with “Man Machine Interface” recommendations of IEC 60447 . 7.2.6.1:Insert the wording regarding preliminary impulses across open vacuum interrupters according to the result of IEC 17/1026/RQ. 7.3: Changed the requirement for radio interference voltage to a rated voltage level of 245 kV and above, instead of 123 kV and above. This change is based on reported positive test and service experience of utility representatives in the maintenance team of this standard. 7.5.6, Table 14: a. Introduced the distinction of parts in “OG” (oxidizing gas) or in “NOG” (not oxidizing gas) replacing the former “air” and “SF6”; b. Increased the allowable temperature rise for some parts in groups 1 and 2 of Table 14 according to IEC TR 60943; c. Expanded the definition of allowable temperature rise for categories of accessible surfaces with reference to IEC Guide 117. See also Point 15 in 7.5.6.2. 7.5.6.2: Point 5 is modified to clarify the introduction of “OG” and “NOG” gas. 7.10: Some tests were removed because the relevant test standards of IEC 60068 series were modified or withdrawn. 7.11.3: The acceptance criteria for X-radiation testing are modified to recognize higher rated vacuum interrupters. Former informative Annex H: Corrosion is deleted, the content is part of IEC TR 62271-306. New Annex J (informative): Added informative guidelines for the extension of validity of type tests New Annex K (informative): Added informative guidelines about exposure to pollution The contents of the Interpretation Sheet 1 of May 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62271-1:2017/ISH1:2021",
+    "edition": "2.0",
+    "date": "2021-05-26",
+    "title": "Interpretation Sheet 1 - High-voltage switchgear and controlgear - Part 1: Common specifications for alternating current switchgear and controlgear",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62271-1:2017/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-10-04",
+    "title": "Amendment 1 - High-voltage switchgear and controlgear - Part 1: Common specifications for alternating current switchgear and controlgear",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62271-3:2015",
+    "edition": "2.0",
+    "date": "2015-03-10",
+    "title": "High-voltage switchgear and controlgear - Part 3: Digital interfaces based on IEC 61850",
+    "language": "EN-FR",
+    "description": "IEC 62271-3:2015 is applicable to high-voltage switchgear and controlgear for all rated voltage levels above 1 kV and assemblies thereof and specifies equipment for digital communication with other parts of the power utility automation and its impact on testing. This equipment for digital communication, replacing metal parallel wiring, can be integrated into the high-voltage switchgear, controlgear, and assemblies thereof, or can be external equipment in order to provide compliance for existing switchgear and controlgear and assemblies thereof with the standards of the IEC 61850 series. This second edition cancels and replaces the first edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) an update to the latest edition(s) of IEC 61850 series; (e.g. Annex B \"LNs for sensors and monitoring\" of edition 1 has been deleted since these LNs are now covered by standard IEC 61850-7-4:2010) b) an update of normative references; c) the minimum voltage range this standard refers to, was changed from 72,5 kV to above 1 kV; d) the description of performance tests and conformance tests became more specific; e) the new - informative - Annex C gives an example for performance type testing; f) 6.2.3 \"transmission systems\" as well as appropriate subclauses have been superseded by standard IEC TR 61850-90-4:2013; g) fibre optical connector type LC becomes only recommended type of fibre optic connector in accordance with IEC TR 61850-90-4:2013; h) electronic nameplates have been redefined as extension of LN XCBR and LN XSWI with data objects, reflecting required additional name plate information."
+  },
+  {
+    "reference": "IEC 62271-4:2022",
+    "edition": "2.0",
+    "date": "2022-07-22",
+    "title": "High-voltage switchgear and controlgear - Part 4: Handling procedures for gases for insulation and/or switching",
+    "language": "EN-FR, ES",
+    "description": "IEC 62271-4:2022 applies to the procedures for handling of gases for insulation and/or switching during installation, commissioning, repair, overhaul, normal and abnormal operations and disposal at the end‑of‑life of electric power equipment. These procedures are regarded as minimum requirements to ensure the reliability of electric power equipment, the safety of personnel working with these gases and to minimize the impact on the environment. Additional requirements could be given or specified in the operating instruction manual of the manufacturer. This second edition cancels and replaces the first edition of IEC 62271-4 published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: title has been modified; handling procedures of alternatives to SF6, which are used for insulation and/or switching, are added; the main clauses are independent from the type of gas; for each gas a separate annex describes gas specific information, handling procedures, safety measure, etc.; information about SF6 (former Annex E) and about environmental effects of SF6 and its mixtures (former Annex F) has been moved to IEC 60376; information about by-products of SF6 and its mixtures (former Annex G), the procedure for evaluating the potential effects on health of by-products of SF6 and its mixtures (former Annex H) and the cryogenic reclaim of SF6 (former Annex I) have been moved to IEC 60480."
+  },
+  {
+    "reference": "IEC TS 62271-5:2024",
+    "edition": "1.0",
+    "date": "2024-05-02",
+    "title": "High-voltage switchgear and controlgear - Part 5: Common specifications for direct current switchgear and controlgear",
+    "language": "EN-FR, EN",
+    "description": "IEC TS 62271-5:2024 applies to DC switchgear and controlgear designed for operation on HVDC transmission systems having direct voltages of 100 kV and above. This document applies to all high-voltage switchgear and controlgear for indoor and/or outdoor installation except as otherwise specified in the relevant IEC documents for the particular type of switchgear and controlgear."
+  },
+  {
+    "reference": "IEC TS 62271-320:2025",
+    "edition": "1.0",
+    "date": "2025-03-25",
+    "title": "High-voltage switchgear and controlgear - Part 320: Environmental aspects and life cycle assessment rules for high-voltage switchgear and controlgear",
+    "language": "EN",
+    "description": "IEC TS 62271-320:2025 provides guidance to suppliers, manufacturers, users, and waste operators of high-voltage switchgear and controlgear as well as their assemblies having a rated voltage above 1 kV AC and 1,5 kV DC, together with their associated auxiliary equipment, on environmentally conscious design, and on assessing environmental impacts when used in systems. This document also gives guidance on effective communication of environmental information throughout the entire life cycle."
+  },
+  {
+    "reference": "IEC TR 62271-321:2026",
+    "edition": "1.0",
+    "date": "2026-03-23",
+    "title": "High voltage switchgear and controlgear - Part 321: Product data and properties for information exchange - Catalogue data",
+    "language": "EN",
+    "description": "IEC TR 62271-321:2026 relates to high-voltage switchgear and controlgear for all rated voltage levels above 1 kV AC and 1,5 kV DC and assemblies thereof and provides materials for the reference dictionary for all products covered by the IEC 62271 series. This dictionary is a preliminary work which can be used to facilitate exchanges in digital format of data related to high-voltage switchgear and controlgear components, devices, equipment, and assemblies of the power systems. Such a dictionary improves the interoperability of the power systems required for these data exchanges along the power system lifetime and over its life cycle. Each property has an unambiguously defined meaning and name, and where relevant, a defined value list, a defined format, and a defined unit. This document defines, digitalizes and then summarizes the properties related to high-voltage switchgear and controlgear nameplates and information usually exchanged during the enquiries, tenders, and orders life phases defined by IEC TC 17 standards of physical elements. The intention is not to cover manufacturer specific features. The intention is not to cover IEC TC 17 standards dealing only with assessment methodology (calculation, tests, rules, etc.)."
+  },
+  {
+    "reference": "IEC TR 62271-322:2026",
+    "edition": "1.0",
+    "date": "2026-07-10",
+    "title": "High-voltage switchgear and controlgear - Part 322: The use of digital technologies",
+    "language": "EN",
+    "description": "IEC TR 62271-322: 2026 describes trends and the state-of-the-art of digital technologies enabling their use in switchgear and controlgear along their life cycle. The report is a guidance for the IEC TC17 and supported by use cases or by emerging technologies, able to be implemented in power grids. The report can be used by designers, asset managers and any stakeholder dealing with interoperable and digital technologies for a switchgear and controlgear over their whole life cycle. The document consists of three main parts. Clause 4 describes the trends in user exploitation of digital technologies within the switchgear and controlgear. Clause 5 focuses on trends regarding technology and consequences for system architectures. Clause 6 gives guidance for use of new technologies in substations. This edition includes the following significant technical changes with respect to the previous edition: a) IEC numbering has been modified; b) title has been modified; c) updates in the field of digital technologies, like Internet of Things, cloud and edge computing, digital twins, artificial intelligence and cybersecurity have been added; in accordance with the IEC strategy themes and goals; d) synchronization and updates in the context of the latest standards of TC 17: IEC 62271-1 and IEC 62271-3; e) Bibliography has been added."
+  }
+]

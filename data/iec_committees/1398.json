@@ -1,0 +1,1170 @@
+[
+  {
+    "reference": "IEC 60793-1-1:2022",
+    "edition": "5.0",
+    "date": "2022-06-20",
+    "title": "Optical fibres - Part 1-1: Measurement methods and test procedures - General and guidance",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-1-1:2022 lists and gives guidance on the use of documents giving uniform requirements for measuring and testing optical fibres, thereby assisting in the inspection of fibres and cables for commercial (mostly telecommunications) purposes. The individual measurement and test methods are contained in the different parts of the IEC 60793 series. They are identified as IEC 60793-1-X, where \"X\" is an assigned sub-part number, indicating its affiliation to the IEC 60793-1 series. In general, measurements and tests methods apply to all class A multimode fibres and class B and class C single-mode optical fibres covered by the IEC 60793-2 series relating to product specifications, although there can be exceptions. Clause 1 of each part of the IEC 60793 series contains the scope for each particular attribute. This fifth edition cancels and replaces the fourth edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - changes in normative references; - renamed Clause 10 and added documentation-related requirements in a new subclause 10.2."
+  },
+  {
+    "reference": "IEC 60793-1-20:2014",
+    "edition": "2.0",
+    "date": "2014-10-10",
+    "title": "Optical fibres - Part 1-20: Measurement methods and test procedures - Fibre geometry",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-20:2014 establishes uniform requirements for measuring the geometrical characteristics of uncoated optical fibres. The geometry of uncoated optical fibres directly affect splicing, connectorization and cabling and so are fundamental parameters requiring careful specification, quality control, and thus measurement. This second edition cancels and replaces the first edition, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the reference test method for all fibre types is changed to the video grey scale transmitted near field method from the refracted near field method; - the test lengths for all fibre types are now to be specified in the fibre's detail specification; - the core illumination wavelength for all multimode fibre types may now to be specified in the fibre's detail specification although defaults are given; - the core k-factor (decision level) is now to be specified in the detail specification for all multimode fibre types; - this edition is substantially more specific in describing the measurement; - data reduction and transformation is fully described; - the data reduction methodology for both refracted near-field and transmitted near-field methods are now unified and consistent. Keywords: measuring the geometrical characteristics of uncoated optical fibres The contents of the corrigendum of March 2016 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60793-1-20:2014/COR1:2016",
+    "edition": "2.0",
+    "date": "2016-03-04",
+    "title": "Corrigendum 1 - Optical fibres - Part 1-20: Measurement methods and test procedures - Fibre geometry",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60793-1-21:2001",
+    "edition": "1.0",
+    "date": "2001-08-30",
+    "title": "Optical fibres - Part 1-21: Measurement methods and test procedures - Coating geometry",
+    "language": "EN-FR",
+    "description": "Gives four methods for measuring the coating geometry of optical fibres. The following parameters are measured: coating diameter, coating non-circularity, coating-cladding concentricity error. The methods are conducted off-line during inspection. They are not suitable for on-line, in-process measurements."
+  },
+  {
+    "reference": "IEC 60793-1-22:2024",
+    "edition": "2.0",
+    "date": "2024-06-27",
+    "title": "Optical fibres - Part 1-22: Measurement methods and test procedures - Length measurement",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-22:2024 establishes uniform requirements for measuring the length and elongation of optical fibre (typically within cable). The length of an optical fibre is a fundamental value for the evaluation of transmission characteristics such as losses and bandwidths."
+  },
+  {
+    "reference": "IEC 60793-1-30:2010",
+    "edition": "2.0",
+    "date": "2010-05-19",
+    "title": "Optical fibres - Part 1-30: Measurement methods and test procedures - Fibre proof test",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-1-30:2010 describes procedures for briefly applying a specified tensile load as a proof test to continuous lengths of optical fibre. The tensile load is applied for as short a time as possible, yet sufficiently long to ensure the glass experiences the proof stress, typically much less than one second. This method is applicable to types A1, A2, A3 and B optical fibres. The main change with respect to the previous edition is an improved description of the procedure."
+  },
+  {
+    "reference": "IEC 60793-1-31:2019",
+    "edition": "3.0",
+    "date": "2019-02-06",
+    "title": "Optical fibres - Part 1-31: Measurement methods and test procedures - Tensile strength",
+    "language": "EN-FR",
+    "description": "IEC 60793-1-31:2019 provides values of the tensile strength under dynamic loading of optical fibre samples. The method tests individual lengths of uncabled and unbundled glass optical fibre. Sections of fibre are broken with controlled increasing stress or strain that is uniform over the entire fibre length and cross section. The stress or strain is increased at a nominally constant rate until breakage occurs. The distribution of the tensile strength values of a given fibre strongly depends on the sample length, loading velocity and environmental conditions. The test can be used for inspection where statistical data on fibre strength is required. Results are reported by means of statistical quality control distribution. Normally, the test is carried out after temperature and humidity conditioning of the sample. However, in some cases, it can be sufficient to measure the values at ambient temperature and humidity conditions. This method is applicable to categories A1, A2, and A3, and classes B and C optical fibres. The object of this document is to establish uniform requirements for the mechanical characteristic: tensile strength. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) correction of Formulae (3b) and (4b) and renumbering of formulae. Keywords: tensile strength under dynamic loading of optical fibre samples"
+  },
+  {
+    "reference": "IEC 60793-1-32:2018",
+    "edition": "3.0",
+    "date": "2018-11-16",
+    "title": "Optical fibres - Part 1-32: Measurement methods and test procedures - Coating strippability",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-32:2018 is intended primarily for testing either fibres as produced by a fibre manufacturer or subsequently overcoated (tight buffered) using various polymers. The test can be performed either on fibres as produced, or after exposure to various environments. This test applies to A1, A2, A3, B and C fibres with a nominal glass dimension of 125 µm. The object of this document is to establish uniform requirements for the mechanical characteristic – coating strippability. This test quantifies the force required to mechanically remove the protective coating from optical fibres along their longitudinal axis. This test is not intended as a means to maximize fibre strength after the coating is removed nor is it intended to specify the best conditions for field stripping of optical fibres. This test is designed for optical fibres having polymeric coatings with nominal outer diameters in the range of 200 µm to 900 µm. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: expansion of the range of coating dimensions applicable to the procedure detailed in this document to accommodate optical fibres with a 200 µm coating dimension. Keywords: coating strippability, protective coating of optical fibres"
+  },
+  {
+    "reference": "IEC 60793-1-33:2017",
+    "edition": "2.0",
+    "date": "2017-08-16",
+    "title": "Optical fibres - Part 1-33: Measurement methods and test procedures - Stress corrosion susceptibility",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-33:2017 contains descriptions of the five main test methods for the determination of stress corrosion susceptibility parameters. The object of this document is to establish uniform requirements for the mechanical characteristic of stress corrosion susceptibility for silica-based fibres. Dynamic fatigue and static fatigue tests are used to determine the (dynamic) nd value and (static) ns value of stress corrosion susceptibility parameters. Currently, only the nd-value is assessed against specification. Measured values greater than 18 per this procedure reflect the nd-value of silica, which is approximately 20. Higher values will not translate to demonstrable enhanced fatigue resistance. Silica fibre mechanical tests determine the fracture stress and fatigue properties under conditions that model the practical applications as closely as possible. The following test methods are used for determining stress corrosion susceptibility: A: Dynamic nd value by axial tension; B: Dynamic nd value by two-point bending; C: Static ns value by axial tension; D: Static ns value by two-point bending; E: Static ns value by uniform bending. These methods are appropriate for category A1, A2 and A3 multimode, class B single-mode fibres and class C intraconnecting single-mode fibres. These tests provide values of the stress corrosion parameter, n, that can be used for reliability calculations according to IEC TR 62048. Information common to all methods is contained in Clauses 1 to 10, and information pertaining to each individual test method appears in Annexes A, B, C, D, and E. Annexes F and G offer considerations for dynamic and static stress corrosion susceptibility parameter calculations, respectively; Annex H offers considerations on the different stress corrosion susceptibility parameter test methods. This second edition cancels and replaces the first edition published in 2001. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: removal of RTM; changes to scope."
+  },
+  {
+    "reference": "IEC 60793-1-34:2021",
+    "edition": "3.0",
+    "date": "2021-02-10",
+    "title": "Optical fibres - Part 1-34: Measurement methods and test procedures - Fibre curl",
+    "language": "EN-FR",
+    "description": "IEC 60793-1-34:2021 establishes uniform requirements for the mechanical characteristic: fibre curl or latent curvature in uncoated optical fibres, i.e. a specified length of the fibre has been stripped from coating. Fibre curl has been identified as an important parameter for minimizing the splice loss of optical fibres when using passive alignment fusion splicers or active alignment mass fusion splicers.Two methods are recognized for the measurement of fibre curl, in uncoated optical fibres: - method A: side view microscopy; - method B: laser beam scattering. Both methods measure the radius of curvature of an uncoated fibre by determining the amount of deflection that occurs as an unsupported fibre end is rotated about the fibre's axis. Method A uses visual or digital video methods to determine the deflection of the fibre while method B uses a line sensor to measure the maximum deflection of one laser beam relative to a reference laser beam. By measuring the deflection behaviour of the fibre as it is rotated about its axis and understanding the geometry of the measuring device, the fibre's radius of curvature can be calculated from simple circular models, the derivation of which are given in Annex C. Both methods are applicable to type B optical fibres as described in IEC 60793 (all parts). Method A is the reference test method, used to resolve disputes. This third edition cancels and replaces the second edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - modification of several derivation equations for laser scattering; - change of angular increment from 10° to 30° to 10° to 45°; - change of Annex B from informative to normative."
+  },
+  {
+    "reference": "IEC 60793-1-40:2024",
+    "edition": "3.0",
+    "date": "2024-11-27",
+    "title": "Optical fibres - Part 1-40: Attenuation measurement methods",
+    "language": "EN-FR",
+    "description": "IEC 60793-1-40:2024 establishes uniform requirements for measuring the attenuation of optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. Four methods are described for measuring attenuation, one being that for modelling spectral attenuation: -method A: cut-back; -method B: insertion loss; -method C: backscattering; -method D: modelling spectral attenuation. Methods A to C apply to the measurement of attenuation for all categories of the following fibres: -class A multimode fibres; -class B single-mode fibres. Method C, backscattering, also covers the location, losses and characterization of point discontinuities. Method D is applicable only to class B fibres. Information common to all four methods appears in Clause 1 to Clause 11, and information pertaining to each individual method appears in Annex A, Annex B, Annex C, and Annex D, respectively. This third edition cancels and replaces the second edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) modifying the definition of attenuation to be compatible with the definition in electropedia.org"
+  },
+  {
+    "reference": "IEC 60793-1-41:2024",
+    "edition": "4.0",
+    "date": "2024-04-19",
+    "title": "Optical fibres - Part 1-41: Measurement methods and test procedures - Bandwidth",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-41:2024 describes three methods for determining and measuring the modal bandwidth of multimode optical fibres (see IEC 60793-2-10, IEC 60793-2-30, and the IEC 60793‑2‑40 series). The baseband frequency response is directly measured in the frequency domain by determining the fibre response to a sinusoidaly modulated light source. The baseband response can also be measured by observing the broadening of a narrow pulse of light. The calculated response is determined using differential mode delay (DMD) data. The three methods are: Method A – Time domain (pulse distortion) measurement Method B – Frequency-domain measurement Method C – Overfilled launch modal bandwidth calculated from differential mode delay (OMBc) Method A and method B can be performed using one of two launches: an overfilled launch (OFL) condition or a restricted mode launch (RML) condition. Method C is only defined for A1-OM3 to A1-OM5 multimode fibres and uses a weighted summation of DMD launch responses with the weights corresponding to an overfilled launch condition. The relevant test method and launch condition is chosen according to the type of fibre. NOTE 1 These test methods are commonly used in production and research facilities and are not easily accomplished in the field. NOTE 2 OFL has been used for the modal bandwidth value for LED-based applications for many years. However, no single launch condition is representative of the laser (e.g. VCSEL) sources that are used for gigabit and higher rate transmission. This fact drove the development of IEC 60793-1-49 for determining the effective modal bandwidth of laser optimized 50 µm fibres. See IEC 60793-2-10 and IEC 61280-4-1 for more information. This fourth edition cancels and replaces the third edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the addition of a direct reference for method A and method B."
+  },
+  {
+    "reference": "IEC 60793-1-42:2013",
+    "edition": "3.0",
+    "date": "2013-01-24",
+    "title": "Optical fibres - Part 1-42: Measurement methods and test procedures - Chromatic dispersion",
+    "language": "EN-FR",
+    "description": "IEC 60793-1-42:2013 establishes uniform requirements for measuring the chromatic dispersion of optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. This third edition cancels and replaces the second edition, published in 2007. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the inclusion of category B6 single-mode fibres; - the deletion of test method D (interferometry). Keywords: chromatic dispersion of optical fibre This publication is to be read in conjunction with IEC 60793-1-1:2008."
+  },
+  {
+    "reference": "IEC 60793-1-43:2015",
+    "edition": "2.0",
+    "date": "2015-03-27",
+    "title": "Optical fibres - Part 1-43: Measurement methods and test procedures - Numerical aperture measurement",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60793-1-43:2015 establishes uniform requirements for measuring the numerical aperture of optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. The numerical aperture (NA) of categories A1, A2, A3 and A4 multimode fibre is an important parameter that describes a fibre's light-gathering ability. It is used to predict launching efficiency, joint loss at splices, and micro/macrobending performance. The numerical aperture is defined by measuring the far-field pattern (NAff). In some cases the theoretical numerical aperture (NAth) is used in the literature, which can be determined from measuring the difference in refractive indexes between the core and cladding. Ideally these two methods should produce the same value. This second edition of IEC 60793-1-43, together with other standards in the IEC 60793-4X series, cancels and replaces the first edition of IEC 60793-1-43, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - expansion of the scope to include A1, A2, A3 and A4 multimode fibre categories; - addition of measurement parameters of sample length and threshold values, product specific to the variables that are now found in the product specifications; - a new Annex B entitled \"Product specific default values for NA measurement\"; - addition of a new Technique 4 for measuring NA of A4d fibres; - a new Annex A entitled \"Mapping NA measurement to alternative lengths\" that gives a mapping function to correlate shorter sample length measurements to the length suggested in the reference test method Naff. Keywords: numerical aperture of optical fibre, inspection of fibres and cables This publication is to be read in conjunction with IEC 60793-1-1:2008 , IEC 60793-1-21:2001 and IEC 60793-1-22:2001 ."
+  },
+  {
+    "reference": "IEC 60793-1-44:2023",
+    "edition": "3.0",
+    "date": "2023-07-24",
+    "title": "Optical fibres - Part 1-44: Measurement methods and test procedures - Cut-off wavelength",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60793-1-44:2023 establishes uniform requirements for measuring the cut-off wavelength of single-mode optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. This document gives methods for measuring the cut-off wavelength for uncabled or cabled single mode telecom fibre. These procedures apply to all category B and C fibre types. There are three methods of deployment for measuring the cut-off wavelength: - method A: cable cut-off using uncabled fibre 22 m long sample, lcc; - method B: cable cut-off using cabled fibre 22 m long sample, lcc; - method C: fibre cut-off using uncabled fibre 2 m long sample, lc. All methods require a reference measurement. There are two reference-scan techniques, either or both of which can be used with all methods: - bend-reference technique; - multimode-reference technique using category A1(OM1-OM5) multimode fibre. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) used the diameter of the fibre loops to describe deployment; b) added Annex D related to cut-off curve artifacts; c) reorganized information and added more figures to clarify concepts."
+  },
+  {
+    "reference": "IEC 60793-1-45:2024",
+    "edition": "3.0",
+    "date": "2024-04-19",
+    "title": "Optical fibres - Part 1-45: Measurement methods and test procedures - Mode field diameter",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-45:2024 establishes uniform requirements for measuring the mode field diameter (MFD) of single-mode optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) modification of the minimum distance between the fibre end and the detector for the direct far field scan (Annex A). b) generalization of the requirement for the minimum dynamic range for all fibre types (Annex A)."
+  },
+  {
+    "reference": "IEC 60793-1-46:2024",
+    "edition": "2.0",
+    "date": "2024-06-27",
+    "title": "Optical fibres - Part 1-46: Measurement methods and test procedures - Monitoring of changes in attenuation",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-46:2024 establishes uniform requirements for the monitoring of changes in attenuation, thereby assisting in the inspection of fibres and cables for commercial purposes. This document gives two methods for monitoring the changes in attenuation of optical fibres and cables that occur during mechanical or environmental testing, or both. It provides a monitor in the change of attenuation characteristics arising from optical discontinuity, physical defects and modifications of the attenuation slope: - method A: change in attenuation by transmitted power; - method B: change in attenuation by backscattering. Methods A and B apply to the monitoring of all categories of the following fibres: - class A: multimode fibres; - class B: single-mode fibres; - class C: single-mode intraconnection fibres. Information common to both measurements is contained in Clause 1 to Clause 10, and information pertaining to each individual method appears in Annex A, and Annex B respectively."
+  },
+  {
+    "reference": "IEC 60793-1-47:2017",
+    "edition": "4.0",
+    "date": "2017-10-11",
+    "title": "Optical fibres - Part 1-47: Measurement methods and test procedures - Macrobending loss",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-47:2017 establishes uniform requirements for measuring the macrobending loss of single-mode fibres (class B) at 1 550 nm or 1 625 nm, category A1 multimode fibres at 850 nm or 1 300 nm, and category A3 and A4 multimode fibres at 650 nm, 850 nm or 1 300 nm, thereby assisting in the inspection of fibres and cables for commercial purposes. This document gives two methods for measuring macrobending sensitivity: - Method A – Fibre winding, pertains to class B single-mode fibres and category A1 multimode fibres. - Method B – Quarter circle bends, pertains to category A3 and A4 multimode fibres. For both of these methods, the macrobending loss can be measured utilizing general fibre attenuation techniques, for example the power monitoring technique (see Annex A) or the cut‑back technique (see Annex B). Methods A and B are expected to produce different results if they are applied to the same fibre. This is because the key difference between the two methods is the deployment, including the bend radius and length of fibre that is bent. The reason for the difference is that A3 and A4 multimode fibres are expected to be deployed in short lengths with a smaller number of bends per unit fiber length compared to single-mode and category A1 multimode fibres. In this document, the \"curvature radius\" is defined as the radius of the suitable circular shaped support (e.g. mandrel or guiding groove on a flat surface) on which the fibre can be bent. In addition, informative Annex E has been added to approximate bend loss for class B single-mode fibres across a broad wavelength range at various effective bends. This fourth edition cancels and replaces the third edition published in 2009. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - former Annex A has been renumbered to Annex D; - introduction of new Annex A on the transmitted power monitoring technique; - introduction of Annex B on the cut-back technique; - introduction of Annex C on the requirements for the optical source characteristics of A1 multimode measurement; - introduction of Annex E on parallel plate (2-point) macrobend loss approximation. Keywords: macrobending loss of single-mode fibers"
+  },
+  {
+    "reference": "IEC 60793-1-48:2017",
+    "edition": "3.0",
+    "date": "2017-08-23",
+    "title": "Optical fibres - Part 1-48: Measurement methods and test procedures - Polarization mode dispersion",
+    "language": "EN-FR",
+    "description": "IEC 60793-1-48: 2017 applies to three methods of measuring polarization mode dispersion (PMD), which are described in Clause 4. It establishes uniform requirements for measuring the PMD of single-mode optical fibre, thereby assisting in the inspection of fibres and cables for commercial purposes. This third edition cancels and replaces the second edition published in 2007. It constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: removal of the SOP approach."
+  },
+  {
+    "reference": "IEC 60793-1-49:2018",
+    "edition": "3.0",
+    "date": "2018-08-15",
+    "title": "Optical fibres - Part 1-49: Measurement methods and test procedures - Differential mode delay",
+    "language": "EN-FR",
+    "description": "IEC 60793-49:2018 applies only to multimode, graded-index glass-core (category A1) fibres. The test method is commonly used in production and research facilities, but is not easily accomplished in the field. This document describes a method for characterizing the modal structure of a graded-index multimode fibre. This information is useful for assessing the bandwidth performance of a fibre especially when the fibre is intended to support a range of launch conditions, for example, those produced by standardized laser transmitters. This third edition cancels and replaces the second edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) better alignment with original intent by filling some omissions and therefore improving measurement rigor; b) the measurement of fibres with smaller differential mode delay (and higher modal bandwidth) such as type A1a.3 fibres of IEC 60793-2-10 that are used in constructing OM4 performance category cables; new requirements on specifying detector amplitude and temporal response, specimen deployment conditions, four-quadrant scanning, and uniformity of radial locations for calculating bandwidth. Keywords: modal structure of a graded-index multimode fibre, bandwidth performance"
+  },
+  {
+    "reference": "IEC 60793-1-50:2014",
+    "edition": "2.0",
+    "date": "2014-09-09",
+    "title": "Optical fibres - Part 1-50: Measurement methods and test procedures - Damp heat (steady state) tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-50:2014 provides a practical method for evaluating fibre performance in a defined environment. The purpose of this standard is to determine the suitability of optical fibre sub-category A1a to A1d multimode fibres and class B and C single-mode fibres to withstand the environmental condition of high humidity and high temperature which may occur in actual use, storage and/or transport. The test is primarily intended to permit the observation of effects of high humidity at constant temperature over a given period. This procedure is conducted in accordance with IEC 60068-2-78, Test Cab. This second edition cancels and replaces the first edition, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonization of the content with sectional specifications of relevant fibre types; - extension of the applicability of the standard to class C single-mode fibres. Keywords: evaluating fibre performance, sub-category A1a to A1d multimode fibres, class B and C single-mode fibres, high humidity and high temperature"
+  },
+  {
+    "reference": "IEC 60793-1-51:2014",
+    "edition": "2.0",
+    "date": "2014-02-05",
+    "title": "Optical fibres - Part 1-51: Measurement methods and test procedures - Dry heat (steady state) tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-51:2014 provides a practical method for evaluating fibre performance in a defined environment. The purpose of this standard is to determine the suitability of optical fibre sub-category A1a to A1d multimode fibres and class B and C single-mode fibres to withstand the environmental condition of high temperature (dry heat) which may occur in actual use, storage and/or transport. The test is primarily intended to permit the observation of effects of high temperature over a given period. This procedure is conducted in accordance with IEC 60068-2-2, Test Bd. This second edition cancels and replaces the first edition, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonizing the content with sectional specifications of relevant fibre types; - extending the applicability of the document to class C single-mode fibres. Keywords: optical fibre sub-category A1a to A1d multimode fibres, class B and C single-mode fibres, high temperature (dry heat)"
+  },
+  {
+    "reference": "IEC 60793-1-52:2014",
+    "edition": "2.0",
+    "date": "2014-02-05",
+    "title": "Optical fibres - Part 1-52: Measurement methods and test procedures - Change of temperature tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-52:2014 provides a practical method for evaluating fibre performance in a defined environment. The purpose of this standard is to define a test that determines the suitability of sub-category A1a to A1d multimode fibres and class B and C single-mode fibres to withstand the environmental condition of change in temperature which may occur in actual use, storage and/or transport. The test is primarily intended to permit the observation of effects of change of temperature over a given period. This procedure is conducted in accordance with IEC 60068-2-14, Test Nb. This second edition cancels and replaces the first edition, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonizing the content with sectional specifications of relevant fibre types; - extending the applicability of the document to class C single-mode fibres. Keywords: sub-category A1a to A1d multimode fibres, class B and C single-mode fibres, change in temperature"
+  },
+  {
+    "reference": "IEC 60793-1-53:2014",
+    "edition": "2.0",
+    "date": "2014-02-05",
+    "title": "Optical fibres - Part 1-53: Measurement methods and test procedures - Water immersion tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-53:2014 provides a practical method for evaluating fibre performance in a defined environment. The purpose of this standard is to define a test that determines the suitability of sub-category A1a to A1d multimode fibres and class B and C single-mode fibres to withstand the environmental condition of immersion in distilled or demineralized water which may occur in actual use, storage and/or transport. The test is primarily intended to permit the observation of effects of immersion in water over a given period. This procedure is conducted in accordance with IEC 60068-2-18, Test R. This second edition cancels and replaces the first edition, published in 2001, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonizing the content with sectional specifications of relevant fibre types; - extending the applicability of the standard to Class C single-mode fibres. Keywords: sub-category A1a to A1d multimode fibres, class B and C single-mode fibres, immersion in distilled or demineralized water"
+  },
+  {
+    "reference": "IEC 60793-1-54:2018",
+    "edition": "3.0",
+    "date": "2018-01-12",
+    "title": "Optical fibres - Part 1-54: Measurement methods and test procedures - Gamma irradiation",
+    "language": "EN-FR, ES",
+    "description": "IEC 60793-1-54:2018 outlines a method for measuring the steady state response of optical fibres and optical cables exposed to gamma radiation. It can be employed to determine the level of radiation-induced attenuation produced in Class B single-mode or Class A, category A1 and A2 multimode optical fibres, in either cabled or uncabled form, due to exposure to gamma radiation. The attenuation of cabled and uncabled optical fibres generally increases when exposed to gamma radiation. This is primarily due to the trapping of radiolytic electrons and holes at defect sites in the glass (i.e. the formation of \"colour centres\"). This test procedure focuses on two regimes of interest: the low dose rate regime suitable for estimating the effect of environmental background radiation, and the high dose rate regime suitable for estimating the effect of adverse nuclear environments. The testing of the effects of environmental background radiation is achieved with an attenuation measurement approach similar to IEC 60793-1-40 method A, cut-back. The effects of adverse nuclear environments are tested by monitoring the power before, during and after exposure of the test sample to gamma radiation. The depopulation of colour centres by light (photo bleaching) or by heat causes recovery (lessening of radiation induced attenuation). Recovery can occur over a wide range of time which depends on the irradiation time and annealing temperature. This complicates the characterization of radiation induced attenuation since the attenuation depends on many variables including the temperature of the test environment, the configuration of the sample, the total dose and the dose rate applied to the sample and the light level used to measure it. This test is not a material test for the non-optical material components of a fibre optic cable. If degradation of cable materials exposed to irradiation is studied, other test methods will be used. This test method is written to contain a clear, concise listing of instructions. The background knowledge that is necessary to perform correct, relevant and expressive irradiation tests as well as to limit measurement uncertainty is presented separately in IEC TR 62283. This third edition cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - test conditions related to photobleaching have been changed; - the test length has been modified to yield a total induced attenuation in the test sample at the end of the irradiation between 3 dB and 10 dB."
+  },
+  {
+    "reference": "IEC 60793-1-60:2017",
+    "edition": "1.0",
+    "date": "2017-02-07",
+    "title": "Optical fibres - Part 1-60: Measurement methods and test procedures - Beat length",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-1-60:2017 defines test methods for both the phase beat length, and the group beat length. These two parameters are defined differently, and will give different results depending on the type of polarization-maintaining (PM) fibre. The phase beat length is the relevant parameter for the fibres ability to maintain a high extinction ratio. This is described in more details in Annexes A and B."
+  },
+  {
+    "reference": "IEC 60793-1-61:2017",
+    "edition": "1.0",
+    "date": "2017-02-07",
+    "title": "Optical fibres - Part 1-61: Measurement methods and test procedures - Polarization crosstalk",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-1-61: 2017 establishes uniform requirements for measuring the polarization crosstalk of polarization-maintaining (PM) fibres. This document gives two methods for measuring the polarization crosstalk of PM fibres. Method A is the power ratio method, which uses the maximum and minimum values of output power at a specified wavelength, and Method B is the in-line method, which uses an analysis of the Poincaré sphere. Details of each method are described in Clause 6. Crosstalk values obtained by Methods A and B are based on different definitions. The crosstalk measured by Method A is defined as an \"averaged\" value over a measured wavelength range. In contrast, the crosstalk value obtained from Method B shows the \"worst case\" crosstalk value."
+  },
+  {
+    "reference": "IEC 60793-2:2019",
+    "edition": "9.0",
+    "date": "2019-11-15",
+    "title": "Optical fibres - Part 2: Product specifications - General",
+    "language": "EN-FR",
+    "description": "IEC 60793-2:2019 contains the general specifications for both multimode and single-mode optical fibres. Sectional specifications for each of the four categories of multimode fibres: A1, A2, A3, and A4 (part of the multimode fibre class A) contain requirements specific to each category. Sectional specifications for each of the three single-mode fibre classes, B, C and D contain requirements common to each class. Each sectional specification includes family specifications (in normative annexes) that contain requirements for the applicable category or sub-categories. These sub-categories are distinguished on the basis of different fibre types or applications. The requirements of this document apply to all classes. Each sectional specification contains the requirements that are common to all the family specifications that are within it. These common requirements are copied to the family specification for ease of reference. Tests or measurement methods are defined for each specified attribute. Where possible, these definitions are by reference to an IEC International Standard (see IEC 60793-1 series) – otherwise the test or measurement method is outlined in the relevant sectional specification. This ninth edition cancels and replaces the eighth edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - introduction of the revised fibre designations for most A1 sub-category fibres and all class B single-mode fibres; - addition of the new fibre model (A1-OM5) defined for A1 category; - addition of class D polarization maintaining fibres. Keywords: specifications for both multimode and single-mode optical fibres"
+  },
+  {
+    "reference": "IEC 60793-2-10:2019",
+    "edition": "7.0",
+    "date": "2019-05-22",
+    "title": "Optical fibres - Part 2-10: Product specifications - Sectional specification for category A1 multimode fibres",
+    "language": "EN-FR",
+    "description": "IEC 60793-2-10:2019 is applicable to optical fibre sub-categories A1-OM1, A1-OM2, A1-OM3, A1-OM4, A1-OM5, and A1d. These fibres are used or can be incorporated in information transmission equipment and optical fibre cables. Sub-categories A1-OM2, A1-OM3, A1-OM4 and A1-OM5 apply to 50/125 µm graded index fibre in four bandwidth grades. Each of these bandwidth grades is defined for two levels of macrobend loss performance that are distinguished by \"a\" or \"b\" suffix. Those sub-categories with suffix \"a\" are specified to meet traditional macrobend loss performance levels. Those sub-categories with suffix \"b\" are specified to meet enhanced macrobend loss (i.e. lower loss) performance levels. Sub-category A1-OM5 is specified to support single wavelength or multi-wavelength transmission systems in the vicinity of 850 nm to 950 nm. Although not normatively specified, bandwidth information covering this wavelength range is also included for A1-OM3 and A1-OM4. Sub-category A1-OM1 applies to 62,5/125 µm graded index fibre and sub-category A1d applies to 100/140 µm graded index fibre. Other applications include, but are not restricted to, the following: short reach, high bit-rate systems in telephony, distribution and local networks carrying data, voice and/or video services; on-premises intra-building and inter-building fibre installations including data centres, local area networks (LANs), storage area networks (SANs), private branch exchanges (PBXs), video, various multiplexing uses, outside telephone cable plant use, and miscellaneous related uses.Three types of requirements apply to these fibres: - general requirements, as defined in IEC 60793-2; - specific requirements common to the category A1 multimode fibres covered in this document and which are given in Clause 5; - particular requirements applicable to individual fibre sub-categories and models, or specific applications, which are defined in the normative specification Annexes A to D. This seventh edition cancels and replaces the sixth edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant change with respect to the previous edition: revision of the naming convention for A1 multimode fibres, which better matches with those found in ISO/IEC standards. These changes are outlined in the scope of this document along with a cross reference table for the new names. Keywords: optical fibre sub-categories A1-OM1, A1-OM2, A1-OM3, A1-OM4, A1-OM5, and A1d"
+  },
+  {
+    "reference": "IEC 60793-2-10:2019/AMD1:2022",
+    "edition": "7.0",
+    "date": "2022-01-27",
+    "title": "Amendment 1 - Optical fibres - Part 2-10: Product specifications - Sectional specification for category A1 multimode fibres",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60793-2-20:2015",
+    "edition": "3.0",
+    "date": "2015-11-19",
+    "title": "Optical fibres - Part 2-20: Product specifications - Sectional specification for category A2 multimode fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-2-20:2015 is applicable to sub-categories A2a, A2b, and A2c. These fibres are used or can be incorporated in information transmission equipment and optical fibre cables (typically up to 2 km). Three types of requirements apply to these fibres: - general requirements as defined in IEC 60793-2; - specific requirements common to the category A2 multimodal fibres covered in this standard and which are given in Clause 3; - particular requirements applicable to individual sub-categories or specific applications, which are defined in the normative family specification annexes. This third edition cancels and replaces the second edition, published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Nath has been replaced by NAff - specified test specimen length and measurement details for core diameter and NAff measurements. Keywords: information transmission equipment, optical fibre cables, category A2 multimodal fibres"
+  },
+  {
+    "reference": "IEC 60793-2-30:2015",
+    "edition": "4.0",
+    "date": "2015-06-25",
+    "title": "Optical fibres - Part 2-30: Product specifications - Sectional specification for category A3 multimode fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-2-30:2015 is applicable to sub-categories A3a, A3b, A3c, A3d, A3e, A3f and A3g. These fibres are used or can be incorporated in different information transmission equipment, other applications employing similar light transmitting techniques as well as fibre optic cables. Three types of requirements apply to these fibres: - general requirements, as defined in IEC 60793-2; - specific requirements common to the category A3 multimode fibres covered in this standard and which are given in Clause 3; - particular requirements applicable to the individual sub-categories or specific applications (e.g. automotive or industrial applications), which are defined in the normative sub-category annexes. This fourth edition cancels and replaces the third edition published in 2012 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - specified test specimen length and measurement details for core diameter and NAff measurements have been added; - two new sub-categories have been added; - NAth is replaced by Naff. Keywords: category A3 multimode fibres"
+  },
+  {
+    "reference": "IEC 60793-2-40:2021",
+    "edition": "5.0",
+    "date": "2021-02-25",
+    "title": "Optical fibres - Part 2-40: Product specifications - Sectional specification for category A4 multimode fibres",
+    "language": "EN-FR",
+    "description": "IEC 60793-2-40:2021 is applicable to category A4 optical multimode fibres and the related subcategories A4a, A4b, A4c, A4d, A4e, A4g, A4h and A4i. These fibres have a plastic core and plastic cladding and may have step-index, multi-step index or graded-index profiles. The fibres are used in information transmission equipment and other applications employing similar light transmitting techniques, and in fibre optic cables. Table 1 summarizes some of the salient characteristics and applications of these fibres. This fifth edition cancels and replaces the fourth edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - revision of NA range of A4a.2; - addition of a new subcategory A4i; - deletion of the subcategory A4f and of Annex F."
+  },
+  {
+    "reference": "IEC 60793-2-50:2025",
+    "edition": "7.0",
+    "date": "2025-05-08",
+    "title": "Optical fibres - Part 2-50: Product specifications - Sectional specification for class B single-mode fibres",
+    "language": "EN-FR",
+    "description": "IEC 60793-2-50:2025 is applicable to optical fibre categories B-652, B-653, B-654, B-655, B‑656 and B-657. A map illustrating the connection of IEC designations to ITU-T designations is shown in Table 1. These fibres are used or can be incorporated in information transmission equipment and optical fibre cables. Three types of requirements apply to these fibres: - general requirements, as defined in IEC 60793-2; - specific requirements common to the class B single-mode fibres covered in this document and which are given in Clause 4; - particular requirements applicable to individual fibre categories or specific applications, which are defined in Annex A to Annex F. For some fibre categories (shown in the relevant family specifications), there are sub-categories that are distinguished on the basis of difference in transmission attribute specifications. The designations for these sub-categories are documented in the individual family specifications. Table 1 shows a map from the IEC designations to the ITU-T recommendations. This seventh edition cancels and replaces the sixth edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) The addition of a 200 µm coating nominal outer diameter option for B-654A, B, C fibres in Annex C"
+  },
+  {
+    "reference": "IEC 60793-2-60:2025",
+    "edition": "2.0",
+    "date": "2025-09-29",
+    "title": "Optical fibres - Part 2-60: Product specifications - Sectional specification for class C single-mode interconnection fibres",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60793-2-60:2025 is applicable to optical fibre types C1, C2, C3, and C4, as described in Table 1. These fibres are used for the interconnections within or between optical components systems and are optimized to support dense optical connectivity. While the fibres can be overcoated or buffered for the purpose of making protected pigtails, they can be used without overcoating. They can, however, be colour coded. This second edition cancels and replaces the first edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) replacement of \"intraconnection\" with \"interconnection\" and addition of the definition of \"interconnection fibres\"; b) modification of the nominal MFD limit of C1 fibres; c) addition of \"Primary coating diameter-coloured\" limits for class C fibres and change of \"Primary coating diameter-uncoloured\" limits for class C_80 fibres; d) change of coating strip force limits for class C1, class C2, and class C3 fibres; e) replacement of \"Fibre cut-off wavelength\" with \"Cable cut-off wavelength\" and revision of \"Note b\" in Table 6; f) replacement of \"Fibre cut-off wavelength\" with \"Cable cut-off wavelength\" and deletion of the \"Note\" in Table 8; g) addition of 200 μm coating diameter requirements for C1_125 fibres and change of coating diameters limits for C1_80 fibres in Table A.1; h) addition of 200 µm coating diameter requirements for C1_125 fibres and change of coating strip force limits in Table A.2 and in Table A.5; i) replacement of \"Fibre cut-off wavelength\" with \"Cable cut-off wavelength\", modification of the \"Cable cut-off wavelength\" limit and addition of a new \"Note\" in Table A.3; j) addition of a transmission requirements at 1 625 nm and deletion of 1 310 nm for C1 fibres in Table A.4; k) modification of \"Fibre cut-off wavelength\" limits of C3 fibres in Table C.3; l) replacement of \"Fibre cut-off wavelength\" with \"Cable cut-off wavelength\" for C4 fibres in Table D.3."
+  },
+  {
+    "reference": "IEC 60793-2-70:2017",
+    "edition": "1.0",
+    "date": "2017-02-07",
+    "title": "Optical fibres - Part 2-70: Product specifications - Sectional specification for polarization-maintaining fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 60793-2-70: 2017 This part of IEC 60793 is applicable to optical fibre types D1, D2, D3, as described in Table 1 . These fibres are polarization-maintaining fibre types, and are used or can be incorporated in information transmission equipment and optical fibre cable. These fibres are available for use in optical transport networks. Three types of requirements apply to these fibres: - general requirements defined in IEC 60793-2; - specific requirements common to the category D polarization-maintaining fibres covered in this document and which are given in Clause 4; - particular requirements applicable to individual fibre types or specific applications, which are defined in Annexes A to C. Table 1 – Categories of glass core/glass clad polarization-maintaining fibres Category Type Description D1 Polarization-maintaining fibre suitable for use at 980 nm This category of polarization-maintaining fibre is optimised for polarization-maintaining ability in the 980 nm region. This fibre is used for erbium-doped fibre amplifier. D2 Polarization-maintaining fibre suitable for use at 1 310 nm This category of polarization-maintaining fibre is optimised for polarization-maintaining ability and connection property of category B fibres in the 1 310 nm region. D3 Polarization-maintaining fibre suitable for use at 1 550 nm This category of polarization-maintaining fibre is optimised for polarization-maintaining ability and connection property of category B fibres in the 1 550 nm region."
+  },
+  {
+    "reference": "IEC 60794-1-1:2023",
+    "edition": "5.0",
+    "date": "2023-05-22",
+    "title": "Optical fibre cables - Part 1-1: Generic specification - General",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-1:2023 applies to optical fibre cables for use with communication equipment and devices employing similar techniques. Electrical properties are specified for optical ground wire (OPGW) and optical phase conductor (OPPC) cables. Hybrid communication cables are specified in the IEC 62807 series. The object of this document is to establish uniform generic requirements for the geometrical, transmission, material, mechanical, ageing (environmental exposure), climatic and electrical properties of optical fibre cables and cable elements, where appropriate. This fifth edition cancels and replaces the fourth edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) reorganization of the document to a more logical flow making it easier for the reader: b) expansion of the tables to include names and definitions of all documents in the IEC 60794‑x series; c) expansion of the definitions, graphical symbols, terminology and abbreviations content, with the aim of making this document the default and reference for all others in the IEC 60794‑x series; d) inclusion of updated, reorganized and expanded optical fibre, attenuation and bandwidth subclauses, with the aim of making this document the default and reference for all others in the IEC 60794-x series."
+  },
+  {
+    "reference": "IEC 60794-1-2:2021",
+    "edition": "5.0",
+    "date": "2021-01-15",
+    "title": "Optical fibre cables - Part 1-2: Generic specification - Basic optical cable test procedures - General guidance",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-2:2021 applies to optical fibre cables for use with telecommunications equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. An objective of this document is to define general requirements and methodology guidance applicable to all of the cable test methods of IEC 60794-1 (all parts). A second objective of this document is to provide the end user with an overview of the different test methods contained in the different parts of the IEC 60794-1 series. This fifth edition cancels and replaces the fourth edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: - addition of cross-reference tables listing the new test method numbers and the previous test method numbers."
+  },
+  {
+    "reference": "IEC 60794-1-3:2017",
+    "edition": "1.0",
+    "date": "2017-05-11",
+    "title": "Optical fibre cables - Part 1-3: Generic specification - Optical cable elements",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-1-3:2017 is a generic specification covering optical cable elements. Requirements which are described in this document apply to elements of optical fibre cables for use with telecommunication equipment and devices employing similar techniques. The elements which are the subject of this document are those which apply to several cable types of IEC 60794 (all parts) and as defined by sectional specifications IEC 60794-2, IEC 60794-3, IEC 60794‑4, and IEC 60794-5. The requirements for cable elements are described in the IEC 60794-1-3X series for which the IEC 60794-1-31 is the first one, and family specifications and detailed specifications of the aforementioned sectional specifications can define specific cables families and types."
+  },
+  {
+    "reference": "IEC 60794-1-21:2015",
+    "edition": "1.0",
+    "date": "2015-03-10",
+    "title": "Optical fibre cables - Part 1-21: Generic specification - Basic optical cable test procedures - Mechanical tests methods",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-1-21:2015 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. The object of this standard is to define test procedures to be used in establishing uniform requirements for mechanical requirement performance. Throughout this standard the wording \"optical cable\" may also include optical fibre units, microduct fibre units, etc. General requirements and definitions are given in IEC 60794-1-20 and a complete reference guide to test method of all types in the IEC 60794-1-2. This first edition of IEC 60794-1-21 cancels and replaces the mechanical tests part of the second edition of IEC 60794-1-2, published in 2003. It constitutes a technical revision. Keywords: optical fibre cables for use with telecommunication equipment, test procedures This publication is to be read in conjunction with IEC 60794-1-1:2011."
+  },
+  {
+    "reference": "IEC 60794-1-21:2015/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-03-05",
+    "title": "Amendment 1 - Optical fibre cables - Part 1-21: Generic specification - Basic optical cable test procedures - Mechanical tests methods",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60794-1-22:2017",
+    "edition": "2.0",
+    "date": "2017-10-05",
+    "title": "Optical fibre cables - Part 1-22: Generic specification - Basic optical cable test procedures - Environmental test methods",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-1-22:2017 defines test procedures to be used in establishing uniform requirements for the environmental performance of: - optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and - cables having a combination of both optical fibres and electrical conductors. Throughout this document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements and definitions. This second edition cancels and replaces the first edition published in 2012. It constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition: - new test method designation F16 – Compound flow (drip) [E14 in IEC 60794-1-21]; - new test method F17 – Cable shrinkage test (fibre protrusion); - new test method F18 – Mid-span temperature cycling test. Keywords: optical fibre cables for use with telecommunication equipment"
+  },
+  {
+    "reference": "IEC 60794-1-23:2019",
+    "edition": "2.0",
+    "date": "2019-10-09",
+    "title": "Optical fibre cables - Part 1-23: Generic specification - Basic optical cable test procedures - Cable element test methods",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-23:2019 describes test procedures to be used in establishing uniform requirements for the geometrical, material, mechanical, environmental properties of optical fibre cable elements. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements and definitions. This second edition cancels and replaces the first edition published in 2012. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of a new test Method G9: Bleeding and evaporation (formerly known as Method E15 in IEC 60794-1-21:2015); - addition of a new test Method G10A: Stripping force stability of cabled optical fibres (formerly known as Method E5A in IEC 60794-1-21:2015); - addition of a new test Method G10B: Strippability of optical fibre ribbons (formerly known as Method E5B in IEC 60794-1-21:2015); - addition of a new test Method G10C: Strippability of buffered optical fibres (formerly known as Method E5C in IEC 60794-1-21:2015); - addition of a new test Method G11: Tensile strength and elongation of buffer tubes (included in IEC 60811-501); - addition of a new test Method G12: Elongation of buffer tubes at low temperature (included in IEC 60811-505); - clarification of the sample preparation procedure in Method G5: Ribbon tear (separability); Keywords: optical fibre cable, optical cable test procedures"
+  },
+  {
+    "reference": "IEC 60794-1-31:2021",
+    "edition": "2.0",
+    "date": "2021-06-28",
+    "title": "Optical fibre cables - Part 1-31: Generic specification - Optical cable elements - Optical fibre ribbon",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-31:2021 which is a generic specification, covers optical fibre ribbons. Requirements which are described in this part apply to optical fibre ribbon cables for use with telecommunication equipment and devices employing similar techniques, in particular optical fibre cables in IEC 60794-2 for indoor use, in IEC 60794-3 for outdoor use, in IEC 60794-4 for self-supporting overhead use, in IEC 60794-5 for air blown use and in IEC 60794-6 for indoor/outdoor use. The detailed specification can be verified in specifications for each application such as IEC 60794-2 and IEC 60794-3. This second edition cancels and replaces the first edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - The geometrical requirements for optical fibre ribbon with typically 250 µm coating diameter have been modified and those for the optical fibre ribbon with typically 200 µm coating diameter have been added. - \"Identification by positional identification\" and \"Identification by ribbon coding and fibre colouring\" are moved to a new informative Annex A."
+  },
+  {
+    "reference": "IEC 60794-1-101:2024",
+    "edition": "1.0",
+    "date": "2024-05-15",
+    "title": "Optical fibre cables - Part 1-101: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Tensile, method E1",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-101:2024 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. This document defines test procedures to be used in establishing uniform requirements for tensile performance. Throughout this document the wording \"optical cable\" includes optical fibre units, microduct fibre units, etc. See IEC 60794-1-2 for general requirements and definitions and for a complete reference guide to test methods of all types."
+  },
+  {
+    "reference": "IEC 60794-1-104:2024",
+    "edition": "1.0",
+    "date": "2024-05-03",
+    "title": "Optical fibre cables - Part 1-104: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Impact, method E4",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-104:2024 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. This document defines test procedures to be used in establishing uniform requirements for impact performance. Throughout this document the wording “optical cable” includes optical fibre units, microduct fibre units, etc. See IEC 60794-1-2 for general requirements and definitions and for a complete reference guide to test methods of all types. This document partially cancels and replaces IEC 60794-1-21:2015, which will be withdrawn. In the context of the revision of IEC 60794-1-21:2015, its contents were split into separate test methods. It includes an editorial revision, based on the new structure and numbering system for optical fibre cable test methods."
+  },
+  {
+    "reference": "IEC 60794-1-107:2025",
+    "edition": "1.0",
+    "date": "2025-10-17",
+    "title": "Optical fibre cables - Part 1-107: Generic specification - Basic optical cable test procedures - Mechanical test methods - Torsion, method E7",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-107:2025 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. This document defines test procedures used in establishing uniform requirements for torsion performance. Refer to IEC 60794-1-2 for a reference guide to test methods and for general requirements and definitions. NOTE Throughout this document, the wording \"optical cable\" also includes optical fibre units, microduct fibre units, etc. This first edition partially cancels and replaces IEC 60794-1-21:2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794-1-21:2015: a) Update of the typical test length according to the different types of cables; b) Update of Figure 2 by loading weights to cable gripping fixture."
+  },
+  {
+    "reference": "IEC 60794-1-110:2025",
+    "edition": "1.0",
+    "date": "2025-08-20",
+    "title": "Optical fibre cables - Part 1-110: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Kink, Method E10",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-110:2025 defines test procedures used to establishing uniform requirements for mechanical performance - kink. It applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. IEC 60794-1-2 gives general requirements, definitions and a complete reference guide to test methods of all types. This first edition cancels and replaces Method E10 of the first edition of IEC 60794-1-21:2015, which will be withdrawn. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: addition of \"4.7\"; addition of \"Annex A\"."
+  },
+  {
+    "reference": "IEC 60794-1-111:2023",
+    "edition": "1.0",
+    "date": "2023-09-19",
+    "title": "Optical fibre cables - Part 1-111: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Bend, method E11",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-111: 2023 defines the test procedure to determine the ability of an optical fibre cable to withstand bending around a test mandrel. The primary purpose of this procedure is to measure the change in attenuation when the cable is bent around a test mandrel. A secondary purpose is to assess whether the cable has been physically damaged by bending. NOTE 1 This test can be utilized at any specified temperature, including the low or high temperature limits for the cable. NOTE 2 The bend test procedure for cable elements is specified in IEC 60794-1-301, method G1. This document partially cancels and replaces IEC 60794-1-21:2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑21:2015: a) the nominal sample length was newly specified as 10 m between the cable element fixing points at both ends, unless otherwise specified; b) the number of turns on the mandrel in Figure 1 for the single-helix configuration were corrected to match the number of turns shown in the figure for the two-helix configuration; c) requirements on the turnaround loop were added for method E11A, two-helix configuration; d) the turnaround loop with the same diameter as the mandrel was taken into account for calculation of the number of turns of each helix for method E11A, two-helix configuration; e) added a formula for calculation of the number of revolutions in each helix for method E11A, two-helix configuration; f) added a description for the procedure when the turnaround loop diameter is larger than the mandrel diameter for method E11A, two-helix configuration; g) all the figures were updated and the different components labelled; h) added the attenuation monitoring equipment in 4.2 for the apparatus and the description to measure the change in attenuation in the test methods E11A and E11B; i) added Clause 9 for details to be reported; j) added Annex A showing an example of a special mandrel to perform the bend test according to method E11A, two-helix configuration; k) added Annex B providing the rationale for the options of method E11A, two-helix configuration."
+  },
+  {
+    "reference": "IEC 60794-1-117:2026",
+    "edition": "1.0",
+    "date": "2026-05-20",
+    "title": "Optical fibre cables - Part 1-117: Generic specification - Basic optical cable test procedures - Mechanical test methods - Bending stiffness, method E17",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-117:2026 defines the test procedures used to establish uniform requirements for bending stiffness performance. It applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. This edition includes the following significant technical changes with respect to the previous edition: a) addition of \"6.6 Details to be reported\"; b) addition of \"7.6 Details to be reported\"; c) addition of \"8.6 Details to be reported\"."
+  },
+  {
+    "reference": "IEC 60794-1-119:2025",
+    "edition": "1.0",
+    "date": "2025-07-16",
+    "title": "Optical fibre cables - Part 1-119: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Aeolian vibration, Method E19",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-119:2025 applies to aerial optical fibre cables such as all-dielectric self-supporting (ADSS) cables, optical ground wire (OPGW) cables, and optical phase conductor (OPPC) cables that can be exposed to aeolian vibrations. This document defines the test procedures to establish uniform mechanical performance requirements relating to aeolian vibrations. See IEC 60794‑1‑2 for general requirements and definitions and for a complete reference guide to test methods of all types. This first edition cancels and replaces test method E19 of the first edition of IEC 60794‑1‑21 published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑21: a) addition of a system to maintain a constant cable tension during the test as well as means to measure the free loop antinode amplitude; b) definition of the cable load which is now fixed to 25 % of the rated tensile strength for OPGW/OPPC, or to the maximum installation tension (MIT) for ADSS cables; c) addition of the target free loop peak-to-peak antinode amplitude to the procedure. The quality of the aeolian vibration motion is done through the average antinode d) addition of fatigue damage and ovality changes of the optical core to 4.5."
+  },
+  {
+    "reference": "IEC 60794-1-124:2025",
+    "edition": "1.0",
+    "date": "2025-06-05",
+    "title": "Optical fibre cables - Part 1-124: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Installation test for microduct cabling, Method E24",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-124:2025 contains test procedures, referred to as Method E24, for evaluating the behaviour of microduct cabling (microduct optical cable, fibre unit or hybrid cable etc.) when blown into a microduct or protected microduct. This document describes two blowing track layouts: Method A consists of two mandrels and two long straight sections in between (same curvature). Method B consists of 3 mandrels. The middle mandrel forces the cable to experience both left- and right-hand bending, which is a feature of any realistic blowing route. In addition, this document describes an optional procedure to check the capability of blowing out an installed cable. This first edition cancels and replaces Method E24 of the first edition of IEC 60794‑1‑21 published in 2015 and Amendment 1:2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of a blowing route (see Figure 2) which includes a change in the direction of curvature. This was achieved by introducing a third mandrel; b) addition of Annex A (Figure A.1 which shows a practical implementation of the blowing route; c) addition of Annex B which describes the so-called Crash Test; d) addition of Annex C which describes a cable blowing out procedure."
+  },
+  {
+    "reference": "IEC 60794-1-125:2026",
+    "edition": "1.0",
+    "date": "2026-05-08",
+    "title": "Optical fibre cables - Part 1-125: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Ripcord functional test, Method E25",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-125:2026 specifies the ripcord functional test procedure used to measure the functionality of the cable ripcord. This first edition cancels and replaces cancels and replaces Method E25 of the first edition of the IEC 60794-1-21:2015."
+  },
+  {
+    "reference": "IEC 60794-1-126:2026",
+    "edition": "1.0",
+    "date": "2026-04-22",
+    "title": "Optical fibre cables - Part 1-126: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Galloping, Method E26",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-126:2026 defines the test procedures used to establish uniform requirements for mechanical performance - galloping. It applies to optical fibre cables like ADSS, OPGW or OPPC that can be exposed to galloping phenomena. See IEC 60794-1-2 for general requirements and definitions and for a complete reference guide to test methods of all types. This first edition cancels and replaces Method E26 of the first edition of IEC 60794‑1‑21 published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Addition of \"for ADSS\" and \"for OPGW and OPPC\" in 4.7, a); b) Addition of \"L4\" in Figure 1 and in 4.7, b); c) Change of the specified static sag angle to ≤ 1,5±0,5°; d) Improvement of Figure 1;"
+  },
+  {
+    "reference": "IEC 60794-1-129:2025",
+    "edition": "1.0",
+    "date": "2025-10-31",
+    "title": "Optical fibre cables - Part 1-129: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Straight midspan access to optical elements, Method E29",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-129:2025 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. The document defines test procedures used in establishing uniform requirements for mechanical performance-straight midspan access to optical elements. Throughout this document, the wording \"optical cable\" also includes optical fibre units, microduct fibre units, etc. NOTE See IEC 60794‑1‑2 for a reference guide to test methods of all types and for general requirements and definitions. This edition includes the following significant technical changes with respect to IEC 60794‑1‑21:2015 and IEC 60794-1-21:2015/AMD 1:2020: a) this document cancels and replaces method E29 of IEC 60794-1-21:2015 and IEC 60794‑1‑21:2015/AMD 1:2020; b) addition of the description for applicable cable types; c) update of Figure 2a), Figure 2b) and Figure 3; d) addition of the displacement measure description; e) addition of the details to be reported."
+  },
+  {
+    "reference": "IEC 60794-1-130:2025",
+    "edition": "1.0",
+    "date": "2025-10-01",
+    "title": "Optical fibre cables - Part 1-130: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Coefficient of friction between cables, Methods E30",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-130:2025 describes test procedures to evaluate the coefficient of dynamic friction of the sheathing material of a cable when pulled over or between other cables. Methods E30A and E30B evaluate the coefficient of friction between cables for when either a cable is pulled over the top of other cables (drum test) or when pulling a cable between other cables of the same shape (flat plate test). This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, wording \"optical cable\" can also include optical fibre units and microduct fibre units. This first edition cancels and replaces Method E24 of the first edition of IEC 60794‑1‑21 published in 2015, Amendment 1:2020. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60794-1-131:2026",
+    "edition": "1.0",
+    "date": "2026-01-07",
+    "title": "Optical fibre cables - Part 1-131: Generic specification - Basic optical cable test procedures - Mechanical tests methods - Microduct inner clearance test, Method E31",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-131:2026 describes the test procedures used to establish uniform requirements for microduct used to install optical fibre cables by blowing technique for the mechanical property - microduct inner clearance test. This document applies to microduct for use in optical fibre cable installation by blowing. NOTE Throughout the document, the wording “optical cable” can also include optical fibre units, microduct fibre units, etc. This first edition cancels and replaces Method E31 of the first edition of IEC 60794-1-21 published in 2015, Amendment 1:2020. This edition constitutes a technical revision. edition includes the significant technical changes with respect to IEC 60794‑1‑21:2015/AMD1:2020: a) Specification of Method E31."
+  },
+  {
+    "reference": "IEC 60794-1-133:2025",
+    "edition": "1.0",
+    "date": "2025-06-25",
+    "title": "Optical fibre cables - Part 1-133: Generic specifications - Basic optical cable test procedures - Mechanical test methods - Multiple cable coiling and uncoiling performance, Method E33",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-133: 2025 defines the test procedure to demonstrate the ability of an optical fibre cable to withstand multiple coiling and uncoiling on a specified diameter of cable reel. This test is primarily intended to evaluate the performance of cables for mobile rapid or multiple deployment. See IEC 60794‑1‑2 for a reference guide to test methods of all types and for general requirements. This first edition of IEC 60794-1-133 cancels and replaces Method E33 of the second edition of the IEC 60794-1-21:2015/AMD1:2020, which will be withdrawn. It includes an editorial revision, based on the new structure and numbering system for optical fibre test methods."
+  },
+  {
+    "reference": "IEC 60794-1-136:2026",
+    "edition": "1.0",
+    "date": "2026-04-17",
+    "title": "Optical fibre cables - Part 1-136: Generic specification - Basic optical cable test procedures - Determination of the maximum applicable push force during cable installation by blowing",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-136:2026 specifies procedures to determine the maximum allowable push force applied on cables during the installation by blowing. Currently this parameter is determined by a separate test on the cable before installation. The methods specified in this document apply primarily to low-diameter cables (microduct cables according to IEC 60794-5) without rigid strength elements (e.g. GRP rods)."
+  },
+  {
+    "reference": "IEC 60794-1-201:2024",
+    "edition": "1.0",
+    "date": "2024-05-30",
+    "title": "Optical fibre cables - Part 1-201: Generic specification - Basic optical cable test procedures - Environmental test methods - Temperature cycling, method F1",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-201: 2024 defines test procedures to be used in establishing uniform requirements for the environmental performance of: - optical fibre cables for use with telecommunication equipment and devices employing similar techniques; and - cables having a combination of both optical fibres and electrical conductors. Throughout this document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document defines a test standard to determine the ability of a cable to withstand the effects of temperature cycling by observing changes in attenuation. See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements and definitions. This document partially replaces IEC 60794-1-22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794-1-22:2017: a) all references to the temperature sensing device have been removed and replaced with a note \"for further study\"; b) the conditioning procedure has been separated into Procedure 1 and Procedure 2 to avoid confusion; c) the ambient temperature test condition has been defined as per IEC 60794-1-2; d) the minimum soak time has been decreased for sample mass >16 kg in Table 1."
+  },
+  {
+    "reference": "IEC 60794-1-207:2025",
+    "edition": "1.0",
+    "date": "2025-10-30",
+    "title": "Optical fibre cables - Part 1-207: Generic specification - Basic optical cable test procedures - Environmental test methods - Nuclear radiation, Method F7",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-207:2025 describes test procedures to be used in establishing uniform requirements for optical fibre cables for the environmental property: performance degradation when exposed to nuclear radiation. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Method F7A evaluates performance degradation of optical fibre cable in environmental background radiation; Method F7B evaluates performance degradation of optical fibre cable in adverse nuclear environments. NOTE Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This first edition cancels and replaces the method F7 of the second edition of IEC 60794-1-22 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) detailed content of sample, apparatus, procedure, requirements and details of the method to be specified and reported are added."
+  },
+  {
+    "reference": "IEC 60794-1-208:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Optical fibre cables - Part 1-208: Generic specification - Basic optical cable test procedures - Environmental test methods - Pneumatic resistance, Method F8",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-12 IEC 60794-208:2025 describes test procedures to be used in establishing uniform requirements for optical fibre cables for the pneumatic resistance environmental property, for unfilled cables which are protected by gas pressurization. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. NOTE Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This first edition of IEC 60794‑1‑208 cancels and replaces method F8 of the second edition of IEC 60794‑1‑22 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the form of the formula for pneumatic resistance is modified for ease of calculation with test pressures other than 62 kPa; b) details to be reported are added. The content of the corrigendum 1 (2025-12) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60794-1-208:2025/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-12-03",
+    "title": "Corrigendum 1 - Optical fibre cables - Part 1-208: Generic specification - Basic optical cable test procedures - Environmental test methods - Pneumatic resistance, Method F8",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60794-1-209:2024",
+    "edition": "1.0",
+    "date": "2024-05-30",
+    "title": "Optical fibre cables - Part 1-209: Generic specification - Basic optical cable test procedures - Environmental test methods - Ageing, method F9",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-209:2024 defines test procedures to be used in establishing uniform requirements for the environmental performance of: - optical fibre cables for use with telecommunication equipment and devices employing similar techniques; and - cables having a combination of both optical fibres and electrical conductors. Throughout this document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document defines a test standard to determine cable aging performance by high temperature exposure and temperature cycling in order to simulate lifetime behaviour of the attenuation of cables, or physical attributes. See IEC 60794‑1‑2 for a reference guide to test methods of all types and for general requirements and definitions. This document partially cancels and replaces IEC 60794‑1‑22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑22:2017: a) the ambient temperature test condition has been defined as per IEC 60794‑1‑2; b) all the maximum allowable attenuation increase values for single-mode and multimode fibres have been deleted, and have been included in the list of details to be specified."
+  },
+  {
+    "reference": "IEC 60794-1-210:2026",
+    "edition": "1.0",
+    "date": "2026-06-11",
+    "title": "Optical fibre cables - Part 1-210: Generic specification - Basic optical cable test procedures - Environmental test methods - Underwater cable resistance to hydrostatic pressure, Method F10",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794‑1:2026 describes test procedures used to establish uniform requirements for optical fibre cables for the environmental property - underwater cable resistance to hydrostatic pressure. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. See IEC 60794‑1‑2 for a reference guide to test methods of all types and for general requirements. This first edition cancels and replaces Method F10 of the second edition of IEC 60794‑1‑22 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) modification of original method F10 which becomes F10A with modification of the detailed content of apparatus, procedure and details to be specified and addition of set-up; b) addition of two test methods F10B and F10C to cover the different test object and procedure."
+  },
+  {
+    "reference": "IEC 60794-1-211:2021",
+    "edition": "1.0",
+    "date": "2021-02-18",
+    "title": "Optical fibre cables - Part 1-211: Generic specification - Basic optical cable test procedures - Environmental test methods - Sheath shrinkage, method F11",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-211:2021 defines test procedures to measure the shrinkage of the sheath due to thermal exposure of cables. A first test method, F11A, is included for cables where the fibre or buffered fibre and the sheath of the cable are intended to be fully terminated into a connector at one or both cable ends. A second test method, F11B, is included in this document for sheath shrinkage testing for general purpose. See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements."
+  },
+  {
+    "reference": "IEC 60794-1-212:2024",
+    "edition": "1.0",
+    "date": "2024-04-05",
+    "title": "Optical fibre cables - Part 1-212: Generic specification - Basic optical cable test procedures - Environmental test methods - Temperature cycling with cable elements fixed at both ends, Method F12",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-212:2024 defines the test procedure to examine the attenuation behaviour (change in attenuation) when an optical fibre cable with cable elements fixed at both ends is subjected to temperature cycling. This test assesses the attenuation behaviour of a cable under a no-end movement condition intended for termination with, for example, interconnecting devices or passive components. This document partially cancels and replaces IEC 60794-1-22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794-1-22:2017: a) the description of the test method has been changed to “with cable elements fixed at both ends”; b) subclauses have been added to the procedure clause; c) the preparation of cable sample and test set-up has been arranged in a logical way; d) Figure 1 has been added for illustration of the preparation of cable sample, DUT and test set-up; e) the temperature chamber temperature tolerance has been changed to ± 3 °C as done in IEC 60794‑1‑22, method F1; f) all required steps have been added to the subclause for temperature cycling as well as the table for the minimum soak time and the figure for the cycle procedure, and removed the reference to IEC 60794-1-22, method F1; g) the maximum change in attenuation has been added to the details to be specified; h) a new subclause 4.5 has been added for details to be reported."
+  },
+  {
+    "reference": "IEC 60794-1-213:2024",
+    "edition": "1.0",
+    "date": "2024-05-08",
+    "title": "Optical fibre cables - Part 1-213: Generic specification - Basic optical cable test procedures - Environmental test methods - Microduct pressure withstand, method F13",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-213:2024 defines test procedures to be used in establishing uniform requirements for the environmental performance of microduct. The test determines the capability of the microduct to withstand internal pressure without leakage and visible damage. This document applies to microduct used for installation of microduct cable or fibre unit by blowing. Throughout this document, the wording \"microduct\" can also include protected microduct(s). See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements and definitions.This document partially cancels and replaces IEC 60794-1-22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794-1-22:2017: a) pressure gauge used to monitor internal pressure of microduct added as part of the test apparatus; b) \"test temperature\" added to the details to be specified; c) added a new subclause “4.7 Details to be reported”."
+  },
+  {
+    "reference": "IEC 60794-1-214:2025",
+    "edition": "1.0",
+    "date": "2025-08-15",
+    "title": "Optical fibre cables - Part 1-214: Generic specification - Basic optical cable test procedures - Environmental test methods - Cable UV resistance test, Method F14",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60794-1-214:2025 defines the test procedure used to measure the ability of cable sheath materials to maintain their integrity when exposed to ultraviolet (UV) radiation due to sunlight or fluorescent light. This first edition cancels and replaces Method F14 of the second edition of IEC 60794‑1‑22 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑22:2017: a) addition of subclause as regards conditioning according to ISO 4892-2 or ISO 4892-3 for indoor-outdoor cables."
+  },
+  {
+    "reference": "IEC 60794-1-215:2020",
+    "edition": "1.0",
+    "date": "2020-06-26",
+    "title": "Optical fibre cables – Part 1-215: Generic specification – Basic optical cable test procedures – Environmental test methods – Cable external freezing test, Method F15",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-215:2020 defines test procedures to be used in establishing uniform requirements for the environmental performance of - optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and - cables having a combination of both optical fibres and electrical conductors. Throughout this document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document defines a test standard to determine the ability of a cable to withstand the effects of freezing water that can immediately surround the optical fibre cable sheath by observing any changes in the physical appearance of the sheath, or in the measured cable optical attenuation. Method F15A is a test standard to simulate freezing of the medium surrounding a buried cable, as in wet earth or water. Method F15A is moved from method F15 in IEC 60794-1-22:2017 without any technical changes. Method F15B is a test standard to simulate freezing of the medium surrounding an outside cable in a rigid conduit (duct) which is made of rigid material, for example steel. Method F15B includes the solution to prevent the cable from being crushed when experiencing freezing conditions in a rigid conduit (duct) which are pressure absorber pads and any other suggested means of cable protection. A reference guide to test methods of all types as well as general requirements can be found in IEC 60794-1-2."
+  },
+  {
+    "reference": "IEC 60794-1-216:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Optical fibre cables - Part 1-216: Generic specification - Basic optical cable test procedures - Environmental test methods - Compound flow (drip), Method F16",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-216:2025 defines test procedures to ensure the filling and flooding compounds will not flow from a filled or flooded fibre optic cable, at stated temperatures. NOTE The environmental testing of optical cable would be valuable for some applications. Useful information about suitable test methods can be found in the optical fibre standards IEC 60794-1-2. This document partially cancels and replaces the second edition of IEC 60794-1-22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794-1-22:2017: a) Addition of new Clause 10."
+  },
+  {
+    "reference": "IEC 60794-1-217:2024",
+    "edition": "1.0",
+    "date": "2024-04-03",
+    "title": "Optical fibre cables - Part 1-217: Generic specification - Basic optical cable test procedures - Environmental test methods - Cable shrinkage (fibre protrusion), Method F17",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-217:2024 series defines the test procedure to measure the permanent fibre protrusion compared to the cable elements and cable sheath due to thermal exposure of a cable. This document partially replaces IEC 60794‑1‑22:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑22:2017: a) added clarification in the objective that the purpose of this test procedure is to measure the permanent fibre protrusion of cables without rigid strength members; b) replaced the reference to method F1 for the apparatus with a detailed description for the temperature chamber and temperature sensing device as done in IEC 60794-1-211; c) added a measuring device in the subclause for apparatus; d) added conditioning before cutting the cable sample as done in IEC 60794-1-211 e) added all required steps in the subclause for temperature cycling as well as the table for the minimum soak time and the figure for the cycle procedure, and removed the reference to IEC 60794-1-22, method F1; f) improved the figures and added a figure for preparation of the cable sample; g) added the informative Annex A for the test procedure recommended for cables with rigid strength members."
+  },
+  {
+    "reference": "IEC 60794-1-218:2025",
+    "edition": "1.0",
+    "date": "2025-08-07",
+    "title": "Optical fibre cables - Part 1-218: Generic specification - Basic optical cable test procedures - Environmental test methods - Mid-span temperature cycling test for exposed optical cable elements, method F18",
+    "language": "EN-FR, EN, FR",
+    "description": "CORRECTED VERSION 2025-11 IEC 60794-1-218:2025 defines test procedures to establish uniform requirements for the environmental performance of: - optical fibre cables for telecommunication equipment and devices employing similar techniques, and - cables having a combination of both optical fibres and electrical conductors. Throughout this document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document defines a test standard to determine the ability of optical cable elements from a cable exposed in a mid-span entry (expressed) and stored in a pedestal, closure or similar to withstand the effects of temperature cycling by observing changes in attenuation. The optical cable element bundles up single or multiple optical fibres, e.g. loose tube, tight buffer tube, or optical fibre ribbon. See IEC 60794-1-2 for a reference guide to test methods of all types and for general requirements and definitions. This first edition partially cancels and replaces the second edition of IEC 60794-1-22 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60794‑1‑22:2017: a) extension of the test method scope to apply to any optical cables with optical cable elements including loose tubes, tight buffer tubes, and ribbons, exposed in a mid-span entry (expressed) and stored in a pedestal, closure, or similar; b) modification of the test method title according to item a); c) deletion of the tube diameter requirement for the test object; d) modification of the default temperature range according to IEC 60794-1-1; e) addition of the default coiled turns in the assembly during the test."
+  },
+  {
+    "reference": "IEC 60794-1-219:2021",
+    "edition": "1.0",
+    "date": "2021-11-22",
+    "title": "Optical fibre cables - Part 1-219: Generic specification - Basic optical cable test procedures - Material compatibility test, method F19",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-219:2021 applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, as well as hybrid telecommunication cables having a combination of both optical fibres and electrical conductors. The object of this document is to define test procedures to be used in establishing uniform requirements for the material compatibility performance of cables, cable components, and cable subassemblies. Compatibility of materials within a cable has the potential to involve a range of material pairs. However, experience has shown that the most pertinent evaluations are of the cable filling and flooding materials' interactions with other materials in the cable. NOTE Throughout the document the wording “optical cable” can also include optical fibre units, microduct fibre units, etc. See IEC 60794-1-2 for general requirements and definitions, as well as for a reference guide to test methods of all types."
+  },
+  {
+    "reference": "IEC 60794-1-220:2022",
+    "edition": "1.0",
+    "date": "2022-03-04",
+    "title": "Optical fibre cables - Part 1-220: Generic specification - Basic optical cable test procedures - Environmental test methods - Salt spray corrosion test, method F20",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-220:2022 defines a test standard to determine the ability of an optical fibre cable to withstand the effects of a controlled salt atmosphere. This document applies to optical ground wire (OPGW) and optical phase conductor (OPPC). An optical ground wire and optical phase conductor are made of multiple metallic wires that are exposed to the environment without any insulating or protective sheath and contain optical fibres."
+  },
+  {
+    "reference": "IEC 60794-1-301:2023",
+    "edition": "1.0",
+    "date": "2023-04-05",
+    "title": "Optical fibre cables - Part 1-301: Generic specification - Basic optical cable test procedures - Cable elements test methods - Bend test, method G1",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-301:2023 describes test procedures to be used in establishing uniform requirements of optical fibre cable elements for the mechanical property – bending. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document partially cancels and replaces IEC 60794-1-23:2019. This edition includes the following significant technical changes with respect to IEC 60794-1-23:2019: a) reference test method IEC 60793-1-40 removed regarding the apparatus; b) information added regarding the temperature to be specified in the detail specification; c) new subclause added containing the details to be reported."
+  },
+  {
+    "reference": "IEC 60794-1-303:2023",
+    "edition": "1.0",
+    "date": "2023-04-05",
+    "title": "Optical fibre cables - Part 1-303: Generic specification - Basic optical cable test procedures - Ribbon dimensions - Aperture gauge, method G3",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-303: 2023 describes test procedures to be used in establishing uniform requirements for the geometrical properties of optical fibre ribbons. This document applies to optical fibre ribbons for use with telecommunication equipment and devices employing similar techniques, and to optical fibre ribbons for cables having a combination of both optical fibres and electrical conductors. This document partially cancels and replaces IEC 60794-1-23:2019. In the context of the revision of IEC 60794-1-23:2019, its contents were split into separate test methods."
+  },
+  {
+    "reference": "IEC 60794-1-305:2023",
+    "edition": "1.0",
+    "date": "2023-01-04",
+    "title": "Optical fibre cables - Part 1-305: Generic specification - Basic optical cable test procedures - Cable element test methods - Ribbon tear (separability), Method G5",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-305:2023 describes test procedures to be used in establishing uniform requirements for optical fibre ribbons as optical fibre cable elements for the mechanical property-tear (separability). This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. NOTE Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This test is applicable for edge-bonded ribbons and encapsulated ribbons specified in IEC 60794-1-31, and not intended to be used for partially-bonded ribbons."
+  },
+  {
+    "reference": "IEC 60794-1-306:2023",
+    "edition": "1.0",
+    "date": "2023-09-19",
+    "title": "Optical fibre cables - Part 1-306: Generic specification - Basic optical cable test procedures - Cable element test methods - Ribbon torsion, Method G6",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-306: 2023 describes test procedures to verify the mechanical and functional integrity of the fibre ribbon structure. The test determines the capability of the ribbon to withstand torsion without delamination between optical fibre and ribbon bonding agent. This document applies to optical fibre ribbons in optical cables for use with telecommunication equipment and devices employing similar techniques, and to optical fibre ribbons in cables having a combination of both optical fibres and electrical conductors. This document is not applicable to partially-bonded ribbons. The method for partially-bonded ribbons is under consideration. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. NOTE The environmental testing of optical fibre ribbon would be valuable for some applications. Useful information about suitable test methods can be found in the optical fibre standards IEC 60793-1-50, IEC 60793-1-51, IEC 60793‑1‑52, and IEC 60793-1-53. This document partially cancels and replaces IEC 60794‑1‑23:2019. This edition includes the following significant technical changes with respect to IEC 60794‑1‑23:2019: a) change the scope, not include partially-bonded ribbon; b) add some details to the procedure."
+  },
+  {
+    "reference": "IEC 60794-1-307:2025",
+    "edition": "1.0",
+    "date": "2025-03-06",
+    "title": "Optical fibre cables - Part 1-307: Generic specification - Basic optical cable test procedures - Cable element test methods - Tube kinking, method G7",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-307:2025 describes test procedures used in establishing uniform requirements of tubes for the mechanical property kinking. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This first edition partially cancels and replaces the second edition of IEC 60794‑1-23 published in 2019. This edition constitutes a technical revision.This edition includes the following significant technical changes with respect to IEC 60794‑1‑23:2019: a) renumbering of the existing test method G7 as G7A; b) addition of test parameter L and calculated loop diameter D in Table 1 for method G7A; c) addition of a new test procedure for tubes routed within installation devices and numbering it as G7B."
+  },
+  {
+    "reference": "IEC 60794-1-308:2023",
+    "edition": "1.0",
+    "date": "2023-02-10",
+    "title": "Optical fibre cables - Part 1-308: Generic specification - Basic optical cable test procedures - Cable element test methods – Ribbon residual twist test, method G8",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-308: 2023 describes test procedures to evaluates the degree of permanent twist in an uncabled ribbon or in a cabled optical fibre ribbon. This document applies to optical fibre ribbons in optical cables for use with telecommunication equipment and devices employing similar techniques, and to optical fibre ribbons in cables having a combination of both optical fibres and electrical conductors. This document is not applicable to partially-bonded ribbons. The method for partially-bonded ribbons is under consideration. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. NOTE The environmental testing of optical fibre ribbon would be valuable for some applications. Useful information about suitable test methods can be found in the optical fibre standards IEC 60793-1-50, IEC 60793‑1‑51, IEC 60793‑1‑52, and IEC 60793-1-53."
+  },
+  {
+    "reference": "IEC 60794-1-309:2023",
+    "edition": "1.0",
+    "date": "2023-04-18",
+    "title": "Optical fibre cables - Part 1-309: Generic specification - Basic optical cable test procedures - Cable element test methods - Bleeding and evaporation of filling or flooding compounds, Method G9",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-309:2023 describes the test procedures to be used in establishing uniform requirements for optical fibre cable elements, filling compounds or flooding compounds, for the environmental property-bleeding and evaporation. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. NOTE Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This first edition of IEC 60794-1-309 cancels and replaces method G9 of the second edition of IEC 60794-1-23 published in 2019. This edition includes the following significant technical changes with respect to the previous edition: a) the optical cable element test methods contained in IEC 60794-1-23:2019 will now be individually numbered in the IEC 60794-1-3xx series. Each test method is now considered to be an individual document rather than part of a multi-test method compendium. Full cross-reference details are given in IEC 60794-1-2; b) the scope is broadened so that the test method is also applicable for flooding compounds; c) the cover of the test set-up is cancelled."
+  },
+  {
+    "reference": "IEC 60794-1-310:2022",
+    "edition": "1.0",
+    "date": "2022-04-26",
+    "title": "Optical fibre cables - Part 1-310: Generic specification - Basic optical cable test procedures - Cable element test methods - Strippability, method G10",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-310:2022 describes test procedures to be used in establishing uniform requirements of optical fibre cable elements for the mechanical property – strippability. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document partially cancels and replaces IEC 60794-1-23:2019. This edition includes the following significant technical change with respect to IEC 60794-1-23:2019: inclusion of semi-tight buffer fibres in method G10C."
+  },
+  {
+    "reference": "IEC 60794-1-311:2024",
+    "edition": "1.0",
+    "date": "2024-01-31",
+    "title": "Optical fibre cables - Part 1-311: Generic specification - Basic optical cable test procedures - Cable element test methods - Tensile strength and elongation test for cable elements, Method G11A",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-311:2024 describes test procedures to be used in establishing uniform requirements of optical fibre cable elements for the mechanical property – tensile strength and elongation at break. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document partially cancels and replaces IEC 60794-1-23:2019. This edition includes the following significant technical changes with respect to IEC 60794‑1‑23:2019: a) The information about dumb-bells is removed because this is not used for testing cable elements; b) the parameters strain at yield and E modulus are added in 5.7."
+  },
+  {
+    "reference": "IEC 60794-1-312:2024",
+    "edition": "1.0",
+    "date": "2024-01-31",
+    "title": "Optical fibre cables - Part 1-312: Generic specification - Basic optical cable test procedures - Cable element test methods - Elongation test for buffer tubes at low temperature, Method G11B<br />_x000D_\n,",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-1-312: 2024 describes test procedures to be used in establishing uniform requirements of optical fibre cable elements for the mechanical property – tensile strength and elongation at low temperature. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to cables having a combination of both optical fibres and electrical conductors. Throughout the document, the wording \"optical cable\" can also include optical fibre units, microduct fibre units, etc. This document partially cancels and replaces method G11B of IEC 60794-1-23:2019. This edition includes the following significant technical changes with respect to IEC 60794‑1‑23:2019: a) alignment of the title with the content of the method."
+  },
+  {
+    "reference": "IEC 60794-1-401:2021",
+    "edition": "1.0",
+    "date": "2021-07-27",
+    "title": "Optical fibre cables - Part 1-401: Generic specification - Basic optical cable test procedures - Electrical test methods - Short-circuit test (for OPGW, OPPC and OPAC), Method H1",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-1-401:2021 applies to the short-circuit test intended to assess the performance of an optical ground wire (OPGW) or optical phase conductor (OPPC) under typical short-circuit, or the impact on the performance of optical attached cable (OPAC) under short-circuit current on the messenger wire. This first edition cancels and replaces the first edition of IEC 60794-1-24 published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) OPPC is included; b) the test methods have been updated."
+  },
+  {
+    "reference": "IEC 60794-1-402:2021",
+    "edition": "1.0",
+    "date": "2021-07-27",
+    "title": "Optical fibre cables - Part 1-402: Generic specification - Basic optical cable test procedures - Electrical test methods - Lightning test (for OPGW, OPPC and OPAC), Method H2",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-1-402:2021 applies to the test intended to evaluate the impact of a lightning strike on an optical ground wire (OPGW), optical phase conductor (OPPC) or optical attached cable (OPAC). This first edition cancels and replaces the first edition of IEC 60794-1-24 published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) OPPC cables are included."
+  },
+  {
+    "reference": "IEC 60794-1-403:2021",
+    "edition": "1.0",
+    "date": "2021-04-26",
+    "title": "Optical fibre cables - Part 1-403: Generic specification - Basic optical cable test procedures - Electrical test methods - Electrical continuity test of cable metallic elements, method H3",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-403:2021 specifies a method of verifying that cable metallic elements are electrically continuous throughout the cable. Electrical continuity is important for bonding and grounding, toning for location, and other related system issues, and may represent a \"goodness of manufacture\" criterion. Typically, the test is one of continuity and carries no resistance or conductivity requirement. The metallic elements can be tested individually or can be tested as a total group. Since this latter criterion is frequently the case, all elements are measured as a group unless specified otherwise. NOTE It is possible detail specifications allow such elements as strength members to be non-continuous throughout the cable. This is a special case, and attention is directed to the detail specification."
+  },
+  {
+    "reference": "IEC 60794-1-404:2022",
+    "edition": "1.0",
+    "date": "2022-02-10",
+    "title": "Optical fibre cables - Part 1-404: Generic specification - Basic optical cable test procedures - Electrical test methods - Current-temperature test, method H4",
+    "language": "EN-FR",
+    "description": "IEC 60794-1-404:2022 defines a test standard to determine the optical performance and temperature characteristics of a hybrid cable under the maximum current. This document applies to optical phase conductor (OPPC). An optical phase conductor is made of multiple metallic wires that are exposed to the environment without any insulating or protective sheath and contain optical fibres."
+  },
+  {
+    "reference": "IEC 60794-2:2017",
+    "edition": "4.0",
+    "date": "2017-06-22",
+    "title": "Optical fibre cables - Part 2: Indoor cables - Sectional specification",
+    "language": "EN-FR",
+    "description": "IEC 60794-2:2017 is a sectional specification. It gives the requirements that apply to optical fibre cables for indoor use in communications networks. Other types of applications requiring similar types of cables can be considered. This fourth edition cancels and replaces the third edition published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the specification has been streamlined by cross-referencing with IEC 60794-1-1 and IEC TR 61931; - the document structure has been aligned with IEC 60794-3, and Clause 4 on optical fibres was added; - transmission requirements in Clause 4 were added; - the electrical conductors and the lay-up of the cable elements were introduced into Article 5 on cable elements and construction; - 5.13 on identification was separated in fibre, unit and sheath colour coding; - the colour coding proposals were extended to accommodate latest fibre categories; - Article 6 on installation and operating condition was added; - cable element tests and cable tests have been simplified by the use of tables instead of text; - a bibliography has been added. Keywords: optical fibre cables for indoor use in communications networks"
+  },
+  {
+    "reference": "IEC 60794-2-10:2023",
+    "edition": "3.0",
+    "date": "2023-03-10",
+    "title": "Optical fibre cables - Part 2-10: Indoor optical fibre cables - Family specification for simplex and duplex cables",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-10:2023 covers simplex and duplex optical fibre cables for indoor use. The requirements of IEC 60794-2 are applicable to cables covered by this document. For cables intended for installation in industrial applications specified in ISO/IEC 11801-1, MICE specifications can be additionally required (see Clause B.2). This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - updating of normative references; - updating of all relevant A1 and B1 fibre category and sub-category designations."
+  },
+  {
+    "reference": "IEC 60794-2-11:2019",
+    "edition": "3.0",
+    "date": "2019-04-12",
+    "title": "Optical fibre cables - Part 2-11: Indoor cables - Detailed specification for simplex and duplex cables for use in premises cabling",
+    "language": "EN-FR",
+    "description": "IEC 60794-2-11:2019 presents the detailed requirements specific to this type of cable to ensure compatibility with the series of International Standards ISO/IEC 11801, Information technology – Generic cabling for customer premises (Parts 1 to 6). The requirements of family specification IEC 60794-2-10 are applicable to cables covered by this document. Particular requirements detailed in Clause 4 define either a specific option in relation to the requirements of IEC 60794-2-10 or additional requirements. This third edition cancels and replaces the second edition published in 2012. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) incorporation of the OM5 cabled fibre performance category; b) incorporation of the OS1a cabled fibre performance category; c) cabled fibre performance categories OM1, OM2 and OS1 are no longer normative, and are retained for information. Keywords: simplex and duplex cables"
+  },
+  {
+    "reference": "IEC 60794-2-11:2019/AMD1:2020",
+    "edition": "3.0",
+    "date": "2020-11-18",
+    "title": "Amendment 1 - Optical fibre cables - Part 2-11: Indoor cables - Detailed specification for simplex and duplex cables for use in premises cabling",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60794-2-20:2024",
+    "edition": "4.0",
+    "date": "2024-12-11",
+    "title": "Optical fibre cables - Part 2-20: Indoor cables - Family specification for multi-fibre optical cables",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-20:2024 is part of a family specification covering multi-fibre optical cables for indoor use. The requirements of the sectional specification IEC 60794-2 are applicable to cables covered by this document. Annex B contains a blank detail specification and general guidance in case the cables are intended to be used in installations governed by the MICE table of ISO/IEC 11801-1. This fourth edition cancels and replaces the third edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) update of the normative references; b) review update of parameters and requirements for mechanical tests and environmental tests, maintaining alignment with additional relevant standards in the IEC 60794-2 series; c) addition of cabled fibre attenuation requirements; d) addition of cable design examples. This document is to be used in conjunction with IEC 60794-1-1:2023, IEC 60794-1-2:2021, IEC 60794‑1‑21:2015 and IEC 60794‑1‑21:2015/AMD:2020, IEC 60794-1-22:2017, IEC 60794‑1-23:2019 and IEC 60794‑2:2017."
+  },
+  {
+    "reference": "IEC 60794-2-21:2019",
+    "edition": "3.0",
+    "date": "2019-04-12",
+    "title": "Optical fibre cables - Part 2-21: Indoor cables - Detailed specification for multi-fibre optical distribution cables for use in premises cabling",
+    "language": "EN-FR",
+    "description": "IEC 60794-2-21:2019 presents the detailed requirements specific to this type of cable to ensure compatibility with the series of International Standards ISO/IEC 11801, Information technology – Generic cabling for customer premises (Parts 1 to 6). The requirements of family specification IEC 60794-2-20 are applicable to cables covered by this document. Particular requirements detailed in Clause 4 define either a specific option in relation to the requirements of IEC 60794-2-20 or additional requirements. This third edition cancels and replaces the second edition published in 2012. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) incorporation of the OM5 cabled fibre performance category; b) incorporation of the OS1a cabled fibre performance category; c) cabled fibre performance categories OM1, OM2 and OS1 are no longer normative, and are retained for information. Keywords: multi-fibre distribution cables"
+  },
+  {
+    "reference": "IEC 60794-2-21:2019/AMD1:2020",
+    "edition": "3.0",
+    "date": "2020-11-18",
+    "title": "Amendment 1 - Optical fibre cables - Part 2-21: Indoor cables - Detailed specification for multi-fibre optical distribution cables for use in premises cabling",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60794-2-22:2023",
+    "edition": "2.0",
+    "date": "2023-03-31",
+    "title": "Optical fibre cables - Part 2-22: Indoor cables - Detail specification for multi-simplex breakout optical cables for use in terminated breakout cable assemblies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-22: 2023 specifies breakout optical cables with multiple simplex optical fibre cables for use in terminated breakout cable assemblies. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) changed partly the wording in the title and the scope to align with IEC 60794-2-50, IEC 60794-2-23 and IEC 60794-2-24; b) added IEC 60793-1-40, IEC 60793-1-46 and IEC 60794-1-2 to the normative references; c) deleted reference to IEC 60794-2-51; d) added the definition of terminated breakout cable assembly; e) changed the number of bend cycles from 10 to 3 to harmonise with IEC 60794-2-50; f) changed test parameters for temperature cycling to harmonise with IEC 60794-2-50; g) added maximum attenuation requirements after temperature cycling; h) replaced the text for the fire performance with an improved description."
+  },
+  {
+    "reference": "IEC 60794-2-23:2024",
+    "edition": "1.0",
+    "date": "2024-01-31",
+    "title": "Optical fibre cables - Part 2-23: Indoor cables - Detail specification for multi-fibre cables for use in MPO connector terminated cable assemblies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-23: 2024 is a detail specification and specifies indoor multi-fibre cables for use in MPO (multi-fibre push on) connector terminated cable assemblies."
+  },
+  {
+    "reference": "IEC 60794-2-24:2024",
+    "edition": "1.0",
+    "date": "2024-01-26",
+    "title": "Optical fibre cables - Part 2-24: Indoor cables - Detail specification for multiple multi-fibre unit cables for use in MPO connector terminated breakout cable assemblies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-24:2024 is a detail specification and specifies indoor multiple multi-fibre unit cables for use in MPO (multi-fibre push on) connector terminated breakout cable assemblies."
+  },
+  {
+    "reference": "IEC 60794-2-30:2019",
+    "edition": "3.0",
+    "date": "2019-03-18",
+    "title": "Optical fibre cables - Part 2-30: Indoor cables - Family specification for optical fibre ribbon cables for use in terminated cable assemblies",
+    "language": "EN-FR",
+    "description": "IEC 60794-2-30:2019 is a family specification which covers indoor optical fibre ribbon cables for use in terminated cable assemblies. The requirements of the sectional specification IEC 60794-2 are applicable to cables covered by this document. The requirements of this document are written to define flat ribbon cables. This document can be applicable to other cable constructions. Parts of IEC 60794-3 which are applicable for ribbon tests are the subject of IEC 60794-1-31. Annex B contains requirements that supersede the normal requirements in case the cables are intended to be used in installation governed by the MICE table of ISO 11801-3.This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision.This edition includes the following significant technical changes with respect to the previous edition: a) removal of Annex C; b) reference to the most recent fibre standards; c) reference to IEC 60794-1-21, IEC 60794-1-22, IEC 60794-1-23 and IEC 60794-1-24. This standard is to be used in conjunction with IEC 60794-1-1, IEC 60794-1-2 and IEC 60794-2. Keywords: indoor optical fibre ribbon cables, flat ribbon cables"
+  },
+  {
+    "reference": "IEC 60794-2-31:2019",
+    "edition": "3.0",
+    "date": "2019-04-12",
+    "title": "Optical fibre cables - Part 2-31: Indoor cables - Detailed specification for optical fibre ribbon cables for use in premises cabling",
+    "language": "EN-FR",
+    "description": "IEC 60794-2-31:2019 presents the detailed requirements specific to this type of cable to ensure compatibility with the series of International Standards ISO/IEC 11801, Information technology – Generic cabling for customer premises (Parts 1 to 6). The requirements of family specification IEC 60794-2-30 are applicable to cables covered by this document. The particular requirements detailed in Clause 4 define either a specific option in relation to the requirements of IEC 60794-2-30 or additional requirements. This third edition cancels and replaces the second edition published in 2012. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) incorporation of the OM5 cabled fibre performance category; b) incorporation of the OS1a cabled fibre performance category; c) cabled fibre performance categories OM1, OM2 and OS1 are no longer normative, and are retained for information. Keywords: optical fibre ribbon cables"
+  },
+  {
+    "reference": "IEC 60794-2-31:2019/AMD1:2020",
+    "edition": "3.0",
+    "date": "2020-11-18",
+    "title": "Amendment 1 - Optical fibre cables - Part 2-31: Indoor cables - Detailed specification for optical fibre ribbon cables for use in premises cabling",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60794-2-40:2008",
+    "edition": "2.0",
+    "date": "2008-03-26",
+    "title": "Optical fibre cables - Part 2-40: Indoor optical fibre cables - Family specification for A4 fibre cables",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-2-40:2008 is part of a family specification covering buffered A4 fibres and cabled A4 fibres for indoor use. See IEC 60794-2-41 and IEC 60794-2-42 for blank detail specifications. This second edition cancels and replaces the first edition published in 2003, of which it constitutes a technical revision. In addition to covering buffered A4 fibres, as did the first edition, this second edition now also covers cabled A4 fibres. This standard is to be used in conjunction with IEC 60794-1-1, IEC 60794-1-2 and IEC 60794-2."
+  },
+  {
+    "reference": "IEC 60794-2-41:2008",
+    "edition": "1.0",
+    "date": "2008-06-25",
+    "title": "Optical fibre cables - Part 2-41: Indoor cables - Product specification for simplex and duplex buffered A4 fibres",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-2-41:2008 covers simplex and duplex buffered A4a through A4g fibres for indoor use. These may be cut into short lengths, which can be used in patchcord cable assemblies. The requirements of sectional specification IEC 60794-2 are applicable to cables covered by this standard. Keywords: A4a through A4g fibres, patchcord cable assemblies This publication is to be read in conjunction with IEC 60794-1-1:2011, IEC 60794-1-2:2013 and IEC 60794-2:2002."
+  },
+  {
+    "reference": "IEC 60794-2-42:2008",
+    "edition": "1.0",
+    "date": "2008-04-09",
+    "title": "Optical fibre cables - Part 2-42: Indoor optical fibre cables - Product specification for simplex and duplex cables with A4 fibres",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-2-42:2008 covers simplex and duplex optical fibre cables containing A4 fibres for indoor use. The requirements of the sectional specification IEC 60794-2 are applicable to cables covered by this standard. This publication is to be read in conjunction with IEC 60794-1-1:2011, IEC 60794-1-2:2003 and IEC 60794-2:2002."
+  },
+  {
+    "reference": "IEC 60794-2-50:2023",
+    "edition": "3.0",
+    "date": "2023-03-31",
+    "title": "Optical fibre cables - Part 2-50: Indoor cables - Family specification for simplex and duplex cables for use in terminated cable assemblies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-2-50:2023 specifies requirements for simplex and duplex optical fibre cables for use in terminated cable assemblies or as used for termination of passive components. This third edition cancels and replaces the second edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) added IEC 60793-1-46 and IEC 60794-1-211 to the normative references; b) changed the load duration for the tensile test from 5 min to 10 min; c) clarified the distance between the clamps for torsion test to 125 times cable diameter, but not less than 0,3 m; d) recommended the temperatures –10 °C and +60 °C for indoor simplex and duplex cables and included the low and high temperatures for category C, CHD, OP and OPHD according to the operating service environments in IEC 61753-1 for temperature cycling and shrinkage testing; e) updated the shrinkage test standard to IEC 60794-1-211, F11A, and changed the requirement to maximum 20 mm; f) replaced the text for the fire performance with an improved description."
+  },
+  {
+    "reference": "IEC 60794-3:2022",
+    "edition": "5.0",
+    "date": "2022-02-17",
+    "title": "Optical fibre cables - Part 3: Outdoor cables - Sectional specification",
+    "language": "EN-FR",
+    "description": "IEC 60794-3: 2022 specifies the requirements for optical fibre cables and cable elements which are intended to be used externally in communications networks. Other types of applications requiring similar types of cables can be considered. Requirements for cables to be used in ducts, for directly buried applications, aerial cables and cables for lake and river crossings are included in this document. Also included are cables for specialized use in sewers and in water and gas pipes. For aerial application, this document does not cover all functional aspects of cables installed in the vicinity of overhead power lines. For such applications, additional requirements and test methods can be necessary. Moreover, this document excludes optical ground wires and cables attached to the phase or earth conductors of overhead power lines. For cables for lake and river crossings, this document does not cover methods of cable repair, nor repair capability, nor does it cover cables for use with underwater line amplifiers. This fifth edition cancels and replaces the fourth edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: the ribbon specification has been removed, because it is covered in IEC 60794-1-31."
+  },
+  {
+    "reference": "IEC 60794-3-10:2015",
+    "edition": "3.0",
+    "date": "2015-01-08",
+    "title": "Optical fibre cables - Part 3-10: Outdoor cables - Family specification for duct, directly buried and lashed aerial optical telecommunication cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-3-10:2015 which is part of a family specification, covers optical telecommunication cables to be used in ducts or direct buried applications. The cable may also be used for lashed aerial applications. Requirements of the sectional specification IEC 60794-3 for duct, buried and aerial cables are applicable to cables covered by this standard. This third edition cancels and replaces the second edition published in 2009 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the specification has been streamlined by cross-referencing IEC 60794-1-1, the IEC 60794-3 series and IEC 60794-1-2; - reference to the MICE table in the previous Annex A has been deleted; - lashed aerial installation techniques as referenced in the previous Annex B has been removed for inclusion in the next edition of IEC TR 62691. Keywords: optical telecommunication cables, ducts or direct buried applications, lashed aerial applications"
+  },
+  {
+    "reference": "IEC 60794-3-11:2010",
+    "edition": "2.0",
+    "date": "2010-06-16",
+    "title": "Optical fibre cables - Part 3-11: Outdoor cables - Product specification for duct, directly buried, and lashed aerial single-mode optical fibre telecommunication cables",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-3-11:2010 sets forth technical requirements and characteristics of single-mode optical fibre cables for duct and direct buried installation. This specification includes functional mechanical, environmental and optical requirements, recommended features and test methods for assessing the product against the stated requirements. The requirements of this specification supplement those of IEC 60794-3 and IEC 60794-3-10. The main changes with respect to the previous edition are as follows: - the title of the specification has been updated to include lashed applications; - the fibres specification clause (subclause 5.2.2) has been enlarged to include fibres types B6_a."
+  },
+  {
+    "reference": "IEC 60794-3-12:2021",
+    "edition": "3.0",
+    "date": "2021-01-27",
+    "title": "Optical fibre cables - Part 3-12: Outdoor cables - Detailed specification for duct and directly buried optical telecommunication cables for use in premises cabling",
+    "language": "EN-FR",
+    "description": "IEC 60794-3-12:2021 is a detailed specification for duct and directly buried optical telecommunication cables for use in premises cabling to ensure compatibility with ISO/IEC 11801-1. This document's requirements ensure that the ISO/IEC 11801-1 models work for generic cabling and system performances. Values in this document support these models. The requirements of the family specification IEC 60794-3-10 are applicable to cables covered by this document. Particular requirements detailed in Clause 5 either define a specific option relative to the requirements of IEC 60794-3-10 or define additional requirements. This third edition cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of references to ISO/IEC 11801-1; - removal of references to ISO/IEC 24702; - incorporation of the OM5 cabled fibre performance category; - incorporation of the OS1a cabled fibre performance category; - cabled fibre performance categories OM1, OM2 and OS1 are no longer normative, and are retained for information."
+  },
+  {
+    "reference": "IEC 60794-3-20:2016",
+    "edition": "3.0",
+    "date": "2016-09-15",
+    "title": "Optical fibre cables - Part 3-20: Outdoor cables - Family specification for self-supporting aerial telecommunication cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-3-20:2016 covers optical self-supporting aerial telecommunication cables. Requirements of the sectional specification IEC 60794-3 for duct, buried and aerial cables are applicable to cables covered by this standard. Self-supporting aerial telecommunication cable in this context means a cable construction with sufficient strength members designed to be suspended on poles and similar devices without the aid of another supporting wire or conductor. ADSS cables installed on power lines which require special sheath material for tracking and erosion resistance and other constructions intended for high-voltage applications are not covered by this standard. Detail specifications may be prepared based on this family specification. This third edition cancels and replaces the second edition published in 2009. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the specification has been streamlined by cross-referencing IEC 60794-1-1, IEC 60794-1-2 and the IEC 60794-3 series; - an annex containing the MICE table has been deleted; - an annex on examples has been added. Keywords: optical self-supporting aerial telecommunication cables"
+  },
+  {
+    "reference": "IEC 60794-3-21:2015",
+    "edition": "2.0",
+    "date": "2015-11-19",
+    "title": "Optical fibre cables - Part 3-21: Outdoor cables - Product specification for optical self-supporting aerial telecommunication cables for use in premises cabling",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-3-21:2015 is a product specification. It presents the detailed requirements specific to optical self-supporting aerial telecommunication cables for use in premises cabling to ensure compatibility with ISO/IEC 11801 and ISO/IEC 24702. The requirements of the family specification IEC 60794-3-20 and sectional specification IEC 60794-3 are applicable to cables covered by this standard. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - reference to ISO 24702; - reference to Fibre B6 (IEC 60793-2-50); - reference to the OS2 Fibre as defined by ISO/IEC 11801. Keywords: optical self-supporting aerial telecommunication cables This publication is to be read in conjunction with IEC 60794-1-1:2015 , IEC 60794-1-2:2013 , IEC 60794-3:2014 and IEC 60794-3-20:2009 ."
+  },
+  {
+    "reference": "IEC 60794-3-30:2008",
+    "edition": "2.0",
+    "date": "2008-04-29",
+    "title": "Optical fibre cables - Part 3-30: Outdoor cables - Family specification for optical telecommunication cables for lakes, river crossings and coastal application",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-3-30:2008 gives this family specification covering optical telecommunication cables to be used as underwater cables for lakes, river crossings and coastal applications. Requirements of the sectional specification IEC 60794-3 for duct, buried, aerial and lake, river crossings and coastal applications cables are applicable to cables covered by this standard. The main changes with respect to the previous edition are - the title of the specification has been updated to include coastal applications; - fibres specification have been enlarged to include fibre Type B5; and - an annex has been added for additional requirements according to the MICE table."
+  },
+  {
+    "reference": "IEC 60794-3-40:2022",
+    "edition": "2.0",
+    "date": "2022-04-27",
+    "title": "Optical fibre cables - Part 3-40: Outdoor cables - Family specification for cables for storm and sanitary sewers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-3-40: 2022 is a family specification that covers sewer cables and conduits for installation by blowing and/or pulling in man accessible and non-man accessible storm and sanitary sewers. Systems built with components covered by this document are subject to the requirements of sectional specification IEC 60794-3. Sewer cable and conduit constructions need to meet the different requirements of the sewer operating companies and/or associations regarding chemical, environmental, operational, cleaning and in general maintenance conditions. Preferential applications, describing sewer cable characteristics versus methods of installation is reported in Annex A and Annex B for non-man accessible sewers. Clause 5 describes characteristics of sewer cables and conduits for installation by blowing , pulling or other means in storm and sanitary sewers. Detail specifications can be prepared on the basis of this family specification. It is important that acceptance criteria are interpreted with respect to this consideration. The number of fibres tested is representative of the sewer cable and is agreed between the customer and the supplier. This second edition cancels and replaces the first edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: this document follows the new structure for family specifications: symbols and abbreviations were included in Clause 3, and Clause 4 became the General requirements with 4.1 Optical fibres, 4.2 Cable element and 4.3 Optical fibre cable construction; Annex D has been removed as it is part of IEC TR 62691; this document has been streamlined by cross-referencing IEC 60794-1-1, IEC 60793-2, IEC 60794-3 and the IEC 60794-1-2x series; the fibre strain allowance for tensile tests was updated; characteristics Table 5, Table 6, Table 7 were moved to the Annex A (informative)."
+  },
+  {
+    "reference": "IEC 60794-3-70:2021",
+    "edition": "2.0",
+    "date": "2021-04-07",
+    "title": "Optical fibre cables - Part 3-70: Outdoor cables - Family specification for outdoor optical fibre cables for rapid/multiple deployment",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-3-70:2021 covers outdoor optical fibre cables intended for rugged terrestrial rapid/multiple deployment. These cables, with enhanced mechanical, environmental and ingress performance can be used wherever a rapid or multiple deployment is relevant (e.g. mobile broadcast units, emergency rescue services, tactical ground-forces, outdoor motion-robotics, mining machinery, temporary repair cables for damaged links, etc.). This second edition cancels and replaces the first edition published in 2016. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - incorporation of the new classification system for optical fibre categories, sub-categories in IEC 60793-2-10; - incorporation of the new classification system for optical fibre categories, sub-categories and models in IEC 60793-2-50; - updating of cabled fibre performance categories in alignment with ISO/IEC 11801-1; - updating of bibliographical references."
+  },
+  {
+    "reference": "IEC 60794-4:2018",
+    "edition": "2.0",
+    "date": "2018-06-25",
+    "title": "Optical fibre cables - Part 4: Sectional specification - Aerial optical cables along electrical power lines",
+    "language": "EN-FR, ES",
+    "description": "IEC 60794-4:2018 covers cable construction, test methods, optical, mechanical, environmental and electrical performance requirements for aerial optical fibre cables and cable elements which are intended to be used along power lines (OCEPL) as a high bandwidth transport media for communications and control optical signals, including optical ground wires (OPGW), optical phase conductors (OPPC), metallic aerial self-supported cables (MASS), all-dielectric self-supporting cables (ADSS) and optical attached cables (OPAC). This document excludes figure-8 optical cables to be used on telephone utility poles. The IEC TR 62839-1 gives recommendations to provide the customer with the environmental declaration on request. This second edition cancels and replaces the first edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the specification has been streamlined by cross-referencing IEC 60794-1-1; b) the classification as type tests or routine tests has been deleted; c) cable kink test has been deleted; d) creep test for ADSS is referred to IEC 60794-4-20. Keywords: aerial optical fibre cables"
+  },
+  {
+    "reference": "IEC 60794-4-10:2014",
+    "edition": "2.0",
+    "date": "2014-10-29",
+    "title": "Optical fibre cables - Part 4-10: Family specification - Optical ground wires (OPGW) along electrical power lines",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60794-4-10:2014 which is a family specification, covers cable construction, test methods and optical, mechanical, environmental and electrical performance requirements for OPGW (optical ground wire) which is used for the protection of electrical power lines against atmospheric discharges or short-circuits and, at the same time, as a high bandwidth transport media for communications-and-control optical signals. The corresponding environmental declaration may be built according to IEC TR 62839-1. This second edition cancels and replaces the first edition published in 2006 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - galloping test (9.7) has been added to the type tests list; - update of definitions clause; - maximum installation tension (MIT) defined and used in the sheave test description; - definition of characterization of OPGW's mechanical behaviour in order to provide information useful for electrical power transmission lines designers; - improved definition of lightning test parameters and conditions to improve reproducibility among different laboratories. Keywords: OPGW (optical ground wire), protection of electrical power lines, atmospheric discharges"
+  },
+  {
+    "reference": "IEC 60794-4-20:2018",
+    "edition": "2.0",
+    "date": "2018-08-28",
+    "title": "Optical fibre cables - Part 4-20: Sectional specification - Aerial optical cables along electrical power lines - Family specification for ADSS (all dielectric self-supported) optical cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-4-20:2018 covers optical telecommunication cables, commonly with single-mode fibres used primarily in overhead power lines applications. The cables can also be used in other overhead utility networks, such as for telephony or TV services. Requirements of the sectional specification IEC 60794-4 for aerial optical cables along electrical power lines are applicable to cables covered by this document. This document covers the construction, mechanical, electrical, and optical performance, installation guidelines, acceptance criteria, test requirements, environmental considerations, and accessories compatibility for an all dielectric, self-supporting fibre optic (ADSS) cable. This document provides construction and performance requirements that ensure, within the guidelines of this document, that the required mechanical integrity of the cable components as well as optical fibre mechanical reliability and transmission parameters are maintained. The ADSS cable consists of single mode optical fibres contained in one or more protective dielectric fibre optic units surrounded by or attached to suitable dielectric strength members and sheaths. The cable does not contain metallic components. An ADSS cable is designed to meet the optical and mechanical requirements under different installation, operating and environmental conditions and loadings, as described in Annex B. This document excludes any \"lashed\" or \"wrapped\" OPAC cables included in IEC 60794-4. Figure 8 aerial cables are also excluded; they are specified in IEC 60794-3-20. This second edition cancels and replaces the first edition published in 2012 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - this document has been streamlined by cross-referencing IEC 60794-1-1, - IEC 60794-4 (all parts) and IEC 60794-1-2; - reference to the MICE table has been deleted; - the example of test method for particular environment in Annex C has been deleted; - creep test method has been updated in Annex E. Keywords: optical telecommunication cables, single-mode fibres used primarily in overhead power lines"
+  },
+  {
+    "reference": "IEC 60794-4-30:2021",
+    "edition": "1.0",
+    "date": "2021-04-07",
+    "title": "Optical fibre cables - Part 4-30: Aerial optical cables along electrical power lines - Family specification for optical phase conductor (OPPC) optical cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-4-30:2021 specifies the optical fibre, cable elements, cable construction requirements, main requirements for installation and operating conditions, cable design characteristics and test for OPPC (optical phase conductor), used for carrying current as well as communication and data transmission. The corresponding environmental declaration can be built according to IEC TR 62839-1. The OPPC is a substitute for a conventional phase bare conductor containing optical fibres. Usually, the fibres are embedded loosely in protective buffer tubes. To fulfil mechanical and electrical requirements, an armouring of one or more layers with aluminium, aluminium alloy, and aluminium clad steel, galvanized steel or a mixture of them is helically stranded."
+  },
+  {
+    "reference": "IEC 60794-5:2014",
+    "edition": "2.0",
+    "date": "2014-10-08",
+    "title": "Optical fibre cables - Part 5: Sectional specification - Microduct cabling for installation by blowing",
+    "language": "EN-FR",
+    "description": "IEC 60794-5:2014 which is a sectional specification, specifies the requirements of microduct optical fibre cables, microduct fibre units, microducts and protected microducts for installation by blowing for outdoor and/or indoor use. The microduct optical fibre cables and microduct fibre units utilize the structure of the microduct or protected microducts to support installation and to provide protection over the design lifetime. These products may be used for applications such as communication and transmission networks, transmission, telephone and data processing equipment, control and monitoring applications. The cabling structures described in this sectional specification are uniquely designed to facilitate and take advantage of installation by blowing into microducts. This second edition cancels and replaces the first edition, published in 2006, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the addition of constructional requirements, including a reference to IEC 60794-3 for microduct optical fibre cables; - the specification has been streamlined by cross-referencing IEC 60794-1-1. Keywords: microduct optical fibre cables, microduct fibre units, microducts and protected microducts, installation by blowing"
+  },
+  {
+    "reference": "IEC 60794-5-10:2014",
+    "edition": "1.0",
+    "date": "2014-02-05",
+    "title": "Optical fibre cables - Part 5-10: Family specification - Outdoor microduct optical fibre cables, microducts and protected microducts for installation by blowing",
+    "language": "EN-FR",
+    "description": "IEC 60794-5-10:2014 is a family specification that covers outdoor microduct optical fibre cables for installation by blowing and the associated microducts, which together make up a microduct optical fibre cable system. Although primarily designed for use with outdoor microduct applications, the cable products specified herein may be used individually for short lengths in other applications as agreed upon between supplier and customer. These may include short runs inside a building or in other outdoor applications, such as a transition between separate (unconnected) microduct systems, or from a microduct system to some other protective structure such as a cable conduit or tray. Systems built with components covered by this standard are subject to the requirements of IEC 60794-5 where applicable. Keywords: outdoor microduct optical fibre cables, installation by blowing"
+  },
+  {
+    "reference": "IEC 60794-5-20:2014",
+    "edition": "1.0",
+    "date": "2014-02-14",
+    "title": "Optical fibre cables - Part 5-20: Family specification - Outdoor microduct fibre units, microducts and protected microducts for installation by blowing",
+    "language": "EN-FR, EN",
+    "description": "IEC 60794-5-20:2014 is a family specification that covers outdoor microduct fibre units and corresponding microducts and protected microducts for installation by blowing. The protected microducts are intended for duct, directly buried or lashed applications. Microduct fibre units differ from microduct optical fibre cables (see IEC 60794-5-10) in that they provide less protection to the fibres that they contain. Specifically, microduct fibre units rely on the structure of the microduct, protected microduct or appropriate housing to support installation and to provide additional mechanical protection for the optical fibre over the lifetime of the product. Systems built with components covered by this standard are subject to the requirements of sectional specification IEC 60794-5 where applicable."
+  },
+  {
+    "reference": "IEC 60794-6:2020",
+    "edition": "1.0",
+    "date": "2020-09-25",
+    "title": "Optical fibre cables - Part 6: Indoor-outdoor cables - Sectional specification for indoor-outdoor cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-6:2020 is a sectional specification covering general features of optical fibre cables applicable to outdoor as well as indoor environments, called \"indoor-outdoor cables\". Indoor-outdoor cables are deployed in outside plant environments as well as in premises thus fulfilling outdoor as well as indoor requirements. Typical application spaces are, for example, extension of a duct cable into a building or using this design for centralized cabling in the central office, the premises or local area network where the same cable is used for the entire length of the cabling link including both the indoor as well as the outdoor portions. Cables which generally possess the characteristics associated with outdoor cable designs having the thermal and mechanical robustness that makes them suitable for use in the outside plant, while simultaneously being relatively flexible, compact and lightweight and exhibiting the fire performance required in indoor premises are specified in IEC 60794-6-10. Flame retardant outdoor cables as specified in IEC 60794-6-20 are used when most of the cable length is deployed as an outdoor cable with a part of its length deployed indoors. The cable design can be derived from a typical outdoor cable design according to the product specifications described in IEC 60794-3. The specific performance related to bend radii according to the installation situation and fire performance according to the regional legislation mainly requires the appropriate selection of the jacket material in combination with other material and/or design considerations. Because of the use in buildings with tighter space restrictions, higher flexibility of the cable is often required for the installation. Often, smaller diameter cables are preferred. Indoor cables which are weatherised as specified in (IEC 60794-6-30) are used when an indoor cable is used outdoors over a short distance (few meters), for example when the network access point (NAP) is very close to the building. The indoor-outdoor fibre optical cable design can be derived from an indoor design (see IEC 60794-2 and IEC TR 62901 for typical applications) with specific outdoor performance features added. Critical parameters are UV stability, and resistance against exposure to humidity."
+  },
+  {
+    "reference": "IEC 60794-6-10:2020",
+    "edition": "1.0",
+    "date": "2020-09-29",
+    "title": "Optical fibre cables - Part 6-10: Indoor-outdoor cables - Family specification for universal indoor-outdoor cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-6-10:2020 is a family specification covering features of optical fibre cables applicable to outdoor as well as indoor environments, called \"universal indoor-outdoor cables\". These cables generally possess the characteristics associated with outdoor cable designs (according to IEC 60794-3, however typically less stringent, and typically \"non armoured\") having the thermal and mechanical robustness that makes them suitable for use in the outside plant, while simultaneously being flexible enough, compact and lightweight and exhibiting the fire performance required in indoor premises. A typical application is for example the centralized cabling in central office and the premises or local area network where the same cable design is used for the entire length of the cabling link including both the indoor as well as the outdoor portions."
+  },
+  {
+    "reference": "IEC 60794-6-20:2020",
+    "edition": "1.0",
+    "date": "2020-09-29",
+    "title": "Optical fibre cables - Part 6-20: Indoor-outdoor cables - Family specification for flame retardant outdoor cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-6-20:2020 is a family specification covering optical fibre outdoor cables which are flame retardant and thus also applicable to indoor environments. These cables generally possess the characteristics associated with outdoor cable designs having similar thermal and mechanical robustness that makes them suitable for use in the outside plant, while simultaneously exhibiting the fire performance required in indoor premises. A typical application is for example the extension of a \"shorter length\" of an outdoor cable into the building."
+  },
+  {
+    "reference": "IEC 60794-6-30:2020",
+    "edition": "1.0",
+    "date": "2020-09-25",
+    "title": "Optical fibre cables - Part 6-30: Indoor-outdoor cables - Family specification for weatherised indoor cables",
+    "language": "EN-FR",
+    "description": "IEC 60794-6-30:2020 is a family specification covering optical fibre indoor cables that are deployed in short length (≤ 10 m) outdoor environments. These cables generally possess the characteristics associated with indoor cable designs having the appropriate fire performance and flexibility that makes them suitable for use in premises. Because of its predicted use outdoors, stability against environmental attack, for example UV radiation and humidity (see IEC 60794-6:2020, Table 1), is important. Typical application spaces include the extension of a short length of indoor cable outside the building such as to a NAP mounted outside the building at the house wall."
+  },
+  {
+    "reference": "IEC TR 62000:2021",
+    "edition": "3.0",
+    "date": "2021-09-03",
+    "title": "Guidelines for combining different single-mode fibre sub-categories",
+    "language": "EN",
+    "description": "IEC TR 62000:2021 provides guidelines concerning single-mode fibre inter-compatibility. A given category of single-mode fibre, for example B-655, can have different implementations by suitably optimising several of the following parameters: mode field diameter (hence effective area), chromatic dispersion coefficient, slope of the chromatic dispersion curve, cable cut-off wavelength. These guidelines indicate the items that are taken into account when planning to connect - different implementations of single-mode fibres of the same category, for example different implementations of Class B single-mode fibres, and - single-mode fibres of different sub-categories, for example B-652.B with B-655.C. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - global uniformity of terminology concerning fibre classes, categories and sub-categories throughout the document; - updating and aligning to the new naming convention of IEC 60793-2-50 for class B fibre categories and sub-categories; - updating and aligning with IEC 60793-2-50 as per supported fibre sub-categories; - additional guidelines concerning combination of fibre parameters: chromatic dispersion and slope, polarization mode dispersion; - additional guidelines concerning non-linear affects; - updating of bibliographical references."
+  },
+  {
+    "reference": "IEC TR 62048:2014",
+    "edition": "3.0",
+    "date": "2014-01-22",
+    "title": "Optical fibres - Reliability - Power law theory",
+    "language": "EN",
+    "description": "IEC TR 62048:2014(E) is a guideline that gives formulae to estimate the reliability of fibre under a constant service stress based on a power law for crack growth. This third edition cancels and replaces the second edition published in 2011, and constitutes a technical revision. The main changes with respect to the previous edition are listed below: - correction to the unit of failure rates in Table 1; - correction to the FIT equation for instantaneous failure rate [19] in addition to all call-outs and derivations; - insertion of a new note about fibre length dependency of failure rates; - addition of informative Annex A and relevant reference; - editorial corrections of inconsistencies. Keywords: reliability of fibre, service stress, power law for crack growth"
+  },
+  {
+    "reference": "IEC TR 62221:2012",
+    "edition": "2.0",
+    "date": "2012-12-12",
+    "title": "Optical fibres - Measurement methods - Microbending sensitivity",
+    "language": "EN",
+    "description": "IEC/TR 62221:2012(E) describes four methods (A, B, C and D) for the measurement of microbending sensitivity of optical fibres. These four methods are distinguished by the equipment being used for measurements and their applications: - method A using an expandable drum and applies to category A1 and class B fibres; - method B using a fixed diameter drum and applies to category A1 and class B fibres; - method C using a plate and applied loads and applies to category A1 and class B fibres; - method D using a \"basketweave\" wrap on a fixed diameter drum, and applies to category A1 and class B fibres. This second edition cancels and replaces the first edition published in 2001, and constitutes a technical and editorial revision. The main changes with respect to the previous edition are: - updates related to B6 (bend-insensitive) category single-mode fibres; - inclusion of a definition for microbending and general properties; - expansion of general considerations; - more details given for each method; - addition of an Annex A. Key words: measurement of microbending sensitivity of optical fibres"
+  },
+  {
+    "reference": "IEC TR 62283:2010",
+    "edition": "2.0",
+    "date": "2010-06-28",
+    "title": "Optical fibres - Guidance for nuclear radiation tests",
+    "language": "EN",
+    "description": "IEC/TR 62283:2010(E) gives a short summary of the radiation exposure in certain environments and applications and the different radiation effects on fibres. It also describes the most important radiation effect, i.e. the increase of transmission loss, and its strong dependence on a variety of fibre properties and test conditions. These dependencies need to be known in order to perform appropriate tests for each specific application as well as to understand, compare and qualify the test results obtained at different laboratories when performed according to IEC 60793-1-54, Optical fibres - Part 1-54: Measurement methods and test procedures - Gamma irradiation. The main changes with respect to the previous edition are: - Clause 5 now also covers industrial environment, - A new Clause 9 has been added to deal with \"measurement techniques and quality assurance of attenuation measurements\"."
+  },
+  {
+    "reference": "IEC TR 62284:2025",
+    "edition": "2.0",
+    "date": "2025-12-02",
+    "title": "Effective area measurements of single-mode optical fibres - Guidance",
+    "language": "EN",
+    "description": "IEC TR 62284:2025 which is a Technical Report, applies to single-mode optical fibres. Its object is to document the methods for measuring the effective area (Aeff) of these fibres. It defines three methods of measuring Aeff. Information common to all the methods is found in the body of this document. Information specific to each method is found in the annexes. The three methods are: a) direct far-field (DFF); b) variable aperture in the far-field (VAMFF); c) near-field (NF). The reference method, used to resolve disputes, is method A, direct far-field. Effective area is an optical attribute that is specified for single-mode fibres and used in system designs probably affected by the non-linear refractive index coefficient, n2. There is agreement in both national and international standards bodies concerning the definition used in this document. Methods A, B, and C have been recognised as providing equivalent results, provided that good engineering is used in implementation. The direct far-field is the reference method because it is the most direct method and is named as the reference method for mode field diameter in IEC 60793-1-45 and ITU-T Recommendation G.650.1. A mapping function is a formula by which the measured results of one attribute are used to predict the value of another attribute on a given fibre. For a given fibre type and design, the mode field diameter (MFD) (IEC 60793-1-45) can be used to predict the effective area with a mapping function. A mapping function is specific to a particular fibre type and design. Mapping functions are generated by doing an experiment in which a sample of fibre is chosen to represent the spectrum of values of MFD and in which the fibres in the sample are measured for both MFD and Aeff. Linear regression can be used to determine the fitting coefficient, k, as defined by the following: NOTE 1 Other mathematical models can be used if they are generally more accurate. NOTE 2 See Annex E for more information. This second edition cancels and replaces the first edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) improvement of the description of measurement details for B-657 fibre; b) modification of the minimum distance between the fibre end and the detector for the direct far field scan (Annex A); c) deletion of Annex H."
+  },
+  {
+    "reference": "IEC TR 62285:2023",
+    "edition": "3.0",
+    "date": "2023-10-30",
+    "title": "Application guidelines for nonlinear coefficient measuring methods",
+    "language": "EN",
+    "description": "IEC TR 62285:2023 which is a Technical Report, provides guidelines for uniform measurements of the nonlinear coefficient of class B single-mode fibres (see IEC 60793-2-50) in the 1 550 nm region. Measurements of the nonlinear coefficient are used to characterise specific single-mode fibre designs for the purpose of system design relative to power levels and distortion or noise effects derived from the nonlinear optical behaviour. This third edition cancels and replaces the second edition published in 2005. It constitutes a technical revision. This edition includes the following signification technical changes with respect to the previous revision: a) change fibre type of pigtail to B-652.D fibre or fibre of same type with the fibre under test; b) modifications on Figure A.1 and Formulas (A.3), (A.4); c) add example values and recommended method A test conditions for B-G.654.E fibre, update Table C.1."
+  },
+  {
+    "reference": "IEC TR 62316:2026",
+    "edition": "4.0",
+    "date": "2026-01-08",
+    "title": "Guidance for the interpretation of OTDR backscattering traces for single-mode fibres",
+    "language": "EN",
+    "description": "IEC TR 62316:2026 which is a Technical report, provides guidance on the interpretation of backscattering traces, as obtained by traditional optical time domain reflectometers (OTDRs) for single-mode fibres. This document does not cover Polarization OTDRs. Also, backscattered power effects are discussed in case of unidirectional trace. Full description of the test measurement procedure can be found in Annex C of IEC 60793‑1‑40:2024. This fourth edition cancels and replaces the third edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) update of the fibre types; b) addition of information as regards attenuation uniformity."
+  },
+  {
+    "reference": "IEC TR 62324:2007",
+    "edition": "2.0",
+    "date": "2007-01-29",
+    "title": "Single-mode optical fibres - Raman gain efficiency measurement using continuous wave method - Guidance",
+    "language": "EN",
+    "description": "This technical report is applicable to the Raman gain efficiency measurement of a single-mode transmission optical fibre. It is useful in assessing the fibre's performance in Raman amplified transmission systems. This technical report describes a method that uses two unmodulated continuous waves to measure the Raman gain efficiency of a single-mode transmission optical fibre. This parameter assesses the fibre's efficiency at converting input pump power to information signal power. This second edition differs from the first in that in the previous edition, in the paragraph before Figure 2, there was an approximation of the relationship between wavelength and optical frequency that led to some inconsistencies in interlaboratory agreement. This approximation has been removed."
+  },
+  {
+    "reference": "IEC TR 62362:2020",
+    "edition": "2.0",
+    "date": "2020-09-14",
+    "title": "Selection of optical fibre cable specifications relative to mechanical, ingress, climatic or electromagnetic characteristics - Guidance",
+    "language": "EN",
+    "description": "IEC/TR 62362: 2020 which is a technical report, provides information on the specification of optical fibre cables with respect to the mechanical, ingress, climatic and chemical or electromagnetic characteristics (MICE) as classified in ISO/IEC 11801-1. In this classification system, each letter of the four initials of the acronym are subscripted with a value from one to three to indicate different severities. The current attributes and severities are found in Annex A. This second edition cancels and replaces the first edition published in 2010. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - replacement of references and information from ISO/IEC 24702 and ISO/IEC 11801 with ISO/IEC 11801-1; - update of the MICE table; - update of the current optical fibre designations of IEC 60793-2-10 and IEC 60793-2-50."
+  },
+  {
+    "reference": "IEC TR 62469:2007",
+    "edition": "1.0",
+    "date": "2007-08-29",
+    "title": "Guidance for residual stress measurement of optical fibre",
+    "language": "EN",
+    "description": "The optical polarimetric method is a well-established technique to measure the residual stress of an optical material. This technical report describes a transverse polarimetric method to measure the residual stress profile of any type of optical fibre."
+  },
+  {
+    "reference": "IEC TR 62470:2011",
+    "edition": "1.0",
+    "date": "2011-10-21",
+    "title": "Guidance on techniques for the measurement of the coefficient of friction (COF) between cables and ducts",
+    "language": "EN",
+    "description": "IEC/TR 62470:2011(E) describes three techniques to measure the coefficient of friction (COF) between cables and ducts. For a given technique, cable construction, installation method (pulling, pushing, or blowing), and duct size, the relative values of the COF can give some indication as to the relative ease of installation. The techniques can be used for traditional cables and ducts (see IEC 60794-3-10) as well as for microduct cables and microducts (see IEC 60794-5). A fibre or fibre unit may be evaluated in place of a cable in all techniques."
+  },
+  {
+    "reference": "IEC TR 62547:2013",
+    "edition": "2.0",
+    "date": "2013-05-16",
+    "title": "Guidelines for the measurement of high-power damage sensitivity of single-mode fibre to bends - Guidance for interpretation of results",
+    "language": "EN",
+    "description": "IEC/TR 62547:2013(E) describes two methods for the measurement of the sensitivity of single-mode optical fibres to high-power damage at bends: - test method 1 - Failure time characterisation as a function of the launch power and bend conditions (bend angle and bend diameter); - test method 2 - Equilibrium temperature measurement. Results from the two methods can only be compared qualitatively. This second edition cancels and replaces the first edition published in 2009, and constitutes a technical revision. The main changes with respect to the previous edition are: - updates related to B6 (bend-insensitive) category single-mode fibres); - update to analysis for test method 2: Maximum temperature specification. Key words: sensitivity of single-mode optical fibres to high-power damage at bends"
+  },
+  {
+    "reference": "IEC TR 62690:2014",
+    "edition": "1.0",
+    "date": "2014-06-19",
+    "title": "Hydrogen effects in optical fibre cables - Guidelines",
+    "language": "EN",
+    "description": "IEC TR 62690:2014 which is a technical report provides information concerning the behaviour of fibres and cables when exposed to hydrogen effects. The application of multimode fibres is very rarely subject to hydrogen effects. For that reason, this technical report only highlights the effects of hydrogen to single-mode fibres. Keywords: hydrogen effects, single-mode fibres"
+  },
+  {
+    "reference": "IEC TR 62691:2016",
+    "edition": "2.0",
+    "date": "2016-06-24",
+    "title": "Optical fibre cables - Guidelines to the installation of optical fibre cables",
+    "language": "EN",
+    "description": "IEC TR 62691:2016(E) which is a Technical Report, gives recommendations for handling and installing optical fibre cables on metropolitan communication networks. Installation methods covered by this document include underground ducts, trenchless technique, blowing in microducts, aerial installation on poles, lashed aerial in metropolitan networks, direct buried and use of trenches. Special installation situations such as tunnelling and lead-in installations, on-bridges, underwater, use of sanitary sewers, high pressure gas pipes and drinking water pipes are commented and detailed. Installation and maintenance of optical fibre cables on overhead power lines including the following are not covered by this document and are referred to in IEC TR 62263: - optical ground wire (OPGW) fibre cable; - optical phase conductor (OPPC) fibre cable; - optical attached fibre cable (OPAC); - all dielectric self-supporting (ADSS) optical fibre cable. IEC TR 62263 includes an extensive coverage on recommendations to ensure the safety of personnel and equipment when installing or maintaining these types of optical fibre cables on overhead power lines. This second edition cancels and replaces the first edition published in 2011. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - more details have been added on cables for lashed applications (transferred from IEC 60794-3-10); - more details have been added on cables for storm and sanitary sewer applications (transferred from IEC 60794-3-40); - more details have been added on cables for high pressure gas pipe applications (transferred from IEC 60794-3-50); - more details have been added on cables for drinking water pipe applications (transferred from IEC 60794-3-60); - a reference to IEC TR 62263 has been included, concerning optical cables installation on high voltage power lines; - a revision, and an update when applicable, has been done on the referred documents. Keywords: metropolitan communication networks, underground ducts, trenchless technique, blowing in microducts, aerial installation on poles, lashed aerial in metropolitan networks, direct buried and use of trenches."
+  },
+  {
+    "reference": "IEC TR 62901:2016",
+    "edition": "1.0",
+    "date": "2016-03-16",
+    "title": "Guide for the selection of drop cables",
+    "language": "EN",
+    "description": "IEC TR 62901:2016(E) which is a Technical Report, defines the term \"drop cable\", describes the application spaces and the performance requirements as a consequence of the different applications. Cable design options which result from specific applications which are not yet described in the existing product specifications will be explained. This technical report also gives some guidance on cable testing with focused attention on cable performance requirements which are not covered by existing standards yet. This technical report is not intended to be used as a product standard. Keywords: drop cable, cable design"
+  },
+  {
+    "reference": "IEC TR 62959:2021",
+    "edition": "1.0",
+    "date": "2021-02-17",
+    "title": "Optical fibre cables - Shrinkage effects on cable and cable element end termination - Guidance",
+    "language": "EN",
+    "description": "IEC TR 62959:2021 which is a Technical Report, provides information on cable shrinkage characterisation of optical fibre cables that consist of standard glass optical fibres for telecommunication application. The characterisation is directed to the effects of cable shrinkage or cable element shrinkage on the termination of cables. Shrinkage can or cannot be a concern depending on the method of termination. Examples of different cable termination cases are included and described. Tests for the evaluation of cable shrinkage are recommended that can be used as indicators, and shrinkage classification by several grades are given."
+  },
+  {
+    "reference": "IEC TR 63194:2019",
+    "edition": "1.0",
+    "date": "2019-01-30",
+    "title": "Guidance on colour coding of optical fibre cables",
+    "language": "EN",
+    "description": "IEC TR 63194:2019 which is a Technical Report, examines the need for and intent of colour coding of optical fibre cables. Further, this document lists the major colour codes in various regions throughout the world. Noting that decades of discussion of a universal recommended colour coding scheme has failed to bring about an agreement, this document does not intend to promote any listed colour code above any other. This document includes regional information on the colour coding of units when different from the fibre code, and of jackets to convey information about the types of fibres within, or the types of performance expected. It also includes information on colours beyond the basic 12 set out in IEC 60304. This document is not a normative document, but, rather, a guide to the subject of colour coding of cables. Keywords: colour coding of optical fibre cables"
+  },
+  {
+    "reference": "IEC TR 63309:2025",
+    "edition": "1.0",
+    "date": "2025-06-05",
+    "title": "Active fibres – Characteristics and measurement methods – Guidance",
+    "language": "EN",
+    "description": "IEC TR 63309: 2025, which is a Technical Report, provides an introduction of active fibres describing key characteristics and measurement methods. For the purpose of this document, an active fibre is a silica-based optical fibre doped in the core with rare-earth ions to allow optical gain, named rare-earth doped fibre. Other fibres enabling optical gain by means of different effects (e.g. Raman effect) are not included in the scope of this document."
+  },
+  {
+    "reference": "IEC TR 63431:2025",
+    "edition": "1.0",
+    "date": "2025-09-08",
+    "title": "Optical fibre cables - Microduct technology - Guidance",
+    "language": "EN",
+    "description": "IEC TR 63431:2025 which is a Technical report, document identifies issues which can be considered when adopting microduct technology for the provision of optical communications networks. It supplements the microduct sections of IEC 60794‑5 series of publications and refers to products and practices in current use. This documents also describes design types, colour codes, repairs, and environmental expectations, including guidance to standards and methods of installation."
+  },
+  {
+    "reference": "IEC TR 63484:2024",
+    "edition": "1.0",
+    "date": "2024-09-24",
+    "title": "Guidance on fungus resistance of optical fibre cables",
+    "language": "EN",
+    "description": "IEC TR 63484:2024 information about fungal growth on the outer sheath of optical fibre cables and on the inner components of the cable. It also provides guidance for specifying fungus resistance performance of optical cable outer sheath and internal cable components, including recommendations for fungus resistance test method as well as evaluation after test. This document applies to optical fibre cables for use with telecommunication equipment and devices employing similar techniques, and to hybrid telecommunication cables having a combination of both optical fibres and electrical conductors. Since conditions suitable for fungal growth include high relative humidity and a warm atmosphere, the document is applicable to optical cables intended for transportation, storage and use under such environment over certain period, for instance, some days at least."
+  }
+]

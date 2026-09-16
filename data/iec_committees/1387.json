@@ -1,0 +1,210 @@
+[
+  {
+    "reference": "IEC TR 61000-1-3:2002",
+    "edition": "1.0",
+    "date": "2002-06-05",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-3: General - The effects of high-altitude EMP (HEMP) on civil equipment and systems",
+    "language": "EN",
+    "description": "The purpose of this Technical Report is to describe the effects that have occurred during actual and simulated electromagnetic pulse testing throughout the world. These effects include those observed during the high-altitude nuclear tests conducted by the United States and the Soviet Union in 1962, and the HEMP simulator tests conducted by many countries during the years after atmospheric testing ended. In addition to direct effects, this technical report also contains information on HEMP coupling to \"long lines\" as it is important to verify that particular levels of currents and voltages can be induced by HEMP on these lines; this provides a basis for direct injection testing of electronic equipment. It should be noted that, in most cases, the electrical equipment tested or exposed did not contain the sensitive electronics in use today. Also it should be emphasized that all tests and exposures did not produce failure of the equipment; factors such as the geometry of the HEMP interaction and the electromagnetic shielding of the equipment are variables that can produce differing results. The description of these effects is intended to illustrate the seriousness of the possible effects of HEMP on modern electronic systems."
+  },
+  {
+    "reference": "IEC TR 61000-1-5:2004",
+    "edition": "1.0",
+    "date": "2004-11-15",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-5: General - High power electromagnetic (HPEM) effects on civil systems",
+    "language": "EN",
+    "description": "This part of IEC 61000 is a technical report that provides background material describing the motivation for developing IEC standards on the effects of high power electromagnetic (HPEM) fields, currents and voltages on civil systems. In the light of newly emerging transient antenna technology and the increasing use of digital electronics, the possibility of equipment being upset or damaged by these environments is of concern. This document begins with a general introduction to this subject and a listing of the pertinent definitions used. Following these clauses, the HPEM environments that are of concern are described and a discussion of the various effects that these environments can induce in civil systems is presented. Finally, techniques used to protect systems against these environments are summarised. More detailed information will be provided in separate documents in this 61000 series."
+  },
+  {
+    "reference": "IEC 61000-2-9:2025",
+    "edition": "2.0",
+    "date": "2025-05-14",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-9: Environment - Description of HEMP environment - Radiated disturbance",
+    "language": "EN",
+    "description": "IEC 61000-2-9: 2025 defines the high-altitude electromagnetic pulse (HEMP) environment that is one of the consequences of a high-altitude nuclear explosion. There are two cases of nuclear detonations: - high-altitude nuclear explosions; - low-altitude nuclear explosions. For civil systems, the most important case is the high-altitude nuclear explosion. In this case, the other effects of the nuclear explosion such as blast, ground shock, thermal and nuclear ionizing radiation are not present at the ground level. However, the electromagnetic pulse associated with the explosion can cause disruption of, and damage to, communications, electronic systems, electric power systems and other portions of the commercial critical infrastructures, thereby upsetting the stability of modern society. The object of this document is to establish a common reference for the HEMP environment in order to select realistic stresses to apply to victim equipment for evaluating their performance and in order to develop protection methods to minimize the impacts of the HEMP. This second edition cancels and replaces the first edition published in 1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updating the document to provide new information on the variation of the early-time HEMP on the earth's surface and to provide new information on the late-time HEMP; b) adding a new informative Annex A which provides details concerning the development of the early- and late-time standard waveforms in the main body, an explanation of the advantages and disadvantages for the use of the double exponential waveform, and an explanation of the far field region for the early-time HEMP. IEC 61000-2-9: 2025 has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC 61000-2-10:2021",
+    "edition": "2.0",
+    "date": "2021-11-18",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-10: Environment - Description of HEMP environment - Conducted disturbance",
+    "language": "EN",
+    "description": "IEC 61000-2-10:2021 defines the high-altitude electromagnetic pulse (HEMP) conducted environment that is one of the consequences of a high-altitude nuclear explosion.Those dealing with this subject consider two cases: high-altitude nuclear explosions; low-altitude nuclear explosions. For civil systems the most important case is the high-altitude nuclear explosion. In this case, the other effects of the nuclear explosion such as blast, ground shock, thermal and nuclear ionizing radiation are not present at the ground level. However, the electromagnetic pulse associated with the explosion can cause disruption of, and damage to, communication, electronic and electric power systems thereby upsetting the stability of modern society. The object of this document is to establish a common reference for the conducted HEMP environment in order to select realistic stresses to apply to victim equipment to evaluate their performance. This second edition cancels and replaces the first edition published in 1998. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a new Annex E has been added to describe the time waveform characteristics of the response of simple linear antennas to aid in the development of test methods; technical support for this waveform is provided in Annex E. a procedure to use the waveforms presented in Annex E along with the peak values previously provided in Annex C is provided."
+  },
+  {
+    "reference": "IEC 61000-2-11:1999",
+    "edition": "1.0",
+    "date": "1999-10-29",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-11: Environment - Classification of HEMP environments",
+    "language": "EN-FR, ES",
+    "description": "The purpose of this publication is to help specify the immunity requirements of an item (e.g. equipment or subsystem) containing electrical or electronic parts to ensure that it will operate during and/or after exposure to a high-altitude electromagnetic pulse (HEMP) waveform. It provides basic guidance for the selection of immunity test levels for any component, device, equipment, subsystem or system which contains electrical circuits that may be disturbed by electromagnetic signals."
+  },
+  {
+    "reference": "IEC 61000-2-13:2005",
+    "edition": "1.0",
+    "date": "2005-03-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-13: Environment - High-power electromagnetic (HPEM) environments - Radiated and conducted",
+    "language": "EN",
+    "description": "IEC 61000-2-13:2005 defines a set of typical radiated and conducted HPEM environment waveforms that may be encountered in civil facilities. Such threat environments can produce damaging effects on electrical and electronic equipment in the civilian sector, as described in IEC 61000-1-5. It is necessary to define the radiated and conducted environments, in order to develop protection methods. For the purposes of this standard, high-power conditions are achieved when the peak electric field exceeds 100 V/m, corresponding to a plane-wave free-space power density of 26,5 W/m2. This criterion is intended to define the application of this standard to EM radiated and conducted environments that are substantially higher than those considered for \"normal\" EMC applications, which are covered by the standards produced by IEC SC 77B."
+  },
+  {
+    "reference": "IEC 61000-4-23:2016",
+    "edition": "2.0",
+    "date": "2016-10-20",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-23: Testing and measurement techniques - Test methods for protective devices for HEMP and other radiated disturbances",
+    "language": "EN",
+    "description": "IEC 61000-4-23:2016(E) provides a protective devices test method for HEMP and other radiated disturbances. It is primarily intended for HEMP testing but can be applied to other externally generated radiated disturbances where appropriate. It provides a brief description of the most important concepts for testing of shielding elements. For each test, the following basic information is provided: - theoretical foundation of the test (the test concepts); - test set-up including outside-to-in and inside-to-out measurements; - required equipment; - test procedures; - data processing. This international standard does not provide information on requirements for specific levels for testing. Due to the available space, a transmitting antenna position outside the barrier has mainly been suggested. However, nowadays, many EMP protection facilities in practical use do not actually have enough space available outside the electromagnetic barrier due to physical constraints such as concrete walls or soil to allow the method described in IEC 61000-4-23:2000 (edition 1) to be applied correctly. From experience many facilities have available space for a 1 m separation or less only. Therefore, in many practical cases it is not possible to measure shielding effectiveness according to the test method of previous documents. The constructors for EMP protection facilities are also unwilling to build facilities with extra space for measurements with the transmitting antenna outside the barrier due to the great expense and inefficiency of the operational working area for new or existing buildings. This document provides additionally a method that allows the transmitting antenna to be placed inside the enclosure and the receiving antenna outside the barrier ('inside-to-out' method). Annex F includes test set-up and procedure examples. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updates to the shielding effectiveness (SE) test method in Clause 5; b) a new Annex F describing methods for testing 'inside-to-out' has been added."
+  },
+  {
+    "reference": "IEC 61000-4-23:2016/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-07-25",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-23: Testing and measurement techniques - Test methods for protective devices for HEMP and other radiated disturbances",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-24:2015",
+    "edition": "2.0",
+    "date": "2015-11-05",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-24: Testing and measurement techniques - Test methods for protective devices for HEMP conducted disturbance",
+    "language": "EN-FR",
+    "description": "IEC 61000-4-24:2015 deals with methods for testing protective devices for HEMP conducted disturbance. It includes two-terminal elements, such as gas discharge tubes, varistors, and two-port SPDs, such as HEMP combination filters. It covers testing of voltage breakdown and voltage-limiting characteristics but also methods to measure the residual voltage and/or the residual current, peak rate of rise and root action for the case of very fast changes of voltage and current as a function of time. It has the status of a basic EMC publication in accordance with IEC Guide 107. This second edition cancels and replaces the first edition published in 1997. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61000-4-24:2015/AMD1:2023",
+    "edition": "2.0",
+    "date": "2023-08-23",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-24: Testing and measurement techniques - Test methods for protective devices for HEMP conducted disturbance",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-25:2001",
+    "edition": "1.0",
+    "date": "2001-11-08",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-25: Testing and measurement techniques - HEMP immunity test methods for equipment and systems",
+    "language": "EN-FR, ES",
+    "description": "Describes the immunity test levels and related test methods for electrical and electronic equipment and systems exposed to high-altitude electromagnetic pulse (HEMP) environments. Specifications for test equipment and instrumentation test set-up, test procedures, pass/fail criteria, and test documentation requirements are also defined by this standard. These tests are intended to demonstrate the immunity of electrical and electronic equipment when subjected to HEMP radiated and conducted electromagnetic disturbances. The objective of this part of IEC 61000 is to establish a common and reproducible basis for evaluating the performance of electrical and electronic equipment, when subjected to HEMP radiated environments and the associated conducted transients on power, antenna, and input/output (I/O) signal and control lines."
+  },
+  {
+    "reference": "IEC 61000-4-25:2001/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-03-08",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-25: Testing and measurement techniques - HEMP immunity test methods for equipment and systems",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-25:2001/AMD2:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-25: Testing and measurement techniques - HEMP immunity test methods for equipment and systems",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-4-32:2002",
+    "edition": "1.0",
+    "date": "2002-10-30",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-32: Testing and measurement techniques - High-altitude electromagnetic pulse (HEMP) simulator compendium",
+    "language": "EN",
+    "description": "Provides information about extant system-level high-altitude EMP (HEMP) simulators and their applicability as test facilities and validation tools for immunity test requirements. This report provides the first detailed listing of HEMP simulators throughout the worldand is the preliminary summary of this effort. It should be updated on a regular basis as the status of test facilities change. The main body of the report is a collection of datasheets describing 42 EMP simulators in 14 countries that are still operational or could be made available for use by the international community."
+  },
+  {
+    "reference": "IEC 61000-4-33:2005",
+    "edition": "1.0",
+    "date": "2005-09-27",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-33: Testing and measurement techniques - Measurement methods for high-power transient parameters",
+    "language": "EN",
+    "description": "Provides a basic description of the methods and means (e.g., instrumentation) for measuring responses arising from high-power transient electromagnetic parameters. These responses can include: - the electric (E) and/or magnetic (H) fields (e.g., incident fields or incident plus scattered fields within a system under test); - the current I (e.g., induced by a transient field or within a system under test); - the voltage V (e.g., induced by a transient field or within a system under test); - the charge Q induced on a cable or other conductor. These measured quantities are generally complicated time-dependent waveforms, which can be described approximately by several scalar parameters, or \"observables\". These parameters include: - the peak amplitude of the response, - the waveform rise-time, - the pulse width, and - mathematically defined norms obtained from the waveform. This International Standard provides information on the measurement of these waveforms and on the mathematical determination of the characterizing parameters. It does not provide information on specific level requirements for testing. It has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC TR 61000-4-35:2009",
+    "edition": "1.0",
+    "date": "2009-07-23",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-35: Testing and measurement techniques - HPEM simulator compendium",
+    "language": "EN",
+    "description": "IEC/TR 61000-4-35:2009(E) provides information about extant system-level High-Power Electromagnetic (HPEM) simulators and their applicability as test facilities and validation tools for immunity test requirements in accordance with the IEC 61000 series of standards. HPEM simulators with the capability of conducted susceptibility or immunity testing will be included in a further stage of the project. In the sense of this report the group of HPEM simulators consists of narrow band microwave test facilities and wideband simulators for radiated high power electromagnetic fields. IEC 61000-2-13 defines high power electromagnetic (HPEM) radiated environments as those with a peak power density that exceeds 26 W/m2 (100 V/m or 0,27 A/m). This part of IEC 61000 focuses on a sub-set of HPEM simulators capable of achieving much higher fields. Therefore, the HPEM radiated environments used in this document are characterized by a peak power density exceeding 663 W/m2 (500 V/m or 1,33 A/m). The intention of this report is to provide the first detailed listing of both narrowband (hypoband) and wideband (mesoband, sub-hyperband and hyperband) simulators throughout the world. HEMP simulators are the subject of a separate compendium (IEC 61000-4-32) and thus are outside the scope of this Technical Report. After an introduction, a general description of HPEM simulators, as listed in this Technical Report, is presented. A database has been created by collecting information from simulator owners and operators and this data is presented for the technical characterization of the test facilities. In addition, some important commercial aspects, such as availability and operational status, are also addressed."
+  },
+  {
+    "reference": "IEC 61000-4-36:2020",
+    "edition": "2.0",
+    "date": "2020-03-23",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-36: Testing and measurement techniques - IEMI immunity test methods for equipment and systems",
+    "language": "EN",
+    "description": "IEC 61000-4-36:2020 provides methods to determine test levels for the assessment of the immunity of equipment and systems to intentional electromagnetic interference (IEMI) sources. It introduces the general IEMI problem, IEMI source parameters, derivation of test limits and summarises practical test methods. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - addition of a hyperband and mesoband radiated transients immunity test method in - Annex H; - addition of a calibration method of sensors for radiated hyperband and mesoband transient fields and measurement uncertainty in Annex I."
+  },
+  {
+    "reference": "IEC TR 61000-5-3:1999",
+    "edition": "1.0",
+    "date": "1999-07-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-3: Installation and mitigation guidelines - HEMP protection concepts",
+    "language": "EN-FR",
+    "description": "This technical report provides elements for: - the design of an adequate protection for civil facilities against the electromagnetic pulse due to a high altitude nuclear explosion, denoted in what follows by HEMP; - the evaluation of already existing protections with respect to stresses imposed by HEMP; - to compare the requirements of HEMP and lightning protection in order to show if they can be combined at low cost; - to emphasise the differences between the requirements of HEMP and lightning protections in order to permit the evaluation of the consequences of HEMP when no additional measures are taken except existing lightning protection."
+  },
+  {
+    "reference": "IEC TS 61000-5-4:1996",
+    "edition": "1.0",
+    "date": "1996-08-13",
+    "title": "Electromagnetic compatibility (EMC) - Part 5: Installation andmitigation guidelines - Section 4: Immunity to HEMP -Specifications for protective devices against HEMP radiateddisturbance. Basic EMC Publication",
+    "language": "EN-FR, ES",
+    "description": "This technical report defines how protective devices for High Altitude Nuclear Electromagnetic Pulse (HEMP) protection of civilian systems are specified. Performance requirements will be given in future IEC standards. This technical report is intended to be used for the harmonization of existing or future specifications issued by protective devices manufacturers, electronic equipment manufacturers, administrative bodies and other buyers. This technical report covers protective devices currently used for protection against HEMP radiated EM fields. In general, parameters relevant to HEMP, that is parameters related to very fast changes of EM fields, as a function of time, are dealt with."
+  },
+  {
+    "reference": "IEC 61000-5-5:1996",
+    "edition": "1.0",
+    "date": "1996-02-07",
+    "title": "Electromagnetic compatibility (EMC) - Part 5: Installation and mitigation guidelines - Section 5: Specification of protective devices for HEMP conducted disturbance. Basic EMC Publication",
+    "language": "EN-FR, ES",
+    "description": "This part of 61000-5 defines how protective devices for conducted disturbance proposed for HEMP protection shall be specified. It is intended to be used for the harmonization of existing or future specifications issued by protective device manufacturers, electronic equipment manufacturers, administrations and other ultimate buyers. Performance requirements shall be given in future IEC documents. This section covers protective devices currently being used for protection against induced HEMP transients on signal and low voltage power lines (nominal voltage up to 1 kV a.c.). General information can be applied also to high voltage lines. However, in these cases, the additional requirements for the protection levels of existing lightning arresters (especially gapless MO-arresters) are under consideration."
+  },
+  {
+    "reference": "IEC 61000-5-6:2024",
+    "edition": "1.0",
+    "date": "2024-04-05",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-6: Installation and mitigation guidelines - Mitigation of external EM influences",
+    "language": "EN",
+    "description": "IEC 61000-5-6:2024 covers guidelines for the mitigation of external electromagnetic influences impinging upon a facility or installation, aimed at ensuring electromagnetic compatibility (EMC) among electrical and electronic apparatus or systems. These influences include lightning, RF transmitters, power-line and telecom transients, high-altitude electromagnetic pulse (HEMP) and other high-power electromagnetic transients such as those from intentional electromagnetic interference (IEMI). This document is intended for use by installers, manufacturers and users of sensitive electrical or electronic installations or systems. It applies primarily to new installations but, where economically feasible, it can be applied to extensions or modifications to existing facilities. While the technical principles are applicable to individual equipment or apparatus, such application is not included in the scope of this document. This first edition cancels and replaces the first edition of IEC TR 61000-5-6 published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updating the whole document to include other HPEM environments including IEMI; b) adding a new Annex A which provides details on the concept of EM resilience and includes information on HPEM detectors, recovery and restoration."
+  },
+  {
+    "reference": "IEC 61000-5-7:2001",
+    "edition": "1.0",
+    "date": "2001-01-12",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-7: Installation and mitigation guidelines - Degrees of protection provided by enclosures against electromagnetic disturbances (EM code)",
+    "language": "EN-FR, ES",
+    "description": "Describes performance requirements, test methods and classification procedures for degrees of protection provided by empty enclosures against electromagnetic disturbances for frequencies between 10 kHz and 40 GHz. The shielding protection is measured for the purpose of demonstrating that the enclosure provides adequate shielding of electromagnetic energy to support acceptable performance of the complete assembled units when tested to applicable IEC standards. The purpose of this standard is to provide a repeatable means for evaluating the electromagnetic shielding performance of empty mechanical enclosures, including cabinets and subracks, and to specify a marking code to allow a manufacturer to select an enclosure with a known capability for attenuating electromagnetic fields. The requirements for immunity to various types of electromagnetic disturbances, including lightning and high-altitude electro-magnetic pulse (HEMP) will need to be considered by manufacturers when determining the need for application of this standard for specific equipment and applications, and for the specific enclosure shielding requirements which are necessary as a function of frequency."
+  },
+  {
+    "reference": "IEC TS 61000-5-8:2009",
+    "edition": "1.0",
+    "date": "2009-08-31",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-8: Installation and mitigation guidelines - HEMP protection methods for the distributed infrastructure",
+    "language": "EN",
+    "description": "IEC/TS 61000-5-8:2009(E) provides guidance on how to protect the distributed infrastructure (power, telecommunications, transportation and pipeline networks, etc.) from the threat of a high altitude electromagnetic pulse (HEMP). In order to accomplish this goal, it is necessary to describe the special aspects of the HEMP threat to electrical/electronic systems that are connected and distributed in nature. In particular a nuclear burst at a typical altitude of 100 km will illuminate the Earth to a ground radius from the point directly under the burst to a range of 1 100 km. This means that any distributed and connected infrastructure such as power or telecommunications will observe disturbances simultaneously over a wide area. This type of situation is not normally considered in the EMC or HEMP protection of facilities that are part of a distributed network as the impact of a local disturbance is usually evaluated only locally. IEC/TS 61000-5-8:2009 provides general information concerning the disturbance levels and protection methods for all types of distributed infrastructures. Due to its importance to all other parts of the infrastructure, the distributed electric power system (power substations, generation plants and control centres) and its protection are described in more detail. While the telecommunication system is also critical to most of the other distributed infrastructures, the protection of the telecommunication network from HEMP and other electromagnetic threats is covered by the work done by ITU-T. This technical specification forms Part 5-8 of IEC 61000. It has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC TS 61000-5-9:2009",
+    "edition": "1.0",
+    "date": "2009-07-08",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-9: Installation and mitigation guidelines - System-level susceptibility assessments for HEMP and HPEM",
+    "language": "EN",
+    "description": "IEC/TS 61000-5-9:2009(E) is to present a methodology to assess the impact of High-altitude Electromagnetic Pulse (HEMP) and High Power Electromagnetic (HPEM) environments on electronic systems. In this context a system refers to a collection of sub-systems, equipment and components brought together to perform a function. The techniques associated with this methodology and their advantages and disadvantages will be presented along with examples of how the techniques can be applied to evaluate the susceptibility of electronic systems such as those found in installations. This work is closely related to the evaluation of EMC system level susceptibility. The purpose of IEC/TS 61000-5-9:2009 is to provide information on available methods for the assessment of system-level susceptibility as a result of HEMP and HPEM environments. The advantages and disadvantages of the methods will be discussed along with examples of how the techniques should be employed. Typical systems have external connections, wired or wireless, and the assessment of these are included within this specification. IEC/TS 61000-5-9:2009 gives general guidance. It does not cover safety issues nor does it conflict with ITU-T efforts concerning the protection of telecommunications equipment. IEC/TS 61000-5-9:2009 has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC TS 61000-5-10:2017",
+    "edition": "1.0",
+    "date": "2017-05-18",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-10: Installation and mitigation guidelines - Guidance on the protection of facilities against HEMP and IEMI",
+    "language": "EN",
+    "description": "IEC TS 61000-5-10:2017(E) provides guidelines to protect commercial facilities from the high-power electromagnetic disturbances of high-altitude electromagnetic pulse (HEMP) and intentional electromagnetic interference (IEMI). This document is applicable to both existing facilities and new buildings when the customer has decided that protection of critical electronics from HEMP and IEMI is important to the function of the facility. IEC TS 61000-5-10:2017 has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC 61000-6-6:2003",
+    "edition": "1.0",
+    "date": "2003-04-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 6-6: Generic standards - HEMP immunity for indoor equipment",
+    "language": "EN-FR",
+    "description": "This part of IEC 61000 sets high-altitude electromagnetic pulse (HEMP) immunity requirements for electrical and electronic equipment intended for use indoors. The indoor HEMP environment depends on the electromagnetic shielding quality of a facility and the level of protection against the conducted environment. This standard is intended for all facility types including residential, commercial, light industrial, hospitals, heavy industrial, power substations and power generation facilities. This standard includes indoor equipment intended to be connected to a low-voltage (1 kV or less) power network, to the telecom network and/or to external antennas. Immunity test values are based on the 90 % severity levels in IEC 61000-4-25. All telecom lines are assumed to have gas-tube protectors at the point where they enter the building and insulation flashover on low-voltage lines are assumed at three times that of lightning. For signal ports connected to internal cables, severity test levels are based on cables that have a total length of 10 m and a procedure is provided for longer cables. This part of IEC 61000 does not specify safety requirements for equipment, such as protection against shock, insulation coordination, and related dielectric tests. Nevertheless, the immunity tests described in this part of IEC 61000 involve hazardous voltages. High-voltage precautions are necessary to protect the health and safety of test personnel."
+  }
+]

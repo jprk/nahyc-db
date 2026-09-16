@@ -1,0 +1,274 @@
+[
+  {
+    "reference": "IEC 60580:2019",
+    "edition": "3.0",
+    "date": "2019-11-12",
+    "title": "Medical electrical equipment - Dose area product meters",
+    "language": "EN-FR",
+    "description": "IEC 60580:2019 specifies the performance and testing of Dose Area Product Meters intended to measure Dose Area Product and/or Dose Area Product Rate to which the Patient is exposed during Medical Radiological Examinations. This document is applicable to the following types of Dose Area Product Meters: a) Field-Class Dose Area Product Meters normally used for the measurement of Dose Area Products during Medical Radiological Examinations; b) Reference-Class Dose Area Product Meters normally used for the Calibration of Field-Class Dosimeters. NOTE Reference-Class Dose Area Product Meters can be used as Field-Class Dose Area Product Meters. The object of this document is 1) to establish requirements for a satisfactory level of performance for Dose Area Product Meters, and 2) to standardize the methods for the determination of compliance with this level of performance. Two levels of performance are specified: – a lower level of performance applying to Field-Class Dose Area Product Meters; – a higher level of performance applying to Reference-Class Dose Area Product Meters. IEC 60580:2019 cancels and replaces the second edition published 2000, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) a second class of devices is introduced with tighter uncertainty tolerances; b) this document has been expanded to include detectors other than ionization chambers; c) radiation qualities have been updated to the new definitions according to IEC 61267; d) a requirement on the linearity of the dose area product rate measurement was added; e) changed chamber light transmission requirement from 70 % to 60 %."
+  },
+  {
+    "reference": "IEC 60601-2-1:2020",
+    "edition": "4.0",
+    "date": "2020-10-28",
+    "title": "Medical electrical equipment - Part 2-1: Particular requirements for the basic safety and essential performance of electron accelerators in the range 1 MeV to 50 MeV",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-1:2020 applies to the BASIC SAFETY and ESSENTIAL PERFORMANCE of ELECTRON ACCELERATORS, hereafter referred to as ME EQUIPMENT, in the range 1 MeV to 50 MeV, used for TREATMENT of PATIENTS. NOTE 1 While ELECTRON ACCELERATORS used for TREATMENT of PATIENTS are always ME EQUIPMENT, there are times in this document where they are referred to as EXTERNAL BEAM EQUIPMENT (EBE). Usage of EBE does not remove the requirements placed on the ME EQUIPMENT but is meant to clarify that the ME EQUIPMENT being discussed is the EBE and not some other ME EQUIPMENT that may be part of the system configuration. This particular standard, with the inclusion of TYPE TESTS and SITE TESTS, applies to the manufacture and some installation aspects of ELECTRON ACCELERATORS and their included equipment used to increase the precision, accuracy and volumetric targeting of the TREATMENT delivery – intended for RADIOTHERAPY in medical practice, including those in which the selection and DISPLAY of TREATMENT PARAMETERS can be controlled automatically by PROGRAMMABLE ELECTRONIC SUBSYSTEMS (PESS), – that, under NORMAL CONDITIONS and in NORMAL USE, deliver a RADIATION BEAM of X-RADIATION or ELECTRON RADIATION having • NOMINAL ENERGY in the range 1 MeV to 50 MeV, • maximum ABSORBED DOSE RATES between 0,001 Gy x s–1 and 1 Gy x s–1 at the ERP from the RADIATION SOURCE, and • REFERENCE TREATMENT DISTANCES (RTDs) between 0,5 m and 2 m from the RADIATION SOURCE; and – intended to be • for NORMAL USE, operated under the authority of the RESPONSIBLE ORGANIZATION by QUALIFIED PERSONS appropriately licensed or having the required skills for a particular medical application, for particular SPECIFIED clinical purposes, • maintained in accordance with the recommendations given in the INSTRUCTIONS FOR USE, and • subject to regular QUALITY ASSURANCE performance and calibration checks by a QUALIFIED PERSON. IEC 60601-2-1:2020 cancels and replaces the third edition published in 2009 and Amendment 1:2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with the new relevant collateral standards; b) addition of computer interface and control; c) addition of new technologies in RADIOTHERAPY, including • BEAM GATING, and • ADAPTIVE RADIOTHERAPY."
+  },
+  {
+    "reference": "IEC 60601-2-8:2010",
+    "edition": "2.0",
+    "date": "2010-11-10",
+    "title": "Medical electrical equipment - Part 2-8: Particular requirements for basic safety and essential performance of therapeutic X-ray equipment operating in the range 10 kV to 1 MV",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-8:2010 establishes particular basic safety and essential performance requirements for therapeutic X-ray equipment with nominal X-ray tube voltages in the range 10 kV to 1 MV when connected to alternating current supply mains. It includes the requirements for accuracy and reproducibility of performance to the extent that these are related to radiation quality and the quantity of ionizing radiation produced and thus must be considered as aspects of safety. This second edition cancels and replaces the first edition of IEC 60601-2-8. This edition constitutes a technical revision which brings this standard in line with the third edition of IEC 60601-1 and its collateral standards."
+  },
+  {
+    "reference": "IEC 60601-2-8:2010/AMD1:2015",
+    "edition": "2.0",
+    "date": "2015-09-29",
+    "title": "Amendment 1 - Medical electrical equipment - Part 2-8: Particular requirements for the basic safety and essential performance of therapeutic X-ray equipment operating in the range 10 kV to 1 MV",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60601-2-11:2013",
+    "edition": "3.0",
+    "date": "2013-01-16",
+    "title": "Medical electrical equipment - Part 2-11: Particular requirements for the basic safety and essential performance of gamma beam therapy equipment",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-11:2013 applies to the basic safety and essential performance of gamma beam therapy equipment, including multi-source stereotactic radiotherapy equipment. This particular standard of the 60601 series, establishes requirements to be complied with by manufacturers in the design and construction of gamma beam therapy equipment. It states tolerance limits beyond which interlocks must prevent, interrupt or terminate irradiation in order to avoid an unsafe condition. Type tests which are performed by the manufacturer, or site tests, which are not necessarily performed by the manufacturer, are specified for each requirement. It does not attempt to define the optimum performance requirements for a gamma beam therapy equipment for use in radiotherapy. Its purpose is to identify those features of design which are regarded at the present time as essential for the safe operation of such equipment. It places limits on the degradation of equipment performance at which it can be presumed that a fault condition applies, e.g. a component failure, and where an interlock then operates to prevent continued operation. This third edition cancels and replaces the second edition of IEC 60601-2-11 published in 1997 and its Amendment 1:2004. This edition constitutes a technical revision which brings this standard in line with the third edition of IEC 60601-1 and its collateral standards."
+  },
+  {
+    "reference": "IEC 60601-2-17:2013",
+    "edition": "3.0",
+    "date": "2013-11-27",
+    "title": "Medical electrical equipment - Part 2-17: Particular requirements for the basic safety and essential performance of automatically-controlled brachytherapy afterloading equipment",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-17:2013 applies to the basic safety and essential performance of automatically-controlled Brachytherapy Afterloading Medical Equipment. This standard does not specify requirements for sealed radioactive sources. This third edition cancels and replaces the second edition, published in 2004. Consideration has been given to new IEC standards, amendments to existing IEC standards, developments in technology and clinical usage, and various hazards encountered and envisaged since the preparation of the first and second editions. This edition constitutes a technical revision which brings this standard in line with IEC 60601-1:2005+A1:2012 and its collateral standards."
+  },
+  {
+    "reference": "IEC 60601-2-29:2008",
+    "edition": "3.0",
+    "date": "2008-06-11",
+    "title": "Medical electrical equipment - Part 2-29: Particular requirements for the basic safety and essential performance of radiotherapy simulators",
+    "language": "EN-FR, ES",
+    "description": "IEC 60601-2-29:2008 establishes requirements to be complied with by manufacturers in the design and construction of radiotherapy simulators; it does not attempt to define their optimum performance requirements. Its purpose is to identify those features of design that are regarded, at the present time, as essential for the safe operation of such medical electrical equipment. It places limits on the degradation of medical electrical equipment performance beyond which it can be presumed that a fault condition exists, for example a component failure, and where an interlock then operates to prevent continued operation of the medical electrical equipment. This third edition cancels and replaces the second edition published in 1999. This edition constitutes a technical revision, which brings this standard in line with the third edition of IEC 60601-1 and its collateral standards."
+  },
+  {
+    "reference": "IEC 60601-2-64:2025",
+    "edition": "2.0",
+    "date": "2025-12-05",
+    "title": "Medical electrical equipment - Part 2-64: Particular requirements for the basic safety and essential performance of light ion beam medical electrical equipment",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60601-2-64:2025 applies to the BASIC SAFETY and essential performance of LIGHT ION BEAM ME EQUIPMENT, hereafter referred to as ME EQUIPMENT, used for treatment of patients. If a clause or subclause is specifically intended to be applicable to ME EQUIPMENT only, or to ME SYSTEMS only, the title and content of that clause or subclause will say so. If that is not the case, the clause or subclause applies both to ME EQUIPMENT and to ME SYSTEMS, as relevant. This document, with the inclusion of TYPE TESTS and SITE TESTS, applies respectively to the manufacturer and specified installation aspects of LIGHT ION BEAM ME EQUIPMENT – intended for RADIOTHERAPY in human medical practice, including those in which the selection and DISPLAY of operating parameters can be controlled automatically by PROGRAMMABLE ELECTRONIC SUBSYSTEMS (PESS), – that, in NORMAL USE, deliver a RADIATION BEAM of LIGHT IONS having ENERGY PER NUCLEON in the range 10 MeV/n to 500 MeV/n, and – intended to be • for NORMAL USE, operated under the authority of appropriately licensed or QUALIFIED PERSONS by OPERATORS having the required skills for a particular medical application, for particular SPECIFIED clinical purposes maintained in accordance with the recommendations given in the INSTRUCTIONS FOR USE, • subject to regular quality assurance performance and calibration checks by a QUALIFIED PERSON. IEC 60601-2-64:2025 cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) harmonization with IEC 60601-1:2005, IEC 60601-1:2005/AMD1:2011 and IEC 60601-1:2005/AMD2:2020; b) harmonization with IEC 62667:2017 for defined terms and definitions; c) address revision to neutrons outside the field of irradiation."
+  },
+  {
+    "reference": "IEC 60601-2-68:2025",
+    "edition": "2.0",
+    "date": "2025-02-04",
+    "title": "Medical electrical equipment - Part 2-68: Particular requirements for the basic safety and essential performance of X-ray-based image-guided radiotherapy equipment for use with electron accelerators, light ion beam therapy equipment and radionuclide beam therapy equipment",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-68:2025 applies to the BASIC SAFETY and ESSENTIAL PERFORMANCE of X-ray based IMAGE-GUIDED RADIOTHERAPY equipment for use with EXTERNAL BEAM EQUIPMENT (EBE). This document covers safety aspects of kilovoltage (kV) and megavoltage (MV) X-ray imaging devices integrated in a specified geometrical relationship with EBE for the purpose of IGRT. It covers aspects of communication and relationships between the EXTERNAL BEAM EQUIPMENT and X-ray imaging devices, attached or not directly attached to, but in the same RADIATION shielded area as, and dedicated for use only with, the EXTERNAL BEAM EQUIPMENT. This document deals with equipment for OFFLINE X-IGRT, ONLINE X-IGRT and REAL-TIME X-IGRT. It covers procedures to reduce the risk of over-reliance on the X-IGRT EBE SYSTEM. For example, in the case of ONLINE X-IGRT, the MANUFACTURER will provide an interactive interface for user interaction with the correction suggested by the system. This document does not apply to CT SCANNERS, X-RAY EQUIPMENT for RADIOGRAPHY, and X-RAY EQUIPMENT for RADIOSCOPY, which are not intended for use for IGRT. Requirements that are being tested according to another standard can be identified by the manufacturer and if equivalent do not require retesting, instead evidence can refer to the CT SCANNER, X-RAY EQUIPMENT for RADIOGRAPHY, or X-RAY EQUIPMENT for RADIOSCOPY EQUIPMENT manufacturer's providing compliance statements or test reports. If the X-IGRT EQUIPMENT is combined with an MEE, any requirement that is the same for the X-IGRT EQUIPMENT and the MEE, such as a PATIENT POSITIONER, is not required to be tested twice, but can be accepted as tested by the MEE. This document applies for X-ray equipment for radiography, radioscopy, and COMPUTER tomography used for IGRT. If a clause or subclause is specifically intended to be applicable to X-IGRT EBE SYSTEMS, the content of that clause or subclause will say so. Where that is not the case, the clause or subclause applies only to X-IGRT EQUIPMENT. This document, with the inclusion of TYPE TESTS and SITE TESTS, applies respectively to the MANUFACTURER and some installation aspects of X-IGRT EBE SYSTEMS intended to be: • for NORMAL USE, operated under the authority of the RESPONSIBLE ORGANIZATION by QUALIFIED PERSONS having the required skills for a particular medical application, for particular specified clinical purposes, e.g., STATIONARY RADIOTHERAPY or MOVING BEAM RADIOTHERAPY, • maintained in accordance with the recommendations given in the INSTRUCTIONS FOR USE, and • subject to regular quality assurance performance and calibration checks by a QUALIFIED PERSON. IEC 80601-2-68:2024 cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with the new editions of the relevant standards: – IEC 60601-2-1:2020; – IEC 60601-2-44:2009, IEC 60601-2-44:2009/AMD1:2012 and IEC 60601-2-44:2009/AMD2:2016; – IEC 60601-2-64:2014; b) clarification of the use of IEC 60601-2-68 for CT SCANNERS, X-RAY EQUIPMENT for RADIOGRAPHY and RADIOSCOPY used in the same room with an EXTERNAL BEAM EQUIPMENT (EBE); c) introduction of updated requirements related to MECHANICAL HAZARDS, RADIATION HAZARDS, PROGRAMMABLE ELECTRICAL MEDICAL SYSTEMS (PEMS), ACCOMPANYING DOCUMENTATION of an ME SYSTEM, and REMOTE OPERATION."
+  },
+  {
+    "reference": "IEC 60731:2011",
+    "edition": "3.0",
+    "date": "2011-02-25",
+    "title": "Medical electrical equipment - Dosimeters with ionization chambers as used in radiotherapy",
+    "language": "EN-FR",
+    "description": "IEC 60731:2011 specifies the performance requirements of radiotherapy dosimeters, intended for the measurement of absorbed dose to water or air kerma (and their rates and spatial distributions) in photon, electron, proton or heavy ion radiation fields as used in radiotherapy. The dose monitoring systems incorporated in radiotherapy treatment machines are not covered by this standard, neither are the re-entrant ionization chambers used for brachytherapy source calibration and constancy check devices. IEC 60731:2011 is applicable to the following types of dosimeter: a) field-class dosimeters normally used for 1) in vivo skin surface or intracavitary measurements of dose on patients. 2) in vivo skin surface or intracavitary measurements of dose on patients. b) reference-class dosimeters normally used for the calibration of field-class dosimeters; c) scanning-class dosimeters normally used for relative dose distribution measurements with a scanning system such as an automatic water phantom. The object of this standard is: - to establish requirements for a satisfactory level of performance for radiotherapy dosimeters; - to standardize methods for the determination of compliance with this level of performance. Three levels of performance are specified: - a lower level of performance applying to field-class dosimeters; - a higher level of performance applying to reference-class dosimeters; - a specific level of performance applying to scanning-class dosimeters. This third edition cancels and replaces the second edition published in 1997 and its Amendment 1 (2002) and constitutes a technical revision. The technical modifications versus the second edition of this standard concerns performance requirements of radiotherapy dosimeters intended for the measurement of absorbed dose to water or air kerma in heavy ion radiation fields and scanning-class dosimeters normally used for relative dose distribution measurements with a scanning system such as an automatic water phantom."
+  },
+  {
+    "reference": "IEC 60731:2011/AMD1:2016",
+    "edition": "3.0",
+    "date": "2016-04-08",
+    "title": "Amendment 1 - Medical electrical equipment - Dosimeters with ionization chambers as used in radiotherapy",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60976:2007",
+    "edition": "2.0",
+    "date": "2007-10-16",
+    "title": "Medical electrical equipment - Medical electron accelerators - Functional performance characteristics",
+    "language": "EN-FR, ES",
+    "description": "Applies to medical electron accelerators when used, for therapy purposes, in human medical practice. This standard applies to medical electron accelerators which deliver a radiation beam of either X-radiation or electron radiation with nominal energies in the range 1 MeV to 50 MeV at maximum absorbed dose rates between 0,001 Gy s-1 and 1 Gy s-1 at 1 m from the radiation source and at normal treatment distances between 50 cm and 200 cm from the radiation source. The present standard describes measurements and test procedures to be performed by the manufacturer at the design and construction stage of a medical electron accelerator but does not specify acceptance tests to be performed after installation at the purchaser's site. The accompanying report, IEC 60977, however, does suggest that many of the test procedures are appropriate for acceptance tests. The measurement conditions described in the present standard differ from those previously in use. This applies particularly to the phantom position for measurements and the measurement of distances from the isocentre. These new conditions should be substituted for and not be added to previous methods. This standard specifies test procedures for the determination and disclosure of functional performance characteristics, knowledge of which is deemed necessary for proper application and use of a medical electron accelerator and which are to be declared in the accompanying documents together with the greatest deviation or variation to be expected under specific conditions in normal use. A format for presentation of functional performance values is given in Annex A. It is recognized that inaccuracies in the test methods must be allowed for when assessing performance. However, it was not felt to be advisable to combine the errors into an overall performance tolerance but to keep them separate in the expectation that more accurate test methods will be evolved. It is not intended that this standard should in any way inhibit the future development of new designs of equipment which may have operating modes and parameters different from those described herein, provided that such equipment achieves equivalent levels of performance for the treatment of patients. Except where otherwise stated this standard assumes that the medical electron accelerators have an isocentric gantry. Where the equipment is non-isocentric, the description of performance and test methods may need to be suitably adapted. This second edition cancels and replaces the first edition published in 1989. It constitutes a technical revision. This second edition includes the addition of performance standards and test methods relating to the following new technologies: - dynamic beam delivery techniques, such as moving beam radiotherapy, intensity-modulated radiation therapy (IMRT), image-guided radiotherapy (IGRT) and programmable wedge fields; - stereotactic radiotherapy (SRT) / stereotactic radiosurgery (SRS); - use of electronic imaging devices. This standard, together with IEC TR 60977, should be read in conjunction with IEC 60601-2-1."
+  },
+  {
+    "reference": "IEC TR 60977:2008",
+    "edition": "2.0",
+    "date": "2008-07-09",
+    "title": "Medical electrical equipment - Medical electron accelerators - Guidelines for functional performance characteristics",
+    "language": "EN-FR",
+    "description": "IEC/TR 60977:2008 applies to medical electron accelerators when used, for therapy purposes, in human medical practice. This technical report applies to medical electron accelerators which deliver a radiation beam of either X-radiation or electron radiation with nominal energies in the range 1 MeV to 50 MeV at maximum absorbed dose rates between 0,001 Gy s -1 and 1 Gy s -1 at 1 m from the radiation source and at normal treatment distances between 50 cm and 200 cm from the radiation source. This second edition cancels and replaces the first edition published in 1989 and its Amendment 1 (2000). It constitutes a technical revision. This second edition likewise follows on the issue of a second edition to the disclosure standard IEC 60976 in 2007. It includes the addition of performance guidelines relating to several relatively new technologies introduced within the last few years, including dynamic beam delivery techniques, such as moving beam radiotherapy, intensity modulated radiation therapy (IMRT), image guided radiotherapy (IGRT), and programmable wedge fields (PWF). Also included are stereotactic radiotherapy (SRT)/stereotactic radiosurgery (SRS) and the use of certain electronic imaging devices (EIDs)."
+  },
+  {
+    "reference": "IEC 61168:1993",
+    "edition": "1.0",
+    "date": "1993-12-22",
+    "title": "Radiotherapy simulators - Functional performance characteristics",
+    "language": "EN-FR, ES",
+    "description": "Specifies type tests to be performed by the manufacturer at the design and construction stages of a radiotherapy simulator but does not specify site tests to be performed after installation at the user's site. The accompanying technical report IEC 61170, however, does suggest that many of the test procedures are appropriate for site tests."
+  },
+  {
+    "reference": "IEC TS 61170:1993",
+    "edition": "1.0",
+    "date": "1993-12-22",
+    "title": "Radiotherapy simulators - Guidelines for functional performance characteristics",
+    "language": "EN-FR",
+    "description": "The guidelines given in this report are recommendations both to manufacturers and to users. They provide guidance to manufacturers about the needs of radiotherapists in respect to the performance of radiotherapy simulators and they provide guidance to users wishing to check the manufacturer's declared performance characteristics to carry out acceptance tests and to check periodically the performance throughout the life of the equipment. This Technical Report has to be used in conjunction with IEC 61168."
+  },
+  {
+    "reference": "IEC 61217:2011",
+    "edition": "2.0",
+    "date": "2011-12-07",
+    "title": "Radiotherapy equipment - Coordinates, movements and scales",
+    "language": "EN-FR",
+    "description": "IEC 61217:2011 applies to equipment and data related to the process of teleradiotherapy, including patient image data used in relation with radiotherapy treatment planning systems, radiotherapy simulators, isocentric gamma beam therapy equipment, isocentric medical electron accelerators, and non-isocentric equipment when relevant. The object of this standard is to define a consistent set of coordinate systems for use throughout the process of teleradiotherapy, to define the marking of scales (where provided), to define the movements of equipment used in this process, and to facilitate computer control when used. This second edition cancels and replaces the first edition, published in 1996, amendment 1, published in 2000 and amendment 2, published in 2007. This edition constitutes a technical revision to include imager and focus coordinate systems in Subclause 3.12. Beyond this Subclause, changes were only introduced where needed to include the above coordinate systems."
+  },
+  {
+    "reference": "IEC 61267:2025",
+    "edition": "3.0",
+    "date": "2025-12-09",
+    "title": "Medical diagnostic X-ray equipment - Radiation conditions for use in the determination of characteristics",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61267:2025 applies to test procedures which, for the determination of characteristics of systems or components of medical diagnostic X-ray equipment, require well-defined X-ray radiation conditions. This document deals with methods for generating X-ray radiation conditions which can be used under test conditions typically found in test laboratories or in manufacturing facilities for the determination of characteristics of medical diagnostic X-ray equipment. IEC 61267:2025 cancels and replaces the second edition published 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) removing former Annex C “Measurement of the practical peak voltage”; b) inserting informative “Tabulated values for the squared signal-to-noise ratio per air kerma (SNR2in)” and normative “Additional X-ray radiation conditions as used in mammography and determination of the corresponding nominal aluminium half-value layers”; c) revision of X-ray radiation conditions; d) new method for verification of X-ray radiation conditions; e) change of term definitions."
+  },
+  {
+    "reference": "IEC 61674:2024",
+    "edition": "3.0",
+    "date": "2024-07-09",
+    "title": "Medical electrical equipment - Dosimeters with ionization chambers and/or semiconductor detectors as used in X-ray diagnostic imaging",
+    "language": "EN-FR",
+    "description": "IEC 61674:2024 specifies the performance and some related constructional requirements of DIAGNOSTIC DOSIMETERS intended for the measurement of AIR KERMA, AIR KERMA LENGTH PRODUCT or AIR KERMA RATE, in photon radiation fields used in medical X-ray imaging, such as RADIOGRAPHY, RADIOSCOPY and COMPUTED TOMOGRAPHY (CT), for X-RADIATION with generating potentials in the range of 20 kV to 150 kV. This document is applicable to the performance of DOSIMETERS with VENTED IONIZATION CHAMBERS and/or SEMICONDUCTOR DETECTORS as used in X-ray diagnostic imaging. IEC 61674:2024 cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) for mammography, the manufacturer specifies the REFERENCE VALUE for the RADIATION QUALITY; b) for mammography, the manufacturer provides the MINIMUM RATED RANGE of RADIATION QUALITIES for the compliance test on energy dependence of response; c) the compliance test for analogue displays was removed; d) the compliance tests for range reset, the effect of leakage and recombination losses were removed. These tests are already covered by the test on linearity and cannot be conducted for modern devices. The estimation of COMBINED STANDARD UNCERTAINTY was changed accordingly; e) the compliance test for mains rechargeable and battery-operated dosimeters were updated for modern devices"
+  },
+  {
+    "reference": "IEC 61675-1:2022",
+    "edition": "3.0",
+    "date": "2022-03-18",
+    "title": "Radionuclide imaging devices - Characteristics and test conditions - Part 1: Positron emission tomographs",
+    "language": "EN-FR",
+    "description": "IEC 61675-1:2022 specifies terminology and test methods for declaring the characteristics of POSITRON EMISSION TOMOGRAPHS. POSITRON EMISSION TOMOGRAPHS detect the ANNIHILATION RADIATION of positron emitting RADIONUCLIDES by COINCIDENCE DETECTION. IEC 61675-1:2022 cancels and replaces the second edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: requirements have been changed or newly created regarding the technical aspects of SPATIAL RESOLUTION, sensitivity measurement, SCATTER FRACTION, COUNT RATE performance, image quality, PET/CT registration accuracy and time-of-flight resolution."
+  },
+  {
+    "reference": "IEC 61675-2:2015",
+    "edition": "2.0",
+    "date": "2015-08-06",
+    "title": "Radionuclide imaging devices - Characteristics and test conditions - Part 2: Gamma cameras for planar, wholebody, and SPECT imaging",
+    "language": "EN-FR",
+    "description": "IEC 61675-2:2015 specifies terminology and test methods for describing the characteristics of gamma cameras equipped with parallel hole collimators for planar imaging. This second edition of IEC 61675-2 cancels and replaces the first edition published in 1998 and its Amendment 1 published in 2004, as well as IEC 60789:2005, IEC 60789:2005/COR1:2009, and IEC 61675-3:1998. It has been reformatted, updated, and partly aligned with NEMA NU 1-2007."
+  },
+  {
+    "reference": "IEC 61676:2023",
+    "edition": "2.0",
+    "date": "2023-03-21",
+    "title": "Medical electrical equipment - Dosimetric instruments used for non-invasive measurement of X-ray tube voltage in diagnostic radiology",
+    "language": "EN-FR",
+    "description": "IEC 61676:2023 specifies the performance requirements of instruments as used in the non-invasive measurement of X-RAY tube voltage up to 150 kV and the relevant compliance tests. This document also describes the method for calibration and gives guidance for estimating the uncertainty in measurements performed under conditions different from those during calibration. Applications for such measurement are found in diagnostic radiology including mammography, computed tomography (CT), dental radiology and radioscopy. This document is not concerned with the safety aspect of such instruments. The requirements for electrical safety applying to them are contained in IEC 61010-1. IEC 61676:2023 cancels and replaces first edition published in 2002, Amendment 1:2008. This edition constitutes a technical revision. It includes an assessment of the combined standard uncertainty for the performance of a hypothetical instrument for the non-invasive measurement of the tube high voltage (in Annex A) which replaces Annex A of the edition 1.1 titled \"Recommended performance criteria for the invasive divider\". The contents of the corrigendum of January 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61676:2023/COR1:2024",
+    "edition": "2.0",
+    "date": "2024-01-31",
+    "title": "Corrigendum 1 - Medical electrical equipment - Dosimetric instruments used for non-invasive measurement of X-ray tube voltage in diagnostic radiology",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61948-1:2016",
+    "edition": "2.0",
+    "date": "2016-03-24",
+    "title": "Nuclear medicine instrumentation - Routine tests - Part 1: Gamma radiation counting systems",
+    "language": "EN",
+    "description": "IEC TR 61948-1:2016(E), which is a technical report, describes test methods of instruments that count and measure the energy of photons emitted by radionuclides in vivo and in vitro without the option of imaging. This includes, for example, well counters and organ probes. Geiger-Mueller counters and dose calibrators are not within the scope of this document. This second edition cancels and replaces the first edition published in 2001. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TR 61948-2:2019",
+    "edition": "2.0",
+    "date": "2019-08-21",
+    "title": "Nuclear medicine instrumentation - Routine tests - Part 2: Scintillation cameras and single photon emission computed tomography imaging",
+    "language": "EN",
+    "description": "IEC TR 61948-2:2019 is valid for single photon scintillation cameras with parallel hole collimators used in planar scintigraphy and tomography. It is also valid for the SPECT portion of SPECT/CT systems with parallel hole collimators, including the co-registration between the SPECT and CT subsystems. The objective is to specify ROUTINE TESTS for QUALITY CONTROL. Methods for the ACCEPTANCE TEST are described in IEC 61675-2. IEC TR 61948-2:2019 cancels and replaces the first edition published in 2001. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) adaptation to apply to the present technology; b) updating of the test methods to comply with the recent state of the art."
+  },
+  {
+    "reference": "IEC TR 61948-3:2018",
+    "edition": "2.0",
+    "date": "2018-01-10",
+    "title": "Nuclear medicine instrumentation - Routine tests - Part 3: Positron emission tomographs",
+    "language": "EN",
+    "description": "IEC TR 61948-3:2018(E) describes test methods for Positron Emission Tomographs (PET). As part of quality control, this document is defining routine tests to be performed by the user of Positron Emission Tomographs to maintain proper operation conditions. The results of these routine tests are compared to the reference data determined during or after acceptance test. Methods used for acceptance tests are described in IEC 61675-1:2013. In addition, today a Positron Emission Tomograph often includes X-Ray equipment for Computed Tomography (CT). For this document, PET/CT hybrid devices are considered to be state of the art, dedicated Positron Emission Tomographs not including the X-ray component being special cases only. quality control tests specific to only the CT component of the PET/CT are described in IEC 61223-2-6. The CT scanner also is subject to a type test according to IEC 60601-1 and applicable collateral and particular standards. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) a clause to check routine performance tests has been added, b) a test to check the accuracy of co-registration of PET and CT images has been added, c) a test to check image quality has been added, d) the test to check pixel size has been removed."
+  },
+  {
+    "reference": "IEC 62083:2025",
+    "edition": "3.0",
+    "date": "2025-12-09",
+    "title": "Medical device software - Requirements for the safety of radiotherapy treatment planning systems",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62083:2025, with the inclusion of type tests and site tests, applies to the design, manufacture, installation, and maintenance of the radiotherapy treatment planning system. This document applies to the communication of the radiotherapy treatment planning system with other devices – used in medical practice, – that imports data either through input by the operator or from other devices, – that outputs data to other devices, and – that is intended to be - for normal use, under the authority of appropriately qualified persons, by operators having the required skills and training, - used and maintained in accordance with the recommendations given in the instructions for use, and – used within the environmental conditions specified in the technical description. This document applies to any software application that is used for the development, evaluation, or approval of a treatment plan, whether stand-alone or part of another system. IEC 62083:2025 cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: – modification of the title from Medical electrical system - Requirements for the safety of radiotherapy treatment planning systems, to Medical device software - Requirements for the safety of radiotherapy treatment planning systems; – Adaptive radiotherapy is added with Clause 16; – The title reflects different implementations of radiotherapy treatment planning systems."
+  },
+  {
+    "reference": "IEC 62274:2005",
+    "edition": "1.0",
+    "date": "2005-05-27",
+    "title": "Medical electrical equipment - Safety of radiotherapy record and verify systems",
+    "language": "EN-FR, ES",
+    "description": "Applies to the design and manufacture and some installation aspects of a record and verify system (RVS) for use in radiotherapy in human medical practice that a) provides, defines, or displays treatment machine set up data; imports data either through input by the operator or directly from other devices, b) may control the ability of that equipment to operate; c) records data of all treatment sessions; and d) is intended to be: 1) for normal use, under the authority of appropriately licensed or qualified persons, by operators having the required skills and training; 2) maintained in accordance with the recommendations given in the instructions for use; and 3) used within the environmental and electrical supply conditions specified in the technical description."
+  },
+  {
+    "reference": "IEC 62467-1:2009",
+    "edition": "1.0",
+    "date": "2009-06-09",
+    "title": "Medical electrical equipment - Dosimetric instruments as used in brachytherapy - Part 1: Instruments based on well-type ionization chambers",
+    "language": "EN-FR",
+    "description": "IEC 62467-1:2009 specifies the performance and some related constructional requirements of well-type ionization chambers and associated measurement apparatus, intended for the determination of a quantity, such as air kerma strength or reference air kerma rate in photon radiation fields or absorbed dose to water at a depth, in photon and beta radiation fields used in brachytherapy, after appropriate calibration for a given type of source. IEC 62467-1:2009 covers the techniques for the quantification of the quantity appropriate for the brachytherapy source under consideration. This quantity may be air kerma strength or reference air kerma rate at 1 m, or absorbed dose to water at a depth (e.g. 2 mm or 5 mm). Measurement of these quantities may be accomplished by a variety of well-type ionization chambers or systems currently available for this purpose. This standard applies to products intended for low dose rate, high dose rate, intravascular, both photon and beta, brachytherapy measurements. It does not apply to instruments for nuclear medicine applications. The application of the standard is limited to instruments that incorporate well-type ionization chambers as detectors. The intended use is the measurement of the output of radioactive, encapsulated sources for intracavitary (insertion into body cavities) or interstitial (insertion into body tissue) applications. The object of IEC 62467-1:2009 is a) to establish requirements for a satisfactory level of performance for well-type chamber systems, and b) to standardize the methods for the determination of compliance with this level of performance. IEC 62467-1:2009 is not concerned with the safety aspects of well-type chamber systems. The well-type chamber systems covered by this standard are not intended for use in patient environment. The electrical safety of well-type chamber systems is covered in IEC 61010-1. The operation of the electrometer measuring system is covered in IEC 60731."
+  },
+  {
+    "reference": "IEC 62667:2017",
+    "edition": "1.0",
+    "date": "2017-08-23",
+    "title": "Medical electrical equipment - Medical light ion beam equipment - Performance characteristics",
+    "language": "EN-FR",
+    "description": "IEC 62667:2017 applies to light ion beam ME equipment when used, for therapy purposes, in human medical practice. This document applies to light ion beam ME equipment which delivers light ion beams with an energy per nucleon in the range 10 MeV/n to 500 MeV/n. This document describes measurements and test procedures to be performed by the manufacturer of light ion beam ME equipment but does not specify acceptance tests. This document specifies test procedures for the determination and disclosure of performance characteristics, knowledge of which is necessary for proper selection, application, and use of light ion beam ME equipment and which are to be declared in the accompanying documentation together with the greatest deviation or variation to be expected under specific conditions in normal use. A format for presentation of performance values is given in Annex A."
+  },
+  {
+    "reference": "IEC TR 62926:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Medical electrical system - Guidelines for safe integration and operation of adaptive external-beam radiotherapy systems for real-time adaptive radiotherapy",
+    "language": "EN",
+    "description": "IEC TR 62926:2019 provides guidelines for safe integration and operation of an adaptive external-beam RADIOTHERAPY system (AEBRS) for intra-fractionally moving rigid TARGET VOLUMEs, where required equipment can be sourced from one or several MANUFACTURERs. In particular it addresses guidelines to help ensure safe integration and operation for the PATIENT, OPERATOR, other persons and sensitive devices in the vicinity. In this document, the word “system” is hereafter used to refer to an AEBRS. This document specifies the safety guidelines for a MANUFACTURER or RESPONSIBLE ORGANIZATION who integrates the AEBRS for intra-fractionally moving rigid TARGET VOLUMEs. If a RESPONSIBLE ORGANIZATION integrates an AEBRS, then it takes the role of MANUFACTURER and will be referred to as a MANUFACTURER throughout this document. This document includes reference models of the AEBRS for intra-fractionally moving rigid TARGET VOLUMEs and HAZARDs which, at a minimum, are considered during the RISK ANALYSIS. Although TARGET VOLUMES and OARs can deform during motion, adaptations in response to deformations of the TARGET VOLUME are out of the scope of this document. The scope is limited to rigid TARGET VOLUMEs exhibiting intra-fractional movements, both translational and rotational. While technical HAZARDs are discussed in this document, the RESPONSIBLE ORGANIZATION is reminded that clinical judgement is always employed when determining clinical usability and reviewing TREATMENT PARAMETER changes. This document does not specifically address HAZARD mitigations for each of the HAZARDs mentioned in the document; however, some mitigations are given as examples in Clauses 4 and 5. All guidelines in this document are intended to be implemented in accordance with the general standard IEC 60601-1:2005 and IEC 60601-1:2005/AMD1:2012, with special attention to 4.2 of IEC 60601-1:2005 and IEC 60601-1:2005/AMD1:2012."
+  },
+  {
+    "reference": "IEC 63073-1:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Dedicated radionuclide imaging devices - Characteristics and test conditions - Part 1: Cardiac SPECT",
+    "language": "EN-FR",
+    "description": "IEC 63073-1:2020 specifies terminology and test methods for describing the characteristics of SINGLE PHOTON EMISSION COMPUTED TOMOGRAPHY (SPECT) systems designed specifically for tomographic cardiac imaging. This includes dedicated systems or general purpose systems with dedicated sub-systems which are not included in the scope of IEC 61675-2."
+  },
+  {
+    "reference": "IEC TR 63183:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Guidance on error and warning messages for software used in radiotherapy",
+    "language": "EN",
+    "description": "IEC TR 63183:2019 provides guidance on the usage and form of error or warning messages written for software used in RADIOTHERAPY. It does not replace any requirements existing in the safety standards but is meant to be used as a supplement to existing standards on usability by providing specific examples in the field of RADIOTHERAPY. The two main goals of this document are 1) to present in a concise manner the best practices and design guidelines for good message dialogs, and 2) to illustrate these design guidelines with specific examples from the field of radiation oncology. This document is intended to be read by the following MANUFACTURERS’ employees and representatives: – engineering department members including: software engineers, RISK managers, quality assurance engineers, technical writers, etc.; – usability and human factors engineers; – marketing representatives (product marketing, product managers, business analysts). Throughout this document, unless specifically called out, these guidelines apply to all categories of messages summarily called error or warning messages (e.g. critical error, warning, system status, informational, routine interlock messages)."
+  },
+  {
+    "reference": "IEC 63322:2025",
+    "edition": "1.0",
+    "date": "2025-07-28",
+    "title": "Security of ME equipment containing high-activity sealed radioactive sources",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63322:2025 establishes security requirements of ME EQUIPMENT using high-activity SEALED RADIOACTIVE SOURCES, directly or indirectly, for medical treatment and other clinical procedures. ME EQUIPMENT containing SEALED RADIOACTIVE SOURCES that are defined as Category 1, 2 and 3 RADIOACTIVE SOURCES by IAEA are subject to this document. The object of this document is to specify requirements for the security of ME EQUIPMENT containing high-activity SEALED RADIOACTIVE SOURCES with the aim to minimize the risk of unauthorized access to the contained SEALED RADIOACTIVE SOURCES, and to serve as the basis for other standards. This document contains requirements for the MANUFACTURER of the ME EQUIPMENT and, separately, for the RESPONSIBLE ORGANIZATION regarding security at the location during use and storage. The requirements of this document apply when the SEALED RADIOACTIVE SOURCES are contained in the ME EQUIPMENT, i.e. from the time when the SEALED RADIOACTIVE SOURCES are inserted into the ME EQUIPMENT, during the INTENDED USE and when the ME EQUIPMENT is not being used for its INTENDED USE or taken out of regular use, until the equipment is being decommissioned, i.e. until all SEALED RADIOACTIVE SOURCES are permanently removed from the equipment."
+  },
+  {
+    "reference": "IEC 63465:2026",
+    "edition": "1.0",
+    "date": "2026-01-14",
+    "title": "Calibration and quality control in the use of radionuclide calibrators",
+    "language": "EN",
+    "description": "IEC 63465:2026 specifies the techniques for calibration and usage of pressurised, well-type ionisation chambers for activity measurements of radioactive sources. Such instruments are used to determine the activity, expressed in becquerel (Bq), of photon and some medium to high-energy beta-emitters. This document addresses calibration procedures of ionisation chambers and radionuclide calibrators to be used by equipment manufacturers, national metrology institutes and designated institutes, radionuclide producers, suppliers, distributors, and end users, like nuclear medicine facilities, industrial or hospital (radio)pharmacies, research laboratories, and nuclear power plants. This document provides the methods and tests for establishing conformity of device acceptability and maintaining acceptable instrument performance. Performance benchmarks vary depending on the application, so information is given specific to field class instruments for end users and reference class instruments for standards laboratories and instrument manufacturers. The ionisation chamber or radionuclide calibrator can be an instrument that is used as a standalone device, but it can also be integrated in a much larger appliance, such as a laminar air flow cabinet, a fume hood, a hot cell, or a dispensing unit. The instrument can also be equipped with accessories that are essential for the intended use of the appliance that surrounds and incorporates the radionuclide calibrator. The proper use of each of the accessories can be important for the correct use of the radionuclide calibrator and therefore is part of the scope of this document. The software and computer system(s) that can be used to control the radionuclide calibrator hardware and functioning are considered an integral part of the device and therefore are also considered part of the scope of this document. IEC 63465:2026 cancels and replaces IEC TR 61948-4:2019, IEC 61303:1994, IEC 61145:1992. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TR 61948-4:2019, IEC 61303:1994 and IEC 61145:1992: a) technical specifications and quality control procedures are updated to apply to modern instruments; b) test acceptance criteria are defined for reference class and field class devices; c) recommendations are given on recording and logging of test data, including the use of control charts; d) specific calibration guidance is included, including guidance for subsidiary calibrations with end-user-defined source geometries."
+  }
+]

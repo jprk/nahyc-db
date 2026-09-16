@@ -1,0 +1,66 @@
+[
+  {
+    "reference": "IEC 61204:1993",
+    "edition": "1.0",
+    "date": "1993-02-15",
+    "title": "Low-voltage power supply devices, d.c. output - Performance characteristics",
+    "language": "EN-FR, ES",
+    "description": "Describes a method of specifying requirements for low-voltage power supply devices (including switching types) providing d.c. output(s) up to 200 V d.c. at a power level up to 30 kW, operating from a.c. or d.c. source voltages of up to 600 V. The devices are for use within class I equipment or for free-standing operation when used with adequate electrical and mechanical protection, except for medical applications and toys, where special considerations apply."
+  },
+  {
+    "reference": "IEC 61204:1993/AMD1:2001",
+    "edition": "1.0",
+    "date": "2001-01-19",
+    "title": "Amendment 1 - Low-voltage power supply devices, d.c. output - Performance characteristics",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61204-3:2016",
+    "edition": "3.0",
+    "date": "2016-10-28",
+    "title": "Low-voltage switch mode power supplies - Part 3: Electromagnetic compatibility (EMC)",
+    "language": "EN-FR",
+    "description": "IEC 61204-3:2016 specifies the electromagnetic compatibility (EMC) requirements for switch mode power supply (SMPS) units supplied by source voltages up to 1 000 V AC or 1 500 V DC providing AC and/or DC output(s), except inverter output(s) establishing AC mains. This edition includes the following significant technical changes with respect to the previous edition: a) the title has been changed by deleting the wording \"DC output-\" from the title and adding \"switch mode\" in the title; b) changes in the scope: 1.1.1 Equipment covered by this document; c) update of the normative references to the latest editions or dated references; d) change of wording or/and notes regarding the requirements of CENELEC Guide 24 and IEC Guide 107; e) revision of the emission limits to align with the latest editions of the applicable normative references; f) revision of the immunity requirements to align with the latest editions of the applicable normative references; g) correction of typographical errors."
+  },
+  {
+    "reference": "IEC 61204-6:2000",
+    "edition": "1.0",
+    "date": "2000-11-15",
+    "title": "Low-voltage power supplies, d.c. output - Part 6: Requirements for low-voltage power supplies of assessed performance",
+    "language": "EN-FR, ES",
+    "description": "Applies to power supplies for general purpose applications."
+  },
+  {
+    "reference": "IEC 61204-7:2016",
+    "edition": "2.0",
+    "date": "2016-11-07",
+    "title": "Low-voltage switch mode power supplies - Part 7: Safety requirements",
+    "language": "EN-FR",
+    "description": "IEC 61204-7:2016 specifies the safety requirements for switch mode power supply (SMPS) units supplied by source voltages up to 1 000 V AC or 1 500 V DC providing AC and/or DC output(s), except inverter output(s) establishing AC mains. This product standard covers both stand-alone and component SMPS as defined in this document. DC power and distribution equipment which provides, distributes, monitors, and controls isolated secondary circuit power to other equipment typically used in information and communication technology equipment installations. This edition includes the following significant technical changes with respect to the previous edition: a) use of IEC 62477-1 as reference document, instead of IEC 60950-1; b) modification of the title by deleting the wording \"DC output-\" and adding \"switch mode\"."
+  },
+  {
+    "reference": "IEC 62909-1:2025",
+    "edition": "2.0",
+    "date": "2025-07-02",
+    "title": "Bi-directional grid-connected power converters - Part 1: General and safety requirements",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62909-1:2025 specifies general and safety aspects of bi-directional grid-connected power converters (GCPC), consisting of a grid-side inverter with two or more types of DC power ports on the application side with system voltages not exceeding 1 000 V AC or 1 500 V DC. This document can also be used for the special case of a multiple DC power port GCPC used in an application requiring only one DC power port. This document considers general aspects such as terminology, specifications, performance, system architecture, as well as safety requirements. This document does not cover: - uninterruptible power supply (UPS) systems, which fall under the scope of the IEC 62040 series, - power conversion equipment for use in photovoltaic systems, which fall under the scope of the IEC 62109 series, and - bi-directional power converters to charge or discharge the batteries located within electric vehicles or in the charging station, which fall under the scope of the IEC 61851 series. NOTE 1 The external system (e.g. energy management system, utility operations system) is not defined in this document. NOTE 2 The power converter sub-system case for use in electrical energy storage systems is currently covered by this document but will be covered by the IEC 63285 series (under preparation). NOTE 3 Annex A provides examples of GCPCs. These examples contain GCPCs covered and not covered by this document. This second edition includes the following significant technical changes with respect to the previous edition: a) the title has been changed by adding the wording \"and safety\"; b) the scope has been changed in order to clarify the bi-directional grid-connected power converters (GCPCs) covered by this document."
+  },
+  {
+    "reference": "IEC 62909-2:2019",
+    "edition": "1.0",
+    "date": "2019-03-08",
+    "title": "Bi-directional grid-connected power converters - Part 2: Interface of GCPC and distributed energy resources",
+    "language": "EN-FR",
+    "description": "IEC 62909-2:2019 specifies GCPC interface requirements for particular distributed energy resources, namely electric vehicle (EV), battery, and photovoltaic (PV) systems. These requirements are in addition to the general requirements given in IEC 62909-1. This International Standard is to be used in conjunction with IEC 62909-1:2017. The clauses of particular requirements in this document supplement or modify the corresponding clauses in IEC 62909-1:2017. Where the text of subsequent clauses indicates an \"addition\" to or a \"replacement\" of the relevant requirement, test specification or explanation of IEC 62909-1:2017, these changes are made to the relevant text of IEC 62909­1:2017. Where no change is necessary and the clause is applicable, the words \"The provisions of IEC 62909-1:2017, Clause XX shall apply\" are used. Additional clauses, tables, figures and notes which are not included in IEC 62909-1:2017, are numbered starting from 101."
+  },
+  {
+    "reference": "IEC 63497:2026",
+    "edition": "1.0",
+    "date": "2026-03-16",
+    "title": "Shunt-connected active correction devices (ACD)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63497:2026, which is a product standard, is intended to specify the EMC, performance and safety requirements of shunt-connected active correction devices (ACD) with rated system voltages not exceeding 1 000 V AC or 1 500 V DC. These devices can be either cord or permanently connected. They can be movable, stationary, or fixed devices. An ACD includes both a static VAR generator (SVG) and an active harmonic filter (AHF). The primary function of a shunt connected ACD is to do one or more of the following: - active harmonic filtering; - reactive power compensation; - unbalanced load compensation. Additional functions of a shunt-connected ACD, not addressed by this document, can be the following: - flicker compensation; - interharmonic component filtering. In case of hybrid devices, combining a passive harmonic filter and an ACD, this document covers only the active part. This document does not cover - active mitigation functions part of another device (variable speed drive, uninterruptible power supply, dynamic voltage restorer, etc.), - switched power capacitors, - switched inductors, - passive harmonic filters, - energy storage converters, and - series-connected active correction devices."
+  }
+]

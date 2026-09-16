@@ -1,0 +1,170 @@
+[
+  {
+    "reference": "IEC TS 61973:2012",
+    "edition": "1.0",
+    "date": "2012-04-05",
+    "title": "High voltage direct current (HVDC) substation audible noise",
+    "language": "EN",
+    "description": "IEC/TS 61973:2012(E) applies to the specification and evaluation of outdoor audible noise from high voltage direct current (HVDC) substations. It is intended to be primarily for the use of the utilities and consultants who are responsible for issuing technical specifications for new HVDC projects with and evaluating designs proposed by prospective contractors. It is primarily intended for HVDC projects with line-commutated converters. Part of this technical specification can also be used for the same purpose for HVDC projects using voltage sourced converters, and for flexible a.c. transmission systems (FACTS) devices such as static Var compensators (SVCs) and static synchronous compensators (STATCOMs)."
+  },
+  {
+    "reference": "IEC TS 61973:2012/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-05-09",
+    "title": "Amendment 1 - High voltage direct current (HVDC) substation audible noise",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62344:2022",
+    "edition": "2.0",
+    "date": "2022-05-16",
+    "title": "Design of earth electrode stations for high-voltage direct current (HVDC) links - General guidelines",
+    "language": "EN",
+    "description": "IEC TS 62344:2022 applies to the design of earth electrode stations for high-voltage direct current (HVDC) links. It is intended to provide necessary guidelines, limits, and precautions to be followed during the design of earth electrodes to ensure safety of personnel and earth electrodes, and reduce any significant impacts on DC power transmission systems and the surrounding environment. This edition includes the following significant technical changes with respect to the previous edition: - Changed the requirement of earthing resistance limit for short-time unipolar earth system in 5.1.3. - Corrected the coefficient before ρs from 0,015 9 to 0,008 in touch voltage limit calculation formula (3) in 5.1.5. - Deleted the analytical calculation formulas of earthing resistance for sea and shore electrodes in 6.1.3. - Changed the current density limit from 100 A/m2 to 40 A/m2 ~ 50 A/m2 for the sea electrodes that are not accessible to human beings or to marine fauna in 6.1.7. - Extended some detailed technical requirements for the measurement of ground/water soil parameters in 6.2.5. - Reformulated the types and characteristics of electrode element material for sea and shore electrodes in 6.3.2. - Added an informative Annex B: Earth electrode design process. - Added an informative Annex C: Test results of human body resistance. - Deleted the formula for calculating the average soil resistivity using harmonic mean when processing the measurement data in D.2.6 of Annex D. - Extended some detailed technical requirements of electrode online monitoring system in Annex H. - CIGRE 675:2017 is added to the bibliography. - Terminology and way of expressions are modified using more commonly used terms in the HVDC electrode design industries and English-speaking countries, so as to make the readers understand the content more easily."
+  },
+  {
+    "reference": "IEC TR 62672:2018",
+    "edition": "1.0",
+    "date": "2018-09-26",
+    "title": "Reliability and availability evaluation of HVDC systems",
+    "language": "EN",
+    "description": "IEC TR 62672:2018(E) applies to all line-commutated and voltage-sourced high-voltage direct current (HVDC) transmission systems used for power exchange in utility systems. The purpose of this document is to define a standardized reporting protocol so that data collected from different HVDC transmission systems can be compared on an equitable basis. This document covers point-to-point transmission systems, back-to-back interconnections and multi-terminal transmission systems."
+  },
+  {
+    "reference": "IEC TR 62681:2022",
+    "edition": "2.0",
+    "date": "2022-05-25",
+    "title": "Electromagnetic performance of high voltage direct current (HVDC) overhead transmission lines",
+    "language": "EN",
+    "description": "IEC TR 62681:2022 provides general guidance on the electromagnetic environment issues of HVDC overhead transmission lines. It concerns the major parameters adopted to describe the electromagnetic properties of an HVDC overhead transmission line, including electric fields, ion current, magnetic fields, radio interference, and audible noise generated as a consequence of such effects. If the evaluation method and/or criteria of electromagnetic properties are not yet regulated, engineers in different countries can refer to this document to: - support/guide the electromagnetic design of HVDC overhead transmission lines, - limit the influence on the environment within acceptable ranges, and - optimize engineering costs."
+  },
+  {
+    "reference": "IEC TR 62978:2017",
+    "edition": "1.0",
+    "date": "2017-09-28",
+    "title": "HVDC installations - Guidelines on asset management",
+    "language": "EN",
+    "description": "IEC TR 62978:2017(E) gives guidelines on the current asset management perspectives for HVDC installations based on best practices of asset owners, operators, users, original equipment manufacturers and regulators within the power industry. This document covers HVDC systems with Line-Commutated Converters (LCC) and can be generally applied to Voltage Sourced Converters (VSC), not including specific equipment or sub-equipment required under VSC. This document provides base guidelines on fundamental aspects and prudent practices to be considered by stake holders in managing HVDC assets. Compliance to additional requirements and recommendations stipulated in this document by the supplier or OEM are non-obligatory, unless explicitly specified by the customer."
+  },
+  {
+    "reference": "IEC TS 63014-1:2018",
+    "edition": "1.0",
+    "date": "2018-03-08",
+    "title": "High voltage direct current (HVDC) power transmission - System requirements for DC-side equipment - Part 1: Using line-commutated converters",
+    "language": "EN",
+    "description": "IEC TS 63014-1:2018(E) is intended to provide an overall and consistent set of guidelines to facilitate the specification of equipment for the DC-side of a high-voltage direct current (HVDC) system using line-commutated converters. For point-to-point HVDC transmission systems, this document covers all DC-side equipment located between the converter valves and the DC overhead line or cable termination, excluding the converter valves themselves. For back-to-back HVDC systems, this document covers all DC-side equipment excluding the converter valves themselves."
+  },
+  {
+    "reference": "IEC TR 63065:2017",
+    "edition": "1.0",
+    "date": "2017-09-15",
+    "title": "Guidelines for operation and maintenance of line commutated converter (LCC) HVDC converter station",
+    "language": "EN",
+    "description": "IEC TR 63065:2017(E) provides general guidance on basic principles and general proposals for the safe and economic operation and maintenance of an LCC converter station. These guidelines are based on the operation and maintenance practices that have been used successfully during the last decades at HVDC converter stations all over the world, and can be referred to by new HVDC users to optimize operation and maintenance policy and assist in performing the operation and maintenance work. This document focuses only on the operation and maintenance of the equipment inside an LCC converter station, including back-to-back HVDC systems. The operation and maintenance of HVDC overhead transmission lines, HVDC cables and voltage sourced converter (VSC) are not covered by this document."
+  },
+  {
+    "reference": "IEC TR 63065:2017/AMD1:2022",
+    "edition": "1.0",
+    "date": "2022-06-03",
+    "title": "Amendment 1 - Guidelines for operation and maintenance of line commutated converter (LCC) HVDC converter station",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63127:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Guideline for the system design of HVDC converter stations with line-commutated converters",
+    "language": "EN",
+    "description": "IEC TR 63127:2019(E) focuses on the system design of converter stations. It is applicable to point-­to-­point and back-to-back HVDC systems based on line-commutated converter (LCC) technology. This document provides guidance and supporting information on the procedure for system design and the technical issues involved in the system design of HVDC transmission projects for both purchaser and potential suppliers. It can be used as the basis for drafting a procurement specification and as a guide during project implementation."
+  },
+  {
+    "reference": "IEC TR 63127:2019/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-04-11",
+    "title": "Amendment 1 - Guideline for the system design of HVDC converter stations with line-commutated converters",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63179:2026",
+    "edition": "1.0",
+    "date": "2026-01-14",
+    "title": "Planning of HVDC systems",
+    "language": "EN",
+    "description": "IEC TR 63179:2026, which is a Technical Report, provides technical information for planning high-voltage direct current (HVDC) systems with line-commutated converters (LCC), voltage sourced converters (VSC), or both. It provides general principles for deciding between HVDC and AC transmission systems, as well as processes and methods for preliminarily defining the HVDC transmission scheme, including selection of converter type and key parameters, grid stability analysis, and technical-economic comparison among various solutions. In addition, this document gives the objectives to be achieved in the planning phase. This document is applicable for planning a point-to-point or a back-to-back HVDC system. This document can also be used for DC grid systems (including multi-terminal HVDC systems) as a reference. This document is not exhaustive. It is possible that there are other specific aspects, that are particularly important for a specific HVDC project."
+  },
+  {
+    "reference": "IEC TR 63179-1:2020",
+    "edition": "1.0",
+    "date": "2020-04-21",
+    "title": "Guideline for planning of HVDC systems - Part 1: HVDC systems with line-commutated converters",
+    "language": "EN",
+    "description": "IEC TR 63179-1:2020 (E) provides guidelines for the selection of a high-voltage directive current (HVDC) system with line-commutated converters (LCC), hereafter referred to as HVDC system, for the purposes of HVDC system planning. It covers the guidelines on the requirements for integrating HVDC systems in AC power networks, selection of rated voltage and power, overloads, circuit configuration, expandability, comparison of technical, economic, regulatory, political, social and environmental factors, etc. This document is applicable for planning an HVDC system. This guideline is not exhaustive and it is possible that there will be other specific aspects, particular to a specific HVDC project, which will also need to be considered."
+  },
+  {
+    "reference": "IEC TS 63291-1:2023",
+    "edition": "1.0",
+    "date": "2023-09-29",
+    "title": "High voltage direct current (HVDC) grid systems and connected converter stations - Guideline and parameter lists for functional specifications - Part 1: Guideline",
+    "language": "EN",
+    "description": "IEC TS 63291-1:2023 contains guidelines on planning, specification, and execution of multi-vendor HVDC grid systems also referred to as HVDC grids. The terms \"HVDC grid systems\" or \"HVDC grids\" are used in this document to describe HVDC systems for power transmission having more than two HVDC stations connected to a common DC circuit. The DC circuit can be of radial or meshed topology or a combination thereof. In this document, the term \"HVDC grids\" is used. While this document focuses on requirements specific for HVDC grids, some requirements are considered applicable to all HVDC systems in general, i.e., including point‑to‑point HVDC systems. Existing IEC (e.g. IEC TR 63363-1 [1]), Cigre or other relevant documents have been used for reference as far as possible. Corresponding to electric power transmission applications, this document is applicable to high voltage systems, i.e. those having typically nominal DC voltages higher than 50 kV with respect to earth are considered in this document. NOTE While the physical principles of DC networks are basically voltage independent, the technical options for designing equipment get much wider with lower DC voltage levels, e.g. in case of converters or switchgear. This document covers technical aspects of: - coordination of HVDC grid and AC systems, - HVDC grid characteristics, - HVDC grid control, - HVDC grid protection, - AC/DC converter stations, - HVDC grid installations, including DC switching stations and HVDC transmission lines, - studies and associated models, - testing. Beyond the scope of this document, the following content is proposed for future work: DC/DC converter stations."
+  },
+  {
+    "reference": "IEC TS 63291-2:2023",
+    "edition": "1.0",
+    "date": "2023-09-29",
+    "title": "High voltage direct current (HVDC) grid systems and connected converter stations - Guideline and parameter lists for functional specifications - Part 2: Parameter lists",
+    "language": "EN",
+    "description": "IEC TS 63291-2:2023 defines aspects on planning, specification, and execution of multi-vendor HVDC grid systems also referred to as HVDC grids. The terms \"HVDC grid systems\" or \"HVDC grids\" are used in this document to describe HVDC systems for power transmission having more than two HVDC stations connected to a common DC circuit. The DC circuit can be of radial or meshed topology or a combination thereof. In this document, the term \"HVDC grids\" is used. While this document focuses on requirements specific for HVDC grids, some requirements are considered applicable to all HVDC systems in general, i.e., including point-to-point HVDC systems. Existing IEC (e.g., IEC TR 63363-1 [1]), Cigre or other relevant documents have been used for reference as far as possible. Corresponding to electric power transmission applications, this document is applicable to high voltage systems, i.e., those having typically nominal DC voltages higher than 50 kV with respect to earth are considered in this document. NOTE While the physical principles of DC networks are basically voltage independent, the technical options for designing equipment get much wider with lower DC voltage levels, e.g. in the case of converters or switchgear. This document covers technical aspects of: - coordination of HVDC grid and AC systems, - HVDC grid characteristics, - HVDC grid control, - HVDC grid protection, - AC/DC converter stations, - HVDC grid installations, including DC switching stations and HVDC transmission lines, - studies and associated models, - testing. Beyond the scope of this document, the following content is proposed for future work: DC/DC converter stations."
+  },
+  {
+    "reference": "IEC TS 63336:2024",
+    "edition": "1.0",
+    "date": "2024-07-16",
+    "title": "Commissioning of VSC HVDC systems",
+    "language": "EN",
+    "description": "IEC TS 63336:2024, which is a technical specification, applies to the commissioning of voltage-sourced converter (VSC) high voltage direct current (HVDC) systems which consist of two converter stations and the connecting HVDC transmission line. The tests are generally applied to all HVDC configurations and could require addition or deletion to match the given solution. This document provides guidance on the planning of commissioning activities. The commissioning described in this document is implemented through on-site testing on the whole system functionality, including testing on the subsystem and system. This document provides the scope, procedures and acceptance criteria of the tests. Factory system tests, on-site equipment tests, electrode tests, and trial operation are not included in this document."
+  },
+  {
+    "reference": "IEC TR 63363-1:2022",
+    "edition": "1.0",
+    "date": "2022-05-30",
+    "title": "Performance of voltage sourced converter (VSC) based high-voltage direct current (HVDC) transmission - Part 1: Steady-state conditions",
+    "language": "EN",
+    "description": "IEC TR 63363-1:2022(E) is to present the \"state of the art\" with respect to general guidance on the steady-state performance demands of VSC HVDC transmission systems. It concerns the steady-state performance of two-terminal VSC HVDC transmission systems utilizing converters with power flow capability in both directions. Different configurations of a VSC HVDC transmission system are covered in this document, including the symmetrical monopolar, asymmetrical monopolar, bipolar with earth return, bipolar with dedicated metallic return and rigid bipolar configurations. There are many variations between different VSC HVDC transmission systems. This document does not consider these in detail; consequently, it cannot be used directly as a specification for a particular project, but rather to provide the general basis for the system steady-state performance demands. Normally, the performance specifications are based on a complete system including two VSC HVDC converter stations. However, sometimes a VSC HVDC transmission system can also be separately specified and purchased from multiple vendors instead of single turnkey vendor. In such cases, due consideration can be given to the coordination of each part with the overall VSC HVDC system performance objectives and the interface of each with the system can be clearly defined. The major components of the VSC HVDC transmission system are presented in IEC 62747. Referring to IEC 62747, an HVDC substation/converter station is defined as that part of the VSC HVDC transmission system which consists of one or more VSC converter units installed in a single location together with buildings, reactors, filters, reactive power supply, control, monitoring, protective, measuring and auxiliary equipment. The AC substations are not covered in this document. This document provides guidance and supporting information on the procedure for system design and the technical issues involved in the system design of VSC HVDC transmission projects for both owners and contractors. This document can be used as the basis for drafting a procurement specification and as a guide during project implementation."
+  },
+  {
+    "reference": "IEC TR 63463:2024",
+    "edition": "1.0",
+    "date": "2024-01-09",
+    "title": "Life extension guidelines for HVDC converter stations",
+    "language": "EN",
+    "description": "IEC TR 63463:2024 provides guidelines for the general procedure for performing life assessment for an HVDC converter station. Following this, a more detailed description of performance issues of the thyristor based HVDC systems is given and the life assessment measures of equipment and guidelines for accessing the techno-economic life of equipment are given. This document also deals with information for specification of refurbishing HVDC system and the testing of the refurbished and replaced equipment. Lastly, this document outlines environmental issues and regulatory issues involved in the life assessment and concludes with a financial analysis of the refurbishment options."
+  },
+  {
+    "reference": "IEC TS 63471:2023",
+    "edition": "1.0",
+    "date": "2023-12-14",
+    "title": "DC voltages for HVDC grids",
+    "language": "EN",
+    "description": "IEC TS 63471:2023 provides a recommended DC voltage series for HVDC grids with a DC voltage above 1,5 kV. It concerns the selection of a nominal DC voltage of multi-terminal HVDC power transmission and distribution systems and meshed HVDC networks, grids, rather than a rated DC voltage or highest DC voltage. There is no stringent requirement to consider this DC voltage series for the DC voltage selection for any stand-alone (not forming part of DC Grid) HVDC projects, e.g. a point-to-point HVDC power transmission and distribution system. However, in order to facilitate the later progression towards larger HVDC systems in the future the use of standardized DC voltages is very useful. At later stages, with multi-terminal systems and meshed HVDC grids, the use of harmonized voltages will indeed become essential in order to optimize both capital and operational costs. Also, for entirely new projects, system planning should include this outlook and can benefit from the use of the recommended DC voltage series."
+  },
+  {
+    "reference": "IEC TR 63502:2024",
+    "edition": "1.0",
+    "date": "2024-12-10",
+    "title": "Guidelines for parameters measurement of HVDC transmission line",
+    "language": "EN",
+    "description": "IEC TR 63502:2024, which is a Technical Report, gives information relevant to the on-site HVDC transmission line parameter measurement. HVDC transmission line can be overhead lines, land or submarine cables, or hybrid lines with overhead line section(s) and cable section(s) (or any combination of these). This document introduces measurement specification, including measurement conditions, safety precautions, measurement instrument, measurement methods, etc., in order to measure the parameters of HVDC overhead transmission line and cable with a DC voltage level above 100 kV. This document is also relevant to line parameter measurement of earth electrode lines in HVDC power transmission systems."
+  },
+  {
+    "reference": "IEC TS 63529:2026",
+    "edition": "1.0",
+    "date": "2026-04-14",
+    "title": "DC side harmonics & filtering in HVDC transmission systems",
+    "language": "EN",
+    "description": "IEC TS 63529:2026, which is a Technical Specification, is intended to inform and guide the harmonic design of the DC side of HVDC projects. It considers all aspects of AC current and voltage occurring on the DC circuit and also the interaction with adjacent systems. The switching action in HVDC converters results in a wide spectrum of harmonics. These range from the fundamental frequency to the radio frequency range. Traditionally the specification of DC side harmonic performance has been limited to the frequency range of interest for induced audible noise on nearby telephone systems. Often a limit of 50th harmonic has been applied, corresponding to 2 500 Hz or 3 000 Hz on 50 Hz and 60 Hz systems respectively. Occasionally the range has been extended to 5 000 Hz. This frequency range has corresponded to the spectrum of characteristic harmonic generation from thyristor line commutated converters (LCC). The introduction of HVDC voltage sourced converters (VSC) has meant that although the magnitude of DC side harmonic generation from these converters is generally lower, the generated spectrum of interest extends to higher frequencies. The scope of this document therefore covers the frequency range up to approximately 5 000 Hz. Higher frequencies are mentioned only when relevant. The scope excludes the much higher frequency ranges appropriate to PLC communication and the radio interference spectra."
+  }
+]

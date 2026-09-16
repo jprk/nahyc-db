@@ -1,0 +1,562 @@
+[
+  {
+    "reference": "IEC TR 62051:1999",
+    "edition": "1.0",
+    "date": "1999-04-23",
+    "title": "Electricity metering - Glossary of terms",
+    "language": "EN, ES",
+    "description": "This technical report provides definitions of terms used in present and future standards on electrical energy measurement, prepared by IEC TC 13. These terms cover electrical energy measurement, tariff and load control, and customer/utility information exchange systems. The report includes terms on Distribution Automation Systems not covered by IEC 60050(371). The report also covers terms on customer/utility information exchange, electricity prepayment systems, and dependablility of electricity metering equipment. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC TR 62051-1:2004",
+    "edition": "1.0",
+    "date": "2004-01-12",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control -  Glossary of terms - Part 1: Terms related to data exchange with metering equipment using DLMS/COSEM",
+    "language": "EN",
+    "description": "Reflects the most important terms used in International Standards after the publication of IEC 62051 in 1999. The new terms are mainly related to data exchange with metering equipment for meter reading, tariff and load control using DLMS/COSEM as specified in the IEC 62056 series of standards. The contents of the corrigendum of June 2006 have been included in this copy. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC TR 62051-1:2004/COR1:2005",
+    "edition": "1.0",
+    "date": "2005-06-13",
+    "title": "Corrigendum 1 - Electricity metering - Data exchange for meter reading, tariff and load control -  Glossary of terms - Part 1: Terms related to data exchange with metering equipment using DLMS/COSEM",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62052-11:2020",
+    "edition": "2.0",
+    "date": "2020-06-29",
+    "title": "Electricity metering equipment - General requirements, tests and test conditions - Part 11: Metering equipment",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62052-11:2020 specifies requirements and associated tests, with their appropriate conditions for type testing of AC and DC electricity meters. This document details functional, mechanical, electrical and marking requirements, test methods, and test conditions, including immunity to external influences covering electromagnetic and climatic environments. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC, or 1 500 V DC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated displays (electromechanical or static meters); • operate with detached indicating displays, or without an indicating display (static meters only); • be installed in a specified matching sockets or racks; • optionally, provide additional functions other than those for measurement of electrical energy. Meters designed for operation with Low Power Instrument Transformers (LPITs as defined in the IEC 61869 series) may be tested for compliance with this document and the relevant IEC 62053 series documents only if such meters and their LPITs are tested together as directly connected meters. This document is also applicable to auxiliary input and output circuits, operation indicators, and test outputs of equipment for electrical energy measurement. This document also covers the common aspects of accuracy testing such as reference conditions, repeatability and measurement of uncertainty. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC, or 1 500 V DC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series of standards) when tested without such transformers; • metering systems comprising multiple devices (except of LPITs) physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering). This second edition cancels and replaces the first edition published in 2003, and its amendment 1:2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Removed all meter safety requirements; the meter safety requirements are covered in IEC 62052-31:2015; b) Included requirements for meter power consumption and voltage requirements from IEC 62053-61; IEC 62053-61 is withdrawn; c) Included requirements for meter symbols from IEC 62053-52; IEC 62053-52 is withdrawn; d) Included requirements for meter pulse output devices from IEC 62053-31; IEC 62053-31 is withdrawn; e) Added new requirements and tests including: meters with detached indicating displays, and meters without indicating displays, meter sealing provisions; measurement uncertainty and repeatability; time-keeping accuracy; type test report f) Updated and clarified acceptance criteria for testing of external influences; g) Revised and updated tests for immunity to electromagnetic influences and disturbances as per the latest editions of the basic EMC publications."
+  },
+  {
+    "reference": "IEC 62052-21:2004",
+    "edition": "1.0",
+    "date": "2004-05-18",
+    "title": "Electricity metering equipment (a.c.) - General requirements, tests and test conditions - Part 21: Tariff and load control equipment",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62052-21:2004 specifies general requirements for the type test of newly manufactured indoor tariff and load control equipment, like electronic ripple control receivers and time switches that are used to control electrical loads, multi-tariff registers and maximum demand indicator devices. This bilingual version (2016-07) corresponds to monolingual version published in 2004-05."
+  },
+  {
+    "reference": "IEC 62052-21:2004/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-11-23",
+    "title": "Amendment 1 - Electricity metering equipment (a.c.) - General requirements, tests and test conditions - Part 21: Tariff and load control equipment",
+    "language": "EN-FR, ES",
+    "description": "The contents of the corrigendum of March 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62052-21:2004/AMD1:2016/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-03-19",
+    "title": "Corrigendum 1 - Amendment 1 - Electricity metering equipment (A.C.) - General requirements, tests and test conditions - Part 21: Tariff and load control equipment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62052-31:2024",
+    "edition": "2.0",
+    "date": "2024-10-25",
+    "title": "Electricity metering equipment - General requirements, tests and test conditions - Part 31: Product safety requirements and tests",
+    "language": "EN-FR",
+    "description": "IEC 62052-31:2024 specifies general safety requirements and associated tests, with their appropriate conditions for type testing of directly connected, transformer-operated or transducer-operated AC and DC electricity meters and load control equipment. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC, or 1 500 V DC; • have all functional elements, including add-on communication modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated displays (electromechanical or static meters); • operate with detached indicating displays, or without an indicating display (static meters only); • wall-mounted or to be installed in specified matching sockets or racks; • optionally, provide additional functions other than those for measurement of electrical energy. This document also applies to transducer-operated meters or meters designed for operation with Low Power Instrument Transformers (LPIT) or sensors (as defined in the IEC 61869 series). When equipment in scope of this document is designed to be installed in a specified matching socket, then the requirements apply to, and the tests are performed on, equipment installed in its specified matching socket. However, requirements for sockets and inserting / removing the meters from the socket are outside the scope of this document. This document is also applicable to auxiliary input and output circuits, operation indicators, and test outputs of equipment for electrical energy measurement. Equipment used in conjunction with equipment for electrical energy measurement and control may need to comply with additional safety requirements. See also Clause 13. This document does not apply to: • meters rated to operate with voltage exceeding 1 000 V AC, or 1 500 V DC; • metering systems comprising multiple devices physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and mobile meter test equipment; • reference standard meters; • conventional or low power instrument transformers; • equipment with solid-state or other non-electromechanical supply and load control switches. The safety requirements of this document are based on the following assumptions: • metering equipment has been installed correctly; • metering equipment is used generally by ordinary persons, including meter readers and consumers of electrical energy. In many cases, it is installed in a way that it is freely accessible. Its terminal covers cannot be removed, and its case cannot be opened without removing seals (if present) and using a tool; • during normal use all terminal covers, covers and barriers providing protection against accessing hazardous live parts are in place; • for installation, configuration, maintenance and repair it may be necessary to remove terminal cover(s), (a part of) the case or barriers so that hazardous live parts may become accessible. Such activities are performed by skilled persons, who have been suitably trained to be aware of working procedures necessary to ensure safety. Therefore, safety requirements covering these conditions are out of the Scope of this document. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. Please see the foreword of IEC 62052-31 for more details"
+  },
+  {
+    "reference": "IEC 62052-41:2022",
+    "edition": "1.0",
+    "date": "2022-10-28",
+    "title": "Electricity metering equipment - General requirements, tests and test conditions - Part 41: Energy registration methods and requirements for multi-energy and multi-rate meters",
+    "language": "EN-FR",
+    "description": "IEC 62052-41:2022 applies only to newly manufactured multi-energy and/or multi-rate static meters and it applies to their type tests only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on networks with voltage up to 1 000 V AC, or 1 500 V DC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated displays; • operate with detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. Meters designed for operation with Low Power Instrument Transformers (LPITs as defined in the IEC 61869 series) may be tested for compliance with this document and the relevant IEC 62053 series documents only if such meters and their LPITs are tested together as directly connected meters. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC, or 1 500 V DC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series of standards) when tested without such transformers; • metering systems comprising multiple devices (except for LPITs) physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering)."
+  },
+  {
+    "reference": "IEC 62053-11:2003",
+    "edition": "1.0",
+    "date": "2003-01-28",
+    "title": "Electricity metering equipment (a.c.) - Particular requirements - Part 11: Electromechanical meters for active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62053-11:2003 Applies only to newly manufactured electromechanical watt-hour meters of accuracy classes 0,5, 1 and 2, for the measurement of alternating current electrical active energy in 50 Hz or 60 Hz networks and it applies to their type tests only. It applies only to electromechanical watt-hour meters for indoor and outdoor application consisting of a measuring element and register(s) enclosed together in a meter case. It also applies to operation indicator(s) and test output(s). This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62053-11:2003/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-11-18",
+    "title": "Amendment 1 - Electricity metering equipment (a.c.) - Particular requirements - Part 11: Electromechanical meters for active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR, ES",
+    "description": "The contents of the corrigendum of March 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62053-11:2003/AMD1:2016/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-03-19",
+    "title": "Corrigendum 1 - Amendment 1 - Electricity metering equipment (A.C.) - Particular requirements - Part 11: Electromechanical meters for active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62053-21:2020",
+    "edition": "2.0",
+    "date": "2020-06-17",
+    "title": "Electricity metering equipment - Particular requirements - Part 21: Static meters for AC active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR",
+    "description": "IEC 62053-21:2020 applies only to static watt-hour meters of accuracy classes 0,5, 1 and 2 for the measurement of alternating current electrical active energy in 50 Hz or 60 Hz networks and it applies to their type tests only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated or detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. Meters designed for operation with low power instrument transformers (LPITs as defined in the IEC 61869 series) may be tested for compliance with this document only if such meters and their LPITs are tested together and meet the requirements for directly connected meters. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series) when tested without such transformers; • metering systems comprising multiple devices (except LPITs) physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering). This second edition cancels and replaces the first edition published in 2003 and its amendment 1:2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Removed all meter safety requirements; the meter safety requirements are covered in IEC 62052-31: 2015. b) Replaced Ib with In; Ib is no longer used when referencing directly connected meters. c) Moved the descriptions of all general requirements and test methods from IEC 62053-21: 2003, IEC 62053-22: 2003, IEC 62053-23: 2003, IEC 62053-24: 2003 to IEC 62052-11:2020; IEC 62053-21:2020, IEC 62053-22:2020, IEC 62053-23:2020, IEC 62053-24:2020 contain only accuracy class specific requirements. d) Added new requirements and tests concerning: 1) measurement uncertainty and repeatability (7.3, 7.8); 2) influence of fast load current variations (9.4.12); 3) immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8). e) Meters designed for operation with low power instrument transformers (LPITs) may be tested for compliance with this document as directly connected meters."
+  },
+  {
+    "reference": "IEC 62053-22:2020",
+    "edition": "2.0",
+    "date": "2020-06-17",
+    "title": "Electricity metering equipment - Particular requirements - Part 22: Static meters for AC active energy (classes 0,1S, 0,2S and 0,5S)",
+    "language": "EN-FR",
+    "description": "IEC 62053-22:2020 applies only to transformer operated static watt-hour meters of accuracy classes 0,1 S, 0,2 S and 0,5 S for the measurement of alternating current electrical active energy in 50 Hz or 60 Hz networks and it applies to their type tests only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated or detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series) when tested without such transformers; • metering systems comprising multiple devices physically remote from one another. • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering) This second edition cancels and replaces the first edition published in 2003 and its amendment 1: 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Removed all meter safety requirements; the meter safety requirements are covered in IEC 62052-31: 2015. b) Moved the descriptions of all general requirements and test methods from IEC 62053-21: 2003, IEC 62053-22: 2003, IEC 62053-23: 2003, IEC 62053-24: 2003 to IEC 62052-11:2020; IEC 62053-21:2020, IEC 62053-22:2020, IEC 62053-23:2020, IEC 62053-24:2020 contain only accuracy class specific requirements. c) Added new requirements and tests concerning: 1) active energy meters of accuracy class 0,1S; 2) measurement uncertainty and repeatability (7.3, 7.8); 3) influence of fast load current variations (9.4.12); 4) immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8)"
+  },
+  {
+    "reference": "IEC 62053-23:2020",
+    "edition": "2.0",
+    "date": "2020-06-17",
+    "title": "Electricity metering equipment - Particular requirements - Part 23: Static meters for reactive energy (classes 2 and 3)",
+    "language": "EN-FR",
+    "description": "IEC 62053-23:2020 applies only to static var-hour meters of accuracy classes 2 and 3 for the measurement of alternating current electrical reactive energy in 50 Hz or 60 Hz networks and it applies to their type tests only. For practical reasons, this document is based on a conventional definition of reactive energy for sinusoidal currents and voltages containing the fundamental frequency only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated or detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. Meters designed for operation with low power instrument transformers (LPITs as defined in the IEC 61869 series) may be considered as compliant with this document only if such meters and their LPITs are tested together and meet the requirements for directly connected meters. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series) when tested without such transformers; • metering systems comprising multiple devices (except LPITs) physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering). This second edition cancels and replaces the first edition published in 2003 and its amendment 1:2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Removed all meter safety requirements; the meter safety requirements are covered in IEC 62052-31:2015. b) Replaced Ib with In; Ib is no longer used when referencing directly connected meters. c) Moved the descriptions of all general requirements and test methods from IEC 62053-21: 2003, IEC 62053-22: 2003, IEC 62053-23: 2003, IEC 62053-24: 2003 to IEC 62052-11:2020; IEC 62053-21:2020, IEC 62053-22:2020, IEC 62053-23:2020, IEC 62053-24:2020 contain only accuracy class specific requirements. d) Added new requirements and tests concerning: 1) measurement uncertainty and repeatability (7.3, 7.8); 2) influence of fast load current variations (9.4.12); 3) immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8). e) Meters designed for operation with low power instrument transformers (LPITs) may be tested for compliance with this document as directly connected meters. The reactive energy accuracy classes 2 and 3 defined in IEC 62053-23 have also been added to IEC 62053-24. The TC13 WG11 is of the opinion that the testing methodology described in IEC 62053-24 is a better approach to testing of modern reactive energy meters. Consequently, IEC 62053-23 will be withdrawn in the near future, and should not be used for new meter designs."
+  },
+  {
+    "reference": "IEC 62053-24:2020",
+    "edition": "2.0",
+    "date": "2020-06-17",
+    "title": "Electricity metering equipment - Particular requirements - Part 24: Static meters for fundamental component reactive energy (classes 0,5S, 1S, 1, 2 and 3)",
+    "language": "EN-FR",
+    "description": "IEC 62053-24:2020 applies only to static var-hour meters of accuracy classes 0,5S, 1S, 1, 2 and 3 for the measurement of alternating current electrical reactive energy in 50 Hz or 60 Hz networks and it applies to their type tests only. This document uses a conventional definition of reactive energy where the reactive power and energy is calculated from the fundamental frequency components of the currents and voltages only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks (mains) with voltage up to 1 000 V AC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with exception of indicating displays; • operate with integrated or detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. Meters designed for operation with low power instrument transformers (LPITs as defined in the IEC 61869 series) may be considered as compliant with this document only if such meters and their LPITs are tested together and meet the requirements for directly connected meters. This document does not apply to: • meters for which the voltage line-to-neutral derived from nominal voltages exceeds 1 000 V AC; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series) when tested without such transformers; • metering systems comprising multiple devices (except LPITs) physically remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for the detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering). This second edition cancels and replaces the first edition published in 2014 and its amendment 1:2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: see Annex E"
+  },
+  {
+    "reference": "IEC 62053-41:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Electricity metering equipment - Particular requirements - Part 41: Static meters for DC energy (classes 0,5 and 1)",
+    "language": "EN-FR",
+    "description": "IEC 62053-41:2021 applies only to static watt-hour meters of accuracy classes 0,5 and 1 for the measurement of DC electrical energy in DC systems, and it applies to their type tests only. This document applies to electricity metering equipment designed to: • measure and control electrical energy on electrical networks with two poles where one of the poles is connected to earth and with voltage up to 1 500 V DC; • have all functional elements, including add-on modules, enclosed in, or forming a single meter case with the exception of indicating displays; • operate with integrated or detached indicating displays, or without an indicating display; • be installed in a specified matching socket or rack; • optionally, provide additional functions other than those for measurement of electrical energy. They may be used for measuring DC electrical energy, amongst others, in the following application areas: • in EV (electrical vehicle) charging stations or in EV charging infrastructures, if the measurement is placed on the DC side; • in information technology (IT) server farms; • in DC supply points for communication equipment; • in low voltage DC networks for residential or commercial areas, if the measurement is placed on the DC side; • in solar PV (photovoltaic) systems where DC power generation is measured; • in DC supply points for public transport networks (e.g. trolleybus, etc.). Meters designed for operation with low power instrument transformers, LPITs as defined in the IEC 61869 series, may be tested for compliance with this document only if such meters and their LPITs are tested together and meet the requirements for directly connected meters. This document does not apply to: • meters for which the voltage between the two poles, where one of the poles is connected to earth, exceeds 1 500 V DC; • meters to be used in networks other than with two poles in which one of the poles is connected to earth; • meters intended for connection with low power instrument transformers (LPITs as defined in the IEC 61869 series) when tested without such transformers; • metering systems comprising multiple devices physically (except LPITs) remote from one another; • portable meters; • meters used in rolling stock, vehicles, ships and airplanes; • laboratory and meter test equipment; • reference standard meters; • data interfaces to the register of the meter; • matching sockets or racks used for installation of electricity metering equipment; • any additional functions provided in electrical energy meters. This document does not cover measures for detection and prevention of fraudulent attempts to compromise a meter’s performance (tampering)."
+  },
+  {
+    "reference": "IEC 62053-52:2005",
+    "edition": "1.0",
+    "date": "2005-09-26",
+    "title": "Electricity metering equipment (AC) - Particular requirements - Part 52: Symbols",
+    "language": "EN-FR, ES",
+    "description": "Applies to letter and graphical symbols intended for marking on and identifying the function of electromechanical or static a.c. electricity meters and their auxiliary devices.The symbols specified in this standard shall be marked on the name-plate, dial plate, external labels or accessories, or shown on the display of the meter as appropriate. This publication is of high relevance for Smart Grid."
+  },
+  {
+    "reference": "IEC 62053-61:1998",
+    "edition": "1.0",
+    "date": "1998-02-12",
+    "title": "Electricity metering equipment (a.c.) - Particular requirements - Part 61: Power consumption and voltage requirements",
+    "language": "EN-FR, ES",
+    "description": "Applies only to newly manufactured \"combined meters\", measuring more than one type of electric energy (e.g. active and reactive) and meters integrating additional functions which are not in the scope of IEC 60687, IEC 61036, IEC 61268 standards; these additional functions, all related to electric energy metering are maximum demand indicator, time switches, ripple control or radio receivers, etc. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62054-11:2004",
+    "edition": "1.0",
+    "date": "2004-05-17",
+    "title": "Electricity metering (a.c.) - Tariff and load control - Part 11: Particular requirements for electronic ripple control receivers",
+    "language": "EN, ES",
+    "description": "Specifies particular requirements for the type test of newly manufactured indoor electronic ripple control receivers for the reception and interpretation of pulses of a single audio frequency superimposed on the voltage of the electricity distribution network and for the execution of the corresponding switching operations. In this system the mains frequency is generally used to synchronize the transmitter and receivers. Neither the control frequency nor the encoding are standardized in this standard. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62054-11:2004/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-11-18",
+    "title": "Amendment 1 - Electricity metering (a.c.) - Tariff and load control - Part 11: Particular requirements for electronic ripple control receivers",
+    "language": "EN-FR, ES",
+    "description": "The contents of the corrigendum of March 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62054-11:2004/AMD1:2016/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-03-19",
+    "title": "Corrigendum 1 - Amendment 1 - Electricity metering (A.C.) - Tariff and load control - Part 11: Particular requirements for electronic ripple control receivers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62054-21:2004",
+    "edition": "1.0",
+    "date": "2004-05-18",
+    "title": "Electricity metering (a.c.) - Tariff and load control - Part 21: Particular requirements for time switches",
+    "language": "EN-FR, EN",
+    "description": "IEC 62054-21:2004 Specifies particular requirements for the type test of newly manufactured indoor time switches with operation reserve that are used to control electrical loads, multi-tariff registers and maximum demand devices of electricity metering equipment. This publication is of high relevance for Smart Grid."
+  },
+  {
+    "reference": "IEC 62054-21:2004/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-01-30",
+    "title": "Amendment 1 - Electricity metering (AC) - Tariff and load control - Part 21: Particular requirements for time switches",
+    "language": "EN-FR, ES",
+    "description": "The contents of the corrigendum of March 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62054-21:2004/AMD1:2017/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-03-19",
+    "title": "Corrigendum 1 - Amendment 1 - Electricity metering (A.C.) - Tariff and load control - Part 21: Particular requirements for time switches",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62055-21:2005",
+    "edition": "1.0",
+    "date": "2005-08-11",
+    "title": "Electricity metering - Payment systems - Part 21: Framework for standardization",
+    "language": "EN",
+    "description": "sets out a framework for the integration of standards into a system specification for electricity payment metering systems. It addresses the payment metering system application process, generic processes, generic functions, data elements, system entities and interfaces that exist in present payment metering systems."
+  },
+  {
+    "reference": "IEC 62055-31:2022",
+    "edition": "2.0",
+    "date": "2022-06-21",
+    "title": "Electricity metering - Payment systems - Part 31: Particular requirements - Static payment meters for active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR",
+    "description": "IEC 62055-31:2022 applies to newly manufactured, static watt-hour payment meters of accuracy classes 0,5, 1 and 2 for direct connection, for the measurement of alternating current electrical energy consumption of a frequency in the range 45 Hz to 65 Hz that include a supply control switch for the purpose of interruption or restoration of the electricity supply to the load in accordance with the current value of the available credit maintained in the payment meter. It does not apply to static watt-hour payment meters where the voltage across the connection terminals exceeds 1 000 V (line-to-line voltage for meters for polyphase systems). It applies to payment meters for indoor application, operating under normal climatic conditions where the payment meter is mounted as for normal service (i.e. together with a specified matching socket where applicable). Payment meters are implementations where all the main functional elements are incorporated in a single enclosure, together with any specified matching socket. There are also multi-device payment metering installations where the various main functional elements, such as the measuring element, the user interface unit, token carrier interface, and the supply control switch are implemented in more than one enclosure, involving additional interfaces. Functional requirements that apply to payment meters are also defined in this document, and include informative basic functional requirements and tests for the prepayment mode of operation in Annex A. Allowances are made for the relatively wide range of features, options, alternatives, and implementations that may be found in practice. The diverse nature and functionality of payment meters prevent the comprehensive specification of detailed test methods for all of these requirements. However, in this case, the requirements are stated in such a way that tests can then be formulated to respect and validate the specific functionality of the payment meter being tested. This document does not cover specific functionality or performance requirements for circuit protection, isolation or similar purposes that may be specified through reference to other specifications or standards. Safety requirements removed from Edition 1.0 have been replaced with references to the safety requirements now contained in IEC 62052-31:2015, the product safety standard for newly manufactured electricity meters. In-service safety testing (ISST) is not covered by IEC 62052-31:2015 and is left to national best practice usually as an extension of existing in-service testing (IST) of metrology stability. This document does not cover software requirements. This document covers type-testing requirements only. For acceptance testing, the requirements given in IEC 62058‑11:2008 and IEC 62058-31:2008 may be used. Dependability aspects are addressed in the IEC 62059 series of standards. Additional reliability, availability, maintenance and life cycle aspects are provided by IEC TC 56. This document does not cover conformity tests and system compliance tests that may be required in connection with legal or other requirements of some markets. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Title modified. b) Removal of the contents of Annex C relating to the requirements for the supply control switch, and added reference to IEC 62052-31:2015 which contains the relevant requirements."
+  },
+  {
+    "reference": "IEC 62055-41:2018",
+    "edition": "3.0",
+    "date": "2018-03-28",
+    "title": "Electricity metering - Payment systems - Part 41: Standard transfer specification (STS) - Application layer protocol for one-way token carrier systems",
+    "language": "EN-FR",
+    "description": "IEC 62055-41:2018 specifies the application layer protocol of the standard transfer specification (STS) used for transferring units of credit and other management information from a point of sale (POS) system to an STS-compliant payment meter in a one-way token carrier system. It is primarily intended for application with electricity payment meters without a tariff employing energy-based tokens, but may also have application with currency-based token systems and for services other than electricity. It is intended for use by manufacturers of payment meters that have to accept tokens that comply with the STS and also by manufacturers of POS systems that have to produce STS-compliant tokens and is to be read in conjunction with IEC 62055-5x series. This third edition cancels and replaces the second edition of IEC 62055-41, issued in 2014. It constitutes a technical revision. The main technical changes with regard to the previous edition are as follows: - currency transfer tokens for electricity, water, gas and time metering; - finer resolution for gas and time credit transfer; - common code PAN for 2 and 4 digit manufacturer codes; - reserved MfrCode values for certification and testing purposes; - provision for DLMS/COSEM as a virtual token carrier type; - addition of DKGA04, an advanced key derivation function from 160-bit VendingKey; - withdrawal of DES for EA09 and TDES for DKGA03 cryptographic algorithms, but DES for DKGA02 remains in use; - addition of MISTY1 cryptographic algorithm using a 128-bit DecoderKey with supporting key change tokens; - transfer of SGC values to the meter via key change tokens; - revision of the test/display token requirements; - revision of the KMS to reflect current best practice; - revision of the TID roll over management guidelines; - definition of BaseDate is referenced to Coordinated Universal Time; - some clarifications and additional examples have been added."
+  },
+  {
+    "reference": "IEC 62055-42:2022",
+    "edition": "1.0",
+    "date": "2022-07-13",
+    "title": "Electricity metering - Payment systems - Part 42: Transaction Reference Numbers (TRN)",
+    "language": "EN-FR",
+    "description": "IEC 62055-42:2022, specifies a token generation mechanism and token structure for smart prepayment functionality in markets where IEC 62055-41 compliant systems are not used, and where a different security mechanism is required by project-specific or national requirements. This document specifies token structure, authentication and an anti-replay mechanism, token operating model, and protocol. This document is informed by the STS Association key management services, and by the key management mechanisms used within the DLMS/COSEM security model within IEC 62056‑6‑2. Reference is made to the international STS token standards (IEC 62055-41, IEC 62055-51 and IEC 62055-52) for payment metering systems, and interworking has been considered where appropriate in terms of token carrier ranges in the decimal domain. IEC 62055-41 tokens and those described in this document are not interoperable, however their domains are designed to be mutually exclusive to ensure the two kinds of tokens do not interfere with each other. Metering application processing and functionality, HAN interface commands and attributes, WAN interface commands and attributes are outside the scope of this document; however, reference is made to other standards in this regard. The mechanism for auditing and retrieving data from the meter relating to tariffication, meter readings, profile data and other legal metrology information is outside the scope of this document; however, this is defined as part of any overall metering solution. Such interfaces for retrieving data from a meter may be defined using suitable protocols such as DLMS/COSEM as defined in the IEC 62056 series."
+  },
+  {
+    "reference": "IEC 62055-51:2007",
+    "edition": "1.0",
+    "date": "2007-05-23",
+    "title": "Electricity metering - Payment systems - Part 51: Standard transfer specification (STS) - Physical layer protocol for one-way numeric and magnetic card token carriers",
+    "language": "EN",
+    "description": "specifies a physical layer protocol of the standard transfer specification (STS) for transferring units of credit and other management information between a point-of-sale (POS) system and an STS-compliant electricity payment meter."
+  },
+  {
+    "reference": "IEC 62055-52:2008",
+    "edition": "1.0",
+    "date": "2008-05-14",
+    "title": "Electricity metering - Payment systems - Part 52: Standard transfer specification (STS) - Physical layer protocol for a two-way virtual token carrier for direct local connection",
+    "language": "EN",
+    "description": "IEC 62055-52:2008(E) specifies a physical layer protocol of the STS for transferring units of credit and other management information between a client (typically a HHU) and a server (an STS-compliant electricity payment meter), typically over a direct local connection. It is complementary to the application layer protocol specified in IEC 62055-41 and should be used in conjunction with that standard. It is intended for use across a range of payment meters developed by different manufacturers and to ensure compatibility between these products and other client devices. It specifies a client/server communications protocol."
+  },
+  {
+    "reference": "IEC 62056-1-0:2014",
+    "edition": "1.0",
+    "date": "2014-06-04",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 1-0: Smart metering standardisation framework",
+    "language": "EN-FR, ES",
+    "description": "IEC 62056-1-0:2014 provides information on the smart metering use cases and on architectures supported by the IEC 62056 DLMS/COSEM series of standards specifying electricity meter data exchange. It describes the standardization framework including: - the principles on which the standards shall be developed; - the ways the existing standards shall be extended to support new use cases and to accommodate new communication technologies, while maintaining coherency; - the aspects of interoperability and information security. It also provides guidance for selecting the suitable standards for a specific interface within the smart metering system."
+  },
+  {
+    "reference": "IEC TS 62056-1-1:2016",
+    "edition": "1.0",
+    "date": "2016-05-03",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite -  Part 1-1: Template for DLMS/COSEM communication profile standards",
+    "language": "EN",
+    "description": "IEC TS 62056-1-1:2016(E) defines a template for IEC 62056 communication profile standards. It provides the \"Table of contents\" of such standards and provides guidance to develop the content of the relevant clauses and subclauses."
+  },
+  {
+    "reference": "IEC 62056-3-1:2021",
+    "edition": "2.0",
+    "date": "2021-07-07",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 3-1: Use of local area networks on twisted pair with carrier signalling",
+    "language": "EN-FR",
+    "description": "IEC 62056-3-1:2021 describes two sets of profiles: the first set of profiles allows a bidirectional communication between a client and a server. This set of profiles is made of three profiles allowing local bus data exchange with stations either energized or not. For non-energized stations, the bus supplies energy for data exchange. Three different profiles are supported: • base profile: this three-layer profile provides remote communication services; NOTE 1 This first profile was published in IEC 61142:1993 and became known as the Euridis standard. • profile with DLMS: this profile allows using DLMS services as specified in IEC 61334 4 41; NOTE 2 This second profile was published in IEC 62056-31:1999. • profile with DLMS/COSEM: this profile allows using the DLMS/COSEM Application layer and the COSEM object model as specified in IEC 62056 5 3 and in IEC 62056 6 2 respectively. The three profiles use the same physical layer and they are fully compatible, meaning that devices implementing any of these profiles can be operated on the same bus. The transmission medium is twisted pair using carrier signalling and it is known as the Euridis Bus. The second set of profiles allows unidirectional communication between a given Energy Metering device and a Customer Energy Management System. This second set is made up of three profiles. Subclause 4.2.1 to Clause 8 included specify the bidirectional communication using twisted pair signalling and Clause 9 to 9.5 the unidirectional communication using twisted pair signalling. This second edition cancels and replaces the first edition of IEC 62056-3-1, issued in 2013, and constitutes a technical revision. The main technical changes with regard to the previous edition are as follows: • addition of a profile which makes use of the IEC 62056 DLMS/COSEM Application layer and COSEM object model; • review of the data link layer which is split into two parts: – a pure Data Link layer; – a \"Support Manager\" entity managing the communication media; • ability to negotiate the communication speed, bringing baud rate up to 9 600 bauds."
+  },
+  {
+    "reference": "IEC 62056-4-7:2015",
+    "edition": "1.0",
+    "date": "2015-05-20",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 4-7: DLMS/COSEM transport layer for IP networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-4-7:2015 specifies a connection-less and a connection oriented transport layer (TL) for DLMS/COSEM communication profiles used on IP networks. These TLs provide OSI-style services to the service user DLMS/COSEM AL. The connection-less TL is based on the Internet Standard User Datagram Protocol (UDP). The connection-oriented TL is based on the Internet Standard Transmission Control Protocol (TCP). This first edition cancels and replaces the IEC 62056-47 published in 2006 and constitutes a technical revision. It includes the following changes: - This standard is applicable now both for IP4 and IPv6 networks; - Latest editions of the IEC 62056 suite are referenced. DLMS/COSEM IANA-registered port numbers added."
+  },
+  {
+    "reference": "IEC 62056-5-3:2023",
+    "edition": "4.0",
+    "date": "2023-09-28",
+    "title": "Electricity metering data exchange - The DLMS®/COSEM suite - Part 5-3: DLMS®/COSEM application layer",
+    "language": "EN-FR",
+    "description": "IEC 62056-5-3:2023 specifies the DLMS®/COSEM application layer in terms of structure, services and protocols for DLMS®/COSEM clients and servers, and defines rules to specify the DLMS®/COSEM communication profiles. It defines services for establishing and releasing application associations, and data communication services for accessing the methods and attributes of COSEM interface objects, defined in IEC 62056-6-2:2021 using either logical name (LN) or short name (SN) referencing. Annex A (normative) defines how to use the COSEM application layer in various communication profiles. It specifies how various communication profiles can be constructed for exchanging data with metering equipment using the COSEM interface model, and what are the necessary elements to specify in each communication profile. The actual, media-specific communication profiles are specified in separate parts of the IEC 62056 series. Annex B (normative) specifies the SMS short wrapper. Annex C (normative) specifies the gateway protocol. Annex D, Annex E and Annex F (informative) include encoding examples for APDUs. Annex G (normative) provides NSA Suite B elliptic curves and domain parameters. Annex H (informative) provides an example of an End entity signature certificate using P-256 signed with P-256. Annex I (normative) specifies the use of key agreement schemes in DLMS®/COSEM. Annex J (informative) provides examples of exchanging protected xDLMS APDUs between a third party and a server. This fourth edition cancels and replaces the third edition published in 2017. This edition constitutes a technical revision. The significant technical changes with respect to the previous edition are listed in Annex K (Informative)."
+  },
+  {
+    "reference": "IEC 62056-6-1:2023",
+    "edition": "4.0",
+    "date": "2023-12-11",
+    "title": "Electricity metering data exchange - The DLMS®/COSEM suite - Part 6-1: Object Identification System (OBIS)",
+    "language": "EN-FR",
+    "description": "IEC 62056-6-1:2023 specifies the overall structure of the OBject Identification System (OBIS) and the mapping of all commonly used data items in metering equipment to their identification codes.OBIS provides a unique identifier for all data within the metering equipment, including not only measurement values, but also abstract values used for configuration or obtaining information about the behaviour of the metering equipment. The ID codes defined in this document are used for the identification of: - logical names of the various instances of the ICs, or objects, as defined in IEC 62056‑6‑2:2023; - data transmitted through communication lines; - data displayed on the metering equipment, see Clause A.2 in Annex A. This document applies to all types of metering equipment, such as fully integrated meters, modular meters, tariff attachments, data concentrators, etc. To cover metering equipment measuring energy types other than electricity, combined metering equipment measuring more than one type of energy or metering equipment with several physical measurement channels, the concepts of medium and channels are introduced. This allows meter data originating from different sources to be identified. While this document fully defines the structure of the identification system for other media, the mapping of non-electrical energy related data items to ID codes is completed separately This fourth edition cancels and replaces the third edition of IEC 62056-6-1, published in 2017. This edition constitutes a technical revision. The main technical changes with respect to the previous edition are listed in Annex B (informative)."
+  },
+  {
+    "reference": "IEC 62056-6-2:2023",
+    "edition": "4.0",
+    "date": "2023-09-28",
+    "title": "Electricity metering data exchange - The DLMS®/COSEM suite - Part 6-2: COSEM interface classes",
+    "language": "EN-FR",
+    "description": "IEC 62056-6-2:2023 specifies a model of a meter as it is seen through its communication interface(s). Generic building blocks are defined using object-oriented methods, in the form of interface classes to model meters from simple up to very complex functionality. Annexes A to F (informative) provide additional information related to some interface classes This fourth edition cancels and replaces the third edition of IEC 62056-6-2 published in 2017. It constitutes a technical revision. The significant technical changes with respect to the previous edition are listed in Annex F (Informative)."
+  },
+  {
+    "reference": "IEC TS 62056-6-9:2016",
+    "edition": "1.0",
+    "date": "2016-05-03",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 6-9: Mapping between the Common Information Model message profiles (IEC 61968-9) and DLMS/COSEM (IEC 62056) data models and protocols",
+    "language": "EN",
+    "description": "IEC TS 62056-6-9:2016(E) describes how in the utility environment an ERP system or a third party system can exchange information with a metering system. In particular, this Technical Specification covers the mapping between information interchange messages of a CIM-based ERP or third party system and a DLMS/COSEM-based metering system."
+  },
+  {
+    "reference": "IEC 62056-7-3:2017",
+    "edition": "1.0",
+    "date": "2017-03-07",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 7-3: Wired and wireless M-Bus communication profiles for local and neighbourhood networks",
+    "language": "EN-FR, EN",
+    "description": "IEC 62056-7-3:2017 specifies DLMS/COSEM wired and wireless M-Bus communication profiles for local and neighbourhood networks. It is restricted to aspects concerning the use of communication protocols in conjunction with the COSEM data model and the DLMS/COSEM application layer."
+  },
+  {
+    "reference": "IEC 62056-7-5:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 7-5: Local data transmission profiles for Local Networks (LN)",
+    "language": "EN-FR",
+    "description": "IEC 62056-7-5:2016 specifies DLMS/COSEM communication profiles for transmitting metering data modelled by COSEM interface objects through a Local Data Transmission Interface (LDTI). The LDTI may be part of a meter or of a Local Network Access Point (LNAP) hosting a DLMS/COSEM server."
+  },
+  {
+    "reference": "IEC 62056-7-6:2013",
+    "edition": "1.0",
+    "date": "2013-05-16",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 7-6: The 3-layer, connection-oriented HDLC based communication profile",
+    "language": "EN-FR",
+    "description": "IEC 62056-7-6:2013 specifies the DLMS/COSEM 3-layer, connection-oriented HDLC based communication profile."
+  },
+  {
+    "reference": "IEC 62056-8-3:2013",
+    "edition": "1.0",
+    "date": "2013-05-16",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-3: Communication profile for PLC S-FSK neighbourhood networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-8-3:2013 specifies the DLMS/COSEM PLC S-SFK communication profile for neighbourhood networks. It uses standards established by IEC TC 57 in the IEC 61334 series."
+  },
+  {
+    "reference": "IEC 62056-8-4:2018",
+    "edition": "1.0",
+    "date": "2018-12-13",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-4: Communication profiles for narrow-band OFDM PLC PRIME neighbourhood networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-8-4:2018 specifies DLMS/COSEM communication profiles for narrow-band OFDM power line carrier PRIME neighbourhood networks using the modulation as specified in Recommendation ITU-T G.9904:2012. Three communication profiles are specified: • a profile using the IEC 61334-4-32 LLC layer; • a profile using TCP-UDP/IPv4; • a profile using TCP-UDP/IPv6."
+  },
+  {
+    "reference": "IEC 62056-8-5:2017",
+    "edition": "1.0",
+    "date": "2017-08-10",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-5: Narrow-band OFDM G3-PLC communication profile for neighbourhood networks",
+    "language": "EN-FR, EN",
+    "description": "IEC 62056-8-5:2017 specifies the IEC 62056 DLMS/COSEM communication profile for metering purposes based on the Recommendations ITU-T G.9901: Narrowband orthogonal frequency division multiplexing power line communication transceivers - Power spectral density specification and ITU-T G.9903:2014, Narrowband orthogonal frequency division multiplexing power line communication transceivers for G3-PLC networks, an Orthogonal Frequency Division Multiplexing (OFDM) Power Line Communications (PLC) protocol. The contents of the corrigendum of December 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62056-8-5:2017/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-12-19",
+    "title": "Corrigendum 1 - Electricity metering data exchange - The DLMS/COSEM suite - Part 8-5: Narrow-band OFDM G3-PLC communication profile for neighbourhood networks",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62056-8-6:2017",
+    "edition": "1.0",
+    "date": "2017-04-10",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-6: High speed PLC ISO/IEC 12139-1 profile for neighbourhood networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-8-6:2017 specifies the DLMS/COSEM communication profile for ISO/IEC 12139‑1 . High speed PLC (HS-PLC) neighbourhood networks. It uses the standard ISO/IEC 12139-1 established by ISO/IEC JTC1 SC06."
+  },
+  {
+    "reference": "IEC 62056-8-8:2020",
+    "edition": "1.0",
+    "date": "2020-04-28",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-8: Communication profile for ISO/IEC 14908 series networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-8-8:2020 describes how the DLMS/COSEM Application layer and the COSEM object model, as specified in IEC 62056‑5‑3:2017, IEC 62056‑6‑1:2017 and IEC 62056‑6‑2:2017, can be used over the lower layers specified in the IEC 14908 series, forming a DLMS/COSEM ISO/IEC 14908 communication profile. This document is part of the IEC 62056 series. Its structure follows IEC 62056-1-0 and IEC TS 62056-1-1."
+  },
+  {
+    "reference": "IEC 62056-8-12:2023",
+    "edition": "1.0",
+    "date": "2023-09-27",
+    "title": "Electricity metering data exchange – The DLMS<em>®</em>/COSEM suite - Part 8-12: Communication profile for Low-Power Wide Area Networks (LPWANs)",
+    "language": "EN-FR",
+    "description": "IEC 62056-8-12:2023 describes the use of DLMS®/COSEM for Low-Power Wide Area Networks (LPWANs). It specifies how the COSEM data model and the DLMS®/COSEM application layer can be used over various LPWAN technologies using an adaptation layer based on IETF RFC 8724, and in particular over LoRaWAN. This profile is intended to be used with LPWANs as defined in IETF RFC 8724, in particular LoRaWAN. Low-Power Wide Area Networks (LPWANs) are wireless technologies with characteristics such as large coverage areas, low bandwidth, possibly very small packet and application-layer data sizes, and long battery life operation. This document does not provide functionality to manage the lower layers of the LPWANs. This part of the DLMS®/COSEM suite specifies the communication profile for Low-Power Wide Area Networks (LPWANs). The DLMS®/COSEM LPWAN communication profiles use connection-less transport layer based on the Internet Standard User Datagram Protocol (UDP) and Internet Protocol (IPv6). The adaptation layer is based on IETF RFC 8724 which provides both a header compression/decompression mechanism and an optional fragmentation/reassembly mechanism. SCHC compression is based on static context with small context identifier to represent full IPv6/UDP/COSEM wrapper headers. If required, SCHC fragmentation is used to support IPv6 MTU over the LPWAN technologies. This document follows the rules defined in IEC 62056-5-3:2023, Annex A, and in IEC 62056-1-0, and IEC TS 62056-1-1:2016 for its structure. See also Annex A for examples"
+  },
+  {
+    "reference": "IEC TS 62056-8-20:2016",
+    "edition": "1.0",
+    "date": "2016-11-08",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 8-20: Mesh communication profile for neighbourhood networks",
+    "language": "EN",
+    "description": "IEC TS 62056-8-20:2016(E) specifies a DLMS/COSEM communication profile that can be used in a smart metering system in which the Neighbourhood Networks (NN) are mesh networks. This profile may be considered as an adaptation and extension of the UDP/IP communication profile specified in IEC 62056-9-7:2013. It specifies a number of features essential to the efficient operation of a large scale AMI using mesh NNs."
+  },
+  {
+    "reference": "IEC TS 62056-9-1:2016",
+    "edition": "1.0",
+    "date": "2016-05-03",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 9-1: Communication profile using web-services to access a DLMS/COSEM server via a COSEM Access Service (CAS)",
+    "language": "EN",
+    "description": "IEC TS 62056-9-1:2016(E) defines how DLMS/COSEM servers can be accessed from a COSEM Access Client via an intermediate COSEM Access Service (CAS) providing Web services."
+  },
+  {
+    "reference": "IEC 62056-9-7:2013",
+    "edition": "1.0",
+    "date": "2013-04-23",
+    "title": "Electricity metering data exchange - The DLMS/COSEM suite - Part 9-7: Communication profile for TCP-UDP/IP networks",
+    "language": "EN-FR",
+    "description": "IEC 62056-9-7:2013 specifies the DLMS/COSEM communication profile for TCP-UDP/IP networks."
+  },
+  {
+    "reference": "IEC 62056-21:2002",
+    "edition": "1.0",
+    "date": "2002-05-15",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 21: Direct local data exchange",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Describes hardware and protocol specifications for local meter data exchange. In such systems, a hand-held unit (HHU) or a unit with equivalent functions is connected to a tariff device or a group of devices. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC TS 62056-41:1998",
+    "edition": "1.0",
+    "date": "1998-11-16",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 41: Data exchange using wide area networks: Public switched telephone network (PSTN) with LINK+ protocol",
+    "language": "EN-FR",
+    "description": "Describes a 3 layer data exchange architecture used for communication with large industrial and commercial customer's metering equipment (remote reading for billing purpose). The public switched telephone network (PSTN) is used as a communication medium for this data exchange. This publication is a Technical report type 2"
+  },
+  {
+    "reference": "IEC 62056-42:2002",
+    "edition": "1.0",
+    "date": "2002-02-18",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 42: Physical layer services and procedures for connection-oriented asynchronous data exchange",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62056-42:2002 specifies the physical layer services and protocols within the Companion Specification for Energy Metering (COSEM) three-layer connection oriented profile for asynchronous data communication. In annex A, an example of how this physical layer can be used for data exchange through the Public Switched Telephone Network (PSTN) using intelligent Hayes modems is given. Annex B gives an explanation of the role of data models and protocols in electricity meter data exchange. This bilingual version (2013-05) corresponds to the monolingual English version, published in 2002-02."
+  },
+  {
+    "reference": "IEC 62056-46:2002",
+    "edition": "1.0",
+    "date": "2002-02-18",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 46: Data link layer using HDLC protocol",
+    "language": "EN, ES",
+    "description": "Specifies the data link layer for connection-oriented, HDLC-based, asynchronous communication profile. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62056-46:2002/AMD1:2006",
+    "edition": "1.0",
+    "date": "2006-12-12",
+    "title": "Amendment 1 - Electricity metering - Data exchange for meter reading, tariff and load control - Part 46: Data link layer using HDLC protocol",
+    "language": "EN, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62056-51:1998",
+    "edition": "1.0",
+    "date": "1998-11-24",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 51: Application layer protocols",
+    "language": "EN-FR",
+    "description": "Describes an architectured application layer used for communication with metering equipment. The associated physical medium and lower layer protocols in a collapsed three-layer model are unspecified. The DLMS protocol is covered by IEC 61334-4-41. This is a Technical Report type 2."
+  },
+  {
+    "reference": "IEC TS 62056-52:1998",
+    "edition": "1.0",
+    "date": "1998-11-16",
+    "title": "Electricity metering - Data exchange for meter reading, tariff and load control - Part 52: Communication protocols management distribution line message specification (DLMS) server",
+    "language": "EN-FR",
+    "description": "Provides all the information specific to the management DLMS server of the protocols described in IEC 62056-31, 62056-41 and 62056-51. This publication is a Technical Report type 2."
+  },
+  {
+    "reference": "IEC 62057-1:2023",
+    "edition": "1.0",
+    "date": "2023-03-29",
+    "title": "Electrical energy meters - Test equipment, techniques and procedures - Part 1: Stationary meter test units (MTUs)",
+    "language": "EN-FR",
+    "description": "IEC 62057-1:2023 applies to stationary meter test units (MTUs) permanently installed in laboratories, used for testing and calibration of electricity meters, in particular for their type test, acceptance test and verification test. It covers the requirements for automatic MTUs for indoor laboratory application and applies to newly manufactured MTUs to test electricity meters on 50 Hz or 60 Hz networks with an AC voltage up to 600 V (phase to neutral). If meters are intended for system voltages not specified in this document, special requirements are agreed between the manufacturer and the purchaser. This document also defines the kind of tests to perform as type tests / routine tests / acceptance tests and commissioning tests for MTUs. It does not apply to: • portable reference meters and portable sources; • electricity meters; • data interfaces to the meter and test procedures of data interface; • transformer operated MTUs; • personal computers supplied together with the MTU."
+  },
+  {
+    "reference": "IEC 62057-3:2024",
+    "edition": "1.0",
+    "date": "2024-04-23",
+    "title": "Electrical energy meters - Test equipment, techniques and procedures - Part 3: Automatic meter testing system (AMTS)",
+    "language": "EN-FR",
+    "description": "IEC 62057-3:2024 applies to an automatic meter testing system (AMTS) permanently installed in a controlled environment. It covers the functions, technical requirements and acceptance methods of an AMTS. It also applies to a newly manufactured AMTS to test static active or reactive energy meters on 50 Hz or 60 Hz networks with an AC voltage up to 600 V (phase to neutral). This document defines the kind of AMTS that can continuously and automatically carry out all the test items specified in IEC 62058-31, including visual inspection, AC voltage test, no-load condition, starting current, accuracy and meter constant test. This document does not apply to: • data interfaces to the meter and test procedures of data interface; • industrial controllers, industrial personal computers, and servers supplied along with the AMTS."
+  },
+  {
+    "reference": "IEC 62058-11:2008",
+    "edition": "1.0",
+    "date": "2008-09-18",
+    "title": "Electricity metering equipment (AC) - Acceptance inspection - Part 11: General acceptance inspection methods",
+    "language": "EN-FR, ES",
+    "description": "IEC 62058-11:2008 specifies the general acceptance inspection methods which apply to newly manufactured electricity meters produced and supplied in lots of 50 and above. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62058-21:2008",
+    "edition": "1.0",
+    "date": "2008-09-18",
+    "title": "Electricity metering equipment (AC) - Acceptance inspection - Part 21: Particular requirements for electromechanical meters for active energy (classes 0,5, 1 and 2)",
+    "language": "EN-FR",
+    "description": "IEC 62058-21:2008 specifies particular requirements for acceptance inspection of newly manufactured direct connected or transformer operated electromechanical meters for active energy (classes 0,5, 1 and 2) delivered in lots in quantities above 50. The method of acceptance of smaller lots should be agreed upon by the manufacturer and the customer. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62058-31:2008",
+    "edition": "1.0",
+    "date": "2008-09-18",
+    "title": "Electricity metering equipment (AC) - Acceptance inspection - Part 31: Particular requirements for static meters for active energy (classes 0,2 S, 0,5 S, 1 and 2)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62058-31:2008 specifies particular requirements for acceptance inspection of newly manufactured direct connected or transformer operated static meters for active energy (classes 0,2 S, 0,5 S, 1 and 2) delivered in lots in quantities above 50. The method of acceptance of smaller lots should be agreed upon by the manufacturer and the customer. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC TR 62059-11:2002",
+    "edition": "1.0",
+    "date": "2002-01-29",
+    "title": "Electricity metering equipment - Dependability - Part 11: General concepts",
+    "language": "EN-FR, ES",
+    "description": "Covers general aspects of the dependability of static metering equipment for electrical energy measurement and load control. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC TR 62059-21:2002",
+    "edition": "1.0",
+    "date": "2002-03-05",
+    "title": "Electricity metering equipment - Dependability - Part 21: Collection of meter dependability data from the field",
+    "language": "EN-FR, ES",
+    "description": "Describes methods for the collection and analysis of field failure data of static electricity metering equipment using field failure reports and sampling plans.To make results comparable, definitions of equipment complexity and classification of failures are given. A failure reporting form is provided in annex A. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62059-31-1:2008",
+    "edition": "1.0",
+    "date": "2008-10-21",
+    "title": "Electricity metering equipment - Dependability - Part 31-1: Accelerated reliability testing - Elevated temperature and humidity",
+    "language": "EN-FR, ES",
+    "description": "IEC 62059-31-1:2008 provides one of several possible methods for estimating product life characteristics by accelerated reliability testing. In this standard, elevated, constant temperature and humidity is applied to achieve acceleration. The method takes into account the effect of voltage and current variation. It is applicable to all types of metering equipment for energy measurement, tariff and load control in the scope of IEC TC 13. The method given in this standard may be used for estimating (with given confidence limits) product life characteristics of such equipment prior to and during serial production. This method may also be used to compare different designs. The contents of the corrigendum of December 2008 have been included in this copy. This publication is of high relevance for Smart Grid ."
+  },
+  {
+    "reference": "IEC 62059-31-1:2008/COR1:2008",
+    "edition": "1.0",
+    "date": "2008-12-09",
+    "title": "Corrigendum 1 - Electricity metering equipment - Dependability - Part 31-1: Accelerated reliability testing - Elevated temperature and humidity",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62059-32-1:2011",
+    "edition": "1.0",
+    "date": "2011-12-07",
+    "title": "Electricity metering equipment - Dependability - Part 32-1: Durability - Testing of the stability of metrological characteristics by applying elevated temperature",
+    "language": "EN-FR, ES",
+    "description": "IEC 62059-32-1:2011 specifies a method for testing the stability of metrological characteristics of electricity meters, by operating a test specimen at the upper limit of the specified operating range of temperature, voltage and current for an extended period."
+  },
+  {
+    "reference": "IEC 62059-41:2006",
+    "edition": "1.0",
+    "date": "2006-03-15",
+    "title": "Electricity metering equipment - Dependability - Part 41: Reliability prediction",
+    "language": "EN-FR, ES",
+    "description": "provide a tool for predicting the failure rate of electricity metering equipment using the parts stress method. It also provides an overview of reliability analysis and prediction methods. is applicable to all types of static metering equipment for energy measurement and load control."
+  }
+]

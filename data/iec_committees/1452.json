@@ -1,0 +1,970 @@
+[
+  {
+    "reference": "IEC 61406-1:2022",
+    "edition": "1.0",
+    "date": "2022-09-15",
+    "title": "Identification Link - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": "IEC 61406-1:2022 specifies minimum requirements for a globally unique identification of physical objects which also constitutes a link to its related digital information. This identification is designated hereinafter as \"Identification Link\" (IL), with the encoded data designated as IL string. The IL string has the data-format of a link (URL). The IL is machine-readable and is attached to the physical object in a 2D symbol or NFC tag. The requirements in this standard apply to physical objects: - that are provided by the manufacturer as an individual unit, - and that have already been given a unique identity by the manufacturer. This document does not specify any requirements on the content and the layout of nameplates/typeplates (e.g. spatial arrangement, content of the plain texts, approval symbols etc.)."
+  },
+  {
+    "reference": "IEC 61406-2:2024",
+    "edition": "1.0",
+    "date": "2024-05-08",
+    "title": "Identification link - Part 2: Types/models, lots/batches, items and characteristics",
+    "language": "EN-FR",
+    "description": "IEC 61406-2:2024 complements IEC 61406-1 by providing additional requirements for those cases where data elements are encoded within the Structured Identification Link string with standardized syntax and semantics. In addition, this document covers cases where the uniqueness relates to product types/models or lots/batches. The default assumption is that the Identification Link identifies unique objects such as unique serialized products, assets, persons or packages, unless otherwise identified."
+  },
+  {
+    "reference": "IEC 61804-2:2018",
+    "edition": "3.0",
+    "date": "2018-01-10",
+    "title": "Function blocks (FB) for process control and electronic device description language (EDDL) - Part 2: Specification of FB concept",
+    "language": "EN-FR",
+    "description": "IEC 61804-2:2018 specifies FB (function blocks) by using the result of a harmonization work as regards several elements. a) The device model which defines the components of an IEC 61804-2 conformant device. b) Conceptual specifications of FBs for measurement, actuation and processing. This includes general rules for the essential features to support control, whilst avoiding details which stop innovation as well as specialization for different industrial sectors. c) The electronic device description (EDD) technology, which enables the integration of real product details using the tools of the engineering life cycle. This third edition cancels and replaces the second edition published in 2006 and integrates parts of IEC 61804-1 which was withdrawn in January 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) added command communication mapping in Clause 8; b) moved and reword compatibility level definition from IEC 62804-1 to new Annex B and terms and definitions; c) added proxy concept in new Annex C."
+  },
+  {
+    "reference": "IEC 61804-3:2020",
+    "edition": "4.0",
+    "date": "2020-06-24",
+    "title": "Devices and integration in enterprise systems - Function blocks (FB) for process control and electronic device description language (EDDL) - Part 3: EDDL syntax and semantics",
+    "language": "EN-FR",
+    "description": "IEC 61804-3:2020 specifies the electronic device description language (EDDL) technology, which enables the integration of real product details using the tools of the engineering life cycle. This document specifies EDDL as a generic language for describing the properties of automation system components. EDDL is capable of describing • device parameters and their dependencies; • device functions, for example, simulation mode, calibration; • graphical representations, for example, menus; • interactions with control devices; • graphical representations: – enhanced user interface, – graphing system; • persistent data store. EDDL is used to create electronic device description (EDD) for e.g. concrete devices, common usable profiles or libraries. This EDD is used with appropriate tools to generate an interpretative code to support parameter handling, operation, and monitoring of automation system components such as remote I/Os, controllers, sensors, and programmable controllers. Tool implementation is outside the scope of this document. This document specifies the semantic and lexical structure in a syntax-independent manner. A specific syntax is defined in Annex A, but it is possible to use the semantic model also with different syntaxes. IEC 61804-4 specifies EDD interpretation for EDD applications and EDDs to support EDD interoperability. IEC 61804-5 specifies the EDDL builtin library and provides the profiles of the various fieldbuses. This fourth edition cancels and replaces the third edition published in 2015. This edition constitutes a technical revision. This edition was developed by merging material from multiple variants of existing EDDL specifications including those from FieldComm Group (FOUNDATION™ Fieldbus , HART® ), PROFIBUS™ Nutzerorganisation e.V. (PNO), and ISA100_Wireless™ Compliance Institute (ISA100 WCI). Any places where there may be a profile deviation are now indicated in the context where the related deviation is found. As a result, the formatting and numbering of this edition may be different from any of the individual specifications from which this edition was derived. This edition includes the following significant technical changes with respect to the previous edition: • Communication profiles ISA100 and GPE were added. • EDD Identification Information has a new LAYOUT_TYPE attribute. • New construct SEMANTIC_MAP was added. • CLASS attribute values LOCAL_A and LOCAL_B were added. • Extended LIST functionality to support device managed lists."
+  },
+  {
+    "reference": "IEC 61804-4:2020",
+    "edition": "2.0",
+    "date": "2020-06-24",
+    "title": "Devices and integration in enterprise systems - Function blocks (FB) for process control and electronic device description language (EDDL) - Part 4: EDD interpretation",
+    "language": "EN-FR",
+    "description": "IEC 61804-4:2020 specifies EDD interpretation for EDD applications and EDDs to support EDD interoperability. This document is intended to ensure that field device developers use the EDDL constructs consistently and that the EDD applications have the same interpretations of the EDD. It supplements the EDDL specification to promote EDDL application interoperability and improve EDD portability between EDDL applications. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition was developed by merging material from multiple variants of existing EDDL specifications including those from FieldComm Group (Foundation™ Fieldbus , HART® ), PROFIBUS™ Nutzerorganisation e.V. (PNO), and ISA100_Wireless™ Compliance Institute (ISA100 WCI). When a profile deviation exists, it is now indicated in the context where the related deviation is found. As a result, the formatting and numbering of this edition may be different from any of the individual specifications from which this edition was derived. This edition includes the following significant technical changes with respect to the previous edition: • communication profiles ISA100 and GPE were added; • description of rules for optimized-column-width layout have been added; • description of the concatenation of labels and help was added; • color banding for meter type charts was added."
+  },
+  {
+    "reference": "IEC 61804-5:2020",
+    "edition": "2.0",
+    "date": "2020-06-24",
+    "title": "Devices and intergration in enterprise systems - Function blocks (FB) for process control and electronic device description language (EDDL) - Part 5: EDDL Builtin library",
+    "language": "EN-FR",
+    "description": "IEC 61804-5:2020 specifies the EDDL builtin library and provides the profiles of the various fieldbuses. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition was developed by merging material from multiple variants of existing EDDL specifications including those from FieldComm Group (Foundation™ Fieldbus , HART® ), PROFIBUS™ Nutzerorganisation e.V. (PNO), and ISA100_Wireless™ Compliance Institute (ISA100 WCI). As a result, the formatting and numbering of this edition may be different from any of the individual specifications from which this edition was derived. This edition includes the following significant technical changes with respect to the previous edition: • Communication profiles ISA100 and GPE were added. • The following builtins have been deprecated: – ABORT_ON_NO_DEVICE – IGNORE_NO_DEVICE – RETRY_ON_NO_DEVICE – XMTR_ABORT_ON_NO_DEVICE – XMTR_IGNORE_NO_DEVICE – XMTR_RETRY_ON_NO_DEVICE – get_status_code_string"
+  },
+  {
+    "reference": "IEC TR 61804-6:2012",
+    "edition": "1.0",
+    "date": "2012-04-04",
+    "title": "Function blocks (FB) for process control - Electronic device description language (EDDL) - Part 6: Meeting the requirements for integrating fieldbus devices in engineering tools for field devices",
+    "language": "EN",
+    "description": "IEC/TR 61804-6:2012(E) provides an evaluation and assessment of electronic device description language (EDDL) technology. It provides guidance to device and system manufacturers for how EDDL technology can help them meet user requirements. It provides guidance to system integrators, as well as instrumentation and maintenance practitioners at end-user companies, on how EDDL technology can help them integrate systems and incorporate device management in their work processes. It gives examples of requirements from the NAMUR NE 105 recommendation. It's intent is to illustrate how EDDL technology and products based on EDDL technology meet these requirements."
+  },
+  {
+    "reference": "IEC 61987-1:2024",
+    "edition": "2.0",
+    "date": "2024-10-23",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 1: Generic structures for measuring equipment",
+    "language": "EN-FR",
+    "description": "IEC 61987-1:2024 defines a generic structure in which product features of industrial process measurement devices shall be arranged, in order to facilitate the understanding of product descriptions when they are transferred from one party to another. It applies to the production of catalogues supplied by the manufacturer of such devices and helps the user to formulate their requirements. This document will also serve as a reference document for all future standards which are concerned with process measuring equipment. In addition, this document also provides a basic structure for the production of further standards listing the properties of process control equipment, for example, for actuators and infrastructure devices. This edition includes the following significant technical changes with respect to the previous edition: a) Addition of a subclause “Digital communication” in Clause 5, in order to allow a more comprehensive description of the properties of such an interface; b) Alignment of clause headings, as described in the introduction, to correspond with those of the IEC CDD."
+  },
+  {
+    "reference": "IEC 61987-10:2009",
+    "edition": "1.0",
+    "date": "2009-07-23",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 10: List of Properties (LOPs) for Industrial-Process Measurement and Control for Electronic Data Exchange - Fundamentals",
+    "language": "EN-FR, EN",
+    "description": "IEC 61987-10:2009 provides a method of standardizing the descriptions of process control devices, instrumentation and auxiliary equipment as well as their operating environments and operating requirements (for example, measuring point specification data). The aims of this standard are: - to define a common language for customers and suppliers through the publication of Lists of Properties (LOPs), - to optimize workflows between customers and suppliers as well as in processes such as engineering, development and purchasing within their own organizations, - to reduce transaction costs. The standard describes industrial-process device types and devices using structured lists of properties and makes the associated properties available in a component data dictionary. This bilingual version, published in 2010-11, corresponds to the English version. The French version of this standard has not been voted upon. This publication is to be read in conjunction with IEC 61987-1:2006 ."
+  },
+  {
+    "reference": "IEC 61987-10:2009/COR1:2012",
+    "edition": "1.0",
+    "date": "2012-05-30",
+    "title": "Corrigendum 1 - Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 10: Lists of properties (LOPs) for industrial-process measurement and control for electronic data exchange - Fundamentals",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61987-11:2016",
+    "edition": "2.0",
+    "date": "2016-12-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 11: List of properties (LOPs) of measuring equipment for electronic data exchange - Generic structures",
+    "language": "EN-FR",
+    "description": "IEC 61987-11:2016 provides: - a characterisation of industrial process measuring equipment (device type dictionary) for integration in the Common Data Dictionary (CDD), and - generic structures for operating lists of properties (OLOP) and device lists of properties (DLOP) of measuring equipment in conformance with IEC 61987-10. This second edition cancels and replaces the first edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The classification in Table A.1 has been amended to reflect the changes in the classification scheme of process measuring equipment in the CDD due to the development of IEC 61987-14, IEC 61987-15 and IEC 61987-16. b) Annex A has become “informative”."
+  },
+  {
+    "reference": "IEC 61987-12:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 12: Lists of properties (LOPs) for flow measuring equipment for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-12:2016 provides an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for a flow measuring equipment and device lists of properties (DLOP) for the description of a number of flow measuring equipment types."
+  },
+  {
+    "reference": "IEC 61987-13:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 13: Lists of properties (LOP) for pressure measuring equipment for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-13:2016 provides an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for a pressure measuring equipment, and device lists of properties (DLOP) for a range of pressure measuring equipment types describing them."
+  },
+  {
+    "reference": "IEC 61987-14:2016",
+    "edition": "1.0",
+    "date": "2016-04-26",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 14: Lists of properties (LOP) for temperature measuring equipment for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-14:2016 provides an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for temperature measuring equipment and device lists of properties (DLOP) for the description of a range of contact and non-contact temperature measuring equipment types."
+  },
+  {
+    "reference": "IEC 61987-15:2016",
+    "edition": "1.0",
+    "date": "2016-11-08",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 15: Lists of properties (LOPs) for level measuring equipment for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-15:2016 provides operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for level measuring equipment, and device lists of properties (DLOPs) for the description of a range of level measuring equipment types."
+  },
+  {
+    "reference": "IEC 61987-16:2016",
+    "edition": "1.0",
+    "date": "2016-12-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 16: List of properties (LOPs) for density measuring equipment for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-16:2016 provides an - operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for a density measuring equipment, and - device lists of properties (DLOP) for a range of density measuring equipment types describing them. The structures of the OLOP and the DLOP correspond with the general structures defined in IEC 61987-11 and agree with the fundamentals for the construction of LOPs defined in IEC 61987-10."
+  },
+  {
+    "reference": "IEC 61987-31:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 31: List of Properties (LOPs) of infrastructure devices for electronic data exchange – Generic structures",
+    "language": "EN-FR",
+    "description": "IEC 61987-31:2022 provides a characterization for the integration of infrastructure devices in the Common Data Dictionary (CDD); generic structures in conformance with IEC 61987-10 for Operating Lists of Properties (OLOPs) and Device Lists of Properties (DLOPs) of infrastructure devices. The generic structures for the OLOP and DLOP contain the most important blocks for infrastructure devices. Blocks pertaining to a specific equipment type will be described in the corresponding part of the IEC 61987 series. Similarly, equipment properties are not part of this part of IEC 61987. For instance, the OLOP and DLOP for I/O-modules are to be found in IEC 61987-32."
+  },
+  {
+    "reference": "IEC 61987-32:2024",
+    "edition": "1.0",
+    "date": "2024-06-07",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 32: Lists of properties (LOP) for I/O modules for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-32:2024 This part of IEC 61987 provides an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for I/O modules and a device list of properties (DLOP) for the description of a range of I/O module types. The structures of the OLOP and the DLOPs correspond to the general structures defined in IEC 61987-11 and agree with the fundamentals for the construction of LOPs defined in IEC 61987-10. Aspects other than the OLOP, needed in different electronic data exchange processes and described in IEC 61987-10 and IEC 61987-11, are published in IEC 61987-92. The locations of the libraries of properties and of blocks used in the LOPs concerned are listed in Annex C and Annex D."
+  },
+  {
+    "reference": "IEC 61987-41:2025",
+    "edition": "1.0",
+    "date": "2025-04-17",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 41: Lists of properties (LOPs) of process analysers for electronic data exchange - Generic structures",
+    "language": "EN-FR",
+    "description": "IEC 61987-41: 2025 provides: • a characterization for the integration of process analysers in the Common Data Dictionary (CDD), • generic structures for operating lists of properties (OLOP) and device lists of properties (DLOP) of measuring equipment in conformance with IEC 61987-10, • generic structures for Dynamic Data, e.g. for condition monitoring of process analysers. The generic structures for the OLOP and DLOP contain the most important blocks for process analysers. Blocks pertaining to a specific equipment type will be described in the corresponding part of the IEC 61987 standard series. Similarly, equipment properties are not part of this document. Thus, OLOP, DLOPs and LOPDs for selected process analysers families will be found in the IEC CDD."
+  },
+  {
+    "reference": "IEC 61987-92:2018",
+    "edition": "1.0",
+    "date": "2018-06-05",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 92: Lists of properties (LOP) of measuring equipment for electronic data exchange - Aspect LOPs",
+    "language": "EN-FR",
+    "description": "IEC 61987-92:2018 provides the lists of properties (LOPs) describing aspects of equipment for industrial-process automation that is subject to IEC 61987 standard series. This standard series proposes a method for standardization which will help both suppliers and users of measuring equipment to optimize workflows both within their own companies and in their exchanges with other companies. IEC 61987-92 contains additional aspects that are common to all devices, for example, “Packaging and transportation”, “Calibration and test results” and “Device documents supplied”. The structures of the LOPs correspond to the general structures defined in IEC 61987-11 and agree with the fundamentals for the construction of LOPs defined in IEC 61987-10. Libraries of properties and of blocks used in the aspect LOPs are listed in Annex B and Annex C."
+  },
+  {
+    "reference": "IEC 61987-100:2025",
+    "edition": "1.0",
+    "date": "2025-01-27",
+    "title": "Industrial-process measurement and control – Data structures and elements in process equipment catalogues – Part 100: Data base standard for process measurement, control and automation equipment",
+    "language": "EN-FR",
+    "description": "IEC 61987-100:2025 provides the semantics of the data needed for the area of process automation, the Industrial Internet of Things (IIoT), and smart manufacturing. Classification and description of products with classes and properties for future objects within the scope of TC 65 (Industrial-process measurement, control and automation) will be developed as IEC 61987 DB standard and published via IEC CDD data dictionary IEC 61987."
+  },
+  {
+    "reference": "IEC 62264-1:2013",
+    "edition": "2.0",
+    "date": "2013-05-22",
+    "title": "Enterprise-control system integration - Part 1: Models and terminology",
+    "language": "EN-FR",
+    "description": "IEC 62264-1:2013 describes the manufacturing operations management domain (Level 3) and its activities, and the interface content and associated transactions within Level 3 and between Level 3 and Level 4. This description enables integration between the manufacturing operations and control domain (Levels 3, 2, 1) and the enterprise domain (Level 4). Its goals are to increase uniformity and consistency of interface terminology and reduce the risk, cost, and errors associated with implementing these interfaces. IEC 62264-1 can be used to reduce the effort associated with implementing new product offerings. This second edition cancels and replaces the first edition published in 2003. It constitutes a technical revision and includes the following significant technical changes with respect to the previous edition: - the functional hierarchy in 5.2 was extended using the definitions from IEC 62264-3; - the equipment hierarchy in 5.3 was extended using the definitions from IEC 62264-3; - a physical asset equipment model was added in 5.3; - the generic model of manufacturing operations management categories in Clause 7 was added using information from IEC 62264-3; - the formal UML models that were in Clause 7 were moved to IEC 62264-2 and the remaining data definitions are now in Clause 8; - the capacity and capability model in Clause 8 was extended; - new Annexes A and B were moved from IEC 62264-3; - Subclause 5.5 on the decision hierarchy was removed and a reference added to ISO 15704; - Annex C, D, E were moved to a Technical Report; - Annex F was removed."
+  },
+  {
+    "reference": "IEC 62264-2:2026",
+    "edition": "3.0",
+    "date": "2026-03-06",
+    "title": "Enterprise-Control System Integration - Part 2: Object models and relationships for interfaces between manufacturing operations and business functions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62264-2:2026 specifies interface content exchanged between manufacturing control functions and other enterprise functions as interrelated information models. The information models are represented as an interrelated collection of conceptual object models which can be used for the implementation of applications with logical data and physical data models. The data exchanges in interfaces are scoped as between Level 3 manufacturing operations and Level 4 business systems in the hierarchical model defined in IEC 62264-1. The purpose of this document is to reduce the risk, cost, and errors associated with interface implementation. Since this document covers many manufacturing operations and enterprise domains and there are many different standards for those domains, the semantics of this data exchange standard are described at a conceptual level intended to enable the other standards to be mapped to these semantics. To this end, this document defines a set of elements contained in the generic interface, together with a mechanism for extending the interface content for implementations. The scope is limited to the definition of object models and attributes of the exchanged information defined in the IEC 62264-1. This third edition cancels and replaces the second edition published in 2013. It is published as a double logo standard. This edition constitutes a technical revision. Due to the extent of the changes and updates, this document cannot ensure backward compatibility to implementations based on older editions. This edition includes the following significant technical changes with respect to the previous edition and ANSI/ISA 95.00.02-2018 (ED3): a) object models are added for the use of interactive communications to notify subscribers about the occurrence of events and to provide context information about the event, making the information exchange more efficient and consistent. The added object models were the operations event model and operations record model. b) operations location model and spatial definition attribute added to allow the description of operation locations. c) operations test model added to define how test specifications and test results are related to testable objects, operations test requirements, actual resource, and work definitions. d) definition of possible measurement uncertainty sub-attributes for all value, quantity and duration attributes defined in this document. e) updated hierarchy scope model. f) removed as separate models in this edition were the models for product definition, production schedule, production performance, and production capability. Their content is covered for all manufacturing operations management categories under operations models. g) object model was added for the operations segment capability as a collection of resources related to other operations models. h) updated relationship name and role name conventions established in 3.3.4 and implemented across all models and associated tables. i) updated all objects’ relationship role table with explicit source and target names. j) updated common header attributes for objects and property objects established in 4.5 and implemented across all models and associated tables. k) updated explanation of the ‘relationships between resource reference objects in operations management information models and resource models. These additional resource relationships are added to all operations management models. l) added an annex explanation for implementation options for specifying values in unit of measurement attribute. m) added an annex explanation for implementation considerations for inheritance and persistence of data exchange object models."
+  },
+  {
+    "reference": "IEC 62264-3:2016",
+    "edition": "2.0",
+    "date": "2016-12-16",
+    "title": "Enterprise-control system integration - Part 3: Activity models of manufacturing operations management",
+    "language": "EN-FR",
+    "description": "IEC 62264-3:2016 defines activity models of manufacturing operations management that enable enterprise system to control system integration. The activities defined in this document are consistent with the object models definitions given in IEC 62264-1. The modelled activities operate between business planning and logistics functions, defined as the Level 4 functions and the process control functions, defined as the Level 2 functions of IEC 62264-1. IEC 62264-3:2016 defines activity models of manufacturing operations management that enable enterprise system to control system integration. The activities defined in this document are consistent with the object models definitions given in IEC 62264-1. The modelled activities operate between business planning and logistics functions, defined as the Level 4 functions and the process control functions, defined as the Level 2 functions of IEC 62264-1. This second edition cancels and replaces the first edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) 4.1 Manufacturing Operations Management was moved to Part 1 and therefore was removed from Part 3; b) 4.2 Functional hierarchy was moved to Part 1 and therefore was removed from Part 3; c) 4.4 Criterion for defining activities below Level 4 was moved to Part 1 and therefore was removed from Part 3; d) 4.5 Categories of production information was moved to Part 1 and therefore was removed from Part 3; e) 4.6 Manufacturing operations information was moved to Part 1 and therefore was removed from Part 3; f) 5.3 Expanded equipment hierarchy model was moved to Part 1 and therefore was removed from Part 3; g) 5.4 Expanded decision hierarchy model was removed from Part 3. The corresponding section was removed from Part 1 and replaced with a reference to ISO 15704; h) Annex A (informative) Other enterprise activities affecting manufacturing operations was moved to Part 1 and therefore was removed from Part 3; i) Annex D (informative) Associated standards was moved to Part 1 and therefore was removed from Part 3; j) Annex F (informative) Applying the decision hierarchy model to manufacturing operations management was removed from Part 3. The corresponding section was removed from Part 1 and replaced with a reference to ISO 15704; k) Annex G (informative) Mapping PSLX ontology to manufacturing operations management was removed from Part 3. The committee felt that this section is more appropriate as a PSLX white paper or TR. The names for data were changed to match the Part 4 standard names. These name changes were made in all figures and in the text."
+  },
+  {
+    "reference": "IEC 62264-4:2015",
+    "edition": "1.0",
+    "date": "2015-12-16",
+    "title": "Enterprise-control system integration - Part 4: Objects models attributes for manufacturing operations management integration",
+    "language": "EN-FR",
+    "description": "IEC 62264-4:2015 defines object models and attributes exchanged between Level 3 manufacturing operations management activities defined in IEC 62264-3."
+  },
+  {
+    "reference": "IEC 62264-5:2016",
+    "edition": "2.0",
+    "date": "2016-07-19",
+    "title": "Enterprise-control system integration - Part 5: Business to manufacturing transactions",
+    "language": "EN-FR",
+    "description": "IEC 62264-5:2016 defines transactions in terms of information exchanges between applications performing business and manufacturing activities associated with Levels 3 and 4. The exchanges are intended to enable information collection, retrieval, transfer and storage in support of enterprise-control system integration. This part of IEC 62264 is consistent with the IEC 62264-2 and IEC 62264-4 object models attributes. This standard also defines transactions that specify how to exchange the objects defined in IEC 62264-2, IEC 62264-4 and this standard. This second edition cancels and replaces the first edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The addition of transaction rules for objects defined in IEC 62264-4: Job, Job List, Job Response, Job Response List, Work Alert Definition, Work Alert, Work Calendar Definition, Work Calendar, Work Capability Work Directive, Work Master, Work Performance, Work Record, Work Schedule, Workflow Specification Node Type, Workflow Specification. It is published as a double logo standard."
+  },
+  {
+    "reference": "IEC 62264-6:2020",
+    "edition": "1.0",
+    "date": "2020-06-26",
+    "title": "Enterprise-control system integration - Part 6: Messaging service model",
+    "language": "EN-FR, EN",
+    "description": "IEC 62264-6:2020 defines a technology independent model for a set of abstract services that is located above the application layer of the OSI model, and that is used for exchanging transaction messages based on the transaction models defined in IEC 62264-5. The model, which is called the Messaging Service Model (MSM), is intended for interoperability between manufacturing operations domain applications and applications in other domains."
+  },
+  {
+    "reference": "IEC 62337:2012",
+    "edition": "2.0",
+    "date": "2012-02-22",
+    "title": "Commissioning of electrical, instrumentation and control systems in the process industry - Specific phases and milestones",
+    "language": "EN-FR",
+    "description": "IEC 62337:2012 defines specific phases and milestones in the commissioning of electrical, instrumentation and control systems in the process industry. By way of example, it describes activities following the \"completion-of-erection\" milestone of the project and prior to the \"acceptance-of-the-plant\" phase by the owner. Such activities need to be adapted for each type of process/plant concerned. This second edition cancels and replaces the first edition published in 2006. This edition constitutes a technical revision. The main changes with respect to the previous edition is: the definition of the documents mentioned in this standard is in accordance with future IEC 62708. The contents of the corrigendum of December 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62337:2012/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-12-11",
+    "title": "Corrigendum 1 - Commissioning of electrical, instrumentation and control systems in the process industry - Specific phases and milestones",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62381:2024",
+    "edition": "3.0",
+    "date": "2024-07-30",
+    "title": "Automation systems in the process industry - Factory acceptance test (FAT), site acceptance test (SAT), and site integration test (SIT)",
+    "language": "EN-FR",
+    "description": "IEC 62381:2024 defines requirements and checklists for the factory acceptance test (FAT), the factory integration test (FIT), the site acceptance test (SAT), and the site integration test (SIT). These tests are carried out to demonstrate that the automation system meets the requirements of the applicable specification. This document provides a means for all parties, including the owner, the buyer, and the vendor, to clearly establish and agree on the scope of activities and responsibilities involved in performing these tests in order to achieve a timely delivery and acceptance of the automation system. The activities specified in this document can be used to develop test plans adapted to the specific requirements of the process/plant/equipment. The annexes of this document contain checklists which are available for consideration when preparing specific test procedures and documentation for a specific automation system. This edition includes the following significant technical changes with respect to the previous edition: a) General re-organization of the standard; b) Current technology incorporated; c) Optional factory integration test (FIT) added; d) Replaced the forms in the annexes with detailed checklists of activities which can be used to develop project-specific test plans; and e) Provided additional references to other applicable standards."
+  },
+  {
+    "reference": "IEC 62382:2024",
+    "edition": "3.0",
+    "date": "2024-08-14",
+    "title": "Control systems in the process industry - Electrical and instrumentation loop check",
+    "language": "EN-FR",
+    "description": "IEC 62382:2024 defines procedures and specifications for loop check, which comprises the activities between the completion of the loop construction (including installation and point-to-point checks) and the beginning of cold commissioning. This document is applicable for the construction of new plants and for expansion or retrofits (i.e. revamping) of electrical and instrument (E&I) installations in existing plants (including PLC, DCS, panel-mounted and field instrumentation). It does not include a detailed checkout of power distribution systems, except as they relate to the loops being checked (i.e. a motor starter or a power supply to a four-wire transmitter). Loop checks can be performed throughout the lifecycle of the plant. This document is also applicable when loop checks are performed after commissioning. This document describes what is intended to be tested but not how the test is performed, due to the wide range of technologies and equipment available. The intent of this document is to provide a means for all parties, including the owner, the installer and the vendor, to clearly establish and agree on the scope of activities and responsibilities involved in performing these tests in order to achieve a timely delivery and acceptance of the automation system. The activities described in this document can be taken as a guideline and adapted to the specific requirements of the process, plant or equipment. This edition includes the following significant technical changes with respect to the previous edition: a) general re-organization of the content of the previous edition, moving informative content to the annexes; b) replacing the forms based on I/O type in IEC 62382:2012, Annex A to Annex E with an example of a generic loop check form; c) providing additional references to other applicable standards."
+  },
+  {
+    "reference": "IEC TR 62390:2005",
+    "edition": "1.0",
+    "date": "2005-01-27",
+    "title": "Common automation device - Profile guideline",
+    "language": "EN",
+    "description": "provides guidance for the development of device profiles for industrial field devices and control devices, independent of their complexity"
+  },
+  {
+    "reference": "IEC 62453-1:2025",
+    "edition": "3.0",
+    "date": "2025-08-12",
+    "title": "Field device tool (FDT) interface specification - Part 1: Overview and guidance",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62453-1:2025 is available as IEC 62453-1:2025 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 62453-1:2025 presents an overview and guidance for the IEC 62453 series. It • explains the structure and content of the IEC 62453 series (see Clause 5); • provides explanations of some aspects of the IEC 62453 series that are common to many of the parts of the series; • describes the relationship to some other standards; • provides definitions of terms used in other parts of the IEC 62453 series. This third edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) introduction of a new implementation technology (defined in IEC TS 62453-43); b) introduction of an OPC UA information model for FDT (defined in IEC 62453-71)."
+  },
+  {
+    "reference": "IEC 62453-2:2022",
+    "edition": "3.0",
+    "date": "2022-08-31",
+    "title": "Field device tool (FDT) interface specification - Part 2: Concepts and detailed description",
+    "language": "EN-FR",
+    "description": "IEC 62453-2:2022 explains the common principles of the field device tool concept. These principles can be used in various industrial applications such as engineering systems, configuration programs and monitoring and diagnostic applications. This document specifies the general objects, general object behavior and general object interactions that provide the base of FDT."
+  },
+  {
+    "reference": "IEC TR 62453-41:2016",
+    "edition": "2.0",
+    "date": "2016-04-26",
+    "title": "Field device tool (FDT) interface specification - Part 41: Object model integration profile - Common object model",
+    "language": "EN",
+    "description": "IEC TR 62453-41:2016(E), which is a technical report, defines how the common FDT principles are implemented based on the Microsoft COM technology, including the object behavior and object interaction via COM interfaces. This part specifies the technology-specific implementation of the protocol-specific functionality and communication services. This second edition cancels and replaces the first edition published in 2009, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - correction of specification for bus master configuration; - correction of specification for propagation of changes; - correction of description of DTM services for online operation."
+  },
+  {
+    "reference": "IEC TR 62453-42:2016",
+    "edition": "1.0",
+    "date": "2016-04-26",
+    "title": "Field device tool (FDT) interface specification - Part 42: Object model integration profile - Common Language Infrastructure",
+    "language": "EN",
+    "description": "IEC TR 62453-42:2016(E), which is a technical report, defines how the common FDT principles are implemented based on the .NET technology, including the object behaviour and object interaction via .NET interfaces. This document specifies FDT version 2.0."
+  },
+  {
+    "reference": "IEC TS 62453-43:2024",
+    "edition": "1.0",
+    "date": "2024-11-22",
+    "title": "Field device tool (FDT) interface specification – Part 43: Object model integration profile – CLI and HTML",
+    "language": "EN",
+    "description": "IEC TS 62453-43:2024 specifies how the common FDT principles are implemented based on the CLI technology and web technologies for graphical user interfaces. The specification includes the object behaviour and object interaction via. NET Standard interfaces and JavaScript APIs. Emphasis has been placed on support of distributed Frame Application architectures. This document specifies FDT version 3.0."
+  },
+  {
+    "reference": "IEC TR 62453-51-10:2017",
+    "edition": "1.0",
+    "date": "2017-05-11",
+    "title": "Field device tool (FDT) interface specification - Part 51-10: Communication implementation for common object model - IEC 61784 CPF 1",
+    "language": "EN",
+    "description": "IEC TR 62453-51-10:2017(E) which is a Technical Report, provides additional information for integrating the Foundation™ Fieldbus (FF) protocol into the COM-based implementation of the FDT Specification (IEC TR 62453-41). This document describes communication definitions, protocol specific extensions and the means for block (e.g. transducer, resource or function blocks) representation. This document cancels and replaces IEC TR 62453-501 published in 2009. This edition constitutes a technical revision. The main changes are updates of the methods to access instance and device data (see Clause 5) and updates of the XML schemas (see Clauses 7to 11)."
+  },
+  {
+    "reference": "IEC TR 62453-51-20:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-20: Communication implementation for common object model - IEC 61784 CPF 2",
+    "language": "EN",
+    "description": "IEC TR 62453-51‑20:2017(E) provides information for integrating the CIP™ technology into the COM-based implementation of FDT interface specification (IEC TR 62453-41). The Communication Profile Family 2 (commonly known as CIP™ defines communication profiles based on IEC 61158‑2 Type 2, IEC 61158‑3‑2, IEC 61158‑4‑2, IEC 61158‑5‑2, and IEC 61158‑6‑2, IEC 62026‑3. The basic profiles CP 2/1 (ControlNet™, CP 2/2 (EtherNet/IP™, and CP 2/3 (DeviceNet™1) are defined in IEC 61784‑1 and IEC 61784‑2. An additional communication profile (CompoNet™),also based on CIP™, is defined in [15]. This document specifies implementation of communication and other services based on IEC 62453‑302."
+  },
+  {
+    "reference": "IEC TR 62453-51-31:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-31: Communication implementation for common object model - IEC 61784 CP 3/1 and CP 3/2",
+    "language": "EN",
+    "description": "IEC TR 62435-51-31:2017(E) provides information for integrating the PROFIBUS protocol into the COM-based implementation of FDT interface specification (IEC TR 62453‑41). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑303-1. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-51-32:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-32: Communication implementation for common object model - IEC 61784 CP 3/4, CP 3/5 and CP 3/6",
+    "language": "EN",
+    "description": "IEC 62453-51-32:2017(E) provides information for integrating the PROFINET® technology into the COM-based implementation of the FDT interface specification (IEC TR 62453-41). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑303-2. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-51-60:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-60: Communication implementation for common object model - IEC 61784 CPF 6",
+    "language": "EN",
+    "description": "IEC TR 62453-51-60:2017(E) provides information for integrating the INTERBUS® technology into the COM-based implementation of FDT interface specification (IEC TR 62453-41). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑306. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-51-90:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-90: Communication implementation for common object model - IEC 61784 CPF 9",
+    "language": "EN",
+    "description": "IEC TR 62453-51-90:2017(E), is a Technical Report, and provides information for integrating the HART® technology into the COM-based implementation of FDT interface specification (IEC TR 62453‑41). This part of IEC 62453 specifies the implementation of communication and other services based on IEC 62453‑309. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-51-150:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Field device tool (FDT) interface specification - Part 51-150: Communication implementation for common object model - IEC 61784 CPF 15",
+    "language": "EN",
+    "description": "IEC TR 62453-51-150:2017(E) which is a Technical Report, provides information for integrating IEC 61784-2 CPF 15 (Modbus TCP®) and Modbus Serial Line® protocol support into FDT systems based on COM implementation. This part is to be used in conjunction with IEC TR 62453-41. This part of IEC 62453 only specifies the mapping of Modbus parameters to FDT data types. For restrictions of protocol specific parameters concerning allowed values and concerning limitations of arrays used in the definition of FDT data types, refer to IEC 61158-5-15 and the MODBUS Application Protocol Specification. This part of IEC 62453 specifies the implementation of communication and other services based on IEC 62453‑315. This document neither contains the FDT specification nor modifies it. ."
+  },
+  {
+    "reference": "IEC TR 62453-52-31:2017",
+    "edition": "1.0",
+    "date": "2017-06-16",
+    "title": "Field device tool (FDT) interface specification - Part 52-31: Communication implementation for common language infrastructure - IEC 61784 CP 3/1 and CP 3/2",
+    "language": "EN",
+    "description": "IEC TR 62453-52-31:2017(E) which is a Technical Report, provides information for integrating the PROFIBUS technology into the CLI-based implementation of FDT interface specification (IEC TR 62453-42). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑303-1. This document neither contains the FDT specification nor modifies it.."
+  },
+  {
+    "reference": "IEC TR 62453-52-32:2017",
+    "edition": "1.0",
+    "date": "2017-06-16",
+    "title": "Field device tool (FDT) interface specification - Part 52-32: Communication implementation for common language infrastructure - IEC 61784 CP 3/4, CP 3/5 and CP 3/6",
+    "language": "EN",
+    "description": "IEC TR 62453-52-32:2017(E) which is a Technical Report, provides information for integrating the PROFINET® technology into the CLI-based implementation of FDT interface specification (IEC TR 62453-42). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑303-2. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-52-90:2017",
+    "edition": "1.0",
+    "date": "2017-06-16",
+    "title": "Field device tool (FDT) interface specification - Part 52-90: Communication implementation for common language infrastructure - IEC 61784 CPF 9",
+    "language": "EN",
+    "description": "IEC TR 62453-52-90:2017(E) which is a Technical Report, provides information for integrating the HART® technology into the CLI-based implementation of FDT interface specification (IEC TR 62453-42). This part of IEC 62453 specifies implementation of communication and other services based on IEC 62453‑309. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TR 62453-52-150:2017",
+    "edition": "1.0",
+    "date": "2017-06-16",
+    "title": "Field device tool (FDT) interface specification - Part 52-150: Communication implementation for common language infrastructure - IEC 61784 CPF 15",
+    "language": "EN",
+    "description": "IEC TR 62453-52-150:2017(E) which is a Technical Report, provides information for integrating the Modbus® technology into the CLI-based implementation of FDT interface specification (IEC TR 62453-42). This part of IEC 62453 specifies the implementation of communication and other services based on IEC 62453-315. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC TS 62453-53-31:2025",
+    "edition": "1.0",
+    "date": "2025-03-06",
+    "title": "Field Device Tool (FDT) Interface Specification - Part 53-31: Communication implementation for CLI and HTML – IEC 61784 CP 3/1 and CP 3/2",
+    "language": "EN",
+    "description": "IEC TS 62453-53-31:2025 provides information for integrating the PROFIBUS [1] technology into the CLI-based implementation of FDT interface specification (IEC TS 62453-43). This document specifies implementation of communication and other services based on IEC 62453‑303-1. This document neither contains the FDT specification nor modifies it. [1] PROFIBUS™ is a trade name of the non-profit organization PROFIBUS Nutzerorganisation e.V. (PNO). This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trade name holder or any of its products. Compliance to this document does not require use of the registered logos for PROFIBUS™. Use of the registered logos for PROFIBUS™ requires permission of PNO."
+  },
+  {
+    "reference": "IEC TS 62453-53-90:2025",
+    "edition": "1.0",
+    "date": "2025-04-15",
+    "title": "Field Device Tool (FDT) Interface Specification - Part 53-90: Communication implementation for CLI and HTML – IEC 61784 CPF 9",
+    "language": "EN",
+    "description": "IEC TS 62453-53-90:2025 provides information for integrating the HART® [1] technology into the CLI-based implementation of FDT interface specification (IEC TS 62453-43). This document specifies implementation of communication and other services based on IEC 62453‑309. This document neither contains the FDT specification nor modifies it. [1] HART® and WirelessHART® are trade names of products supplied by FieldComm Group. This information is given for convenience of users of this document and does not constitute an endorsement by IEC of the product named. Equivalent products may be used if they can be shown to lead to the same results."
+  },
+  {
+    "reference": "IEC TR 62453-61:2009",
+    "edition": "1.0",
+    "date": "2009-08-18",
+    "title": "Field device tool interface specification - Device Type Manager (DTM) Styleguide for common object model",
+    "language": "EN",
+    "description": "IEC/TR 62453-61:2009(E), which is a technical report, explains the guidelines and rules for the implementation of a Device Type Manager (DTM) with regard to the user interface and its functions. These guidelines and rules are part of the FDT specification and are intended to ensure that all users are provided with clear and consistent user interface functions and features across DTM devices in a system."
+  },
+  {
+    "reference": "IEC TR 62453-62:2017",
+    "edition": "1.0",
+    "date": "2017-01-24",
+    "title": "Field device tool (FDT) interface specification - Part 62: Field device tool (FDT) styleguide for common language infrastructure",
+    "language": "EN",
+    "description": "IEC TR 62453-62:2017(E), which is a Technical Report, explains the guidelines and rules for the CLI‑based implementation of a Device Type Manager (DTM) and parts of a Frame Application with regard to the user interface and its behaviour. These guidelines and rules are part of the FDT specification (IEC TR 62453‑42) and are intended to ensure that all users are provided with clear and consistent user interface functions and features across DTMs in a system."
+  },
+  {
+    "reference": "IEC 62453-71:2023",
+    "edition": "1.0",
+    "date": "2023-11-01",
+    "title": "Field device tool (FDT) interface specification – Part 71: OPC UA Information Model for FDT",
+    "language": "EN-FR",
+    "description": "IEC 62453-71:2023 specifies an OPC UA Information Model to represent the device information based on FDT-defined device integration."
+  },
+  {
+    "reference": "IEC 62453-301:2009",
+    "edition": "1.0",
+    "date": "2009-06-30",
+    "title": "Field device tool (FDT) interface specification - Part 301: Communication profile integration - IEC 61784 CPF 1",
+    "language": "EN-FR, EN",
+    "description": "IEC 62453-301:2009 provides information for integrating the FOUNDATION Fieldbus (FF) protocol into the FDT standard (IEC 62453-2). It describes communication definitions, protocol specific extensions and the means for block (e.g. transducer, resource or function blocks) representation. This part, in conjunction with the other parts of the first edition of the IEC 62453 series cancels and replaces IEC/PAS 62453-1, IEC/PAS 62453-2, IEC/PAS 62453-3, IEC/PAS 62453-4 and IEC/PAS 62453-5 published in 2006, and constitutes a technical revision. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2009-06. This publication is to be read in conjunction with IEC 62453-2:2009 ."
+  },
+  {
+    "reference": "IEC 62453-301:2009/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-05-13",
+    "title": "Amendment 1 - Field device tool (FDT) interface specification - Part 301: Communication profile integration - IEC 61784 CPF 1",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62453-302:2023",
+    "edition": "3.0",
+    "date": "2023-11-08",
+    "title": "Field device tool (FDT) interface specification - Part 302: Communication profile integration - IEC 61784 CPF 2",
+    "language": "EN-FR",
+    "description": "IEC 62453-302:2023 provides information for integrating the CIP™ technology into the FDT interface specification (IEC 62453‑2). Communication Profile Family 2 (commonly known as CIP™[1]) defines communication profiles based on IEC 61158-2 Type 2, IEC 61158-3-2, IEC 61158-4-2, IEC 61158-5-2, IEC 61158-6-2, and IEC 62026-3. The basic profiles CP 2/1 (ControlNet™[2]), CP 2/2 (EtherNet/IP™[3]), and CP 2/3 (DeviceNet™1) are defined in IEC 61784‑1 and IEC 61784‑2. An additional communication profile (CompoNet™1), also based on CIP™, is defined in IEC 62026-7. This part of IEC 62453 specifies communication and other services. This specification neither contains the FDT specification nor modifies it. [1] CIP™ (Common Industrial Protocol), DeviceNet™ and CompoNet™ are trade names of Open DeviceNet Vendor Association, Inc (ODVA). This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trade name holder or any of its products. Compliance to this standard does not require use of the trade names CIP™, DeviceNet™ or CompoNet™. Use of the trade names CIP™, DeviceNet™ or CompoNet™ requires permission of Open DeviceNet Vendor Association, Inc. [2] ControlNet™ is a trade name of ControlNet International, Ltd. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance to this profile does not require use of the trade name ControlNet™. Use of the trade name ControlNet™ requires permission of ControlNet International, Ltd. [3] EtherNet/IP™ is a trade name of ControlNet International, Ltd. and Open DeviceNet Vendor Association, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance to this profile does not require use of the trade name EtherNet/IP™. Use of the trade name EtherNet/IP™ requires permission of either ControlNet International, Ltd. or Open DeviceNet Vendor Association, Inc."
+  },
+  {
+    "reference": "IEC 62453-303-1:2009",
+    "edition": "1.0",
+    "date": "2009-06-30",
+    "title": "Field device tool (FDT) interface specification - Part 303-1: Communication profile integration - IEC 61784 CP 3/1 and CP 3/2",
+    "language": "EN-FR, EN",
+    "description": "IEC 62453-303-1:2009 provides information for integrating the PROFIBUS protocol into the FDT interface specification (IEC 62453-2). This part of the IEC 62453 specifies communication and other services."
+  },
+  {
+    "reference": "IEC 62453-303-1:2009/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-06-22",
+    "title": "Amendment 1 - Field device tool (FDT) interface specification - Part 303-1: Communication profile integration - IEC 61784 CP 3/1 and CP 3/2",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62453-303-2:2009",
+    "edition": "1.0",
+    "date": "2009-06-30",
+    "title": "Field device tool (FDT) interface specification - Part 303-2: Communication profile integration - IEC 61784 CP 3/4, CP 3/5 and CP 3/6",
+    "language": "EN-FR, EN",
+    "description": "IEC 62453-303-2:2009 provides information for integrating the PROFINET® technology into the FDT interface (IEC 62453-2). It specifies communication and other services. This part, in conjunction with the other parts of the first edition of the IEC 62453 series cancels and replaces IEC/PAS 62453-1, IEC/PAS 62453-2, IEC/PAS 62453-3, IEC/PAS 62453-4 and IEC/PAS 62453-5 published in 2006, and constitutes a technical revision. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2009-06. This publication is to be read in conjunction with IEC 62453-2:2009 ."
+  },
+  {
+    "reference": "IEC 62453-303-2:2009/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-06-22",
+    "title": "Amendment 1 - Field device tool (FDT) interface specification - Part 303-2: Communication profile integration - IEC 61784 CP 3/4, CP 3/5 and CP 3/6",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62453-306:2009",
+    "edition": "1.0",
+    "date": "2009-06-30",
+    "title": "Field device tool (FDT) interface specification - Part 306: Communication profile integration - IEC 61784 CPF 6",
+    "language": "EN-FR, EN",
+    "description": "IEC 62453-306:2009 provides information for integrating the INTERBUS® technology into the FDT standard (IEC 62453-2). Communication Profile Family 6 (commonly known as INTERBUS®) defines communication profiles based on IEC 61158-2 Type 8, IEC 61158-3-8, IEC 61158-4-8, IEC 61158-5-8, and IEC 61158-6-8. The basic profiles CP 6/1 (INTERBUS) and CP 6/3 (INTERBUS minimal subset) are defined in IEC 61784-1. This part, in conjunction with the other parts of the first edition of the IEC 62453 series cancels and replaces IEC/PAS 62453-1, IEC/PAS 62453-2, IEC/PAS 62453-3, IEC/PAS 62453-4 and IEC/PAS 62453-5 published in 2006, and constitutes a technical revision. This bilingual version (2013-09) corresponds to the monolingual English version, published in 2009-06. This publication is to be read in conjunction with IEC 62453-2:2009 ."
+  },
+  {
+    "reference": "IEC 62453-309:2022",
+    "edition": "3.0",
+    "date": "2022-09-02",
+    "title": "Field device tool (FDT) interface specification - Part 309: Communication profile integration - IEC 61784 CPF 9",
+    "language": "EN-FR",
+    "description": "Communication Profile Family 9 (commonly known as HART® ) defines communication profiles based on IEC 61158 5 20 and IEC 61158 6 20. The basic profile CP 9/1 is defined in IEC 61784 1. IEC 62453-309:2022 (EN) provides information for integrating the HART® technology into the FDT standard (IEC 62453-2). This part of the IEC 62453 specifies communication and other services. This document neither contains the FDT specification nor modifies it."
+  },
+  {
+    "reference": "IEC 62453-315:2009",
+    "edition": "1.0",
+    "date": "2009-07-08",
+    "title": "Field device tool (FDT) Interface specification - Part 315: Communication profile integration - IEC 61784 CPF 15",
+    "language": "EN-FR, EN",
+    "description": "IEC 62453-315:2009 provides information for integrating Modbus TCP® and Modbus Serial Line® protocol support into FDT based systems.This bilingual version (2015-06) corresponds to the English version, published in 2009-07. This part, in conjunction with the other parts of the first edition of the IEC 62453 series cancels and replaces IEC/PAS 62453-1, IEC/PAS 62453-2, IEC/PAS 62453-3, IEC/PAS 62453-4 and IEC/PAS 62453-5 published in 2006, and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62453-315:2009/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-06-17",
+    "title": "Amendment1 - Field device tool (FDT) Interface specification - Part 315: Communication profile integration - IEC 61784 CPF 15",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62541-1:2025",
+    "edition": "1.0",
+    "date": "2025-12-19",
+    "title": "OPC unified architecture - Part 1: Overview and concepts",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-1:2025 presents the concepts and overview of the OPC Unified Architecture (OPC UA). Reading this document is helpful to understand the remaining parts of the IEC 62541 series. Each of the other parts is briefly explained along with a suggested reading order. This first edition cancels and replaces IEC TR 62541-1 published in 2020"
+  },
+  {
+    "reference": "IEC 62541-2:2026",
+    "edition": "1.0",
+    "date": "2026-02-12",
+    "title": "OPC unified architecture - Part 2: Security Model",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-2:2026 describes the OPC Unified Architecture (OPC UA) security model. It describes the security threats of the physical, hardware, and software environments in which OPC UA is expected to run. It describes how OPC UA relies upon other standards for security. It provides definition of common security terms that are used in this and other parts of the IEC 62541 series. It gives an overview and concept of the security features that are specified in other parts of the series. It references services, mappings, and Profiles that are specified normatively in other parts of the 62541 series. It provides suggestions or best practice guidelines on implementing security. Any seeming ambiguity between this document and one of the other normative parts does not remove or reduce the requirement specified in the other normative part. There are many different aspects of security that are addressed when developing applications. However, since OPC UA specifies a communication protocol, the focus is on securing the data exchanged between applications. This does not mean that an application developer can ignore the other aspects of security like protecting persistent data against tampering. It is important that the developers look into all aspects of security and decide how they can be addressed in the application. Common security features for industrial Controls are defined in IEC 62443-4-2 and OPC UA defined a relationship to them in Annex A. This document is directed to readers who will develop OPC UA applications. It is also for end Users that wish to understand the various security features and functionality provided by OPC UA. It also offers some recommendations that can be applied when deploying systems. These recommendations are generic in nature since the details would depend on the actual implementation of the OPC UA applications and the choices made for the site security. This edition cancels and replaces the third edition of IEC TR 62541-2, published in 2020.This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62541-3:2025",
+    "edition": "4.0",
+    "date": "2025-12-22",
+    "title": "OPC unified architecture - Part 3: Address Space Model",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-3: 2025 describes the OPC Unified Architecture (OPC UA) AddressSpace and its Objects. This specification is the OPC UA meta model on which OPC UA information models are based. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of the concept and modelling elements for Interfaces and AddIns; b) addition of Currency; c) addition of Method Meta Data to define additional attributes for Method Arguments; d) addition of ApplyRestrictionToBrowse bit to AccessRestrictionType; e) addition of a Non-Volatile Storage bit to AccessLevelExType; f) addition of a Constant bit and ConfigurationConstant bit to AccessLevelExType; g) the View NodeClass has been changed to define the EventNotifier as an EventNotifierType in the same way the Object NodeClass defines it; h) correctition of HasNotifier, HasEventSource, and Organizes, to include ObjectType as valid source node; i) NamingRules have become deprecated; j) addition of AssociatedWith ReferenceType."
+  },
+  {
+    "reference": "IEC 62541-4:2025",
+    "edition": "4.0",
+    "date": "2025-12-16",
+    "title": "OPC unified architecture - Part 4: Services",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-4:2025 defines the OPC Unified Architecture (OPC UA) Services. The Services defined are the collection of abstract Remote Procedure Calls (RPC) that are implemented by OPC UA Servers and called by OPC UA Clients. All interactions between OPC UA Clients and Servers occur via these Services. The defined Services are considered abstract because no particular RPC mechanism for implementation is defined in this document. IEC 62541‑6 specifies one or more concrete mappings supported for implementation. For example, one mapping in IEC 62541‑6 is to UA-TCP UA-SC UA-Binary. In that case the Services described in this document appear as OPC UA Binary encoded payload, secured with OPC UA Secure Conversation and transported via OPC UA TCP. Not all OPC UA Servers implement all of the defined Services. IEC 62541‑7 defines the Profiles that dictate which Services must be implemented in order to be compliant with a particular Profile. A BNF (Backus-Naur form) for browse path names is described in Annex A. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of new definitions to Method Call Service to allow optional Method arguments; b)addition of reference to SystemStatusChangeEventType for event monitored item error scenarios; c) enhancement of the general description of how determining if a Certificate is trusted; d) addition of support for ECC; e) addition of revisedAggregateConfiguration to AggregateFilterResult structure; f) addition of INVALID to the BrowseDirection enumeration data type; g) addition of INVALID to the TimestampsToReturn enumeration data type; h) addition of definitions that make sure the subscription functionality works if retransmission queues are optional; i) addition of client checks has been added to be symmetric to the Server Certificate check has been added; j) clarification that ‘local’ top level domain is not appended by server into certificate and not checked by client when returned from LDS-ME; k) addition of a definition for expiration behaviour of IssuedIdentityTokens; l) addition of status code Good_PasswordChangeRequired to ActivateSession; m) restriction of AdditionalInfo to servers in debug mode; n) addition of new status code Bad_ServerTooBusy; o) addition of definition for cases where server certificate must be contained in GetEndpoints response."
+  },
+  {
+    "reference": "IEC 62541-5:2026",
+    "edition": "4.0",
+    "date": "2026-01-06",
+    "title": "OPC unified architecture - Part 5: Information Model",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-5:2026 This edition includes the following significant technical changes with respect to the previous edition: a) Annex B has been removed and used to create IEC 62451-16; b) Annex C has been removed and used to create IEC 62451-20; c) currency information model has been added; d) information model for Interfaces and AddIns has been added; e) information model for Method Metadata has been added; f) MaxSessions, MaxSubscriptions, and MaxMonitoredItems have been added to capabilities; g) information model for ordered list of objects has been added; h) PortableQualifiedName and PortableNodeId DataTypes have been added; i) UriString DataType has been added; j) SemanticVersionString DataType has been added; k) AssociatedWith Reference Type has been added; l) ConfigurationVersion Property has been added to NamespaceMetadataType; m) AuditClientEventType and AuditClientUpdateMethodResultEventType have been added; n) ModelVersion has been added to NamespaceMetadataType; o) NoTransparentBackupRedundancyType has been added to support a Primary/Standby use case; p) BitFieldType and BitFieldDefinitionType have been added. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62541-6:2025",
+    "edition": "4.0",
+    "date": "2025-12-23",
+    "title": "OPC unified architecture - Part 6: Mappings",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-6:2025 specifies the mapping between the security model described in IEC 62541‑2, the abstract service definitions specified in IEC 62541‑4, the data structures defined in IEC 62541‑5 and the physical network protocols that can be used to implement the OPC UA specification. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of support for ECC to UA Secure Conversation; b) use of the AuthorityKeyIdentifier extension in Certificate Revocation Lists; c) enhancement of JSON mapping of Unions; d) addition of Decimal data type encoding. e) description of ECC keyUsage rules; f) addition of Media assigned by IANA to UANodeSet definition; g) addition of requirements for user and issuer Certificates; h) addition of rules which specify what happens when DateTime precision is lost; i) addition of rules to allow for the truncation of strings containing embedded nulls. J) definition of a normative string representation for NodeId, ExpandedNodeId and QualifiedName for JSON mapping. k) requirement that TAI times be converted to UTC; l) new possibility to omit Symbol if unknown in JSON encoding; m) addition of fields needed to support RolePermissions to the UANodeSet"
+  },
+  {
+    "reference": "IEC 62541-7:2025",
+    "edition": "4.0",
+    "date": "2025-12-16",
+    "title": "OPC unified architecture - Part 7: Profiles",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-7: 2025 specifies value and structure of Profiles in the OPC Unified Architecture. OPC UA Profiles are used to segregate features with regard to testing of OPC UA products and the nature of the testing. The scope of this document includes defining functionality that can only be tested. The definition of actual TestCases is not within the scope of this document, but the general categories of TestCases are covered by this document. Most OPC UA applications will conform to several, but not all of the Profiles. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Profiles and ConformanceUnits are not part of this document, but are solely managed in a public database as described in Clause 1."
+  },
+  {
+    "reference": "IEC 62541-8:2025",
+    "edition": "4.0",
+    "date": "2025-12-23",
+    "title": "OPC unified architecture - Part 8: Data access",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-8:2025 defines the information model associated with Data Access (DA). It particularly includes additional VariableTypes and complementary descriptions of the NodeClasses and Attributes needed for Data Access, additional Properties, and other information and behaviour. The complete address space model, including all NodeClasses and Attributes is specified in IEC 62541‑3. The services to detect and access data are specified in IEC 62541‑4. Annex A specifies how the information received from OPC COM Data Access (DA) Servers is mapped to the Data Access model. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of a \"Quantity Model\" which can be referenced from EngineeringUnit Properties. The model defines quantities and assigned units. In addition it provides alternative units and the conversion to them. b) addition of rules for ValuePrecision Property: - can also be used for other subtypes like Duration and Decimal. - rules have been added when ValuePrecision has negative values."
+  },
+  {
+    "reference": "IEC 62541-9:2026",
+    "edition": "4.0",
+    "date": "2026-04-16",
+    "title": "OPC unified architecture - Part 9: Alarms and Conditions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-9:2026 specifies the representation of Alarms and Conditions in the OPC Unified Architecture. Included is the Information Model representation of Alarms and Conditions in the OPC UA address space. Other aspects of alarm systems like alarm philosophy, life cycle, alarm response times, alarm types and many other details are captured in standards such as IEC 62682 and ISA 18.2. The Alarms and Conditions Information Model in this document, is designed in accordance with IEC 62682 and ISA 18.2. Annex C specifies a recommended mapping between OPC Classic Alarm & Events (A&E) servers to the model described in this document. Annex A describes recommended localized names for Alarm states. Annex B describes examples (e.g. Event sequences, Alarm areas in AddressSpace). This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of \"Comment\" parameter to Alarm shelving methods; b) addition of method that allows a client to get the members of a group, since it is possible that the AddressSpace does not expose instances of alarms; c) addition of deadband properties for all limits in the limit AlarmType (from which all other types described in this issue are derived); d) addition of text explaining the disabling of alarms is no longer supported in ISA 18.2 and that it is maintained in this document for backward compatibility, but that it is recommended that Alarm not be disabled; e) addition of optional severities for limit alarms; f) addition of new AlarmState variable type that can be used to collect alarm information for displays on graphics; g) addition of SupportsFilterRetain property to improve Client filtering; h) removal of ConditionSubClassId and ConditionSubClassNames from the conditiontype definition since they are now defined in BaseEventType."
+  },
+  {
+    "reference": "IEC 62541-10:2025",
+    "edition": "4.0",
+    "date": "2025-12-16",
+    "title": "OPC unified architecture - Part 10: Programs",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-10:2025 defines the Information Model associated with Programs in OPC Unified Architecture (OPC UA). This includes the description of the NodeClasses, standard Properties, Methods and Events and associated behaviour and information for Programs. The complete AddressSpace model including all NodeClasses and Attributes is specified in IEC 62541-3. The Services such as those used to invoke the Methods used to manage Programs are specified in IEC 62541-4. An example for a DomainDownload Program is defined in Annex A. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - StateMachine table format has been aligned."
+  },
+  {
+    "reference": "IEC 62541-11:2025",
+    "edition": "3.0",
+    "date": "2025-12-23",
+    "title": "OPC unified architecture - Part 11: Historical Access",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-11: 2025 defines the Information Model associated with Historical Access (HA). It particularly includes additional and complementary descriptions of the NodeClasses and Attributes needed for Historical Access, additional standard Properties, and other information and behaviour. The complete AddressSpace Model including all NodeClasses and Attributes is specified in IEC 62541‑3. The predefined Information Model is defined in IEC 62541‑5. The Services to detect and access historical data and events, and description of the ExtensibleParameter types are specified in IEC 62541‑4. This document includes functionality to compute and return Aggregates like minimum, maximum, average etc. The Information Model and the concrete working of Aggregates are defined in IEC 62541‑13. Conventions for Historical Access Clients are informatively provided in Annex A. This fourth edition cancels and replaces the third edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) a functionality has been added to support retrieving of modified events; b) an Event has been added to indicate when a backfill occurred; c) a new ReferenceType that can be used to indicate an external node has been defined; d) the text has been improved to better explain the concept of annotation and remove conflicting explanations; e) a default historian configuration (and where to find it) has been defined; f) HistoricalEventConfigurationType, which provides general configuration information about the historical Event storage, has been added; g) the text has been updated and optional fields have been added to HA configuration object to allow configuration to be defined for periodic data collection, not just for exception-based collection; h) an ObjectType that can be used for external event collection has been provided as well as an example how historians can be configured."
+  },
+  {
+    "reference": "IEC 62541-12:2025",
+    "edition": "2.0",
+    "date": "2025-12-22",
+    "title": "OPC unified architecture - Part 12: Discovery and global services",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-12:2025 specifies how OPC Unified Architecture (OPC UA) Clients and Servers interact with DiscoveryServers when used in different scenarios. It specifies the requirements for the LocalDiscoveryServer, LocalDiscoveryServer-ME and GlobalDiscoveryServer. It also defines information models for Certificate management, KeyCredential management and AuthorizationServices. Annex A informatively discusses deployment and configuration aspects. Annex B defines NodeSet and numeric NodeIds. Annex F provides installation rules for the LDS. Annex H compares the Certificate management defined in this document with IETF RFC 7030. This second edition cancels and replaces the first edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of a \"Quantity Model\" which can be referenced from EngineeringUnit Properties. The model defines quantities and assigned units. In addition it provides alternative units and the conversion to them; b) addition of rules for ValuePrecision Property: • can also be used for other subtypes like Duration and Decimal. • additional rules when ValuePrecision has negative values."
+  },
+  {
+    "reference": "IEC 62541-13:2025",
+    "edition": "3.0",
+    "date": "2025-12-16",
+    "title": "OPC unified architecture - Part 13: Aggregates",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-13:2025 defines the information model associated with Aggregates. Programmatically produced aggregate examples are listed in Annex A. This third edition cancels and replaces the second edition published in 2020. This edition constitutes a technical revision. This edition includes the following technical changes with respect to the previous edition: a) Multiple fixes for the computation of aggregates • The Raw status bit is always set for non-bad StatusCodes for the Start and End aggregates. • Entries in the Interpolative examples Tables A2.2 Historian1, Historian2, and Historian3 have been changed from Good to Good, Raw status codes when the timestamp matches with the timestamp of the data source. • Missing tables have been added for DurationInStateZero and DurationInStateNonZero. • The value of zero has been removed for results with a StatusCode of bad. • Data Type was listed as \"Status Code\" when it is \"Double\" for both Standard Deviation and both Variance Aggregates. • Rounding Error in TimeAverage and TimeAverage2 have been corrected. • The status codes have been corrected for the last two intervals and the value has been corrected in the last interval. • The wording has been changed to be more consistent with the certification testing tool. • UsedSlopedExtrapolation set to true for Historian2 and all examples locations needed new values or status' are modified. • Values affected by percent good and percent bad have been updated. • PercentGood/PercentBad are now accounted for in the calculation. • TimeAverage uses SlopedInterpolation but the Time aggregate is incorrectly allowed to used Stepped Interpolation. • Partial bit is now correctly calculated. • Unclear sentence was removed. • Examples have been moved to a CSV. • The value and status code for Historian 3 have been updated. • TimeAverage2 Historian1 now takes uncertain regions into account when calculating StatusCodes. • TimeAverage2 Historian2 now takes uncertain regions into account when calculating StatusCodes. • Total2 Historian1 now takes uncertain regions into account when calculating StatusCodes • Total2 Historian2 now takes uncertain regions into account when calculating StatusCodes • Maximum2 Historian1 now takes uncertain regions into account when calculating StatusCodes • MaximumActualTime2 Historian1 now takes uncertain regions into account when calculating StatusCodes • Minimum2 Historian1 now takes uncertain regions into account when calculating StatusCodes • MinimumActualTime2 Historian1 now has the StatusCodes calculated while using the TreatUncertainAsBad flag. • Range2 Historian1 now looks at TreatUncertainAsBad in the calculation of the StatusCodes. • Clarifications have been made to the text defining how PercentGood/PercentBad are used. The table values and StatusCodes of the TimeAverage2 and Total2 aggregates have been corrected."
+  },
+  {
+    "reference": "IEC 62541-14:2026",
+    "edition": "2.0",
+    "date": "2026-01-12",
+    "title": "OPC unified architecture - Part 14: PubSub",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-14:2026 defines the PubSub communication model. It defines an OPC UA publish subscribe pattern which complements the client server pattern defined by the Services in IEC 62541-4. See IEC 62541-1 for an overview of the two models and their distinct uses. PubSub allows the distribution of data and events from an OPC UA information source to interested observers inside a device network as well as in IT and analytics cloud systems. This document consists of • a general introduction of the PubSub concepts, • a definition of the PubSub configuration parameters, • mapping of PubSub concepts and configuration parameters to messages and transport protocols, • and a PubSub configuration model. This second edition cancels and replaces the first edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Addition of a “Quantity Model” which can be referenced from EngineeringUnit Properties. The model defines quantities and assigned units. In addition it provides alternative units and the conversion to them. b) Addion of rules for ValuePrecision Property: • can also be used for other subtypes like Duration and Decimal. • rules have been added when ValuePrecision has negative values."
+  },
+  {
+    "reference": "IEC 62541-16:2025",
+    "edition": "1.0",
+    "date": "2025-12-05",
+    "title": "OPC unified architecture - Part 16: State Machines",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-16:2025 defines an Information Model. The Information Model describes the basic infrastructure to model state machines. NOTE State Machines were dealt with in IEC 62541‑5:2020, Annex B. In newer versions of IEC 62541‑5 this Annex B was removed and replaced by this document"
+  },
+  {
+    "reference": "IEC 62541-17:2025",
+    "edition": "1.0",
+    "date": "2025-12-12",
+    "title": "OPC unified architecture - Part 17: Alias Names",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-17:2025 provides a definition of AliasNames functionality. AliasNames provide a manner of configuring and exposing an alternate well-defined name for any Node in the system. This is analogous to the way domain names are used as an alias to IP addresses in IP networks. Like a DNS Server, an OPC UA Server that supports AliasNames provides a lookup Method that will translate an AliasName to a NodeId of the related Node on a Server. An aggregating Server can collect these AliasNames from multiple Servers and provide a lookup Method to allow Client applications to discover NodeIds on a system wide basis. An aggregating Server could also define AliasNames for Nodes in other Servers that do not support AliasNames. A GDS can be constructed that would automatically aggregate all AliasNames that are defined on any Server that has registered with the GDS. In this case, the GDS also provides the lookup mechanism for Clients at a well-known endpoint and address."
+  },
+  {
+    "reference": "IEC 62541-18:2025",
+    "edition": "1.0",
+    "date": "2025-08-15",
+    "title": "OPC unified architecture - Part 18: Role-Based Security",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-18: 2025 defines an Information Model. The Information Model describes the basic infrastructure to model role-based security. NOTE In the previous version, Role-Based Security was in IEC 62541-5:2020, Annex F."
+  },
+  {
+    "reference": "IEC 62541-19:2025",
+    "edition": "1.0",
+    "date": "2025-12-05",
+    "title": "OPC unified architecture - Part 19: Dictionary Reference",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-19: 2025 defines an Information Model of the OPC Unified Architecture. The Information Model describes the basic infrastructure to reference from an OPC UA Information Model to external dictionaries like IEC Common Data Dictionary or ECLASS."
+  },
+  {
+    "reference": "IEC 62541-20:2025",
+    "edition": "1.0",
+    "date": "2025-12-22",
+    "title": "OPC unified architecture - Part 20: File transfer",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-20:2025 defines an Information Model. The Information Model describes the basic infrastructure to model file transfers. NOTE In the previous version, File Transfer was in IEC 62541‑5:2020, Annex C."
+  },
+  {
+    "reference": "IEC 62541-21:2026",
+    "edition": "1.0",
+    "date": "2026-01-05",
+    "title": "OPC unified architecture - Part 21: Device Onboarding",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-21:2026 defines the life cycle of Devices and Composites and mechanisms to verify their authenticity, set up their security and maintain their configuration. The NodeIds of all Nodes described in this standard are only symbolic names. Annex A defines the NamespaceUri for all NodeIds and the actual NodeIds."
+  },
+  {
+    "reference": "IEC 62541-22:2025",
+    "edition": "1.0",
+    "date": "2025-12-23",
+    "title": "OPC unified architecture - Part 22: Base Network Model",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-22:2025 specifies an OPC UA Information Model for a basic set of network related components used in other Information Models. The initial version of this document defines parameter sets for TSN Talkers and Listeners as well as network interfaces and ports as shown in Figure 1. A future version of this document is expected to have a broader scope of other network technologies than Ethernet only."
+  },
+  {
+    "reference": "IEC 62541-23:2025",
+    "edition": "1.0",
+    "date": "2025-12-23",
+    "title": "OPC unified architecture - Part 23: Common ReferenceTypes",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-23:2025 defines ReferenceTypes commonly used in industrial Information Models. They are more specific than the ReferenceTypes in IEC 62541‑3 which are an inherent part of the OPC UA Address Space Model."
+  },
+  {
+    "reference": "IEC 62541-24:2026",
+    "edition": "1.0",
+    "date": "2026-01-08",
+    "title": "OPC unified architecture - Part 24: Scheduler",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-24:2026 specifies an OPC UA information model to expose information, at what dates and times specific actions are executed by the OPC UA Server. Those schedules can optionally also be manipulated via the information model. The schedule defines on which dates they are active, and can also reference global calendars representing specific dates, for example public holidays. In addition, the schedule defines times and actions that will be executed at that time. The model defines writing Variables and calling Methods but can be extended to other actions as well. The NamespaceUri for all NodeIds defined in this document is defined in Annex A."
+  },
+  {
+    "reference": "IEC 62541-100:2025",
+    "edition": "2.0",
+    "date": "2025-12-17",
+    "title": "OPC unified architecture - Part 100: Devices",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62541-100:2025 defines the information model associated with Devices. This document describes three models which build upon each other as follows: • The (base) Device Model is intended to provide a unified view of devices and their hardware and software parts irrespective of the underlying device protocols. • The Device Communication Model adds Network and Connection information elements so that communication topologies can be created. • The Device Integration Host Model finally adds additional elements and rules required for host systems to manage integration for a complete system. It enables reflecting the topology of the automation system with the devices as well as the connecting communication networks. This document also defines AddIns that can be used for the models in this document but also for models in other information models. They are: • Locking model – a generic AddIn to control concurrent access, • Software update model – an AddIn to manage software in a Device. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) a ComponentType that can be used to model any HW or SW element of a device has been defined and a SoftwareType has been added as subtype of ComponentType; b) the new OPC UA interface concept and defined interfaces for Nameplate, DeviceHealth, and SupportInfo has been added. c) a new model for Software Update (Firmware Update) has been added; d) a new entry point for documents where each document is represented by a FileType instance has been specified; e) a model that provides information about the lifetime, related limits and semantic of the lifetime of things like tools, material or machines has been added."
+  },
+  {
+    "reference": "IEC 62714-1:2018",
+    "edition": "2.0",
+    "date": "2018-04-30",
+    "title": "Engineering data exchange format for use in industrial automation systems engineering - Automation Markup Language - Part 1: Architecture and general requirements",
+    "language": "EN-FR",
+    "description": "IEC 62714-1:2018 is a solution for data exchange focusing on the domain of automation engineering. The data exchange format defined in the IEC 62714 series (Automation Markup Language, AML) is an XML schema based data format and has been developed in order to support the data exchange in a heterogeneous engineering tools landscape. The goal of AML is to interconnect engineering tools in their different disciplines, e.g. mechanical plant engineering, electrical design, process engineering, process control engineering, HMI development, PLC programming, robot programming, etc. This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) use of CAEX 3.0 according to IEC 62424:2016 b) improved modelling of references to documents outside of the scope of the present standard, c) modelling of references between CAEX attributes and items in external documents, d) revised role libraries, e) modified Port concept, f) modelling of multilingual expressions, g) modelling of structured attribute lists or array, h) a new AML container format, i) a new standard AML attribute library"
+  },
+  {
+    "reference": "IEC 62714-2:2022",
+    "edition": "2.0",
+    "date": "2022-10-20",
+    "title": "Engineering data exchange format for use in industrial automation systems engineering - Automation Markup Language - Part 2: Semantics libraries",
+    "language": "EN-FR",
+    "description": "IEC 62714-2:2022 specifies normative as well as informative AML libraries for the modelling of engineering information for the exchange between engineering tools in the plant automation area by means of AML. Moreover, it presents additional user-defined libraries as an example. Its provisions apply to the export;import applications of related tools. This part of IEC 62714 specifies AML role class libraries and the usage of AML attributes to represent semantic information. Role classes provide semantics to AML objects, attribute types provide semantics to AML attributes. The association of role classes to AML objects or attribute types to AML attributes represent the possibility to add (also external) semantic information to it. By associating a role class to an AML object or an attribute type to an AML attribute, it gets semantic information. This part of IEC 62714 does not define details of the data exchange procedure or implementation requirements for the import;export tools."
+  },
+  {
+    "reference": "IEC 62714-3:2017",
+    "edition": "1.0",
+    "date": "2017-01-25",
+    "title": "Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Part 3: Geometry and kinematics",
+    "language": "EN-FR",
+    "description": "IEC 62714-3:2017 specifies the integration of geometry and kinematics information for the exchange between engineering tools in the plant automation area by means of AML."
+  },
+  {
+    "reference": "IEC 62714-4:2020",
+    "edition": "1.0",
+    "date": "2020-06-16",
+    "title": "Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Part 4: Logic",
+    "language": "EN-FR",
+    "description": "IEC 62714-4:2020 specifies the integration of logic information as part of an AML model for the data exchange in a heterogenous engineering tool landscape of production systems. This document specifies three types of logic information: sequencing, behaviour, and interlocking information. This document deals with the six following sequencing and behaviour logic models (covering the different phases of the engineering process of production systems) and how they are integrated in AML: Gantt chart, activity-on-node network, timing diagram, Sequential Function Chart (SFC), Function Block Diagram (FBD), and mathematical expression. This document specifies how to model Gantt chart, activity-on-node network, and timing diagram and how they are stored in Intermediate Modelling Layer (IML). This document specifies how interlocking information is modelled (as interlocking source and target groups) in AML. The interlocking logic model is stored in Function Block Diagram (FBD). This document specifies the AML logic XML schema that stores the logic models by using IEC 61131-10. This document specifies how to reference PLC programs stored in PLCopen XML documents. This document does not define details of the data exchange procedure or implementation requirements for the import;export tools. The contents of the corrigendum of November 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62714-4:2020/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-11-10",
+    "title": "Corrigendum 1 - Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Part 4: Logic",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62714-5:2022",
+    "edition": "1.0",
+    "date": "2022-03-11",
+    "title": "Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Part 5: Communication",
+    "language": "EN-FR",
+    "description": "IEC 62714-5:2022 Engineering processes of technical systems and their embedded automation systems are executed with increasing efficiency and quality. Especially since the project duration tends to increase as the complexity of the engineered system increases. To solve this problem, the engineering process is more often being executed by exploiting software based engineering tools exchanging engineering information and artefacts along the engineering process related tool chain."
+  },
+  {
+    "reference": "IEC 62769-1:2023",
+    "edition": "3.0",
+    "date": "2023-04-04",
+    "title": "Field Device Integration (FDI®) - Part 1: Overview",
+    "language": "EN-FR",
+    "description": "IEC 62769-1:2023 describes the concepts and overview of the Field Device Integration (FDI®[1]) specifications. The detailed motivation for the creation of this technology is also described . Reading this document is helpful to understand the other parts of this multi-part standard. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-2:2023",
+    "edition": "3.0",
+    "date": "2023-04-04",
+    "title": "Field Device Integration (FDI®) - Part 2: Client",
+    "language": "EN-FR",
+    "description": "IEC 62769-2:2023 specifies the FDI®[1] Client. See Annex C for some typical FDI® Client use cases. The overall FDI® architecture is illustrated in Figure 1. The architectural components that are within the scope of this document have been highlighted in Figure 1. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-3:2023",
+    "edition": "3.0",
+    "date": "2023-04-04",
+    "title": "Field Device Integration (FDI®) - Part 3: Server",
+    "language": "EN-FR",
+    "description": "IEC 62769-3:2023 specifies the FDI®[1] Server. The overall FDI® architecture is illustrated in Figure 1. The architectural components that are within the scope of this document have been highlighted in this figure. Annex A provides a functional description of the FDI® Server. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-4:2023",
+    "edition": "3.0",
+    "date": "2023-04-05",
+    "title": "Field Device Integration (FDI®) - Part 4: FDI Packages",
+    "language": "EN-FR",
+    "description": "IEC 62769-4:2023 specifies the FDI®[1] Packages. The overall FDI® architecture is illustrated in Figure 1. The architectural components that are within the scope of this document have been highlighted in Architecture diagram figure. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-5:2023",
+    "edition": "3.0",
+    "date": "2023-04-05",
+    "title": "Field Device Integration (FDI®) - Part 5: FDI Information Model",
+    "language": "EN-FR",
+    "description": "IEC 62769-5:2023 defines the FDI®[1] Information Model. One of the main tasks of the Information Model is to reflect the topology of the automation system. Therefore, it represents the devices of the automation system as well as the connecting communication networks including their properties, relationships, and the operations that can be performed on them. The types in the AddressSpace of the FDI® Server constitute some kind of catalogue, which is built from FDI® Packages. The fundamental types for the FDI® Information Model are well defined in OPC UA for Devices (IEC 62541‑100). The FDI® Information Model specifies extensions for a few special cases and otherwise explains how these types are used and how the contents are built from elements of DevicePackages. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-6:2023",
+    "edition": "3.0",
+    "date": "2023-04-06",
+    "title": "Field Device Integration (FDI®) - Part 6: FDI Technology Mappings",
+    "language": "EN-FR",
+    "description": "IEC 62769-6:2023 specifies the technology mapping for the concepts described in the Field Device Integration (FDI®[1]) standard. The technology mapping focuses on implementation of the components FDI® Client and User Interface Plug-in (UIP) in the specified technologies for the WORKSTATION platform and the MOBILE platform as defined in IEC 62769-4. There are individual subparts for the currently supported technologies .NET and HTML5."
+  },
+  {
+    "reference": "IEC 62769-6-100:2023",
+    "edition": "1.0",
+    "date": "2023-04-14",
+    "title": "Field Device Integration (FDI®) - Part 6-100: Technology Mapping - .Net",
+    "language": "EN-FR",
+    "description": "IEC 62769-6-100:2023 specifies the technology mapping for the concepts described in the Field Device Integration (FDI® [1] ) standard. The technology mapping focuses on implementation regarding the components FDI® Client and User Interface Plug-in (UIP) using the Runtime .NET. This runtime is specific only to the WORKSTATION platform as defined in IEC 62769‑4. [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-6-200:2023",
+    "edition": "1.0",
+    "date": "2023-04-14",
+    "title": "Field Device Integration (FDI®) - Part 6-200: Technology Mapping - HTML5",
+    "language": "EN-FR",
+    "description": "IEC 62769-6-200:2023 specifies the technology mapping for the concepts described in the Field Device Integration (FDI® [1] ) standard. The technology mapping focuses on implementation regarding the components FDI® Client and User Interface Plug-in (UIP) for the Runtime HTML5. [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-7:2023",
+    "edition": "3.0",
+    "date": "2023-04-06",
+    "title": "Field Device Integration (FDI®) - Part 7: Communication Devices",
+    "language": "EN-FR",
+    "description": "IEC 62769-7:2023 specifies the elements implementing communication capabilities called Communication Devices. The overall FDI®[1] architecture is illustrated in Figure 1. The architectural components that are within the scope of this document have been highlighted in this illustration. The document scope with respect to FDI® Packages is limited to Communication Devices. The Communication Server shown in Figure 1 is an example of a specific Communication Device. [1] FDI® is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-8:2023",
+    "edition": "1.0",
+    "date": "2023-04-05",
+    "title": "Field device integration (FDI®) - Part 8:EDD to OPC-UA Mapping",
+    "language": "EN-FR",
+    "description": "IEC 62769-8:2023 specifies how the internal view of a device model represented by the EDD can be transferred into an external view as an OPC-UA information model by mapping EDD constructs to OPC-UA objects."
+  },
+  {
+    "reference": "IEC 62769-100:2023",
+    "edition": "2.0",
+    "date": "2023-04-11",
+    "title": "Field device integration (FDI®) - Part 100: Profiles - Generic protocols",
+    "language": "EN-FR",
+    "description": "IEC 62769-100:2023 specifies an FDI®[1] profile of IEC 62769 for Generic Protocols. That means that all interfaces are defined and a host can add support for more protocols without changing its implementation. Nevertheless, there are some protocol specific definitions (PSD) that need to be specified per protocol using this profile. Annex C specifies what PSD need to be defined per protocol so that FDI® Device Packages, FDI® Communication Packages for Gateways and FDI® Communication Servers, FDI® Communication Server, Gateways and Devices supporting such a protocol can work together in a host not aware about this specific protocol."
+  },
+  {
+    "reference": "IEC 62769-101-1:2023",
+    "edition": "3.0",
+    "date": "2023-04-14",
+    "title": "Field device Integration (FDI)® - Part 101-1: Profiles - Foundation Fieldbus H1",
+    "language": "EN-FR",
+    "description": "IEC 62769-101-1:2023 specifies an FDI®[1] profile of IEC 62769 for IEC 61784‑1_CP 1/1 (Foundation™ Fieldbus H1)[2]. [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder. [2] Foundation™ Fieldbus is the trade name of the non-profit consortium Fieldbus Foundation. This information is given for the convenience of users of this standard and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-101-2:2023",
+    "edition": "3.0",
+    "date": "2023-04-14",
+    "title": "Field Device Integration (FDI)® - Part 101-2: Profiles - Foundation Fieldbus HSE",
+    "language": "EN-FR",
+    "description": "IEC 62769-101-2:2023 specifies the IEC 62769 profile for IEC 61784‑1, CP 1/2 (Foundation™ Fieldbus HSE)[1]. [1] Foundation™ Fieldbus is the trade name of the non-profit consortium Fieldbus Foundation. This information is given for the convenience of users of this technical report and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-102-2:2023",
+    "edition": "1.0",
+    "date": "2023-04-14",
+    "title": "Field device integration (FDI®) - Part 102-2: Profiles - EtherNet/IP",
+    "language": "EN-FR",
+    "description": "IEC 62769-102-2:2023 defines the protocol-specific definitions (PSDs) as defined in IEC 62769‑100 (annex on generic protocol extensions) for the Ethernet/IP protocol."
+  },
+  {
+    "reference": "IEC 62769-103-1:2023",
+    "edition": "3.0",
+    "date": "2023-04-17",
+    "title": "Field Device Integration (FDI)® - Part 103-1: Profiles - PROFIBUS",
+    "language": "EN-FR",
+    "description": "IEC 62769-103-1:2023 specifies an FDI®[1] profile of IEC 62769 for IEC 61784-1_CP 3/1 (PROFIBUS DP)[2] and IEC 61784-1_CP3/2 (PROFIBUS PA). [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder. [2] PROFIBUS is the trade name of the non-profit consortium PROFIBUS & PROFINET International. This information is given for the convenience of users of this technical report and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-103-4:2023",
+    "edition": "3.0",
+    "date": "2023-04-18",
+    "title": "Field Device Integration (FDI)® - Part 103-4: PROFINET",
+    "language": "EN-FR",
+    "description": "IEC 62769-103-4:2023 specifies an FDI®[1] profile of IEC 62769 for IEC 61784-2_CP 3/4, IEC 61784-2_CP3/5 and IEC 61784-2_CP3/6 (PROFINET[2]). [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder. [2] PROFINET is the trade name of the non-profit consortium PROFIBUS & PROFINET International. This information is given for the convenience of users of this technical report and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-109-1:2023",
+    "edition": "3.0",
+    "date": "2023-04-18",
+    "title": "Field device integration (FDI)® - Part 109-1: Profiles - HART® and WirelessHART®",
+    "language": "EN-FR",
+    "description": "IEC 62769-109-1:2023 specifies an FDI®[1] profile of IEC 62769 for IEC 61784‑1_CP 9/1 (HART®)[2] and IEC 61784‑1_CP 9/2 (WirelessHART®)[3]. [1] FDI is a registered trademark of the non-profit organization Fieldbus Foundation, Inc. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder. [2] HART is the trade name of the non-profit consortium FieldComm Group. This information is given for the convenience of users of this technical report and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder. [3] WirelessHART is the trade name of the non-profit consortium FieldComm Group. This information is given for the convenience of users of this technical report and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-115-2:2020",
+    "edition": "1.0",
+    "date": "2020-09-25",
+    "title": "Field device integration (FDI) - Part 115-2: Profiles - Modbus-RTU",
+    "language": "EN-FR",
+    "description": "IEC 62769-115-2:2020 defines the protocol-specific definitions (PSDs) as defined in IEC 62769-7 on generic protocol extensions for the Modbus® -RTU protocol in accordance with CPF 15 in IEC 61784 2."
+  },
+  {
+    "reference": "IEC 62769-150-1:2023",
+    "edition": "2.0",
+    "date": "2023-04-19",
+    "title": "Field device integration (FDI)® - Part 150-1: Profiles - ISA100",
+    "language": "EN-FR",
+    "description": "IEC 62769-150-1:2023 specifies an FDI profile of IEC 62769 for IEC 62734 (ISA100.11a)[1]. [1] ISA100 WIRELESSTM is a trade name of the non-profit consortium Wireless Compliance Institute. This information is given for the convenience of users of this standard and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 62769-151-1:2023",
+    "edition": "1.0",
+    "date": "2023-04-14",
+    "title": "Field device integration (FDI®) - Part 151-1: Profiles - OPC UA",
+    "language": "EN-FR",
+    "description": "IEC 62769-151-1:2023 defines the protocol-specific definitions (PSDs) as defined in IEC 62769‑7 for the OPC UA protocol."
+  },
+  {
+    "reference": "IEC 63082-1:2025",
+    "edition": "1.0",
+    "date": "2025-09-26",
+    "title": "Intelligent device management - Part 1: Concepts and terminology",
+    "language": "EN",
+    "description": "IEC 63082-1:2025 defines the concepts and terminology necessary to understand and communicate effectively about intelligent device management (IDM). This document explains the relationship between IDM and other existing asset management standards. Additionally, this document describes principles and defines organizational and functional structures associated with IDM. This document also introduces the concept of IDM program for coordination of multiple stakeholders. This first edition cancels and replaces the first edition of IEC TR 63082-1 published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TR 63082‑1:2020: a) alignment with clause structure of IEC 63082-2."
+  },
+  {
+    "reference": "IEC 63082-2:2024",
+    "edition": "1.0",
+    "date": "2024-08-13",
+    "title": "Intelligent device management – Part 2: Requirements and recommendations",
+    "language": "EN-FR",
+    "description": "IEC 63082-2:2024 specifies requirements and recommendations for establishing and maintaining intelligent device management (IDM) as outlined in IEC TR 63082-1 in an enterprise having one or more facilities. The following topics are included in the scope of this document: - optimizing functionality and performance of intelligent devices for their use; - managing information related to IDM; - integrating intelligent devices into industrial automation and control systems (IACS) in facilities; - exchanging information between stakeholders that achieve and sustain IDM; - coordinating multiple asynchronous IDM life cycles. The following topics are outside the scope of this document: - defining and determining the function and performance of intelligent devices; - defining and specifying technologies and tools that provide, preserve and manage information related to IDM such as FDT, FDI, portable on-line and off-line tools, configuration tools, historians, and maintenance planning tools; - defining and specifying technologies and tools that are used to design intelligent devices; - defining and specifying communication network architecture, communication technologies, cybersecurity requirements, and network management requirements."
+  },
+  {
+    "reference": "IEC 63261:2024",
+    "edition": "1.0",
+    "date": "2024-11-13",
+    "title": "Representation of electrical and instrument objects in digital 3D plant models during engineering",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-09 IEC 63261:2024 provides requirements for the E&I objects of a digital 3D plant model, used in the engineering phase to design and construct a process plant and its instrumentation. It provides guidance how to model plants and their electrical and instrumentation equipment. This document also specifies the content and the possible output of the 3D plant model at project milestones. This document can be used by the contractual partners to agree upon the content of the 3D plant model to be delivered at specified milestones. This document does not specify the transfer and format of digital 3D plant models. This document does not specify definitions or instructions to equipment representations and details of elements in the 3D plant model not belonging to electrical and instrumentation domains. The content of the corrigendum 1 (2025-09) has been included in this copy."
+  },
+  {
+    "reference": "IEC 63261:2024/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-09-22",
+    "title": "Corrigendum 1 - Representation of electrical and instrument objects in digital 3D plant models during engineering",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 63270-1:2025",
+    "edition": "1.0",
+    "date": "2025-04-17",
+    "title": "Predictive maintenance of industrial automation equipment and systems - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": "IEC 63270-1:2025 provides guidance on the functional structure model, procedure, method, interface of function blocks. It also offers guidance on data requirements for predictive maintenance of equipment, devices and systems for industrial automation applications. Condition monitoring is not only within the scope of this document but can also be an important input for predictive maintenance."
+  },
+  {
+    "reference": "IEC 63365:2022",
+    "edition": "1.0",
+    "date": "2022-10-18",
+    "title": "Industrial process measurement, control and automation - Digital nameplate",
+    "language": "EN-FR",
+    "description": "IEC 63365:2022 applies to products used in the process measurement, control and automation industry. It establishes a concept and requirements for the digital nameplate and provides alternative electronically readable solutions (e.g. 2D codes, RFID or firmware) to current conventional plain text marking on the nameplate or packaging of products. The digital nameplate information is contained in the electronically readable medium affixed to the product, the packaging or accompanying documents. The digital nameplate information is available offline without Internet connection. After electronic reading, all digital nameplate information is displayed in a human readable text format. The digital nameplate also includes the Identification Link String according to IEC 61406-1 which provides additional online information for the product. This document does not specify the contents of the conventional nameplate, which are subject to regional or national regulations and standards."
+  },
+  {
+    "reference": "IEC 63489:2025",
+    "edition": "1.0",
+    "date": "2025-07-16",
+    "title": "Common data concepts for smart manufacturing",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63489:2025 specifies the definition of cross-domain product data concepts (classes and properties) in the context of smart manufacturing. This document will be published as a set of concepts within cross-domain data dictionary \"General Items (IEC 61360-7)” in the IEC CDD."
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "reference": "IEC TR 63043:2020",
+    "edition": "1.0",
+    "date": "2020-11-27",
+    "title": "Renewable energy power forecasting technology",
+    "language": "EN",
+    "description": "IEC TR 63043:2020(E), which is a technical report, describes common practices and state of the art for renewable energy power forecasting technology, including general data demands, renewable energy power forecasting methods and forecasting error evaluation. For the purposes of this document, renewable energy refers to variable renewable energy, which mainly comprises wind power and photovoltaic (PV) power – these are the focus of the document. Other variable renewable energies, like concentrating solar power, wave power and tidal power, etc., are not presented in this document, since their capacity is small, while hydro power forecasting is a significantly different field, and so not covered here. The objects of renewable energy power forecasting can be wind turbines, or a wind farm, or a region with lots of wind farms (respectively PV systems, PV power stations and regions with high PV penetration). This document focuses on providing technical guidance concerning forecasting technologies of multiple spatial and temporal scales, probabilistic forecasting, and ramp event forecasting for wind power and PV power. This document outlines the basic aspects of renewable energy power forecasting technology. This is the first IEC document related to renewable energy power forecasting. The contents of this document will find an application in the following potential areas: • support the development and future research for renewable energy power forecasting technology, by showing current state of the art; • evaluation of the forecasting performance during the design and operation of renewable energy power forecasting system; • provide information for benchmarking renewable forecasting technologies, including methods used, data required and evaluation techniques"
+  },
+  {
+    "reference": "IEC TS 63102:2021",
+    "edition": "1.0",
+    "date": "2021-09-03",
+    "title": "Grid code compliance assessment methods for grid connection of wind and PV power plants",
+    "language": "EN",
+    "description": "IEC TS 63102:2021(E) highlights recommended technical methods of grid code compliance assessment for grid connection of wind and PV power plants as the basic components of grid connection evaluation. The electrical behaviour of wind and PV power plants in this technical specification includes frequency and voltage range, reactive power capability, control performance including active power based control and reactive power based control, fault ride through capability and power quality. Compliance assessment is the process of determining whether the electrical behaviour of wind and PV power plants meets specific technical requirements in grid codes or technical regulations. The assessment methods include compliance testing, compliance simulation and compliance monitoring. The input for compliance assessment includes relevant supporting documents, testing results and validated simulation models, and continuous monitoring data. The scope of this technical specification only covers assessment methods from a technical aspect; processes related to certification are not included. This technical specification is applicable to wind and PV power plants connected to the electrical power grid."
+  },
+  {
+    "reference": "IEC TR 63401-1:2022",
+    "edition": "1.0",
+    "date": "2022-11-25",
+    "title": "Dynamic characteristics of inverter-based resources in bulk power systems - Part 1: Interconnecting inverter-based resources to low short circuit ratio AC networks",
+    "language": "EN",
+    "description": "IEC TR 63401-1:2022(E) discusses the challenges of connecting inverter-based resources to low short circuit ratio AC networks, key technical issues and emerging technologies. There are the steady-state stability issue, transient state stability issue, and oscillatory stability issue, which are the most distinct differences compared to inverter-based resources or traditional generators, and accordingly brings new challenges to operation, control, protection, etc. Therefore, technical solutions are needed. The potential solutions will include new technologies, methods and practices, in order to provide more flexibility and improve the efficiency of power systems. It is expected that this document can also provide guidance for further standardization on relevant issues"
+  },
+  {
+    "reference": "IEC TR 63401-2:2022",
+    "edition": "1.0",
+    "date": "2022-06-27",
+    "title": "Dynamic characteristics of inverter-based resources in bulk power systems - Part 2: Sub- and Super-synchronous control Interactions",
+    "language": "EN",
+    "description": "IEC TR 63401-2:2022, which is a technical report, covers the \"control interactions\" in converter interfaced generators e.g, wind and PV with the frequency of the resulting oscillation below twice the system frequency. SSCI can be categorized into: 1) SSCI in DFIG is caused by the interaction between DFIG wind turbine converter controls and the series compensated network. 2) SSCI involving FSC (both type-4 wind turbine or PV generators) is caused by the interaction between wind turbine or solar PV's FSC controls and weak AC grid. This technical report is organized into nine clauses. Clause 1 gives a brief introduction and highlights the scope of this document. Clause 4 presents the historical background of various types of subsynchronous oscillation (SSO) and revisits the terminologies, definitions, and classification in the context of classical SSR and emerging SSCI issues to better understand and classify the emerging interaction phenomena. Clause 5 provides the description, mechanism, and characteristics of the SSCI phenomenon in the framework of real-world incidents, including the SSCI events in the ERCOT, Guyuan, and Hami wind power systems. Clause 6 proposes two benchmark models to study the SSCI DFIG and FSC-based wind turbines or PV generators. Clause 7 gives an overview of existing and emerging modeling and stability analysis approaches to investigate the SSCI phenomenon. Clause 8 outlines various techniques to mitigate the SSCI. It discusses various SSCI mitigation schemes, such as bypassing the series capacitor, selective tripping of WTGs, generator, and plant-level damping control schemes. Clause 9 highlights the need for future works towards standardization of terms, definitions, classification, analysis methods, benchmark models, and mitigation methods."
+  },
+  {
+    "reference": "IEC TR 63401-3:2023",
+    "edition": "1.0",
+    "date": "2023-12-14",
+    "title": "Dynamic characteristics of inverter-based resources in bulk power systems - Part 3: Fast frequency response and frequency ride-through from inverter-based resources during severe frequency disturbances",
+    "language": "EN",
+    "description": "IEC TR 63401-3:2023, which is a Technical Report, provides an insight into the various forms of fast frequency response and frequency ride-through techniques that involve inverter-based generation sources (mainly wind and PV) in a bulk electrical system. This document first focuses on extracting the clear definition of FFR from different references around the world, while studying the mechanism of FFR acting on system frequency and the unique features of FFR. It then compares various kinds of frequency response and demonstrates the relationship among synchronous inertia response, fast frequency response, and primary frequency response. Several system needs and conditions where FFR is suitable are identified. This document also focuses on the performance objectives, practicality and capabilities of various non-synchronous resources, and discusses the test methods for verifying FFR capability at different levels. Finally, it focuses on the ROCOF issues and on the robust performances of FFR. ."
+  },
+  {
+    "reference": "IEC TR 63401-4:2022",
+    "edition": "1.0",
+    "date": "2022-06-27",
+    "title": "Dynamic characteristics of inverter-based resources in bulk power systems - Part 4: Behaviour of inverter-based resources in response to bulk grid faults",
+    "language": "EN",
+    "description": "IEC TR 63401-4:2022 (E), which is a technical report, focuses on the fault behaviour of IBRs and performances of the existing relay protection in grids with large-scale integration of IBRs. This document includes: The IBR fault current requirements in present grid codes, including the requirements of active and reactive currents in positive- and negative-sequence systems during symmetrical and unsymmetrical faults. Fault current behaviour of IBRs, including the current components in transient and fundamental frequency in different IBR topology and control schemes. Adaptability of existing relay protection with the large-scale integration of IBRs, including the performances of distance protection, phase selector, directional relay and over-current protection."
+  },
+  {
+    "reference": "IEC TS 63406:2025",
+    "edition": "1.0",
+    "date": "2025-10-16",
+    "title": "Generic RMS simulation models of inverter-based generators for power system dynamic analysis",
+    "language": "EN",
+    "description": "IEC TS 63406:2025 addresses the generic root-mean-square (RMS) simulation models of inverter-based generators for power system dynamic analysis. The scope of the document covers the grid-connected IBGs for photovoltaic power generation systems, wind turbine generation systems with full-scale converters (i.e. Type-4 wind turbine systems), wave energy generation systems, fuel cell energy generation systems, battery energy storage systems, supercapacitor energy storage systems, flywheel energy storage systems, AC- or DC-coupled hybrid energy generation or storage systems, etc. This document is to specify generic dynamic models for various types of IBGs, which can be applied in power system stability studies. This document addresses the generic root-mean-square (RMS) simulation models of inverter-based generators (IBGs) for power system dynamic analysis. The scope of the document covers the grid-connected IBGs for photovoltaic power generation systems, wind turbine generation systems with full-scale converters, wave energy generation systems, fuel cell energy generation systems, battery energy storage systems, supercapacitor energy storage systems, flywheel energy storage systems, AC- or DC-coupled hybrid energy generation or storage systems, etc. The models specified in this document can be primarily used for power system RMS dynamic simulation analysis in the electromechanical time scale."
+  },
+  {
+    "reference": "IEC TR 63411:2025",
+    "edition": "1.0",
+    "date": "2025-01-14",
+    "title": "Grid connection of offshore wind via VSC-HVDC systems",
+    "language": "EN",
+    "description": "IEC TR 63411:2025 discusses the challenges of connecting offshore wind farms via VSC-HVDC, key technical issues and emerging technologies. The potential solutions include new technologies, methods and practices to provide more flexibility and improve the efficiency of power systems. The primary objective of this document is to provide a comprehensive overview of challenges, potential solutions, and emerging technologies for grid integration of large-scale offshore wind farms via VSC-HVDC. It is expected that this document can also provide guidance for further standardization on relevant issues. The purpose of this document is not intended to hinder any further development of state-of-art technologies in this field. This Technical report is not an exhaustive document in itself to specify any scope of work or similar, between a purchaser and a supplier, for any contractual delivery of a HVDC project/equipment. It is expected that this document is used for pre-study and then to make studies, specification for delivery of specific HVDC project, as applicable."
+  },
+  {
+    "reference": "IEC TS 63487:2026",
+    "edition": "1.0",
+    "date": "2026-03-12",
+    "title": "Joint commissioning for grid-connection of offshore wind farms using VSC HVDC transmission",
+    "language": "EN",
+    "description": "IEC TS 63487:2026 serves as a specification for the joint commissioning of grid-connection of offshore wind farms (GCOWF) using the voltage source converter based high voltage direct current (VSC HVDC) transmission system. This document provides the technical specification on the commissioning precondition, objectives, procedures, items, methods and requirements of grid-connection of offshore wind farms using the VSC HVDC power transmission, particularly focusing on the special test items of offshore wind farms. This document covers the commissioning of offshore wind farms, testing of onshore DC energy dissipation device, special test items for transmission test, coordination function testing among VSC HVDC, DC energy dissipation device, offshore wind farm and automatic generation control (AGC). However, the conventional commissioning test items of the onshore VSC HVDC system are out of scope."
+  },
+  {
+    "reference": "IEC TR 63534:2025",
+    "edition": "1.0",
+    "date": "2025-05-06",
+    "title": "Integrating distributed PV into LVDC systems and use cases",
+    "language": "EN",
+    "description": "IEC TR 63534:2025 reviews existing theoretical attempts and engineering applications in the area of solar PV systems coupled to LVDC systems. There are three aspects that are identified to be highly relevant to standard compilations: power converters and possible control mechanisms that are eligible for facilitating the interlinking between PV and LVDC networks; local PV system islanding detection algorithms and fault ride through in case of main grid faults; stability analysis of PV interacting with LVDC systems and corresponding stabilization methods; An inventory of existing (mostly IEC and national) standards is also presented, based on which different sorts of PV integration scenarios are elaborated. Gaps between actual standards and future needs are analyzed and guidelines for evolution are presented."
+  }
+]

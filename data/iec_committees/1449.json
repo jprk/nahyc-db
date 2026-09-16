@@ -1,0 +1,402 @@
+[
+  {
+    "reference": "IEC 62047-1:2016",
+    "edition": "2.0",
+    "date": "2016-01-06",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 1: Terms and definitions",
+    "language": "EN-FR",
+    "description": "IEC 62047-1:2016 defines terms for micro-electromechanical devices including the process of production of such devices. This edition includes the following significant technical changes with respect to the previous edition: a) removal of ten terms; b) revision of twelve terms; c) addition of sixteen new terms."
+  },
+  {
+    "reference": "IEC 62047-2:2006",
+    "edition": "1.0",
+    "date": "2006-08-15",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 2: Tensile testing method of thin film materials",
+    "language": "EN-FR",
+    "description": "Specifies the method for tensile testing of thin film materials with length and width under 1 mm and thickness under 10 m, which are main structural materials for micro-electromechanical systems (MEMS), micromachines and similar devices. The main structural materials for MEMS, micromachines and similar devices have special features such as typical dimensions in the order of a few microns, a material fabrication by deposition, and a test piece fabrication by non-mechanical machining using etching and photolithography. This International Standard specifies the testing method, which enables a guarantee of accuracy corresponding to the special features."
+  },
+  {
+    "reference": "IEC 62047-3:2006",
+    "edition": "1.0",
+    "date": "2006-08-15",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 3: Thin film standard test piece for tensile testing",
+    "language": "EN-FR",
+    "description": "Specifies a standard test piece, which is used to guarantee the propriety and accuracy of a tensile testing system for thin film materials with length and width under 1 mm and thickness under 10 m, which are main structural materials for microelectromechanical systems (MEMS), micromachines and similar devices. It is based on such a concept that a tensile testing system can be guaranteed in propriety and accuracy, when the measured tensile strengths of the standard test pieces, whose tensile strength is pre-determined, are within the designated range. It also specifies the test pieces to minimize characteristics deviation among the pieces."
+  },
+  {
+    "reference": "IEC 62047-4:2026",
+    "edition": "2.0",
+    "date": "2026-01-07",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 4: Generic specification for MEMS",
+    "language": "EN",
+    "description": "IEC 62047-4:2026 describes generic specifications for micro-electromechanical systems (MEMS) made by semiconductors, which are the basis for specifications given in other parts of this series for various types of MEMS applications such as sensors, RF MEMS, optical MEMS, bio-MEMS, micro TAS, and power MEMS. This document specifies general procedures for quality assessment and establishes general principles for describing and testing of electrical, optical, mechanical and environmental characteristics. This part of IEC 62047 aids in the preparation of standards that define devices and systems made by micromachining technology, including but not limited to, material characterization and handling, assembly and testing, process control and measuring methods. MEMS described in this document are basically made of semiconductor material. However, the statements made in this document are also applicable to MEMS using materials other than semiconductor, for example, polymers, glass, metals and ceramic materials. This edition includes the following significant technical changes with respect to the previous edition: a) in the Scope, optical MEMS, bio-MEMS, micro TAS, and power MEMS for various types of MEMS applications were included; b) MEMS categories and terms in Table 1 were slightly modified such consumer electronics and automotive were added that in application technology."
+  },
+  {
+    "reference": "IEC 62047-5:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 5: RF MEMS switches",
+    "language": "EN-FR",
+    "description": "IEC 62047-5:2011 describes terminology, definition, symbols, test methods that can be used to evaluate and determine the essential ratings and characteristic parameters of RF MEMS switches. The statements made in this standardization are also applicable to RF (Radio Frequency) MEMS (Micro-Electro-Mechanical Systems) switches with various structures, contacts (d.c. contact and capacitive contact), configurations (series and shunt), switching networks (SPST, SPDT, DPDT, etc.), and actuation mechanism such as electrostatic, electro-thermal, electromagnetic, piezoelectric, etc. The RF MEMS switches are promising devices in advanced mobile phones with multi-band/mode operation, smart radar systems, reconfigurable RF devices and systems, SDR (Software Defined Radio) phones, test equipments, tunable devices and systems, satellite, etc. The contents of the corrigendum of March 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62047-5:2011/COR1:2012",
+    "edition": "1.0",
+    "date": "2012-03-08",
+    "title": "Corrigendum 1 - Semiconductor devices - Micro-electromechanical devices - Part 5: RF MEMS switches",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62047-6:2009",
+    "edition": "1.0",
+    "date": "2009-04-07",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 6: Axial fatigue testing methods of thin film materials",
+    "language": "EN-FR",
+    "description": "IEC 62047-6:2009 specifies the method for axial tensile-tensile force fatigue testing of thin film materials with a length and width under 1 mm and a thickness in the range between 0,1 µm and 10 µm under constant force range or constant displacement range. Thin films are used as main structural materials for MEMS and micromachines. The main structural materials for MEMS, micromachines, etc., have special features, such as typical dimensions of a few microns, material fabrication by deposition, andtest piece fabrication by means of non-mechanical machining, including photolithography. This International Standard specifies the axial force fatigue testing methods for micro-sized smooth specimens, which enables a guarantee of accuracy corresponding to the special features. The tests are carried out at room temperatures, in air, with loading applied to the test piece along the longitudinal axis."
+  },
+  {
+    "reference": "IEC 62047-7:2011",
+    "edition": "1.0",
+    "date": "2011-06-16",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 7: MEMS BAW filter and duplexer for radio frequency control and selection",
+    "language": "EN-FR",
+    "description": "IEC 62047-7:2011 describes terms, definition, symbols, configurations, and test methods that can be used to evaluate and determine the performance characteristics of BAW resonator, filter, and duplexer devices as radio frequency control and selection devices. This standard specifies the methods of tests and general requirements for BAW resonator, filter, and duplexer devices of assessed quality using either capability or qualification approval procedures."
+  },
+  {
+    "reference": "IEC 62047-8:2011",
+    "edition": "1.0",
+    "date": "2011-03-14",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 8: Strip bending test method for tensile property measurement of thin films",
+    "language": "EN-FR",
+    "description": "IEC 62047-8:2011 specifies the strip bending test method to measure tensile properties of thin films with high accuracy, repeatability, moderate effort of alignment and handling compared to the conventional tensile test. This testing method is valid for test pieces with a thickness between 50 nm and several mum, and with an aspect ratio (ratio of length to thickness) of more than 300. The hanging strip (or bridge) between two fixed supports are widely adopted in MEMS or micro-machines. It is much easier to fabricate these strips than the conventional tensile test pieces. The test procedures are so simple to be readily automated. This international standard can be utilized as a quality control test for MEMS production since its testing throughput is very high compared to the conventional tensile test."
+  },
+  {
+    "reference": "IEC 62047-9:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 9: Wafer to wafer bonding strength measurement for MEMS",
+    "language": "EN-FR",
+    "description": "IEC 62047-9:2011 describes bonding strength measurement method of wafer to wafer bonding, type of bonding process such as silicon to silicon fusion bonding, silicon to glass anodic bonding, etc., and applicable structure size during MEMS processing/assembly. The applicable wafer thickness is in the range of 10 ohmm to several millimeters. The contents of the corrigendum of March 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62047-9:2011/COR1:2012",
+    "edition": "1.0",
+    "date": "2012-03-08",
+    "title": "Corrigendum 1 - Semiconductor devices - Micro-electromechanical devices - Part 9: Wafer to wafer bonding strength measurement for MEMS",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62047-10:2011",
+    "edition": "1.0",
+    "date": "2011-07-26",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 10: Micro-pillar compression test for MEMS materials",
+    "language": "EN-FR",
+    "description": "IEC 62047-10:2011 specifies micro-pillar compression test method to measure compressive properties of MEMS materials with high accuracy, repeatability, and moderate effort of specimen fabrication. The uniaxial compressive stress-strain relationship of a specimen is measured, and the compressive modulus of elasticity and yield strength can be obtained. This standard is applicable to metallic, ceramic, and polymeric materials. The contents of the corrigendum of February 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62047-10:2011/COR1:2012",
+    "edition": "1.0",
+    "date": "2012-02-28",
+    "title": "Corrigendum 1 - Semiconductor devices - Micro-electromechanical devices - Part 10: Micro-pillar compression test for MEMS materials",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62047-11:2013",
+    "edition": "1.0",
+    "date": "2013-07-17",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 11: Test method for coefficients of linear thermal expansion of free-standing materials for micro-electromechanical systems",
+    "language": "EN-FR",
+    "description": "IEC 62047-11:2013 specifies the test method to measure the linear thermal expansion coefficients (CLTE) of thin free-standing solid (metallic, ceramic, polymeric, etc.) micro-electro-mechanical system (MEMS) materials with length between 0,1 mm and 1 mm and width between 10 micrometre and 1 mm and thickness between 0,1 micrometre and 1 mm, which are main structural materials used for MEMS, micromachines and others. This test method is applicable for the CLTE measurement in the temperature range from room temperature to 30 % of a material's melting temperature."
+  },
+  {
+    "reference": "IEC 62047-12:2011",
+    "edition": "1.0",
+    "date": "2011-09-13",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 12: Bending fatigue testing method of thin film materials using resonant vibration of MEMS structures",
+    "language": "EN-FR",
+    "description": "IEC 62047-12:2011 specifies a method for bending fatigue testing using resonant vibration of microscale mechanical structures of MEMS (micro-electromechanical systems) and micromachines. This standard applies to vibrating structures ranging in size from 10 μm to 1 000 μm in the plane direction and from 1 μm to 100 μm in thickness, and test materials measuring under 1 mm in length, under 1 mm in width, and between 0,1 μm and 10 μm in thickness. The main structural materials for MEMS, micromachine, etc. have special features, such as typical dimensions of a few microns, material fabrication by deposition, and test piece fabrication by means of non-mechanical machining, including photolithography. The MEMS structures often have higher fundamental resonant frequency and higher strength than macro structures. To evaluate and assure the lifetime of MEMS structures, a fatigue testing method with ultra high cycles (up to 1012) loadings needs to be established. The object of the test method is to evaluate the mechanical fatigue properties of microscale materials in a short time by applying high load and high cyclic frequency bending stress using resonant vibration."
+  },
+  {
+    "reference": "IEC 62047-13:2012",
+    "edition": "1.0",
+    "date": "2012-02-28",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 13: Bend - and shear - type test methods of measuring adhesive strength for MEMS structures",
+    "language": "EN-FR",
+    "description": "IEC 62047-13:2012 specifies the adhesive testing method between micro-sized elements and a substrate using the columnar shape of the specimens. This international standard can be applied to adhesive strength measurement of microstructures, prepared on a substrate, with width and thickness of 1 μm to 1 mm, respectively. This standard specifies the adhesive testing method for micro-sized-elements in order to optimally select materials and processing conditions for MEMS devices. This standard does not particularly restrict test piece material, test piece size and performance of the measuring device, since the materials and size of MEMS device components range widely and testing machine for micro-sized materials has not been generalized."
+  },
+  {
+    "reference": "IEC 62047-14:2012",
+    "edition": "1.0",
+    "date": "2012-02-28",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 14: Forming limit measuring method of metallic film materials",
+    "language": "EN-FR",
+    "description": "IEC 62047-14:2012 describes definitions and procedures for measuring the forming limit of metallic film materials with a thickness range from 0,5 μm to 300 μm. The metallic film materials described herein are typically used in electric components, MEMS and micro-devices. When metallic film materials used in MEMS (see 2.1.2 of IEC 62047-1:2005) are fabricated by a forming process such as imprinting, it is necessary to predict the material failure in order to increase the reliability of the components. Through this prediction, the effectiveness of manufacturing MEMS components by a forming process can also be improved, because the period of developing a product can be reduced and manufacturing costs can thus be decreased. This standard presents one of the prediction methods for material failure in imprinting process."
+  },
+  {
+    "reference": "IEC 62047-16:2015",
+    "edition": "1.0",
+    "date": "2015-03-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 16: Test methods for determining residual stresses of MEMS films - Wafer curvature and cantilever beam deflection methods",
+    "language": "EN-FR",
+    "description": "IEC 62047-16:2015 specifies the test methods to measure the residual stresses of films with thickness in the range of 0,01 μ to 10 μ in MEMS structures fabricated by wafer curvature or cantilever beam deflection methods."
+  },
+  {
+    "reference": "IEC 62047-17:2015",
+    "edition": "1.0",
+    "date": "2015-03-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 17: Bulge test method for measuring mechanical properties of thin films",
+    "language": "EN-FR",
+    "description": "IEC 62047-17:2015 specifies the method for performing bulge tests on the free-standing film that is bulged within a window. The specimen is fabricated with micro/nano structural film materials, including metal, ceramic and polymer films, for MEMS, micromachines and others. The thickness of the film is in the range of 0,1 μ to 10 μ, and the width of the rectangular and square membrane window and the diameter of the circular membrane range from 0,5 mm to 4 mm. The tests are carried out at ambient temperature, by applying a uniformly-distributed pressure to the testing film specimen with bulging window. Elastic modulus and residual stress for the film materials can be determined with this method."
+  },
+  {
+    "reference": "IEC 62047-18:2013",
+    "edition": "1.0",
+    "date": "2013-07-17",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 18: Bend testing methods of thin film materials",
+    "language": "EN-FR",
+    "description": "IEC 62047-18:2013 specifies the method for bend testing of thin film materials with a length and width under 1 mm and a thickness in the range between 0,1 micrometre and 10 micrometre. This International Standard specifies the bend testing and test piece shape for micro-sized smooth cantilever type test pieces, which enables a guarantee of accuracy corresponding to the special features."
+  },
+  {
+    "reference": "IEC 62047-19:2013",
+    "edition": "1.0",
+    "date": "2013-07-17",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 19: Electronic compasses",
+    "language": "EN-FR",
+    "description": "IEC 62047-19:2013 defines terms, definitions, essential ratings and characteristics, and measuring methods of electronic compasses. This standard applies to electronic compasses composed of magnetic sensors and acceleration sensors, or magnetic sensors alone. This standard applies to electronic compasses for mobile electronic equipment."
+  },
+  {
+    "reference": "IEC 62047-20:2014",
+    "edition": "1.0",
+    "date": "2014-06-26",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 20: Gyroscopes",
+    "language": "EN-FR",
+    "description": "IEC 62047-20:2014 specifies terms and definitions, ratings and characteristics, and measuring methods of gyroscopes. Gyroscopes are primarily used for consumer, general industries and aerospace applications. MEMS and semiconductor lasers are widely used for device technology of gyroscopes."
+  },
+  {
+    "reference": "IEC 62047-21:2014",
+    "edition": "1.0",
+    "date": "2014-06-19",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 21: Test method for Poisson's ratio of thin film MEMS materials",
+    "language": "EN-FR",
+    "description": "IEC 62047-21:2014 specifies the determination of Poisson's ratio from the test results obtained by the application of uniaxial and biaxial loads to thin-film micro-electromechanical systems (MEMS) materials with lengths and widths less than 10 mm and thicknesses less than 10 µm."
+  },
+  {
+    "reference": "IEC 62047-22:2014",
+    "edition": "1.0",
+    "date": "2014-06-19",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 22: Electromechanical tensile test method for conductive thin films on flexible substrates",
+    "language": "EN-FR",
+    "description": "IEC 62047-22:2014 specifies a tensile test method to measure electromechanical properties of conductive thin micro-electromechanical systems (MEMS) materials bonded on non-conductive flexible substrates. Conductive thin-film structures on flexible substrates are extensively utilized in MEMS, consumer products, and flexible electronics. The electrical behaviours of films on flexible substrates differ from those of freestanding films and substrates due to their interfacial interactions. Different combinations of flexible substrates and thin films often lead to various influences on the test results depending on the test conditions and the interfacial adhesion. The desired thickness of a thin MEMS material is 50 times thinner than that of the flexible substrate, whereas all other dimensions are similar to each other."
+  },
+  {
+    "reference": "IEC 62047-25:2016",
+    "edition": "1.0",
+    "date": "2016-08-29",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 25: Silicon based MEMS fabrication technology - Measurement method of pull-press and shearing strength of micro bonding area",
+    "language": "EN-FR",
+    "description": "IEC 62047-25:2016 specifies the in-situ testing method to measure the bonding strength of micro bonding area which is fabricated by micromachining technologies used in silicon-based micro-electromechanical system (MEMS). This document is applicable to the in-situ pull-press and shearing strength measurement of the micro bonding area fabricated by microelectronic technology process and other micromachining technology."
+  },
+  {
+    "reference": "IEC 62047-26:2016",
+    "edition": "1.0",
+    "date": "2016-01-07",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 26: Description and measurement methods for micro trench and needle structures",
+    "language": "EN-FR",
+    "description": "IEC 62047-26:2016 specifies descriptions of trench structure and needle structure in a micrometer scale. In addition, it provides examples of measurement for the geometry of both structures. For trench structures, this standard applies to structures with a depth of 1 µm to 100 µm; walls and trenches with respective widths of 5 µm to 150 µm; and aspect ratio of 0,006 7 to 20. For needle structures, the standard applies to structures with three or four faces with a height, horizontal width and vertical width of 2 µm or larger, and with dimensions that fit inside a cube with sides of 100 µm. This standard is applicable to the structural design of MEMS and geometrical evaluation after MEMS processes."
+  },
+  {
+    "reference": "IEC 62047-27:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 27: Bond strength test for glass frit bonded structures using micro-chevron-tests (MCT)",
+    "language": "EN",
+    "description": "IEC 62047-27:2017(E) specifies a method for assessing the bond strength of glass frit bonded structures using micro-chevron-tests (MCT). It describes suitable sample geometry and provides guidance for the design of deviating sample geometries. The micro-chevron-test is an experimental method to determine the fracture toughness K IC of brittle materials or bond interfaces using specifically designed test chips (micro-chevron-samples) under defined load conditions (crack opening mode I). Owing to its high precision and low variance, it is suitable for analysing the influence of different process parameters on bond strength as well as for quality assurance."
+  },
+  {
+    "reference": "IEC 62047-29:2017",
+    "edition": "1.0",
+    "date": "2017-11-22",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 29: Electromechanical relaxation test method for freestanding conductive thin-films under room temperature",
+    "language": "EN",
+    "description": "IEC 62047-29:2017(E) specifies a relaxation test method for measuring electromechanical properties of freestanding conductive thin films for micro-electromechanical systems (MEMS) under controlled strain and room temperature. Freestanding thin films of conductive materials are extensively utilized in MEMS, opto-electronics, and flexible/wearable electronics products. Freestanding thin films in the products experience external and internal stresses which could be relaxed even under room temperature during a period of operation, and this relaxation leads to time-dependent variation of electrical performances of the products. This test method is valid for isotropic, homogeneous, and linearly viscoelastic materials."
+  },
+  {
+    "reference": "IEC 62047-30:2017",
+    "edition": "1.0",
+    "date": "2017-09-15",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 30: Measurement methods of electro-mechanical conversion characteristics of MEMS piezoelectric thin film",
+    "language": "EN",
+    "description": "IEC 62047-30:2017(E) specifies measuring methods of electro-mechanical conversion characteristics of piezoelectric thin film used for micro sensors and micro actuators, and its reporting schema to determine the characteristic parameters for consumer, industry or any other applications of piezoelectric devices. This document applies to piezoelectric thin films fabricated by MEMS process"
+  },
+  {
+    "reference": "IEC 62047-31:2019",
+    "edition": "1.0",
+    "date": "2019-04-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 31: Four-point bending test method for interfacial adhesion energy of layered MEMS materials",
+    "language": "EN",
+    "description": "IEC 62047-31:2019 (E) specifies a four-point bending test method for measuring interfacial adhesion energy of the weakest interface in the layered micro-electromechanical systems (MEMS) based on the concept of fracture mechanics. In a variety of MEMS devices, there are many layered material interfaces, and their adhesion energies are critical to the reliability of the MEMS devices. The four-point bending test utilizes a pure bending moment applied to a test piece of layered MEMS device, and the interfacial adhesion energy is measured from the critical bending moment for the steady state cracking in the weakest interface. This test method applies to MEMS devices with thin film layers deposited on semiconductor substrates. The total thickness of the thin film layers should be 100 times less than the thickness of a supporting substrate (typically a silicon wafer piece)."
+  },
+  {
+    "reference": "IEC 62047-32:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 32: Test method for the nonlinear vibration of MEMS resonators",
+    "language": "EN-FR",
+    "description": "IEC 62047-32:2019 specifies the test method and test condition for the nonlinear vibration of MEMS resonators. The statements made in this document apply to the development and manufacture for MEMS resonators."
+  },
+  {
+    "reference": "IEC 62047-33:2019",
+    "edition": "1.0",
+    "date": "2019-04-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 33: MEMS piezoresistive pressure-sensitive device",
+    "language": "EN",
+    "description": "IEC 62047-33:2019 (E) defines terms, definitions, essential ratings and characteristics, as well as test methods applicable to MEMS piezoresistive pressure-sensitive device. This document applies to piezoresistive pressure-sensitive devices for automotive, medical treatment, electronic products."
+  },
+  {
+    "reference": "IEC 62047-34:2019",
+    "edition": "1.0",
+    "date": "2019-04-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 34: Test methods for MEMS piezoresistive pressure-sensitive device on wafer",
+    "language": "EN",
+    "description": "IEC 62047-34:2019 (E) describes test conditions and test methods of electric character, static performances and thermal performances for MEMS pressure-sensitive devices. This document applies to test for both open and closed loop piezoresistive MEMS pressure devices on wafer."
+  },
+  {
+    "reference": "IEC 62047-35:2019",
+    "edition": "1.0",
+    "date": "2019-11-22",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 35: Test method of electrical characteristics under bending deformation for flexible electro-mechanical devices",
+    "language": "EN-FR",
+    "description": "IEC 62047-35:2019 specifies the test method of electrical characteristics under bending deformation for flexible electromechanical devices. These devices include passive micro components and/or active micro components on the flexible film or embedded in the flexible film. The desired in-plane dimensions of the device for the test method ranges typically from 1 mm to 300 mm and the thickness ranges from 10 mm to 1 mm, but these are not limiting values. The test method is so designed as to bend devices in a quasi-static manner monotonically up to the maximum possible curvature, i.e. until the device is completely folded, so that the entire degradation behaviour of the electric property under bending deformation is obtained. This document is essential to estimate the safety margin under a certain bending deformation and indispensable for reliable design of the product employing these devices."
+  },
+  {
+    "reference": "IEC 62047-36:2019",
+    "edition": "1.0",
+    "date": "2019-04-05",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 36: Environmental and dielectric withstand test methods for MEMS piezoelectric thin films",
+    "language": "EN",
+    "description": "IEC 62047-36:2019 (E) specifies test methods for evaluating the durability of MEMS piezoelectric thin film materials under the environmental stress of temperature and humidity and under electrical stress, and test conditions for appropriate quality assessment. Specifically, this document specifies test methods and test conditions for measuring the durability of a DUT under temperature and humidity conditions and applied voltages. It further applies to evaluations of converse piezoelectric properties in piezoelectric thin films formed primarily on silicon substrates, i.e., piezoelectric thin films used as actuators. This document does not cover reliability assessments, such as methods of predicting the lifetime of a piezoelectric thin film based on a Weibull distribution."
+  },
+  {
+    "reference": "IEC 62047-37:2020",
+    "edition": "1.0",
+    "date": "2020-04-28",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 37: Environmental test methods of MEMS piezoelectric thin films for sensor application",
+    "language": "EN-FR",
+    "description": "IEC 62047-37:2020 specifies test methods for evaluating the durability of MEMS piezoelectric thin film materials under the environmental stress of temperature and humidity and under mechanical stress and strain, and test conditions for appropriate quality assessment. Specifically, this document specifies test methods and test conditions for measuring the durability of a DUT under temperature and humidity conditions and applied voltages. It further applies to evaluations of direct piezoelectric properties in piezoelectric thin films formed primarily on silicon substrates, i.e. piezoelectric thin films used as acoustic sensors, or as cantilever-type sensors. This document does not cover reliability assessments, such as methods of predicting the lifetime of a piezoelectric thin film based on a Weibull distribution."
+  },
+  {
+    "reference": "IEC 62047-38:2021",
+    "edition": "1.0",
+    "date": "2021-06-23",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 38: Test method for adhesion strength of metal powder paste in MEMS interconnection",
+    "language": "EN",
+    "description": "IEC 62047-38:2021(E) specifies a test method for measuring the adhesion strength of metal powder paste in the electrical interconnection between micro-electromechanical systems (MEMS) and a circuit board. The typical examples of metal powder paste are anisotropic conductive paste, solder paste, and nanoscale metallic inks. This testing method is valid for metal powder diameters from 10 µm and 500 µm. In this test method, a uniaxial compression load is applied to metal powder paste using a glass lens simulating an actual MEMS device; then, the adhesion strength is measured by retracting the lens. This test method is proper when the adhesion strength should be analyzed by considering the actual contact area between the MEMS device and metal powder particles."
+  },
+  {
+    "reference": "IEC 62047-40:2021",
+    "edition": "1.0",
+    "date": "2021-09-03",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 40:Test methods of micro-electromechanical inertial shock switch threshold",
+    "language": "EN",
+    "description": "IEC 62047-40:2021(E) specifies the test conditions and methods of micro-electromechanical inertial shock switch threshold. This document applies to normally open micro-electromechanical inertial shock switch."
+  },
+  {
+    "reference": "IEC 62047-41:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 41: RF MEMS circulators and isolators",
+    "language": "EN-FR",
+    "description": "IEC 62047-41:2021 specifies the terminology, essential ratings and characteristics, and measuring methods of RF (Radio Frequency) MEMS (Micro-Electro-Mechanical Systems) circulators and isolators."
+  },
+  {
+    "reference": "IEC 62047-42:2022",
+    "edition": "1.0",
+    "date": "2022-09-16",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 42: Measurement methods of electro-mechanical conversion characteristics of piezoelectric MEMS cantilever",
+    "language": "EN",
+    "description": "IEC 62047-42:2022 specifies measuring methods of electro-mechanical conversion characteristics of piezoelectric thin film on microcantilever, which is typical structure of actual micro sensors and micro actuators. In order to obtain actual and precise piezoelectric coefficient of the piezoelectric thin films with microdevice structures, and this document reports the schema to determine the characteristic parameters for consumer, industry or any other applications of piezoelectric devices. This document applies to piezoelectric thin films on microcantilever fabricated by MEMS process."
+  },
+  {
+    "reference": "IEC 62047-43:2024",
+    "edition": "1.0",
+    "date": "2024-03-19",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 43: Test method of electrical characteristics after cyclic bending deformation for flexible micro-electromechanical devices",
+    "language": "EN",
+    "description": "IEC 62047-43:2024 specifies the test method of electrical characteristics after cyclic bending deformation for flexible electromechanical devices. These devices include passive micro components and active micro components on the flexible film or embedded in the flexible film. The desired in-plane dimensions of the device for the test method ranges typically from 1 mm to 300 mm and the thickness ranges from 10 μm to 1 mm, but these are not limiting values. The test method is so designed as to understand and further visualize the entire performance deterioration behaviour after cyclic bending deformation in a concept of 3D (P-S-N: Performance - Severity of bending - Number of cycles) plot over the loading space of severity of bending and number of repeated cycles. This document is essential to estimate safety margin over the operation period under a certain level of cyclic bending deformation and indispensable for reliable design of the product employing these devices."
+  },
+  {
+    "reference": "IEC 62047-44:2024",
+    "edition": "1.0",
+    "date": "2024-02-22",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 44: Test methods for dynamic performances of MEMS resonant electric-field-sensitive devices",
+    "language": "EN",
+    "description": "IEC 62047-44:2024 describes terminology, definitions and test methods that are used to evaluate and determine the dynamic performance of MEMS (Micro-Electromechanical Systems) resonant electric‑field‑sensitive devices. It also specifies sample requirements and test equipment for dynamic performances of MEMS resonant electric‑field‑sensitive devices. The statements made in this document are also applicable to MEMS resonant electric‑field‑sensitive devices with various driving mechanisms such as electrostatic, electrothermal, electromagnetic, piezoelectric, etc."
+  },
+  {
+    "reference": "IEC 62047-45:2025",
+    "edition": "1.0",
+    "date": "2025-03-20",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 45: Silicon based MEMS fabrication technology - Measurement method of impact resistance of nanostructures",
+    "language": "EN",
+    "description": "IEC 62047-45:2025 specifies the requirements and testing method to measure the impact resistance of nanostructures which are fabricated by micromachining technology used in silicon-based micro-electromechanical system (MEMS). This document is applicable to the in-situ impact resistance measurement of nanostructures manufactured by microelectronic technology process and other micromachining technology. In the production of MEMS devices, due to the micro/nano size, the non-ideal effect of fabrication is greatly amplified compared with the macroscale. Surface defects, line width loss, and residual stress can occur in the fabricated object, resulting in severe fluctuations in the mechanical strength of MEMS devices. This document specifies an in-situ measurement method for the impact resistance of nanostructures based on MEMS technology to extract the impact strength of actual manufactured structures. This test method does not need intricated instruments (such as scanning probe microscopy and nanoindenter) and special test specimens. Since the in-situ on-chip tester in this document can be implanted in device fabrication as a standard detection pattern, this document can provide a bridge, by which the fabrication part can give some quantitative reference for the design part."
+  },
+  {
+    "reference": "IEC 62047-46:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 46: Silicon based MEMS fabrication technology - Measurement method of tensile strength of nanoscale thickness membrane",
+    "language": "EN",
+    "description": "IEC 62047-46:2025 specifies the requirements and testing method to measure the tensile strength of membrane with nanoscale thickness (length from 100 μm to 5 000 μm, width from 100 μm to 1 000 μm, thickness from 50 nm to 500 nm) which is fabricated by micromachining technology used in silicon-based micro-electromechanical system (MEMS). This document is applicable to in-situ tensile strength measurement of nanoscale thickness membrane manufactured by microelectronics technology and related micromachining technology. With the devices scaling, the tensile strength degradation, induced by defects and contaminations, becomes severer. This document specifies an in-situ testing method of the tensile strength of membrane with nanoscale thickness based on a MEMS technique. This document does not need intricate instruments (such as scanning probe microscopy and nanoindenter) and special test specimens. Since in-situ on-chip tester in this document and device are fabricated with the same process on the same wafer, this document can give some practical reference for the design part."
+  },
+  {
+    "reference": "IEC 62047-47:2024",
+    "edition": "1.0",
+    "date": "2024-08-23",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 47: Silicon based MEMS fabrication technology - Measurement method of bending strength of microstructures",
+    "language": "EN",
+    "description": "IEC 62047-47:2024 specifies the requirements and testing method to measure the bending strength of microstructures which are fabricated by micromachining technology used in silicon-based micro-electromechanical system (MEMS). This document is applicable to the in-situ bending strength measurement of microstructures manufactured by microelectronic technology process and other micromachining technology. With the devices scaling, the bending strength degradation, induced by defects and contaminations, becomes more severe. This document specifies an in-situ testing method of the bending strength based on MEMS technique. This document does not need intricate instruments (such as scanning probe microscopy and nanoindenter) and special test specimens. Since in-situ on-chip tester in this document and device are fabricated with the same process on the same wafer, this document can give some practical reference for the design part."
+  },
+  {
+    "reference": "IEC 62047-48:2024",
+    "edition": "1.0",
+    "date": "2024-06-07",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 48: Test method for determining solution concentration by optical absorption using MEMS fluidic device",
+    "language": "EN",
+    "description": "IEC 62047-48:2024 specifies the requirements and testing method to determine the solution concentration by optical absorption using MEMS fluidic device."
+  },
+  {
+    "reference": "IEC 62047-49:2025",
+    "edition": "1.0",
+    "date": "2025-11-25",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 49: Temperature and humidity test methods for piezoelectric MEMS cantilevers",
+    "language": "EN",
+    "description": "IEC 62047-49:2025 specifies reliability test methods of electro-mechanical conversion characteristics of piezoelectric thin film on microcantilever, which is typical structure of micro sensors and micro actuators. In order to estimate the stability of the piezoelectric coefficient of the piezoelectric thin films with microscale structures in the operating conditions, this document reports the schema to determine the characteristic parameters for consumer, industry or any other applications of piezoelectric MEMS devices. This document applies to piezoelectric thin films on microcantilever fabricated by MEMS process."
+  },
+  {
+    "reference": "IEC 62047-50:2025",
+    "edition": "1.0",
+    "date": "2025-04-29",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 50: MEMS capacitive microphones",
+    "language": "EN",
+    "description": "IEC 62047-50:2025 defines the test conditions and test methods for the performance of MEMS capacitive microphones. This document applies to MEMS capacitive microphones."
+  },
+  {
+    "reference": "IEC 62047-52:2026",
+    "edition": "1.0",
+    "date": "2026-03-04",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 52: Biaxial tensile testing method for stretchable MEMS",
+    "language": "EN",
+    "description": "IEC 62047-52:2026 specifies a testing method for measuring device performance and failure strain under biaxial tensile deformation in stretchable MEMS materials. The typical examples of the stretchable MEMS materials are flexible single crystalline silicon structures, MEMS circuit boards, interconnected MEMS on a stretchable substrate. The test piece has a cruciform geometry and the test piece thickness ranges from 1 μm to 100 μm with the same thickness as the actual devices. Since the failure strain can vary depending on loading conditions like uniaxial tension and equi-biaxial tension, a biaxial load is applied to a cruciform test piece with varying strain ratio between two perpendicular loading directions."
+  },
+  {
+    "reference": "IEC 62047-53:2025",
+    "edition": "1.0",
+    "date": "2025-10-02",
+    "title": "Semiconductor devices - Micro-electromechanical devices - Part 53: MEMS electrothermal transfer device",
+    "language": "EN",
+    "description": "IEC 62047-53:2025 defines the test methods for the performances of MEMS electrothermal transfer device. The document is applicable to the MEMS electrothermal transfer devices used in airbags, petroleum and mineral detection, igniters and detonators."
+  }
+]

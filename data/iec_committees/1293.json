@@ -1,0 +1,74 @@
+[
+  {
+    "reference": "IEC 60146-1-1:2024",
+    "edition": "5.0",
+    "date": "2024-03-19",
+    "title": "Semiconductor converters - General requirements and line commutated converters - Part 1-1: Specification of basic requirements",
+    "language": "EN-FR",
+    "description": "IEC 60146-1-1:2024 specifies the requirements for the performance of all semiconductor power converters and semiconductor power switches using controllable and/or non-controllable electronic valve devices. It is primarily intended to specify the basic requirements for converters in general and the requirements applicable to line commutated converters for conversion of AC power to DC power or vice versa. Parts of this document are also applicable to other types of electronic power converter provided that they do not have their own product standards. This fifth edition introduces four main changes: a) re-edition of the whole standard according to the current directives; b) deletion of safety-related descriptions considering coordination with IEC 62477 series; c) changes of calculation methods of inductive voltage regulation; d) changes considering coordination with IEC 61378 series. The content of the corrigendum 1 (2025-03) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60146-1-1:2024/COR1:2025",
+    "edition": "5.0",
+    "date": "2025-03-18",
+    "title": "Corrigendum 1 - Semiconductor converters - General requirements and line commutated converters - Part 1-1: Specification of basic requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60146-1-2:2019",
+    "edition": "5.0",
+    "date": "2019-10-22",
+    "title": "Semiconductor converters - General requirements and line commutated converters - Part 1-2: Application guidelines",
+    "language": "EN",
+    "description": "IEC TR 60146-1-2:2019 gives guidance on variations to the specifications given in IEC 60146-1-1:2009 to enable the specification to be extended in a controlled form for special cases. Background information is also given on technical points, which facilitates the use of IEC 60146-1-1:2009. This technical report primarily covers line commutated converters and is not in itself a specification, except as regards certain auxiliary components, in so far as existing standards may not provide the necessary data. This fifth edition includes the following significant technical changes with respect to the previous edition: a) addition of annexes concerning the applications of converter transformers and of fuses for overcurrent protection; b) changes of calculation methods related the inductive voltage regulation and changes of description on transformer losses to be consistent with the latest transformer standards; c) addition and updates of references based on the latest information."
+  },
+  {
+    "reference": "IEC 60146-2:1999",
+    "edition": "2.0",
+    "date": "1999-11-18",
+    "title": "Semiconductor converters - Part 2: Self-commutated semiconductor converters including direct d.c. converters",
+    "language": "EN-FR",
+    "description": "Applies to all types of semiconductor inverters of the self-commutated type and semiconductor convertors which contain at least one part of a self-commutated type, including direct a.c. convertors and d.c. convertors for all applications."
+  },
+  {
+    "reference": "IEC 61148:2011",
+    "edition": "2.0",
+    "date": "2011-10-20",
+    "title": "Terminal markings for valve device stacks and assemblies and for power conversion equipment",
+    "language": "EN-FR",
+    "description": "IEC 61148:2011 is applicable to the terminal markings for the main circuits of valve device stacks and assemblies, and of integrated conversion equipment. The terminal markings refer to stacks, assemblies and equipment comprising semiconductor valve devices. The object of this standard is to specify a logical alphanumeric marking system for the identification of the external main terminals of the main power circuits in a stack, valve device assembly or integrated conversion equipment, which is applicable for the purpose of reference in circuit diagrams, catalogues, descriptions, and information exchange and storage. In the case of stacks and assemblies, alphanumeric terminal marking systems are indicated for those converter connections which are the most important and most commonly used ones. Terminal marking systems making use of graphic symbols or identifying colours are not considered in this standard. This second edition includes the following significant technical changes with respect to the previous edition: - the whole document has been rewritten according to the current Directives; - the identification codes were deleted according to the withdrawal of IEC 60971; - examples of terminal marking were added, especially for self-commutated converters."
+  },
+  {
+    "reference": "IEC 62477-1:2022",
+    "edition": "2.0",
+    "date": "2022-05-20",
+    "title": "Safety requirements for power electronic converter systems and equipment - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 62477-1:2022 applies to power electronic converter systems (PECS), any specified accessories, and their components for electronic power conversion and electronic power switching, including the means for their control, protection, monitoring and measurement, such as with the main purpose of converting electric power, with rated system voltages not exceeding 1 000 V AC or 1 500 V DC. This document also applies to PECS which intentionally emit or receive radio waves for the purpose of radio communication. This document can also be used as a reference standard for product committees producing product standards for: • adjustable speed electric power drive systems (PDS); • standalone uninterruptible power systems (UPS); • low voltage stabilized DC power supplies; • bidirectional power converters. For PECS and their specified accessories for which no product standard exists, this document provides minimum requirements for safety aspects. This document has the status of a group safety publication in accordance with IEC Guide 104 for power electronic converter systems for solar, wind, tidal, wave, fuel cell or similar energy sources. According to IEC Guide 104, one of the responsibilities of technical committees is, wherever applicable, to make use of basic safety publications and/or group safety publications in the preparation of their product standards. Guidance for use of this group safety publication for product committees is given in Annex S. This document • establishes a common terminology for safety aspects relating to PECS, • establishes minimum requirements for the coordination of safety aspects of interrelated parts within a PECS, • establishes a common basis for minimum safety requirements for the PECS portion of products that contain PECS, • specifies requirements to reduce risks of fire, electric shock, thermal, energy and mechanical hazards, during use and operation and, where specifically stated, during service and maintenance, and • specifies minimum requirements to reduce risks with respect to PECS designed as pluggable and permanently connected equipment, whether it consists of a system of interconnected units or independent units, subject to installing, operating and maintaining the PECS in the manner prescribed by the manufacturer. This document does not cover • telecommunications apparatus other than power supplies to such apparatus, • functional safety aspects as covered by, for example, IEC 61508 (all parts), and • electrical equipment and systems for railways applications and electric vehicles. The contents of the corrigendum of April 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62477-1:2022/COR1:2024",
+    "edition": "2.0",
+    "date": "2024-04-17",
+    "title": "Corrigendum 1 - Safety requirements for power electronic converter systems and equipment - Part 1: General",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62477-2:2018",
+    "edition": "1.0",
+    "date": "2018-06-21",
+    "title": "Safety requirements for power electronic converter systems and equipment - Part 2: Power electronic converters from 1 000 V AC or 1 500 V DC up to 36 kV AC or 54 kV DC",
+    "language": "EN-FR",
+    "description": "IEC 62477-2:2018 applies to power electronic converter systems (PECS) and equipment, their components for electronic power conversion and electronic power switching, including the means for their control, protection, monitoring and measurement, such as with the main purpose of converting electric power, with rated system voltages from 1 000 V AC or 1 500 V DC up to 36 kV AC or 54 kV DC. This document can also be used as a reference standard for product committees producing product standards for adjustable speed electric power drive systems (PDS), standalone uninterruptible power systems (UPS), and stabilized DC power supplies. For PECS for which no product standard exists, this document provides minimum requirements for safety aspects. This document has the status of a group safety publication in accordance with IEC Guide 104 for power electronic converter systems and equipment for solar, wind, tidal, wave, fuel cell or similar energy sources. According to IEC Guide 104, one of the responsibilities of technical committees is, wherever applicable, to make use of basic safety publications and/or group safety publications in the preparation of their product standards. This document establishes a common terminology for safety aspects relating to PECS and equipment, establishes minimum requirements for the coordination of safety aspects of interrelated parts within a PECS, establishes a common basis for minimum safety requirements for the PEC portion of products that contain PEC, specifies requirements to reduce risks of fire, electric shock, thermal, energy and mechanical hazards, during use and operation and, where specifically stated, during service and maintenance, specifies minimum requirements to reduce risks with respect to pluggable and permanently connected equipment, whether it consists of a system of interconnected units or independent units, subject to installing, operating and maintaining the equipment in the manner prescribed by the manufacturer, establishes an arc fault rating label requirement with testing instructions for PEC and PECS, and covers power electronic converters and systems in open type design, which are catalog (pre-defined commercially available) power electronic converters and systems or engineered solutions from same. This document does not cover telecommunications apparatus other than power supplies to such apparatus, functional safety aspects as covered by, for example, IEC 61508 (all parts), electrical equipment and systems for railways applications and electric vehicles, and power electronic converters and systems in open type design, which are – in their major part – dimensioned, designed and constructed according to the user’s individual requirements and specifications and follow power installation standards, for example IEC 61936-1."
+  },
+  {
+    "reference": "IEC TS 62578:2015",
+    "edition": "2.0",
+    "date": "2015-04-15",
+    "title": "Power electronics systems and equipment - Operation conditions and characteristics of active infeed converter (AIC) applications including design recommendations for their emission values below 150 kHz",
+    "language": "EN-FR",
+    "description": "IEC TS 62578:2015 describes the operation conditions and typical characteristics of active infeed converters (AIC) of all technologies and topologies which can be connected between the electrical power supply network (lines) a.c. side and a constant current or voltage type d.c. side and which can convert electrical power (active and reactive) in both directions (generative or regenerative). The following is excluded from the scope: - Requirements for the design, development or further functionality of active infeed applications. - Probability of interactions or influences of the AIC with other equipment caused by parasitic elements in an installation or caused by poor electronic design as well as their mitigations. - \"Overhead line\" power supply networks because of lack of information (measurements) of their three phase impedances. This edition includes the following significant technical changes with respect to the previous edition: a) IEC TS 62578, in its revised version includes observed values out of practical applications for emission values below 150 kHz. b) Therefore the document has been extended compared to the first edition, several detailed analysis results are given in the extended Annexes. c) Design recommendations have been derived from the international working group by an assessment of the power supply impedances between 2 kHz and 9 kHz, a comprehensive analysis of the withstand capability of power capacitors against harmonic currents injected by AIC, immunity tests of equipment and considerations about shifted resonances in the power supply network with increased population of undamped filter capacitors."
+  }
+]

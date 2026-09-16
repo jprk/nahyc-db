@@ -1,0 +1,778 @@
+[
+  {
+    "reference": "ISO/IEC 3721:2023",
+    "edition": "1.0",
+    "date": "2023-09-22",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation -Information model for mixed and augmented reality content - Core objects and attributes",
+    "language": "EN",
+    "description": "This document specifies the information model for representing the mixed and augmented reality (MAR) scene/contents description, namely, information constructs for: a) representing the virtual reality scene graph and structure such that a comprehensive range of mixed and augmented reality contents can also be represented; b) representing physical objects in the mixed and augmented reality scene targeted for augmentation; c) representing physical objects as augmentation to other (virtual or physical) objects in the mixed and augmented reality scene; d) providing ways to spatially associate aforementioned physical objects with the corresponding target objects (virtual or physical) in the mixed and augmented reality scene; e) providing other necessary functionalities and abstractions that will support the dynamic MAR scene description such as event/data mapping, and dynamic augmentation behaviours; f) describing the association between these constructs and the MAR system which is responsible for taking and interpreting this information model and rendering/presenting it out through the MAR display device."
+  },
+  {
+    "reference": "ISO/IEC TS 5147:2023",
+    "edition": "1.0",
+    "date": "2023-07-14",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Guidelines for representation and visualization of smart cities",
+    "language": "EN",
+    "description": "This document specifies guidelines for the representation and visualization of smart cities. This document: describes the concepts of a smart city, smart city object and smart city data, describes categories of data associated with smart cities,provides guidance for representation of smart cities, describes guidance for visualization of smart cities, provides guidance in selecting the appropriate representation and visualization technique for different categories of smart city data using standards, and provides use cases for applying standards to the representation and visualization of smart cities."
+  },
+  {
+    "reference": "ISO/IEC 5927:2024",
+    "edition": "1.0",
+    "date": "2024-02-16",
+    "title": "Computer graphics, image processing and environmental data representation - Augmented and virtual reality safety - Guidance on safe immersion, set up and usage",
+    "language": "EN",
+    "description": "This document specifies how augmented reality (AR) and virtual reality (VR) devices are to be set up and used in the enterprise workplace in a manner that ensures health and safety (H&S) is maintained, H&S consequences are understood, and additional risks are not introduced. Within this concept of safe usage, there is particular focus on guidance around safe immersion (time) and safety in the workplace. This document defines the concepts of AR, VR, the virtuality continuum and other associated terms such as augmented virtuality and mixed reality. This document provides guidance on: a) setting up AR systems; b) setting up VR systems; c) safe usage and immersion in AR systems both in the consumer and enterprise domains; d) safe usage and immersion in VR systems both in the consumer and enterprise domains. This document focuses on visual aspects of AR and VR. Other modes such as haptics and olfactory are not addressed within this document. This document covers both the hardware (the physical AR/VR head mounted displays) and areas of visual stimulus (the environments and graphics displayed in those headsets). This document does not cover all possible visual stimulus scenarios; focus is directed toward those areas that are known to have implications on safe use. This specifically includes the source vection (visual illusion of self-motion in physically stationary AR/VR users) and/or motion (physical movement of AR/VR users) and associated safe use considerations. NOTE AR/VR have some shared safety concerns, but many are distinct to AR or VR and a consumer or enterprise environment. As such all of these are in scope, and this document is structured to account for these differences."
+  },
+  {
+    "reference": "ISO/IEC 7942-1:1994",
+    "edition": "2.0",
+    "date": "1994-10-27",
+    "title": "Information technology - Computer graphics and image processing - Graphical Kernel System (GKS) - Part 1: Functional description",
+    "language": "EN",
+    "description": "Cancels and replaces the first edition (1985). Specifies a set of functions for computer graphics programming, the graphical kernel system. Provides functions for two dimensional graphical output, the storage and dynamic modification of pictures, and operator input. Applicabe to a wide range of applications that produce two dimensional pictures on vector or raster graphical devices in monochrome or colour."
+  },
+  {
+    "reference": "ISO/IEC 7942-2:1997",
+    "edition": "1.0",
+    "date": "1997-08-28",
+    "title": "Information technology - Computer graphics and image processing - Graphical Kernel System (GKS) - Part 2: NDC metafile",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7942-3:1999",
+    "edition": "1.0",
+    "date": "1999-01-21",
+    "title": "Information technology - Computer graphics and image processing - Graphical Kernel System (GKS) - Part 3: Audit trail",
+    "language": "EN",
+    "description": "This part of ISO/IEC 7942 provides a file format for capturing the sequence of GKS functions and their parameters invoked by an application, for subsequent playback."
+  },
+  {
+    "reference": "ISO/IEC 7942-4:1998",
+    "edition": "1.0",
+    "date": "1998-09-03",
+    "title": "Information technology - Computer graphics and image processing - Graphical Kernel System (GKS) - Part 4: Picture part archive",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 8632-1:1999",
+    "edition": "2.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Computer graphics - Metafile for the storage and transfer of picture description information - Part 1: Functional specification",
+    "language": "EN",
+    "description": "ISO/IEC 8632 provides a file format suitable for the storage and retrieval of picture description information. The file format consists of an ordered set of elements that may be used to describe pictures in a way that is compatible between systems of different architectures, compatible with devices of differing capabilities and design, and meaningful to application constituencies. This picture description includes the capability for describing static images. The elements specified provide for the representation of a wide range of pictures on a wide range of graphical devices. The elements are organized into groups that delimit major structures (metafiles, pictures, and application structures), that specify the representations used within the metafile, that control the display of the picture, that perform basic drawing actions, that control the attributes of the basic drawing actions, that allow application-specific structuring to be overlaid on the graphical content, and that provide access to non-standard device capabilities. The metafile is defined in such a way that, in addition to sequential access to the whole metafile, random access to individual pictures and individual context-independent application structures is well-defined. Applications which require random access to pictures and/or context-independent application structures within pictures may, within the metafile, define directories to these pictures and/or context-independent application structures. The metafile may then be opened and randomly accessed without interpreting the entire metafile. In addition to a functional specification, two standard encodings of the metafile syntax are specified. These encodings address the needs of applications that require small metafile size plus minimum effort to generate and interpret, and maximum flexibility for a human reader or editor of the metafile. This part of ISO/IEC 8632 describes the format using an abstract syntax. The remaining parts of ISO 8632 specify standardized encodings that conform to this syntax: ISO/IEC 8632-3 specifies a binary encoding; ISO/IEC 8632-4 specifies a clear text encoding."
+  },
+  {
+    "reference": "ISO/IEC 8632-1:1999/COR1:2006",
+    "edition": "2.0",
+    "date": "2006-03-24",
+    "title": "Information technology - Computer graphics - Metafile for the storage and transfer of picture description information - Part 1: Functional specification - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 8632-1:1999/COR2:2007",
+    "edition": "2.0",
+    "date": "2007-10-30",
+    "title": "Information technology - Computer graphics - Metafile for the storage and transfer of picture description information - Part 1: Functional specification - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 8632-3:1999",
+    "edition": "2.0",
+    "date": "1999-12-16",
+    "title": "Information technology - Computer graphics - Metafile for the storage and transfer of picture description information - Part 3: Binary encoding",
+    "language": "EN",
+    "description": "This part of ISO/IEC 8632 specifies a binary encoding of the Computer Graphics Metafile. For each of the elements specified in ISO/IEC 8632-1, this part specifies an encoding in terms of data types. For each of these data types, an explicit representation in terms of bits, octets and words is specified. For some data types, the exact representation is a function of the precisions being used in the metafile, as recorded in the Metafile Descriptor. This encoding of the Computer Graphics Metafile will, in many circumstances, minimize the effort required to generate and interpret the metafile."
+  },
+  {
+    "reference": "ISO/IEC 8632-4:1999",
+    "edition": "2.0",
+    "date": "1999-11-11",
+    "title": "Information technology - Computer graphics - Metafile for the storage and transfer of picture description information - Part 4: Clear text encoding",
+    "language": "EN",
+    "description": "This part of ISO/IEC 8632 specifies a clear text encoding of the Computer Graphics Metafile. For each of the elements specified in ISO/IEC 8632-1, a clear text encoding is specified. Allowed abbreviations are specified. The overall format of the metafile and the means by which comments may be interspersed in the metafile is specified. This encoding of the CGM allows metafiles to be created and maintained in a form which is simple to type, easy to edit and convenient to read."
+  },
+  {
+    "reference": "ISO/IEC 8651-4:1995",
+    "edition": "2.0",
+    "date": "1995-06-15",
+    "title": "Information technology - Computer graphics - Graphical Kernel System (GKS) language bindings - Part 4: C",
+    "language": "EN",
+    "description": "The Graphical Kernel System (GKS), ISO/IEC 7942-1:1994 , specifies a language independent nucleus of a graphics system. For integration into a programming language, GKS is embedded in a language dependent layer obeying the particular conventions of that language. This part of ISO/IEC 8651 specifies such a language dependent layer for the C language."
+  },
+  {
+    "reference": "ISO/IEC 8806-4:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Graphical Kernel System for Three Dimensions (GKS-3D) language bindings - Part 4: C",
+    "language": "EN",
+    "description": "Specifies a language independent nucleus of a graphics system. Specifies also a language dependent layer for the C language. Annexes A, B, C, D, E and F are for information only."
+  },
+  {
+    "reference": "ISO/IEC 9234:2025",
+    "edition": "1.0",
+    "date": "2025-11-06",
+    "title": "Information technology - Information modelling for virtual, augmented and mixed reality based education and training systems",
+    "language": "EN",
+    "description": "This document provides requirements and recommendations for developing education and training systems using virtual, augmented and mixed reality (VR/AR/MR) technology. It specifies how to organize the information and data necessary for the development of VR/AR/MR integrated systems for education and training. It includes procedures for the development of VR/AR/MR integrated systems. This document includes several topics for consideration when developing VR/AR/MR based education and training systems, as follows. First, it defines concepts of VR/AR/MR based education and training. Second, it defines an information modelling architecture for the systems. Third, standards based functional components for the systems are specified. Fourth, framework components for implementing the systems are specified. And, finally, use cases for the systems based on the information modelling architecture are included. Device hardware technology for education and training systems is excluded from this document."
+  },
+  {
+    "reference": "ISO/IEC 9592-1:1997",
+    "edition": "2.0",
+    "date": "1997-11-20",
+    "title": "Information technology - Computer graphics and image processing - Programmer's Hierarchical Interactive Graphics System (PHIGS) - Part 1: Functional description",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9592-2:1997",
+    "edition": "2.0",
+    "date": "1997-11-13",
+    "title": "Information technology - Computer graphics and image processing - Programmer's Hierarchical Interactive Graphics System (PHIGS) - Part 2: Archive file format",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9592-3:1997",
+    "edition": "2.0",
+    "date": "1997-11-13",
+    "title": "Information technology - Computer graphics and image processing - Programmer's Hierarchical Interactive Graphics System (PHIGS) - Part 3: Specification for clear-text encoding of archive file",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9593-1:1990",
+    "edition": "1.0",
+    "date": "1990-06-20",
+    "title": "Information processing systems - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 1: FORTRAN",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9593-1:1990/COR1:1993",
+    "edition": "1.0",
+    "date": "1993-07-08",
+    "title": "Information processing systems - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 1: FORTRAN - Technical Corrigendum 1",
+    "language": "EN",
+    "description": "Amends pages 9, 35, 75, 76, 77, 148, 149, 166."
+  },
+  {
+    "reference": "ISO/IEC 9593-1:1990/COR2:1994",
+    "edition": "1.0",
+    "date": "1994-07-28",
+    "title": "Information processing systems - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 1: FORTRAN - Technical Corrigendum 2",
+    "language": "EN",
+    "description": "Amends clauses 5, 6, subclauses 9.9, 9.12.7."
+  },
+  {
+    "reference": "ISO/IEC 9593-1:1990/AMD1:1995",
+    "edition": "1.0",
+    "date": "1995-04-20",
+    "title": "Information processing systems - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 1: FORTRAN - Amendment 1",
+    "language": "EN",
+    "description": "Specifies a language independent nucleus of a graphics system. Describes the FORTRAN language dependent layer."
+  },
+  {
+    "reference": "ISO/IEC 9593-3:1990",
+    "edition": "1.0",
+    "date": "1990-04-12",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 3: ADA",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9593-3:1990/COR1:1993",
+    "edition": "1.0",
+    "date": "1993-07-08",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 3: ADA - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9593-3:1990/COR2:1994",
+    "edition": "1.0",
+    "date": "1994-07-28",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 3: ADA - Technical Corrigendum 2",
+    "language": "EN",
+    "description": "Amends subclauses 4.2.2, 5.8, 5.11, annex A."
+  },
+  {
+    "reference": "ISO/IEC 9593-3:1990/AMD1:1994",
+    "edition": "1.0",
+    "date": "1994-06-16",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 3: ADA - Amendment 1: Incorporation of PHIGS PLUS",
+    "language": "EN",
+    "description": "Amends clauses 2, subclauses 3.1, 4.1.1, 4.1.2, 4.3.1, 4.3.2, annex B, replaces clause 1, annex A, adds clauses 6 (Tables for PHIGS PLUS), 7 (Functions in the Ada binding of PHIGS PLUS), C.6 (Example program 6: DODECAHEDRON), C.7 (Example program 7: TRIMMED SURFACE), annex E (Index)."
+  },
+  {
+    "reference": "ISO/IEC 9593-4:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 4: C",
+    "language": "EN",
+    "description": "Specifies a language independent nucleus of a graphics system. Specifies also a language dependent layer for the C language. Annexes A, B, C, D and E are for information only."
+  },
+  {
+    "reference": "ISO/IEC 9593-4:1991/COR1:1994",
+    "edition": "1.0",
+    "date": "1994-07-28",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 4: C - Technical Corrigendum 1",
+    "language": "EN",
+    "description": "Amends subclauses 5.3, 5.4, 7.9, 7.12.7, A.2, A.3."
+  },
+  {
+    "reference": "ISO/IEC 9593-4:1991/AMD1:1994",
+    "edition": "1.0",
+    "date": "1994-04-28",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 4: C - Amendment 1",
+    "language": "EN",
+    "description": "Amends Introduction, clauses 1, 2, 3, 4, 6, 7, subclauses 3.1, 3.11.3, 3.12.2, 3.13, 4.2 (table 1), 4.3.1 (table 2), 4.3.2 (table 3), A.1, A.2, A.3, B.6, C.1, E.1, E.2, adds clauses 8 (C PHIGS PLUS type definitions) (8.1 to 8.4), 9 (C PHIGS PLUS macro definitions) (9.1 to 9.3), 10 (C PHIGS PLUS functions) (10.1 to 10.3)."
+  },
+  {
+    "reference": "ISO/IEC 9593-4:1991/AMD2:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Computer graphics - Programmer's Hierarchical Interactive Graphics System (PHIGS) language bindings - Part 4: C - Amendment 2: Incorporation of PHIGS amendments",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9636-1:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 1: Overview, profiles, and conformance",
+    "language": "EN",
+    "description": "Includes a reference model, the relationship to other standards, and profiles. Establishes the framework for all the parts of ISO/IEC 9636. Does not contain functional descriptions."
+  },
+  {
+    "reference": "ISO/IEC 9636-2:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 2: Control",
+    "language": "EN",
+    "description": "Describes those functions of the interface concerned with virtual device management, coordinate space control, and error control. Annexes A and B form an integral part of this standard. Annex C is for information only."
+  },
+  {
+    "reference": "ISO/IEC 9636-3:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 3: Output",
+    "language": "EN",
+    "description": "Describes those functions of the interface concerned with output primitives and associated attributes and controls for creating graphical pictures. Annexes A and B form an integral part of this standard. Annexes C, D, E, F, G and H are for information only."
+  },
+  {
+    "reference": "ISO/IEC 9636-4:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 4: Segments",
+    "language": "EN",
+    "description": "Defines those functions of the interface concerned with the creation, modification, and manipulation of graphic pictures using segments. Annexes A and B form an integral part of this standard. Annexes C and D are for information only."
+  },
+  {
+    "reference": "ISO/IEC 9636-5:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 5: Input and echoing",
+    "language": "EN",
+    "description": "Defines those functions of the interface concerned with obtaining graphical and non-graphical input from a virtual device. Defines also functions to support echoing of input operations on separate virtual devices."
+  },
+  {
+    "reference": "ISO/IEC 9636-6:1991",
+    "edition": "1.0",
+    "date": "1991-12-18",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Functional specification - Part 6: Raster",
+    "language": "EN",
+    "description": "Describes those functions of the interface concerned with creating, modifying, retrieving, and displaying portions of an image stored as pixel data. Annexes A and B form an integral part of this standard. Annexes C, D, E and F are for information only."
+  },
+  {
+    "reference": "ISO/IEC 9637-1:1994",
+    "edition": "1.0",
+    "date": "1994-03-03",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Data stream binding - Part 1: Character encoding",
+    "language": "EN",
+    "description": "Specifies a character encoding of the computer graphics interface. For each of the functions specified in ISO/IEC 9636 an encoding is specified. The encoding provides a highly compact representation of the data, suitable for applications that require the data to be of minimum size and suitable for transmission with character-oriented transmission services."
+  },
+  {
+    "reference": "ISO/IEC 9637-2:1992",
+    "edition": "1.0",
+    "date": "1992-12-10",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Data stream binding - Part 2: Binary encoding",
+    "language": "EN",
+    "description": "For each of the function syntaxes in clauses 5 and 6 of ISO/IEC 9636-2 to 9636-6, an encoding is specified in terms of an opcode and a sequence of parameters of specified data types. For each of these data types, an explicit representation in terms of bits, 8-bit and 16-bit entities is specified. This binary encoding will, in many circumstances, reduce the effort required to generate and interpret the data stream as compared to other encodings."
+  },
+  {
+    "reference": "ISO/IEC 9638-3:1994",
+    "edition": "1.0",
+    "date": "1994-12-22",
+    "title": "Information technology - Computer graphics - Interfacing techniques for dialogues with graphical devices (CGI) - Language bindings - Part 3: Ada",
+    "language": "EN",
+    "description": "The computer graphics interface (CGI) (ISO/IEC 9636) specifies a language independent standard interface between device-independent and device-dependent parts of a graphics system. For integration in a programming language, CGI is embedded in a language dependent layer obeying the particular conventions of that language. Specifies such a language dependent layer for the Ada programming language."
+  },
+  {
+    "reference": "ISO/IEC 9973:2013",
+    "edition": "3.0",
+    "date": "2013-07-22",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Procedures for registration of items",
+    "language": "EN",
+    "description": "ISO/IEC 9973:2013 specifies procedures to be followed in preparing, maintaining and publishing the International Register of Items for any standard whose classes of items are applicable to this register. The items that may be registered fall into several broad categories including: computer graphics concepts, data structures used by relevant standards, spatial and environmental concepts, and profiles of relevant standards."
+  },
+  {
+    "reference": "ISO/IEC 10641:1993",
+    "edition": "1.0",
+    "date": "1993-07-29",
+    "title": "Information technology - Computer graphics and image processing - Conformance testing of implementations of graphics standards",
+    "language": "EN",
+    "description": "Specifies a general framework addressing the following six components: conformance in the standard itself; test requirements document (defining what shall be tested for a computer graphics standard); test specifications document (addressing the test technique and the content of each test); test method (defining the implementation of the test specification document, including the test software); test procedures (defining the application of the test software, which consists of the procedures to be used in conformance testing); the establishment of test services. Is applicable to all standards within the scope of the ISO/IEC JTC1 subcommittee responsible for computer graphics and image processing."
+  },
+  {
+    "reference": "ISO/IEC 11072:1992",
+    "edition": "1.0",
+    "date": "1992-09-24",
+    "title": "Information technology - Computer graphics - Computer Graphics Reference Model",
+    "language": "EN",
+    "description": "Defines a set of concepts and their inter-relationships which should be applicable to the complete range of future computer graphics standard. May be applied to verify and refine requirements for computer graphics; to identify needs for computer graphics standards and external interfaces; to develop models based on requirements for computer graphics; to define the architecture of new computer graphics standards; compare computer graphics standards."
+  },
+  {
+    "reference": "ISO/IEC 12087-1:1995",
+    "edition": "1.0",
+    "date": "1995-03-30",
+    "title": "Information technology - Computer graphics and image processing - Image Processing and Interchange (IPI) - Functional specification - Part 1: Common architecture for imaging",
+    "language": "EN",
+    "description": "Concerns with the manipulation, processing, and interchange of all types of digital images. Defines a generic, unifying imaging architecture. Also defines those specializations or delineations of the generic imaging architecture that are required to support IPI-PIKS and IPI-IIF."
+  },
+  {
+    "reference": "ISO/IEC 12087-2:1994",
+    "edition": "1.0",
+    "date": "1994-09-01",
+    "title": "Information technology - Computer graphics and image processing - Image Processing and Interchange (IPI) - Functional specification - Part 2: Programmer's imaging kernel system application programme interface",
+    "language": "EN",
+    "description": "Establishes the specification of the application program interface (API), called the Programmer's Imaging Kernel System (PIKS). PIKS is intended to provide a rich set of both low-level and high-level services on image and image-derived data objects. These services can be used as building blocks for a broad range of common imaging applications. Lists are included containing a summary of technological capabilities provided by PIKS and not provided by PIKS. It should be noted that PIKS functionality may be useful as a pre-processor or co-processor for many of the technologies in the \"Not provided by PIKS\" list."
+  },
+  {
+    "reference": "ISO/IEC 12087-2:1994/COR1:1997",
+    "edition": "1.0",
+    "date": "1997-09-18",
+    "title": "Information technology - Computer graphics and image processing - Image Processing and Interchange (IPI) - Functional specification - Part 2: Programmer's imaging kernel system application programme interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 12087-3:1995",
+    "edition": "1.0",
+    "date": "1995-02-16",
+    "title": "Information technology - Computer graphics and image processing - Image Processing and Interchange (IPI) - Functional specification - Part 3: Image Interchange Facility (IIF)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 12087-3:1995/AMD1:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information technology - Computer graphics and image processing - Image Processing and Interchange (IPI) - Functional specification - Part 3: Image Interchange Facility (IIF) - Amendment 1: Type definition, scoping, and logical views for image interchange facility",
+    "language": "EN",
+    "description": "Adds a lot of new clauses and subclauses and replaces the wording of some clauses and subclauses of ISO/IEC 12087 3:1995."
+  },
+  {
+    "reference": "ISO/IEC 12087-5:2025",
+    "edition": "2.0",
+    "date": "2025-08-15",
+    "title": "Information technology - Image processing and interchange (IPI) functional specification - Part 5: Basic image interchange format (BIIF)",
+    "language": "EN",
+    "description": "This document establishes the specification of the Basic image interchange format (BIIF). This document provides a foundation for interoperability in the interchange of imagery and imagery-related data among applications. It also provides a detailed description of the overall structure of the format, as well as specification of the valid data and format for all fields defined with BIIF. Annex C contains a Model Profile of BIIF in tables to assist in profile development. The scope and field of application of this document includes the capability to perpetuate a proven interchange capability in support of commercial and government imagery, Programmer’s Imaging Kernel System (PIKS) data, and other imagery technology domains in that priority order. This document provides a data format container for image, symbol, and text, along with a mechanism for including image-related support data. This document: — provides a means whereby diverse applications can share imagery and associated information; — allows an application to exchange comprehensive information to users with diverse needs or capabilities, allowing each user to select only those data items that correspond to their needs and capabilities; — minimizes preprocessing and postprocessing of data; — minimizes formatting overhead, particularly for those applications exchanging only a small amount of data and for bandwidth-limited systems; — provides a mechanism (Transportable File Structure, TFS) to interchange PIKS image and image-related objects; — provides extensibility to accommodate future data, including objects."
+  },
+  {
+    "reference": "ISO/IEC 12088-4:1995",
+    "edition": "1.0",
+    "date": "1995-12-14",
+    "title": "Information technology - Computer graphics and image processing - Image processing and interchange - Application program interface language bindings - Part 4:",
+    "language": "EN",
+    "description": "Specifies a language dependent layer for the C language in which the Programmer's Imaging Kernel System (IPI-PIKS) and the Image Interchange Facility (IPI-IIF) Application Program Interfaces (APIs) are embedded duly considering the particular conventions of that language."
+  },
+  {
+    "reference": "ISO/IEC 12089:1997",
+    "edition": "1.0",
+    "date": "1997-11-27",
+    "title": "Information technology - Computer graphics and image processing - Encoding for the Image Interchange Facility (IIF)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14478-1:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Computer graphics and image processing - Presentation Environment for Multimedia Objects (PREMO) - Part 1: Fundamentals of PREMO",
+    "language": "EN",
+    "description": "ISO/IEC 14478 specifies techniques for supporting interactive Single, and multiple media applications which recognize and emphasize the interrelationships among user interfaces, multimedia applications, and multimedia information interchange. ISO/IEC 14478 defines a flexible environment to encompass modular functionality and is extensible through the creation of future components, both within and outside of Standards committees. It supports a wide range of multimedia applications in a consistent way, from simple drawings up to full motion Video, Sound, and virtual reality environments. ISO/IEC 14478 is independent of any particular implementation language, development environment, or execution environment. For integration into a programming environment, the Standard shall be embedded in a System dependent interface following the particular conventions of that environment. ISO/IEC 14478 provides versatile packaging techniques beyond the capabilities of monolithic Single-media Systems. This allows rearranging and extending functionality to satisfy requirements specific to particular application areas. ISO/IEC 14478 is developed incrementally with Parts 1 through 4 initially available. Other components are expected to be standardized by ISO/IEC JTC 1 SC24 or other subcommittees. ISO/IEC 14478 provides a framework within which application-defined ways of interacting with the environment tan be integrated. Methods for the definition, presentation, and manipulation of both input and output objects are described. Applicationsupplied structuring of objects is also allowed and tan, for example, be used as a basis for the development of toolkits for the creation of, presentation of, and interaction with multimedia and hyper-media documents and product model data. ISO/IEC 14478 is able to support construction, presentation, and interaction with multiple simultaneous inputs and Outputs using multiple media. Several such activities may occur simultaneously, and the application program tan adapt its behaviour to make best use of the capabilities of its environment. ISO/IEC 14478 includes interfaces for external storage, retrieval and interchange of multimedia objects."
+  },
+  {
+    "reference": "ISO/IEC 14478-2:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Computer graphics and image processing - Presentation Environment for Multimedia Objects (PREMO) - Part 2: Foundation Component",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14478-3:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Computer graphics and image processing - Presentation Environment for Multimedia Objects (PREMO) - Part 3: Multimedia Systems Services",
+    "language": "EN",
+    "description": "This part of ISO/IEC 14478 defines a standard set of multimedia system services that can be used by multimedia application de­velopers in a variety of computing environments. The focus is on enabling multimedia applications in a heterogeneous, distrib­uted computing environment. Throughout this part of ISO/IEC 14478, this component will also be referred to as \"Multimedia Systems Services\", and abbreviated as MSS. The Multimedia Systems Services constitutes a framework of \"middleware\" - system software components lying in the region between the generic operating system and specific applications. As middleware, the Multimedia Systems Services marshals low­er-level system resources to the task of supporting multimedia processing, providing a set of common services which can be used by multimedia application developers. The Multimedia Systems Services encompasses the following characteristics: a) provision of an abstract type for a media processing node, extensible through subtyping to support abstractions of real media processing hardware or software; b) provision of an abstract type for the data flow path or the connection between media processing nodes, encapsulating low-level connection and transport semantics; c) grouping of multiple processing nodes and connections into a single unit for purposes of resource reservation and stream control; d) provision or a media dataflow abstraction. with support for a variety of position, time and/or synchronization capabili­ties; e) separation of the media format abstractions from the dataflow abstraction; f) synchronous exceptions and asynchronous events; g) application visible characterization of object capabilities; h) registration of objects in a distributed environment by location and capabilities; i) retrieval of objects in a distributed environment by location and constraints; j) definition of a Media Stream Protocol to support media independent transport and synchronization. The Multimedia Systems Services rely on the object model of ISO/IEC 14478-1 (Fundamentals of PREMO) and the object types and non-object data types defined in TSO/IEC 14478-2 (PREMO Foundation Component)."
+  },
+  {
+    "reference": "ISO/IEC 14478-4:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Computer graphics and image processing - Presentation Environment for Multimedia Objects (PREMO) - Part 4: Modelling, rendering and interaction component",
+    "language": "EN",
+    "description": "This part of ISO/IEC 14478 describes a set of Object types and non-Object types to provide the construction of, presentation of, and the interaction with Multimedia information. The multimedia information tan be graphics, Video, audio, or other types of presentable media. This information tan be enhanced by time aspects. Throughout this document this part of ISO/IEC 14478 will also be referred to as \"Modelling, Rendering and Interaction\", and abbreviated as MRI. The Modelling, Rendering and Interaction Component constitutes a framework of ?Middleware', System Software components lying between the generic operating System and computing environment, and a specific application operating as a client of the Services and type definitions provided by this component. It provides a framework over the foundation objects and multimedia Systems Services defined in other Parts of the international Standard for the development of a distributed and heterogeneous network of devices for creating multimedia models, rendering these models, and interacting with this process. The Modelling, Rendering and Interaction Component encompasses the following characteristics: a) Provision of a hierarchy of multimedia primitives as an abstract framework for describing the capabilities of modelling and rendering devices, and for enabling their interoperation; b) within the primitive hierarchy, specific Provision for describing the temporal structure of multimedia data through the stepwise construction of structured primitives from component data; c) Provision of abstract types for modelers, renderers and other supporting devices, enabling the integration of such devices or any future subtypes representing real Software or hardware, into a processing network of such devices; d) provision of an Object type to map synchronization requirements expressed within multimedia primitives into control of the stream and synchronization mechanisms provided by ISO/IEC 14478-2 and ISO/IEC 14478-3. The Modelling, Rendering and Interaction Component relies on the Object types and Services defined in PREMO Part 2: Foundation Components (ISO/IEC 1447%2), and PREMO Part 3: Multimedia Systems Services (ISO/IEC 14478-3)."
+  },
+  {
+    "reference": "ISO/IEC 14772-1:1997",
+    "edition": "1.0",
+    "date": "1997-12-15",
+    "title": "Information technology - Computer graphics and image processing - The Virtual Reality Modeling Language - Part 1: Functional specification and UTF-8 encoding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14772-1:1997/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-12-03",
+    "title": "Information technology - Computer graphics and image processing - The Virtual Reality Modeling Language - Part 1: Functional specification and UTF-8 encoding - Amendment 1: Enhanced interoperability",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14772-2:2004",
+    "edition": "1.0",
+    "date": "2004-03-03",
+    "title": "Information technology - Computer graphics and image processing - The Virtual Reality Modeling Language (VRML) - Part 2: External authoring interface (EAI)",
+    "language": "EN",
+    "description": "ISO/IEC 14772-1, the Virtual Reality Modeling Language (VRML), defines a file format that integrates 3D graphics and multimedia. Conceptually, each VRML file is a 3D time-based space that contains graphic and aural objects that can be dynamically modified through a variety of mechanisms. This part of ISO/IEC 14772 defines the interface that applications external to the VRML browser may use to access and manipulate the objects defined in ISO/IEC 14772-1. The interface described here is designed to allow an external environment to access nodes in a VRML scene using the existing VRML event model. In this model, an eventOut of a given node can be routed to an eventIn of another node. When the eventOut generates an event, the eventIn is notified and its node processes that event. Additionally, if a script in a Script node has a reference to a given node it can send events directly to any eventIn of that node and it can read the last value sent from any of its eventOuts. The scope of this standard is to cover all forms of access to a VRML browser from external applications. It is equally valid for a database with a object interface to access a standalone browser in a presentation slide as it is for a Java applet operating within a web browser and the available services do not vary. This standard does not provide a byte level protocol description as there can be many valid ways of expressing an interaction with a browser. Instead, it represents the interface in terms of the services provided and the parameters that are passed to access these services. Individual language and protocol bindings to these services are available as annexes to this part of ISO/IEC 14772."
+  },
+  {
+    "reference": "ISO/IEC 15948:2004",
+    "edition": "1.0",
+    "date": "2004-03-03",
+    "title": "Information technology - Computer graphics and image processing - Portable Network Graphics (PNG): Functional specification",
+    "language": "EN",
+    "description": "ISO/IEC 15948:2004 specifies a datastream and an associated file format, Portable Network Graphics (PNG, pronounced \"ping\"), for a lossless, portable, compressed individual computer graphics image transmitted across the Internet. Indexed-colour, greyscale, and truecolour images are supported, with optional transparency. Sample depths range from 1 to 16 bits. PNG is fully streamable with a progressive display option. It is robust, providing both full file integrity checking and simple detection of common transmission errors. PNG can store gamma and chromaticity data as well as a full ICC colour profile for accurate colour matching on heterogenous platforms. ISO/IEC 15948:2004 defines the Internet Media type \"image/png\". The datastream and associated file format have value outside of the main design goal."
+  },
+  {
+    "reference": "ISO/IEC TR 16088:2025",
+    "edition": "1.0",
+    "date": "2025-08-01",
+    "title": "Information technology - Computer graphics, image processing and environmental representation - Constructs for visual positioning systems in mixed and augmented reality (MAR)",
+    "language": "EN",
+    "description": "This document specifies the concept of visual positioning system (VPS) in the context of mixed and augmented reality (MAR) and describes a reference model for it in terms of the essential system components and information constructs."
+  },
+  {
+    "reference": "ISO/IEC 18023-1:2006",
+    "edition": "1.0",
+    "date": "2006-05-19",
+    "title": "Information technology - SEDRIS - Part 1: Functional specification",
+    "language": "EN",
+    "description": "ISO/IEC 18023-1:2005 addresses the concepts, syntax and semantics for the representation and interchange of environmental data. It specifies: a data representation model for expressing environmental data; specifications of the data types and classes that together constitute the data representation model; and an application program interface that supports the storage and retrieval of environmental data using the data representation model. ISO/IEC 18023-1:2005 also specifies topological, rule-based, and other constraints that ensure appropriate data can be available for applications that rely on automatically generated behaviours when interacting with environmental data."
+  },
+  {
+    "reference": "ISO/IEC 18023-1:2006/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-05-21",
+    "title": "Information technology - SEDRIS - Part 1: Functional specification - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18023-2:2006",
+    "edition": "1.0",
+    "date": "2006-07-13",
+    "title": "Information technology - SEDRIS - Part 2: Abstract transmittal format",
+    "language": "EN",
+    "description": "ISO/IEC 18023-2:2006 specifies the abstract syntax of a SEDRIS transmittal. Actual encodings (e.g. binary encoding) are specified in other parts of ISO/IEC 18023."
+  },
+  {
+    "reference": "ISO/IEC 18023-3:2006",
+    "edition": "1.0",
+    "date": "2006-07-13",
+    "title": "Information technology - SEDRIS - Part 3: Transmittal format binary encoding",
+    "language": "EN",
+    "description": "ISO/IEC 18023-3:2006 defines a binary encoding for DRM objects specified in ISO/IEC 18023-1 according to the abstract syntax specified in ISO/IEC 18023-2."
+  },
+  {
+    "reference": "ISO/IEC 18023-3:2006/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-05-21",
+    "title": "Information technology - SEDRIS - Part 3: Transmittal format binary encoding - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18024-4:2006",
+    "edition": "1.0",
+    "date": "2006-05-19",
+    "title": "Information technology - SEDRIS language bindings - Part 4: C",
+    "language": "EN",
+    "description": "ISO/IEC 18024-4:2006 specifies a language-dependent layer for the C programming language. ISO/IEC 18023-1 specifies a language-independent application program interface (API) for SEDRIS. For integration into a programming language, the SEDRIS API is embedded in a language-dependent layer obeying the particular conventions of that language."
+  },
+  {
+    "reference": "ISO/IEC 18024-4:2006/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-05-21",
+    "title": "Information technology - SEDRIS language bindings - Part 4: C - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18025:2014",
+    "edition": "2.0",
+    "date": "2014-02-14",
+    "title": "Information technology - Environmental Data Coding Specification (EDCS)",
+    "language": "EN",
+    "description": "ISO/IEC 18025:2014 provides mechanisms to specify unambiguously objects used to model environmental concepts. To accomplish this, a collection of nine EDCS dictionaries of environmental concepts are specified: classifications: specify the type of environmental objects; attributes: specify the state of environmental objects; attribute value characteristics: specify information concerning the values of attributes; attribute enumerants: specify the allowable values for the state of an enumerated attribute; units: specify quantitative measures of the state of some environmental objects; unit scales: allow a wide range of numerical values to be stated; unit equivalence classes: specify sets of units that are mutually comparable; organizational schemas: useful for locating classifications and attributes sharing a common context; and groups: into which concepts sharing a common context are collected. A functional interface is also specified. As denoting and encoding a concept requires a standard way of identifying the concept, ISO/IEC 18025:2014 specifies labels and codes in the dictionaries. ISO/IEC 18025:2014 specifies environmental phenomena in categories that include, but are not limited to, the following: abstract concepts (e.g., absolute latitude accuracy, geodetic azimuth); airborne particulates and aerosols (e.g., cloud, dust, fog, snow); animals (e.g., civilian, fish, human, whale pod); atmosphere and atmospheric conditions (e.g., air temperature, humidity, rain rate, sensible and latent heat, wind speed and direction); bathymetric physiography (e.g., bar, channel, continental shelf, guyot, reef, seamount, waterbody floor region); electromagnetic and acoustic phenomena (e.g., acoustic noise, frequency, polarization, sound speed profile, surface reflectivity); equipment (e.g., aircraft, spacecraft, tent, train, vessel); extraterrestrial phenomena (e.g., asteroid, comet, planet); hydrology (e.g., lake, rapids, river, swamp); ice (e.g., iceberg, ice field, ice peak, ice shelf, glacier); man-made structures and their interiors (e.g., bridge, building, hallway, road, room, tower); ocean and littoral surface phenomena (e.g., beach profile, current, surf, tide, wave); ocean floor (e.g., coral, rock, sand); oceanographic conditions (e.g., luminescence, salinity, specific gravity, turbidity, water current speed); physiography (e.g., cliff, gorge, island, mountain, reef, strait, valley region); space (e.g., charged particle species, ionospheric scintillation, magnetic field, particle density, solar flares); surface materials (e.g., concrete, metal, paint, soil); and vegetation (e.g., crop land, forest, grass land, kelp bed, tree)."
+  },
+  {
+    "reference": "ISO/IEC 18026:2025",
+    "edition": "3.0",
+    "date": "2025-07-11",
+    "title": "Information technology - Spatial reference model (SRM)",
+    "language": "EN",
+    "description": "This document specifies the Spatial Reference Model (SRM) defining relevant aspects of spatial positioning and related information processing. The SRM allows precise and unambiguous specification of geometric properties such as position, direction, orientation, and distance. The SRM addresses the needs of a broad community of users, who have a range of accuracy and performance requirements in computationally intensive applications. Aspects of this document apply to, but are not limited to: a) mapping, charting, geodesy, and imagery; b) topography; c) location-based services; d) oceanography; e) meteorology and climatology; f) interplanetary and planetary sciences; g) embedded systems; and h) modelling and simulation. The SRM specifies an application program interface (API) that supports the representations, conversion, and transformation of position and orientation information in a variety of forms. To ensure that spatial operations are performed consistently, the application program interface specifies conversion operations between alternative representations of geometric properties. This document is not intended to replace the standards and specifications developed by ISO/TC 211, ISO/TC 184, the International Astronomical Union (IAU), and the International Association of Geodesy (IAG). It is applicable to applications whose spatial information requirements overlap two or more of the application areas that are the scope of the work of ISO/TC 211, ISO/TC 184, the IAU, and the IAG."
+  },
+  {
+    "reference": "ISO/IEC 18038:2020",
+    "edition": "1.0",
+    "date": "2020-04-07",
+    "title": "Information technology - Computer graphics, image processing and environmental representation - Sensor representation in mixed and augmented reality",
+    "language": "EN",
+    "description": "This document defines the framework and information reference model for representing sensor-based 3D mixed-reality worlds. It defines concepts, an information model, architecture, system functions, and how to integrate 3D virtual worlds and physical sensors in order to provide mixed-reality applications with physical sensor interfaces. It defines an exchange format necessary for transferring and storing data between physical sensor-based mixed-reality applications. This document specifies the following functionalities: a) representation of physical sensors in a 3D scene; b) definition of physical sensors in a 3D scene; c) representation of functionalities of each physical sensor in a 3D scene; d) representation of physical properties of each physical sensor in a 3D scene; e) management of physical sensors in a 3D scene; f) interface with physical sensor information in a 3D scene. This document defines a reference model for physical sensor-based mixed-reality applications to represent and to exchange functions of physical sensors in 3D scenes. It does not define specific physical interfaces necessary for manipulating physical devices, but rather defines common functional interfaces that can be used interchangeably between applications. This document does not define how specific applications are implemented with specific physical sensor devices. It does not include computer generated sensor information using computer input/output devices such as a mouse or a keyboard. The sensors in this document represent physical sensor devices in the real world."
+  },
+  {
+    "reference": "ISO/IEC 18039:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Mixed and augmented reality (MAR) reference model",
+    "language": "EN",
+    "description": "This document defines the scope and key concepts of mixed and augmented reality, the relevant terms and their definitions and a generalized system architecture that together serve as a reference model for mixed and augmented reality (MAR) applications, components, systems, services and specifications. This architectural reference model establishes the set of required sub-modules and their minimum functions, the associated information content and the information models to be provided and/or supported by a compliant MAR system. The reference model is intended for use by current and future developers of MAR applications, components, systems, services or specifications to describe, compare, contrast and communicate their architectural design and implementation. The MAR reference model is designed to apply to MAR systems independent of specific algorithms, implementation methods, computational platforms, display systems and sensors or devices used. This document does not specify how a particular MAR application, component, system, service or specification is designed, developed or implemented. It does not specify the bindings of those designs and concepts to programming languages or the encoding of MAR information through any coding technique or interchange format. This document contains a list of representative system classes and use cases with respect to the reference model."
+  },
+  {
+    "reference": "ISO/IEC 18040:2019",
+    "edition": "1.0",
+    "date": "2019-05-29",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Live actor and entity representation in mixed and augmented reality (MAR)",
+    "language": "EN",
+    "description": "This document defines a reference model and base components for representing and controlling a single LAE or multiple LAEs in an MAR scene. It defines concepts, a reference model, system framework, functions and how to integrate a 2D/3D virtual world and LAEs, and their interfaces, in order to provide MAR applications with interfaces of LAEs. It also defines an exchange format necessary for transferring and storing LAE-related data between LAE-based MAR applications. This document specifies the following functionalities: a) definitions for an LAE in MAR; b) representation of an LAE; c) representation of properties of an LAE; d) sensing of an LAE in a physical world; e) integration of an LAE into a 2D/3D virtual scene; f) interaction between an LAE and objects in a 2D/3D virtual scene; g) transmission of information related to an LAE in an MAR scene. This document defines a reference model for LAE representation-based MAR applications to represent and to exchange data related to LAEs in a 2D/3D virtual scene in an MAR scene. It does not define specific physical interfaces necessary for manipulating LAEs, that is, it does not define how specific applications need to implement a specific LAE in an MAR scene, but rather defines common functional interfaces for representing LAEs that can be used interchangeably between MAR applications."
+  },
+  {
+    "reference": "ISO/IEC 18041-4:2016",
+    "edition": "3.0",
+    "date": "2016-05-27",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Environmental Data Coding Specification (EDCS) language bindings - Part 4: C",
+    "language": "EN",
+    "description": "This part of this International Standard specifies the binding of the application program interface (API) defined in ISO/IEC 18025 — Environmental Data Coding Specification (EDCS) to the C programming language. http://standards.iso.org/ittf/PubliclyAvailableStandards/index.html"
+  },
+  {
+    "reference": "ISO/IEC 18041-5:2023",
+    "edition": "1.0",
+    "date": "2023-12-15",
+    "title": "Computer graphics, image processing and environmental data representation - Environmental Data Coding Specification (EDCS) language bindings - Part 5: C++",
+    "language": "EN",
+    "description": "This document specifies the binding of the application program interface (API) defined in ISO/IEC 18025 to the C++ programming language."
+  },
+  {
+    "reference": "ISO/IEC 18042-4:2006",
+    "edition": "1.0",
+    "date": "2006-07-21",
+    "title": "Information technology - Computer graphics and image processing - Spatial Reference Model (SRM) language bindings - Part 4: C",
+    "language": "EN",
+    "description": "ISO/IEC 18042-4:2005 specifies a language-independent application program interface (API). For integration into a programming language, the Spatial Reference Model (SRM) API is embedded in a language-dependent layer obeying the particular conventions of that language. ISO/IEC 18042-4:2005 specifies such a language-dependent layer for the C language."
+  },
+  {
+    "reference": "ISO/IEC 18042-4:2006/AMD1:2011",
+    "edition": "1.0",
+    "date": "2011-05-19",
+    "title": "Information technology - Computer graphics and image processing - Spatial Reference Model (SRM) language bindings - Part 4: C - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18042-5:2024",
+    "edition": "1.0",
+    "date": "2024-12-12",
+    "title": "Computer graphics, image processing and environmental data representation - Spatial reference model (SRM) language bindings - Part 5: C++",
+    "language": "EN",
+    "description": "This document specifies the C++ programming language layer for the language independent application program interface (API) of the Spatial Reference Model (SRM), ISO/IEC 18026."
+  },
+  {
+    "reference": "ISO/IEC 18520:2019",
+    "edition": "1.0",
+    "date": "2019-01-30",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Benchmarking of vision-based spatial registration and tracking methods for mixed and augmented reality (MAR)",
+    "language": "EN",
+    "description": "This document identifies the reference framework for the benchmarking of vision-based spatial registration and tracking (vSRT) methods for mixed and augmented reality (MAR). The framework provides typical benchmarking processes, benchmark indicators and trial set elements that are necessary to successfully identify, define, design, select and apply benchmarking of vSRT methods for MAR. It also provides definitions for terms on benchmarking of vSRT methods for MAR. In addition, this document provides a conformance checklist as a tool to clarify how each benchmarking activity conforms to this document in a compact form by declaring which benchmarking processes and benchmark indicators are included and what types of trial sets are used in each benchmarking activity."
+  },
+  {
+    "reference": "ISO/IEC 19774-1:2019",
+    "edition": "1.0",
+    "date": "2019-11-04",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Part 1: Humanoid animation (HAnim) architecture",
+    "language": "EN",
+    "description": "This document specifies a systematic system for representing humanoids in a network-enabled 3D graphics and multimedia environment. Conceptually, each humanoid is an articulated character that can be embedded in different representation systems and animated using the facilities provided by the representation system. This document specifies the abstract form and structure of humanoids. Further, this document specifies the semantics of humanoid animation as an abstract functional behaviour of time-based, interactive 3D, multimedia articulated characters. This document does not define physical shapes for such characters but does specify how such characters can be structured for animation. This document is intended for a wide variety of presentation systems and applications, providing wide latitude in interpretation and implementation of the functionality."
+  },
+  {
+    "reference": "ISO/IEC 19774-2:2019",
+    "edition": "1.0",
+    "date": "2019-11-04",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Part 2: Humanoid animation (HAnim) motion data animation",
+    "language": "EN",
+    "description": "This document specifies the method of motion capture animation using H-Anim humanoid models. Each humanoid model consists of an articulated character with specified joints and motion capture data. As specified in ISO/IEC 19774-1, each character consists of joints and segments in a hierarchical structure. This document includes the following: — Concepts of motion capture as related to humanoid animation, — Concepts of motion capture data definition, — Definition of motion parameters and motion-capture animation data for transferring or exchanging motion between different humanoid character models, — Mapping the structure of motion capture data to the structure of H-Anim objects,</li> — HAnim motion capture animation using interpolators, — HAnim motion definition using H-Anim Motion objects, and — A method for generating and specifying an H-Anim motion capture animation. This document specifies a standard technique for exchanging humanoid animation using motion capture. It does not mandate using any specific run-time system to render the H-Anim characters or animations.</p>"
+  },
+  {
+    "reference": "ISO/IEC 19775-1:2023",
+    "edition": "4.0",
+    "date": "2023-12-20",
+    "title": "Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) - Part 1: Architecture and base components",
+    "language": "EN",
+    "description": "ISO/IEC 19775 Extensible 3D (X3D) defines a software system that integrates network-enabled 3D graphics and multimedia. Conceptually, each X3D application is a 3D time-based space that contains graphic and aural objects that can be dynamically modified through a variety of mechanisms. This document defines the architecture and base components of X3D. The semantics of X3D describe an abstract functional behaviour of time-based, interactive 3D, multimedia information. This document does not define physical devices or any other implementation-dependent concepts ( e.g. , screen resolution and input devices). This document is intended for a wide variety of devices and applications, and provides wide latitude in interpretation and implementation of the functionality. For example, this document does not assume the existence of a mouse or 2D display device. Each X3D application: implicitly establishes a world coordinate space for all objects defined, as well as all objects included by the application, explicitly defines and composes a set of 3D and multimedia objects, can specify hyperlinks to other files and applications, can define programmatic or data-driven object behaviours, can connect to external modules or applications via programming and scripting languages, explicitly declares its functional requirements by specifying a profile, and can declare additional functional requirements by specifying components."
+  },
+  {
+    "reference": "ISO/IEC 19775-2:2015",
+    "edition": "3.0",
+    "date": "2015-09-02",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) - Part 2: Scene access interface (SAI)",
+    "language": "EN",
+    "description": "ISO/IEC 19775-2:2015 specifies a standard set of services that are made available by a browser so that an author can access the scene graph while it is running. Such access is designed to support inspection and modification of the scene graph."
+  },
+  {
+    "reference": "ISO/IEC 19776-1:2015",
+    "edition": "3.0",
+    "date": "2015-11-24",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) encodings - Part 1: Extensible Markup Language (XML) encoding",
+    "language": "EN",
+    "description": "ISO/IEC 19775-1:2015, Extensible 3D (X3D), defines a system that integrates 3D graphics and multimedia. Conceptually, each X3D file is a 3D time-based space that contains graphic and aural objects that can be dynamically modified through a variety of mechanisms. This part of ISO/IEC 19776 defines a mapping of the abstract objects in X3D to a specific X3D encoding using the Extensible Markup Language. Each XML-encoded X3D file: a. supports all of the purposes of X3D files defined in the X3D abstract specification ISO/IEC 19775; b. encodes X3D constructs in an XML format. An XML-encoded X3D file may be referenced from files using other X3D encodings and may itself reference other X3D files encoded using other X3D encodings. Such files can only be processed by browsers that conform to all of the utilized X3D encodings."
+  },
+  {
+    "reference": "ISO/IEC 19776-2:2015",
+    "edition": "3.0",
+    "date": "2015-11-24",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) encodings - Part 2: Classic VRML encoding",
+    "language": "EN",
+    "description": "ISO/IEC 19775-2:2015, Extensible 3D (X3D), defines a system that integrates 3D graphics and multimedia. Conceptually, each X3D file is a 3D time-based space that contains graphic and aural objects that can be dynamically modified through a variety of mechanisms. This part of ISO/IEC 19776 defines a mapping of the abstract objects in X3D to a specific encoding using the technique defined in ISO/IEC 14772 ? Virtual reality modeling language (VRML). Each Classic VRML-encoded X3D file: a. supports all of the purposes of X3D files defined in ISO/IEC 19775; and b. encodes X3D constructs in Classic VRML format. A Classic VRML-encoded X3D file may be referenced from files using other encodings and may itself reference X3D files encoded using other encodings. Such files can only be processed by browsers which conform to all of the utilized encodings."
+  },
+  {
+    "reference": "ISO/IEC 19776-3:2015",
+    "edition": "3.0",
+    "date": "2015-10-19",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) encodings - Part 3: Compressed binary encoding",
+    "language": "EN",
+    "description": "ISO/IEC 19776-3:2015, Extensible 3D (X3D), defines a system that integrates 3D graphics and multimedia. Conceptually, each X3D file is a 3D time-based space that contains graphic and aural objects that can be dynamically modified through a variety of mechanisms. This part of ISO/IEC 19776 defines a mapping of the abstract objects in X3D to a specific X3D encoding written out in a compact binary form. Each X3D file encoded using the Compressed binary encoding: a. supports all of the purposes of X3D files defined in the X3D abstract specification ISO/IEC 19775; b. encodes X3D constructs in a compressed binary format, taking advantage of geometric and information-theoretic compression techniques. X3D files encoded using the Compressed binary encoding may be referenced from files using other X3D encodings, and may itself reference other X3D files encoded using other X3D encodings. Sets of X3D files that use multiple encodings can only be processed by browsers that support all of the utilized X3D encodings."
+  },
+  {
+    "reference": "ISO/IEC 19777-1:2006",
+    "edition": "1.0",
+    "date": "2006-05-22",
+    "title": "Information technology - Computer graphics and image processing - Extensible 3D (X3D) language bindings - Part 1: ECMAScript",
+    "language": "EN",
+    "description": "For integration into a programming language, the X3D abstract interfaces are embedded in a language-dependent layer obeying the particular conventions of that language. ISO/IEC 19777-1:2006 specifies such a language dependent layer for the ECMAScript language. ISO/IEC 19775-2 specifies a language-independent application programmer interface (API) to a set of services and functions."
+  },
+  {
+    "reference": "ISO/IEC 19777-2:2006",
+    "edition": "1.0",
+    "date": "2006-05-22",
+    "title": "Information technology - Computer graphics and image processing - Extensible 3D (X3D) language bindings - Part 2: Java",
+    "language": "EN",
+    "description": "The Extensible 3D (X3D) specification, ISO/IEC 19775, specifies a language-independent application programmer interface (API) to a set of services and functions. For integration into a programming language, the X3D abstract interfaces are embedded in a language dependent layer obeying the particular conventions of that language. ISO/IEC 19777-2:2006 specifies such a language-dependent layer for the Java programming language."
+  },
+  {
+    "reference": "ISO/IEC 19777-3:2025",
+    "edition": "1.0",
+    "date": "2025-02-24",
+    "title": "Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) language bindings - Part 3: C",
+    "language": "EN",
+    "description": "This document specifies a C language binding interface for the ISO/IEC 19775-1 Extensible 3D standard. This document specifies a language-dependent layer for the C language, providing an implementation-independent way of accessing the browser capabilities through the C language."
+  },
+  {
+    "reference": "ISO/IEC 19777-4:2025",
+    "edition": "1.0",
+    "date": "2025-02-24",
+    "title": "Computer graphics, image processing and environmental data representation - Extensible 3D (X3D) language bindings - Part 4: C++",
+    "language": "EN",
+    "description": "This document specifies a C++ language binding interface for the ISO/IEC 19775-1 Extensible 3D standard. This document specifies a language-dependent layer for the C++ language, providing an implementation-independent way of accessing the browser capabilities through the C++ language."
+  },
+  {
+    "reference": "ISO/IEC 19777-5:2025",
+    "edition": "1.0",
+    "date": "2025-02-24",
+    "title": "Computer graphics, image processing and environmental data representation- Extensible 3D (X3D) language bindings - Part 5: C#",
+    "language": "EN",
+    "description": "This document specifies a language-independent application programmer interface (API) to a set of services and functions. For integration into a programming language, the X3D abstract interfaces are embedded in a language-dependent layer obeying the particular conventions of that language. ISO/IEC 19777-5 specifies such a language-dependent layer for the C# languages, providing an implementation-independent way of accessing the browser capabilities through the C# language."
+  },
+  {
+    "reference": "ISO/IEC 21134:2026",
+    "edition": "1.0",
+    "date": "2026-01-30",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Benchmarking of integrated indoor localization and tracking methods using dead reckoning",
+    "language": "EN",
+    "description": "This document specifies the reference framework for the benchmarking of integrated indoor localization and tracking methods (LTMs) using dead reckoning in areas of: master sets and test environments; benchmark metrics; benchmarking process; conformance."
+  },
+  {
+    "reference": "ISO/IEC 21145:2023",
+    "edition": "1.0",
+    "date": "2023-09-22",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Style representation for mixed and augmented reality",
+    "language": "EN",
+    "description": "This document specifies: 1) Constructs for representing and specifying various augmentation and presentation styles. While augmentations can be in modalities other than the visual (e.g. aural, haptic), this work addresses the visual augmentation style only. 2) A model for how to associate the stylization constructs to the augmentation objects. Specifically, the MAR behavior object in ISO/IEC 3721 is extended for this purpose. 3) Other miscellaneous functionalities and abstractions that support the stylization of augmentation objects."
+  },
+  {
+    "reference": "ISO/IEC 23488:2022",
+    "edition": "1.0",
+    "date": "2022-05-05",
+    "title": "Information technology - Computer graphics, image processing and environment data representation - Object/environmental representation for image-based rendering in virtual/mixed and augmented reality (VR/MAR)",
+    "language": "EN",
+    "description": "This document specifies an image-based representation model that represents target objects/environments using a set of images and optionally the underlying 3D model for accurate and efficient objects/environments representation at an arbitrary viewpoint. It is applicable to a wide range of graphic, virtual reality and mixed reality applications which require the method of representing a scene with various objects and environments. This document: — defines terms for image-based representation and 3D reconstruction techniques; — specifies the required elements for image-based representation; — specifies a method of representing the real world in the virtual space based on image-based representation; — specifies how visible image patches can be integrated with the underlying 3D model for more accurate and rich objects/environments representation from arbitrary viewpoints; — specifies how the proposed model allows multi-object representation; — provides an XML based specification of the proposed representation model and an actual implementation example (see Annex A)."
+  },
+  {
+    "reference": "ISO/IEC TS 23884:2021",
+    "edition": "1.0",
+    "date": "2021-12-01",
+    "title": "Information technology - Computer graphics, image processing and environmental data representation - Material property and parameter representation for model-based haptic simulation of objects in virtual, mixed and augmented reality (VR/MAR)",
+    "language": "EN",
+    "description": "This document specifies: — physical and material parameters of virtual or real objects expressed to support comprehensive haptic rendering methods, such as stiffness, friction and micro-textures; — a flexible specification of the haptic rendering algorithm itself. It supplements other standards that describe scene or content description and information models for virtual and mixed reality, such as ISO/IEC 19775 and ISO/IEC 3721-1."
+  },
+  {
+    "reference": "ISO 8651-1:1988",
+    "edition": "1.0",
+    "date": "1988-04-14",
+    "title": "Information processing systems - Computer graphics - Graphical Kernel System (GKS) language bindings - Part 1: FORTRAN",
+    "language": "EN, FR",
+    "description": "Specifies a language dependent layer for the FORTRAN language. The GKS language binding interface for ISO FORTRAN 77 (ISO 1539) shall be described as in clauses 3 to 9. Annex A includes FORTRAN examples. Annex B contains Metafile Item Types."
+  },
+  {
+    "reference": "ISO 8651-2:1988",
+    "edition": "1.0",
+    "date": "1988-02-18",
+    "title": "Information processing systems - Computer graphics - Graphical Kernel System (GKS) language bindings - Part 2: Pascal",
+    "language": "EN, FR",
+    "description": "Specifies a standard language binding for the Pascal programming language used for integrating the Graphical Kernel System into the programming language with the language binding representing a language-dependent layer according to the conventions of this language."
+  },
+  {
+    "reference": "ISO 8651-3:1988",
+    "edition": "1.0",
+    "date": "1988-09-15",
+    "title": "Information processing systems - Computer graphics - Graphical Kernel System (GKS) language bindings - Part 3: Ada",
+    "language": "EN, FR",
+    "description": "Describes a language-dependent layer for the Ada programming language used for integrating the Graphical Kernel System into this programming language. Defines function mappings, implementation, error handling, data mappings, multi-tasking, compression, environment for applikation programs and recording. The functions of the Ada binding and sample programs are provided."
+  },
+  {
+    "reference": "ISO 8805:1988",
+    "edition": "1.0",
+    "date": "1988-09-15",
+    "title": "Information processing systems - Computer graphics - Graphical Kernel System for Three Dimensions (GKS-3D) functional description",
+    "language": "EN, FR",
+    "description": "Specifies a set of functions for computer graphics programming, i.e. the Graphical Kernel System for Three Dimensions (GKS-3D) as the basic graphics system of computer-generated three dimensional pictures on graphics output devices. Provides application programs to define and display 3D graphical primitives, specified using 3D coordinates. Functions are provided to for storage on and retrieval from an external graphics file with the functions being organized in upward compatible levels with increasing capabilities. Additional functions are defined to generate output primitives."
+  }
+]

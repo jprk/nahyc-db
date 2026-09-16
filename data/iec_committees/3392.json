@@ -1,0 +1,1098 @@
+[
+  {
+    "reference": "ISO/IEC 4909:2006",
+    "edition": "1.0",
+    "date": "2006-06-29",
+    "title": "Identification cards - Financial transaction cards - Magnetic stripe data content for track 3",
+    "language": "EN",
+    "description": "ISO/IEC 4909:2006 establishes specifications for financial transaction cards using track 3 and is intended to permit interchange based on the use of magnetic stripe encoded information. It specifies the data content and physical location of read/write information on track 3 and is to be used in conjunction with the relevant parts of ISO/IEC 7811 and ISO/IEC 7812. ISO/IEC 4909:2006 recognizes the need for formats of track 3 which can be used independently of, or in conjunction with, track 2 as defined in ISO/IEC 7813. This approach is intended to permit the greatest degree of flexibility within the financial community in facilitating international interchange. Using track 3 in conjunction with track 2 is a mode of operation in both on-line and off-line interchange environments. This mode of operation requires that the original encoded data on track 2 be read; the data on track 3 be read; and, if update is required, all the data on track 3 be rewritten. Independent use of track 3 is an alternative mode of operation permitting both on-line interchange and off-line interchange based on mutual agreement between interested parties. It requires reading only of the data on track 3 and, if update is required, the rewriting of all the data on track 3."
+  },
+  {
+    "reference": "ISO/IEC TS 7367-2:2026",
+    "edition": "1.0",
+    "date": "2026-05-13",
+    "title": "Personal identification - mdoc schemas - Part 2: Mobile vehicle certificate",
+    "language": "EN",
+    "description": "This document provides the logical data structure of a mobile Vehicle Certificate (mVC) in conformity with ISO/IEC TS 23220-2 that serves as a confirmation of vehicle register data and confirmation of conformity with issuance requirements. Other documents related to vehicle administration, such as a document that proves ownership of a vehicle and is designed to be used for ownership transfer, are out of scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 7501-1:2008",
+    "edition": "5.0",
+    "date": "2008-08-18",
+    "title": "Identification cards - Machine readable travel documents - Part 1: Machine readable passport",
+    "language": "EN",
+    "description": "ISO/IEC 7501-1:2008 is intended for use in all applications relating to machine readable passports (MRPs). It specifies the form and provides guidance on the construction of MRPs, in particular in relation to those aspects of the MRP where details of the rightful holder are presented in a form which is both visual and machine readable. It equally defines the specifications to be used by States wishing to issue an electronically enabled version of the MRP (ePassport) for secure carriage and access to an expanded set of details, including globally interoperable biometric data for confirming the presenter as the rightful holder of the ePassport."
+  },
+  {
+    "reference": "ISO/IEC 7501-2:1997",
+    "edition": "2.0",
+    "date": "1997-07-31",
+    "title": "Identification cards - Machine readable travel documents - Part 2: Machine readable visa",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7501-3:2005",
+    "edition": "2.0",
+    "date": "2005-10-27",
+    "title": "Identification cards - Machine readable travel documents - Part 3: Machine readable official travel documents",
+    "language": "EN",
+    "description": "ISO/IEC 7501-3:2005 is a short form endorsement of the International Civil Aviation Organization (ICAO) Document Doc 9303 Part 3 - Size-1 and Size-2 Machine Readable Official Travel Documents. ICAO Doc 9303 Part 3 specifies generic formats and minimum data elements for visual inspection and machine reading of official travel documents in the ID-1 and ID-2 card formats containing standardized, globally interoperable machine readable optical character recognition (OCR) data, which may at the option of Governments, be accepted in lieu of a passport as defined in Annex 9 (Chapter 3, paragraph 3.4) to the Convention on International Civil Aviation year 1946 (as revised). The edition of the International Civil Aviation Organization (ICAO) Document; i.e. Doc 9303 Part 3 - Size-1 and Size-2 Machine Readable Official Travel Documents, Sections III and IV, Technical Specifications, which was adopted as ISO/IEC 7501-3:1997 is now out of date and in the process of being revised. Once the new edition of Doc 9303 Part 3 - Size-1 and Size-2 Machine Readable Official Travel Documents is finalized by the TAG/MRTD, ISO/IEC JTC 1 will undertake its consideration for endorsement as a new third edition of ISO/IEC 7501-3."
+  },
+  {
+    "reference": "ISO/IEC 7810:2019",
+    "edition": "4.0",
+    "date": "2019-12-18",
+    "title": "Identification cards - Physical characteristics",
+    "language": "EN",
+    "description": "This document describes the characteristics for identification cards and the use of such cards for international interchange. This document specifies the physical characteristics of identification cards including card materials, construction, characteristics and dimensions for four sizes of cards. ISO/IEC 10373‑1 and ISO/IEC 24789‑2 specify the test procedures used to check cards against the parameters specified in this document. This document specifies the requirements for cards and card interface devices used for identification. It takes into consideration both human and machine aspects and states minimum requirements. It is the purpose of this document to provide criteria for the performance of cards. No consideration is given within this document to the amount of use, if any, experienced by the card prior to test. NOTE 1 Numeric values in the SI and/or Imperial measurement system in this document have been rounded off and therefore are consistent with, but not exactly equal to, each other. Either system can be used, but intermixing or reconverting the two can result in errors. The original design was made using the Imperial measurement system. NOTE 2 Thin flexible cards are not within the scope of this document (see the ISO/IEC 15457 series)."
+  },
+  {
+    "reference": "ISO/IEC 7810:2019/AMD1:2024",
+    "edition": "4.0",
+    "date": "2024-01-12",
+    "title": "Identification cards - Physical characteristics - Amendment 1: Additional requirements for integrated circuit cards with contacts",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7811-1:2018",
+    "edition": "5.0",
+    "date": "2018-08-07",
+    "title": "Identification cards - Recording technique - Part 1: Embossing",
+    "language": "EN",
+    "description": "This document is one of a series of International Standards describing the parameters for identification cards as defined in the terms and definitions clause and the use of such cards for international interchange. This document specifies requirements for embossed characters on identification cards. The embossed characters are intended for transfer of data either by use of imprinters or by visual or machine reading. It takes into consideration both human and machine aspects and states minimum requirements. It is the purpose of this document to provide criteria to which cards shall perform. No consideration is given within this document to the amount of use, if any, experienced by the card prior to test. Failure to conform to specified criteria is negotiated between the involved parties. ISO/IEC 10373‑1 specifies the test procedures used to check cards against the parameters specified in this document. NOTE 1 Numeric values in the SI and/or Imperial measurement system in this document may have been rounded off and are consistent with, but not exactly equal to each other. Using either system is correct but intermixing or reconverting values can result in errors. The original design was made using the Imperial measurement system. NOTE 2 Tactile Identifier Mark (TIM) defined by ISO/IEC 7811‑9 can be located in the name and address area of this document. The layout of embossed characters in this area is not intended to interfere with TIM."
+  },
+  {
+    "reference": "ISO/IEC 7811-2:2018",
+    "edition": "5.0",
+    "date": "2018-08-07",
+    "title": "Identification cards - Recording technique - Part 2: Magnetic stripe: Low coercivity",
+    "language": "EN",
+    "description": "ISO/IEC 7811 defines the characteristics for identification cards as defined in Clause 4 of this document and the use of such cards for international interchange. This document specifies requirements for a low coercivity magnetic stripe (including any protective overlay) on an identification card, the encoding technique and coded character sets. It takes into consideration both human and machine aspects and states minimum requirements. Coercivity influences many of the quantities specified in this document but is not itself specified. ISO/IEC 7811 provides criteria to which cards are to perform. No consideration is given within ISO/IEC 7811 to the amount of use, if any, experienced by the card prior to test. Failure to conform to specified criteria is negotiated between the involved parties. ISO/IEC 10373-2 specifies the test procedures used to check cards against the parameters specified in this document. NOTE Numeric values in the SI and/or Imperial measurement system in this document may have been rounded off and are consistent with, but not exactly equal to each other. Using either system is correct but intermixing or reconverting values can result in errors. The original design was made using the Imperial measurement system."
+  },
+  {
+    "reference": "ISO/IEC 7811-6:2018",
+    "edition": "5.0",
+    "date": "2018-08-07",
+    "title": "Identification cards - Recording technique - Part 6: Magnetic stripe: High coercivity",
+    "language": "EN",
+    "description": "ISO/IEC 7811 defines the characteristics for identification cards as defined in Clause 3 of this document and the use of such cards for international interchange. This document specifies requirements for a high coercivity magnetic stripe (including any protective overlay) on an identification card, the encoding technique and coded character sets. It takes into consideration both human and machine aspects and states minimum requirements. Coercivity influences many of the quantities specified in this document but is not itself specified. The main characteristic of the high coercivity magnetic stripe is its improved resistance to erasure. This is achieved with minimal probability of damage to other magnetic stripes by contact while retaining read compatibility with magnetic stripes as defined in ISO/IEC 7811-2. ISO/IEC 7811 provides criteria to which cards are to perform. No consideration is given within ISO/IEC 7811 to the amount of use, if any, experienced by the card prior to test. Failure to conform to specified criteria is negotiated between the involved parties. ISO/IEC 10373-2 specifies the test procedures used to check cards against the parameters specified in this document. NOTE Numeric values in the SI and/or Imperial measurement system in this document may have been rounded off and are consistent with, but not exactly equal to each other. Using either system is correct but intermixing or reconverting values can result in errors. The original design was made using the Imperial measurement system."
+  },
+  {
+    "reference": "ISO/IEC 7811-7:2018",
+    "edition": "3.0",
+    "date": "2018-08-07",
+    "title": "Identification cards - Recording technique - Part 7: Magnetic stripe: High coercivity, high density",
+    "language": "EN",
+    "description": "This document is one of a series of standards describing the characteristics for identification cards as defined in the definitions clause and the use of such cards for international interchange. This document specifies requirements for a high coercivity magnetic stripe (including any protective overlay) on an identification card and encoding technique. It takes into consideration both human and machine aspects and states minimum requirements. Coercivity influences many of the quantities specified in this document but is not itself specified. The main characteristic of the high coercivity magnetic stripe is its improved resistance to erasure. This is achieved with minimal probability of damage to other magnetic stripes by contact while retaining read compatibility with magnetic stripes as defined in ISO/IEC 7811-2. This document provides for a card capacity of approximately 10 times that of a card conforming to ISO/IEC 7811-6. The number of tracks has been increased to 6, each track being approximately half the width of tracks conforming to ISO/IEC 7811-6, located so that readers designed to read these high density tracks will also be able to read cards conforming to ISO/IEC 7811-2 and ISO/IEC 7811-6. Data is encoded in 8 bit bytes using the MFM encoding technique. Data framing is used to limit error propagation and error correction techniques further improve reliability of reading. It is the purpose of the ISO/IEC 7811 series of standards to provide criteria to which cards shall perform. No consideration is given within these standards to the amount of use, if any, experienced by the card prior to test. Failure to conform to specified criteria is negotiated between the involved parties. ISO/IEC 10373-2 specifies the test procedures used to check cards against the parameters specified in this document. NOTE Numeric values in the SI and/or Imperial measurement system in this document may have been rounded off and are consistent with, but not exactly equal to each other. Using either system is correct but intermixing or reconverting values can result in errors. The original design was made using the Imperial measurement system."
+  },
+  {
+    "reference": "ISO/IEC 7811-8:2014",
+    "edition": "2.0",
+    "date": "2014-11-24",
+    "title": "Identification cards - Recording technique - Part 8: Magnetic stripe - Coercivity of 51,7 kA/m (650 Oe)",
+    "language": "EN",
+    "description": "ISO/IEC 7811-8:2014 defines the characteristics for identification cards as defined in Clause 4 of this part of ISO/IEC 7811, and the use of such cards for international interchange. ISO/IEC 7811-8:2014 specifies requirements for a 51,7 kA/m (650 Oe) magnetic stripe (including any protective overlay) on an identification card. The encoding technique and coded character sets are not defined, however, the specifications of ISO/IEC 7811‑2 may be used. It takes into consideration both human and machine aspects and states minimum requirements. Coercivity influences many of the quantities specified in this part of ISO/IEC 7811. It has a nominal value of 51,7 kA/m (650 Oe), but is not itself specified. Exposure of the card to a magnetic field is likely to destroy the recorded data. ISO/IEC 7811-8:2014 provides criteria to which cards are to perform. No consideration is given within this International Standard to the amount of use, if any, experienced by the card prior to test. Failure to conform to specified criteria is negotiated between the involved parties. ISO/IEC 10373‑2 specifies the test procedures used to check cards against the parameters specified in this part of ISO/IEC 7811. Numeric values in the SI and/or Imperial measurement system in this part of ISO/IEC 7811 may have been rounded off and therefore are consistent with, but not exactly equal to, each other. Either system may be used, but the two are not to be intermixed or reconverted. The original design was made using the Imperial measurement system."
+  },
+  {
+    "reference": "ISO/IEC 7811-9:2015",
+    "edition": "2.0",
+    "date": "2015-12-02",
+    "title": "Identification cards - Recording technique - Part 9: Tactile identifier mark",
+    "language": "EN",
+    "description": "ISO 7811-9:2015 specifies the physical characteristics of a tactile identifier mark used by visually impaired card holders to distinguish their cards. It defines the area on the card for the TIM and the layout of Braille style embossed dots arranged in patterns to enable easy tactile recognition."
+  },
+  {
+    "reference": "ISO/IEC 7812-1:2017",
+    "edition": "5.0",
+    "date": "2017-01-03",
+    "title": "Identification cards - Identification of issuers - Part 1: Numbering system",
+    "language": "EN",
+    "description": "ISO/IEC 7812-1:2017 specifies a numbering system for the identification of the card issuers, the format of the issuer identification number (IIN) and the primary account number (PAN)."
+  },
+  {
+    "reference": "ISO/IEC 7812-2:2017",
+    "edition": "5.0",
+    "date": "2017-01-03",
+    "title": "Identification cards - Identification of issuers - Part 2: Application and registration procedures",
+    "language": "EN",
+    "description": "ISO/IEC 7812-2:2017 specifies the application and registration procedures for Issuer Identification Numbers (IINs) issued in accordance with ISO/IEC 7812‑1."
+  },
+  {
+    "reference": "ISO/IEC 7813:2006",
+    "edition": "6.0",
+    "date": "2006-06-29",
+    "title": "Information technology - Identification cards - Financial transaction cards",
+    "language": "EN",
+    "description": "ISO/IEC 7813:2006 specifies the data structure and data content of magnetic tracks 1 and 2, which are used to initiate financial transactions. It takes into consideration both human and physical aspects and states minimum requirements of conformity. It references layout, recording techniques, numbering systems, registration procedures, but not security requirements. ISO/IEC 10373 specifies the test procedures used to check ID-1 cards against the parameters specified in ISO/IEC 7813:2006."
+  },
+  {
+    "reference": "ISO/IEC 7816-2:2007",
+    "edition": "2.0",
+    "date": "2007-10-11",
+    "title": "Identification cards - Integrated circuit cards - Part 2: Cards with contacts - Dimensions and location of the contacts",
+    "language": "EN",
+    "description": "ISO/IEC 7816-2:2007 specifies the dimensions and locations for each of the contacts on an integrated circuit card of an ID-1 card type. It also provides information on the way to identify which standards define the use of the contacts. ISO/IEC 7816-2:2007 is to be used in conjunction with ISO/IEC 7816-1."
+  },
+  {
+    "reference": "ISO/IEC 7816-3:2006",
+    "edition": "3.0",
+    "date": "2006-10-30",
+    "title": "Identification cards - Integrated circuit cards - Part 3: Cards with contacts - Electrical interface and transmission protocols",
+    "language": "EN",
+    "description": "ISO/IEC 7816-3:2006 specifies the power and signal structures, and information exchange between an integrated circuit card and an interface device such as a terminal. It also covers signal rates, voltage levels, current values, parity convention, operating procedure, transmission mechanisms and communication with the card. It does not cover information and instruction content, such as identification of issuers and users, services and limits, security features, journaling and instruction definitions."
+  },
+  {
+    "reference": "ISO/IEC 7816-3:2006/AMD1:2025",
+    "edition": "3.0",
+    "date": "2025-03-07",
+    "title": "Identification cards - Integrated circuit cards - Part 3: Cards with contacts - Electrical interface and transmission protocols - Amendment 1: Additional voltage classes",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-4:2020",
+    "edition": "4.0",
+    "date": "2020-05-27",
+    "title": "Identification cards - Integrated circuit cards - Part 4: Organization, security and commands for interchange",
+    "language": "EN",
+    "description": "This document is intended to be used in any sector of activity. It specifies: — contents of command-response pairs exchanged at the interface, — means of retrieval of data elements and data objects in the card, — structures and contents of historical bytes to describe operating characteristics of the card, — structures for applications and data in the card, as seen at the interface when processing commands, — access methods to files and data in the card, — a security architecture defining access rights to files and data in the card, — means and mechanisms for identifying and addressing applications in the card, — methods for secure messaging, — access methods to the algorithms processed by the card. It does not describe these algorithms. It does not cover the internal implementation within the card or the outside world. This document is independent from the physical interface technology. It applies to cards accessed by one or more of the following methods: contacts, close coupling and radio frequency. If the card supports simultaneous use of more than one physical interface, the relationship between what happens on different physical interfaces is out of the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 7816-4:2020/AMD1:2023",
+    "edition": "4.0",
+    "date": "2023-10-31",
+    "title": "Identification cards - Integrated circuit cards - Part 4: Organization, security and commands for interchange - Amendment 1: Support of multiple logical security devices",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-5:2004",
+    "edition": "2.0",
+    "date": "2004-12-02",
+    "title": "Identification cards - Integrated circuit cards - Part 5: Registration of application providers",
+    "language": "EN",
+    "description": "ISO/IEC 7816-4 defines how to use an application identifier to ascertain the presence of and/or perform the retrieval of an application in a card. ISO/IEC 7816-5:2004 shows how to grant the uniqueness of application identifiers through the international registration of a part of this identifier, and defines the registration procedure, the authorities in charge thereof, the availability of the register which links the registered parts of the identifiers and the relevant application providers."
+  },
+  {
+    "reference": "ISO/IEC 7816-6:2023",
+    "edition": "4.0",
+    "date": "2023-04-03",
+    "title": "Identification cards - Integrated circuit cards - Part 6: Interindustry data elements for interchange",
+    "language": "EN",
+    "description": "This document specifies directly or by reference, data elements, including composite data elements that are applicable to interindustry interchange. It identifies the following characteristics of each data element: — identifier; — name; — description and reference; — format and coding (if not available in other ISO standards or parts of the ISO/IEC 7816 series). The layout of each data element is described as seen at the interface between the interface device and the card. This document provides the definition of data elements without consideration of any restrictions on the usage of the data elements. It does not cover the internal implementation within the card and/or the outside world. With the exception of login data objects ( 6.5 ), only application class tags are eligible in this document. When using an interindustry template, an application is allowed to nest context-specific class tags (see ISO/IEC 7816-4) under such a template unless it is previously marked as reserved for future use by ISO/IEC JTC 1/SC 17."
+  },
+  {
+    "reference": "ISO/IEC 7816-6:2023/AMD1:2026",
+    "edition": "4.0",
+    "date": "2026-03-13",
+    "title": "Identification cards - Integrated circuit cards - Part 6: Interindustry data elements for interchange - Amendment 1: Data elements for quantum safe cryptography",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-7:1999",
+    "edition": "1.0",
+    "date": "1999-03-11",
+    "title": "Identification cards - Integrated circuit(s) cards with contacts - Part 7: Interindustry commands for Structured Card Query Language (SCQL)",
+    "language": "EN",
+    "description": "This part of ISO/IEC 7816 specifies the concept of a SCQL database (SCQL = Structured Card Query Language based on SQL, see ISO 9075) and the related interindustry enhanced commands."
+  },
+  {
+    "reference": "ISO/IEC 7816-8:2021",
+    "edition": "5.0",
+    "date": "2021-08-09",
+    "title": "Identification cards - Integrated circuit cards - Part 8: Commands and mechanisms for security operations",
+    "language": "EN",
+    "description": "This document specifies interindustry commands which can be used for security operations. This document also provides informative directives on how to construct security mechanisms with commands defined in ISO/IEC 7816‑4. The choice and conditions of use of cryptographic mechanism in security operations can affect card exportability. The evaluation of the suitability of algorithms and protocols is outside the scope of this document. It does not cover the internal implementation within the card and/or the outside world."
+  },
+  {
+    "reference": "ISO/IEC 7816-8:2021/AMD1:2023",
+    "edition": "5.0",
+    "date": "2023-11-02",
+    "title": "Identification cards - Integrated circuit cards - Part 8: Commands and mechanisms for security operations - Amendment 1: Interoperability for the interchange of security operations using quantum safe cryptography",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-9:2017",
+    "edition": "3.0",
+    "date": "2017-12-07",
+    "title": "Identification cards - Integrated circuit cards - Part 9: Commands for card management",
+    "language": "EN",
+    "description": "ISO/IEC 7816-9:2017 specifies interindustry commands for card, file and other structure management, i.e. data object and security object. These commands cover the entire life cycle of the card and therefore some commands are used before the card has been issued to the cardholder or after the card has expired. For details on record life cycle status, refer to ISO/IEC 7816-4. ISO/IEC 7816-9:2017 is not applicable to the internal implementation within the card and/or the outside world."
+  },
+  {
+    "reference": "ISO/IEC 7816-9:2017/AMD1:2026",
+    "edition": "3.0",
+    "date": "2026-03-09",
+    "title": "Identification cards - Integrated circuit cards - Part 9: Commands for card management - Amendment 1: Data objects for quantum safe cryptography key management operations",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-10:1999",
+    "edition": "1.0",
+    "date": "1999-11-04",
+    "title": "Identification cards - Integrated circuit(s) cards with contacts - Part 10: Electronic signals and answer to reset for synchronous cards",
+    "language": "EN",
+    "description": "This part of ISO/IEC 7816 specifies the power, signal structures, and the structure for the answer to reset between an integrated circuit(s) card with synchronous transmission and an interface device such as a terminal. The specifications in ISO/IEC 7816-3 apply where appropriate, unless otherwise stated here. It also covers signal rates, operating conditions, and communication with the integrated circuit(s) card. This part of ISO/IEC 7816 specifies two types of synchronous cards: type 1 and type 2."
+  },
+  {
+    "reference": "ISO/IEC 7816-11:2022",
+    "edition": "3.0",
+    "date": "2022-04-04",
+    "title": "Identification cards - Integrated circuit cards - Part 11: Personal verification through biometric methods",
+    "language": "EN",
+    "description": "This document specifies security-related interindustry commands that are intended to be used for personal verification through biometric methods in integrated circuit cards. It also defines the data structure and data access methods for use of the card as a carrier of the biometric reference and/or as the device to perform the verification of the cardholder's biometric probe (on-card biometric comparison). Identification of persons using biometric methods is outside the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 7816-12:2005",
+    "edition": "1.0",
+    "date": "2005-10-04",
+    "title": "Identification cards - Integrated circuit cards - Part 12: Cards with contacts - USB electrical interface and operating procedures",
+    "language": "EN",
+    "description": "ISO/IEC 7816-12:2005 specifies the operating conditions of an integrated circuit card that provides a USB interface. An integrated circuit card with a USB interface is named USB-ICC. ISO/IEC 7816-12:2005 specifies the electrical conditions when a USB-ICC is operated by an interface device - for those contact fields that are not used, when the USB interface is applied; the USB standard descriptors and the USB-ICC class specific descriptor; the data transfer between host and USB-ICC using bulk transfers or control transfers; the control transfers which allow two different protocols named version A and version B; the (optional) interrupt transfers to indicate asynchronous events; status and error conditions. ISO/IEC 7816-12:2005 provides two protocols for control transfers. This is to support the protocol T=0 (version A) or to use the transfer on APDU level (version B). ISO/IEC 7816-12:2005 provides the state diagrams for the USB-ICC for each of the transfers (bulk transfers, control transfers version A and version B). Examples of possible sequences which the USB-ICC must be able to handle are given in an informative annex."
+  },
+  {
+    "reference": "ISO/IEC 7816-12:2005/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-03-11",
+    "title": "Identification cards - Integrated circuit cards - Part 12: Cards with contacts - USB electrical interface and operating procedures - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 7816-13:2007",
+    "edition": "1.0",
+    "date": "2007-03-09",
+    "title": "Identification cards - Integrated circuit cards - Part 13: Commands for application management in a multi-application environment",
+    "language": "EN",
+    "description": "ISO/IEC 7816-13:2007 specifies commands for application management in a multi-application environment. These commands cover the entire life cycle of applications in a multi-application integrated circuit card, and the commands can be used before and after the card is issued to the cardholder. ISO/IEC 7816-13:2007 does not cover the implementation within the card and/or the outside world."
+  },
+  {
+    "reference": "ISO/IEC 7816-15:2016",
+    "edition": "2.0",
+    "date": "2016-05-09",
+    "title": "Identification cards - Integrated circuit cards - Part 15: Cryptographic information application",
+    "language": "EN",
+    "description": "ISO/IEC 7816-15:2016 specifies an application in a card. This application contains information on cryptographic functionality. This part of ISO/IEC 7816 defines a common syntax and format for the cryptographic information and mechanisms to share this information whenever appropriate. The objectives of this part of ISO/IEC 7816 are to - facilitate interoperability among components running on various platforms (platform neutral), - enable applications in the outside world to take advantage of products and components from multiple manufacturers (vendor neutral), - enable the use of advances in technology without rewriting application-level software (application neutral), and - maintain consistency with existing, related standards while expanding upon them only where necessary and practical. It supports the following capabilities: - storage of multiple instances of cryptographic information in a card; - use of the cryptographic information; - retrieval of the cryptographic information, a key factor for this is the notion of \"Directory Files\", which provides a layer of indirection between objects on the card and the actual format of these objects; - cross-referencing of the cryptographic information with DOs defined in other parts of ISO/IEC 7816 when appropriate; - different authentication mechanisms; - multiple cryptographic algorithms (the suitability of these is outside the scope of this part of ISO/IEC 7816). ISO/IEC 7816-15.2016 does not cover the internal implementation within the card and/or the outside world. It is not mandatory for implementations complying with this International Standard to support all options described. In case of discrepancies between ASN.1 definitions in the body of the text and the module in Annex A, Annex A takes precedence."
+  },
+  {
+    "reference": "ISO/IEC 7816-15:2016/AMD1:2018",
+    "edition": "2.0",
+    "date": "2018-05-24",
+    "title": "Identification cards - Integrated circuit cards - Part 15: Cryptographic information application - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 8484:2014",
+    "edition": "2.0",
+    "date": "2014-08-06",
+    "title": "Information technology - Magnetic stripes on savingsbooks",
+    "language": "EN",
+    "description": "ISO/IEC 8484:2014 specifies the characteristics and location of a magnetic stripe on a savingsbook and the use of such savingsbooks for international interchange. Compatibility with international interchange systems is provided through the requirements of ISO/IEC 8484:2014, enabling a savingsbook with a magnetic stripe to be read and possibly encoded in a device that is compatible with reading identification cards used in international interchange. ISO/IEC 8484:2014 specifies requirements for a magnetic stripe (including any protective overlay) on a savingsbook, the encoding technique, and coded character sets. It also specifies the characteristics of the savingsbook cover such as stiffness, minimum size, surface irregularities, roughness, and interaction between the cover material and the magnetic stripe. It takes into consideration both human and machine aspects and states minimum requirements. Coercivity influences many of the quantities specified in ISO/IEC 8484:2014 but is not itself specified. Exposure of the savingsbook to a magnetic field is likely to destroy the recorded data. ISO/IEC 8484:2014 defines performance criteria for savingsbooks. No consideration is given within ISO/IEC 8484:2014 to the amount of use, if any, experienced by the savingsbook prior to test."
+  },
+  {
+    "reference": "ISO/IEC 10373-1:2020",
+    "edition": "3.0",
+    "date": "2020-10-22",
+    "title": "Cards and security devices for personal identification - Test methods - Part 1: General characteristics",
+    "language": "EN",
+    "description": "This document describes the test methods for characteristics of identification cards according to ISO/IEC 7810 and other standards, such as those listed in the Introduction. NOTE 1 Criteria for acceptability do not form part of this document but are found in other International Standards including those mentioned in the introduction. NOTE 2 Test methods described in this document are intended to be performed separately. A given card is not required to pass through all the tests sequentially."
+  },
+  {
+    "reference": "ISO/IEC 10373-1:2020/AMD1:2023",
+    "edition": "3.0",
+    "date": "2023-10-16",
+    "title": "Cards and security devices for personal identification - Test methods - Part 1: General characteristics - Amendment 1: Clarification of peel strength test method to be used for ISO/IEC 7810 conformance testing",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 10373-2:2015",
+    "edition": "3.0",
+    "date": "2015-01-05",
+    "title": "Identification cards - Test methods - Part 2: Cards with magnetic stripes",
+    "language": "EN",
+    "description": "ISO/IEC 10373-2:2015 defines test methods for characteristics of identification cards according to the definition given in ISO/IEC 7810. Each test method is cross-referenced to one or more base standards, for example ISO/IEC 7810, or one or more of the supplementary standards that define the information storage technologies employed in identification card applications. ISO/IEC 10373-2:2015 defines test methods which are specific to magnetic stripe technology."
+  },
+  {
+    "reference": "ISO/IEC 10373-3:2018",
+    "edition": "3.0",
+    "date": "2018-08-16",
+    "title": "Identification cards - Test methods - Part 3: Integrated circuit cards with contacts and related interface devices",
+    "language": "EN",
+    "description": "This document defines test methods for characteristics of integrated circuit cards with contacts and related interface devices according to the definition given in ISO/IEC 7816-3. Each test method is cross‑referenced to one or more base standards, which can be ISO/IEC 7810 that defines the information storage technologies employed in identification card applications. NOTE Criteria for acceptability do not form part of this document but can be found in the International Standards mentioned above. This document defines test methods which are specific to integrated circuit technology with contacts. ISO/IEC 10373-1 defines test methods which are common to one or more card technologies and other parts of the ISO/IEC 10373 series define other technology‑specific tests. Test methods defined in this document are intended to be performed separately and independently. A given card is not required to pass through all the tests sequentially. The test methods defined in this document are based on ISO/IEC 7816-3. Conformance of cards and IFDs determined using the test methods defined in this document does not preclude failures in the field. Reliability testing is outside the scope of this document. This document does not define any test to establish the complete functioning of integrated circuit cards. The test methods require only that the minimum functionality be verified. The minimum functionality is defined as follows. — Any integrated circuit present in the card continues to show an Answer to Reset response which conforms to the base standard. — Any contacts associated with any integrated circuit present in the card continue to show electrical resistance which conforms to the base standard."
+  },
+  {
+    "reference": "ISO/IEC 10373-5:2014",
+    "edition": "3.0",
+    "date": "2014-10-03",
+    "title": "Identification cards - Test methods - Part 5: Optical memory cards",
+    "language": "EN",
+    "description": "ISO/IEC 10373-5:2014 defines test methods for characteristics of identification cards according to the definition given in ISO/IEC 7810. Each test method is cross‑referenced to one or more base standards, which can be ISO/IEC 7810 or one or more of the supplementary standards that define the information storage technologies employed in identification cards applications. NOTE 1 Criteria for acceptability do not form part of this International Standard but will be found in the International Standards mentioned above. NOTE 2 Test methods described in this International Standard are intended to be performed separately. A given card is not required to pass through all the tests sequentially. This part of ISO/IEC 10373 deals with test methods which are specific to optical memory card technology. ISO/IEC 10373‑1 deals with test methods which are common to one or more card technologies and other parts deal with other technology-specific tests."
+  },
+  {
+    "reference": "ISO/IEC 10373-6:2025",
+    "edition": "5.0",
+    "date": "2025-02-13",
+    "title": "Cards and security devices for personal identification - Test methods - Part 6: Contactless proximity objects",
+    "language": "EN",
+    "description": "This document defines test methods which are specific to proximity cards and objects, proximity coupling devices and proximity extended devices, defined in ISO/IEC 14443-1, ISO/IEC 14443-2, ISO/IEC 14443-3 and ISO/IEC 14443-4. NOTE Test methods defined in this document are intended to be performed separately. A given proximity card or object, proximity coupling device or proximity extended device, is not required to pass through all the tests sequentially. The conformance test plan defined in Annex O specifies the list of tests required for each part of the ISO/IEC 14443 series."
+  },
+  {
+    "reference": "ISO/IEC 10373-7:2019",
+    "edition": "3.0",
+    "date": "2019-10-02",
+    "title": "Cards and security devices for personal identification - Test methods - Part 7: Contactless vicinity objects",
+    "language": "EN",
+    "description": "The ISO/IEC 10373 series defines test methods for characteristics of identification cards according to the definition given in ISO/IEC 7810. Each test method is cross‑referenced to one or more base standards, which can be ISO/IEC 7810 or one or more of the supplementary standards that define the information storage technologies employed in identification card applications. NOTE 1 Criteria for acceptability do not form part of the ISO/IEC 10373 series, but can be found in the International Standards mentioned above. NOTE 2 Test methods defined in the ISO/IEC 10373 series are intended to be performed separately. A given card is not required to pass through all the tests sequentially. This document deals with test methods, which are specific to contactless integrated circuit card (vicinity card) technology. ISO/IEC 10373-1 deals with test methods which are common to one or more ICC technologies and other parts in the ISO/IEC 10373 series deal with other technology‑specific tests. Unless otherwise specified, the tests in this document apply exclusively to vicinity cards defined in ISO/IEC 15693‑1, ISO/IEC 15693-2 and ISO/IEC 15693-3."
+  },
+  {
+    "reference": "ISO/IEC 10373-8:2011",
+    "edition": "1.0",
+    "date": "2011-03-11",
+    "title": "Identification cards - Test methods - Part 8: USB-ICC",
+    "language": "EN",
+    "description": "ISO/IEC 10373-8:2011 describes a Test Methodology and a list of Test Scenarios to evaluate the compliance of a card with ISO/IEC 7816-12. Specifically, ISO/IEC 10373-8:2011: addresses USB 2.0 physical layer measurements and electrical compliance testing; discusses issues relative to the Test Tools to analyse USB bus traffic and provides guidance for the Test Scenarios given in ISO/IEC 10373-8:2011; proposes a classification of Test Scenarios given in ISO/IEC 10373-8:2011, along with validation criteria; discusses Test Cases for compliance with the USB CCID Class Device."
+  },
+  {
+    "reference": "ISO/IEC 10373-9:2011",
+    "edition": "1.0",
+    "date": "2011-07-21",
+    "title": "Identification cards - Test methods - Part 9: Optical memory cards - Holographic recording method",
+    "language": "EN",
+    "description": "ISO/IEC 10373-9:2011 defines test methods for characteristics of identification cards according to the definition given in ISO/IEC 7810. It is specific to optical memory cards that use the holographic recording method technology. Each test method is cross‑referenced to one or more base standards, i.e. ISO/IEC 7810 or one or more of the supplementary International Standards that define the information storage technologies employed in identification card applications."
+  },
+  {
+    "reference": "ISO/IEC 10536-1:2000",
+    "edition": "2.0",
+    "date": "2000-04-06",
+    "title": "Identification cards - Contactless integrated circuit(s) cards - Close-coupled cards - Part 1: Physical characteristics",
+    "language": "EN, FR",
+    "description": "This part of ISO/IEC 10536 specifies the physical characteristics of close-coupled cards (CICC). It applies to identification cards of the card type ID-1 operating either in a slot or on the surface of a coupling device. This part of ISO/IEC 10536 shall be used in conjunction with later parts of ISO/IEC 10536."
+  },
+  {
+    "reference": "ISO/IEC 10536-2:1995",
+    "edition": "1.0",
+    "date": "1995-11-30",
+    "title": "Identification cards - Contactless integrated circuit(s) cards - Part 2: Dimensions and location of coupling areas",
+    "language": "EN, FR",
+    "description": "Specifies the dimensions, location, nature and assignment of each of the coupling areas to be provided for interfacing slot or surface card coupling devices (CCDs) with contactless integrated circuit(s) cards (CICCs) of the ID-1 card type."
+  },
+  {
+    "reference": "ISO/IEC 10536-3:1996",
+    "edition": "1.0",
+    "date": "1996-11-21",
+    "title": "Identification cards - Contactless integrated circuit(s) cards - Part 3: Electronic signals and reset procedures",
+    "language": "EN",
+    "description": "Specifies the nature and characteristics of the fields to be provided for power and bidirectional communications between card coupling devices and contactless integrated circuit(s) cards of the ID-1 card type in slot or surface operation. Is to be used in conjunction with ISO/IEC 10536-1 and ISO/IEC 10536-2."
+  },
+  {
+    "reference": "ISO/IEC 11693-1:2012",
+    "edition": "1.0",
+    "date": "2012-10-05",
+    "title": "Identification cards - Optical memory cards - Part 1: General characteristics",
+    "language": "EN",
+    "description": "The intent of ISO/IEC 11693-1:2012 is to provide necessary information for card manufacturers, card issuers, and card users interested in interchanging information encoded on optical memory cards. ISO/IEC 11693-1:2012 serves as a guide to companies who plan to develop equipment and systems using optical memory cards. The data content and use of the cards depend upon the applications developed by each industry group."
+  },
+  {
+    "reference": "ISO/IEC 11693-2:2009",
+    "edition": "1.0",
+    "date": "2009-10-13",
+    "title": "Identification cards - Optical memory cards - Part 2: Co-existence of optical memory with other machine readable technologies",
+    "language": "EN",
+    "description": "ISO/IEC 11693-2:2009 defines the conditions under which optical memory can co-exist with other machine readable card technologies."
+  },
+  {
+    "reference": "ISO/IEC 11693-3:2015",
+    "edition": "1.0",
+    "date": "2015-06-01",
+    "title": "Identification cards - Optical memory cards - Part 3: Authentication techniques",
+    "language": "EN",
+    "description": "ISO/IEC 11693-3:2015 defines the authentication techniques."
+  },
+  {
+    "reference": "ISO/IEC 11694-1:2012",
+    "edition": "4.0",
+    "date": "2012-10-09",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 1: Physical characteristics",
+    "language": "EN",
+    "description": "ISO/IEC 11694-1:2012 defines the physical characteristics of optical memory cards using the linear recording method."
+  },
+  {
+    "reference": "ISO/IEC 11694-2:2012",
+    "edition": "4.0",
+    "date": "2012-12-04",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 2: Dimensions and location of the accessible optical area",
+    "language": "EN",
+    "description": "ISO/IEC 11694-2:2012 defines the dimensions and location of the accessible optical area of optical memory cards with ID-1 dimensions using the linear recording method."
+  },
+  {
+    "reference": "ISO/IEC 11694-3:2015",
+    "edition": "4.0",
+    "date": "2015-06-23",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 3: Optical properties and characteristics",
+    "language": "EN",
+    "description": "ISO/IEC 11694-3:2015 specifies the optical properties and characteristics of optical memory cards using the linear recording method."
+  },
+  {
+    "reference": "ISO/IEC 11694-4:2008",
+    "edition": "3.0",
+    "date": "2008-06-25",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 4: Logical data structures",
+    "language": "EN",
+    "description": "ISO/IEC 11694-4:2008 defines the logical data structures for optical memory cards necessary to allow compatibility and interchange between systems using the linear recording method."
+  },
+  {
+    "reference": "ISO/IEC 11694-5:2014",
+    "edition": "2.0",
+    "date": "2014-10-29",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 5: Data format for information interchange for applications using ISO/IEC 11694-4",
+    "language": "EN",
+    "description": "ISO/IEC 11694-5:2014 defines the data format for optical memory cards necessary to allow compatibility and interchange between systems using the linear recording method."
+  },
+  {
+    "reference": "ISO/IEC 11694-6:2014",
+    "edition": "2.0",
+    "date": "2014-06-24",
+    "title": "Identification cards - Optical memory cards - Linear recording method - Part 6: Use of biometrics on an optical memory card",
+    "language": "EN",
+    "description": "ISO/IEC 11694-6:2014 describes the use of biometric data on optical memory cards using the logical data structure described in ISO/IEC 11694-5."
+  },
+  {
+    "reference": "ISO/IEC 11695-1:2015",
+    "edition": "2.0",
+    "date": "2015-05-27",
+    "title": "Identification cards - Optical memory cards - Holographic recording method - Part 1: Physical characteristics",
+    "language": "EN",
+    "description": "ISO/IEC 11695-1:2015 defines the physical characteristics of optical memory cards using the holographic recording method."
+  },
+  {
+    "reference": "ISO/IEC 11695-2:2015",
+    "edition": "2.0",
+    "date": "2015-03-16",
+    "title": "Identification cards - Optical memory cards - Holographic recording method - Part 2: Dimensions and location of accessible optical area",
+    "language": "EN",
+    "description": "ISO/IEC 11695-2:2015 defines the dimensions and location of the accessible optical area of optical memory cards using the holographic recording method."
+  },
+  {
+    "reference": "ISO/IEC 11695-3:2017",
+    "edition": "2.0",
+    "date": "2017-04-27",
+    "title": "Identification cards - Optical memory cards - Holographic recording method - Part 3: Optical properties and characteristics",
+    "language": "EN",
+    "description": "ISO/IEC 11695-3:2017 specifies the optical properties and characteristics of optical memory cards using the holographic recording method."
+  },
+  {
+    "reference": "ISO/IEC 12905:2011",
+    "edition": "1.0",
+    "date": "2011-07-01",
+    "title": "Integrated circuit cards - Enhanced terminal accessibility using cardholder preference interface",
+    "language": "EN",
+    "description": "ISO/IEC 12905:2011 specifies a set of data elements to be personalized into an integrated circuit card, encoding cardholder preferences. These data elements are to be retrieved from the card and to be used to indicate to the terminal that the user has special needs regarding the user interface. It is not intended to standardize the actual application programming interface or other terminal-specific software allowing the functionality, nor does it cover the actual alignment of the card to the card-reader slot. ISO/IEC 12905:2011 is independent of the physical interface and is applicable to situations where the cardholder operates the card-accepting equipment (e.g. a cash dispenser, ticket machine, vending machine). It applies not only to ID-1 type cards, but also to SIM/UIM (ID-000) on mobile phones and form-factor-free contactless integrated circuit cards which are specified in ISO/IEC 14443. ISO/IEC 12905:2011 comprises: data elements containing the user preferences, the storage/retrieval formats for input and output of these data elements, security related to the information contained in these data elements, the access method to these data elements, and protection of cardholder information."
+  },
+  {
+    "reference": "ISO/IEC 12905:2011/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-07-29",
+    "title": "Integrated circuit cards - Enhanced terminal accessibility using cardholder preference interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14443-1:2018",
+    "edition": "4.0",
+    "date": "2018-04-12",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 1: Physical characteristics",
+    "language": "EN",
+    "description": "ISO/IEC 14443-1:2018 defines the physical characteristics of proximity cards (PICCs). ISO/IEC 14443-1:2018 is intended to be used in conjunction with other parts of ISO/IEC 14443."
+  },
+  {
+    "reference": "ISO/IEC 14443-2:2020",
+    "edition": "4.0",
+    "date": "2020-07-22",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 2: Radio frequency power and signal interface",
+    "language": "EN",
+    "description": "This document specifies the characteristics of the fields to be provided for power and bi-directional communication between proximity coupling devices (PCDs) and proximity cards or objects (PICCs). This document does not specify the means of generating coupling fields, nor the means of compliance with electromagnetic radiation and human exposure regulations, which can vary depending on the country."
+  },
+  {
+    "reference": "ISO/IEC 14443-2:2020/COR1:2021",
+    "edition": "4.0",
+    "date": "2021-06-30",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 2: Radio frequency power and signal interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14443-2:2020/COR2:2023",
+    "edition": "4.0",
+    "date": "2023-09-05",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 2: Radio frequency power and signal interface - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14443-3:2018",
+    "edition": "4.0",
+    "date": "2018-06-19",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 3: Initialization and anticollision",
+    "language": "EN",
+    "description": "This document describes the following: - polling for proximity cards or objects (PICCs) entering the field of a proximity coupling device (PCD); - the byte format, the frames and timing used during the initial phase of communication between PCDs and PICCs; - the initial Request and Answer to Request command content; - methods to detect and communicate with one PICC among several PICCs (anticollision); - other parameters required to initialize communications between a PICC and PCD; - optional means to ease and speed up the selection of one PICC among several PICCs based on application criteria; - optional capability to allow a device to alternate between the functions of a PICC and a PCD to communicate with a PCD or a PICC, respectively. A device which implements this capability is called a PXD. Protocol and commands used by higher layers and by applications and which are used after the initial phase are described in ISO/IEC 14443‑4. This document is applicable to PICCs of Type A and of Type B (as described in ISO/IEC 14443‑2), to PCDs (as described in ISO/IEC 14443‑2) and to PXDs. NOTE 1 Part of the timing of data communication is defined in ISO/IEC 14443‑2. NOTE 2 Test methods for this document are defined in ISO/IEC 10373‑6."
+  },
+  {
+    "reference": "ISO/IEC 14443-3:2018/AMD2:2020",
+    "edition": "4.0",
+    "date": "2020-08-05",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 3: Initialization and anticollision - Amendment 2: Enhancements for harmonization",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 14443-4:2018",
+    "edition": "4.0",
+    "date": "2018-06-21",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 4: Transmission protocol",
+    "language": "EN",
+    "description": "This document specifies a half-duplex block transmission protocol featuring the special needs of a contactless environment and defines the activation and deactivation sequence of the protocol. This document is intended to be used in conjunction with other parts of ISO/IEC 14443 and is applicable to proximity cards or objects of Type A and Type B."
+  },
+  {
+    "reference": "ISO/IEC 14443-4:2018/AMD2:2020",
+    "edition": "4.0",
+    "date": "2020-08-04",
+    "title": "Cards and security devices for personal identification - Contactless proximity objects - Part 4: Transmission protocol - Amendment 2: Enhancements for harmonization",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15457-1:2008",
+    "edition": "2.0",
+    "date": "2008-02-27",
+    "title": "Identification cards - Thin flexible cards - Part 1: Physical characteristics",
+    "language": "EN",
+    "description": "Thin flexible cards (TFC), the subject of ISO/IEC 15457, are used to automate the controls for access to goods or services such as mass transit, highway toll systems, car parks, vouchers, stored value, etc. For these applications, data can be written and/or read by machines using various recording techniques such as magnetic stripe, optical character recognition (OCR), bar code, contactless, etc. ISO/IEC 15457-1:2008 specifies the physical characteristics of thin flexible cards at two points in the card life cycle: at the point of loading into the card issuing equipment; at the point of issue to the public. It takes into consideration both human and machine aspects and states the minimum requirements. The principal card sizes are identified and the characteristics and dimensions are specified. Guidance concerning the storage and use of cards under various environmental conditions is given."
+  },
+  {
+    "reference": "ISO/IEC 15457-2:2007",
+    "edition": "2.0",
+    "date": "2007-06-12",
+    "title": "Identification cards - Thin flexible cards - Part 2: Magnetic recording technique",
+    "language": "EN",
+    "description": "Thin flexible cards are used to automate the controls for access to goods or services such as mass transit, highway toll systems, car parks, vouchers and stored value. For these applications, data can be written and/or read by machines using various recording techniques: magnetic stripe, optical character recognition, bar code, etc. ISO/IEC 15457-2:2007 specifies the magnetic stripe and encoding characteristics of thin flexible cards at two points in the card's life cycle: at the point of loading into the card-issuing equipment; at the point of issue to the public."
+  },
+  {
+    "reference": "ISO/IEC 15457-3:2008",
+    "edition": "2.0",
+    "date": "2008-02-18",
+    "title": "Identification cards - Thin flexible cards - Part 3: Test methods",
+    "language": "EN",
+    "description": "Thin flexible cards, the subject of this International Standard, are used to automate the controls for access to goods or services such as mass transit, highway toll systems, car parks, vouchers, stored value, etc. For these applications, data can be written and/or read by machines using various recording techniques such as magnetic stripe, optical character recognition (OCR), bar code, etc. ISO/IEC 15457-3:2008 specifies the test methods and procedures required to carry out measurements of the magnetic stripe and encoding characteristics of thin flexible cards. Many of the standard methods available for checking physical properties of base materials are intended to be applied to samples cut from continuous material or large sheets. However, all test methods given herein, unless explicitly stated otherwise, apply to finished cards. The test methods described are to be performed on separate samples. It is not intended that any individual card should pass through more than one test procedure, unless explicitly stated. Acceptance criteria do not form part of ISO/IEC 15457-3:2008."
+  },
+  {
+    "reference": "ISO/IEC 15693-1:2018",
+    "edition": "3.0",
+    "date": "2018-07-05",
+    "title": "Cards and security devices for personal identification - Contactless vicinity objects - Part 1: Physical characteristics",
+    "language": "EN",
+    "description": "This document defines the physical characteristics of vicinity cards (VICCs). It is intended to be used in conjunction with other parts of the ISO/IEC 15693 series."
+  },
+  {
+    "reference": "ISO/IEC 15693-2:2019",
+    "edition": "3.0",
+    "date": "2019-04-23",
+    "title": "Cards and security devices for personal identification - Contactless vicinity objects - Part 2: Air interface and initialization",
+    "language": "EN",
+    "description": "This document specifies the nature and characteristics of the fields to be provided for power and bi-directional communications between vicinity coupling devices (VCDs) and vicinity cards (VICCs). This document is intended to be used in conjunction with other parts of the ISO/IEC 15693 series. This document does not preclude the incorporation of other standard technologies on the card as described in Annex A."
+  },
+  {
+    "reference": "ISO/IEC 15693-3:2026",
+    "edition": "4.0",
+    "date": "2026-05-07",
+    "title": "Cards and security devices for personal identification - Contactless vicinity objects - Part 3: Anticollision and transmission protocol",
+    "language": "EN",
+    "description": "This document specifies: protocols and commands; other parameters required to initialize communications between a vicinity integrated circuit card and a vicinity coupling device; methods to detect and communicate with one card among several cards (\"anticollision\"); optional means to ease and speed up the selection of one among several cards based on application criteria. This document does not preclude the addition of other existing card standards on the vicinity integrated circuit card (VICC), such as ISO/IEC 7816-6 or others listed in this document."
+  },
+  {
+    "reference": "ISO/IEC 17839-1:2025",
+    "edition": "2.0",
+    "date": "2025-11-07",
+    "title": "Information technology - Biometric system-on-card - Part 1: Core requirements",
+    "language": "EN",
+    "description": "This document establishes: — functional architecture of a Biometric System-on-Card (BSoC); — definition of Type ID-1 BSoC (ISO/IEC 7810 conformant) and Type ID-T BSoC (see ISO/IEC 18328-2:2021, Annex A) implementation of a BSoC; — sensor types in a BSoC; — requirements to a BSoC with respect to: — discriminative power (i.e. biometric accuracy criteria); — interfaces; — power supply options. — The following aspects are out of scope of this document (see ISO/IEC 24787-1): — off-card biometric comparison, storage-on-card; — on-card biometric comparison (sensor-off-card); — work-sharing implementations; — detailed specification and configuration of individual components. This document provides a functional architectural description of a BSoC and describes how the interfaces are mapped using existing commands and data structures from other International Standards."
+  },
+  {
+    "reference": "ISO/IEC 17839-2:2024",
+    "edition": "2.0",
+    "date": "2024-08-12",
+    "title": "Information technology - Biometric System-on-Card - Part 2: Physical characteristics",
+    "language": "EN",
+    "description": "This document defines: — dimensions of a type ID-1 Biometric System-on-Card (BSoC) and type ID-T BSoC; — position and capture area of the biometric capture device according to the needs of the biometric modality; — minimum requirements to a BSoC with respect to: — mechanical durability; and — human-machine interface and ergonomics. This document is not applicable to other on-card devices such as an electronic display or a keypad."
+  },
+  {
+    "reference": "ISO/IEC 17839-3:2026",
+    "edition": "2.0",
+    "date": "2026-05-05",
+    "title": "Information technology - Biometric System-on-Card - Part 3: Logical information interchange mechanism",
+    "language": "EN",
+    "description": "This document specifies: logical data structures for a Biometric System-on-Card (BSoC); enrolment procedures; and usage of commands and data structures defined in other International Standards for BSoC. This document does not define requirements for: commands and data structures that apply to devices external to a BSoC; commands and data structures that apply to logical interfaces inside a BSoC."
+  },
+  {
+    "reference": "ISO/IEC 18013-1:2018",
+    "edition": "2.0",
+    "date": "2018-07-20",
+    "title": "Information technology - Personal identification - ISO-compliant driving licence - Part 1: Physical characteristics and basic data set",
+    "language": "EN",
+    "description": "This document establishes guidelines for the design format and data content of an ISO-compliant driving licence (IDL) in regard to both visual human-readable features and ISO machine-readable technologies. It creates a common basis for international use and mutual recognition of the IDL without impeding individual national/community/regional motor vehicle authorities in taking care of their specific needs. The design approach of the IDL ISO ID-1 size card is to establish a secure domestic driving permit (DDP) for both human verification and machine readability and accompanying booklet with sleeve insert pocket for international use instead of the international driving permit (IDP) paper document (see Annex G). The basic document design premises include: — A minimum common mandatory data element set. — A common layout for ease of recognition. — Minimum security requirements for both human and machine verification. — Interoperability of the machine-readable content. At the discretion of national/community/regional motor vehicle authorities it allows for: — Inclusion of supplementary optional data elements to meet the needs of specific national/community/regional requirements apart from the minimum common mandatory data element set. — Additional document physical security elements at the option of national/community/regional authorities, and facilitates international procurements. — Incorporation of ISO/IEC JTC1/SC17 machine-readable technologies including integrated circuit with contacts and contactless integrated circuit technology, and ISO/IEC JTC1/SC31 1-dimensional / 2-dimensional bar codes, at the option of national/community/regional authorities. — Incorporation of current and future technologies (including biometrics, cryptography, data compression) at the option of national/community/regional authorities. A major benefit of these design premises is that a single card may serve a dual purpose of both a national/community/regional licence as well as an internationally recognized licence. Therefore, one card, in most cases, can replace the need for two documents. Alternatively, those countries that choose to maintain their individual domestic design or not to use Latin characters on their domestic driving licence for example can issue a second card with or without ISO machine-readable technologies. This second card can serve as DDP to be used with the accompanying booklet with sleeve insert pocket for international use instead of the current IDP paper document. This new IDL design yields a document that: — Is more secure from counterfeiting and alteration than the previous DDP and IDP documents. — Allows authorities to verify the authenticity of the document. — Integrates the personal data into a secure ID-1 size medium. — Allows a more reliable identification of the licence holder. — Allows for machine-readable technologies. — Facilitates information exchange and mutual recognition among motor vehicle authorities. — Allows the IDL to serve simultaneously as a DDP and IDP when accompanied by the booklet. Issuing authorities may introduce other functions to an IDL provided that it does not interfere with the driving licence function and the requirements in this document are not compromised."
+  },
+  {
+    "reference": "ISO/IEC 18013-2:2020",
+    "edition": "2.0",
+    "date": "2020-06-23",
+    "title": "Personal identification - ISO-compliant driving licence - Part 2: Machine-readable technologies",
+    "language": "EN",
+    "description": "The purpose of storing IDL data on machine-readable media on the IDL is to: — increase productivity (of data and IDL use), — facilitate electronic data exchange, and — assist in authenticity and integrity validation. This document thus specifies the following: — mandatory and optional machine-readable data; — the logical data structure; — encoding rules for the machine-readable technologies currently supported. To prevent unauthorised access to the data contained on a contactless IC (e.g. by eavesdropping), the privacy of the licence holder is protected via basic access protection requiring a human-readable and/or machine-readable key/password on the IDL to access the data on the PIC (via protected-channel communication). The implementation details of this function are defined in ISO/IEC 18013-3."
+  },
+  {
+    "reference": "ISO/IEC 18013-2:2020/AMD1:2023",
+    "edition": "2.0",
+    "date": "2023-04-24",
+    "title": "Personal identification - ISO-compliant driving licence - Part 2: Machine-readable technologies - Amendment 1: DG11 length for compact encoding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18013-3:2017",
+    "edition": "2.0",
+    "date": "2017-04-04",
+    "title": "Information technology - Personal identification - ISO-compliant driving licence - Part 3: Access control, authentication and integrity validation",
+    "language": "EN",
+    "description": "ISO/IEC 18013 establishes guidelines for the design format and data content of an ISO-compliant driving licence (IDL) with regard to human-readable features (ISO/IEC 18013‑1), machine-readable technologies (ISO/IEC 18013‑2), and access control, authentication and integrity validation (ISO/IEC 18013‑3). It creates a common basis for international use and mutual recognition of the IDL without impeding individual countries/states to apply their privacy rules and national/community/regional motor vehicle authorities in taking care of their specific needs. ISO 18013-3:2017 - is based on the machine-readable data content specified in ISO/IEC 18013‑2; - specifies mechanisms and rules available to issuing authorities (IAs) for: - access control (i.e. limiting access to the machine-readable data recorded on the IDL), - document authentication (i.e. confirming that the document was issued by the claimed IA), and - data integrity validation (i.e. confirming that the data has not been changed since issuing). ISO 1813-3:2017 does not address issues related to the subsequent use of data obtained from the IDL, e.g. privacy issues."
+  },
+  {
+    "reference": "ISO/IEC 18013-3:2017/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-01-05",
+    "title": "Information technology - Personal identification - ISO-compliant driving licence - Part 3: Access control, authentication and integrity validation - Amendment 1: PACE protocol",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18013-3:2017/AMD2:2023",
+    "edition": "2.0",
+    "date": "2023-04-24",
+    "title": "Information technology - Personal identification - ISO-compliant driving licence - Part 3: Access control, authentication and integrity validation - Amendment 2: Updates for passive authentication",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18013-4:2019",
+    "edition": "2.0",
+    "date": "2019-11-08",
+    "title": "Personal identification - ISO-compliant driving licence - Part 4: Test methods",
+    "language": "EN",
+    "description": "This document describes the test methods used for conformity testing, that is methods for determining whether a driving licence can be considered to comply with the requirements of the ISO/IEC 18013 series for: — machine readable technologies (ISO/IEC 18013-2), and — access control, authentication and integrity validation (ISO/IEC 18013-3). The test methods described in this document are based on specifications defined in ISO/IEC 18013-2 and ISO/IEC 18013-3 and underlying normative specifications. This document deals with test methods specific to IDL requirements. Test methods applicable to (smart) cards in general (e.g. those specified in the ISO/IEC 10373 series) are outside the scope of this document. Hence the purpose of this document is to: — provide IDL implementers with requirements for conformity evaluation, — provide IDL issuing authorities with requirements for quality assurance, and — provide test laboratories and test tool providers with test suite requirements."
+  },
+  {
+    "reference": "ISO/IEC 18013-4:2019/AMD1:2024",
+    "edition": "2.0",
+    "date": "2024-01-12",
+    "title": "Personal identification - ISO-compliant driving licence - Part 4: Test methods - Amendment 1: Test methods for compact encoding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 18013-5:2021",
+    "edition": "1.0",
+    "date": "2021-09-30",
+    "title": "Personal identification - ISO-compliant driving licence - Part 5: Mobile driving licence (mDL) application",
+    "language": "EN",
+    "description": "This document establishes interface specifications for the implementation of a driving licence in association with a mobile device. This document specifies the interface between the mDL and mDL reader and the interface between the mDL reader and the issuing authority infrastructure. This document also enables parties other than the issuing authority (e.g. other issuing authorities, or mDL verifiers in other countries) to: — use a machine to obtain the mDL data; — tie the mDL to the mDL holder; — authenticate the origin of the mDL data; — verify the integrity of the mDL data. The following items are out of scope for this document: — how mDL holder consent to share data is obtained; — requirements on storage of mDL data and mDL private keys."
+  },
+  {
+    "reference": "ISO/IEC TS 18013-6:2025",
+    "edition": "2.0",
+    "date": "2025-11-28",
+    "title": "Personal identification - ISO-compliant driving licence - Part 6: mDL test methods",
+    "language": "EN",
+    "description": "This document specifies test methods for testing conformity of a mobile driving licence (mDL) or an mDL reader to ISO/IEC 18013-5. This document specifies test methods for: — mDL on its interface to an mDL reader; — mDL reader on its interface to an mDL; — mDL reader on its (optional) interface to an issuing authority infrastructure. Test cases for an issuing authority infrastructure on its interface to an mDL reader are not included in this document. Test cases for the use of OpenID Connect (OIDC) by an mDL reader on its interface to an issuing authority infrastructure are not included in this document. This document only provides test cases for the use of WebAPI on this interface. This document only addresses the functional behaviour of an implementation under test (IUT) on its interface(s) in scope. It does not address: — the internal implementation of an IUT, such as a secure area in an mDL; — any functional requirements to an IUT not specified in ISO/IEC 18013-5, for example, requirements of a particular issuing authority; — non-functional aspects of the IUT, nor IUT interfaces not listed above, such as the interface from an issuing authority infrastructure to an mDL, used to provision mDL data."
+  },
+  {
+    "reference": "ISO/IEC TS 18013-7:2025",
+    "edition": "2.0",
+    "date": "2025-05-29",
+    "title": "Personal identification - ISO-compliant driving licence - Part 7: Mobile driving licence (mDL) add-on functions",
+    "language": "EN",
+    "description": "This document augments the capabilities of the mobile driving licence (mDL) standardized in ISO/IEC 18013-5 with the following additional functionality: — presentation of a mobile driving licence to a reader over the internet."
+  },
+  {
+    "reference": "ISO/IEC TR 18268:2013",
+    "edition": "1.0",
+    "date": "2013-12-10",
+    "title": "Identification cards - Contactless integrated circuit cards - Proximity cards - Multiple PICCs in a single PCD field",
+    "language": "EN",
+    "description": "ISO/IEC TR 18268:2013 presents a collation of industry experience of technical issues resulting from the presence of multiple PICCs (proximity card or object) in the field of a PCD (proximity coupling device). It describes how resonance frequencies may shift, how individual PICCs may see a reduced field strength, how multiple PICCs load the PCD, how they may change the local modulation signal and how PICCs should manage their identities to aid support of simultaneous usage. Scenarios for electronic passports with multiple visas and wallets containing multi-industry cards are explored."
+  },
+  {
+    "reference": "ISO/IEC 18328-1:2015",
+    "edition": "1.0",
+    "date": "2015-12-03",
+    "title": "Identification cards - ICC-managed devices - Part 1: General framework",
+    "language": "EN",
+    "description": "ISO/IEC 18328-1:2015 describes the general architecture of an ICC with ICC-managed devices. ISO/IEC 18328-1:2015 is one of a series of International Standards which outlines the content and the boundaries covered and standardised by the other parts of ISO/IEC 18328. The general principle of this part of ISO/IEC 18328 is that all activities regarding the ICC-managed devices are controlled by the card-IC. This principle also applies when ICC-managed devices are outside the card. ISO/IEC 18328-1:2015 is applicable for all kind of cards independent from interface technology for communication."
+  },
+  {
+    "reference": "ISO/IEC 18328-2:2021",
+    "edition": "2.0",
+    "date": "2021-11-18",
+    "title": "Identification cards - ICC-managed devices - Part 2: Physical characteristics and test methods for cards with devices",
+    "language": "EN",
+    "description": "This document defines physical characteristics and test methods for cards with devices, including but not limited to, power supplying devices, displays, sensors, microphones, loudspeakers, buttons or keypads. This document also covers aspects of coexistence of technologies of devices on the card and other machine-readable card technologies. Additional requirements related to biometric capture devices are defined in ISO/IEC 17839-2. Such requirements can be applied in addition to the ones defined in this document. ISO/IEC 17839-2 defines a type S2 card; the physical dimensions of the type S2 card are specified in Annex A."
+  },
+  {
+    "reference": "ISO/IEC 18328-3:2016",
+    "edition": "1.0",
+    "date": "2016-10-14",
+    "title": "Identification cards - ICC-managed devices - Part 3: Organization, security and commands for interchange",
+    "language": "EN",
+    "description": "ISO/IEC 18328-3:2016 specifies the logical interface of an application supporting the necessary security features in a card-IC which communicates with the external world by a physical interface supporting APDUs. This application supports the usage of electronic devices. This involves the design of commands, data structures and security mechanisms which are required to handle the data and handling the additional devices itself. The handling of the additional devices is always controlled by the card-IC. External inputs or outputs shall be managed by the existing interfaces. This document deals not with physical characteristics of the card and interface technology, but only with the logical aspects. Management of data for additional devices that is not subdued by the COS or application control is out of the scope of this document. Definitions of coding requirement for \"trust assessment\" of the managed data like warning, font, colour etc. is in the scope of this document. A description of the logical internal interface functionality used by the COS or by device drivers, if any, is also part of this document. Due to the fact that relevant technologies may evolve or be adopted very fast, this document defines commands and structures supporting extensions and adaptations."
+  },
+  {
+    "reference": "ISO/IEC 18328-4:2018",
+    "edition": "1.0",
+    "date": "2018-06-13",
+    "title": "Identification cards - ICC-managed devices - Part 4: Test methods for logical characteristics",
+    "language": "EN",
+    "description": "This document specifies the test methods used for conformity testing, to determine whether an ICC with at least one ICC-managed device is considered to conform with the specifications of ISO/IEC 18328-3, e.g. device management and device handling."
+  },
+  {
+    "reference": "ISO/IEC 18584:2015",
+    "edition": "1.0",
+    "date": "2015-11-16",
+    "title": "Information technology  - Identification cards - Conformance test requirements for on-card biometric comparison applications",
+    "language": "EN",
+    "description": "ISO 18584:2015 establishes - conformance test requirements for using general framework for on-card comparison applications, - conformance test requirements for using work-sharing mechanism for on-card comparison applications, and - conformance test requirements to check accomplishment of security policies for on-card biometric comparison that are specified in ISO/IEC 24787:2010. ISO 18584:2015 only covers the testing of APDU command and response pairs involved for the ICC that has the capability to perform on-card biometric comparison based on ISO/IEC 24787:2010. Measuring the performance of on-card biometric comparison algorithms in terms of error rates is not within the scope of this International Standard."
+  },
+  {
+    "reference": "ISO/IEC 18584-1:2025",
+    "edition": "1.0",
+    "date": "2025-05-29",
+    "title": "Information technology - Test methods for on-card biometric comparison applications - Part 1: General principles and specifications",
+    "language": "EN",
+    "description": "This document establishes conformance testing for the requirements described in ISO/IEC 24787-1, which are: — framework for on-card biometric comparison, both in sensor-off-card systems and as part of Biometric System-on-Card; — security policies for on-card biometric comparison. Measuring the performance of on-card biometric comparison algorithms such as error rates or speed is not within the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 18584-2:2025",
+    "edition": "1.0",
+    "date": "2025-05-29",
+    "title": "Information technology - Test methods for on-card biometric comparison applications - Part 2: Work-sharing mechanism",
+    "language": "EN",
+    "description": "This document establishes conformance testing for the requirement described in ISO/IEC 24787-2, which is: — work-sharing on-card biometric comparison. Measuring the performance of on-card biometric comparison algorithms such as error rates or speed is not within the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 18745-1:2018",
+    "edition": "2.0",
+    "date": "2018-07-23",
+    "title": "Test methods for machine readable travel documents (MRTD) and associated devices - Part 1: Physical test methods for passport books (durability)",
+    "language": "EN",
+    "description": "This document provides a set of instructions for evaluation of MRPs which may incorporate contactless integrated circuits. This evaluation is an instrument to establish the ability in principle of a specific type of document to fulfil the requirements of use. It supplies a structured approach to evaluate MRPs by: — defining reproducible stress methods to submit the document(s) under evaluation to specific stress or environmental conditions; — defining reproducible evaluation methods to measure numerical values for specific document properties; — defining test sequences that specify the order in which stress methods and evaluation methods are to be performed; — defining test plans to link specific user requirements to test sequences and related parameters. It specifies the minimum criteria to be achieved in order to meet ICAO's expectations for durability of fully personalized MRPs."
+  },
+  {
+    "reference": "ISO/IEC 18745-2:2021",
+    "edition": "2.0",
+    "date": "2021-09-16",
+    "title": "Test methods for machine readable travel documents (MRTD) and associated devices - Part 2: Test methods for the contactless interface",
+    "language": "EN",
+    "description": "This document defines the conformance test plan, based on ISO/IEC 10373-6, for the contactless interface of eMRTDs and eMRTD associated readers compliant with ICAO Doc 9303. Application requirements for eMRTD and eMRTD reader are outside of the scope of this document and are defined in ICAO Doc 9303-10."
+  },
+  {
+    "reference": "ISO/IEC TR 18781:2015",
+    "edition": "1.0",
+    "date": "2015-10-13",
+    "title": "Identification cards - Laundry testing of ID Cards",
+    "language": "EN",
+    "description": "ISO/IEC TR 18781:2015 gives guidance on the principles and methods of testing ID cards to simulate accidental exposure to conditions encountered during the washing and drying of clothing. The physical properties of a card may degrade after exposure and the test methods described may be useful for comparing different card materials or types. Although there are many variations in the design and operation of washing machines, the operation of washing, rinsing, and water removal is common to all types of machine. For simplicity, one washing and drying cycle is specified, which is thought to be typical, according to industry sources. Additional wash cycles and/or different temperature conditions can be used for comparative purposes if desired."
+  },
+  {
+    "reference": "ISO/IEC 19286:2018",
+    "edition": "1.0",
+    "date": "2018-01-08",
+    "title": "Identification cards - Integrated circuit cards - Privacy-enhancing protocols and services",
+    "language": "EN",
+    "description": "ISO/IEC 19286:2018 aims to normalize privacy-enhancing protocols and services by - using the mechanisms from parts of ISO/IEC 7816 and parts of ISO/IEC 18328 that contribute to security and privacy, - providing discoverability means of privacy-enabling attributes, - defining requirements for attribute-based credential handling, and - identifying data objects and commands for ICCs. Existing privacy-enhancing protocols available in a generic context are adopted for distributed systems including ICCs. Additionally, existing authentication protocols between an ICC and an external device used for establishing a secure channel are enhanced with privacy protection. Secure communication between an ICC and an on-card device is also considered. All the protocols and services described in this document contribute to privacy. Annex B describes an example of privacy impact assessments of respective systems."
+  },
+  {
+    "reference": "ISO/IEC TR 19446:2015",
+    "edition": "1.0",
+    "date": "2015-08-14",
+    "title": "Differences between the driving licences based on the ISO/IEC 18013 series and the European Union specifications",
+    "language": "EN",
+    "description": "ISO/IEC TR 19446:2015 is applicable to driving licences which include a microchip and claim compliance to the EU Regulation on driving licences. ISO/IEC TR 19446:2015 proposes: - details that are missing for the implementation of Commission Regulation (EU) No 383/2012 Annex II item 1 ? 10; - the subset of the ISO/IEC 18013‑4:2011 test methods that are applicable to Commission Regulation (EU) No 383/2012 Annex II item 12; - further test methods that are applicable to Commission Regulation (EU) No 383/2012 Annex II item 12; these test methods are due to EU driving licence requirements that are incompatible with ISO/IEC 18013‑2:2008. The following Commission Regulation (EU) No 383/2012 Annex II requirements are out of the scope of this Technical Report: - item 11 extended access restriction ? EAC; - item 13: requirements on the security certificate; - item 14 functional certificate - smart card testing according to the ISO/IEC 10373‑ series."
+  },
+  {
+    "reference": "ISO/IEC 20060:2010",
+    "edition": "2.0",
+    "date": "2010-06-22",
+    "title": "Information technology - Open Terminal Architecture (OTA) - Virtual machine",
+    "language": "EN",
+    "description": "ISO/IEC 20060:2010 provides the specifications for the standard Open Terminal Architecture (OTA) kernel in several layers: definition of the virtual machine (VM); description of the services provided by the VM to terminal programmers; specification of a set of tokens representing the native machine language of the VM; specification of the format in which token modules are delivered to an OTA kernel for processing. OTA defines a standard software kernel whose functions and programming interface are common across all terminal types. This kernel is based on a standard VM, which is implemented on each CPU type and which provides drivers for the terminal's I/O and all low-level CPU-specific logical and arithmetic functions. High-level libraries, terminal programs and payment applications may be developed using these standard kernel functions."
+  },
+  {
+    "reference": "ISO/IEC 22460-1:2025",
+    "edition": "1.0",
+    "date": "2025-05-02",
+    "title": "Cards and security devices for personal identification - ISO UAS licence and drone or UAS security module - Part 1: Physical characteristics and basic data sets for UAS licence",
+    "language": "EN",
+    "description": "This document establishes requirements and recommendations for the design format and data content of a drone or UAS remote pilot and remote crew licence, encompassing both visual human-readable features and machine-readable technologies. By establishing a common basis, this document aims to standardize drone or UAS remote pilot and remote crew licence without impeding the efforts of individual national or regional drone or UAS-related authorities. NOTE Not all jurisdictions require drone or UAS remote pilot and remote crew licences."
+  },
+  {
+    "reference": "ISO/IEC 22460-2:2024",
+    "edition": "1.0",
+    "date": "2024-04-24",
+    "title": "Cards and security devices for personal identification - ISO UAS license and drone/UAS security module - Part 2: Drone/UAS security module",
+    "language": "EN",
+    "description": "This document specifies cryptographic functions of the drone/unmanned aircraft system (UAS) security module. The drone/UAS security module is a security device that serves as a container for the drone/UAS pilot license, drone/UAS operator license, and other personal identification. It provides storage space for storing optional elements and has the capability of cryptographic functions including integrity validation, authentication and data encryption."
+  },
+  {
+    "reference": "ISO/IEC 22460-3:2026",
+    "edition": "1.0",
+    "date": "2026-02-02",
+    "title": "Cards and security devices for personal identification - ISO UAS licence and drone or UAS security module - Part 3: Digital UAS or drone licence",
+    "language": "EN",
+    "description": "The document specifies doctype, namespace and a set of data elements for digital UAS or drone licences (or training certificates) supporting mdoc data model specified in ISO/IEC 18013-5 and ISO/IEC TS 23220-2. This document is also applicable for any remote pilot licences or training certificates issued by aviation authorities. This document does not specify either licence categories and licence conditions and is designed to define any domestic licences and training certificates by defining domestic namespaces in accordance with each region and/or state’s regulations. The digital UAS or drone licence data specified in this document is applicable to mdoc application as defined in ISO/IEC 23220-1 and transmission protocol specified in ISO/IEC 18013-5, ISO/IEC TS 18013-7 and ISO/IEC TS 23220-4."
+  },
+  {
+    "reference": "ISO/IEC TS 22924:2021",
+    "edition": "1.0",
+    "date": "2021-05-27",
+    "title": "Identification cards - Transport layer topologies - Configuration for HCI/HCP interchange",
+    "language": "EN",
+    "description": "This document specifies the requirements for a protocol derived from HCI/HCP (see ETSI TS 102 622) enabling communication for devices regardless of data link and physical layers. This document covers the following: a) outline of a system comprised of one or more hosts and one controller; b) extension of connection topology between hosts and host controller (i.e. star topology and additional other topologies); c) segregation between existing system using ETSI TS102 613 and new system compliant to this document (this document refers ETSI TS 102 613, but does not change its specification and does not use RFU). For ETSI TS 102 622, data link layer and physical layer like SWP specified in ETSI TS 102 613 is out of the scope. Albeit questioned in this document, the duplication of OSI transport layer by e.g. enforcing encapsulation of HCP into T=1 or the reverse, is out of the scope."
+  },
+  {
+    "reference": "ISO/IEC 23220-1:2023",
+    "edition": "1.0",
+    "date": "2023-02-03",
+    "title": "Cards and security devices for personal identification - Building blocks for identity management via mobile devices - Part 1: Generic system architectures of mobile eID systems",
+    "language": "EN",
+    "description": "This document specifies generic system architectures and generic life-cycle phases of mobile eID systems in terms of building blocks for mobile eID system infrastructures. It standardizes interfaces and services for mdoc apps and mobile verification applications. It is applicable to entities involved in specifying, architecting, designing, testing, maintaining, administering and operating a mobile eID system in parts or entirely."
+  },
+  {
+    "reference": "ISO/IEC TS 23220-2:2026",
+    "edition": "2.0",
+    "date": "2026-04-10",
+    "title": "Cards and security devices for personal identification - Building blocks for identity management via mobile devices - Part 2: Data objects and encoding rules for generic eID systems",
+    "language": "EN",
+    "description": "This document specifies data objects and encoding rules of generic eID-Systems in terms of building blocks for mobile document system infrastructures, and standardizes generic data models for data exchanges between mdoc apps and verification applications. This document is applicable to entities involved in specifying, architecting, designing, testing, maintaining, administering, and operating a mobile eID-System in parts or as a whole."
+  },
+  {
+    "reference": "ISO/IEC TS 23220-3:2026",
+    "edition": "1.0",
+    "date": "2026-06-01",
+    "title": "Cards and security devices for personal identification - Building blocks for identity management via mobile devices - Part 3: Protocols and services for installation and issuing phase",
+    "language": "EN",
+    "description": "This document provides building blocks for mobile eID-System infrastructures and normalizes protocols, interfaces and services for mdoc apps by: specifying interfaces for data interchange for installing of software in installation phase as well as issuing and deriving of attributes and credentials in issuing phase; specifying security and data protection mechanisms; applying privacy-enhancing mechanisms; specifying discoverability mechanisms. Mechanisms for updating or revoking of attributes and credentials or mdocs are out of scope of this document and are provided by SA specific protocols. This document is applicable to entities involved in specifying, architecting, designing, testing, maintaining, administering and operating a mobile eID-System in parts or entirely."
+  },
+  {
+    "reference": "ISO/IEC TS 23220-4:2026",
+    "edition": "1.0",
+    "date": "2026-04-10",
+    "title": "Cards and security devices for personal identification - Building blocks for identity management via mobile devices - Part 4: Protocols and services for operational phase",
+    "language": "EN",
+    "description": "This document specifies building blocks for the implementation of the operational phase of mobile eID systems and any other mdoc for national bodies or document-specific standards to create profiles according to their needs. This document specifies the interface between the mdoc app and mdoc reader and the interface between the mdoc reader and the issuing authority infrastructure. More specifically, this document defines transport protocols for various RF solutions and for over the internet. It defines the application layers, such as the request-response protocols between an mdoc app and mdoc reader and between an mdoc reader and issuing authority. It further defines the security mechanism for issuer authentication, mdoc authentication and credential holder verification. This document also specifies mechanisms enabling parties other than the issuing authority to: use a machine to obtain the mdoc data; bind the mdoc to the mdoc holder; authenticate the origin of the mdoc data; verify the integrity of the mdoc data. The following items are out of scope for this document: provisioning of the mdoc data (this is covered by ISO/IEC TS 23220-3); how holder’s consent to share data is obtained; requirements on storage of mdoc data and mdoc private keys. Finally, it provides information to create a conformant profile."
+  },
+  {
+    "reference": "ISO/IEC TS 23220-6:2025",
+    "edition": "1.0",
+    "date": "2025-10-21",
+    "title": "Cards and security devices for personal identification - Building blocks for identity management via mobile devices - Part 6: Mechanism for use of certification on trustworthiness of secure area",
+    "language": "EN",
+    "description": "This document specifies mechanism for use of certification on trustworthiness of secure area that is defined in ISO/IEC 23220-1. This document aims at enabling secure area providers to describe capabilities and confidence level of secure area for verification by eID issuers or mobile eID Attestation service providers, or both. This document specifies: — list of elements describing capabilities and confidence level of a secure area; — structure and management for use of a certificate, affixed or not to the secure area, containing that list of elements. This document refers to existing standards and applicable industry specifications which partly address the trustworthiness related issue (e.g. DLOA specified in GlobalPlatform specification GPC_SPE_095 [ 1 ] , MDS specified in FIDO Alliance specification [ 2 ] , and SAAO specified in ISO/IEC TS 23220-3), and aims to minimize the differences between them."
+  },
+  {
+    "reference": "ISO/IEC 23465-1:2023",
+    "edition": "1.0",
+    "date": "2023-02-15",
+    "title": "Card and security devices for personal identification - Programming interface for security devices - Part 1: Introduction and architecture description",
+    "language": "EN",
+    "description": "This document introduces and describes the concept of the application programming interface (API) to security devices with the intention to simplify the usage of commands and mechanisms defined by the ISO/IEC 7816 series. This document gives guidelines on: — the system overview and description of the system of the programming interface; — the architecture description; — the data model in general, used by the API; — the use cases and the usage model of the API."
+  },
+  {
+    "reference": "ISO/IEC TS 23465-2:2023",
+    "edition": "1.0",
+    "date": "2023-02-15",
+    "title": "Card and security devices for personal identification - Programming interface for security devices - Part 2: API definition",
+    "language": "EN",
+    "description": "This document describes the following aspects of the programming interface between the client application dealing with the security device and the proxy, based on the framework outlined in ISO/IEC 23465-1: — the generic API definition; — state and security models for use cases; — class and API definitions of functionality, defined in other standards, e.g. the ISO/IEC 7816 series."
+  },
+  {
+    "reference": "ISO/IEC TS 23465-3:2023",
+    "edition": "1.0",
+    "date": "2023-05-15",
+    "title": "Card and security devices for personal identification - Programming interface for security devices - Part 3: Proxy",
+    "language": "EN",
+    "description": "This document describes the software (SW) layer called “proxy”. It supports the programming interface to security devices and the application using this API to access the application related security devices defined in ISO/IEC TS 23465-2. This document is applicable to: — proxy requirements, functionality and layers; — resolving mechanisms for API functions; — data structures related to security device handling; — translation for security device communication; — serialization/de-serialization syntax and methods."
+  },
+  {
+    "reference": "ISO/IEC TS 24192-1:2021",
+    "edition": "1.0",
+    "date": "2021-05-05",
+    "title": "Cards and security devices for personal identification - Communication between contactless readers and fare media used in public transport - Part 1: Implementation requirements for ISO/IEC 14443 (all parts)",
+    "language": "EN",
+    "description": "This document defines the technical requirements to be met by contactless public transport (PT) devices in order to be able to interface together using the ISO/IEC 14443 (all parts) contactless communications protocol. This document applies to PT devices: — PT readers which are contactless fare management system terminals acting as a PCD contactless reader based on ISO/IEC 14443 (all parts); — PT objects which are contactless fare media acting as a PICC contactless object based on ISO/IEC 14443 (all parts). This document addresses interoperability of consumer-market NFC mobile devices, compliant to NFC Forum specifications, with above mentioned PT devices, aligns with ISO/IEC 14443 (all parts) and does not seek to limit compliance for PT readers with EMV Contactless Interface Specification."
+  },
+  {
+    "reference": "ISO/IEC TS 24192-2:2021",
+    "edition": "1.0",
+    "date": "2021-05-05",
+    "title": "Cards and security devices for personal identification - Communication between contactless readers and fare media used in public transport - Part 2: Test plan for ISO/IEC 14443 (all parts)",
+    "language": "EN",
+    "description": "This document lists all the test conditions to be performed on a PT reader or a PT object in order to ensure that all the requirements specified in ISO/IEC TS 24192-1 are met for the PT device under test. This document applies to PT devices only: — PT readers which are contactless fare management system terminals acting as a PCD contactless reader based on ISO/IEC 14443 (all parts); — PT objects which are contactless fare media acting as a PICC contactless object based on ISO/IEC 14443 (all parts). This document applies solely to the contactless communication layers described in ISO/IEC 14443 (all parts). Application-to-application exchanges executed once contactless communication has been established at RF level fall outside the scope of this document. However, a test application is used to make end-to-end transactions during tests on the RF communication layer. This document does not duplicate the contents of ISO/IEC 14443 (all parts) or ISO/IEC 10373‑6. It makes reference to the ISO/IEC 10373‑6 applicable test methods, specifies the test conditions to be used and describes the additional specific test conditions that can be run."
+  },
+  {
+    "reference": "ISO/IEC 24727-1:2014",
+    "edition": "2.0",
+    "date": "2014-06-16",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 1: Architecture",
+    "language": "EN",
+    "description": "ISO/IEC 24727 specifies a set of programming interfaces and protocols enabling interactions between integrated circuit cards (ICCs) and applications resident on a variety of computer platforms. The ICCs provide generic services for multi-sector use by the applications. The organization and the operation of the ICCs conform to ISO/IEC 7816 4. It is anticipated that some application domains will seek to achieve interoperability through ISO/IEC 24727 facilities even though the applications pre-exist these facilities. To this end, various means of backward compatibility are established through mechanisms specified in ISO/IEC 24727. ISO/IEC 24727-1:2014 specifies system architecture and principles of operation, the means for achieving interoperability among diverse application domains, the conceptual service and data models that span the relevant application domains, and the rationale for trusted processes enabled under these models."
+  },
+  {
+    "reference": "ISO/IEC 24727-2:2008",
+    "edition": "1.0",
+    "date": "2008-09-30",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 2: Generic card interface",
+    "language": "EN",
+    "description": "ISO/IEC 24727-2:2008 defines a generic card interface for integrated circuit cards. This interface is presented as: command-response pairs for interoperability, card and application capability description and determination. ISO/IEC 24727-2:2008 is based on ISO/IEC 7816-4, ISO/IEC 7816-8, ISO/IEC 7816-9, and ISO/IEC 7816-15."
+  },
+  {
+    "reference": "ISO/IEC 24727-2:2008/AMD1:2014",
+    "edition": "1.0",
+    "date": "2014-03-24",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 2: Generic card interface - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24727-3:2008",
+    "edition": "1.0",
+    "date": "2008-11-20",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 3: Application interface",
+    "language": "EN",
+    "description": "ISO/IEC 24727 is a set of programming interfaces for interactions between integrated circuit cards (ICCs) and external applications to include generic services for multi-sector use. The organization and the operation of the ICC conform to ISO/IEC 7816-4. ISO/IEC 24727 is relevant to ICC applications desiring interoperability among diverse application domains. ISO/IEC 24727-3:2008 defines services as representations of action requests and action responses to be supported at the client-application service interface. The services are described in a programming language independent way. ISO/IEC 24727-3:2008 is the application interface of the Open Systems Interconnection Reference Model defined in ISO/IEC 7498-1. It provides a high-level interface for a client-application making use of information storage and processing operations of a card-application as viewed on the generic card interface. ISO/IEC 24727-3:2008 does not mandate a specific implementation methodology for this interface."
+  },
+  {
+    "reference": "ISO/IEC 24727-3:2008/COR1:2010",
+    "edition": "1.0",
+    "date": "2010-09-15",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 3: Application interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24727-3:2008/AMD1:2014",
+    "edition": "1.0",
+    "date": "2014-03-24",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 3: Application interface - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24727-4:2008",
+    "edition": "1.0",
+    "date": "2008-10-31",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 4: Application programming interface (API) administration",
+    "language": "EN",
+    "description": "ISO/IEC 24727 defines a set of programming interfaces for interactions between integrated circuit cards and external applications to include generic services for multi-sector use. ISO/IEC 24727-4:2008 standardizes the connectivity and security mechanisms between the client-application and the card-application. It specifies API-Administration of service-independent and implementation-independent ISO/IEC 24727 compliant modules, including security, that enables action requests to a specific card-application of an integrated circuit card such that, when coupled to data model and content discovery operations, the card-application can be used by a variety of client-applications."
+  },
+  {
+    "reference": "ISO/IEC 24727-4:2008/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-05-11",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 4: Application programming interface (API) administration - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24727-4:2008/AMD1:2014",
+    "edition": "1.0",
+    "date": "2014-03-24",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 4: Application programming interface (API) administration - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24727-5:2011",
+    "edition": "1.0",
+    "date": "2011-03-14",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 5: Testing procedures",
+    "language": "EN",
+    "description": "ISO/IEC 24727 is a set of programming interfaces for interactions between integrated circuit cards and external applications to include generic services for multi-sector use. ISO/IEC 24727-5:2011 specifies conformance testing procedures designed to determine if interfaces developed with the ISO/IEC 24727 series meet the requirement of ISO/IEC 24727. By conforming to ISO/IEC 24727-5:2011, interoperable implementations of ISO/IEC 24727 can be realized. Test procedures for ISO/IEC 24727-2, ISO/IEC 24727-3 and ISO/IEC 24727-4 are described with sufficient detailing in support of ISO/IEC 24727 interoperability requirements, i.e. the connectivity, ISO/IEC 24727 security mechanisms and discovery mechanisms between the client-application and the card-application. This part of ISO/IEC 24727 defines calls on ISO/IEC 24727-3 in an ordered sequence. It also defines the confirmation of integrity of transmitted data by an implementation under test, as well as the syntax of that data received from the implementation under test for the marshalling procedures defined in ISO/IEC 24727-3 and ISO/IEC 24727-4. For each test procedure, the conditions required for its execution are defined, along with the conditions under which it has to be executed and the expected results. Structures and entities used for the tests, as well as common set of recurring sequences used for the various procedures, are identified and documented in ISO/IEC 24727-5:2011."
+  },
+  {
+    "reference": "ISO/IEC 24727-6:2010",
+    "edition": "1.0",
+    "date": "2010-12-09",
+    "title": "Identification cards - Integrated circuit card programming interfaces - Part 6: Registration authority procedures for the authentication protocols for interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 24727-6:2010 defines the procedures for registration of authentication protocols (APs), including related cryptographic algorithms, test methods and conformance assessment criteria, and registration of the adoption of ISO/IEC 24727 APs by parties desiring to advertise AP interoperability."
+  },
+  {
+    "reference": "ISO/IEC 24787-1:2024",
+    "edition": "1.0",
+    "date": "2024-06-04",
+    "title": "Information technology - On-card biometric comparison - Part 1: General principles and specifications",
+    "language": "EN",
+    "description": "This document provides requirements and general principles and specifications for a biometric comparison methodology suitable for the on-card environment. This document establishes — architectures of biometric comparison using an ICC, — on-card biometric comparison, both in sensor-off-card systems and as part of biometric system-on-card, and — security policies for on-card biometric comparison. This document does not establish — requirements for off-card biometric comparison, — requirements for biometric system-on-card (defined in the ISO/IEC 17839 series ), — work-sharing on-card biometric comparison (defined in ISO/IEC 24787 - 2 ), or — modality-specific requirements for storage and comparison."
+  },
+  {
+    "reference": "ISO/IEC 24787-2:2024",
+    "edition": "1.0",
+    "date": "2024-06-04",
+    "title": "Information technology - On-card biometric comparison - Part 2: Work-sharing mechanism",
+    "language": "EN",
+    "description": "This document provides requirements for a biometric comparison methodology suitable for the on-card environment. In particular, it establishes the work-sharing on-card biometric comparison techniques that require an intensity exceeding the capabilities of integrated circuit cards (ICCs). This document does not establish — architectures of biometric comparison using an ICC, — on-card biometric comparison, both in sensor-off-card systems and as part of biometric system-on-card, — security policies for on-card biometric comparison, — requirements for off-card biometric comparison, — requirements for biometric system-on-card (defined in the ISO/IEC 17839 series ), or — modality-specific requirements for storage and comparison."
+  },
+  {
+    "reference": "ISO/IEC 24789-1:2024",
+    "edition": "2.0",
+    "date": "2024-01-08",
+    "title": "Identification cards - Card service life - Part 1: Application profiles and requirements",
+    "language": "EN",
+    "description": "This document comprises a methodology for determining a test plan to simulate a card's service life. The methodology defines two parameters of card service life: the expected card service life in years and the average number of uses per day. This document and ISO/IEC 24789-2, together along with ISO/IEC 10373-1 describe the evaluation methods to be used and their criteria. This document was originally developed for ID-1 cards conforming to ISO/IEC 7810 but can be useful in whole or in part for other types and form factors."
+  },
+  {
+    "reference": "ISO/IEC 24789-2:2024",
+    "edition": "2.0",
+    "date": "2024-01-08",
+    "title": "Identification cards - Card service life - Part 2: Methods of evaluation",
+    "language": "EN",
+    "description": "This document provides methods of evaluation for ID-1 identification card service life for the applications provided in ISO/IEC 24789-1. The listed evaluation methods represent available tests, not mandatory tests. The selection of mandatory tests is listed in ISO/IEC 24789-1."
+  },
+  {
+    "reference": "ISO/IEC TR 25219:2025",
+    "edition": "2.0",
+    "date": "2025-12-19",
+    "title": "Personal identification - ISO-compliant driving licence - Considerations for early adopters of ISO/IEC 18013-7",
+    "language": "EN",
+    "description": "This document specifies considerations that can be of use to implementers and developers that elect to participate in work around updates to ISO/IEC TS 18013-7 . These considerations are intended to support the improvements, to maximize backward compatibility and to, at minimum, maintain the security and privacy properties already embodied in ISO/IEC TS 18013-7 . This document also provides additional information related to these considerations."
+  },
+  {
+    "reference": "ISO/IEC TR 30117:2021",
+    "edition": "2.0",
+    "date": "2021-08-27",
+    "title": "Information technology - Standards and applications for the integration of biometrics and integrated circuit cards (ICCs)",
+    "language": "EN",
+    "description": "This document summarizes how some of the main international standards and recommendations approach personal identification and its related information security, with regard to the integration of biometrics and integrated circuit cards (ICCs). It also provides examples of how biometrics and ICCs are integrated in applications."
+  },
+  {
+    "reference": "ISO/IEC TR 49794:2022",
+    "edition": "1.0",
+    "date": "2022-01-17",
+    "title": "Information technology - Transition examples from the ISO/IEC 19794:2005 series to the ISO/IEC 39794 series for ID documents",
+    "language": "EN",
+    "description": "This document provides transition examples from ISO/IEC 19794-4:2005 and ISO/IEC 19794-5:2005 formats to ISO/IEC 39794-4:2019 and ISO/IEC 39794-5:2019 formats for eMRTD application. This document also provides an implementation example for the ISO/IEC 39794-6:2021 format. This document includes: — information for eMRTD issuers and eMRTD-reader vendors; — summarized tables of data elements of ISO/IEC 19794-4:2005 and ISO/IEC 19794-5:2005 and ISO/IEC 39794-4:2019, ISO/IEC 39794-5:2019 and ISO/IEC 39794-6:2021; — correspondence tables of data elements between ISO/IEC 19794-4:2005 and ISO/IEC 19794-5:2005 and ISO/IEC 39794-4:2019 and ISO/IEC 39794-5:2019, providing: — information on whether each data element is normative or optional, and — a brief note of each data element from the viewpoint of transition; — tag, length, value (TLV) data examples of ISO/IEC 39794-4:2019, ISO/IEC 39794-5:2019 and ISO/IEC 39794-6:2021 for implementation, and, — tag lists of ISO/IEC 39794-4:2019, ISO/IEC 39794-5:2019 and ISO/IEC 39794-6:2021, and an extended example of ISO/IEC 39794-5 as informative annexes. The following are not within the scope of this document: — second and later editions of the ISO/IEC 19794 series (2011 and after), and, — ASN.1 formats and XML formats specified in the ISO/IEC 39794 series."
+  }
+]

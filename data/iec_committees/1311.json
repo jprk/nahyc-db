@@ -1,0 +1,114 @@
+[
+  {
+    "reference": "IEC 60990:2016",
+    "edition": "3.0",
+    "date": "2016-05-30",
+    "title": "Methods of measurement of touch current and protective conductor current",
+    "language": "EN-FR",
+    "description": "IEC 60990:2016 defines measurement methods for d.c. or a.c. current of sinusoidal or non-sinusoidal waveform, which could flow through the human body, and current flowing through a protective conductor. The measuring methods recommended for TOUCH CURRENT are based upon the possible effects of current flowing through a human body. In this standard, measurements of current through networks representing the impedance of the human body are referred to as measurements of TOUCH CURRENT. These networks are not necessarily valid for the bodies of animals. The specification or implication of specific limit values is not within the scope of this standard. IEC TS 60479 series provides information regarding the effects of current passing through the human body from which limit values may be derived. This standard is applicable to all classes of EQUIPMENT, according to IEC 61140. The methods of measurement in this standard are not intended to be used for TOUCH CURRENTS having less than 1 s duration, patient currents as defined in IEC 60601-1, a.c. at frequencies below 15 Hz, and currents above those chosen for ELECTRIC BURN limits. This third edition cancels and replaces the second edition published in 1999. It constitutes a technical revision. The principal changes in this edition as compared with the second edition are as follows: - the effects names have been updated to reflect increased understanding of the range of effects and is in concert with present usage; - the conditions of use invoking a GRIPPABLE PART have been reduced in the application of the requirements based upon the current understanding of this effect; - the references to ISO 10012-1, which has been replaced by management standard of the same number, have been replaced with explanatory text, where needed to maintain the sense of the document; - former informative Annex H (GRIPPABLE PART) has been deleted from this update as it does not properly represent the full set of conditions under which immobilization can occur. A new informative Annex H (Analysis of frequency filtered touch current circuits measurement) has been added and the Bibliography (formerly Annex M) has been updated with additional references for completeness. This basic safety publication is primarily intended for use by technical committees in the preparation of standards in accordance with IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies independent of product standards. It has the status of a Basic Safety Publication in accordance with IEC Guide 104. Key words: Touch Current, Protective Conductor Current, Current Flow"
+  },
+  {
+    "reference": "IEC TR 62102:2005",
+    "edition": "2.0",
+    "date": "2005-05-30",
+    "title": "Electrical safety - Classification of interfaces for equipment to be connected to information and communications technology networks",
+    "language": "EN",
+    "description": "IEC TR 62102:2005 This technical report is a guide to the determination of the interface requirements for equipment in terms of safety. It lists a number of interfaces and indicates the safety category of each listed interface. This technical report does not contain sufficient detail for conformance testing purposes, except when used in conjunction with product standards such as IEC 60950-1 and IEC 60950-21."
+  },
+  {
+    "reference": "IEC 62151:2000",
+    "edition": "1.0",
+    "date": "2000-05-05",
+    "title": "Safety of equipment electrically connected to a telecommunication network",
+    "language": "EN-FR",
+    "description": "IEC 62151:2000 Applicable to equipment designed and intended to be connected directly to a Telecommunication Network, regardless of the source of power. This basic safety publication is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies. This standard has the status of a basic safety publication in accordance with IEC Guide 104 and ISO/IEC guide 51. This standard cancels and replaces IEC Guide 105 published in 1985. The contents of the corrigenda of March 2001 and June 2001 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62151:2000/COR1:2001",
+    "edition": "1.0",
+    "date": "2001-03-29",
+    "title": "Corrigendum 1 - Safety of equipment electrically connected to a telecommunication network",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62151:2000/COR2:2001",
+    "edition": "1.0",
+    "date": "2001-06-28",
+    "title": "Corrigendum 2 - Safety of equipment electrically connected to a telecommunication network",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62367:2004",
+    "edition": "1.0",
+    "date": "2004-01-27",
+    "title": "Safety aspects for xDSL signals on circuits connected to telecommunication networks (DSL: Digital Subscriber Line)",
+    "language": "EN",
+    "description": "This technical specification addresses the safety implications of having xDSL signals on circuits in equipment connected to a TELECOMMUNICATION NETWORK, and gives rules for dealing with such equipment in the context of the IEC 60950 series"
+  },
+  {
+    "reference": "IEC 62368-1:2023",
+    "edition": "4.0",
+    "date": "2023-05-26",
+    "title": "Audio/video, information and communication technology equipment - Part 1: Safety requirements",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-08 IEC 62368-1:2023 is a product safety standard that classifies energy sources, prescribes safeguards against those energy sources, and provides guidance on the application of, and requirements for, those safeguards. The prescribed safeguards are intended to reduce the likelihood of pain, injury and, in the case of fire, property damage. The objective of the introduction is to help designers to understand the underlying principles of safety in order to design safe equipment. These principles are informative and not an alternative to the detailed requirements of this document."
+  },
+  {
+    "reference": "IEC TR 62368-2:2025",
+    "edition": "4.0",
+    "date": "2025-07-03",
+    "title": "Audio/video, information and communication technology equipment - Part 2: Explanatory information related to IEC 62368-1:2023",
+    "language": "EN",
+    "description": "IEC TR 62368-2:2025 identifies the purpose and applicability of IEC 62368-1:2023 and the exclusions from the scope. The scope excludes requirements for functional safety. Functional safety is addressed in IEC 61508-1. Because the scope includes computers that can control safety systems, functional safety requirements would necessarily include requirements for computer processes and software. The requirements provided in IEC 60950-23 can be modified and added to IEC 62368 as another -X document. However, because of the hazard-based nature of IEC 62368-1, the requirements from IEC 60950-23 have been incorporated into the body of IEC 62368-1 and made more generic. The intent of the addition of the IEC 60950-23 requirements is to maintain the overall intent of the technical requirements from IEC 60950-23, incorporate them into IEC 62368-1 following the overall format of IEC 62368-1 and simplify and facilitate the application of these requirements. Robots traditionally are covered under the scopes of ISO documents, typically maintained by ISO TC 299. ISO TC 299 has working groups for personal care robots and service robots, and produces for example, ISO 13482, Robots and robotic devices - Safety requirements for personal care robots. In this document, only those subclauses from IEC 62368-1 considered to need further background reference information or explanation to benefit the user in applying the relevant requirements are included. Therefore, not all numbered subclauses are cited. Unless otherwise noted, all references are to clauses, subclauses, annexes, figures or tables located in IEC 62368‑1:2023. This fourth edition cancels and replaces the third edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) It takes into account changes made in the fourth edition of IEC 62368-1 (IEC 62368-1:2023) as identified in the Foreword of IEC 62368 1:2023"
+  },
+  {
+    "reference": "IEC 62368-3:2017",
+    "edition": "1.0",
+    "date": "2017-12-07",
+    "title": "Audio/video, information and communication technology equipment - Part 3: Safety aspects for DC power transfer through communication cables and ports",
+    "language": "EN-FR",
+    "description": "IEC 62368-3:2017 applies to equipment intended to supply and receive operating power through communication cables or ports. It covers particular requirements for circuits that are designed to transfer DC power from a power sourcing equipment (PSE) to a powered device (PD). The power transfer uses voltages at ES1 or ES2 or in very specific cases voltage levels at ES3. Any cable provided with a connector defined by an industry standard that permits DC power transfer between equipment is considered a communication cable even if communication does not take place. For example, a USB cable can be used just to recharge a portable device battery. This International Standard is to be used in conjunction with IEC 62368-1:2014. It has the status of a group safety publication in accordance with IEC Guide 104. The subclauses of IEC 62368-1 apply as far as reasonable. Where safety aspects are similar to those of IEC 62368-1, the relevant clause or subclause of IEC 62368-1 is given for reference in a note in the relevant subclause. Where a requirement in IEC 62368-3 refers to a requirement or criterion of IEC 62368-1, a specific reference to IEC 62368-1 is made. This group safety publication is primarily intended to be used as a product safety standard for the products mentioned in the scope, but shall also be used by technical committees in the preparation of standards for products similar to those mentioned in the scope of this standard, in accordance with the principles laid down in IEC Guide 104 and lSO/lEC Guide 51."
+  },
+  {
+    "reference": "IEC TS 62441:2011",
+    "edition": "2.0",
+    "date": "2011-02-10",
+    "title": "Safeguards againts accidentally caused candle flame ignition for audio/video, communication and information technology equipment",
+    "language": "EN-FR",
+    "description": "IEC/TS 62441:2011 Introduces safeguards to reduce the likelihood of room flash-over as a result of accidental ignition of exterior housings of audio/video and information communication technology products likely to be used in the home, caused by a candle flame. This second edition of IEC 62441 cancels and replaces the first edition published in 2006 and constitutes a technical revision. This edition includes the following technical changes with respect to the previous edition: - acceptance of wood with a minimum thickness as equivalent to V-1; - interpretation information regarding vertical surfaces."
+  },
+  {
+    "reference": "IEC 62911:2025",
+    "edition": "2.0",
+    "date": "2025-06-02",
+    "title": "Audio, video and information technology equipment - Routine electrical safety testing in production",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-06 IEC 62911:2025 defines procedures for use during or after manufacturing of complete equipment, sub-assemblies or components, complying with IEC 62368-1 and powered by an AC or DC, to detect manufacturing failures and unacceptable tolerances in manufacturing and materials. NOTE 1: Not all the tests defined in this document are necessarily performed at the end product manufacturing location. The optimal location for the can be defined by the equipment manufacturer and reviewed under the applicable conformity assessment scheme. NOTE 2: The test procedures in this document are intended to identify production and manufacturing errors. These test procedures are not intended for product development or verification (see The test procedures in this document are intended to identify production and manufacturing errors. These test procedures are not intended for product development or verification (see IEC 62368-1). The content of the corrigendum 1 (2026-06) has been included in this copy."
+  },
+  {
+    "reference": "IEC 62911:2025/COR1:2026",
+    "edition": "2.0",
+    "date": "2026-06-15",
+    "title": "Corrigendum 1 - Audio, video and information technology equipment - Routine electrical safety testing in production",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62949:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Particular safety requirements for equipment to be connected to information and communication technology networks",
+    "language": "EN-FR",
+    "description": "IEC 62949:2017 applies to the interface of equipment designed and intended to be connected as a communication terminal to an information and communication technology (ICT) network termination. This document does not apply to: - equipment covered by IEC 62368-1; or - interfaces to other networks. This document specifies the safety requirements of the interface to the ICT network only. Requirements additional to those specified in this document may be necessary for equipment intended for operation while exposed, for example, to extremes of temperature, to excessive dust, moisture, or vibration, to flammable gases, to corrosive or explosive atmospheres and electro medical applications with physical connections to the patient. The following requirements are not covered by this document: - functional safety of equipment; - functional reliability of equipment; - communication facilities with remote supply using hazardous voltage; - protection of equipment connected to ICT networks from functional damage."
+  },
+  {
+    "reference": "IEC 63316:2026",
+    "edition": "1.0",
+    "date": "2026-03-25",
+    "title": "Audio/video, information and communication technology equipment – Safety – Power transfer between communication equipment ports using communication wires and cables cabling at non-mains voltage above 60 V DC and ES2/ES3 AC voltage",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63316:2026 prescribes safeguards, test methods and compliance requirements intended to reduce the risk of electrical shock and fire associated with voltage and current at voltages greater than 60 V DC and 60 V AC. This document applies to equipment ports intended to supply and receive operating power from communications equipment ports using communication wires and cables. It covers particular requirements for circuits that are designed to transfer AC or DC power from a power sourcing equipment (PSE) (3.1.2) to a powered device (PD) (3.1.3), including repeaters, amplifiers, Optical Network Units, Remote DSLAMs, service provider terminating equipment, remote telecommunications cabinets and equipment, and midspan passive equipment connected to the PSE (3.1.2) and PD (3.1.3). The power transfer of equipment ports covered by this document uses non-mains AC voltage or non-mains DC voltage above 60 V DC classified as ES2 according to 5.2.1.2 of IEC 62368-1:2023 or, in some very controlled cases, classified as ES3 according to IEC 62368-1:2023. EXAMPLES - DC power transfer using voltages above 60 V DC but ≤ 120 V DC, classified as ES2; - Some telecommunications networks where the voltage was formerly called TNV-3 (see IEC 62368-1:2023, Table W.3), typically used for line, span or express powering outside North America, Long Range Reverse Power Feeding, HDSLx line powering ISDN, Line Powering Primary Rate E1; - Some North American telecommunications networks between the utility service providers´ PSE (3.1.2) and service providers side of the PD (3.1.3) at the PNI (3.1.8); - For DC power transfer using voltages ≥ 120 V DC at ES3: RFT circuits and the associated telecommunications network equipment and cabling used by communications service providers and communications utilities (for example, line powered E1/T1, HDSLx, SHDSLx, xDSL, repeaters, and telecommunications line powering up or line powering down converters as applicable), Optical Network Units, remote DSLAMs, etc. These RFT circuits are used between the utility service providers PSE (3.1.2) and service providers side of the PD (3.1.3) at the PNI (3.1.8). The customer facing ports of this equipment are at voltage not exceeding 60 V DC and are covered by IEC 62368-1:2023, see Annex A for deployment topologies; - For AC/DC remote powering voltage above ES1 over coaxial cable in circuits used by cable television utility service providers for repeaters, amplifiers, Optical Network Units. The customer facing ports of this equipment are at voltage not exceeding 60 V DC that are covered by IEC 62368-1:2023. NOTE 1 Any communications cable that permits power transfer between communication equipment is considered a communication cable even if communication does not take place. For example, a line powering up or line powering down converters as applicable used to power remote telecommunications equipment, can provide limited communications RFT power and not necessarily any superimposed data or signalling. This document does not cover equipment interfaces within the scope of IEC 63315. NOTE 2 IEC 63315 covers equipment intended to either supply or receive charging, or operating power from ICT interfaces using ICT wires and cables such as PoE, USB, HDMI, etc, or any of these combined. This document does not cover ringing signals that are in the scope of IEC 62368-1 or in the scope of IEC 62949:2017. This document does not cover traditional telecommunications technologies which operate at voltages not exceeding 60 V DC (circuits classified as ES1 according to 5.2.1.1 of IEC 62368-1:2023 and Table ID1a, 1b, or 1c in Table 13 of IEC 62368-1:2023) with or without ringing signals (classified as ES2 according to 5.2.1.1 of IEC 62368-1:2023 and external circuit ID1a, 1b, or 1c in Table 13 of IEC 62368-1:2023). Examples of traditional telecommunications technologies include Analogue Telephony, ISDN, T1, E1, VDSL, SHDSL, DDS, etc. This document does not cover communications over mains and high-voltage power transmission and distribution lines. This first edition cancels and replaces Clause 6 of IEC 62368-3 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to Clause 6 of IEC 62368-3 published in 2017: a) DC power transfer at voltages above 60 V DC but ≤ 120 V DC (ES2), including telecommunications networks formerly known as TNV-3; b) DC power transfer at voltages ≥ 120 V DC at ES3, such as RFT circuits and associated telecommunications equipment; c) AC/DC remote powering above ES1 over coaxial cable in cable television utility service provider circuits for repeaters, amplifiers, and ONUs; d) clarification on communication cable permitting power transfer, regardless of data transmission presence."
+  }
+]

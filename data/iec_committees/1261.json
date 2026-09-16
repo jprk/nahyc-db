@@ -1,0 +1,106 @@
+[
+  {
+    "reference": "IEC 60865-1:2011",
+    "edition": "3.0",
+    "date": "2011-10-24",
+    "title": "Short-circuit currents - Calculation of effects - Part 1: Definitions and calculation methods",
+    "language": "EN-FR, ES",
+    "description": "IEC 60865-1:2011 is applicable to the mechanical and thermal effects of short-circuit currents. It contains procedures for the calculation of: the electromagnetic effect on rigid conductors and flexible conductors, the thermal effect on bare conductors. For cables and insulated conductors, reference is made, for example, to IEC 60949 and IEC 60986. For the electromagnetic and thermal effects in d.c. auxiliary installations of power plants and substations reference is made to IEC 61660-2. Only a.c. systems are dealt with in this standard. This third edition cancels and replaces the second edition published in 1993 and constitutes a technical revision. The main changes with respect to the previous edition are: - The determinations for automatic reclosure together with rigid conductors have been revised. - The influence of mid-span droppers to the span has been included. For vertical cable-connection the displacement and the tensile force onto the lower fixing point may now be calculated. Additional recommendations for foundation loads due to tensile forces have been added. The subclause for determination of the thermal equivalent short-circuits current has been deleted (it is now part of IEC 60909-0). The regulations for thermal effects of electrical equipment have been deleted. The standard has been reorganized and some of the symbols have been changed to follow the conceptual characteristic of international standards."
+  },
+  {
+    "reference": "IEC TR 60865-2:2015",
+    "edition": "2.0",
+    "date": "2015-04-22",
+    "title": "Short-circuit currents - Calculation of effects - Part 2: Examples of calculation",
+    "language": "EN",
+    "description": "IEC TR 60865-2:2015(E) shows the application of procedures for the calculation of mechanical and thermal effects due to short circuits as presented in IEC 60865-1. Thus, this technical report is an addition to IEC 60865-1. It does not, however, change the basis for standardized procedures given in that publication. This second edition cancels and replaces the first edition published in 1994 and constitutes a technical revision. It includes the following changes. The determinations for auto reclosure together with rigid conductors have been revised. The configurations in cases of flexible conductor arrangements have been changed. The influence of mid-span droppers to the span has been included. For vertical cable-connection the displacement and the tensile force onto the lower fixing point may be calculated now. Additional recommendations for foundation loads due to tensile forces have been added. The subclause for determination of the thermal equivalent short-circuits current has been deleted (is part of IEC 60909-0:2001 now). The standard IEC 60865-1:2011 has been reorganized and some of the symbols have been changed to follow the conceptual characteristic of international standards."
+  },
+  {
+    "reference": "IEC 60909-0:2026",
+    "edition": "3.0",
+    "date": "2026-07-23",
+    "title": "Short-circuit currents in three-phase AC systems - Part 0: Calculation of currents",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60909-0:2026 This part of IEC 60909 is applicable to the calculation of short-circuit currents in low-voltage three-phase AC systems, in high-voltage three-phase AC systems, and operating at a nominal frequency of 50 Hz or 60 Hz. Systems at highest voltages of 550 kV and above with long transmission lines are outside the scope of this document."
+  },
+  {
+    "reference": "IEC TR 60909-1:2002",
+    "edition": "2.0",
+    "date": "2002-07-31",
+    "title": "Short-circuit currents in three-phase a.c. systems - Part 1: Factors for the calculation of short-circuit currents according to IEC 60909-0",
+    "language": "EN-FR, EN, FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60909-2:2008",
+    "edition": "2.0",
+    "date": "2008-11-13",
+    "title": "Short-circuit currents in three-phase a.c. systems - Part 2: Data of electrical equipment for short-circuit current calculations",
+    "language": "EN, ES",
+    "description": "IEC 60909-2:2008(E) comprises data of electrical equipment collected from different countries to be used when necessary for the calculation of short-circuit currents in accordance with IEC 60909-0. It may be applied for calculating short-circuit currents in low-voltage networks if they are in accordance with typical equipment employed in the user's country. The collected data and their evaluation may be used for medium- or high-voltage planning purposes and also for comparison with data given by manufacturers or electricity suppliers. For overhead lines and cables the electrical data may in some cases also be calculated from the physical dimensions and the material following the equations given in this report. This second edition cancels and replaces the first edition published in 1992 and constitutes a technical revision. The significant technical changes with respect to the previous edition are as follows: - Subclause 2.5 gives equations and examples for the calculation of the positive-, the negative- and the zero-sequence impedances and reduction factors for high-, medium and low-voltage cables with sheaths and shields earthed at both ends. - Subclause 2.7 gives equations and figures for the calculation of the positive-sequence impedances of busbar configurations."
+  },
+  {
+    "reference": "IEC 60909-3:2009",
+    "edition": "3.0",
+    "date": "2009-03-09",
+    "title": "Short-circuit currents in three-phase AC systems - Part 3: Currents during two separate simultaneous line-to-earth short circuits and partial short-circuit currents flowing through earth",
+    "language": "EN-FR, ES",
+    "description": "IEC 60909-3:2009 is also available as IEC Standards+ 60909-3:2009 which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 60909-3:2009 specifies procedures for calculation of the prospective short-circuit currents with an unbalanced short circuit in high-voltage three-phase a.c. systems operating at nominal frequency 50 Hz or 60 Hz, i. e.: - currents during two separate simultaneous line-to-earth short circuits in isolated neutral or resonant earthed neutral systems; - partial short-circuit currents flowing through earth in case of single line-to-earth short circuit in solidly earthed or low-impedance earthed neutral systems. The currents calculated by these procedures are used when determining induced voltages or touch or step voltages and rise of earth potential at a station (power station or substation) and the towers of overhead lines. Procedures are given for the calculation of reduction factors of overhead lines with one or two earth wires. This edition constitutes a technical revision. The main changes with respect to the previous edition are: - New procedures are introduced for the calculation of reduction factors of the sheaths or shields and in addition the current distribution through earth and the sheaths or shields of three-core cables or of three single-core cables with metallic non-magnetic sheaths or shields earthed at both ends; - The information for the calculation of the reduction factor of overhead lines with earth wires are corrected and given in the new Clause 7; - A new Clause 8 is introduced for the calculation of current distribution and reduction factor of three-core cables with metallic sheath or shield earthed at both ends; - The new Annexes C and D provide examples for the calculation of reduction factors and current distribution in case of cables with metallic sheath and shield earthed at both ends. This publication is to be read in conjunction with IEC 60909-0:2001."
+  },
+  {
+    "reference": "IEC 60909-3:2009/COR1:2013",
+    "edition": "3.0",
+    "date": "2013-09-11",
+    "title": "Corrigendum 1 - Short-circuit currents in three-phase AC systems - Part 3: Currents during two separate simultaneous line-to-earth short circuits and partial short-circuit currents flowing through earth",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60909-4:2021",
+    "edition": "2.0",
+    "date": "2021-06-24",
+    "title": "Short-circuit currents in three-phase AC systems - Part 4: Examples for the calculation of short-circuit currents",
+    "language": "EN",
+    "description": "IEC TR 60909-4:2021 which is a Technical Report, is intended to give help for the application of IEC 60909-0 for the calculation of short-circuit currents in 50 Hz or 60 Hz three-phase AC systems. This document does not include additional requirements but gives support for the modelling of electrical equipment in the positive-sequence, the negative-sequence and the zero-sequence system (Clause 4), the practical execution of calculations in a low-voltage system (Clause 5), a medium-voltage system with asynchronous motors (Clause 6) and a power station unit with its auxiliary network feeding a large number of medium-voltage asynchronous motors and low-voltage motor groups (Clause 7). The three examples given in Clauses 5, 6 and 7 are similar to those given in IEC TR 60909-4:2000 but they are revised in accordance with IEC 60909-0, which replaces it. The example given in Clause 8 is new and mirrors the introduction of the new 6.8 of IEC 60909-0:2016. Clause 9 gives the circuit diagram and the data of a test network and the results for a calculation carried out in accordance with IEC 60909-0, to offer the possibility for a comparison between the results found with a digital program for the calculation of short-circuit currents and the given results for and in a high-voltage network with power station units, generators, asynchronous motors and lines in four different voltage levels 380 kV, 110 kV, 30 kV and 10 kV. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) adaption to IEC 60909-0:2016; b) addition of an example for the calculation of short-circuit currents of wind power station units; c) correction of errors."
+  },
+  {
+    "reference": "IEC 61660-1:1997",
+    "edition": "1.0",
+    "date": "1997-06-17",
+    "title": "Short-circuit currents in d.c. auxiliary installations in power plants and substations - Part 1: Calculation of short-circuit currents",
+    "language": "EN-FR, ES",
+    "description": "Describes method for calculating short-circuit currents in d.c. auxilliary systems in power plants and substations, which can be equipped with the following equipment, acting as short-circuit current sources: - rectifiers in three-phase a.c. bridge connection for 50 Hz; - stationary lead-acid batteries; - smoothing capacitors; - d.c. motors with independent excitation Provides a generally applicable method of calculation which produces results of sufficient accuracy on the conservative side. The contents of the corrigenda of February 1999 and March 2000 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61660-1:1997/COR1:1999",
+    "edition": "1.0",
+    "date": "1999-03-31",
+    "title": "Corrigendum 1 - Short-circuit currents in d.c. auxiliary installations in power plants and substations - Part 1: Calculation of short-circuit currents",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61660-1:1997/COR2:2000",
+    "edition": "1.0",
+    "date": "2000-03-21",
+    "title": "Corrigendum 2 - Short-circuit currents in d.c. auxiliary installations in power plants and substations - Part 1: Calculation of short-circuit currents",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61660-2:1997",
+    "edition": "1.0",
+    "date": "1997-06-17",
+    "title": "Short-circuit currents in d.c. auxiliary installations in power plants and substations - Part 2: Calculation of effects",
+    "language": "EN-FR, ES",
+    "description": "Describes a method for calculation of the mechanical and thermal effects on rigid conductors caused by short-circuit currents in d.c. auxilliary installations in power plants and substations, as described in IEC 61660-1. Provides a method which has wide application and which gives results of sufficient accuracy. The calculation method is based on substitute functions, which cause approximately the same maximum stresses in the conductors and the same forces on the supports as the actual electromagnetic force."
+  },
+  {
+    "reference": "IEC TR 61660-3:2000",
+    "edition": "1.0",
+    "date": "2000-02-29",
+    "title": "Short-circuit currents in d.c. auxiliary installations in power plants and substations - Part 3: Examples of calculations",
+    "language": "EN-FR, ES",
+    "description": null
+  }
+]

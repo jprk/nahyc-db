@@ -1,0 +1,490 @@
+[
+  {
+    "reference": "IEC 60189-1:2018",
+    "edition": "4.0",
+    "date": "2018-06-22",
+    "title": "Low-frequency cables and wires with PVC insulation and PVC sheath - Part 1: General test and measuring methods",
+    "language": "EN",
+    "description": "IEC 60189-1:2018 specifies mechanical, electrical and climatic test methods for low-frequency cables and wires designed for use in telecommunication inside plants and equipment and in electronic devices employing similar techniques. This fourth edition cancels and replaces the third edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Test methods for dielectric strength and insulation resistance that were referenced in the previous edition have been withdrawn. They have been replaced with references to similar test methods described in current standards. b) References to the IEC 60811 series have been updated as the numbering of this series has completely been changed."
+  },
+  {
+    "reference": "IEC 60189-2:2007",
+    "edition": "4.0",
+    "date": "2007-05-23",
+    "title": "Low-frequency cables and wires with PVC insulation and PVC sheath - Part 2: Cables in pairs, triples, quads and quintuples for inside installations",
+    "language": "EN, ES",
+    "description": "is applicable to cables for inside installations, intended for the interconnection of the following: transmission equipment; telecommunications equipment; equipment for data processing."
+  },
+  {
+    "reference": "IEC 60189-3:2007",
+    "edition": "4.0",
+    "date": "2007-05-23",
+    "title": "Low-frequency cables and wires with PVC insulation and PVC sheath - Part 3: Equipment wires with solid or stranded conductor wires, PVC insulated, in singles, pairs and triples",
+    "language": "EN",
+    "description": "is applicable to equipment wires with solid or stranded conductor, polyvinyl chloride (PVC) insulated, in singles, pairs and triples to be used for internal wiring of telecommunication equipment, industrial and consumer electronic equipment."
+  },
+  {
+    "reference": "IEC 60304:1982",
+    "edition": "3.0",
+    "date": "1982-01-01",
+    "title": "Standard colours for insulation for low-frequency cables and wires",
+    "language": "EN-FR, EN, FR",
+    "description": "Applies to thermoplastic insulation for low-frequency cables and wires. Gives the standard colours to be used."
+  },
+  {
+    "reference": "IEC TR 60344:2007",
+    "edition": "3.0",
+    "date": "2007-02-16",
+    "title": "Calculation of d.c. resistance of plain and coated copper conductors of low-frequency cables and wires - Application guide",
+    "language": "EN",
+    "description": "applies to low-frequency cables and wires for telecommunication and gives a general method for calculating the resistance of copper conductors. includes the following significant technical change with respect to the previous edition: improvement of the calculation method of the resistance of copper conductors. The contents of the corrigendum of February 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 60344:2007/COR1:2012",
+    "edition": "3.0",
+    "date": "2012-02-24",
+    "title": "Corrigendum 1 - Calculation of d.c. resistance of plain and coated copper conductors of low-frequency cables and wires - Application guide",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60708:2005",
+    "edition": "1.0",
+    "date": "2005-06-24",
+    "title": "Low-frequency cables with polyolefin insulation and moisture barrier polyolefin sheath",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60708:2005 is intended to define polyolefin insulated cables for insertion into local outdoor networks. Is applicable to polyolefin insulated and moisture barrier polyolefin sheathed telephone cables, filled or unfilled with copper conductors, includes general design details and requirements for dimensions and other constructional details as well as mechanical, electrical and environmental characteristics for all types of low-frequency cables with polyolefin insulation (solid or cellular), filled or unfilled, and moisture barrier polyolefin sheath (with integral suspension strand). The contents of the corrigendum of August 2016 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60708:2005/COR1:2016",
+    "edition": "1.0",
+    "date": "2016-08-12",
+    "title": "Corrigendum 1 - Low-frequency cables with polyolefin insulation and moisture barrier polyolefin sheath",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60918:1987",
+    "edition": "1.0",
+    "date": "1987-12-30",
+    "title": "PVC insulated ribbon cable with a pitch of 1.27 mm suitable for insulation displacement termination",
+    "language": "EN-FR",
+    "description": "Applicable to PVC insulated ribbon cables with a pitch of 1.27 mm and with a maximum of 64 conductors suitable for the insulation displacement (ID) method of termination. Specifies requirements and dimensions for flexible, flat, unscreened cables, with either solid or stranded conductors. The cables are suitable for operation in equipment at voltages up to and including 300 V r.m.s. to earth, or between cores, and at conductor temperatures from -10°C to 90°C."
+  },
+  {
+    "reference": "IEC 60918:1987/AMD1:1992",
+    "edition": "1.0",
+    "date": "1992-06-30",
+    "title": "Amendment 1 - PVC insulated ribbon cable with a pitch of 1.27 mm suitable for insulation displacement termination",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60979:1989",
+    "edition": "1.0",
+    "date": "1989-05-30",
+    "title": "Wires for wire wrapping applications",
+    "language": "EN-FR",
+    "description": "Applicable to wire wrapped terminations of miniature equipment wires with solid conductor for use with handheld and semi-automatic machines and with fully automatic machines. Details the additional requirements for low-frequency miniature equipment wires when used for wire wrapped terminations."
+  },
+  {
+    "reference": "IEC 61156-1:2023",
+    "edition": "4.0",
+    "date": "2023-03-14",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 61156-1:2023 specifies the definitions, requirements and test methods of multicore, symmetrical pair and quad cables. This document is applicable to communication systems such as local area networks (LANs) and data communication cables. It is also applicable to cables used for industrial applications, customer premises wiring and generic cabling comprising installation cables and cables for work area wiring which are defined in ISO/IEC 11801 (all parts). The cables covered by this document are intended to operate with voltages and currents normally encountered in communication systems. While these cables are not intended to be used in conjunction with low impedance sources, for example the electric power supplies of public utility mains, they are intended to be used to support the delivery of low voltage remote powering applications including but not restricted to Power over Ethernet as specified in ISO/IEC/IEEE 8802-3."
+  },
+  {
+    "reference": "IEC 61156-1-1:2001",
+    "edition": "1.0",
+    "date": "2001-02-27",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1-1: Capability Approval - Generic specification",
+    "language": "EN-FR",
+    "description": "Which is a generic specification applies to Capability Approval requirements for multicore and symmetrical pair/quad cables for digital communications as specified in IEC 61156-1 series."
+  },
+  {
+    "reference": "IEC TS 61156-1-2:2023",
+    "edition": "1.0",
+    "date": "2023-11-29",
+    "title": "Multicore and symmetrical pair/ quad cables for digital communications - Part 1-2: Electrical transmission characteristics and test methods of symmetrical pair/ quad cables",
+    "language": "EN",
+    "description": "IEC TS 61156-1-2:2023 specifies symmetrical pair/quad electrical transmission characteristics and test methods present in IEC 61156-1:2002 (Edition 2) and not carried into IEC 61156-1:2007 (Edition 3). It details characteristic impedance test methods and function fitting procedures, the open/short-circuit method and the background of unbalance attenuation measurement. It is extended by a description of the balunless measurements technique, which is an amendment to the former technical report and is improved and incorporated into this new edition. The complete document is transferred into a technical specification."
+  },
+  {
+    "reference": "IEC TR 61156-1-3:2011",
+    "edition": "1.0",
+    "date": "2011-04-07",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1-3: Electrical transmission parameters for modelling cable assemblies using symmetrical pair/quad cables",
+    "language": "EN",
+    "description": "IEC/TR 61156-1-3:2011(E) is a supplement to IEC 61156-1 Edition 3 (2007): Multicore and symmetrical pair/quad cables for digital communications - Part 1: Generic specification. It covers the following topics: - the near-end crosstalk test methods and length correction procedures of 6.3.5; - the far-end crosstalk test methods and length correction procedures of 6.3.6; - the concatenation of measured cable segments, even if they are of different design."
+  },
+  {
+    "reference": "IEC 61156-1-4:2018",
+    "edition": "1.0",
+    "date": "2018-10-11",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1-4: Assessment of conductor heating in bundled cables due to the deployment of remote powering",
+    "language": "EN",
+    "description": "IEC 61156-1-4:2018 specifies a method to assess the thermal behaviour of cables arranged in bundles, for digital communications. A method is described to determine the temperature increase in cable bundles for certain remote powering currents as a basis to analyse the expected performance under several test arrangements described in standards dealing with the installation of cabling systems. It is only intended to provide guidance to assess the thermal behaviour of cables for digital communications in reference environmental conditions and arrangements. It is therefore not intended to become a type of test method. This first edition cancels and replaces IEC PAS 61156-1-4, published in 2010. This edition includes the following significant technical changes with respect to the previous edition: a) Several test arrangements are considered; b) The mathematical approach was revised."
+  },
+  {
+    "reference": "IEC TR 61156-1-5:2013",
+    "edition": "1.0",
+    "date": "2013-06-25",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1-5: Correction procedures for the measurement results of return loss and input impedance",
+    "language": "EN",
+    "description": "IEC/TR 61156-1-5:2013(E), which is a Technical Report, describes correction procedures for the measurement results of return loss and input impedance."
+  },
+  {
+    "reference": "IEC TR 61156-1-6:2016",
+    "edition": "1.0",
+    "date": "2016-09-06",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 1-6: Nominal DC-resistance values of floor-wiring and work-area cables for digital communications",
+    "language": "EN",
+    "description": "IEC TR 61156-1-6:2016(E), which is a Technical Report, provides informative values for DC-resistance of typical installed cables at the time of publication to enable further analysis of cable performance mainly influenced by DC-resistance, such as thermal heating."
+  },
+  {
+    "reference": "IEC 61156-2:2010",
+    "edition": "3.0",
+    "date": "2010-04-27",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 2: Symmetrical pair/quad cables with transmission characteristics up to 100 MHz - Horizontal floor wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-2:2010(E) defines individually screened or unscreened pair/quad cables, with or without overall common screen for horizontal floor wiring. These cables are suitable for the various communication systems for which the reference is given in the relevant detail specification. The cables covered by this sectional specification are intended to operate with voltages and currents normally adopted for communication systems. These cables should not be connected to low impedance sources, for example, the public mains electricity supply. This third edition cancels and replaces the second edition published in 2003 and constitutes a technical revision. This new edition includes category 3 and 5 cables. This publication is to be read in conjunction with IEC 61156-1:2002 ."
+  },
+  {
+    "reference": "IEC 61156-2-1:2010",
+    "edition": "3.0",
+    "date": "2010-06-28",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 2-1: Horizontal floor wiring - Blank detail specification",
+    "language": "EN",
+    "description": "IEC 61156-2-1:2010(E) is a blank detail specification. It relates to multicore and symmetrical pair/quad cables for digital communications in horizontal floor wiring. This third edition cancels and replaces the second edition published in 2003. It constitutes a technical revision and takes into account the technical changes made in the IEC 61156-2, Edition 3 (2010)."
+  },
+  {
+    "reference": "IEC 61156-2-2:2001",
+    "edition": "1.0",
+    "date": "2001-02-27",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 2-2: Horizontal floor wiring - Capability Approval - Sectional specification",
+    "language": "EN-FR",
+    "description": "A sectional specification applies to Capability Approval requirements for cables for digital communications in horizontal floor wiring according to IEC 61156-1 and IEC 61156-2."
+  },
+  {
+    "reference": "IEC 61156-3:2008",
+    "edition": "3.0",
+    "date": "2008-11-13",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 3: Work area cable - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-3:2008(E) defines individually screened, common overall core screen and unscreened pairs or quads in cables for work area wiring. These cables are suitable for the various communication systems for which the reference is given in the relevant detail specification. The cables covered by this sectional specification are intended to operate with voltages and currents normally adopted for communication systems. These cables should not be connected to low impedance sources, for example, the public mains electricity supply. The cables are specifically intended for work area wiring as defined in ISO/IEC 11801. This third edition cancels and replaces the second edition published in 2003. This edition constitutes a technical revision and includes the following significant technical changes with respect to the previous edition: a) new requirements for new cables Cat3, and Cat5 applications; b) a better numbering in order to take into account the generic specification."
+  },
+  {
+    "reference": "IEC 61156-3-1:2009",
+    "edition": "3.0",
+    "date": "2009-05-13",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 3-1: Work area wiring - Blank detail specification",
+    "language": "EN",
+    "description": "IEC 61156-3-1:2009(E) determines the layout and style for detail specifications describing multicore and symmetrical pair(s)/quad(s) cables for digital communication in work area wiring. Detail specifications based on the blank detail specification may be prepared by a national standards organization, a manufacturer or a user. This edition constitutes a technical revision. The significant global technical change is the alignment with IEC 61156-3:2008. This publication is to be read in conjunction with IEC 61156-1:2002 and IEC 61156-3:2008 ."
+  },
+  {
+    "reference": "IEC 61156-3-2:2001",
+    "edition": "1.0",
+    "date": "2001-02-27",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 3-2: Work area wiring - Capability Approval - Sectional specification",
+    "language": "EN-FR",
+    "description": "A sectional specification applies to Capability Approval requirements for cables for digital communications in work area wiring according to IEC 61156-1 and IEC 61156-3."
+  },
+  {
+    "reference": "IEC 61156-4:2009",
+    "edition": "3.0",
+    "date": "2009-05-13",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 4: Riser cables - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-4:2009(E) is a sectional specification and relates to IEC 61156-1:2002. The cables are specifically intended for riser wiring up to category 5 (class D) as defined and specified in ISO/IEC 11801:1995. It defines individually screened or unscreened pairs/quads cables, with or without overall common screen. When installed vertically extra length requirements may be applicable and are defined in the relevant specifications. This edition constitutes a technical revision. The main changes can be found in subclauses 3.3.1.2, 3.3.2, 3.3.4, 3.3.5, 3.3.5.1, 3.3.5.2, 3.3.6 and 3.4. This publication is to be read in conjunction with IEC 61156-1:2002 ."
+  },
+  {
+    "reference": "IEC 61156-4-1:2009",
+    "edition": "3.0",
+    "date": "2009-05-13",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 4-1: Riser cables - Blank detail specification",
+    "language": "EN",
+    "description": "IEC 61156-4-1:2009(E) relates to multicore and symmetrical pair/quad cables for digital communications in riser application. This blank detail specification determines the layout and style for detail specifications describing multicore and symmetrical pair(s)/quad(s) cables for digital communication in riser wiring. Detail specifications based on the blank detail specification may be prepared by a national standards organization, a manufacturer or a user. This edition constitutes a technical revision. The significant global technical change is the alignment with IEC 61156-4. This publication is to be read in conjunction with IEC 61156-1:2002 and IEC 61156-4:2009 ."
+  },
+  {
+    "reference": "IEC 61156-4-2:2001",
+    "edition": "1.0",
+    "date": "2001-02-27",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 4-2: Riser cables - Capability approval - Sectional specification",
+    "language": "EN-FR",
+    "description": "A sectional specification applies to Capability Approval requirements for multicore and symmetrical pair cables for digital communication riser cables according to IEC 61156-1 and 61156-4."
+  },
+  {
+    "reference": "IEC 61156-5:2020",
+    "edition": "3.0",
+    "date": "2020-04-03",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 5: Symmetrical pair/quad cables with transmission characteristics up to 1 000 MHz - Horizontal floor wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-5:2020 describes the cables intended primarily for horizontal floor wiring as defined in ISO/IEC 11801. It covers cable designs comprising individually screened, common screened and unscreened pairs or quads. The transmission characteristics and the frequency range of the cables are specified at 20 °C. The cables covered by this document are intended to operate with voltages and currents normally encountered in communication systems Those cables are intended to be used to support the delivery of low voltage remote powering applications such as IEEE 802.3af (Power over Ethernet) or further developments for example according to IEEE 802.3at or IEEE 802.3bt. This third edition cancels and replaces the second edition published in 2009 and Amendment 1:2012. This edition includes the following significant technical changes with respect to the previous edition - additional balance levels with respect to MICE implementation by certain cabling specifications; - reference to current standards and technical reports with respect to measurement techniques and remote powering."
+  },
+  {
+    "reference": "IEC 61156-5-2:2002",
+    "edition": "1.0",
+    "date": "2002-05-21",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 5-2: Symmetrical pair/quad cables with transmission characteristics up to 600 MHz - Horizontal floor wiring - Capability approval - Sectional specification",
+    "language": "EN",
+    "description": "Applies to Capability Approval requirements for cables for digital communications in horizontal floor wiring in accordance with generic specification IEC 61156-1-1 and Clause 4 of the sectional specification IEC 61156-5."
+  },
+  {
+    "reference": "IEC 61156-6:2020",
+    "edition": "4.0",
+    "date": "2020-04-03",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 6: Symmetrical pair/quad cables with transmission characteristics up to 1 000 MHz - Work area wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-6:2020 describes the cables intended primarily for working area wiring as defined in ISO/IEC 11801 (all parts). It covers cable designs comprising individually screened, common screened and unscreened pairs or quads. The transmission characteristics and the frequency range of the cables are specified at 20 °C. These cables can be used for various communication channels which use as many as four pairs simultaneously. In this sense, this document provides the cable characteristics required by system developers to evaluate new systems. This fourth edition cancels and replaces the third edition published in 2010 and Amendment 1:2012. It includes the following significant technical changes with respect to the previous edition: - additional balance levels with respect to MICE implementation by certain cabling specifications; - reference to current standards and technical reports with respect to measurement techniques and remote powering"
+  },
+  {
+    "reference": "IEC 61156-6-2:2002",
+    "edition": "1.0",
+    "date": "2002-05-22",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 6-2: Symmetrical pair/quad cables with transmission characteristics up to 600 MHz - Work area wiring - Capability approval - Sectional specification",
+    "language": "EN",
+    "description": "Applies to Capability Approval requirements for cables intended to construct patch, equipment, and work area cords for digital communications in accordance with generic specification IEC 61156-1-1 and Clause 4 of the sectional specification IEC 61156-6."
+  },
+  {
+    "reference": "IEC 61156-7:2023",
+    "edition": "2.0",
+    "date": "2023-02-10",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 7: Symmetrical pair cables with transmission characteristics up to 1 200 MHz - Sectional specification for digital and analogue communication cables",
+    "language": "EN",
+    "description": "IEC 61156-7:2023 specifies cables that can be used for various communication systems as well as for analogue systems, such as video, that exist or are under development and which may use as many as four pairs simultaneously. In this sense, this sectional specification provides the cable characteristics required by system developers to evaluate new systems as well as to enhance present systems. It covers a cable having four individually screened (S/FTP) pairs. The cable can be provided with a common screen over the cable core. This second edition cancels and replaces the first edition published in 2003 and Amendment 1:2012. This edition includes the following significant technical changes with respect to the previous edition: a. align clauses with IEC 61156-1:2023; b. remove the clause related to screening attenuation as it is no longer a test to be performed (replaced by coupling attenuation); c. replace the IEC 62153-4-2 method (injection clamp) with IEC 61156-4-5 (absorbing clamp) for coupling attenuation measurement to be consistent with all other parts of the IEC 61156 series; d. include IEC 62153-4-9 test method (triaxial) for coupling attenuation measurement to be consistent with all other parts of the IEC 61156 series; e. incorporate the blank detail specification."
+  },
+  {
+    "reference": "IEC 61156-7-2:2003",
+    "edition": "1.0",
+    "date": "2003-05-23",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 7-2: Symmetrical pair cables with transmission characteristics up to 1 200 MHz - Capability Approval - Sectional specification for digital and analog communication cables",
+    "language": "EN-FR, EN",
+    "description": "applies to capability approval requirements for cables for various communication systems as well as to analog systems, such as video, that exist or are under development and which may use as many as four pairs simultaneously."
+  },
+  {
+    "reference": "IEC 61156-7-2:2003/COR1:2003",
+    "edition": "1.0",
+    "date": "2003-09-05",
+    "title": "Corrigendum 1 - Multicore and symmetrical pair/quad cables for digital communications - Part 7-2: Symmetrical pair cables with transmission characteristics up to 1 200 MHz - Quality assessment procedure - Sectional specification for digital and analog communication cables",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61156-8:2023",
+    "edition": "2.0",
+    "date": "2023-02-10",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 8: Symmetrical pair cables with transmission characteristics up to 1 200 MHz - Work area wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-8:2023 relates to IEC 61156-1 and IEC 61156-7. The cables described herein are specified up to 1 200 MHz and are specifically designed to build work area cords. It covers a cable having four individually screened (S/FTP) pairs. The cable can be provided with a common screen over the cable core. The cables covered by this sectional specification are intended to operate with voltages and currents normally encountered in communication systems and support the delivery of DC low voltage remote powering applications. These cables are not intended to be used in conjunction with low impedance sources, for example the electric power supply of public utility mains. This second edition cancels and replaces the first edition published in 2009, and Amendment 1:2013. This edition includes the following significant technical changes with respect to the previous edition: a. align clauses with IEC 61156-1:2023; b. additional reference to IEC 62153-4-9 test method (triaxial) for coupling attenuation measurement to be consistent with all other parts of the IEC 61156 series; c. incorporation of blank detail specification."
+  },
+  {
+    "reference": "IEC 61156-9:2016",
+    "edition": "1.0",
+    "date": "2016-04-20",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 9: Cables for channels with transmission characteristics up to 2 GHz - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-9:2016(E) describes cables primarily intended for the fixed part of channels as defined in ISO/IEC 11801 and in ISO/IEC TR 11801-9901 which is planned to be included in the next edition of ISO/IEC 11801-1. It covers overall screened cables with screened (X/FTP) or unscreened (X/UTP) pairs, where X stands for F, S or SF, as well as pair-screened cables without overall screen (U/FTP). The transmission characteristics of these cables are specified up to a frequency of 2 000 MHz and at a temperature of 20 °C. Two categories of cables are recognised: - Category 8.1 for use in Class I according to ISO/IEC TR 11801-9901; - Category 8.2 for use in Class II according to ISO/IEC TR 11801-9901."
+  },
+  {
+    "reference": "IEC 61156-10:2016",
+    "edition": "1.0",
+    "date": "2016-04-20",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 10: Cables for cords with transmission characteristics up to 2 GHz - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-10:2016(E) describes cables primarily intended for work area cords as defined in ISO/IEC 11801 and in ISO/IEC TR 11801-9901 which is planned to be included in the next edition of ISO/IEC 11801-1. It covers overall screened cables with screened (X/FTP) or unscreened (X/UTP) pairs, where X stands for F, S or SF, as well as pair-screened cables without overall screen (U/FTP). The transmission characteristics of these cables are specified up to a frequency of 2 000 MHz and at a temperature of 20 °C. Two categories of cables are recognised: - Category 8.1 for use in Class I according to ISO/IEC TR 11801-9901; - Category 8.2 for use in Class II according to ISO/IEC TR 11801-9901."
+  },
+  {
+    "reference": "IEC 61156-11:2023",
+    "edition": "2.0",
+    "date": "2023-05-02",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 11: Symmetrical single pair cables with transmission characteristics up to 1,25 GHz - Horizontal floor wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-11:2023 describes cables intended to be used for single balanced pair (office, home, industrial) applications according to ISO/IEC 11801-1. An example of existing application is 1000BASE-T1, see ISO/IEC TR 11801-9906. The transmission characteristics of these cables are specified up to a frequency of 1,25 GHz and at a temperature of 20 °C. The T1-C type cable is specified up to 600 MHz, the T1-D type cable up to 1,25 GHz. Depending on the MICE environment and the installation conditions either unscreened or screened cables can be used. A blank detail specification can be found in Annex A."
+  },
+  {
+    "reference": "IEC 61156-11:2023/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-06-12",
+    "title": "Amendment 1 - Multicore and symmetrical pair/quad cables for digital communications - Part 11: Symmetrical single pair cables with transmission characteristics up to 1,25 GHz - Horizontal floor wiring - Sectional specification",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61156-12:2025",
+    "edition": "2.0",
+    "date": "2025-04-30",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 12: Symmetrical single pair cables with transmission characteristics up to 1,25 GHz - Work area wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-12:2025 specifies cables intended to be used for single balanced pair cabling for office, home and industrial application described in ISO/IEC 11801-1:2017 and ISO/IEC 11801:2017/AMD1 . An example of existing application is 1000BASE-T1, see ISO/IEC TR 11801 9906. The transmission characteristics of these cables are specified up to a frequency of 1,25 GHz and at a temperature of 20 °C. The T1-B type cable is specified from 0,1 MHz to 600 MHz, the T1 C type cable from 0,1 MHz to 1,25 GHz. Depending on the MICE environment and the installation conditions, either unscreened or screened cables can be used. A blank detail specification can be found in Annex A. This second edition cancels and replaces the first edition published in 2021. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) additional cable type in support of T1-C generic single pair cabling up to 1,25 GHz; b) introduction of low frequency coupling attenuation as an integral parameter describing screening efficiency at frequencies below 30 MHz."
+  },
+  {
+    "reference": "IEC 61156-13:2023",
+    "edition": "1.0",
+    "date": "2023-05-30",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 13: Symmetrical single pair cables with transmission characteristics up to 20 MHz - Horizontal floor wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-13:2023 describes cables intended to be used for transmission of 10 Mbit/s over a single twisted pair and distances of up to 1 km. The transmission characteristics of these cables are specified up to a frequency of 20 MHz and at a temperature of 20 °C. Depending on the MICE environment and the installation conditions, either unscreened or screened cables can be used. Furthermore, to consider different maximum transmission lengths, two sets of requirements are specified. The cable type A-1000 is a design supporting up to 1 km channel length while the cable type A-400 is supporting up to 400 m channel length. A blank detail specification can be found in Annex A. The cables covered by this document are intended to operate with voltages and currents normally encountered in communication systems. While these cables are not intended to be used in conjunction with low impedance sources, for example the electric power supplies of public utility mains, they are intended to be used to support the delivery of DC low voltage remote powering applications."
+  },
+  {
+    "reference": "IEC 61156-14:2025",
+    "edition": "1.0",
+    "date": "2025-05-20",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 14: Symmetrical single pair cables with transmission characteristics up to 20 MHz - Work area wiring - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-14:2025 specifies cables for work area wiring intended to be used for transmission of 10 Mb/s over a single twisted pair in channels for distances of up to 1 km. The transmission characteristics of these cables are specified up to a frequency of 20 MHz and at a temperature of 20°C. Depending on the MICE environment and the installation conditions, either unscreened or screened cables can be used. Furthermore, to consider different maximum transmission lengths, two sets of requirements are specified. The cable type A-1000W does not have attenuation de-rating compared to the A-1000 type according to IEC 61156-13 and is a design supporting up to 1 km channel length. The cable type A-400W has attenuation de-rating compared to the A-400 type according to IEC 61156-13. A blank detail specification can be found in Annex A. The cables covered by this document are intended to operate with voltages and currents normally encountered in communication systems. While these cables are not intended to be used in conjunction with low impedance sources, for example the electric power supplies of public utility mains, they are intended to be used to support the delivery of DC low voltage remote powering applications."
+  },
+  {
+    "reference": "IEC 61156-15:2024",
+    "edition": "1.0",
+    "date": "2024-08-21",
+    "title": "Multicore and symmetrical pair/quad cables for digital communications - Part 15: Symmetrical pair/quad cables for horizontal floor wiring with transmission characteristics up to 1 000 MHz and resistance to fire performance characteristics - Sectional specification",
+    "language": "EN",
+    "description": "IEC 61156-15:2024 refers to cables as described in IEC 61156-5:2020 or cables containing element(s) from cables as described in IEC 61156-5 which are required to maintain both circuit integrity and data transmission capability before, during and after flame application under specified conditions. In addition to the basic cable construction, it describes the means of sample preparation, checking arrangements and gives the performance requirements, means to evaluate the data transmission capability during and after subjecting to fire, and gives means for evaluating test results and the parameters that are specified in the detail specification. The cables covered by this document are intended to operate with voltages and currents normally encountered in communication systems. While these cables are not intended to be used in conjunction with low impedance sources, for example the electric power supplies of public utility mains, they are intended to be used to support the delivery of low voltage remote powering applications and have no rated voltage and are used for extra low voltage circuits. For the purpose of this document, fire conditions as currently listed in IEC 60331-23:1999 and basic test apparatus as per IEC 60331-11:1999 apply. As the test method according to IEC 60331-23:1999 will not be developed further, other test methods could be used or added in future editions of this document. IEC 60331-1 and IEC 60331-2 will be added in a future revision as the standard tests for circuit integrity and the test rig to be used for all testing."
+  },
+  {
+    "reference": "IEC TR 62222:2021",
+    "edition": "3.0",
+    "date": "2021-01-18",
+    "title": "Fire performance of communication cables installed in buildings",
+    "language": "EN",
+    "description": "IEC TR 62222:2021 describes the test methods for various parameters relating to the reaction to fire properties of metallic and optical fibre communications cables. The parameters have particular importance for cables intended to be installed within buildings and other structures. This document also maps the test methods and associated limits applied to the fire hazards created by particular installation conditions and which can be referenced by other international, regional and national standards. For example, it is important that compliance with the requirements and recommendations for installation methods in ISO/IEC 14763-2 taking into consideration this document improve safety concerning fire. This third edition cancels and replaces the second edition published in 2012. This edition includes the following significant technical changes with respect to the previous edition: - Scope rewritten to clarify and bring into line current understanding from other technical sources; - Normative References updated to be in line with the most recent technical definitions and new additions; - new additional terms and definitions added to Annex F since these are not used in the document; - new inclusions to the list of abbreviated terms, some corrections; - project reports are now in Annex E, for information only; - Subclause about mitigation of fire hazards, about fire protection, updated with clearer information on standards plus updates where new standards have been published or amended; - test methods, test methods conclusions and fire performance updated."
+  },
+  {
+    "reference": "IEC 62255-1:2003",
+    "edition": "1.0",
+    "date": "2003-11-07",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": "Applicable to polyolefin insulated symmetrical pair/quad telecommunication cables, filled or unfilled with copper conductor intended for broadband digital communications in the local outdoor network."
+  },
+  {
+    "reference": "IEC 62255-2:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 2: Unfilled cables - Sectional specification",
+    "language": "EN-FR, EN",
+    "description": "is applicable to unfilled cables having a metallic screen over the cable core, a polyethylene jacket, copper conductors, and solid or cellular insulation. An inner polyethylene jacket under the metallic screen may be provided. These cables are typically available in 6 to 300 pair."
+  },
+  {
+    "reference": "IEC 62255-2-1:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 2-1: Unfilled cables - Blank detail specification",
+    "language": "EN-FR, EN",
+    "description": "determines the layout and style for detail specifications describing multicore and symmetrical pair/quad unfilled cables for broadband digital communications. Detail specifications, based on the blank detail specification, may be prepared by a national organization, a manufacturer, or a user."
+  },
+  {
+    "reference": "IEC 62255-3:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 3: Filled cables - Sectional specification",
+    "language": "EN-FR, EN",
+    "description": "is applicable to filled cables having a metallic screen over the cable core, a polyethylene jacket, copper conductors, and solid or cellular insulation. These cables are typically available in 6 to 300 pair."
+  },
+  {
+    "reference": "IEC 62255-3-1:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 3-1: Filled cables - Blank detail specification",
+    "language": "EN-FR, EN",
+    "description": "determines the layout and style for detail specifications describing Multicore and symmetrical pair/quad filled cables for broadband digital communications. Detail specifications, based on the blank detail specification, may be prepared by a national organization, a manufacturer, or a user."
+  },
+  {
+    "reference": "IEC 62255-4:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 4: Aerial drop cables - Sectional specification",
+    "language": "EN-FR, EN",
+    "description": "is applicable to aerial drop cables with or without a metallic screen over the cable core, a thermoplastic jacket, copper conductors, and solid or cellular insulation. These cables are typically available in 2 to 6 pair. These cables are intended for aerial applications and are self-supporting."
+  },
+  {
+    "reference": "IEC 62255-4-1:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 4-1: Aerial drop cables - Blank detail specification",
+    "language": "EN-FR, EN",
+    "description": "determines the layout and style for detail specifications describing Multicore and symmetrical pair/quad filled cables for broadband digital communications. Detail specifications, based on the blank detail specification, may be prepared by a national organization, a manufacturer, or a user."
+  },
+  {
+    "reference": "IEC 62255-5:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 5: Filled drop cables - Sectional specification",
+    "language": "EN-FR, EN",
+    "description": "is applicable to filled drop cables having a metallic screen over the cable core, a thermoplastic jacket, copper conductors, and solid or cellular insulation. These cables are typically available in 2 to 6 pair. These cables are intended primarily for direct burial in the ground."
+  },
+  {
+    "reference": "IEC 62255-5-1:2005",
+    "edition": "1.0",
+    "date": "2005-06-23",
+    "title": "Multicore and symmetrical pair/quad cables for broadband digital communications (high bit rate digital access telecommunication networks) - Outside plant cables - Part 5-1: Filled drop cables - Blank detail specification",
+    "language": "EN-FR, EN",
+    "description": "determines the layout and style for detail specifications describing Multicore and symmetrical pair/quad filled cables for broadband digital communications. Detail specifications, based on the blank detail specification, may be prepared by a national organization, a manufacturer, or a user."
+  },
+  {
+    "reference": "IEC 62783-1:2023",
+    "edition": "2.0",
+    "date": "2023-05-12",
+    "title": "Twinax cables for digital communications - Part 1: Generic specification",
+    "language": "EN",
+    "description": "IEC 62783-1:2023 specifies definitions, requirements and test methods of twinax cables used in digital communication systems: computer rooms, data centres, servers, etc. These cables are intended to be used indoors. This document details the requirements and transmission characteristics for single twinax elements as well as multiple twinax elements within the same sheath, i.e. “twinax cable”. IEC 62783-1 ED2 is applicable to twinax cables and also twinax cable assemblies. This document is supplemented with family specifications that give additional requirements based on the specific application, for example, the minimum and maximum specified frequency of the cables."
+  },
+  {
+    "reference": "IEC 62783-1-1:2022",
+    "edition": "1.0",
+    "date": "2022-06-17",
+    "title": "Twinax cables for digital communications - Part 1-1: Time domain test methods for twinax cables for digital communications - General requirements",
+    "language": "EN",
+    "description": "IEC 62783-1-1:2022 specifies time domain test methods, parameters and requirements for fixtures for twinax cables (known also as twin-axial cables or twin-coaxial cables) used in digital communication systems. The methods and fixtures facilitate measurements of differential and common mode transmission parameters as well as single-ended mode parameters. This document is applicable to twinax cables and also to symmetric cables with pitch."
+  },
+  {
+    "reference": "IEC 62783-1-2:2025",
+    "edition": "1.0",
+    "date": "2025-09-24",
+    "title": "Twinax cables for digital communications - Part 1-2: Time domain test method for twinax cables for digital communications - Impedance",
+    "language": "EN",
+    "description": "IEC 62783-1-2:2025 gives the definitions of different types of impedance in time domain and specifies the test method of these kinds of impedance. It is applicable for determining the values of time domain impedance of twinax cables and twinax cable assemblies."
+  },
+  {
+    "reference": "IEC 62783-2:2025",
+    "edition": "2.0",
+    "date": "2025-10-13",
+    "title": "Twinax cables for digital communications - Part 2: Family specification - Cable for Ethernet-over-twinax physical interfaces",
+    "language": "EN",
+    "description": "IEC 62783-2:2025 specifies the definitions and requirements of twin-axial (twinax) cables used in digital communication systems. This document covers twinax cable intended to be used indoors. The specifications are intended to support the twinax link segment specifications of the ISO/IEC/IEEE 8802-3 Ethernet over twinax physical layer (PHY) specifications. This document gives requirements and transmission characteristics for a single twinax element as well as for multiple twinax elements within the same sheath, i.e. \"twinax cable\". This second edition cancels and replaces the first edition published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updating according to the revised generic twinax cable requirements given in IEC 62783 1:2023; b) updating according to new twinax link segment specifications recently added to ISO/IEC/IEEE 8802-3 Ethernet physical interfaces."
+  },
+  {
+    "reference": "IEC 62807-1:2017",
+    "edition": "1.0",
+    "date": "2017-09-06",
+    "title": "Hybrid telecommunication cables - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62807-1:2017 is applicable to hybrid cables intended to contain any combination of optical fibres, twisted pair/quad, coaxial and current-carrying electrical conductor elements as required under a common outer sheath. This hybrid cable design is convenient for networks and customer premises wiring that transmit data, telecommunication and signalling services over optical fibre, metallic twisted pairs, and/or broadband data over coaxial units, and retains the option of supplying electrical current to remote equipment. The cable element (e.g. coaxial, balanced and optical fibre) performance requirements and supported applications are as specified in the following standards series: IEC 61196, IEC 61156, and IEC 60794 respectively. The various combinations of strength members, sheath materials, fibre arrangements, twisted pair/quad structure, cable shielding, and current carrying conductors will be specified in the following specifications: - IEC 62807-2; - IEC 62807-3. In IEC 62807 (all parts), the current carrying conductors are not intended to be used as power mains supply. The specific use and safety regulation requirements are defined in the detailed and sectional cable specification."
+  },
+  {
+    "reference": "IEC 62807-2:2026",
+    "edition": "1.0",
+    "date": "2026-07-03",
+    "title": "Hybrid communication cables - Part 2: Indoor hybrid cables - Sectional specification",
+    "language": "EN",
+    "description": "IEC 62807-2:2026 is a sectional specification for hybrid communication cables used for indoor applications. It specifies terms, definitions, and abbreviated terms, the design and construction, rated values and characteristics, performance requirements and test methods, packaging and quality assurance. Hybrid cables are designed for networks and customer premises cabling that transmit data, control and signalling services over optical fibres, copper conductors, for example coaxial element, wire/pair/quad element, and can have the option of supplying electrical current to remote equipment. In the IEC 62807 series, the current carrying elements are used only to supply power to the equipment within the communication network. They are not used for power supply main. The specific uses are defined in the relevant specification. The MICE classifications specified in ISO/IEC 11801-1 are fully considered when determining the performance requirements and test methods for a hybrid cable application."
+  },
+  {
+    "reference": "IEC 62807-3:2023",
+    "edition": "1.0",
+    "date": "2023-02-07",
+    "title": "Hybrid communication cables - Part 3: Outdoor hybrid cables - Sectional specification",
+    "language": "EN",
+    "description": "IEC 62807-3:2023 is a sectional specification for outdoor hybrid communication cables intended to be used externally in various applications. It specifies terms, definitions, symbols and abbreviated terms, the design and construction, rated values and characteristics, performance requirements and test methods, packaging and quality assurance. Hybrid cables are designed for networks and customer premises cabling that transmit data, telecommunication, instrumentation, control and signalling services over optical fibres and/or broadband data over coaxial element, wire/pair/quad element and can have the option of supplying electrical current to a remote equipment. In the IEC 62807 series, the current carrying elements are used only to supply power to the equipment within the communication network. They are not used for electricity distribution or transmission, nor for power supply to domestic appliances. The specific uses are defined in the relevant specification. The relationship between each of the MICE classifications in ISO/IEC 11801-1, performance requirements and test methods of hybrid cables being proposed in a specific application are fully considered and aligned."
+  },
+  {
+    "reference": "IEC 62807-3-10:2023",
+    "edition": "1.0",
+    "date": "2023-02-22",
+    "title": "Hybrid communication cables - Part 3-10: Outdoor hybrid cables - Family specification for FTTA hybrid communication cables",
+    "language": "EN",
+    "description": "IEC 62807-3-10:2023 is a family specification for FTTA (Fibre-To-The-Antenna) outdoor hybrid communication cables. It specifies the design and construction, rated values and characteristics, requirements and test methods, packaging and quality assurance, etc. The FTTA hybrid communication cables are typically but not only installed between the Base Band Unit (BBU) and Remote Radio Unit (RRU; or often called RRH – Remote Radio Head or AAU – Active Antenna Unit), and other scenario that supply electric current to optical communication equipment."
+  }
+]

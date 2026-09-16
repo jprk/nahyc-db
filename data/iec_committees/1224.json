@@ -1,0 +1,386 @@
+[
+  {
+    "reference": "IEC 60076-1:2011",
+    "edition": "3.0",
+    "date": "2011-04-20",
+    "title": "Power transformers - Part 1: General",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-1:2011 applies to three-phase and single-phase power transformers (including auto-transformers) with the exception of certain categories of small and special transformers. For those categories of power transformers and reactors which have their own IEC standards, this part is applicable only to the extent in which it is specifically called up by cross-reference in the other standard. This new edition includes the following significant technical additions with respect to the previous one: - definition of harmonic content; - subclause on transport; - functional method of specification; - connection symbols for single phase transformers; - safety and environmental requirements; - requirements for liquid preservation systems; - clause on DC currents; - vacuum, pressure and leak tests on tanks; - facilities for condition monitoring and environmental and safety considerations."
+  },
+  {
+    "reference": "IEC 60076-2:2011",
+    "edition": "3.0",
+    "date": "2011-02-23",
+    "title": "Power transformers - Part 2: Temperature rise for liquid-immersed transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-2:2011 applies to liquid-immersed transformers, identifies power transformers according to their cooling methods, defines temperature rise limits and gives the methods for temperature rise tests. This new edition includes the following significant technical changes with respect to the previous edition: - the winding hot-spot temperature rise limit was introduced among the prescriptions; - the procedures for the temperature rise test were improved in relation to the new thermal requirements; - five informative annexes were added in order to facilitate the implementation of this standard."
+  },
+  {
+    "reference": "IEC 60076-3:2013",
+    "edition": "3.0",
+    "date": "2013-07-31",
+    "title": "Power transformers - Part 3: Insulation levels, dielectric tests and external clearances in air",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-3:2013 specifies the insulation requirements and the corresponding insulation tests with reference to specific windings and their terminals. This International Standard applies to power transformers as defined by IEC 60076-1. It also recommends external clearances in air. It gives details of the applicable dielectric tests and minimum dielectric test levels. Recommended minimum external clearances in air between live parts and between live parts and earth are given for use when these clearances are not specified by the purchaser. For categories of power transformers and reactors which have their own IEC standards, this standard is applicable only to the extent in which it is specifically called up by cross reference in the other standards. This third edition of IEC 60076-3 cancels and replaces the second edition published in 2000, and constitutes a technical revision. The main changes from the previous edition are as follows: - Three categories of transformer are clearly identified together with the relevant test requirements, these are summarised in Table 1. - Switching impulse levels are defined for values of U m > 72,5 kV. - The procedure for Induced voltage tests with PD has been revised to ensure adequate phase to phase test voltages. - The AC withstand test has been redefined (LTAC instead of ACSD). - Induced voltage tests are now based on U r rather than U m . - New requirements for impulse waveshape (k factor) have been introduced. - Tables of test levels have been merged and aligned with IEC 60071-1:2010. - Additional test levels have been introduced for U m > 800 kV. - A new Annex E has been introduced, which sets out the principles used in assigning the tests, test levels and clearances in air."
+  },
+  {
+    "reference": "IEC 60076-3:2013/AMD1:2018",
+    "edition": "3.0",
+    "date": "2018-03-22",
+    "title": "Amendment 1 - Power transformers - Part 3: Insulation levels, dielectric tests and external clearances in air",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-4:2026",
+    "edition": "2.0",
+    "date": "2026-07-09",
+    "title": "Power transformers - Part 4: Lightning impulse and switching impulse tests of power transformers and reactors",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60076-4:2026 applies to lightning and switching impulse tests on power transformers and reactors. Information is given on waveforms, test circuits including test connections, earthing practices, failure detection methods, test procedures, measuring techniques and interpretation of results."
+  },
+  {
+    "reference": "IEC 60076-5:2006",
+    "edition": "3.0",
+    "date": "2006-02-07",
+    "title": "Power transformers - Part 5: Ability to withstand short circuit",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Identifies the requirements for power transformers to sustain without damage the effects of overcurrents originated by external short circuits. Describes the calculation procedures used to demonstrate the thermal ability of a power transformer to withstand such overcurrents and both the special test and the theoretical evaluation method used to demonstrate the ability to withstand the relevant dynamic effects."
+  },
+  {
+    "reference": "IEC 60076-6:2007",
+    "edition": "1.0",
+    "date": "2007-12-13",
+    "title": "Power transformers - Part 6: Reactors",
+    "language": "EN-FR, ES",
+    "description": "Applies to the following types of reactors: shunt reactors; series reactors including current-limiting reactors, neutral-earthing reactors, power flow control reactors, motor starting reactors, arc-furnace series reactors; filter (tuning) reactors; capacitor damping reactors; capacitor discharge reactors; earthing transformers (neutral couplers); arc-suppression reactors; smoothing reactors for HVDC and industrial application."
+  },
+  {
+    "reference": "IEC 60076-7:2018",
+    "edition": "2.0",
+    "date": "2018-01-12",
+    "title": "Power transformers - Part 7: Loading guide for mineral-oil-immersed power transformers",
+    "language": "EN, ES",
+    "description": "IEC 60076-7:2018 is applicable to mineral-oil-immersed transformers. It describes the effect of operation under various ambient temperatures and load conditions on transformer life. This document provides guidance for the specification and loading of power transformers from the point of view of operating temperatures and thermal ageing. It provides recommendations for loading above the nameplate rating and guidance for the planner to choose appropriate rated quantities and loading conditions for new installations. This edition includes the following significant technical changes with respect to the previous edition: a) title has been updated from \"oil-immersed power transformers\" to \"mineral-oil-immersed transformers\"; b) insulation life is updated by considering latest research findings; c) temperature limits have been reviewed and maximum core temperature is recommended; d) number of fibre optic sensors is recommended for temperature rise test; e) Q, S and H factors are considered; f) thermal models are revised and rewritten in generally applicable mathematical form; g) geomagnetic induced currents are briefly discussed and corresponding temperature limits are suggested; h) extensive literature review has been performed and a number of references added to bibliography."
+  },
+  {
+    "reference": "IEC 60076-8:1997",
+    "edition": "1.0",
+    "date": "1997-10-01",
+    "title": "Power transformers - Part 8: Application guide",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Provides information to users about certain fundamental service characteristics of different transformer connections and magnetic circuit designs; system fault currents; parallel operation of transformers, calculation of voltage drop or rise under load; selection of rated quantities and tapping quantities; application of transformers of conventional design to convertor loading; measuring techniques etc.... Cancels and replaces IEC 60606"
+  },
+  {
+    "reference": "IEC 60076-10:2016",
+    "edition": "2.0",
+    "date": "2016-03-24",
+    "title": "Power transformers - Part 10: Determination of sound levels",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-10:2016 defines sound pressure and sound intensity measurement methods from which sound power levels of transformers, reactors and their associated cooling devices are determined. The methods are applicable to transformers, reactors and their cooling devices - either fitted to or separate from the transformer - as covered by the IEC 60076 and IEC 61378 series. This standard is primarily intended to apply to measurements made at the factory. Conditions on-site can be very different because of the proximity of objects, including other transformers. Nevertheless, this standard is applied to the extent possible for on site measurements. This edition includes the following significant technical changes with respect to the previous edition: - additional useful definitions introduced; - definition of distribution type transformers introduced for the purpose this standard; - new clause for sound level measurement specification introduced; - requirement for 1/3 octave band measurements introduced for transformers other than distribution type transformers; - standard measurement distance changed from 0,3 m to 1 m for transformers other than distribution type transformers; - height of measurement surface is now clearly defined to count from the reflecting plane; - measurement surface formula unified; - correction criteria for intensity method introduced; - rules for sound measurements on dry-type reactors introduced; - figures revised; - new informative test report templates introduced (Annex B); - IEC 60076-10-1 (application guide) revised in parallel providing worthwhile information for the use of this standard."
+  },
+  {
+    "reference": "IEC 60076-10-1:2016",
+    "edition": "2.0",
+    "date": "2016-03-24",
+    "title": "Power transformers - Part 10-1: Determination of sound levels - Application guide",
+    "language": "EN-FR",
+    "description": "IEC 60076-10-1:2016 provides supporting information to help both manufacturers and purchasers to apply the measurement techniques described in IEC 60076-10. Besides the introduction of some basic acoustics, the sources and characteristics of transformer and reactor sound are described. Practical guidance on making measurements is given, and factors influencing the accuracy of the methods are discussed. This application guide also indicates why values measured in the factory may differ from those measured in service. This application guide is applicable to transformers and reactors together with their associated cooling auxiliaries. This edition includes the following significant technical changes with respect to the previous edition: a) extended information on sound fields provided; b) effect of current harmonics in windings enfolded; c) updated information on measuring methods sound pressure and sound intensity given; d) supporting information on measuring procedures walk-around and point-by-point given; e) clarification of A-weighting provided; f) new information on frequency bands given; g) background information on measurement distance provided; h) new annex on sound-built up due to harmonic currents in windings introduced. This publication is to be read in conjunction with IEC 60076-10:2016 ."
+  },
+  {
+    "reference": "IEC 60076-10-1:2016/AMD1:2020",
+    "edition": "2.0",
+    "date": "2020-11-02",
+    "title": "Amendment 1 - Power transformers - Part 10-1: Determination of sound levels - Application guide",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-11:2018",
+    "edition": "2.0",
+    "date": "2018-08-15",
+    "title": "Power transformers - Part 11: Dry-type transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-11:2018 applies to dry-type power transformers (including auto-transformers) having values of highest voltage for equipment up to and including 72,5 kV and at least one winding operating at greater than 1,1 kV. This document does not apply to: - gas-filled dry-type transformers where the gas is not air; - single-phase transformers rated at less than 5 kVA; - polyphase transformers rated at less than 15 kVA; - instrument transformers; - starting transformers; - testing transformers; - traction transformers mounted on rolling stock; - flameproof and mining transformers; - welding transformers; - voltage regulating transformers; - small power transformers in which safety is a special consideration. Where IEC standards do not exist for the transformers mentioned above or for other special transformers, this document may be applicable as a whole or in parts. This second edition cancels and replaces the first edition published in 2004 and constitutes a technical revision. The main changes with regard to the previous edition are as follows: - Extension of the scope up to 72,5kV - Enclosure management in regards of the performance - Management of the dielectric and thermal features with altitude - New climatic classes for a better adaptation of customers’ need - Establishment of the relation between location and environmental classes - For fire behaviour classes, limitation at 1000kVA and process of test more robust - Introduction of Seismic class - Recommendations for amorphous transformers Keywords: dry-type transformers The contents of the corrigendum of March 2019 and the Interpretation sheet 1 of July 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60076-11:2018/ISH1:2020",
+    "edition": "2.0",
+    "date": "2020-07-10",
+    "title": "Interpretation sheet 1 - Power transformers - Part 11: Dry-type transformers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-11:2018/COR1:2019",
+    "edition": "2.0",
+    "date": "2019-03-28",
+    "title": "Corrigendum 1 - Power transformers - Part 11: Dry-type transformers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-12:2008",
+    "edition": "1.0",
+    "date": "2008-11-05",
+    "title": "Power transformers - Part 12: Loading guide for dry-type power transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-12:2008 is applicable to dry-type transformers according to the scope of IEC 60076-11. It provides the means to estimate ageing rate and consumption of lifetime of the transformer insulation as a function of the operating temperature, time and the loading of the transformer."
+  },
+  {
+    "reference": "IEC 60076-13:2006",
+    "edition": "1.0",
+    "date": "2006-05-24",
+    "title": "Power transformers - Part 13: Self-protected liquid-filled transformers",
+    "language": "EN-FR, ES",
+    "description": "Applies to high-voltage/low-voltage self-protected liquid-filled and naturally cooled transformers for rated power 50 kVA to 1 000 kVA for indoor or outdoor use having a primary winding (high-voltage) with highest voltage for equipment up to 24 kV; a secondary winding (low-voltage) with highest voltage for equipment of 1,1 kV."
+  },
+  {
+    "reference": "IEC 60076-14:2013",
+    "edition": "1.0",
+    "date": "2013-09-16",
+    "title": "Power transformers - Part 14: Liquid-immersed power transformers using high-temperature insulation materials",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-14:2013 applies to liquid-immersed power transformers employing either high-temperature insulation or combinations of high-temperature and conventional insulation, operating at temperatures above conventional limits. It is applicable to: - power transformers in accordance with IEC 60076-1; - convertor transformers according to IEC 61378 series; - transformers for wind turbine applications in accordance with IEC 60076-16; - arc furnace transformers; - reactors in accordance with IEC 60076-6. This part of IEC 60076 may be applicable as a reference for the use of high-temperature insulation materials in other types of transformers and reactors. This first edition of IEC 60076-14 cancels and replaces the second edition of the Technical Specification IEC/TS 60076-14 published in 2009. It constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60076-15:2015",
+    "edition": "2.0",
+    "date": "2015-04-22",
+    "title": "Power transformers - Part 15: Gas-filled power transformers",
+    "language": "EN-FR",
+    "description": "IEC 60076-15:2015 applies to three-phase and single-phase gas-filled power transformers (including auto-transformers) with the exception of certain categories of small and special transformers such as: - single-phase transformers with rated power less than 1 kVA and three-phase transformers less than 5 kVA; - transformers, which have no windings with rated voltage higher than 1 000 V; - instrument transformers; - traction transformers mounted on rolling stock; - starting transformers; - testing transformers; - welding transformers. This second edition of IEC 60076-15 cancels and replaces the first edition published in 2008 and constitutes a technical revision. The following main technical changes from the first edition are: - Modified in accordance with the related revised standards of IEC 60076-1, IEC 60076-2, IEC 60076-3 and related items of SF6 gas in the revised standard of \"High-voltage switchgear and controlgear; - Added the clause \"minimum power under alternative cooling modes\"; - Added the clause \"safety, environmental and other requirements\"; - Added the clause \"d.c. currents in neutral circuits\"; - Added the clause \"electromagnetic compatibility (EMC)\"; - Added the clause \"high frequency switching transients\"."
+  },
+  {
+    "reference": "IEC/IEEE 60076-16:2018",
+    "edition": "2.0",
+    "date": "2018-09-28",
+    "title": "Power transformers - Part 16: Transformers for wind turbine applications",
+    "language": "EN",
+    "description": "IEC/IEEE 60076-16:2018 applies to dry-type and liquid-immersed transformers for wind turbine step-up application having a winding with highest voltage for equipment up to and including 72,5 kV. This document applies to the transformer used to connect the wind turbine generator to the wind farm power collection system or adjacent distribution network and not the transformer used to connect several wind turbines to a distribution or transmission network. Transformers covered by this document comply with the relevant requirements prescribed in the IEC 60076 standards or IEEE C57 standards. This second edition of IEC/IEEE 60076-16 cancels and replaces IEC 60076-16:2011, and constitutes a technical revision. The main changes with respect to the previous edition are as follows: 1) relationship between transformer rated power and the output current from the associated generator is introduced; 2) thermal correction of the effective cooling medium has been introduced; 3) testing regime has been strengthened to ensure transformers are suitable for the harsh electrical environment to which they are subjected. Keywords: transformers for wind turbine applications"
+  },
+  {
+    "reference": "IEC 60076-18:2012",
+    "edition": "1.0",
+    "date": "2012-07-09",
+    "title": "Power transformers - Part 18: Measurement of frequency response",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-18:2012 covers the measurement technique and measuring equipment to be used when a frequency response measurement is required either on-site or in the factory either when the test object is new or at a later stage. This standard is applicable to power transformers, reactors, phase shifting transformers and similar equipment."
+  },
+  {
+    "reference": "IEC TS 60076-19:2013",
+    "edition": "1.0",
+    "date": "2013-03-22",
+    "title": "Power transformers - Part 19: Rules for the determination of uncertainties in the measurement of the losses on power transformers and reactors",
+    "language": "EN-FR, ES",
+    "description": "IEC/TS 60076-19:2013, which is a Technical Specification, illustrates the procedures that should be applied to evaluate the uncertainty affecting the measurements of no-load and load losses during the routine tests on power transformers. Even if the attention is especially paid to the transformers, when applicable the specification can be also used for the measurements of reactor losses, except large reactors with very low power factor."
+  },
+  {
+    "reference": "IEC 60076-19-1:2023",
+    "edition": "1.0",
+    "date": "2023-05-23",
+    "title": "Power transformers - Part 19 - 1: Rules for the determination of uncertainties in the measurement of the losses of power transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-19-1:2023 defines the procedures that are applied to evaluate the uncertainty affecting the measurements of no-load and load losses during the routine tests on power transformers. This document centres on measuring systems utilizing digital instruments, although the procedures can be adapted to evaluation of systems with analogue instruments where further uncertainty sources have to be taken into account. This document specifies how to determine measurement uncertainty and how to apply corrections for known errors in the measurement chain. Information vis-à-vis judgement and traceability are given in IEC 60076-8:1997, 10.1 and 10.2."
+  },
+  {
+    "reference": "IEC TS 60076-20:2017",
+    "edition": "1.0",
+    "date": "2017-01-30",
+    "title": "Power transformers - Part 20: Energy efficiency",
+    "language": "EN",
+    "description": "IEC TS 60076-20:2017(E) is applicable to transformers in the scope of IEC 60076-1. It proposes two methods of defining an energy efficiency index and introduces three methods of evaluating the energy performance of a transformer. The appropriate method is chosen by agreement between purchasers and manufacturers or according to local regulations. The contents of the corrigendum of January 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 60076-20:2017/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-01-12",
+    "title": "Corrigendum 1 - Power transformers - Part 20: Energy efficiency",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-21:2018",
+    "edition": "2.0",
+    "date": "2018-12-07",
+    "title": "Power transformers - Part 21: Standard requirements, terminology, and test code for step-voltage regulators",
+    "language": "EN",
+    "description": "IEC 60076-21:2018 describes electrical, mechanical and test requirements of liquid-immersed, single- and three-phase, 50 Hz and 60 Hz, self and forced-air cooled, distribution, overhead and substation, step-voltage regulators, 1 000 kVA (single-phase units) or 3 000 kVA (three-phase units) and smaller, 34 500 volts and below (2 400 V minimum) and their associated controls. Requirements, references and definitions relevant to either IEC or IEEE contexts are given and their use is described in Clause 4. This publication is published as an IEC/IEEE Dual Logo standard. This second edition cancels and replaces IEC 60076-21, published in 2011, and IEEE Std C57.15-2009. This edition includes the following significant technical changes with respect to IEC 60076­21:2011/IEEE Std C57.15-2009: a) updated list of normative and bibliography IEC and IEEE references and their associated text; b) updated tables of preferred ratings for inclusion of maximum system voltage ( U m ), nominal system voltage and rated voltage ( U r ); c) inclusion of tables for optional fan-cooled ratings, external dielectric clearances and sound pressure levels; d) revision of short-circuit requirements for distribution and substation voltage regulators; e) inclusion of an universal interface between control enclosure and apparatus; f) inclusion of tap-changer routine and type tests; g) inclusion of audible sound pressure emissions test procedures; h) inclusion of tank enclosure integrity type test procedures; i) update of control environmental IEC reference test standard. Keywords: step-voltage regulators"
+  },
+  {
+    "reference": "IEC 60076-22-1:2019",
+    "edition": "1.0",
+    "date": "2019-01-29",
+    "title": "Power transformers - Part 22-1: Power transformer and reactor fittings - Protective devices",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-22-1:2019 applies to protective devices mounted on liquid-immersed power transformers in accordance with IEC 60076-1 and reactors in accordance with IEC 60076-6 with or without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical and electrical requirements that are common to all the devices, which are relevant for the safety of the machine having a function of signalization of abnormal operating conditions. It also outlines the operation requirements specific to each device as well as, in some cases, the preferred dimensions relevant for interchangeability and the type and routine test to be performed. Keywords: protective devices mounted on liquid-immersed power transformers"
+  },
+  {
+    "reference": "IEC 60076-22-2:2019",
+    "edition": "1.0",
+    "date": "2019-01-16",
+    "title": "Power transformers - Part 22-2: Power transformer and reactor fittings - Removable radiators",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-22-2:2019 applies to radiators mounted on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with and without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical and electrical requirements that are common to this equipment. It also outlines the operation requirements specific to this equipment as well as the preferred dimensions relevant for interchangeability and the type and routine tests to be performed. Keywords: radiators mounted on liquid immersed power transformers"
+  },
+  {
+    "reference": "IEC 60076-22-3:2019",
+    "edition": "1.0",
+    "date": "2019-03-08",
+    "title": "Power transformers - Part 22-3: Power transformer and reactor fittings - Insulating liquid to air heat exchangers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-22-3:2019 applies to liquid to air heat exchangers, using forced air and forced liquid circuits, used on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with and without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical and electrical requirements that are common to this equipment. It also outlines the operation requirements specific to this equipment as well as the preferred dimensions relevant for interchangeability and the type and routine tests to be performed. Keywords: insulating liquid to air heat exchangers in the cooling circuits of power transformers and reactors"
+  },
+  {
+    "reference": "IEC 60076-22-4:2019",
+    "edition": "1.0",
+    "date": "2019-03-08",
+    "title": "Power transformers - Part 22-4: Power transformer and reactor fittings - Insulating liquid to water heat exchangers",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-22-4:2019 applies to liquid to water heat exchangers, using forced water and forced liquid circuits, used on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with and without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical and electrical requirements that are common to this equipment. It also outlines the operation requirements specific to this equipment as well as the preferred dimensions relevant for interchangeability and the type and routine tests to be performed. Keywords: insulating liquid to air heat exchangers in the cooling circuits of power transformers and reactors."
+  },
+  {
+    "reference": "IEC 60076-22-5:2021",
+    "edition": "1.0",
+    "date": "2021-01-18",
+    "title": "Power transformers - Part 22-5: Power transformer and reactor fittings - Electric pumps for transformers",
+    "language": "EN-FR",
+    "description": "IEC 60076-22-5:2021 covers electric pumps used in the cooling circuits of power transformers and reactors. It applies to electric pumps mounted on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with and without conservator for indoor or outdoor installation. It outlines the operation requirements for the electrical and hydraulic performance, mechanical design, routine testing and type testing. Additionally, performance and dimensions of preferred sizes of pump sets are specified in informative annexes. The pumps covered in this document are rotodynamic pumps driven by a squirrel cage induction motor that is immersed in the insulating liquid. Pump sets conforming to this document can be of in-line or end suction design."
+  },
+  {
+    "reference": "IEC 60076-22-6:2021",
+    "edition": "1.0",
+    "date": "2021-01-18",
+    "title": "Power transformers - Part 22-6: Power transformer and reactor fittings - Electric fans for transformers",
+    "language": "EN-FR",
+    "description": "IEC 60076-22-6:2021 covers the electric fans used in the cooling circuits of power transformers and reactors. It applies to electric fans mounted on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with and without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical and electrical requirements that are common to all the equipment. The electric fans concerned by this document are of the axially operating type and are for use on liquid to air coolers and for blowing out radiators. This document also outlines the operation requirements specific to each equipment as well as the preferred dimensions relevant for interchangeability and uniform fan assembly and the type and routine tests to be performed."
+  },
+  {
+    "reference": "IEC 60076-22-7:2020",
+    "edition": "1.0",
+    "date": "2020-05-07",
+    "title": "Power transformers - Part 22-7: Power transformer and reactor fittings - Accessories and fittings",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-22-7:2020 applies to a selection of accessories and fittings mounted on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076­6 with or without conservator for indoor or outdoor installation. It outlines the service conditions and the mechanical requirements that are common to all the accessories and fittings. This document also outlines the operation requirements specific to each device as well as the preferred dimensions relevant for interchangeability and the type and routine test to be performed.This document covers an exhaustive selection of the accessories and fittings that are currently used on transformers or reactors. The contents of the corrigendum of June 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60076-22-7:2020/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-06-09",
+    "title": "Corrigendum 1 - Power transformers - Part 22-7: Power transformer and reactor fittings - Accessories and fittings",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60076-22-8:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Power transformers - Part 22-8: Power transformer and reactor fittings - Devices suitable for use in communication networks",
+    "language": "EN-FR",
+    "description": "IEC 60076-22:2021 applies to a selection of accessories and fittings mounted on liquid immersed power transformers according to IEC 60076-1 and reactors according to IEC 60076-6 with or without conservator for indoor or outdoor installation. It outlines the operation requirements specific to each device as well as the data made available to the communication network and the type and routine test to be performed."
+  },
+  {
+    "reference": "IEC TS 60076-23:2018",
+    "edition": "1.0",
+    "date": "2018-01-09",
+    "title": "Power transformers - Part 23: DC magnetic bias suppression devices",
+    "language": "EN",
+    "description": "IEC TS 60076-23:2018(E) specifies requirements for devices for the suppression of DC magnetic bias of power transformers and convertor transformers. It includes requirements for service conditions, structures, testing, packing, transport and storage. The devices are connected to neutral points of power transformers and converter transformers to suppress DC bias current in the case an HVDC system is operated in monopole ground return mode or bipolar unbalanced mode. In the case of dedicated metallic return HVDC system, the devices are useful to mitigate DC stray current flowing through power transformers and converter transformers during transient conditions such as DC line fault. This document applies to DC magnetic bias suppression devices for operation at frequencies of 50 Hz and 60 Hz on power systems having voltages above 110 kV."
+  },
+  {
+    "reference": "IEC 60076-24:2020",
+    "edition": "1.0",
+    "date": "2020-07-09",
+    "title": "Power transformers - Part 24: Specification of voltage regulating distribution transformers (VRDT)",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-24:2020 applies to medium power transformers from 25 kVA up to 3 150 kVA with highest voltage for equipment up to 36 kV, or in low voltage (LV) networks with highest voltage for equipment of up to 1,1 kV equipped with voltage regulating devices. Voltage regulating distribution transformers are transformers equipped with components to control primary or secondary voltage for on-load voltage regulation purposes. The main objective of the installation of a VRDT is to regulate the LV network voltage level (i.e. 400 V), to avoid violation of the limits defined by relevant standards or regulations. The VRDT must operate properly as a step down and step up transformer. Transformers covered by this document comply with the relevant requirements set out in IEC 60076 (all parts) and, unless otherwise stated in this document, they also comply with European Standards EN 50160 and EN 50588-1."
+  },
+  {
+    "reference": "IEC 60076-25:2023",
+    "edition": "1.0",
+    "date": "2023-02-23",
+    "title": "Power transformers - Part 25: Neutral grounding resistors",
+    "language": "EN-FR, ES",
+    "description": "IEC 60076-25:2023 applies to dry type natural air-cooled resistors, for neutral grounding of transformers and generators, in order to limit the earth fault current in power systems by means of metallic resistive elements. For the purposes of this document, the resistor can be: used alone or in combination with other electrotechnical products not covered by this document, such as (but not limited to): a step-down single-phase transformer, an open triangle or zig-zag transformer (where the neutral point is not available) and a Petersen coil reactor (in order to increase active power contribution to the fault or reduce time constant for proper protection operation or both); designed, manufactured and verified on a one-off basis or fully standardized and manufactured in quantity. Both terms \"neutral grounding resistor\" (NGR) and \"neutral earthing resistor\" (NER) can be used. However, for the purposes of this document and in order to avoid any confusion with \"neutral earthing reactor\" (NER), the term \"neutral grounding resistor\" (NGR) is used. This document specifies: the characteristics of the NGR; the service conditions requirements for NGRs; the tests and test methods for confirming that these conditions have been met; the requirements relating to marking for NGRs. Annex A provides guidance on how to consider the effect of resistance variation with temperature."
+  },
+  {
+    "reference": "IEC TR 60076-26:2020",
+    "edition": "1.0",
+    "date": "2020-03-26",
+    "title": "Power transformers - Part 26: Functional requirements of insulating liquids for use in power transformers",
+    "language": "EN",
+    "description": "IEC TR 60076-26: 2020 which is a Technical Report, provides the functional requirements of insulating liquids that are considered necessary for use in power transformers, including, for example, reactors and HVDC transformers, are assembled and listed. A relevance index of importance for design and for service as well as the status of validation is given for all individual requirements (parameters). All parameters are assigned to one of the following categories: General (physical / chemical) Dielectric / Insulation Thermal / Cooling Ageing and Stability Liquid-solid system Material compatibility The document is intended to serve as a general reference document for the transformer industry, including liquid suppliers as well as relevant scientific and technical bodies dealing with insulating liquids (materials)."
+  },
+  {
+    "reference": "IEC/IEEE 60076-57-1202:2017",
+    "edition": "1.0",
+    "date": "2017-05-23",
+    "title": "Power transformers - Part 57-1202: Liquid immersed phase-shifting transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC IEEE 60076-57-1202:2017 covers the requirements for phase-shifting transformers of all types. The scope excludes transformers with an unregulated phase shift. This document is limited to matters particular to phase-shifting transformers and does not include matters relating to general requirements for power transformers covered in existing standards in the IEC 60076 series or IEEE Std C57.12.00™ and IEEE Std C57.12.10™."
+  },
+  {
+    "reference": "IEC/IEEE 60076-57-129:2017",
+    "edition": "1.0",
+    "date": "2017-11-09",
+    "title": "Power transformers - Part 57-129: Transformers for HVDC applications",
+    "language": "EN",
+    "description": "IEC/IEEE 60076-57-129:2017(E) specifies requirements of liquid-immersed three-phase and single-phase converter transformers for use in high voltage direct current (HVDC) power transmission systems including back-to-back applications. It applies to transformers having two, three or multiple windings. This document does not apply to: - converter transformers for industrial applications (see IEC 61378-1 or IEEE C57.18.10); - converter transformers for traction applications (see IEC 60310). This publication cancels and replaces the first edition of IEC 61378-2 published in 2001 and IEEE Std C57.129™ published in 2007."
+  },
+  {
+    "reference": "IEC 60214-1:2014",
+    "edition": "2.0",
+    "date": "2014-05-22",
+    "title": "Tap-changers - Part 1: Performance requirements and test methods",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60214-1:2014 applies to on-load tap-changers of both resistor and reactor types, de-energized tap-changers, and their motor-drive mechanisms. It applies mainly to tap-changers immersed in mineral insulating oil according to IEC 60296 but may also be used for tap-changers with air or gas insulation or immersed in other insulating liquids insofar as conditions are applicable. It applies mainly to tap-changers with arcing contacts but may also be used for arcing-free on-load tap-changers (such as electronic switching) insofar as conditions are applicable. This part of IEC 60214 applies to power and distribution transformers of all types and also to reactors. It does not apply to transformers and reactors mounted on railway rolling stock. This second edition cancels and replaces the first edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) incorporation of requirements on vacuum type on-load tap-changers, b) incorporation of requirements on gas insulated tap-changers, c) changes in the type tests to fit with the service conditions, d) reference to the newest edition of IEC 60076-3:2013."
+  },
+  {
+    "reference": "IEC/IEEE 60214-2:2019",
+    "edition": "2.0",
+    "date": "2019-06-14",
+    "title": "Tap-changers - Part 2: Application guidelines",
+    "language": "EN",
+    "description": "IEC/IEEE 60214-2:2019 is published as an IEC/IEEE Dual Logo standard and is intended to assist in the selection of tap-changers designed in accordance with IEC 60214-1 or IEEE Std C57.131 for use in conjunction with the tapped windings of transformers or reactors. Requirements, references and definitions relevant to either IEC 60214-1 or IEEE Std C57.131 are given and their use is described in Clause 4. It is also intended to assist in understanding the various types of tap-changers and their associated equipment available. These application guidelines cover on-load tap-changers (resistor and reactor types) and de-energized tap-changers. This second edition cancels and replaces the first edition published in 2004. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) title has been updated from \"Application guide\" to \"Application guidelines\"; b) tap-changers for gas-filled transformers have been added; c) description of typical circuits for regulation has been added; d) description of basic arrangements of tapped windings with on-load tap-changers and de-energized tap-changers has been added; e) types of tap-changers are explained in more detail (e.g. vacuum type on-load tap-changer) and new types have been added (e.g. step-voltage regulator, advance retard switch (ARS), on-load tap-changers for distribution transformers); f) selection of tap-changers (on-load and de-energized) are described in more detail with respect to applications and parameters, which have to be considered (e.g. current wave shapes, operating pressure, temperature conditions, overloading conditions, continuous consecutive operations); g) storage and installation has been considered; h) field service, including commissioning, operation, maintenance and monitoring, has been considered; i) safety aspects have been updated. Keywords: tap-changers"
+  },
+  {
+    "reference": "IEC TR 60616:1978",
+    "edition": "1.0",
+    "date": "1978-01-01",
+    "title": "Terminal and tapping markings for power transformers",
+    "language": "EN-FR, RU",
+    "description": "Gives guidance in accordance with the rules given in IEC 60445. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC 61378-1:2011",
+    "edition": "2.0",
+    "date": "2011-07-26",
+    "title": "Converter transformers - Part 1: Transformers for industrial applications",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61378-1:2011 deals with the specification, design and testing of power transformers and reactors which are intended for integration within semiconductor converter plants. The scope of this International Standard is limited to application of power converters of any power rating. Typical applications are: - thyristor rectifiers for electrolysis; - diode rectifiers for electrolysis; - thyristor rectifiers for large drives; - thyristor rectifiers for scrap melting furnaces, and - diode rectifiers feeding inverters for variable speed drives. The standard also covers the regulating unit utilized in such application as step down regulating transformers or autotransformers. This edition includes the following significant technical changes with respect to the previous edition: - addition of winding connections with phase displacement (30°); - addition of transformers with more than one active part in the same tank; - change of reference power definition; - addition of regulating transformer feeding converter transformer; - addition of considerations about current sharing and hot spot temperature in high current windings for various winding arrangements; - addition of transductors used for d.c. voltage regulation together with diode rectifiers. The contents of the corrigendum of January 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61378-1:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-01-24",
+    "title": "Corrigendum 1 - Converter transformers - Part 1: Transformers for industrial applications",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61378-3:2015",
+    "edition": "2.0",
+    "date": "2015-02-05",
+    "title": "Converter transformers - Part 3: Application guide",
+    "language": "EN-FR",
+    "description": "IEC 61378-3:2015 provides information to users about specific topics related to industrial and HVDC converter transformers with design, construction, testing and operating conditions differing from conventional transformers used in power systems. In addition, it is the aim of the present part of IEC 61378 to provide manufacturers with the technical background that forms the basis for the principles used within IEC 61378-1 and IEC 61378-2. It is intended that this part of IEC 61378 is used to supplement and not replace or supersede the application guide for power transformers, IEC 60076-8, since many of the general principles contained within it are equally applicable to converter transformers. This second edition cancels and replaces the first edition published in 2006 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of clause on losses to reflect the changes introduced by the second edition of IEC 61378-1; b) addition of a new clause about design review of converter transformer for both industrial and HVDC applications; c) addition of content for transformer connected to voltage source converters; d) reference to the work of CIGRE JWG A2/B4.28 on HVDC transformers."
+  },
+  {
+    "reference": "IEC 62032:2012",
+    "edition": "2.0",
+    "date": "2012-06-21",
+    "title": "Guide for the Application, Specification and Testing of Phase-Shifting Transformers",
+    "language": "EN",
+    "description": "IEC 62032:2012(E) covers the application, specification, theory of operation, and factory and field testing of single-phase and three-phase oil-immersed, phase-shifting transformers (PSTs). This international standard is limited to matters particular to PSTs and does not include matters relating to general requirements for power transformers covered in existing standards, recommended practices, or guides."
+  }
+]

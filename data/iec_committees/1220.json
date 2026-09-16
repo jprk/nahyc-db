@@ -1,0 +1,298 @@
+[
+  {
+    "reference": "IEC 60110-1:1998",
+    "edition": "1.0",
+    "date": "1998-06-10",
+    "title": "Power capacitors for induction heating installations - Part 1: General",
+    "language": "EN-FR, ES",
+    "description": "Is applicable both to indoor capacitor units and indoor capacitor banks intended to be used, particularly, for power factor correction in induction heating, melting, stirring or casting installations, and similar applications with controlled or adjustable a.c. voltage systems in a frequency range up to 50 kHz, and with a rated voltage not exceeding 3,6 kV."
+  },
+  {
+    "reference": "IEC TS 60110-2:2000",
+    "edition": "1.0",
+    "date": "2000-02-24",
+    "title": "Power capacitors for induction heating installations - Part 2: Ageing test, destruction test and requirements for disconnecting internal fuses",
+    "language": "EN-FR",
+    "description": "Is applicable to capacitors according to IEC 60110-1 and gives the requirements for the ageing test, destruction test and requirements for disconnecting internal fuses for these capacitors."
+  },
+  {
+    "reference": "IEC 60143-1:2015",
+    "edition": "5.0",
+    "date": "2015-06-25",
+    "title": "Series capacitors for power systems - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 60143-1:2015 applies both to capacitor units and capacitor banks intended to be used connected in series with an a.c. transmission or distribution line or circuit forming part of an a.c. power system having a frequency of 15 Hz to 60 Hz. The primary focus of this standard is on transmission application. The series capacitor units and banks are usually intended for high-voltage power systems. This standard is applicable to the complete voltage range. This standard does not apply to capacitors of the self-healing metallized dielectric type. The following capacitors, even if connected in series with a circuit, are excluded from this standard: - capacitors for inductive heat-generating plants (IEC 60110-1); - capacitors for motor applications and the like (IEC 60252 (all parts)); - capacitors to be used in power electronics circuits (IEC 61071); - capacitors for discharge lamps (IEC 61048 and IEC 61049). For standard types of accessories such as insulators, switches, instrument transformers, external fuses, etc. see the pertinent IEC standard. The object of this standard is: - to formulate uniform rules regarding performance, testing and rating; - to formulate specific safety rules; - to serve as a guide for installation and operation. This fifth edition cancels and replaces the fourth edition, published in 2004. This edition constitutes a technical revision. The main change with respect to the previous edition is that the endurance test has been replaced by an ageing test because voltage cycling is already performed in the cold duty test. The guide section has been expanded regarding long line correction and altitude correction. In addition the insulation tables and references to other standards have been updated. Keywords: a.c. transmission or distribution line, capacitor units and banks for high-voltage power systems The contents of the corrigendum of April 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60143-1:2015/COR1:2017",
+    "edition": "5.0",
+    "date": "2017-04-26",
+    "title": "Corrigendum 1 - Series capacitors for power systems - Part 1: General",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60143-1:2015/AMD1:2023",
+    "edition": "5.0",
+    "date": "2023-11-03",
+    "title": "Amendment 1 - Series capacitors for power systems - Part 1: General",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60143-2:2012",
+    "edition": "2.0",
+    "date": "2012-12-11",
+    "title": "Series capacitors for power systems - Part 2: Protective equipment for series capacitor banks",
+    "language": "EN-FR",
+    "description": "IEC 60143-2:2012 covers protective equipment for series capacitor banks, with a size larger than 10 Mvar per phase. Protective equipment is defined as the main circuit apparatus and ancillary equipment, which are part of a series capacitor installation, but which are external to the capacitor part itself. The recommendations for the capacitor part are given in IEC 60143-1:2004. The protective equipment is mentioned in Clause 3 and 10.6 of IEC 60143-1:2004. This second edition cancels and replaces the first edition published in 1994. It constitutes a technical revision. The main changes with respect to the previous edition are: - updated with respect to new and revised component standards; - updates with respect to technology changes. Outdated technologies have been removed, i.e. series capacitors with dual self-triggered gaps. New technologies have been added, i.e. current sensors instead of current transformers; - the testing of spark gaps has been updated to more clearly specify requirements and testing procedures. A new bypass making current test replaces the old discharge current test; - Clause 5, Guide, has been expanded with more information about different damping circuits and series capacitor protections. Keywords: protective equipment for series capacitor banks"
+  },
+  {
+    "reference": "IEC 60143-2:2012/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-09-02",
+    "title": "Amendment 1 - Series capacitors for power systems - Part 2: Protective equipment for series capacitor banks",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60143-3:2015",
+    "edition": "2.0",
+    "date": "2015-06-09",
+    "title": "Series capacitors for power systems - Part 3: Internal fuses",
+    "language": "EN-FR",
+    "description": "IEC 60143-3:2015 applies to internal fuses designed to isolate faulty capacitor elements, to allow operation of the remaining parts of that capacitor unit and the bank in which the capacitor unit is connected. Such fuses are not a substitute for a switching device such as a circuit-breaker, or for external protection of the capacitor bank, or any part thereof. The object of this part of IEC 60143 is: - to formulate requirements regarding performance and testing; - to provide a guide for coordination of fuse and bank protection. This second edition cancels and replaces the first edition published in 1998. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The test procedure has been largely simplified. Keywords: faulty capacitor elements, fuse and bank protection"
+  },
+  {
+    "reference": "IEC 60143-4:2023",
+    "edition": "2.0",
+    "date": "2023-12-14",
+    "title": "Series capacitors for power systems - Part 4: Thyristor controlled series capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60143-4:2023 specifies the testing of thyristor controlled series capacitor (TCSC) installations used in series with transmission lines. This document also addresses issues that consider ratings for TCSC thyristor valve assemblies, capacitors, and reactors as well as TCSC control characteristics, protective features, cooling system and system operation. IEC 60143-4:2023 cancels and replaces the first edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) thyristor valve testing requirements refer to IEC 62823; b) Formula (1) in Subclause 4.2 has been corrected; c) Hardware-in-the-loop (HIL) tests, Subclause 7.5.4, replaces previously specified real time protection and control system test with network simulator."
+  },
+  {
+    "reference": "IEC 60252-1:2010",
+    "edition": "2.0",
+    "date": "2010-09-29",
+    "title": "AC motor capacitors - Part 1: General - Performance, testing and rating - Safety requirements - Guidance for installation and operation",
+    "language": "EN-FR, ES",
+    "description": "IEC 60252-1:2010 applies to motor capacitors intended for connection to windings of asynchronous motors supplied from a single-phase system having a frequency up to and including 100 Hz, and to capacitors to be connected to three-phase asynchronous motors so that these motors may be supplied from a single-phase system. This standard covers impregnated or unimpregnated capacitors having a dielectric of paper, plastic film, or a combination of both, either metallized or with metal-foil electrodes, with rated voltages up to and including 660 V. This edition includes the following significant technical changes with respect to the previous edition: - the definition of \"segmented capacitors\" has been added in 3.6; - the definition of \"classes of operation\" has been clarified, with the addition of the concept of \"probable life\" with reference to statistics, in 3.9; - the following wording \"Operation above the rated voltage will reduce the life expectancy of the capacitor\" has been introduced in 6.1. - some clarifications have been added to Clause 8, Marking, mainly for small capacitors."
+  },
+  {
+    "reference": "IEC 60252-1:2010/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-08-29",
+    "title": "Amendment 1 - AC motor capacitors - Part 1: General - Performance, testing and rating - Safety requirements - Guidance for installation and operation",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60252-2:2010",
+    "edition": "2.0",
+    "date": "2010-12-15",
+    "title": "AC motor capacitors - Part 2: Motor start capacitors",
+    "language": "EN-FR, ES",
+    "description": "IEC 60252-2:2010 applies to motor start capacitors intended for connection to windings of asynchronous motors supplied from a single-phase system having the frequency of the mains. Covers impregnated or unimpregnated metallized motor start capacitors having a dielectric of paper or plastic film, or a combination of both and electrolytic motor start capacitors with non-solid electrolyte, with rated voltages up to and including 660 V. The main changes with respect to the previous edition are: - definition of segmented film capacitors; - clearer definition of the purpose of d.c. conditioning in destruction test."
+  },
+  {
+    "reference": "IEC 60252-2:2010/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-08-29",
+    "title": "Amendment 1 - AC motor capacitors - Part 2: Motor start capacitors",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60358-1:2025",
+    "edition": "2.0",
+    "date": "2025-12-23",
+    "title": "Coupling capacitors and capacitor dividers - Part 1: General rules",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60358-1:2025 This part of IEC 60358 applies to: Coupling capacitors and capacitor dividers, with rated voltage > 1 000 V, connected line to ground with the low-voltage terminal either permanently earthed or connected to devices, for applications listed hereunder and other similar uses. This document serves as a basic standard for the coupling capacitors and capacitor dividers."
+  },
+  {
+    "reference": "IEC 60358-2:2013",
+    "edition": "1.0",
+    "date": "2013-08-12",
+    "title": "Coupling capacitors and capacitor dividers - Part 2: AC or DC single-phase coupling capacitor connected between line and ground for power line carrier-frequency (PLC) application",
+    "language": "EN-FR",
+    "description": "IEC 60358-2:2013 applies to AC or DC single-phase coupling capacitors, with rated voltage > 1 000 V, connected between line and ground with a low voltage terminal either permanently earthed or connected to a device for power line carrier-frequency (PLC) applications at frequencies from 30 kHz to 500 kHz or similar applications (DC or AC) at power frequencies from 15 Hz to 60 Hz. The transmission requirements for coupling devices for power line carrier (PLC) systems are defined in IEC 60481. Keywords: AC or DC single-phase coupling capacitors, power line carrier-frequency (PLC). This standard cancels and replaces the second edition of IEC 60358 (1990), and constitutes a technical revision. This publication is to be read in conjunction with IEC 60358-1:2012 ."
+  },
+  {
+    "reference": "IEC 60358-3:2013",
+    "edition": "1.0",
+    "date": "2013-11-27",
+    "title": "Coupling capacitors and capacitor dividers - Part 3: AC or DC coupling capacitor for harmonic-filters applications",
+    "language": "EN-FR",
+    "description": "IEC 60358-3:2013 applies to AC or DC single-phase coupling capacitor, with rated voltage higher than 1 000 V, connected line to ground with the low voltage terminal either permanently earthed or connected to a tuning device for harmonic-filters applications. It replaces Clause 1 of IEC 60358-1:2012. Keywords: AC or DC single-phase coupling capacitor This publication is to be read in conjunction with IEC 60358-1:2012 ."
+  },
+  {
+    "reference": "IEC 60358-4:2018",
+    "edition": "1.0",
+    "date": "2018-07-03",
+    "title": "Coupling capacitors and capacitor dividers - Part 4: DC and AC single-phase capacitor dividers",
+    "language": "EN-FR",
+    "description": "IEC 60358-4:2018 applies to DC or AC single-phase capacitor-dividers connected between line and ground used for manufacturing Voltage Transformers as well as for other applications. IEC 60358-4:2018 is to be used in conjunction with the latest edition of IEC 60358-1 and its amendments. IEC 60358-4:2018 was established on the basis of the IEC 60358-1:2012. IEC 60358-4:2018 supplements or modifies the corresponding clauses in IEC 60358-1:2012. This standard cancels and replaces the second edition of IEC 60358 (1990), and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60831-1:2014",
+    "edition": "3.0",
+    "date": "2014-02-11",
+    "title": "Shunt power capacitors of the self-healing type for a.c. systems having a rated voltage up to and including 1 000 V - Part 1: General - Performance, testing and rating - Safety requirements - Guide for installation and operation",
+    "language": "EN-FR",
+    "description": "IEC 60831-1:2014 is applicable to both capacitor units and capacitor banks intended to be used, particularly, for power-factor correction of a.c. power systems having a rated voltage up to and including 1 000 V and frequencies of 15 Hz to 60 Hz. This part of IEC 60831 also applies to capacitors intended for use in power filter circuits. Additional definitions, requirements, and tests for power filter capacitors are given in Annex A. The object of this part of IEC 60831 is to: - formulate uniform rules regarding performances, testing and rating; - formulate specific safety rules; - provide a guide for installation and operation. This third edition cancels and replaces the second edition published in 1996 and Amendment 1:2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Updating of the normative references; - Test conditions have been clarified; - Thermal stability test has been clarified; - Maximum permissible voltage and current have been clarified; - The protection of the environment has been amended with safety concerns and plastic quality requirements. The contents of the corrigendum of May 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60831-1:2014/COR1:2014",
+    "edition": "3.0",
+    "date": "2014-05-23",
+    "title": "Corrigendum 1 - Shunt power capacitors of the self-healing type for a.c. systems having a rated voltage up to and including 1 000 V - Part 1: General - Performance, testing and rating - Safety requirements - Guide for installation and operation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60831-2:2014",
+    "edition": "3.0",
+    "date": "2014-02-12",
+    "title": "Shunt power capacitors of the self-healing type for a.c. systems having a rated voltage up to and including 1 000 V - Part 2: Ageing test, self-healing test and destruction test",
+    "language": "EN-FR",
+    "description": "IEC 60831-2:2014 applies to capacitors according to IEC 60831-1 and gives the requirements for the ageing test, self-healing test and destruction test for these capacitors. This third edition cancels and replaces the second edition published in 1995. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Updating of the normative references; - Discharge cycles before ageing test carried out at ambient temperature; - Alternative Self-healing test at d.c. voltage; - Modified acceptance conditions after Self-healing test; - Modifications to Destruction test. Keywords: IEC 60831-1, requirements for the ageing test, self-healing test and destruction test for capacitors"
+  },
+  {
+    "reference": "IEC 60871-1:2014",
+    "edition": "4.0",
+    "date": "2014-05-22",
+    "title": "Shunt capacitors for a.c. power systems having a rated voltage above 1 000 V - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 60871-1:2014 is applicable to both capacitor units and capacitor banks intended to be used, particularly, for power-factor correction of a.c. power systems having a rated voltage above 1 000 V and frequencies of 15 Hz to 60 Hz. This part of IEC 60871 also applies to capacitors intended for use in power filter circuits. The object of this part of IEC 60871 is as follows: - to formulate uniform rules regarding the performance and rating of units and banks, and the testing of units; to formulate specific safety rules; - to provide a guide for installation and operation. This fourth edition cancels and replaces the third edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the overvoltage cycling test has been moved to this standard from the IEC 60871-2; - the ranges of the standardized values of the highest voltage for equipment have been modified; - for installations installed on altitudes above 1 000 m a correction factor to all insulation requirements has been introduced; - new standard insulation tables have been defined. Keywords: capacitor units and capacitor banks, power filter circuits"
+  },
+  {
+    "reference": "IEC TS 60871-2:2014",
+    "edition": "3.0",
+    "date": "2014-11-25",
+    "title": "Shunt capacitors for a.c. power systems having a rated voltage above 1 000 V - Part 2: Endurance testing",
+    "language": "EN-FR",
+    "description": "IEC/TS 60871-2:2014 which is a technical specification, applies to capacitors according to IEC 60871-1 and gives the requirements for ageing tests of these capacitors. This third edition cancels and replaces the second edition published in 1999. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The overvoltage cycling test has been moved to IEC 60871-1:2014. Keywords: ageing tests of capacitors"
+  },
+  {
+    "reference": "IEC TS 60871-2:2014/AMD1:2022",
+    "edition": "3.0",
+    "date": "2022-03-31",
+    "title": "Amendment 1 - Shunt capacitors for a.c. power systems having a rated voltage above 1 000 V - Part 2: Endurance testing",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 60871-3:2015",
+    "edition": "2.0",
+    "date": "2015-06-25",
+    "title": "Shunt capacitors for a.c. power systems having a rated voltage above 1000 V - Part 3: Protection of shunt capacitors and shunt capacitor banks",
+    "language": "EN",
+    "description": "IEC/TS 60871-3:2015(E) which is a technical specification, gives guidance on the protection of shunt capacitors and shunt capacitor banks. it applies to capacitors according to IEC 60871-1. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Clearer writing of formulas on energy limitation for expulsion fuses; - Updated normative references and bibliography; - A new clause for synchronized switching has been added. Keywords: shunt capacitors, shunt capacitor banks"
+  },
+  {
+    "reference": "IEC TS 60871-3:2015/AMD1:2023",
+    "edition": "2.0",
+    "date": "2023-08-22",
+    "title": "Amendment 1 - Shunt capacitors for AC power systems having a rated voltage above 1 000 V - Part 3: Protection of shunt capacitors and shunt capacitor banks",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60871-4:2014",
+    "edition": "2.0",
+    "date": "2014-03-27",
+    "title": "Shunt capacitors for AC power systems having a rated voltage above 1 000 V - Part 4: Internal fuses",
+    "language": "EN-FR",
+    "description": "IEC 60871-4:2014 applies to internal fuses which are designed to isolate faulty capacitor elements, in order to allow operation of the remaining parts of that capacitor unit and the bank in which the capacitor unit is connected. Such fuses are not a substitute for a switching device such as a circuit-breaker, or for external protection of the capacitor bank or any part thereof. The object of this part of IEC 60871 is to formulate requirements regarding performance and testing and to provide a guide for coordination of fuse protection. This second edition cancels and replaces the first edition published in 1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The disconnecting requirements have been modified. Keywords: internal fuses, faulty capacitor elements, fuse protection"
+  },
+  {
+    "reference": "IEC 60931-1:2025",
+    "edition": "3.0",
+    "date": "2025-06-26",
+    "title": "Shunt power capacitors of the non-self-healing type for AC systems having a rated voltage up to and including 1 000 V - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 60931-1:2025 is applicable to both non-self-healing capacitor units and non-self-healing capacitor banks intended to be used, particularly, for power-factor correction of AC power systems having a rated voltage up to and including 1 000 V and frequencies 15 Hz to 60 Hz. This document also applies to capacitors intended for use in power filter circuits."
+  },
+  {
+    "reference": "IEC 60931-2:2025",
+    "edition": "3.0",
+    "date": "2025-06-26",
+    "title": "Shunt power capacitors of the non-self-healing type for AC systems having a rated voltage up to and including 1 000 V - Part 2: Ageing test and destruction test",
+    "language": "EN-FR",
+    "description": "IEC 60931-2:2025 applies to capacitors according to IEC 60931-1 and gives the requirements for the ageing test and destruction test for these capacitors."
+  },
+  {
+    "reference": "IEC TR 60996:1989",
+    "edition": "1.0",
+    "date": "1989-11-15",
+    "title": "Method for verifying accuracy of tan delta measurements applicable to capacitors",
+    "language": "EN-FR",
+    "description": "Applicable to shunt and series capacitors rated 15 Hz to 60 Hz. This method of verification may be run during the thermal stability type tests required by the relevant IEC standard."
+  },
+  {
+    "reference": "IEC 61071:2017",
+    "edition": "2.0",
+    "date": "2017-08-17",
+    "title": "Capacitors for power electronics",
+    "language": "EN-FR",
+    "description": "IEC 61071:2017 applies to capacitors for power electronics applications. The operating frequency of the systems in which these capacitors are used is usually up to 15 kHz, while the pulse frequencies may be up to 5 to 10 times the operating frequency. The document distinguishes between AC and DC capacitors which are considered as components when mounted in enclosures. This document covers an extremely wide range of capacitor technologies for numerous applications, e.g. overvoltage protection, DC and filtering, switching circuits, energy storage, auxiliary inverters, etc. This second edition cancels and replaces the first edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Introduction of new terms and definitions; - clarifications for surge discharge test; - indications for measuring procedure during thermal stability test; - clarifications for self-healing test; - clarifications for endurance test; - clarifications for destruction test; - update of normative references; - general editorial review."
+  },
+  {
+    "reference": "IEC 61270-1:1996",
+    "edition": "1.0",
+    "date": "1996-08-23",
+    "title": "Capacitors for microwave ovens - Part 1: General",
+    "language": "EN-FR, ES",
+    "description": "Applies to capacitors for microwave ovens operating at rated a.c. voltages of up to 3 000 V and a superimposed d.c. voltage of up to 1.13 times the value of rated a.c. voltage. Relates specifically to capacitors with a metal case and an upper rated maximum temperature of up to 100 °C, non-self-healing, with metal foil electrodes and dielectrics of paper and/or plastic, impregnated with a suitable oil. This part contains uniform rules regarding performance, testing and rating and specific safety rules."
+  },
+  {
+    "reference": "IEC 61642:1997",
+    "edition": "1.0",
+    "date": "1997-09-17",
+    "title": "Industrial a.c. networks affected by harmonics - Application of filters and shunt capacitors",
+    "language": "EN-FR, ES",
+    "description": "Gives guidance for the use of passive a.c. harmonic filters and shunt capacitors for the limitation of harmonics and power factor correction intended to be used in industrial applications, at low and high voltages. The measures proposed in this standard are applicable to harmonic orders greater than 1 and up to and including 25."
+  },
+  {
+    "reference": "IEC 61921:2017",
+    "edition": "2.0",
+    "date": "2017-06-20",
+    "title": "Power capacitors - Low-voltage power factor correction banks",
+    "language": "EN-FR",
+    "description": "IEC 61921:2017 is applicable to low-voltage AC shunt capacitor banks intended to be used for power factor correction purposes, possibly equipped with a built-in switchgear and controlgear apparatus capable of connecting to or disconnecting from the mains part(s) of the bank with the aim to correct its power factor. Low-voltage power factor correction banks if not otherwise indicated hereinafter and where applicable comply with the requirements of IEC 61439-1 and IEC 61439-2. This second edition cancels and replaces the first edition published in 2003. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: numerous changes regarding verification methods to align with IEC 61439-1; modification of marking; add routine verification of rated output; new Annex D with guidance on methods for temperature rise verification; update of normative references; general editorial review. Keywords: low-voltage AC shunt capacitor banks"
+  },
+  {
+    "reference": "IEC 62146-1:2026",
+    "edition": "2.0",
+    "date": "2026-07-23",
+    "title": "Capacitors for high-voltage alternating current circuit-breakers - Part 1: General and grading capacitors",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62146-1:2026 is available as IEC 62146-1:2026 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 62146-1:2026 includes generalities of capacitors used on alternating current circuit-breakers and introduces specifications for grading capacitors. Regarding grading capacitors, their function is to control the voltage distribution across the individual interrupter units of a multi-break circuit-breaker. This document applies to grading capacitors falling into one or both of the following categories for: - mounting on air-insulated circuit-breakers. - mounting on enclosed circuit-breakers (for example immersed in insulating gas, in oil, etc.). The object of this document is: - to define uniform rules regarding performances, testing and rating; - to define specific safety rules; - to provide a guidance for installation and operation. This document does not apply to capacitors not directly associated with high-voltage alternating current circuit-breakers."
+  },
+  {
+    "reference": "IEC 62146-2:2023",
+    "edition": "1.0",
+    "date": "2023-01-10",
+    "title": "Capacitors for high‑voltage alternating current circuit‑breakers - Part 2: TRV capacitors",
+    "language": "EN-FR",
+    "description": "IEC 62146-2:2023 is applicable to TRV capacitors used on high-voltage alternating current circuit-breakers with rated voltages above 100 kV with 50 Hz or 60 Hz. TRV capacitors are installed phase to earth, either in parallel to the bushing on dead tank circuit-breakers, or immersed inside the circuit-breaker, or freestanding close to the circuit-breaker. Their function is to limit the transient recovery voltage (TRV) and the rate of rise of recovery voltage (RRRV) on the circuit-breaker. Capacitors in compliance with this document can be used as TRV capacitor. This document applies to TRV capacitors falling into one or both of the following categories for: - mounting on or close to air insulated switchgear (AIS) dead tank and live tank circuit-breakers, or - mounting on gas insulated switchgear (GIS) circuit-breakers. The testing for each of the above applications is in some cases different. This document does not apply to grading capacitors installed in parallel to the chambers of the circuit-breaker, which are specified in IEC 62146-1. This document does not apply to capacitors not directly associated with high-voltage alternating current circuit-breakers. The object of this document is: - to define uniform rules regarding performances, testing and rating - to define specific safety rules - to provide a guidance for installation and operation The TRV capacitor is a sub-component for the circuit-breaker and is specified in accordance with the circuit-breaker specifications according to IEC 62271-1, IEC 62271-100, and if applicable to IEC 62271-203. TRV capacitors are commonly built with composite or ceramic housings (insulators). Those insulators follow IEC 61462 or IEC 62155. Other housings can be used if they can sustain applicable type tests according to IEC 61462 and IEC 62155. This International Standard is to be used in conjunction with IEC 62146-1:2013 and IEC 62146-1:2013/AMD1:2016."
+  },
+  {
+    "reference": "IEC 63210:2021",
+    "edition": "1.0",
+    "date": "2021-03-11",
+    "title": "Shunt power capacitors of the self-healing type for AC systems having a rated voltage above 1 000 V",
+    "language": "EN-FR",
+    "description": "IEC 63210:2021 is applicable to both self-healing capacitor units and self-healing capacitor banks intended to be used, particularly, for power-factor correction of AC power systems having a rated voltage above 1 000 V and fundamental frequencies of 15 Hz to 60 Hz. The following capacitors are excluded from this document: - shunt power capacitors of the self-healing type for AC systems having a rated voltage up to and including 1 000 V (IEC 60831-1, -2); - shunt power capacitors of the non-self-healing type for AC systems having a rated voltage up to and including 1 000 V (IEC 60931-1, -2 and -3); - shunt capacitors of the non-self-healing type for AC power systems having a rated voltage above 1 000 V (IEC 60871-1, -2, -3 and -4); - capacitors for inductive heat-generating plants operating at frequencies between 40 Hz and 24 000 Hz (IEC 60110-1 and -2); - series capacitors (IEC 60143-1, -2, -3 and -4); - AC motor capacitors (IEC 60252-1 and -2); - coupling capacitors and capacitor dividers (IEC 60358-1, -2, -3, -4); - capacitors for power electronic circuits (IEC 61071); - small AC capacitors to be used for fluorescent and discharge lamps (IEC 61048 and IEC 61049); - capacitors for suppression of radio interference; - capacitors intended to be used in various types of electrical equipment, and thus considered as components; - capacitors intended for use with DC voltage superimposed on the AC voltage. Requirements for accessories such as insulators, switches, instrument transformers and external fuses are given in the relevant IEC standards and are not covered by the scope of this document. The object of this document is to: a) formulate uniform rules regarding performances, testing and rating; b) formulate specific safety rules; c) provide a guide for installation and operation."
+  },
+  {
+    "reference": "IEC TR 63396:2021",
+    "edition": "1.0",
+    "date": "2021-11-10",
+    "title": "Noise measurement method on power capacitors",
+    "language": "EN",
+    "description": "IEC TR 63396:2021(E) documents a method for the sound pressure level measurement on power capacitor units, by which the sound power level of power capacitor units is determined. This method is applicable to shunt capacitor units and AC filter capacitor units for AC power systems with a nominal voltage of 1 kV and above and a frequency of 50 Hz or 60 Hz. This method also applies to the DC filter capacitor units. Other measurements on power capacitor units can be implemented with reference to this method."
+  }
+]

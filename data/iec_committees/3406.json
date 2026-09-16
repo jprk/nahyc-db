@@ -1,0 +1,1042 @@
+[
+  {
+    "reference": "ISO/IEC 2382-4:1999",
+    "edition": "1.0",
+    "date": "1999-11-11",
+    "title": "Information technology - Vocabulary - Part 4: Organization of data",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 5207:2024",
+    "edition": "1.0",
+    "date": "2024-04-10",
+    "title": "Information technology - Data usage - Terminology and use cases",
+    "language": "EN",
+    "description": "This document sets out terminology and use cases for data use, sharing and exchange. This document provides use cases detailing various types of data usage from both historical and hypothetical perspectives. This document is applicable to all types of organizations."
+  },
+  {
+    "reference": "ISO/IEC 5212:2024",
+    "edition": "1.0",
+    "date": "2024-04-09",
+    "title": "Information technology - Data usage - Guidance for data usage",
+    "language": "EN",
+    "description": "This document provides high-level guidance to data users, whether organizations or individuals, to assist in realizing the benefits from data usage while managing risks."
+  },
+  {
+    "reference": "ISO/IEC 5218:2022",
+    "edition": "2.0",
+    "date": "2022-06-01",
+    "title": "Information technology - Codes for the representation of human sexes",
+    "language": "EN",
+    "description": "This document specifies a uniform representation of human sexes for the interchange of information. It is intended to: — reduce the time required to record and/or format the representation of sexes and transmit the corresponding data; — improve clarity and accuracy of interchange; — minimize the amount of human intervention required for communicating the representation of sexes; and — reduce costs. This document does not prescribe file sequences, storage media, programming languages, or other features of information processing to be used in its implementation. This document meets the requirements of most applications that need to code human sexes. It does not provide codes for sexes that can be required in specific medical and scientific applications or in applications that need to code sex information other than for human beings. It also does not provide codes for human gender identities that can be required in other applications. This document does not supplant national standards for coding sexes that are designed based upon codes derived from names of sexes in the various languages (for example “M” for “male” and “F” for “female” in the English language). It provides a numeric code that is independent of language-derived codes and as such is intended to provide a common basis for the international exchange of information containing human sex data elements."
+  },
+  {
+    "reference": "ISO/IEC 5394:2024",
+    "edition": "1.0",
+    "date": "2024-01-12",
+    "title": "Information technology - Criteria for concept systems",
+    "language": "EN",
+    "description": "This document provides the criteria for effective concept systems. It provides the requirements for components, formation, representations, structural levels and management of concept systems. Concept systems are used in the description of semantics of data in ISO/IEC 11179 standards."
+  },
+  {
+    "reference": "ISO/IEC 6523-1:2023",
+    "edition": "2.0",
+    "date": "2023-08-14",
+    "title": "Information technology - Structure for the identification of organizations and organization parts - Part 1: Identification of organization identification schemes",
+    "language": "EN",
+    "description": "This document specifies a structure for globally and unambiguously identifying organizations, and parts thereof, for the purpose of information interchange. This document also gives recommendations regarding cases where prior agreements can be concluded between interchange partners. This document does not specify file organization techniques, storage media, languages, etc. to be used in its implementation. NOTE The procedure for registration of organization identification schemes is specified in ISO/IEC 6523-2."
+  },
+  {
+    "reference": "ISO/IEC 6523-2:2025",
+    "edition": "2.0",
+    "date": "2025-09-05",
+    "title": "Information technology - Structure for the identification of organizations and organization parts - Part 2: Registration of organization identification schemes",
+    "language": "EN",
+    "description": "This document specifies the procedure for registration of organization identification schemes, and the requirements for the administration of International Code Designator values, to designate these organization identification schemes."
+  },
+  {
+    "reference": "ISO/IEC 9075-1:2023",
+    "edition": "6.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 1: Framework (SQL/Framework)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-1:2023/COR1:2026",
+    "edition": "6.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 1: Framework (SQL/Framework) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-2:2023",
+    "edition": "6.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 2: Foundation (SQL/Foundation)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-2:2023/COR1:2026",
+    "edition": "6.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 2: Foundation (SQL/Foundation) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-3:2023",
+    "edition": "6.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 3: Call-Level Interface (SQL/CLI)",
+    "language": "EN",
+    "description": "ISO/IEC 9075-3:2016 deﬁnes the structures and procedures that can be used to execute statements of the database language SQL from within an application written in a programming language in such a way that procedures used are independent of the SQL statements to be executed."
+  },
+  {
+    "reference": "ISO/IEC 9075-3:2023/COR1:2026",
+    "edition": "6.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 3: Call-Level Interface (SQL/CLI) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-4:2023",
+    "edition": "7.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 4: Persistent stored modules (SQL/PSM)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-9:2023",
+    "edition": "5.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 9: Management of External Data (SQL/MED)",
+    "language": "EN",
+    "description": "ISO/IEC 9075-9:2016 deﬁnes extensions to Database Language SQL to support management of external data through the use of foreign-data wrappers and datalink types."
+  },
+  {
+    "reference": "ISO/IEC 9075-9:2023/COR1:2026",
+    "edition": "5.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 9: Management of External Data (SQL/MED) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-10:2023",
+    "edition": "5.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 10: Object language bindings (SQL/OLB)",
+    "language": "EN",
+    "description": "ISO/IEC 9075-2 speciﬁes embedded SQL for the programming languages: Ada, C, COBOL, Fortran, MUMPS, Pascal, and PL/I. ISO/IEC 9075-10:2016 deﬁnes similar features of Database language SQL that support embedding of SQL-statements into programs written in the Java? programming language (Java is a registered trademark of Sun Microsystems, Inc.). The embedding of SQL into Java is commonly known as \"SQLJ\". This part of ISO/IEC 9075 speciﬁes the syntax and semantics of SQLJ, as well as mechanisms to ensure binary portability of resulting SQLJ applications. In addition, it speciﬁes a number of Java packages and their contained classes (including methods). Throughout ISO/IEC 9075-10:2016, the terms \"SQLJ\" and \"SQL/OLB\" are used synonymously. NOTE Additional explanatory material (non-normative) about certain facilities defined in ISO/IEC 9075-2 can be found in ISO/IEC TR 19075-3."
+  },
+  {
+    "reference": "ISO/IEC 9075-10:2023/COR1:2026",
+    "edition": "5.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 10: Object language bindings (SQL/OLB) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-11:2023",
+    "edition": "5.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 11: Information and definition schemas (SQL/Schemata)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-11:2023/COR1:2026",
+    "edition": "5.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 11: Information and definition schemas (SQL/Schemata) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-13:2023",
+    "edition": "5.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 13: SQL Routines and types using the Java TM programming language (SQL/JRT)",
+    "language": "EN",
+    "description": "ISO/IEC 9075-13:2016 speciﬁes the ability to invoke static methods written in the Java? programming language as SQL-invoked routines and to use classes deﬁned in the Java programming language as SQL structured user-deﬁned types. (Java is a registered trademark of Oracle Corporation and/or its afﬁliates.)"
+  },
+  {
+    "reference": "ISO/IEC 9075-13:2023/COR1:2026",
+    "edition": "5.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 13: SQL Routines and types using the Java TM programming language (SQL/JRT) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-14:2023",
+    "edition": "6.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 14: XML-Related Specifications (SQL/XML)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-14:2023/COR1:2026",
+    "edition": "6.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 14: XML-Related Specifications (SQL/XML) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-15:2023",
+    "edition": "2.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 15: Multidimensional arrays (SQL/MDA)",
+    "language": "EN",
+    "description": "This document deﬁnes ways in which Database Language SQL can be used in conjunction with multidimensional arrays."
+  },
+  {
+    "reference": "ISO/IEC 9075-15:2023/COR1:2026",
+    "edition": "2.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 15: Multidimensional arrays (SQL/MDA) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-16:2023",
+    "edition": "1.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Database languages SQL - Part 16: Property Graph Queries (SQL/PGQ)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9075-16:2023/COR1:2026",
+    "edition": "1.0",
+    "date": "2026-08-03",
+    "title": "Information technology - Database languages SQL - Part 16: Property Graph Queries (SQL/PGQ) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9579:2000",
+    "edition": "2.0",
+    "date": "2000-02-24",
+    "title": "Information technology - Remote database access for SQL with security enhancement",
+    "language": "EN",
+    "description": "This International Standard, Remote Database Access for SQL (RDA), defines a model for the remote interaction of an SQL-client and one or more SQL-servers through communication media, and defines the encoding of messages, the semantics of messages and associated facilities for mediating the interaction between one SQL-client and one SQL-server. This International Standard also defines a mapping of the RDA Protocol to the specific communication inhastructures TCPIIP and Transport Layer Security (TLS). This International Standard relies upon the facilities provided by ISOIIEC 9075 (SQL) and ISOIIEC 9075-3 (SQLICLI). This International Standard also: - identifies potential security vulnerabilities in remote database access using RDA, - defines RDA facilities which protect against the potential vulnerabilities. Normative annexes provide: - a Conformance Proforma, - an optional language independent Application Programming Interface defined in the notational conventions of ISOIIEC 9075-3 (SQLICLI) for invoking RDA Operations, - an optional mapping of ISOIIEC 9075-3 (SQLICLI) functions to RDA Operations, - definitions of optional SQL-servers, the RDA Location Server and the RDA Support Server, to facilitate interoperation and data distribution in a heterogeneous environment, - a set of security profiles that identify which RDA facilities and other security facilities are required for different levels of protection against potential vulnerabilities. Informative annexes provide: - an analysis of security service requirements, - an ASN. 1 specification for the RDA Protocol, - an ASN. 1 specification for the encoding of multiple rows. This International Standard does not constrain: - conforming RDA-client environments to be implemented using any particular processor decomposition, - conforming RDA-server environments to be implemented using any particular processor decomposition. This International Standard refers to but does not define: - protocols and security mechanisms for communication confidentiality, integrity and authentication of communicating peers, - digital signature and authentication mechanisms supported by protocol elements of RDA. This International Standard does not define: ? algorithms for query decomposition or for the combining of results in a distributed database environment, ? mechanisms for recovery in the event that transaction co-ordination fails, ? mechanisms for storage integrity and confidentiality using cryptography, ? mechanisms to counter Denial of Service attacks."
+  },
+  {
+    "reference": "ISO/IEC TR 9789:1994",
+    "edition": "1.0",
+    "date": "1994-12-22",
+    "title": "Information technology - Guidelines for the organization  and representation of data elements for data interchange - Coding methods and principles",
+    "language": "EN",
+    "description": "Provides general guidance on the manner on which data can be expressed by codes. Describes the objectives of coding, the characteristics, advantages and disadvantages of different coding methods, the features of codes and gives guidelines for the design of codes. Examples of applications are ISO 9735:1988, ISO 8601:1988, ISO 3166:1993."
+  },
+  {
+    "reference": "ISO/IEC 10027:1990",
+    "edition": "1.0",
+    "date": "1990-06-28",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) framework",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 10032:2003",
+    "edition": "1.0",
+    "date": "2003-10-30",
+    "title": "Information technology - Reference Model of Data Management",
+    "language": "EN",
+    "description": "ISO/IEC TR 10032:2003 defines the ISO Reference Model of Data Management. It establishes a framework for coordinating the development of existing and future standards for the management of persistent data in information systems. ISO/IEC TR 10032:2003 defines common terminology and concepts pertinent to all data held within information systems. Such concepts are used to define more specifically the services provided by particular data management components, such as database management systems or data dictionary systems. The definition of such related services identifies interfaces which may be the subject of future standardization. ISO/IEC TR 10032:2003 does not specify services and protocols for data management. ISO/IEC TR 10032:2003 is neither an implementation specification for systems, nor a basis for appraising the conformance of implementations. The scope of ISO/IEC TR 10032:2003 includes processes which are concerned with handling persistent data and their interaction with processes particular to the requirements of a specific information system. This includes common data management services such as those required to define, store, retrieve, update, maintain, backup, restore and communicate applications and dictionary data. The scope of ISO/IEC TR 10032:2003 includes consideration of standards for the management of data located on one or more computer systems, including services for distributed database management. ISO/IEC TR 10032:2003 does not include within its scope common services normally provided by an operating system including those processes which are concerned with specific types of physical storage devices, specific techniques for storing data, and specific details of communications and human computer interfaces."
+  },
+  {
+    "reference": "ISO/IEC 10728:1993",
+    "edition": "1.0",
+    "date": "1993-04-29",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) Services Interface",
+    "language": "EN",
+    "description": "The services interface specified gives any program full access to all IRDS services. Defines the semantics of this interface, and also specifies the language bindings for ISO Pascal (ISO 7185). Language bindings for other ISO standard programming languages are provided as separate standards. Makes no assumptions about an implementation environment, and assumes no specific run-time or compile time interfaces. Details of the IRDS series of standards are to be found in ISO/IEC 10027."
+  },
+  {
+    "reference": "ISO/IEC 10728:1993/AMD1:1995",
+    "edition": "1.0",
+    "date": "1995-12-27",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) Services Interface - Amendment 1: C language binding",
+    "language": "EN",
+    "description": "Contains some amendments and adds the annex C - C language binding."
+  },
+  {
+    "reference": "ISO/IEC 10728:1993/AMD2:1996",
+    "edition": "1.0",
+    "date": "1996-11-14",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) Services Interface - Amendment 2: Ada language binding",
+    "language": "EN",
+    "description": "Contains a great number of amendments and additions; Information Resource Dictionary System (IRDS) services interface; ADA language binding."
+  },
+  {
+    "reference": "ISO/IEC 10728:1993/AMD3:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) Services Interface - Amendment 3: CORBA IDL binding",
+    "language": "EN",
+    "description": "Replaces the wording of some clauses and subclauses of ISO/IEC 10728:1993 and adds a new annex E."
+  },
+  {
+    "reference": "ISO/IEC 10728:1993/AMD4:1998",
+    "edition": "1.0",
+    "date": "1998-04-30",
+    "title": "Information technology - Information Resource Dictionary System (IRDS) Services Interface - Amendment 4: RPC IDL binding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 11179-1:2023",
+    "edition": "4.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 1: Framework",
+    "language": "EN",
+    "description": "This document provides the means for understanding and associating the individual parts of ISO/IEC 11179 and is the foundation for a conceptual understanding of metadata and metadata registries. This document also describes the relationship of ISO/IEC 11179 to other JTC 1/SC 32 standards, technical specifications and technical reports on metadata. In all parts of ISO/IEC 11179 , metadata refers to descriptions of data. It does not contain a general treatment of metadata."
+  },
+  {
+    "reference": "ISO/IEC TR 11179-2:2019",
+    "edition": "1.0",
+    "date": "2019-04-12",
+    "title": "Information technology - Metadata registries (MDR) - Part 2: Classification",
+    "language": "EN",
+    "description": "This document compliments ISO/IEC 11179-3 by describing registration of classification schemes and using them to classify registered items in an MDR. Any metadata item can be made a Classifiable_Item so it can be classified, which can include object classes, properties, representations, conceptual domains, value domains, data element concepts and data elements themselves. This document does not establish a particular classification scheme as pre-eminent. Sanction of a particular taxonomic approach and/or a particular epistemology is also beyond the scope of this document. These are addressed by other standards committees and/or tend to be tailored to a particular domain of discourse. The MDR can establish its own classification schemes, and other standards committees are developing or have developed normative languages for use in classification and/or particular techniques and structures that can be accommodated by this document. Each registration authority, as described and specified in ISO/IEC 11179-6, can classify classifiable items according to the classification schemes, structures and content that it deems appropriate. In documenting the classification aspects of classifiable items, the registration authority can use the principles, methods, procedures and attributes covered in this document."
+  },
+  {
+    "reference": "ISO/IEC 11179-3:2023",
+    "edition": "4.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 3: Metamodel for registry common facilities",
+    "language": "EN",
+    "description": "This document specifies the information to be recorded in a metadata registry in the form of a conceptual data model: — Clause 5 specifies the approach used to model a metadata registry; — Clause 6 specifies the Core Model of the registry, including basic types and classes to be reused in extending the model. The core model defines a generic “registry item”, from which any type of item that needs to registered can be sub-classed; — Clause 7 specifies the metamodel for Identification of registry items; — Clause 8 specifies the metamodel for Designation and Definition of registry items; — Clause 9 specifies the metamodel for Registration of registry items; — Clause 10 specifies the metamodel for Classification of registry items; — Clause 11 specifies the metamodel for Mapping among registry items."
+  },
+  {
+    "reference": "ISO/IEC 11179-3:2023/AMD1:2026",
+    "edition": "4.0",
+    "date": "2026-05-22",
+    "title": "Information technology - Metadata registries (MDR) - Part 3: Metamodel for registry common facilities - Amendment 1: Enhancements to Item Mapping",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 11179-4:2004",
+    "edition": "2.0",
+    "date": "2004-07-08",
+    "title": "Information technology - Metadata registries (MDR) - Part 4: Formulation of data definitions",
+    "language": "EN",
+    "description": "ISO/IEC 11179-4:2004 specifies requirements and recommendations for constructing definitions for data and metadata. Only semantic aspects of definitions are addressed; specifications for formatting the definitions are deemed unnecessary for the purposes of this standard. While especially applicable to the content of metadata registries as specified in ISO/IEC 11179-3, ISO/IEC 11179-4:2004 is useful broadly for developing definitions for data and metadata. These definitional requirements and recommendations pertain to formulating definitions for data elements and other types of data constructs such as entity types, entities, relationships, attributes, object types (or classes), objects, composites, code entries, metadata items, and the data referred to by XML tags."
+  },
+  {
+    "reference": "ISO/IEC 11179-5:2015",
+    "edition": "3.0",
+    "date": "2015-03-18",
+    "title": "Information technology - Metadata registries (MDR) - Part 5: Naming principles",
+    "language": "EN",
+    "description": "ISO/IEC 11179-5:2015 provides instruction for naming of the following items, as defined in ISO/IEC 11179‑3: concept, data element concept, conceptual domain, data element, and value domain. ISO/IEC 11179-5:2015 describes naming in a metadata registries (MDR); includes principles and rules by which naming conventions can be developed; and provides examples of naming conventions."
+  },
+  {
+    "reference": "ISO/IEC 11179-6:2023",
+    "edition": "4.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 6: Registration",
+    "language": "EN",
+    "description": "This document defines the type of information to be specified, the conditions to be met, and the procedure(s) to be followed for each item to be registered in a metadata registry. The requirements and procedures contained herein apply to all types of items specified in ISO/IEC 11179 ‑ 3 , ISO/IEC 11179 ‑ 31 , ISO/IEC 11179 ‑ 32 , ISO/IEC 11179 ‑ 33 , ISO/IEC 11179 ‑ 35 and those specified in ISO/IEC 19763 . Some Registration Authorities can use this document to register and manage locally defined metadata item types that are not defined in ISO/IEC 11179 or ISO/IEC 19763 . This document addresses the common metadata that is used to document the common facilities of a registry: administration, identification, naming and definition, details that can apply to any and all types of registry items. This document does not address the metadata that is specific to particular types of registry items, such as data elements and value domains. This document does not specify the registry's system design, file organization techniques, storage media, programming languages, etc. to be used in its implementation."
+  },
+  {
+    "reference": "ISO/IEC 11179-30:2023",
+    "edition": "1.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 30: Basic attributes of metadata",
+    "language": "EN",
+    "description": "This document specifies “basic attributes” which are required to describe metadata in situations where a complete ISO/IEC 11179 - 3 metadata registry is not appropriate (e.g. in the specification of other International Standards)."
+  },
+  {
+    "reference": "ISO/IEC 11179-31:2023",
+    "edition": "1.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 31: Metamodel for data specification registration",
+    "language": "EN",
+    "description": "This document provides a specification for an extension to a Metadata Registry (MDR), as specified in ISO/IEC 11179 - 3 , in which metadata that describes data elements and associated concepts, such as “data element concepts”, “conceptual domains” and “value domains” can be registered. The specification in this document, together with the relevant clauses of the specification in ISO/IEC 11179 - 3 , provides the ability to record metadata about: a) data elements, units of measure and derivation rules; b) data element concepts and associated object classes and properties; c) conceptual domains, conceptual domain subsets and value meanings; d) value domains, value domain subsets, datatypes and permissible values. This document is applicable to the formulation of data representations, concepts, meanings and relationships to be shared among people and machines, independent of the organization that produces the data. It is not applicable to the physical representation of data as bits and bytes at the machine level."
+  },
+  {
+    "reference": "ISO/IEC 11179-32:2023",
+    "edition": "1.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 32: Metamodel for concept system registration",
+    "language": "EN",
+    "description": "This document provides a specification for an extension to a metadata registry (MDR), as specified in ISO/IEC 11179-3:2023, in which metadata that describes concept systems can be registered. The specification in this document, together with the relevant clauses of the specification in ISO/IEC 11179-3, provides the ability to record the following metadata: concept systems and associated concepts; relations among concepts in a concept system; assertions about concepts in a concept system. The metamodel in this document is intended to support the full description of a concept system, including ontologies. Where there is a requirement to register an ontology where the details are defined elsewhere, consider using ISO/IEC 19763-3 instead."
+  },
+  {
+    "reference": "ISO/IEC 11179-33:2023",
+    "edition": "1.0",
+    "date": "2023-01-16",
+    "title": "Information technology - Metadata registries (MDR) - Part 33: Metamodel for data set registration",
+    "language": "EN",
+    "description": "This document provides a specification for an extension to a Metadata Registry (MDR), as specified in ISO/IEC 11179 - 3 in which metadata which describes data sets, collections of data available for access or download in one or more formats, can be registered. Since a set can contain a single element, this document enables the recording of metadata about a single data value. The registered metadata provides information about the data set that can include the provenance of the data set and quality, fitness for role, and risk assessments of the data set."
+  },
+  {
+    "reference": "ISO/IEC 11179-34:2024",
+    "edition": "1.0",
+    "date": "2024-05-15",
+    "title": "Information technology - Metadata registries (MDR) - Part 34: Metamodel for computable data registration",
+    "language": "EN",
+    "description": "This document provides a specification for an extension to a metadata registry (MDR), as specified in ISO/IEC 11179-3, in which metadata that describe computable data can be registered. The specification in this document, together with the relevant clauses of the specification in ISO/IEC 11179-3, provides the ability to record metadata about computable data."
+  },
+  {
+    "reference": "ISO/IEC 11179-35:2023",
+    "edition": "1.0",
+    "date": "2023-01-24",
+    "title": "Information technology - Metadata registries (MDR) - Part 35: Metamodel for model registration",
+    "language": "EN",
+    "description": "This document provides a specification for an extension to a Metadata Registry (MDR), as specified in ISO/IEC 11179 - 3 , in which metadata that describes models, and their associated metamodels, can be registered. The specification in this document, together with the relevant clauses of the specification in ISO/IEC 11179 - 3 , provides the ability to record metadata about: a) models used in software engineering or information processing, for example, information or data models, process models, models of web services or any other type of models used to develop software systems or the processing of information; b) the concepts associated with the various elements within the models; c) the metamodels associated with the models; d) the mappings identified between the models, between the metamodels, and between the models and their associated metamodels – this is achieved by using the mapping facilities specified in ISO/IEC 11179 - 3 . This document is applicable to the formulation of models and metamodels to be shared among people and machines, independent of the organization that produces the model or metamodel. It is not applicable to the physical instantiation of any model."
+  },
+  {
+    "reference": "ISO/IEC 11404:2007",
+    "edition": "2.0",
+    "date": "2007-12-06",
+    "title": "Information technology - General-Purpose Datatypes (GPD)",
+    "language": "EN",
+    "description": "ISO/IEC 11404:2007 specifies the nomenclature and shared semantics for a collection of datatypes commonly occurring in programming languages and software interfaces, referred to as the General-Purpose Datatypes (GPD). It specifies both primitive datatypes, in the sense of being defined ab initio without reference to other datatypes, and non-primitive datatypes, in the sense of being wholly or partly defined in terms of other datatypes. The specification of datatypes in ISO/IEC 11404:2007 is \"general-purpose\" in the sense that the datatypes specified are classes of datatype of which the actual datatypes used in programming languages and other entities requiring the concept \"datatype\" are particular instances. These datatypes are general in nature; thus, they serve a wide variety of information processing applications. ISO/IEC 11404:2007 expressly distinguishes three notions of datatype: the conceptual, or abstract, notion of a datatype, which characterizes the datatype by its nominal values and properties; the structural notion of a datatype, which characterizes the datatype as a conceptual organization of specific component datatypes with specific functionalities; and the implementation notion of a datatype, which characterizes the datatype by defining the rules for representation of the datatype in a given environment. ISO/IEC 11404:2007 defines the abstract notions of many commonly used primitive and non-primitive datatypes which possess the structural notion of atomicity. ISO/IEC 11404:2007 does not define all atomic datatypes; it defines only those which are common in programming languages and software interfaces. ISO/IEC 11404:2007 defines structural notions for the specification of other non-primitive datatypes, and provides a means by which datatypes not defined herein can be defined structurally in terms of the GPDs defined herein. ISO/IEC 11404:2007 defines a partial terminology for implementation notions of datatypes and provides for the use of this terminology in the definition of datatypes. The primary purpose of this terminology is to identify common implementation notions associated with datatypes and to distinguish them from conceptual notions. ISO/IEC 11404:2007 specifies the required elements of mappings between the GPDs and the datatypes of some other language. ISO/IEC 11404:2007 does not specify the precise form of a mapping, but rather the required information content of a mapping."
+  },
+  {
+    "reference": "ISO/IEC 13238-3:1998",
+    "edition": "1.0",
+    "date": "1998-12-20",
+    "title": "Information technology - Data Management - Part 3: IRDS export/import facility",
+    "language": "EN",
+    "description": "This part of ISO/IEC 13238 enables the bulk transfer of all or part of the data contained in an Information Resource Dictionary (IRD) or in an Information Resource Dictionary Definition conforming to ISO/IEC 10728:1993 IRDS Services Interface. This part of ISO/IEC 13238 defines a format for such a transfer and also services to generate the export file and services to import the file. These services are additional to the existing services defined in the IRDS Services Interface. This version of this part of ISO/IEC 13238 defines a limited set of Export and Import services. It is expected that implementations will also provide more sophisticated services based on the use of the Transfer File structure defined in this part of ISO/IEC 13238. The physical way in which the transfer takes place is outside the scope of this part of ISO/IEC 13238. Each transfer may be effected in one of several ways including the physical transfer of the data using a transportable storage device."
+  },
+  {
+    "reference": "ISO/IEC 13249-1:2016",
+    "edition": "4.0",
+    "date": "2016-05-27",
+    "title": "Information technology - Database languages - SQL multimedia and application packages - Part 1: Framework",
+    "language": "EN",
+    "description": "ISO/IEC 13249-1:2016 defines a number of packages of generic data types and table structures common to various kinds of data used in multimedia and application areas, to enable that data to be stored and manipulated in an SQL database. The package in each subject area is defined as a part of ISO/IEC 13249. ISO/IEC 13249-1:2016 defines those concepts, notations and conventions that are common to two or more other parts of ISO/IEC 13249. In particular, it describes the way parts of ISO/IEC 9075 are used to define the user-defined types and their behaviour and views as a representation of table structures appropriate to each subject area."
+  },
+  {
+    "reference": "ISO/IEC 13249-2:2003",
+    "edition": "2.0",
+    "date": "2003-10-31",
+    "title": "Information technology - Database languages - SQL multimedia and application packages - Part 2: Full-Text",
+    "language": "EN",
+    "description": "ISO/IEC 13249:2003: introduces the Full-Text part of ISO/IEC 13249 (all parts); gives the references necessary for ISO/IEC 13249:2003; defines notations and conventions specific to ISO/IEC 13249:2003; defines concepts specific to ISO/IEC 13249:2003; defines the full-text user-defined types and their associated routines. The full-text user-defined types defined in ISO/IEC 13249:2003 adhere to the following. A full-text user-defined type is generic to text handling. It addresses the need to search and retrieve information based on aspects of full-text data using patterns such as words, phrases, proximity expansion, fuzzy expansion and thesaurus based expansions. It also addresses the need to construct such search patterns for text identification facilities and text ranking facilities. A full-text user-defined type does not redefine the database language SQL directly or in combination with another full-text data type. An implementation of ISO/IEC 13249:2003 may exist in environments that also support information and content management, decision support, data mining and data warehousing systems. Application areas addressed by implementations of ISO/IEC 13249:2003 include, but are not restricted to, library, newspaper, multimedia and scientific research applications."
+  },
+  {
+    "reference": "ISO/IEC 13249-3:2016",
+    "edition": "5.0",
+    "date": "2016-01-21",
+    "title": "Information technology - Database languages - SQL multimedia and application packages - Part 3: Spatial",
+    "language": "EN",
+    "description": "ISO/IEC 13249:2016 a) defines concepts specific to this part of ISO/IEC 13249, b) defines spatial user-defined types and their associated routines."
+  },
+  {
+    "reference": "ISO/IEC 13249-5:2003",
+    "edition": "2.0",
+    "date": "2003-10-31",
+    "title": "Information technology  - Database languages - SQL multimedia and application packages - Part 5: Still image",
+    "language": "EN",
+    "description": "ISO/IEC 13249-5:2003: introduces the still image part of ISO/IEC 13249 (all parts); gives the references necessary for ISO/IEC 13249-5:2003; defines notations and conventions specific to ISO/IEC 13249-5:2003; defines concepts specific to ISO/IEC 13249-5:2003; defines the still image user-defined types and their associated routines. The still image user-defined types defined in ISO/IEC 13249-5:2003 adhere to the following. A still image user-defined type is generic to image handling. It addresses the need to store, manage and retrieve information based on aspects of inherent image characteristics such as height, width and format and based on image features such as average color, color histogram, positional color and texture. It also addresses the need to employ manipulation such as rotation, scaling as well as similarity assessment. A still image user-defined type does not redefine the database language SQL directly or in combination with another still image data type. The still image user-defined types are applicable to all different image formats. However, not all functionality can be used with all known still image formats. An implementation of ISO/IEC 13249-5:2003 may exist in environments that also support information and content management, decision support, data mining and data warehousing systems. Application areas addressed by implementations of ISO/IEC 13249-5:2003 include, but are not restricted to, graphics, multimedia, scientific research and medicine."
+  },
+  {
+    "reference": "ISO/IEC 13249-6:2006",
+    "edition": "2.0",
+    "date": "2006-10-25",
+    "title": "Information technology - Database languages - SQL multimedia and application packages - Part 6: Data mining",
+    "language": "EN",
+    "description": "ISO/IEC 13249 defines a number of packages of generic data types common to various kinds of data used in multimedia and application areas, to enable that data to be stored and manipulated in an SQL database. ISO/IEC 13249-6:2006 introduces the data-mining package, gives the necessary references, defines notations and conventions specific to ISO/IEC 13249-6:2006, defines concepts specific to ISO/IEC 13249-6:2006, and defines data mining user-defined types and their associated routines. The data-mining user-defined types defined in ISO/IEC 13249-6:2006 are generic to data-mining data handling. They address the need to store, manage and retrieve information based on elements such as data-mining models, data-mining settings, and data-mining test results."
+  },
+  {
+    "reference": "ISO/IEC 14662:2010",
+    "edition": "3.0",
+    "date": "2010-02-02",
+    "title": "Information technology - Open-edi reference model",
+    "language": "EN-FR",
+    "description": "ISO/IEC 14662:2010 specifies the framework for co-ordinating the integration of existing International Standards and the development of future International Standards for the inter-working of Open-edi Parties via Open-edi and provides a reference for those International Standards. As such it serves to guide the work necessary to accomplish Open-edi by providing the context to be used by developers of International Standards to ensure the coherence and integration of related standardized modelling and descriptive techniques, services, service interfaces, and protocols. ISO/IEC 14662:2010 describes, through two perspectives of business transactions, significant aspects relevant to the interoperability of information technology systems used by Open-edi Parties engaging in Open-edi. The perspectives are: business aspects such as business information, business conventions, agreements and rules among Open-edi Parties; information technology aspects which are necessary in the Open-edi systems to support the execution of business transactions. ISO/IEC 14662:2010 is not an implementation specification, nor is it a basis for appraising the conformance of implementations."
+  },
+  {
+    "reference": "ISO/IEC 14957:2010",
+    "edition": "2.0",
+    "date": "2010-12-15",
+    "title": "Information technology - Representation of data element values - Notation of the format",
+    "language": "EN",
+    "description": "ISO/IEC 14957:2010 specifies the notation to be used for stating the format, i.e. the character classes, used in the representation of data elements and the length of these representations. It also specifies additional notations relative to the representation of numerical figures. For example, this formatting technique might be used as part of the metadata for data elements. The scope of ISO/IEC 14957:2010 is limited to graphic characters, such as digits, letters and special characters. The scope is limited to the basic datatypes of characters, character strings, integers, reals, and pointers."
+  },
+  {
+    "reference": "ISO/IEC 15944-1:2025",
+    "edition": "3.0",
+    "date": "2025-02-12",
+    "title": "Information technology - Business operational view - Part 1: Operational aspects of open-edi for implementation",
+    "language": "EN",
+    "description": "This document addresses the fundamental requirements of the commercial and legal frameworks and their environments on business transactions. It also integrates the requirements of the information technology and telecommunications environments. In addition to the existing strategic directions of \"portability\" and \"interoperability\", the added strategic direction of ISO/IEC JTC 1 of \"cultural adaptability\" is supported in this document. It also supports requirements arising from the public policy/consumer environment, cross-sectoral requirements and the need to address horizontal issues. It integrates these different sets of requirements. (See Figure 3) This document allows constraints which include legal requirements, commercial and/or international trade and contract terms, public policy (e.g. privacy/data protection, product or service labelling, consumer protection), laws and regulations to be defined and clearly integrated into Open-edi through the BOV. This means that terms and definitions in this document serve as a common bridge between these different sets of business operational requirements, allowing the integration of code sets and rules defining these requirements to be integrated into business processes electronically. This document contains a methodology and tool for specifying common business practices as part of common business transactions in the form of scenarios, scenario attributes, roles, Information Bundles and Semantic Components. It achieves this by: 1) developing standard computer processable specifications of common business rules and practices as scenarios and scenario components; and thus, 2) maximizing the re-use of these components in business transactions."
+  },
+  {
+    "reference": "ISO/IEC 15944-2:2015",
+    "edition": "2.0",
+    "date": "2015-09-28",
+    "title": "Information technology - Business operational view - Part 2: Registration of scenarios and their components as business objects",
+    "language": "EN",
+    "description": "ISO/IEC 15944-2:2015 specifies procedures to be followed in establishing, maintaining, and publishing registers of unique, unambiguous and permanent identifiers and meanings that are assigned to Open-edi scenarios and scenario components. In order to accomplish this purpose, ISO/IEC 15944-2:2015 specifies elements of information that are necessary to provide identification and meaning to the registered items and to manage the registration of these items. ISO/IEC 15944-2:2015 defines the procedures to be applied by qualified JTC1 Registration Authority(ies) appointed by the ISO and IEC council to maintain a register(s) of Open-edi scenarios and/or scenario components for the purpose of their reusability."
+  },
+  {
+    "reference": "ISO/IEC 15944-4:2015",
+    "edition": "2.0",
+    "date": "2015-03-26",
+    "title": "Information technology - Business operational view - Part 4: Business transaction scenarios - Accounting and economic ontology",
+    "language": "EN",
+    "description": "ISO/IEC 15944-4:2015 provides a set of UML class diagrams and conceptual explanations that circumscribe the Open-edi Business Transaction Ontology (OeBTO). It explains the mechanics of a business transaction state machine, the procedural component of an OeBTO, and the (internal) constraint component of OeBTO, its repository for business rules. ISO/IEC 15944-4:2015 addresses collaborations among independent trading partners as defined in ISO/IEC 15944‑1. ISO/IEC 15944-4:2015 applies to both binary collaborations (buyer and seller) and mediated collaborations (buyer, seller, third-party). The ontological features described herein propose standards only for the Business Operational View (BOV), that is, the business aspects of business transactions as they are defined in ISO/IEC 15944‑1."
+  },
+  {
+    "reference": "ISO/IEC 15944-5:2008",
+    "edition": "1.0",
+    "date": "2008-05-20",
+    "title": "Information technology - Business operational view - Part 5: Identification and referencing of requirements of jurisdictional domains as sources of external constraints",
+    "language": "EN",
+    "description": "ISO/IEC 15944-5:2008 is directed at being able to identify and reference laws and regulations impacting eBusiness scenarios and scenario components as external constraints. The primary source of such external constraints is jurisdictional domains. ISO/IEC 15944-5:2008 focuses on addressing the simple, i.e. definable, aspects of external constraints for which the source is a jurisdictional domain. A useful characteristic of external constraints is that at the sectoral, national and international levels, etc. focal points and recognized authorities often already exist. The rules and common business practices in many sectoral areas are already known. Use of ISO/IEC 15944-5:2008 (and related standards) will facilitate the transformation of these external constraints (business rules) into specified, registered and reusable scenarios and scenario components. The Business Transaction Model, explained in ISO/IEC 15944-1, has two classes of constraints, namely: those which are self-imposed and agreed to as commitments among the parties themselves, i.e. internal constraints; and those which are imposed on the parties to a business transaction based on the nature of the good, service and/or rights exchanged, and the nature of the commitment made among the parties (including ability to make commitments, the location, etc.), i.e. external constraints. The focus of ISO/IEC 15944-5:2008 is on external constraints. Jurisdictional domains are the primary source of external constraints. ISO/IEC 15944-5:2008 provides the key concepts required for addressing the legal environment in developing the Business Operational View of business transactions and scenarios which involve and are required to support external constraints. It begins with an exploration of the jurisdictional domain as a source of external constraint on the business process, both from the perspective of a Person and as a Public Administration. It then presents key constraints governing ISO/IEC 15944-5:2008 through principles and rules. It examines a key element in business transactions, that of the use of language. Jurisdictions can identify and, in some cases, impose the use of language in a business transaction. In this regard, the ISO/IEC 15944-5:2008 looks at the relationship of the constraint imposed by a jurisdictional domain on the choice of language used. Public policy constraints are also examined and key requirements for their inclusion in external constraints are identified, especially where they can affect the modelling of Open-edi scenarios and the business transaction components of Persons, data and processes. In particular, there is a set of rules that govern the identification and categories of jurisdictional domains as individual states as well as sets of entities, both regional and international. ISO/IEC 15944-5:2008 also focuses on the identification of rules governing the formation and identification of jurisdictional domains. It identifies the more primitive subtypes of jurisdictional domains and includes two approaches for the unambiguous identification of referencing of (subtypes of) jurisdictional domain. ISO/IEC 15944-5:2008 also provides checklists, through the use of templates, to guide the user through the mechanics of determining the source of the external constraint(s) where these are jurisdictional domains and determining the adequacy of the scenario specification as well as those of the scenario components. Annexes provide elaboration on the points raised in the main body."
+  },
+  {
+    "reference": "ISO/IEC TR 15944-6:2015",
+    "edition": "2.0",
+    "date": "2015-06-17",
+    "title": "Information technology - Business operational view - Part 6: Technical introduction to e-Business modelling",
+    "language": "EN",
+    "description": "This part of ISO/IEC 15944 discusses and describes the following three topics of eBusiness modelling: — fundamentals of business transaction modelling that describe the conceptual aspects of eBusiness; — principles of eBusiness modelling that specify the semantic aspect of business transactions and their components and relationships involved in the business transaction; — classification scheme of Open-edi scenarios based on eBusiness modelling."
+  },
+  {
+    "reference": "ISO/IEC 15944-7:2009",
+    "edition": "1.0",
+    "date": "2009-11-12",
+    "title": "Information technology - Business operational view - Part 7: eBusiness vocabulary",
+    "language": "EN",
+    "description": "This document provides a consolidated vocabulary of eBusiness concepts as found and defined in the current editions of ISO/IEC 14662 and the existing parts of ISO/IEC 15944, namely, ISO/IEC 15944-1, ISO/IEC 15944-2, ISO/IEC 15944-4, ISO/IEC 15944-5, ISO/IEC 15944-6, ISO/IEC 15944-7, ISO/IEC 15944-8, ISO/IEC 15944-9, ISO/IEC 15944-10, ISO/IEC 15944-12, ISO/IEC 15944-16, ISO/IEC 15944-17, ISO/IEC 15944-20 and ISO/IEC 15944-21 along with their associated terms. This document provides the rules, guidelines and procedures governing the formation of definitions for concepts relevant to eBusiness and choice of terms as a single, harmonized and integrated controlled vocabulary. This includes those governing multilingual expandability which incorporates and integrates cultural capability. As such, This document facilitates the production of human interface equivalents (HIEs) of eBusiness terms and their definitions in the various official (and de facto) languages of ISO members in the form of additional annexes to this document. This document identifies the essential elements of an entry in this controlled vocabulary as well as their rules and specifications. It also includes rules for ensuring quality and integrity control requirement for each entry and the interworking among the entries while doing so in an IT-enabled manner. It also addresses maintenance and update procedures."
+  },
+  {
+    "reference": "ISO/IEC 15944-7:2009/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-06-03",
+    "title": "Information technology - Business operational view - Part 7: eBusiness vocabulary - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15944-7:2009/AMD2:2026",
+    "edition": "1.0",
+    "date": "2026-09-02",
+    "title": "Information technology - Business operational view - Part 7: eBusiness vocabulary - Amendment 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15944-8:2026",
+    "edition": "2.0",
+    "date": "2026-02-11",
+    "title": "Information technology - Business operational view - Part 8: Identification of privacy protection requirements as external constraints on business transactions",
+    "language": "EN",
+    "description": "This document: provides method(s) for identifying, in Open-edi modelling technologies and development of scenarios, the extra requirements in Business Operational View (BOV) specifications for identifying the additional external constraints to be applied to recorded information in business transactions relating to personal information of an individual, as required by legal and regulatory requirements of applicable jurisdictional domains having governance over the personal information exchanged among parties to a business transaction; integrates existing normative elements in support of privacy protection requirements as are already identified in ISO/IEC 14662 and ISO/IEC 15944-1, ISO/IEC 15944-2, ISO/IEC 15944-4 and ISO/IEC 15944-5, which apply to information concerning identifiable living individuals as buyers in a business transaction or whose personal information is used in the business transaction; provides overarching operational \"best practice\" statements for associated (and not necessarily automated) processes, procedures, practices and governance requirements that need to act in support of implementing and enforcing mechanisms needed to support privacy/data protection requirements necessary for the implementation in Open-edi transaction environments; identifies and provides a sample scenario and implementation (use case) for one or more use cases of privacy/data protection in business transactions; provides guidelines on the need for procedural mechanisms in the event that mandatory disclosure rules of transactional information that needs to be implemented. This document does not specify the technical mechanisms needed to implement the Functional Services View. Detailed exclusions to the scope of this document are provided in Annex H ."
+  },
+  {
+    "reference": "ISO/IEC 15944-9:2023",
+    "edition": "2.0",
+    "date": "2023-06-06",
+    "title": "Information technology - Business operational view - Part 9: Business transaction traceability framework for commitment exchange",
+    "language": "EN",
+    "description": "This document: — specifies a group of structured and inter-related concepts pertaining to traceability as a legal or regulatory requirement in the Open-edi context, in addition to concepts that appear in other parts of ISO/IEC 15944 series these concepts having the characteristics of cultural adaptability through the use of multilingual terms and definitions; — provides additional specifications for Open-edi scenarios and scenario components from the perspective of traceability as required by internal or external constraints in business transactions; — provides a more detailed specification for business transactions regarding aspects of traceability, including refined models of Person, Data and Process in support of the ability for Open-edi to incorporate elements or characteristics of traceability in its information bundles (including their semantic components) and business processes; — realizes specifications and descriptions from the traceability requirements as rules and guidelines, to provide recommendations or guidance on Open-edi practices; and, — provides revised primitive Open-edi scenario templates for traceability, integrating the modifications to the template from other existing parts of ISO/IEC 15944 series. This document can be used by Open-edi implementers (including business modellers and system designers) and Open-edi standard developers in specifying Open-edi scenarios, developing Open-edi related standards, and implementing Open-edi rules and guidelines for Open-edi activities. This document does not specify the FSV aspects of traceability, internal behaviour requirements of an organization, or traceability as a metrological concept. Detailed exclusions to the scope of this document are provided in Annex H."
+  },
+  {
+    "reference": "ISO/IEC 15944-10:2023",
+    "edition": "2.0",
+    "date": "2023-06-01",
+    "title": "Information technology - Business operational view - Part 10: IT-enabled coded domains as semantic components in business transactions",
+    "language": "EN",
+    "description": "This document specifies the fundamental principles governing coded domains, identification and description of the coded domains from the BOV view, the rules governing the rule-base of coded domains, the rules for management of ID codes, rules for specifying Human Interface Equivalents (HIEs) to an ID Code, the relations between the coded domain and controlled vocabularies, the rules governing the registration of coded domains as re-usable business objects, and the IT-enablement of coded domains. The document is applicable to the use of standards, specifications, authority files, etc., of a “codes representing X” nature being used in electronic business transactions among parties engaged in Open-edi, which pertains to flows of information using information bundles which cause pre-defined (or pre-definable) changes in the states of the IT systems of the parties to such electronic data interchanges. Detailed exclusions to the scope of this document are provided in Annex I."
+  },
+  {
+    "reference": "ISO/IEC 15944-12:2025",
+    "edition": "2.0",
+    "date": "2025-07-01",
+    "title": "Information technology - Business operational view - Part 12: Privacy protection requirements (PPR) on information life cycle management (ILCM) and EDI of personal information (PI)",
+    "language": "EN",
+    "description": "This document: — provides method(s) for identifying, in Open-edi modelling technologies and development of scenarios, the additional requirements in business operational view (BOV) specifications for identifying the additional external constraints to be applied to recorded information in business transactions relating to personal information of an individual, as required by legal and regulatory requirements of applicable jurisdictional domains; — integrates existing normative elements in support of privacy and data protection requirements as are already identified in ISO/IEC 14662 and ISO/IEC 15944-1, ISO/IEC 15944-2, ISO/IEC 15944-4, ISO/IEC 15944-5, ISO/IEC 15944-8, ISO/IEC 15944-9 and ISO/IEC 15944-10; — provides overarching, operational ‘best practice’ statements for associated (and not necessarily automated) processes, procedures, practices and governance requirements that act in support of implementing and enforcing technical mechanisms which support the privacy/data protection requirements necessary for implementation in Open-edi transaction environments; — focuses on the life cycle management of personal information, i.e. the contents of SPIs (and their SRIs) related to the business transaction interchanged via EDI as Information Bundles (IBs) and their associated Semantic Components (SCs) among the parties to a business transaction. NOTE Privacy protection requirements (PPR) on information life cycle management (ILCM) and EDI of personal information as stated in this document primarily via enumerated rules which serve as a minimum set of ILCM policy and operational requirements for all recorded information pertaining to a business transaction in particular, as well as ILCM implementation in any organization in general. This document does not specify the technical mechanisms, i.e. functional support services (FSV) which are required to support BOV-identified requirements. Detailed exclusions to the scope of this document are provided in Annex H."
+  },
+  {
+    "reference": "ISO/IEC TR 15944-14:2020",
+    "edition": "1.0",
+    "date": "2020-11-25",
+    "title": "Information technology - Business operational view - Part 14: Open-edi reference model and cloud computing architecture",
+    "language": "EN",
+    "description": "This document: — examines the basic concepts that have been developed for both cloud computing and Open-edi; — identifies key Open-edi concepts relevant to cloud computing; — identifies key cloud computing concepts relevant to Open-edi; — compares Open-edi model and cloud computing architecture and identifies mappings (similarities in whole or in part) between them using formal semantic modelling techniques."
+  },
+  {
+    "reference": "ISO/IEC 15944-16:2023",
+    "edition": "1.0",
+    "date": "2023-06-16",
+    "title": "Information technology - Business operational view - Part 16: Consolidated set of the rules and guidelines identified in ISO/IEC 15944 Business Operational View standards and their IT-enablement",
+    "language": "EN-FR, EN",
+    "description": "This document provides a consolidated set of rules and associated guidelines as found and defined in the existing parts of the ISO/IEC 15944 series . NOTE Not all parts of the ISO/IEC 15944 series have rules, that is ISO/IEC 15944- 6, ISO/IEC 15944 -14 and ISO/IEC 15944 - 20."
+  },
+  {
+    "reference": "ISO/IEC 15944-17:2024",
+    "edition": "1.0",
+    "date": "2024-04-09",
+    "title": "Information technology - Business operational view - Part 17: Fundamental principles and rules governing Privacy-by-Design (PbD) requirements in an EDI and collaboration space context",
+    "language": "EN",
+    "description": "This document: a) focuses on PbD aspects of privacy protection requirements as external constraints on any type of Person, (e.g. organization or public administration) involved in any kind of business transaction among such Persons which involves the electronic data interchange (EDI) of any personal information; b) establishes a fundamental set of privacy principles known as Privacy by Design and assumptions based on primary sources; c) integrates existing normative elements in support of PbD as are already identified in ISO/IEC 14662 and ISO/IEC 15944-1, ISO/IEC 15944-5, ISO/IEC 15944-8, ISO 15944-12; d) provides overarching operational ‘best practice’ statements for associated (and not necessarily automated) processes, procedures, practices and governance requirements that need to act in support of implementing and enforcing technical mechanisms that support PbD in Open-edi transaction and collaboration space environments; e) focuses on PbD related aspects of the life cycle management of and accountability for the personal information, i.e. the contents of SPIs (and their SRIs) related to the business transaction interchanged via EDI as information bundles and their associated semantic components among the parties to a business transaction. This document focuses on the BOV aspects of a business transaction and does not concern itself with the technical mechanisms needed to implement the FSV aspects of the business requirements of the FSV including the specification of requirements of an FSV nature which include security techniques and services, communication protocols, etc.). The FSV includes any existing standard (or standards development of an FSV nature), which has been ratified by existing ISO, IEC, UN/ECE and/or ITU standards. This document does not specify the technical mechanisms, i.e. FSV which are required to support BOV-identified requirements. Detailed exclusions to the scope of this document are provided in Annex D."
+  },
+  {
+    "reference": "ISO/IEC 15944-20:2015",
+    "edition": "1.0",
+    "date": "2015-11-24",
+    "title": "Information technology - Business operational view - Part 20: Linking business operational view to functional service view",
+    "language": "EN",
+    "description": "ISO/IEC 15944-20:2015 specifies the properties of Base Functional Specification View (FSV) Standards in order to best meet the requirements of the Business Operational View (BOV) with interoperable implementations. Base FSV standards exhibiting these properties support business transactions beyond those that are in compliance with Open-edi scenarios (OeS). Additional beneficial business transactions may also be supported between a given IT system and IT system(s) outside of the Open-edi scenarios for which they were designed. These base FSV standards address those aspects of interoperability between IT systems used among Parties of the Open-edi Community participating in the scenario. Examples of such standards include the choreography of interchanges among systems, and the foundational structure and syntax used to express Information Bundles (IB) in the interchanges."
+  },
+  {
+    "reference": "ISO/IEC 15944-21:2023",
+    "edition": "1.0",
+    "date": "2023-05-24",
+    "title": "Information technology - Business operational view - Part 21: Guidance on the application of the Open-edi business transaction ontology in distributed business transaction repositories",
+    "language": "EN",
+    "description": "This document specifies the business operational view of an implementation of an Open-edi Distributed Business Transaction Repository (OeDBTR), building on the principles and concepts defined in ISO/IEC 15944 - 4 of a business transaction. The repository stores the history of the transitions in states of the economic claim and/or other business entities that happen over the course of a business transaction, and does so for a collection of business events. These business events, comprised of transactions and their states, can be identified unambiguously so as to provide the ability to inspect or query the information at some point after the record has been made. The distributed nature of the repository offers users ubiquitous and robust access to the recorded history. A history of business transactions of market exchanges can be useful in auditing or other memoing-based activities, looking back at the immutable record of the interactions between parties. This document does not specify the Functional Services View of a particular implementation of an Open-edi Distributed Business Transaction Repository. For best performance, candidate technologies would likely exhibit properties of long-term permanence, robust immutability, decentralized access, distributed resilience, and fine-grained addressability."
+  },
+  {
+    "reference": "ISO/IEC 19075-1:2021",
+    "edition": "1.0",
+    "date": "2021-08-31",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 1: XQuery regular expressions",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19075-2:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 2: Time-related information",
+    "language": "EN",
+    "description": "This document describes the support in SQL for time-related information. This document discusses the following features of the SQL language: — Time-related data types — Operations on time-related data — Time-related Predicates — Application-time period tables — System-versioned tables — Bi-temporal tables"
+  },
+  {
+    "reference": "ISO/IEC 19075-2:2021/COR1:2026",
+    "edition": "1.0",
+    "date": "2026-07-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 2: Time-related information - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19075-3:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 3: SQL embedded in programs using the JavaTM programming language",
+    "language": "EN",
+    "description": "This document describes the support for the use of SQL within programs written in Java. This document discusses the following features of the SQL language: — The embedding of SQL expressions and statements in programs written in the Java programming language."
+  },
+  {
+    "reference": "ISO/IEC 19075-4:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 4: Routines and types using the Java™ programming language",
+    "language": "EN",
+    "description": "This document provides a tutorial of SQL routines and types using the Java™ programming language. This document discusses the following features of the SQL Language: — The use of routines written in the Java programming language within SQL expressions and statements. — The use of user-defined types written in the Java programming language within SQL expressions and statements."
+  },
+  {
+    "reference": "ISO/IEC 19075-5:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 5: Row pattern recognition",
+    "language": "EN",
+    "description": "This document discusses the syntax and semantics for recognizing patterns in rows of a table, as defined in ISO/IEC 9075-2, commonly called “SQL/RPR”. SQL/RPR defines two features regarding row pattern recognition: — Feature R010, “Row pattern recognition: FROM clause” — Feature R020, “Row pattern recognition: WINDOW clause” These two features have considerable syntax and semantics in common, the principle difference being whether the syntax is placed in the FROM clause or in the WINDOW clause."
+  },
+  {
+    "reference": "ISO/IEC 19075-5:2021/COR1:2026",
+    "edition": "1.0",
+    "date": "2026-07-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 5: Row pattern recognition - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19075-6:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 6: Support for JSON",
+    "language": "EN",
+    "description": "This document describes the support in SQL for JavaScript Object Notation. This document discusses the following features of the SQL language: — Storing JSON data. — Publishing JSON data. — Querying JSON data. — SQL/JSON data model and path language."
+  },
+  {
+    "reference": "ISO/IEC 19075-7:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 7: Polymorphic table functions",
+    "language": "EN",
+    "description": "This document describes the definition and use of polymorphic table functions in SQL. The Report discusses the following features of the SQL Language: — The processing model of polymorphic table functions in the context of SQL. — The creation and maintenance of polymorphic table functions. — Issues related to methods of implementing polymorphic table functions. — How polymorphic table functions are invoked by application programs. — Issues concerning compilation, optimization, and execution of polymorphic table functions."
+  },
+  {
+    "reference": "ISO/IEC 19075-8:2021",
+    "edition": "1.0",
+    "date": "2021-09-01",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 8: Multidimensional arrays",
+    "language": "EN",
+    "description": "This document describes the definition and use of multidimensional arrays in SQL. Multidimensional arrays represent a core underlying structure of manifold science and engineering data. It is generally recognized today, therefore, that arrays have an essential role in Big Data and should become an integral part of the overall data type orchestration in information systems. This document discusses the syntax and semantics of operations on the MD-array data type defined in ISO/IEC 9075-15."
+  },
+  {
+    "reference": "ISO/IEC 19075-9:2022",
+    "edition": "1.0",
+    "date": "2022-10-03",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 9: Online analytic processing (OLAP) capabilities (Guide/OLAP)",
+    "language": "EN",
+    "description": "This document discusses the syntax and semantics for including online analytic processing (OLAP) capabilities in SQL, as defined in ISO/IEC 9075-2. It discusses the following features regarding OLAP capabilities of the SQL language: — Feature T611, “Elementary OLAP operations”, — Feature T612, “Advanced OLAP operations”, — Feature T614, “NTILE function”, — Feature T615, “LEAD and LAG functions”, — Feature T616, “Null treatment option for LEAD and LAG functions”, — Feature T617, “FIRST_VALUE and LAST_VALUE functions”, — Feature T618, “NTH_VALUE function”, — Feature T619, “Nested window functions”, — Feature T620, “WINDOW clause: GROUPS option”, — Feature T621, “Enhanced numeric functions”"
+  },
+  {
+    "reference": "ISO/IEC 19075-10:2024",
+    "edition": "1.0",
+    "date": "2024-10-15",
+    "title": "Information technology - Guidance for the use of database language SQL - Part 10: SQL model (Guide/Model)",
+    "language": "EN",
+    "description": "This document describes the model of database language SQL as defined in ISO/IEC 9075-1, ISO/IEC 9075-2, and ISO/IEC 9075-11. The meanings of and the relationships between various concepts of that model are described in text and illustrated graphically. Background in the form of some historical review and a brief overview of key SQL features is included. NOTE 2 — In spite of the fact that the names of the ISO/IEC 9075 series of standards contain the phrase “database language”, the standards do not use the word “database” to describe the thing that SQL creates and on which it operates. The word “database” is used in many different contexts and has meanings wholly unrelated to the intent of the ISO/IEC 9075 series. Consequently, a variety of other terms are defined and used by the ISO/IEC 9075 series. The word “database” is frequently used in this document informally to mean “a collection of data managed by an SQL-implementation at any given time.”"
+  },
+  {
+    "reference": "ISO/IEC 19502:2005",
+    "edition": "1.0",
+    "date": "2005-11-07",
+    "title": "Information technology - Meta Object Facility (MOF)",
+    "language": "EN",
+    "description": "ISO/IEC 19502:2005 defines a metamodel (defined using Meta Object Facility, MOF), a set of interfaces [defined using Open Distributed Processing (ODP) Interface Definition Language (IDL) (ITU-T Recommendation X.920 (1997) | ISO/IEC 14750:1999)], that can be used to define and manipulate a set of interoperable metamodels and their corresponding models. ISO/IEC 19502:2005 also defines the mapping from MOF to ODP IDL. These interoperable metamodels include the Unified Modeling Language (UML) metamodel (ISO/IEC 19501:2005), the MOF meta-metamodel, as well as future standard technologies that will be specified using metamodels. The MOF provides the infrastructure for implementing design and reuse repositories, application development tool frameworks, etc. The MOF specifies precise mapping rules that enable the CORBA interfaces for metamodels to be generated automatically, thus encouraging consistency in manipulating metadata in all phases of the distributed application development cycle. Mappings from MOF to W3C XML and XSD are specified in ISO/IEC 19503. Mappings from MOF to Java (TM) are in the JMI (Java Metadata Interchange) specification defined by the Java Community Process. ISO/IEC 19502:2005 specifies an abstract language for specifying, constructing, and managing technology neutral metamodels (a metamodel is in effect an abstract language for some kind of metadata); a framework for implementing repositories and integration frameworks (e.g., tool integration frameworks) that hold metadata (e.g., models) described by the metamodels and which uses standard technology mappings to transform MOF metamodels into metadata APIs. ISO/IEC 19502:2005 also provides a formal definition of the MOF meta-metamodel, i.e. the abstract language for specifying MOF metamodels; a mapping from arbitrary MOF metamodels to CORBA IDL that produces IDL interfaces for managing any kind of metadata; a set of 'reflective' CORBA IDL interfaces for managing metadata independent of the metamodel; a set of CORBA IDL interfaces for representing and managing MOF metamodels; an XMI format for MOF metamodel interchange (OMG XMI specification)."
+  },
+  {
+    "reference": "ISO/IEC 19503:2005",
+    "edition": "1.0",
+    "date": "2005-11-08",
+    "title": "Information technology - XML Metadata Interchange (XMI)",
+    "language": "EN",
+    "description": "The main purpose of ISO/IEC 19503:2005 (XMI) is to enable easy interchange of metadata between application development lifecycle tools (such as modeling tools based on the Unified Modeling Language (UML), ISO/IEC 19501, and metadata repositories/frameworks based on the Meta Object Facility (MOF), ISO/IEC 19502) in distributed heterogeneous environments. ISO/IEC 19503:2005 integrates three key industry standards: XML, eXtensible Markup Language, a W3C standard; UML, Unified Modeling Language, an OMG modeling specification which is now ISO/IEC 19501; MOF, Meta Object Facility (ISO/IEC 19502). ISO/IEC 19503:2005 provides specifications for a set of XML Schema Definitions (XSD) production rules for transforming MOF-based metamodels into XML Schemas; a set of XML Document production rules for encoding and decoding MOF-based metadata; design principles for XMI-based Schemas and XML documents; a set of production rules for importing XML DTDs to a MOF-based metamodel. ISO/IEC 19503:2005 enhances metadata management and metadata interoperability in distributed object environments in general and in distributed development environments in particular. While it addresses stream-based metadata interoperability in the object analysis and design domain, ISO/IEC 19503:2005 (in part because it is MOF based) is equally applicable to metadata in many other domains."
+  },
+  {
+    "reference": "ISO/IEC TR 19583-1:2019",
+    "edition": "1.0",
+    "date": "2019-07-26",
+    "title": "Information technology - Concepts and usage of metadata - Part 1: Metadata concepts",
+    "language": "EN",
+    "description": "This document describes the basic concept of metadata, and its relationship to both data and metamodels."
+  },
+  {
+    "reference": "ISO/IEC TR 19583-21:2025",
+    "edition": "2.0",
+    "date": "2025-03-07",
+    "title": "Information technology - Concepts and usage of metadata - Part 21: 11179-3, -31, -32 Data model in SQL",
+    "language": "EN",
+    "description": "This document provides a possible instantiation of the registry metamodel specified in ISO/IEC 11179-3, ISO/IEC 11179-31, ISO/IEC 11179-32 using the SQL database language as specified in ISO/IEC 9075-2."
+  },
+  {
+    "reference": "ISO/IEC TR 19583-22:2018",
+    "edition": "1.0",
+    "date": "2018-07-16",
+    "title": "Information technology - Concepts and usage of metadata - Part 22: Registering and mapping development processes using ISO/IEC 19763",
+    "language": "EN",
+    "description": "This document provides a usage scenario that utilizes the facilities defined in ISO/IEC 11179-3, ISO/IEC 19763-5 and ISO/IEC 19763-10 to demonstrate the registration of the mapping between process models. The availability of these registered process model mappings will help to promote the reuse of process models. The scope of this document is limited to a discussion of the process models associated with software development projects and the deliverables produced during these projects. This document describes a scenario that evaluates the combined usage of ISO/IEC 11179-3, ISO/IEC 19763-5 and ISO/IEC 19763-10 to enable the reuse of past knowledge of process models describing project processes and deliverables."
+  },
+  {
+    "reference": "ISO/IEC TR 19583-23:2020",
+    "edition": "1.0",
+    "date": "2020-06-29",
+    "title": "Information technology - Concepts and usage of metadata - Part 23: Data element exchange (DEX) for a subset of ISO/IEC 11179-3",
+    "language": "EN",
+    "description": "This document specifies the message exchange framework for communicating data element definitions with an ISO/IEC 11179-3 metadata registry (MDR). It defines message semantics, protocols and bindings for a set of transactions allowing the exchange of a commonly used subset of data element metadata with an ISO/IEC 11179-3 MDR. This document establishes the following data element message exchange interoperability specifications: — retrieving data element list from an ISO/IEC 11179-3 MDR matching the selection criteria; — retrieving metadata of a selected data element from an ISO/IEC 11179-3 MDR."
+  },
+  {
+    "reference": "ISO/IEC TR 19583-24:2025",
+    "edition": "1.0",
+    "date": "2025-02-21",
+    "title": "Information technology - Concepts and usage of metadata - Part 24: 11179-3:2013 Metamodel in RDF",
+    "language": "EN",
+    "description": "This document specifies the structure of ISO/IEC 11179-3:2013. It defines a mapping of the ISO/IEC 11179-3:2013 conceptual model to a formal schema representation based on the W3C Resource Description Framework (RDF). The schema is available as a separate artefact. This document specifies the principles and conventions that were followed to map classes, attributes, and associations of the conceptual model to a formal RDF schema. This document does not provide detailed explanatory details about the ISO/IEC 11179 series or RDF. For more information, refer to References [7] to [9]."
+  },
+  {
+    "reference": "ISO/IEC 19583-26:2026",
+    "edition": "1.0",
+    "date": "2026-04-22",
+    "title": "Information technology - Concepts and usage of metadata - Part 26: XML for representation of ISO/IEC 11179-3:2013 content",
+    "language": "EN",
+    "description": "This document specifies the structure of ISO/IEC 11179-3:2013 representation in W3C XML Schema suitable for communication of content between compliant registries. The schema described in this document will implement a class and attribute vocabulary that matches the conceptual model presented in ISO/IEC 11179-3:2013 in W3C XML Schema format. The purpose of the schema is for the exchange of compliant metadata, and to support the validation of messages exchanged between registries. It is not intended for the communication of data element metadata alongside the data to which the metadata refers. The document specifes the schema and the principles and conventions that were followed to map classes, attributes, and associations of the conceptual model into an acyclic, directed graph suitable for an unambiguous document-based representation."
+  },
+  {
+    "reference": "ISO/IEC 19583-27:2025",
+    "edition": "1.0",
+    "date": "2025-12-12",
+    "title": "Information technology - Concepts and usage of metadata - Part 27: Mapping between metamodel for computable data registration and bioinformatics analyses by high-throughput sequencing (HTS)",
+    "language": "EN",
+    "description": "This document provides a mapping between the ISO/IEC 11179-34 metamodel for computable data registration and the IEEE 2791 standard for bioinformatics analyses generated by high-throughput sequencing (HTS), to facilitate the production of IEEE 2791 objects from instances of ISO/IEC 11179-34 metamodel and the registration of IEEE 2791 objects as computable data within an MDR conforming to ISO/IEC 11179-34. This document is applicable to those who are submitting data to organizations that require metadata submissions in IEEE 2791 compliant format, as well as those aiming to register IEEE 2791 objects into an MDR that conforms to ISO/IEC 11179-34."
+  },
+  {
+    "reference": "ISO/IEC 19763-1:2023",
+    "edition": "3.0",
+    "date": "2023-07-25",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 1: Framework",
+    "language": "EN",
+    "description": "This document provides an overview of the whole ISO/IEC 19763 series. This overview includes the purpose, the underlying concepts, the overall architecture and the requirements for the development of other standards within the 19763 series. Collectively, the other parts of the ISO/IEC 19763 series provide a set of normative metamodels to enable the registration of many different types of model. Each of these metamodels is expressed both as a UML class diagram and, more formally, in text. The metamodels, along with the specification in ISO/IEC 11179-3, define the information about the models that is to be registered. The models themselves can be stored in a model repository or can just exist as paper documents. The ISO/IEC 19763 series does not specify any physical structure of a registry where model information is to be recorded."
+  },
+  {
+    "reference": "ISO/IEC 19763-3:2020",
+    "edition": "3.0",
+    "date": "2020-10-23",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 3: Metamodel for ontology registration",
+    "language": "EN",
+    "description": "This document specifies the metamodel that provides a facility to register administrative and evolution information related to ontologies. The metamodel is intended to promote interoperability among application systems, by providing administrative and evolution information related to ontologies, accompanied with standardized ontology repositories that register ontologies themselves in specific languages. This document does not specify the metamodels of ontologies expressed in specific languages and the mappings among them."
+  },
+  {
+    "reference": "ISO/IEC 19763-3:2020/AMD1:2024",
+    "edition": "3.0",
+    "date": "2024-02-28",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 3: Metamodel for ontology registration - Amendment 1: Alignment with Edition 4 of ISO/IEC 11179-3",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19763-5:2015",
+    "edition": "1.0",
+    "date": "2015-08-10",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 5: Metamodel for process model registration",
+    "language": "EN",
+    "description": "The primary purpose of the multipart standard ISO/IEC 19763 is to specify a metamodel framework for interoperability. ISO/IEC 19763-5:2015 specifies the metamodel that describes a facility to register administrative information and selected metadata about process models. The metamodel specified in ISO/IEC 19763‑5:2015 is intended to promote semantic discovery and reuse of process models within/across process model repositories. For this purpose, it provides selected metadata and common semantics of process models created with a specific process modelling language, including Business Process Model and Notation (BPMN), UML (Unified Modelling Language) Activity Diagram and EPC (Event-driven Process Chain), etc. The metamodel can help discovery of the function and composition of a process, and promote reuse of its components at different levels of granularity."
+  },
+  {
+    "reference": "ISO/IEC 19763-6:2015",
+    "edition": "1.0",
+    "date": "2015-08-28",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 6: Registry Summary",
+    "language": "EN",
+    "description": "The ISO/IEC 19763 family of standards defines normative metamodels for the registration of models (including information models and process models), ontologies, services and roles & goals. Currently a lot of metadata registries or model registries were constructed and utilized in many different business domains, such as e-business, healthcare, automobile, electronics devices and civil construction. One of the key issues for the cross domain data or services integration must be enabling the easy discovery of metadata that are stored in the different registries that were scattered over different domains. Therefore, it is necessary to provide specific metadata that describes the registry itself in order to enable interoperation among different registries that were built following different standards. ISO/IEC 19763:2015 family of standards specifies an information artefact called the Registry Summary. The Registry Summary consists of information that describes administrative aspects, the summary of contents and the technical access method of the registry. A collection of multiple Registry Summary information is called a \"Registry of Registries\" or RoR, however, this standard does not mandate a particular implementation. Also, any specific protocol between Registry Summaries and RoR, such as creation of RoR and synchronization of RoR, would not be specified in this standard. Those are to be specified by other standards. The Registry Summary and RoR concept should be applied to all Metamodel Framework for Interoperability (MFI) registries, but its use may be applied to any kind of registries."
+  },
+  {
+    "reference": "ISO/IEC 19763-6:2015/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-02-28",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 6: Registry Summary - Amendment 1: Alignment with Edition 4 of ISO/IEC 11179-3",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19763-7:2015",
+    "edition": "1.0",
+    "date": "2015-10-15",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 7: Metamodel for service model registration",
+    "language": "EN",
+    "description": "The primary purpose of the multipart standard ISO/IEC 19763 is to specify a metamodel framework for interoperability. ISO/IEC 19763-7:2015 specifies a metamodel for registering models of services, facilitating interoperability through the reuse of services. ISO/IEC 19763-7:2015 is only applicable to web services whose capabilities are described by some web service description language (see Annex A for examples of such languages). Figure 1 shows the scope of ISO/IEC 19763‑7:2015."
+  },
+  {
+    "reference": "ISO/IEC 19763-8:2015",
+    "edition": "1.0",
+    "date": "2015-10-15",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 8: Metamodel for role and goal model registration",
+    "language": "EN",
+    "description": "The primary purpose of the multipart standard ISO/IEC 19763 is to specify a metamodel framework for interoperability. ISO/IEC 19763-7:2015 specifies a metamodel for registering models of services, facilitating interoperability through the reuse of services. ISO/IEC 19763-7:2015 is only applicable to web services whose capabilities are described by some web service description language (see Annex A for examples of such languages). Figure 1 shows the scope of ISO/IEC 19763‑7:2015."
+  },
+  {
+    "reference": "ISO/IEC TR 19763-9:2015",
+    "edition": "1.0",
+    "date": "2015-10-15",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 9: On demand model selection",
+    "language": "EN",
+    "description": "ISO/IEC TR 19763-9:2015 specifies a technical guideline on how to use the Role and Goal, Process, and Service (RGPS) metamodels to select appropriate combinations of models and/or services to support user-requests. The scope of ISO/IEC TR 19763-9 is limited to model selection based on ISO/IEC 19763-5, ISO/IEC 19763-7, and ISO/IEC 19763-8."
+  },
+  {
+    "reference": "ISO/IEC 19763-10:2023",
+    "edition": "2.0",
+    "date": "2023-07-25",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 10: Core model and basic mapping",
+    "language": "EN",
+    "description": "This document specifies the metamodel that provides a facility to register administrative information and common semantics of models. This document does not specify the metamodel of models in a specific language, but provides a common core metamodel for the other parts of the ISO/IEC 19763 series, each of which specifies a metamodel for a registry that can register models of a specific type, such as ontologies, process models or information models, in a number of different languages."
+  },
+  {
+    "reference": "ISO/IEC 19763-12:2015",
+    "edition": "1.0",
+    "date": "2015-03-17",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 12: Metamodel for information model registration",
+    "language": "EN",
+    "description": "The ISO/IEC 19763 multipart International Standard specifies a metamodel framework for interoperability. ISO/IEC 19763-12:2015 specifies a metamodel for registering information models. This metamodel was developed taking into account two distinct types of information models such as ? those that are used to document the information requirements of a particular area of interest, and ? those that represent the structure of a database which are often expressed using a Database Definition Language (DDL)."
+  },
+  {
+    "reference": "ISO/IEC 19763-12:2015/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-12-07",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 12: Metamodel for information model registration - Amendment 1: Alignment with Edition 4 of ISO/IEC 11179-3",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19763-13:2026",
+    "edition": "1.0",
+    "date": "2026-07-27",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 13: Metamodel for form design registration",
+    "language": "EN",
+    "description": "This document provides a metamodel to describe the structure and semantics of an implemented form devoid of any specific, domain semantics, e.g. in healthcare, social science, e-government and e-business, or representation format so that data can be faithfully exchanged between systems and system components, and associations expressed between sets of form designs whose data can be compared, joined or composed for analysis."
+  },
+  {
+    "reference": "ISO/IEC 19763-16:2021",
+    "edition": "1.0",
+    "date": "2021-09-07",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 16: Metamodel for document model registration",
+    "language": "EN",
+    "description": "The primary purpose of the ISO/IEC 19763 series is to specify a metamodel framework for interoperability. This document specifies a metamodel for registering document models (or schemata). Examples of such document models include: — specifications for XML documents (using XML schema [3] ); — specifications for JSON documents (using JSON schema [2] ). This metamodel was developed taking into account the requirements for both XML schema and JSON schema, but is applicable to all current specifications for document models."
+  },
+  {
+    "reference": "ISO/IEC 19763-16:2021/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-12-07",
+    "title": "Information technology - Metamodel framework for interoperability (MFI) - Part 16: Metamodel for document model registration - Amendment 1: Alignment with Edition 4 of ISO/IEC 11179-3",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19773:2011",
+    "edition": "1.0",
+    "date": "2011-09-01",
+    "title": "Information technology - Metadata Registries (MDR) modules",
+    "language": "EN",
+    "description": "ISO/IEC 19773:2011 specifies small modules of data that can be used or reused in applications. These modules have been extracted from ISO/IEC 11179-3, ISO/IEC 19763, and OASIS EBXML, and have been refined further. These modules are intended to harmonize with current and future versions of the ISO/IEC 11179 series and the ISO/IEC 19763 series. These modules include: reference-or-literal (reflit) for on-demand choices of pointers or data; multitext, multistring, etc. for recording internationalized and localized data within the same structure; slots and slot arrays for standardized extensible data structures; internationalized contact data, including UPU postal addresses, ITU-T E.164 phone numbers, internet E-mail addresses, etc.; generalized model for context data based upon who-what-where-when-why-how (W5H); data structures for reified relationships and entity-person-groups. Conformity can be selected on a per-module basis."
+  },
+  {
+    "reference": "ISO/IEC TR 20943-1:2003",
+    "edition": "1.0",
+    "date": "2003-07-25",
+    "title": "Information technology - Procedures for achieving metadata registry content consistency - Part 1: Data elements",
+    "language": "EN",
+    "description": "An ISO/IEC 11179-based metadata registry (MDR) (hereafter referred to as a \"registry\") is a tool for the management of shareable data; a comprehensive, authoritative source of reference information about data. It supports the standardization and harmonization processes by recording and disseminating data standards, which facilitates data sharing among organizations and users. It provides links to documents that refer to data elements and to information systems where data elements are used. When used in conjunction with an information database, the registry enables users to better understand the information obtained. A registry does not contain data itself. It contains the metadata that is necessary to clearly describe, inventory, analyze, and classify data. It provides an understanding of the meaning, representation, and identification of units of data. The standard identifies the information elements that need to be available for determining the meaning of a data element (DE) to be shared between systems. The purpose of ISO/IEC TR 20943-1:2003 is to describe a set of procedures for the consistent registration of data elements and their attributes in a registry. ISO/IEC TR 20943-1:2003 is not a data entry manual, but a user's guide for conceptualizing a data element and its associated metadata items for the purpose of consistently establishing good quality data elements. An organization may adapt and/or add to these procedures as necessary. The scope of ISO/IEC TR 20943-1:2003 is limited to the associated items of a data element: the data element identifier, names and definitions in particular contexts, and examples; data element concept; conceptual domain with its value meanings; and value domain with its permissible values. There is a choice when registering code sets and other value domains in an ISO/IEC 11179 metadata registry. Some Registration Authorities treat these sets as value domains, and others treat them as data elements. For the purposes of ISO/IEC TR 20943-1:2003, the choice will always be to treat the sets as data elements unless explicitly stated. This choice is made to help illustrate the way to register many different kinds of data elements, including examples for registering standard code sets as data elements."
+  },
+  {
+    "reference": "ISO/IEC TR 20943-3:2004",
+    "edition": "1.0",
+    "date": "2004-02-24",
+    "title": "Information technology - Procedures for achieving metadata registry content consistency - Part 3: Value domains",
+    "language": "EN",
+    "description": "The purpose of this technical report is to describe a set of procedures for the consistent registration of value domains and their attributes in a registry. This technical report is not a data entry manual, but a user's guide for conceptualizing a value domain and its components for the purpose of consistently establishing good quality metadata. An organization may adapt and/or add to these procedures as necessary."
+  },
+  {
+    "reference": "ISO/IEC TR 20943-5:2013",
+    "edition": "1.0",
+    "date": "2013-10-30",
+    "title": "Information technology - Procedures for achieving metadata registry content consistency - Part 5: Metadata mapping procedure",
+    "language": "EN",
+    "description": "The purpose of ISO/IEC TR 20943-5:2013 is to describe a procedure for establishing metadata crosswalks based on the ISO/IEC 11179 series, subsequently improving mapping quality between metadata. Therefore, ISO/IEC TR 20943-5:2013 describes a metadata mapping procedure (MMP), which can maximize the interoperability among ISO/IEC 11179-based registries through achieving metadata registry content consistency."
+  },
+  {
+    "reference": "ISO/IEC TR 20943-6:2013",
+    "edition": "1.0",
+    "date": "2013-10-30",
+    "title": "Information technology - Procedures for achieving metadata registry content consistency - Part 6: Framework for generating ontologies",
+    "language": "EN",
+    "description": "ISO/IEC TR 20943-6:2013 covers the framework for generating ontologies based on ISO/IEC 11179-3, and provides the procedure and mapping model for generating ontologies. ISO/IEC TR 20943-6:2013 describes a method to generate ontologies for a context using concepts in ISO/IEC 11179-3. Most ontologies are basically composed of classes (concepts), properties, relations between classes, and instances (objects or individuals). ISO/IEC TR 20943-6:2013 considers the generation of ontology consisting of a subset of ontology components required for defining ontologies at the conceptual level which is called \"FGO_Ontology\". ISO/IEC TR 20943-6:2013 uses the prefix \"FGO_\" to avoid confusion from homonym and to clearly identify each term. For example, \"Property\" is specified in ISO/IEC 11179-3 as well as in ISO/IEC TR 20943-6:2013, but the meaning is slightly different. ISO/IEC TR 20943-6:2013 defines FGO_Class, FGO_Property, and FGO_Relation to distinguish between components of FGO_Ontology and components of ISO/IEC 11179-3. ISO/IEC TR 20943-6:2013 specifies the method to generate ontologies using registered concepts in ISO/IEC 11179-3 Concepts metamodel region and Data description metamodel region. ISO/IEC TR 20943-6:2013 specifies a procedure and method for generating ontologies due to an application domain reusing concepts registered in a metadata registry. ISO/IEC TR 20943-6:2013 does not include a way to describe in a specific ontology description language, such as Resource Description Framework (RDF), RDF Schema (RDFS), Web Ontology Language (OWL), Topic Map, and Knowledge Interchange Format (KIF)."
+  },
+  {
+    "reference": "ISO/IEC 20944-1:2013",
+    "edition": "1.0",
+    "date": "2013-01-08",
+    "title": "Information technology - Metadata Registries Interoperability and Bindings (MDR-IB) - Part 1: Framework, common vocabulary, and common provisions for conformance",
+    "language": "EN",
+    "description": "The ISO/IEC 20944 series of International Standards provides the bindings and their interoperability for metadata registries, such as those specified in the ISO/IEC 11179 series of International Standards. ISO/IEC 20944-1:2013 contains an overview, framework, common vocabulary, and common provisions for conformance for the ISO/IEC 20944 series of International Standards."
+  },
+  {
+    "reference": "ISO/IEC 20944-2:2013",
+    "edition": "1.0",
+    "date": "2013-01-08",
+    "title": "Information technology - Metadata Registries Interoperability and Bindings (MDR-IB) - Part 2: Coding bindings",
+    "language": "EN",
+    "description": "The ISO/IEC 20944 series of International Standards provides the bindings and their interoperability for metadata registries, such as those specified in the ISO/IEC 11179 series of International Standards. ISO/IEC 20944-2:2013 contains provisions that are common to coding bindings and the coding bindings themselves. The coding bindings have commonality in their conceptualization of data instances and their internal structures. Common features include: using datatypes to characterize the nature and operations upon data; using ISO/IEC 11404 to define and declare datatypes; using common aggregate structures, such as array and record, to describe sets of data; using common navigation descriptions to reference components within a set of data. The individual coding bindings each incorporate a mapping of common data semantics to their individual binding requirements. XML and DIVP (dotted identifier value pair) bindings are provided."
+  },
+  {
+    "reference": "ISO/IEC 20944-3:2013",
+    "edition": "1.0",
+    "date": "2013-01-08",
+    "title": "Information technology - Metadata Registries Interoperability and Bindings (MDR-IB) - Part 3: API bindings",
+    "language": "EN",
+    "description": "The ISO/IEC 20944 series of International Standards provides the bindings and their interoperability for metadata registries, such as those specified in the ISO/IEC 11179 series of International Standards. ISO/IEC 20944-3:2013 contains provisions that are common to application programming interface (API) bindings and the API bindings themselves. The API bindings have commonality in their conceptualization of the services provided. Common features include: using a session paradigm to access data; using a parameterized security framework to support a variety of security techniques; using a hierarchical navigation for data access. Bindings for C, Java, and ECMAscript programming languages are provided."
+  },
+  {
+    "reference": "ISO/IEC 20944-4:2013",
+    "edition": "1.0",
+    "date": "2013-01-08",
+    "title": "Information technology - Metadata Registries Interoperability and Bindings (MDR-IB) - Part 4: Protocol bindings",
+    "language": "EN",
+    "description": "The ISO/IEC 20944 series of International Standards provides the bindings and their interoperability for metadata registries, such as those specified in the ISO/IEC 11179 series of International Standards. ISO/IEC 20944-4:2013 contains provisions that are common to protocol bindings and the protocol bindings themselves. The protocol bindings have commonality in their conceptualization of the services provided. Common features include: common data transfer semantics; harmonized session services for connection-oriented and connection-less protocols. Bindings for HTTP and WebDAV protocols are provided."
+  },
+  {
+    "reference": "ISO/IEC 20944-5:2013",
+    "edition": "1.0",
+    "date": "2013-01-08",
+    "title": "Information technology - Metadata Registries Interoperability and Bindings (MDR-IB) - Part 5: Profiles",
+    "language": "EN",
+    "description": "The ISO/IEC 20944 series of International Standards provides the bindings and their interoperability for metadata registries, such as those specified in the ISO/IEC 11179 series of International Standards. ISO/IEC 20944-5:2013 contains provisions that are common to the profiles, and the profiles themselves. A profile of ISO/IEC 11179-3:2003 is included, which maps ISO/IEC 11179 metadata attributes to standardized identifiers for navigation and access of ISO/IEC 11179 metadata."
+  },
+  {
+    "reference": "ISO/IEC 21838-1:2021",
+    "edition": "1.0",
+    "date": "2021-08-06",
+    "title": "Information technology - Top-level ontologies (TLO) - Part 1: Requirements",
+    "language": "EN",
+    "description": "This document specifies required characteristics of a domain-neutral top-level ontology (TLO) that can be used in tandem with domain ontologies at lower levels to support data exchange, retrieval, discovery, integration and analysis. If an ontology is to provide the overarching ontology content that will promote interoperability of domain ontologies and thereby support the design and use of purpose-built ontology suites, then it needs to satisfy certain requirements. This document specifies these requirements. It also supports a variety of other goals related to the achievement of semantic interoperability, for example, as concerns legacy ontologies developed using heterogeneous upper-level categories, where a coherently designed TLO can provide a target for coordinated re-engineering. This document specifies the characteristics an ontology needs to possess to support the goals of exchange, retrieval, discovery, integration and analysis of data by computer systems. The following are within the scope of this document — Specification of the requirements an ontology needs to satisfy if it is to serve as a top-level hub ontology. — Specification of the relations between a top-level ontology and domain ontologies. — Specification of the role played by the terms in a top-level ontology in the formulation of definitions and axioms in ontologies at lower levels. The following are outside the scope of this document: — Specification of ontology languages, including the languages OWL 2 and CL, used in ontology development with standard model-theoretic semantics. — Specification of methods for reasoning with ontologies. — Specification of translators between notations of ontologies developed in different ontology languages. — Specification of rules governing the use of IRIs as permanent identifiers for ontology terms. — Specification of the principles of ontology maintenance and versioning. — Specification of how ontologies can be used in the tagging or annotation of data."
+  },
+  {
+    "reference": "ISO/IEC 21838-2:2021",
+    "edition": "1.0",
+    "date": "2021-11-30",
+    "title": "Information technology - Top-level ontologies (TLO) - Part 2: Basic Formal Ontology (BFO)",
+    "language": "EN",
+    "description": "This document describes Basic Formal Ontology (BFO), which is an ontology that is conformant to the requirements specified for top-level ontologies in ISO/IEC 21838‑1. It describes BFO as a resource designed to support the interchange of information among heterogeneous information systems. The following are within the scope of this document: — definitions of BFO-2020 terms and relations; — axiomatizations of BFO-2020 in OWL 2 and CL; — documentation of the conformity of BFO-2020 to the requirements specified for top-level ontologies in ISO/IEC 21838‑1; — specification of the requirements for a domain ontology if it is to serve as a module in a suite of ontologies in which BFO serves as top-level ontology hub by providing a starting point for the introduction of the most general terms in those domain ontologies which are its nearest neighbours within the suite; — specification of the role played by the terms in BFO in the formulation of definitions and axioms in ontologies at lower levels that conform to BFO. The following are outside the scope of this document: — specification of ontology languages, including the languages RDF, OWL, and CL standardly used in ontology development; — specification of methods for reasoning with ontologies; — specification of translators between the notations of ontologies developed in different ontology languages."
+  },
+  {
+    "reference": "ISO/IEC 21838-3:2023",
+    "edition": "1.0",
+    "date": "2023-09-19",
+    "title": "Information technology - Top-level ontologies (TLO) - Part 3: Descriptive ontology for linguistic and cognitive engineering (DOLCE)",
+    "language": "EN",
+    "description": "This document describes descriptive ontology for finguistic and cognitive engineering (DOLCE) as an ontology that is conformant to the requirements specified for top-level ontologies in ISO/IEC 21838-1. This document describes DOLCE as a resource designed to support ontology design, ontology integration, and semantic integration of heterogeneous information systems. The following are within the scope of this document: — definitions of classes and relations in the signature of DOLCE; — axiomatizations of DOLCE in OWL 2 and CL; — documentation of the conformity of DOLCE to the requirements specified for top-level ontologies in ISO/IEC 21838-1; — documentation of the methodology for specifying domain ontologies that conform to DOLCE. The following are outside the scope of this document: — specification of ontology languages, including the languages RDF, OWL, and CL standardly used in ontology development; — specification of methods for reasoning with ontologies; — specification of translators between the notations of ontologies developed in different ontology languages."
+  },
+  {
+    "reference": "ISO/IEC 21838-4:2023",
+    "edition": "1.0",
+    "date": "2023-09-19",
+    "title": "Information technology - Top-level ontologies (TLO) - Part 4: TUpper",
+    "language": "EN",
+    "description": "This document describes TUpper as an ontology that is conformant to the requirements specified for top-level ontologies in ISO/IEC 21838-1. This document describes TUpper as a resource designed to support ontology design, ontology integration, automated reasoning, and semantic integration of heterogeneous information systems. The following are within the scope of this document: — definitions of classes and relations in the signature of TUpper; — axiomatizations of TUpper in OWL 2 and CL; — documentation of the conformity of TUpper to the requirements specified for top-level ontologies in ISO/IEC 21838-1; — documentation of the methodology for specifying domain ontologies that conform to TUpper. The following are outside the scope of this document: — specification of ontology languages, including the languages RDF, OWL and CL standardly used in ontology development; — specification of methods for reasoning with ontologies; — specification of translators between the notations of ontologies developed in different ontology languages."
+  },
+  {
+    "reference": "ISO/IEC 24707:2018",
+    "edition": "2.0",
+    "date": "2018-07-16",
+    "title": "Information technology - Common Logic (CL) - A framework for a family of logic-based languages",
+    "language": "EN",
+    "description": "This document specifies a family of logic languages designed for use in the representation and interchange of information and data among disparate computer systems. The following features are essential to the design of this document. — Languages in the family have declarative semantics. It is possible to understand the meaning of expressions in these languages without appeal to an interpreter for manipulating those expressions. — Languages in the family are logically comprehensive ? at its most general, they provide for the expression of arbitrary first-order logical sentences. — Languages in the family are translatable by a semantics-preserving transformation to a common XML-based syntax, facilitating interchange of information among heterogeneous computer systems. The following are within the scope of this document: — representation of information in ontologies and knowledge bases; — specification of expressions that are the input or output of inference engines; — formal interpretations of the symbols in the language. The following are outside the scope of this document: — specification of proof theory or inference rules; — specification of translators between the notations of heterogeneous computer systems; — computer-based operational methods of providing relationships between symbols in the logical \"universe of discourse\" and individuals in the \"real world\". This document describes Common Logic's syntax and semantics. This document defines an abstract syntax and an associated model-theoretic semantics for a specific extension of first-order logic. The intent is that the content of any system using first-order logic can be represented in this document. The purpose is to facilitate interchange of first-order logic-based information between systems. Issues relating to computability using this document (including efficiency, optimization, etc.) are not addressed."
+  },
+  {
+    "reference": "ISO/IEC 39075:2024",
+    "edition": "1.0",
+    "date": "2024-04-12",
+    "title": "Information technology - Database languages - GQL",
+    "language": "EN",
+    "description": "This document defines data structures and basic operations on property graphs. It provides capabilities for creating, accessing, querying, maintaining, and controlling property graphs and the data they comprise. This document specifies the syntax and semantics of a data management language for specifying and modifying the structure of property graphs and collections thereof. This document provides a vehicle for portability of data definitions and manipulation among GQL-implementations. Implementations of this document can exist in environments that also support application programming languages, end-user query facilities, and various tools for database design, data administration, and performance optimization."
+  },
+  {
+    "reference": "ISO/IEC 39075:2024/COR1:2026",
+    "edition": "1.0",
+    "date": "2026-07-31",
+    "title": "Information technology - Database languages - GQL - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO TR 9007:1987",
+    "edition": "1.0",
+    "date": "1987-07-09",
+    "title": "Information processing systems - Concepts and terminology for the conceptual schema and the information base",
+    "language": "EN",
+    "description": "This Technical Report type 3 contains the fundamental concepts and terminology for the conceptual schema, the information base, and the mechanisms involved in manipulating them. The approaches and associated languages described in the appendices A through H are intended to be explanatory only."
+  }
+]

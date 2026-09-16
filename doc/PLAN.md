@@ -4031,3 +4031,136 @@ are cited by more than one raw record across sources). Full suite: 663
 tests, all passing. App smoke-checked live: `/`, `/procesy`,
 `/proces/U4` all 200, and `EIGA DOC 246` now shows its real description
 in a live search.
+
+## 25. Phase 1 continued — `iec.ch`/`webstore.iec.ch` (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue Phase 1 with the IEC domain (17-19 corpus
+records), proposing a specific mechanism: the "IEC technical committees
+and subcommittees" list at `www.iec.ch/technical-committees-and-
+subcommittees#tclist`, whose "Publications" column links to a
+per-committee overview page carrying a `javascript:openPopup(...)` call
+that exports that committee's publication list as XLS, including scope
+text.
+
+**Feasibility check, live, before writing anything**: `www.iec.ch`
+(needed for both the committee list and the per-committee export) sits
+behind an **AWS WAF Bot Control "challenge" action** — confirmed via
+response headers (`x-amzn-waf-action: challenge`, HTTP 202, empty
+body) — a JS proof-of-work/fingerprint challenge, not a header or
+rate-limit problem a plain `requests`/`curl` client can work around
+(unlike `eiga.eu`'s WAF, or `iso.org`'s simple 403). `webstore.iec.ch`
+itself (where the corpus's 19 IEC-related records already point, as a
+shared catalog-root URL, same shape as the STN/EIGA problem) is NOT
+behind this WAF and serves real per-document pages — but its own
+search results are entirely client-side JS-rendered ("JavaScript seems
+to be disabled in your browser" is literally what a plain fetch sees),
+so there is no way to resolve a designation into one of those pages
+without JS either.
+
+**User proposed headless-browser automation as the way through — tried
+live, with the user's help getting past two real environment gaps**:
+- Playwright installed cleanly (`pip install playwright`,
+  `playwright install chromium` — downloads its own Chrome-for-Testing
+  binary, no system package needed for the binary itself).
+- Launching it failed on a missing system library
+  (`libxkbcommon.so.0`), and `playwright install-deps chromium` (which
+  installs the *whole* set of Chrome runtime libraries in one shot, not
+  library-by-library) needs root — this session has none (same
+  standing limitation as the MariaDB admin situation, doc/PLAN.md §19).
+  **The user ran `sudo .venv/bin/playwright install-deps chromium`
+  themselves** — after that, headless Chromium passed the WAF challenge
+  on the first try.
+
+**The `openPopup()` mechanism, read directly off the rendered page**:
+resolves to `f?p=103:75:0::::FSP_ORG_ID,FSP_LANG_ID,FSP_EXPORT:
+<org_id>,25,XLSX` — a plain URL, once a committee's own `FSP_ORG_ID` is
+known (read straight off the committee-list table's own links, 224
+committees found live). Triggering it via Playwright's
+`expect_download()` reliably raises a `"Download is starting"` error
+from `page.goto()` — Playwright's own signal that navigation turned
+into a file download, not a real failure; the download itself still
+fires and is captured regardless (had to learn this the hard way: a
+first, naive version treated it as a real failure and every single one
+of 224 committees "failed").
+
+**Two IEC designations don't encode which of the ~224 technical
+committees publishes them** — unlike `normoff.py`/`eiga.py`, there is no
+per-designation live search to do at all, only a bulk harvest across
+every committee's own export. New `src/tools/harvest_iec_publications.py`
+does exactly that: Playwright navigates the committee list once, then
+downloads and parses each committee's XLSX (columns `Reference | Edition
+| Corrigenda/IS | Date | Title | Language | Description`) into
+`data/iec_committees/<org_id>.json` (idempotent — a committee already
+harvested is skipped unless `--force`, same convention as
+`site_metadata_cache.json`), then aggregates all of them into
+`data/iec_publications_index.json` keyed by `reference_base()`
+(`"IEC 60050-102:2007"` -> `"IEC 60050-102"` — the edition year isn't
+part of a document's own identity). Amendment/corrigendum rows
+(`/AMD1:2017`, `/COR1:2023`) never carry a description of their own —
+confirmed live across all 265 of TC 1's own publications, 0 exceptions —
+so they never enter the index; when a base reference appears more than
+once (a superseded edition still listed), the entry with the latest
+`date` wins, same "prefer most recent" rule `normoff.py` already uses.
+`clean_description()` strips real HTML markup (not just `<br/>` — a
+first version left `<!-- NEW! --><a href="...">...</a>` "a newer
+edition is out" announcements in verbatim, caught by comparing against
+the raw XLSX cell) via `BeautifulSoup(...).get_text()`, plus a stray
+Excel `_x000D_` artifact.
+
+**Live harvest result**: all 224 committees, 21552-byte-average XLSX
+per committee, **10,571 base references with a real description**. New
+`src/sites/iec.py` is the lightweight, network-free consumer — reads
+only the local index, never touches Playwright or the network itself,
+so the normal `fetch_authoritative_metadata.py` pipeline stays as cheap
+as it's always been for every other domain.
+`normalize_designation()` handles three corpus-side quirks found by
+testing against the real 19 records: the Sinay edition suffix
+(`"/ - 2003.06"`), a `"prEN "` prefix (the corpus's own marker for a
+draft European adoption, not part of the IEC document's identity), and
+— found only once matching against the real harvested keys — the
+corpus writes `"IEC/TR"`/`"IEC/TS"`/`"IEC/PAS"` slash-joined while IEC's
+own catalog spells it space-separated (`"IEC TR 62351-13:2016"`).
+
+**A second real bug found while verifying live, more consequential than
+it looks**: `apply_authoritative_metadata()`'s fallback cascade (URL ->
+`csn:` -> `stn:` -> `eiga:` -> `iec:`) used a bare `entry is None` check
+to decide whether to try the next key. Every bare `"IEC ..."` znacka
+already had a **stale, `"failed"` `csn:<znacka>` entry** cached from
+*before* `is_iec_norm_record()` existed (a bare `IEC`/`EN`/`ISO`
+designation matches `is_csn_norm_record()`'s own bare-international
+pattern, so these records used to fall through to the ČSN branch, which
+correctly found no adoption and cached that as `"failed"`) — with the
+old check, that stale failed entry was found FIRST and silently
+prevented the new `iec:` key from ever being tried, even though it held
+the real, fetched data. First rebuild attempt: `apply_authoritative_
+metadata()` reported 480 records touched (barely more than before IEC
+was added), and a specific record checked by hand still showed
+`needs_review=1`, no description — caught by spot-checking a named
+record rather than trusting the aggregate count alone, the same
+discipline that caught the EIGA-side gap in §24. Fixed with a new
+`_fetched_cache_entry(cache, key)` helper that only ever accepts a
+`status == "fetched"` entry, tried in the same priority order as
+before, `None` otherwise — a general fix, not just for IEC (the same
+latent bug could have affected STN too, if an old ČSN attempt happened
+to precede it for some record). New regression test:
+`test_stale_failed_entry_under_an_earlier_key_does_not_block_a_later_one`.
+
+**Result**: 224/224 committees harvested (no partial failures), 20 of
+23 processed corpus designations resolved (the 3 refusals are genuine —
+2 not-yet-published drafts, `"IEC/TS 63208"` vs. the catalog's own
+distinct `"IEC 63208"`, correctly not force-matched). All 20 translated
+to Czech, spot-checked by hand. Full pipeline rebuild: `needs_review`
+366 → 349/1215. Full suite: 687 tests, all passing. App smoke-checked
+live: `/`, `/procesy`, `/proces/U4` all 200, `IEC 60092-506` shows its
+real description in a live search.
+
+**`playwright` is a new dependency, deliberately scoped to
+`requirements-optional.txt`, not `requirements.txt`** — nothing in the
+app or the regular pipeline needs a browser, only this one harvest
+script, matching the same "not needed for the documented pipeline
+order" reasoning `pandas`/`duckduckgo_search` already had that file for.
+The Chromium binary itself and the `sudo playwright install-deps`
+system libraries are a one-time environment setup step, documented
+inline in that file and in the harvester's own module docstring, not
+part of any install walkthrough a partner following `PROJECT.md` would
+ever need to run.

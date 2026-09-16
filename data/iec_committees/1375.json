@@ -1,0 +1,826 @@
+[
+  {
+    "reference": "IEC 60528:1975",
+    "edition": "1.0",
+    "date": "1975-01-01",
+    "title": "Expression of performance of air quality infra-red analyzers",
+    "language": "EN-FR",
+    "description": "Applicable to non-dispersive infra-red analyzers specified for installation either indoors or outdoors and used for the continuous determination of certain aspects of air quality by measuring the gaseous constituents. Special definitions. Functional characteristics. Test methods for determining the performance and for verifying compliance with specifications."
+  },
+  {
+    "reference": "IEC 60534-1:2023",
+    "edition": "4.0",
+    "date": "2023-05-23",
+    "title": "Industrial-process control valves - Part 1: Control valve terminology and general considerations",
+    "language": "EN-FR",
+    "description": "IEC 60534-1:2023 applies to all types of industrial-process control valves (hereinafter referred to as control valves). This document establishes a partial basic terminology list and provides guidance on the use of all other parts of IEC 60534."
+  },
+  {
+    "reference": "IEC 60534-2-1:2011",
+    "edition": "2.0",
+    "date": "2011-03-30",
+    "title": "Industrial-process control valves - Part 2-1: Flow capacity - Sizing equations for fluid flow under installed conditions",
+    "language": "EN-FR",
+    "description": "IEC 60534-2-1:2011 includes equations for predicting the flow of compressible and incompressible fluids through control valves. The equations for incompressible flow are based on standard hydrodynamic equations for Newtonian incompressible fluids. They are not intended for use when non-Newtonian fluids, fluid mixtures, slurries or liquid-solid conveyance systems are encountered. The equations for incompressible flow may be used with caution for non-vaporizing multi-component liquid mixtures. This second edition cancels and replaces the first edition published in 1998. This edition constitutes a technical revision. It includes the following significant technical changes with respect to the previous edition: - the same fundamental flow model, but changes the equation framework to simplify the use of the standard by introducing the notion of Δ p sizing ; - changes to the non-turbulent flow corrections and means of computing results; - multi-stage sizing as an Annex. The contents of the corrigendum of April 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60534-2-1:2011/COR1:2015",
+    "edition": "2.0",
+    "date": "2015-04-23",
+    "title": "Corrigendum 1 - Industrial-process control valves - Part 2-1: Flow capacity - Sizing equations for fluid flow under installed conditions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60534-2-3:2015",
+    "edition": "3.0",
+    "date": "2015-12-16",
+    "title": "Industrial-process control valves - Part 2-3: Flow capacity - Test procedures",
+    "language": "EN-FR, EN",
+    "description": "IEC 60534-2-3:2015 is applicable to industrial-process control valves and provides the flow capacity test procedures for determining the following variables used in the equations given in IEC 60534-2-1: a) flow coefficient C; b) liquid pressure recovery factor without attached fittings FL; c) combined liquid pressure recovery factor and piping geometry factor of a control valve with attached fittings FLP; d) piping geometry factor FP; e) pressure differential ratio factors xT and xTP; f) valve style modifier Fd; g) Reynolds number factor FR. This third edition cancels and replaces the second edition published in 1997, of which it constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Addition of informative Annexes B, C, D, E and F. b) Organizational and formatting changes were made to group technically related subject matter."
+  },
+  {
+    "reference": "IEC 60534-2-4:2009",
+    "edition": "2.0",
+    "date": "2009-05-13",
+    "title": "Industrial-process control valves - Part 2-4: Flow capacity - Inherent flow characteristics and rangeability",
+    "language": "EN-FR",
+    "description": "IEC 60534-2-4:2009 applies to all types of industrial-process control valves. It defines how to state typical control valve inherent flow characteristics and inherent rangeabilities. It also defines how to establish criteria for adherence to manufacturer-stated flow characteristics. This edition constitutes a technical revision. The main changes with respect to the previous edition are: - update the normative references; - delete the terminology included in IEC 60534-1; - transform the previous Note 1 in Clause 6; - redraw the graphics; - delete the previous Figure 3."
+  },
+  {
+    "reference": "IEC 60534-3-1:2019",
+    "edition": "2.0",
+    "date": "2019-02-06",
+    "title": "Industrial-process control valves - Part 3-1: Dimensions - Face-to-face dimensions for flanged, two-way, globe-type, straight pattern and centre-to-face dimensions for flanged, two-way, globe-type, angle pattern control valves",
+    "language": "EN-FR, EN",
+    "description": "IEC 60534-3-1:2019 specifies face-to-face (FTF) and centre-to-face (CTF) dimensions for given nominal sizes and pressure ratings of flanged, two-way, globe-type, straight pattern and angle pattern control valves This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) This standard has been extended to cover face-to-face dimensions and centre-to-face dimensions for control valves PN 160 and PN 250 (Class 900 and 1500) b) Definitions of end-to-end dimensions and centre-to-end dimensions have been added for valves with flange facings where the gasket contact surfaces are not located at the extreme ends of the valve c) Table 5 of adjustment value \"X\" for end-to-end dimensions of straight pattern valves with ring joint ends has been added d) ANSI/ISA references have been added in Tables 1 to 4 e) ANSI/ISA references have been added in the bibliography"
+  },
+  {
+    "reference": "IEC 60534-3-2:2001",
+    "edition": "2.0",
+    "date": "2001-04-26",
+    "title": "Industrial-process control valves - Part 3-2: Dimensions - Face-to-face dimensions for rotary control valves except butterfly valves",
+    "language": "EN-FR",
+    "description": "Gives the overall lengths of following types: segmental ball, eccentric rotary plug, and barstock globe; wafer butterfly valves are excluded."
+  },
+  {
+    "reference": "IEC 60534-3-3:1998",
+    "edition": "1.0",
+    "date": "1998-08-12",
+    "title": "Industrial-process control valves - Part 3-3: Dimensions End-to-end dimensions for buttweld, two-way, globe-type, straight pattern control valves",
+    "language": "EN-FR, ES",
+    "description": "Specifies end-to-end dimensions for given nominal sizes and pressure ratings of buttweld, two-way, global-type, straigth pattern control valves for nominal sizes DN 15 through DN 450. Aids users in their piping design by providing normalized dimensions of buttweld end control valves."
+  },
+  {
+    "reference": "IEC 60534-4:2021",
+    "edition": "4.0",
+    "date": "2021-12-16",
+    "title": "Industrial-process control valves - Part 4: Inspection and routine testing",
+    "language": "EN-FR",
+    "description": "IEC 60534-4:2021 specifies the requirements for the inspection and routine testing of control valves manufactured in conformity with the other parts of IEC 60534. This document is applicable to valves with pressure ratings not exceeding Class 2500. The requirements for actuators apply only to pneumatic actuators. This document does not apply to the types of control valves where radioactive service, fire safety testing, or other hazardous service conditions are encountered. If a standard for hazardous service conflicts with the requirements of this document, the standard for hazardous service should take precedence."
+  },
+  {
+    "reference": "IEC 60534-5:2004",
+    "edition": "2.0",
+    "date": "2004-02-05",
+    "title": "Industrial-process control valves - Part 5: Marking",
+    "language": "EN-FR",
+    "description": "specifies mandatory and supplementary markings of control valves. Some mandatory markings may be inappropriate for some valves of special design, and some supplementary markings may be appropriate only to specific types of control valves. It is recommended that the marking of all valves conform to this standard whenever possible unless otherwise agreed between the manufacturer and purchaser."
+  },
+  {
+    "reference": "IEC 60534-6-1:1997",
+    "edition": "1.0",
+    "date": "1997-08-20",
+    "title": "Industrial-process control valves - Part 6: Mounting details for attachment of positioners to control valves - Section 1: Positioner mounting on linear actuators",
+    "language": "EN-FR, ES",
+    "description": "Intended to permit a variety of positioning devices, which respond to a linear motion, to be mounted on the actuator of a control valve, either directly or by employing an intermediate mounting bracket. Applicable where interchangeability between actuators and positioners is desired."
+  },
+  {
+    "reference": "IEC 60534-6-2:2000",
+    "edition": "1.0",
+    "date": "2000-11-22",
+    "title": "Industrial-process control valves - Part 6-2: Mounting details for attachment of positioners to control valves - Positioner mounting on rotary actuators",
+    "language": "EN-FR, ES",
+    "description": "Intended to permit a variety of positioning devices, which respond to a rotary motion, to be mounted on the actuator of a control valve, either directly or by employing an intermediate mounting bracket."
+  },
+  {
+    "reference": "IEC 60534-7:2010",
+    "edition": "2.0",
+    "date": "2010-11-10",
+    "title": "Industrial-process control valves - Part 7: Control valve data sheet",
+    "language": "EN-FR",
+    "description": "IEC 60534-7:2010 provides a list of requirements that are necessary for the procurement of the majority of control valves for process systems. The list is arranged to assist the specification writer with a standardized presentation of data and also to be a basis for use with data processing facilities. A detailed set of instructions is included in order to ensure that the abbreviated terms are fully understood and that consistent data entries are always made. This second edition cancels and replaces the first edition published in 1989. This edition constitutes a technical revision The main changes with respect to the previous edition are: - the standard has been updated to reflect digital electronic accessories and fieldbus protocols; - to aid clarification, the explanation of terms and definitions contains the same subheading as the information required in the control valve data sheet; - the column numbering system has been replaced with descriptive title headings."
+  },
+  {
+    "reference": "IEC 60534-8-1:2005",
+    "edition": "2.0",
+    "date": "2005-09-26",
+    "title": "Industrial-process control valves - Part 8-1: Noise considerations - Laboratory measurement of noise generated by aerodynamic flow through control valves",
+    "language": "EN-FR",
+    "description": "defines equipment, methods, and procedures for obtaining laboratory measurements of sound pressure levels radiated by control valves and/or associated piping configurations, including fixed restrictions, through which compressible fluids are passing. Control valves discharging to atmosphere are excluded from this standard"
+  },
+  {
+    "reference": "IEC 60534-8-2:2011",
+    "edition": "2.0",
+    "date": "2011-10-12",
+    "title": "Industrial-process control valves - Part 8-2: Noise considerations - Laboratory measurement of noise generated by hydrodynamic flow through control valves",
+    "language": "EN-FR",
+    "description": "IEC 60534-8-2:2011 includes the method for measuring the sound pressure level due to liquid flow through a control valve and the method for determining the characteristic increase of noise due to the onset of cavitation. It also defines the equipment, methods and procedures for the laboratory measurement of the airborne sound needed to determine these characteristics. Two methods are provided for testing the noise generating characteristics of control valves. The first is a uniform method of measuring the radiated noise from the valve and the associated test piping including fixed flow restrictions through which the test fluid (water) is passing. The second is a procedure for measuring the sound pressure levels within pipe systems upstream and downstream of the valve under fixed operating conditions. This second edition cancels and replaces the first edition published in 1991 and constitutes a technical revision that includes internal noise measurement."
+  },
+  {
+    "reference": "IEC 60534-8-3:2010",
+    "edition": "3.0",
+    "date": "2010-11-29",
+    "title": "Industrial-process control valves - Part 8-3: Noise considerations - Control valve aerodynamic noise prediction method",
+    "language": "EN-FR",
+    "description": "IEC 60534-8-3:2010 establishes a theoretical method to predict the external sound-pressure level generated in a control valve and within adjacent pipe expanders by the flow of compressible fluids. This method considers only single-phase dry gases and vapours and is based on the perfect gas laws. It is assumed that the downstream piping is straight for a length of at least 2 m from the point where the noise measurement is made. The method is applicable to the following single-stage valves: - globe (straight pattern and angle pattern), - butterfly, - rotary plug (eccentric, spherical), - ball, and - valves with cage trims. Specifically excluded are the full bore ball valves where the product FpC exceeds 50 % of the rated flow coefficient. This third edition cancels and replaces the second edition published in 2000. This edition constitutes a technical revision. The significant technical changes with respect to the previous edition are as follows: - predicting noise as a function of frequency; - using laboratory data to determine the acoustical efficiency factor."
+  },
+  {
+    "reference": "IEC 60534-8-4:2015",
+    "edition": "3.0",
+    "date": "2015-09-15",
+    "title": "Industrial-process control valves - Part 8-4: Noise considerations - Prediction of noise generated by hydrodynamic flow",
+    "language": "EN-FR",
+    "description": "IEC 60534-8-4:2015 establishes a method to predict the noise generated in a control valve by liquid flow and the resulting noise level measured downstream of the valve and outside of the pipe. The noise may be generated both by normal turbulence and by liquid cavitation in the valve. Parts of the method are based on fundamental principles of acoustics, fluid mechanics, and mechanics. The method is validated by test data. This third edition cancels and replaces the second edition published 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Hydrodynamic noise is predicted as a function of frequency and b) Elimination of the acoustic power ratio."
+  },
+  {
+    "reference": "IEC 60534-9:2007",
+    "edition": "1.0",
+    "date": "2007-09-10",
+    "title": "Industrial-process control valves - Part 9: Test procedure for response measurements from step inputs",
+    "language": "EN-FR",
+    "description": "It defines the testing and reporting of the step response of control valves that are used in throttling closed-loop control applications. A control valve consists of the complete, ready-to-use assembly of the control valve body, the actuator, and any required accessories. The most probable accessory is a valve positioner. It defines how to test, measure, and report control valve response characteristics in an open-loop environment. This information can be used for process control applications to determine how well and how fast the control valve responds to the control valve input signal. The contents of the corrigendum of June 2008 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60534-9:2007/COR1:2008",
+    "edition": "1.0",
+    "date": "2008-06-11",
+    "title": "Corrigendum 1 - Industrial-process control valves - Part 9: Test procedure for response measurements from step inputs",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60546-1:2010",
+    "edition": "3.0",
+    "date": "2010-08-24",
+    "title": "Controllers with analogue signals for use in industrial-process control systems - Part 1: Methods of evaluating the performance",
+    "language": "EN-FR",
+    "description": "IEC 60546-1:2010 is intended to specify uniform methods of test for evaluating the performance of industrial-process PID controllers with analogue input and output signals. The test conditions specified in this standard, for example the range of ambient temperatures, power supply, etc., are used when no other values are agreed upon by the manufacturer and the user. This third edition cancels and replaces the second edition, published in 1987 and constitutes a minor technical revision made to bring terms, measurement units and references up to date."
+  },
+  {
+    "reference": "IEC 60546-2:2010",
+    "edition": "2.0",
+    "date": "2010-07-12",
+    "title": "Controllers with analogue signals for use in industrial-process control systems - Part 2: Guidance for inspection and routine testing",
+    "language": "EN-FR",
+    "description": "IEC 60546-2:2010 applies to pneumatic and electrical industrial-process controllers using analogue signals which are in accordance with IEC 60381-1 and IEC 60381-2. The provisions of this standard are applicable in principle to controllers having different, but continuous signals. It provides technical guidance for inspection and routine testing of controllers, for instance, as acceptance tests or after repair. For a full evaluation, IEC 60546-1 should be used. Quantitative criteria for acceptable performance are established by agreement between manufacturer and user. The requirements of this standard are effective when agreed upon by the manufacturer and the user. This second edition cancels and replaces the first edition, published in 1987. It constitutes a minor technical revision made to bring some terms, measurement units and references up to date."
+  },
+  {
+    "reference": "IEC 60584-1:2013",
+    "edition": "3.0",
+    "date": "2013-08-28",
+    "title": "Thermocouples - Part 1: EMF specifications and tolerances",
+    "language": "EN-FR",
+    "description": "IEC 60584-1:2013 specifies reference functions and tolerances for letter-designated thermocouples (Types R, S, B, J, T, E, K, N, C and A). Temperatures are expressed in degrees Celsius based on the International Temperature Scale of 1990, ITS-90 (symbol t90), and the EMF (symbol E) is in microvolts. The reference functions are polynomials which express the EMF, E in V, as a function of temperature t90 in °C with the thermocouple reference junctions at 0 °C. Values of EMF at intervals of 1 °C are tabulated in Annex A. This third edition cancels and replaces the second edition published in 1995 and constitutes a technical revision. It includes the following changes: - IEC 60584-1:1995 and IEC 60584-2:1982 have been merged; - the standard is now explicitly based on the reference polynomials which express thermocouple EMF as functions of temperature. The tables derived from the polynomials are given in Annex A; - inverse polynomials expressing temperature as functions of EMF are given in Annex B, but inverse tables are not given; - the range of the polynomial relating the EMF of Type K thermocouples is restricted to 1 300 °C; - values of the Seebeck coefficients are given at intervals of 10 °C; - thermoelectric data (EMF and Seebeck coefficients) are given at the fixed points of the ITS-90; - some guidance is given in Annex C regarding the upper temperature limits and environmental conditions of use for each thermocouple type."
+  },
+  {
+    "reference": "IEC 60584-3:2021",
+    "edition": "3.0",
+    "date": "2021-02-16",
+    "title": "Thermocouples - Part 3: Extension and compensating cables - Tolerances and identification system",
+    "language": "EN-FR",
+    "description": "IEC 60584-3:2021 It is necessary for thermocouple temperature measurement that the electro-motive force (abbreviated as e.m.f. hereafter) of the thermocouple circuit is precisely measured by a measuring instrument. A thermocouple is electrically connected to the instrument by a proper pair of electric cables. IEC 60584-3:2021 standardizes these cables. It specifies identification and manufacturing tolerances for extension and compensating cables (mineral insulated extension and compensating cables are not included) provided directly to users of industrial processes. These tolerances are determined with respect to the e.m.f. ver-sus temperature relationship of IEC 60584-1. The requirements for extension and compensating cables for use in industrial process control are specified."
+  },
+  {
+    "reference": "IEC TR 60668:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Dimensions of panel areas and cut-outs for panel and rack-mounted industrial-process measurement and control instruments",
+    "language": "EN-FR",
+    "description": "Serves as a guide for selection of panel cut-out sizes and instrument front dimensions so that users may plan installations with the assurance that equipment purchased will fit, and manufacturers can design to ensure conformance to users' needs. Recognizes three known modular elements: 12 mm and 20 mm, both from established European practice, and 12.5 mm, the module established in IEC 60473. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC 60746-1:2003",
+    "edition": "2.0",
+    "date": "2003-01-22",
+    "title": "Expression of performance of electrochemical analyzers - Part 1: General",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60746-1:2003 specifies the terminology and definitions of terms related to the performance characteristics of electrochemical analyzers used for the continuous determination of certain aspects of (generally aqueous) solutions; the uniform methods to be used in making statements on the performance characteristics of such analyzers; the general test procedures to determine and verify the performance characteristics of electrochemical analyzers, taking into account the differences of approach in IEC documents specifying test methods (IEC 60359, IEC 60770, IEC 61298). It provides basic documents to support the application of standards of quality assurance: ISO 9001, ISO 9002 and ISO 9003. This second edition cancels and replaces the first edition published in 1982 and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60746-2:2003",
+    "edition": "2.0",
+    "date": "2003-01-22",
+    "title": "Expression of performance of electrochemical analyzers - Part 2: pH value",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60746-2:2003 specifies terminology, definitions and requirements for statements by manufacturers for analyzers, sensor units and electronic units used for the determination of the pH of aqueous solutions; to establish performance tests for such analyzers, sensor units and electronic units. It provides basic documents to support the applications of quality assurance standards ISO 9001, ISO 9002 and ISO 9003. This publication is to be read in conjunction with IEC 60746-1:2003 ."
+  },
+  {
+    "reference": "IEC 60746-2:2003/COR1:2003",
+    "edition": "2.0",
+    "date": "2003-05-15",
+    "title": "Corrigendum 1 - Expression of performance of electrochemical analyzers - Part 2: pH value",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60746-2:2003/COR2:2003",
+    "edition": "2.0",
+    "date": "2003-07-31",
+    "title": "Corrigendum 2 - Expression of performance of electrochemical analyzers - Part 2: pH value",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60746-3:2002",
+    "edition": "2.0",
+    "date": "2002-06-24",
+    "title": "Expression of performance of electrochemical analyzers - Part 3: Electrolytic conductivity",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60746-3:2002 is intended to specify terminology, definitions and requirements for statements by manufacturers for analyzers, sensor units, and electronic units used for the determination of the electrolytic conductivity of aqueous solutions; to establish performance tests for such analyzers, sensor units and electronic units; to provide basic documents to support the applications of quality assurance standards. This publication is to be read in conjunction with IEC 60746-1:2003 ."
+  },
+  {
+    "reference": "IEC 60746-3:2002/COR1:2003",
+    "edition": "2.0",
+    "date": "2003-01-17",
+    "title": "Corrigendum 1 - Expression of performance of electrochemical analyzers - Part 3: Electrolytic conductivity",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60746-4:2018",
+    "edition": "2.0",
+    "date": "2018-12-13",
+    "title": "Expression of performance of electrochemical analyzers - Part 4: Dissolved oxygen in water measured by membrane-covered amperometric sensors",
+    "language": "EN-FR",
+    "description": "IEC 60746-4:2018 applies to analyzers using membrane covered amperometric sensors. It applies to analyzers suitable for use in water containing liquids, ultrapure waters, fresh or potable water, sea water or other aqueous solutions, industrial or municipal waste water from water bodies (e.g. lakes, rivers, estuaries), as well as for industrial process streams and process liquids. Whilst in principle amperometric oxygen-analyzers are applicable in gaseous phases, the expression of performance in the gas phase is outside the scope of this document. This document is applicable to analyzers specified for permanent installation in any location (indoors or outdoors) using membrane-covered amperometric sensors. This edition includes the following significant technical changes with respect to the previous edition: a) terms and definitions have been revised to meet the requirements of ISO/IEC Directives Part 2:2016. b) ISO 5814:2012 is cited as reference for solubility tables of dissolved oxygen in water with variable salt content at different pressure and temperature."
+  },
+  {
+    "reference": "IEC 60746-5:1992",
+    "edition": "1.0",
+    "date": "1992-12-15",
+    "title": "Expression of performance of electrochemical analyzers - Part 5: Oxidation-reduction potential or redox potential",
+    "language": "EN-FR",
+    "description": "Applies to analyzers, sensor units and electronic units used for the determination of oxidation reduction or redox potential values of aqueous solutions using relatively inert electron conducting electrodes."
+  },
+  {
+    "reference": "IEC 60751:2022",
+    "edition": "3.0",
+    "date": "2022-01-27",
+    "title": "Industrial platinum resistance thermometers and platinum temperature sensors",
+    "language": "EN-FR",
+    "description": "IEC 60751:2022 specifies the requirements, in addition to the resistance versus temperature relationship, for both industrial platinum resistance thermometers (later referred to as \"thermometers\") and industrial platinum resistance temperature sensors (later referred to as \"platinum resistors\") whose electrical resistance is derived from defined functions of temperature. Values of temperature in this document are in terms of the International Temperature Scale of 1990, ITS-90. A temperature in the unit °C of this scale is denoted by the symbol t, except in Table A.1 where the full nomenclature t90 /°C is used."
+  },
+  {
+    "reference": "IEC TR 60877:1999",
+    "edition": "2.0",
+    "date": "1999-01-07",
+    "title": "Procedures for ensuring the cleanliness of industrial-process measurement and control equipment in oxygen service",
+    "language": "EN-FR",
+    "description": "Covers the cleanliness procedures for the preparation, assembling, inspection, protection during transportation, storage and handling and installation of equipment, accessories or replacement parts intended for oxygen service. Does not apply to measurement and control equipment for welding, which is covered by ISO 5171."
+  },
+  {
+    "reference": "IEC 61003-1:2016",
+    "edition": "3.0",
+    "date": "2016-06-14",
+    "title": "Industrial-process control systems - Instruments with analogue inputs and two- or multi-position outputs - Part 1: Methods for evaluating performance",
+    "language": "EN-FR",
+    "description": "IEC 61003-1:2016 is applicable to pneumatic and electric industrial-process instruments or control device using measured values that are continuous signals either a mechanical (position, force, etc.) or a standard electric signal. It is intended to specify uniform terminologies and testing methods for performance evaluation of industrial-process instruments or process control systems modules with analogue measured values and two- or multi-position outputs. This third edition cancels and replaces the second edition published in 2004. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - use of the term \"two-position output\" instead of \"two-state instrument\" (see 3.2); - use of the term \"differential gap\" instead of \"switching differential\" (see 3.4); - use of \"fast transient/burst immunity requirements\" instead of \"power supply transient overvoltages\", and revision of the test method (see 6.2.10); - deletion of 6.2.12 \"common mode interference\" and 6.2.13 \"normal mode interference (series mode) \"tests of the previous edition; - use of the term \"electromagnetic field\" instead of \"radiated electromagnetic interference\", the test method remained the same (see 6.2.16); - use of the term \"dielectric strength\" instead of \"isolation test\", and revision of the reference (see 6.3.4); - deletion of Subclauses \"8.2 Design features\", \"10.1 Routine maintenance and adjustment\" and \"10.2 Repair\" of the previous edition."
+  },
+  {
+    "reference": "IEC 61003-2:2016",
+    "edition": "2.0",
+    "date": "2016-06-14",
+    "title": "Industrial-process control systems - Instruments with analogue inputs and two- or multi-position outputs - Part 2: Guidance for inspection and routine testing",
+    "language": "EN-FR",
+    "description": "IEC 61003-2:2016 gives guidelines for inspection and routine testing of electrical and pneumatic instruments with two- or multi-position output, for instance, for acceptance tests or after repair. It is applicable to electrical and pneumatic industrial-process instruments, using measured values that are continuous signals. The set point value may be either a mechanical (position, force, etc.) or a standard signal. These instruments may be used as controllers or as switches for alarms and other similar purposes. This second edition cancels and replaces the first edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - use of the term \"two- or multi-position output\" instead of \"two- or multi-state instrument\" (see Scope); - use of the term \"differential gap\" instead of \"switching differential\" (see Table 1 No 2); - use of the term \"dielectric strength\" instead of \"isolation test\" (see Table 1 No 5). This publication is to be read in conjunction with IEC 61003-1:2016 , IEC 61298-2:2008 and IEC 61298-3:2008"
+  },
+  {
+    "reference": "IEC 61115:1992",
+    "edition": "1.0",
+    "date": "1992-03-15",
+    "title": "Expression of performance of sample handling systems for process analyzers",
+    "language": "EN-FR",
+    "description": "Specifies the tests which should be carried out to determine the functional performance of sample handling systems. In addition, specifies the information to be provided by the manufacturers and users of such systems. Applies to systems handling of gaseous or liquid samples for process analysers."
+  },
+  {
+    "reference": "IEC 61131-1:2003",
+    "edition": "2.0",
+    "date": "2003-05-22",
+    "title": "Programmable controllers - Part 1: General information",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61131-1:2003 applies to programmable controllers (PLC) and their associated peri-pherals such as programming and debugging tools (PADTs), human-machine interfaces (HMIs), etc., which have as their intended use the control and command of machines and industrial processes. It gives the definitions of terms used in this standard. It identifies the principal functional characteristics of programmable controller systems. This second edition cancels and replaces the first edition published in 1992 and constitutes a technical revision. This bilingual version (2012-05) corresponds to the monolingual English version, published in 2003-05."
+  },
+  {
+    "reference": "IEC 61131-2:2017",
+    "edition": "4.0",
+    "date": "2017-08-23",
+    "title": "Industrial-process measurement and control - Programmable controllers - Part 2: Equipment requirements and tests",
+    "language": "EN-FR",
+    "description": "IEC 61131-2:2017 specifies functional and electromagnetic compatibility requirements and related verification tests for any product where the primary purpose is performing the function of industrial control equipment, including PLC and/or PAC, and/or their associated peripherals which have as their intended use the control and command of machines, automated manufacturing and industrial processes, e.g. discrete, batch and continuous control. This fourth edition cancels and replaces the third edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) removal of safety requirements and instead pointing to IEC 61010-2-201; b) addition of negative logic digital inputs and outputs; c) addition of Type 3-d digital input; d) addition of 2,7 GHz to 6 GHz requirement for Radio-frequency electro-magnetic amplitude modulated immunity; e) clarification of temperature testing; f) clarification of type testing; g) deprecation of certain technologies; h) general update of multiple aspects of functionality and EMC; i) reorganization of clauses to associate requirements and verifications more closely."
+  },
+  {
+    "reference": "IEC 61131-3:2025",
+    "edition": "4.0",
+    "date": "2025-05-22",
+    "title": "Programmable controllers – Part 3: Programming languages",
+    "language": "EN-FR",
+    "description": "IEC 61131-3:2025 specifies the syntax and semantics of programming languages for programmable controllers as defined in IEC 61131-1. This document specifies the syntax and semantics of a unified suite of programming languages for programmable controllers (PCs). This suite consists of the textual language structured text (ST), and the graphical languages, ladder diagram (LD) and function block diagram (FBD). An additional set of graphical and equivalent textual elements named sequential function chart (SFC) is defined for structuring the internal organization of programs and function blocks. Also, configuration elements are defined which support the installation of programmable controller programs into programmable controller systems. In addition, features are defined which facilitate communication among programmable controllers and other components of automated systems. This edition includes the following significant technical changes with respect to the previous edition: a) inclusion of UTF-8 strings and their associated functions; b) Annex B contains a comprehensive list of features that have been added, removed or deprecated in comparison to IEC 61131-3:2013."
+  },
+  {
+    "reference": "IEC TR 61131-4:2004",
+    "edition": "2.0",
+    "date": "2004-07-26",
+    "title": "Programmable controllers - Part 4: User guidelines",
+    "language": "EN",
+    "description": "introduces the end-users of Programmable Controller (PLC) to the IEC 61131 series, and to assist the end-users in their selection and specification of their PLC equipment according to the IEC 61131 series. This user guideline has as its main audience PLC end-users."
+  },
+  {
+    "reference": "IEC 61131-5:2000",
+    "edition": "1.0",
+    "date": "2000-11-15",
+    "title": "Programmable controllers - Part 5: Communications",
+    "language": "EN-FR, EN",
+    "description": "IEC 61131-5:2000 specifies communication aspects of a programmable controller. It specifies from the viewpoint of a PC how any device can communicate with a PC as a server and how a PC can communicate with any device. In particular, it specifies the behavior of the PC as it provides services on behalf of other devices and the services the PC application program can request from other devices. This bilingual version (2012-08) corresponds to the monolingual English version, published in 2000-11. This publication is to be read in conjunction with the IEC 61131 series ."
+  },
+  {
+    "reference": "IEC 61131-6:2012",
+    "edition": "1.0",
+    "date": "2012-10-02",
+    "title": "Programmable controllers - Part 6: Functional safety",
+    "language": "EN-FR",
+    "description": "IEC 61131-6:2012 specifies requirements for programmable controllers (PLCs) and their associated peripherals, as defined in Part 1, which are intended to be used as the logic subsystem of an electrical/electronic/programmable electronic (E/E/PE) safety-related system. A programmable controller and its associated peripherals complying with the requirements of this part is considered suitable for use in an E/E/PE safety-related system and is identified as a functional safety programmable logic controller (FS-PLC). An FS-PLC is generally a hardware (HW) / software (SW) subsystem. An FS-PLC may also include software elements, for example predefined function blocks."
+  },
+  {
+    "reference": "IEC 61131-7:2000",
+    "edition": "1.0",
+    "date": "2000-08-10",
+    "title": "Programmable controllers - Part 7: Fuzzy control programming",
+    "language": "EN-FR",
+    "description": "Defines a language for the programming of Fuzzy Control applications used by programmable controllers."
+  },
+  {
+    "reference": "IEC TR 61131-8:2017",
+    "edition": "3.0",
+    "date": "2017-11-22",
+    "title": "Industrial-process measurement and control - Programmable controllers - Part 8: Guidelines for the application and implementation of programming languages",
+    "language": "EN",
+    "description": "IEC TR 61131-8:2017(E) applies to the programming of program­mable controller systems using the programming languages defined in IEC 61131-3. The scope of IEC 61131-3 is applicable to this part. This document provides a) guidelines for the application of IEC 61131-3, b) guidelines for the implementation of IEC 61131-3 languages for programmable controller systems, c) programming and debugging tool (PADT) recommendations. For further information see IEC 61131-4 which describes other aspects of the application of programmable controller systems, e.g. electromagnetic compatibility or functional safety. This third edition cancels and replaces the second edition published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: This third edition is a compatible extension of the second edition. The main extensions are new data types and conversion functions, references, name spaces and the object oriented features of classes and function blocks (see listing in Annex B of IEC 61131-3:2013)."
+  },
+  {
+    "reference": "IEC 61131-9:2022",
+    "edition": "2.0",
+    "date": "2022-05-30",
+    "title": "Programmable controllers - Part 9: Single-drop digital communication interface for small sensors and actuators (SDCI)",
+    "language": "EN-FR",
+    "description": "IEC 61131-9:2022 specifies a single-drop digital communication interface technology for small sensors and actuators SDCI (commonly known as IO-Link™ ), which extends the traditional digital input and digital output interfaces as defined in IEC 61131-2 towards a point-to-point communication link for the exchange of complex data in both directions. This techno¬logy also enables the transfer of parameters to Devices and the delivery of identification and diagnostic information from the Devices to the automation system. This technology is mainly intended for use with simple sensors and actuators in factory automation, which include small and cost-effective microcontrollers. This document specifies the SDCI communication services and protocol (physical layer, data link layer and application layer in accordance with the ISO/OSI reference model) for both SDCI Masters and Devices. This document also includes EMC test requirements. This document does not cover communication interfaces or systems incorporating multiple point or multiple drop linkages, or integration of SDCI into higher level systems such as fieldbuses."
+  },
+  {
+    "reference": "IEC 61131-10:2019",
+    "edition": "1.0",
+    "date": "2019-04-24",
+    "title": "Programmable controllers - Part 10: PLC open XML exchange format",
+    "language": "EN-FR",
+    "description": "IEC 61131-10:2019 specifies an XML-based exchange format for the export and import of IEC 61131-3 projects. A complete IEC 61131-3 project implemented in an IEC 61131-3 environment can be transferred between different programming environments. It allows for the exchange of configuration elements, data types, and POUs written in: • the textual language, instruction list (IL), • the textual language, structured text (ST), • the graphical language, ladder diagram (LD), • the graphical language, function block diagram (FBD), and • sequential function chart (SFC). The exchange format is specified as a corresponding XML schema. The XML schema is an independent file with the .xsd extension and as such part of this specification. The specification of this schema is contained in Annex A. Annex B provides recommended schemata for extensions. An example XML document is given in Annex C. It is assumed that the reader of this document is familiar with XML technology."
+  },
+  {
+    "reference": "IEC 61152:1992",
+    "edition": "1.0",
+    "date": "1992-04-30",
+    "title": "Dimensions of metal-sheathed thermometer elements",
+    "language": "EN-FR",
+    "description": "Specifies diameters for metal-sheathed thermometer elements and tolerances on these diameters."
+  },
+  {
+    "reference": "IEC 61207-1:2010",
+    "edition": "2.0",
+    "date": "2010-05-31",
+    "title": "Expression of performance of gas analyzers - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 61207-1:2010 specifies the terminology, definitions, requirements for statements by manufacturers and tests that are common to all gas analyzers. It is applicable to analyzers specified for permanent installation in any location (indoors or outdoors) and to such analyzers utilizing either a sample handling system or an in situ measurement technique. It is applicable to the complete analyzer when supplied by one manufacturer as an integral unit, comprised of all mechanical, electrical and electronic portions. It also applies to sensor units alone and electronic units alone when supplied separately or by different manufacturers. This second edition cancels and replaces the first edition published in 1994 and constitutes a technical revision. The significant technical changes with respect to the first edition are the following: - all references (normative and informative) have been updated, deleted or added, as appropriate; - all the terms and definitions relating to this International Standard have been updated; - all references to \"errors\" have been replaced by \"uncertainties\" and appropriate updated definitions applied. Where only one value is quoted for a performance specification, such as intrinsic uncertainty, linearity uncertainty or repeatability throughout a measurement range, this has now been defined as the maximum value, rather than an average or \"representative\" value. This was previously undefined. Where zero and 100 % span calibration gases are used, there is now a defined requirement that the analyser must be able to respond within its standard performance specifications beyond its normal measurement range, to allow for any under or over response of the instrument to be recorded. A new Annex A has been added giving recommended standard values of influence."
+  },
+  {
+    "reference": "IEC 61207-2:2019",
+    "edition": "2.0",
+    "date": "2019-06-18",
+    "title": "Expression of performance of gas analyzers - Part 2: Measuring oxygen in gas utilizing high-temperature electrochemical sensors",
+    "language": "EN-FR",
+    "description": "IEC 61207-2:2019 applies to all aspects of analyzers using high-temperature electro¬chemical sensors for the measurement of oxygen in gas. It applies to in-situ and extractive analyzers and to analyzers installed indoors and outdoors. The object of this part is: – to specify the terminology and definitions related to the functional performance of gas analyzers, utilizing a high-temperature electrochemical sensor, for the continuous measurement of oxygen concentration in a sample of gas; – to unify methods used in making and verifying statements on the functional performance of such analyzers; – to specify what tests are performed to determine the functional performance and how such tests are carried out; – to provide basic documents to support the application of internationally recognized quality management standards. This second edition cancels and replaces the first edition published in 1994. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) all the terms and definitions relating to the document have been updated where appropriate; b) the description of the principle of the galvanic cell has been expanded and clarified; c) new definitions and illustrations have been added for different measurement methods for oxygen using solid electrolytes for galvanic cells; d) new illustrations have been added for existing descriptions for ion pump cells; e) a more detailed description of the effect of the presence of oxidizable gases has been added; f) all references to “errors” have been replaced by “uncertainties” and appropriate updated definitions applied."
+  },
+  {
+    "reference": "IEC 61207-3:2019",
+    "edition": "3.0",
+    "date": "2019-06-26",
+    "title": "Gas Analyzers - Expression of performance - Part 3: Paramagnetic oxygen analysers",
+    "language": "EN-FR",
+    "description": "IEC 61207-3:2019 applies to the three main methods for measuring oxygen by its paramagnetic property, which are outlined in the introduction. It considers essential ancillary units and applies to analyzers installed indoors and outdoors. Safety-critical applications can require additional requirements from system and analyzer specifications not covered in this document. This document is intended: - to specify terminology and definitions related to the functional performance of paramagnetic gas analyzers for the measurement of oxygen in a source gas; - to unify methods used in making and verifying statements on the functional performance of such analyzers; - to specify what tests are performed to determine the functional performance and how such tests are carried out; - to provide basic documents to support the application of internationally recognized quality management standards. This third edition cancels and replaces the second edition published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) all references (normative and informative) have been updated, deleted or added to as appropriate; b) all the terms, descriptions and definitions relating to the document have been updated where appropriate; c) all references to “errors” have been replaced by “uncertainties” and appropriate updated definitions applied."
+  },
+  {
+    "reference": "IEC 61207-6:2014",
+    "edition": "2.0",
+    "date": "2014-11-25",
+    "title": "Expression of performance of gas analyzers - Part 6: Photometric  analyzers",
+    "language": "EN-FR",
+    "description": "IEC 61207-6:2014 applies to all aspects of analyzers using photometric techniques for the measurement of concentration of one or more components in a mixture of gases or vapors. It should be used in conjunction with IEC 61207-1. It specifies: - the terminology and definitions related to the functional performance of gas analyzers, utilizing a photometric analyzer, for the continuous measurement of gas or vapor concentration in a source gas; - it unifies methods used in making and verifying statements on the functional performance of such analyzers; - it specifies what tests should be performed to determine the functional performance and how such tests should be carried out and it provides basic documents to support the application of standards of quality assurance ISO 9001. This second edition cancels and replaces the first edition published in 1994 and constitutes a technical revision. The major changes are: - All references (normative and informative) have been updated, deleted or added to as appropriate. - All the terms and definitions relating to the document have been updated where appropriate. - New definitions have been added for generic photometric equipment and measurements. - All references to \"errors\" have been replaced by \"uncertainties\" and appropriate updated definitions applied. - Figures A.1, A.2."
+  },
+  {
+    "reference": "IEC 61207-7:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Expression of performance of gas analyzers - Part 7: Tuneable semiconductor laser gas analyzers",
+    "language": "EN-FR",
+    "description": "IEC 61207-7:2013 includes the terminology, definitions, statements and tests that are specific to tuneable semiconductor laser gas analyzers, which utilize tuneable semiconductor laser absorption spectroscopy (TSLAS). It applies to all aspects of analyzers utilizing TSLAS for the concentration measurement of one or more gas components in a gaseous mixture or vapour. It applies to analyzers utilizing tuneable semiconductor lasers as sources and utilizing absorption spectroscopy, such as direct absorption, FMS, WMS, multi-pass absorption spectroscopy, CRDS, ICOS, PAS and CEAS techniques, etc. This publication is to be read in conjunction with IEC 61207-1:2010 . The contents of the corrigendum of June 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61207-7:2013/COR1:2015",
+    "edition": "1.0",
+    "date": "2015-06-17",
+    "title": "Corrigendum 1 - Expression of performance of gas analyzers - Part 7: Tuneable semiconductor laser gas analyzers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61285:2015",
+    "edition": "3.0",
+    "date": "2015-02-24",
+    "title": "Industrial-process control - Safety of analyser houses",
+    "language": "EN-FR",
+    "description": "IEC 61285:2015 describes the physical requirements for the safe operation of the process analyser measuring system installed in an analyser house (AH) in order to ensure its protection against fire, explosion and health hazards. This standard applies for analyser houses with inner and/or external potential explosive atmospheres and it applies to hazards caused by toxic substances or asphyxiant gases. This third edition cancels and replaces the second edition published in 2004 and constitutes a technical revision. The main changes are: - incorporation of previously issued corrigendum and - minor updates to several sections and references."
+  },
+  {
+    "reference": "IEC 61297:1995",
+    "edition": "1.0",
+    "date": "1995-07-18",
+    "title": "Industrial-process control systems - Classification of adaptive controllers for the purpose of evaluation",
+    "language": "EN-FR",
+    "description": "Classifies and defines the terms to be used in describing the different types of adaptive controller. The classifications described are logically a complete series, although it is quite possible that no controller will be available in some of the categories described. However, many controllers will be classified under more than one category described in this standard."
+  },
+  {
+    "reference": "IEC 61298-1:2026",
+    "edition": "3.0",
+    "date": "2026-06-08",
+    "title": "Process measurement and control devices - General methods and procedures for evaluating performance - Part 1: General considerations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61298-1:2026 specifies general methods and procedures for conducting tests and reporting on the functional and performance characteristics of process instrumentation except process measurement transmitters (PMT) which are standardized by the IEC 62828 series. The tests are applicable to any such devices characterized by their own specific input and output variables, and by the specific relationship (transfer function) between the inputs and outputs and include analogue and digital devices. For devices that require special tests, this document can be used together with any product specific standard specifying special tests. This document covers general principles which apply to the IEC 61298 series. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Process measurement transmitters (PMT) have been removed from the scope of this standard."
+  },
+  {
+    "reference": "IEC 61298-2:2026",
+    "edition": "3.0",
+    "date": "2026-06-08",
+    "title": "Process measurement and control devices - General methods and procedures for evaluating performance - Part 2: Tests under reference conditions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61298-2:2026 specifies general methods and procedures for conducting tests and reporting on the functional and performance characteristics of process instrumentation except process measurement transmitters (PMT) which are standardized by IEC 62828 series. The tests are applicable to any such devices characterized by their own specific input and output variables, and by the specific relationship (transfer function) between the inputs and outputs and include analogue and digital devices. For devices that require special tests, this standard can be used, together with any product specific standard specifying special tests. This document covers tests made under reference conditions. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Process measurement transmitters (PMT) have been removed from the scope of this standard"
+  },
+  {
+    "reference": "IEC 61298-3:2026",
+    "edition": "3.0",
+    "date": "2026-06-08",
+    "title": "Process measurement and control devices - General methods and procedures for evaluating performance - Part 3: Tests for the effects of influence quantities",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61298-3:2026 specifies general methods and procedures for conducting tests and reporting on the functional and performance characteristics of process instrumentation except process measurement transmitters (PMT) which are standardized by IEC 62828 series. The tests are applicable to any such devices characterized by their own specific input and output variables, and by the specific relationship (transfer function) between the inputs and outputs and include analogue and digital devices. For devices that require special tests, this document can be used, together with any product-specific standard specifying special tests. This document covers tests for the effects of influence quantities. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) process measurement transmitters (PMT) have been removed from the scope of this document; b) contents of subclauses referring to EMC and electrical safety have been deleted, only leaving reference to the IEC standards."
+  },
+  {
+    "reference": "IEC 61298-4:2008",
+    "edition": "2.0",
+    "date": "2008-10-08",
+    "title": "Process measurement and control devices - General methods and procedures for evaluating performance - Part 4: Evaluation report content",
+    "language": "EN-FR",
+    "description": "IEC 61298-4:2008 specifies general methods and procedures for conducting tests, and reporting on the functional and performance characteristics of process measurement and control devices. The tests are applicable to any such devices characterized by their own specific input and output variables, and by the specific relationship (transfer function) between the inputs and outputs, and include analogue and digital devices. For devices that require special tests, this standard should be used, together with any product specific standard specifying special tests. It specifies the content of the written report on the evaluation or tests on a process measurement or control device, and the results obtained. It specifies the major items which should be included in the evaluation report."
+  },
+  {
+    "reference": "IEC 61499-1:2012",
+    "edition": "2.0",
+    "date": "2012-11-07",
+    "title": "Function blocks - Part 1: Architecture",
+    "language": "EN-FR",
+    "description": "IEC 61499-1:2012 defines a generic architecture and presents guidelines for the use of function blocks in distributed industrial-process measurement and control systems (IPMCSs). This architecture is presented in terms of implementable reference models, textual syntax and graphical representations. The models given in this standard are intended to be generic, domain independent and extensible to the definition and use of function blocks in other standards or for particular applications or application domains. It is intended that specifications written according to the rules given in this standard be concise, implementable, complete, unambiguous, and consistent. This second edition cancels and replaces the first edition published in 2005 an constitutes a technical revision. It includes the significant technical changes with respect to the previous edition related to: Execution control, Temporary variables, Service sequences, the syntax for mapping of FB instances, the Syntax for definition of segment types, the Function block types for interoperation with programmable controllers and the READ/WRITE management commands."
+  },
+  {
+    "reference": "IEC 61499-2:2012",
+    "edition": "2.0",
+    "date": "2012-11-07",
+    "title": "Function blocks - Part 2: Software tool requirements",
+    "language": "EN-FR",
+    "description": "IEC 61499-2:2012 defines requirements for software tools to support the following systems engineering tasks enumerated in IEC 61499-1: - the specification of function block types; - the functional specification of resource types and device types; - the specification, analysis, and validation of distributed IPMCSs; - the configuration, implementation, operation, and maintenance of distributed IPMCSs; - the exchange of information among software tools. This second edition cancels and replaces the first edition published in 2005 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: The contents of Annex A have been updated to conform to the technical changes of the second edition of IEC 61499-1. CDATA sections are now allowed for the textual contents of algorithms in Tables A.4 and A.5."
+  },
+  {
+    "reference": "IEC 61499-4:2013",
+    "edition": "2.0",
+    "date": "2013-01-30",
+    "title": "Function blocks - Part 4: Rules for compliance profiles",
+    "language": "EN-FR",
+    "description": "IEC 61499-4:2013 defines rules for the development of compliance profiles, which specify the features of IEC 61499-1 and 61499-2 to be implemented in order to promote the following attributes of IEC 61499-based systems, devices and software tools: - interoperability of devices from multiple suppliers; - portability of software between software tools of multiple suppliers; - and configurability of devices from multiple vendors by software tools of multiple suppliers. This second edition cancels and replaces the first edition published in 2005. It constitutes a technical revision and includes the following significant technical changes: Table B.1 has been updated for consistency with Table 8 of IEC 61499-1:2013."
+  },
+  {
+    "reference": "IEC 61514:2026",
+    "edition": "2.0",
+    "date": "2026-06-09",
+    "title": "Industrial-process control systems - Methods of evaluating the performance of valve positioners with pneumatic outputs",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61514:2026 specifies tests designed to determine the static and dynamic performance of single-acting or double-acting analogue positioners. The tests apply to positioners which receive standard analogue input signals (as specified in IEC 60381-1, IEC 60381-2 and IEC 60382) and have a pneumatic output. Positioners with pulsed or digital input signals, positioners with digital controllers and positioners with pulsed outputs are outside the scope of this document. Testing is conducted either on a positioner alone, independently of an actuator, or on a positioner mounted and connected to a specific actuator, as a combined unit. The text makes clear where different approaches are required. The methods of evaluation given in this document are intended for use by manufacturers to determine the performance of their products, and by users, or independent testing establishments, to verify manufacturers' performance specifications. The closest liaison between the evaluating body and the manufacturer is indispensable during the tests, including the possibility for the manufacturer to influence the test programme based on the manufacturer's specifications for the instrument and comment on both the test programme and the results. This document is intended to provide definitions of positioner elements, actions, and characteristics, to specify uniform methods of measuring performance errors and effects of influence quantities on those characteristics, and to describe methods of reporting and evaluating the results of the measurement data obtained. The test conditions described in this publication (for example range of ambient temperatures and power supply) relate to conditions which commonly arise in use. Consequently, the values specified are used where no other values are specified by the manufacturer or user. If other values are used, they will be stated. It is recognized that the manufacturer's specifications and instructions for installation and operation apply during all steps. The tests specified in this document are not necessarily sufficient for instruments specifically designed for unusually arduous conditions. Conversely, a reduced series of tests can serve adequately for instruments designed to perform within a more limited range of conditions. When a full evaluation, in accordance with this document, is not required or possible, only the tests which are required are performed and the results reported in accordance with the relevant parts of this document. In such cases, the test report will state that it does not cover the full number of tests specified herein. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) in 6.6.8 and Table 5, the magnetic field has been changed from 100 A/m to of 30 A/m (Mean Root Square); b) 6.10.4 and Figure 9 have been modified for better understandability; c) in 7.4, the reference to IEC 61187 has been deleted and replaced with a new Table 4: Document information."
+  },
+  {
+    "reference": "IEC 61514-2:2026",
+    "edition": "3.0",
+    "date": "2026-08-07",
+    "title": "Industrial process control systems - Methods of evaluating the performance of valve positioners with pneumatic outputs - Part 2: Test Methods for intelligent positioners mounted on an actuator valve assembly",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61514-2:2026 specifies design reviews and tests intended to measure and determine the static and dynamic performance, the degree of intelligence and the communication capabilities of single-acting or double-acting intelligent valve positioners. The tests can be applied to positioners which receive standard analogue electrical input signals (as specified in IEC 60381-1 or IEC 60381-2) and/or digital signals via a data communication link (for example Fieldbus) and have a pneumatic output. An intelligent valve positioner as defined in Clause 3 is an instrument that uses for performing its functions digital techniques for data processing, decision-making and bi-directional communication. It can be equipped with additional sensors and additional functionality supporting the main function. The performance testing of an intelligent valve positioner is conducted with the positioner mounted on and connected to the actuator/valve assembly the positioner is used on. The specific characteristic parameters of the actuator/valve combination such as size, stroke, friction, type of packing, spring package and supply pressure for the pneumatic part has significant impact on the performance of a positioner. The methods of evaluation given in this document are intended for testing laboratories to verify equipment performance specifications. The manufacturers of intelligent positioners are urged to apply this document at an early stage of development. This document is intended to provide guidance for designing evaluations of intelligent valve positioners by providing: - a checklist for reviewing their hardware and software design in a structured way; - test methods for measuring and qualifying their performance under various environmental and operational conditions; - methods for reporting the data obtained. When a full evaluation, in accordance with this document, is not required or possible, the tests which are required are performed and the results reported in accordance with the relevant clauses of this document. In such cases, the test report will state that it does not cover the full number of tests specified herein. Furthermore, the items omitted are mentioned, to give the reader of the report a clear overview. This document is also applicable for non-intelligent microprocessor-based valve positioners without means for bi-directional communication. In that case an evaluation will be reduced to a limited programme of performance testing and a review of the construction. This third edition cancels and replaces the second edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) in 5.5.2, the standard for the measurements of influence quantities has been changed to IEC 62828-1:2026; b) all references to IEC 61514 have been updated to IEC 61514:2026; c) the aspect of cyber-security has been added in 4.2.7 and 4.2.9. This document is to be used in conjunction with IEC 61514:2026."
+  },
+  {
+    "reference": "IEC 61515:2016",
+    "edition": "2.0",
+    "date": "2016-04-27",
+    "title": "Mineral insulated metal-sheathed thermocouple cables and thermocouples",
+    "language": "EN-FR",
+    "description": "IEC 61515:2016 establishes the requirements for simplex, duplex and triplex mineral-insulated metal-sheathed thermocouple cables and thermocouples, which are intended for use in general industrial applications. The abbreviation MIMS (for \"mineral-insulated metal-sheathed\") will be used hereafter. It covers thermocouple cables and thermocouples with only base-metal conductors of Types T, J, E, K and N. The specifications in this standard apply to new thermocouple cables and thermocouple units as delivered to the user. They do not apply to the product after use. This second edition cancels and replaces the first edition published in 1995. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Duplex and triplex are standardized. - Specification of insulation resistance is revised so that the user can choose the best product to fit for the purpose. - \"Table 2 Recommended maximum operating temperatures\" in the previous version is expanded significantly including newly developed sheath material and it is moved to Annex C. - Test items and their methods are expanded and a guide table (Table 4) is added for userfriendliness."
+  },
+  {
+    "reference": "IEC 61518:2001",
+    "edition": "1.0",
+    "date": "2001-01-24",
+    "title": "Mating dimensions between differential pressure (type) measuring instruments and flanged-on shut-off devices up to 413 BAR (41,3 MPa)",
+    "language": "EN-FR, EN",
+    "description": "Applicable to differential pressure (type) measuring instruments (instrument) with a shut-off device (manifold) directly bolted on to them."
+  },
+  {
+    "reference": "IEC 61520:2000",
+    "edition": "1.0",
+    "date": "2000-01-27",
+    "title": "Metal thermowells for thermometer sensors - Functional dimensions",
+    "language": "EN-FR",
+    "description": "Specifies functional dimensions for metal thermowells for thermo-meter sensors of nominal diameters ranging from 3 mm to 8 mm for use in process control. The contents of the corrigendum of September 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61520:2000/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-09-26",
+    "title": "Corrigendum 1 - Metal thermowells for thermometer sensors - Functional dimensions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61831:2011",
+    "edition": "2.0",
+    "date": "2011-08-19",
+    "title": "On-line analyser systems - Guide to design and installation",
+    "language": "EN",
+    "description": "IEC 61831:2011(E) is a guide applicable to on-line analyser systems. It provides the necessary guidance for the system supplier and user to specify or design a complete analyser system from sample point in the process to the final output for display or control purposes. This second edition cancels and replaces the first edition published in 1999. This edition constitutes a technical revision. The main changes with respect to the previous edition are: - Updated references; - Made consistent with current practices and regulations; - Incorporating new technologies where applicable."
+  },
+  {
+    "reference": "IEC TR 61832:2015",
+    "edition": "2.0",
+    "date": "2015-05-20",
+    "title": "Design and installation of on-line analyser systems - Guide to technical enquiry and bid evaluation",
+    "language": "EN",
+    "description": "IEC TR 61832:2015(E) is intended as a guide to assist in the development of a specification or material requisition for analysers and their associated support systems. It is intended to be used for enquiry purposes and the subsequent assessment of the bids presented by the prospective vendors. The intention is to cover the general principles and items that need to be addressed when purchasing large analyser systems. This publication is to be read in conjunction with IEC 61831:2011 ."
+  },
+  {
+    "reference": "IEC 61987-21:2015",
+    "edition": "1.0",
+    "date": "2015-09-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 21: List of Properties (LOP) of automated valves for electronic data exchange - Generic structures",
+    "language": "EN-FR",
+    "description": "IEC 61987-21:2015 provides a characterization for the integration of automated valves, including control valves, automated on/off-valves and process regulators, in the Common Data Dictionary (CDD); generic structures in conformance with IEC 61987-10 for Operating Lists of Properties (OLOPs) and Device Lists of Properties (DLOPs) of final control elements."
+  },
+  {
+    "reference": "IEC 61987-22:2015",
+    "edition": "1.0",
+    "date": "2015-09-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 22: Lists of Properties (LOPs) of valve body assemblies for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-22:2015 provides Operating Lists of Properties (OLOP) for the description of the operating parameters and the collection of requirements for valve body assemblies and process regulators, Device Lists of Properties (DLOPs) for the description of various types of valve body assemblies and process regulators."
+  },
+  {
+    "reference": "IEC 61987-23:2015",
+    "edition": "1.0",
+    "date": "2015-09-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 23: Lists of Properties (LOPs) of actuators for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-23:2015 provides Operating Lists of Properties (OLOPs) for the description of the operating parameters and the collection of requirements for valve actuators, Device Lists of Properties (DLOPs) for valve actuators."
+  },
+  {
+    "reference": "IEC 61987-24-1:2015",
+    "edition": "1.0",
+    "date": "2015-09-15",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 24-1: List of Properties (LOPs) of positioners and I/P converters for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-24-1:2015 provides Operating Lists of Properties (OLOPs) for the description of the operating parameters and the collection of requirements for valve/actuator accessories, that can be used for every valve/actuator accessory, Device Lists of Properties (DLOPs) for positioners and I/P converters."
+  },
+  {
+    "reference": "IEC 61987-24-2:2017",
+    "edition": "1.0",
+    "date": "2017-06-19",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 24-2: List of properties (LOPs) of valve/actuator accessories for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-24-2:2017 provides - an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for accessories attached to automated valves, listed in Annex A, - device lists of properties (DLOPs) for accessories attached to automated valves, listed in Annex B."
+  },
+  {
+    "reference": "IEC 61987-24-3:2017",
+    "edition": "1.0",
+    "date": "2017-06-19",
+    "title": "Industrial-process measurement and control - Data structures and elements in process equipment catalogues - Part 24-3: Lists of properties (LOPs) of flow modification accessories for electronic data exchange",
+    "language": "EN-FR",
+    "description": "IEC 61987-24-3:2017 provides - an operating list of properties (OLOP) for the description of the operating parameters and the collection of requirements for flow modification accessories for automated valves, listed in Annex A, - device lists of properties (DLOPs) for flow modification accessories for automated valves, listed in Annex B."
+  },
+  {
+    "reference": "IEC TR 62010:2016",
+    "edition": "2.0",
+    "date": "2016-12-15",
+    "title": "Analyser systems - Maintenance management",
+    "language": "EN",
+    "description": "IEC TR 62010:2016(E) provides an understanding of analyser maintenance principles and approaches. It is designed as a reference source for individuals closely involved with maintenance of analytical instrumentation, and provides guidance on performance target setting, strategies to improve reliability, methods to measure effective performance, and the organisations, resources and systems that need to be in place to allow this to occur."
+  },
+  {
+    "reference": "IEC TS 62098:2000",
+    "edition": "1.0",
+    "date": "2000-11-22",
+    "title": "Evaluation methods for microprocessor- based instruments",
+    "language": "EN-FR, EN",
+    "description": "This Technical Specification aims at providing background information for developing evaluation methods for microprocessor-based instruments. An evaluation starts with analysis of the instrument in terms of the external and internal information flows from and to the process, the human operator and external systems. Main function blocks in the instrument are then identified. By using the checklists given in 4.2 and 4.3, the functions and properties that may be embedded in the function blocks of the instrument to be evaluated can be identified."
+  },
+  {
+    "reference": "IEC 62339-1:2006",
+    "edition": "1.0",
+    "date": "2006-12-08",
+    "title": "Modular component interfaces for surface-mount fluid distribution components - Part 1: Elastomeric seals",
+    "language": "EN-FR, EN",
+    "description": "IEC 62339-1:2006 establishes properties and physical dimensions that define the interface for surface-mount fluid distribution components with elastomeric sealing devices used within process analyser and sample-handling systems. The interface controls the dimensions and location of the sealing surfaces to allow change of just one element of the system without modification of the entire system. This is what makes the system modular from both a design and a maintenance standpoint. It cancels and replaces IEC/PAS 62339-1 published in 2003. This first edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TR 62432:2006",
+    "edition": "1.0",
+    "date": "2006-03-14",
+    "title": "The rH index in aqueous and aqueous-organic media",
+    "language": "EN",
+    "description": "identifies the terminology, definitions, theory and methodology used for the determination of rH values or redox systems in aqueous solvent or aqueous-organic solvent mixtures."
+  },
+  {
+    "reference": "IEC TR 62434:2006",
+    "edition": "1.0",
+    "date": "2006-03-13",
+    "title": "pH measurements in difficult media - Definitions, standards and procedures",
+    "language": "EN",
+    "description": "specifies the terminology, definitions, methodology, requirements for statements by manufacturers and performance tests for analyzers, sensor units and electronic units used for the determination of pH value in non-aqueous and aqueous-organic solvent mixtures."
+  },
+  {
+    "reference": "IEC TR 62456:2007",
+    "edition": "1.0",
+    "date": "2007-03-29",
+    "title": "An electrochemical reference system for use in different solvent media - The decamethylated ferricinium/ferrocene redox couple",
+    "language": "EN",
+    "description": "to present the background considerations which led to this compilation of potentials of the aqueous saturated calomel electrode compared to the cyclovoltametric data for a glassy carbon electrode in various solvent media. A tabulation of working potentials of this electrode pair in various solvent media is presented. A comparison of the cyclovoltametric scans for the ferricinium/ferrocene and deamethyl derivatized ferricinium/ferrocene redox couple system is presented and important features are discussed"
+  },
+  {
+    "reference": "IEC 62460:2008",
+    "edition": "1.0",
+    "date": "2008-07-21",
+    "title": "Temperature - Electromotive force (EMF) tables for pure-element thermocouple combinations",
+    "language": "EN-FR",
+    "description": "IEC 62460:2008 specifies the equations and reference tables relating temperature to EMF (electro-motive force) for Gold versus Platinum and Platinum versus Palladium thermocouples. For information and convenience of use it also provides the approximate equations for temperature as functions of EMF."
+  },
+  {
+    "reference": "IEC TS 62492-1:2008",
+    "edition": "1.0",
+    "date": "2008-04-29",
+    "title": "Industrial process control devices - Radiation thermometers - Part 1: Technical data for radiation thermometers",
+    "language": "EN-FR",
+    "description": "IEC/TS 62492-1:2008 applies to radiation thermometry. It defines the technical data, i.e. metrological data to be given in data sheets and operating instructions for radiation thermometers with one wavelength range and one measurement field, to ensure that the data and terminology are used consistently. Its purpose is to facilitate comparability and testability. Therefore, unambiguous definitions are stipulated for stating technical data under standardised measuring conditions."
+  },
+  {
+    "reference": "IEC TS 62492-2:2013",
+    "edition": "1.0",
+    "date": "2013-04-25",
+    "title": "Industrial process control devices - Radiation thermometers - Part 2: Determination of the technical data for radiation thermometers",
+    "language": "EN",
+    "description": "IEC/TS 62492-2:2013(E) applies to radiation thermometry and addresses all technical data specified in IEC/TS 62492-1. It defines standard test methods which can be used by the end user of radiation thermometers to determine or confirm the fundamental metrological data of radiation thermometers with one wavelength range and one measurement field. It facilitates comparability and testability. Therefore, unambiguous test methods are stipulated for determining technical data, under standardised measuring conditions that can be performed by a sufficiently skilled end user to serve as standard performance criteria for instrument evaluation or selection."
+  },
+  {
+    "reference": "IEC 62703:2013",
+    "edition": "1.0",
+    "date": "2013-06-27",
+    "title": "Expression of performance of fluorometric oxygen analyzers in liquid media",
+    "language": "EN-FR",
+    "description": "IEC 62703:2013 specifies the general aspects in the terminology and definitions related to the performance of fluorometric oxygen analyzers used for the continuous determination of dissolved oxygen partial pressure or concentration in liquid media; unifies methods used in making and verifying statements on the functional performance of such analyzers; specifies which tests should be performed in order to determine the functional performance and how such tests should be carried out and provides basic documents to support the application of standards of quality assurance within ISO 9001."
+  },
+  {
+    "reference": "IEC 62828-1:2026",
+    "edition": "2.0",
+    "date": "2026-06-11",
+    "title": "Reference conditions and procedures for testing industrial and process measurement transmitters - Part 1: General procedures for all types of transmitters",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62828-1:2026 establishes a general framework for defining reference conditions and test procedures applicable for assessing the measurement performances of all types of industrial and process measurement transmitters (PMTs) used in measuring and control systems for industrial process and machinery. For the purpose of this document, an analogue PMT is a process measurement transmitter with only analogue current and/or voltage output(s), irrespective the technology adopted and the complexity of the circuitry. All the other process measurement transmitters, with digital output(s) only or with hybrid analogue and digital output(s), are considered to be digital PMTs. This document constitutes a common reference for the other parts of the IEC 62828 series. Specific test procedures and additional requirements for given types of PMTs (pressure, temperature, level, flow, etc.) are covered by other parts of this series. Sensing devices according to the IEC 60947 series are excluded from the scope of this document. NOTE 1 In industrial and process applications, to indicate the process measurement transmitters, it is common also to use the terms \"industrial transmitters\", or \"process transmitters\". NOTE 2 For better clarity, when the complete definition \"industrial and process measurement transmitter\" makes the sentence too long in this document, the short term \"transmitter\", or PMT, is used instead. This second edition cancels and replaces the first edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) informative Annexes E, F, G and H have been removed; b) a new informative Annex G “Example of signal current for a 4 mA to 20 mA PMT” has been introduced (it has been moved from IEC 62828-2:2017 to this document); c) the definitions of warm-up time, settling time and output signal have been moved from IEC 62828-4:2020 to this document; d) The definitions of “inaccuracy” and “accuracy” have been reworked; e) The clause regarding test report has been reworked."
+  },
+  {
+    "reference": "IEC 62828-2:2026",
+    "edition": "2.0",
+    "date": "2026-06-11",
+    "title": "Reference conditions and procedures for testing industrial and process measurement transmitters - Part 2: Specific procedures for pressure transmitters",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62828-2:2026 establishes specific procedures for testing pressure process measurement transmitters (PMT) used in measuring and control systems for industrial processes and for machinery. A pressure PMT can feature a remote seal to bring the process variable to the sensing element in the PMT. When the remote seal cannot be separated from the PMT, the complete device is tested. For general test procedures, reference is made to IEC 62828-1, which is applicable to all types of process measurement transmitters. NOTE In industrial and process applications, to indicate the process measurement transmitters, it is common also to use the terms \"industrial transmitters\", or \"process transmitters\". This second edition cancels and replaces the first edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision according to the latest IEC rules; b) comparison with the general part of IEC 62828-1; c) additions and more precise definitions in the “Terms and definitions” clause; d) correction of the calculation formulas for the measurement error; e) more precise formulation of long-term drift; f) extension of additional tests; g) transfer of the annex “Example of signal current range for a 4 to 20 mA PMT” in IEC 62828-1; h) new Annex C “Main characteristics for pressure transmitters”."
+  },
+  {
+    "reference": "IEC 62828-3:2018",
+    "edition": "1.0",
+    "date": "2018-04-18",
+    "title": "Reference conditions and procedures for testing industrial and process measurement transmitters - Part 3: Specific procedures for temperature transmitters",
+    "language": "EN-FR",
+    "description": "IEC 62828-3:2018 establishes specific procedures for testing temperature transmitters used in measuring and control systems for industrial process and for machinery control systems. When the process measurement transmitter features the temperature transmitter separated from the sensing element, the standard applies only to the temperature transmitter without the sensing element. In the case of a device where the sensing element is fully integrated with the temperature transmitter, the standard applies to the complete device. For general test procedures, reference is made to IEC 62828-1, which is applicable to all types of industrial and process measurement transmitters (PMT). The sensing element itself as well as radiation thermometers are excluded from the scope of this document. The IEC 62828 series cancels and replaces the IEC 60770 series and proposes revisions for the IEC 61298 series. NOTE In industrial and process applications to indicate the process measurement transmitters, it is common also to use the terms “industrial transmitters”, or “process transmitters”."
+  },
+  {
+    "reference": "IEC 62828-4:2020",
+    "edition": "1.0",
+    "date": "2020-08-18",
+    "title": "Reference conditions and procedures for testing industrial and process measurement transmitters - Part 4: Specific procedures for level transmitters",
+    "language": "EN-FR",
+    "description": "IEC 62828-4:2020 establishes specific procedures for testing level transmitters used in measuring and control systems for industrial process and machinery control systems. For general test procedures, reference is to be made to IEC 62828-1:2017, applicable to all types of transmitters. Throughout this document, the term \"industrial transmitters\" covers all types of transmitters used in measuring and control systems for industrial processes and for machinery. The requirements of this document are applicable to all level measurement principles. Detailed description of transmitters is given for two main principles for improved clarity."
+  },
+  {
+    "reference": "IEC 62828-5:2020",
+    "edition": "1.0",
+    "date": "2020-08-18",
+    "title": "Reference conditions and procedures for testing industrial and process measurement transmitters - Part 5: Specific procedures for flow transmitters",
+    "language": "EN-FR",
+    "description": "IEC 62828-5:2020 establishes specific procedures for testing flow transmitters used in measuring and control systems for industrial process and for machinery control systems. For general test procedures, reference is to be made to IEC 62828-1:2017, applicable to all types of industrial and process measurement transmitters. This document – together with IEC 62828-1:2017 – is the reference standard for testing every type of flow transmitter, not only for liquids but also for gases and for steam. In this document, \"industrial flow transmitters\" consistently covers all types of flow transmitters used in measuring and control systems for industrial process and for machinery."
+  },
+  {
+    "reference": "IEC TR 62829-1:2019",
+    "edition": "1.0",
+    "date": "2019-11-22",
+    "title": "Chemometrics for process analytical technologies - Part 1: General provisions, and methods for univariate statistics and chemometric processing of data",
+    "language": "EN",
+    "description": "IEC TR 62829-1:2019, which is a Technical Report, covers • a study into the pre-requisites of chemometric (exploratory) data analysis, • an overview of common data analysis procedures for univariate, bivariate and multivariate data analysis, • explanations of the basic principles and major application areas of the different methods), • some recommendations on the selection of an appropriate data analysis strategy. These recommendations not covered earlier by other guidance documents on the topic are complemented by some advice on the validation of commercial (at the site of installation) and tailored software for process analytical purposes. Recommendations are given on available reference data sets (Annex B) for benchmarking of software implementing the data analysis methods covered (if available)."
+  },
+  {
+    "reference": "IEC 62952-1:2016",
+    "edition": "1.0",
+    "date": "2016-10-05",
+    "title": "Power sources for a wireless communication device - Part 1: General requirements of power modules",
+    "language": "EN-FR",
+    "description": "IEC 62952-1:2016 specifies the general requirements of power modules for wireless communication devices (WCD). This document includes additional optional specifications to permit use in explosive atmospheres and harsh environments. This International Standard is based on VDI/VDE 2185 Blatt 3."
+  },
+  {
+    "reference": "IEC 62952-2:2016",
+    "edition": "1.0",
+    "date": "2016-10-05",
+    "title": "Power sources for a wireless communication device - Part 2: Profile for power modules with batteries",
+    "language": "EN-FR",
+    "description": "IEC 62952-2:2016 specifies a profile for a power module containing batteries used as power source for wireless communication devices."
+  },
+  {
+    "reference": "IEC 62952-3:2017",
+    "edition": "1.0",
+    "date": "2017-06-19",
+    "title": "Power sources for a wireless communication device - Part 3: Generic energy harvesting adapter module",
+    "language": "EN-FR",
+    "description": "IEC 62952-3:2017 specifies requirements and a profile for a power source containing a generic energy harvesting adapter module (GEHAM) used as power source for wireless communication devices (WCD)."
+  },
+  {
+    "reference": "IEC TR 62967:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Methods for calculating the main static performance indicators of transducers and transmitters",
+    "language": "EN",
+    "description": "IEC TR 62967:2018(E) provides guidance on the assurance of reliability data of automation devices. If the source of this data is through calculation, guidance is given on how to specify the methods used for this calculation. If the source is through observations, guidance is given on how to describe these observations and their evaluations. If the source is the outcome of laboratory tests, guidance is given on how to specify these tests and the conditions under which they have been carried out. This document defines the form to present the data."
+  },
+  {
+    "reference": "IEC TS 63144-1:2020",
+    "edition": "1.0",
+    "date": "2020-04-20",
+    "title": "Industrial process control devices - Thermographic cameras - Part 1: Metrological characterization",
+    "language": "EN",
+    "description": "IEC 63144-1:2020(E) applies, in the field of metrology, to the statement and testing of technical data in datasheets and instruction manuals for thermographic cameras that are used to measure the temperature of surfaces. This includes, unless otherwise stated, both two-dimensional and one-dimensional (line cameras or line scanners) temperature measuring instruments, independently of the scanning principle (fixed multi-element detector or scanning camera system). This document describes standard test methods to determine relevant metrological data of thermographic cameras. Manufacturers and sellers can choose relevant data and can state that the data shall be compliant with this Technical Specification."
+  },
+  {
+    "reference": "IEC TS 63165:2024",
+    "edition": "1.0",
+    "date": "2024-12-17",
+    "title": "Requirements for industrial water quality analyzer system – Photometry",
+    "language": "EN",
+    "description": "IEC TS 63165:2024 applies to the industrial water quality analyzer system that uses a photometric method to determine the concentration of one or more chemical components in industrial water (water used in manufacturing, processing, cooling, washing, boiler, etc). The objective of this document is to: - specify the terminology and definitions related to the performance characteristics of a photometric industrial water quality analyzer system; - unify the performance expression and verifying methods of such an analyzer system; - specify the test procedures to be used in making statements on the performance characteristics of a photometric industrial water quality analyzer system."
+  },
+  {
+    "reference": "IEC TR 63176:2019",
+    "edition": "1.0",
+    "date": "2019-01-16",
+    "title": "Process analysis technology systems as part of safety instrumented systems",
+    "language": "EN",
+    "description": "IEC TR 63176:2019(E) encompasses recommendations for planning, installation and operation (incl. maintenance) of process analyzer technology measuring equipment in process industry safety instrumented systems. It covers all necessary steps for the qualification of safety equipment and supplements the safety management of safety instrumented system equipment through the addition of special requirements for process analyzer technology equipment. This document does not encompass the entire safety management of safety instrumented system equipment."
+  },
+  {
+    "reference": "IEC 63206:2024",
+    "edition": "1.0",
+    "date": "2024-12-11",
+    "title": "Industrial-process control systems - Recorders - Testing and performance evaluation",
+    "language": "EN-FR",
+    "description": "IEC 63206:2024 specifies the characterization, the classification (e.g.: analogue chart recorder, digital recorder, X-Y recorder, paperless recorder, event recorder, data logger, and data acquisition device, etc.) and performance evaluation methods of recorders. It covers type tests as well as routine tests. This document is applicable to recorder devices and recorder modules for control systems. IEC 63206 is intended for use by manufacturers to determine the performance of their products and by users or independent testing bodies to verify manufacturers’ performance specifications. IEC 63206 has fully covered IEC 60873-1 and IEC 60873-2 which are withdrawn."
+  },
+  {
+    "reference": "IEC PAS 63312:2021",
+    "edition": "1.0",
+    "date": "2021-01-14",
+    "title": "Technical specification for flame detector system of boiler",
+    "language": "EN",
+    "description": "IEC PAS 63312:2021 deals with the general requirements, classification and technical requirements, installation and commissioning requirements, inspection and maintenance requirements, test methods and requirements of radiant energy sensing flame detectors (including IR, UV, visible light, and imaging-based flame detectors). This PAS is applicable to the type selection, design, installation, commissioning, inspection, maintenance and acceptance of the radiant energy sensing flame detectors, which monitor the flame status of burners"
+  }
+]

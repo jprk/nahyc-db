@@ -1,0 +1,1114 @@
+[
+  {
+    "reference": "ISO/IEC 8506:2024",
+    "edition": "1.0",
+    "date": "2024-09-13",
+    "title": "Information technology - Automatic identification and data capture technology - AIDC application in industrial construction",
+    "language": "EN",
+    "description": "This document specifies the identification, data, information services, application guidance aspects and applicable requirements of automatic identification and data capture (AIDC) technology for different items and their hierarchy in industrial construction during their whole life cycle. This document — provides unique identification for items in industrial construction, — specifies the semantics and data syntax to be used, — specifies the data carriers to be used on items of various categories, substitutes and sizes, — makes recommendations about the metadata of the items, — specifies the application test method and parameters based on the large-scale test and scientific sampling rules, — defines the information services protocol to be used as an interface between business applications and the AIDC system, and — makes guidance for designers, workers, engineers, managers, end users and maintainers about the AIDC application in their daily work."
+  },
+  {
+    "reference": "ISO/IEC 15415:2024",
+    "edition": "3.0",
+    "date": "2024-12-19",
+    "title": "Automatic identification and data capture techniques - Bar code symbol print quality test specification - Two-dimensional symbols",
+    "language": "EN",
+    "description": "This document — specifies two methodologies for the measurement of specific attributes of two-dimensional bar code symbols – one of which applies to multi-row bar code symbologies and the other to two-dimensional matrix symbologies; — specifies methods for evaluating and grading these measurements and deriving an overall assessment of symbol quality; — gives information on possible causes of deviation from optimum grades to assist users in taking appropriate corrective action. This document applies to two-dimensional symbologies for which a reference decode algorithm has been defined, however the methodologies in this document can be applied partially or wholly to other similar symbologies. NOTE While this document can be applied to direct part marks, better correlation between measurement results and scanning performance can be obtained with ISO/IEC 29158 in combination with this document."
+  },
+  {
+    "reference": "ISO/IEC 15416:2025",
+    "edition": "3.0",
+    "date": "2025-01-08",
+    "title": "Automatic identification and data capture techniques - Bar code print quality test specification - Linear symbols",
+    "language": "EN",
+    "description": "This document — specifies the methodology for the measurement of specific attributes of bar code symbols, — defines a method for evaluating these measurements and deriving an overall assessment of symbol quality, and — gives information on possible causes of deviation from optimum grades to assist users in taking appropriate corrective action. This document applies to those symbologies for which a reference decode algorithm has been defined, and which are intended to be read using linear scanning methods, but its methodology can be applied partially or wholly to other symbologies."
+  },
+  {
+    "reference": "ISO/IEC 15417:2007",
+    "edition": "2.0",
+    "date": "2007-05-31",
+    "title": "Information technology - Automatic identification and data capture techniques - Code 128 bar code symbology specification",
+    "language": "EN",
+    "description": "The technology of bar coding is based on the recognition of patterns encoded in bars and spaces of defined dimensions. There are numerous methods of encoding information in bar code form, known as symbologies. Code 128 is one such symbology. The rules defining the translation of characters into bar and space patterns, and other essential features of each symbology, are known as the symbology specification. In the past, symbology specifications were developed and published by a number of organizations, resulting in certain instances in conflicting requirements for certain symbologies. Manufacturers of bar code equipment and users of bar code technology require publicly available standard symbology specifications to which they can refer when developing equipment and software. ISO/IEC 15417:2007 specifies the requirements for the bar code symbology known as Code 128. It specifies Code 128 symbology characteristics, data character encodation, dimensions, decoding algorithms and the parameters to be defined by applications. It specifies the symbology identifier prefix strings for Code 128 symbols."
+  },
+  {
+    "reference": "ISO/IEC 15417:2007/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-01-09",
+    "title": "Information technology - Automatic identification and data capture techniques - Code 128 bar code symbology specification - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15418:2016",
+    "edition": "3.0",
+    "date": "2016-02-25",
+    "title": "Information technology - Automatic identification and data capture techniques - GS1 Application Identifiers and ASC MH10 Data Identifiers and maintenance",
+    "language": "EN",
+    "description": "ISO/IEC 15418:2016 - specifies sets of Data Identifiers and Application Identifiers for the purpose of identifying encoded data, and - identifies the organizations responsible for their maintenance."
+  },
+  {
+    "reference": "ISO/IEC 15420:2025",
+    "edition": "3.0",
+    "date": "2025-11-19",
+    "title": "Information technology - Automatic identification and data capture techniques - EAN/UPC bar code symbology specification",
+    "language": "EN",
+    "description": "This document specifies the requirements for the bar code symbology known as EAN/UPC. This document specifies EAN/UPC symbology characteristics, data character encodation, dimensions, tolerances, decoding algorithms and parameters to be defined by applications. It specifies the symbology identifier prefix strings for EAN/UPC symbols. Data content and the rules governing the use of this symbology are outside the scope of this document; they are defined in GS1 General Specifications."
+  },
+  {
+    "reference": "ISO/IEC 15421:2010",
+    "edition": "2.0",
+    "date": "2010-05-11",
+    "title": "Information technology - Automatic identification and data capture techniques - Bar code master test specifications",
+    "language": "EN, FR",
+    "description": "ISO/IEC 15421:2010 specifies the requirements and test methods for physical and related attributes of a bar code master. It covers all forms of bar code master, irrespective of the mode of origination of the initial image, intended for reproduction by conventional printing processes. ISO/IEC 15421:2010 does not cover processes in which there is no master, such as computer to plate (CTP)."
+  },
+  {
+    "reference": "ISO/IEC 15424:2025",
+    "edition": "3.0",
+    "date": "2025-02-26",
+    "title": "Information technology - Automatic identification and data capture techniques - Data carrier identifiers (including symbology identifiers)",
+    "language": "EN",
+    "description": "This document specifies the preamble message generated by the reader and interpretable by the receiving system, which indicates the bar code symbology or other origin of transmitted data, together with details of certain specified optional processing features associated with the data message. This document applies to automatic identification device communication conventions and standardizes the reporting of data carriers from bar code readers and other automatic identification equipment."
+  },
+  {
+    "reference": "ISO/IEC 15426-1:2006",
+    "edition": "2.0",
+    "date": "2006-06-01",
+    "title": "Information technology - Automatic identification and data capture techniques - Bar code verifier conformance specification - Part 1: Linear symbols",
+    "language": "EN",
+    "description": "The technology of bar coding is based on the recognition of patterns encoded in dark and light elements of defined dimensions according to rules defining the translation of characters into such patterns, known as the symbology specification. The bar code symbol, as a machine-readable data carrier, must be produced in such a way as to be reliably decoded at the point of use, if it is to fulfil its basic objective. Standard methodologies have been developed for measuring and assessing the quality of symbols for process control and quality assurance purposes during symbol production as well as afterwards. Manufacturers of bar code equipment, the producers of bar code symbols and the users of bar code technology require publicly available standard conformance specifications for measuring equipment applying this methodology, to ensure the accuracy and consistency of performance of this equipment. ISO/IEC 15426-1:2006 defines test methods and minimum accuracy criteria for verifiers using the methodology of ISO/IEC 15416 for linear bar code symbols, and specifies reference calibration standards against which these should be tested. ISO/IEC 15426-1:2006 provides for testing of representative samples of the equipment."
+  },
+  {
+    "reference": "ISO/IEC 15426-2:2023",
+    "edition": "3.0",
+    "date": "2023-12-13",
+    "title": "Information technology - Automatic identification and data capture techniques - Bar code verifier conformance specification - Part 2: Two-dimensional symbols",
+    "language": "EN",
+    "description": "This document specifies the test methods for representative samples of the equipment and the minimum accuracy criteria applicable to verifiers using the methodologies of ISO/IEC 15415 for multi-row bar code symbols and two-dimensional matrix symbologies. This document also specifies reference calibration standards for verifier conformance. NOTE ISO/IEC 15426 - 1 applies to verifiers for linear bar code symbols."
+  },
+  {
+    "reference": "ISO/IEC 15434:2025",
+    "edition": "5.0",
+    "date": "2025-01-09",
+    "title": "Information technology - Automatic identification and data capture techniques - Syntax for high-capacity ADC media",
+    "language": "EN",
+    "description": "This document specifies a transfer structure, syntax, coding of messages and data formats when using high-capacity automatic data capture (ADC) media."
+  },
+  {
+    "reference": "ISO/IEC 15438:2015",
+    "edition": "3.0",
+    "date": "2015-09-14",
+    "title": "Information technology - Automatic identification and data capture techniques - PDF417 bar code symbology specification",
+    "language": "EN",
+    "description": "ISO/IEC 15438:2015 specifies the requirements for the bar code symbology known as PDF417. It specifies PDF417 symbology characteristics, data character encodation, symbol formats, dimensions, error correction rules, reference decoding algorithm, and a number of application parameters."
+  },
+  {
+    "reference": "ISO/IEC 15459-1:2014",
+    "edition": "3.0",
+    "date": "2014-11-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 1: Individual transport units",
+    "language": "EN",
+    "description": "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."
+  },
+  {
+    "reference": "ISO/IEC 15459-2:2015",
+    "edition": "3.0",
+    "date": "2015-03-05",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 2: Registration procedures",
+    "language": "EN",
+    "description": "ISO/IEC 15459-2:2015 specifies the procedural requirements to maintain identities and outlines the obligations of the Registration Authority and Issuing Agencies. ISO/IEC 15459-2:2015 excludes those entities where ISO has designated Maintenance Agencies or Registration Authorities to provide identity and/or identifier schemes. It does not apply to: freight containers, because their unique coding is specified in ISO 6346, Freight containers - Coding, identification and marking ; vehicles, because their unique identification is specified in ISO 3779, Road vehicles - Vehicle identification number (VIN) - Content and structure ; car radios, because their unique identification is specified in ISO 10486, Passenger cars - Car radio identification number (CRIN) . The exclusion also applies to ISO 2108, Information and documentation - International standard book number (ISBN) , and ISO 3297, Information and documentation - International standard serial number (ISSN) ."
+  },
+  {
+    "reference": "ISO/IEC 15459-3:2014",
+    "edition": "2.0",
+    "date": "2014-11-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 3: Common rules",
+    "language": "EN",
+    "description": "ISO/IEC 15459-3:2014 specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities."
+  },
+  {
+    "reference": "ISO/IEC 15459-4:2014",
+    "edition": "3.0",
+    "date": "2014-11-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 4: Individual products and product packages",
+    "language": "EN",
+    "description": "ISO/IEC 15459-4:2014 specifies a unique string of characters for the identification of individual products and product packages. The character string is intended to be represented in a linear bar code symbol or two-dimensional symbol or other automatic identification and data capture (AIDC) media attached to the entity to meet management needs. To address management needs, different classes of identities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each class. The rules for the identification of an individual occurrence of a product or product package, understood to mean the layers zero and one defined in ISO 17367 and ISO 17366, respectively, are defined and supported by examples."
+  },
+  {
+    "reference": "ISO/IEC 15459-5:2014",
+    "edition": "2.0",
+    "date": "2014-11-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 5: Individual returnable transport items (RTIs)",
+    "language": "EN",
+    "description": "ISO/IEC 15459-5:2014 specifies a unique string of characters for the identification of individual returnable transport items (RTIs). The character string is intended to be represented in a bar code label or other automatic identification and data capture (AIDC) media attached to the item to meet management needs. To address management needs, different classes of identities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each class. The rules for the identification of RTIs, with the identity being relevant for the complete lifecycle of the item, are defined and supported by example."
+  },
+  {
+    "reference": "ISO/IEC 15459-6:2014",
+    "edition": "2.0",
+    "date": "2014-11-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Unique identification - Part 6: Groupings",
+    "language": "EN",
+    "description": "ISO/IEC 15459-6:2014 specifies a unique string of characters for the identification of groupings of products, product packages, transport units and items. The character string is intended to be represented in a linear bar code symbol and two-dimensional symbol or other automatic identification and data capture (AIDC) media attached to the entity to meet management needs and/or regulatory needs (e.g. customs clearance). To address these needs, different types of identifiers are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the unique identifiers associated within the context of the specific parts of ISO/IEC 15459. The unique identifiers for grouping of products, product packages, transport units and items enables grouping by type, characteristics, order, manufacturing, quality, location, movement, etc. to be uniquely identified. It is possible to use with other unique individual identifiers defined in other parts of ISO/IEC 15459. Encoding these unique identifiers in a data carrier enables information about the item processing to be clearly identified."
+  },
+  {
+    "reference": "ISO/IEC 15961-1:2021",
+    "edition": "2.0",
+    "date": "2021-12-15",
+    "title": "Information technology - Data protocol for radio frequency identification (RFID) for item management - Part 1: Application interface",
+    "language": "EN",
+    "description": "This document focuses on the abstract interface between an application and the data processor and includes the specification and definition of application commands and responses. It allows data and commands to be specified in a standardised way, independent of the ISO/IEC 18000 series air interfaces. This document: — provides guidelines on presenting data as objects; — defines the structure of Object Identifiers, based on ISO/IEC 9834-1; — specifies the commands that are supported for transferring data between an application and the radio frequency identification (RFID) tag; — specifies the responses that are supported for transferring data between the tag and the application; — does not specify any required transfer syntax with ISO/IEC 15962, but provides the non-normative information in Annex A for backward compatibility with the 2004 version of this document (ISO/IEC 15961:2004[1]). [1] Withdrawn standard. Replaced by ISO/IEC 15961-1, ISO/IEC 15961-2, ISO/IEC 15961-3 and ISO/IEC 15961-4."
+  },
+  {
+    "reference": "ISO/IEC 15961-2:2019",
+    "edition": "1.0",
+    "date": "2019-08-08",
+    "title": "Information technology - Data protocol for radio frequency identification (RFID) for item management - Part 2: Registration of RFID data constructs",
+    "language": "EN",
+    "description": "This document specifies the procedural requirements to maintain specific RFID data constructs. The data constructs are associated with managing open and closed applications that utilise RFID systems which conform to the data protocol defined in other parts of ISO/IEC 15961 and ISO/IEC 15962, and the air interface protocols of ISO/IEC 18000. It also outlines the obligations of the Registration Authority and the application administrators, with respect to: — the allocation of AFIs to particular applications defined by the application administrator; — the allocation of data formats to particular applications defined by the application administrator; — the registration of Root-OIDs, compliant with ISO/IEC 9834-1, to any Unique Item Identifiers used in applications defined by the application administrator; — the registration of Root-OIDs, compliant with ISO/IEC 9834-1, to any other data used in applications defined by the application administrator; — the registration of various table-driven encoding schemes, compliant with ISO/IEC 15962."
+  },
+  {
+    "reference": "ISO/IEC 15961-3:2019",
+    "edition": "1.0",
+    "date": "2019-02-05",
+    "title": "Information technology - Data protocol for radio frequency identification (RFID) for item management - Part 3: RFID data constructs",
+    "language": "EN",
+    "description": "This document specifies rules and code structures associated with the data constructs for RFID for item management. In particular, it: — defines the application family identifier (AFI), including the range of code values that are available to use for RFID for item management; — defines the data format, including the range of code values that are available to use for RFID for item management; — describes the Object Identifier structure used for RFID for item management; — specifies the function of the Object Identifier for the Unique Item Identifier (UII); — specifies the function of the Object Identifier for other item attendant data. NOTE Conventionally in International Standards, long numbers are separated by a space character as a \"thousands separator\". This convention has not been followed in this document because the arcs of an Object Identifier are defined by a space separator (according to ISO/IEC 8824 and ISO/IEC 8825). As the correct representation of these arcs is vital to this document, all numeric values have no space separators except to denote a node between two arcs of an Object Identifier. For additional clarity, Object Identifiers are presented in bold text."
+  },
+  {
+    "reference": "ISO/IEC 15961-4:2016",
+    "edition": "1.0",
+    "date": "2016-08-04",
+    "title": "Information technology - Radio frequency identification (RFID) for item management: Data protocol - Part 4: Application interface commands for battery assist and sensor functionality",
+    "language": "EN",
+    "description": "ISO/IEC 15961-4:2016 provides a set of application commands and their associated responses for the following functions: - to start and stop battery assistance; - to select and de-select a particular sensory function supported by the RFID tag; - to set sensor parameters both initially and ongoing; - to start and stop the sensor monitoring the environment; - to access sensor data; - to establish the battery status. ISO/IEC 24753 defines the encoding rules for identifying sensors, their functions, their delivered measurements, and the processing rules for sensor data. As such, it receives commands as defined in ISO/IEC 15961-4:2016 and provides the information that is required for the appropriate responses."
+  },
+  {
+    "reference": "ISO/IEC 15962:2022",
+    "edition": "3.0",
+    "date": "2022-01-04",
+    "title": "Information technology - Radio frequency identification (RFID) for item management - Data protocol: data encoding rules and logical memory functions",
+    "language": "EN",
+    "description": "This document focuses on encoding the transfer syntax of the application commands defined in ISO/IEC 15961-1. The encodation is in a Logical Memory as a software analogue of the physical memory of the RFID tag being addressed by the interrogator. This document — defines the encoded structure of object identifiers; — specifies the data compaction rules that apply to the encoded data; — specifies a Precursor for encoding syntax features efficiently; — specifies formatting rules for the data, e.g. depending on whether a directory is used or not; — defines how application commands, e.g. to lock data, are transferred to the Tag Driver; — specifies processes associated with sensory information and the transfers to the Tag Driver; — defines other communication to the application."
+  },
+  {
+    "reference": "ISO/IEC 15963-1:2020",
+    "edition": "1.0",
+    "date": "2020-03-18",
+    "title": "Information technology - Radio frequency identification for item management - Part 1: Unique identification for RF tags numbering systems",
+    "language": "EN",
+    "description": "This document describes numbering systems that are available for the identification of RF tags and assigns various allocation classes to various agencies that issue manufacturer codes. The unique ID can be used: — for the traceability of the integrated circuit itself for quality control in its manufacturing process; — for the traceability of the RF tag during its manufacturing process and along its lifetime; — for the completion of the reading in a multi-antenna configuration; — by the anti-collision mechanism to inventory multiple tags in the reader's field of view; and — for the traceability of the item to which the RF tag is attached."
+  },
+  {
+    "reference": "ISO/IEC 15963-2:2020",
+    "edition": "1.0",
+    "date": "2020-03-19",
+    "title": "Information technology - Radio frequency identification for item management - Part 2: Unique identification for RF tags registration procedures",
+    "language": "EN",
+    "description": "This document specifies the procedural requirements to maintain identities and outlines the obligations of the Registration Authority."
+  },
+  {
+    "reference": "ISO/IEC 16022:2024",
+    "edition": "3.0",
+    "date": "2024-05-16",
+    "title": "Information technology - Automatic identification and data capture techniques - Data Matrix bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as Data Matrix. It specifies the Data Matrix symbology characteristics, data character encodation, symbol formats, dimensions and print quality requirements, error correction rules, decoding algorithm, and user-selectable application parameters. It applies to all Data Matrix symbols produced by any printing or marking technology."
+  },
+  {
+    "reference": "ISO/IEC 16023:2000",
+    "edition": "1.0",
+    "date": "2000-05-04",
+    "title": "Information technology - International symbology specification - MaxiCode",
+    "language": "EN",
+    "description": "This specification defines the requirements for the symbology known as MaxiCode. MaxiCode is a fixed-size matrix symbology which is made up of offset rows of hexagonal modules arranged around a unique finder pattern. This specification specifies the MaxiCode symbology characteristics, data character encodation, symbol formats, dimensions and print quality requirements, error correction rules, decoding algorithm, and user-selectable application parameters. MaxiCode includes special encodation modes for use in destination sortation symbols by carriers in the transport industry."
+  },
+  {
+    "reference": "ISO/IEC 16388:2023",
+    "edition": "3.0",
+    "date": "2023-05-11",
+    "title": "Information technology - Automatic identification and data capture techniques - Code 39 bar code symbology specification",
+    "language": "EN",
+    "description": "This document specifies the requirements for the bar code symbology known as Code 39. This document specifies Code 39 symbology characteristics, data character encodation, dimensions, tolerances, decoding algorithms and parameters to be defined by applications. This document specifies the symbology identifier prefix strings for Code 39 symbols."
+  },
+  {
+    "reference": "ISO/IEC 16390:2007",
+    "edition": "2.0",
+    "date": "2007-06-12",
+    "title": "Information technology - Automatic identification and data capture techniques - Interleaved 2 of 5 bar code symbology specification",
+    "language": "EN",
+    "description": "ISO/IEC 16390:2007 specifies the requirements for the bar code symbology known as Interleaved 2 of 5; it specifies Interleaved 2 of 5 symbology characteristics, data character encodation, dimensions, tolerances, decoding algorithms and parameters to be defined by applications. It specifies the Symbology Identifier prefix strings for Interleaved 2 of 5 symbols."
+  },
+  {
+    "reference": "ISO/IEC 16480:2015",
+    "edition": "1.0",
+    "date": "2015-08-14",
+    "title": "Information technology - Automatic identification and data capture techniques - Reading and display of ORM by mobile devices",
+    "language": "EN",
+    "description": "ISO/IEC 16480:2015 specifies a method to assess the symbol quality rendered on electronic displays (i.e. the symbol produces its own light) when the reading device is a two-dimensional bar code imager. In addition, this international standard specifies a method to assess the quality of symbols that are intended to be read with general-purpose cameras in ambient lighting conditions. Further, this international standard describes modifications, which are to be considered in conjunction with the symbol quality methodology when applied to a particular symbology specification as defined in ISO/IEC 15415 and ISO/IEC 15416. It defines alternative illumination conditions, display pixel conditions and the reporting of the grading results. This document also describes appropriate ranges of symbol X-dimensions."
+  },
+  {
+    "reference": "ISO/IEC 17360:2023",
+    "edition": "1.0",
+    "date": "2023-05-25",
+    "title": "Automatic identification and data capture techniques - Supply chain applications of RFID - Product tagging, product packaging, transport units, returnable transport units and returnable packaging items",
+    "language": "EN",
+    "description": "This document defines the basic features of RFID for use in the supply chain when applied to product tagging, product packaging, transport units and returnable transport items (RTIs) and returnable packaging items (RPIs). This document: — provides specifications for the identification of the items, — makes recommendations about additional information on the RF tag, — specifies the semantics and data syntax to be used, — specifies the data protocol to be used to interface with business applications and the RFID system, — specifies the minimum performance requirements, — specifies the air interface standards between the RF interrogator and RF tag, and — specifies the reuse and recyclability of the RF tag."
+  },
+  {
+    "reference": "ISO/IEC 18000-2:2009",
+    "edition": "2.0",
+    "date": "2009-09-30",
+    "title": "Information technology - Radio frequency identification for item management - Part 2: Parameters for air interface communications below 135 kHz",
+    "language": "EN",
+    "description": "ISO/IEC 18000-2:2009 defines the air interface for radio frequency identification (RFID) devices operating below 135 kHz. The purpose of ISO/IEC 18000-2:2009 is to provide a common technical specification for RFID devices that can be used by ISO committees developing RFID application standards. ISO/IEC 18000-2:2009 is intended to allow for compatibility and to encourage inter-operability of products in the international marketplace. ISO/IEC 18000-2:2009 defines the physical layer used for communication between the interrogator and the tag and further defines the communications protocol used in the air interface. Two types of tag are defined by ISO/IEC 18000-2:2009: Type A and Type B, which differ only by their physical layer. Both support the same inventory (anti-collision) and protocol. Type A tags are permanently powered by the interrogator, including during the tag-to-interrogator transmission, and operate at 125 kHz. Type B tags are powered by the interrogator, except during the tag-to-interrogator transmission, and operate at 125 kHz or 134,2 kHz."
+  },
+  {
+    "reference": "ISO/IEC 18000-3:2010",
+    "edition": "3.0",
+    "date": "2010-11-04",
+    "title": "Information technology - Radio frequency identification for item management - Part 3: Parameters for air interface communications at 13,56 MHz",
+    "language": "EN",
+    "description": "ISO/IEC 18000 has been developed in order to: provide a framework to define common communications protocols for Internationally useable frequencies for radio frequency identification (RFID), and, where possible, to determine the use of the same protocols for all frequencies such that the problems of migrating from one to another are diminished; minimize software and implementation costs; enable system management and control and information exchange to be common as far as is possible. ISO/IEC 18000-1 provides explanation of the concepts behind ISO/IEC 18000-3:2010. ISO/IEC 18000-3:2010 has 3 MODES of operation, intended to address different applications. The detailed technical differences between the modes are shown in parameter tables. ISO/IEC 18000-3:2010 provides physical layer, collision management system and protocol values for RFID systems for item identification operating at 13,56 MHz in accordance with the requirements of ISO/IEC 18000-1. It provides definitions for systems for each MODE determined in ISO/IEC 18000-3:2010. It defines three non-interfering MODES. The MODES are not interoperable. The MODES, whilst not interoperable, are non-interfering."
+  },
+  {
+    "reference": "ISO/IEC 18000-4:2018",
+    "edition": "4.0",
+    "date": "2018-07-27",
+    "title": "Information technology - Radio frequency identification for item management - Part 4: Parameters for air interface communications at 2,45 GHz",
+    "language": "EN",
+    "description": "This document defines the air interface for radio frequency identification (RFID) devices operating in the 2,45 GHz industrial, scientific, and medical (ISM) band used in item management applications. This document provides a common technical specification for RFID devices that can be used by ISO committees developing RFID application standards. This document is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. This document defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum equivalent isotropically radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. This document further defines the communications protocol used in the air interface. This document contains four modes. Mode 1 is an interrogator talks first with passive tag. Mode 2 is a tag talks first with battery-assisted passive tag. Mode 3 is a globally available, ubiquitous network supporting (but not limited to) the logistics and transportation industry; agnostic to any device, commercial or otherwise, requiring global availability. Mode 4 is a configurable data rate active RFID system. It provides the functions of long range objects identification and environmental sense, and it is intended to realize the low cost device and low power consumption, long range identification, fast and reliable tags access. The detailed technical differences between the modes are shown in the parameter tables."
+  },
+  {
+    "reference": "ISO/IEC 18000-6:2025",
+    "edition": "4.0",
+    "date": "2025-10-27",
+    "title": "Information technology - Radio frequency identification for item management - Part 6: General parameters for air interface communications at 860 MHz to 930 MHz",
+    "language": "EN",
+    "description": "This document specifies the air interface for radio frequency identification (RFID) devices operating in the 860 MHz to 930 MHz Industrial, Scientific, and Medical (ISM) band used in item management applications. This document is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. This document defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum effective isotropic radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence and chip rate. It further defines the communications protocol used in the air interface. This document specifies the physical and logical requirements for a passive-backscatter, Interrogator-Talks-First (ITF) or tag-only-talks-after-listening (TOTAL) RFID system. This document, together with ISO/IEC 18000 - 61 , ISO/IEC 18000 - 62 , ISO/IEC 18000 - 63 and ISO/IEC 18000 - 64 specifies the following for the 860 MHz to 930 MHz range: — physical interactions (the signalling layer of the communication link) between interrogators and tags; — interrogator and tag operating procedures and commands; — the collision-arbitration scheme used to identify a specific tag in a multiple-tag environment."
+  },
+  {
+    "reference": "ISO/IEC 18000-7:2014",
+    "edition": "4.0",
+    "date": "2014-09-02",
+    "title": "Information technology - Radio frequency identification for item management - Part 7: Parameters for active air interface communications at 433 MHz",
+    "language": "EN",
+    "description": "ISO/IEC 18000-7:2014 defines the air interface for radio frequency identification (RFID) devices operating as an active RF tag in the 433 MHz band used in item management applications. It provides a common technical specification for RFID devices that can be used by ISO technical committees developing RFID application standards. ISO/IEC 18000-7:2014 is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. It defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum power, spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. It further defines the communications protocol used in the air interface."
+  },
+  {
+    "reference": "ISO/IEC 18000-61:2012",
+    "edition": "1.0",
+    "date": "2012-07-13",
+    "title": "Information technology - Radio frequency identification for item management - Part 61: Parameters for air interface communications at 860 MHz to 960 MHz Type A",
+    "language": "EN",
+    "description": "ISO/IEC 18000-61:2012 defines the air interface for radio frequency identification (RFID) devices operating in the 860 MHz to 960 MHz Industrial, Scientific, and Medical (ISM) band used in item management applications. It provides a common technical specification for RFID devices that can be used by ISO committees developing RFID application standards. It is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. It defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum effective isotropic radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. It further defines the communications protocol used in the air interface. ISO/IEC 18000-61:2012 specifies the physical and logical requirements for a passive-backscatter, Interrogator-Talks-First (ITF) systems. The system comprises Interrogators, also known as readers, and tags, also known as labels. An Interrogator receives information from a tag by transmitting a continuous-wave (CW) RF signal to the tag; the tag responds by modulating the reflection coefficient of its antenna, thereby backscattering an information signal to the Interrogator. The system is ITF, meaning that a tag modulates its antenna reflection coefficient with an information signal only after being directed to do so by an Interrogator. ISO/IEC 18000-61:2012 contains Type A. Type A is ITF. Type A uses Pulse-Interval Encoding (PIE) in the forward link and an adaptive ALOHA collision-arbitration algorithm. ISO/IEC 18000-61:2012 specifies physical interactions (the signalling layer of the communication link) between Interrogators and tags, Interrogator and tag operating procedures and commands, the collision arbitration scheme used to identify a specific tag in a multiple-tag environment."
+  },
+  {
+    "reference": "ISO/IEC 18000-62:2012",
+    "edition": "1.0",
+    "date": "2012-07-13",
+    "title": "Information technology - Radio frequency identification for item management - Part 62: Parameters for air interface communications at 860 MHz to 960 MHz Type B",
+    "language": "EN",
+    "description": "ISO/IEC 18000-62:2012 defines the air interface for radio frequency identification (RFID) devices operating in the 860 MHz to 960 MHz Industrial, Scientific, and Medical (ISM) band used in item management applications. It provides a common technical specification for RFID devices that can be used by ISO committees developing RFID application standards. It is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. It defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum effective isotropic radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. It further defines the communications protocol used in the air interface. ISO/IEC 18000-62:2012 specifies the physical and logical requirements for a passive-backscatter, Interrogator-Talks-First (ITF) systems. The system comprises Interrogators, also known as readers, and tags, also known as labels. An Interrogator receives information from a tag by transmitting a continuous-wave (CW) RF signal to the tag; the tag responds by modulating the reflection coefficient of its antenna, thereby backscattering an information signal to the Interrogator. The system is ITF, meaning that a tag modulates its antenna reflection coefficient with an information signal only after being directed to do so by an Interrogator. ISO/IEC 18000-62:2012 contains Type B. Type B uses Manchester in the forward link and an adaptive binary-tree collision-arbitration algorithm. ISO/IEC 18000-62:2012 specifies physical interactions (the signalling layer of the communication link) between Interrogators and tags, Interrogator and tag operating procedures and commands, the collision arbitration scheme used to identify a specific tag in a multiple-tag environment."
+  },
+  {
+    "reference": "ISO/IEC 18000-63:2021",
+    "edition": "3.0",
+    "date": "2021-11-17",
+    "title": "Information technology - Radio frequency identification for item management - Part 63: Parameters for air interface communications at 860 MHz to 960 MHz Type C",
+    "language": "EN",
+    "description": "This document defines the air interface for radio frequency identification (RFID) devices operating in the 860 MHz to 960 MHz industrial, scientific, and medical (ISM) band used in item management applications. It provides a common technical specification for RFID devices that can be used to develop RFID application standards. This document is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. It defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum effective isotropic radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. It further defines the communications protocol used in the air interface. This document specifies the physical and logical requirements for a passive-backscatter, Interrogator-Talks-First (ITF) systems. The system comprises Interrogators, also known as readers, and tags, also known as labels. An Interrogator receives information from a tag by transmitting a continuous-wave (CW) RF signal to the tag; the tag responds by modulating the reflection coefficient of its antenna, thereby backscattering an information signal to the Interrogator. The system is ITF, i.e. a tag modulates its antenna reflection coefficient with an information signal only after being directed to do so by an Interrogator. This document specifies — physical interactions (the signalling layer of the communication link) between Interrogators and tags; — logical operating procedures and commands between Interrogators and Tags; — the collision arbitration scheme used to identify a specific tag in a multiple-tag environment; — optional security commands that allow the use of crypto suites of ISO/IEC 29167."
+  },
+  {
+    "reference": "ISO/IEC 18000-64:2012",
+    "edition": "1.0",
+    "date": "2012-07-13",
+    "title": "Information technology - Radio frequency identification for item management - Part 64: Parameters for air interface communications at 860 MHz to 960 MHz Type D",
+    "language": "EN",
+    "description": "ISO/IEC 18000-64:2012 defines the air interface for radio frequency identification (RFID) devices operating in the 860 MHz to 960 MHz Industrial, Scientific, and Medical (ISM) band used in item management applications. It provides a common technical specification for RFID devices that can be used by ISO committees developing RFID application standards. It is intended to allow for compatibility and to encourage inter-operability of products for the growing RFID market in the international marketplace. It defines the forward and return link parameters for technical attributes including, but not limited to, operating frequency, operating channel accuracy, occupied channel bandwidth, maximum effective isotropic radiated power (EIRP), spurious emissions, modulation, duty cycle, data coding, bit rate, bit rate accuracy, bit transmission order, and, where appropriate, operating channels, frequency hop rate, hop sequence, spreading sequence, and chip rate. It further defines the communications protocol used in the air interface. ISO/IEC 18000-64:2012 specifies the physical and logical requirements for a passive-backscatter, Tag Only Talks After Listening (TOTAL) RFID system. The system comprises Interrogators, also known as readers, and tags, also known as labels. An Interrogator receives information from a tag by transmitting a continuous-wave (CW) RF signal to the tag; the tag responds by modulating the reflection coefficient of its antenna, thereby backscattering an information signal to the Interrogator. The system is TOTAL, meaning that a tag modulates its antenna reflection coefficient with an information signal upon entering an Interrogator's field after first listening for Interrogator modulation in order to determine if the system is ITF or not. ISO/IEC 18000-64:2012 contains Type D. Type D is TOTAL based on Pulse Position Encoding or Miller M=2 encoded subcarrier. ISO/IEC 18000-64:2012 specifies physical interactions (the signalling layer of the communication link) between Interrogators and tags, Interrogator and tag operating procedures, the collision arbitration scheme used to identify a specific tag in a multiple-tag environment."
+  },
+  {
+    "reference": "ISO/IEC 18000-65:2026",
+    "edition": "1.0",
+    "date": "2026-02-13",
+    "title": "Information technology - Radio frequency identification for item management - Part 65: Parameters for air interface communications for streaming sensors based on ISO/IEC 18000-63",
+    "language": "EN",
+    "description": "This document establishes the air interface based on ISO/IEC 18000-63 for radio frequency identification (RFID) devices operating in the 860 MHz to 930 MHz range used in sensing as well as item management applications. This document specifies the physical and logical requirements for a passive-backscatter Interrogator-Talks-First (ITF) system. This document specifies: logical and physical procedures between the interrogator and tags to allocate a dedicated subcarrier channel to each of the tags to produce continuous data streaming; logical and physical procedure between the interrogator and the tags to start and stop the continuous data streaming; logical interface between the interrogator and the tag to configure a digital sensor and to receive data from the digital sensor through the tag."
+  },
+  {
+    "reference": "ISO/IEC TR 18001:2004",
+    "edition": "1.0",
+    "date": "2004-10-18",
+    "title": "Information technology - Radio frequency identification for item management - Application requirements profiles",
+    "language": "EN",
+    "description": "ISO/IEC TR 18001:2004 provides: the result of three surveys identifying the applications for radio frequency identification (RFID) in an item management environment, and the resultant classification of these applications based on various operational parameters, including operating range and memory size; an explanation of some of the issues associated with the parameters of distance and number of tags within an RFID interrogator's field-of-view; a means by which classification of RF tags may be accomplished based on the application requirements defined in the survey results; recommendations for areas of standardization to the parent committee (ISO/IEC JTC 1/SC 31/WG 4) based on the results of these surveys."
+  },
+  {
+    "reference": "ISO/IEC 18004:2024",
+    "edition": "4.0",
+    "date": "2024-08-15",
+    "title": "Information technology - Automatic identification and data capture techniques - QR code bar code symbology specification",
+    "language": "EN",
+    "description": "This document specifies requirements for the symbology known as “QR code”. It specifies the QR code symbology characteristics, data character encoding methods, symbol formats, dimensional characteristics, error correction rules, reference decoding algorithm, production quality requirements and user-selectable application parameters."
+  },
+  {
+    "reference": "ISO/IEC 18046-1:2011",
+    "edition": "1.0",
+    "date": "2011-10-06",
+    "title": "Information technology - Radio frequency identification device performance test methods - Part 1: Test methods for system performance",
+    "language": "EN",
+    "description": "ISO/IEC 18046-1:2011 defines test methods for performance characteristics of RFID systems for item management, and specifies the general requirements and test requirements for systems which are applicable to the selection of devices for an application. It does not apply to testing in relation to regulatory or similar requirements."
+  },
+  {
+    "reference": "ISO/IEC 18046-2:2020",
+    "edition": "2.0",
+    "date": "2020-03-19",
+    "title": "Information technology - Radio frequency identification device performance test methods - Part 2: Test methods for interrogator performance",
+    "language": "EN",
+    "description": "This document defines test methods for performance characteristics of RFID interrogators and specifies the general requirements and test requirements for interrogators which are applicable to the selection of the devices for an application. The summary of the test reports forms a unified interrogator datasheet."
+  },
+  {
+    "reference": "ISO/IEC 18046-3:2020",
+    "edition": "3.0",
+    "date": "2020-10-27",
+    "title": "Information technology - Radio frequency identification device performance test methods - Part 3: Test methods for tag performance",
+    "language": "EN",
+    "description": "This document defines test methods for performance characteristics of RFID tags for item management and specifies the general requirements and test requirements for tags which are applicable to the selection of devices for an application. The summary of the test reports forms a unified tag datasheet."
+  },
+  {
+    "reference": "ISO/IEC 18046-4:2015",
+    "edition": "1.0",
+    "date": "2015-11-26",
+    "title": "Information technology - Radio frequency identification device performance test methods - Part 4: Test methods for performance of RFID gates in libraries",
+    "language": "EN",
+    "description": "ISO/IEC 18046-4:2015 defines test methods for performance characteristics of HF RFID gates in libraries for item management and specifies the general requirements and test requirements for HF RFID gates in libraries which are applicable to the selection of the gates for an application. The summary of the test reports form a unified tag datasheet. It does not apply to testing in relation to regulatory or similar requirements."
+  },
+  {
+    "reference": "ISO/IEC 18046-5:2025",
+    "edition": "1.0",
+    "date": "2025-01-27",
+    "title": "Information technology - Radio frequency identification device performance test methods - Part 5: Test methods for the environmental characteristics of RFID tags used in sporting goods",
+    "language": "EN",
+    "description": "This document specifies the methods for testing the environmental characteristics of RFID-enabled sporting goods. This document suggest methods for identifying the main use environments and related testing of environmental characteristics of sporting goods for indoor and outdoor sports with RFID and optionally additional advanced electronic devices like sensors. The environmental characteristics addressed in this document are applicable to manufacturers, including distribution and inventory management, as well as the aspects of consumer use of the actual RFID-enabled sports items. This document establishes methods to measure and evaluate the performance change of tags after environmental characteristic testing."
+  },
+  {
+    "reference": "ISO/IEC 18047-2:2012",
+    "edition": "1.0",
+    "date": "2012-01-19",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 2: Test methods for air interface communications below 135 kHz",
+    "language": "EN",
+    "description": "ISO/IEC 18047-2:2012 defines test methods for determining the conformance of radio frequency identification (RFID) devices (tags and interrogators) for item management with the specifications given in ISO/IEC 18000-2, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may, in appropriate circumstances, be supplemented by further, application-specific functionality criteria that are not available in the general case. The interrogator and tag conformance parameters in ISO/IEC 18047-2:2012 are the following: mode-specific conformance parameters including nominal values and tolerances; parameters that apply directly affecting system functionality and inter-operability. The following are not included in ISO/IEC 18047-2:2012: parameters that are already included in regulatory test requirements; high-level data encoding conformance test parameters (these are specified in ISO/IEC 15962). Unless otherwise specified, the tests in ISO/IEC 18047-2:2012 are to be applied exclusively to RFID tags and interrogators defined in ISO/IEC 18000-2."
+  },
+  {
+    "reference": "ISO/IEC 18047-3:2022",
+    "edition": "1.0",
+    "date": "2022-03-04",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 3: Test methods for air interface communications at 13,56 MHz",
+    "language": "EN",
+    "description": "This document defines test methods for determining the conformance of radio frequency identification devices (tags and interrogators) for item management with the specifications given in ISO/IEC 18000‑3. It does not apply to the testing of conformity with regulatory or similar requirements. The test methods intend to verify the mandatory functions, and any optional functions which are implemented. This can, in appropriate circumstances, be supplemented by further, application-specific functionality criteria that are not available in the general case. This document includes the following interrogator and tag conformance parameters: — mode-specific conformance parameters including nominal values and tolerances; — parameters that apply directly affecting system functionality and inter-operability. This document does not include the following: — parameters that are already included in regulatory test requirements; — high-level data encoding conformance test parameters (these are specified in ISO/IEC 15962)."
+  },
+  {
+    "reference": "ISO/IEC TR 18047-4:2004",
+    "edition": "1.0",
+    "date": "2004-11-23",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 4: Test methods for air interface communications at 2,45 GHz",
+    "language": "EN",
+    "description": "ISO/IEC TR 18047-4:2004 defines test methods for determining the conformance of radio frequency identification (RFID) devices (tags and interrogators) for item management with the specifications given in the corresponding part of ISO/IEC 18000, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may, in appropriate circumstances, be supplemented by further, application specific functionality criteria that are not available in the general case. The interrogator and tag conformance parameters in ISO/IEC TR 18047-4:2004 are: mode-specific conformance parameters including nominal values and tolerances; parameters that apply directly affecting system functionality and inter-operability. The following are not included in ISO/IEC TR 18047-4:2004: parameters that are already included in regulatory test requirements; high-level data encoding conformance test parameters (these are specified in ISO/IEC 15962). Unless otherwise specified, the tests in ISO/IEC TR 18047-4:2004 apply exclusively to RFID tags and interrogator defined in ISO/IEC 18000-4 Mode 2."
+  },
+  {
+    "reference": "ISO/IEC 18047-6:2025",
+    "edition": "3.0",
+    "date": "2025-11-14",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 6: Test methods for air interface communications at 860 MHz to 930 MHz",
+    "language": "EN",
+    "description": "This document specifies test methods for determining the conformance of radio frequency identification (RFID) devices (tags and interrogators) for item management with the specifications given in ISO/IEC 18000-61, ISO/IEC 18000-62 and ISO/IEC 18000-64. However, this document does not apply to the testing of conformance with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, are verified. This can, in appropriate circumstances, be supplemented by further, application-specific functionality criteria that are not available in the general case. The interrogator and tag conformance parameters in this document are the following: — type-specific conformance parameters including nominal values and tolerances; — parameters that apply directly affecting system functionality and inter-operability. Parameters that are already included in regulatory test requirements are not included in this document. Unless otherwise specified, the tests in this document are intended to be applied exclusively to RFID tags and interrogators defined in ISO/IEC 18000-61, ISO/IEC 18000-62 and ISO/IEC 18000-64."
+  },
+  {
+    "reference": "ISO/IEC TR 18047-7:2010",
+    "edition": "2.0",
+    "date": "2010-06-22",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 7: Test methods for active air interface communications at 433 MHz",
+    "language": "EN",
+    "description": "ISO/IEC 18000 defines the air interfaces for radio frequency identification (RFID) devices used in item management applications. ISO/IEC 18000-7:2009 defines the active air interface for these devices operating in the 433,92 MHz Industrial, Scientific, and Medical (ISM) band. ISO/IEC TR 18047 provides test methods for conformance with the various parts of ISO/IEC 18000. ISO/IEC TR 18047-7:2010 contains the compliance measurements required to be fulfilled by a product in order to be compliant to ISO/IEC 18000-7:2009. ISO/IEC TR 18047-7:2010 defines test methods for determining the conformance of radio frequency identification devices (tags and interrogators) for item management with the specifications given in ISO/IEC 18000-7:2009, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may, in appropriate circumstances, be supplemented by further, application-specific functionality criteria that are not available in the general case. The interrogator and tag conformance parameters in ISO/IEC TR 18047-7:2010 are the following: mode-specific conformance parameters including nominal values and tolerances; parameters that apply directly affecting system functionality and inter-operability. The following are not included in ISO/IEC TR 18047-7:2010: parameters that are already included in regulatory test requirements; high-level data encoding conformance test parameters (these are specified in ISO/IEC 15962). Unless otherwise specified, the tests in ISO/IEC TR 18047-7:2010 are to be applied exclusively to RFID tags and interrogators defined in ISO/IEC 18000-7."
+  },
+  {
+    "reference": "ISO/IEC 18047-63:2023",
+    "edition": "1.0",
+    "date": "2023-02-01",
+    "title": "Information technology - Radio frequency identification device conformance test methods - Part 63: Test methods for air interface communications at 860 MHz to 960 MHz",
+    "language": "EN",
+    "description": "This document specficies test methods for determining the conformance of radio frequency identification (RFID) devices (tags and interrogators) for item management with the specifications given in ISO/IEC 18000 - 63 . This document does not apply to the testing of conformity with regulatory or similar requirements. The test methods specify only the verification of the mandatory functions and any optional functions which are implemented. This can, in appropriate circumstances, be supplemented by further, application-specific functionality criteria that are not available in the general case. The interrogator and tag conformance parameters in this document are the following: — type-specific conformance parameters including nominal values and tolerances; — parameters that directly affect system functionality and inter-operability. Parameters that are already included in regulatory test requirements are not included in this document. Unless otherwise specified, the tests in this document are intended to be applied exclusively to RFID tags and interrogators defined in ISO/IEC 18000 - 63 ."
+  },
+  {
+    "reference": "ISO/IEC 18305:2016",
+    "edition": "1.0",
+    "date": "2016-11-01",
+    "title": "Information technology - Real time locating systems - Test and evaluation of localization and tracking systems",
+    "language": "EN",
+    "description": "ISO/IEC 18305:2016 identifies appropriate performance metrics and test & evaluation scenarios for localization and tracking systems, and it provides guidance on how best to present and visualize the T&E results. It focuses primarily on indoor environments."
+  },
+  {
+    "reference": "ISO/IEC 18975:2024",
+    "edition": "1.0",
+    "date": "2024-11-20",
+    "title": "Information technology - Automatic identification and data capture techniques - Encoding and resolving identifiers over HTTP",
+    "language": "EN",
+    "description": "This document specifies the different approaches for using HTTP URIs to encode globally unique identifiers. It specifies a dual use data structure. It is both an HTTP URI and a composition of structured item identification properties and optionally descriptive attributes. These can be decomposed and interpreted on their own and/or be used as a pointer to additional information. Methods are described to enable identification uniqueness in the context of AIDC. These rely on either: a) identifiers, such as described in the ISO/IEC 15459 series [ 7 ] , in the path or query string independent of the internet domain name; or, b) the internet domain name. The document further defines a basic common API for querying online services for information about identified items."
+  },
+  {
+    "reference": "ISO/IEC 19762:2025",
+    "edition": "2.0",
+    "date": "2025-04-01",
+    "title": "Information technology - Automatic identification and data capture (AIDC) techniques - Vocabulary",
+    "language": "EN",
+    "description": "This document defines general terms used in automatic identification and data capture (AIDC) on which are based further specialized sections in various technical fields, as well as the essential terms to be used by non-specialist users in communication with specialists in AIDC."
+  },
+  {
+    "reference": "ISO/IEC TR 19782:2006",
+    "edition": "1.0",
+    "date": "2006-06-01",
+    "title": "Information technology - Automatic identification and data capture techniques - Effects of gloss and low substrate opacity on reading of bar code symbols",
+    "language": "EN",
+    "description": "Users of bar code systems have experienced problems with poor read rates. These read rate problems can sometimes be attributed to spectral gloss from either the substrate or the image or both. In many bar code applications, the position and orientation of the scanner relative to the bar code symbol can be directly controlled by the operator. In these applications, the presentation of the bar code symbol to the reader will usually be manipulated by the operator to achieve optimal performance. However, in bar code applications using fixed position automated reading systems, the ability to control bar code symbol presentation to the reader and achieve optimised performance is diminished. Due to the very high volume of bar code marked items in today's supply chain, even a small reduction in read rate can represent significant logistics problems. Traditional gloss measurements are made at the angle that maximises specular reflection and do not provide results that can be used to predict performance at other angles. Moreover, many laser scanners use a retro-collective optical system that would correspond to a gloss meter using a zero degree angle of incidence, which is not commonly available. Present international bar code quality standards, such as ISO/IEC 15416, do not factor the impact of gloss from either the bar code image or substrate into quality grade ratings. Thus a Grade '4' label may be high gloss or low gloss. Low gloss labels and images tend to work well in all scanning systems, while high gloss labels and images may not. In the absence of industry specifications, users have no convenient reference to use when requesting suppliers to provide labels that will work well in their systems. ISO/IEC TR 19782:2006 provides a method for the measurement of gloss that will permit users to judge if the bar code symbol and substrate are suitably matched for the reading system used in their application. Low opacity of the substrate can degrade system performance because it may reduce the apparent contrast of the bar code symbol. ISO/IEC TR 19782:2006 therefore provides means for measuring the substrate opacity. The test method described in ISO/IEC TR 19782:2006 provides a means for the production of reproducible measurements. In specific applications, it may be necessary to correlate these measurements to practical performance. For example, a substrate backed by dark liquid may exhibit lower opacity than when measured dry. ISO/IEC TR 19782:2006 gives guidelines to deal with the effects of substrate gloss and/or low opacity on the performance of bar code symbols when scanned by reading and verification systems. It defines methods of measurement for gloss and opacity; it identifies conditions and values that present a risk of reading problems and provides recommendations to users on the specification of substrates and the set-up of scanning systems to minimize these problems. It also addresses the relationship between verification results and read performance when either or both of the factors are present. ISO/IEC TR 19782:2006 is intended for those who specify or implement labelling systems and those involved in the reading of bar code symbols on packages, components and other carriers of bar code symbols."
+  },
+  {
+    "reference": "ISO/IEC 19823-10:2026",
+    "edition": "3.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 10: Crypto suite AES-128",
+    "language": "EN",
+    "description": "This document describes the test methods for determining conformance for the security crypto suite AES-128 defined in ISO/IEC 29167-10. This document contains conformance tests for all mandatory and applicable optional functions. Unless otherwise specified, the tests in this document are only applicable to radio frequency identification (RFID) Tags and Interrogators defined in the ISO/IEC 15693 series and in the ISO/IEC 18000 series using ISO/IEC 29167-10."
+  },
+  {
+    "reference": "ISO/IEC 19823-11:2025",
+    "edition": "2.0",
+    "date": "2025-09-19",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 11: Crypto suite PRESENT-80",
+    "language": "EN",
+    "description": "This document specifies methods for determining conformance to the security crypto suite defined in ISO/IEC 29167-11. This document contains conformance tests for all mandatory functions. Unless otherwise specified, the tests in this document are intended to be applied exclusively to RFID tags and interrogators defined in the ISO/IEC 18000 series using ISO/IEC 29167-11."
+  },
+  {
+    "reference": "ISO/IEC 19823-13:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 13: Crypto suite Grain-128A",
+    "language": "EN",
+    "description": "This document describes the test methods for determining conformance for the security crypto suite Grain-128A defined in ISO/IEC 29167-13. This document contains conformance tests for all mandatory and optional functions. Unless otherwise specified, the tests in this document are only applicable to radio frequency identification (RFID) tags and interrogators defined in the ISO/IEC 18000 series using ISO/IEC 29167-13."
+  },
+  {
+    "reference": "ISO/IEC 19823-16:2026",
+    "edition": "2.0",
+    "date": "2026-03-09",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 16: Crypto suite ECDSA-ECDH",
+    "language": "EN",
+    "description": "This document describes the test methods for determining conformance for the security crypto suite ECDSA-ECDH defined in ISO/IEC 29167-16. This document contains conformance tests for all mandatory and applicable optional functions. Unless otherwise specified, the tests in this document are only applicable to radio frequency identification (RFID) Tags and Interrogators defined in the ISO/IEC 18000 series using ISO/IEC 29167-16."
+  },
+  {
+    "reference": "ISO/IEC 19823-19:2018",
+    "edition": "1.0",
+    "date": "2018-08-30",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 19: Crypto suite RAMON",
+    "language": "EN",
+    "description": "This document describes test methods for determining the conformance of security crypto suites with the specifications given in ISO/IEC 29167‑19. This document contains conformance tests for all mandatory and optional functions. The conformance parameters are the following: — parameters that apply directly, affecting system functionality and inter-operability; — protocol including commands and replies; — nominal values and tolerances. Unless otherwise specified, the tests in this document are exclusively applicable in relation to RFID tags and interrogators defined in the ISO/IEC 18000 series using a reference to this document."
+  },
+  {
+    "reference": "ISO/IEC 19823-21:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 21: Crypto suite SIMON",
+    "language": "EN",
+    "description": "This document describes the test methods for determining conformance to the security crypto suite SIMON defined in ISO/IEC 29167-21. This document contains conformance tests for all mandatory functions. Unless otherwise specified, the tests in this document are only applicable to radio frequency identification (RFID) Tags and Interrogators defined in the ISO/IEC 18000 series using ISO/IEC 29167-21."
+  },
+  {
+    "reference": "ISO/IEC 19823-22:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Conformance test methods for security service crypto suites - Part 22: Crypto suite SPECK",
+    "language": "EN",
+    "description": "This document describes the test methods for determining conformance for the security crypto suite SPECK defined in ISO/IEC 29167-22. This document contains conformance tests for all mandatory functions. Unless otherwise specified, the tests in this document are only applicable to radio frequency identification (RFID) Tags and Interrogators defined in the ISO/IEC 18000 series using ISO/IEC 29167-22."
+  },
+  {
+    "reference": "ISO/IEC TR 20017:2011",
+    "edition": "1.0",
+    "date": "2011-12-07",
+    "title": "Information technology - Radio frequency identification for item management - Electromagnetic interference impact of ISO/IEC 18000 interrogator emitters on implantable pacemakers and implantable cardioverter defibrillators",
+    "language": "EN",
+    "description": "ISO/IEC TR 20017:2011 presents a test method and results for the evaluation of ISO/IEC 18000 radio frequency identification (RFID) interrogator electromagnetic interference (EMI) on implantable pacemakers and implantable cardioverter defibrillators (ICDs). ISO/IEC TR 20017:2011 looks at the various public reports on the electromagnetic compatibility between RFID interrogators, implantable pacemakers, and ICDs. It recommends the development of a uniform testing protocol and a repository of test results from experiments using those test protocols."
+  },
+  {
+    "reference": "ISO/IEC 20248:2022",
+    "edition": "2.0",
+    "date": "2022-06-10",
+    "title": "Information technology - Automatic identification and data capture techniques - Digital signature data structure schema",
+    "language": "EN",
+    "description": "This document is an ISO/IEC 9594‑8 [public key infrastructure (PKI) digital signatures and certificates] application specification for automated identification services. It specifies a method whereby data stored within a barcode and/or RFID tag are structured, encoded and digitally signed. ISO/IEC 9594‑8 is used to provide a standard method for key and data description management and distribution. The data capacity and/or data transfer capacity of automated identification data carriers are restricted. This restricts the normal use of a digital signature as specified in ISO/IEC 9594‑8 within automated identification services. The purpose of this document is to provide an open and interoperable method, between automated identification services and data carriers, to read data, verify data originality and data integrity in an offline use case. This document specifies — the meta data structure, the DigSig, which contains the digital signature and encoded structured data, — the public key certificate parameter and extension use, the DigSig certificate, which contains the certified associated public key, the structured data description, the read methods, and private containers, — the method to specify, read, describe, sign, verify, encode, and decode the structured data, the DigSig Data Description, — the DigSig EncoderGenerator which generates the relevant asymmetric key pairs, keeps the private key secret, and generates the DigSigs, and — the DigSig DecoderVerifier which, by using to the DigSig certificate, reads the DigSig from the set of data carriers, verifies the DigSig and extracts the structured data from the DigSig. This document does not specify — cryptographic methods, or — key management methods."
+  },
+  {
+    "reference": "ISO/IEC 20248:2022/AMD1:2024",
+    "edition": "2.0",
+    "date": "2024-10-09",
+    "title": "Information technology - Automatic identification and data capture techniques - Digital signature data structure schema - Amendment 1: Domain authority identifier (DAID) specification for the GS1 legal entity identifier and encoding clarifications",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 20830:2021",
+    "edition": "1.0",
+    "date": "2021-08-27",
+    "title": "Information technology - Automatic identification and data capture techniques - Han Xin Code bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as Han Xin Code. It specifies the Han Xin Code symbology characteristics, data encoding process, symbol structure, dimensions and print quality requirements, error correction rules, reference decoding algorithm, and user-selectable application parameters."
+  },
+  {
+    "reference": "ISO/IEC 21277:2018",
+    "edition": "1.0",
+    "date": "2018-02-13",
+    "title": "Information technology - Radio frequency identification device performance test methods - Crypto suite",
+    "language": "EN",
+    "description": "ISO/IEC 21277:2018 defines test methods to measure the performance of crypto suites of radio frequency identification (RFID) devices (tags and interrogators) for item management as specified in ISO/IEC 18000‑63 and ISO/IEC 29167 (all parts). These test methods measure the crypto suite system performance (tags and interrogators) against the crypto suite outcomes as required by the desired set of use case requirements for a specific application/service. These test methods are used as an extension of ISO/IEC 18046‑1 but can be used in a standalone manner. Crypto suite performance can vary substantially between crypto suites, implementations of a crypto suite for tags and interrogators and crypto suite outcomes in specific interrogation scenarios. Tag crypto functions require time and energy to complete successfully. The desired crypto strength and method influence the time and energy required. \"Crypto suite performance\" is therefore defined in this document as \"the shortest time to complete a crypto outcome at a given read distance in relation to the RF power available\". This document provides guidelines in the evaluation of the measurement results. The test methods do not measure crypto capabilities which include crypto strength, suitability and robustness. They neither measure random generator performance nor deal with key management."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 21450:2010",
+    "edition": "1.0",
+    "date": "2010-05-20",
+    "title": "Information technology - Smart transducer interface for sensors and actuators - Common functions, communication protocols, and Transducer Electronic Data Sheet (TEDS) formats",
+    "language": "EN",
+    "description": "ISO/IEC/IEEE 21450:2010 provides a common basis for members of the ISO/IEC/IEEE 21451 series of International Standards to be interoperable. It defines the functions that are to be performed by a transducer interface module (TIM) and the common characteristics for all devices that implement the TIM. It specifies the formats for Transducer Electronic Data Sheets (TEDS). It defines a set of commands to facilitate the setup and control of the TIM as well as reading and writing the data used by the system. Application programming interfaces (APIs) are defined to facilitate communications with the TIM and with applications."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 21451-1:2010",
+    "edition": "1.0",
+    "date": "2010-05-20",
+    "title": "Information technology - Smart transducer interface for sensors and actuators - Part 1: Network Capable Application Processor (NCAP) information model",
+    "language": "EN",
+    "description": "ISO/IEC/IEEE 21451-1:2010 defines an object model with a network-neutral interface for connecting processors to communication networks, sensors, and actuators. The object model contains blocks, services, and components; it specifies interactions with sensors and actuators and forms the basis for implementing application code executing in the processor."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 21451-2:2010",
+    "edition": "1.0",
+    "date": "2010-05-20",
+    "title": "Information technology - Smart transducer interface for sensors and actuators - Part 2: Transducer to microprocessor communication protocols and Transducer Electronic Data Sheet (TEDS) formats",
+    "language": "EN",
+    "description": "ISO/IEC/IEEE 21451-2:2010 defines a digital interface for connecting transducers to microprocessors. It describes a Transducer Electronic Data Sheet (TEDS) and its data formats. It defines an electrical interface, read and write logic functions to access the TEDS, and a wide variety of transducers. ISO/IEC/IEEE 21451-2:2010 does not specify signal conditioning, signal conversion, or how the TEDS data is used in applications."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 21451-4:2010",
+    "edition": "1.0",
+    "date": "2010-05-20",
+    "title": "Information technology - Smart transducer interface for sensors and actuators - Part 4: Mixed-mode communication protocols and Transducer Electronic Data Sheet (TEDS) formats",
+    "language": "EN",
+    "description": "ISO/IEC/IEEE 21451-4:2010 defines the protocol and interface that allows analog transducers to communicate digital information with an ISO/IEC/IEEE 21451 object. It also defines the format of the Transducer Electronic Data Sheet (TEDS), which is based on the ISO/IEC/IEEE 21451-2 TEDS. It does not specify the transducer design, signal conditioning, or the specific use of the TEDS."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 21451-7:2011",
+    "edition": "1.0",
+    "date": "2011-12-15",
+    "title": "Information technology - Smart transducer interface for sensors and actuators - Part 7: Transducer to radio frequency identification (RFID) systems communication protocols and Transducer Electronic Data Sheet (TEDS) formats",
+    "language": "EN",
+    "description": "ISO/IEC/IEEE 21451-7:2011 defines data formats to facilitate communications between radio frequency identification (RFID) systems and smart RFID tags with integral transducers (sensors and actuators). It defines new Transducer Electronic Data Sheet (TEDS) formats based on the ISO/IEC/IEEE 21451 series of standards. It also defines a command structure and specifies the communication methods with which the command structure is designed to be compatible."
+  },
+  {
+    "reference": "ISO/IEC 21471:2025",
+    "edition": "2.0",
+    "date": "2025-04-29",
+    "title": "Information technology - Automatic identification and data capture techniques - Data Matrix Rectangular Extension (DMRE) bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as Data Matrix Rectangular Extension (DMRE). This document specifies the DMRE code symbology characteristics, data character encodation, symbol formats, dimensions and print quality requirements, error correction rules, decoding algorithm, and user-selectable application parameters. This document applies to all DMRE code symbols produced by any printing or marking technology. Original Data Matrix code sizes are not covered by this document but defined in ISO/IEC 16022 using the same matrix placement, decoding and error correction algorithm."
+  },
+  {
+    "reference": "ISO/IEC 22243:2019",
+    "edition": "1.0",
+    "date": "2019-09-30",
+    "title": "Information technology - Radio frequency identification for item management - Methods for localization of RFID tags",
+    "language": "EN",
+    "description": "This document defines how to use the RFID air interface standards of the ISO/IEC 18000 series that are based on backscatter technology for localization of RFID tags, specifically tags which are ISO/IEC 18000‑4, ISO/IEC 18000‑61, ISO/IEC 18000-62, ISO/IEC 18000-63 and ISO/IEC 18000-64 compliant. This document specifies the physical and logical requirements for localization. The system comprises interrogators, also known as readers, and tags, also known as labels. An interrogator receives information from a tag by transmitting a modulated RF signal to the tag and the tag responds by modulating the reflection coefficient of its antenna, thereby backscattering an information signal to the interrogator. The modulated RF signal for data exchange is based on the relevant part of the ISO/IEC 18000 series and, in addition, there is a superimposed modulated RF signal with the same or different carrier frequency intended for localization. This document describes the signals required for localization, the method to derive localization information from the signals received by the interrogator and the requirements onto tags and interrogators."
+  },
+  {
+    "reference": "ISO/IEC 22603-1:2021",
+    "edition": "1.0",
+    "date": "2021-09-28",
+    "title": "Information technology - Digital representation of product information - Part 1: General requirements",
+    "language": "EN",
+    "description": "This document establishes the general requirements for electronic product labelling which can be applicable to all types of product regardless of industry."
+  },
+  {
+    "reference": "ISO/IEC 22603-2:2022",
+    "edition": "1.0",
+    "date": "2022-10-14",
+    "title": "Information technology - Digital representation of product information - Part 2: Requirements for electronic devices with integral display",
+    "language": "EN",
+    "description": "The document addresses specific requirements which are applicable to all types of electronic devices with an integral display such as cell phones, computer tablets, desktop and laptop computers, monitors and printers."
+  },
+  {
+    "reference": "ISO/IEC 23200-1:2021",
+    "edition": "1.0",
+    "date": "2021-06-07",
+    "title": "Information technology - Radio frequency identification for item management - Part 1: Interference rejection performance test method between a tag as defined in ISO/IEC 18000-63 and a heterogeneous wireless system",
+    "language": "EN",
+    "description": "This document defines a test method to evaluate the interference rejection performance of tags covered by ISO/IEC 18000-63 and a heterogeneous wireless system using different access technologies, e.g. radio frequency identification and cell phone network. It specifies the general requirements and test requirements. The test method in this document makes it possible to compare the relative interference rejection performance among tags under a single wireless interference environment. In addition, this document can be used in a benchmarking test according to requirements in a given application or service."
+  },
+  {
+    "reference": "ISO/IEC 23200-2:2023",
+    "edition": "1.0",
+    "date": "2023-07-04",
+    "title": "Information technology - Radio frequency identification for item management - Part 2: Interference rejection performance test method between an Interrogator as defined in ISO/IEC 18000-63 and a heterogeneous wireless system",
+    "language": "EN",
+    "description": "This document specifies a test method to evaluate the interference rejection performance of UHF RFID interrogators covered by ISO/IEC 18000-63, and specifies the general requirements and test requirements of that test method. NOTE The interference rejection test method of this document is different to the one in ISO/IEC 18046-3:2020, 8.5. This document covers interference effects between the tags and a heterogeneous (diverse content) wireless system. ISO/IEC 18046-3 covers interference effect between tags and homogeneous (same content) wireless systems. This test method enables the comparison of the relative interference rejection performance among UHF RFID interrogators under a single wireless interference environment. In addition, this document can be used in a benchmarking test, according to requirements in a given application or service."
+  },
+  {
+    "reference": "ISO/IEC 23634:2022",
+    "edition": "1.0",
+    "date": "2022-04-20",
+    "title": "Information technology - Automatic identification and data capture techniques - JAB Code polychrome bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as JAB Code. It specifies the JAB Code symbology characteristics, symbol structure, symbol dimensions, symbol cascading rules, data character encodation, error correction rules, user-selectable application parameters, print quality requirements and a reference decode algorithm."
+  },
+  {
+    "reference": "ISO/IEC 23941:2022",
+    "edition": "1.0",
+    "date": "2022-05-20",
+    "title": "Information technology - Automatic identification and data capture techniques - Rectangular Micro QR Code (rMQR) bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as rMQR. It specifies the rMQR symbology characteristics, data character encoding methods, symbol formats, dimensional characteristics, error correction rules, reference decoding algorithm, printing quality requirements and user-selectable application parameters."
+  },
+  {
+    "reference": "ISO/IEC TR 24244:2022",
+    "edition": "1.0",
+    "date": "2022-05-11",
+    "title": "Automatic identification and data capture techniques - Bar code print quality test specification - Evolution of the grading and measurement of linear symbols in ISO/IEC 15416",
+    "language": "EN",
+    "description": "This document explains the changes incorporated in ISO/IEC 15416:2016 compared to ISO/IEC 15416:2000 and highlights the impact of these changes for the users' benefit."
+  },
+  {
+    "reference": "ISO/IEC 24458:2022",
+    "edition": "1.0",
+    "date": "2022-05-05",
+    "title": "Information technology – Automatic identification and data capture techniques – Bar code printer and bar code reader performance testing specification",
+    "language": "EN",
+    "description": "This document specifies the performance evaluation specifications of thermal transfer type printers (hereinafter referred to as bar code printers), consumables, and bar code readers (regardless of the reading method) used in bar code systems. The rank of performance is also defined by the evaluation items. This document can be applied to the following evaluation tests by combining ISO/IEC 15416 and ISO/IEC 15415, which define the print qualities of bar code symbols. NOTE This document is not prevented from being cited in the evaluation of thermal printers using thermal paper and printers using “plain or exclusive paper” (commercial printing, ink jet printers, electrophotographic printers, etc.). a) Print performance of bar code printers (including consumables) b) Brightness and smoothness of “reception paper or label”, and adhesion of the label c) Strength of reception paper or label on which the bar code is printed d) Reading performance of bar code readers e) Electrical, mechanical and environmental characteristics of bar code printers and bar code readers"
+  },
+  {
+    "reference": "ISO/IEC TR 24720:2008",
+    "edition": "1.0",
+    "date": "2008-05-22",
+    "title": "Information technology - Automatic identification and data capture techniques - Guidelines for direct part marking (DPM)",
+    "language": "EN",
+    "description": "ISO/IEC TR 24720:2008 describes several methods for applying permanent machine-readable symbols to items - including components, parts and products - using the direct part marking (DPM) methods outlined herein. ISO/IEC TR 24720:2008 describes marking methods, marking surface preparation, marking location, protective coatings and other parameters that contribute to the production of quality symbols, but does not specify the information to be encoded."
+  },
+  {
+    "reference": "ISO/IEC 24723:2010",
+    "edition": "2.0",
+    "date": "2010-07-28",
+    "title": "Information technology - Automatic identification and data capture techniques - GS1 Composite bar code symbology specification",
+    "language": "EN",
+    "description": "Composite symbologies are a class of bar code symbology, the principal distinguishing feature of which is that they comprise two, or more, components, each of which is a distinct symbol, but which contain a set of related data. Typically one component is a linear symbol containing primary data, which can be read on its own in some areas of the application. The other component(s) is a two-dimensional symbol containing supplementary data which qualifies the primary message, and requiring all components to be read to extract the complete message. The GS1 Composite symbology is one such symbology. The use of the symbology is intended to comply with the GS1 General Specifications. A GS1 Composite symbol consists of a linear component (encoding the item's primary identification) associated with an adjacent 2D component (encoding supplementary data, such as a batch number or expiration date). The GS1 Composite symbol always includes a linear component so that the primary identification is readable by all scanning technologies, and so that 2D imagers can use the linear component as a finder pattern for the adjacent 2D component. The GS1 Composite symbol always includes a multi-row 2D component, for compatibility with linear and 2D imagers, and with linear and rastering laser scanners. GS1 Composite symbols are intended for encoding identification numbers and data supplementary to the identification in accordance with the GS1 General Specifications. The administration of the numbering system by GS1 ensures that identification codes assigned to particular items are unique world-wide and that they and the associated supplementary data are defined in a consistent way. ISO/IEC 24723:2010 defines the requirements for the GS1 Composite symbology. It specifies the GS1 Composite symbology characteristics, data character encodation, symbol formats, dimensions and print quality requirements, error correction rules, and reference decoding algorithms. For those linear and 2D components of GS1 Composite symbols with published symbology specifications, those published specifications apply, except as specifically noted in ISO/IEC 24723:2010."
+  },
+  {
+    "reference": "ISO/IEC 24724:2011",
+    "edition": "2.0",
+    "date": "2011-03-29",
+    "title": "Information technology - Automatic identification and data capture techniques - GS1 DataBar bar code symbology specification",
+    "language": "EN",
+    "description": "The GS1 DataBar family contains three types of linear symbologies to be used with the GS1 system. The first type has four variations (GS1 DataBar Omnidirectional, GS1 DataBar Truncated, GS1 DataBar Stacked and GS1 DataBar Stacked Omnidirectional). The stacked variations are two-row symbols. The second type comprises only one variation, namely GS1 DataBar Limited. The third type has two variations, a single row variation (GS1 DataBar Expanded) and a multi-row stacked variation (GS1 DataBar Expanded Stacked). The use of GS1 DataBar is intended to comply with the GS1 application guidelines as defined in the GS1 General Specifications. GS1 DataBar Omnidirectional and GS1 DataBar Stacked Omnidirectional encode a 14-digit GS1 item identification (often referred to as a Global Trade Item Number, or GTIN) in a linear symbol that can be scanned omnidirectionally by suitably programmed point-of-sale scanners. GS1 DataBar Truncated and GS1 DataBar Stacked encode a 14-digit GS1 item identification in a linear symbol and are not suitable for omnidirectional scanning. GS1 DataBar Limited encodes a 14-digit GS1 item identification with a leading digit of zero or one in a linear symbol for use on small items that will not be scanned at the point-of-sale. GS1 DataBar Expanded encodes GS1 item identification plus supplementary application identifier element strings such as weight and \"best before\" date in a linear symbol that can be scanned omnidirectionally by suitably programmed point-of-sale scanners. Any member of the GS1 DataBar family can be printed as a stand-alone linear symbol or as part of a GS1 Composite symbol with an accompanying two-dimensional (2D) component printed above the GS1 DataBar linear component. GS1 DataBar symbols are intended for encoding identification numbers and data supplementary to the identification. The administration of the numbering system by GS1 ensures that identification codes assigned to particular items are unique worldwide and that they and the associated supplementary data are defined in a consistent way. The major benefit for the users of the GS1 system is the availability of uniquely defined identification codes and supplementary data formats for use in their trading transactions. ISO/IEC 24724:2011 defines the requirements for the GS1 DataBar symbology family. It specifies the characteristics of the GS1 DataBar symbology family, data character encodation, symbol formats, dimensions, print quality requirements, error detection, and decoding algorithms. For GS1 Composite symbols, ISO/IEC 24723 defines the 2D component. GS1 DataBar was formerly known as \"Reduced Space Symbology (RSS)\" and is renamed to align with the name of the GS1 organization."
+  },
+  {
+    "reference": "ISO/IEC 24728:2006",
+    "edition": "1.0",
+    "date": "2006-05-24",
+    "title": "Information technology - Automatic identification and data capture techniques - MicroPDF417 bar code symbology specification",
+    "language": "EN",
+    "description": "ISO/IEC 24728:2006 specifies the requirements for the bar code symbology known as MicroPDF417. It specifies the MicroPDF417 symbology characteristics, data character encodation, symbol formats, dimensions, error correction rules, decoding algorithm, and a number of application parameters. MicroPDF417 is a multi-row symbology, derived from and closely based on PDF417. MicroPDF417 is designed for applications with a need for improved area efficiency but without the requirement for PDF417's maximum data capacity. A limited set of symbol sizes is available, together with a fixed level of error correction for each symbol size. Module dimensions are user-specified to enable symbol production and reading by a wide variety of techniques. Since MicroPDF417's data character encodation, its error correction method, and many of its other symbol characteristics are, and are intended to remain, identical to those of PDF417, descriptions of these characteristics are quoted verbatim from the PDF417 symbology specification (ISO/IEC 15438) wherever appropriate, or with the appropriate modifications. For ease of cross-reference, ISO/IEC 24728:2006 follows a similar document structure, with minor differences in clause/subclause numbering, to the PDF417 symbology specification."
+  },
+  {
+    "reference": "ISO/IEC TR 24729-1:2008",
+    "edition": "1.0",
+    "date": "2008-04-08",
+    "title": "Information technology - Radio frequency identification for item management - Implementation guidelines - Part 1: RFID-enabled labels and packaging supporting ISO/IEC 18000-6C",
+    "language": "EN",
+    "description": "ISO/IEC TR 24729-1:2008 provides guidance on the use of radio frequency identification (RFID) enabled labels and packaging in the supply chain. Guidance is provided for transponder selection, as well as the selection of media, adhesives, facestocks, and inks. Techniques are described to minimize electrostatic discharge and transponder damage. Methods are described to verify transponder data. Placement and attachment guidance is provided for inlays, conveyable cases and containers, palletized/unit load material, as well as non-conveyables and non-palletized materials. One type of RFID referred to within ISO/IEC TR 24729-1:2008 is the EPCglobal Class 1 Generation 2 technology. The“Class” structure originally embraced by EPCglobal has, for the most part, been overtaken by events. Consequently, this technology may be referred to as UHF Gen 2 or by its ISO designation, ISO/IEC 18000,Part 6C."
+  },
+  {
+    "reference": "ISO/IEC TR 24729-2:2008",
+    "edition": "1.0",
+    "date": "2008-04-08",
+    "title": "Information technology - Radio frequency identification for item management - Implementation guidelines - Part 2: Recycling and RFID tags",
+    "language": "EN",
+    "description": "ISO/IEC TR 24729-2:2008 describes the potential for use of radio-frequency identification (RFID) as a significant enabler in the recycling of various types of products; notably home appliances and electronics. It identifies various recycling streams that are challenged by the possibility of RF tags being attached to recycled material, notably glass and steel."
+  },
+  {
+    "reference": "ISO/IEC TR 24729-3:2009",
+    "edition": "1.0",
+    "date": "2009-05-18",
+    "title": "Information technology - Radio frequency identification for item management - Implementation guidelines - Part 3: Implementation and operation of UHF RFID Interrogator systems in logistics applications",
+    "language": "EN",
+    "description": "ISO/IEC TR 24729-3:2009 provides reference information and practical knowledge in the selection, installation and application of ISO/IEC 18000-6C RFID Readers. RFID Readers include fixed mounted (such as portal, conveyor, and wrap stations), handheld (tethered and wireless), and mobile mounted (such as those found on forklifts). ISO/IEC TR 24729-3:2009 presents guidelines to improve the performance of RFID data collection systems for more successful applications and to cover the approaches necessary to ensure that the operational requirements of the end user are met. Many of the techniques recommended are the result of practical tests in working environments. However, each application is different and thus the techniques recommended herein might not be applicable in all situations."
+  },
+  {
+    "reference": "ISO/IEC TR 24729-4:2009",
+    "edition": "1.0",
+    "date": "2009-03-11",
+    "title": "Information technology - Radio frequency identification for item management - Implementation guidelines - Part 4: Tag data security",
+    "language": "EN",
+    "description": "ISO/IEC TR 24729-4:2009 provides guidance to systems designers to help them determine potential threats to data security of the tag and tag-to-reader communication in an RFID system, and appropriate countermeasures to provide data security. Although important, it is beyond the scope of ISO/IEC TR 24729-4:2009 to address security aspects of the reader-to-host and back-end enterprise modules. ISO/IEC TR 24729-4:2009 is not intended to specifically address consumer privacy concerns; however, since data and personal privacy depend on the use of appropriate security measures, privacy is addressed in general terms. Data access security provides a measure of personal privacy protection by mitigating the potential for unauthorized reading of data on a tag. However, not all data access security countermeasures provide the same level of protection."
+  },
+  {
+    "reference": "ISO/IEC 24730-1:2014",
+    "edition": "2.0",
+    "date": "2014-02-10",
+    "title": "Information technology - Real-time locating systems (RTLS) - Part 1: Application programming interface (API)",
+    "language": "EN",
+    "description": "ISO/IEC 24730-1:2014 enables software applications to utilize a real-time locating system (RTLS) infrastructure to locate assets with RTLS transmitters attached to them. It defines a boundary across which application software uses facilities of programming languages to collect information contained in RTLS tag blinks received by the RTLS infrastructure."
+  },
+  {
+    "reference": "ISO/IEC 24730-2:2012",
+    "edition": "2.0",
+    "date": "2012-05-31",
+    "title": "Information technology - Real time locating systems (RTLS) - Part 2: Direct Sequence Spread Spectrum (DSSS) 2,4 GHz air interface protocol",
+    "language": "EN",
+    "description": "ISO/IEC 24730-2:2012 is comprised of this main document and two additional parts, ISO/IEC 24730-21 and ISO/IEC 24730-22, and defines a networked location system that provides X-Y coordinates and data telemetry. The system utilizes real-time locating systems (RTLS) transmitters that autonomously generate a direct sequence spread spectrum radio frequency beacon. These devices can be field programmable and support an optional exciter mode that allows modification of the rate of location update and location of the RTLS device. ISO/IEC 24730-2 defines these modes, but does not define the means by which they are accomplished."
+  },
+  {
+    "reference": "ISO/IEC 24730-5:2010",
+    "edition": "1.0",
+    "date": "2010-03-15",
+    "title": "Information technology - Real-time locating systems (RTLS) - Part 5: Chirp spread spectrum (CSS) at 2,4 GHz air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24730 defines air interface protocols and an application programming interface (API) for real-time locating systems (RTLS). ISO/IEC 24730-5:2010 defines an air interface protocol which utilizes chirp spread spectrum (CSS) at frequencies from 2,4 GHz to 2,483 GHz. This protocol supports bidirectional communication and two-way ranging between the readers and tags of an RTLS. The mandatory default mode ensures interoperability between tags and infrastructure from various manufacturers, while the availability of several options offers flexibility to the developer of the infrastructure to adapt the behaviour of the overall system to the specific needs of his application."
+  },
+  {
+    "reference": "ISO/IEC 24730-21:2012",
+    "edition": "1.0",
+    "date": "2012-05-31",
+    "title": "Information technology - Real time locating systems (RTLS) - Part 21: Direct Sequence Spread Spectrum (DSSS) 2,4 GHz air interface protocol: Transmitters operating with a single spread code and employing a DBPSK data encoding and BPSK spreading scheme",
+    "language": "EN",
+    "description": "ISO/IEC 24730-2 is comprised of a main document and two additional parts, ISO/IEC 24730-21 and ISO/IEC 24730-22, and defines a networked location system that provides X-Y coordinates and data telemetry. The system utilizes real-time locating systems (RTLS) transmitters that autonomously generate a direct sequence spread spectrum radio frequency beacon. These devices can be field programmable and support an optional exciter mode that allows modification of the rate of location update and location of the RTLS device. ISO/IEC 24730-2 defines these modes, but does not define the means by which they are accomplished. ISO/IEC 24730-21:2012 specifies transmitters operating with a single spread code and employing a differential binary phase shift keying (DBPSK) data encoding and binary phase shift keying (BPSK) spreading scheme."
+  },
+  {
+    "reference": "ISO/IEC 24730-22:2012",
+    "edition": "1.0",
+    "date": "2012-05-31",
+    "title": "Information technology - Real time locating systems (RTLS) - Part 22: Direct Sequence Spread Spectrum (DSSS) 2,4 GHz air interface protocol: Transmitters operating with multiple spread codes and employing a QPSK data encoding and Walsh offset QPSK (WOQPSK) spreading scheme",
+    "language": "EN",
+    "description": "ISO/IEC 24730-2 is comprised of a main document and two additional parts, ISO/IEC 24730-21 and ISO/IEC 24730-22, and defines a networked location system that provides X-Y coordinates and data telemetry. The system utilizes real-time locating systems (RTLS) transmitters that autonomously generate a direct sequence spread spectrum radio frequency beacon. These devices can be field programmable and support an optional exciter mode that allows modification of the rate of location update and location of the RTLS device. ISO/IEC 24730-2 defines these modes, but does not define the means by which they are accomplished. ISO/IEC 24730-22:2012 is the mode of ISO/IEC 24730-2 transmitters operating with multiple spread codes and employing a quadrature phase shift keying (QPSK) data encoding and Walsh offset QPSK (WOQPSK) spreading scheme."
+  },
+  {
+    "reference": "ISO/IEC 24730-61:2013",
+    "edition": "1.0",
+    "date": "2013-07-24",
+    "title": "Information technology - Real time locating systems (RTLS) - Part 61: Low rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24730-61:2012 defines the physical layer (PHY) and tag management layer (TML) of an ultra wide band (UWB) air interface protocol that supports one directional simplex communication readers and tags of a real time locating system (RTLS). This protocol is best utilized for low-data-rate wireless connectivity with fixed, portable, and moving devices with very limited battery consumption requirements."
+  },
+  {
+    "reference": "ISO/IEC 24730-62:2013",
+    "edition": "1.0",
+    "date": "2013-08-26",
+    "title": "Information technology - Real time locating systems (RTLS) - Part 62: High rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24730-62:2013 defines the air-interface for real time locating systems (RTLS) using a physical layer Ultra Wide Band (UWB) signalling mechanism (based on IEEE 802.15.4a UWB). This modulation scheme employs high rate pulse repetition frequencies (PRF) 16 MHz or 64 MHz, and a combination of burst position modulation (BPM) and binary phase-shift keying (BPSK) giving an extremely high level of performance with a fully coherent receiver. In addition to defining the air interface protocol (AIP) in terms of the physical layer modulation, ISO/IEC 24730-62:2013 also defines the AIP in terms of the messages sent over the air. This AIP supports simple one-way communication of a basic blink that may be used for a one-way Time Difference of Arrival (TDOA) based RTLS, where mobile tags periodically transmit the blink message which is received by an infrastructure consisting of a number of fixed reader nodes. This AIP also optionally supports bidirectional communication and two-way ranging between the readers and tags of an RTLS. The support of two-way ranging depends on additionally including a UWB receiver in the tag and UWB transmitters in the reader infrastructure. The mandatory default operational mode ensures interoperability between tags and infrastructure from various manufacturers, while the availability of several options offers flexibility to the developer of the infrastructure to adapt the behaviour of the overall system to the specific needs of his application."
+  },
+  {
+    "reference": "ISO/IEC 24753:2011",
+    "edition": "1.0",
+    "date": "2011-08-26",
+    "title": "Information technology - Radio frequency identification (RFID) for item management - Application protocol: encoding and processing rules for sensors and batteries",
+    "language": "EN",
+    "description": "ISO/IEC 24753:2011 defines a minimum application protocol to support sensors and the monitoring of batteries in conjunction with RFID tags utilizing the air interface as defined in the ISO/IEC 18000 series. It provides common encoding rules for identifying sensors, their functions, and their delivered measurements. It also defines the process rules to support the following functions: selecting and de-selecting a particular sensory function when more than one is supported by the RFID tag; setting sensor parameters both initially and ongoing; starting and stopping the monitoring function of a sensor; accessing sensor data; and carrying out basic processing of sensor data and interpreting this into a format that is meaningful for an application."
+  },
+  {
+    "reference": "ISO/IEC 24769-2:2013",
+    "edition": "1.0",
+    "date": "2013-06-12",
+    "title": "Information technology - Real-time locating systems (RTLS) device conformance test methods - Part 2: Test methods for air interface communication at 2,4 GHz",
+    "language": "EN",
+    "description": "ISO/IEC 24769-2:2013 defines the test methods for determining the conformance of 2,4 GHz real-time locating system (RTLS) tags with the specifications given in the corresponding subclauses of ISO/IEC 24730-2, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may in appropriate circumstances be supplemented by further, application-specific functionality criteria that are not available to the general case. The RTLS tag conformance parameters included in ISO/IEC 24769-2:2013 include the mandatory direct sequence spread spectrum (DSSS) 2,4 GHz radio frequency beacon. It also includes the optional on-off keyed, frequency shift keyed (OOK/FSK) short-range radio frequency link and the optional magnetic air interface. Unless otherwise specified, the tests in ISO/IEC 24769-2:2013 apply exclusively to RTLS tags defined in ISO/IEC 24730-2."
+  },
+  {
+    "reference": "ISO/IEC 24769-5:2012",
+    "edition": "1.0",
+    "date": "2012-12-04",
+    "title": "Information technology - Automatic identification and data capture techniques - Real time locating systems (RTLS) device conformance test methods - Part 5: Test methods for chirp spread spectrum (CSS) at 2,4 GHz air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24769-5:2012 defines the test methods for determining the conformance of real time locating systems (RTLS) tags and readers with the specifications given in the corresponding parts of ISO/IEC 24730-5. ISO/IEC 24769-5:2012 does not include the testing of conformity with regulatory requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. The conformance parameters described in ISO/IEC 24769-5:2012 include the radio frequency air interface and packet exchange required to perform the locating of the RTLS tag. It includes the mandatory 2-ary orthogonal chirp spread spectrum (CSS) modulation and the optional differential quadrature phase shift keying (DQPSK) CSS. ISO/IEC 24769-5:2012 also includes the ranging packet exchanges, the commands and the reports defined in ISO/IEC 24730-5. Unless otherwise specified, the tests in ISO/IEC 24769-5:2012 shall be applied exclusively to RTLS tags and readers defined in ISO/IEC 24730-5."
+  },
+  {
+    "reference": "ISO/IEC 24769-61:2015",
+    "edition": "1.0",
+    "date": "2015-09-28",
+    "title": "Information Technology - Real Time Locating System (RTLS) Device Conformance Test Methods - Part 61: Low rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24769-61:2015 defines the test methods for determining the conformance of Ultra Wide Band real-time locating system (RTLS) tags with the specifications given in the corresponding parts of ISO/IEC 24730-61, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may in appropriate circumstances, be supplemented by further, application specific functionality criteria that are not available to the general case. Unless otherwise specified, the tests in ISO/IEC 24769-61:2015 apply exclusively to RTLS tags defined in ISO/IEC 24730-61."
+  },
+  {
+    "reference": "ISO/IEC 24769-62:2015",
+    "edition": "1.0",
+    "date": "2015-09-28",
+    "title": "Information Technology - Real Time Locating System (RTLS) Device Conformance Test Methods - Part 62: High rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24769-62:2015 defines the test methods for determining the conformance of Ultra Wide Band real-time locating system (RTLS) tags with the specifications given in the corresponding parts of ISO/IEC 24730‑62, but does not apply to the testing of conformity with regulatory or similar requirements. The test methods require only that the mandatory functions, and any optional functions which are implemented, be verified. This may in appropriate circumstances, be supplemented by further, application specific functionality criteria that are not available to the general case. Unless otherwise specified, the tests in ISO/IEC 24769-62:2015 apply exclusively to RTLS tags defined in ISO/IEC 24730-62."
+  },
+  {
+    "reference": "ISO/IEC 24770:2012",
+    "edition": "1.0",
+    "date": "2012-12-04",
+    "title": "Information technology - Real-time locating system (RTLS) device performance test methods - Test methods for air interface communication at 2,4 GHz",
+    "language": "EN",
+    "description": "ISO/IEC 24770:2012 defines the test methods for determining the performance characteristics of 2,4 GHz real-time locating system (RTLS) equipment including tags, readers, and exciters which are applicable to the selection of equipment that conforms to ISO/IEC 24730-2 for specific applications. ISO/IEC 24770:2012 does not apply to the testing in relation to regulatory or similar requirements. The RTLS equipment performance parameters included in ISO/IEC 24770:2012 include the mandatory direct sequence spread spectrum (DSSS) 2,4 GHz radio frequency beacon link between tags and readers. It includes the optional on-off keyed/frequency shift keyed (OOK/FSK) short range radio frequency link between tags and programmers. It also includes the optional magnetic air-interface between exciters and tags and between programmers and tags. Unless otherwise specified, the tests in ISO/IEC 24770:2012 apply exclusively to RTLS equipment defined in ISO/IEC 24730-2."
+  },
+  {
+    "reference": "ISO/IEC 24770-5:2019",
+    "edition": "1.0",
+    "date": "2019-08-06",
+    "title": "Information technology -Real-time locating system (RTLS) device performance test methods - Part 5: Test methods for chirp spread spectrum (CSS) air interface",
+    "language": "EN",
+    "description": "This document defines the test methods for determining the performance characteristics of chirp spread spectrum (CSS) real time locating system (RTLS) equipment including tags and readers which are applicable to the selection of equipment that conforms to ISO/IEC 24730‑5 for specific applications. This document does not apply to the testing in relation to regulatory or similar requirements. The RTLS equipment performance parameters included in this document only include the chirp spread spectrum (CSS) radio frequencies link between tags and readers. Unlike ISO/IEC 18305, the tests in this document apply exclusively to RTLS equipment defined in ISO/IEC 24730‑5 unless specified otherwise."
+  },
+  {
+    "reference": "ISO/IEC 24770-61:2015",
+    "edition": "1.0",
+    "date": "2015-09-28",
+    "title": "Information technology - Real Time Locating System (RTLS) device performance test methods - Part 61: Low rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24770-61:2015 defines the test methods for determining the performance characteristics of Ultra Wide Band (UWB) real time locating system (RTLS) equipment including tags and readers which are applicable to the selection of equipment that conforms to ISO/IEC 24730-6 for specific applications. It does not apply to the testing in relation to regulatory or similar requirements. The RTLS equipment performance parameters included in ISO/IEC 24770-61:2015 only include the Ultra Wide Band (UWB) radio frequencies link between tags and readers. Unless otherwise specified, the tests in ISO/IEC 24770-61:2015 apply exclusively to RTLS equipment defined in ISO/IEC 24730-6."
+  },
+  {
+    "reference": "ISO/IEC 24770-62:2015",
+    "edition": "1.0",
+    "date": "2015-10-01",
+    "title": "Information technology - Real-time locating system (RTLS) device performance test methods - Part 62: High rate pulse repetition frequency Ultra Wide Band (UWB) air interface",
+    "language": "EN",
+    "description": "ISO/IEC 24770-62:2015 defines the test methods for determining the performance characteristics of Ultra Wide Band (UWB) real time locating system (RTLS) equipment including tags and readers which are applicable to the selection of equipment that conforms to ISO/IEC 24730-62 for specific applications. It does not apply to the testing in relation to regulatory or similar requirements. The RTLS equipment performance parameters included in ISO/IEC 24770-62:2015 only include the Ultra Wide Band (UWB) radio frequencies link between tags and readers. Unless otherwise specified, the tests in ISO/IEC 24770-62:2015 apply exclusively to RTLS equipment defined in ISO/IEC 24730-62."
+  },
+  {
+    "reference": "ISO/IEC 24778:2024",
+    "edition": "2.0",
+    "date": "2024-04-09",
+    "title": "Information technology - Automatic identification and data capture techniques - Aztec Code bar code symbology specification",
+    "language": "EN",
+    "description": "This document defines the requirements for the symbology known as Aztec Code. It specifies the Aztec Code symbology characteristics, including: — data character encodation; — rules for error control encoding; — the graphical symbol structure; — symbol dimensions and print quality requirements; — a reference decoding algorithm; — user-selectable application parameters."
+  },
+  {
+    "reference": "ISO/IEC 24791-1:2010",
+    "edition": "1.0",
+    "date": "2010-08-06",
+    "title": "Information technology - Radio frequency identification (RFID) for item management - Software system infrastructure - Part 1: Architecture",
+    "language": "EN",
+    "description": "ISO/IEC 24791 defines a Software System Infrastructure that enables radio frequency identification (RFID) system operations between business applications and RFID interrogators. RFID software systems are composed of RFID interrogators, intermediate software systems, and applications that provide control and coordination of air interface operation, tag and sensor information exchange, and health and performance management of system components. ISO/IEC 24791-1:2010 provides the following: an overview of the Software System Infrastructure; the relationship of the Software System Infrastructure to existing ISO components, e.g. ISO/IEC 15962; a basic description of each Software System Infrastructure component and the services that it provides (The detailed description of a particular component can be found in other parts of ISO/IEC 24791.); illustrative (informative) deployment models of the components of the Software System Infrastructure."
+  },
+  {
+    "reference": "ISO/IEC 24791-2:2011",
+    "edition": "1.0",
+    "date": "2011-10-14",
+    "title": "Information technology - Radio frequency identification (RFID) for item management - Software system infrastructure - Part 2: Data management",
+    "language": "EN",
+    "description": "ISO/IEC 24791-2:2011 defines the interface(s) that provide operations on radio frequency identification (RFID) tag data including, but not limited to, reading, writing, collection, filtering, grouping, and event subscription and notification within the Software System Infrastructure (SSI). Specifically, the interface(s) defined by ISO/IEC 24791-2:2011 provide the following features: full support for the commands and responses for air protocols supported by ISO/IEC 24791-2:2011 at an abstraction level appropriate for Data Management's position in the SSI architecture defined in ISO/IEC 24791-1; an abstract definition of commands and operations that can be applied to different network bindings and encoding mechanisms; support for the encoding mechanisms defined in ISO/IEC 15962; volume reduction, format or structure modification, data analysis, and data access appropriate for Data Management's position in the SSI architecture defined in ISO/IEC 24791-1; reporting of data to support application or data managing in formats controlled by the client, either inside or outside of SSI. ISO/IEC 24791-2:2011 is composed of the EPCglobal Application Level Events Standard , in its entirety, with extensions to further support operation with ISO/IEC 15962 and the air protocols defined by ISO/IEC 18000."
+  },
+  {
+    "reference": "ISO/IEC 24791-3:2022",
+    "edition": "2.0",
+    "date": "2022-12-01",
+    "title": "Information technology - Radio frequency identification (RFID) for item management - Software system infrastructure - Part 3: Device management",
+    "language": "EN-FR, EN",
+    "description": "This document defines interfaces for device management of RFID systems. Interfaces are defined that provide for discovery, configuration, initialization and monitoring of RFID systems within the software system infrastructure (SSI). This document only deals with devices that provide RFID related services. It does not distinguish the form factor of such RFID devices. This document provides two distinct interface sets , one based on the GS1 EPCglobal DCI standard and the IETF SNMP RFCs and the other based on the Organization for the Advancement of Structured Information Standards (OASIS) DPWS standard. The definition of the Device Profile for RFID is referred to in this document as the RFID Device Management Profile, or RDMP. Each interface option set provides interface definitions that provide ISO/IEC 2 4791 - 3 Client Endpoints and Services Endpoints with the mechanisms for: — the discovery of the RFID devices and services on a local or remote subnet; — a firmware upgrade service; — a management service that implements configuration related functions; — a monitoring service for reporting alerts, diagnostics, and performance information. The two interface set definitions provided by this document allow for clients and services endpoints to implement and provide the services based on the specific characteristics of the RFID system to be implemented. Subc lause 1. 2 defines the Conformance requirements for systems that implement components of one or both of the interface sets."
+  },
+  {
+    "reference": "ISO/IEC 24791-5:2025",
+    "edition": "2.0",
+    "date": "2025-10-16",
+    "title": "Information technology - Radio frequency identification for item management software system infrastructure - Part 5: Device interface",
+    "language": "EN",
+    "description": "This document specifies an interface within the software system infrastructure (SSI) that provides radio frequency identification (RFID) system control components with low-level access to RFID interrogators for the purpose of optimizing RFID data access and control operations. This interface is designed to be modular with the ability to support multiple RFID air protocols. However, in this document, the only RFID air protocol supported is ISO/IEC 18000-63:2021."
+  },
+  {
+    "reference": "ISO/IEC 29133:2010",
+    "edition": "1.0",
+    "date": "2010-05-04",
+    "title": "Information technology - Automatic identification and data capture techniques -  Quality test specification for rewritable hybrid media data carriers",
+    "language": "EN",
+    "description": "ISO/IEC 29133:2010 specifies methodologies to be used for the conformance of rewritable hybrid media data carriers, which combine radio frequency identification (RFID) tag technology with linear and/or two-dimensional bar code symbologies that are written to an erasable substrate. Three main product configuration types are addressed within ISO/IEC 29133:2010: Rewritable Media, which supports the rewriting of linear or two-dimensional symbols; Rewritable Hybrid Media, which integrates the Rewritable Media with an RFID tag; Rewritable Media combined with RFID technology that are physically separate data carriers but still require their data encoding processes to be integrated as part of a Rewritable Hybrid Media system. In particular, ISO/IEC 29133:2010 defines the base requirements for Rewritable Media and Rewritable Media devices, defines additional methods for process control of the Rewritable Media over multiple erasure and rewrite cycles, defines reference standards for evaluating the RFID tag component, defines additional methods for process control of the RFID component over multiple erasure and rewrite cycles, provides information to ensure that the data encoded in the bar code symbology and RFID data carrier are synchronous, i.e. are derived from the same source data set. Note that depending on the application, the encoded data can be identical or different (e.g. one data carrier could provide additional data)."
+  },
+  {
+    "reference": "ISO/IEC 29143:2011",
+    "edition": "1.0",
+    "date": "2011-01-31",
+    "title": "Information technology - Automatic identification and data capture techniques - Air interface specification for Mobile RFID interrogators",
+    "language": "EN",
+    "description": "ISO/IEC 29143:2011 provides an air interface specification for Mobile radio frequency identification (RFID) interrogators being part of a passive backscatter system. This system comprises one or more mobile interrogators, also known as Mobile RFID interrogators, and an undefined number of tags, also known as labels. Interrogators are not required to support channel sensing, i.e. do not need to implement Listen Before Talk (LBT), and transmit commands on the off chance under the risk of colliding with one or more peer-interrogators. Moreover, interrogators compliant to ISO/IEC 29143:2011 are not obliged to synchronize by any means (wired or wireless), i.e. no control channel dedicated to coordinating Time Division Multiplexing (TDM) is provided. Tags are powered by the RF signal provided by the interrogator and respond to an interrogator by modulating the reflection coefficient of its antenna, thereby backscattering data to the interrogator. The working mode adopted by the tags is purely passive, i.e. tags do not actively initiate any kind of RF communication. In ISO/IEC 29143:2011, collision arbitration and collision avoidance for Mobile RFID applications are defined by specifying methods aimed at mitigating the impact of emerging collisions and mechanisms used to avoid follow-up collisions. ISO/IEC 29143:2011 applies to Mobile RFID interrogator devices used to inventory passive or semi-passive backscatter tags at 860 MHz to 960 MHz in a mobile (non-fixed) application independent from specific communication details, i.e. modulation technique and command set. Furthermore, the scope of ISO/IEC 29143:2011 is mobile consumer applications, whereas mobile enterprise applications are not covered as long as operating in a closed environment. An operating environment is considered to be closed if it belongs to a central administrative authority able to guarantee for sufficient isolation, i.e. preventing mobile enterprise interrogator devices from being used outside the dedicated operating environment, and if sufficient spatial separation and/or electromagnetic shielding from adjacent operating environments is provided. An application is considered a consumer application if at least one of two interacting entities is a private individual (consumer) and the interaction is taking place in the public domain. Consequently, a Mobile RFID consumer application is defined as Mobile RFID equipment (e.g. mobile phones equipped with an RFID interrogator) being used in a consumer application. NOTE As there is currently no active contribution on Mobile HF interrogators, ISO/IEC 29143:2011 covers only UHF. ISO/IEC 29143:2011 specifies Mobile RFID interrogator media access control, interrogator to interrogator and multiple interrogator to tag collision arbitration scheme including interrogator requirements, interrogator to interrogator and multiple interrogator to tag collision avoidance scheme, and tag memory use for Mobile RFID applications. ISO/IEC 29143:2011 does not specify physical interactions (the signaling layer of the communication link) between interrogators and tags, interrogator and tag operating procedures and commands, and the collision arbitration algorithm used to singulate (separate to the current response slot) a specific tag in a multiple-tag environment. In particular, ISO/IEC 29143:2011 does not replace any existing RFID air interface specification issued by ISO/IEC but extends the existing methodologies for fixed RFID interrogators with mechanisms addressing the special challenges of Mobile RFID. The concepts and mechanisms described in ISO/IEC 29143:2011 can be integrated in any existing RFID protocol approved by ISO/IEC for the given frequency range of 860 MHz to 960 MHz (unless explicitly prohibited by such protocol) regardless of the actual command set. The mechanisms defined by ISO/IEC 29143:2011 can be used for Mobile RFID interrogators used in consumer applications and compliant to ISO/IEC 18000-6."
+  },
+  {
+    "reference": "ISO/IEC 29158:2025",
+    "edition": "2.0",
+    "date": "2025-03-25",
+    "title": "Automatic identification and data capture techniques - Bar code symbol quality test specification - Direct part mark (DPM)",
+    "language": "EN",
+    "description": "This document describes the modifications to the symbol quality methodology defined in ISO/IEC 15415 and provides a symbology specification. This document establishes alternative illumination conditions, some new terms and parameters, modifications to the measurement and subsequent grading of certain parameters, and the reporting of the grading results. This document is intended for verifier manufacturers and application specification developers."
+  },
+  {
+    "reference": "ISO/IEC 29160:2020",
+    "edition": "2.0",
+    "date": "2020-12-11",
+    "title": "Information technology - Radio frequency identification for item management - RFID Emblem",
+    "language": "EN",
+    "description": "This document specifies the design and use of the RFID Emblem: an easily identified visual guide that indicates the presence of radio frequency identification (RFID). It does not address the location of the RFID Emblem on a label. Specific placement requirements are left to application standards developers. This document also specifies an RFID Index, which can be included in the RFID Emblem and which addresses the complication added by the wide range of RFID tags in existence (frequency, protocol and data structure). The RFID Index is a two-character code that provides specific information about tags and interrogators. Successful reading of RFID tags requires knowledge of the frequency, protocol and data structure information provided by the RFID Index."
+  },
+  {
+    "reference": "ISO/IEC 29161:2016",
+    "edition": "1.0",
+    "date": "2016-07-28",
+    "title": "Information technology - Data structure - Unique identification for the Internet of Things",
+    "language": "EN",
+    "description": "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."
+  },
+  {
+    "reference": "ISO/IEC 29167-1:2014",
+    "edition": "2.0",
+    "date": "2014-08-06",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 1: Security services for RFID air interfaces",
+    "language": "EN",
+    "description": "ISO/IEC 29167-1:2014 defines the architecture for security services for the ISO/IEC 18000 air interfaces standards for radio frequency identification (RFID) devices. Its purpose is to provide a common technical specification for optional security services for RFID devices that may be used by ISO committees developing RFID application standards. ISO/IEC 29167-1:2014 defines various security features called security mechanisms that can be implemented by a tag depending on the application. A tag may support one, a subset, or all of the specified security mechanisms. For an interrogator it is possible to get information about the security mechanisms that are actually implemented and supported by a tag. Moreover, it has been considered that adding new security mechanisms remains possible. Besides signalling the presence of certain security services, further details of the mechanisms such as utilized encryption algorithm and key length also need to be specified and accessible. ISO/IEC 29167-1:2014 defines the requirements for crypto suites defined in further parts of ISO/IEC 29167 and furthermore defines how crypto suites identifiers are assigned to the various parts of ISO/IEC 29167."
+  },
+  {
+    "reference": "ISO/IEC 29167-10:2026",
+    "edition": "3.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 10: Crypto suite AES-128 security services for air interface communications",
+    "language": "EN",
+    "description": "This document specifies the crypto suite for AES-128 for the ISO/IEC 18000 air interface standards for radio frequency identification (RFID) devices. This document specifies the security services of an AES-128 crypto suite. AES has a fixed block size of 128 bits and a key size of 128 bits, 192 bits or 256 bits. This document uses AES with a fixed key size of 128 bits and is referred to as AES-128. This document specifies procedures for the authentication of a Tag and or an Interrogator using AES-128 and provides the following features: Tag authentication; Tag authentication allowing authenticated and encrypted reading of part of the Tag’s memory; Interrogator authentication; Interrogator authentication allowing authenticated and encrypted writing of part of the Tag’s memory; Mutual authentication. In this document, a Tag and an Interrogator can support one, a subset, or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-11:2025",
+    "edition": "3.0",
+    "date": "2025-09-25",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 11: Crypto suite PRESENT-80 security services for air interface communications",
+    "language": "EN",
+    "description": "This document defines the crypto suite for PRESENT-80 for the ISO/IEC 18000 series of air interfaces standards for radio frequency identification (RFID) devices. This document provides a common crypto suite for security for RFID devices for air interface standards and application standards. The crypto suite is defined in alignment with existing air interfaces. This document specifies basic security services that are use the lightweight block cipher PRESENT-80. The variant of PRESENT that takes 128-bit keys is also considered in this document. This document defines various methods of use for the cipher."
+  },
+  {
+    "reference": "ISO/IEC 29167-12:2015",
+    "edition": "1.0",
+    "date": "2015-05-21",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 12: Crypto suite ECC-DH security services for air interface communications",
+    "language": "EN",
+    "description": "ISO/IEC 29167-12:2015 defines the crypto suite for ECC-DH for the ISO/IEC 18000 air interfaces standards for radio frequency identification (RFID) devices. Its purpose is to provide a common crypto suite with Diffie-Hellmann-based authentication using ECC (elliptic curve cryptography) over binary fields for security for RFID devices that may be referred by ISO committees for air interface standards and application standards. ISO/IEC 29167-12:2015 specifies a crypto suite for ECC-DH for air interface for RFID systems. The crypto suite is defined in alignment with existing air interfaces. ISO/IEC 29167-12:2015 defines various authentication methods and methods of use for the cipher. A Tag and an Interrogator may support one, a subset, or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-13:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 13: Crypto suite Grain-128A security services for air interface communications",
+    "language": "EN",
+    "description": "This document specifies the crypto suite for Grain-128A for the ISO/IEC 18000 air interface standards for radio frequency identification (RFID) devices. This document specifies various authentication methods and methods of use for the cipher. In this document, a Tag and an Interrogator can support one, a subset or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-14:2015",
+    "edition": "1.0",
+    "date": "2015-10-19",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 14: Crypto suite AES OFB security services for air interface communications",
+    "language": "EN",
+    "description": "ISO/IEC 29167-14:2015 defines the cryptographic suite for AES using OFB mode (AES OFB) for the ISO/IEC 18000‑63 air interface standard for radio frequency identification (RFID) devices. Its purpose is to provide a common cryptographic suite for security for RFID devices that can be referenced by ISO committees for air interface standards and application standards. ISO/IEC 29167-14:2015 specifies a cryptographic suite for AES OFB for air interface for RFID systems. The cryptographic suite is defined in alignment with existing air interfaces. ISO/IEC 29167-14:2015 defines various authentication methods and methods of use for the cipher. A tag and an interrogator can support one, a subset, or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC TS 29167-15:2017",
+    "edition": "1.0",
+    "date": "2017-10-02",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 15: Crypto suite XOR security services for air interface communications",
+    "language": "EN",
+    "description": "ISO/IEC TS 29167-15:2017 defines a coding suite based on an exclusive or (XOR) operation for the ISO/IEC 18000 air interfaces standards for radio frequency identification (RFID) systems. In particular, it specifies the use of XOR as a basic way to hide plain data in the identity authentication and secure communication procedures. The coding suite is defined in alignment with existing air interfaces. ISO/IEC TS 29167-15:2017 defines various authentication methods and methods of use for the XOR. A tag and an interrogator may support one, a subset, or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-16:2022",
+    "edition": "2.0",
+    "date": "2022-11-29",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 16: Crypto suite ECDSA-ECDH security services for air interface communications",
+    "language": "EN",
+    "description": "This document describes a crypto suite based on elliptic curve cryptography (ECC) for the ISO/IEC 18000 series of standards protocol. In particular, this document specifies the use of elliptic curve Diffie-Hellman (ECDH) key agreement in a secure channel establishment and the use of elliptic curve digital signature algorithm (ECDSA) in an authentication mechanism. This document specifies a crypto suite for ECDSA-ECDH for air interface for RFID systems. The crypto suite is defined in alignment with existing air interfaces. This document defines a mutual authentication method and methods of use for the cipher. A Tag and an Interrogator can support one, a subset, or all of the specified options, clearly stating what is supported. Key update is not supported in this document. ECDSA-ECDH cipher is a high-weight security protocol especially for active RFID system, aiming at meeting those scenarios with high level security requirement."
+  },
+  {
+    "reference": "ISO/IEC 29167-17:2015",
+    "edition": "1.0",
+    "date": "2015-06-03",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 17: Crypto suite cryptoGPS security services for air interface communications",
+    "language": "EN",
+    "description": "ISO/IEC 29167-17:2015 defines the cryptoGPS cryptographic suite for the ISO/IEC 18000 air interfaces standards for radio frequency identification (RFID) devices. Its purpose is to provide a common crypto suite for security for RFID devices that might be referred by ISO committees for air interface standards and application standards. ISO/IEC 29167-17:2015 defines a lightweight mechanism using asymmetric techniques and providing a unilateral authentication mechanism whose security is related to the difficulty of taking discrete logarithms on elliptic curves."
+  },
+  {
+    "reference": "ISO/IEC 29167-19:2019",
+    "edition": "2.0",
+    "date": "2019-06-26",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 19: Crypto suite RAMON security services for air interface communications",
+    "language": "EN",
+    "description": "This document defines the Rabin-Montgomery (RAMON) crypto suite for the ISO/IEC 18000 series of air interfaces standards for radio frequency identification (RFID) devices. Its purpose is to provide a common crypto suite for security for RFID devices that can be referred to by ISO/IEC for air interface standards and application standards. This document specifies a crypto suite for Rabin-Montgomery (RAMON) for air interface for RFID systems. The crypto suite is defined in alignment with existing air interfaces. This document defines various authentication methods and methods of use for the cipher. A Tag and an Interrogator can support one, a subset, or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-21:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 21: Crypto suite SIMON security services for air interface communications",
+    "language": "EN",
+    "description": "This document specifies the crypto suite for SIMON for the ISO/IEC 18000 air interface standards for radio frequency identification (RFID) devices. SIMON is a symmetric block cipher that is parameterized in both its block length and key length. The block/key length options supported in this crypto suite (in bits) are 64/96, 96/96, 64/128, 128/128 and 128/256. In this document, a Tag and an Interrogator can support one, a subset or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 29167-22:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Information technology - Automatic identification and data capture techniques - Part 22: Crypto suite SPECK security services for air interface communications",
+    "language": "EN",
+    "description": "This document specifies the crypto suite for SPECK for the ISO/IEC 18000 air interface standards for radio frequency identification (RFID) devices. SPECK is a symmetric block cipher that is parameterized in both its block length and key length. The block/key length options supported in this crypto suite (in bits) are 64/96, 96/96, 64/128, 128/128 and 128/256. In this document, a Tag and an Interrogator can support one, a subset or all of the specified options, clearly stating what is supported."
+  },
+  {
+    "reference": "ISO/IEC 30116:2016",
+    "edition": "1.0",
+    "date": "2016-10-05",
+    "title": "Information technology - Automatic identification and data capture techniques - Optical Character Recognition (OCR) quality testing",
+    "language": "EN",
+    "description": "ISO/IEC 30116:2016 - specifies the methodology for the measurement of specific attributes of OCR-B character strings, - defines a method for evaluating these measurements and deriving an overall assessment of character string quality, - defines a reference decode algorithm for OCR-B, and - gives information on possible causes of deviation from optimum grades to assist users in taking appropriate corrective action. ISO/IEC 30116:2016 applies to OCR-B as defined in ISO 1073‑2, but its methodology can be applied partially or wholly to other OCR fonts."
+  },
+  {
+    "reference": "ISO 1073-1:1976",
+    "edition": "1.0",
+    "date": "1976-11-01",
+    "title": "Alphanumeric character sets for optical recognition - Part 1: Character set OCR-A - Shapes and dimensions of the printed image",
+    "language": "EN, FR",
+    "description": "Describes the forms of printed images and the sizes of alphanumeric characters as well as the signs and graphical symbols (OCR-A) intended for optical character reading according to ISO 646-1973."
+  },
+  {
+    "reference": "ISO 1073-2:1976",
+    "edition": "1.0",
+    "date": "1976-12-01",
+    "title": "Alphanumeric character sets for optical recognition - Part 2: Character set OCR-B - Shapes and dimensions of the printed image",
+    "language": "EN, FR",
+    "description": "Indicates the forms of printed images and the sizes of alphanumeric characters as well as the sings and graphical symbols (OCR-B-character set) intended for optical character reading according to ISO 646-1973."
+  },
+  {
+    "reference": "ISO 1831:1980",
+    "edition": "1.0",
+    "date": "1980-10-01",
+    "title": "Printing specifications for optical character recognition",
+    "language": "EN, FR",
+    "description": "Includes basic definitions, measurement requirements, specifications and recommendations for OCR paper and print, and deals with three main parameters for OCR media: - optical properties of paper; - optical properties and dimensions of ink patterns used as OCR characters; - basic requirements for positions od OCR characters on paper. References: ISO 216; 1073/1; 1073/2; 2469; 2471; CIE Publication 15 (E 1.3.1) 1971."
+  },
+  {
+    "reference": "ISO 15394:2017",
+    "edition": "3.0",
+    "date": "2017-11-09",
+    "title": "Packaging - Bar code and two-dimensional symbols for shipping, transport and receiving labels",
+    "language": "EN",
+    "description": "ISO 15394:2017: - specifies the minimum requirements for the design of labels containing linear bar code and two-dimensional symbols on transport units to convey data between trading partners; - provides for traceability of transported units using a unique transport unit identifier (licence plate); - provides guidance on the formatting on the label of data presented in linear bar code, two-dimensional symbol or human-readable form; - provides specific recommendations regarding the choice of bar code symbologies, and specifies quality requirements; - provides recommendations as to label placement, size and the inclusion of free text and any appropriate graphics; - provides guidance on the selection of the label material. This document is not applicable to the direct printing on to kraft coloured corrugated surfaces. NOTE Guidance on the direct printing of bar code symbols on to kraft coloured corrugated surfaces are provided in references such as The Fibre Box Handbook [ 10 ] ."
+  },
+  {
+    "reference": "ISO 22742:2026",
+    "edition": "3.0",
+    "date": "2026-05-13",
+    "title": "Packaging - Linear bar code and two-dimensional symbols for product packaging",
+    "language": "EN",
+    "description": "This document: specifies the minimum requirements for the design of labels containing a linear bar code and two dimensional (2D) symbols on product packages to convey data between trading partners; provides guidance for the formatting on the label of data presented in a linear bar code, 2D symbols or human-readable form; provides specific recommendations regarding the choice of linear bar code and 2D symbologies, and specifies quality requirements and classes of bar code density; provides specific recommendations regarding both linear and 2D symbologies, which allow a broad choice for general use of scanning hardware (e.g. area imagers, linear imagers, single line laser scanners, and raster laser scanners); makes recommendations as to label placement, size and the inclusion of free text and any appropriate graphics. This document supports item identification and supply chain processes, at the product package level, such as inventory control, picking, and point of use. NOTE 1 ISO 15394 [2] supports the distribution and transportation business processes, so aiding the tracing and tracking of unique shipments. NOTE 2 ISO 28219 addresses the direct part marking. The purpose of this document is to establish the machine readable (e.g. bar code) and human-readable data content of labels applied to product packages. Intended applications include, but are not limited to, inventory, warehouse management, maintenance and point of purchase. While guidance is provided, specific label dimensions or marking areas and the location of the information are not defined in this document. Before implementing this specification, suppliers and manufacturers are advised to review and mutually agree on these details with their trading partners. This document does not supersede or replace any applicable safety or regulatory marking or labelling requirements. It is intended to satisfy the product package requirements of numerous applications and industry groups. As such, it is applicable to a wide range of industries, each of which has specific implementation guidelines. This document is also applicable to any other labelling requirements."
+  },
+  {
+    "reference": "ISO 28219:2026",
+    "edition": "3.0",
+    "date": "2026-05-13",
+    "title": "Packaging - Labelling and direct product marking with linear bar code and two-dimensional symbols",
+    "language": "EN",
+    "description": "The purpose of this document is to establish the machine-readable (linear, two-dimensional, and composite symbols) and human-readable content for direct marking and labelling of items, parts, and components. This document provides a means for items, parts and components to be marked, and read in either fixtured or hand-held scanning environments at any manufacturer’s facility and then read by customers purchasing items for subsequent manufacturing operations or for final end use. Intended applications include, but are not limited to, supply chain applications, e.g. inventory, distribution, manufacturing, quality control, acquisition, transportation, supply, repair and disposal."
+  }
+]

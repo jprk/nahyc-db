@@ -1,0 +1,114 @@
+[
+  {
+    "reference": "IEC TR 60816:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Guide on methods of measurement of short duration transients on low-voltage power and signal lines",
+    "language": "EN-FR",
+    "description": "Deals with transient phenomena which are not line-frequency related and are of duration no greater than 40 ms. Is also not concerned with sustained voltage changes or fluctuations. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TR 61000-1-1:2023",
+    "edition": "2.0",
+    "date": "2023-02-07",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-1: General - Application and interpretation of fundamental definitions and terms",
+    "language": "EN",
+    "description": "IEC TR 61000-1-1:2023 which is a Technical Report, aims to describe and interpret various terms considered to be of basic importance to concepts and practical application in the design and evaluation of electromagnetically compatible equipment and systems. In addition, attention is drawn to the distinction between electromagnetic compatibility (EMC) tests carried out in a standardized set-up and those carried out at other locations, for example at premises where a device, equipment or system is manufactured or at the location where a device, equipment or system is installed (in situ tests or measurements). This second edition cancels and replaces the first edition published in 1992. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the general description of the electromagnetic environment has been updated in accordance with IEC TR 61000-2-5; b) the description of source, of potentially susceptible equipment/systems and of coupling mechanism has been updated, c) elements from IEC TR 61000-2-3, that is intended to be withdrawn, as well as from IEC TR 61000-2-5, have been incorporated into this document."
+  },
+  {
+    "reference": "IEC 61000-1-2:2016",
+    "edition": "1.0",
+    "date": "2016-04-13",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-2: General - Methodology for the achievement of functional safety of electrical and electronic systems including equipment with regard to electromagnetic phenomena",
+    "language": "EN-FR",
+    "description": "IEC 61000-1-2:2016 establishes a methodology for the achievement of functional safety only with regard to electromagnetic phenomena. This methodology includes the implication it has on equipment used in such systems and installations. This first edition cancels and replaces the second edition of IEC TS 61000-1-2 published in 2008. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TS 61000-1-6:2026",
+    "edition": "1.0",
+    "date": "2026-03-12",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-6: General - Guidelines for the evaluation of measurement uncertainty in EMC testing",
+    "language": "EN",
+    "description": "IEC TS 61000-1-6:2026, which is a Technical Specification provides methods and background information for the evaluation of measurement uncertainty in electromagnetic compatibility (EMC) tests and calibrations. It gives guidance to cover general measurement uncertainty considerations within the IEC 61000 series. The objective of this document is to give advice to EMC technical committees dealing with EMC tests, testing laboratories and calibration laboratories on the development of measurement uncertainty budgets; to allow uniform development and comparability of these budgets between laboratories; and to align the treatment of measurement uncertainty across the technical committees of the IEC dealing with EMC tests. Any contributing factor to measurement uncertainty that is mentioned within this document will be treated as an example: the EMC committee responsible for the preparation of a basic immunity or emission standard is responsible for identifying the factors that contribute to the measurement uncertainty of the relevant test method. This document provides: • methods for the evaluation of measurement uncertainty (MU), • mathematical formulae for probability density functions and their interpretation, • examples of MU calculations, • examples of MU applications, • MU reporting information. This document is not intended to summarize all measurement uncertainty influence quantities, nor is it intended to specify how measurement uncertainty will be taken into account in determining compliance with an EMC requirement. This first edition cancels and replaces the first edition of IEC TR 61000-1-6 published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) purpose of and responsibilities in measurement uncertainty evaluation by testing and calibration laboratories, technical committees dealing with EMC requirements have been introduced; b) classification of measurement uncertainty contributions (measurement uncertainty, measurement instrumentation uncertainty, intrinsic uncertainty of the measurand) has been revised; c) new clauses devoted to measurement uncertainty in emission test methods and measurement uncertainty in immunity test methods and in calibration have been added; d) methods of measurement uncertainty calculation have been enriched by introducing the GUM Supplement 1 (GUMS1) numerical approach based on Monte Carlo method; e) measurement uncertainty budget development has been revised to include the basic steps to follow in case of application of the GUM method or of the GUMS1 method; f) a clause specifically devoted to the measurement model function has been added to emphasize the importance of the measurement model and to provide guidance when the measurement model is unknown; g) the clause on probability density functions has been revised to include the Student-t probability density function; h) the clause on Type A and Type B evaluations of uncertainty has been revised to improve readability; i) the clause on the conversion from linear quantities to decibel and vice versa has been revised to improve readability and make some corrections; j) the clause on the applicability of measurement uncertainty has been modified to improve readability and to remove statements conflicting with conformity assessments standards; k) Annex A and Annex B have been revised by including results of GUMS1 application; l) new annexes have been introduced, namely Annex C (on metrological confirmation of measurement equipment), Annex D (on sampling statistics, moved from the main text to this annex to improve readability of the whole document), Annex E (on robust statistics for processing interlaboratory comparison data, with example), Annex F (including an example of application of MU for the assessment of the risk of an out of tolerance of measurement equipment) and Annex G (including an example of application of MU for the evaluation of in-tolerance probability as a function of tolerance to uncertainty ratio – TUR)."
+  },
+  {
+    "reference": "IEC TR 61000-2-3:1992",
+    "edition": "1.0",
+    "date": "1992-09-30",
+    "title": "Electromagnetic compatibility (EMC) - Part 2: Environment - Section 3: Description of the environment - Radiated and non-network-frequency-related conducted phenomena",
+    "language": "EN-FR, ES",
+    "description": "Describes the electromagnetic environment. Intended as a basis to achieve electromagnetic compatibility in system and equipment design, using test standards and mitigation methods which satisfactorily take account of undesirable effects. The report is primarily concerned with characteristics and levels of electromagnetic fields and of non-network-frequency-related conducted emissions from unintentional sources of interference."
+  },
+  {
+    "reference": "IEC TR 61000-2-5:2017",
+    "edition": "3.0",
+    "date": "2017-01-19",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-5: Environment - Description and classification of electromagnetic environments",
+    "language": "EN",
+    "description": "IEC/TR 61000-2-5:2017(E) is a Technical Report intended for guidance for those who are in charge of considering and developing immunity requirements. It also gives basic guidance for the selection of immunity levels. The data are applicable to any item of electrical or electronic equipment, sub-system or system that operates in one of the locations as considered in this document. This Technical Report provides the following: – introduces the concept of disturbance degrees and defines these for each electromagnetic phenomena; – classifies into various location classes and describes them by means of attributes; – provides background information on the different electromagnetic phenomena that may exist within the environment and; – compiles tables of compatibility levels for electromagnetic phenomena that are considered to be relevant for those location classes. This third edition cancels and replaces the second published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the description of the radiated electromagnetic environment has been updated taking into account recent communication technologies; b) some conducted phenomena and respective interference sources have been described in more detail."
+  },
+  {
+    "reference": "IEC TR 61000-4-1:2016",
+    "edition": "1.0",
+    "date": "2016-04-27",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-1: Testing and measurement techniques - Overview of IEC 61000-4 series",
+    "language": "EN",
+    "description": "IEC TR 61000-4-1:2016(E) gives information and guidance on the EMC basic standards and other basic EMC documents published in the IEC 61000-4 series. Those basic standards describe mainly immunity tests to be considered and applied for electric and electronic equipment, including systems. It has the status of a basic EMC publication in accordance with IEC Guide 107. This first edition as a Technical Report cancels and replaces the third edition of the International Standard published in 2006. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TR 61000-5-1:2023",
+    "edition": "2.0",
+    "date": "2023-02-23",
+    "title": "Electromagnetic compatibility (EMC) - Part 5-1: Installation and mitigation guidelines - General considerations",
+    "language": "EN",
+    "description": "IEC TR 61000-5-1:2023 which is a technical report, covers general considerations and guidelines on mitigation methods aimed at ensuring electromagnetic compatibility (EMC) among electrical and electronic apparatus or systems used in industrial, commercial, and residential installations. This document is intended for use by all using and installing sensitive electrical or electronic installations and systems, and equipment with high emission levels that could degrade the overall electromagnetic (EM) environment. It applies primarily to new installations, but also applies during modifications or enhancements of legacy installations. Specific topics, such as recommendations on the design and implementation of the earthing system, including the earth electrode and the earth network, the design and implementation of bonding apparatus or systems to earth or to the earth network, the selection and installation of appropriate cables, and the design and implementation mitigation means involving shielded enclosures, high-frequency filters, isolating transformers, surge-protective devices, etc., will be addressed in other parts of IEC 61000-5. Within this document the fundamental measures will be described. The practices presented in this document address the EMC concerns of the installation, not the safety aspects of the installation nor the efficient transportation of power within the installation. Nevertheless, these two prime objectives are taken into consideration in the technical observations concerning EMC. These two primary objectives can be implemented concurrently for enhanced EMC of the installed sensitive apparatus or systems without conflict by applying the practices presented in this document and the relevant safety requirements. It is the responsibility of the designer and the installer to select the relevant technique most appropriate to a particular installation. This second edition cancels and replaces the first edition published in 1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. restructuring of clauses and subclauses with amending of technical content; b. alignment of the terminology with other parts of the IEC 61000 series, for example with IEC TR 61000-2-5; c. addition of an overview regarding the IEC 61000-5 series in Annex A."
+  },
+  {
+    "reference": "IEC TR 61000-5-2:1997",
+    "edition": "1.0",
+    "date": "1997-11-13",
+    "title": "Electromagnetic compatibility (EMC) - Part 5: Installation and mitigation guidelines - Section 2: Earthing and cabling",
+    "language": "EN-FR, ES",
+    "description": "IEC TR 61000-5-2:1997 covers guidelines for the earthing and cabling of electrical and electronic systems and installations aimed at ensuring electromagnetic compatibility among electrical and electronic apparatus or systems. More particularly, it is concerned with earthing practices and with cables used in industrial, commercial and residential installations. This technical report is intended for use by installers and users, and to some extent, manufacturers of sensitive electrical or electronic installations and systems, and equipment with high emission levels that could degrade the overall electromagnetic environment."
+  },
+  {
+    "reference": "IEC 61000-6-1:2016",
+    "edition": "3.0",
+    "date": "2016-08-10",
+    "title": "Electromagnetic compatibility (EMC) - Part 6-1: Generic standards - Immunity standard for residential, commercial and light-industrial environments",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-6-1:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in residential, commercial, public and light-industrial locations. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61000-6-2:2016",
+    "edition": "3.0",
+    "date": "2016-08-10",
+    "title": "Electromagnetic compatibility (EMC) - Part 6-2: Generic standards - Immunity standard for industrial environments",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61000-6-5:2015",
+    "edition": "1.0",
+    "date": "2015-08-21",
+    "title": "Electromagnetic compatibility (EMC) - Part 6-5: Generic standards - Immunity for equipment used in power station and substation environment",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-6-5:2015 specifies EMC immunity requirements which apply to electrical and electronic equipment intended for use in power stations and substations. Immunity requirements for electromagnetic phenomena with spectral contributions in the frequency range 0 Hz to 400 GHz are covered. This first edition cancels and replaces the first edition of IEC TS 61000-6-5 published in 2001. This edition constitutes a technical revision. The contents of the corrigendum of December 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-6-5:2015/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-12-07",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 6-5: Generic standards - Immunity for equipment used in power station and substation environment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-6-7:2014",
+    "edition": "1.0",
+    "date": "2014-10-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 6-7: Generic standards - Immunity requirements for equipment intended to perform functions in a safety-related system (functional safety) in industrial locations",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-6-7:2014 is intended to be used by suppliers when making claims for the immunity of equipment intended for use in safety-related systems against electromagnetic disturbances. This standard should also be used by designers, integrators, installers, and assessors of safety-related systems to assess the claims made by suppliers. It provides guidance to product committees. This part of IEC 61000 applies to electrical and electronic equipment intended for use in safety-related systems and that is: - intended to comply with the requirements of IEC 61508 and;or other sector-specific functional safety standards; - and intended to be operated in industrial locations as described in 3.1.15. The object of this standard is to define immunity test requirements for equipment in relation to continuous and transient, conducted and radiated disturbances, including electrostatic discharge. These requirements apply only to functions intended for use in functional safety applications. Test requirements are specified for each port considered."
+  }
+]

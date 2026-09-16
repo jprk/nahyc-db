@@ -1,0 +1,1426 @@
+[
+  {
+    "reference": "IEC 60891:2021",
+    "edition": "3.0",
+    "date": "2021-10-27",
+    "title": "Photovoltaic devices - Procedures for temperature and irradiance corrections to measured I-V characteristics",
+    "language": "EN-FR, ES",
+    "description": "IEC 60891:2021 defines procedures to be followed for temperature and irradiance corrections to the measured I-V (current-voltage) characteristics (also known as I-V curves) of photovoltaic (PV) devices. It also defines the procedures used to determine factors relevant to these corrections. Requirements for I-V measurement of PV devices are laid down in IEC 60904-1 and its relevant subparts. This third edition cancels and replaces the second edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: - adds guidance on which correction procedure shall be used depending on application; - introduces translation procedure 4 applicable to c-Si technologies with unknown temperature coefficients; - introduces various clarifications in existing procedures to improve measurement accuracy and reduce measurement uncertainty; - adds an informative annex for supplementary methods that can be used for series resistance determination. The content of the corrigendum 1 (2024-10) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60891:2021/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-10-17",
+    "title": "Corrigendum 1 - Photovoltaic devices - Procedures for temperature and irradiance corrections to measured I-V characteristics",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60904-1:2020",
+    "edition": "3.0",
+    "date": "2020-09-25",
+    "title": "Photovoltaic devices - Part 1: Measurement of photovoltaic current-voltage characteristics",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-1:2020 describes procedures for the measurement of current-voltage characteristics (I-V curves) of photovoltaic (PV) devices in natural or simulated sunlight. These procedures are applicable to a single PV solar cell, a sub-assembly of PV solar cells, or a PV module. This document is applicable to non-concentrating PV devices for use in terrestrial environments, with reference to (usually but not exclusively) the global reference spectral irradiance AM1.5 defined in IEC 60904-3. This third edition cancels and replaces the second edition published in 2006. The main changes with respect to the previous edition are as follows: - Updated scope to include all conditions. - Added terms and definitions. - Reorganised document to avoid unnecessary duplication. - Added data analysis clause. - Added informative annexes (area measurement, PV devices with capacitance, dark I-V curves and effect of spatial non-uniformity of irradiance)."
+  },
+  {
+    "reference": "IEC 60904-1-1:2017",
+    "edition": "1.0",
+    "date": "2017-05-18",
+    "title": "Photovoltaic devices - Part 1-1: Measurement of current-voltage characteristics of multi-junction photovoltaic (PV) devices",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-1-1:2017 describes procedures for the measurement of the current-voltage characteristics of multi-junction photovoltaic devices in natural or simulated sunlight. It is applicable to single PV cells, sub-assemblies of such cells or entire PV modules. It is principally intended for non-concentrating devices, but parts may be applicable also to concentrating multi-junction PV devices. An essential prerequisite is the spectral responsivity of the multi-junction devices, whose measurement is covered by IEC 60904-8-1."
+  },
+  {
+    "reference": "IEC TS 60904-1-2:2024",
+    "edition": "2.0",
+    "date": "2024-11-07",
+    "title": "Photovoltaic devices - Part 1-2: Measurement of current-voltage characteristics of bifacial photovoltaic (PV) devices",
+    "language": "EN",
+    "description": "IEC TS 60904-1-2:2024 describes procedures for the measurement of the current-voltage (I-V) characteristics of single junction bifacial photovoltaic devices in natural or simulated sunlight. It is applicable to encapsulated solar cells, sub-assemblies of such cells or entire PV modules. For measurements of I-V characteristics of non-encapsulated solar cells, IEC TS 63202-3 applies. The requirements for measurement of I-V characteristics of standard (monofacial) PV devices are covered by IEC 60904-1, whereas this document describes the additional requirements for the measurement of I-V characteristics of bifacial PV devices. This second edition cancels and replaces the first edition published in 2019. This edition includes the following significant technical changes with respect to the previous edition: a) The scope has been updated and refers to IEC TS 63202-3 for the measurement of non‑encapsulated solar cells. b) The requirements for the non-uniformity of irradiance have been updated and now refer to classifications introduced in IEC 60904-9. c) The requirement for non-irradiated background has been revised. d) Spectral mismatch corrections are no longer mandatory, unless required by another standard. Spectral mismatch would have to be considered in the measurement uncertainty. e) The requirement regarding the calculation of bifaciality has been modified: Equivalent irradiance shall not be calculated based on the minimum bifaciality value between ISC and Pmax, but on the bifaciality of ISC."
+  },
+  {
+    "reference": "IEC TS 60904-1-2:2024/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-03-16",
+    "title": "Amendment 1 - Photovoltaic devices - Part 1-2: Measurement of current-voltage characteristics of bifacial photovoltaic (PV) devices",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60904-2:2023",
+    "edition": "4.0",
+    "date": "2023-06-19",
+    "title": "Photovoltaic devices - Part 2: Requirements for photovoltaic reference devices",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-2:2023 gives requirements for the classification, selection, packaging, marking, calibration and care of photovoltaic reference devices. This document applies to photovoltaic (PV) reference devices that are used to measure the irradiance of natural or simulated sunlight for the purpose of quantifying the electrical performance of photovoltaic devices (cells, modules and arrays). It does not cover photovoltaic reference devices for use under concentrated sunlight. This fourth edition cancels and replaces the third edition published in 2015. This edition includes the following significant technical changes with respect to the previous edition: a) added calibration procedures for calibrating PV devices at maximum power by extending the respective Clauses 12 and 13; b) revised requirements for mandatory measurement of spectral responsivity, temperature coefficients and linearity, depending on usage and allowing some measurements on equivalent devices; c) revised requirements for built-in shunt resistor; d) added requirements for traceability of calibration explicitly."
+  },
+  {
+    "reference": "IEC 60904-3:2019",
+    "edition": "4.0",
+    "date": "2019-02-15",
+    "title": "Photovoltaic devices - Part 3: Measurement principles for terrestrial photovoltaic (PV) solar devices with reference spectral irradiance data",
+    "language": "EN-FR",
+    "description": "IEC 60904-3:2019 describes basic measurement principles for determining the electrical output of PV devices. The principles given in this document are designed to relate the performance rating of PV devices to a common reference terrestrial solar spectral irradiance distribution. The reference terrestrial solar spectral irradiance distribution is given in this document in order to classify solar simulators according to the spectral performance requirements contained in IEC 60904-9. The principles contained in this standard cover testing in both natural and simulated sunlight. This new edition includes the following significant technical changes with respect to the previous edition: a) all spectral data were recalculated due to some minor calculation and rounding errors in the third edition; the global spectral irradiance returned to exactly the data of the second edition; b) the angular distribution of the irradiance was clarified."
+  },
+  {
+    "reference": "IEC 60904-4:2019",
+    "edition": "2.0",
+    "date": "2019-11-12",
+    "title": "Photovoltaic devices - Part 4: Photovoltaic reference devices - Procedures for establishing calibration traceability",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-4:2019 sets the requirements for calibration procedures intended to establish the traceability of photovoltaic (PV) reference devices to SI units as required by IEC 60904-2. This document applies to PV reference devices that are used to measure the irradiance of natural or simulated sunlight for the purpose of quantifying the performance of PV devices. The use of a PV reference device is required in many standards concerning PV (e.g. IEC 60904-1 and IEC 60904-3). This document has been written with single-junction PV reference devices in mind, in particular crystalline silicon, but it is sufficiently general to include other single-junction technologies. This second edition cancels and replaces the first edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: modification of standard title; - inclusion of working reference in traceability chain; - update of WRR with respect to SI; - revision of all methods and their uncertainties in annex - harmonization of symbols and formulae with other IEC standards. The contents of the corrigendum of September 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60904-4:2019/COR1:2020",
+    "edition": "2.0",
+    "date": "2020-09-25",
+    "title": "Corrigendum 1 - Photovoltaic devices - Part 4: Photovoltaic reference devices - Procedures for establishing calibration traceability",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60904-5:2011",
+    "edition": "2.0",
+    "date": "2011-02-17",
+    "title": "Photovoltaic devices - Part 5: Determination of the equivalent cell temperature (ECT) of photovoltaic (PV) devices by the open-circuit voltage method",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-5:2011 describes the preferred method for determining the equivalent cell temperature (ECT) of PV devices (cells, modules and arrays of one type of module), for the purposes of comparing their thermal characteristics, determining NOCT (nominal operating cell temperature) and translating measured I-V characteristics to other temperatures. The main technical changes with regard to the previous edition are as follows: - added method on how to extract the input parameters; - rewritten method on how to calculate ECT; - reworked formulae to be in line with IEC 60891."
+  },
+  {
+    "reference": "IEC 60904-5:2011/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-11-23",
+    "title": "Amendment 1 - Photovoltaic devices - Part 5: Determination of the equivalent cell temperature (ECT) of photovoltaic (PV) devices by the open-circuit voltage method",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60904-7:2019",
+    "edition": "4.0",
+    "date": "2019-08-20",
+    "title": "Photovoltaic devices - Part 7: Computation of the spectral mismatch correction for measurements of photovoltaic devices",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-7:2019 describes the procedure for correcting the spectral mismatch error introduced in the testing of a photovoltaic device, caused by the mismatch between the test spectrum and the reference spectrum (e.g. AM1.5 spectrum) and by the mismatch between the spectral responsivities (SR) of the reference device and of the device under test and therewith reduce the systematic uncertainty. This procedure is valid for single-junction devices but the principle may be extended to cover multi-junction devices. The purpose of this document is to give guidelines for the correction of the spectral mismatch error, should there be a spectral mismatch between the test spectrum and the reference spectrum as well as between the reference device SR and the device under test SR. The calculated spectral mismatch correction is only valid for the specific combination of test and reference devices measured with a particular test spectrum. This fourth edition cancels and replaces the third edition published in 2008. The main technical changes with respect to the previous edition are as follows: - For better compatibility and less redundancy, the clause “Determination of test spectrum” refers to IEC 60904-9. - The spectral mismatch factor is called SMM instead of MM to enable differentiation to the angular mismatch factor AMM and spectral angular mismatch factor SAMM. - Formulae for the derivation and application of the spectral mismatch factor SMM are added. - Links to new standards are given, e.g. concerning multi-junction devices. - Corrected wording (responsivity instead of response and irradiance instead of intensity)."
+  },
+  {
+    "reference": "IEC 60904-8:2014",
+    "edition": "3.0",
+    "date": "2014-05-08",
+    "title": "Photovoltaic devices - Part 8: Measurement of spectral responsivity of a photovoltaic (PV) device",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-8:2014 specifies the requirements for the measurement of the spectral responsivity of both linear and non-linear photovoltaic devices. The spectral responsivity of a photovoltaic device is used in cell development and cell analysis, as it provides a measure of recombination and other processes occurring inside the semiconductor or cell material system. The main technical changes with respect to the previous edition are listed below: - re-writing of the clause on testing; - addition of a new clause for the measurement of series-connected modules; - addition of the requirements of ISO/IEC 17025."
+  },
+  {
+    "reference": "IEC 60904-8-1:2017",
+    "edition": "1.0",
+    "date": "2017-05-18",
+    "title": "Photovoltaic devices - Part 8-1: Measurement of spectral responsivity of multi-junction photovoltaic (PV) devices",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-8-1:2017 gives guidance for the measurement of the spectral responsivity of multi-junction photovoltaic devices. It is principally intended for non-concentrating devices, but parts may be applicable also to concentrating multi-junction PV devices. The SR is required for analysis of measured current-voltage characteristics of multi-junction PV devices as described in IEC 60904-1-1."
+  },
+  {
+    "reference": "IEC 60904-9:2020",
+    "edition": "3.0",
+    "date": "2020-09-18",
+    "title": "Photovoltaic devices - Part 9: Classification of solar simulator characteristics",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-9:2020 is applicable for solar simulators used in PV test and calibration laboratories and in manufacturing lines of solar cells and PV modules. This document define classifications of solar simulators for use in indoor measurements of terrestrial photovoltaic devices. Solar simulators are classified as A+, A, B or C based on criteria of spectral distribution match, irradiance non-uniformity in the test plane and temporal instability of irradiance. This document provides the required methodologies for determining the classification of solar simulators in each of the categories. A solar simulator which does not meet the minimum requirements of class C cannot be classified according to this document. This document is used in combination with IEC TR 60904-14, which deals with best practice recommendations for production line measurements of single-junction PV module maximum power output and reporting at standard test conditions. This third edition cancels and replaces the second edition issued in 2007. This edition includes the following significant technical changes with respect to the previous edition: - Changed title; - Added spectral match classification in an extended wavelength range; - Introduction of new A+ class; - Definition of additional parameters for spectral irradiance evaluation; - Added apparatus sections for spectral irradiance measurement and spatial uniformity measurement; - Revised procedure for spectral match classification (minimum 4 measurement locations); - Revised measurement procedure for spatial uniformity of irradiance; - Added informative Annex for sensitivity analysis of spectral mismatch error related to solar simulator spectral irradiance."
+  },
+  {
+    "reference": "IEC 60904-10:2020",
+    "edition": "3.0",
+    "date": "2020-09-18",
+    "title": "Photovoltaic devices - Part 10: Methods of linear dependence and linearity measurements",
+    "language": "EN-FR, ES",
+    "description": "IEC 60904-10:2020 describes the procedures used to measure the dependence of any electrical parameter (Y) of a photovoltaic (PV) device with respect to a test parameter (X) and to determine the degree at which this dependence is close to an ideal linear (straight-line) function. It also gives guidance on how to consider deviations from the ideal linear dependence and in general on how to deal with non-linearities of PV device electrical parameters. This third edition cancels and replaces the second edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: a. Modification of title. b. Inclusion of an Introduction explanatory of the changes and the reasoning behind them. c. Inclusion of a new Clause Terms and Definitions (Clause 3), with distinction between generic linear dependence and linear dependence of short-circuit current versus irradiance (linearity). d. Explicit definition of equivalent sample (Clause 4). e. Technical revision of the apparatus (Clause 5), of the measurement procedures (Clause 6 to Clause 8) and of the data analysis (Clause 9), with separation of the data analysis for a generic linear dependence from the data analysis specific to linearity (i.e. short-circuit current dependence on irradiance) assessment. Additionally, inclusion of impact of spectral effects on both linearity and linear dependence assessment. f. Introduction of specific data analysis for two-lamp method, making it fully quantitative. Addition of extended version called N-lamp method. g. Modification of the linearity assessment criterion with inclusion of a formula that can be used to correct the irradiance reading of a PV reference device for non-linearity of its short-circuit current versus irradiance. A linearity factor is specifically newly defined for this purpose. h. Revision of the requirements for the report (Clause 10) in order to improve clearness about what information is always necessary and what is dependent on the procedure actually followed to measure the linear dependence, including the type of dependence measured (generic or linearity)."
+  },
+  {
+    "reference": "IEC TS 60904-13:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Photovoltaic devices - Part 13: Electroluminescence of photovoltaic modules",
+    "language": "EN",
+    "description": "IEC TS 60904-13:2018(E) specifies methods to: capture electroluminescence images of photovoltaic modules, process images to obtain metrics about the images taken in quantitative terms, and provide guidance to qualitatively interpret the images for features in the image that are observed. This document is applicable to PV modules measured with a power supply that places the cells in the modules in forward bias."
+  },
+  {
+    "reference": "IEC TR 60904-14:2020",
+    "edition": "1.0",
+    "date": "2020-11-25",
+    "title": "Photovoltaic devices - Part 14: Guidelines for production line measurements of single-junction PV module maximum power output and reporting at standard test conditions",
+    "language": "EN",
+    "description": "IEC TR 60904-14:2020 provides guidelines for measurements of the maximum power (Pmax) output of single-junction photovoltaic (PV) modules and for reporting at standard test conditions (STC) in industrial production line settings. As it is desirable to have consistent measurement practices across the industry, this document describes the following features of such measurements: - Essential elements, in order to provide common understanding; - Common issues or complications; - Sources of error and uncertainty, including recommendations to minimize them."
+  },
+  {
+    "reference": "IEC 61215-1:2021",
+    "edition": "2.0",
+    "date": "2021-02-23",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1: Test requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 61215-1:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. The useful service life of modules so qualified will depend on their design, their environment and the conditions under which they are operated. Test results are not construed as a quantitative prediction of module lifetime. This document is intended to apply to all terrestrial flat plate module materials such as crystalline silicon module types as well as thin-film modules. It does not apply to systems that are not long-term applications, such as flexible modules installed in awnings or tenting. This second edition of IEC 61215-1 cancels and replaces the first edition of IEC 61215-1, published in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. Addition of a test taken from IEC TS 62782. b. Addition of a test taken from IEC TS 62804-1. c. Addition of test methods required for flexible modules. This includes the addition of the bending test (MQT 22). d. Addition of definitions, references and instructions on how to perform the IEC 61215 design qualification and type approval on bifacial PV modules. e. Clarification of the requirements related to power output measurements. f. Addition of weights to junction box during 200 thermal cycles. g. Requirement that retesting be performed according to IEC TS 62915. h. Removal of the nominal module operating test (NMOT), and associated test of performance at NMOT, from the IEC 61215 series. The contents of the corrigendum of May 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61215-1:2021/COR1:2021",
+    "edition": "2.0",
+    "date": "2021-05-25",
+    "title": "Corrigendum 1 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1: Test requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61215-1-1:2021",
+    "edition": "2.0",
+    "date": "2021-02-23",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-1: Special requirements for testing of crystalline silicon photovoltaic (PV) modules",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61215-1-1:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. The useful service life of modules so qualified will depend on their design, their environment and the conditions under which they are operated. Test results are not construed as a quantitative prediction of module lifetime. In climates where 98th percentile operating temperatures exceed 70 °C, users are recommended to consider testing to higher temperature test conditions as described in IEC TS 63126. This document is intended to apply to all crystalline silicon terrestrial flat plate modules. This second edition cancels and replaces the first edition of IEC 61215-1-1, issued in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. A cyclic (dynamic) mechanical load test (MQT 20) added. b. A test for detection of potential-induced degradation (MQT 21) added. c. A bending test (MQT 22) for flexible modules added. d. A procedure for stress specific stabilization – BO LID (MQT 19.3) added. e. A final stabilization procedure for modules undergoing PID testing added"
+  },
+  {
+    "reference": "IEC 61215-1-2:2021",
+    "edition": "2.0",
+    "date": "2021-02-09",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-2: Special requirements for testing of thin-film Cadmium Telluride (CdTe) based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": "IEC 61215-1-2:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. The useful service life of modules so qualified will depend on their design, their environment and the conditions under which they are operated. Test results are not construed as a quantitative prediction of module lifetime. This document is intended to apply to all thin-film CdTe based terrestrial flat plate modules. As such, it addresses special requirements for testing of this technology supplementing IEC 61215-1:2021 and IEC 61215-2:2021 requirements for testing. This document defines PV technology dependent modifications to the testing procedures and requirements per IEC 61215-1:2021 and IEC 61215-2:2021. This second edition cancels and replaces the first edition of IEC 61215-1-2, issued in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. A cyclic (dynamic) mechanical load test (MQT 20) added. b. A test for detection of potential-induced degradation (MQT 21) added. c. A bending test (MQT 22) for flexible modules added."
+  },
+  {
+    "reference": "IEC 61215-1-2:2021/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-03-28",
+    "title": "Amendment 1 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-2: Special requirements for testing of thin-film Cadmium Telluride (CdTe) based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61215-1-3:2021",
+    "edition": "2.0",
+    "date": "2021-02-23",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-3: Special requirements for testing of thin-film amorphous silicon based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": "IEC 61215-1-3:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. The useful service life of modules so qualified will depend on their design, their environment and the conditions under which they are operated. Test results are not construed as a quantitative prediction of module lifetime. This document is intended to apply to all thin-film amorphous silicon (a-Si; a-Si/µc-Si) based terrestrial flat plate modules. As such, it addresses special requirements for testing of this technology supplementing IEC 61215-1:2021 and IEC 61215-2:2021 requirements for testing. This second edition cancels and replaces the first edition of IEC 61215-1-3, issued in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. A cyclic (dynamic) mechanical load test (MQT 20) added. b. A test for detection of potential-induced degradation (MQT 21) added. c. A bending test (MQT 22) for flexible modules."
+  },
+  {
+    "reference": "IEC 61215-1-3:2021/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-03-28",
+    "title": "Amendment 1 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-3: Special requirements for testing of thin-film amorphous silicon based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61215-1-4:2021",
+    "edition": "2.0",
+    "date": "2021-02-23",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-4: Special requirements for testing of thin-film Cu(In,GA)(S,Se)2 based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": "IEC 61215-1-4:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. The useful service life of modules so qualified will depend on their design, their environment and the conditions under which they are operated. Test results are not construed as a quantitative prediction of module lifetime. This document is intended to apply to all thin-film Cu(In,Ga)(S,Se)2 based terrestrial flat plate modules. As such it addresses special requirements for testing of this technology supplementing IEC 61215-1:2021 and IEC 61215-2:2021 requirements for testing. This second edition cancels and replaces the first edition of IEC 61215-1-4, issued in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. A cyclic (dynamic) mechanical load test (MQT 20) added. b. A test for detection of potential-induced degradation (MQT 21) added. c. A bending test (MQT 22) for flexible modules added. This standard is to be read in conjunction with IEC 61215-1:2021 and IEC 61215-2:2021."
+  },
+  {
+    "reference": "IEC 61215-1-4:2021/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-03-28",
+    "title": "Amendment 1 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1-4: Special requirements for testing of thin-film Cu(In,Ga)(S,Se)2 based photovoltaic (PV) modules",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61215-2:2021",
+    "edition": "2.0",
+    "date": "2021-02-24",
+    "title": "Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 2: Test procedures",
+    "language": "EN-FR, ES",
+    "description": "IEC 61215-2:2021 lays down requirements for the design qualification of terrestrial photovoltaic modules suitable for long-term operation in open-air climates. This document is intended to apply to all terrestrial flat plate module materials such as crystalline silicon module types as well as thin-film modules. The objective of this test sequence is to determine the electrical characteristics of the module and to show, as far as possible within reasonable constraints of cost and time, that the module is capable of withstanding prolonged exposure outdoors. This second edition of IEC 61215-2 cancels and replaces the first edition of IEC 61215-2 issued in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. Addition of cyclic (dynamic) mechanical load testing (MQT 20). b. Addition of a test for detection of potential-induced degradation (MQT 21). c. Addition of test methods required for bifacial PV modules. d. Addition of test methods required for flexible modules. This includes the addition of the bending test (MQT 22). e. Revision of simulator requirements to ensure uncertainty is both well-defined and minimized. f. Correction to the hot spot endurance test, where the procedure for monolithically integrated (MLI) thin film technologies (MQT 09.2) previously included two sections describing a procedure only appropriate for silicon modules. g. Selection of three diodes, rather than all, for testing in the bypass diode thermal test (MQT 18). h. Removal of the nominal module operating test (NMOT), and associated test of performance at NMOT, from the IEC 61215 series."
+  },
+  {
+    "reference": "IEC 61683:1999",
+    "edition": "1.0",
+    "date": "1999-11-25",
+    "title": "Photovoltaic systems - Power conditioners - Procedure for measuring efficiency",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61683:1999 Describes guidelines for measuring the efficiency of power conditioners used in stand-alone and utility-interactive photovoltaic systems, where the output of the power conditioner is a stable a.c. voltage of constant frequency or a stable d.c. voltage."
+  },
+  {
+    "reference": "IEC 61701:2020",
+    "edition": "3.0",
+    "date": "2020-06-11",
+    "title": "Photovoltaic (PV) modules - Salt mist corrosion testing",
+    "language": "EN-FR, ES",
+    "description": "IEC 61701:2020 describes test sequences useful to determine the resistance of different PV modules to corrosion from salt mist containing Cl (NaCl, MgCl2, etc.). All tests included in the sequences are fully described in IEC 61215‑2, IEC 62108, IEC 61730‑2 and IEC 60068‑2‑52. The bypass diode functionality test in this document is modified from its description in IEC 61215‑2. They are combined in this document to provide means to evaluate possible faults caused in PV modules when operating under wet atmospheres having high concentration of dissolved salt (NaCl). Depending on the specific nature of the surrounding atmosphere to which the module is exposed in real operation several testing methods can be applied, as defined in IEC 60068‑2‑52. Guidance for determining the applicability of this document and selecting an appropriate method is provided in Annex A. This third edition cancels and replaces the second edition issued in 2011. The main technical changes with respect to the previous edition are as follows: - The scope has been updated to better reflect the applicability of the Standard - Test methods and requirements have been condensed and aligned with the new editions of IEC 61215-1, IEC 61215-2, and IEC 61730-2. References to crystalline silicon versus thin film technologies have been eliminated. The old Figure 2 on the thin film test sequence has been eliminated. - The salt mist test references have been updated to harmonize with changes to IEC 60068‑2‑52. - A normative annex has been added to provide guidance on which of the test methods in IEC 60068-2-52 are applicable to different applications. This includes references to new test methods in the latest edition of IEC 60068-2-52."
+  },
+  {
+    "reference": "IEC 61724-1:2021",
+    "edition": "2.0",
+    "date": "2021-07-21",
+    "title": "Photovoltaic system performance - Part 1: Monitoring",
+    "language": "EN-FR, ES",
+    "description": "IEC 61724-1:2021 outlines terminology, equipment, and methods for performance monitoring and analysis of photovoltaic (PV) systems. It also serves as a basis for other standards which rely upon the data collected. This document defines classes of photovoltaic (PV) performance monitoring systems and serves as guidance for monitoring system choices. This second edition cancels and replaces the first edition, published in 2017. This edition includes the following significant technical changes with respect to the previous edition: - Monitoring of bifacial systems is introduced. - Irradiance sensor requirements are updated. - Soiling measurement is updated based on new technology. - Class C monitoring systems are eliminated. - Various requirements, recommendations and explanatory notes are updated."
+  },
+  {
+    "reference": "IEC TS 61724-2:2025",
+    "edition": "2.0",
+    "date": "2025-09-22",
+    "title": "Photovoltaic system performance - Part 2: Power performance index and capacity evaluation method",
+    "language": "EN",
+    "description": "IEC TS 61724-2:2025 applies to grid-connected PV systems comprising at least one inverter. The test evaluates the PV system only in conditions where output is unconstrained by limitations in AC power output from the inverters. This document defines a test of a PV system's power performance index (PPI). PPI, defined in IEC 61724‑1, is the ratio of a system's measured power output under test conditions to its expected output at those conditions based on the system's design. The test is intended to be performed over a short period of typically three to five days and is typically used to satisfy a contractual performance guarantee as part of the final completion of a PV power plant. This second edition cancels and replaces the first edition published in 2016. This edition includes the following significant technical changes with respect to the previous edition: a) Adapting the document for bifacial PV systems, in accordance with the latest edition of IEC 61724‑1 and current industry practices. b) Adapting the test procedure to account for the limited times of unconstrained system operation which are now common because of high DC-to-AC ratios (clipping) and interconnection limits (curtailment). c) Adapting the test procedure to achieve a test that can be performed in a short time of three to five days during favourable conditions. d) Focusing the document more heavily on the use of modern PV system modelling software to obtain the expected performance of the system under test. e) Simplifying the mathematical procedure for calculating the test results. f) Clearly identifying test elections (optional choices to be made in conducting the test) and providing a template for documenting these elections. g) Clarifying the discussion of the test boundary that separates tested variables from untested variables. h) Expanding and clarifying the discussion of data filtering."
+  },
+  {
+    "reference": "IEC TS 61724-3:2016",
+    "edition": "1.0",
+    "date": "2016-07-19",
+    "title": "Photovoltaic system performance - Part 3: Energy evaluation method",
+    "language": "EN",
+    "description": "IEC TS 61724-3:2016(E) defines a procedure for measuring and analyzing the energy production of a specific photovoltaic system relative to expected electrical energy production for the same system from actual weather conditions as defined by the stakeholders of the test. The energy production is characterized specifically for times when the system is operating (available); times when the system is not operating (unavailable) are quantified as part of an availability metric. The aim of this technical specification is to define a procedure for comparing the measured electrical energy with the expected electrical energy of the PV system. The contents of the corrigendum of February 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 61724-3:2016/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-02-14",
+    "title": "Corrigendum 1 - Photovoltaic system performance - Part 3: Energy evaluation method",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61727:2004",
+    "edition": "2.0",
+    "date": "2004-12-14",
+    "title": "Photovoltaic (PV) systems - Characteristics of the utility interface",
+    "language": "EN-FR",
+    "description": "Applies to utility-interconnected photovoltaic (PV) power systems operating in parallel with the utility and utilizing static (solid-state) non-islanding inverters for the conversion of DC to AC. Lays down requirements for interconnection of PV systems to the utility distribution system."
+  },
+  {
+    "reference": "IEC 61730-1:2023",
+    "edition": "3.0",
+    "date": "2023-09-13",
+    "title": "Photovoltaic (PV) module safety qualification - Part 1: Requirements for construction",
+    "language": "EN-FR",
+    "description": "IEC 61730-1:2023 specifies and describes the fundamental construction requirements for photovoltaic (PV) modules in order to provide safe electrical and mechanical operation. Specific topics are provided to assess the prevention of electrical shock, fire hazards, and personal injury due to mechanical and environmental stresses. This document pertains to the particular requirements of construction. IEC 61730-2 defines the requirements for testing. Modules with modified construction are qualified as described in IEC TS 62915. This document lays down requirements for terrestrial PV modules suitable for long-term operation in open-air climates with 98th percentile module operating temperatures of 70 °C or less. Guidelines for modules to be used at higher operating temperatures are described in IEC TS 63126. This document is intended to apply to all terrestrial flat plate module materials, such as crystalline silicon module types as well as thin-film modules. This document defines the basic requirements for various applications of PV modules, but it cannot be considered to encompass all national or regional codes."
+  },
+  {
+    "reference": "IEC 61730-2:2023",
+    "edition": "3.0",
+    "date": "2023-09-12",
+    "title": "Photovoltaic (PV) module safety qualification - Part 2: Requirements for testing",
+    "language": "EN-FR",
+    "description": "IEC 61730-2:2023 lists the tests a PV module is required to fulfil for safety qualification. This document applies for safety qualification only in conjunction with IEC 61730-1. The objective of this document is to provide the testing sequence intended to verify the safety of PV modules whose construction has been assessed by IEC 61730-1. The test sequence and pass criteria are designed to detect the potential breakdown of internal and external components of PV modules that would result in fire, electric shock, and/or personal injury. This document defines the basic safety test requirements and additional tests that are a function of the PV module end-use applications. The additional testing requirements outlined in relevant ISO documents, or the national or local codes which govern the installation and use of these PV modules in their intended locations, are considered in addition to the requirements contained within this document. The content of the corrigendum 1 (2024-10) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61730-2:2023/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-10-14",
+    "title": "Corrigendum 1- Photovoltaic (PV) module safety qualification - Part 2: Requirements for testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61829:2015",
+    "edition": "2.0",
+    "date": "2015-10-22",
+    "title": "Photovoltaic (PV) array - On-site measurement of current-voltage characteristics",
+    "language": "EN-FR, ES",
+    "description": "IEC 61829:2015 specifies procedures for on-site measurement of flat-plate photovoltaic (PV) array characteristics, the accompanying meteorological conditions, and use of these for translating to standard test conditions (STC) or other selected conditions. This new edition includes the following significant technical changes with respect to the previous edition: - it addresses many outdated procedures; - it accommodates commonly used commercial I-V curve tracers; - it provides a more practical approach for addressing field uncertainties; - it removes and replaces procedures with references to other updated and pertinent standards, including the IEC 60904 series, andIEC 60891."
+  },
+  {
+    "reference": "IEC TS 61836:2025",
+    "edition": "4.0",
+    "date": "2025-11-24",
+    "title": "Solar photovoltaic energy systems - Terms, definitions and symbols",
+    "language": "EN",
+    "description": "IEC TS 61836:2025 covers solar photovoltaic (PV) terminology, definitions and symbols used in IEC TC 82 international standards."
+  },
+  {
+    "reference": "IEC 61853-1:2011",
+    "edition": "1.0",
+    "date": "2011-01-26",
+    "title": "Photovoltaic (PV) module performance testing and energy rating - Part 1: Irradiance and temperature performance measurements and power rating",
+    "language": "EN-FR, ES",
+    "description": "IEC 61853-1:2011 describes requirements for evaluating PV module performance in terms of power (watts) rating over a range of irradiances and temperatures. The object is to define a testing and rating system, which provides the PV module power (watts) at maximum power operation for a set of defined conditions. A second purpose is to provide a full set of characterization parameters for the module under various values of irradiance and temperature."
+  },
+  {
+    "reference": "IEC 61853-2:2026",
+    "edition": "2.0",
+    "date": "2026-08-05",
+    "title": "Photovoltaic (PV) module performance testing and energy rating - Part 2: Spectral responsivity, incidence angle and nominal module operating temperature measurements",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61853-2:2026 establishes IEC requirements for evaluating PV module performance based on power (watts), energy (joule or watthours) and performance ratio. It is written to be applicable to all PV technologies, including bifacial PV modules, but can be unsuitable for any technology where the module performance changes with time (e.g. modules change their behaviour with light or thermal exposure), or which experience significant non-linearities in any of their characteristics used for the modelling. The purpose of document is to define procedures for measuring the effects of angle of incidence of the irradiance on the output power of the device, to determine the operating temperature of a module for a specific set of ambient and mounting conditions and measure the spectral responsivity of the module."
+  },
+  {
+    "reference": "IEC 61853-3:2018",
+    "edition": "1.0",
+    "date": "2018-08-30",
+    "title": "Photovoltaic (PV) module performance testing and energy rating - Part 3: Energy rating of PV modules",
+    "language": "EN-FR",
+    "description": "IEC 61853-3:2018 describes the calculation of PV module energy rating values. The purpose of this document is to define a methodology to determine the PV module energy output (watt-hours), and the climatic specific energy rating (dimensionless) for a complete year at maximum power operation for the reference climatic profile(s) given in IEC 61853-4. It is applied to determine a specific module output in a standard reference climatic profile for the purposes of comparison of rated modules."
+  },
+  {
+    "reference": "IEC 61853-4:2018",
+    "edition": "1.0",
+    "date": "2018-08-30",
+    "title": "Photovoltaic (PV) module performance testing and energy rating - Part 4: Standard reference climatic profiles",
+    "language": "EN-FR",
+    "description": "IEC 61853-4:2018 describes the standard reference climatic profiles used for calculating energy ratings. This standard contains an attachment in the form of zip files (climatic data sets), which are intended to be used as a complement."
+  },
+  {
+    "reference": "IEC 62093:2022",
+    "edition": "2.0",
+    "date": "2022-01-10",
+    "title": "Photovoltaic system power conversion equipment - Design qualification and type approval",
+    "language": "EN-FR, ES",
+    "description": "IEC 62093:2022 lays down IEC requirements for the design qualification of power conversion equipment (PCE) suitable for long-term operation in terrestrial photovoltaic (PV) systems. This document covers electronic power conversion equipment intended for use in terrestrial PV applications. The term PCE refers to equipment and components for electronic power conversion of electric power into another kind of electric power with respect to voltage, current, and frequency. This document is suitable for PCE for use in both indoor and outdoor climates as defined in IEC 60721-3-3 and IEC 60721-3-4. Such equipment may include, but is not limited to, grid-tied and off-grid DC-to-AC PCEs, DC-to-DC converters, battery charger converters, and battery charge controllers. This document covers PCE that is connected to PV arrays that do not nominally exceed a maximum circuit voltage of 1 500 V DC. This second edition cancels and replaces the first edition published in 2005. This edition includes the following significant technical changes with respect to the previous edition: a. Title modified. b. This edition focusses on the design qualification of power conversion electronics (PCE), and eliminates the clauses associated with qualification testing of other balance of system components. c. While many clause titles remain the same as the first edition, substantial changes have been made. d. Whereas the first edition establishes requirements for the design qualification of balance-of-system components used in terrestrial photovoltaic (PV) systems, this edition is limited to power conversion equipment. e. The test protocols have been changed."
+  },
+  {
+    "reference": "IEC 62108:2022",
+    "edition": "3.0",
+    "date": "2022-06-02",
+    "title": "Concentrator photovoltaic (CPV) modules and assemblies - Design qualification and type approval",
+    "language": "EN-FR, ES",
+    "description": "IEC 62108:2022 specifies the minimum requirements for the design qualification and type approval of concentrator photovoltaic (CPV) modules and assemblies suitable for long-term operation in general open-air climates as defined in IEC 60721-2-1. The object of this test document is to determine the electrical, mechanical, and thermal characteristics of the CPV modules and assemblies and to show, as far as possible within reasonable constraints of cost and time, that the CPV modules and assemblies are capable of withstanding prolonged exposure in climates described in the scope."
+  },
+  {
+    "reference": "IEC 62109-1:2010",
+    "edition": "1.0",
+    "date": "2010-04-28",
+    "title": "Safety of power converters for use in photovoltaic power systems - Part 1: General requirements",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62109-1:2010 applies to the power conversion equipment (PCE) for use in photovoltaic systems where a uniform technical level with respect to safety is necessary. Defines the minimum requirements for the design and manufacture of PCE for protection against electric shock, energy, fire, mechanical and other hazards. Provides general requirements applicable to all types of PV PCE."
+  },
+  {
+    "reference": "IEC 62109-2:2011",
+    "edition": "1.0",
+    "date": "2011-06-23",
+    "title": "Safety of power converters for use in photovoltaic power systems - Part 2: Particular requirements for inverters",
+    "language": "EN-FR, ES",
+    "description": "IEC 62109-2:2011 covers the particular safety requirements relevant to d.c. to a.c. inverter products as well as products that have or perform inverter functions in addition to other functions, where the inverter is intended for use in photovoltaic power systems. Inverters covered by this standard may be grid-interactive, stand-alone, or multiple mode inverters, may be supplied by single or multiple photovoltaic modules grouped in various array configurations, and may be intended for use in conjunction with batteries or other forms of energy storage. This standard must be used jointly with IEC 62109-1."
+  },
+  {
+    "reference": "IEC 62109-3:2020",
+    "edition": "1.0",
+    "date": "2020-07-08",
+    "title": "Safety of power converters for use in photovoltaic power systems - Part 3: Particular requirements for electronic devices in combination with photovoltaic elements",
+    "language": "EN-FR, ES",
+    "description": "IEC 62109-3:2020 covers the particular safety requirements for electronic elements that are mechanically and/or electrically incorporated with photovoltaic (PV) modules or systems. Mechanically and/or electrically incorporated means that the whole combination of electronic device with the photovoltaic element is sold as one product. Nevertheless, tests provided in this document may also be used to evaluate compatibility of PV modules and electronic devices that are sold separately and are intended to be installed close to each other. The purpose of the requirements of this document is to provide additional safety-related testing requirements for the following types of integrated electronics, collectively referred to as module integrated equipment (MIE): a) Type A MIE where the PV element can be evaluated as a PV module according to IEC 61730-1 and IEC 61730‑2 independently from the electronic element; b) Type B MIE where the PV element cannot be evaluated as a PV module according to IEC 61730-1 and IEC 61730-2 independently from the electronic element. The contents of the corrigendum of November 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62109-3:2020/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-11-10",
+    "title": "Corrigendum 1 - Safety of power converters for use in photovoltaic power systems - Part 3: Particular requirements for electronic devices in combination with photovoltaic elements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62116:2014",
+    "edition": "2.0",
+    "date": "2014-02-26",
+    "title": "Utility-interconnected photovoltaic inverters - Test procedure of islanding prevention measures",
+    "language": "EN-FR, ES",
+    "description": "IEC 62116:2014 provides a test procedure to evaluate the performance of islanding prevention measures used with utility-interconnected PV systems. This standard describes a guideline for testing the performance of automatic islanding prevention measures installed in or with single or multi-phase utility interactive PV inverters connected to the utility grid. The test procedure and criteria described are minimum requirements that will allow repeatability. Major changes with respect to the previous edition concern the DC power source and test conditions."
+  },
+  {
+    "reference": "IEC 62253:2011",
+    "edition": "1.0",
+    "date": "2011-07-15",
+    "title": "Photovoltaic pumping systems - Design qualification and performance measurements",
+    "language": "EN-FR, ES",
+    "description": "IEC 62253:2011 defines the requirements for design, qualification and performance measurements of photovoltaic (PV) pumping systems in stand-alone operation. The outlined measurements are applicable for either indoor tests with PV generator simulator or outdoor tests using a real PV generator. This standard applies to systems with motor pump sets connected to the PV generator directly or via a converter (DC to DC or DC to AC)."
+  },
+  {
+    "reference": "IEC TS 62257-2:2015",
+    "edition": "2.0",
+    "date": "2015-12-11",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 2: From requirements to a range of electrification systems",
+    "language": "EN",
+    "description": "IEC TS 62257-2:2015(E) proposes a methodological approach for the setting up and carrying out of socio-economic studies as part of the framework of decentralized rural electrification projects. It is addressed to project teams and in particular to experts in charge of socio-economic studies in international projects. This technical specification also provides some structures as technical solutions that could be recommended, depending on the qualitative and quantitative energy demands, consistent with the needs and financial situation of the customers. The main technical changes with regard to the previous edition are as follows: - redefine the maximum AC voltage from 500 V to 1 000 V, the maximum DC voltage from 750 V to 1 500 V; - removal of the limitation of 100 kVA system size. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-3:2015",
+    "edition": "2.0",
+    "date": "2015-12-11",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 3: Project development and management",
+    "language": "EN",
+    "description": "IEC TS 62257-3:2015(E) provides information on the responsibilities involved in the implementation of rural power systems. More particularly it covers: - contractual relationships to be built between the different participants to a project; - the relevant tests to be applied to renewable energy and hybrid electrification systems; - quality assurance principles to be implemented; - requirements for recycling and protection of the environment. The main technical changes with regard to the previous edition are as follows: - redefine the maximum AC voltage from 500 V to 1 000 V, the maximum DC voltage from 750 V to 1 500 V; - removal of the limitation of 100 kVA system size. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-5:2015",
+    "edition": "2.0",
+    "date": "2015-12-11",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 5: Protection against electrical hazards",
+    "language": "EN",
+    "description": "IEC TS 62257-5:2015(E) specifies the general requirements for the protection of persons and equipment against electrical hazards to be applied in decentralised rural electrification systems. Requirements dealing with protection against electric shock are based on basic rules from IEC 61140 and IEC 60364. Decentralized Rural Electrification Systems are designed to supply electric power for sites which are not connected to a large interconnected system, or a national grid, in order to meet basic needs. Examples of such sites: isolated dwellings, village houses, community services, economic activities, etc. The main technical changes with regard to the previous edition are as follows: - redefine the maximum AC voltage from 500 V to 1 000 V, the maximum DC voltage from 750 V to 1 500 V; - removal of the limitation of 100 kVA system size. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-6:2015",
+    "edition": "2.0",
+    "date": "2015-12-11",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 6: Acceptance, operation, maintenance and replacement",
+    "language": "EN",
+    "description": "IEC TS 62257-6:2015(E) describes the various rules to be applied for acceptance, operation, maintenance and replacement of decentralized rural electrification systems which are designed to supply electric power for sites which are not connected to a large interconnected system, or a national grid, in order to meet basic needs. This technical specification proposes a methodology to achieve the best technical and economic conditions for acceptance, operation, maintenance and replacement of equipment and complete system life cycle. The main technical changes with regard to the previous edition are as follows: - redefine the maximum AC voltage from 500 V to 1 000 V, the maximum DC voltage from 750 V to 1 500 V; - removal of the limitation of 100 kVA system size. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-7:2017",
+    "edition": "2.0",
+    "date": "2017-09-22",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 7: Generators",
+    "language": "EN",
+    "description": "IEC TS 62257-7:2017 specifies the general requirements for the generators in decentralized rural electrification systems. This document is a general introduction followed by more specific documents dedicated to the generation technologies which are the most currently used in rural electrification projects. This new edition includes the following significant technical changes with respect to the previous edition: removed the word \"small\" from the description of the PV systems, and removed the power limit (100 kVA); increased the relevant voltage levels to 1 000 V (AC) and 1 500 V (DC)."
+  },
+  {
+    "reference": "IEC TS 62257-7-2:2022",
+    "edition": "1.0",
+    "date": "2022-03-16",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 7-2: Generator set - Off-grid wind turbines",
+    "language": "EN",
+    "description": "IEC TS 62257-7-2:2022 applies to all small wind turbines (SWTs) with a swept area smaller than or equal to 200 m 2 , and designed for supplying electrical power to isolated sites used in systems as described in IEC TS 62257-2. This document is not an exhaustive resource for the design, installation, operation or maintenance of small wind turbines and wind power systems, but is more focused on recommendations to provide strategies on selection and criteria which may affect the use of a small wind power system (SWPS) in a rural electrification project. The aim of this document is to provide users with the appropriate levels of reliability and safety of the equipment during its estimated service lifespan."
+  },
+  {
+    "reference": "IEC TS 62257-7-3:2018",
+    "edition": "2.0",
+    "date": "2018-03-13",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 7-3: Generator set - Selection of generator sets for rural electrification systems",
+    "language": "EN",
+    "description": "IEC TS 62257-7-3:2018(E) specifies the general requirements for the selection, sizing, erection and operation of generator sets in decentralized rural electrification systems. It applies to all low voltage combustion engine electricity generator sets energized by renewable energy such as biomass gasifier or biogas, or fossil fuel such as gasoline or diesel fuel, and designed for supplying electrical power to isolated sites used in systems as described in IEC TS 62257-2. The aim of this document is to provide users with the appropriate guide to select generator sets for using in micropower plant with different configurations and levels of reliability and safety of the equipment during its estimated service lifespan. This document describes the minimum requirement of generator set functionality and safety requirements and does not claim to be an exhaustive instruction manual or design specification. The main technical changes of this new edition with regard to the previous edition are as follows: - Increased the voltage and power levels to which this TS applies. - Added descriptions of four different types of micropower systems and their relevant requirements."
+  },
+  {
+    "reference": "IEC TS 62257-9-1:2016",
+    "edition": "2.0",
+    "date": "2016-09-27",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 9-1: Integrated systems - Micropower systems",
+    "language": "EN",
+    "description": "IEC TS 62257-9-1:2016(E) provides general requirements for the design, erection and operation of micropower plants and general requirements to ensure the safety of persons and property. The micropower plants covered by this specification are low-voltage a.c., three-phase or single-phase, with rated capacity less than, or equal to, 100 kVA. The main technical changes with regard to the previous edition are as follows: changing the voltage range covered by the technical specification to AC nominal voltage below 1 000 V and DC nominal voltage below 1 500 V. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-9-2:2016",
+    "edition": "2.0",
+    "date": "2016-09-27",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 9-2: Integrated systems - Microgrids",
+    "language": "EN",
+    "description": "IEC TS 62257-9-2:2016(E) specifies microgrids made of overhead lines because of technical and economical reasons in the context of decentralized rural electrification. The microgrids covered by this part of IEC 62257 are low voltage AC, three-phase or single-phase, with rated capacity less than or equal to 100 kVA. They are powered by a single micropower plant. The main technical changes with regard to the previous edition are as follows: changing the voltage range covered by the technical specification to AC nominal voltage below 1 000 V and DC nominal voltage below 1 500 V. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-9-3:2016",
+    "edition": "2.0",
+    "date": "2016-09-27",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 9-3: Integrated systems - User interface",
+    "language": "EN",
+    "description": "IEC TS 62257-9-3:2016(E) specifies the general requirements for the design and the implementation of the interface equipment within the user's installation which connects to a microgrid or the generating part of a standalone system. It applies to simplified user's interfaces (distribution board) in electrical installations with maximum power of 500 VA in decentralized rural electrification systems. The main technical changes with regard to the previous edition are as follows: changing the voltage range covered by the technical specification to AC nominal voltage below 1 000 V and DC nominal voltage below 1 500 V. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-9-4:2016",
+    "edition": "2.0",
+    "date": "2016-09-27",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 9-4: Integrated systems - User installation",
+    "language": "EN",
+    "description": "IEC TS 62257-9-4:2016(E) specifies the general requirements for the design and the implementation of a user's installation. It applies to single phase user's electrical installations with maximum power of 500 VA, in decentralized rural electrification systems. It is applicable to installations supplied by an AC microgrid and to installations encompassing their own single-unit AC micropower plant or DC micropower plant. The main technical changes with regard to the previous edition are as follows: changing the voltage range covered by the technical specification to AC nominal voltage below 1 000 V and DC nominal voltage below 1 500 V. This publication is to be read in conjunction with IEC 62257 series ."
+  },
+  {
+    "reference": "IEC TS 62257-9-5:2024",
+    "edition": "5.0",
+    "date": "2024-12-11",
+    "title": "Renewable energy off-grid systems – Part 9-5: Integrated systems – Laboratory evaluation of stand-alone renewable energy products for rural electrification",
+    "language": "EN",
+    "description": "IEC TS 62257-9-5:2024 provides support and strategies for institutions involved in rural electrification projects. It documents technical approaches for designing, building, testing, and maintaining off-grid renewable energy and hybrid systems with AC nominal voltage below 500 V, DC nominal voltage below 750 V and nominal power below 100 kVA. The purpose of this document is to specify laboratory test methods for evaluating the quality assurance of stand-alone renewable energy products. This document is specifically related to renewable energy products that are packaged and made available to end-use consumers at the point of purchase as single, stand-alone products that do not require additional system components to function. This document establishes the framework for creating a product specification, the basis for evaluating quality for a particular context. Product specifications include minimum requirements for quality standards and warranty requirements. This document applies to stand-alone renewable energy products having the following characteristics: This document was written primarily for off-grid renewable energy products with batteries and PV modules with DC system voltages not exceeding 35 V and peak power ratings not exceeding 350 W. This document includes provisions related to safety; however, it is not intended to be a comprehensive safety standard. In particular, this document is not intended to be used as an alternative to safety standards such as IEC 62368-1 or IEC 60335 (all parts) for appliances such as radios and televisions that are included with stand-alone renewable energy products"
+  },
+  {
+    "reference": "IEC TS 62257-9-6:2019",
+    "edition": "2.0",
+    "date": "2019-09-26",
+    "title": "Renewable energy and hybrid systems for rural electrification - Part 9-6: Integrated systems - Recommendations for selection of Photovoltaic Individual Electrification Systems (PV-IES)",
+    "language": "EN",
+    "description": "IEC 62257-9-6:2019 proposes a simple selection procedure and cheap, comparative tests which can be performed in laboratories of developing countries, in order to identify the most suitable model of small Photovoltaic Individual Electrification Systems (PV- IES) up to 500 Wp for a particular rural electrification project from a number of products submitted for test. The tests provided in IEC TS 62257-9-6 allow assessment of the performance of a PV-IES according to the requirement of the general specification of the project (see IEC/TS 62257-2) and to verify their ability to provide the required service. This second edition of IEC TS 62257-9-6 cancels and replaces the first edition published in 2008. The main technical changes with respect to the previous edition are as follows: - Removal of the term \"small\" from the title of the publication and from description of rural electrification systems. - Removal of the limits on system voltage and power; these recommendations apply to systems of all sizes."
+  },
+  {
+    "reference": "IEC TS 62257-9-8:2025",
+    "edition": "2.0",
+    "date": "2025-01-13",
+    "title": "Renewable energy off-grid systems - Part 9-8: Integrated systems - Requirements for stand-alone renewable energy products with power ratings less than or equal to 350 W",
+    "language": "EN",
+    "description": "IEC TS 62257-9-8:2025 provides baseline requirements for quality, durability and truth in advertising to protect consumers of off-grid renewable energy products. Evaluation of these requirements is based on tests described in IEC TS 62257-9-5. This document can be used alone or in conjunction with other international standards that address the safety and durability of components of off-grid renewable energy products. This document applies to stand-alone renewable energy products having the following characteristics: - The products are powered by photovoltaic (PV) modules or electromechanical power generating devices (such as dynamos), or are designed to use grid electricity to charge a battery or other energy-storage device for off-grid use. The requirements may also be appropriate as guidance for evaluating the quality of products with other power sources, such as thermoelectric generators. - The peak power rating of the PV module or other power generating device is less than or equal to 350 W. - The system evaluated includes all the loads (lighting, television, radio, fan, etc.) and load adapter cables that are sold or included as part of the kit or integrated into kit components. - The PV module maximum power point voltage and the working voltage of any other components in the kit do not exceed 35 V. Exceptions are made for AC-to-DC converters that meet appropriate safety standards, and systems that include PV modules (or combinations of PV modules) with open-circuit voltage greater than 35 V that meet additional safety requirements beyond those assessed in IEC TS 62257-9-5. This document includes provisions related to safety; however, it is not intended to be a comprehensive safety standard. In particular, this document is not intended to be used as an alternative to safety standards such as IEC 62368-1 or the IEC 60335 series for appliances such as radios and televisions that are included with stand-alone renewable energy products. Nor is it intended to replace the safety requirements of IEC 62281 or UN 38.3 for battery safety during transport, or safety requirements of IEC 61730-1 and IEC 61730-2 for PV modules intended for use outside the context of stand-alone renewable energy products."
+  },
+  {
+    "reference": "IEC PAS 62257-10:2017",
+    "edition": "1.0",
+    "date": "2017-08-09",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 10: Silicon solar module visual inspection guide",
+    "language": "EN",
+    "description": "IEC PAS 62257-10:2017(E) is designed to be used as a guide to visually inspect front-contact poly-crystalline and mono-crystalline silicon solar photovoltaic (PV) modules for major defects. The modules under consideration may be of any size or rated power, however some specific use-cases for solar modules may have different requirements and therefore adaption of this document is application and institution dependent (ex. labelling may not be present for a solar module sold as part of a small off-grid lighting kit). This document is meant to supplement and support rather than replace international testing standards such as IEC 61215."
+  },
+  {
+    "reference": "IEC TS 62257-12-1:2020",
+    "edition": "3.0",
+    "date": "2020-05-25",
+    "title": "Recommendations for renewable energy and hybrid systems for rural electrification - Part 12-1: Laboratory evaluation of lamps and lighting appliances for off-grid electricity systems",
+    "language": "EN",
+    "description": "IEC TS 62257-12-1:2020 establishes the framework for creating a product specification for lamps and lighting appliances to serve as the basis for evaluating quality for a particular context. Product specifications include minimum requirements for quality standards, warranty requirements, and/or performance criteria. Products are compared to specifications based on test results and other information about the product. The product specification framework is flexible and can accommodate the goals of diverse organizations and institutions. This third edition cancels and replaces the second edition published in 2015. This edition includes the following significant technical changes with respect to the previous edition. - Annex A and Annex B were combined into a single Annex A to eliminate duplicate tables and simplify the document."
+  },
+  {
+    "reference": "IEC TS 62257-100:2022",
+    "edition": "1.0",
+    "date": "2022-10-19",
+    "title": "Renewable energy off-grid systems - Part 100: Overview of the IEC 62257 series",
+    "language": "EN",
+    "description": "IEC TS 62257-100:2022 introduces the entire series regarding off-grid renewable energy and hybrid products and systems most commonly used for rural applications and access to electricity. This document provides a guide for facilitating the reading and the use of the IEC 62257 series for setting up off-grid electrification in developing countries or in developed countries, the only difference being the level of service and the needed quantity of energy that the customer can afford. This document outlines the organization of documents within the updated IEC 62257-xxx series published in 2022 and later, including utilization of a new 3-digit part numbering scheme, grouped into topics and subtopics."
+  },
+  {
+    "reference": "IEC TS 62257-200:2026",
+    "edition": "1.0",
+    "date": "2026-03-11",
+    "title": "Renewable energy off-grid systems - Part 200: System selection and design",
+    "language": "EN",
+    "description": "IEC TS 62257-200:2026 provides a method for describing the results to be achieved by the electrification system independently of the technical solutions that could be implemented. The purpose of this part of IEC 62257 is to provide a method to assist designers of renewable energy systems, project contractors and project developers to design the electrification system for isolated sites while matching the identified needs. This part of IEC 62257 assesses the needs of the users and the different power system architectures which can be used for meeting these needs. In relation to the needs of the different participants to the project, functional requirements to be achieved by the production and distribution subsystems are listed. This document provides technical standardization to different stakeholders (including but not limited to project developers, financing agencies, testing agencies, installers, etc.) involved in electrification projects for access to electricity for those not solely connected to the regional grid, through the setting up of off-grid renewable energy and hybrid systems (including micro-grids) with a voltage less than or equal to 1 000 V for AC (alternating current) or a voltage less than or equal to 1 500 V for DC (direct current). This document could be used for rural electrification, also for electrification of remote sites in developed countries, or any requirement for electricity access that cannot be met by attaching solely to the national utility grid. They promote the use of renewable energies, but at this time they do not deal with clean-energy mechanisms development (CO2 emissions, carbon credit, etc.)."
+  },
+  {
+    "reference": "IEC TS 62257-301:2025",
+    "edition": "1.0",
+    "date": "2025-08-26",
+    "title": "Renewable energy off-grid systems - Part 301: Generators - Integration of solar with other forms of power generation within hybrid power systems",
+    "language": "EN",
+    "description": "IEC TS 62257-301:2025 specifies the design and implementation of hybrid off-grid solar systems, where solar energy provides energy to a load in conjunction with other sources of energy. Such systems can either include or not include an energy storage system. There are a variety of different system architectures and applications, and many ways in which these energy sources can be combined. This document distinguishes between different sorts of hybrid system applications and gives guidance on the design and integration of these systems. It applies to single-phase and three-phase applications, and it covers situations where grid is available as an additional source of power for charging batteries and maintaining system reliability, but this document does not cover situations in which energy is fed back into a utility grid, although such systems can incidentally possess this function."
+  },
+  {
+    "reference": "IEC TS 62257-341:2026",
+    "edition": "1.0",
+    "date": "2026-05-06",
+    "title": "Renewable energy off-grid systems - Part 341: Selection of batteries and battery management systems for stand-alone electrification systems - Specific case of automotive flooded lead-acid batteries available in developing countries",
+    "language": "EN",
+    "description": "IEC TS 62257-341:2026 proposes simple, inexpensive, comparative tests to determine which types of flooded lead-acid automobile batteries are acceptable for use in PV electrification systems. It could be particularly useful for project implementers to test in laboratories of developing countries the capability of locally made car or truck batteries to be used for their project. The tests provided in this document allow assessment of the batteries' performances according to the general specification and batteries associated with their smart battery charging systems (SBCS) in a short time and with common technical means. They can be performed locally, as close as possible to the operating conditions of the real site. The document also provides recommendations and installation conditions to ensure the life and proper operation of the installations as well as the safety of people living in proximity to the installation. This document offers guidelines and does not replace any existing IEC Standard on batteries. This first edition cancels and replaces the second edition of IEC TS 62257-8-1 published in 2018. This edition includes the following significant technical changes with respect to IEC 62257‑8‑1:2018: - increase of the applicable voltage levels and removal of the 100 kW power limit; - removal of the word \"small\" from the description of these systems."
+  },
+  {
+    "reference": "IEC TS 62257-350:2025",
+    "edition": "1.0",
+    "date": "2025-12-10",
+    "title": "Renewable energy off-grid systems - Part 350: Recommendations for selection of inverters",
+    "language": "EN",
+    "description": "IEC TS 62257-350:2025 specifies the criteria for selecting and sizing inverters suitable for different off-grid applications integrating solar as an energy source. As well as off-grid systems, this document can also apply to inverters where a utility grid connection is available as a backup for charging batteries, but it is not intended to cover applications in which inverters synchronize and inject energy back into a utility grid, even though this capability can incidentally be a part of the functionality of the inverters. Single and multi-phase applications are included."
+  },
+  {
+    "reference": "IEC 62446-1:2016",
+    "edition": "1.0",
+    "date": "2016-01-19",
+    "title": "Photovoltaic (PV) systems - Requirements for testing, documentation and maintenance - Part 1: Grid connected systems - Documentation, commissioning tests and inspection",
+    "language": "EN-FR, ES",
+    "description": "IEC 62446-1:2016 defines the information and documentation required to be handed over to a customer following the installation of a grid connected PV system. It also describes the commissioning tests, inspection criteria and documentation expected to verify the safe installation and correct operation of the system. It is for use by system designers and installers of grid connected solar PV systems as a template to provide effective documentation to a customer. This new edition cancels and replaces IEC 62446 published in 2009 and includes the following significant technical change with respect to IEC 62446:2009: expansion of the scope to include a wider range of system test and inspection regimes to encompass larger and more complex PV systems."
+  },
+  {
+    "reference": "IEC 62446-1:2016/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-08-10",
+    "title": "Amendment 1 - Photovoltaic (PV) systems - Requirements for testing, documentation and maintenance - Part 1: Grid connected systems - Documentation, commissioning tests and inspection",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62446-2:2020",
+    "edition": "1.0",
+    "date": "2020-03-18",
+    "title": "Photovoltaic (PV) systems - Requirements for testing, documentation and maintenance - Part 2: Grid connected systems - Maintenance of PV systems",
+    "language": "EN-FR",
+    "description": "IEC 62446-2:2020 describes basic preventive, corrective, and performance related maintenance requirements and recommendations for grid-connected PV systems. The maintenance procedures cover: - Basic maintenance of the system components and connections for reliability, safety and fire prevention - Measures for corrective maintenance and troubleshooting - Worker safety This document also addresses maintenance activities for maximizing anticipated performance such as module cleaning and upkeep of vegetation. Special considerations unique to rooftop or ground-mounted systems are summarized."
+  },
+  {
+    "reference": "IEC TS 62446-3:2017",
+    "edition": "1.0",
+    "date": "2017-06-15",
+    "title": "Photovoltaic (PV) systems - Requirements for testing, documentation and maintenance - Part 3: Photovoltaic modules and plants - Outdoor infrared thermography",
+    "language": "EN",
+    "description": "IEC TS 62446-3:2017(E) defines outdoor thermographic (infrared) inspection of PV modules and plants in operation. This inspection supports the preventive maintenance for fire protection, the availability of the system for power production, and the inspection of the quality of the PV modules. This document lays down requirements for the measurement equipment, ambient conditions, inspection procedure, inspection report, personnel qualification and a matrix for thermal abnormalities as a guideline for the inspection."
+  },
+  {
+    "reference": "IEC 62509:2010",
+    "edition": "1.0",
+    "date": "2010-12-16",
+    "title": "Battery charge controllers for photovoltaic systems - Performance and functioning",
+    "language": "EN-FR, ES",
+    "description": "IEC 62509:2010 establishes minimum requirements for the functioning and performance of battery charge controllers (BCC) used with lead acid batteries in terrestrial photovoltaic systems. The main aims are to ensure BCC reliability and to maximise the life of the battery. This publication is to be read in conjunction with IEC 62093:2005 ."
+  },
+  {
+    "reference": "IEC 62548-1:2023",
+    "edition": "1.0",
+    "date": "2023-12-07",
+    "title": "Photovoltaic (PV) arrays - Part 1: Design requirements",
+    "language": "EN",
+    "description": "IEC 62548-1:2023 sets out design requirements for photovoltaic (PV) arrays including DC array wiring, electrical protection devices, switching and earthing provisions. The scope includes all parts of the PV array and final power conversion equipment (PCE), but not including energy storage devices, loads or AC or DC distribution network supplying loads. The object of this document is to address the design safety requirements arising from the particular characteristics of photovoltaic systems. This document also includes extra protection requirements of PV arrays when they are directly connected with batteries at the DC level. This first edition cancels and replaces IEC 62548 published in 2016. This edition includes the following significant technical changes with respect to the previous edition: a) Revised provisions for systems including DC to DC conditioning units. b) Revision of mounting structure requirements. c) Revised cable requirements. d) Revision of Clause 6 on safety issues which includes provisions for protection against electric shock including array insulation monitoring and earth fault detection. e) Revision of 7.2.7 and 7.3 with respect to isolation means. f) Provisions for use of bifacial modules and modules mounted in non-optimal orientations. g) New Annex F containing: KI factor calculations for bifacial and non-optimally oriented systems; anti-PID equipment and arc flash."
+  },
+  {
+    "reference": "IEC 62548-1:2023/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-12-15",
+    "title": "Amendment 1 - Photovoltaic (PV) arrays - Part 1: Design requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62670-1:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Photovoltaic concentrators (CPV) - Performance testing - Part 1: Standard conditions",
+    "language": "EN-FR, ES",
+    "description": "IEC 62670-1:2013 defines standard conditions for assessing the power produced by CPV systems and their photovoltaic subcomponents. The object is to define a consistent set of conditions so that power ratings noted on data sheets and nameplates will have a standard basis. Two sets of conditions are included to characterize: a) operating conditions, and b) test conditions."
+  },
+  {
+    "reference": "IEC 62670-2:2015",
+    "edition": "1.0",
+    "date": "2015-05-07",
+    "title": "Photovoltaic concentrators (CPV) - Performance testing - Part 2: Energy measurement",
+    "language": "EN-FR, ES",
+    "description": "IEC 62670-2:2015 specifies the minimum requirements for determining the energy output and performance ratio for CPV modules, arrays, assemblies and power plants using an on-sun, measurement based method. This International Standard is intended to define testing methods, to establish a standard energy measurement for CPV modules, arrays, assemblies and power plants, and to specify the minimum reporting information."
+  },
+  {
+    "reference": "IEC 62670-3:2017",
+    "edition": "1.0",
+    "date": "2017-02-07",
+    "title": "Photovoltaic concentrators (CPV) - Performance testing - Part 3: Performance measurements and power rating",
+    "language": "EN-FR, ES",
+    "description": "IEC 62670-3:2017 defines measurement procedures and instrumentation for determining concentrator photovoltaic performance at concentrator standard operating conditions (CSOC) and concentrator standard test conditions (CSTC), defined in IEC 62670-1, including power ratings."
+  },
+  {
+    "reference": "IEC 62688:2017",
+    "edition": "1.0",
+    "date": "2017-09-15",
+    "title": "Concentrator photovoltaic (CPV) modules and assemblies - Safety qualification",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62688:2017 describes the fundamental construction and testing requirements for Concentrator Photovoltaic (CPV) modules and assemblies in order to provide safe electrical and mechanical operation during their expected lifetime. Specific topics are provided to assess the prevention of electrical shock, fire hazards, and personal injury due to mechanical and environmental stresses. This document attempts to define the basic requirements for various application classes of concentrator photovoltaic modules and assemblies, but does not encompass all national and regional codes. This document is designed so that its test sequence can coordinate with those of IEC 62108, so that a single set of samples may be used to perform both the safety and performance evaluation of a CPV module and assembly."
+  },
+  {
+    "reference": "IEC 62716:2013",
+    "edition": "1.0",
+    "date": "2013-06-27",
+    "title": "Photovoltaic (PV) modules - Ammonia corrosion testing",
+    "language": "EN-FR, ES",
+    "description": "IEC 62716:2013 describes test sequences useful to determine the resistance of PV modules to ammonia (NH3). All tests included in the sequences, except the bypass diode functionality test, are fully described in IEC 61215, IEC 61646 and IEC 61730-2. They are combined in this standard to provide means to evaluate possible faults caused in PV modules when operating under wet atmospheres having high concentration of dissolved ammonia (NH3). The contents of the corrigendum of May 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62716:2013/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-05-08",
+    "title": "Corrigendum 1 - Photovoltaic (PV) modules - Ammonia corrosion testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62738:2018",
+    "edition": "1.0",
+    "date": "2018-08-15",
+    "title": "Ground-mounted photovoltaic power plants - Design guidelines and recommendations",
+    "language": "EN",
+    "description": "IEC TS 62738:2018(E) sets out general guidelines and recommendations for the design and installation of ground-mounted photovoltaic (PV) power plants. A PV power plant is defined within this document as a grid-connected, ground-mounted system comprising multiple PV arrays and interconnected directly to a utility’s medium voltage or high voltage grid. Additional criteria is that PV power plants are restricted from access by non-qualified persons and are continuously monitored for safety and protection, either by on-site personnel or by active remote monitoring. Technical areas addressed are those that largely distinguish PV power plants from smaller, more conventional installations, including ground mounted array configurations, cable routing methods, cable selection, overcurrent protection strategies, equipotential bonding over large geographical areas, and equipment considerations. Safety and design requirements are referenced to the applicable requirements of IEC 62548 to address distinct differences relative to the design requirements for residential, commercial and other non-power plant applications."
+  },
+  {
+    "reference": "IEC 62759-1:2022",
+    "edition": "2.0",
+    "date": "2022-07-07",
+    "title": "Photovoltaic (PV) modules - Transportation testing - Part 1: Transportation and shipping of module package units",
+    "language": "EN-FR, ES",
+    "description": "IEC 62759-1:2022 describes methods for the simulation of transportation of complete package units of modules and combined subsequent environmental impacts. This second edition cancels and replaces the first edition published in 2015. This edition includes the following significant technical changes with respect to the previous edition: a. Cancellation of tests and references to relevant standards for CPV. b. Deletion of different classes for PV modules. c. Deletion of requirement for minimum 10 modules per shipping unit. d. Implementation of stabilization as intermediate measurement. e. Addition of pass/fail criteria. f. Change of requirements for retesting. g. Change of number of cycles in dynamic mechanical load test."
+  },
+  {
+    "reference": "IEC TS 62782:2016",
+    "edition": "1.0",
+    "date": "2016-03-09",
+    "title": "Photovoltaic (PV) modules - Cyclic (dynamic) mechanical load testing",
+    "language": "EN",
+    "description": "IEC TS 62782:2016(E) provides a test method for performing a cyclic (dynamic) mechanical load test in which the module is supported at the design support points and a uniform load normal to the module surface is cycled in alternating negative and positive directions. This test may be utilized to evaluate if components within the module including solar cells, interconnect ribbons and/or electrical bonds within the module are susceptible to breakage or if edge seals are likely to fail due to the mechanical stresses encountered during installation and operation. This test can be performed at any module temperature within the normal operating temperature range. This test has been written as a standalone technical specification, but it is likely to be used in conjunction with other test standards."
+  },
+  {
+    "reference": "IEC 62787:2021",
+    "edition": "1.0",
+    "date": "2021-02-03",
+    "title": "Concentrator photovoltaic (CPV) solar cells and cell on carrier (CoC) assemblies - Qualification",
+    "language": "EN-FR, ES",
+    "description": "IEC 62787:2021 specifies the minimum requirements for the qualification of concentrator photovoltaic (CPV) cells and Cell on Carrier (CoC) assemblies for incorporation into CPV receivers, modules and systems. The object of this qualification standard is to determine the optoelectronic, mechanical, thermal, and processing characteristics of CPV cells and CoCs to show that they are capable of withstanding assembly processes and CPV application environments. The qualification tests of this document are designed to demonstrate that cells or CoCs are suitable for typical assembly processes, and when properly assembled, are capable of passing IEC 62108. This document defines qualification testing for two levels of concentrator photovoltaic device assembly: a) cell, or bare cell; and b) cell on carrier (CoC)."
+  },
+  {
+    "reference": "IEC 62788-1-1:2024",
+    "edition": "1.0",
+    "date": "2024-09-17",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-1: Encapsulants - Polymeric materials used for encapsulation",
+    "language": "EN-FR",
+    "description": "IEC 62788-1-1:2024 defines test methods and reporting requirements for characteristics (optical, mechanical, electrical, thermal, and chemical) of non-rigid polymeric materials (e.g., poly(ethylene-co-vinyl acetate), EVA) intended for use in terrestrial photovoltaic (PV) modules as polymeric encapsulants. The test methods in this document define how to characterize encapsulant materials in a manner representative of how they will be used in the module, which includes combination with other components such as frontsheets, backsheets, adhesives, edge seals, or glass.The methods described in this document support and supplement the safety- and performance-related tests defined on the PV module level, as defined in IEC 61730-2 and IEC 61215-1. This document also defines test methods for general assessment of material characteristics of polymeric encapsulants. The test methods described in this document may be used for the purposes of: datasheet reporting (aiding module design or material research and development); process and manufacturing control (e.g., incoming or outgoing inspection); application in module safety and design type qualification protocols; or reliability and durability study/standards development"
+  },
+  {
+    "reference": "IEC 62788-1-2:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-2: Encapsulants - Measurement of volume resistivity of photovoltaic encapsulants and other polymeric materials",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-1 2:2016 provides a method and guidelines for measuring the volume resistivity of materials used as encapsulation, edge seals, front-sheets, backsheets, or any other insulating material in a photovoltaic (PV) module. The test is performed on dry, humid or wet preconditioned samples. In the case of frontsheets and backsheets comprised of multiple layers, the measured resistivity is an effective value. This test is designed for room temperature measurement, but can also be utilized at higher temperatures."
+  },
+  {
+    "reference": "IEC 62788-1-4:2016",
+    "edition": "1.0",
+    "date": "2016-09-27",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-4: Encapsulants - Measurement of optical transmittance and calculation of the solar-weighted photon transmittance, yellowness index, and UV cut-off wavelength",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-1-4:2016 provides a method for measurement of the optical transmittance of encapsulation materials used in photovoltaic (PV) modules. The standardized measurements in this procedure quantify the expected transmittance of the encapsulation to the PV cell. Subsequent calculation of solar-weighted transmittance allows for comparison between different materials. The results for unweathered material may be used in an encapsulation manufacturer's datasheets, in manufacturer's material or process development, in manufacturing quality control (material acceptance), or applied in the analysis of module performance. This measurement method can also be used to monitor the performance of encapsulation materials after weathering, to help assess their durability."
+  },
+  {
+    "reference": "IEC 62788-1-4:2016/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-10-15",
+    "title": "Amendment 1 - Measurement procedures for materials used in photovoltaic modules - Part 1-4: Encapsulants - Measurement of optical transmittance and calculation of the solar-weighted photon transmittance, yellowness index, and UV cut-off wavelength",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62788-1-5:2016",
+    "edition": "1.0",
+    "date": "2016-06-28",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-5: Encapsulants - Measurement of change in linear dimensions of sheet encapsulation material resulting from applied thermal conditions",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-1-5:2016 provides a method for measuring the maximum representative change in linear dimensions of encapsulation sheet material in an unrestricted thermal exposure as might or might not be seen during photovoltaic (PV) module fabrication. Data obtained using this method may be used by encapsulation material manufacturers for the purpose of quality control of their encapsulation material as well as for reporting in product datasheets. Data obtained using this method may be used by PV module manufacturers for the purpose of material acceptance, process development, design analysis, or failure analysis. The contents of the corrigendum of July 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62788-1-5:2016/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-07-26",
+    "title": "Corrigendum 1 - Measurement procedures for materials used in photovoltaic modules - Part 1-5: Encapsulants - Measurement of change in linear dimensions of sheet encapsulation material resulting from applied thermal conditions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62788-1-6:2017",
+    "edition": "1.0",
+    "date": "2017-01-27",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-6: Encapsulants - Test methods for determining the degree of cure in Ethylene-Vinyl Acetate",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-1-6:2017 defines the terminology, test equipment, test environment, specimen preparation, test procedures, and test report for measuring the degree of cure of Ethylene-Vinyl Acetate (EVA) encapsulation sheet used in photovoltaic (PV) modules. The differential scanning calorimetry (both residual enthalpy and melt/freeze protocols) and gel content methods are included herein. This procedure can be used by material- or module-manufacturers to verify that the cross-linking additive is present and is active. The procedure can also be used to verify the module manufacturing (lamination) process for the purposes of quality- and process-control. The procedure can also be used to assess the uniformity of the EVA formulation within a roll as well as to compare variation of the EVA formulation from roll to roll."
+  },
+  {
+    "reference": "IEC 62788-1-6:2017/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-05-26",
+    "title": "Amendment 1 - Measurement procedures for materials used in photovoltaic modules - Part 1-6: Encapsulants - Test methods for determining the degree of cure in Ethylene-Vinyl Acetate",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62788-1-7:2020",
+    "edition": "1.0",
+    "date": "2020-04-21",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 1-7: Encapsulants - Test procedure of optical durability",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-1-7:2020 is designed as a more rigorous qualification test, using accelerated UV exposure at elevated temperature to determine whether polymeric encapsulants can suffer loss of optical transmittance. IEC 61215-2 already includes a UV preconditioning test (MQT 10), however, the parameters for that test only represent a limited level of exposure (~weeks of UV dose). This test procedure is intended for representative coupon specimens, applying stress at a greater intensity (designed relative to Phoenix, AZ), using a radiation spectrum that is more similar to the terrestrial solar spectrum, and using a duration of exposure that is more relevant to the PV application (i.e., equivalent to several years of outdoor exposure). This test quantifies the degradation rate of encapsulants so that the risk of the materials losing optical transmittance during operation in the terrestrial environments can be managed. The quantitative correlation between climate (or location of use), a specific application (utility installation, residential-installation, roof-mount, rack-mount, use of a tracker, the system electrical configuration and its operation), and the test can be established for each specific encapsulant material, but is beyond the scope of this document."
+  },
+  {
+    "reference": "IEC TS 62788-2:2024",
+    "edition": "2.0",
+    "date": "2024-07-12",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 2: Polymeric materials - Frontsheets and backsheets",
+    "language": "EN",
+    "description": "IEC TS 62788-2:2024 defines test methods and datasheet reporting requirements for safety and performance-related properties (mechanical, electrical, thermal, optical, chemical) of non‑rigid polymeric materials intended for use in terrestrial photovoltaic modules as polymeric front- and backsheets. The test methods in this document define how to characterize front- and backsheet materials and their components in a manner representative of how they will be used in the module, which eventually includes combination with other matched components such as encapsulants or adhesives. Results of testing described in this document are called by IEC 62788-2-1 for safety qualification of polymeric front- and backsheets on component level and support the safety and performance-related tests defined on the PV module level as defined in the series IEC 61730 (for safety) and IEC 61215 (for performance). This document also defines test methods for assessing inherent material characteristics of polymeric front- and backsheets or their components, which can be required in datasheet reporting or can be useful in the context of product development or design of PV modules. This second edition cancels and replaces the first edition published in 2017. This edition includes the following significant technical changes with respect to the previous edition: a) With revision of IEC 61730-1 the requirements for the polymeric front- and backsheet have been moved from IEC 61730-1 into IEC 62788-2-1. This is reflected accordingly. b) The tensile testing method has been refined based on findings of round robin tests, including updated drawings. c) A thermal pre-exposure method has been introduced to be equivalent to the thermal effects of a \"lamination\" cycle. This pre-exposure defines the \"fresh\" state of the front- or backsheet in final application for evaluation of changes in ageing tests. For practical reasons, an oven exposure has been defined as an equivalent test. d) The multiple functions of the lamination protrusion test (previously DTI test) have been clarified, to identify and measure RUI layer thickness as well as to identify layers for which the comparative tracking index (CTI) needs to be determined. Also the content of IEC 62788-2-1 has been updated, by which the lamination protrusion test and MST 04 are additionally set in perspective to each other via engineering judgement. e) The DC breakdown voltage test method has been updated and the option to perform a withstand voltage test has been added (to reduce the required measurement voltage). The correction of DC breakdown voltage ( ) measurements, needed in the presence of non‑RUI layers and after the lamination protrusion test, has been defined more precisely. f) Details for thickness measurement have been added (engineered surface roughness due to embossing). g) The adhesion test methods have been reviewed and updated. The single cantilevered beam test has been added. Figures have been updated to align with IEC 62788-1-1. h) The thermal failsafe test has been added as a test method based on discussion in the parallel project for IEC 62788-2-1. The test method offers a single temperature-point evaluation to include elongation at break to the thermal endurance evaluation. I) A sequential UV/TC test (\"solder bump test\") has been added."
+  },
+  {
+    "reference": "IEC 62788-2-1:2023",
+    "edition": "1.0",
+    "date": "2023-08-25",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 2-1: Polymeric materials - Frontsheet and backsheet - Safety requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-2-1:2023 specifies the safety requirements for flexible polymeric front- and backsheet constructions, which are intended for use as relied-upon insulation in photovoltaic (PV) modules. The specifications in this document define the specific requirements of polymeric front- or backsheet constructions on the component level and cover mechanical, electrical, visual and thermal characterization in an unexposed state and/or after ageing. This document covers class II and class 0 modules, as defined in IEC 61730-1. Class III modules are out of scope. This document provides the requirements for qualification of front- and backsheets to be used in module safety qualification according to IEC 61730-1. Test method descriptions are provided in IEC TS 62788-2, along with additional characterization methods useful for performance or quality assurance."
+  },
+  {
+    "reference": "IEC 62788-2-1:2023/AMD1:2026",
+    "edition": "1.0",
+    "date": "2026-07-24",
+    "title": "Amendment 1 - Measurement procedures for materials used in photovoltaic modules - Part 2-1: Polymeric materials - Frontsheet and backsheet - Safety requirements",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62788-5-1:2020",
+    "edition": "1.0",
+    "date": "2020-03-19",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 5-1: Edge seals - Suggested test methods for use with edge seal materials",
+    "language": "EN-FR, ES",
+    "description": "IEC 62788-5-1:2020 provides procedures for standardized test methods for evaluating the properties of materials designed to be used as edge seals. When modules are constructed with impermeable (or extremely low permeability) front- and backsheets designed to protect moisture-sensitive photovoltaic (PV) materials, there is still the possibility for moisture to get in from the sides. The test methods described in this document are intended to be used to standardize the way edge seals are evaluated. Only some of these tests are applied for IEC 61215 and IEC 61730, and that status depends on the specific design."
+  },
+  {
+    "reference": "IEC 62788-5-1:2020/AMD1:2022",
+    "edition": "1.0",
+    "date": "2022-01-28",
+    "title": "Amendment 1 - Measurement procedures for materials used in photovoltaic modules - Part 5-1: Edge seals - Suggested test methods for use with edge seal materials",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62788-5-2:2020",
+    "edition": "1.0",
+    "date": "2020-06-22",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 5-2: Edge seals - Durability evaluation guideline",
+    "language": "EN",
+    "description": "IEC TS 62788-5-2:2020 provides guidelines to assess the ability of an edge seal to prevent moisture ingress from the edges of PV modules. This document does not cover frame adhesives (sometimes colloquially referred to as edge seals) which by design do not serve to prevent moisture ingress to a meaningful degree. Edge seals should keep moisture out, remain adhered, and maintain electrically insulation from the environment. Much of the testing can be done on the material level, but given the fact that there are multiple surfaces, materials interactions, and mechanical stresses, testing on mini modules or modules is necessary. To accomplish this, this document contains three types of test sample types, materials, mini-modules, and full-size modules. It is intended that a quick evaluation and comparison can be made using materials only. This would be followed up by more rigorous tests using mini-modules where all the interfaces are correctly represented. And finally, full-size module tests are used to evaluate the actual construction process to allow unanticipated concerns to be addressed."
+  },
+  {
+    "reference": "IEC 62788-6-2:2020",
+    "edition": "1.0",
+    "date": "2020-03-19",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 6-2: General tests - Moisture permeation testing of polymeric materials",
+    "language": "EN-FR",
+    "description": "IEC 62788-6-2:2020 provides methods for measuring the steady-state water vapour transmission rate (WVTR), water vapour permeability (P), diffusivity (D), solubility (S), and moisture breakthrough time (Ƭ10) (defined as the time to reach 10 % of the steady state WVTR) for polymeric materials such as encapsulants, edge seals, frontsheets and backsheets. These measurements can be made at selected temperatures and humidity levels as deemed appropriate for evaluation of their performance in PV modules. Measurement is accomplished by inspection of the transient WVTR curve and by fitting it to a theoretical Fickian model. This document is best applied to monolithic films. If multilayer films are used, the D and S values are only apparent values, but the steady-state values can still be measured."
+  },
+  {
+    "reference": "IEC TS 62788-6-3:2022",
+    "edition": "1.0",
+    "date": "2022-08-19",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 6-3: Adhesion testing for PV module laminates using the single cantilevered beam (SCB) method",
+    "language": "EN",
+    "description": "IEC TS 62788-6-3:2022 describes the single cantilevered beam (SCB) test, useful for characterizing adhesion in photovoltaic (PV) modules. This document offers a generalized method for performing the test, with the expectation that best practices for utilizing this test method will be developed for specific applications. This document provides a method for measuring the adhesion energy of most interfaces within the photovoltaic (PV) module laminate. This method provides a measure of adhesive energy, via the critical energy release rate, and so is more useful for comparing adhesion of different specimen types; e.g. different materials, module or coupon samples, or materials before and after stress exposure."
+  },
+  {
+    "reference": "IEC TS 62788-7-2:2017",
+    "edition": "1.0",
+    "date": "2017-09-06",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 7-2: Environmental exposures - Accelerated weathering tests of polymeric materials",
+    "language": "EN",
+    "description": "IEC TS 62788-7-2:2017(E) defines test procedures to characterize the weatherability of polymeric component materials used in photovoltaic (PV) modules or systems. The methods in this document have been focused on polymeric backsheets and encapsulants, but may be applied to other materials; however, these were not verified as part of the preparation. Exposures in this document are intended for reference by other standards and as a tool to support research and product development for PV components and modules. Different exposures may be used to target specific climate/mounting configurations, with the specifics of how to apply the exposures left to those standards (e.g. component characterization standards, module qualification standards)."
+  },
+  {
+    "reference": "IEC 62788-7-3:2022",
+    "edition": "1.0",
+    "date": "2022-02-22",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 7-3: Accelerated stress tests - Methods of abrasion of PV module external surfaces",
+    "language": "EN-FR",
+    "description": "IEC 62788-7-3:2022 defines the test methods that can be used for evaluating the abrasion of materials and coatings in photovoltaic modules or other solar devices. This document may be applied to components on the incident surface (including coatings, frontsheet, and glass) as well as the back surface (including backsheets or back glass). This document is intended to address abrasion of PV module surfaces and any coatings present using representative specimens (e.g. which can be centimetres in size); the methods and apparatus used here can also be used on PV module specimens (e.g. meters in size)."
+  },
+  {
+    "reference": "IEC 62788-7-3:2022/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-07-31",
+    "title": "Amendment 1 - Measurement procedures for materials used in photovoltaic modules - Part 7-3: Accelerated stress tests - Methods of abrasion of PV module external surfaces",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62788-8-1:2024",
+    "edition": "1.0",
+    "date": "2024-06-11",
+    "title": "Measurement procedures for materials used in photovoltaic modules - Part 8-1: Electrically conductive adhesive (ECA) - Measurement of material properties",
+    "language": "EN",
+    "description": "IEC TS 62788-8-1:2024 defines test methods and datasheet reporting requirements for key characteristics of ECA used in photovoltaic modules, involving mechanical characteristics, adhesive characteristics, electrical characteristics, thermal characteristics, etc. The object of this document is to offer a standard test procedure to ECA manufacturers for product design, production and quality control, and to PV module manufacturers for the purpose of material screening, material inspection, process control, and failure analysis. This document is intended to be applied to ECA used in solar PV modules. For non-conductive adhesives or tapes used in PV modules, the applicable test methods except for electrical characteristics in this document may be used."
+  },
+  {
+    "reference": "IEC TS 62789:2014",
+    "edition": "1.0",
+    "date": "2014-12-16",
+    "title": "Photovoltaic concentrator cell documentation",
+    "language": "EN-FR",
+    "description": "IEC TS 62789:2014 provides guidelines for the parameters to be specified for concentrator photovoltaic cells (both multijunction and single junction) and provides recommendations and references for measurement techniques. No attempt is made to determine pass/fail criteria for cells. The purpose is to define the performance and physical characteristics of concentrator cells. This specification may also be used for describing cell assemblies and receivers."
+  },
+  {
+    "reference": "IEC 62790:2020",
+    "edition": "2.0",
+    "date": "2020-07-15",
+    "title": "Junction boxes for photovoltaic modules - Safety requirements and tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 62790:2020 describes safety requirements, constructional requirements and tests for junction boxes up to 1 500 V DC for use on photovoltaic modules in accordance with class II of IEC 61140:2016. This document applies also to enclosures mounted on PV-modules containing electronic circuits for converting, controlling, monitoring or similar operations. Additional requirements concerning the relevant operations are applied under consideration of the environmental conditions of the PV-modules. This document does not apply to the electronic circuits of these devices, for which other IEC standards apply. This second edition cancels and replaces the first edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: - Modifications in normative references and terms and definitions; - Improvement of declaration of categories for junction boxes in 4.1; - Clarification for ambient temperature in 4.1; - Addition of requirement to provide information concerning RTE/RTI or TI in 4.2; - Reference to IEC 62930 instead of EN 50618 in 4.6; - Addition of \"Functional insulation\" in Table 1; - Addition of \"Distance through cemented joints\" in Table 3; - Correction of procedure of process to categorize material groups (deletion of PTI) in 4.15.2.3; - Requirement for approval of RTE/RTI or TI for insulation parts in 4.16.1 and 4.16.2; - Change of requirements concerning electrochemical potential in 4.17.2; - Clarification for IP-test in 5.3.4.2; - Addition of test voltage for cemented joints in 5.3.6 and 5.3.16; - Addition of detailled description on how to prepare the test sample for the thermal cycle test in 5.3.9.1; - New test procedure for bypass diode thermal test (5.3.18) in accordance with MQT 18.1 of IEC 61215-2:2016; - New test procedure for reverse overload current test in 5.3.23; - New Figure 1 for thermal cycle test."
+  },
+  {
+    "reference": "IEC TS 62804-1:2025",
+    "edition": "2.0",
+    "date": "2025-06-13",
+    "title": "Photovoltaic (PV) modules - Test methods for the detection of potential-induced degradation - Part 1: Crystalline silicon",
+    "language": "EN",
+    "description": "IEC TS 62804-1:2025 defines procedures to evaluate the durability of crystalline silicon photovoltaic (PV) modules to the effects of short-term high-voltage stress, primarily potential-induced degradation (PID). Three test methods are given. The first type, which has two variations, is conducted in the dark and is primarily designed for assessing PID-shunting. The second type, which also has two variations, incorporates the factor of ultraviolet light and is intended for assessing PID-polarization. A separate test for the recovery of PID polarization under ultraviolet light is also included. The testing in this document is designed for crystalline silicon PV modules with silicon cells having passivating dielectric layers, for degradation mechanisms involving mobile ions influencing the electric field over the silicon semiconductor or electronically interacting with the silicon semiconductor. This document is not intended for evaluating modules with thin-film technologies, tandem, or heterojunction devices but can be used for guidance. The actual durability of modules to system voltage stress depends on the environmental conditions under which they are operated and the voltage potential in the module relative to earth (ground). These tests are intended to assess PV module sensitivity to PID irrespective of actual stresses under operation in different climates and systems."
+  },
+  {
+    "reference": "IEC TS 62804-1-1:2020",
+    "edition": "1.0",
+    "date": "2020-01-10",
+    "title": "Photovoltaic (PV) modules - Test methods for the detection of potential-induced degradation - Part 1-1: Crystalline silicon - Delamination",
+    "language": "EN",
+    "description": "IEC 62804-1-1:2020 defines procedures to test and evaluate for potential-induced degradation-delamination (PID-d) mode in the laminate of crystalline silicon PV modules-principally those with one or two glass faces. This document evaluates delamination attributable to current transfer between ground and the module cell circuit. Elements driving the delamination that this test is designed to actuate include reduced adhesion associated with damp heat exposure, sodium accumulation at interfaces, and cathodic gas evolution in the cell circuit, metallization, and other components within the PV module activated by the voltage potential. The change in power of crystalline silicon PV modules associated with the stress factors applied (the purview of IEC TS 62804-1) is not considered in the scope."
+  },
+  {
+    "reference": "IEC TS 62804-2:2022",
+    "edition": "1.0",
+    "date": "2022-03-29",
+    "title": "Photovoltaic (PV) modules - Test methods for the detection of potential-induced degradation - Part 2: Thin-film",
+    "language": "EN",
+    "description": "IEC TS 62804-2:2022 defines apparatus and procedures to test and evaluate the durability of photovoltaic (PV) modules to power loss by the effects of high voltage stress in a damp heat environment, referred to as potential-induced degradation (PID). This document defines a test method that compares the coulomb transfer between the active cell circuit and ground through the module packaging under voltage stress during accelerated stress testing with the coulomb transfer during outdoor testing to determine an acceleration factor for the PID. This document tests for the degradation mechanisms involving mobile ions influencing the electric field over the semiconductor absorber layer or electronically interacting with the films such that module power is affected."
+  },
+  {
+    "reference": "IEC 62805-1:2017",
+    "edition": "1.0",
+    "date": "2017-08-17",
+    "title": "Method for measuring photovoltaic (PV) glass - Part 1: Measurement of total haze and spectral distribution of haze",
+    "language": "EN-FR",
+    "description": "IEC 62805-1:2017 specifies a method for measurement and calculation of the total haze and the spectral distribution of haze of glass used in photovoltaic (PV) modules. This document is applicable to glass used in PV modules, including transparent conductive oxide coated (TCO) glass and other kinds of glass used in PV modules."
+  },
+  {
+    "reference": "IEC 62805-2:2017",
+    "edition": "1.0",
+    "date": "2017-08-17",
+    "title": "Method for measuring photovoltaic (PV) glass - Part 2: Measurement of transmittance and reflectance",
+    "language": "EN-FR",
+    "description": "IEC 62805-2:2017 specifies methods for measuring the transmittance and reflectance of glass used in photovoltaic (PV) modules and provides instructions on how to calculate the effective hemispherical transmittance and reflectance of this glass. This document is applicable to PV glasses used in PV modules, including ultra-clear patterned glass, anti-reflective coated (AR) glass, transparent conductive oxide coated (TCO) glass and other kinds of PV glass used in PV modules. These test methods are designed to provide reproducible data appropriate for comparison of results among laboratories or at different times by the same laboratory and for comparison of data obtained on different PV glasses."
+  },
+  {
+    "reference": "IEC 62817:2014",
+    "edition": "1.0",
+    "date": "2014-08-25",
+    "title": "Photovoltaic systems - Design qualification of solar trackers",
+    "language": "EN-FR, ES",
+    "description": "IEC 62817:2014 is a design qualification standard applicable to solar trackers for photovoltaic systems, but may be used for trackers in other solar applications. The standard defines test procedures for both key components and for the complete tracker system. In some cases, test procedures describe methods to measure and/or calculate parameters to be reported in the defined tracker specification sheet. In other cases, the test procedure results in a pass/fail criterion. This standard ensures the user of the said tracker that parameters reported in the specification sheet were measured by consistent and accepted industry procedures. The tests with pass/fail criteria are engineered with the purpose of separating tracker designs that are likely to have early failures from those designs that are sound and suitable for use as specified by the manufacturer."
+  },
+  {
+    "reference": "IEC 62817:2014/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-07-28",
+    "title": "Amendment 1 - Photovoltaic systems - Design qualification of solar trackers",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62852:2014",
+    "edition": "1.0",
+    "date": "2014-11-06",
+    "title": "Connectors for DC-application in photovoltaic systems - Safety requirements and tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 62852:2014 applies to connectors for use in the d.c. circuits of photovoltaic systems according to class II of IEC 61140:2001 with rated voltages up to 1 500 V d.c. and rated currents up to 125 A per contact. It applies to connectors without breaking capacity but which might be engaged and disengaged under voltage."
+  },
+  {
+    "reference": "IEC 62852:2014/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-03-25",
+    "title": "Amendment 1 - Connectors for DC-application in photovoltaic systems - Safety requirements and tests",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62891:2020",
+    "edition": "1.0",
+    "date": "2020-07-15",
+    "title": "Maximum power point tracking efficiency of grid connected photovoltaic inverters",
+    "language": "EN",
+    "description": "IEC 62891:2020 provides a procedure for the measurement of the efficiency of the maximum power point tracking (MPPT) of inverters used in grid-connected photovoltaic (PV) systems. Both the static and dynamic MPPT efficiency are considered. Based on the static MPPT efficiency calculated in this document and steady state conversion efficiency determined in IEC 61683 the overall efficiency can be calculated. The dynamic MPPT efficiency is indicated separately."
+  },
+  {
+    "reference": "IEC 62892:2019",
+    "edition": "1.0",
+    "date": "2019-04-17",
+    "title": "Extended thermal cycling of PV modules - Test procedure",
+    "language": "EN-FR, ES",
+    "description": "IEC 62892:2019 defines a test sequence that extends the thermal cycling test of IEC 61215-2. It is intended to differentiate PV modules with improved durability to thermal cycling and evaluate modules for deployment in locations most susceptible to thermal cycling type stress . This document is based on the ability for 95 % of the modules represented by the samples submitted for this test to pass an equivalency of 500 thermal cycles, as defined in IEC 61215‑2:2016, 4.11.3, with a maximum power degradation of less than 5 %. Provisions are also provided to reduce overall test time by increasing the maximum cycle temperature and/or the number of modules submitted for test. The test procedure in this document was developed based on analysis of the stress on tin-lead solder bonds on crystalline silicon solar cells in a glass superstrate type package. Changes to lead-free solder have an effect on the acceleration factors but not enough to change the overall results of this test. Monolithic type modules with integral cell interconnection do not suffer from this specific type of stress but there are still electrical connections within the module, for example between the integrated cell circuit and the module bus bars, that may be subject to wear out from thermal cycling. Flexible modules (without glass) are not stressed in the same way as those with glass superstrates or substrates, therefore use of the equivalency factor employed in this document may not be applicable to these modules."
+  },
+  {
+    "reference": "IEC 62894:2014",
+    "edition": "1.0",
+    "date": "2014-12-16",
+    "title": "Photovoltaic inverters - Data sheet and name plate",
+    "language": "EN-FR",
+    "description": "IEC 62894:2014 describes data sheet and name plate information for photovoltaic inverters in grid parallel operation. The object of this standard is to provide minimum information required to configure a safe and optimal system with photovoltaic inverters."
+  },
+  {
+    "reference": "IEC 62894:2014/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-11-22",
+    "title": "Amendment 1 - Photovoltaic inverters - Data sheet and name plate",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62910:2020",
+    "edition": "2.0",
+    "date": "2020-07-24",
+    "title": "Utility-interconnected photovoltaic inverters - Test procedure for under voltage ride-through measurements",
+    "language": "EN",
+    "description": "IEC TS 62910:2020 provides a test procedure for evaluating the performance of Under Voltage Ride-Through (UVRT) functions in inverters used in utility-interconnected Photovoltaic (PV) systems. This document is most applicable to large systems where PV inverters are connected to utility high voltage (HV) distribution systems. However, the applicable procedures may also be used for low voltage (LV) installations in locations where evolving UVRT requirements include such installations, e.g. single-phase or 3-phase systems. The assessed UVRT performance is valid only for the specific configuration and operational mode of the inverter under test. Separate assessment is required for the inverter in other factory or user-settable configurations, as these may cause the inverter UVRT response to behave differently. This second edition cancels and replaces the first edition issued in 2015 and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TS 62915:2023",
+    "edition": "2.0",
+    "date": "2023-09-15",
+    "title": "Photovoltaic (PV) modules - Type approval, design and safety qualification - Retesting",
+    "language": "EN",
+    "description": "IEC TS 62915:2023 sets forth a uniform approach to maintain type approval, design and safety qualification of terrestrial PV modules that have undergone or will undergo modification from their originally assessed design. This document addresses two types of PV module technologies, wafer-based technologies (WBT) and monolithically-integrated (MLI) thin-film based technologies. This document lists typical modifications and the resulting requirements for retesting based on the different test standards. It provides assistance; at some level, engineering judgement may be needed. This publication contains attached files in the form of xls document. These files are intended to be used as a complement and do not form an integral part of the publication. This second edition cancels and replaces the first edition published in 2018. This edition includes the following significant technical changes with respect to the previous edition: - Prior references to specific process-related changes to PV modules have been removed in this edition and replaced with a general requirement to ensure that a consistent quality management system is in place per IEC 62941 - References to IEC 61215 and IEC 61730 have been updated to the latest editions (2021 and 2023 respectively) - Retest requirements with respect to new added tests such as cyclic (dynamic) mechanical load (MQT 20) and potential-induced degradation (MQT 21) are addressed in this edition - Retest requirements for IEC 61215 and IEC 61730 have been separated for the sake of clarity - A comprehensive matrix table summarizing all the retest requirements for each possible change in material(s) or design modification is provided in this edition - References to component level standards, namely IEC 62788-1 series and IEC 62788-2 series, are included in this edition to address changes that could be made to the critical sub-components going into new PV module constructions - Crystalline silicon and thin film references have been updated to be consistent with nomenclature in the updated IEC 61215 and IEC 61730 standards; namely, wafer-based technology (WBT) and monolithically integrated (MLI) thin film PV modules - In this edition, 4.3 which addresses retest requirements for MLI thin film PV modules has been truncated and simplified by removing redundant sections that are identical with the subclauses in 4.2 Guidance for retesting modules according to IEC TS 63126, “Guidelines for qualifying PV modules, components and materials for operation at high temperatures” has been added to this edition. - In this edition, requirements have been added for changes affecting system compatibility with variants of the same model The contents of the corrigendum 1 of July 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 62915:2023/COR1:2024",
+    "edition": "2.0",
+    "date": "2024-08-07",
+    "title": "Corrigendum 1 - Photovoltaic (PV) modules - Type approval, design and safety qualification - Retesting",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62916:2017",
+    "edition": "1.0",
+    "date": "2017-04-10",
+    "title": "Photovoltaic modules - Bypass diode electrostatic discharge susceptibility testing",
+    "language": "EN",
+    "description": "IEC TS 62916:2017(E) describes a discrete component bypass diode electrostatic discharge (ESD) immunity test and data analysis method. The test method described subjects a bypass diode to a progressive ESD stress test and the analysis method provides a means for analyzing and extrapolating the resulting failures using the two-parameter Weibull distribution function. It is the object of this document to establish a common and reproducible test method for determining diode surge voltage tolerance consistent with an ESD event during the manufacturing, packaging, transportation or installation processes of PV modules."
+  },
+  {
+    "reference": "IEC 62920:2017",
+    "edition": "1.0",
+    "date": "2017-07-26",
+    "title": "Photovoltaic power generating systems - EMC requirements and test methods for power conversion equipment",
+    "language": "EN-FR, ES",
+    "description": "IEC 62920:2017 specifies electromagnetic compatibility (EMC) requirements for DC to AC power conversion equipment (PCE) for use in photovoltaic (PV) power systems. The PCE covered by this document can be grid-interactive or stand-alone. It can be supplied by single or multiple photovoltaic modules grouped in various array configurations, and can be intended for use in conjunction with batteries or other forms of energy storage. This document covers not only PCE connected to a public low voltage AC mains network or other low voltage AC mains installation, but also PCE connected to a medium or high voltage AC network with or without step-down power transformers."
+  },
+  {
+    "reference": "IEC 62920:2017/AMD1:2021",
+    "edition": "1.0",
+    "date": "2021-04-06",
+    "title": "Amendment 1 - Photovoltaic power generating systems - EMC requirements and test methods for power conversion equipment",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62925:2016",
+    "edition": "1.0",
+    "date": "2016-12-14",
+    "title": "Concentrator photovoltaic (CPV) modules - Thermal cycling test to differentiate increased thermal fatigue durability",
+    "language": "EN-FR, ES",
+    "description": "IEC 62108:2016 defines a test sequence that will quickly uncover CPV module failures that have been associated with field exposure to thermal cycling for many years. This document was specifically developed to relate to thermal fatigue failure of the HCPV die-attach, however, it also applies, to some extent, to all thermal fatigue related failure mechanisms for the assemblies submitted to test."
+  },
+  {
+    "reference": "IEC 62938:2020",
+    "edition": "1.0",
+    "date": "2020-05-14",
+    "title": "Photovoltaic (PV) modules - Non-uniform snow load testing",
+    "language": "EN-FR",
+    "description": "IEC 62938:2020 provides a method for determining how well a framed PV module performs mechanically under the influence of inclined non-uniform snow loads. This document is applicable for framed modules with frames protruding beyond the front glass surface on the lower edge after intended installation and as such creates an additional barrier to snow sliding down from modules. For modules with other frame constructions, such as backrails formed in frames, on the side edges, on the top edge and on the lower edge not creating an additional snow slide barrier, this document is not applicable. The test method determines the mechanical non-uniform-load limit of a framed PV module."
+  },
+  {
+    "reference": "IEC 62941:2019",
+    "edition": "1.0",
+    "date": "2019-12-12",
+    "title": "Terrestrial photovoltaic (PV) modules - Quality system for PV module manufacturing",
+    "language": "EN-FR, ES",
+    "description": "IEC 62941:2019 is applicable to organizations manufacturing photovoltaic (PV) modules certified to IEC 61215 series and IEC 62108 for design qualification and type approval and IEC 61730 for safety qualification and type approval. The design qualification and type approval of PV modules depend on appropriate methods for product and process design, as well as appropriate control of materials and processes used to manufacture the product. This document lays out best practices for product design, manufacturing processes, and selection and control of materials used in the manufacture of PV modules that have met the requirements of IEC 61215 series, IEC 61730, or IEC 62108. These standards also form the basis for factory audit criteria of such sites by various certifying and auditory bodies. The object of this document is to provide a framework for the improved confidence in the ongoing consistency of performance and reliability of certified PV modules. The requirements of this document are defined with the assumption that the quality management system of the organization has already fulfilled the requirements of ISO 9001 or equivalent quality management system. This document is not intended to replace or remove any requirements of ISO9001 or equivalent quality management system. By maintaining a manufacturing system in accordance with this document, PV modules are expected to maintain their performance as determined from the test sequences in IEC 61215 series, IEC 62108, or IEC 61730."
+  },
+  {
+    "reference": "IEC 62979:2017",
+    "edition": "1.0",
+    "date": "2017-08-10",
+    "title": "Photovoltaic modules - Bypass diode - Thermal runaway test",
+    "language": "EN-FR, EN",
+    "description": "IEC 62979:2017 provides a method for evaluating whether a bypass diode as mounted in the module is susceptible to thermal runaway or if there is sufficient cooling for it to survive the transition from forward bias operation to reverse bias operation without overheating. This test methodology is particularly suited for testing of Schottky barrier diodes, which have the characteristic of increasing leakage current as a function of reverse bias voltage at high temperature, making them more susceptible to thermal runaway."
+  },
+  {
+    "reference": "IEC TS 62989:2018",
+    "edition": "1.0",
+    "date": "2018-03-08",
+    "title": "Primary optics for concentrator photovoltaic systems",
+    "language": "EN",
+    "description": "IEC TS 62989:2018(E) encompasses key characteristics of primary optical elements (lenses and mirrors) and lens or mirror parquets for concentrator photovoltaics including: optical performance, mechanical geometry, mechanical strength, materials, and surface morphology. The document identifies the essential characteristics, the corresponding quantities of interest, and provides a method for measurement of each quantity."
+  },
+  {
+    "reference": "IEC TS 62994:2019",
+    "edition": "1.0",
+    "date": "2019-01-29",
+    "title": "Photovoltaic (PV) modules through the life cycle - Environmental health and safety (EH&S) risk assessment - General principles and nomenclature",
+    "language": "EN",
+    "description": "IEC 62994:2019 specifies definitions of terms and introduces evaluation methods for EH&S risk assessment for the PV module over the product life cycle. Environmental health and safety (EH&S) risk assessment is a method to characterize and evaluate potential adverse impacts to human health or environment and make it possible to take measures to reduce them. EH&S risk assessment of PV modules is very important for the safe and sustainable manufacture, use, and end of life treatment of PV modules. The definition of terms can be applied to the EH&S risk assessment through the life cycle of PV modules. Generally, evaluation methods for the EH&S risk assessment can be divided in two cases: - ordinary foreseen routine operation, in which life cycle assessment method is applied; - abnormal non-routine operation, in which risk assessment method is applied"
+  },
+  {
+    "reference": "IEC TS 63019:2019",
+    "edition": "1.0",
+    "date": "2019-05-09",
+    "title": "Photovoltaic power systems (PVPS) - Information model for availability",
+    "language": "EN",
+    "description": "IEC TS 63019:2019 provides a framework from which the availability metrics of a PVPS can be derived and reported. It describes how data are categorized and defines generic information categories to which time can be assigned for a PVPS considering internal and external conditions based on fraction of time, system health, and condition by specifying the following: - generic information categories of a PVPS considering availability and production. - information category priority to discriminate between concurrent categories. - entry and exit point for each information category to allocate designation of time. The PVPS comprises all photovoltaic (PV) modules, inverters, DC and AC collection systems, grid interconnection equipment, the site, its infrastructure, and all functional service elements. Formulas in this document provide normative guidance for standardization. Beyond that, it is not the intention of this document to specify exactly how other undefined, time-based availability metrics shall be calculated. The annexes are examples and guiding principles for developing methods for calculation and estimation of availability metrics, subject to the knowledge and concurrence for use by the involved stakeholders. Estimates and calculations also have recommendations on how they are to be used as part of the informative function."
+  },
+  {
+    "reference": "IEC 63027:2023",
+    "edition": "1.0",
+    "date": "2023-05-03",
+    "title": "Photovoltaic power systems - DC arc detection and interruption",
+    "language": "EN-FR, ES",
+    "description": "IEC 63027:2023 applies to equipment used for the detection and optionally the interruption of electric DC arcs in photovoltaic (PV) system circuits. The document covers test procedures for the detection of series arcs within PV circuits, and the response times of equipment employed to interrupt the arcs. The document defines reference scenarios according to which the testing is conducted. This document covers equipment connected to systems not exceeding a maximum PV source circuit voltage of 1 500 V DC. This document provides requirements and testing procedures for arc-fault protection devices used in PV systems to reduce the risk of igniting an electrical fire."
+  },
+  {
+    "reference": "IEC TS 63049:2017",
+    "edition": "1.0",
+    "date": "2017-09-06",
+    "title": "Terrestrial photovoltaic (PV) systems - Guidelines for effective quality assurance in PV systems installation, operation and maintenance",
+    "language": "EN",
+    "description": "IEC TS 63049:2017(E) provides the minimum activities deemed necessary to implement an effective quality assurance program for the managing and reducing of risk in the installation and operation of photovoltaic (PV) systems. This document defines requirements for certifying that an entity has and uses a quality assurance program to prevent, or reduce errors and learns from any new errors in installation, operation and maintenance of a PV system. The object of this document is to provide more confidence in the performance and reliability of certified PV systems. By being installed and operated under a Quality Assurance program in accordance with this document, PV systems are expected to operate as designed and as expected based on product warranties."
+  },
+  {
+    "reference": "IEC 63092-1:2020",
+    "edition": "1.0",
+    "date": "2020-09-29",
+    "title": "Photovoltaics in buildings - Part 1: Requirements for building-integrated photovoltaic modules",
+    "language": "EN",
+    "description": "IEC 63092-1:2020 specifies BIPV (building-integrated photovoltaic) module requirements and applies to photovoltaic modules used as building products. It focuses on the properties of these photovoltaic modules relevant to basic building requirements and the applicable electro-technical requirements. This document addresses requirements on the BIPV modules in the specific ways they are intended to be mounted but not the mounting structure itself, which is within the scope of IEC 63092-2. This document is based on EN 50583-1."
+  },
+  {
+    "reference": "IEC 63092-2:2020",
+    "edition": "1.0",
+    "date": "2020-09-29",
+    "title": "Photovoltaics in buildings - Part 2: Requirements for building-integrated photovoltaic systems",
+    "language": "EN",
+    "description": "IEC 63092-2:2020 specifies BIPV system requirements and applies to photovoltaic systems that are integrated into buildings with the photovoltaic modules used as building products. It focuses on the properties of these photovoltaic systems relevant to basic building requirements and the applicable electrotechnical requirements. This document addresses requirements on the BIPV systems in the specific ways they are intended to be mounted and the mounting structure, but not the BIPV module itself, which is within the scope of IEC 63092-1."
+  },
+  {
+    "reference": "IEC TS 63092-3:2026",
+    "edition": "1.0",
+    "date": "2026-08-25",
+    "title": "Photovoltaics in buildings - Part 3: Determination methodology for the solar heat gain coefficient of building-integrated photovoltaic modules",
+    "language": "EN",
+    "description": "IEC TS 63092-3:2026 is intended to provide a versatile method to determine the solar heat gain coefficient (SHGC or g value) of BIPV modules with a variety of designs. It addresses the calorimetric determination of the g value for BIPV modules by using the hot box method or the cooled plate method in accordance with ISO 19467 and ISO 19467‑2. The method takes into account the effect on the g value of extracting photovoltaically generated electricity from the BIPV module in the maximum power point state. This document applies to BIPV modules as defined in IEC 63092‑1 and specifically to BIPV modules with different effective cell area ratios but consisting of identical components such as cells, interconnects, encapsulation and front/back sheets. This evaluation method is applicable to all PV cell technologies and includes coloured BIPV modules. It is published as a double logo Technical Specification with ISO technical committee 160: Glass in building."
+  },
+  {
+    "reference": "IEC TS 63106-1:2020",
+    "edition": "1.0",
+    "date": "2020-11-19",
+    "title": "Simulators used for testing of photovoltaic power conversion equipment - Recommendations - Part 1: AC power simulators",
+    "language": "EN",
+    "description": "IEC TS 63106-1:2020 provide recommendations for Low Voltage (LV) AC power simulators used for testing utility interactive photovoltaic power conversion equipment (PCE). This document establish terminology, and create a framework for, and provide guidance regarding the electrical performance of AC power simulators used to test utility interactive photovoltaic (PV) power conversion equipment (PCE) for compliance with grid interconnection standards. It serves as a generalized guideline for the development of AC power simulators used within a test and evaluation system for PV PCEs."
+  },
+  {
+    "reference": "IEC TS 63106-2:2022",
+    "edition": "1.0",
+    "date": "2022-03-29",
+    "title": "Simulators used for testing of photovoltaic power conversion equipment - Recommendations - Part 2: DC power simulators",
+    "language": "EN",
+    "description": "IEC TS 63106-2:2022 provides recommendations for Low Voltage (LV) DC power simulators used for testing photovoltaic (PV) power conversion equipment (PCE) to utility interconnection or PV performance standards. This document primarily addresses DC power simulators used for testing of grid-interactive PCE, also referred to as grid-connected power converters (GCPCs). It also addresses some uses of DC power simulators for testing stand-alone and multi-mode PCEs."
+  },
+  {
+    "reference": "IEC TS 63109:2022",
+    "edition": "1.0",
+    "date": "2022-03-25",
+    "title": "Photovoltaic (PV) modules and cells - Measurement of diode ideality factor by quantitative analysis of electroluminescence images",
+    "language": "EN",
+    "description": "IEC TS 63109:2022 specifies a method to measure the diode ideality factor of photovoltaic cells and modules by quantitative analysis of electroluminescence (EL) images. This document provides a definition of the term diode ideality factor n , as the inverse of increment ratio of natural logarithm of current as a function of applied voltage, which is related to the fill factor FF , and is useful as an effective indicator to represent the output efficiency of photovoltaic cells and modules with the other key parameters open circuit voltage V oc and short circuit current I sc."
+  },
+  {
+    "reference": "IEC 63112:2021",
+    "edition": "1.0",
+    "date": "2021-06-22",
+    "title": "Photovoltaic (PV) arrays - Earth fault protection equipment - Safety and safety-related functionality",
+    "language": "EN-FR, ES",
+    "description": "IEC 63112:2021 is applicable to low voltage Photovoltaic Earth-Fault Protection Equipment (PV-EFPE) whose function is to detect, interrupt, and warn system operators of earth faults in solar photovoltaic arrays. This document specifies: - the types and levels of the monitoring and protection functions that may be provided; - the nature and timing of responses to earth faults; - test methods for validating the monitoring and protection functions provided; - requirements for functional safety and fault tolerance; - requirements for product safety including construction, environmental suitability, markings, documentation, and testing."
+  },
+  {
+    "reference": "IEC TS 63126:2025",
+    "edition": "2.0",
+    "date": "2025-10-14",
+    "title": "Guidelines for qualifying PV modules, components and materials for operation at high temperatures",
+    "language": "EN",
+    "description": "IEC TS 63126:2025 defines additional testing requirements for photovoltaic (PV) modules deployed under conditions leading to higher module temperature which are beyond the scope of IEC 61215-1 and IEC 61730‑1 and the relevant component standards, IEC 62788‑1‑7, IEC 62788‑2‑1, IEC 62790 and IEC 62852. The testing conditions specified in IEC 61215-2 and IEC 61730-2 (and the relevant component standards IEC 62788‑1‑7, IEC 62788‑2‑1, IEC 62790 and IEC 62852) assumed that these standards are applicable for module deployment where the 98th percentile temperature (T98), that is the temperature that a module would be expected to exceed for 175,2 h per year, is less than 70 °C. This document defines two temperature regimes, temperature Level 1 and temperature Level 2, which were designed considering deployment in environments with mounting configurations such that the T98 is less than or equal to 80 °C for temperature Level 1, and less than or equal to 90 °C for temperature Level 2. This document provides recommended additional testing conditions within the IEC 61215 series, IEC 61730 series, IEC 62788‑1‑7, IEC 62788‑2‑1, IEC 62790 and IEC 62852 for module operation in temperature Levels 1 and 2. Successfully passing a higher Level for a test, sequence of tests, or complete testing for a higher Level is an implied passing of the relevant lower‑Level testing. For example, passing 200 thermal cycles for Level 2 is considered passing Level 0 and Level 1 for 200 thermal cycles."
+  },
+  {
+    "reference": "IEC TS 63140:2021",
+    "edition": "1.0",
+    "date": "2021-04-28",
+    "title": "Photovoltaic (PV) modules - Partial shade endurance testing for monolithically integrated products",
+    "language": "EN",
+    "description": "IEC TS 63140:2021 provides test methods for quantifying the permanent change in a monolithically integrated PV module’s power output that may result from some potential partial shade conditions. Three tests are available, representing conditions of use, misuse, and most severe misuse. This document is applicable to monolithically integrated PV modules with one series-connected cell group or with multiple series-connected cell groups that are in turn connected in parallel. This document is not applicable to PV modules formed by the interconnection of separate cells."
+  },
+  {
+    "reference": "IEC TS 63156:2021",
+    "edition": "1.0",
+    "date": "2021-02-04",
+    "title": "Photovoltaic systems - Power conversion equipment performance - Energy evaluation method",
+    "language": "EN",
+    "description": "IEC TS 63156:2021 describes the procedure for evaluating the energy conversion performance of stand-alone or grid-connected power conversion equipment (PCE) used in PV systems. This procedure includes the calculation of inverter performance to anticipate the energy yield of PV systems. This evaluation method is based on standard power efficiency calculation procedures for PCE found in IEC 61683 and IEC 62891, but provides additional methods for evaluating the expected overall energy efficiency for a particular location given solar load profiles. This document can be used as the energy evaluation method for PCE in IEC TS 61724-3, which defines a procedure for evaluating a PV system’s actual energy production relative to its modeled or expected performance."
+  },
+  {
+    "reference": "IEC TS 63157:2019",
+    "edition": "1.0",
+    "date": "2019-11-28",
+    "title": "Photovoltaic systems - Guidelines for effective quality assurance of power conversion equipment",
+    "language": "EN",
+    "description": "IEC TS 63157:2019 lays out recommendations for best practices for product realization, safety, customer satisfaction, and stakeholders' relationship used in the manufacture of power conversion equipment (PCE). This document captures key requirements customers would like to see completed to ensure high-quality products, specifically, that the products have the documented properties, including properties needed to give customer satisfaction with regard to the warranty. The object of this document is to provide more confidence in the ongoing consistency of performance and reliability of certified power conversion equipment. The requirements of this document are defined with the assumption that the quality management system of the organization has already fulfilled the requirements of ISO 9001 or equivalent quality management system. These guidelines also form the basis for factory audit criteria of such sites by various certifying and auditory bodies. This document covers manufacture of electronic power conversion equipment intended for use in terrestrial PV applications. The term PCE refers to equipment and components for electronic power conversion of electric power into another kind of electric power with respect to voltage, current and frequency. This document applies to PCE in both indoor and outdoor open-air climates as defined in IEC 60721-2-1 and IEC 60721-3-3. Such equipment may include, but is not limited to, DC-to-AC inverters, DC-to-DC converters and battery charge converters."
+  },
+  {
+    "reference": "IEC TS 63163:2021",
+    "edition": "1.0",
+    "date": "2021-09-14",
+    "title": "Terrestrial photovoltaic (PV) modules for consumer products - Design qualification and type approval",
+    "language": "EN",
+    "description": "IEC TS 63163:2021 is intended to apply to terrestrial modules for consumer applications for outdoor operation shorter than those qualified to IEC 61215. The useful service life of modules so qualified depends on their design, their environment and the conditions under which they are operated. This document classes those PV modules into Category 1, Category 2, and Category 3 with respectively low, medium and high expected outdoor exposure. This specification is intended to qualify the PV portion of these devices. It may, however, be used as a basis for testing such PV modules, but does not qualify the electronic portion. The purpose of the test sequence is to determine the electrical, thermal, and mechanical durability characteristics of the module, and to show that the module is capable of withstanding outdoor exposure for different outdoor durations designated as “low”, “medium”, and “high”. Mobile and attached applications are considered to require lower mechanical durability than portable applications, which are more prone to mechanical damage."
+  },
+  {
+    "reference": "IEC 63202-1:2019",
+    "edition": "1.0",
+    "date": "2019-06-20",
+    "title": "Photovoltaic cells - Part 1: Measurement of light-induced degradation of crystalline silicon photovoltaic cells",
+    "language": "EN-FR, ES",
+    "description": "IEC 63202-1:2019 describes procedures for measuring the light-induced degradation (LID) of crystalline silicon photovoltaic (PV) cells in simulated sunlight. The magnitude of LID in a crystalline silicon PV cell is determined by comparing maximum output power at Standard Test Conditions (STC) before, and after, exposure to simulated sunlight at a specified temperature and irradiance. The purpose of this document is to provide standardized PV cell LID information to help PV module manufacturers in minimizing the mismatch between cells within the same module, thereby maximizing power yield."
+  },
+  {
+    "reference": "IEC TS 63202-2:2021",
+    "edition": "1.0",
+    "date": "2021-12-16",
+    "title": "Photovoltaic cells - Part 2: Electroluminescence imaging of crystalline silicon solar cells",
+    "language": "EN",
+    "description": "IEC TS 63202-2:2021 specifies methods to detect and examine defects on bare crystalline silicon (c-Si) solar cells by means of electroluminescence (EL) imaging with the cell being placed in forward bias. It firstly provides guidelines for methods to capture electroluminescence images of non-encapsulated c-Si solar cells. In addition, it provides a list of defects which can be detected by EL imaging and provides information on the different possible methods to detect and differentiate such defects."
+  },
+  {
+    "reference": "IEC TS 63202-3:2023",
+    "edition": "1.0",
+    "date": "2023-02-07",
+    "title": "Photovoltaic cells - Part 3: Measurement of current-voltage characteristics of bifacial photovoltaic cells",
+    "language": "EN",
+    "description": "IEC TS 63202-3:2023 describes procedures for the measurement of current-voltage (I-V) characteristics of crystalline silicon bifacial photovoltaic (PV) cells for both laboratory and mass production applications. This document is intended to be used for measurement of individual unencapsulated bifacial PV cells, in addition to the requirements described in IEC 60904-1 and differentiating from IEC TS 60904-1-2 which is more applicable to encapsulated PV device. Specific requirements on bifacial reference cells and calibration of solar simulators are also defined to provide useful guidance for the proposed methods."
+  },
+  {
+    "reference": "IEC TS 63202-4:2022",
+    "edition": "1.0",
+    "date": "2022-06-28",
+    "title": "Photovoltaic cells - Part 4: Measurement of light and elevated temperature induced degradation of crystalline silicon photovoltaic cells",
+    "language": "EN",
+    "description": "IEC TS 63202-4:2022 describes procedures for measuring the light and elevated temperature induced degradation (LETID) of crystalline silicon photovoltaic (PV) cells in simulated sunlight. The requirements for measuring initial light induced degradation (LID) of crystalline silicon PV cells are covered by IEC 63202-1, where LID degradation risk of PV cells under moderate temperature and initial durations within termination criteria of 20 kWh·m -2 are evaluated. The procedures described in this document are to evaluate the degradation behaviour of PV cells under elevated temperature and longer duration of light irradiation. The procedures described in this document can be used to detect the LETID risks of PV cells [2],[3] and to judge the effectiveness of LETID mitigation measures, e.g. quick test for production monitoring, thus helping improve the energy yield of PV modules."
+  },
+  {
+    "reference": "IEC TS 63209-1:2021",
+    "edition": "1.0",
+    "date": "2021-04-27",
+    "title": "Photovoltaic modules - Extended-stress testing - Part 1: Modules",
+    "language": "EN",
+    "description": "IEC TS 63209-1:2021 is intended to provide information to supplement the baseline testing defined in IEC 61215, which is a qualification test with pass-fail criteria. This document provides a standardized method for evaluating longer term reliability of photovoltaic (PV) modules and for different bills of materials (BOMs) that may be used when manufacturing those modules. The included test sequences in this specification are intended to provide information for comparative qualitative analysis using stresses relevant to application exposures to target known failure modes."
+  },
+  {
+    "reference": "IEC TS 63209-2:2022",
+    "edition": "1.0",
+    "date": "2022-08-17",
+    "title": "Photovoltaic modules - Extended-stress testing - Part 2: Polymeric component materials",
+    "language": "EN",
+    "description": "IEC TS 63209-2:2022 includes a menu of tests to use for evaluation of the long-term reliability of materials used as backsheets and encapsulants in PV modules. It is intended to provide information to supplement the baseline testing defined in IEC 61215 and IEC 61730, which are qualification tests with pass-fail criteria. used for reliability analysis and is not intended to be used as a pass-fail test procedure. This document addresses polymeric materials in the crystalline silicon module laminates, specifically backsheets and encapsulants in Glass/Glass or Glass/Backsheet modules. The included environmental stress tests are intended to cause degradation that is most relevant to field experience, but these may not capture all failure modes which may be observed in various locations."
+  },
+  {
+    "reference": "IEC TS 63217:2021",
+    "edition": "1.0",
+    "date": "2021-11-22",
+    "title": "Utility-interconnected photovoltaic inverters - Test procedure for over voltage ride-through measurements",
+    "language": "EN",
+    "description": "IEC TS 63217:2021 provides a test procedure for evaluating the performance of Over Voltage Ride-Through (OVRT) functions in inverters used in utility-interconnected photovoltaic (PV) systems. This document is most applicable to large systems where PV inverters are connected to utility high voltage (HV) distribution systems. However, the applicable procedures may also be used for low voltage (LV) installations in locations where evolving OVRT requirements include such installations, e.g. single-phase or 3-phase systems. This document is for testing of PV inverters, though it contains information that may also be useful for testing of a complete PV power plant consisting of multiple inverters connected at a single point to the utility grid. It further provides a basis for utility-interconnected PV inverters numerical simulation and model validation."
+  },
+  {
+    "reference": "IEC TR 63225:2019",
+    "edition": "1.0",
+    "date": "2019-11-13",
+    "title": "Incompatibility of connectors for DC-application in photovoltaic systems",
+    "language": "EN",
+    "description": "IEC TR 63225:2019 highlights the problem of incompatibility of connectors for DC-application in photovoltaic systems (DC connectors) produced by different manufacturers. It addresses four particular issues in that context: background information on incompatibility of DC connectors from different manufacturers; observations and challenges concerning the handling of DC connectors from different manufacturers; stakeholders concerned by the incompatibility of DC connectors; recommendations for long-term standardization and interim measures to address incompatibility of DC connectors"
+  },
+  {
+    "reference": "IEC TR 63226:2021",
+    "edition": "1.0",
+    "date": "2021-02-18",
+    "title": "Managing fire risk related to photovoltaic (PV) systems on buildings",
+    "language": "EN",
+    "description": "IEC TR 63226:2021 is intended for use as guidance for reducing fire risks in general and for site-specific needs for buildings with PV systems. In addition to the general recommendations, technical, installation, and maintenance measures can be selected to reach the intended safety level of the PV system and building, depending on the results of a risk assessment. This document contains general information about building related risks and includes measures for reducing those risks. These measures are not general requirements or recommendations. They are explained as a guide for selecting suitable measures depending on the on-site needs."
+  },
+  {
+    "reference": "IEC TR 63227:2020",
+    "edition": "1.0",
+    "date": "2020-10-20",
+    "title": "Lightning and surge voltage protection for photovoltaic (PV) power supply systems",
+    "language": "EN",
+    "description": "IEC TR 63227:2020 deals with the protection of PV power supply systems against detrimental effects of lightning strikes and surge voltages of atmospheric origin. In the event that a lightning and/or surge voltage protection is required to be erected, this document describes requirements and measures for maintaining the safety, functionality, and availability of the PV power supply systems."
+  },
+  {
+    "reference": "IEC TR 63228:2019",
+    "edition": "1.0",
+    "date": "2019-07-08",
+    "title": "Measurement protocols for photovoltaic devices based on organic, dye-sensitized or perovskite materials",
+    "language": "EN",
+    "description": "IEC TR 63228:2019 summarises present perspectives on the performance evaluation of emerging PV technologies, specifically OPV, DSC and PSC devices. These devices present some challenges for accurate measurement under the existing IEC 60904 series of standards, which were developed in the context of silicon wafer solar cells. These challenges can be different for different devices, but in general they arise due to one or more of the following: - instability in performance over time; - unusual spectral responsivity; - small device size; difficulty in measuring temperature; - a transient response to external stimulus; - optical interference effects; and - a non-linear current response to irradiance. These challenges can lead to the cell output in laboratory testing being significantly different to the output that would be observed in a real application. The primary focus of the report is measurement of the current-voltage ( I‑V ) relationship under illumination for the purpose of determining the device output power, or power conversion efficiency. Where appropriate, the report makes reference to the IEC 60904 series which describes the standard approach to measuring the performance of all PV devices. The report also references existing published standards that seek to accommodate OPV, DSC or PSC devices."
+  },
+  {
+    "reference": "IEC 63257:2026",
+    "edition": "1.0",
+    "date": "2026-05-06",
+    "title": "Power line communication for DC shutdown equipment - Communication signal, physical layer",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63257:2026 applies to photovoltaic (PV) system components and communication networks supporting the communication of the DC shutdown equipment using power line communication. This document defines how to propagate the operational state of the entire PV system (normal / shutdown) to the individual power production components comprising the PV system. The document also describes requirements and constraints associated with power line communication networks that are used to support this application. This document defines the communication requirements for reducing the output voltage of the DC cables that leave a PV array. This output voltage reduction function can support emergency responders during firefighting operations. For this function, communication is necessary from the inverter / initiator to the PV-modules."
+  },
+  {
+    "reference": "IEC TS 63265:2022",
+    "edition": "1.0",
+    "date": "2022-06-28",
+    "title": "Photovoltaic power systems - Reliability practices for operation",
+    "language": "EN",
+    "description": "IEC TS 63265:2022 outlines methods that can be utilized to ensure reliability throughout the PVPS project phases. It is derived from a management motivation for long lasting and cost-effective energy performance, energy production, secure production and revenue, and safe function. The application of reliability practices in this document is designed to be practical and reduce the costs of unreliability. This document further identifies and defines a normative minimum set of processes and tools to meet the requirements of this document. Key objectives of this document are to inform users of reliability tools and assessment methods (historic, predictive, and analytical) that can satisfy the stakeholders needs for dependable PV Power System (PVPS) operation. This document provides a fundamental process for ensuring reliability needs can be understood and met. IEC TS 63019 addresses availability which is a higher-level metric that combines reliability and maintainability, and it complements this document as a key normative standard. It should be used in combination with this document."
+  },
+  {
+    "reference": "IEC TR 63279:2020",
+    "edition": "1.0",
+    "date": "2020-08-21",
+    "title": "Derisking photovoltaic modules - Sequential and combined accelerated stress testing",
+    "language": "EN",
+    "description": "IEC TR 63279:2020 reviews research into sequential and combined accelerated stress tests that have been devised to determine the potential for degradation modes in PV modules that occur in the field that single-factor and steady-state tests do not show. This document is intended to provide data and theory-based motivation and help visualize the next steps for improved accelerated stress tests that will derisk PV module materials and designs. Any incremental savings as a result of increased reliability and reduced risk translates into lower levelized cost of electricity for PV. Lower costs will result in faster adoption of PV and the associated benefits of renewable energy."
+  },
+  {
+    "reference": "IEC TR 63292:2020",
+    "edition": "1.0",
+    "date": "2020-06-26",
+    "title": "Photovoltaic power systems (PVPSs) - Roadmap for robust reliability",
+    "language": "EN",
+    "description": "IEC TR 63292:2020 continues the effort started with the availability technical specification (IEC TS 63019). Availability is closely related to PVPS operational capability, health and condition and to produce energy and is a real-time or historical measure. The availability of a system or component is impacted by contractual and non-contractual reliability specifications, maintenance metrics and a corresponding maintenance and repair strategy, and also external factors such as site environmental and grid conditions. The intention of this document is to be a precursor examination of the reliability issues for further address in a task to produce an IEC Technical Specification on this topic. While this document identifies reliability tools, topics and procedures, there are commercial products available to perform analyses and there is no assessment of those tools or to provide recommendations for one tool over another in this document."
+  },
+  {
+    "reference": "IEC TS 63342:2022",
+    "edition": "1.0",
+    "date": "2022-07-20",
+    "title": "C-Si photovoltaic (PV) modules - Light and elevated temperature induced degradation (LETID) test - Detection",
+    "language": "EN",
+    "description": "IEC TS 63342:2022 is designed to assess the effect of light induced degradation at elevated temperatures (LETID) by application of electrical current at higher temperatures. In this document, only the current injection approach for the detection of LETID is addressed. This document does not address the B-O and Iron Boron (Fe-B) related degradation phenomena, which already occur at room temperatures under the presence of light and on much faster time scales. The proposed test procedure can reveal sample sensitivity to LETID degradation mechanisms, but it does not provide an exact measure of field observable degradation."
+  },
+  {
+    "reference": "IEC 63349-1:2025",
+    "edition": "1.0",
+    "date": "2025-12-04",
+    "title": "Photovoltaic direct-driven appliance controllers - Part 1: General requirements",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63349-1:2025 establishes control functions and operational performance requirements for photovoltaic direct-driven appliance (PVDDA) controllers. PVDDA controllers are devices used for controlling power among power sources (such as a PV array, grid, energy storage, etc.) and appliances (such as an air-conditioner, refrigerator, water pump, etc.). The requirements for PVDDA controllers are applicable to systems with voltages not higher than 1 500V DC or 1 000V AC. Safety and EMC requirements for the PVDDA controllers are under consideration and not covered by this document. Safety requirements for power converters connected to a PVDDA controller are listed as follows: - for converter connected to PV array, IEC 62109‑1 and IEC 62109‑2 are applicable; - for bi-directional converter connected to grid, IEC 62909‑1 and IEC 62909‑2 are applicable; - for converter connected to energy storage, IEC 62477‑1 and IEC 62509 are applicable; - for variable frequency drive, IEC 61800-5-1 is applicable. Performance requirements for each individual power converter connected to a PVDDA controller refer to IEC 62093."
+  },
+  {
+    "reference": "IEC TS 63349-2:2022",
+    "edition": "1.0",
+    "date": "2022-02-03",
+    "title": "Photovoltaic direct-driven appliance controllers - Part 2: Operation modes and graphic display",
+    "language": "EN",
+    "description": "IEC TS 63349-2:2022 defines operation modes of photovoltaic direct-driven appliance (PVDDA) controllers and describes one example of a graphic display. The graphic display is an interface to PVDDA users, which uses easily understood graphics to show a real-time operation mode, such as what equipment is installed, controlled and monitored in the system, which equipment is generating power and how much it generates, and which equipment is consuming power and how much it consumes. This helps with user’s interest, knowledge, planning on renewable energy usage."
+  },
+  {
+    "reference": "IEC TS 63371-1:2026",
+    "edition": "1.0",
+    "date": "2026-03-05",
+    "title": "Materials used in photovoltaic (PV) cells - Part 1: Specifications for electrical characteristics of crystalline silicon wafers",
+    "language": "EN",
+    "description": "IEC TS 63371-1:2026 applies to crystalline silicon wafers for use as the substrates in making photovoltaic cells. It describes the methods for measuring the electrical characteristics of these silicon wafers. It does not provide mechanical information about these wafers. Annex A shows the widely accepted electrical characteristics values. The purpose of this document is to establish a standardized specification for crystalline silicon wafers, defining their electrical characteristics, the applicable test methods, and the acceptable value ranges for those characteristics."
+  },
+  {
+    "reference": "IEC 63387-1:2026",
+    "edition": "1.0",
+    "date": "2026-08-20",
+    "title": "Hybrid CPV/PV modules: General characteristics and measurement procedures - Part 1: Performance measurements and power rating - Irradiance and temperature",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63387-1:2026 specifies the methods for evaluating CPV/PV hybrid module performance in terms of power rating. Standard conditions for assessing the power produced by the module and the procedures to measure the power as a function of AOI, irradiance, and temperature are described. A methodology for determining a set of characterization parameter values for the hybrid CPV/PV module (FoV) is also included. In order to compare the performance of different hybrid CPV/PV modules whose output is discontinuous and time-dependent, the concept of effective nominal power is introduced. This document is applicable to CPV/PV hybrid modules which include both solar cells designed to collect concentrated light (CPV cells array) and solar cells designed to collect diffuse or global light (PV cells array), the latter with bifacial or monofacial illumination. This document applies to hybrid CPV/PV modules with a geometrical concentration ratio > 3x for the CPV cells. For lower geometrical concentration ratio (≤ 3x), the IEC 60904-1 [11] and IEC 61853 series [9] apply."
+  },
+  {
+    "reference": "IEC TS 63392:2025",
+    "edition": "1.0",
+    "date": "2025-11-20",
+    "title": "Fire test for concentrator PV modules",
+    "language": "EN",
+    "description": "IEC TS 63392:2025 specifies a test method for evaluating the basic fire behaviour of modules used in concentrating systems with a maximum DC system voltage of 1 500 V or less. Since the concentrator module may be exposed to flames due to flying embers or fire may be caused by the module itself due to hot spots or arching (internal fire), the tests outlined in this document are conducted in these two modes. Applicable fire testing may be required by local codes but are not covered in this document. CPV system or CPV modules mounted in or on buildings, shall fulfil national building and construction codes, regulations, and requirements and are not covered by this Technical Specification. If national or local codes define fire test requirements, they should be followed. If such requirements are not available, the following international and national standards give information for tests, which could be used: ISO 5657, ENV 1187-1 to -4, ANSI/UL 790, EN 13501-1."
+  },
+  {
+    "reference": "IEC TS 63397:2022",
+    "edition": "1.0",
+    "date": "2022-12-14",
+    "title": "Photovoltaic (PV) modules - Qualifying guidelines for increased hail resistance",
+    "language": "EN",
+    "description": "IEC TS 63397:2022 defines additional testing requirements for modules deployed under applications or in environments where PV modules are likely to be exposed to the impact of hailstones leading to higher stress beyond the scope of the IEC 61215 series. This document aims to assist in the selection of modules for deployment in specific regions that have a higher risk of hail damage and to provide tools for improving module design. The contents of the corrigendum of July 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 63397:2022/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-07-31",
+    "title": "Corrigendum 1 - Photovoltaic (PV) modules - Qualifying guidelines for increased hail resistance",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 63409-3:2025",
+    "edition": "1.0",
+    "date": "2025-12-03",
+    "title": "Photovoltaic power generating systems connection with the grid - Testing of power conversion equipment - Part 3: Basic operations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63409-3:2025 specifies test procedures for confirming the basic operational characteristics of power conversion equipment (PCE) for use in photovoltaic (PV) power systems with or without energy storage. The basic operational characteristics are the capability of the PCE before any limitations due to internal settings are applied to the PCE to meet specific grid support functions or specific behaviours against abnormal changes. This document covers the testing of the following items: a) Steady state characteristics Test procedures to confirm operable range of PCE at steady state condition are described. The operable ranges in apparent power, active power, reactive power, power factor, grid voltage and grid frequency are confirmed according to the test procedures. b) Transient-response characteristics Test procedures to confirm PCE’s response against a change of operational condition are described. This document only considers the changes within normal (continuous) operable ranges. Therefore, the behaviours against abnormal changes and grid support functions are out of the scope and are covered in other parts of this series."
+  }
+]

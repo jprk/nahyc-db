@@ -1,0 +1,138 @@
+[
+  {
+    "reference": "IEC TS 62898-1:2017",
+    "edition": "1.0",
+    "date": "2017-05-18",
+    "title": "Microgrids - Part 1: Guidelines for microgrid projects planning and specification",
+    "language": "EN",
+    "description": "IEC TS 62898-1:2017(E) provides guidelines for microgrid projects planning and specification. Microgrids considered in this document are alternating current (AC) electrical systems with loads and distributed energy resources (DER) at low or medium voltage level. This document does not cover direct current (DC) microgrids. Microgrids are classified into isolated microgrids and non-isolated microgrids. Isolated microgrids have no electrical connection to a wider electric power system. Non-isolated microgrids can act as controllable units to the electric power system and can operate in the following two modes: - grid-connected mode; - island mode. This document will cover the following areas: - microgrid application, resource analysis, generation forecast, and load forecast; - DER planning and microgrid power system planning; - high level technical requirements for DER in microgrids, for microgrid connection to the distribution system, and for control, protection and communication systems; - evaluation of microgrid projects."
+  },
+  {
+    "reference": "IEC TS 62898-1:2017/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-08-30",
+    "title": "Amendment 1 - Microgrids - Part 1: Guidelines for microgrid projects planning and specification",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62898-2:2018",
+    "edition": "1.0",
+    "date": "2018-09-20",
+    "title": "Microgrids - Part 2: Guidelines for operation",
+    "language": "EN",
+    "description": "IEC TS 62898-2:2018 provides guidelines for operation of microgrids. Microgrids considered in this document are alternating current (AC) electrical systems with loads and distributed energy resources (DER) at low or medium voltage level. This document does not cover direct current (DC) microgrids. IEC TS 62898-2 applies to operation and control of microgrids, including: • operation modes and mode transfer; • energy management system (EMS) and control of microgrids; • communication and monitoring procedures; • electrical energy storage; • protection principle covering: principle for non-isolated microgrid, isolated microgrid, anti-islanding, synchronization and reclosing, power quality; • commissioning, maintenance and test."
+  },
+  {
+    "reference": "IEC TS 62898-2:2018/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-11-07",
+    "title": "Amendment 1 - Microgrids - Part 2: Guidelines for operation",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62898-3-1:2020",
+    "edition": "1.0",
+    "date": "2020-09-21",
+    "title": "Microgrids - Part 3-1: Technical requirements - Protection and dynamic control",
+    "language": "EN",
+    "description": "IEC TS 62898-3-1:2020(E) provides guidelines for the specification of fault protection and dynamic control in microgrids. Protection and dynamic control in a microgrid are intended to ensure safe and stable operation of the microgrid under fault and disturbance conditions. This document applies to AC microgrids comprising single or three-phase networks or both. It includes both isolated microgrids and non-isolated microgrids with a single point of connection (POC) to the upstream distribution network. It does not apply to microgrids with two or more points of connection to the upstream distribution network, although such systems can follow the guidelines given in this document. This document applies to microgrids operating at LV or MV or both. DC and hybrid AC/DC microgrids are excluded from the scope, due to the particular characteristics of DC systems (extremely large fault currents and the absence of naturally occurring current zero crossings). This document defines the principles of protection and dynamic control for microgrids, general technical requirements, and specific technical requirements of fault protection and dynamic control. It addresses new challenges in microgrid protection requirements, transient disturbance control and dynamic disturbance control requirements for microgrids. It focuses on the differences between conventional power system protection and new possible solutions for microgrid protection functions. Depending on specific situations, additional or stricter requirements can be defined by the microgrid operator in coordination with the distribution system operator (DSO). This document does not cover protection and dynamic control of active distribution systems. This document does not cover product requirements for measuring relays and protection equipment. This document does not cover safety aspects in low voltage electrical installations, which are covered by IEC 60364 (all parts and amendments related to low-voltage electrical installations). Requirements relating to low voltage microgrids can be found in IEC 60364-8-2."
+  },
+  {
+    "reference": "IEC TS 62898-3-1:2020/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-11-07",
+    "title": "Amendment 1 - Microgrids - Part 3-1: Technical requirements - Protection and dynamic control",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62898-3-2:2024",
+    "edition": "1.0",
+    "date": "2024-01-09",
+    "title": "Microgrids - Part 3-2: Technical requirements - Energy management systems",
+    "language": "EN",
+    "description": "IEC TS 62898-3-2:2024 provides technical requirements for the operation of energy management systems of microgrids. This document applies to utility-interconnected or islanded microgrids. This document describes specific recommendations for low-voltage (LV) and medium-voltage (MV) systems. This document focuses on developing standards of energy management systems aimed for microgrids integrated in decentralized energy systems or public distribution grids. It concerns some particularities that are not totally covered by the existing conventional energy system. The microgrid energy management systems are being studied by various actors (utilities, manufacturers, and energy providers) on actual demonstration projects and application use case. The aims of this document are to make the state of the art of existing energy management systems used in actual microgrids projects, to classify the relevant functions which can be accomplished by microgrid energy management systems, and to recommend necessary technical requirements for energy management systems of future microgrids. This document includes the following items: • main performances of key components of microgrid: decentralized energy resources, energy storages and controllable loads), • description of main functions and topological blocks of microgrid energy management systems (MEMS), • specification of information exchange protocol between main function blocks, linked to microgrid monitoring and control systems (MMCS). Main functions of MEMS: • power and energy management among different resources within microgrid including active and reactive power flows with different time scales, • power and energy forecasts of microgrid, • energy balancing between upstream grid and microgrid energy resources according to power and energy forecast and upstream and local constraints, • economic and environmental optimization, • possible service capacities such as capacity market auctions and resiliency anticipation: new business models, • data archiving, trending, reporting and evaluation of operation capacities in various operation modes. MEMS can have some other additional functions according to microgrid size and actual application cases: • tariff and market trading management, • utility ancillary services such as frequency regulation, voltage regulation, power quality and reliability improvement, demand response possibilities, change of operation modes linked to MMCS."
+  },
+  {
+    "reference": "IEC TS 62898-3-3:2023",
+    "edition": "1.0",
+    "date": "2023-08-16",
+    "title": "Microgrids - Part 3-3: Technical requirements - Self-regulation of dispatchable loads",
+    "language": "EN",
+    "description": "IEC TS 62898-3-3:2023 deals with frequency and voltage stabilization of AC microgrids by dispatchable loads, which react autonomously on variations of frequency and voltage with a change in active power consumption. Both 50 Hz and 60 Hz electric power systems are covered. This document gives requirements to emulate the self-regulation effect of loads including synthetic inertia. The loads recommended for this approach are noncritical loads, this means their power modulation will not significantly affect the user as some kind of energy storage is involved which effectively decouples end energy use from the electricity supply by the electric network. The self-regulation of loads is beneficial both in island mode and grid-connected mode. This document gives the details of the self-regulation behaviour but does not stipulate which loads shall participate in this approach as an optional function. This document covers both continuously controllable loads with droop control and ON/OFF switchable loads with staged settings. The scope of this document is limited to loads connected to the voltage level up to 35 kV. Reactive power for voltage stabilization and DC microgrids are excluded in this document."
+  },
+  {
+    "reference": "IEC TS 62898-3-4:2023",
+    "edition": "1.0",
+    "date": "2023-08-25",
+    "title": "Microgrids - Part 3-4: Technical requirements - Microgrid monitoring and control systems",
+    "language": "EN",
+    "description": "IEC TS 62898-3-4:2023 provides technical requirements for the monitoring and control of microgrids. This document applies to non-isolated or isolated microgrids integrated with distributed energy resources. This document describes the specific recommendations for low-voltage (LV) and medium-voltage (MV) microgrids. This document focuses on standardization of the architecture, functions, and operation of microgrid monitoring and control systems (MMCS). It teases out the general functions of MMCS and provides technical requirements for MMCS. This document includes the following aspects of MMCS: • system architecture, • information exchange with other devices/functions in microgrid, • performance requirement, • main function descriptions."
+  },
+  {
+    "reference": "IEC TS 62898-3-5:2026",
+    "edition": "1.0",
+    "date": "2026-06-11",
+    "title": "Microgrids - Part 3-5: Technical requirements - Testing for microgrid monitoring, control, and energy management systems",
+    "language": "EN",
+    "description": "IEC TS 62898-3-5:2026 provides technical requirements for the hardware in the loop testing (HIL), commissioning testing, and periodic testing that allows the verification, and quantification of the performance of microgrid monitoring, control, and energy management systems (MMCS and MEMS). This document applies to MMCS and MEMS developed for grid-connected or isolated microgrids, or both. This document includes the following aspects: - general technical requirements; - hardware in the loop testing; - commissioning testing; - periodic testing."
+  },
+  {
+    "reference": "IEC TR 62898-4:2023",
+    "edition": "1.0",
+    "date": "2023-04-04",
+    "title": "Microgrids - Part 4: Use cases",
+    "language": "EN",
+    "description": "IEC TR 62898-4:2023 which is a technical report, provides a set of use cases related to microgrids, as a form of \"decentralized energy system\". Decentralized energy systems are small energy systems containing loads and distributed energy resources (generation, storage) with decentralized management for energy supply. This document completes the SC 8B roadmap for decentralized electrical energy systems. The goal is to explain the methodology retained on the microgrid sub-domain, which is a kind of decentralized system. This methodology, based on IEC 62913-1, describes high-level use cases (business use cases) covering the main typical usage of microgrids, and details some of them through system use cases. The proposed list of use cases is a first version, proposed for review; the goal is to cover all use cases with the same level of depth."
+  },
+  {
+    "reference": "IEC TS 63189-1:2023",
+    "edition": "1.0",
+    "date": "2023-09-26",
+    "title": "Virtual power plants - Part 1: Architecture and functional requirements",
+    "language": "EN",
+    "description": "IEC TS 63189-1:2023 covers the terms and definitions, system composition and control modes of virtual power plant (VPP). It defines the functional requirements for VPPs, including power generation forecasting, load forecasting, generation and consumption scheduling, control and management of energy storage devices and loads, coordinated optimization of distributed energy resources, status monitoring and communication, data collection and analysis, and market transactions. Since a virtual power plant is a cluster of dispersed energy converting installations, which are aggregated, it uses additional systems to achieve its objectives (e.g. regional energy meteorology forecasting, site specific energy management systems, SCADA and other communication systems). Local regulations, the electricity market model and the corresponding manner of organising the market related to the utilisation of controllable DER affect the management, control and operation of VPPs."
+  },
+  {
+    "reference": "IEC TS 63189-2:2023",
+    "edition": "1.0",
+    "date": "2023-10-27",
+    "title": "Virtual Power Plants - Part 2: Use Cases",
+    "language": "EN",
+    "description": "IEC TS 63189-2:2023 is applicable to virtual power plants (VPPs) that consist of distributed generation, controllable loads, and electrical energy storages. This part of IEC 63189 is to provide VPPs use cases that capture the basic information, business roles, actors, scenarios, and processes."
+  },
+  {
+    "reference": "IEC TS 63276:2024",
+    "edition": "1.0",
+    "date": "2024-09-17",
+    "title": "Guidelines for the hosting capacity evaluation of distribution networks for distributed energy resources",
+    "language": "EN",
+    "description": "IEC TS 63276:2024 specifies methods for the evaluation of the maximum export capacity of distributed energy resources (DER) that distribution networks can accommodate. It provides guidance on the technical constraints that should be considered in evaluating hosting capacity, information required to be collected to undertake a hosting capacity evaluation, and evaluation methods. This document is applicable to AC distribution networks operating at a nominal frequency of 50 Hz or 60 Hz. This document does not specify allowable values of system parameters that can be impacted by the addition of DER on a distribution network, such as maximum or minimum voltage, maximum current, etc. These values are to be determined by the user, from international or national standards, local regulations or the like, and used as an input to the evaluation methods described in this document. This document is mainly used by distribution system operators (DSO) and other organizations with corresponding qualifications and capabilities. The evaluation results can serve the DER investors, DSO, energy sector regulators and other stakeholders as a decision-making basis."
+  },
+  {
+    "reference": "IEC TR 63410:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Decentralized electrical energy systems roadmap",
+    "language": "EN",
+    "description": "IEC TR 63410:2023, which is a Technical Report, aims to prepare a road map for categorizing Decentralized Electrical Energy Systems and identifying gaps in the existing standards relevant to Decentralized Electrical Energy Systems. The task of IEC Subcommittee 8B is to develop IEC publications enabling the development of secure, reliable and cost-effective systems with decentralized management for electrical energy supply, which are alternative, complementary or precursors to traditional large interconnected and highly centralized systems. This includes but is not limited to AC, DC, AC/DC hybrid decentralized electrical energy system, such as distributed generation, distributed energy storage, dispatchable loads, virtual power plants and electrical energy systems having interaction with multiple types of distributed energy resources."
+  },
+  {
+    "reference": "IEC TS 63427:2026",
+    "edition": "1.0",
+    "date": "2026-06-29",
+    "title": "Guidelines for the adjustment potential evaluation of demand side resources",
+    "language": "EN",
+    "description": "IEC TS 63427:2026 provides principles and technical requirements for the adjustment potential of demand side resources in demand side management. Demand side resources include dispatchable loads, electrical energy storage, grid-connected microgrids, and distributed energy resources, which are connected to power distribution systems and capable of adjusting their operating state and exchanging information with grid control systems. It includes the DSR characteristics, system requirements, data preparation and evaluation process. The adjustments of demand side resources can be subject to relevant local regulations or specifications. Electricity market mechanisms, user behaviour and data privacy are excluded from the scope of this document."
+  },
+  {
+    "reference": "IEC TR 63631-1:2026",
+    "edition": "1.0",
+    "date": "2026-08-12",
+    "title": "Decentralized Multiple Energy Systems - Part 1: General",
+    "language": "EN",
+    "description": "IEC TR 63631-1:2026 presents general features, typical cases, and key technologies related to DMES. It analyses the existing standards and identifies the gaps and needs for DMES development from the perspectives of the equipment layer, the communication layer, the information layer, the management system layer, and the application layer. This document also provides information on future standardization needs in the area."
+  }
+]

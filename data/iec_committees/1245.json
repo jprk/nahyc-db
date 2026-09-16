@@ -1,0 +1,18 @@
+[
+  {
+    "reference": "IEC TR 60788:2004",
+    "edition": "2.0",
+    "date": "2004-02-17",
+    "title": "Medical electrical equipment - Glossary of defined terms",
+    "language": "EN",
+    "description": "This Technical report comprises all defined terms used in the IEC standards and technical reports which - fall under the scope of medical electrical equipment, and - are on the list of publications as stated in May 2003. The glossary is prepared to ease the use of the electronic version by two search functions: - Search in the alphabetic order, and - Search by the technical and physical chapters in case of ionising radiation (rm-xx-xx)."
+  },
+  {
+    "reference": "IEC PAS 63621:2026",
+    "edition": "1.0",
+    "date": "2026-03-18",
+    "title": "Artificial intelligence enabled medical devices - Data management",
+    "language": "EN",
+    "description": "IEC PAS 63621:2025 provides a framework for the data life cycle processes for management of data used to train, test or validate an AI model that is part of a medical device. For data acquisition and management lifecycle the following considerations apply, amongst others: data suitability, data quality and integrity insurance, data privacy and security, data governance and documentation, data sampling and bias mitigation, data versioning and traceability, data storage and infrastructure, data access and sharing, and data labelling and annotation. This document outlines the requirements for the data lifecycle, covering stages from planning and acquisition to usage and decommissioning. It emphasizes maintaining data quality, including aspects such as dataset classification, data annotations, traceability, metadata comprehensiveness, representativeness, and validity periods. The scope is limited to the high-level process concepts applicable across medical specialties and device types and does not include specific requirements that can be covered by modality- or device-specific standards documents. This document outlines the additional requirements for a quality management system for data management, where an organization demonstrates its capability to manage data in accordance with applicable medical device guidance and standards. Organizations can be involved in one or more stages of the life-cycle, including design and development, production, storage and distribution, installation, or servicing and maintenance of a medical device that incorporates AI. This document can also be used by suppliers or external parties that provide data, including quality management system-related services to such organizations."
+  }
+]

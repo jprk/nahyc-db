@@ -1,0 +1,546 @@
+[
+  {
+    "reference": "IEC 61810-1:2015",
+    "edition": "4.0",
+    "date": "2015-02-25",
+    "title": "Electromechanical elementary relays - Part 1: General and safety requirements",
+    "language": "EN-FR",
+    "description": "IEC 61810-1:2015 applies to electromechanical elementary relays (non-specified time all-or-nothing relays) for incorporation into low voltage equipment (circuits up to 1 000 V alternate current or 1 500 V direct current). It defines the basic functional and safety requirements and safety-related aspects for applications in all areas of electrical engineering or electronics, such as: general industrial equipment, electrical facilities, electrical machines, electrical appliances for household and similar use, information technology and business equipment, building automation equipment, automation equipment, electrical installation equipment, medical equipment, control equipment, telecommunications, vehicles, transportation (e.g. railways). Compliance with the requirements of this standard is verified by the type tests indicated. In case the application of a relay determines additional requirements exceeding those specified in this standard, the relay should be assessed in line with this application in accordance with the relevant IEC standard(s). This fourth edition cancels and replaces the third edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - two main test procedures were introduced: procedure A, reflecting the procedure known from Edition 3 of this standard and procedure B, reflecting the assessment according to North American requirements; - inclusion of dedicated device application tests especially relevant for applications in the North American Market (see Clause D.1); - introduction of testing under single mounting condition; - clarification of insulation requirements after endurance testing; - inclusion of provisions for basic safety requirements; - update of references. The contents of the corrigenda 1 (June 2017) and 2 (February 2018), as well as the Interpretation Sheet 1 (January 2023) have been included in this copy."
+  },
+  {
+    "reference": "IEC 61810-1:2015/ISH1:2023",
+    "edition": "4.0",
+    "date": "2023-01-31",
+    "title": "Interpretation Sheet 1 - Electromechanical elementary relays - Part 1: General and safety requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61810-1:2015/COR1:2017",
+    "edition": "4.0",
+    "date": "2017-06-30",
+    "title": "Corrigendum 1 - Electromechanical elementary relays - Part 1: General and safety requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61810-1:2015/COR2:2018",
+    "edition": "4.0",
+    "date": "2018-02-21",
+    "title": "Corrigendum 2 - Electromechanical elementary relays - Part 1: General and safety requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61810-1:2015/AMD1:2019",
+    "edition": "4.0",
+    "date": "2019-11-25",
+    "title": "Amendment 1 - Electromechanical elementary relays - Part 1: General and safety requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61810-2:2017",
+    "edition": "3.0",
+    "date": "2017-05-30",
+    "title": "Electromechanical elementary relays - Part 2: Reliability",
+    "language": "EN-FR",
+    "description": "IEC 61810-2:2017 covers test conditions and provisions for the evaluation of endurance tests using appropriate statistical methods to obtain reliability characteristics for relays. This document applies to electromechanical elementary relays considered as non-repaired items (i.e. items which are not repaired after failure). This document does not cover procedures for electromechanical elementary relays where enhanced requirements for the verification of reliability apply. This edition includes the following significant technical changes with respect to the previous edition: - not only graphical but also numerical methods are added; - reduction of number of samples in specified cases; - new subclauses of confidence intervals are added; - the WeiBayes approach is added to facilitate compliance tests (routine test) with lower effort; - annexes have been restructured into an Annex A for data analysis (normative) and Annex B (informative) where various examples of the data analysis are given; - the former Annex C has been incorporated into the modified Annex B; - a new Annex C replaces the old Annex D."
+  },
+  {
+    "reference": "IEC 61810-2-1:2017",
+    "edition": "2.0",
+    "date": "2017-05-30",
+    "title": "Electromechanical elementary relays - Part 2-1: Reliability - Procedure for the verification of B<sub>10</sub> values",
+    "language": "EN-FR",
+    "description": "IEC 61810-2-1:2017 specifies reliability test procedures for electromechanical elementary relays when enhanced requirements for the verification of reliability apply. Particular provisions are given for relays incorporated in safety-related control systems of machinery in accordance with IEC 62061 and ISO 13849-1. For such relays, B 10 values for dangerous failures ( B 10D values) are derived from the tests specified in this document. This edition includes the following significant technical changes with respect to the previous edition: - limitation of tests to 10 M cycles in Clause 5; - reduction of required number of test samples to 5 in specified cases; - introduction of WeiBayes analysis for routine test under Clause 4."
+  },
+  {
+    "reference": "IEC 61810-3:2015",
+    "edition": "1.0",
+    "date": "2015-02-25",
+    "title": "Electromechanical elementary relays - Part 3: Relays with forcibly guided (mechanically linked) contacts",
+    "language": "EN-FR",
+    "description": "IEC 61810-3:2015 specifies special requirements and tests for elementary relays with forcibly guided contacts, also known as mechanically linked contacts. These special requirements apply in addition to the general requirements of IEC 61810-1."
+  },
+  {
+    "reference": "IEC 61810-4:2020",
+    "edition": "1.0",
+    "date": "2020-11-04",
+    "title": "Electromechanical elementary relays - Part 4: General and safety requirements for reed relays",
+    "language": "EN-FR",
+    "description": "IEC 61810-4:2020 applies to electromechanical elementary relays with reed switches (reed contacts) incorporated into general control circuits. It defines the basic functional and safety requirements in all areas of electrical engineering or electronics in accordance with the parts of IEC 61810 series and IEC 62246 series. IEC 61810-4:2020 defines technical deviations/additions to IEC 61810-1. It specifies type tests, routine tests, special tests and environmental tests to confirm the service conditions for applications."
+  },
+  {
+    "reference": "IEC 61810-7:2006",
+    "edition": "2.0",
+    "date": "2006-03-14",
+    "title": "Electromechanical elementary relays - Part 7: Test and measurement procedures",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61810-7:2006 Lays down the test and measurement procedures for electromechanical elementary relays. Covers basic considerations which are common to all types of electromechanical elementary relays. Supplementary requirements may be necessitated by specific designs or application."
+  },
+  {
+    "reference": "IEC 61810-10:2019",
+    "edition": "1.0",
+    "date": "2019-07-11",
+    "title": "Electromechanical elementary relays - Part 10: Additional functional aspects and safety requirements for high-capacity relays",
+    "language": "EN-FR",
+    "description": "IEC 61810-10:2019, with functional and safety aspects, applies to electromechanical elementary relays (non-specified time all-or-nothing relays) with high capability requirements like breaking or short circuit capabilities and similar for incorporation into low-voltage equipment. These relays may have a specific design to extinguish the electric arc between contacts (e.g. by magnetic blow-out), or use an insulation coordination not covered by IEC 61810-1 (e.g. by gas filled contact chambers), or require safety assessments not covered by IEC 61810-1 (e.g. for higher loads). It defines additional requirements for high-capacity relays with generic performance intended for use in applications in smart grids, electric vehicles and other applications where, for example, battery charge/discharge switching is used, such as: • electrical energy storage (EES) systems, • solar photovoltaic energy systems, • electric road vehicles (EV) and electric industrial trucks, • power electronic systems and equipment, • secondary cells and batteries, • road vehicles. Compliance with the requirements of this standard is verified by the type tests indicated."
+  },
+  {
+    "reference": "IEC 61811-1:2015",
+    "edition": "2.0",
+    "date": "2015-01-28",
+    "title": "Electromechanical telecom elementary relays of assessed quality - Part 1: Generic specification and blank detail specification",
+    "language": "EN-FR",
+    "description": "IEC 61811-1:2015 applies to electromechanical telecom elementary relays. Relays according to this standard are provided for the operation in telecommunication applications. However, as electromechanical elementary relays, they are also suitable for particular industrial and other applications. This standard selects from IEC 61810 series and other sources the appropriate methods of test to be used in detail specifications derived from this specification, and contains basic test schedules to be used in the preparation of such specifications in accordance with this standard. Detailed test schedules are contained in the detail specifications. This second edition of IEC 61811-1 cancels and replaces IEC 61811-1 published in 1999, IEC 61811-10 published in 2002, IEC 61811-11 published in 2002, IEC 61811-50 published in 2002, IEC 61811-51 published in 2002, IEC 61811-52 published in 2002, IEC 61811-53 published in 2002, IEC 61811-54 published in 2002, IEC 61811-55 published in 2002, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous editions: a) to get one document for telecom relays; b) update all relevant references."
+  },
+  {
+    "reference": "IEC 61811-1:2015/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-12-15",
+    "title": "Amendment 1 - Electromechanical telecom elementary relays of assessed quality - Part 1: Generic specification and blank detail specification",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61811-1:2015/AMD2:2026",
+    "edition": "2.0",
+    "date": "2026-07-10",
+    "title": "Amendment 2 - Electromechanical telecom elementary relays of assessed quality - Part 1: Generic specification and blank detail specification",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61812-1:2023",
+    "edition": "3.0",
+    "date": "2023-06-08",
+    "title": "Time relays and coupling relays for industrial and residential use - Part 1: Requirements and tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 61812-1:2023 applies to time relays and coupling relays for industrial applications (for example control, automation, signal and industrial equipment) and for automatic electrical controls for use in, on, or in association with equipment for residential and similar use. The term “relay” as used in this document comprises all types of time relays and coupling relays, other than measuring relays. This document defines type test and routine test to confirm the service condition. Subclause 3.2 provides definitions for different types of time relays in use in the IEC 61812 series. IEC 61812-1:2023 cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) update of references; b) addition of requirements for risk assessment; c) addition of requirements for routine test; d) renumbering of clauses to bring them into a more logical order; e) clarification of the requirement for shock; f) addition of cybersecurity requirements for industrial automation and control systems; g) addition of environmentally conscious design requirement; h) addition of common data dictionary reference; i) addition of terms and definitions of relay types; j) addition of coupling relays in title; k) addition of coupling relays in scope."
+  },
+  {
+    "reference": "IEC 62246-1:2015",
+    "edition": "3.0",
+    "date": "2015-01-28",
+    "title": "Reed switches - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62246-1:2015, which is a generic specification, applies to all types of reed switches including magnetically biased reed switches of assessed quality for use in general and industrial applications. Mercury wetted reed switches are not covered by this standard due to their possible environmental impact. It lists the tests and measurement procedures which may be selected for use in detail specifications for such reed switches. This standard applies to reed switches which are operated by an applied magnetic field; it is not restricted to any particular type of contact load. For elementary relays with reed switches, this standard is recommended to be used together with the standards IEC 61810-1, IEC 61811-1 as applicable. For applications of reed switches, this standard is recommended to be used together with specific product standards. This standard cancels and replaces the second edition of IEC 62246-1 published in 2011. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - inclusion of Introduction; - update of the scope, the terms and definitions, the rated values and the test and measurement procedure; - improvement of dielectric test, electrical endurance tests covering maximum electrical endurance test and overload test; - improvement of Table F.1 for electrical ratings based on classification; - inclusion of new Table G.1 for horsepower ratings based on classification."
+  },
+  {
+    "reference": "IEC 62246-1-1:2018",
+    "edition": "2.0",
+    "date": "2018-02-06",
+    "title": "Reed switches - Part 1-1: Generic specification - Blank detail specification",
+    "language": "EN-FR",
+    "description": "IEC 62246-1-1:2018 is a blank detail specification which defines requirements and tests for reed switches for use in general and industrial applications. This document is intended to be used in conjunction with IEC 62246-1:2015 and specific products standards applying as switching elements. This document selects from IEC 62246-1:2015 and from other sources the appropriate test procedures to be used in detail specifications derived from this specification. Reed switch types are specified depending on characteristic values including functional ratings for safety and tests. This second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous editions: a) update of the scope, references and terms and definitions; b) inclusion of guidelines for the preparation of blank detail and detail specifications; c) update of characteristics values including functional ratings for safety; d) update of the quality conformance inspection procedures; e) update of typical applications."
+  },
+  {
+    "reference": "IEC 62246-4:2023",
+    "edition": "1.0",
+    "date": "2023-02-15",
+    "title": "Reed switches – Part 4: Application in conjunction with magnetic actuator used for magnetic sensing devices",
+    "language": "EN-FR",
+    "description": "IEC 62246-4:2023 gives additional requirements for the evaluation of functional characteristics on reed switching components operated by magnetic actuator and gives guidance for their implementation in selected applications. This document specifies test and measurement procedures for the application of reed switch (contact) based magnetic sensors. In case the application of a reed contact magnetic sensor determines additional requirements exceeding those specified in this document, the sensor is evaluated with this application in accordance with the relevant IEC or ISO standard(s) (e.g. IEC 62061 or ISO 13849 series, IEC 60335-1 and relevant parts of the IEC 60335-2 series, IEC 60730-1, IEC 61373, ISO 16750-3). This document does not apply to: – sensing or monitoring of the position of elements of interlocking devices for movable guards (see ISO 14119); – sensing or monitoring of the position of elements of pressure sensitive protective equipment (PSPE, see ISO 13856 series); – electrical equipment for measurement, control, and laboratory use (see IEC 61010-1); – aircraft – proximity switches (see ISO 6859-1). Information contained in this document is relevant to the application of a magnetic sensor on new installations as well as modifications to existing installations."
+  },
+  {
+    "reference": "IEC 62314:2022",
+    "edition": "2.0",
+    "date": "2022-07-13",
+    "title": "Solid-state relays - Safety requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 62314:2022 applies to particular all-or-nothing electrical relays denominated solid-state relays intended for performing electrical operations by single step function changes to the state of electric circuits between the OFF-state and the ON-state and vice versa. This document deals with solid-state relays which are intended for incorporation in other products or equipment. As such, solid-state relays are considered to be components and this document defines the basic safety-related and functional requirements for solid-state relays as stand-alone components. Such solid-state relays are incorporated in products or equipment which themselves comply with the relevant product and/or application standard(s) to meet their intended application. Solid state relay as apparatus: Where the solid-state relay is specified as apparatus with a function to the end-user, requirements on EMC are given in this document. Solid state relay as component: There are no EMC requirements for solid-state relays intended for incorporation into the equipment by the equipment manufacturer, because the performance strongly depends on the application into the equipment. The object of this document is to state: – the characteristics of solid-state relays – the requirements which apply to solid-state relays with reference to a) electrical safety; b) their operation and behaviour; c) their dielectric properties; d) EMC; – the tests verifying that the requirements have been met, and the test methods to be adopted; – the information to be given with the solid-state relay or in the product documentation. Solid-state switching devices with monolithic structures fall within the scope of IEC sub-committee 47E and are not covered in this document. Semiconductor controllers and contactors fall within the scope of the IEC 60947 series of standards – low-voltage switchgear and controlgear – developed by IEC subcommittee 121A and are not covered in this document. IEC 62314:2022 cancels and replaces the first edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of load categories for DC load; b) addition of load category for self-ballasted lamp load; c) addition of \"sockets\" terminal; d) update of references; e) introduction of the requirement of EMC; f) restructuring of the whole document."
+  },
+  {
+    "reference": "IEC 63522-1:2025",
+    "edition": "1.0",
+    "date": "2025-10-02",
+    "title": "Electrical relays - Tests and measurements - Part 1: Visual inspection and check of dimensions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-1:2025 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of specimens to perform under expected conditions of transportation, storage, and all aspects of operational use. The object of this test is to define a standard test method for the visual inspection and check of dimensions."
+  },
+  {
+    "reference": "IEC 63522-2:2025",
+    "edition": "1.0",
+    "date": "2025-06-06",
+    "title": "Electrical relays - Tests and measurements - Part 2: Mechanical tests and weighing",
+    "language": "EN-FR",
+    "description": "IEC 63522-2:2025 This part is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to ensure that particular mechanical properties (such as contact force, armature travel, contact gaps) and weight, are within specified limits."
+  },
+  {
+    "reference": "IEC 63522-3:2026",
+    "edition": "1.0",
+    "date": "2026-03-04",
+    "title": "Electrical relays - Tests and measurements - Part 3: Relay coil properties",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-3:2026 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use."
+  },
+  {
+    "reference": "IEC 63522-4:2025",
+    "edition": "1.0",
+    "date": "2025-12-16",
+    "title": "Electrical relays - Tests and measurements - Part 4: Dielectric strength test",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-4:2025 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. The object of this test is to define a standard test method for the dielectric strength test."
+  },
+  {
+    "reference": "IEC 63522-5:2025",
+    "edition": "1.0",
+    "date": "2025-05-21",
+    "title": "Electrical relays - Tests and measurements - Part 5: Insulation resistance",
+    "language": "EN-FR",
+    "description": "IEC 63522-5:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for insulation resistance."
+  },
+  {
+    "reference": "IEC 63522-6:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "Electrical relays - Tests and measurements - Part 6: Contact-circuit resistance or voltage drop",
+    "language": "EN-FR",
+    "description": "IEC 63522-6:2025 is used for testing all kinds of relays and evaluates their ability to perform under expected conditions of transportation, storage, and all aspects of operational use. This document defines a standard test method to measure contact-circuit resistance or voltage drop."
+  },
+  {
+    "reference": "IEC 63522-7:2025",
+    "edition": "1.0",
+    "date": "2025-04-15",
+    "title": "Electrical relays - Tests and measurements - Part 7: Functional tests",
+    "language": "EN-FR",
+    "description": "IEC 63522-7:2025 is used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combination of these) and evaluates their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to evaluate the switching function of the device under test (DUT) at specified energization values throughout the defined temperature range."
+  },
+  {
+    "reference": "IEC 63522-8:2024",
+    "edition": "1.0",
+    "date": "2024-11-05",
+    "title": "Electrical relays - Tests and measurements - Part 8: Timing",
+    "language": "EN-FR",
+    "description": "IEC 63522-8:2024, when required by the detail specification, is used for testing all kinds of relays. This test can also be used for similar devices when specified in a detail specification. This document defines a standard test method to ensure that the relay times are within the specified limits."
+  },
+  {
+    "reference": "IEC 63522-9:2025",
+    "edition": "1.0",
+    "date": "2025-04-17",
+    "title": "Electrical relays - Tests and measurements - Part 9: Climatic tests",
+    "language": "EN-FR",
+    "description": "IEC 63522-9:2025 This document used for testing all kinds of relays and evaluates their ability to perform under expected conditions of transportation, storage and all aspects of operational use. It defines standard test methods to determine the ability of the relay to withstand certain climatic test conditions, a sequence of such climatic test conditions or climatic storage conditions."
+  },
+  {
+    "reference": "IEC 63522-10:2025",
+    "edition": "1.0",
+    "date": "2025-10-02",
+    "title": "Electrical relays - Tests and measurements - Part 10: Heating",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-10:2025 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for heating."
+  },
+  {
+    "reference": "IEC 63522-11:2025",
+    "edition": "1.0",
+    "date": "2025-02-07",
+    "title": "Electrical relays - Tests and measurements - Part 11: Enclosure protection and degree of protection",
+    "language": "EN-FR",
+    "description": "IEC 63522-11:2025 is used for testing electrical relay enclosures along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines standard test methods for appropriate enclosure sealing testing."
+  },
+  {
+    "reference": "IEC 63522-12:2025",
+    "edition": "1.0",
+    "date": "2025-02-07",
+    "title": "Electrical relays - Tests and measurements - Part 12: Internal moisture",
+    "language": "EN-FR",
+    "description": "IEC 63522-12:2025 Used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combination of these) and evaluates their ability to perform under expected conditions of transportation, storage, and all aspects of operational use. This document defines a standard test method to provoke internal moisture inside relays by different methods. The device under test (DUT) is tested at its specified energization values throughout the defined temperature range. The test methods in this document are applicable to RT III, RT IV and RT V products only, i.e., wash-tight, sealed, and hermetically sealed DUTs."
+  },
+  {
+    "reference": "IEC 63522-13:2024",
+    "edition": "1.0",
+    "date": "2024-12-05",
+    "title": "Electrical relays - Tests and measurements - Part 13: Corrosive atmospheres due to sulfur impact",
+    "language": "EN-FR",
+    "description": "IEC 63522-13:2024 is used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combinations of these) and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to simulate impacts of sulfuric atmospheres to relays. The test conditions simulate an artificial situation and allow a performance comparison for usability of the devices under test (DUT) with regard to known and existing switching solutions. The test is a static test without actual operation of the DUT to simulate a worst-case scenario for corrosion, since corrosion increases over time. The corrosion layer can potentially create contact sticking, increase resistance or other undesired effects in the relay. Those aspects can be affected by DUT actuations during the test, which can destroy the corrosion layers or hide relevant long-term effects. In addition to polluted atmospheres, the suitability of the DUT for use and/or storage in corrosive atmospheres can be assessed in a salt-laden atmosphere as described in IEC 63522-44."
+  },
+  {
+    "reference": "IEC 63522-14:2025",
+    "edition": "1.0",
+    "date": "2025-02-07",
+    "title": "Electrical relays - Tests and measurements - Part 14: Mould growth",
+    "language": "EN-FR",
+    "description": "IEC 63522-14:2025 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a test for determining the extent to which electrical relays support mould growth and how any mould growth can affect the performance and other relevant properties/functions of a relay."
+  },
+  {
+    "reference": "IEC 63522-15:2024",
+    "edition": "1.0",
+    "date": "2024-12-05",
+    "title": "Electrical relays - Tests and measurements - Part 15: Robustness of terminals",
+    "language": "EN-FR",
+    "description": "IEC 63522-15:2024 is used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combination of these) and evaluates their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method that applies defined loads to relay terminals (direct axial pulls, bending or twisting) as they can be present in assembled configurations or during handling. In addition, it covers torque stress for nuts and threaded terminals as they are likely to be experienced during normal assembly operations."
+  },
+  {
+    "reference": "IEC 63522-16:2025",
+    "edition": "1.0",
+    "date": "2025-04-22",
+    "title": "Electrical relays - Tests and measurements - Part 16: Soldering",
+    "language": "EN-FR",
+    "description": "IEC 63522-16:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for resistance to soldering heat and solderability for standard soldering processes."
+  },
+  {
+    "reference": "IEC 63522-17:2024",
+    "edition": "1.0",
+    "date": "2024-12-05",
+    "title": "Electrical relays - Tests and measurements - Part 17: Shock, acceleration and vibration",
+    "language": "EN-FR",
+    "description": "IEC 63522-17:2024 is used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combination of these) and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to simulate the mechanical stress on relays as it can occur in service, during handling or during transportation. This document comprises test procedures to simulate shock impacts, steady acceleration environments (such as moving vehicles, aircraft and projectiles) as well as vibration conditions."
+  },
+  {
+    "reference": "IEC 63522-18:2025",
+    "edition": "1.0",
+    "date": "2025-05-21",
+    "title": "Electrical relays – Tests and measurements – Part 18: Thermal resistance of the coil",
+    "language": "EN-FR",
+    "description": "IEC 63522-18:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. The object of this test is to determine the thermal resistance of the relay coil."
+  },
+  {
+    "reference": "IEC 63522-19:2026",
+    "edition": "1.0",
+    "date": "2026-08-21",
+    "title": "Electrical relays - Tests and measurements - Part 19: Electrical endurance",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-19:2026 This part defines a test method to measure electrical endurance of electrical relays and provides the appropriate severities and conditions for measurements designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use."
+  },
+  {
+    "reference": "IEC 63522-20:2025",
+    "edition": "1.0",
+    "date": "2025-04-22",
+    "title": "Electrical relays – Tests and measurements - Part 20: Mechanical endurance",
+    "language": "EN-FR",
+    "description": "IEC 63522-20:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for mechanical endurance."
+  },
+  {
+    "reference": "IEC 63522-21:2025",
+    "edition": "1.0",
+    "date": "2025-08-11",
+    "title": "Electrical relays - Tests and measurements - Part 21: Thermal endurance",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-21:2025 This part is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for evaluation of resistance against high temperature for long periods."
+  },
+  {
+    "reference": "IEC 63522-22:2025",
+    "edition": "1.0",
+    "date": "2025-04-22",
+    "title": "Electrical relays - Tests and measurements - Part 22: Limiting continuous current",
+    "language": "EN-FR",
+    "description": "IEC 63522-22:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for evaluation of the limiting continuous current under specified conditions."
+  },
+  {
+    "reference": "IEC 63522-24:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Tests and measurements - Part 24: Load transfer",
+    "language": "EN-FR",
+    "description": "IEC 63522-24:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a test to check that a multipole relay is capable of transferring one source to another."
+  },
+  {
+    "reference": "IEC 63522-25:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "Electrical relays - Tests and measurements - Part 25: Magnetic interference",
+    "language": "EN-FR",
+    "description": "IEC 63522-25:2025 Used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to check the magnetic interference between relays under operating conditions and their influence on other relays in the neighbourhood."
+  },
+  {
+    "reference": "IEC 63522-27:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Testing and measurement - Part 27: Electrical contact noise",
+    "language": "EN-FR",
+    "description": "IEC 63522-27:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for electrical contact noise."
+  },
+  {
+    "reference": "IEC 63522-28:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Tests and measurement - Part 28: Thermoelectric electromotive force (e.m.f.)",
+    "language": "EN-FR",
+    "description": "IEC 63522-28:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for thermoelectric electromotive force (e.m.f.)."
+  },
+  {
+    "reference": "IEC 63522-29:2025",
+    "edition": "1.0",
+    "date": "2025-06-06",
+    "title": "Electrical relays - Tests and measurements - Part 29: Capacitance",
+    "language": "EN-FR",
+    "description": "IEC 63522-29:2025 This part is used for testing the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. It specifies how to ensure that the capacitances formed by parts of a relay do not exceed specified limits."
+  },
+  {
+    "reference": "IEC 63522-30:2025",
+    "edition": "1.0",
+    "date": "2025-07-02",
+    "title": "Electrical relays - Tests and measurements - Part 30: Contact sticking (delayed release)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-30:2025 defines a standard test method to determine contact sticking of relays as part of the normal service life, i.e., devices under test (DUTs) fail to open within a specified time, due to, for example, effects of remanence, chemical effects, or high temperature. It does not cover contact sticking during or after electrical endurance testing or due to other validation tests for relays."
+  },
+  {
+    "reference": "IEC 63522-31:2025",
+    "edition": "1.0",
+    "date": "2025-08-19",
+    "title": "Electrical relays - Tests and measurements - Part 31: Magnetic remanence",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-31:2025 This part of IEC 63522 is used for testing all kind of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to investigate the effect of remanence in the magnetic circuit of relays with DC coil."
+  },
+  {
+    "reference": "IEC 63522-32:2025",
+    "edition": "1.0",
+    "date": "2025-04-17",
+    "title": "Electrical relays - Tests and measurements - Part 32: Acoustic noise",
+    "language": "EN-FR",
+    "description": "IEC 63522-32:2025 This document is used for testing under appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method to investigate the effect of acoustic noise in conjunction with the operating, releasing and cycling noise of a relay and the immunity of a relay to acoustic noise."
+  },
+  {
+    "reference": "IEC 63522-33:2025",
+    "edition": "1.0",
+    "date": "2025-08-19",
+    "title": "Electrical relays - Tests and measurements - Part 33: Continuity of protective earthing connection",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-33:2025 This part of IEC 63522 is used for testing all kind of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document provides test methods to ensure that the connection between an earthing terminal and parts required to be connected thereto is of low resistance."
+  },
+  {
+    "reference": "IEC 63522-34:2025",
+    "edition": "1.0",
+    "date": "2025-08-19",
+    "title": "Electrical relays - Tests and measurements - Part 34: Fluid contamination",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-34:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document provides tests to ensure that a relay is suitable for use when subjected to contamination by fluids found in aerospace applications and similar. This test applies to RT III to RT V relays only."
+  },
+  {
+    "reference": "IEC 63522-35:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "Electrical relays - Tests and measurements - Part 35: Resistance to cleaning solvents",
+    "language": "EN-FR",
+    "description": "IEC 63522-35:2025 is used for testing all kind of relays within the scope of technical committee 94 and evaluates their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for resistance to cleaning solvents."
+  },
+  {
+    "reference": "IEC 63522-36:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "Electrical relays - Tests and measurements - Part 36: Fire hazard",
+    "language": "EN-FR",
+    "description": "IEC 63522-36:2025 is used for testing all kinds of relays and evaluates their ability to perform under expected conditions of transportation, storage, and all aspects of operational use. This document defines a standard test method to measure fire hazards of all materials susceptible to fire hazards."
+  },
+  {
+    "reference": "IEC 63522-37:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Tests and measurements - Part 37: Terminal temperature rise at rated load",
+    "language": "EN-FR",
+    "description": "IEC 63522-37:2025 This part of lEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. The object of this document is to define a standard test method to measure terminal temperature rise at rated load, included solder terminals, flat quick-connect terminations, screw and screwless type terminals, alternative termination types and sockets."
+  },
+  {
+    "reference": "IEC 63522-38:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Testing and measurement - Part 38: Mechanical interlock",
+    "language": "EN-FR",
+    "description": "IEC 63522-38:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for mechanical interlock."
+  },
+  {
+    "reference": "IEC 63522-39:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "Electrical relays - Tests and measurements - Part 39: Insertion and withdrawal force",
+    "language": "EN-FR",
+    "description": "IEC 63522-39:2025 is used for testing all kind of relays and shall evaluate their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines standard test methods for: 1. measuring the insertion and withdrawal forces of the mating relay and socket; 2. measuring the insertion and withdrawal forces on relays with flat quickconnect terminations; 3. verifying the correct connection of flat terminals with eye lug connectors."
+  },
+  {
+    "reference": "IEC 63522-40:2025",
+    "edition": "1.0",
+    "date": "2025-04-17",
+    "title": "Electrical relays - Tests and measurements - Part 40: Short circuit testing",
+    "language": "EN-FR",
+    "description": "IEC 63522-40:2025 This document is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for short circuit testing."
+  },
+  {
+    "reference": "IEC 63522-41:2026",
+    "edition": "1.0",
+    "date": "2026-04-15",
+    "title": "Electrical relays - Tests and measurements - Part 41: Tests and measurement procedures - Insulation coordination",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-41:2026 provides guidelines for the insulation coordination of electromechanical elementary, solid state, time, forcibility guided and reed relays as well reed contacts and hybrid switching solutions. This document can also be used for similar devices when specified in a detail specification."
+  },
+  {
+    "reference": "IEC 63522-43:2025",
+    "edition": "1.0",
+    "date": "2025-12-02",
+    "title": "Electrical relays - Tests and measurements - Part 43: Proof tracking index (PTI)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-43:2025 This document is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of specimens to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for evaluation of appropriate materials having appropriate values of tracking resistance."
+  },
+  {
+    "reference": "IEC 63522-44:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Tests and measurements - Part 44: Corrosive atmosphere due to salt mist",
+    "language": "EN-FR",
+    "description": "IEC 63522-44:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. The object of this test is to define a standard test method for salt mist."
+  },
+  {
+    "reference": "IEC 63522-45:2025",
+    "edition": "1.0",
+    "date": "2025-06-26",
+    "title": "Electrical relays - Tests and measurements - Part 45: Maximum frequency of operation",
+    "language": "EN-FR",
+    "description": "IEC 63522-45:2025 used for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combination of these) and evaluates their ability to perform under expected conditions of transportation, storage and all aspects of operational use."
+  },
+  {
+    "reference": "IEC 63522-46:2026",
+    "edition": "1.0",
+    "date": "2026-06-09",
+    "title": "Electrical relays - Tests and measurements - Part 46: Impulse voltage test",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-46:2026 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of DUTs to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for impulse voltage test."
+  },
+  {
+    "reference": "IEC 63522-48:2024",
+    "edition": "1.0",
+    "date": "2024-12-05",
+    "title": "Electrical relays - Tests and measurements - Part 48: Contact failure rate test",
+    "language": "EN-FR",
+    "description": "IEC 63522-48:2024 is used for for testing electromechanical elementary relays (electromechanical relays, reed relays, reed contacts, reed switches and technology combinations of these) and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for contact failure rate test of electromechanical elementary relays applied to low-load applications (e.g., CC 0, CC 1) and failure rates and failure rate levels at low loads under specified conditions. The content of the corrigendum 1 (2025-04) has been included in this copy."
+  },
+  {
+    "reference": "IEC 63522-48:2024/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-04-24",
+    "title": "Corrigendum 1 - Electrical relays - Tests and measurements - Part 48: Contact failure rate test",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 63522-49:2025",
+    "edition": "1.0",
+    "date": "2025-04-24",
+    "title": "Electrical relays - Tests and measurements - Part 49: Long term stability of sealing",
+    "language": "EN-FR",
+    "description": "IEC 63522-49:2025 This part of IEC 63522 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for long term stability of sealing."
+  },
+  {
+    "reference": "IEC 63522-52:2026",
+    "edition": "1.0",
+    "date": "2026-03-04",
+    "title": "Electrical relays - Tests and measurements - Part 52: Coil overvoltage",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-52:2026 is used for testing all kind of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for coil overvoltage in device under test (DUT) equipped with a coil. is used for testing all kind of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use."
+  },
+  {
+    "reference": "IEC 63522-54:2025",
+    "edition": "1.0",
+    "date": "2025-08-27",
+    "title": "Electrical relays - Tests and measurements - Part 54: Critical DC load current test",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63522-54:2025 is used for testing all kinds of electrical relays and for evaluating their ability to perform under expected conditions of transportation, storage and all aspects of operational use. This document defines a standard test method for critical DC load current test."
+  },
+  {
+    "reference": "IEC 63522-56:2025",
+    "edition": "1.0",
+    "date": "2025-04-23",
+    "title": "Electrical relays - Tests and measurements - Part 56: Ball Pressure test",
+    "language": "EN-FR",
+    "description": "IEC 63522-56:2025 This part of IEC 63522 is used for testing along with the appropriate severities and conditions for measurements and tests designed to assess the ability of specimens to perform under expected conditions of transportation, storage and all aspects of operational use. The object of this test is to define a standard test method for evaluation of appropriate materials to withstand mechanical pressure at elevated temperatures without undue deformation."
+  }
+]

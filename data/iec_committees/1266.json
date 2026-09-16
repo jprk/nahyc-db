@@ -1,0 +1,634 @@
+[
+  {
+    "reference": "IEC 60205:2026",
+    "edition": "5.0",
+    "date": "2026-03-26",
+    "title": "Calculation of the effective parameters of magnetic piece parts",
+    "language": "EN",
+    "description": "IEC 60205:2026 specifies uniform rules for the calculation of the effective parameters of closed circuits of ferromagnetic material. This edition includes the following significant technical changes with respect to the previous edition: a) addition, in 5.1, of the drawing and the formulae of pair of URS-cores of rectangular-circular section; b) using, in 5.9, 5.10, 5.11 and 5.13, the conventional calculation formula that includes \"B1‑D\" is limited for the x-x cores (x is EL, ER, PQ or E) and addition new formulae for x‑PLT cores that replaces \"B1-D\" with \"(B1-D+B2)/2\"; c) addition, in 5.9, 5.10, 5.11 and 5.13, of formulae of l1 and l3 for x-PLT cores (x is EL, ER, PQ or E) which is different from the l1 and l3 of x-x cores; d) addition of formula Amin in each subclause from 5.2.1 to 5.14."
+  },
+  {
+    "reference": "IEC 60329:1984",
+    "edition": "2.0",
+    "date": "1984-09-30",
+    "title": "Strip-wound cut cores of grain oriented silicon-iron alloy, used for electronic and telecommunication equipment",
+    "language": "EN-FR",
+    "description": "Limited to strip-wound cut cores, in both single-phase and three-phase forms of construction, having rectangular cross-sections and rectangular windows (coil spaces), manufactured from cold-reduced grain-oriented silicon-iron alloy strip, and for use in transformers and inductors for telecommunication equipment and for electronic devices. May be generally applied to cores of other than rectangular windows or cross-sections. In this case, certain characteristics, e.g. electrical properties and dimensional tolerances shall be the subject of special agreement between user and manufacturer."
+  },
+  {
+    "reference": "IEC 60392:1972",
+    "edition": "1.0",
+    "date": "1972-01-01",
+    "title": "Guide for the drafting of specifications for microwave ferrites",
+    "language": "EN-FR, RU",
+    "description": "Gives uniform rules for the drafting of specifications including dimensions and coding for microwave ferrites."
+  },
+  {
+    "reference": "IEC 60401-1:2020",
+    "edition": "2.0",
+    "date": "2020-04-14",
+    "title": "Terms and nomenclature for cores made of magnetically soft ferrites - Part 1: Terms used for physical irregularities and reference of dimensions",
+    "language": "EN-FR, EN",
+    "description": "IEC 60401-1:2020 provides a nomenclature of the most frequent surface, bulk and shape irregularities relevant to cores made of soft ferrites (magnetic oxides). Most irregularities are graphically exemplified as visual aids. A general recommendation is also given in Annex A for a consistent scheme for specifying the exact location of the irregularity, combining a general name for the location with more detailed qualifiers of the specified location. This document can also be useful as a terminology reference when preparing technical documentation, irregularity inspection specifications, etc. This document also presents a method for defining the designation nomenclature for the major physical attributes of soft ferrite core shapes. The purpose of this document is to facilitate uniform usage of dimensional characters by manufacturers, specifiers, and users when describing core dimensions on drawings, in tables, and on catalogue specification sheets. This second edition cancels and replaces the first edition of IEC 60401-1 published in 2002 and the second edition of IEC 60401-2 published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous editions of IEC 60401-1 and IEC 60401-2: - added the surface irregularity term “pores” in 4.3.1.6; - added the surface irregularity term “scratch” in 4.3.6.3; - removed the surface irregularity term “crater” in 4.1.5 of IEC 60401-1: 2002; - removed the bulk irregularity terms “superpores” in 5.1, “inclusions” in 5.2, “internal stratification” in 5.3 and “internal crack” in 5.4 of IEC 60401-1: 2002; - removed the contents related to “yoke ring cores” in 7.1.3 and 7.4 of IEC 60401-1:2002; - replaced the surface irregularity term “stratification” with “lamination” in 4.3.4.7; - replaced the location related terms “upper surface of back” with “bottom surface” and “lower surface of back” with “back surface” in Figure A.1; - changed Clause 7 of IEC 60401-1:2002 into Annex A."
+  },
+  {
+    "reference": "IEC 60401-3:2015",
+    "edition": "2.0",
+    "date": "2015-12-04",
+    "title": "Terms and nomenclature for cores made of magnetically soft ferrites - Part 3: Guidelines on the format of data appearing in manufacturers catalogues of transformer and inductor cores",
+    "language": "EN-FR",
+    "description": "IEC 60401-3:2015 gives guidelines for a uniform method of presentation for the properties of magnetically soft ferrite materials and measuring conditions under which they should be determined. It is intended for use in manufacturers' catalogues of transformer and inductor cores, in order to aid the comparability of such data. Additional guidance is given for users and manufacturers concerning testing and specification of reliability for ferrite cores and for devices using ferrite cores. This edition includes the following significant technical changes with respect to the previous edition: - addition of reliability in Clause 6."
+  },
+  {
+    "reference": "IEC 60556:2006",
+    "edition": "2.0",
+    "date": "2006-04-27",
+    "title": "Gyromagnetic materials intended for application at microwave frequencies - Measuring methods for properties",
+    "language": "EN-FR, EN",
+    "description": "IEC 60556:2006 describes methods of measuring the properties used to specify polycrystalline microwave ferrites in accordance with IEC 60392 and for general use in ferrite technology. These measuring methods are intended for the investigation of materials, generally referred to as ferrites, for application at microwave frequencies. It includes editorial improvements as well as improvements to the figures. This publication is to be read in conjunction with IEC 60392:1972 ."
+  },
+  {
+    "reference": "IEC 60556:2006/AMD1:2016",
+    "edition": "2.0",
+    "date": "2016-03-31",
+    "title": "Amendment 1 - Gyromagnetic materials intended for application at microwave frequencies - Measuring methods for properties",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60635:1978",
+    "edition": "1.0",
+    "date": "1978-01-01",
+    "title": "Toroidal strip-wound cores made of magnetically soft material",
+    "language": "EN-FR, RU",
+    "description": "Covers the dimensional and constructional characteristics for toroidal cores wound from strips of magnetically soft steel or alloy having thickness between 0.003 mm and 0.35 mm. Includes standard ranges of main dimensions and recommendations for strip thickness, core protection, marking and packing."
+  },
+  {
+    "reference": "IEC 60635:1978/AMD1:1997",
+    "edition": "1.0",
+    "date": "1997-10-09",
+    "title": "Amendment 1 - Toroidal strip-wound cores made of magnetically soft material",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60732:1982",
+    "edition": "1.0",
+    "date": "1982-01-01",
+    "title": "Measuring methods for cylinder cores, tube cores and screw cores of magnetic oxides",
+    "language": "EN-FR, RU",
+    "description": "Describes methods of measuring the magnetic properties of cores of magnetic oxides. These properties are in terms of inductance L and quality factor Q of a specified coil, cores being defined by geometrical configuration and relative position. Applies to cores up to 45 mm in length and up to 8.5 mm in diameter at frequencies up to 100 MHz."
+  },
+  {
+    "reference": "IEC 60740-1:2005",
+    "edition": "1.0",
+    "date": "2005-08-09",
+    "title": "Laminations for transformers and inductors - Part 1: Mechanical and electrical characteristics",
+    "language": "EN-FR, EN",
+    "description": "IEC 60740-1:2005 specifies the characteristics of laminations. Their preferred use is cores for transformers and inductors. The laminations are made of sheets and strips of magnetic materials, specified in IEC 60404-8-4 and IEC 60404-8-7. The main changes are listed below: a) ranges with lamination strips YS, YSUI 1, YSUI 2 and laminations YEE 2-..L added; b) range YEI 1 extended at the above end; c) ranges YED 2, YEF 2, YEL 2, YES 2, Type YM 1-5a and YM 1-7a cancelled; d) national designations cancelled; e) electrical characteristics for the laminations specified; f) mechanical characteristics for laminations added; g) holes added for lamination types YEI 1, YUI 1, YUI 2, YM 1; h) in Annex A, a conversion of the polarisation J and the field strength H in a specific total apparent power is defined. For the characteristics of the reactive power and the power loss, equations and constants are specified."
+  },
+  {
+    "reference": "IEC 60740-2:1993",
+    "edition": "1.0",
+    "date": "1993-06-18",
+    "title": "Laminations for transformers and inductors for use in telecommunication and electronic equipment - Part 2: Specification for the minimum permeabilities of laminations made of soft magnetic metallic materials",
+    "language": "EN-FR",
+    "description": "Specifies requirements for the minimum permeabilities of laminations made of silicon-iron and nickel-iron alloys as defined by the alloy classes C2, E1, E3 and E4 of IEC 60404-1."
+  },
+  {
+    "reference": "IEC 60852-1:1986",
+    "edition": "1.0",
+    "date": "1986-07-30",
+    "title": "Outline dimensions of transformers and inductors for use in telecommunication and electronic equipment - Part 1: Transformers and inductors using YEI-1 laminations",
+    "language": "EN-FR, RU",
+    "description": "Specifies the outline dimensions of transformers and inductors, using E and I laminations, built for the three most commonly used forms of mounting style, namely bracket mounting, U-clamp mounting and printed wiring board mounting."
+  },
+  {
+    "reference": "IEC 60852-2:1992",
+    "edition": "1.0",
+    "date": "1992-05-15",
+    "title": "Outline dimensions of transformers and inductors for use in telecommunication and electronic equipment - Part 2: Transformers and inductors using YEx-2 laminations for printed wiring board mounting",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60852-3:1992",
+    "edition": "1.0",
+    "date": "1992-07-01",
+    "title": "Outline dimensions of transformers and inductors for use in telecommunication and electronic equipment - Part 3: Transformers and inductors using YUI-1 laminations",
+    "language": "EN-FR",
+    "description": "Specifies the outline dimensions of transformers and inductors, using U and I laminations, built for the most commonly used forms of mounting style, namely vertical mounting and level mounting."
+  },
+  {
+    "reference": "IEC 60852-4:1996",
+    "edition": "1.0",
+    "date": "1996-07-03",
+    "title": "Outline dimensions of transformers and inductors for use in telecommunication and electronic equipment - Part 4: Transformers and inductors using YUI-2 laminations",
+    "language": "EN-FR",
+    "description": "Specifies the outline dimensions of transformers and inductors, using YUI-2 laminations, built for the most commonly used forms of mounting style."
+  },
+  {
+    "reference": "IEC 60852-5:1994",
+    "edition": "1.0",
+    "date": "1994-04-25",
+    "title": "Outline dimensions of transformers and inductors for use in telecommunication and electronic equipment - Part 5: Transformers and inductors using the series Q of C-cores",
+    "language": "EN-FR",
+    "description": "Specifies the outline dimensions of transformers and inductors, using the series Q of C-cores in accordance with IEC 60329 for assembly forms H, J and U."
+  },
+  {
+    "reference": "IEC/IEEE 61007-389:2026",
+    "edition": "1.0",
+    "date": "2026-08-05",
+    "title": "Transformers and inductors for use in electronic and telecommunication equipment - Part 389: Measuring methods and test procedures",
+    "language": "EN",
+    "description": "IEC/IEEE 61007-389:2026 describes a number of tests for use in determining the significant parameters and performance characteristics of transformers and inductors for use in electronics and telecommunication equipment. These test methods are designed primarily for transformers and inductors used in all types of electronics applications that can be involved in any specification for such components. Even though these tests could be applied supplementally for other types of transformers, such as those with larger power ratings used in the utility power industry, the tests discussed in this document are not intended to replace the tests in standards for those other transformers. Some of the tests described are intended for qualifying a product for a specific application, while others are test practices used for manufacturing and customer acceptance testing. The test methods described here include those parameters most commonly used in the electronics transformer and inductor industry: electric strength, resistance, power loss, inductance, impedance, balance, transformation ratio and many others used less frequently. This first edition of IEC/IEEE 61007-389 cancels and replaces IEC 61007:2020 and IEEE 389:2020, which has been technically revised. This edition includes the following significant technical changes with respect to the previous edition: a) added the following new test items: 1) transformer capacitance (in 4.5.6.1); 2) voltage transformation (VT) ratio (in 4.5.7.3); 3) thermo-couple method (in 4.5.15.3); 4) bridge circuit measurement (in 4.5.16.3); 5) dynamic CM capacitance of a transformer (in 4.5.20); 6) tests of the parameter in transformer equivalent circuit (in 4.5.21); b) updated the following test items: 1) added test purpose: AC resistance (in 4.5.1.2); dielectric withstand voltage test (in 4.5.2.1); effective inductance (in 4.5.4.1); capacitance unbalance (in 4.5.5.1); total harmonic distortion (in 4.5.13); 2) testing fundamentals and equipment modification: DC winding resistance (in 4.5.1.1); AC resistance (in 4.5.1.2); winding continuity (in 4.5.1.3); excitation apparent-power measurements (in 4.5.3.4); capacitance unbalance (in 4.5.5.1); self-capacitance (distributed capacitance) (in 4.5.6.2); inter-winding capacitance (in 4.5.6.3); inherent self-resonance (in 4.5.8.1 ); resonant assemblies (in 4.5.8.2); insertion loss (in 4.5.9.1); return loss (in 4.5.9.2); crosstalk (in 4.5.10); pulse characteristics (in 4.5.11.1); transformer response measurements (in 4.5.11.2); total harmonic distortion (in 4.5.13); method utilizing the change in DC resistance of a winding (in 4.5.15.1); method using an additional series-opposing bifilar winding (in 4.5.15.2); safety screens (in 4.5.17.2); magnetic radiation (in 4.5.17.4); acoustic noise (in 4.5.18.1); 3) procedure modification: dielectric withstand voltage test (in 4.5.2.1) ; induced voltage test (in 4.5.2.2); capacitance unbalance (in 4.5.5.1); 4) Information to be stated modification: insulation resistance (in 4.5.2.4 ); excitation apparent-power measurements (in 4.5.3.4); stray-load losses (in 4.5.3.5); power factor (in 4.5.3.8); inherent self-resonance (in 4.5.8.1); parallel resonance and series resonance (in 4.5.8.3); transformer pulse response (in 4.5.11.3); removed Annex D and Annex F in IEC 61007:2020."
+  },
+  {
+    "reference": "IEC 61021-1:1990",
+    "edition": "1.0",
+    "date": "1990-08-31",
+    "title": "Laminated core packages for transformers and inductors used in telecommunication and electronic equipment - Part 1: Dimensions",
+    "language": "EN-FR",
+    "description": "Specifies the dimensions, with their associated tolerances, of a range of laminated core packages using YEE 2 laminations, both in their standard configuration and for assemblies using two larger E parts."
+  },
+  {
+    "reference": "IEC 61021-2:1995",
+    "edition": "1.0",
+    "date": "1995-05-11",
+    "title": "Laminated core packages for transformers and inductors for use in telecommunication and electronic equipment - Part 2: Electrical characteristics for cores using YEE2 laminations",
+    "language": "EN-FR",
+    "description": "Specifies the electrical characteristics of laminated core packages using YEE 2 laminations according to IEC 60740. It also gives the marking and packaging requirements."
+  },
+  {
+    "reference": "IEC 61248-1:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic and telecommunication equipment - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "Prescribes the compliance requirements for manufacturers of transformers and inductors for use in electronic equipment in order to obtain capability approval and the component test schedules to be used for the assessment of that capability."
+  },
+  {
+    "reference": "IEC 61248-2:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic andtelecommunication equipment - Part 2: Sectional specification forsignal transformers on the basis of the capability approvalprocedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for signal transforme rs. Includes a blank detail specification, which shows the format, a nd indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61248-3:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic andtelecommunication equipment - Part 3: Sectional specification forpower transformers on the basis of the capability approvalprocedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for power transformers. Includes a blank detail specification, which shows the format, and indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61248-4:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic andtelecommunication equipment - Part 4: Sectional specification forpower transformers for switched mode power supplies (SMPS) on thebasis of the capability approval procedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for SMPS power transformers. Includes a blank detail specification, which shows the format, and indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61248-5:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic andtelecommunication equipment - Part 5: Sectional specification forpulse transformers on the basis of the capability approvalprocedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for pulse transformers. Includes a blank detail specification, which shows the format, and indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61248-6:1996",
+    "edition": "1.0",
+    "date": "1996-06-06",
+    "title": "Transformers and inductors for use in electronic andtelecommunication equipment - Part 6: Sectional specification forinductors on the basis of the capability approval procedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for inductors. Includes a blank detail specification, which shows the format, and indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61248-7:1997",
+    "edition": "1.0",
+    "date": "1997-06-24",
+    "title": "Transformers and inductors for use in electronic and telecommunication equipment - Part 7: Sectional specification for high-frequency inductors and intermediate frequency transformers on the basis of the capability approval procedure",
+    "language": "EN-FR",
+    "description": "Specifies how to prepare detail specifications for high-frequency inductors and intermediate frequency transformers between 10 kHz and 2 GHz.Includes a blank detail specification, which shows the format and indicates which tests are considered to be appropriate to this type of component."
+  },
+  {
+    "reference": "IEC 61332:2026",
+    "edition": "4.0",
+    "date": "2026-01-23",
+    "title": "Soft ferrite material classification",
+    "language": "EN",
+    "description": "IEC 61332:2026 specifies classification rules for soft ferrite materials used in inductive components (inductors and transformers) fulfilling the requirements of the electronic industries. This document addresses the following issues for ferrite suppliers and users: - cross-reference between materials from multiple suppliers; - assistance to users in understanding the published technical data in catalogues when comparing multiple suppliers; - guidance to users in selecting the most applicable material for each application; - setting of nomenclature for IEC standards relating to ferrite; - establishing uniformed benchmarks for manufacturers for performance in new development of materials. The numerical values given in this document are typical values of the parameters (properties) of the related materials. Direct translation from the material specification into the core specification is not always easy or possible. Every detailed material and core specification should be agreed upon between suppliers and users. This edition includes the following significant technical changes with respect to the previous edition: a) added PW2c and PW3c in subclasses PW2 and PW3 respectively in Table 3; b) added the column of BS in Table 3; c) added a smaller size of the test core (Ø 12,7 mm × Ø 7,5 mm × 7 mm) for higher measuring frequency (≥ 500 kHz) in Table 3."
+  },
+  {
+    "reference": "IEC 61333:2019",
+    "edition": "2.0",
+    "date": "2019-07-30",
+    "title": "Marking on ferrite cores",
+    "language": "EN-FR",
+    "description": "IEC 61333:2019 specifies marking locations and a coding system of marking on ferrite cores. An alphanumerical marking printed or attached to cores reduces the risk of incorrect assembly, mixing of materials and/or mixing of gapped cores on an assembly line. The markings of the inductance factor AL value or of the gap length are especially important to avoid this kind of problem, and their coding system is specified in this document. This edition includes the following significant technical changes with respect to the previous edition： a) the title of the document was changed; b) the scope of this document was expanded; c) the marking position instructions for ring cores, planar cores, RM-cores, PQ-cores and pot-cores were added in Clause 4 with a few additional descriptions; d) the four-digit-maximum limit of material identification code has been deleted in 5.2; e) in Table 1, the unit of AL has been changed from \"nH\" to \"nH/N2\"."
+  },
+  {
+    "reference": "IEC 61605:2016",
+    "edition": "3.0",
+    "date": "2016-10-26",
+    "title": "Fixed inductors for use in electronic and telecommunication equipment - Marking codes",
+    "language": "EN-FR, EN",
+    "description": "IEC 61605:2016 specifies marking codes for fixed inductors. It covers the inductance values and their tolerances as well as dates. This edition includes the following significant technical changes with respect to the previous edition: a) The date code system for fixed inductors has been updated."
+  },
+  {
+    "reference": "IEC 61609:1996",
+    "edition": "1.0",
+    "date": "1996-02-07",
+    "title": "Microwave ferrite components - Guide for the drafting ofspecifications",
+    "language": "EN-FR",
+    "description": "Gives guidance for uniform rules for the drafting of specifications for microwave ferrite components."
+  },
+  {
+    "reference": "IEC 61631:2020",
+    "edition": "2.0",
+    "date": "2020-05-07",
+    "title": "Test method for the mechanical strength of cores made of magnetic oxides",
+    "language": "EN-FR, EN",
+    "description": "IEC 61631:2020 specifies a test method for the mechanical strength of cores made of magnetic oxides. This test method is suitable for most of the E-cores, ETD-cores, I-cores and ring-cores but other core types such as U-cores could be tested according to a derived method agreed by the parties concerned. This document is also applicable to the mechanical strength measurement of magnetic powder cores. This edition includes the following significant technical changes with respect to the previous edition: - the phrase: \"This document is also applicable to the mechanical strength measurement of magnetic powder cores\" has been added in the scope; - IEC 61246 has been replaced by IEC 63093-8; EN 1002-2 has been replaced by ISO 7500-1; ISO 4677-1 and ISO 4677-2 have been withdrawn; - dimensions D and F in Figure A.1 and Table A.1 have been changed to be consistent with Figure 1 of IEC 63093-8:2018; - addition of the content of ring-cores test; - addition of Annex B; - the location of the jig is amended in Figure 3; - in Figure 5, the roller bars are moved to the edge of the I-core, aligned with the core."
+  },
+  {
+    "reference": "IEC 61797-1:1996",
+    "edition": "1.0",
+    "date": "1996-10-17",
+    "title": "Transformers and inductors for use in telecommunication and electronic equipment - Main dimensions of coil formers - Part 1: Coil formers for laminated cores",
+    "language": "EN-FR, ES",
+    "description": "Specifies the main dimensions of coil formers for transformers and inductors, using a square stack of the laminations inserted in the coil formers."
+  },
+  {
+    "reference": "IEC 61843:1997",
+    "edition": "1.0",
+    "date": "1997-04-28",
+    "title": "Measuring method for the level of intermodulation products generated in a gyromagnetic device",
+    "language": "EN-FR",
+    "description": "Describes the measuring method for the level of intermodulation products generated in a gyromagnetic device."
+  },
+  {
+    "reference": "IEC 62024-1:2024",
+    "edition": "4.0",
+    "date": "2024-07-17",
+    "title": "High frequency inductive components - Electrical characteristics and measuring methods - Part 1: Nanohenry range chip inductor",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-12 IEC 62024-1:2024 specifies the electrical characteristics and measuring methods for the nanohenry range chip inductor that is normally used in the high frequency (over 100 kHz) range. This edition includes the following significant technical changes with respect to the previous edition: a) addition of S parameter measurement; b) addition of the inductance, Q-factor and impedance of an inductor which are measured by the reflection coefficient method with a network analyzer; c) addition of the resonance frequency of an inductor which is measured by a two-port network analyzer; d) addition of the mounting method for a surface mounting inductor with Pb-free solder. The content of the corrigendum 1 (2025-12) has been included in this copy."
+  },
+  {
+    "reference": "IEC 62024-1:2024/COR1:2025",
+    "edition": "4.0",
+    "date": "2025-12-05",
+    "title": "Corrigendum 1 - High frequency inductive components - Electrical characteristics and measuring methods - Part 1: Nanohenry range chip inductor",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62024-2:2024",
+    "edition": "3.0",
+    "date": "2024-12-19",
+    "title": "High frequency inductive components - Electrical characteristics and measuring methods - Part 2: Rated current of inductors for DC-to-DC converters",
+    "language": "EN-FR",
+    "description": "IEC 62024-2:2024 specifies the measuring methods of the rated DC limits for inductors as defined below. Standardized measuring methods for the determination of ratings enable users to accurately compare the current ratings given in various manufacturers' data books. This document is applicable to leaded and surface mount inductors with dimensions according to IEC 62025-1 and generally with rated current less than 125 A, although inductors with rated current greater than 125 A are available that fall within the dimension restrictions of this document (no larger than a 625 mm2 footprint). These inductors are typically used in DC‑to‑DC converters built on printed circuit boards (PCBs), for electronic and telecommunication equipment, and small size switching power supply units. The measuring methods are defined by the saturation and temperature rise limitations induced solely by direct current (DC). This edition includes the following significant technical changes with respect to the previous edition: a) extension of scope by increase of range of rated current from 22 A to 125 A; b) extension of scope by increase of footprint limitation from 12 mm × 12 mm to 625 mm2; c) addition of upper current limitation for Iclass B, Iclass C and Iclass D board to Table 1; d) revised application examples for Table 1; e) addition of wire size references for current ranges between 22 A ≤ I ≤ 125 A to Table 2; f) addition of crimp terminal references to Table 2; g) addition of thermal camera method."
+  },
+  {
+    "reference": "IEC 62024-3:2026",
+    "edition": "1.0",
+    "date": "2026-06-19",
+    "title": "High frequency inductive components - Electrical characteristics and measuring methods - Part 3: AC loss measured by sinusoidal wave of inductors for DC-to-DC converters",
+    "language": "EN",
+    "description": "IEC 62024-3:2026 specifies test methods for AC losses of high-frequency inductive components for power supplies used in DC-to-DC converters and similar devices at currents close to actual operation and introduces the measurement principle, scope of application and matters to be noted for each method. This document is applicable to leaded and surface mount inductors with dimensions in accordance with IEC 62024-2."
+  },
+  {
+    "reference": "IEC 62025-2:2019",
+    "edition": "2.0",
+    "date": "2019-09-20",
+    "title": "High frequency inductive components - Non-electrical characteristics and measuring methods - Part 2: Test methods for non-electrical characteristics",
+    "language": "EN-FR",
+    "description": "IEC 62025-2:2019 specifies a test method for the non-electrical characteristics of the surface mounted device (SMD) inductors to be used for electronic and telecommunication equipment. The object of this part of this document is to define methods for measuring mechanical performance only. As the reliability performances and specifications relative to non-electrical performances are defined in IEC 62211, detailed measuring methods for mechanical performance of reliability testing are defined in this document. This edition includes the following significant technical changes with respect to the previous edition: - revision of Table 5; - revision of normative references."
+  },
+  {
+    "reference": "IEC 62044-1:2002",
+    "edition": "1.0",
+    "date": "2002-05-28",
+    "title": "Cores made of soft magnetic materials - Measuring methods - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "Applies to magnetic cores made of soft magnetic materials used in inductors, transformers and devices used to suppress electromagnetic interference. Provides guidance for the specification of measuring methods for both magnetic and non-magnetic (for example, mechanical, electrical, etc.) properties."
+  },
+  {
+    "reference": "IEC 62044-2:2005",
+    "edition": "1.0",
+    "date": "2005-03-07",
+    "title": "Cores made of soft magnetic materials - Measuring methods - Part 2: Magnetic properties at low excitation level",
+    "language": "EN-FR",
+    "description": "Gives guidance for the drafting of those parts of specifications for magnetic cores that are concerned with measuring methods for magnetic and electric core properties. Applies to magnetic cores, mainly made of magnetic oxides or metallic powders, used at low excitation level in inductors and transformers for telecommunication equipment and electronic devices employing similar techniques. The contents of the corrigendum of May 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62044-2:2005/COR1:2021",
+    "edition": "1.0",
+    "date": "2021-05-26",
+    "title": "Corrigendum 1 - Cores made of soft magnetic materials - Measuring methods - Part 2: Magnetic properties at low excitation level",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62044-3:2023",
+    "edition": "2.0",
+    "date": "2023-07-07",
+    "title": "Cores made of soft magnetic materials - Measuring methods - Part 3: Magnetic properties at high excitation level",
+    "language": "EN-FR",
+    "description": "IEC 62044-3:2023 specifies measuring methods for power loss and amplitude permeability of magnetic cores forming the closed magnetic circuits intended for use at high excitation levels in inductors, chokes, transformers and similar devices for power electronics applications. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: addition of Annex F and Annex G."
+  },
+  {
+    "reference": "IEC 62211:2017",
+    "edition": "2.0",
+    "date": "2017-01-06",
+    "title": "Inductive components - Reliability management",
+    "language": "EN-FR, EN",
+    "description": "IEC 62211:2017 sets up a broad basis of electric and mechanical criteria of failure test procedures. This document is applicable to inductive components (chokes and transformers) based on magnetically soft materials. This edition includes the following significant technical changes with respect to the previous edition: a) continuous shock and mechanical shock are integrated in the test conditions; b) the normative references in Table 3 are changed."
+  },
+  {
+    "reference": "IEC 62333-1:2006",
+    "edition": "1.0",
+    "date": "2006-05-23",
+    "title": "Noise suppression sheet for digital devices and equipment - Part 1: Definitions and general properties",
+    "language": "EN",
+    "description": "Provides terms and definitions for an electromagnetic noise suppression sheet for digital devices and equipment used in a frequency range of between 30 MHz to 30 GHz, and refers to the influence on the signal by usage of a noise suppression sheet. Gives also guidance for uniform presentation of the properties of a noise suppression sheet, intended for use in manufactures' technical data. Is to be used with IEC 62333-2."
+  },
+  {
+    "reference": "IEC 62333-2:2006",
+    "edition": "1.0",
+    "date": "2006-05-23",
+    "title": "Noise suppression sheet for digital devices and equipment - Part 2: Measuring methods",
+    "language": "EN-FR, EN",
+    "description": "IEC 62333-2:2006 specifies the methods for measuring the electromagnetic characteristics of a noise suppression sheet. Those methods are intended to provide useful and repeatable measurements to characterize the performance of the noise suppression sheets, so that manufacturers and their customers are able to obtain the same results. This publication is to be read in conjunction with IEC 62333-1:2006 ."
+  },
+  {
+    "reference": "IEC 62333-2:2006/AMD1:2015",
+    "edition": "1.0",
+    "date": "2015-08-05",
+    "title": "Amendment 1 - Noise suppression sheet for digital devices and equipment - Part 2: Measuring methods",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62333-3:2010",
+    "edition": "1.0",
+    "date": "2010-01-14",
+    "title": "Noise suppression sheet for digital devices and equipment - Part 3: Characterization of parameters of noise suppression sheet",
+    "language": "EN-FR",
+    "description": "IEC 62333-3:2010 provides characterization of parameters for electromagnetic noise suppression sheet (NSS) for digital devices and equipment used in a frequency range between 30 MHz to 30 GHz. Guidance is given for uniform presentation of the properties of noise suppression sheet, intended for use in manufacturers and users technical data. NSS suppresses noise at its source, rather than absorbing noise at a distance. Therefore NSS is distinguished from RF wave absorbers used in free space. This standard addresses the following purposes of NSS manufacturers and users: - it assists users in understanding the published technical data in catalogues; - it guides users in selecting the most preferable NSS for each application; - it establishes measurement benchmarking for manufacturers of performance in new development of NSS; and - it maintains high reliability of NSS and applied products. The numerical values given in this standard are typical values of parameters (properties) of the related NSS. The purpose of NSS testing is the benchmarking of materials. Predictions of specific device performance values are not always easy or even possible. Every detailed material and NSS specification should be agreed between the user and the manufacturer."
+  },
+  {
+    "reference": "IEC 62358:2026",
+    "edition": "3.0",
+    "date": "2026-01-14",
+    "title": "Ferrite cores - Standard inductance factor for gapped cores and its tolerance",
+    "language": "EN",
+    "description": "IEC 62358:2026 provides standard AL values (inductance factors) and their tolerances of Pot, RM, ETD, E, EER, EP, PQ, PM, EC, EFD and low-profile gapped ferrite cores. This edition includes the following significant technical changes with respect to the previous edition: a) addition of AL value (inductance factor) and its tolerance for PM-cores; b) addition of AL value (inductance factor) and its tolerance for EC-cores; c) addition of AL value (inductance factor) and its tolerance for EFD-cores."
+  },
+  {
+    "reference": "IEC TS 62398:2004",
+    "edition": "1.0",
+    "date": "2004-10-12",
+    "title": "Ferrite cores - Technology approval schedule (TAS)",
+    "language": "EN",
+    "description": "Defines the terms, definitions, symbols, quality system, test, assessment and verification methods and other requirements relevant to the design, manufacture and supply of ferrite cores in compliance with the general requirements of the IECQ-CECC System for components of assessed quality."
+  },
+  {
+    "reference": "IEC 62674-1:2026",
+    "edition": "2.0",
+    "date": "2026-07-16",
+    "title": "High frequency inductive components - Part 1: Fixed surface mount inductors for use in electronic and telecommunication equipment",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62674-1:2026 applies to fixed surface mount inductors and fixed surface mount ferrite beads. The object of this document is to define the terms necessary to describe the inductors covered by this document, provide recommendations for preferred characteristics, recommended performance, test methods and general guidance. This edition includes the following significant technical changes with respect to the previous edition: a) addition of dimensions for shape D; b) addition of upper temperature for operating temperature ranges."
+  },
+  {
+    "reference": "IEC TR 63090:2017",
+    "edition": "1.0",
+    "date": "2017-05-22",
+    "title": "Dimensional tolerances of ferrite cores",
+    "language": "EN",
+    "description": "IEC TR 63090:2017(E) gives guidelines on the dimensional tolerances of ferrite cores. This document is considered as general information useful in the dialogue between ferrite core suppliers and users."
+  },
+  {
+    "reference": "IEC 63093-1:2020",
+    "edition": "1.0",
+    "date": "2020-04-16",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 1: General specification",
+    "language": "EN-FR",
+    "description": "IEC 63093-1:2020 specifies the dimensions and allowable limits of surface irregularities of ferrite cores. It is intended that this document excludes ferrite cores which are specialty cores with limited use. Also, special cores which are only marginal variations upon standard cores are excluded. IEC publishes electrical standards for families of ferrite cores, as well as this series of dimensional standards for families of ferrite cores. Modifications to the ferrite cores listed in one type of standard are reflected in the other type. This document is considered as a general specification useful in the dialogue between ferrite core suppliers and users about surface irregularities. This first edition cancels and replaces the second edition of IEC 60424-1 published in 2015 and the first edition of IEC 62317-1 published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous editions of IEC 60424-1 and IEC 62317-1: a) this document integrates IEC 60424-1 and IEC 62317-1."
+  },
+  {
+    "reference": "IEC 63093-2:2025",
+    "edition": "2.0",
+    "date": "2025-12-15",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 2: Pot-cores for use in telecommunications, power supply, and filter applications",
+    "language": "EN",
+    "description": "IEC 63093-2:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of pot-cores made of ferrite, and the dimensional limits for coil formers to be used with them, as well as the effective parameter values to be used in calculations involving them. It also gives guidelines on the allowable limits of surface irregularities applicable to pot-cores in accordance with the relevant generic specification. The selection of core sizes and shapes for this document is based on the philosophy of including those sizes which are industrial standards, either by inclusion in a national standard, or by broad-based use in industry. The general considerations upon which the design of this range of cores is based are given in Annex A. This edition includes the following significant technical changes with respect to the previous edition: a) revision of Table 4 and Table 5 according to IEC 60205:2016."
+  },
+  {
+    "reference": "IEC 63093-3:2020",
+    "edition": "1.0",
+    "date": "2020-03-27",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 3: Half pot-cores made of ferrite for inductive proximity switches",
+    "language": "EN-FR",
+    "description": "IEC 63093-3:2020 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of half pot-cores made of ferrite, intended to be used in inductive proximity switches. Half pot-cores for inductive proximity switches are also called PS-cores. The selection of core sizes and shapes for this document is based on the philosophy of including those sizes and shapes which are industrial standards, either by inclusion in a national standard, or by broad-based use in industry. This part of IEC 63093 can also be considered as a sectional specification useful in the negotiations between ferrite core manufacturers and customers about surface irregularities. It provides guidelines on the allowable limits of surface irregularities applicable to PS-cores in accordance with the relevant generic specification. This first edition cancels and replaces the first edition of IEC 62323, published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition of IEC 62323: a) addition of the limits surface irregularities."
+  },
+  {
+    "reference": "IEC 63093-4:2026",
+    "edition": "2.0",
+    "date": "2026-02-06",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 4: RM-cores",
+    "language": "EN",
+    "description": "IEC 63093-4:2026 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of RM-cores and low-profile RM-cores made of ferrite, and the locations of their terminal pins on a 2,54 mm printed wiring grid in relation to the base outlines of the cores. It also gives guidance on allowable limits of surface irregularities applicable to RM-cores in accordance with the relevant generic specification. The selection of core sizes for this document is based on the philosophy of including those sizes which are industrial standards, either by inclusion in a national standard, or by broad-based use in industry. This document is a specification useful in the negotiations between ferrite core manufacturers and customers about surface irregularities. The general considerations that the design of this range of cores is based upon are given in Annex A. This edition includes the following significant technical changes with respect to the previous edition: a) revision of Table 3 and Table 4 according to IEC 60205 ED4."
+  },
+  {
+    "reference": "IEC 63093-5:2025",
+    "edition": "2.0",
+    "date": "2025-12-15",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 5: EP-cores and associated parts for use in inductors and transformers",
+    "language": "EN",
+    "description": "IEC 63093-5:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EP-cores made of ferrite, the essential dimensions of coil formers to be used with them and the locations of their terminal pins on a 2,50 mm printed wiring grid in relation to the base outlines of the cores and the effective parameter values to be used in calculations involving them. It also gives guidelines on allowable limits of surface irregularities applicable to EP-cores. The specifications contained in this document are useful in negotiations between ferrite core suppliers and users about surface irregularities. The general considerations upon which the design of this range of cores is based are as given in Annex A. This edition includes the following significant technical changes with respect to the previous edition: a) revision of Table 2 according to IEC 60205:2016."
+  },
+  {
+    "reference": "IEC 63093-6:2018",
+    "edition": "1.0",
+    "date": "2018-06-27",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 6: ETD-cores for use in power supplies",
+    "language": "EN-FR, EN",
+    "description": "IEC 63093-6:2018 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of ETD-cores made of ferrite and the essential dimensions of coil formers to be used with them, as well the effective parameter values to be used in calculations involving them. It also gives guidelines on allowable limits of surface irregularities applicable to ETD-cores. The specifications contained in this document are useful in negotiations between ferrite core manufacturers and users about surface irregularities. The use of derived standards which give more detailed specifications of component parts while still permitting compliance with this document is discussed in Annex A . This edition includes the following significant technical changes with respect to IEC 62317-­6:2015 and IEC 60424-3:2015: a. This document integrates IEC 62317-6:2015 and IEC 60424-3:2015; b. Table 1 – Allowable areas of chips for ETD-cores, of IEC 60424-3:2015, has been moved to Annex C (informative) of this document."
+  },
+  {
+    "reference": "IEC 63093-7:2018",
+    "edition": "1.0",
+    "date": "2018-03-22",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 7: EER-cores",
+    "language": "EN-FR, EN",
+    "description": "IEC 63093-7:2018 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EER-cores made of ferrite, the essential dimensions of coil formers to be used with them as well the effective parameter values to be used in calculations involving them, and gives guidelines on allowable limits of surface irregularities applicable to EER-cores. This document is a specification useful in the negotiations between ferrite core manufacturers and customers about surface irregularities. The use of “derived” standards which give more detailed specifications of component parts while still permitting compliance with this document is discussed in Annex A. This first edition cancels and replaces the first edition of IEC 62317-7 published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 62317-7: a) IEC 63093-7 integrates IEC 62317-7 and IEC 60424-3; b) IEC 60424-3:2015, Table 2, has been included in Annex C as Table C.1."
+  },
+  {
+    "reference": "IEC 63093-8:2018",
+    "edition": "1.0",
+    "date": "2018-06-27",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 8: E-cores",
+    "language": "EN-FR, EN",
+    "description": "IEC 63093-8:2018 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of E-cores made of ferrite and the essential dimensions of coil formers to be used with them, as well the effective parameter values to be used in calculations involving them. It also gives guidelines on allowable limits of surface irregularities applicable to E-cores. The specifications contained in this document are useful in negotiations between ferrite core manufacturers and customers about surface irregularities. The use of derived standards, which give more detailed specifications of component parts while still permitting compliance with this standard, is discussed in Annex A. This edition includes the following significant technical changes with respect to IEC 62317-­8:2006 and IEC 60424-3:2015: a. This document integrates IEC 62317-8:2006 and IEC 60424-3:2015; b. Table 4 – Allowable areas of chips for E-cores, of IEC 60424-3:2015, has been moved to Annex C (informative) of this document."
+  },
+  {
+    "reference": "IEC 63093-9:2026",
+    "edition": "2.0",
+    "date": "2026-02-06",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 9: Planar cores",
+    "language": "EN",
+    "description": "IEC 63093-9:2026 specifies the shapes and dimensions of ferrite cores for inductive components (transformers and chokes), designed to employ coils that are made of multi-layer boards, or coils that are part of the motherboard, or flat conductor coils that are helically wound. This part also gives the effective parameter values used in magnetic calculations for such planar cores. In addition, this document gives guidelines on allowable limits of surface irregularities applicable for planar cores. This document is considered as a sectional specification useful in the negotiation between ferrite core suppliers and users about surface irregularities. The general consideration upon which the design of this range of cores is based is given in Annex A. This edition includes the following significant technical changes with respect to the previous edition: a) correction of some numbers in Table 2; b) amendment of Table 6 following IEC 60205."
+  },
+  {
+    "reference": "IEC 63093-10:2026",
+    "edition": "2.0",
+    "date": "2026-02-06",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 10: PM-cores and associated parts",
+    "language": "EN",
+    "description": "IEC 63093-10:2026 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of PM-cores made of magnetic oxides, the main dimensions for coil formers to be used with these cores and the locations of their pins on a modular printed wiring grid in relation to the base outlines of cores. It also specifies the effective parameter values to be used in calculations and gives guidelines on allowable limits of surface irregularities applicable to the PM-cores. The use of derived standards which give more detailed specifications of component parts whilst still permitting compliance with this document is discussed in Annex A. This edition includes the following significant technical changes with respect to the previous edition: - revision of Table 2 according to IEC 60205 ED4."
+  },
+  {
+    "reference": "IEC 63093-11:2018",
+    "edition": "1.0",
+    "date": "2018-06-21",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 11: EC-cores for use in power supply applications",
+    "language": "EN-FR, EN",
+    "description": "IEC 63093-11:2018 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EC-cores made of ferrite and the essential dimensions of coil formers to be used with them, as well the effective parameter values to be used in calculations involving them. It also gives guidelines on allowable limits of surface irregularities applicable to EC-cores. The specifications contained in this document are useful in negotiations between ferrite core manufacturers and customers about surface irregularities. This first edition cancels and replaces the first edition of IEC 62317-11 published in 2015 and the second edition of IEC 60424-3 published in 2015. This edition constitutes a technical revision. This document includes the following significant technical changes with respect to IEC 62317­11:2015 and IEC 60424-3:2015: a) This document integrates IEC 62317-11:2015 and IEC 60424­3:2015; b) Table 3 – Allowable areas of chips for EC-cores, of IEC 60424-3:2015, has been moved to Annex B (informative) of this document."
+  },
+  {
+    "reference": "IEC 63093-12:2019",
+    "edition": "1.0",
+    "date": "2019-04-04",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 12: Ring-cores",
+    "language": "EN-FR",
+    "description": "IEC 63093-12:2019 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of ring-cores, also called toroid cores, and the effective parameter values to be used in calculations involving them. It also gives guidelines on allowable limits of surface irregularities applicable to ring-cores. This document is a specification useful in the negotiations between ferrite core manufacturers and users about surface irregularities. This first edition cancels and replaces the first edition of IEC 62317-12 published in 2016 and the second edition of IEC 60424-4 published in 2015. This edition constitutes a technical revision. IEC 63093-12 integrates the contents of IEC 62317-12:2016 and IEC 60424-4:2015."
+  },
+  {
+    "reference": "IEC 63093-13:2019",
+    "edition": "1.0",
+    "date": "2019-02-05",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 13: PQ-cores",
+    "language": "EN-FR",
+    "description": "IEC 63093-13:2019 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of PQ-cores and low-profile PQI-cores made of ferrite, and the locations of their terminal pins on a 2,54 mm printed wiring grid in relation to the base outlines of the cores. It also gives guidance on allowable limits of surface irregularities applicable to PQ-cores in accordance with the relevant generic specification. This first edition cancels and replaces the second edition of IEC 62317-13 published in 2015 and the first edition of IEC 60424-8 published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous editions of IEC 62317-13 and IEC 60424-8: a) IEC 63093-13 integrates IEC 62317-13 and IEC 60424-8; b) IEC 60424-8:2015, Table 1, has been included in Annex B as Table B.1. The contents of the corrigendum of May 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 63093-13:2019/COR1:2024",
+    "edition": "1.0",
+    "date": "2024-05-30",
+    "title": "Corrigendum 1 - Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 13: PQ-cores",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 63093-14:2019",
+    "edition": "1.0",
+    "date": "2019-04-04",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 14: EFD-cores",
+    "language": "EN-FR",
+    "description": "IEC 63093-14:2019 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EFD-cores, the essential dimensions of coil formers to be used with them, and the effective parameter values to be used in calculations involving them. It also gives guidance on the allowable limits of surface irregularities applicable to EFD-cores in accordance with the relevant generic specification. The selection of core sizes for this document is based on the philosophy of including those sizes which are industrial standards, either by inclusion in national standards, or by broad-based use in industry. This document is a specification useful in the negotiation between ferrite core manufacturers and users about surface irregularities. This first edition cancels and replaces the first edition of IEC 62317-14 published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 62317-14:2008: guidelines on the limits of surface irregularities of EFD-cores were added."
+  },
+  {
+    "reference": "IEC 63093-15:2025",
+    "edition": "1.0",
+    "date": "2025-08-07",
+    "title": "Ferrite cores - Guidelines on dimensions and the limits of surface irregularities - Part 15: U-cores",
+    "language": "EN",
+    "description": "IEC 63093-15:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of U-cores made of ferrite, the essential dimensions of coil formers to be used with them, as well as the effective parameter values to be used in calculations involving them and gives guidelines on allowable limits of surface irregularities applicable to U-cores. The selection of core sizes for this document is based on the philosophy of including those sizes which are industrial standards, either by inclusion in national standards, or by broad-based use in industry. This document is a specification useful in the negotiations between ferrite core manufacturers and customers about surface irregularities. The use of “derived” standards which give more detailed specifications of component parts while still permitting conformance with this document is discussed in Annex A."
+  },
+  {
+    "reference": "IEC 63182-1:2020",
+    "edition": "1.0",
+    "date": "2020-05-27",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 1: General specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 63182-1:2020 specifies the dimensions of magnetic powder cores. This document also gives guidelines on the allowable limits of surface irregularities of magnetic powder cores. It is considered as a general specification useful in the dialogue between magnetic powder core manufacturers and users about surface irregularities. It is intended that this document will include magnetic powder cores which are widely used and referenced in industry, either because they are included in national standards, or because they are seen to have broad-based use in industry. Where applicable, it is intended that the existing industrial name for each powder core will appear with the part within the IEC 63182 series."
+  },
+  {
+    "reference": "IEC 63182-2:2020",
+    "edition": "1.0",
+    "date": "2020-09-29",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 2: Ring-cores",
+    "language": "EN-FR",
+    "description": "IEC 63182-2:2020 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of ring-cores (also called toroids) made of magnetic powder, the effective parameter values to be used in calculations involving them, and gives guidelines on allowable limits of surface irregularities applicable to coated ring-cores. The selection of core sizes for this document is based on the philosophy of including those sizes which are industrial standards, meaning that they are in broad-based use within the industry. This document is considered as a sectional specification useful in the negotiations between magnetic powder core manufacturers and users about surface irregularities."
+  },
+  {
+    "reference": "IEC 63182-3:2021",
+    "edition": "1.0",
+    "date": "2021-12-16",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 3: E-cores",
+    "language": "EN-FR",
+    "description": "IEC 63182-3:2021 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of E-cores made of metallic magnetic powder, the essential dimensions of coil formers to be used with them as well as the effective parameter values to be used in calculations involving them, and gives guidelines on allowable limits of surface irregularities applicable to E-cores. This document is a specification useful in the negotiations between magnetic powder core suppliers and users about surface irregularities."
+  },
+  {
+    "reference": "IEC 63182-4:2021",
+    "edition": "1.0",
+    "date": "2021-11-29",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 4: Block-cores",
+    "language": "EN-FR",
+    "description": "IEC 63182-4:2021 specifies the preferred range of the dimensions that are of importance for mechanical interchangeability and gives guidelines on allowable limits of surface irregularities for block-cores made of metallic magnetic powder. This document is a specification about surface irregularities which is useful in the negotiations between suppliers and users of magnetic powder-cores."
+  },
+  {
+    "reference": "IEC 63182-5:2021",
+    "edition": "1.0",
+    "date": "2021-11-29",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 5: Cylinder-cores",
+    "language": "EN-FR",
+    "description": "IEC 63182-5:2021 specifies the preferred range of the dimensions that are of importance for mechanical interchangeability and gives the guidelines on allowable limits of surface irregularities for cylinder-cores made of metallic magnetic powder. This document is a specification useful in the negotiations between magnetic powder core suppliers and users about surface irregularities."
+  },
+  {
+    "reference": "IEC 63182-6:2025",
+    "edition": "1.0",
+    "date": "2025-08-28",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 6: EQ-cores",
+    "language": "EN",
+    "description": "IEC 63182-6:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EQ-cores made of metallic magnetic powder, the essential dimensions of coil formers to be used with them as well as the effective parameter values to be used in calculations involving them and gives guidelines on allowable limits of surface irregularities applicable to EQ-cores. This document is a specification that is useful in the negotiations between magnetic powder core manufacturers and customers about surface irregularities. The use of \"derived\" standards which give more detailed specifications of component parts while still permitting conformance with this document is discussed in Annex A."
+  },
+  {
+    "reference": "IEC 63182-7:2025",
+    "edition": "1.0",
+    "date": "2025-08-28",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 7: EER-cores",
+    "language": "EN",
+    "description": "IEC 63182-7:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of EER-cores made of metallic magnetic powder, the essential dimensions of coil formers to be used with them as well as the effective parameter values to be used in calculations involving them and gives guidelines on allowable limits of surface irregularities applicable to EER-cores. This document is a specification that is useful in the negotiations between magnetic powder core manufacturers and customers about surface irregularities. The use of “derived” standards which give more detailed specifications of component parts while still permitting conformance with this document is discussed in Annex A."
+  },
+  {
+    "reference": "IEC 63182-8:2025",
+    "edition": "1.0",
+    "date": "2025-08-28",
+    "title": "Magnetic powder cores - Guidelines on dimensions and the limits of surface irregularities - Part 8: U-cores",
+    "language": "EN",
+    "description": "IEC 63182-8:2025 specifies the dimensions that are of importance for mechanical interchangeability for a preferred range of U-cores made of metallic magnetic powder and gives guidelines on allowable limits of surface irregularities applicable to U-cores. This document is a specification that is useful in the negotiations between magnetic powder core manufacturers and customers about surface irregularities. The use of \"derived\" standards which give more detailed specifications of component parts while still permitting conformance with this document is discussed in Annex A."
+  },
+  {
+    "reference": "IEC 63299:2022",
+    "edition": "1.0",
+    "date": "2022-09-15",
+    "title": "Classification of magnetic powder cores",
+    "language": "EN-FR",
+    "description": "IEC 63299:2022 specifies classification rules for metallic magnetic powder cores used in inductive components fulfilling the requirements of the electronics industries. This document addresses the following objectives for magnetic powder cores suppliers and users: - cross-reference between core materials from multiple suppliers; - assistance to users in understanding the published technical data in catalogues when comparing multiple suppliers; - guidance to users in selecting the most applicable core for each application; - establishing uniform benchmarks for suppliers for performance in the new development of core material."
+  },
+  {
+    "reference": "IEC 63300:2023",
+    "edition": "1.0",
+    "date": "2023-06-27",
+    "title": "Test methods for electrical and magnetic properties of magnetic powder cores",
+    "language": "EN-FR",
+    "description": "IEC 63300:2023 provides the test methods for the electrical and magnetic properties of magnetic powder cores used for inductive components in electronics equipment, switch-mode power supplies and power conversion equipment, and introduces measuring principles, scope of application and matters of importance for each method. The parameters used to characterize the magnetic powder cores include: inductance factor, effective permeability, complex relative permeability, temperature coefficient of permeability, frequency coefficient of permeability, DC bias characteristic, power loss, and quality factor. This document is the basis for determining the characteristic parameters of magnetic powder cores."
+  },
+  {
+    "reference": "IEC TR 63307:2020",
+    "edition": "1.0",
+    "date": "2020-11-27",
+    "title": "Measurement methods of the complex relative permeability and permittivity of noise suppression sheet",
+    "language": "EN",
+    "description": "IEC TR 63307:2020(E) provides guidelines on the methods for measuring the frequency characteristics of permeability and permittivity in the frequency range of 1 MHz to 6 GHz for a noise suppression sheet for each electromagnetic noise countermeasure."
+  }
+]

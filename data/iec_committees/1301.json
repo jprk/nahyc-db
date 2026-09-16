@@ -1,0 +1,514 @@
+[
+  {
+    "reference": "IEC 60118-0:2022",
+    "edition": "4.0",
+    "date": "2022-08-30",
+    "title": "Electroacoustics - Hearing aids - Part 0: Measurement of the performance characteristics of hearing aids",
+    "language": "EN-FR",
+    "description": "IEC 60118-0:2022 gives recommendations for the measurement of the performance characteristics of air conduction hearing aids measured with an acoustic coupler or occluded ear simulator. This document is applicable to the measurement and evaluation of the electroacoustical characteristics of hearing aids, for example for type testing and manufacturer data sheets. This document is also applicable for the measurement of the performance characteristics of hearing aids for production, supply and delivery quality-assurance purposes. The measurement results obtained by the methods specified in this document will express the performance under conditions of the measurement and can deviate substantially from the performance of the hearing aid under actual conditions of use. This document primarily uses an acoustic coupler according to IEC 60318-5 which is only intended for loading a hearing aid with specified acoustic impedance and is not intended to reproduce the sound pressure in a person's ear. For measurements reflecting the output level in the normal human ear the occluded ear simulator according to IEC 60318-4 can be used. For extended high-frequency measurements and for deep insert hearing aids, the acoustic coupler according to IEC 60318-8 can be used. This document also covers measurement of hearing aids with non-acoustic inputs, such as wireless, inductive or electrical input. This document does not cover the measurement of hearing aids for simulated in situ working conditions, for which IEC 60118-8 can be applied. This document does not cover the measurement of hearing aids under typical user settings and using a speech-like signal, for which IEC 60118-15 can be applied. IEC 60118-0:2022 merges and updates the methods previously described in IEC 60118-0:2015 and IEC 60118-7:2005. It cancels and replaces the third edition of IEC 60118-0 published in 2015. This edition constitutes a technical revision. Measurements for quality control as described in IEC 60118-7:2005 can be found in Clause 10 of this document. This edition includes the following significant technical changes with respect to previous editions: a) the default use of an acoustic coupler according to IEC 60318-5, b) addition of the optional use of an occluded ear simulator according to IEC 60318-4, c) addition of the optional use of an acoustic coupler according to IEC 60318-8 (new standard based on IEC TS 62886) when information about the response above 8 kHz is needed, or the optional use of the acoustic coupler according to IEC 60318-8 for deep insert hearing aids, d) the addition of measurements of the performance of hearing aids for production, supply and delivery quality assurance purposes, e) corrected and updated measurement configuration and methods, adding the use of a sequential measurement as preferred configuration, f) updated and expanded measurement procedures for the non-acoustic inputs of the hearing aid."
+  },
+  {
+    "reference": "IEC 60118-4:2014",
+    "edition": "3.0",
+    "date": "2014-12-11",
+    "title": "Electroacoustics - Hearing aids - Part 4: Induction-loop systems for hearing aid purposes - System performance requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 60118-4:2014 is applicable to audio-frequency induction-loop systems producing an alternating magnetic field at audio frequencies and intended to provide an input signal for hearing aids operating with an induction pick-up coil (telecoil). Throughout this standard, it is assumed that the hearing aids used with it conform to all relevant parts of IEC 60118. This standard specifies requirements for the field strength in audio-frequency induction loops for hearing aid purposes, which will give adequate signal-to-noise ratio without overloading the hearing aid. The standard also specifies the minimum frequency response requirements for acceptable intelligibility. Methods for measuring the magnetic field strength are specified, and information is given on appropriate measuring equipment (see Annex B), information that should be provided to the operator and users of the system (see Annex C), and other important considerations. This standard does not specify requirements for loop driver amplifiers or associated microphone or audio signal sources, which are dealt with in IEC 62489-1, or for the field strength produced by equipment, such as telephone handsets, within the scope of ITU-T P.370. This third edition cancels and replaces the second edition published in 2006. This edition constitutes a technical revision which includes the following significant technical changes with respect to the previous edition: Addition of Annexes G, H and I where more information is provided about practical considerations and methods of measurement."
+  },
+  {
+    "reference": "IEC 60118-4:2014/AMD1:2017",
+    "edition": "3.0",
+    "date": "2017-11-09",
+    "title": "Amendment 1 - Electroacoustics - Hearing aids - Part 4: Induction-loop systems for hearing aid purposes - System performance requirements",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60118-5:1983",
+    "edition": "1.0",
+    "date": "1983-01-01",
+    "title": "Hearing aids. Part 5: Nipples for insert earphones",
+    "language": "EN-FR",
+    "description": "Applicable to insert earphones which can be fitted to an earmould inserted into the ear canal. Defines those dimensions which are essential in order to ensure interchangeability of insert earphones as used with earmoulds or other attachments to the ear."
+  },
+  {
+    "reference": "IEC 60118-8:2005",
+    "edition": "2.0",
+    "date": "2005-10-19",
+    "title": "Electroacoustics - Hearing aids - Part 8: Methods of measurement of performance characteristics of hearing aids under simulated [<i>in situ</i>] working conditions",
+    "language": "EN-FR, ES",
+    "description": "Describes methods for a test which simulates the acoustical effects of a median adult wearer on the performance of a hearing aid. Establishes certain guidelines for simulated in situ measurements of hearing aids; it describes a simplified method for simulated in situ measurements of hearing aids and a description for determination of the directivity index (DI) of directional microphones in hearing aids in the horizontal plane. In addition this second edition now specifies tolerances. Conformance to the specifications in this International Standard is demonstrated only when the result of a measurement, extended by the actual expanded uncertainty of measurement of the testing laboratory, lies fully within the tolerances specified in this International Standard extended by the values for Umax"
+  },
+  {
+    "reference": "IEC 60118-9:2019",
+    "edition": "2.0",
+    "date": "2019-09-16",
+    "title": "Electroacoustics - Hearing aids - Part 9: Methods of measurement of the performance characteristics of bone conduction hearing aids",
+    "language": "EN-FR, ES",
+    "description": "IEC 60118-9:2019 specifies methods for the measurement of bone conduction hearing aid characteristics. The methods described will produce a suitable basis for the exchange of information or for direct comparison of the electroacoustical characteristics of bone conduction hearing aids. These methods are chosen to be practical and reproducible and are based on selected fixed parameters. The results obtained by the methods specified in this document express the performance under the conditions of measurement; however, the performance of the hearing aid under practical conditions of use will depend upon a number of factors (e.g. effective load impedance, environmental conditions, acoustical environment, etc.). This document defines methods of measurement of characteristics of bone conduction hearing aids both for • transcutaneously coupled devices measured on a mechanical coupler, meeting the requirements of IEC 60318-6, and • bone coupled/bone anchored devices measured on a skull simulator. IEC 60118-9:2019 cancels and replaces the first edition published in 1985. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) includes bone coupled devices measured on a skull simulator; b) measurement frequency range increased to 8 000 Hz for bone coupled devices."
+  },
+  {
+    "reference": "IEC 60118-12:1996",
+    "edition": "1.0",
+    "date": "1996-10-09",
+    "title": "Hearing aids - Part 12: Dimensions of electrical connector systems",
+    "language": "EN-FR, ES",
+    "description": "Applies to plugs and connector systems for hearing aids and specifies the dimensions and their tolerances for ensuring interchangeability."
+  },
+  {
+    "reference": "IEC 60118-13:2019",
+    "edition": "5.0",
+    "date": "2019-10-29",
+    "title": "Electroacoustics - Hearing aids - Part 13: Requirements and methods of measurement for electromagnetic immunity to mobile digital wireless devices",
+    "language": "EN-FR",
+    "description": "IEC 60118-13:2019 covers the relevant EMC phenomena for hearing aids. Hearing aid immunity to high frequency fields originating from digital wireless devices such as mobile phones was identified as one of the most relevant EMC phenomena impacting hearing aids. IEC 60118-13:2019 cancels and replaces the fourth edition published in 2016 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) it introduces a new measurement method and set of EMC requirements for hearing aids immunity to mobile digital wireless devices; b) generic EMC requirements for hearing aids are no longer included – should be covered by other standards as appropriate."
+  },
+  {
+    "reference": "IEC 60118-14:1998",
+    "edition": "1.0",
+    "date": "1998-02-19",
+    "title": "Hearing aids - Part 14: Specification of a digital interface device",
+    "language": "EN-FR, ES",
+    "description": "Specifies the electrical and mechanical requirements for a digital interface device to allow a general-purpose control device such as a desktop computer to be connected to hearing aids, for the purpose of electrical setting of their operating parameters. Provides a specification such that all hearing aids which can be programmed by the specified digital interface device may have their parameters set by a single control device and interface device."
+  },
+  {
+    "reference": "IEC 60118-15:2012",
+    "edition": "1.0",
+    "date": "2012-02-21",
+    "title": "Electroacoustics - Hearing aids - Part 15: Methods for characterising signal processing in hearing aids with a speech-like signal",
+    "language": "EN-FR, ES",
+    "description": "IEC 60118-15:2012 specifies a test signal designed to represent normal speech, the International Speech Test Signal (ISTS), together with the procedures and the requirements for measuring the characteristics of signal processing in air-conduction hearing aids. The measurements are used to derive the estimated insertion gain (EIG). For the purposes of characterizing a hearing aid for production, supply and delivery, the procedures and requirements to derive the coupler gain on a 2 cm 3 coupler as defined in IEC 60318-5 are also specified. The purpose of this standard is to ensure that the same measurements made on a hearing aid following the procedures described, and using equipment complying with these requirements, give substantially the same results. Measurement methods that take into account the acoustic coupling of a hearing aid to the individual ear and the acoustic influence of the individual anatomical variations of an end-user on the acoustical performance of the hearing aid, known as real-ear measurements, are outside the scope of this particular standard."
+  },
+  {
+    "reference": "IEC 60118-16:2022",
+    "edition": "1.0",
+    "date": "2022-03-16",
+    "title": "Electroacoustics - Hearing aids - Part 16: Definition and verification of hearing aid features",
+    "language": "EN-FR",
+    "description": "IEC 60118-16:2022 gives definitions for common hearing aid features such as noise reduction or feedback reduction, etc. Only acoustical inputs are considered. Binaural features are currently not covered in this document. In addition, measurement procedures are described to verify hearing aid features. The objective is not to evaluate the performance of features but to verify their existence and functionality. Furthermore, definitions and procedures are kept as general as possible so that this document can be applied to various types of hearing aids, for example, air-conduction hearing aids or bone conduction hearing aids. To this end, the general definition for the term \"hearing aid\" given in IEC 60118-0 is adopted, and this document does not refer to any specific ear simulator or acoustic coupler but uses a general definition of a coupler. However, if a general view is not applicable or leads to unclear or complex wording, the situation for an air-conduction hearing aid only is considered. Nevertheless, an explanation is given on how this document can be applied to hearing aids which do not use air conduction."
+  },
+  {
+    "reference": "IEC 60263:2020",
+    "edition": "4.0",
+    "date": "2020-06-26",
+    "title": "Scales and sizes for plotting frequency characteristics and polar diagrams",
+    "language": "EN-FR",
+    "description": "IEC 60263:2020 specifies standard aspect ratios for logarithmic or level characteristics expressed in decibels versus a logarithmic frequency axis and ranges for the radius of polar diagrams of level. Applications include hard copy printouts, electronic files (e.g., PDF files), scientific publications, screen displays in computer programs and apps, as well as graphs in standards. Informative examples of graphs that conform to the requirements in this document are found in Annex A. Although outside the scope of this document, graphs with a linear y-axis versus logarithmic frequency (e.g., phase, group delay, etc.) often accompany the standard aspect ratio graphs of level described in the normative part of this document. These are described in informative Annex B. IEC 60263:2020 cancels and replaces the third edition published in 1982. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the scope is expanded to include electronic files (e.g., PDF), scientific publications, graphs in other standards, and screen displays in programs and apps; b) a Terms and Definitions clause has been added; c) aspect ratios of 20 dB/decade, and 0,5, 1, 1,25, and 2,5 decades/decade have been added; d) ranges of 60 dB or 30 dB are specified for polar plots of absolute level; a 30 dB range is specified for polar plots of relative level; e) as most graphs are now computer generated, tolerances and sizes have been removed; f) all informative figures have been updated with contemporary examples; g) an informative annex with information about linear y-axis vs. logarithmic frequency has been added."
+  },
+  {
+    "reference": "IEC 60318-1:2009",
+    "edition": "2.0",
+    "date": "2009-08-31",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 1: Ear simulator for the measurement of supra-aural and circumaural earphones",
+    "language": "EN-FR, ES",
+    "description": "IEC 60318-1:2009 specifies an ear simulator for the measurement of supra-aural and circumaural earphones (used for example in audiometry and telephonometry) applied to the ear without acoustical leakage, in the frequency range from 20 Hz to 10 kHz. The same device can be used as an acoustic coupler at additional frequencies up to 16 kHz. This second edition cancels and replaces the first edition published in 1998 as well as replacing IEC 60318-2, published in 1998. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - an extension of the frequency range to 16 kHz; - a revised specification for the acoustical transfer impedance, including tolerances; - a method for measuring the acoustical transfer impedance; - expanded measurement uncertainties."
+  },
+  {
+    "reference": "IEC 60318-3:2014",
+    "edition": "2.0",
+    "date": "2014-12-11",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 3: Acoustic coupler for the calibration of supra-aural earphones used in audiometry",
+    "language": "EN-FR",
+    "description": "IEC 60318-3:2014 specifies an acoustic coupler for the measurement of supra-aural audiometric earphones in the frequency range from 125 Hz to 8 000 Hz. The sound pressure developed by an earphone is not, in general, the same in the coupler as in a person's ear. However, the acoustic coupler can be used as an objective and reproducible means of measuring the output of supra-aural earphones. It can be used for specifying reference equivalent threshold sound pressure levels for the calibration of audiometers. This second edition cancels and replaces the first edition published in 1998 and constitutes a technical revision which includes the following significant technical changes with respect to the previous edition: - adjustment of terms and wording to the other parts of IEC 60318; - introduction of maximum permitted uncertainties; - and revised requirements for static pressure equalization. Keywords: electroacoustics, deafness, hearing aids"
+  },
+  {
+    "reference": "IEC 60318-4:2010",
+    "edition": "1.0",
+    "date": "2010-01-21",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 4: Occluded-ear simulator for the measurement of earphones coupled to the ear by means of ear inserts",
+    "language": "EN-FR, ES",
+    "description": "IEC 60318-4:2010 describes an occluded-ear simulator intended for the measurement of insert earphones in the frequency range from 100 Hz to 10 000 Hz. It is suitable for air conduction hearing aids and earphones, coupled to the ear by means of ear inserts e.g. ear moulds or similar devices. The occluded-ear simulator is also suitable as the basis for an extension intended to simulate the complete ear canal and the outer ear (for instance in head simulators). The occluded-ear simulator simulates the acoustic transfer impedance for the occluded normal adult human ear. However, it does not simulate the leakage between an earmould and a human ear canal; therefore, the results obtained with the occluded-ear simulator may deviate from the performance of an insert earphone on a real ear, especially at low frequencies. Moreover, large performance variations among individual ears will occur which should be considered when using the ear simulator. Above 10 kHz the device does not simulate a human ear, but can be used as an acoustic coupler at additional frequencies up to 16 kHz. Below 100 Hz, the device has not been verified to simulate a human ear, but can be used as an acoustic coupler at additional frequencies down to 20 Hz. IEC 60318-4:2010 cancels and replaces IEC 60711, published in 1981 and constitutes a technical revision. The main changes with respect to the previous edition are listed below: - extension of the usable frequency range to 100 Hz - 16 000 Hz; - addition of values of maximum permitted expanded uncertainties to all tolerances."
+  },
+  {
+    "reference": "IEC 60318-5:2006",
+    "edition": "1.0",
+    "date": "2006-08-16",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 5: 2 cm<sup>3</sup> coupler for the measurement of hearing aids and earphones coupled to the ear by means of ear inserts",
+    "language": "EN-FR, ES",
+    "description": "Describes an acoustic coupler for loading an earphone or hearing aid with a specified acoustic impedance when determining its physical performance characteristics, in the frequency range 125 Hz to 8 kHz. It is suitable for air conduction hearing aids and earphones, coupled to the ear by means of ear inserts e.g. ear moulds or similar devices. The sound pressure developed by an earphone is not, in general, the same in the coupler as in a person's ear. However, it can be used as a simple and ready means for the exchange of specifications and of physical data on hearing aids and for the calibration of specified insert earphones used in audiometry. This first edition of IEC 60318-5 cancels and replaces IEC 60126:1973."
+  },
+  {
+    "reference": "IEC 60318-6:2007",
+    "edition": "1.0",
+    "date": "2007-11-27",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 6: Mechanical coupler for the measurement on bone vibrators",
+    "language": "EN-FR, ES",
+    "description": "Describes a mechanical coupler for the measurement of the output force of bone vibrators. The mechanical impedance of the coupler is specified in the frequency range 125 Hz to 8 000 Hz. The coupler is intended for calibration of audiometers using bone vibrators having a plane circular tip area of 175 mm² ± 25 mm² and for determining the performance of bone conduction hearing aids. The vibratory force developed by a bone vibrator is not, in general, the same on the coupler as on a person's mastoid. However, the IEC recommends its use as a means for the calibration of specified vibrators used in audiometry and for the exchange of specifications and of data on bone conduction hearing aids. This standard cancels and replaces IEC 60373 published in 1990. This first edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60318-7:2022",
+    "edition": "1.0",
+    "date": "2022-06-14",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 7: Head and torso simulator for the measurement of sound sources close to the ear",
+    "language": "EN-FR",
+    "description": "IEC 60318-7:2022 describes a head and torso simulator, or manikin, intended for the measurement of sound sources placed close to the ear in the frequency range from 100 Hz to 16 000 Hz. The manikin described in this document is intended for airborne acoustic measurements only. It is not suitable for measurements which depend upon vibration transmission paths such as bone conduction, or for measurements requiring the simulation of bone or tissue. This document specifies the manikin in terms of both its geometrical dimensions and its acoustical properties. Only manikins compliant with both sets of specifications are in conformance with this document. IEC 60318-7:2022 cancels and replaces IEC TS 60318-7:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 60318-7:2017: a) changing the title; b) extending the scope to sound sources close to the ear."
+  },
+  {
+    "reference": "IEC 60318-8:2022",
+    "edition": "1.0",
+    "date": "2022-04-07",
+    "title": "Electroacoustics - Simulators of human head and ear - Part 8: Acoustic coupler for high-frequency measurements of hearing aids and earphones coupled to the ear by means of ear inserts",
+    "language": "EN-FR",
+    "description": "IEC 60318-8:2022 describes an acoustic coupler for loading a hearing aid or insert earphone with a specified acoustic impedance when testing its acoustic performance, in the frequency range up to 16 kHz. It is suitable for air-conduction hearing aids and earphones, coupled to the ear by means of ear inserts, earmoulds or similar devices. The acoustic coupler does not simulate the human ear. However, it has an effective volume of only 0,4 cm 3 , which is small enough not to produce significant resonances in the coupler in the frequency range below 16 kHz. Therefore, it will load the earphone with a known acoustic impedance, which allows repeatable measurements with low uncertainty to be obtained on earphones used in extended high-frequency audiometry."
+  },
+  {
+    "reference": "IEC 60601-2-66:2019",
+    "edition": "3.0",
+    "date": "2019-10-16",
+    "title": "Medical electrical equipment - Part 2-66: Particular requirements for the basic safety and essential performance of hearing aids and hearing aid systems",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-66:2019 applies to the BASIC SAFETY of HEARING AIDS and HEARING AID SYSTEMS, hereafter also referred to as ME EQUIPMENT or ME SYSTEM. IEC 60601-2-66:2019 cancels and replaces the second edition published in 2015. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the definition about ESSENTIAL PERFORMANCE; b) revision of the application of IEC 60601-1-2:2014 for electromagnetic disturbances; c) correction of the used voltage for HEARING AIDS from 1,6 V to 4,5 V; d) correction of the drop test level from 1,5 m to 1,0 m; e) correction of the wording of IEC 60601-2-66:2015."
+  },
+  {
+    "reference": "IEC 60645-1:2017",
+    "edition": "4.0",
+    "date": "2017-03-14",
+    "title": "Electroacoustics - Audiometric equipment - Part 1: Equipment for pure-tone and speech audiometry",
+    "language": "EN-FR",
+    "description": "IEC 60645-1:2017 specifies general requirements for audiometers designed for use in determining hearing threshold levels, relative to standard reference threshold levels established by means of psychoacoustic test methods, and those designed to perform psychoacoustic tests using speech material. The object of this standard is to ensure: a) that tests of hearing in the frequency range 125 Hz to 16 kHz on a given human ear, performed with different pure-tone audiometers which comply with this standard, give substantially the same results; b) that the results obtained represent a valid comparison between the hearing of the ear tested and the reference threshold of hearing; c) that a means of presenting speech material to a subject in a standardized manner is provided. This will ensure that tests of hearing using a specific speech signal and a specific manner of signal presentation, when performed with different audiometers which comply with this standard, give substantially the same results; d) that audiometers are classified according to the range of test signals they present, according to the mode of operation or according to their presumed primary application. This fourth edition cancels and replaces the third edition, published in 2012, and the first edition IEC 60645-2, published in 1993. This edition constitutes a technical revision. This edition now includes the requirements for both pure-tone (prior edition of IEC 60645-1) and speech audiometers (prior edition of IEC 60645-2) into a single document. The technical requirements in this edition remain similar to the intent of the prior two documents, but now eliminate technical and editorial contradictions caused by two separate standards with different review cycles applying to an audiometer."
+  },
+  {
+    "reference": "IEC 60645-5:2004",
+    "edition": "1.0",
+    "date": "2004-11-23",
+    "title": "Electroacoustics - Audiometric equipment - Part 5: Instruments for the measurement of aural acoustic impedance/admittance",
+    "language": "EN-FR, ES",
+    "description": "Applies to instruments designed primarily for the measurement of acoustic impedance/admittance in the human external acoustic meatus using a stated probe tone. It is recognized that other probe signals may also be used. The standard defines the characteristics to be specified by the manufacturer, lays down performance specifications for three types of instruments and specifies the facilities to be provided on these types. This standard describes methods of test to be used for approval testing and guidance on methods for undertaking routine calibration. The purpose of this standard is to ensure that measurements made under comparable test conditions with different instruments complying with the standard will be consistent. The standard is not intended to restrict development or incorporation of new features, nor to discourage innovative approaches. This first edition of IEC 60645-5 cancels and replaces the first edition of IEC 61027, published in 1991, and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60645-6:2022",
+    "edition": "2.0",
+    "date": "2022-03-10",
+    "title": "Electroacoustics - Audiometric equipment - Part 6: Instruments for the measurement of otoacoustic emissions",
+    "language": "EN-FR",
+    "description": "IEC 606045-6:2022 applies to instruments designed primarily for the measurement of otoacoustic emissions in the human external auditory meatus evoked by acoustic probe stimuli. This document defines the characteristics to be specified by the manufacturer, specifies minimum mandatory functions for two types of instruments and provides performance specifications applicable to both instrument types. This document describes methods to be used to demonstrate conformance with the specifications in this document and guidance on methods for periodic calibration. The purpose of this document is to ensure that measurements made under comparable test conditions with different instruments complying with this document will be consistent. Instruments can provide a measurement function not specifically within the scope of this document and still comply with the relevant requirements of this document for the functions that are within the scope. This document is not intended to restrict development or incorporation of new features, nor to discourage innovative approaches. IEC 606045-6:2022 cancels and replaces the first edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the nominal test frequency used in DPOAE is now defined as the higher of the two frequencies, f2; b) the permitted deviation of the stimulus signal for TEOAE has been specified; c) the frequency range for DPOAE stimulus signals has been redefined, d) the stimulus level requirements for TEOAE have been redefined; e) the stimulus level requirements for DPOAE have been redefined; f) the harmonic distortion requirements for DPOAE have been redefined; g) a minimum measurement range for DPOAE has been added."
+  },
+  {
+    "reference": "IEC 60645-6:2022/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-08-07",
+    "title": "Amendment 1 - Electroacoustics - Audiometric equipment - Part 6: Instruments for the measurement of otoacoustic emissions",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60645-7:2025",
+    "edition": "2.0",
+    "date": "2025-08-22",
+    "title": "Electroacoustics - Audiometric equipment - Part 7: Instruments for the measurement of auditory evoked potentials",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60645-7:2025 applies to instruments designed for the measurement of auditory evoked potentials from the inner ear, the auditory nerve, and the brainstem, evoked by either acoustic or vibratory stimuli of short duration. This document defines the characteristics to be specified by the manufacturer, specifies performance requirements for two types of instruments (screening and diagnostic/clinical), and specifies the functions to be provided on these types. It also specifies a means of describing the physical characteristics, in terms of electrical waveforms, of audiometric reference and test signals of short duration used with auditory evoked potential equipment and other equipment (e.g. otoacoustic emission instruments), and methods for their measurement. The purpose of this document is to ensure that measurements made under comparable test conditions with different instruments complying with this document will be consistent. This document is not intended to restrict development or incorporation of new features, nor to discourage innovative approaches. Evoked response measurement using the application of electric stimuli to a subject is beyond the scope of this document."
+  },
+  {
+    "reference": "IEC 60942:2017",
+    "edition": "4.0",
+    "date": "2017-11-29",
+    "title": "Electroacoustics - Sound calibrators",
+    "language": "EN-FR, ES",
+    "description": "IEC 60942:2017 specifies the performance requirements for three classes of sound calibrator: class LS (Laboratory Standard), class 1 and class 2. Acceptance limits are smallest for class LS and greatest for class 2 instruments. Class LS sound calibrators are normally used only in the laboratory; class 1 and class 2 are considered as sound calibrators for field use. A class 1 sound calibrator is primarily intended for use with a class 1 sound level meter and a class 2 sound calibrator primarily with a class 2 sound level meter, as specified in IEC 61672-1. The acceptance limits for class LS sound calibrators are based on the use of a laboratory standard microphone, as specified in IEC 61094-1, for demonstrations of conformance to the requirements of this document. The acceptance limits for class 1 and class 2 sound calibrators are based on the use of a working standard microphone, as specified in IEC 61094-4, for demonstrations of conformance to the requirements of this document. This fourth edition cancels and replaces the third edition published in 2003, of which it constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) deletion of the class designations, class LS/C, class 1/C and class 2/C; b) addition of two further class designations, class LS/M and class 1/M, specifically for pistonphones; c) addition of an amended criterion for assessing conformance to a specification: conformance is now demonstrated when (a) measured deviations from design goals do not exceed the applicable acceptance limits and (b) the uncertainty of measurement does not exceed the corresponding maximum-permitted uncertainty; d) modification to the short-term level fluctuation test of the sound pressure level stability; e) change to some environmental test conditions to avoid icing; f) addition of an alternative test for immunity to radio-frequency fields using transverse electromagnetic (TEM) waveguides."
+  },
+  {
+    "reference": "IEC 61012:1990",
+    "edition": "1.0",
+    "date": "1990-01-31",
+    "title": "Filters for the measurement of audible sound in the presence of ultrasound",
+    "language": "EN-FR, ES",
+    "description": "This standard specifies the electrical characteristics of a U-weighting filter mainly for use with sound level meters meeting the requirements of IEC 651 for the measurement of audible sound in the presence of ultrasound."
+  },
+  {
+    "reference": "IEC 61043:1993",
+    "edition": "1.0",
+    "date": "1993-11-30",
+    "title": "Electroacoustics - Instruments for the measurement of sound intensity - Measurements with pairs of pressure sensing microphones",
+    "language": "EN-FR, ES",
+    "description": "Applies to instruments which detect sound intensity by pairs of spatially separated pressure sensing microphones and specifies performance requirements for instruments used for the measurement of sound intensity, and their associated calibrators. The purpose of this standard is to ensure the accuracy of measurements of sound intensity applied to the determination of sound power in accordance with ISO 9614. To meet the requirements of that standard, instruments are required to analyse the sound intensity in one-third octave or octave bands, and optionally to provide A-weighted band levels."
+  },
+  {
+    "reference": "IEC 61094-1:2000",
+    "edition": "2.0",
+    "date": "2000-07-21",
+    "title": "Measurement microphones - Part 1: Specifications for laboratory standard microphones",
+    "language": "EN-FR, ES",
+    "description": "Specifies mechanical dimensions and certain electroacoustic characteristics for condenser microphones used as laboratory standards for the realization of the unit of sound pressure and for sound pressure measurements of the highest attainable accuracy. The specifications are intended to ensure that primary calibration by the reciprocity method can be readily carried out. Establishes a system for classifying laboratory standard condenser microphones into a number of types according to their dimensions and properties."
+  },
+  {
+    "reference": "IEC 61094-2:2009",
+    "edition": "2.0",
+    "date": "2009-02-20",
+    "title": "Electroacoustics - Measurement microphones - Part 2: Primary method for pressure calibration of laboratory standard microphones by the reciprocity technique",
+    "language": "EN-FR, ES",
+    "description": "IEC 61094-2:2009 is applicable to laboratory standard microphones meeting the requirements of IEC 61094-1 and other types of condenser microphone having the same mechanical dimensions and specifies a primary method of determining the complex pressure sensitivity so as to establish a reproducible and accurate basis for the measurement of sound pressure. This second edition cancels and replaces the first edition published in 1992. This second edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - an update of Clause 6 to fulfil the requirements of ISO/IEC Guide 98-3; - an improvement of the heat conduction theory in Annex A; - a revision of Annex F: Physical properties of humid air."
+  },
+  {
+    "reference": "IEC 61094-2:2009/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-02-04",
+    "title": "Amendment 1 - Electroacoustics - Measurement microphones - Part 2: Primary method for pressure calibration of laboratory standard microphones by the reciprocity technique",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61094-3:2016",
+    "edition": "2.0",
+    "date": "2016-06-14",
+    "title": "Electroacoustics - Measurement microphones - Part 3: Primary method for free-field calibration of laboratory standard microphones by the reciprocity technique",
+    "language": "EN-FR, ES",
+    "description": "IEC 61094-3:2016 specifies a primary method of determining the complex free-field sensitivity of laboratory standard microphones so as to establish a reproducible and accurate basis for the measurement of sound pressure under free-field conditions. It is applicable to laboratory standard microphones meeting the requirements of IEC 61094-1. It is intended for use by laboratories with highly experienced staff and specialized equipment. This second edition cancels and replaces the first edition published in 1995. This edition constitutes a technical revision. The contents of the corrigendum of December 2016 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61094-3:2016/COR1:2016",
+    "edition": "2.0",
+    "date": "2016-12-16",
+    "title": "Corrigendum 1 - Electroacoustics - Measurement microphones - Part 3: Primary method for free-field calibration of laboratory standard microphones by the reciprocity technique",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61094-4:1995",
+    "edition": "1.0",
+    "date": "1995-11-16",
+    "title": "Measurement microphones - Part 4: Specifications for working standard microphones",
+    "language": "EN-FR, ES",
+    "description": "Applies to working standard microphones. Specifies mechanical dimensions and certain electroacoustical characteristics for working standard microphones used in measuring systems for the determination of sound pressure to enable these microphones to be used as transfer standards in the calibration of acoustic measurement instruments."
+  },
+  {
+    "reference": "IEC 61094-5:2016",
+    "edition": "2.0",
+    "date": "2016-05-30",
+    "title": "Electroacoustics - Measurement microphones - Part 5: Methods for pressure calibration of working standard microphones by comparison",
+    "language": "EN-FR, ES",
+    "description": "IEC 61094-5:2016 is applicable to working standard microphones with removable protection grids meeting the requirements of IEC 61094-4 and to laboratory standard microphones meeting the requirements of IEC 61094-1. This part of IEC 61094 describes methods of determining the pressure sensitivity by comparison with either a laboratory standard microphone or another working standard microphone with known sensitivity in the respective frequency range. This edition cancels and replaces the first edition published in 2001. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61094-6:2004",
+    "edition": "1.0",
+    "date": "2004-11-10",
+    "title": "Measurement microphones - Part 6: Electrostatic actuators for determination of frequency response",
+    "language": "EN-FR, ES",
+    "description": "This part of IEC 61094 - gives guidelines for the design of actuators for microphones equipped with electrically conductive diaphragms; - gives methods for the validation of electrostatic actuators; - gives a method for determining the electrostatic actuator response of a microphone. The applications of electrostatic actuators are not fully described within this standard but may include - a technique for detecting changes in the frequency response of a microphone, - a technique for determining the environmental influence on the response of a microphone, - a technique for determining the free field or pressure response of a microphone without specific acoustical test facilities, by the application of predetermined correction values specific to the microphone model and actuator used, - a technique applicable at high frequencies not typically covered by calibration methods using sound excitation."
+  },
+  {
+    "reference": "IEC TS 61094-7:2006",
+    "edition": "1.0",
+    "date": "2006-05-22",
+    "title": "Measurement microphones - Part 7: Values for the difference between free-field and pressure sensitivity levels of laboratory standard microphones",
+    "language": "EN-FR",
+    "description": "This part of IEC 61094 - gives a polynomial function derived from a least square fit to data from several laboratories, for the differences between free field and pressure sensitivity levels of laboratory standard microphones as specified in IEC 61094-1, - enables determination of the free field sensitivity level of a laboratory standard microphone for zero degrees incidence in air by adding values of these differences to the pressure sensitivity level, - gives tabulated values for the polynomial function for a range of frequency and temperature, - is applicable when a suitable free field calibration is not available."
+  },
+  {
+    "reference": "IEC 61094-8:2012",
+    "edition": "1.0",
+    "date": "2012-09-19",
+    "title": "Measurement microphones - Part 8: Methods for determining the free-field sensitivity of working standard microphones by comparison",
+    "language": "EN-FR, ES",
+    "description": "IEC 61094-8:2012 applicable to working standard microphones meeting the requirements of IEC 61094-4. It describes methods of determining the free-field sensitivity by comparison with a laboratory standard microphone or working standard microphone (where applicable) that has been calibrated according to either; IEC 61094-3; IEC 61094-2; IEC 61094-5; IEC 61094-6; or this part of IEC 61094. Methods performed in an acoustical environment that is a good approximation to an ideal free-field (e.g. a high quality free-field chamber), and methods that use post processing of results to minimise the effect of imperfections in the acoustical environment, to simulate free-field conditions, are both covered by this part of IEC 61094. Comparison methods based on the principles described in IEC 61094-3 are also possible but beyond the scope of this part of IEC 61094."
+  },
+  {
+    "reference": "IEC TR 61094-10:2022",
+    "edition": "1.0",
+    "date": "2022-08-04",
+    "title": "Electroacoustics - Measurement microphones - Part 10: Absolute pressure calibration of microphones at low frequencies using calculable pistonphones",
+    "language": "EN",
+    "description": "IEC TR 61904-10:2022 - is applicable to laboratory standard microphones meeting the requirements of IEC 61094-1 and other types of measurement microphones, - describes one possible absolute method for determining the complex pressure sensitivity, based on a device capable of generating a known sound pressure, especially at low frequencies, and - provides a reproducible and accurate basis for the measurement of sound pressure at low frequencies. All quantities are expressed in SI units."
+  },
+  {
+    "reference": "IEC 61183:1994",
+    "edition": "1.0",
+    "date": "1994-06-07",
+    "title": "Electroacoustics - Random-incidence and diffuse-field calibration of sound level meters",
+    "language": "EN-FR, ES",
+    "description": "Describes a free-field calibration method for determining random-incidence sensitivity levels of sound level meters. Additionally, the standard describes a diffuse-field calibration method for determining diffuse-field sensitivity levels."
+  },
+  {
+    "reference": "IEC 61252:2025",
+    "edition": "2.0",
+    "date": "2025-10-17",
+    "title": "Electroacoustics - Personal sound exposure meters",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61252:2025 specifies – performance specifications for personal sound exposure meters, – details of the tests necessary to verify conformance to all mandatory specifications for the purpose of pattern evaluation, and – procedures for periodic testing of a personal sound exposure meter. Personal sound exposure meters conforming to the requirements of this document have a specified frequency response for sound incident on the microphone from all directions. This document is applicable to instruments that are designed to be worn on a person in a configuration specified by the manufacturer for the measurement of sound immission resulting from steady, intermittent, fluctuating, irregular, or impulsive sounds. For reproducibility of results, specifications and tests for the response to sound waves apply without an operator present in the sound field. Pattern evaluation tests and periodic tests described in this this document apply to personal sound exposure meters for which the manufacturer claims conformance to the specifications given in this document. IEC 61252:2025 cancels and replaces the first edition published in 1993, Amendment 1:2000, and Amendment 2:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) personal sound exposure meters are required to provide indications of time-averaged sound level and peak sound level; b) sound exposure is an optional quantity for indication; c) specifications for physical quantities that do not follow the principle of equal-energy exchange rate have been added; d) specifications for directional response have been added; e) specifications for frequency weightings apply to the relative diffuse-field frequency response; f) determination of conformance to specifications takes account of uncertainties of measurement; g) detailed requirements for pattern-evaluation tests and periodic testing have been added."
+  },
+  {
+    "reference": "IEC 61260-1:2014",
+    "edition": "1.0",
+    "date": "2014-02-14",
+    "title": "Electroacoustics - Octave-band and fractional-octave-band filters - Part 1: Specifications",
+    "language": "EN-FR",
+    "description": "IEC 61260-1:2014 specifies performance requirements for analogue, sampled-data, and digital implementations of band-pass filters. The extent of the pass-band region of a filter's relative attenuation characteristic is a constant percentage of the exact mid-band frequency for all filters of a given bandwidth. An instrument conforming to the requirements of this standard may contain any number of contiguous band-pass filters covering any desired frequency range. Performance requirements are provided for two filter classes: class 1 and class 2. In general, specifications for class 1 and class 2 filters have the same design goals and differ mainly in the acceptance limits and the range of operational temperature. Acceptance limits for class 2 are greater than, or equal to, those for class 1. Maximum-permitted expanded uncertainties of measurement are also specified. Band-pass filters conforming to the performance requirements of this standard may be part of various measurement systems or may be an integral component of a specific instrument such as a spectrum analyser. This standard specifies the ranges of environmental conditions for operation of the filters. The required range depends on whether the instrument containing the filters is designed to be operated in a controlled environment or more generally in the field. Band-pass filters conforming to the requirements of this standard are capable of providing frequency-band-filtered spectral information for a wide variety of signals, for example, time-varying, intermittent or steady; broadband or discrete frequency; and long or short durations. This first edition of IEC 61260-1, future IEC 61260-2 and future IEC 61260-3, cancel and replace the first edition of IEC 61260 (1995) and its amendment 1 (2001). This edition constitutes a technical revision which includes the following significant technical changes with respect to the IEC 61260 (1995) and its amendment 1 (2001): - the single document in the first edition of IEC 61260 (1995) and its amendment 1 (2001) is in IEC 61260 series separated into the three parts covering: specifications, pattern evaluation tests and periodic tests; - the performance category class 0 is removed; - the design goals for the specification can be based only base-10; - the reference environmental conditions have been changed from 20 °C / 65 % RH to 23 °C / 50 % RH; and - IEC 61260 (1995) specified tolerance limits without considering the uncertainty of measurement for verification of the specifications. IEC 61260 series specifies acceptance limits for the observed values and maximum-permitted uncertainty of measurements for laboratories testing conformance to specifications in the standard."
+  },
+  {
+    "reference": "IEC 61260-2:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Electroacoustics - Octave-band and fractional-octave-band filters - Part 2: Pattern-evaluation tests",
+    "language": "EN-FR",
+    "description": "IEC 61260-2:2016 provides details of the tests necessary to verify conformance to all mandatory specifications given in IEC 61260-1:2014 for octave-band and fractional-octave-band filters. This first edition of IEC 61260-2 (together with IEC 61260-1:2014 and IEC 61260-3:2016), cancels and replaces the first edition of IEC 61260 published in 1995 and its Amendment 1 published in 2001. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61260-2:2016/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-04-07",
+    "title": "Amendment 1 - Electroacoustics - Octave-band and fractional-octave band filters - Part 2: Pattern evaluation tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61260-3:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Electroacoustics - Octave-band and fractional-octave-band filters - Part 3: Periodic tests",
+    "language": "EN-FR",
+    "description": "IEC 61260-3:2016 describes procedures for periodic testing of octave-band and fractional-octave-band filters that were designed to conform to the class 1 or class 2 specifications given in IEC 61260-1:2014. The aim of this standard is to ensure that periodic testing is performed in a consistent manner by all laboratories. This first edition of IEC 61260-3 (together with IEC 61260-1:2014 and IEC 61260-2:2016), cancels and replaces the first edition of IEC 61260 published in 1995 and its Amendment 1 published in 2001. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61265:2018",
+    "edition": "2.0",
+    "date": "2018-05-08",
+    "title": "Electroacoustics - Instruments for measurement of aircraft noise - Performance requirements for systems to measure sound pressure levels in noise certification of aircraft",
+    "language": "EN-FR",
+    "description": "IEC 61265:2018 specifies requirements for the electroacoustical performance of systems of instruments used to measure sound for the purposes of aircraft noise certification, and for other comparisons among aircraft models, and provides methods by which tests can be made periodically to verify that the performance continues to conform to the requirements within stated limits. In general, a sound measurement system for this purpose comprises a combination of instruments extending from a microphone, including its windscreen and other accessories, through data recording and processing devices to a suitable output. Different measurement systems, regardless of their composition, perform the necessary functions in different ways and operate on either analogue or digital principles. IEC 61265:2018 cancels and replaces the first edition published in 1995. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of guidance for measurements for aircraft other than large transport aeroplanes; b) addition of microphones used in ground plane measurement systems; c) addition of weighted sound level measurements other than one-third-octave band measurements, for certain aircraft types; d) revision and clarification of requirements for digital audio recording; e) addition of requirements for evaluation of measurement uncertainty."
+  },
+  {
+    "reference": "IEC 61669:2015",
+    "edition": "2.0",
+    "date": "2015-11-04",
+    "title": "Electroacoustics - Measurement of real-ear acoustical performance characteristics of hearing aids",
+    "language": "EN-FR",
+    "description": "IEC 61669:2015 gives recommendations and requirements for the measurement and estimation of the real-ear acoustical performance characteristics of air-conduction hearing aids and for the measurement of certain acoustic properties of the ear related to the application of hearing aids. Measurements of real-ear acoustical characteristics of hearing aids which apply non-linear or analytical processing techniques are valid only for the test signals used and conditions employed. The purpose of this standard is to ensure that measurements of real-ear acoustical performance characteristics of a given hearing aid on a given human ear can be replicated in other locations with other test equipment. This second edition cancels and replaces the first edition of IEC 61669:2001 and the first edition of ISO 12124:2001. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61669:2015/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-01-17",
+    "title": "Amendment 1 - Electroacoustics - Measurement of real-ear acoustical performance characteristics of hearing aids",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61672-1:2013",
+    "edition": "2.0",
+    "date": "2013-09-30",
+    "title": "Electroacoustics - Sound level meters - Part 1: Specifications",
+    "language": "EN-FR, ES",
+    "description": "IEC 61672-1:2013 gives electroacoustical performance specifications for three kinds of sound measuring instruments: - time-weighting sound level meters that measure exponential-time-weighted, frequency-weighted sound levels; - integrating-averaging sound level meters that measure time-averaged, frequency-weighted sound levels; and - integrating sound level meters that measure frequency-weighted sound exposure levels. Sound level meters specified in this standard are intended to measure sounds generally in the range of human hearing. Two performance categories, class 1 and class 2, are specified in this standard. Acceptance limits for class 2 are greater than, or equal to, those for class 1. This standard is applicable to a range of designs for sound level meters. A sound level meter may be a self-contained hand-held instrument with an attached microphone and a built-in display device. A sound level meter may be comprised of separate components in one or more enclosures and may be capable of displaying a variety of acoustical signal levels. Sound level meters may include extensive analogue or digital signal processing, separately or in combination, with multiple analogue and digital outputs. Sound level meters may include general-purpose computers, recorders, printers, and other devices that form a necessary part of the complete instrument. Sound level meters may be designed for use with an operator present or for automatic and continuous measurements of sound level without an operator present. Specifications in this standard for the response to sound waves apply without an operator present in the sound field. This second edition cancels and replaces the first edition published in 2002. It constitutes a technical revision. In this second edition, conformance to specifications is demonstrated when measured deviations from design goals do not exceed the applicable acceptance limits, and when the uncertainty of measurement does not exceed the corresponding maximum-permitted uncertainty, with both uncertainties determined for a coverage probability of 95 %."
+  },
+  {
+    "reference": "IEC 61672-2:2013",
+    "edition": "2.0",
+    "date": "2013-09-30",
+    "title": "Electroacoustics - Sound level meters - Part 2: Pattern evaluation tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 61672-2:2013 provides details of the tests necessary to verify conformance to all mandatory specifications given in IEC 61672-1 for time-weighting sound level meters, integrating-averaging sound level meters, and integrating sound level meters. Pattern-evaluation tests apply for each channel of a multi-channel sound level meter, as necessary. Tests and test methods are applicable to class 1 and class 2 sound level meters. The aim is to ensure that all laboratories use consistent methods to perform pattern-evaluation tests. This second edition cancels and replaces the first edition published in 2003. This second edition constitutes a technical revision, the main technical changes with regard to the previous edition concern conformance to specifications which is now demonstrated when measured deviations from design goals do not exceed the applicable acceptance limits, and when the uncertainty of measurement does not exceed the corresponding maximum permitted uncertainty, with both uncertainties determined for a coverage probability of 95 %. In this document, references to IEC 61672-1, IEC 61672-2, and IEC 61672-3 refer to the second editions unless stated otherwise. Procedures for the pattern-evaluation testing of sound level meters designed to conform to the specifications of IEC 61672-1:2002 were given in IEC 61672-2:2003."
+  },
+  {
+    "reference": "IEC 61672-2:2013/AMD1:2017",
+    "edition": "2.0",
+    "date": "2017-04-04",
+    "title": "Amendment 1 - Electroacoustics - Sound level meters - Part 2: Pattern evaluation tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61672-3:2013",
+    "edition": "2.0",
+    "date": "2013-09-30",
+    "title": "Electroacoustics - Sound level meters - Part 3: Periodic tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 61672-3:2013 describes procedures for periodic testing of time-weighting, integrating-averaging, and integrating sound level meters that were designed to conform to the class 1 or class 2 specifications of the second edition of IEC 61672-1. The aim of the standard is to ensure that periodic testing is performed in a consistent manner by all laboratories. The purpose of periodic testing is to assure the user that the performance of a sound level meter conforms to the applicable specifications of IEC 61672-1 for a limited set of key tests and for the environmental conditions under which the tests were performed. Periodic tests described in this edition of IEC 61672-3 apply to sound level meters for which the manufacturer claims conformance to the specifications of the second edition of IEC 61672-1. Periodic tests described in IEC 61672-3 apply to sound level meters for which the model has been, or has not been, pattern approved by an independent testing organization responsible for pattern approvals in accordance with the test procedures of the second edition of IEC61672-2. This second edition cancels and replaces the first edition published in 2006. This second edition constitutes a technical revision. The main changes with regard to the previous concern conformance to specifications which is now demonstrated when measured deviations from design goals do not exceed the applicable acceptance limits, and when the uncertainty of measurement does not exceed the corresponding maximum-permitted uncertainty, with both uncertainties determined for a coverage probability of 95 %. In this document, references to IEC 61672-1, IEC 61672-2, and IEC 61672-3 refer to the second editions unless stated otherwise. Procedures for the periodic testing of sound level meters designed to conform to the specifications of IEC 61672-1:2002 were given in IEC 61672-3:2006."
+  },
+  {
+    "reference": "IEC TS 62370:2004",
+    "edition": "1.0",
+    "date": "2004-05-10",
+    "title": "Electroacoustics - Instruments for the measurement of sound intensity - Electromagnetic and electrostatic compatibility requirements and test procedures",
+    "language": "EN-FR, EN, FR",
+    "description": "This Technical Specification specifies requirements for instruments that measure sound intensity using pairs of pressure sensing microphones with respect to their immunity to power- and radio-frequency fields and to electrostatic discharge, and the permitted radio-frequency emissions, together with test procedures to verify conformance. Sound intensity measuring instruments are available in many different configurations and may be powered by batteries or from external power supply systems. The technical requirements in this Technical Specification apply to all configurations of instruments for the measurement of sound intensity. The electromagnetic and electrostatic compatibility requirements are equally applicable for sound intensity measuring instruments used in residential, commercial and light-industrial environments, or industrial sites. The requirements of this Technical Specification are additional to those contained in IEC 61043 and do not alter any of the specifications contained therein. The requirements do not apply retrospectively to sound intensity measuring instruments complying with IEC 61043 prior to the publication of this Technical Specification."
+  },
+  {
+    "reference": "IEC TS 62370:2004/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-03-08",
+    "title": "Amendment 1 - Electroacoustics - Instruments for the measurement of sound intensity - Electromagnetic and electrostatic compatibility requirements and test procedures",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62489-1:2010",
+    "edition": "1.0",
+    "date": "2010-01-27",
+    "title": "Electroacoustics - Audio-frequency induction loop systems for assisted hearing - Part 1: Methods of measuring and specifying the performance of system components",
+    "language": "EN-FR, ES",
+    "description": "IEC 62489-1:2010 applies to the components of audio-frequency induction-loop systems for assisted hearing. It may also be applied to such systems used for other purposes, as far as it is applicable. This standard is intended to encourage accurate and uniform presentation of manufacturers' specifications, which can be verified by standardized methods of measurement. It is intended for type testing. The components considered are the following: - amplifiers; - microphones; - other components, such as playback equipment. IEC 62489-1:2010 does not deal with safety, for which IEC 60065 applies. It also does not deal with EMC (Electromagnetic compatibility) and EMF (Electromagnetic fields, in the context of human exposure)."
+  },
+  {
+    "reference": "IEC 62489-1:2010/AMD1:2014",
+    "edition": "1.0",
+    "date": "2014-12-17",
+    "title": "Amendment 1 - Electroacoustics - Audio-frequency induction loop systems for assisted hearing - Part 1: Methods of measuring and specifying the performance of system components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62489-1:2010/AMD2:2017",
+    "edition": "1.0",
+    "date": "2017-11-27",
+    "title": "Amendment 2 - Electroacoustics - Audio-frequency induction loop systems for assisted hearing - Part 1: Methods of measuring and specifying the performance of system components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62489-2:2014",
+    "edition": "2.0",
+    "date": "2014-09-24",
+    "title": "Electroacoustics - Audio-frequency induction loop systems for assisted hearing - Part 2: Methods of calculating and measuring the low-frequency magnetic field emissions from the loop for assessing conformity with guidelines on limits for human exposure",
+    "language": "EN-FR",
+    "description": "IEC 62489-2:2014 applies to audio-frequency induction-loop systems for assisted hearing. It may also be applied to such systems used for other purposes, as far as it is applicable. The standard is intended for assessment of human exposure to low-frequency magnetic fields produced by the system, by calculation and by in-situ testing. This standard does not deal with other aspects of safety, for which IEC 60065 applies, or with EMC. This second edition cancels and replaces the first edition published in 2011. This edition constitutes a technical revision which includes significant technical changes to reflect several updates to the ICNIRP Guide (Guidelines for limiting exposure to time-varying electric, magnetic, and electromagnetic fields) to which it makes frequent reference. The most significant change is that the underlying metric in the Guide has been changed from tissue current density to induced electric field. Keywords: hearing aid, accessibility, surdity, deafness"
+  },
+  {
+    "reference": "IEC 62585:2012",
+    "edition": "1.0",
+    "date": "2012-07-25",
+    "title": "Electroacoustics - Methods to determine corrections to obtain the free-field response of a sound level meter",
+    "language": "EN-FR, ES",
+    "description": "IEC 62585:2012 provides information on the corrections required over a range of frequencies in order for a periodic test of a sound level meter to be performed according to IEC 61672-3. These corrections include; corrections for the typical effects of reflections from the case of the sound level meter and diffraction of sound around the microphone; corrections for the deviation of the typical microphone frequency response from a uniform frequency response, where the actual microphone response cannot be measured; and corrections for the influence on the frequency response of a typical microphone of a specified windscreen and any other accessory that is part of the configuration for normal use of the particular sound level meter submitted for testing. This International Standard includes discussion about uncertainties of measurement of the required corrections. In some instances a maximum permitted expanded uncertainty for the manufacturer or testing laboratory is given. The aim of this International Standard is to ensure that the adjustment value at the calibration check frequency and all corrections are determined using consistent and appropriate methods. It is intended that this International Standard will be used by manufacturers to determine adjustment values and corrections, by laboratories performing pattern evaluation tests according to IEC 61672-2, and by laboratories performing periodic tests according to IEC 61672-3. Laboratories performing periodic tests according to IEC 61672-3 will also need to consult this International Standard to ensure that the expanded uncertainties of measurement for the corrections quoted by the manufacturer do not exceed the maximum permitted values."
+  },
+  {
+    "reference": "IEC TR 62809:2019",
+    "edition": "2.0",
+    "date": "2019-10-22",
+    "title": "Summary of requirements and tests for products in the scope of IEC 60601-2-66",
+    "language": "EN",
+    "description": "IEC TR 62809:2019 provides an overview of the requirements and tests of IEC 60601-2-66 in combination with the applicable sections of IEC 60601-1, and the collateral standards of the IEC 60601 series. It is intended to assist various groups involved in the product lifecycles process - like designers and suppliers - to get an overview of the basic requirements without studying all involved standard documents in detail. The table includes not all but just the more common requirements and tests. It is crucial to understand that the summary in this document cannot serve as an input for a product requirement specification or as a test plan without consulting IEC 60601-2-66 itself. This document alone cannot be used to establish or assess compliance to IEC 60601-2-66."
+  },
+  {
+    "reference": "IEC TS 62886:2016",
+    "edition": "1.0",
+    "date": "2016-08-25",
+    "title": "Electroacoustics - Hearing aids - Method for measuring electroacoustic performance up to 16 kHz",
+    "language": "EN",
+    "description": "IEC TS 62886:2016(E) which is a Technical Specification, describes a coupler and measurement methods to characterise the electroacoustic performance of hearing aids and insert earphones primarily in the range of 8 kHz to 16 kHz."
+  },
+  {
+    "reference": "IEC TR 63079:2017",
+    "edition": "1.0",
+    "date": "2017-04-10",
+    "title": "Code of practice for hearing-loop systems (HLS)",
+    "language": "EN",
+    "description": "IEC TR 63079:2017(E) gives recommendations for and guidance on the design, planning, installation, testing, operation and maintenance of a hearing-loop system (HLS) intended for communicating speech, music and/or other signals. It is mainly concerned with HLS for hearing enhancement, in which the signals are communicated to users of hearing aids equipped with magnetic pick-up coils. This document does not apply to induction-loop systems which use a carrier frequency, nor to other systems for hearing enhancement purposes which do not use magnetic induction."
+  },
+  {
+    "reference": "IEC TR 63079:2017/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-09-05",
+    "title": "Amendment 1 - Code of practice for hearing-loop systems (HLS)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63079:2017/AMD2:2020",
+    "edition": "1.0",
+    "date": "2020-04-01",
+    "title": "Amendment 2 - Code of practice for hearing-loop systems (HLS)",
+    "language": "EN",
+    "description": null
+  }
+]

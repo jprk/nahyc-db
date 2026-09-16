@@ -1,0 +1,610 @@
+[
+  {
+    "reference": "ISO/IEC 9541-1:2012",
+    "edition": "2.0",
+    "date": "2012-08-13",
+    "title": "Information technology - Font information interchange - Part 1: Architecture",
+    "language": "EN",
+    "description": "ISO/IEC 9541 defines a method of naming glyphs and glyph collections, independent of any document encoding technique; it assumes that one or more methods of associating document encoding techniques with glyph identifiers used in font resources will be provided by text processing systems. ISO/IEC 9541-1:2012 specifies the architecture of a font resource, i.e. the font description, font metrics, glyph description and glyph metrics properties required for font references and the interchange of font resources."
+  },
+  {
+    "reference": "ISO/IEC 9541-1:2012/AMD1:2016",
+    "edition": "2.0",
+    "date": "2016-11-22",
+    "title": "Information technology - Font information interchange - Part 1: Architecture - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9541-2:2012",
+    "edition": "2.0",
+    "date": "2012-08-13",
+    "title": "Information technology - Font information interchange - Part 2: Interchange format",
+    "language": "EN",
+    "description": "ISO/IEC 9541 specifies the architecture of font resources, as well as the formats for font interchange amongst information processing systems. ISO/IEC 9541 also specifies the architecture and formats that can be used to construct font references in general electronic document interchange. ISO/IEC 9541-2:2012 specifies the interchange formats for font information, and the minimum subsets of that information required for interchange. ISO/IEC 9541-2:2012 requires the property definitions as defined in ISO/IEC 9541-1. Font subsets defined by ISO/IEC 9541-2:2012 establish the minimum set of font properties that must occur within an ISO font resource. To accommodate the broad range of document and text processing functions found in office and publishing environments, it is anticipated that ISO font resources will contain more than the minimum number of font properties. Font resources defined by ISO/IEC 9541-2:2012 are used in various document processing environments in which the RELAX NG Compact Syntax schema (ISO/IEC 19757-2) parsing algorithm is recognized. The format of font resource information as defined in ISO/IEC 9541-2:2012 is specified in RELAX NG Compact Syntax for consistent generation of font resources for use in the processing environments."
+  },
+  {
+    "reference": "ISO/IEC 9541-3:2012",
+    "edition": "2.0",
+    "date": "2012-08-13",
+    "title": "Information technology - Font information interchange - Part 3: Glyph shape representation",
+    "language": "EN",
+    "description": "ISO/IEC 9541 specifies the architecture of font resources, as well as the formats for font interchange among information processing systems. ISO/IEC 9541 also specifies the architecture and formats that can be used to construct font references in general electronic document interchange. ISO/IEC 9541-3:2012 specifies the architecture and interchange formats of glyph shape representations. Font resources represented using the architecture and interchange formats defined in ISO/IEC 9541-1 and ISO/IEC 9541-2 are used in various document processing environments in which the RELAX NG (ISO/IEC 19757-2) parsing algorithm is recognized. The encoding of font resource information as defined in ISO/IEC 9541-3:2012 is specified in RELAX NG representation for consistent generation of font resources for use in these processing environments."
+  },
+  {
+    "reference": "ISO/IEC 9541-4:2009",
+    "edition": "1.0",
+    "date": "2009-03-23",
+    "title": "Information technology - Font information interchange - Part 4: Harmonization to Open Font Format",
+    "language": "EN",
+    "description": "ISO/IEC 9541 specifies the architecture of font resources, as well as the formats for font interchange among information processing systems. It also specifies the architecture and formats that can be used to construct font references in general electronic document interchange. ISO/IEC 9541-4:2009 specifies the correspondences between ISO/IEC 9541 font resource and ISO/IEC 14496-22 Open Font Format file (OFF), to define ISO/IEC 9541 font resource from a given OFF file. The classification (required or optional), syntax, and possible values of the properties are defined in ISO/IEC 9541‑1 and ISO/IEC 9541‑2. The glyph shape representation and its interpretation are defined in ISO/IEC 9541‑3."
+  },
+  {
+    "reference": "ISO/IEC 9541-4:2009/COR1:2009",
+    "edition": "1.0",
+    "date": "2009-11-26",
+    "title": "Information technology - Font information interchange - Part 4: Harmonization to Open Font Format - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 9573:1988",
+    "edition": "1.0",
+    "date": "1988-12-08",
+    "title": "Information processing - SGML support facilities - Techniques for using SGML",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 9573-13:1991",
+    "edition": "1.0",
+    "date": "1991-07-04",
+    "title": "Information technology - SGML support facilities - Techniques for using SGML - Part 13: Public entity sets for mathematics and science",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 10036:2020",
+    "edition": "1.0",
+    "date": "2020-12-16",
+    "title": "Information technology - Font information interchange - Registered glyph identifiers",
+    "language": "EN",
+    "description": "This document provides the glyph identifiers and glyph images registered and published by the registration authority for ISO/IEC 10036:1996."
+  },
+  {
+    "reference": "ISO/IEC 10179:1996",
+    "edition": "1.0",
+    "date": "1996-04-04",
+    "title": "Information technology - Processing languages - Document Style Semantics and Specification Language (DSSSL)",
+    "language": "EN",
+    "description": "This International Standard is designed to specify the processing of valid SGML documents. DSSSL defines the semantics, syntax, and processing model of two languages for the specification of document processing: a) The transformation language for transforming SGML documents marked up in accordance with one or more DTDs into other SGML documents marked up in accordance with other DTDs. The specification of this transformation process is fully defined by this International Standard. b) The style language, where the result is achieved by applying a set of formatting characteristics to portions of the data, and the specification is, therefore, as precise as the application requires, leaving some formatting decisions, such as line-end and column-end decisions, to the composition and layout process. The DSSSL style language is intended to be used in a wide variety of environments with typographic requirements ranging from simple single-column layouts to complex multiple­column layouts. This International Standard does not standardize a formatter nor does it standardize composition or other processing algorithms. Rather, it provides the means whereby an implementation may externalize 'style characteristics' and other techniques for associating style information with an SGML document. DSSSL provides a mechanism for specifying the use of 'external processes' to manipulate data. The nature of these processes is outside the scope of DSSSL, but may include typical data management functions, such as sorting and indexing; typical composition functions, such as hyphenation algorithms; and graphics or multimedia processes for non-SGML data. Documents that have already been formatted or do not contain any hierarchical structural information or generic markup are not within the field of application of this International Standard. DSSSL expresses specifications to be performed by some processor that accepts an input document and produces an output document. DSSSL is independent of the type of formatter, formatting system, or other transformation processor. a) Constructs that provide access to, and control of, all possible marked-up information in an SGML document, as well as mechanisms for string processing to allow for the manipulation of non-marked up data. This is provided by the Standard Document Query Language (SDQL) component of DSSSL. NOTE I String processing is necessary so that no special 'markers' need be embedded in the source document to indicate presentational changes. The display of a dropped or raised capital letter in a larger point size at the beginning of a line or paragraph is an example of a case where string processing may be used to isolate the first character or group of characters in order to achieve a desired presentational effect. b) Provisions for specifying the relationship between one or more SGML documents as input to a transformation process and zero or more resulting SGML documents as the output of the process. c) Provisions for specifying the relationships between the SGML document(s), as expressed in the source Document Type Definition(s), and the result of the formatting process. The output of the formatting process may be an 1SO/IEC l 0 180 Standard Page Description Language (SPDL) document or it may be a document in some other, possibly proprietary, form. d) Provisions for describing the typographic style and layout of a document. e) Definitions of a machine-processable syntax for the representation of a DSSSL specification and its various components. f) Provisions for creating new DSSSL characteristics and their associated values, as well as new flow object classes. These are declared in the declarations for the style language portion of the DSSSL specification. This International Standard is intended for use in a wide variety of SGML application environments, including both electronic publishing and conventional printing."
+  },
+  {
+    "reference": "ISO/IEC 10179:1996/COR1:2001",
+    "edition": "1.0",
+    "date": "2001-03-15",
+    "title": "Information technology - Processing languages - Document Style Semantics and Specification Language (DSSSL) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 10179:1996/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-10-09",
+    "title": "Information technology - Processing languages - Document Style Semantics and Specification Language (DSSSL) - Amendment 1: Extensions to DSSSL",
+    "language": "EN",
+    "description": "ISO/IEC 10179:1996/Amd.1:2003 specifies additional flow object classes for online display, and additional formatting areas for inline-display area and inter-line attachment area. For clarification of some existing definitions in ISO/IEC 10179:1996, ISO/IEC 10179:1996/Amd.1:2003 adds the following annexes: Annex B; clarification of the existing types and symbols; Annex C; specification of formal public identifiers and their associated characteristics for various line breaking and line composition methods; Annex D; clarification of the grove plan and SGML property set; Annex E; clarification of the flow object classes and characteristics; Annex F; clarification of the values of characteristics."
+  },
+  {
+    "reference": "ISO/IEC 10179:1996/AMD2:2005",
+    "edition": "1.0",
+    "date": "2005-08-03",
+    "title": "Information technology - Processing languages - Document Style Semantics and Specification Language (DSSSL) - Amendment 2: Extensions to multilingual and complicated document styles",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 10744:1997",
+    "edition": "2.0",
+    "date": "1997-09-04",
+    "title": "Information technology - Hypermedia/Time-based Structuring Language (HyTime)",
+    "language": "EN",
+    "description": "This International Standard defines a language and underlying model for the representation of “hyperdocuments” that link and synchronize static and dynamic (time-based) information contained in multiple conventional and multimedia documents and information objects. The language is known as the “Hypermedimime-based Structuring Language”, or “HyTime”. HyTime can represent time in both the abstract, or “musical” sense, and in user-defined real-time units. It also provides a way of relating the two so that elements of time-dependent documents can be synchronized. NOTE 7 This facility extends to the representation of multimedia information the power, once limited to conventional documents, to distinguish intrinsic information content from style considerations. HyTime’s techniques for representing its time model are equally applicable to spatial and other domains; all are treated as systems for measuring along different axes of a coordinate space. Arbitrary cross-references and access paths based on external interactions (“hypermedia links”) are also supported. HyTime’s time representation contains sufficient information to derive the durations of both control (“gestural”) data (e.g., control information for audio or video hardware) and visual data (e.g., a music score, presentation storyboard, or television script). The media formats and data notations of objects in a HyTime hyperdocument can include formatted and unformatted documents, audio and video segments, still images, and object-oriented graphics, among others. Users can specify the positions and sizes of occurrences of objects in space and time, using a variety of measurement units and granularities Temporal requirements of applications ranging from animation to project management can be supported by choosing appropriate measurement granules. NOTE 8 This International Standard does not address the representation of audio or video content data, but simply defines the means by which the start-time and duration of such data can be synchronized with other digitized information. Nor does it specify the layout process by which occurrences of unformatted documents and other information objects can be made to fit the positions and sizes specified for them. HyTime is an enabling standard, not an encompassing one. AS a result, the objects comprising a HyTime hyperdocument are free to conform to any application architectures, or to document architectures imposed by standards, and to be represented in any notation permitted by those architectures Only the “hub document”, which may determine the hyperdocument membership, must conform PO HyTime in addition to any other architectures to which it may conform. HyTime is designed for flexibility and extensibility. Optional subsets can be implemented, alone or in conjunction with user-defined extensions. The Hypermedia/Time-based Structuring Language (HyTime) is an SGML application conforming to International Standard IS0 8879 - Standard Generalized Markup Language. The hyperdocument interchange format recommended in this International Standard is IS0 9069, the SGML Document Interchange Format (SDIF). SDIF is defined in Abstract Syntax Notation 1 (ISO/IEC 8824) and can be encoded according to the basic encoding rules of ISOAEC 8825 for interchange using protocols conforming to the Open Systems Interconnection (OSI) model. Other interchange formats can also be used."
+  },
+  {
+    "reference": "ISO/IEC 13250-2:2006",
+    "edition": "1.0",
+    "date": "2006-08-28",
+    "title": "Information technology - Topic Maps - Part 2: Data model",
+    "language": "EN",
+    "description": "ISO/IEC 13250-2:2006 specifies the Topic Maps data model. It defines the abstract structure and interpretation of topic maps, the rules for merging topic maps and a set of fundamental subject identifiers. The purpose of the data model is to define the interpretation of the Topic Maps interchange syntax, and to serve as a foundation for the definition of supporting standards for canonicalization, querying, constraints, etc."
+  },
+  {
+    "reference": "ISO/IEC 13250-3:2013",
+    "edition": "2.0",
+    "date": "2013-10-30",
+    "title": "Information technology - Topic Maps - Part 3: XML syntax",
+    "language": "EN",
+    "description": "ISO/IEC 13250-3:2013 defines an XML-based interchange syntax for Topic Maps, which can be used to interchange instances of the data model defined in ISO/IEC 13250-2. It also defines a mapping from the interchange syntax to the data model. The syntax is defined with a RELAX-NG schema, and more precision is provided through the mapping to the data model, which effectively also defines the interpretation of the syntax."
+  },
+  {
+    "reference": "ISO/IEC 13250-4:2009",
+    "edition": "1.0",
+    "date": "2009-02-18",
+    "title": "Information technology - Topic Maps - Part 4: Canonicalization",
+    "language": "EN",
+    "description": "ISO/IEC 13250-4:2009 defines a format known as Canonical XTM, or CXTM for short. The format is an XML format, and has the property that it guarantees that two equivalent Topic Maps Data Model instances (ISO/IEC 13250-2) will always produce byte-by-byte identical serializations, and that non-equivalent instances will always produce different serializations. CXTM thus enables direct comparison of two topic maps to determine equality by comparison of their canonical serializations. The purpose of CXTM is to allow the creation of test suites for various Topic Maps-related technologies that are easily portable between different Topic Maps implementations, so long as these support CXTM. CXTM is not intended to be used for the interchange of topic maps, although this is possible. The standard format for interchange of topic maps is XTM (ISO/IEC 13250-3). ISO/IEC 13250-4:2009 specifies how CXTM files are produced from topic maps by means of a transformation from the Topic Maps Data Model (ISO/IEC 13250-2) to the XML Infoset."
+  },
+  {
+    "reference": "ISO/IEC 13250-5:2015",
+    "edition": "1.0",
+    "date": "2015-03-20",
+    "title": "Information technology - Topic Maps - Part 5: Reference model",
+    "language": "EN",
+    "description": "ISO/IEC 13250-5:2015 specifies a formal model for subject maps, minimal access functionality and information retrieval from subject maps and a constraint framework governing the interpretation of subject maps. Particular formalisms to constrain subject maps are not covered by this part of ISO/IEC 13250."
+  },
+  {
+    "reference": "ISO/IEC 13250-6:2010",
+    "edition": "1.0",
+    "date": "2010-11-04",
+    "title": "Information technology - Topic Maps - Part 6: Compact syntax",
+    "language": "EN",
+    "description": "ISO/IEC 13250-6:2010 defines a text-based notation for representing instances of the data model defined in ISO/IEC 13250-2. It also defines a mapping from this notation to the data model. The syntax is defined through an Extended Backus–Naur Form (EBNF) grammar."
+  },
+  {
+    "reference": "ISO/IEC 13673:2000",
+    "edition": "1.0",
+    "date": "2000-04-20",
+    "title": "Information technology - Document processing and related communication - Conformance testing for Standard Generalized Markup Language (SGML) systems",
+    "language": "EN",
+    "description": "standard addresses the construction and use of test suites for verifying conformance of SGML systems. Its provisions assist those who build test suites, those who build SGML systems to be evaluated by such suites, and those who examine an SGML system's performance on a test suite as part of the process of selecting an SGML tool. In particular, this standard includes: ? criteria for the organization of test suites, including naming conventions, documentation conventions, and specification of applicable concrete syntaxes and features. Among other advantages, these conventions facilitate any non-SGML automatic processing that may be convenient for the developers or the users of the tests; NOTE ? An example of such non-SGML processing is sorting tests by name. ? a standard form for describing test results that makes clear what has been proven or disproven by the tests; ? the specification of a Reference Application for SGML Testing (RAST) that interprets all markup to allow machine comparison of test results for documents conforming to ISO 8879. RAST indicates in a standard way when tags, processing instructions, and data are recognized by the parser, replacing references and processing markup declarations and marked sections appropriately. RAST tests information likely to be passed by a general-purpose SGML parser to an application but does not test additional information that some parsers provide; ? the specification of a Reference Application for Capacity Testing (RACT) that reports a validating parser's capacity calculations. An SGML systemthat supports this application indicates its ability to report capacity errors regardless of whether it supports variant capacity sets; ? the specification of test procedures related to SDIF data streams. This standard applies to the testing only of aspects of SGML implementation and usage for which objective conformance criteria are defined in ISO 8879. NOTE ? Among the aspects of an SGML system not addressed by this standard are error recovery, phrasing of error messages, application results, and documentation (including the system declaration)."
+  },
+  {
+    "reference": "ISO/IEC TR 15413:2001",
+    "edition": "2.0",
+    "date": "2001-03-15",
+    "title": "Information technology - Font services - Abstract service definition",
+    "language": "EN",
+    "description": "This Technical Report provides the access facilities which can be used for creation, distribution, management, and use of font resources conforming to the architecture of ISO/IEC 9541. This Technical Report is intended to be used in a variety of configurations meeting a variety of connectivity needs, including communication protocols, application programming interfaces, and application services. This Technical Report defines an abstract interface to the font access facilities. This Technical Report will not specify the concrete syntax for a language binding of font service facilities, nor the concrete protocol used to communicate between the systems that provides or uses the font service facilities. This Technical Report is intended for use in a wide variety of document processing environments, including: _ authoring; _ formatting and page layout; _ printing and display services; _ electronic publishing via removable media and/or information network."
+  },
+  {
+    "reference": "ISO/IEC 15445:2000",
+    "edition": "1.0",
+    "date": "2000-06-29",
+    "title": "Information technology - Document description and processing languages - HyperText Markup Language (HTML)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19756:2011",
+    "edition": "1.0",
+    "date": "2011-06-14",
+    "title": "Information technology - Topic Maps -  Constraint Language (TMCL)",
+    "language": "EN",
+    "description": "ISO/IEC 19756:2011 (TMCL) is a constraint language for Topic Maps, allowing definitions of Topic Maps schemas to be written in a precise and machine-readable form. This makes it possible to validate a topic map against a TMCL schema to see if it conforms to the constraints in the schema, and also enables other uses, such as schema-driven editors and object mappings. TMCL is defined as a Topic Maps vocabulary consisting of a number of topic, association, occurrence, and role types, identified by Published Subject Identifiers (PSIs), and defined using English prose. It defines the concept of validation, by which a given topic map is valid according to a schema if it conforms to all the constraints in that schema and a number of global validation rules which apply to all topic maps independent of schema. TMCL does not have any syntax of its own, since it is defined simply as a Topic Maps vocabulary. However, a number of CTM templates are defined in ISO/IEC 19756:2011 in order to facilitate authoring of TMCL schemas using CTM."
+  },
+  {
+    "reference": "ISO/IEC 19757-2:2008",
+    "edition": "2.0",
+    "date": "2008-12-10",
+    "title": "Information technology - Document Schema Definition Language (DSDL) - Part 2: Regular-grammar-based validation - RELAX NG",
+    "language": "EN",
+    "description": "ISO/IEC 19757-2:2008 specifies RELAX NG, a schema language for XML. A RELAX NG schema specifies a pattern for the structure and content of an XML document. The pattern is specified by using a regular tree grammar. It establishes requirements for RELAX NG schemas and specifies when an XML document matches the pattern specified by a RELAX NG schema."
+  },
+  {
+    "reference": "ISO/IEC 19757-3:2025",
+    "edition": "4.0",
+    "date": "2025-09-29",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 3: Rule-based validation using Schematron",
+    "language": "EN",
+    "description": "This document specifies Schematron, a schema language for XML. This document establishes requirements for Schematron schemas and specifies when an XML document matches the patterns specified by a Schematron schema. Schematron uses query languages such as XPath for writing assertions."
+  },
+  {
+    "reference": "ISO/IEC 19757-4:2006",
+    "edition": "1.0",
+    "date": "2006-06-09",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 4: Namespace-based Validation Dispatching Language (NVDL)",
+    "language": "EN",
+    "description": "ISO/IEC 19757-4:2006 specifies a Namespace-based Validation Dispatching Language (NVDL). An NVDL script controls the dispatching of elements or attributes in a given XML document to different validators, depending on the namespaces of the elements or attributes. An NVDL script also specifies which schemas are used by these validators. These schemas may be written in any schema languages, including those specified by ISO/IEC 19757."
+  },
+  {
+    "reference": "ISO/IEC 19757-4:2006/COR1:2008",
+    "edition": "1.0",
+    "date": "2008-09-01",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 4: Namespace-based Validation Dispatching Language (NVDL) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19757-5:2011",
+    "edition": "1.0",
+    "date": "2011-09-26",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 5: Extensible Datatypes",
+    "language": "EN",
+    "description": "ISO/IEC 19757-5:2011 specifies an XML language that allows users to create and extend datatype libraries for their own purposes. The datatype definitions in these libraries can be used by XML validators and other tools to validate content and make comparisons between values."
+  },
+  {
+    "reference": "ISO/IEC 19757-7:2020",
+    "edition": "2.0",
+    "date": "2020-08-05",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 7: Character Repertoire Description Language (CREPDL)",
+    "language": "EN",
+    "description": "This document specifies a Character Repertoire Description Language (CREPDL). A CREPDL schema describes a character repertoire. A stream of UCS code points can be validated against a CREPDL schema."
+  },
+  {
+    "reference": "ISO/IEC 19757-8:2008",
+    "edition": "1.0",
+    "date": "2008-12-03",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 8: Document Semantics Renaming Language (DSRL)",
+    "language": "EN",
+    "description": "ISO/IEC 19757-8:2008 specifies a mechanism that allows users to assign locally meaningful names to XML elements, attributes, entities and processing instructions, without having to completely rewrite the Document Type Definition (DTD) or schema against which they are to be validated. In addition, ISO/IEC 19757-8:2008 provides an XML-based format for declaring the replacement text for entity references and provides a mechanism that allows users to define default values for both element content and attribute values."
+  },
+  {
+    "reference": "ISO/IEC 19757-8:2008/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-11-23",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 8: Document Semantics Renaming Language (DSRL) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19757-11:2011",
+    "edition": "1.0",
+    "date": "2011-10-28",
+    "title": "Information technology - Document Schema Definition Languages (DSDL) - Part 11: Schema association",
+    "language": "EN",
+    "description": "ISO/IEC 19757-11:2011 allows schemas using any schema definition language to be associated with an XML document by including one or more processing instructions with a target of xml-model in the document's prolog."
+  },
+  {
+    "reference": "ISO/IEC TR 19758:2003",
+    "edition": "1.0",
+    "date": "2003-03-31",
+    "title": "Information technology - Document description and processing languages - DSSSL library for complex compositions",
+    "language": "EN",
+    "description": "ISO/IEC TR 19758:2003 provides a DSSSL (ISO/IEC 10179:1996) library that makes it feasible to describe DSSSL specification for documents described by SGML (ISO 8879:1986) or XML (Extensible Markup Language). The library can deal with some complex compositions programmed by a number of complicated DSSSL specification statements. Those compositions consist of the formatting objects: paper size, paper placement, unit, basic composition style, font, character size, headline, page number, note, inlinenote, emphasizing mark, superscript/subscript, word-length adjustment, character space adjustment, clause, list, table, heading, ruby, paragraph indentation, score, rule, and inline. The DSSSL library contains the simple parameter data and the four files: full parameter generator; function set; page model set; flow object construction rules. Their actual data are specified in ISO/IEC TR 19758:2003."
+  },
+  {
+    "reference": "ISO/IEC TR 19758:2003/AMD1:2005",
+    "edition": "1.0",
+    "date": "2005-07-06",
+    "title": "Information technology - Document description and processing languages - DSSSL library for complex compositions - Amendment 1: Extensions to basic composition styles and tables",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 19758:2003/AMD2:2005",
+    "edition": "1.0",
+    "date": "2005-07-06",
+    "title": "Information technology - Document description and processing languages - DSSSL library for complex compositions - Amendment 2: Extensions to multilingual compositions (South-East Asian compositions)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 19758:2003/AMD3:2005",
+    "edition": "1.0",
+    "date": "2005-08-24",
+    "title": "Information technology - Document description and processing languages - DSSSL library for complex compositions - Amendment 3: Extensions to Multilingual Compositions (North and South Asian Compositions)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 21320-1:2015",
+    "edition": "1.0",
+    "date": "2015-10-20",
+    "title": "Information technology - Document Container File - Part 1: Core",
+    "language": "EN",
+    "description": "ISO/IEC 21320-1:2015 specifies the core requirements for - document container files, and - implementations that produce and/or consume document container files. ISO/IEC 21320-1:2015 normatively references the Zip File Format Specification version 6.3.3 of PKWARE® Inc. Document container files are conforming Zip files as specified by that document."
+  },
+  {
+    "reference": "ISO/IEC TS 22424-1:2020",
+    "edition": "1.0",
+    "date": "2020-01-29",
+    "title": "Digital publishing - EPUB3 preservation - Part 1: Principles",
+    "language": "EN",
+    "description": "The ISO/IEC TS 22424 series supports long-term preservation of EPUB publications via a dual strategy. This document considers EPUB features from a long-term preservation point of view. Some EPUB features are forbidden and some others required, depending on how they relate to a long-term preservation. EPUB publications constructed according to these guidelines are suitable for preservation. ISO/IEC TS 22424-2 makes EPUB compliant with Open Archival Information System (OAIS) and current practices of OAIS archives."
+  },
+  {
+    "reference": "ISO/IEC TS 22424-2:2020",
+    "edition": "1.0",
+    "date": "2020-01-29",
+    "title": "Digital publishing - EPUB3 preservation - Part 2: Metadata requirements",
+    "language": "EN",
+    "description": "The ISO/IEC TS 22424 series supports long-term preservation of EPUB publications via a dual strategy. This document makes EPUB compliant with current practices of Open Archival Information Systems (OAIS) archives and technical requirements of repository systems. The former tend to rely on OAIS in their operations; the latter prefer to ingest electronic documents only in containers conforming to standards such as METS (Metadata Encoding and Transmission Standard). ISO/IEC TS 22424-1 considers EPUB features from a long-term preservation point of view."
+  },
+  {
+    "reference": "ISO/IEC 23078-1:2024",
+    "edition": "1.0",
+    "date": "2024-06-07",
+    "title": "Information technology - Specification of digital rights management (DRM) technology for digital publications - Part 1: Overview of copyright protection technologies in use in the publishing industry",
+    "language": "EN",
+    "description": "This document describes three types of copyright protection technologies in use in the publishing industry: — digital rights management (DRM) free protection, i.e. technologies which do not rely on content encryption but rather use content fingerprinting or watermarking, adequate for use cases where user convenience is the top priority; — user key-based DRM protection, adequate where user constraints are limited; — device key-based DRM protection, adequate where the transfer of publications from one device to another is severely constrained."
+  },
+  {
+    "reference": "ISO/IEC 23078-2:2024",
+    "edition": "1.0",
+    "date": "2024-06-07",
+    "title": "Information technology - Specification of digital rights management (DRM) technology for digital publications - Part 2: User key-based protection",
+    "language": "EN",
+    "description": "This document defines a technical solution for encrypting resources in digital publications (especially EPUB) and for securely delivering decryption keys to reading systems, included in licenses tailored to specific users. It also defines a simple passphrase-based authentication method for reading systems to verify the license and access the encrypted resources of such digital publications."
+  },
+  {
+    "reference": "ISO/IEC 23078-3:2024",
+    "edition": "1.0",
+    "date": "2024-06-07",
+    "title": "Information technology - Specification of digital rights management (DRM) technology for digital publications - Part 3: Device key-based protection",
+    "language": "EN",
+    "description": "This document defines a technical solution for encrypting resources in digital publications (especially EPUB), effectively registering a device certificate to providers and securely delivering decryption keys to reading systems included in licenses tailored to specific devices. This technical solution uses the passphrase-based authentication method defined in ISO/IEC 23078-2 for reading systems to receive the license and access the encrypted resources of such digital publications."
+  },
+  {
+    "reference": "ISO/IEC 23736-1:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 1: Overview",
+    "language": "EN",
+    "description": "This specification, EPUB Media Overlays 3.0.1, defines a usage of [SMIL] (Synchronized Multimedia Integration Language), the Package Document, the EPUB® Style Sheet, and the EPUB Content Document for representation of audio synchronized with the EPUB Content Document. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0.1 [Publications301], which defines the semantics and overarching conformance requirements for each Rendition of an EPUB Publication. EPUB Content Documents 3.0.1 [ContentDocs301], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. EPUB Open Container Format (OCF) 3.0.1 [OCF301], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container."
+  },
+  {
+    "reference": "ISO/IEC 23736-2:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 2: Publications",
+    "language": "EN",
+    "description": "This specification, EPUB Publications 3.0.1, defines semantics and conformance requirements for EPUB® Publications, including the format of the Package Document that describes each Rendition of the content and rules for how this document and other Publication Resources are associated to create a conforming EPUB Publication. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Content Documents 3.0.1 [ContentDocs301], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. EPUB Open Container Format (OCF) 3.0.1 [OCF301], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUBContainer. EPUB Media Overlays 3.0.1 [MediaOverlays301], which defines a format and a processing model for synchronization of text and audio. This specification supersedes EPUB Publications 3.0 [Publications30]. Refer to [EPUB3Changes] for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC 23736-3:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 3: Content documents",
+    "language": "EN",
+    "description": "This specification, EPUB Content Documents 3.0.1, defines profiles of HTML5, SVG, and CSS for use in the context of EPUB® Publications. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0.1 [Publications301], which defines the semantics and overarching conformance requirements for each Rendition of an EPUB Publication. EPUB Open Container Format (OCF) 3.0.1 [OCF301], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container. EPUB Media Overlays 3.0.1 [MediaOverlays301], which defines a format and a processing model for synchronization of text and audio. This specification supersedes EPUB Content Documents 3.0 [ContentDocs30]. Refer to [EPUB3Changes] for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC 23736-4:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 4: Open container format",
+    "language": "EN",
+    "description": "This specification, EPUB Open Container Format (OCF) 3.0.1, defines a file format and processing model for encapsulating the set of related resources that comprise an EPUB® Publication into a single-file container. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0.1 [Publications301], which defines the semantics and overarching conformance requirements for each Rendition of an EPUB Publication. EPUB Content Documents 3.0.1 [ContentDocs301], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. EPUB Media Overlays 3.0.1 [MediaOverlays301], which defines a format and a processing model for synchronization of text and audio. OCF is the required container technology for EPUB Publications. OCF may play a role in the following workflows: During the preparation steps in producing an EPUB Publication, OCF may be used as the container format when exchanging an in-progress EPUB Publication between different individuals and/or different organizations. When providing an EPUB Publication from publisher or conversion house to the distribution or sales channel, OCF is the recommended container format to be used as the transport format. When delivering the final EPUB Publication to an EPUB Reading System or User, OCF is the required format for the container that holds all of the assets that make up the EPUB Publication. The OCF specification defines the rules for structuring the file collection in the abstract: the \"abstract container\". It also defines the rules for the representation of this abstract container within a ZIP archive: the \"physical container\". The rules for ZIP physical containers build upon the ZIP technologies used by [ODF]. OCF also defines a standard method for obfuscating embedded resources, such as fonts, for those EPUB Publications that require this functionality. This specification supersedes Open Container Format (OCF) 3.0 [OCF30]. Refer to [EPUB3Changes] for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC 23736-5:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 5: Media overlays",
+    "language": "EN",
+    "description": "This specification, EPUB Media Overlays 3.0.1, defines a usage of [SMIL] (Synchronized Multimedia Integration Language), the Package Document, the EPUB® Style Sheet, and the EPUB Content Document for representation of audio synchronized with the EPUB Content Document. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0.1 [Publications301], which defines the semantics and overarching conformance requirements for each Rendition of an EPUB Publication. EPUB Content Documents 3.0.1 [ContentDocs301], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. EPUB Open Container Format (OCF) 3.0.1 [OCF301], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container."
+  },
+  {
+    "reference": "ISO/IEC 23736-6:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Information technology - Digital publishing - EPUB 3.0.1 - Part 6: Canonical fragment identifiers",
+    "language": "EN",
+    "description": "This specification, EPUB Canonical Fragment Identifier (epubcfi), defines a standardized method for referencing arbitrary content within an EPUB® Publication through the use of fragment identifiers. The Web has proven that the concept of hyperlinking is tremendously powerful, but EPUB Publications have been denied much of the benefit that hyperlinking makes possible because of the lack of a standardized scheme to link into them. Although proprietary schemes have been developed and implemented for individual Reading Systems, without a commonly-understood syntax there has been no way to achieve cross-platform interoperability. The functionality that can see significant benefit from breaking down this barrier, however, is varied: from reading location maintenance to annotation attachment to navigation, the ability to point into any Publication opens a whole new dimension not previously available to developers and Authors. This specification attempts to rectify this situation by defining an arbitrary structural reference that can uniquely identify any location, or simple range of locations, in an EPUB Publication: the EPUB CFI. The following considerations have strongly influenced the design and scope of this scheme: The mechanism used to reference content should be interoperable: references to a reading position created by one Reading System should be usable by another. Document references to EPUB content should be enabled in the same way that existing hyperlinks enable references throughout the Web. Each location in an EPUB file should be able to be identified without the need to modify the document. All fragment identifiers that reference the same logical location should be equal when compared. Comparison operations, including tests for sorting and comparison, should be able to be performed without accessing the referenced files. Simple manipulations should be possible without access to the original files (e.g., given a reference deep in a file, it should be possible to generate a reference to the start of the file). Identifier resolution should be reasonably efficient (e.g., processing of the first chapter is not necessary to resolve a fragment identifier that points to the last chapter). References should be able to recover their target locations through parser variations and document revisions. Expression of simple, contiguous ranges should be supported. An extensible mechanism to accommodate future reference recovery heuristics should be provided. In the case of both Standard EPUB CFIs and Intra-Publication EPUB CFI, this specification conforms with the guidelines expressed by W3C in Section 6. Best Practices for Fragid Structures [FragIDBestPractices]. In other words, both standard CFI URIs (e.g., \"book.epub#epubcfi(?)\", referred media type \"application/epub+zip\") and intra-publication CFI URIs (e.g., \"package.opf#epubcfi(?)\", referred media type \"application/oebps-package+xml\") make use of a fragment identifier syntax that does not overlap with existing schemes in the context of the aforementioned media types' suffix registrations (i.e., \"-xml\" and \"zip\")."
+  },
+  {
+    "reference": "ISO/IEC 23761:2021",
+    "edition": "1.0",
+    "date": "2021-02-05",
+    "title": "Digital publishing - EPUB accessibility - Conformance and discoverability requirements for EPUB publications",
+    "language": "EN",
+    "description": "This document specifies content conformance requirements for verifying the accessibility of EPUB publications. It also specifies accessibility metadata requirements for the discoverability of EPUB publications."
+  },
+  {
+    "reference": "ISO/IEC 26300:2006",
+    "edition": "1.0",
+    "date": "2006-11-30",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0",
+    "language": "EN",
+    "description": "ISO/IEC 26300:2006 defines an XML schema for office applications and its semantics. The schema is suitable for office documents, including text documents, spreadsheets, charts and graphical documents like drawings or presentations, but is not restricted to these kinds of documents. ISO/IEC 26300:2006 provides for high-level information suitable for editing documents. It defines suitable XML structures for office documents and is friendly to transformations using XSLT or similar XML-based tools. ISO/IEC 26300:2006 first provides an introduction to the OpenDocument format and explains the structure of documents that conform to the OpenDocument specification. It describes the meta information that can be contained in such documents, and their text and paragraph content. Text Fields and text indices are described. ISO/IEC 26300:2006 describes the table content of a document in OpenDocument format, its graphical content, its chart content and its form content. It also describes content that is common to all documents. It describes the integration of SMIL animation markup into the OpenDocument schema. It explains style information content and specifies formatting properties that can be used within styles. The data types used by the OpenDocument schema are described. The OpenDocument format makes use of a package concept; these packages are described."
+  },
+  {
+    "reference": "ISO/IEC 26300:2006/COR1:2010",
+    "edition": "1.0",
+    "date": "2010-12-15",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0 - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 26300:2006/COR2:2011",
+    "edition": "1.0",
+    "date": "2011-11-30",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0 - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 26300:2006/COR3:2014",
+    "edition": "1.0",
+    "date": "2014-08-14",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0 - Technical Corrigendum 3",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 26300:2006/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-03-08",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0 - Amendment 1: Open Document Format for Office Applications (OpenDocument) v1.1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 26300:2006/AMD1:2012/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-08-14",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.0 - Amendment 1: Open Document Format for Office Applications (OpenDocument) v1.1 - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 26300-1:2015",
+    "edition": "1.0",
+    "date": "2015-06-17",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.2 - Part 1: OpenDocument Schema",
+    "language": "EN",
+    "description": "ISO/IEC 26300-1:2015 the Open Document Format for Office Applications (OpenDocument) Version 1.2 specification. It defines an XML schema for office documents. Office documents includes text documents, spreadsheets, charts and graphical documents like drawings or presentations, but is not restricted to these kinds of documents. The XML schema for OpenDocument is designed so that documents valid to it can be transformed using XSLT and processing with XML-based tools."
+  },
+  {
+    "reference": "ISO/IEC 26300-2:2015",
+    "edition": "1.0",
+    "date": "2015-06-17",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.2 - Part 2: Recalculated Formula (OpenFormula) Format",
+    "language": "EN",
+    "description": "ISO/IEC 26300-2:2015 the Open Document Format for Office Applications (OpenDocument) Version 1.2 specification. It defines a formula language for OpenDocument documents, which is also called OpenFormula. OpenFormula is a specification of an open format for exchanging recalculated formulas between office applications, in particular, formulas in spreadsheet documents. OpenFormula defines data types, syntax, and semantics for recalculated formulas, including predefined functions and operations. Using OpenFormula allows document creators to change the office application they use, exchange formulas with others (who may use a different application), and access formulas far in the future, with confidence that the recalculated formulas in their documents will produce equivalent results if given equivalent inputs. OpenFormula is intended to be a supporting document to the Open Document Format for Office Applications (OpenDocument) format, particularly for defining its attributes table:formula and text:formula. It can also be used in other circumstances where a simple, easy-to-read infix text notation is desired for exchanging recalculated formulas."
+  },
+  {
+    "reference": "ISO/IEC 26300-3:2015",
+    "edition": "1.0",
+    "date": "2015-06-17",
+    "title": "Information technology - Open Document Format for Office Applications (OpenDocument) v1.2 - Part 3: Packages",
+    "language": "EN",
+    "description": "ISO/IEC 26300-3:2015 the Open Document Format for Office Applications (OpenDocument) Version 1.2 specification. It defines a formula language for OpenDocument documents."
+  },
+  {
+    "reference": "ISO/IEC TR 29166:2011",
+    "edition": "1.0",
+    "date": "2011-12-07",
+    "title": "Information technology - Document description and processing languages - Guidelines for translation between ISO/IEC 26300 and ISO/IEC 29500 document formats",
+    "language": "EN",
+    "description": "OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats are XML based but differ in design and scope. ISO/IEC TR 29166:2012 aims at analysing the two International Standards and their underlying concepts in terms of interoperability issues for a selected set of features. It analyses the way these features are implemented in both International Standards and estimates the degree of translatability between them using a table-based comparison. ISO/IEC TR 29166:2012 serves as a preliminary technical translation guideline for evaluating translatability between certain parts of the two International Standards. It does not compare different implementations which can cause additional kinds of interoperability problems. It starts by studying common use cases to identify how the most important functionalities of one document format can be represented in the other format. This is followed by a thorough review of the concepts, architectures and various features of the two document formats in order to provide a good understanding of the commonalities and differences. It is expected that functionalities will be able to be translated with different degrees of fidelity to the other format. As an illustrative sample of this functionality, detailed information is provided on the extent to which those functionalities can be translated. ISO/IEC TR 29166:2012 addresses both developers seeking to implement either ISO/IEC 26300 or ISO/IEC 29500 and template designers and other power users whose competences cut across the spectrum of XML and XML-related technologies which directly or remotely deal with one or both of the two International Standards. ISO/IEC TR 29166:2012 will be of great assistance to those seeking to exchange documents between formats, to extract data from or import data into documents, or to write applications supporting the two formats. ISO/IEC TR 29166:2012 is a necessary step to the goal of helping achieve interoperability and harmonization between the two formats. It should encourage standards bodies as well as the developers of office suites to translate some of the ideas into future versions of the standards and products."
+  },
+  {
+    "reference": "ISO/IEC 29500-1:2016",
+    "edition": "4.0",
+    "date": "2016-10-26",
+    "title": "Information technology - Document description and processing languages - Office Open XML File Formats - Part 1: Fundamentals and Markup Language Reference",
+    "language": "EN",
+    "description": "ISO/IEC 29500-1:2016 defines a set of XML vocabularies for representing word-processing documents, spreadsheets and presentations. On the one hand, the goal of ISO/IEC 29500 is to be capable of faithfully representing the pre-existing corpus of word-processing documents, spreadsheets and presentations that had been produced by the Microsoft Office applications (from Microsoft Office 97 to Microsoft Office 2008, inclusive) at the date of the creation of ISO/IEC 29500. It also specifies requirements for Office Open XML consumers and producers. On the other hand, the goal is to facilitate extensibility and interoperability by enabling implementations by multiple vendors and on multiple platforms. ISO/IEC 29500-1:2016 specifies concepts for documents and applications of both strict and transitional conformance."
+  },
+  {
+    "reference": "ISO/IEC 29500-2:2021",
+    "edition": "4.0",
+    "date": "2021-08-09",
+    "title": "Document description and processing languages - Office Open XML file formats - Part 2: Open packaging conventions",
+    "language": "EN",
+    "description": "This document defines a set of conventions for packaging one or more interrelated byte streams (parts) as a single resource (package). These conventions are applicable not only to Office Open XML specifications as described in ISO/IEC 29500-1 and ISO/IEC 29500-4, but also to other markup specifications."
+  },
+  {
+    "reference": "ISO/IEC 29500-3:2015",
+    "edition": "4.0",
+    "date": "2015-06-16",
+    "title": "Information technology - Document description and processing languages - Office Open XML File Formats - Part 3: Markup Compatibility and Extensibility",
+    "language": "EN",
+    "description": "This Part of ISO/IEC 29500 defines a set of conventions for forward compatibility of markup specifications, applicable not only to Office Open XML specifications as described in Parts 1 and 4 of this Standard, but also to other markup specifications. These conventions allow XML documents created by applications of later versions or extensions to be handled by applications of earlier versions."
+  },
+  {
+    "reference": "ISO/IEC 29500-4:2016",
+    "edition": "4.0",
+    "date": "2016-10-26",
+    "title": "Information technology - Document description and processing languages - Office Open XML File Formats - Part 4: Transitional Migration Features",
+    "language": "EN",
+    "description": "ISO/IEC 29500-4:2016 defines a set of XML vocabularies for representing word-processing documents, spreadsheets and presentations. On the one hand, the goal of ISO/IEC 29500 is to represent faithfully the existing corpus of word-processing documents, spreadsheets and presentations that have been produced by Microsoft Office applications (from Microsoft Office 97 to Microsoft Office 2008, inclusive). It also specifies requirements for Office Open XML consumers and producers. On the other hand, the goal is to facilitate extensibility and interoperability by enabling implementations by multiple vendors and on multiple platforms. ISO/IEC 29500-4:2016 defines features for backward-compatibility and that are useful for high-quality migration of existing binary documents to ISO/IEC 29500. These features are used only by documents of conformance class WML Transitional (§2.1), SML Transitional (§2.1), or PML Transitional (§2.1). These features are sometimes needed for high-quality migration of existing binary documents to ISO/IEC 29500."
+  },
+  {
+    "reference": "ISO/IEC TR 30114-1:2016",
+    "edition": "1.0",
+    "date": "2016-12-08",
+    "title": "Information technology - Extensions of Office Open XML file formats - Part 1: Guidelines",
+    "language": "EN",
+    "description": "ISO/IEC TR 30114-1:2016 gives guidelines for the use of extensibility mechanisms in ISO/IEC 29500 (Office Open XML). In particular, it makes clear which of these mechanisms supports lossless round tripping."
+  },
+  {
+    "reference": "ISO/IEC 30114-2:2018",
+    "edition": "1.0",
+    "date": "2018-04-05",
+    "title": "Information technology - Extensions of Office Open XML file formats - Part 2: Character repertoire checking",
+    "language": "EN",
+    "description": "ISO/IEC 30114-2:2018 provides an extension of OOXML for embedding CREPDL scripts within an OOXML document, and validating character contents in the OOXML document against these CREPDL scripts."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-1:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 1: EPUB3 Overview",
+    "language": "EN",
+    "description": "The EPUB® specification is a distribution and interchange format standard for digital publications and documents. EPUB defines a means of representing, packaging and encoding structured and semantically enhanced Web content — including HTML5, CSS, SVG, images, and other resources — for distribution in a single-file format. EPUB 3, the third major release of the standard, consists of a set of four specifications, each defining an important component of an overall EPUB Publication: -EPUB Publications 3.0 [Publications30], which defines publication-level semantics and overarching conformance requirements for EPUB Publications. -EPUB Content Documents 3.0 [ContentDocs30], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. -EPUB Open Container Format (OCF) 3.0 [OCF3], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container. -EPUB Media Overlays 3.0 [MediaOverlays30], which defines a format and a processing model for synchronization of text and audio. EPUB has been widely adopted as the format for digital books (eBooks), and these new specifications significantly increase the format's capabilities in order to better support a wider range of publication requirements, including complex layouts, rich media and interactivity, and global typography features. The expectation is that EPUB 3 will be utilized for a broad range of content, including books, magazines and educational, professional and scientific publications. This document provides a starting point for content authors and software developers wishing to understand these specifications. It consists of non-normative overview material, including a roadmap to the four building-block specification documents that compose EPUB 3. Another non-normative document, EPUB 3 Changes from EPUB 2.0.1 [EPUB3Changes], describes changes in EPUB 3 from the previous version, but is intended primarily for Authors and EPUB Reading System vendors migrating from EPUB 2.0.1 to EPUB 3 and for those who anticipate supporting both versions."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-2:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 2: Publications",
+    "language": "EN",
+    "description": "This specification, EPUB Publications 3.0, defines publication-level semantics and conformance requirements for EPUB® 3, including the format of the Package Document and rules for how this document and other Publication Resources are associated to create a conforming EPUB Publication. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: - The EPUB 3 Overview, which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. - EPUB Content Documents 3.0, which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. - EPUB Open Container Format (OCF) 3.0, which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container. - EPUB Media Overlays 3.0, which defines a format and a processing model for synchronization of text and audio. This specification supersedes Open Package Format 2.0.1. Refer to EPUB3 changes for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-3:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 3: Content Documents",
+    "language": "EN",
+    "description": "This specification, EPUB Content Documents 3.0, defines profiles of HTML5, SVG, and CSS for use in the context of EPUB® Publications. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0 [Publications30], which defines publication-level semantics and overarching conformance requirements for EPUB Publications. EPUB Open Container Format (OCF) 3.0 [OCF3], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container. EPUB Media Overlays 3.0 [MediaOverlays30], which defines a format and a processing model for synchronization of text and audio. This specification supersedes Open Publication Structure (OPS) 2.0.1 [OPS2]. Refer to [EPUB3Changes] for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-4:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 4: Open Container Format",
+    "language": "EN",
+    "description": "This specification, EPUB Open Container Format (OCF) 3.0, defines a file format and processing model for encapsulating the sets of related resources that comprise one or more EPUB® Publications into a single-file container. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. EPUB Publications 3.0 [Publications30], which defines publication-level semantics and overarching conformance requirements for EPUB Publications. EPUB Content Documents 3.0 [ContentDocs30], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. EPUB Media Overlays 3.0 [MediaOverlays30], which defines a format and a processing model for synchronization of text and audio. OCF is the required container technology for EPUB Publications. OCF may play a role in the following workflows: During the preparation steps in producing an electronic Publication, OCF may be used as the container format when exchanging in-progress Publications between different individuals and/or different organizations. When providing an electronic Publication from publisher or conversion house to the distribution or sales channel, OCF is the recommended container format to be used as the transport format. When delivering the final Publication to an EPUB Reading System or User, OCF is the required format for the container that holds all of the assets that make up the Publication. The OCF specification defines the rules for structuring the file collection in the abstract: the \"abstract container\". It also defines the rules for the representation of this abstract container within a ZIP archive: the \"physical container\". The rules for ZIP physical containers build upon the ZIP technologies used by [ODF]. OCF also defines a standard method for obfuscating embedded fonts for those EPUB Publications that require this functionality. This specification supersedes Open Container Format (OCF) 2.0.1 [OCF2]. Refer to [EPUB3Changes] for information on differences between this specification and its predecessor."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-5:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 5: Media Overlay",
+    "language": "EN",
+    "description": "This specification, EPUB Media Overlays 3.0, defines a usage of [SMIL] (Synchronized Multimedia Integration Language), the Package Document, the EPUB® Style Sheet, and the EPUB Content Document for representation of audio synchronized with the EPUB Content Document. This specification is one of a family of related specifications that compose EPUB 3, the third major revision of an interchange and delivery format for digital publications based on XML and Web Standards. It is meant to be read and understood in concert with the other specifications that make up EPUB 3: · The EPUB 3 Overview [EPUB3Overview], which provides an informative overview of EPUB and a roadmap to the rest of the EPUB 3 documents. The Overview should be read first. · EPUB Publications 3.0 [Publications30], which defines publication-level semantics and overarching conformance requirements for EPUB Publications. · EPUB Content Documents 3.0 [ContentDocs30], which defines profiles of XHTML, SVG and CSS for use in the context of EPUB Publications. · EPUB Open Container Format (OCF) 3.0 [OCF3], which defines a file format and processing model for encapsulating a set of related resources into a single-file (ZIP) EPUB Container."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-6:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 6: EPUB Canonical Fragment Identifier",
+    "language": "EN",
+    "description": "This specification, EPUB Canonical Fragment Identifier (epubcfi), defines a standardized method for referencing arbitrary content within an EPUB® Publication through the use of fragment identifiers. The Web has proven that the concept of hyperlinking is tremendously powerful, but EPUB Publications have been denied much of the benefit that hyperlinking makes possible because of the lack of a standardized scheme to link into them. Although proprietary schemes have been developed and implemented for individual Reading Systems, without a commonly-understood syntax there has been no way to achieve cross-platform interoperability. The functionality that can see significant benefit from breaking down this barrier, however, is varied: from reading location maintenance to annotation attachment to navigation, the ability to point into any Publication opens a whole new dimension not previously available to developers and Authors. This specification attempts to rectify this situation by defining an arbitrary structural reference that can uniquely identify any location, or simple range of locations, in a Publication: the EPUB CFI. The following considerations have strongly influenced the design and scope of this scheme: · The mechanism used to reference content should be interoperable: references to a reading position created by one Reading System should be usable by another. · Document references to EPUB content should be enabled in the same way that existing hyperlinks enable references throughout the Web. · Each location in an EPUB file should be able to be identified without the need to modify the document. · All fragment identifiers that reference the same logical location should be equal when compared. · Comparison operations, including tests for sorting and comparison, should be able to be performed without accessing the referenced files. · Simple manipulations should be possible without access to the original files (e.g., given a reference deep in a file, it should be possible to generate a reference to the start of the file). · Identifier resolution should be reasonably efficient (e.g., processing of the first chapter is not required to resolve a fragment identifier that points to the last chapter). · References should be able to recover their target locations through parser variations and document revisions. · Expression of simple, contiguous ranges should be supported. · An extensible mechanism to accommodate future reference recovery heuristics should be provided."
+  },
+  {
+    "reference": "ISO/IEC TS 30135-7:2014",
+    "edition": "1.0",
+    "date": "2014-11-05",
+    "title": "Information technology - Digital publishing - EPUB3 - Part 7: EPUB3 Fixed-Layout Documents",
+    "language": "EN",
+    "description": "EPUB® documents, unlike print books or PDF files, are designed to change. The content flows, or reflows, to fit the screen and to fit the needs of the reader. The EPUB 3.0 Specification says that \"content presentation should adapt to the user rather than the user having to adapt to a particular representation of content.\" But this principle doesn't work for all types of documents. Sometimes content and design are so intertwined they cannot be separated. Any change in appearance risks changing the meaning, or losing all meaning. Fixedlayout documents give content creators greater control over presentation, when a reflowable EPUB is not suitable for the content. This document, EPUB 3 Fixed-Layout Documents, defines a set of metadata properties to allow declarative expression of intended rendering behaviors of fixed-layout documents in the context of EPUB 3. It also defines mechanisms to express the intended rendering dimensions of fixed-layout XHTML and SVG [ContentDocs30] content, as well as bitmap images."
+  },
+  {
+    "reference": "ISO 8879:1986",
+    "edition": "1.0",
+    "date": "1986-10-23",
+    "title": "Information processing - Text and office systems - Standard Generalized Markup Language (SGML)",
+    "language": "EN, FR",
+    "description": "Standard Generalized Markup Language (SGML)"
+  },
+  {
+    "reference": "ISO 8879:1986/COR1:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information processing - Text and office systems - Standard Generalized Markup Language (SGML) - Technical Corrigendum 1",
+    "language": "EN",
+    "description": "A new annex J (normative) is added."
+  },
+  {
+    "reference": "ISO 8879:1986/COR2:1999",
+    "edition": "1.0",
+    "date": "1999-11-04",
+    "title": "Information processing - Text and office systems - Standard Generalized Markup Language (SGML) - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO 8879:1986/AMD1:1988",
+    "edition": "1.0",
+    "date": "1988-06-30",
+    "title": "Amendment 1 - Information processing - Text and office systems - Standard Generalized Markup Language (SGML)",
+    "language": "EN",
+    "description": null
+  }
+]

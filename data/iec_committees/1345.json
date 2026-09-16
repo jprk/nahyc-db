@@ -1,0 +1,82 @@
+[
+  {
+    "reference": "IEC 61360-1:2017",
+    "edition": "4.0",
+    "date": "2017-07-27",
+    "title": "Standard data element types with associated classification scheme - Part 1: Definitions - Principles and methods",
+    "language": "EN-FR",
+    "description": "IEC 61360-1:2017 specifies principles for the definition of the properties and associated attributes and explains the methods for representing verbally defined concepts with appropriate data constructs available from IEC 61360-2. It also specifies principles for establishing a hierarchy of classification from a collection of classes, each of which represents a technical concept in the electrotechnical domain or a domain related to electrotechnology. This fourth edition cancels and replaces the third edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - support of advanced constructs such as · conditions and constraints, · blocks, · cardinality, · polymorphism, · generic and restricted enumerations, and · mapping; - extended list of data types; - harmonization with IEC 62656-1; - support of IEC TS 62720 and of coded units; - harmonization of semantic and administrative data among the various information objects; - use of UML for data modelling; - enhanced definitions and descriptions; - introduction of examples of higher level constructs such as block, cardinality, or polymorphism as guidance for the user of the IEC 61360 series. IEC 61360-4, IEC reference collection of standard data element types and component classes, can be accessed from IEC CDD (Common Data Dictionary) Free access to Database. The database contains the IEC reference collection of classes and associated characteristic properties (data element types or DETs) of electric/electronic components including materials, geometry and features used in electrotechnical equipment and systems. The dictionary and database follow the methodology of Part 1 of IEC 61360 and the information model of Part 2. IEC 61360-1:2017 has the status of a horizontal standard in accordance with IEC Guide 108 ."
+  },
+  {
+    "reference": "IEC 61360-2:2012",
+    "edition": "3.0",
+    "date": "2012-10-02",
+    "title": "Standard data element types with associated classification scheme for electric components - Part 2: EXPRESS dictionary schema",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-03 IEC 61360-2:2012 provides a formal model for data according to the scope as given in IEC 61360-1 and ISO 13584-42. It provides a means for the computer-sensible representation and exchange of such data, allowing for the implementation of dictionary systems dealing with data delivered according to either of the standards. This third edition cancels and replaces the second edition published in 2002, and its Amendment 1 (2003). It is a technical revision. It includes the following significant technical changes: - separation of concepts between characterization class and categorization class; - introduction of value constraints on classes and properties; - addition of various new subtypes for data types, including rational_type; - improvement on the representation of unit of measurement. IEC 61360-4, IEC reference collection of standard data element types and component classes, can be accessed from IEC CDD (Common Data Dictionary) Free access to Database. The database contains the IEC reference collection of classes and associated characteristic properties (data element types or DETs) of electric;electronic components including materials, geometry and features used in electrotechnical equipment and systems. The dictionary and database follow the methodology of Part 1 of IEC 61360 and the information model of Part 2. IEC 61360-2:2012 has the status of a horizontal standard in accordance with IEC Guide 108 ."
+  },
+  {
+    "reference": "IEC 61360-6:2016",
+    "edition": "1.0",
+    "date": "2016-10-04",
+    "title": "Standard data element types with associated classification scheme for electric components - Part 6: IEC Common Data Dictionary (IEC CDD) quality guidelines",
+    "language": "EN-FR",
+    "description": "IEC 61360-6:2016 provides guidance for the definition of concepts that are used to describe classes and properties submitted for update of the content of IEC Common Data Dictionary (IEC CDD). This includes: - a basic understanding of key concepts and procedures used within IEC CDD; - a binding reference for quality control of IEC 61360 compliant dictionary content; - guidance on documents where necessary in-depth knowledge can be acquired. IEC 61360-4, IEC reference collection of standard data element types and component classes, can be accessed from IEC CDD (Common Data Dictionary) Free access to Database. The database contains the IEC reference collection of classes and associated characteristic properties (data element types or DETs) of electric/electronic components including materials, geometry and features used in electrotechnical equipment and systems. The dictionary and database follow the methodology of Part 1 of IEC 61360 and the information model of Part 2."
+  },
+  {
+    "reference": "IEC 61360-7:2024",
+    "edition": "1.0",
+    "date": "2024-01-25",
+    "title": "Standard data element types with associated classification scheme - Part 7: Data dictionary of cross-domain concepts",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61360-7:2024 specifies the new data dictionary (domain) \"IEC 61360-7 - General items\" including its generic concepts. The IEC 61360-7 data dictionary provides concepts (dictionary elements, e.g. classes, properties) intended for cross-domain use. This document has the status of a horizontal publication in accordance with IEC Guide 108. The IEC 61360-7 data dictionary is published in IEC CDD and is available at https://cdd.iec.ch ."
+  },
+  {
+    "reference": "IEC 62656-1:2014",
+    "edition": "1.0",
+    "date": "2014-08-26",
+    "title": "Standardized product ontology register and transfer by spreadsheets - Part 1: Logical structure for data parcels",
+    "language": "EN-FR",
+    "description": "IEC 62656-1:2014 specifies the logical structure for a set of spreadsheets, used as \"data parcels\", to define, transfer and register product ontologies. The spreadsheet interface structure defined in this part of IEC 62656 contains the following: - Definition and specification of the logical structure and layout of the spreadsheet interface for definition, transfer, and registering of a reference dictionary; - Definition and specification of library instance data belonging to a class of a reference dictionary described by a set of spreadsheets conformant to this part of IEC 62656; - Definition and specification of the meta dictionary that enables the definition and transfer of a reference dictionary as a set of instance data conforming to the meta dictionary; - Definition and specification of the meta-model as data that enables the definition and transfer of a reference dictionary as a set of instance data conforming to the meta-meta-dictionary; - Specification of the mapping between the dictionary data expressed in the spreadsheet format and the EXPRESS model specified by IEC 61360-2/ISO 13584-42 (with some elements of ISO 13584-25); - Description of the basic semantic mapping between the dictionary data expressed in the spreadsheet formats defined in this part of IEC 62656 and that of DIN 4002."
+  },
+  {
+    "reference": "IEC TS 62656-2:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Standardized product ontology register and transfer by spreadsheets - Part 2: Application guide for use with the IEC common data dictionary (CDD)",
+    "language": "EN-FR",
+    "description": "IEC 62656-2:2013 provides an application guide for the data parcels specified in IEC 62656-1 and used for the definition of a domain data dictionary that may be imported from and exported to the IEC common data dictionary, or IEC CDD for short, maintained as the IEC 61360-4 database. It provides instructions for the interpretation and use of the technical specification defined in IEC 62656-1 within a software application, to avoid misuse of the data constructs available in IEC 62656-1."
+  },
+  {
+    "reference": "IEC 62656-3:2015",
+    "edition": "1.0",
+    "date": "2015-02-24",
+    "title": "Standardized product ontology register and transfer by spreadsheets - Part 3: Interface for Common information Model",
+    "language": "EN-FR",
+    "description": "IEC 62656-3:2015 defines a formal mapping between the IEC 62656 and meta-model for CIM in order to import the CIM ontology into the IEC CDD, and to ensure the interoperability of ontologies of two standards, or even among a wider spectrum of standards. For the basis of the mapping from CIM to the data model defined in IEC 62656-1, the UML representation of CIM is referenced."
+  },
+  {
+    "reference": "IEC 62656-5:2017",
+    "edition": "1.0",
+    "date": "2017-06-19",
+    "title": "Standardized product ontology register and transfer by spreadsheets - Part 5: Interface for activity description",
+    "language": "EN-FR",
+    "description": "IEC 62656-5:2017 specifies a method for representing activities and relations among the activities by a tabular ontology representation, called “parcellized activity model” or PAM for short, which is a specialized use of a generic tabular ontology data model, known as the parcellized ontology model (POM) defined in Part 1 of the IEC 62656 series. The activities that can be described by this document include part or whole of an enterprise, an organization or a collection of services, a set of events or processes which interact with each other by exchanging physical or non-physical entities. This part of IEC 62656 also defines a method for uniquely identifying activities, or their homologues happenings in a certain sequence. In addition, this document identifies flows of information, objects or materials exchanged among activities, where each of the activities is represented by a class and each flow by a relation."
+  },
+  {
+    "reference": "IEC 62656-8:2020",
+    "edition": "1.0",
+    "date": "2020-06-24",
+    "title": "Standardized product ontology register and transfer by data parcels - Part 8: Web service interface for data parcels",
+    "language": "EN-FR",
+    "description": "IEC 62656-8:2020 specifies a web service interface to exchange data parcel(s) conformant to IEC 62656-1, between a parcel server and a parcel client or between parcel servers. This interface comprises three basic services: a registration service, resolution service and subscription service. This document includes the following: – holistic use scenario; – detailed specification of the three basic services; – JSON and XML notation schemas for data parcel(s). The following items are outside the scope of this document: – user identification and authorization; – query language for a data parcel; – transportation protocol; – data and communication security techniques."
+  },
+  {
+    "reference": "IEC TS 62720:2017",
+    "edition": "2.0",
+    "date": "2017-01-25",
+    "title": "Identification of units of measurement for computer-based processing",
+    "language": "EN",
+    "description": "IEC TS 62720:2017(E) specifies identifiers for units to support computer-based processing of product data. It provides a survey of quantities with associated collections of internationally standardized as well as non–standardized units used in business and science. It covers any standard or non-standard units of measure currently in use, in two or more distinct ethno-linguistic groups or nations, at least in one domain of industry, for which an explicit method of conversion to a known standard unit of measure or its equivalent is well documented or evident from external references."
+  }
+]

@@ -1,0 +1,626 @@
+[
+  {
+    "reference": "IEC 61547:2020",
+    "edition": "3.0",
+    "date": "2020-03-26",
+    "title": "Equipment for general lighting purposes - EMC immunity requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 61547:2020 which deals with electromagnetic immunity requirements, applies to lighting equipment which is within the scope of IEC technical committee 34, including apparatus such as lamps, luminaires, and modules. This third edition cancels and replaces the second edition, published in 2009. This edition constitutes a technical revision This edition includes the following significant technical changes with respect to the previous edition: - extension of scope with end-user replaceable modules and the combination of end-user replaceable module and independent auxiliary; - clarification of module testing in a host system; - increased ESD and surge test levels for road and street lighting equipment; - the introduction of ESD testing under normal operation and handling conditions; - removal of line to ground surge test for self-ballasted lamps ≤ 25 W."
+  },
+  {
+    "reference": "IEC TR 61547-1:2020",
+    "edition": "3.0",
+    "date": "2020-07-01",
+    "title": "Equipment for general lighting purposes - EMC immunity requirements - Part 1: Objective light flickermeter and voltage fluctuation immunity test method",
+    "language": "EN",
+    "description": "IEC TR 61547-1:2020 describes an objective light flickermeter, which can be applied for the following purposes: - measuring the intrinsic performance of all lighting equipment without the application of voltage fluctuations in terms of illuminance flicker; during this measurement, the lighting equipment is supplied with a stable mains; - testing the immunity performance of lighting equipment against (unintentional) voltage fluctuation disturbance on the AC mains in terms of illuminance flicker; during this test a set of defined voltage fluctuations are applied to the AC mains and the immunity of the lighting equipment to the disturbance is determined. Apart from the above two purposes, the immunity performance of lighting equipment can also be tested against intentional voltage fluctuation on the AC mains arising for example from mains signalling. This is however not described in further detail in this document. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the scope of this document has been clarified to make a distinction between flicker testing without voltage fluctuations to measure the intrinsic performance of lighting equipment and flicker testing in which a specific set of voltage fluctuations are applied in order to measure the immunity of the lighting equipment to voltage fluctuations present on the mains; - the test procedure for flicker testing has been clarified."
+  },
+  {
+    "reference": "IEC 62386-101:2022",
+    "edition": "3.0",
+    "date": "2022-11-16",
+    "title": "Digital addressable lighting interface - Part 101: General requirements - System components",
+    "language": "EN-FR",
+    "description": "IEC 62386-101:2022 is applicable to system components in a bus system for control by digital signals of electronic lighting equipment. The control methods, algorithms and data exchange methods of application controllers used for lighting control are not within the scope of the IEC 62386 series. EMC requirements are not within the scope of the IEC 62386 series. This third edition cancels and replaces the second edition published in 2014 and Amendment 1:2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the scope has been updated; safety and earthing have been updated and extended; references have been updated; the use of bus-power and external-power has been clarified; polarity sensitivity for bus units including a bus power supply has been updated; frame sizes of 32 bits are no longer reserved."
+  },
+  {
+    "reference": "IEC 62386-102:2022",
+    "edition": "3.0",
+    "date": "2022-11-16",
+    "title": "Digital addressable lighting interface - Part 102: General requirements - Control gear",
+    "language": "EN-FR",
+    "description": "IEC 62386-102:2022 is applicable to control gear for control by digital signals of electronic lighting equipment. This third edition cancels and replaces the second edition published in 2014 and Amendment 1:2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the scope has been updated; references have been updated; memory bank reading of multi-byte values has been added; memory bank 0 and common memory bank requirements have been updated; reserved memory banks have been updated; non-volatile memory (NVM) save time has been added, and SAVE PERSISTENT VARIABLES removed; version number has been updated; bus unit configuration has been added."
+  },
+  {
+    "reference": "IEC 62386-103:2022",
+    "edition": "2.0",
+    "date": "2022-11-16",
+    "title": "Digital addressable lighting interface - Part 103: General requirements - Control devices",
+    "language": "EN-FR",
+    "description": "IEC 62386-103:2022 is applicable to control devices for control by digital signals of electronic lighting equipment. This second edition cancels and replaces the first edition published in 2014 and Amendment 1:2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the scope has been updated; quiescent mode has been updated; non-volatile memory (NVM) save time has been added, and SAVE PERSISTENT VARIABLES command removed; memory bank 0 has been modified, and common memory bank requirements have been added; IDENTIFY DEVICE has been updated; version number has been changed; bus unit configuration has been added; and instance types and configuration have been added."
+  },
+  {
+    "reference": "IEC 62386-104:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Digital addressable lighting interface - Part 104: General requirements - Wireless and alternative wired system components",
+    "language": "EN-FR",
+    "description": "IEC 62386-104:2019 The IEC 62386 series specifies a bus system for control by digital signals of electronic lighting equipment. This part of IEC 62386 applies to a system with wireless or alternative wired communication between its units, instead of a wired bus system, where the meaning of “wireless or alternative wired communication”, or in short “telecommunication”, is any type of communication network different from the wired system described in IEC 62386-101. Where the electronic lighting equipment is covered by the scope of IEC 61347 (all parts), it is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-104:2019/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-12-13",
+    "title": "Amendment 1 - Digital addressable lighting interface - Part 104: General requirements - Wireless and alternative wired system components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62386-105:2024",
+    "edition": "2.0",
+    "date": "2024-12-12",
+    "title": "Digital addressable lighting interface - Part 105: Particular requirements for control gear and control devices - Firmware transfer",
+    "language": "EN-FR",
+    "description": "IEC 62386-105:2024 applies to control gear and control devices for control by digital signals of electronic lighting equipment. Typically, a bus unit according to the IEC 62386 series contains firmware. There are circumstances where it can be necessary to change the firmware after production or shipping of the product, for example if the bus unit does not operate as intended. In such a case, a firmware update of a bus unit via the interface is beneficial. This firmware update process is primarily designed to be a bug fix process, not a feature extension process. Nevertheless, the firmware update process can be used for feature extensions. But it is important that the risk of negative effects to the complete system be considered in detail. This second edition cancels and replaces the first edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) several commands have been modified, renamed and added; b) variables have been modified and added; c) recommendations for implementation within emergency control gear have been added; d) requirements for block acceptance have been changed; e) example process-flow diagrams have been added; f) requirements for restarting and power-on have been changed."
+  },
+  {
+    "reference": "IEC 62386-150:2023",
+    "edition": "1.0",
+    "date": "2023-03-16",
+    "title": "Digital addressable lighting interface – Part 150: Particular requirements - Auxiliary power supply",
+    "language": "EN-FR",
+    "description": "IEC 62386-150:2023 specifies the minimum requirements for an auxiliary (AUX) power supply that can be used to power a load, such as a sensor or communication device."
+  },
+  {
+    "reference": "IEC 62386-201:2015",
+    "edition": "2.0",
+    "date": "2015-05-27",
+    "title": "Digital addressable lighting interface - Part 201: Particular requirements for control gear - Fluorescent lamps (device type 0)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62386-201:2015 specifies a bus system for control by digital signals of electronic lighting equipment. This electronic lighting equipment should be in line with the requirements of IEC 61347. This document is applicable to control gear associated with fluorescent lamps. This second edition cancels and replaces the first edition published in 2009 and constitutes a technical revision. The essential changes with respect to the first edition are: - references to subclauses in IEC 62386-101 and IEC 62386-102 updated to the new structure of the standard; - test sequence reworked and description of the test sequences in form of a pseudo code instead of flow charts."
+  },
+  {
+    "reference": "IEC 62386-202:2022",
+    "edition": "2.0",
+    "date": "2022-12-15",
+    "title": "Digital addressable lighting interface - Part 202: Particular requirements for control gear - Self-contained emergency lighting (device type 1)",
+    "language": "EN-FR",
+    "description": "IEC 62386-202:2022 is applicable to control gear for control by digital signals of electronic lighting equipment which is associated with self-contained emergency lighting as described in IEC 61347-2-7 with additional control interface for configuring emergency operation. This second edition cancels and replaces the first edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: scope updated, hardwired switch operation can be disabled, installation inhibit feature added, memory bank added, modes of operation clarified, with some changes and additions, command added to enter extended emergency mode, command added to extend time in duration test mode."
+  },
+  {
+    "reference": "IEC 62386-203:2009",
+    "edition": "1.0",
+    "date": "2009-06-09",
+    "title": "Digital addressable lighting interface - Part 203: Particular requirements for control gear - Discharge lamps (excluding fluorescent lamps) (device type 2)",
+    "language": "EN-FR",
+    "description": "IEC 62386-203:2009 specifies a protocol and test procedures for the control of electronic control gear by digital signals used on a.c. or d.c. supplies, associated with discharge lamps (excluding fluorescent lamps). This Part 203 is intended to be used in conjunction with IEC 62386-101 and IEC 62386-102, which contain general requirements for the relevant product type (control gear or control devices)."
+  },
+  {
+    "reference": "IEC 62386-204:2009",
+    "edition": "1.0",
+    "date": "2009-06-09",
+    "title": "Digital addressable lighting interface - Part 204: Particular requirements for control gear - Low voltage halogen lamps (device type 3)",
+    "language": "EN-FR",
+    "description": "IEC 62386-204:2009 specifies a protocol and methods of test for the control by digital signals of electronic control gear for use on a.c. or d.c. supplies, associated with low voltage halogen lamps. This part 204 is intended to be used in conjunction with IEC 62386-101 and IEC 62386-102, which contain general requirements for the relevant product type (control gear or control devices)."
+  },
+  {
+    "reference": "IEC 62386-205:2009",
+    "edition": "1.0",
+    "date": "2009-06-09",
+    "title": "Digital addressable lighting interface - Part 205: Particular requirements for control gear - Supply voltage controller for incandescent lamps (device type 4)",
+    "language": "EN-FR",
+    "description": "IEC 62386-205:2009 specifies a protocol and test procedures for the control by digital signals of electronic control gear associated with incandescent lamps. This Part 205 is intended to be used in conjunction with IEC 62386-101 and IEC 62386-102, which contain general requirements for the relevant product type (control gear or control devices)."
+  },
+  {
+    "reference": "IEC 62386-206:2009",
+    "edition": "1.0",
+    "date": "2009-06-10",
+    "title": "Digital addressable lighting interface - Part 206: Particular requirements for control gear - Conversion from digital signal into d.c. voltage (device type 5)",
+    "language": "EN-FR",
+    "description": "IEC 62386-206:2009 specifies a protocol and test methods for the control by digital signals of electronic control gear, associated with the conversion from digital signal into d.c. voltage. This Part 206 is intended to be used in conjunction with IEC 62386-101 and IEC 62386-102, which contain general requirements for the relevant product type (control gear or control devices)."
+  },
+  {
+    "reference": "IEC 62386-207:2018",
+    "edition": "2.0",
+    "date": "2018-04-12",
+    "title": "Digital addressable lighting interface - Part 207: Particular requirements for control gear - LED modules (device type 6)",
+    "language": "EN-FR",
+    "description": "IEC 62386-207:2018 specifies a bus system for control by digital signals of electronic ligthing equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies. This second edition cancels and replaces the first edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: fast fade time has been redefined; short circuit and open circuit have been deleted; physical selection has been deleted; dimming curve selection has been moved to a separate part; load increase, load decrease and reference measurement have been moved to a separate part; thermal gear and lamp protection have been moved to separate parts; LED module integrated has been moved to a separate part; link to IEC 62386-102 error bits has been clarified; the following commands have been deleted: ENABLE CURRENT PROTECTOR DISABLE CURRENT PROTECTOR QUERY POSSIBLE OPERATING MODES QUERY SHORT CIRCUIT QUERY OPEN CIRCUIT QUERY CURRENT PROTECTOR ACTIVE QUERY CURRENT PROTECTOR ENABLED QUERY OPERATING MODE"
+  },
+  {
+    "reference": "IEC 62386-208:2009",
+    "edition": "1.0",
+    "date": "2009-06-10",
+    "title": "Digital addressable lighting interface - Part 208: Particular requirements for control gear - Switching function (device type 7)",
+    "language": "EN-FR",
+    "description": "IEC 62386-208:2009 specifies a protocol and test methods for the control by digital signals of electronic control gear that switches its output only on and off. This Part 208 is intended to be used in conjunction with IEC 62386-101 and IEC 62386-102, which contain general requirements for the relevant product type (control gear or control devices)."
+  },
+  {
+    "reference": "IEC 62386-209:2011",
+    "edition": "1.0",
+    "date": "2011-06-24",
+    "title": "Digital addressable lighting interface - Part 209: Particular requirements for control gear - Colour control (device type 8)",
+    "language": "EN-FR",
+    "description": "IEC 62386-209:2011 specifies a protocol and test procedures for the control by digital signals of electronic control gear that can change their light colour. This publication contains .pdf files, which reproduce the test sequences illustrated in Figures 5 to 127. These files are intended to be used as a complement and do not form an integral part of the publication. This publication is to be read in conjunction with IEC 62386-101:2009 and IEC 62386-102:2009 ."
+  },
+  {
+    "reference": "IEC 62386-216:2018",
+    "edition": "1.0",
+    "date": "2018-04-23",
+    "title": "Digital addressable lighting interface - Part 216: Particular requirements for control gear - Load referencing (device type 15)",
+    "language": "EN-FR",
+    "description": "IEC 62386-216:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-217:2018",
+    "edition": "1.0",
+    "date": "2018-03-22",
+    "title": "Digital addressable lighting interface - Part 217: Particular requirements for control gear - Thermal gear protection (device type 16)",
+    "language": "EN-FR",
+    "description": "IEC 62386-217:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-218:2018",
+    "edition": "1.0",
+    "date": "2018-03-22",
+    "title": "Digital addressable lighting interface - Part 218: Particular requirements for control gear - Dimming curve selection (device type 17)",
+    "language": "EN-FR",
+    "description": "IEC 62386-218:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-220:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Digital addressable lighting interface - Part 220: Particular requirements for control gear - Centrally supplied emergency operation (device type 19)",
+    "language": "EN-FR",
+    "description": "IEC 62386-220:2019 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies. This document is applicable to control gear supporting centrally supplied emergency operation as described in EN 50171. This document does not apply to self-contained emergency lighting control gear. These types of control gear are specified in IEC 62386-202."
+  },
+  {
+    "reference": "IEC 62386-221:2018",
+    "edition": "1.0",
+    "date": "2018-06-18",
+    "title": "Digital addressable lighting interface - Part 221: Particular requirements for control gear - Demand response (device type 20)",
+    "language": "EN-FR",
+    "description": "IEC 62386-221:2018 specifies the methodology of demand response which focuses on the curtailment of electric loads during peak demand times thus avoiding the requirement to find new sources of generation capacity. By using load shedding, the lighting system responds to the demands of the energy supply. This document is applicable to control gear supporting the demand response functionality."
+  },
+  {
+    "reference": "IEC 62386-222:2018",
+    "edition": "1.0",
+    "date": "2018-04-10",
+    "title": "Digital addressable lighting interface - Part 222: Particular requirements for control gear - Thermal lamp protection (device type 21)",
+    "language": "EN-FR",
+    "description": "IEC 62386-222:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-224:2018",
+    "edition": "1.0",
+    "date": "2018-03-22",
+    "title": "Digital addressable lighting interface - Part 224: Particular requirements for control gear - Non-replaceable light source (device type 23)",
+    "language": "EN-FR",
+    "description": "IEC 62386-224:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts), with the addition of DC supplies."
+  },
+  {
+    "reference": "IEC 62386-250:2023",
+    "edition": "1.0",
+    "date": "2023-04-12",
+    "title": "Digital addressable lighting interface - Part 250: Particular requirements - Integrated power supply (device type 49)",
+    "language": "EN-FR",
+    "description": "IEC 62386-250:2023 specifies the characteristics of a bus power supply integrated in a control gear. This document builds on the digital addressable lighting interface as specified in the IEC 62386 series. This document is only applicable to control gear complying with IEC 62386-102."
+  },
+  {
+    "reference": "IEC 62386-251:2023",
+    "edition": "1.0",
+    "date": "2023-04-12",
+    "title": "Digital addressable lighting interface - Part 251: Particular requirements - Memory bank 1 extension (device type 50)",
+    "language": "EN-FR",
+    "description": "IEC 62386-251:2023 specifies an extension to memory bank 1 to enable asset management functionality. This document builds on the digital addressable lighting interface as specified in the IEC 62386 series. This document is only applicable to control gear complying with IEC 62386-102."
+  },
+  {
+    "reference": "IEC 62386-252:2023",
+    "edition": "1.0",
+    "date": "2023-04-12",
+    "title": "Digital addressable lighting interface - Part 252: Particular requirements - Energy reporting (device type 51)",
+    "language": "EN-FR",
+    "description": "IEC 62386-252:2023 specifies the information related to energy reporting accessible through memory banks in control gear. This document builds on the digital addressable lighting interface as specified in the IEC 62386 series, by adding specific requirements for data exchange. This document is only applicable to control gear complying with IEC 62386-102."
+  },
+  {
+    "reference": "IEC 62386-253:2023",
+    "edition": "1.0",
+    "date": "2023-04-14",
+    "title": "Digital addressable lighting interface - Part 253: Particular requirements - Diagnostics and maintenance (device type 52)",
+    "language": "EN-FR",
+    "description": "IEC 62386-253:2023 specifies the information related to diagnostics and maintenance information accessible through memory banks. This document builds on the digital addressable lighting interface as specified in the IEC 62386 series, by adding specific requirements for data exchange. The information given for light sources in this document is specific to LED light sources. This document is only applicable to control gear complying with IEC 62386-102."
+  },
+  {
+    "reference": "IEC 62386-301:2017",
+    "edition": "1.0",
+    "date": "2017-05-19",
+    "title": "Digital addressable lighting interface - Part 301: Particular requirements - Input devices - Push buttons",
+    "language": "EN-FR",
+    "description": "IEC 62386-301:2017 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347, with the addition of DC supplies. This document is only applicable to IEC 62386-103:2014 and IEC 62386-­103:2014/AMD1:— input devices that make the lighting control system sensitive to push button operations."
+  },
+  {
+    "reference": "IEC 62386-302:2017",
+    "edition": "1.0",
+    "date": "2017-05-19",
+    "title": "Digital addressable lighting interface - Part 302: Particular requirements - Input devices - Absolute input devices",
+    "language": "EN-FR",
+    "description": "IEC 62386-302:2017 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347, with the addition of DC supplies. This document is only applicable to IEC 62386-103:2014 and IEC 62386­-103:2014/AMD1:— input devices that make the lighting control system sensitive to absolute input devices such as switches or sliders. An absolute input device always has a deterministic state, such as a position between start and end point."
+  },
+  {
+    "reference": "IEC 62386-302:2017/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-04-10",
+    "title": "Amendment 1 - Digital addressable lighting interface - Part 302: Particular requirements - Input devices - Absolute input devices",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62386-303:2017",
+    "edition": "1.0",
+    "date": "2017-05-19",
+    "title": "Digital addressable lighting interface - Part 303: Particular requirements - Input devices - Occupancy sensor",
+    "language": "EN-FR",
+    "description": "IEC 62386-303:2017 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347, with the addition of DC supplies. This document is only applicable to IEC 62386-103:2014 and IEC 62386-­103:2014/AMD1:— input devices that deliver occupancy information to the lighting control system through movement or presence sensing."
+  },
+  {
+    "reference": "IEC 62386-303:2017/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-04-10",
+    "title": "Amendment 1 - Digital addressable lighting interface - Part 303: Particular requirements - Input devices - Occupancy sensor",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62386-304:2017",
+    "edition": "1.0",
+    "date": "2017-05-19",
+    "title": "Digital addressable lighting interface - Part 304: Particular requirements - Input devices - Light sensor",
+    "language": "EN-FR",
+    "description": "IEC 62386-304:2017 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347, with the addition of DC supplies. This document is only applicable to IEC 62386-103:2014 and IEC 62386-­103:2014/AMD1:— input devices that deliver illuminance level information to the lighting control system through light level sensing."
+  },
+  {
+    "reference": "IEC 62386-304:2017/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-04-10",
+    "title": "Amendment 1 - Digital addressable lighting interface - Part 304: Particular requirements - Input devices - Light sensor",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62386-305:2023",
+    "edition": "1.0",
+    "date": "2023-09-15",
+    "title": "Digital addressable lighting interface - Part 305: Particular requirements - Input devices - Colour sensor",
+    "language": "EN-FR",
+    "description": "IEC 62386-305:2023 is applicable to input devices that provide the lighting control system with colour information by colour sensing. This document is only applicable to IEC 62386-103 input devices that deliver colour information to the lighting control system through colour sensing."
+  },
+  {
+    "reference": "IEC 62386-306:2023",
+    "edition": "1.0",
+    "date": "2023-12-06",
+    "title": "Digital addressable lighting interface - Part 306: Particular requirements - Input devices - General purpose sensor",
+    "language": "EN-FR",
+    "description": "IEC 62386-306:2023 is applicable to input devices that provide sensor information or measurements to the lighting control system. This document is only applicable to input devices complying with IEC 62386-103."
+  },
+  {
+    "reference": "IEC 62386-332:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Digital addressable lighting interface - Part 332: Particular requirements - Input devices - Feedback",
+    "language": "EN-FR",
+    "description": "IEC 62386-332:2017 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347. This document is applicable to control devices supporting feedback functionality. The contents of the corrigendum of October 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62386-332:2017/COR1:2019",
+    "edition": "1.0",
+    "date": "2019-10-29",
+    "title": "Corrigendum 1 - Digital addressable lighting interface - Part 332: Particular requirements - Input devices - Feedback",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62386-333:2018",
+    "edition": "1.0",
+    "date": "2018-04-10",
+    "title": "Digital addressable lighting interface - Part 333: Particular requirements for control devices - Manual configuration (feature type 33)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62386-333:2018 specifies a bus system for control by digital signals of electronic lighting equipment which is in line with the requirements of IEC 61347 (all parts)."
+  },
+  {
+    "reference": "IEC 62386-351:2025",
+    "edition": "1.0",
+    "date": "2025-08-15",
+    "title": "Digital addressable lighting interface – Part 351: Particular requirements – Control devices – Luminaire-mounted control devices",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62386-351:2025 is applicable to control devices to be used in, on, or attached to, a luminaire. This document builds on the digital addressable lighting interface as specified in the IEC 62386 series of standards, by adding specific requirements for power consumption, integrated bus and AUX power supplies, a mechanism to arbitrate between multiple application controllers, and a memory bank definition for multi-master devices. This document is only applicable to control devices complying with IEC 62386‑103."
+  },
+  {
+    "reference": "IEC 62471-7:2023",
+    "edition": "1.0",
+    "date": "2023-02-16",
+    "title": "Photobiological safety of lamps and lamp systems - Part 7: Light sources and luminaires primarily emitting visible radiation",
+    "language": "EN-FR",
+    "description": "IEC 62471-7:2023 specifies an assessment of the photobiological safety of electrical light sources and luminaires in normal use as well as some basic product requirements. It applies to electrical light sources and luminaires that emit radiation predominantly in the visible spectral range (380 nm to 780 nm) and are used to illuminate spaces or objects or used for signalling. The contents of the corrigenda 1 (2023-06), 2 (2024-09) and the Interpretation sheet (2025-07) have been included in this copy."
+  },
+  {
+    "reference": "IEC 62471-7:2023/ISH1:2025",
+    "edition": "1.0",
+    "date": "2025-07-11",
+    "title": "Interpretation Sheet 1 - Photobiological safety of lamps and lamp systems - Part 7: Light sources and luminaires primarily emitting visible radiation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62471-7:2023/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-06-06",
+    "title": "Corrigendum 1 - Photobiological safety of lamps and lamp systems - Part 7: Light sources and luminaires primarily emitting visible radiation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62471-7:2023/COR2:2024",
+    "edition": "1.0",
+    "date": "2024-09-19",
+    "title": "Corrigendum 2 - Photobiological safety of lamps and lamp systems - Part 7: Light sources and luminaires primarily emitting visible radiation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62493:2015",
+    "edition": "2.0",
+    "date": "2015-03-10",
+    "title": "Assessment of lighting equipment related to human exposure to electromagnetic fields",
+    "language": "EN-FR, ES",
+    "description": "IEC 62493:2015 applies to the assessment of lighting equipment related to human exposure to electromagnetic fields. The assessment consists of the induced internal electric field for frequencies from 20 kHz to 10 MHz and the specific absorption rate (SAR) for frequencies from 100 kHz to 300 MHz around lighting equipment. This second edition cancels and replaces the first edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) identification of lighting product types deemed to comply with the standard without the need for test; b) deletion of the need for CISPR-15-compliance as a prerequisite for IEC 62493 compliance; c) inclusion of the consequences of the ICNIPR 2010 guidelines for (up to 100 kHz); d) adding some guidance to the Van der Hoofden test head method to improve reproducibility of results; e) inclusion of compliance demonstration method for products having intentional radiators."
+  },
+  {
+    "reference": "IEC 62493:2015/AMD1:2022",
+    "edition": "2.0",
+    "date": "2022-06-15",
+    "title": "Amendment 1 - Assessment of lighting equipment related to human exposure to electromagnetic fields",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62493-1:2013",
+    "edition": "1.0",
+    "date": "2013-07-09",
+    "title": "Assessment of lighting equipment related to human exposure to electromagnetic fields - Part 1: Results of the EMF measurement campaign from the VDE Test and Certification Institute and ZVEI, the German Electrical and Electronic Manufacturers' Association",
+    "language": "EN",
+    "description": "IEC/TR 62493-1:2013(E) presents an overview on EMF measurement results dependent on different lamp technologies used in current luminaires. For the measurement only the test procedure with the so called Van der Hoofden head in the frequency range from 20 kHz to 10 MHz was used."
+  },
+  {
+    "reference": "IEC 62504:2014",
+    "edition": "1.0",
+    "date": "2014-06-19",
+    "title": "General lighting - Light emitting diode (LED) products and related equipment - Terms and definitions",
+    "language": "EN-FR, ES",
+    "description": "IEC 62504:2014 is of assistance in the common understanding of terms and definitions, relevant for general lighting with LED technology. The terms included are those already available in IEC LED standards or used in manufacturers' literature. This standard provides descriptive terms (like \"LED light sources\") and measurable terms when modified from IEC 60050-845 (like \"colour rendering index\"). This first edition cancels and replaces the IEC TS 62504 published in 2011. The significant changes with respect to IEC TS 62504 are as follows: a) Terms from the International Electrotechnical Vocabulary that have not been modified are deleted; b) Alignment with the CIE has been done; c) An introduction has been added."
+  },
+  {
+    "reference": "IEC 62504:2014/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-03-13",
+    "title": "Amendment 1 - General lighting - Light emitting diode (LED) products and related equipment - Terms and definitions",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 62756-1:2015",
+    "edition": "1.0",
+    "date": "2015-05-27",
+    "title": "Digital load side transmission lighting control (DLT) - Part 1: Basic requirements",
+    "language": "EN-FR, EN",
+    "description": "IEC 62756-1:2015 specifies a protocol, electrical interface and test procedures for control of electronic lighting equipment by digital signals over the load side mains wiring. Safety requirements are not covered by this standard."
+  },
+  {
+    "reference": "IEC TS 62972:2016",
+    "edition": "1.0",
+    "date": "2016-07-21",
+    "title": "General lighting - Organic light emitting diode (OLED) products and related equipment - Terms and definitions",
+    "language": "EN-FR",
+    "description": "IEC TS 62972:2016 establishes terms and definitions specific for general lighting OLED light sources and related equipment."
+  },
+  {
+    "reference": "IEC TR 63037:2019",
+    "edition": "2.0",
+    "date": "2019-07-10",
+    "title": "Electrical interface specifications for self ballasted lamps and controlgear in phase-cut dimmed lighting systems",
+    "language": "EN",
+    "description": "IEC TR 63037:2019 provides guidance to controlgear/integrated lamp designers for the development of products suitable to operate with future phase-cut dimmers. It describes the possible voltage signals and the expected response of the controlgear/integrated lamps. This document describes the expected response of controlgear during all operation states of a phase-cut lighting system and provides a complete understanding of the requirements for phase-cut dimmers. The response of a phase-cut dimmer is described in IEC 60669-2‑1:—, Annex EE. This document specifies the system performance aspects and test procedures for the control by mains voltage phase-cut dimming of the brightness of mains operated electronic lighting equipment intended to be controlled by mains voltage phase-cut dimmers, such as LED integrated lamps and light sources with external controlgear. Safety requirements are not covered by this document, but by respective product standards. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - emission of audible noise; - ghosting caused by issues that are not related to the power supply of the dimmer or synchronization; - stability of phase angle waveform (for the dimmer), including symmetry and stability tests; - flicker of light loads; - repetitive ring up voltage; - dimming range; and - number of switching cycles have been added."
+  },
+  {
+    "reference": "IEC 63103:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Lighting equipment - Non-active mode power measurement",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 63103:2020 specifies methods of measurement of electrical power consumption in non-active mode(s), as applicable for electrical lighting equipment. This includes electrical lighting equipment incorporating non-illumination components. This document specifies neither performance requirements nor limits on power consumption. This document applies to lighting equipment connected to a supply voltage up to 1 500 V DC or up to 1 000 V AC. This document is intended to be referenced by lighting equipment product standards for the measurement of non-active mode power consumption. Details for the non-active mode power consumption measurement and data presentation are specified in the product standards."
+  },
+  {
+    "reference": "IEC TS 63105:2021",
+    "edition": "1.0",
+    "date": "2021-01-26",
+    "title": "Lighting systems and related equipment - Vocabulary",
+    "language": "EN",
+    "description": "IEC TS 63105:2021(E) establishes terms and definitions in the field of lighting systems and related equipment. Terminological literature for other fields of lighting is listed in the bibliography."
+  },
+  {
+    "reference": "IEC TS 63116:2021",
+    "edition": "1.0",
+    "date": "2021-10-04",
+    "title": "Lighting systems - General requirements",
+    "language": "EN",
+    "description": "IEC TS 63116:2021(E) specifies general requirements for design, installation and maintenance of a lighting system. A lighting system comprises a set of products. Requirements of the products are specified in product standards. For the general requirements of lighting systems, this document prevails. Construction of lighting systems can vary in applications. This document is not intended to provide detailed technical specifications for the construction of lighting systems but to specify requirements in general that are necessary for lighting systems."
+  },
+  {
+    "reference": "IEC TS 63116:2021/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-07-24",
+    "title": "Amendment 1 - Lighting systems - General requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 63117:2021",
+    "edition": "1.0",
+    "date": "2021-10-04",
+    "title": "General requirements for lighting systems - Safety",
+    "language": "EN",
+    "description": "IEC TS 63117:2021(E) specifies the safety requirements of lighting systems at the system level, applicable when designing a lighting system. A lighting system comprises a set of products. Safety requirements of the products are not covered in this document, but specified in product safety standards. NOTE For emergency lighting systems, national or regional regulations provide relevant information that can be firstly consulted. This document specifies safety requirements for lighting systems based on specific networks. This document does not cover cyber-security and information security of lighting systems. This document does not apply to lighting systems to be installed in potential explosive atmospheres which are under the scope of IEC TC 31. For lighting systems based on an information and communication technology (ICT) network, refer to IEC 62949. For lighting systems based on a home and building electronic system and building automation and control system (HBES/BACS) network, refer to IEC 63044-3."
+  },
+  {
+    "reference": "IEC 63128:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Lighting control interface for dimming - Analogue voltage dimming interface for electronic current sourcing controlgear",
+    "language": "EN-FR",
+    "description": "IEC 63128:2019 specifies the analogue control interface of controlgear which has the function of controlling the output of the controlgear. The output of the controlgear is controlled between minimum/off and maximum values by the voltage control device sinking the controlgear current source. This document does not specify safety requirements for the analogue interface of controlgear. Safety requirements are given in IEC 61347 (all parts)."
+  },
+  {
+    "reference": "IEC 63128:2019/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-07-12",
+    "title": "Amendment 1 - Lighting control interface for dimming - Analogue voltage dimming interface for electronic current sourcing controlgear",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 63129:2020",
+    "edition": "1.0",
+    "date": "2020-04-21",
+    "title": "Determination of inrush current characteristics of lighting products",
+    "language": "EN-FR, ES",
+    "description": "IEC 63129:2020 describes a method, based on measurements combined with calculations, to determine specific characteristics of the inrush current of single and/or multiple lighting products of the same type. Lighting products include the following: - light sources with integrated controlgear, - controlgear, - luminaires."
+  },
+  {
+    "reference": "IEC 63129:2020/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-10-14",
+    "title": "Amendment 1 - Determination of inrush current characteristics of lighting products",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63139:2026",
+    "edition": "2.0",
+    "date": "2026-03-06",
+    "title": "Explanation and background information on electrical safety requirements in TC 34 standards",
+    "language": "EN",
+    "description": "IEC TR 63139:2026 provides explanations and background information on electrical safety requirements in TC 34 standards."
+  },
+  {
+    "reference": "IEC TR 63158:2018",
+    "edition": "1.0",
+    "date": "2018-03-19",
+    "title": "Equipment for general lighting purposes - Objective test method for stroboscopic effects of lighting equipment",
+    "language": "EN",
+    "description": "IEC TR 63158:2018(E) describes an objective stroboscopic effect visibility (SVM) meter, which can be applied for performance testing of lighting equipment under different operational conditions. The stroboscopic effects considered in this document are limited to the objective assessment by a human observer of visible stroboscopic effects of temporal light modulation of lighting equipment in general indoor applications, with typical indoor light levels (> 100 lx) and with moderate movements of an observer or nearby handled object (< 4 m/s). Details on restriction of the applicability of the stroboscopic effect visibility measure is given in Clause A.1. The contents of the corrigendum of July 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 63158:2018/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-07-19",
+    "title": "Corrigendum 1 - Equipment for general lighting purposes - Objective test method for stroboscopic effects of lighting equipment",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC PAS 63313:2021",
+    "edition": "1.0",
+    "date": "2021-05-27",
+    "title": "Position statement on germicidal UV-C irradiation - UV-C safety guidelines",
+    "language": "EN",
+    "description": "IEC PAS 63313:2021 The safety advice in this document applies to UV-C sources and UV-C products which emit in the wavelength range of 180 nm to 280 nm. Not within the scope are: - devices having their own product safety standard, such as IEC 60335-2-109 applicable to UV-C water disinfection equipment and IEC 60335-2-65 applicable to UV-C air disinfection equipment - application environments of UV-C devices - products combining UV-C irradiance with chemicals and additives - products that do not emit UV-C radiation such as UV-A, UV-B and near-UV devices - requirements for performance and functional characteristics - requirements for preventing material degradation and material damage"
+  },
+  {
+    "reference": "IEC 63403-1:2024",
+    "edition": "1.0",
+    "date": "2024-02-08",
+    "title": "Horticultural lighting - LED packages for horticultural lighting - Part 1: Specification sheet",
+    "language": "EN-FR",
+    "description": "IEC 63403-1:2024 specifies the requirements for specification sheets relating to LED packages designed for horticultural lighting purposes. LED packages designed for horticultural lighting purposes in this document can be designed for emission of white light or emission of optical radiation at specified wavelengths. LED packages for horticultural lighting purposes are usually designed into LED modules or luminaires. This document does not contain compliance criteria, which can be affected by module or luminaire design, and are assumed to be plant species and growth stage dependent."
+  },
+  {
+    "reference": "IEC 63403-2:2024",
+    "edition": "1.0",
+    "date": "2024-02-08",
+    "title": "Horticultural lighting - LED packages for horticultural lighting - Part 2: Binning",
+    "language": "EN-FR",
+    "description": "IEC 63403-2:2024 specifies the binning method for LED packages for horticultural lighting."
+  },
+  {
+    "reference": "IEC PAS 63421:2022",
+    "edition": "1.0",
+    "date": "2022-03-25",
+    "title": "Zhaga Interface Specification Book 18 including Book 1 - Outdoor Luminaire Extension Interface",
+    "language": "EN",
+    "description": "IEC PAS 63421:2022(E) This Book 18 defines a standardized interface between a LED Luminaire and a sensing/communication module (Luminaire Extension Module, LEX-M) that can be attached to the Luminaire. The interface is intended to be used in outdoor applications with high IP rating. The LEX-M may provide for example sensory inputs to the Luminaire or communication between the Luminaire and a network. This Book 1 defines the common concepts that underlie the Zhaga interface specifications. In addition, this Book 1 specifies general requirements for Zhaga compliant components of LED Luminaires."
+  },
+  {
+    "reference": "IEC PAS 63422:2022",
+    "edition": "1.0",
+    "date": "2022-03-29",
+    "title": "Zhaga Interface Specification Book 20 including Book 1 - Smart interface between indoor luminaires and sensing/communication modules",
+    "language": "EN",
+    "description": "IEC PAS 63422:2022(E) Book 20 defines a smart interface between an indoor LED luminaire and a sensing/communication module. The module connects to the LED driver and control system, and typically can provide sensory inputs or enable communication between network components. Modules can be installed and replaced in the field. Book 1 defines the common concepts that underlie the Zhaga interface specifications. In addition, this Book 1 specifies general requirements for Zhaga compliant components of LED Luminaires."
+  },
+  {
+    "reference": "IEC TR 63425:2022",
+    "edition": "1.0",
+    "date": "2022-10-24",
+    "title": "Connectivity for lighting systems",
+    "language": "EN",
+    "description": "IEC TR 63425:2022(E) provides information and guidance on the connectivity aspects of lighting systems to operate and to interconnect with other systems. This document provides an overview of various connectivity solutions used within lighting systems, including topologies, communication protocols and related embedded functionalities. This document does not express preference for any specific topology or protocol."
+  },
+  {
+    "reference": "IEC 63494-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-04",
+    "title": "Lighting systems - Electro-mechanical interfaces - Part 1: Safety",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63494-1:2026 specifies the safety requirements for electro-mechanical interfaces connecting lighting system devices to luminaires. These interfaces are used to mechanically connect, electrically power, and enable communication of lighting system devices on luminaires. Electro-mechanical interfaces up to and including 1 000 V AC or 1 500 V DC are included. This document specifies safety related mechanical, electrical, ambient conditions, and construction requirements for the interface components including protective covers. Specific requirements for the devices that can utilize the interface such as sensors, communication modules, cameras, etc., are not within the scope of this document."
+  },
+  {
+    "reference": "IEC 63494-2-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-18",
+    "title": "Lighting systems - Electro-mechanical interfaces - Part 2-1: Four-pin extra-low-voltage twist-lock interface Type ZB18",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63494‑2-1:2026 specifies the interchangeability requirements of an electro-mechanical interface with four-pin extra-low-voltage (ELV) twist-lock interface – type ZB18 for use in lighting systems. This twist-lock interface has four electrical contacts that are suitable for ELV voltages. Two connections are intended for supply power and two are intended for digital communication. This document specifies interchangeability related requirements for mechanical, electrical, ambient conditions, positional orientation, communication protocol and pin assignments for the interface. Specific requirements for the devices that can utilize the interface such as sensors, communication modules, cameras, etc., are not within the scope of this document. This document does not specify the following aspects: - the lighting technology, - the illumination performance, - electromagnetic compatibility (EMC)."
+  },
+  {
+    "reference": "IEC TR 63540:2024",
+    "edition": "1.0",
+    "date": "2024-08-06",
+    "title": "Lighting systems - Characteristics for selected outdoor applications",
+    "language": "EN",
+    "description": "IEC TR 63540:2024 provides information on outdoor lighting systems for selected applications. This document provides an overview of configuration, interfaces with other devices, communications, control strategies and characteristics of various outdoor lighting systems with relevant functionalities. Applications selected for inclusion are: - outdoor parking area lighting; - road and street lighting; - pedestrian and cycle pathways lighting."
+  },
+  {
+    "reference": "IEC 63545:2026",
+    "edition": "1.0",
+    "date": "2026-02-23",
+    "title": "Horticultural lighting - Luminaires for horticultural lighting - Safety",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63545:2026 specifies safety requirements for horticultural luminaires, incorporating electric light sources for operation from supply voltage up to 1 000 V."
+  },
+  {
+    "reference": "IEC PAS 63629:2025",
+    "edition": "1.0",
+    "date": "2025-05-22",
+    "title": "PSR – Specific rules for luminaires",
+    "language": "EN",
+    "description": "IEC PAS 63629:2025 sets out the specific rules for luminaires and defines the product specifications to be adopted by manufacturers in the development of their Product Environmental Profiles (PEP) particularly with regard to: - the technology and its type of application, - the conventional typical lifetime taken into account for the Life Cycle Assessment (LCA), - the conventional use scenarios to be adopted during the product use stage."
+  },
+  {
+    "reference": "IEC TR 63645:2026",
+    "edition": "1.0",
+    "date": "2026-03-10",
+    "title": "Environmental aspects for lighting - Literature review on lighting products and systems",
+    "language": "EN",
+    "description": "IEC TR 63645:2026 provides a comprehensive range of environment related information sources to assist with understanding, assessing, and advancing the environmental performance of lighting products."
+  }
+]

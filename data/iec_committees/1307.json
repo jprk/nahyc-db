@@ -1,0 +1,386 @@
+[
+  {
+    "reference": "IEC 60215:2016",
+    "edition": "4.0",
+    "date": "2016-04-27",
+    "title": "Safety requirements for radio transmitting equipment - General requirements and terminology",
+    "language": "EN-FR, EN",
+    "description": "IEC 60215:2016(E) applies to radio transmitting equipment, operating under the responsibility of SKILLED persons. It also applies to auxiliary equipment and ancillary apparatus, including combining units and matching networks and cooling systems where these form an integral part of the transmitter system. This fourth edition cancels and replaces the third edition, published in 1987, Amendment 1:1989 and Amendment 2:1993. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - The test methods in this standard are similar to those given in IEC 60215:1987 and continue to apply only to radio transmitting equipment and equipment defined in Clause 1, operating under the responsibility of SKILLED persons. - Reorganization and revision of the content are summarized in Annex F. Words printed in SMALL CAPITALS are terms that are defined in Clause 3."
+  },
+  {
+    "reference": "IEC 60244-1:1999",
+    "edition": "2.0",
+    "date": "1999-12-22",
+    "title": "Methods of measurement for radio transmitters - Part 1: General characteristics for broadcast transmitters",
+    "language": "EN-FR, EN, FR",
+    "description": "Defines the conditions and methods of measurement to be used to ascertain the performance of a radio transmitter and to make possible the comparison of the results of measurement made by different observers."
+  },
+  {
+    "reference": "IEC 60244-2:1969",
+    "edition": "1.0",
+    "date": "1969-01-01",
+    "title": "Methods of measurement for radio transmitters. Part 2: Bandwidth, out-of-band power and power of non-essential oscillations",
+    "language": "EN-FR, RU",
+    "description": "Deals with the measurement of the power of the components, either in the outer part of the emitted spectrum or far remote from the centre part of the spectrum, that may cause interference to other emissions. The measuring conditions and methods of measurement apply to transmitters of various classes of emission."
+  },
+  {
+    "reference": "IEC 60244-2:1969/AMD1:1974",
+    "edition": "1.0",
+    "date": "1974-01-01",
+    "title": "Amendment 1 - Methods of measurement for radio transmitters. Part 2: Bandwidth, out-of-band power and power of non-essential oscillations",
+    "language": "EN-FR",
+    "description": "Lays down the conditions and methods of measurement to be used to ascertain the performance of a radio transmitter and to make possible the comparison of the different results of measurement."
+  },
+  {
+    "reference": "IEC 60244-3:1972",
+    "edition": "1.0",
+    "date": "1972-01-01",
+    "title": "Methods of measurement for radio transmitters - Part 3: Wanted and unwanted modulation",
+    "language": "EN-FR, RU",
+    "description": "Describes the conditions and methods of measurement for assessing the performance of transmitters with respect to wanted and unwanted modulation. The methods of measurement described are restricted to those properties that may be liable to ambiguous interpretation due to the application of different methods and conditions of measurement and are intended for type tests and acceptance tests but may also be used for factory tests."
+  },
+  {
+    "reference": "IEC 60244-4:1973",
+    "edition": "1.0",
+    "date": "1973-01-01",
+    "title": "Methods of measurement for radio transmitters. Part 4: Amplitude/frequency characteristics and non-linearity distortion in transmitters for radiotelephony and sound broadcasting",
+    "language": "EN-FR",
+    "description": "Applies to all transmitters for A3 class of operation. Applies also to radiotelephony transmitters with 1, 2, 3 or 4 channels for A3A, A3B, A3H and A3J class of operation, and to frequency modulated transmitters for monophonic sound broadcasting. Applies in part to transmitters for A7A and A7B class of operation. IEC 60244-4 itself describes standard operating conditions, standard modulation input arrangements and frequencies (Section One). It also describes standard methods to be used for measuring input impedance, the amplitude/frequency characteristics and the intelligible crosstalk (Section Two)."
+  },
+  {
+    "reference": "IEC 60244-5:1992",
+    "edition": "2.0",
+    "date": "1992-10-23",
+    "title": "Methods of measurement for radio transmitters - Part 5: Performance characteristics of television transmitters",
+    "language": "EN-FR",
+    "description": "Intended for type tests and acceptance and factory tests. The performance characteristics measured in accordance with this standard make it possible to compare the results of measurements made by different observers."
+  },
+  {
+    "reference": "IEC 60244-6:1976",
+    "edition": "1.0",
+    "date": "1976-01-01",
+    "title": "Methods of measurement for radio transmitters. Part 6: Cabinet radiation at frequencies between 130 kHz and 1 GHz",
+    "language": "EN-FR, RU",
+    "description": "Describes the conditions and methods to measure unwanted radiations originating from sources other than the aerial or aerial system of radio transmitters. The standard is intended to be used in conjunction with IEC 60244-1. The methods of measurement described in this standard are intended for type tests but they may also be used for acceptance tests and factory tests. Does not apply to transmitters in which the aerial cannot be disconnected or disabled and replaced by a test load."
+  },
+  {
+    "reference": "IEC 60244-7:1979",
+    "edition": "1.0",
+    "date": "1979-01-01",
+    "title": "Methods of measurement for radio transmitters. Part 7: Cabinet radiation at frequencies above 1 GHz",
+    "language": "EN-FR, RU",
+    "description": "Specifies the method which is essentially the same as that described in CISPR publication 11, sub-clause 5.2.2. With this method, emphasis has been laid on simplicity and reproducibility, rather than on rigorous scientific method. lt has been purposely developed for use in an ordinary laboratory room to avoid the use of an expensive anechoic room. The method is intended for type tests but it may be used for acceptance tests and factory tests. The standard should be used in conjunction with IEC 60244-6."
+  },
+  {
+    "reference": "IEC 60244-8:1993",
+    "edition": "2.0",
+    "date": "1993-03-19",
+    "title": "Methods of measurement for radio transmitters - Part 8: Performance characteristics of vestigial-sideband demodulators used for testing television transmitters and transposers",
+    "language": "EN-FR",
+    "description": "To be used for type tests and acceptance or factory tests or to check the characteristics of a demodulator measuring television transmitters and transposers."
+  },
+  {
+    "reference": "IEC 60244-9:1993",
+    "edition": "2.0",
+    "date": "1993-03-31",
+    "title": "Methods of measurement for radio transmitters - Part 9: Performance characteristics for television transposers",
+    "language": "EN-FR",
+    "description": "Assesses the perfomance characteristics of television transposers. Enables the comparison of the results of measurements made by different observers."
+  },
+  {
+    "reference": "IEC 60244-10:1986",
+    "edition": "1.0",
+    "date": "1986-09-30",
+    "title": "Methods of measurement for radio transmitters. Part 10: Methods of measurement for television transmitters and transposers employing insertion test signals",
+    "language": "EN-FR, ES",
+    "description": "Applies to television transmitters and transposers operating in accordance with television systems for monochrome and colour transmission employing 625 or 525 lines as described in CCIR publications. Deals with the application of insertion test signal measurement to television transmitters and transposers. This method of measurement is useful for checking the line time performance of the transmitters or transposers during programme service and provides a convenient method of testing transmission performance stability during acceptance tests. May also be used as an alternative means of carrying out some of the line time measurements described in IEC 60244-5 and 60244-9."
+  },
+  {
+    "reference": "IEC 60244-11:1989",
+    "edition": "1.0",
+    "date": "1989-04-15",
+    "title": "Methods of measurement for radio transmitters. Part 11: Transposers for FM sound broadcasting",
+    "language": "EN-FR",
+    "description": "Applies to transposers operating in accordance with CCIR Recommendation 450 for FM sound broadcasting at VHF, including stereophony. Also covers requirements for other multiplexed subcarrier services. Lays down detailed methods of measurements, selected and recommended for assessing the essential performance and general characteristics of FM sound broadcasting transposers."
+  },
+  {
+    "reference": "IEC 60244-13:1991",
+    "edition": "1.0",
+    "date": "1991-05-07",
+    "title": "Methods of measurement for radio transmitters - Part 13: Performance characteristics for FM sound broadcasting",
+    "language": "EN-FR",
+    "description": "Intended to be used for type tests and acceptance or factory tests."
+  },
+  {
+    "reference": "IEC 60244-14:1997",
+    "edition": "1.0",
+    "date": "1997-06-17",
+    "title": "Methods of measurement for radio transmitters - Part 14: External intermodulation products caused by two or more transmitters using the same or adjacent antennas",
+    "language": "EN-FR",
+    "description": "Details a mesurement method for external intermodulation products (intermodulation components) caused by two or more transmitters using the same or adjacent antennas. Describes recommended methods of assessing the performance of radio broadcast transmitters."
+  },
+  {
+    "reference": "IEC 60244-15:1999",
+    "edition": "1.0",
+    "date": "1999-12-22",
+    "title": "Methods of measurement for radio transmitters - Part 15: Amplitude-modulated transmitters for sound broadcasting",
+    "language": "EN-FR",
+    "description": "contains the methods of measurement to assess the performance characteristics of amplitude-modulated transmitters for sound broadcasting in the LF, MF and HF bands."
+  },
+  {
+    "reference": "IEC 60244-2A:1969",
+    "edition": "1.0",
+    "date": "1969-01-01",
+    "title": "Methods of measurement for radio transmitters - Part 2: Bandwidth, out-of-band power and power of non-essential oscillations",
+    "language": "EN-FR, RU",
+    "description": "Deals with the measurement of the power of the components, either in the outer part of the emitted spectrum or far remote from the centre part of the spectrum, that may cause interference to the emissions."
+  },
+  {
+    "reference": "IEC 60244-2A:1969/AMD1:1973",
+    "edition": "1.0",
+    "date": "1973-01-01",
+    "title": "Amendment 1 - Methods of measurement for radio transmitters - Part 2: Bandwidth, out-of-band power and power of non-essential oscillations - First supplement: Appendices",
+    "language": "EN-FR",
+    "description": "Refers to the ITU Radio Regulations and to the Recommendations and Reports of the CCIR. Defines spectra and bandwidths of emissions and, for spurious radiation, definitions, methods of measurements and acceptable levels."
+  },
+  {
+    "reference": "IEC 60244-2B:1969",
+    "edition": "1.0",
+    "date": "1969-01-01",
+    "title": "Supplement B - Methods of measurement for radio transmitters - Part 2: Bandwidth, out-of-band power and power of non-essential oscillations - Modulating signals for the measurement of bandwidth and out-of-band power of transmitters for telephony and sound broadcasting",
+    "language": "EN-FR, RU",
+    "description": "Deals with the measurement of the power of components, either in the outer part of the emitted spectrum or far remote from the centre part of the spectrum, that may casue interference to other emissions."
+  },
+  {
+    "reference": "IEC 60244-3A:1971",
+    "edition": "1.0",
+    "date": "1971-01-01",
+    "title": "Methods of measurement for radio transmitters - Part 3: Wanted and unwanted modulation - First supplement: Appendices",
+    "language": "EN-FR",
+    "description": "Refers to the ITU Radio Regulations and to the Recommendations and Reports of the CCIR."
+  },
+  {
+    "reference": "IEC 60244-3B:1972",
+    "edition": "1.0",
+    "date": "1972-01-01",
+    "title": "Supplement B - Methods of measurement for radio transmitters - Part 3: Wanted and unwanted modulation - Unwanted modulation, including hum and noise modulation",
+    "language": "EN-FR, RU",
+    "description": "Defines general terms relating to unwanted modulation and terms relating to amplitude and frequency-modulated transmitters. Specifies general measurement conditions and methods of measurement for FM and AM noise and hum levels."
+  },
+  {
+    "reference": "IEC 60244-4A:1976",
+    "edition": "1.0",
+    "date": "1976-01-01",
+    "title": "Supplement A - Methods of measurement for radio transmitters - Part 4: Amplitude/frequency characteristics and non-linearity distortion in transmitters for radiotelephony and sound broadcasting - Section Three",
+    "language": "EN-FR, RU",
+    "description": "This publication describes standard methods to be used for measuring non-linearity distortions."
+  },
+  {
+    "reference": "IEC 60244-7A:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Supplement A - Methods of measurement for radio transmitters - Part 7: Cabinet radiation at frequencies above 1 GHz - Medium-sized transmitters - Large transmitters",
+    "language": "EN-FR, RU",
+    "description": "Applicable to medium-sized and large transmitters (as defined in IEC 60244-6) liable to produce interfering radiation at frequencies above 1 GHz."
+  },
+  {
+    "reference": "IEC 60657:1979",
+    "edition": "1.0",
+    "date": "1979-01-01",
+    "title": "Non-ionizing radiation hazards in the frequency range from 10 MHz to 300 000 MHz",
+    "language": "EN-FR, RU",
+    "description": "Summarizes the present position on difference in limits and attitudes towards non-ionizing hazards adopted by a number of different countries, and by the IEC and other international organizations, in standards and recommendations. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC 60864-1:1986",
+    "edition": "1.0",
+    "date": "1986-01-01",
+    "title": "Standardization of interconnections between broadcasting transmitters or transmitter systems and supervisory equipment. Part 1: Interface standards for systems using dedicated interconnections",
+    "language": "EN-FR",
+    "description": "Applies to all classes of transmitters for sound and television broadcasting. Deals with the interface between a transmitter (or system of transmitters) and the supervisory equipment which is intended to remotely monitor and/or control the transmitter(s). Details the interconnections and facilities to be provided with a view to achieving compatibility between different types and makes of transmitters and supervisory equipment."
+  },
+  {
+    "reference": "IEC 60864-1:1986/AMD1:1987",
+    "edition": "1.0",
+    "date": "1987-01-01",
+    "title": "Amendment 1 - Standardization of interconnections between broadcasting transmitters or transmitter systems and supervisory equipment. Part 1: Interface standards for systems using dedicated interconnections",
+    "language": "EN-FR",
+    "description": "Gives Clause 11, Photocoupler techniques and Section 4, Standard interface techniques (analogue), which were 'under consideration' in the main publication."
+  },
+  {
+    "reference": "IEC 60864-2:1997",
+    "edition": "1.0",
+    "date": "1997-06-17",
+    "title": "Standardization of interconnections between broadcasting transmitters or transmitter systems and supervisory equipment - Part 2: Interface standards for systems using data bus type interconnections",
+    "language": "EN-FR",
+    "description": "Deals with the itnerface between a transmitter (or system of transmitters) and the supervisory equipment which is entended to remotely monitor and/or control the transmitter(s). It details the interconnections and facilities to be provided with a view to achieving compatibility between different types and makes of transmitters and supervisory equipement."
+  },
+  {
+    "reference": "IEC 61566:1997",
+    "edition": "1.0",
+    "date": "1997-06-17",
+    "title": "Measurement of exposure to radio-frequency electromagnetic fields - Field strength in the frequency range 100 kHz to 1 GHz",
+    "language": "EN-FR",
+    "description": "Applies to measurements of electromagnetic fields from operational transmitting equipment to ensure that the transmissions do not constitute a potential hazard to workers or to the general public."
+  },
+  {
+    "reference": "IEC 62272-2:2007",
+    "edition": "1.0",
+    "date": "2007-03-13",
+    "title": "Digital radio mondiale (DRM) - Part 2: Digital radio in the bands below 30 MHz - Methods of measurement for DRM transmitters",
+    "language": "EN-FR, EN",
+    "description": "IEC 62272-2:2007 describes the methods of measurement to assess the performance characteristics of digital modulated radio transmitters in the bands below 30 MHz for sound and/or data broadcasting in the LF, MF and HF bands, and to facilitate the comparison of measurements which are carried out by different personnel. This bilingual version (2012-05) corresponds to the monolingual English version, published in 2007-03."
+  },
+  {
+    "reference": "IEC 62273-1:2007",
+    "edition": "1.0",
+    "date": "2007-02-16",
+    "title": "Methods of measurement for radio transmitters - Part 1: Performance characteristics of terrestrial digital television transmitters",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62273-1:2007 gives the conditions for measuring the performance parameters of terrestrial digital transmitters and for facilitating the comparison of measurements which are carried out by different personnel. It contains details of specially selected methods for determining the most important performance parameters of digital transmitters. The measurement methods described apply to a limited number of performance parameters, i.e. those which can give rise to ambiguous interpretation due to the use of different methods and conditions. They are neither restrictive nor mandatory: measurements can be chosen for each particular case. If necessary, additional tests can be carried out but they shall comply with those standards which have been established by other study groups, subcommittees of the IEC or other international or suitably accredited organizations. This bilingual version (2012-03) corresponds to the monolingual English version, published in 2007-02."
+  },
+  {
+    "reference": "IEC 62553:2012",
+    "edition": "1.0",
+    "date": "2012-11-27",
+    "title": "Methods of measurement for digital network - Performance characteristics of terrestrial digital multimedia transmission network",
+    "language": "EN-FR, EN",
+    "description": "IEC 62553:2012 is intended to establish measuring methods that enable the objective evaluation of the performance of transmission networks so as to make stable DTTB services a reality and establish a technical baseline, such as a definition of technical terms, to standardize measuring methods. The measurement methods described are intended for digital terrestrial television transmission network test and validation."
+  },
+  {
+    "reference": "IEC PAS 62593:2008",
+    "edition": "1.0",
+    "date": "2008-11-13",
+    "title": "Measurement method of a half-wavelength voltage for Mach-Zehnder optical modulators in wireless communication and broadcasting systems",
+    "language": "EN",
+    "description": "IEC/PAS 62593:2008(E) gives a measurement method of half-wavelength voltage applicable to Mach-Zehnder optical modulators in wireless communication and broadcasting systems. In addition, this method is also effective for the estimation of the intermodulation distortion of Mach-Zehnder optical modulators. - Frequency range: 10 MHz to 30 GHz. - Wavelength band: 0,8 µm, 1,0 µm, 1,3 µm and 1,5 µm. - Electro-optic material based Mach-Zehnder optical modulators and their modules."
+  },
+  {
+    "reference": "IEC 62801:2020",
+    "edition": "1.0",
+    "date": "2020-09-24",
+    "title": "Measurement method of a half-wavelength voltage for Mach-Zehnder optical modulator in wireless communication and broadcasting systems",
+    "language": "EN-FR",
+    "description": "IEC 62801:2020 specifies a measurement method of half-wavelength voltage applicable to Mach-Zehnder optical modulators in wireless communication and broadcasting systems. In addition, this method is also effective for the estimation of the intermodulation distortion of Mach-Zehnder optical modulators. The method applies for the following: – frequency range: 10 MHz to 30 GHz; – wavelength band: 0,8 µm to 2,0 µm; – electro-optic material based Mach-Zehnder optical modulators and their modules."
+  },
+  {
+    "reference": "IEC 62802:2017",
+    "edition": "1.0",
+    "date": "2017-07-27",
+    "title": "Measurement method of a half-wavelength voltage and a chirp parameter for Mach-Zehnder optical modulator in high-frequency radio on fibre (RoF) systems",
+    "language": "EN-FR, EN",
+    "description": "IEC 62802:2017 specifies measurement methods of a half-wavelength voltage and a chirp parameter applicable to MZMs in microwave and millimeter-wave RoF systems. In addition, these methods are also effective for the estimation of the intermodulation distortions and transmission performances. The methods apply for the following: - frequency range: 5 GHz to 110 GHz; - wavelength band: 0,8 µm to 2,0 µm; - electro-optic material based MZMs and their modules."
+  },
+  {
+    "reference": "IEC 62803:2016",
+    "edition": "1.0",
+    "date": "2016-07-12",
+    "title": "Transmitting equipment for radiocommunication - Frquency response of optical-to-electric conversion device in high-frequency radio over fibre systems - Measurement method",
+    "language": "EN-FR",
+    "description": "IEC 62803:2016 provides a method for measuring the frequency response of optical-to-electric conversion devices in wireless communication and broadcasting systems. The frequency range covered by this standard goes up to 100 GHz (practically limited up to 110 GHz by precise RF power measurement) and the wavelength band concerned is 0,8 μm to 2,0 μm."
+  },
+  {
+    "reference": "IEC 62803-2:2024",
+    "edition": "1.0",
+    "date": "2024-08-23",
+    "title": "Transmitting and receiving equipment for radiocommunication - Frequency response of optical-to-electric conversion device in high-frequency radio-over-fibre systems - Part 2: Measurement method of common-mode rejection ratio of optical coherent detection device for radio-over-fibre transmitter",
+    "language": "EN",
+    "description": "IEC 62803-2:2024 provides the measurement method of the common-mode rejection ratio of optical coherent detection devices in high-speed RoF systems, as well as in high-speed optical signal transmission systems. In addition, the method is also effective for the estimation of the detailed frequency response of the common-mode rejection ratios and O/E conversion efficiency. The method applies for the following: - frequency range: 1 GHz to 110 GHz; - wavelength band: 0,8 µm to 2,0 µm. The use of optical coherent detection devices for high-speed RoF system is shown in Annex A as an example."
+  },
+  {
+    "reference": "IEC 62803-3:2024",
+    "edition": "1.0",
+    "date": "2024-08-23",
+    "title": "Transmitting and receiving equipment for radiocommunication - Frequency response of optical-to-electric conversion device in high-frequency radio-over-fibre systems - Part 3: Measurement method of non-linear response of optical-to-electric converter",
+    "language": "EN",
+    "description": "IEC 62803-3:2024 specifies the measurement method of the non-linear response of optical­to­electric converters in both optical signal transport systems and RoF systems. The method applies for the following: - frequency range: up to 170 GHz; - wavelength band: 0,8 µm to 2,0 µm."
+  },
+  {
+    "reference": "IEC TR 63098-1:2017",
+    "edition": "1.0",
+    "date": "2017-09-25",
+    "title": "Transmitting equipment for radiocommunication - Radio-over-fibre technologies and their performance standard - Part 1: System applications of radio over fibre technology",
+    "language": "EN",
+    "description": "IEC 63098-1:2017(E) provides information on the current and latest applications of radio-over-fibre technology. Wireless communication, broadcasting, and airport multilateration systems, which are already implemented or will be in the near future, are introduced. This document includes the basic concept, a brief outline and related standards of the applications of RoF technology."
+  },
+  {
+    "reference": "IEC 63098-2:2022",
+    "edition": "1.0",
+    "date": "2022-12-07",
+    "title": "Transmitting and receiving equipment for radiocommunication - Radio-over-fibre technologies and their performance standard - Part 2: Radio-over-fibre-based fronthaul network for railway communication systems",
+    "language": "EN",
+    "description": "IEC 63098-2:2022 provides the required performance with reliability and quality assurance of radio-over-fiber-based fronthaul networks for railway communication networks between trains and tracksides, as well as a design guide for network configuration. A high-speed train communication network comprises two parts: a back-end network and wireless access system to deliver data to train cars. In this back-end network, optical fiber communication-based networks are generally utilized to reduce the complexity of the radio access units set along the railway track, which delivers the signal wirelessly to the train car, wireless signals are generated and processed at a central office, and then are transported via an optical fiber network into the radio access units. A radio-over-fiber fronthaul network is configured to transport the wireless signal, which is applicable between a node base station and radio access units set at a trackside. The radio-over-fiber-based fronthaul link connects the node base station to the trackside radio access units and carries millimeter-wave subcarrier or intermediate frequency components to transmit high-capacity signals."
+  },
+  {
+    "reference": "IEC 63098-3:2022",
+    "edition": "1.0",
+    "date": "2022-12-07",
+    "title": "Transmitting and receiving equipment for radiocommunication - Radio-over-fibre technologies and their performance standard - Part 3: Radio-over-fibre-based remote radar for foreign object debris (FOD) detection systems",
+    "language": "EN-FR",
+    "description": "IEC 63098-3:2022 This part of IEC 63098 provides the specifications of the RoF interface connecting the central station (CS) with the remote radar heads (RRHs) in a remote radar system, along with the necessary information to ensure compatibility between vendors and, hence, choose appropriate systems to cover any type of RoF systems for delivering the signal.A remote radar system generally consists of a central station (CS) and remote radar heads (RRHs) connected by radio over fibre (RoF). Each RRH has a maximum detection range of several hundred metres because millimetre waves theoretically undergo a larger propagation loss compared with conventional aeronautical frequencies below 10 GHz. The RoF system is key to enhancing the radar coverage and connecting the CS with the RRHs located along a runway for its entire coverage. To ensure the connection between the CS and RRHs, radio frequency (RF) and optical interfaces should be categorized according to their specifications, specifically, their link characteristics."
+  },
+  {
+    "reference": "IEC 63098-4:2023",
+    "edition": "1.0",
+    "date": "2023-05-23",
+    "title": "Transmitting and receiving equipment for radiocommunication - Radio-over-fibre technologies and their performance standard - Part 4: Radio-over-fibre-based indoor distributed antenna system (DAS) for 5G",
+    "language": "EN",
+    "description": "IEC 63098-4:2023 provides the performance standards of the RoF-based 5G indoor distributed antenna system (DAS) network for cost-effectively offering quality of service (QoS) guaranteed 5G mobile communication services with high bandwidth and low-latency characteristics without radio shadowing in an indoor environment. First of all, the system overview, system configurations, and the elements of the system are presented and then the electrical and optical interfaces for each system element are defined. Finally, the detail system performance specifications of each element are described for downlink and uplink configurations."
+  },
+  {
+    "reference": "IEC TR 63099-1:2017",
+    "edition": "1.0",
+    "date": "2017-08-09",
+    "title": "Transmitting equipment for radiocommunication - Radio-over fibre technologies for electromagnetic-field measurement - Part 1: Radio-over-fibre technologies for antenna measurement",
+    "language": "EN",
+    "description": "IEC TR 63099-1:2017(E) provides information about the current and latest applications for antenna measurement that use radio-over-fibre technologies. Antenna gain and the antenna radiation pattern measurement system are covered, which are practically in use and will be used soon. Basic concepts, system configurations and measurement examples of the systems are included."
+  },
+  {
+    "reference": "IEC TR 63099-2:2020",
+    "edition": "1.0",
+    "date": "2020-07-27",
+    "title": "Transmitting equipment for radiocommunication - Radio-over-fibre technologies for electromagnetic-field measurement - Part 2: Radio-over-fibre technologies for electric-field sensing",
+    "language": "EN",
+    "description": "IEC TR 63099-2:2020 provides information about the current and latest applications for electric-field measurement that use radio-over-fibre technologies. System configurations, specifications, and measurement examples of each electric-field measurement system are included. The theoretical background of electric-field measurement and calibration method of electric-field sensors are beyond the scope of this document."
+  },
+  {
+    "reference": "IEC TR 63099-3:2022",
+    "edition": "1.0",
+    "date": "2022-03-29",
+    "title": "Transmitting and receiving equipment for radiocommunication - Radio-over-fibre technologies for electromagnetic-field measurement - Part 3: Antenna near-field pattern measurement using optical techniques in terahertz-wave bands",
+    "language": "EN",
+    "description": "IEC TR 63099-3:2022 provides technical information about the methods for an antenna near-field measurement in the terahertz-wave band. The methods are applied to the frequency bands above 100 GHz, which has potential for use in terahertz wireless communication. The methods consist in measuring the amplitude and phase distributions of the electromagnetic field at the near-field range of on-chip antenna devices which integrate RF and IF components. This document also gives examples of the far-field pattern calculated from the measured near-field pattern."
+  },
+  {
+    "reference": "IEC TR 63100:2017",
+    "edition": "1.0",
+    "date": "2017-07-26",
+    "title": "Transmitting equipment for radiocommunication - Radio-over-fibre technologies for spectrum measurement - 100-GHz spectrum measurement equipment",
+    "language": "EN",
+    "description": "IEC 63100:2017(E) describes 100-GHz spectrum measurement methods using RoF technologies. It covers the background to measurement over 100 GHz, the configuration of a spectrum analyser, the key technologies, such as mm-wave tunable filter, and RoF-technologies-based local oscillator, and provides some measured examples."
+  },
+  {
+    "reference": "IEC TR 63352:2022",
+    "edition": "1.0",
+    "date": "2022-04-26",
+    "title": "Transmitting and receiving equipment for radiocommunication - Radio spectrum measurement method - 300-GHz spectrum measurement equipment",
+    "language": "EN",
+    "description": "IEC TR 63352:2022 describes a high-dynamic-range spectrum measurement system to measure spectra in the frequency range 140 GHz to 300 GHz. Although millimeter-wave (mmWave) technology has high potential for both industries and users, there are no developed techniques for evaluating spectra suppressing the unwanted response generated in the measurement system. This document also provides background information, describes system configurations, key mmWave pre-selector technology, as well as some examples of the spurious measurement of antennas under test (AUTs) over the air."
+  },
+  {
+    "reference": "IEC TR 63385-1:2023",
+    "edition": "1.0",
+    "date": "2023-11-07",
+    "title": "Transmitting and receiving equipment for radiocommunication - Short-range radar technologies and their performance standard - Part 1: System applications of short-range radars",
+    "language": "EN",
+    "description": "IEC TR 63385-1:2023 provides a catalogue of the architecture and principles of measurement of short-range radars that are widely exploited in civil applications. The applications are related to the detection of the target for obstacle avoidance, motion sensing, or identification of devices. The mass civil use of radars sometimes creates compatibility issues among the services. The performance of each radar system is guaranteed in the field without any harmful interference but the frequency allocation using theoretical calculations does not consider the latest mitigation technologies. In order to increase the efficiency of the system usage without any degradation of the performance of the radars, this document provides clarification on the characteristics of the radar systems and additional information on applications in the field."
+  },
+  {
+    "reference": "IEC TR 63675-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-09",
+    "title": "Transmitting and receiving equipment for radiocommunication - Transciever technologies and their performance standards - Part 1: Low phase-noise oscillator technologies using photonics techniques",
+    "language": "EN",
+    "description": "IEC TR 63675-1:2026 is a Technical Report. Millimetre wave and terahertz wave radio communication services require low phase noise oscillators in order to comply with radio regulations and reduce the computing resources required for demodulation processes. This document provides the principle and application of the optoelectronic oscillation technologies using the photonics technique as a guideline for the design of the radiocommunication transceivers."
+  }
+]

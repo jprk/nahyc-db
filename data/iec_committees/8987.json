@@ -1,0 +1,266 @@
+[
+  {
+    "reference": "ISO/IEC TS 8236-1:2025",
+    "edition": "1.0",
+    "date": "2025-09-17",
+    "title": "Information technology - Provisioning, forecasting and management - Part 1: Data centre IT equipment",
+    "language": "EN",
+    "description": "This document specifies a standardized method of optimizing IT provisioning within data centres by utilizing KPIs that enable the development of IT profiles for individual systems or platforms. The combination of the system and platform KPIs are used to establish an IT provisioning profile, establishing standard forecasting methods to optimize data centre resource effectiveness. This document: a) defines a method for identifying benchmarks and trends in IT provisioning; b) provides capability assessment/indicators of IT equipment over infrastructure life cycle, including preparatory, commissioning, expansion/contraction and/or retirement of IT equipment; c) provides a framework to establish IT provisioning forecast; d) provides a framework for IT provisioning output to be used as input to facility provisioning of space, power and cooling capacity requirements (see ISO/IEC TS 8236-2)."
+  },
+  {
+    "reference": "ISO/IEC TS 8236-2:2025",
+    "edition": "1.0",
+    "date": "2025-09-17",
+    "title": "Information technology - Provisioning, forecasting and management - Part 2: Data centre facility infrastructure",
+    "language": "EN",
+    "description": "This document specifies a standardized method of optimizing facility provisioning within data centres by utilizing KPIs that enable the development of facility profiles for individual systems or platforms. The combination of the system and platform KPIs are used to establish a facility provisioning profile, establishing standard forecasting methods to optimize data centre resource effectiveness. This document: a) defines a method for identifying benchmarks and trends in facility provisioning; b) provides capability assessment/indicators of facility infrastructure over the infrastructure life-cycle including preparatory, commissioning, expansion/contraction and/or retirement of IT equipment; c) describes the relationship of DCfP to dPUE (ISO/IEC 30134-2), providing a common methodology to base dPUE."
+  },
+  {
+    "reference": "ISO/IEC 19395:2015",
+    "edition": "1.0",
+    "date": "2015-01-15",
+    "title": "Information technology - Sustainability for and by information technology - Smart data centre resource monitoring and control",
+    "language": "EN",
+    "description": "ISO/IEC 19395:2015 provides Messages that facilitate integrated or \"smart\" monitoring and control of Resources in those islands. The Messages are exchanged between the Management Function and Resources. ISO/IEC 19395:2015 acknowledges that those Resources may be composed of other Resources (e.g. a rack may contain servers, ventilators, etc.). In addition, e.g. those servers may be viewed from their computing, energy consumption or dissipation aspects which ISO/IEC 19395:2015 models as Resource Components and groups into IT, power and fluid Domains, respectively."
+  },
+  {
+    "reference": "ISO/IEC TS 20125-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-27",
+    "title": "Information technology - Digital services ecodesign - Part 1: Ecopractices for life cycle stages",
+    "language": "EN",
+    "description": "This document is applicable to environmental matters for a digital service. It establishes requirements and recommendations applicable for requirements gathering, design, implementation, operations, maintenance and the end of life of digital services in order to minimise adverse environmental impacts during all stages of its life cycle. It also establishes a common language and understanding on this subject. This document focuses on reducing the environmental impacts of a digital service. It therefore does not address all aspects of digital service design. For example, it does not address other aspects such as performance, resilience, reliability, availability or development language choice (see other standards covering these topics, e.g. ISO/IEC 25010 and ISO/IEC 27001). This document does not include matters linked to other corporate social responsibility (CSR) topics, e.g. social, cultural, diversity, inclusion or exclusion. This document is applicable to all development methodologies (waterfall, agile, etc.)."
+  },
+  {
+    "reference": "ISO/IEC TR 20913:2016",
+    "edition": "1.0",
+    "date": "2016-11-04",
+    "title": "Information technology - Data centres - Guidelines on holistic investigation methodology for data centre key performance indicators",
+    "language": "EN",
+    "description": "ISO/IEC TR 20913:2016 describes backgrounds, motivation, and general concept of holistic methodology for data centre key performance indicators (KPIs) to investigate the status of KPIs. It discusses the usefulness of holistic investigation methodology in terms of aggregating a KPI across different contexts, aggregation of two or more KPIs within a single context, aggregation of two or more KPIs across multiple contexts, and aggregation of the multiple KPIs into a single indicator. This document presents a conventional spider web chart-based data centre KPIs status observation method and a control chart method including upper bound and lower bound of the operational status of KPIs. This document presents SWOT analysis results for both methodologies. The methods described in this document are aimed at the self-monitoring of a data centre, not comparison among data centres. Specifically, ISO/IEC TR 20913:2016 a) describes backgrounds, motivation, and general concept of holistic investigation methodology for data centre KPIs, b) analyses the usefulness of holistic investigation methodology for aggregating KPIs, c) describes a spider web chart-based KPIs status observation method and a control chart extending spider web chart to observe the operational status of KPIs, d) describes alternative and/or additional methods of representing dissimilar KPIs to track holistic resource effectiveness of the data centre, and e) presents SWOT analysis results for holistic investigation methods described in this document."
+  },
+  {
+    "reference": "ISO/IEC 21836:2020",
+    "edition": "1.0",
+    "date": "2020-08-25",
+    "title": "Information technology - Data centres - Server energy effectiveness metric",
+    "language": "EN",
+    "description": "This document specifies a measurement method to assess and report the energy effectiveness of a computer server. This document does not set any pass/fail criteria for servers."
+  },
+  {
+    "reference": "ISO/IEC TR 21897:2022",
+    "edition": "1.0",
+    "date": "2022-11-15",
+    "title": "Information technology - Data centres - Impact of the ISO 52000 series on energy performance of buildings",
+    "language": "EN",
+    "description": "This document proposes elements for the expression of energy production, storage, reuse and consumption in reference to primary energy in data centres, taking into account both the elements needed for energy assessment and the concepts developed in the framework of the ISO 52000 series for energy performance of buildings (EPB). This document: — provides the main definitions and concepts from the ISO 52000 series needed to make a primary energy assessment for data centres; — provides approaches for discriminating true sources of energy used by a given data centre; — compares, where relevant, the terms used in both the ISO/IEC 30134 series and ISO 52000 series and provides explanations on the use of factors for converting final or delivered energy to primary energy which take a different approach in each series (and how to move from one to the other); — illustrates the impact of using the EPB approach on data-centre-energy-related key performance indicators (KPIs), both in general and by the provision of examples; — provides known sources of weighting or conversion factors to be used when there are no recognized or agreed local factors applicable to the studied data centre energy performance assessment."
+  },
+  {
+    "reference": "ISO/IEC 22237-1:2021",
+    "edition": "1.0",
+    "date": "2021-10-05",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 1: General concepts",
+    "language": "EN",
+    "description": "This document: a) describes the general principles for data centres upon which the requirements of the ISO/IEC22237 series are based; b) defines the common aspects of data centres including terminology, parameters and reference models (functional elements and their accommodation) addressing both the size and complexity of their intended purpose; c) describes general aspects of the facilities and infrastructures required to support data centres; d) specifies a classification system, based upon the key criteria of “availability”, “security” and “energy-efficiency” over the planned lifetime of the data centre, for the provision of effective facilities and infrastructure; e) details the issues to be addressed in a business risk and operating cost analysis enabling application of the classification of the data centre; f) provides a reference to the operation and management of data centres. The following topics are outside of the scope of the ISO/IEC 22237 series: 1) the selection of information technology and network telecommunications equipment, software and associated configuration issues are outside the scope of this International Standard; 2) quantitative analysis of overall service availability resulting from multi-site data centres; 3) safety and electromagnetic compatibility (EMC) requirements (covered by other standards and regulations. However, information given in this document can be of assistance in meeting these standards and regulations)."
+  },
+  {
+    "reference": "ISO/IEC 22237-2:2024",
+    "edition": "1.0",
+    "date": "2024-02-19",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 2: Building construction",
+    "language": "EN",
+    "description": "This document specifies requirements and recommendations for the construction of buildings and other structures which provide accommodation for data centres based on the criteria and classification for “physical security” within ISO/IEC 22237-1 in support of availability. This document specifies requirements and recommendations for the following: a) location and site selection (taking in to account natural environment and adjacencies); b) protection from environmental risks; c) site configuration; d) building construction; e) building configuration; f) provision of access; g) physical intrusion protection; h) physical fire protection; i) protection against damage from water; j) quality construction measures. Safety and electromagnetic compatibility (EMC) requirements are outside the scope of this document and are covered by other standards and regulations. However, information given in this document can be of assistance in meeting these standards and regulations. Conformance of data centres to the present document is covered in Clause 4."
+  },
+  {
+    "reference": "ISO/IEC 22237-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-05",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 3: Power distribution",
+    "language": "EN",
+    "description": "This document addresses power supplies to, and power distribution within, data centres based upon the criteria and classifications for “availability”, “physical security” and “energy efficiency enablement” within ISO/IEC 22237‑1. This document specifies requirements and recommendations for the following: a) power supplies to data centres; b) power distribution systems to all equipment within data centres; c) telecommunications infrastructure bonding; d) lightning protection; e) devices for the measurement of the power consumption and power quality characteristics at points along the power distribution system and their integration within management tools. Safety and electromagnetic compatibility (EMC) requirements are outside the scope of this document and are covered by other standards and regulations. However, information given in this document can be of assistance in meeting these standards and regulations. Conformance of data centres to the present document is covered in Clause 4. The use of the data centre stored energy or alternate sources to be used by the grid is not in the scope of this document and is for consideration in future specifications."
+  },
+  {
+    "reference": "ISO/IEC 22237-4:2021",
+    "edition": "1.0",
+    "date": "2021-10-29",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 4: Environmental control",
+    "language": "EN",
+    "description": "This document addresses environmental control within data centres based upon the criteria and classifications for “availability”, “security” and “energy efficiency enablement” within ISO/IEC 22237‑1. This document specifies requirements and recommendations for the following: a) temperature control; b) fluid movement control; c) relative humidity control; d) particulate control; e) vibration; f) physical security of environmental control systems."
+  },
+  {
+    "reference": "ISO/IEC TS 22237-5:2018",
+    "edition": "1.0",
+    "date": "2018-04-27",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 5: Telecommunications cabling infrastructure",
+    "language": "EN",
+    "description": "ISO/IEC TS 22237-5:2018 addresses the wide range of telecommunications cabling infrastructures within data centres based upon the criteria and classifications for \"availability\" within ISO/IEC TS 22237‑1. ISO/IEC TS 22237-5:2018 specifies requirements and recommendations for the following: a) information technology and network telecommunications cabling (e.g. SAN and LAN); b) general information technology cabling to support the operation of the data centre; c) telecommunications cabling to monitor and control, as appropriate, power distribution, environmental control and physical security of the data centre; d) other building automation cabling; e) pathways, spaces and enclosures for the telecommunications cabling infrastructures. Safety and electromagnetic compatibility (EMC) requirements are outside the scope of this document and are covered by other standards and regulations. However, information given in this document may be of assistance in meeting these standards and regulations."
+  },
+  {
+    "reference": "ISO/IEC 22237-6:2024",
+    "edition": "1.0",
+    "date": "2024-02-19",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 6: Security systems",
+    "language": "EN",
+    "description": "This document specifies requirements and recommendations concerning the physical security of data centres based on the criteria and classifications for “availability”, “security” and “energy efficiency enablement” within ISO/IEC 22237-1. This document provides designations for the data centre spaces defined in ISO/IEC 22237-1. This document specifies requirements and recommendations for such data centre spaces, and the systems employed within those spaces, in relation to protection against: a) unauthorized access addressing organizational and technological solutions; b) intrusion; c) internal fire events igniting within data centre spaces; d) internal environmental events (other than fire) within the data centre spaces which would affect the defined level of protection; e) external environmental events outside the data centre spaces which would affect the defined level of protection. NOTE Constructional requirements and recommendations are provided by reference to ISO/IEC 22237-2. Safety and electromagnetic compatibility (EMC) requirements are outside the scope of this document and are covered by other standards and regulations. However, information given in this document can be of assistance in meeting these standards and regulations. Conformance of data centres to the present document is covered in Clause 4."
+  },
+  {
+    "reference": "ISO/IEC TS 22237-7:2018",
+    "edition": "1.0",
+    "date": "2018-04-27",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 7: Management and operational information",
+    "language": "EN",
+    "description": "ISO/IEC TS 22237-7:2018 specifies processes for the management and operation of data centres. The primary focus of this document is the operational processes necessary to deliver the expected level of resilience, availability, risk management, risk mitigation, capacity planning, security and energy efficiency. The secondary focus is on management processes to align the actual and future demands of users."
+  },
+  {
+    "reference": "ISO/IEC TS 22237-30:2022",
+    "edition": "1.0",
+    "date": "2022-03-23",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 30: Earthquake risk and impact analysis",
+    "language": "EN",
+    "description": "This document specifies requirements and recommendations for the type of risk assessment to be employed concerning seismic activity and earthquakes in relation to data centres. In addition, it describes design concepts that can be employed as mitigation actions within the construction and other design elements of data centres."
+  },
+  {
+    "reference": "ISO/IEC TS 22237-31:2026",
+    "edition": "2.0",
+    "date": "2026-02-03",
+    "title": "Information technology - Data centre facilities and infrastructures - Part 31: Key performance indicators for resilience",
+    "language": "EN",
+    "description": "This document: defines metrics as key performance indicators (KPIs) for resilience, dependability, fault tolerance and availability tolerance for data centres; covers the data centre infrastructure (DCI) of power distribution and supply, and environmental control; can be referred to for covering further infrastructures, e.g. telecommunications cabling; defines the measurement and calculation of the KPIs and resilience levels (RLs); targets maintainability, recoverability and vulnerability; provides examples for calculating these KPIs for the purpose of analytical comparison of different DCIs. This document does not apply to IT equipment, cloud services, software or business applications."
+  },
+  {
+    "reference": "ISO/IEC TR 23050:2019",
+    "edition": "1.0",
+    "date": "2019-03-08",
+    "title": "Information technology - Data centres - Impact on data centre resource metrics of electrical energy storage and export",
+    "language": "EN, FR",
+    "description": "This document describes the treatment of data centre metrics in circumstances where electrical energy is stored and exported from within the data centre boundaries of other standards in the ISO/IEC 30134 series. This document specifies the Excess Electrical Energy Factor (XEEF) as a Key Performance Indicator (KPI) to quantify the electrical energy provided back from data centre to the utility. This document has the structure common to the standards of the ISO/IEC 30134 series."
+  },
+  {
+    "reference": "ISO/IEC 23544:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Information Technology - Data centres - Application Platform Energy Effectiveness (APEE)",
+    "language": "EN",
+    "description": "This document specifies application platform energy effectiveness (APEE) as a Key Performance Indicator (KPI) which quantifies the energy effectiveness of an application platform for an IT service in data centres. This KPI evaluates the energy consumption of an application platform prior to deployment. The purpose of this KPI is to measure the energy effectiveness of a set of target IT equipment, operating systems and middleware, to enable the selection of an energy effective IT stack. This document specifies a formula for calculating APEE and definitions of components of the formula. This document specifies a measurement method for assessing and reporting the energy effectiveness of an application platform. This document also specifies requirements for benchmarks to be used for APEE and requirements for reporting. The following topics are outside of the scope of this document: 1) KPIs intended to solely evaluate the energy effectiveness of target IT equipment hardware, 2) energy effectiveness of data centre facilities."
+  },
+  {
+    "reference": "ISO/IEC TR 30132-1:2016",
+    "edition": "1.0",
+    "date": "2016-09-21",
+    "title": "Information technology - Information technology sustainability - Energy efficient computing models - Part 1: Guidelines for energy effectiveness evaluation",
+    "language": "EN",
+    "description": "ISO/IEC TR 30132-1:2016 establishes guidelines for improving the energy effectiveness for computing models. Specifically, this document provides - a reference computing model for evaluating end-to-end energy effectiveness, - a holistic framework for evaluating the applicability of energy effectiveness improving technologies, and - guidelines for evaluating energy effectiveness."
+  },
+  {
+    "reference": "ISO/IEC TR 30133:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Information technology - Data centres - Practices for resource-efficient data centres",
+    "language": "EN",
+    "description": "This document describes generally applicable practices for improving the resource efficiency of data centres, independent of their application(s). This document focuses on continuous improvement processes, designs and guidelines that prioritize resource efficiency. In general, the processes and practices are technology-neutral and are independent of location. The practices for data centre resource efficiency improvement deal with various establishment and operation aspects such as data centre planning, management, cooling, power feeding, information and communications technology (ICT) and cost aspects that are not restricted by the scope of this document. The following items are not included in the scope of this document: — development of key performance indicators (KPIs); — comparability between data centre performance results; — definition of maturity model for data centres; — social sustainability issues."
+  },
+  {
+    "reference": "ISO/IEC 30134-1:2016",
+    "edition": "1.0",
+    "date": "2016-03-21",
+    "title": "Information technology - Data centres - Key performance indicators - Part 1: Overview and general requirements",
+    "language": "EN",
+    "description": "ISO/IEC 30134-1:2016 specifies the following for the other parts of ISO/IEC 30134: a) a common structure; b) definitions, terminology and boundary conditions for KPIs of data centre resource usage effectiveness and efficiency; c) common requirements for KPIs of data centre resource usage effectiveness and efficiency; d) common objectives for KPIs of the data centre resource effectiveness and efficiency; e) general information regarding the use of KPIs of data centre resource usage effectiveness and efficiency."
+  },
+  {
+    "reference": "ISO/IEC 30134-1:2016/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-03-27",
+    "title": "Information technology - Data centres - Key performance indicators - Part 1: Overview and general requirements - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 30134-2:2026",
+    "edition": "2.0",
+    "date": "2026-01-16",
+    "title": "Information technology - Data centres key performance indicators - Part 2: Power usage effectiveness (PUE)",
+    "language": "EN",
+    "description": "This document specifies power usage effectiveness (PUE) as a key performance indicator (KPI) to quantify the efficient use of energy. This document: defines the PUE of a data centre; introduces PUE measurement categories; describes the relationship of this KPI to a data centre’s infrastructure, information technology equipment and information technology operations; defines the measurement, the calculation and the reporting of the parameter; provides information on the correct interpretation of the PUE. PUE derivatives are described in Clause 9."
+  },
+  {
+    "reference": "ISO/IEC 30134-3:2016",
+    "edition": "1.0",
+    "date": "2016-04-19",
+    "title": "Information technology - Data centres - Key performance indicators - Part 3: Renewable energy factor (REF)",
+    "language": "EN, FR",
+    "description": "ISO/IEC 30134-3:2016 a) defines the renewable energy factor (REF) of a data centre, b) specifies a methodology to calculate and to present the REF, and c) provides information on the correct interpretation of the REF."
+  },
+  {
+    "reference": "ISO/IEC 30134-3:2016/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-03-27",
+    "title": "Information technology - Data centres - Key performance indicators - Part 3: Renewable energy factor (REF) - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 30134-4:2017",
+    "edition": "1.0",
+    "date": "2017-10-18",
+    "title": "Information technology - Data centres - Key performance indicators - Part 4: IT Equipment Energy Efficiency for servers (ITEEsv)",
+    "language": "EN",
+    "description": "ISO/IEC 30314-4:2017 specifies Information Technology Equipment Energy Efficiency for servers (ITEEsv), a key performance indicator (KPI) which quantifies the energy efficiency characteristics of servers in a data centre. ITEEsv can be calculated using a choice of pre-existing or context specific server performance benchmarks. ITEEsv intends to assist in improving the aggregate energy effectiveness of servers in a given data centre. ISO/IEC 30314-4:2017: a) defines ITEEsv; b) describes the purpose of ITEEsv; c) describes how to use ITEEsv; d) describes reporting of ITEEsv."
+  },
+  {
+    "reference": "ISO/IEC 30134-4:2017/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-03-11",
+    "title": "Information technology - Data centres - Key performance indicators - Part 4: IT Equipment Energy Efficiency for servers (ITEEsv) - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 30134-5:2017",
+    "edition": "1.0",
+    "date": "2017-10-26",
+    "title": "Information technology - Data centres - Key performance indicators - Part 5: IT Equipment Utilization for servers (ITEUsv)",
+    "language": "EN",
+    "description": "ISO/IEC 30134-5:2017 specifies the IT Equipment Utilization for servers (ITEUsv) as a Key Performance Indicator (KPI) to quantify the utilization of servers in a data centre. ISO/IEC 30134-5:2017 is intended as a KPI for improving the aggregate energy efficiency of servers in a given data centre. ITEUsv utilizes only CPU utilization of servers in a data centre. Servers where the majority of computation is provided by auxiliary processing accelerators (APAs) are out of scope. ISO/IEC 30134-5:2017 a) describes the purposes of ITEUsv, b) defines ITEUsv in a conceptual manner, c) describes how to use ITEUsv, and d) describes reporting of ITEUsv."
+  },
+  {
+    "reference": "ISO/IEC 30134-5:2017/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-03-11",
+    "title": "Information technology - Data centres - Key performance indicators - Part 5: IT Equipment Utilization for servers (ITEUsv) - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 30134-6:2021",
+    "edition": "1.0",
+    "date": "2021-08-11",
+    "title": "Information technology - Data centres key performance indicators - Part 6: Energy Reuse Factor (ERF)",
+    "language": "EN, FR",
+    "description": "This document specifies the energy reuse factor (ERF) as a KPI to quantify the reuse of the energy consumed in a data centre. ERF is defined as the ratio of energy being reused divided by the sum of all energy consumed in a data centre. The ERF does reflect the efficiency of the reuse process; the reuse process is not part of a data centre."
+  },
+  {
+    "reference": "ISO/IEC 30134-7:2023",
+    "edition": "1.0",
+    "date": "2023-03-10",
+    "title": "Information technology - Data centres key performance indicators - Part 7: Cooling efficiency ratio (CER)",
+    "language": "EN",
+    "description": "This document specifies the cooling efficiency ratio (CER) as a key performance indicator (KPI) for quantifying the efficient use of energy to control the temperature of spaces within a data centre (DC). This document: a) defines the CER of a DC; b) describes the relationship of this KPI to a DC’s infrastructure, information technology equipment and information technology operations; c) defines the measurement, the calculation and the reporting of the parameter; and d) provides information on the correct interpretation of the CER. Annex A describes the correlation of the CER and other KPIs. Annex B provides examples of the usage of the CER. Annex C introduces the parameters that affect the CER. Annex D describes requirements and recommendations for derivatives of KPIs associated with the CER. This document is not applicable to cooling systems that are not powered by electricity (e.g. heat-driven absorption chillers)."
+  },
+  {
+    "reference": "ISO/IEC 30134-8:2022",
+    "edition": "1.0",
+    "date": "2022-03-24",
+    "title": "Information technology - Data centres key performance indicators - Part 8: Carbon usage effectiveness (CUE)",
+    "language": "EN",
+    "description": "This document specifies carbon usage effectiveness (CUE) as a key performance indicator (KPI) for quantifying the CO 2 emissions of a data centre during the use phase of the data centre life cycle. CUE is a simple method for reporting the CO 2 intensity of the data centre operating. By reporting CO 2 emissions, it is possible to present the data centre's contribution to climate change (enhanced greenhouse effect). This document: a) defines the CUE of a data centre; b) introduces CUE measurement categories; c) describes the relationship of this KPI to a data centre’s infrastructure, information technology equipment and information technology operations; d) defines the measurement, the calculation and the reporting of the parameter; and e) provides information on the correct interpretation of the CUE."
+  },
+  {
+    "reference": "ISO/IEC 30134-9:2022",
+    "edition": "1.0",
+    "date": "2022-03-24",
+    "title": "Information technology - Data centres key performance indicators - Part 9: Water usage effectiveness (WUE)",
+    "language": "EN",
+    "description": "This document specifies water usage effectiveness (WUE) as a key performance indicator (KPI) for quantifying the water consumption of a data centre during the use phase of the data centre life cycle. WUE is a simple method for reporting the water intensity of the data centre operating. By reporting water consumption, it is possible to present the data centre's resource effectiveness. This document: a) defines the WUE of a data centre; b) introduces WUE measurement categories; c) describes the relationship of this KPI to a data centre’s infrastructure, information technology equipment and information technology operations; d) defines the measurement, the calculation and the reporting of the parameter; and e) provides information on the correct interpretation of the WUE."
+  }
+]

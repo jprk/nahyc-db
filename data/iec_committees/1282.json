@@ -1,0 +1,522 @@
+[
+  {
+    "reference": "IEC 61400-1:2019",
+    "edition": "4.0",
+    "date": "2019-02-08",
+    "title": "Wind energy generation systems - Part 1: Design requirements",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61400-1:2019 specifies essential design requirements to ensure the structural integrity of wind turbines. Its purpose is to provide an appropriate level of protection against damage from all hazards during the planned lifetime. This document is concerned with all subsystems of wind turbines such as control and protection functions, internal electrical systems, mechanical systems and support structures. This document applies to wind turbines of all sizes. For small wind turbines, IEC 61400-2 can be applied. IEC 61400-3-1 provides additional requirements to offshore wind turbine installations. This document is intended to be used together with the appropriate IEC and ISO standards mentioned in Clause 2. This edition includes the following significant technical changes with respect to the previous edition: a) general update and clarification of references and requirements; b) extension of wind turbine classes to allow for tropical cyclones and high turbulence; c) Weibull distribution of turbulence standard deviation for normal turbulence model (NTM); d) updated design load cases (DLCs), in particular DLC 2.1 and 2.2; e) revision of partial safety factor specifications The contents of the corrigendum 1 (2019-09) and Interpretation sheet 1 (2025-02) have been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-1:2019/ISH1:2025",
+    "edition": "4.0",
+    "date": "2025-02-12",
+    "title": "Interpretation Sheet 1 - Wind energy generation systems - Part 1: Design requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-1:2019/COR1:2019",
+    "edition": "4.0",
+    "date": "2019-09-16",
+    "title": "Corrigendum 1 - Wind energy generation systems - Part 1: Design requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-1:2019/AMD1:2025",
+    "edition": "4.0",
+    "date": "2025-12-18",
+    "title": "Amendment 1 - Wind energy generation systems - Part 1: Design requirements",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-2:2013",
+    "edition": "3.0",
+    "date": "2013-12-12",
+    "title": "Wind turbines - Part 2: Small wind turbines",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-2:2013 deals with safety philosophy, quality assurance, and engineering integrity and specifies requirements for the safety of small wind turbines (SWTs) including design, installation, maintenance and operation under specified external conditions. It provides the appropriate level of protection against damage from hazards from these systems during their planned lifetime. This standard is concerned with all subsystems of SWTs such as protection mechanisms, internal electrical systems, mechanical systems, support structures, foundations and the electrical interconnection with the load. While this standard is similar to IEC 61400-1, it does simplify and make significant changes in order to be applicable to small wind turbines. The main changes with respect to the previous edition are as follows: - the title has been modified to better reflect the scope; - restructured into a part Design evaluation and a part Type testing to harmonise use with IEC 61400-22 conformity testing and certification; - caution provided regarding the use of simplified equations; - added various annexes (wind conditions, tropical storms, extreme environmental conditions, EMC testing, dynamic behavior, etc.). The contents of the corrigendum of October 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-2:2013/COR1:2019",
+    "edition": "3.0",
+    "date": "2019-10-10",
+    "title": "Corrigendum 1 - Wind turbines - Part 2: Small wind turbines",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-3-1:2019",
+    "edition": "1.0",
+    "date": "2019-04-05",
+    "title": "Wind energy generation systems - Part 3-1: Design requirements for fixed offshore wind turbines",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61400-3-1:2019 outlines the minimum design requirements for fixed offshore wind turbines and is not intended for use as a complete design specification or instruction manual. Several different parties may be responsible for undertaking the various elements of the design, manufacture, assembly, installation, erection, commissioning, operation and maintenance of an offshore wind turbine and for ensuring that the requirements of this document are met. The division of responsibility between these parties is a contractual matter and is outside the scope of this document. This edition cancels and replaces the first edition of IEC 61400-3 published in 2009. This edition includes the following significant technical changes with respect to the first edition of IEC 61400-3: a) The design load table has been revised to simplify the approach to waves, both for several gust cases with the Normal Sea State, and for a number of cases with the Extreme Sea State. The guidance for load calculations has been altered accordingly; c) For load safety factors reference is now made directly to IEC 61400-1; d) Control system has been aligned with the latest updates in IEC 61400-1; e) Wave spectra has been replaced by a reference to ISO 19901-1; f) The annex on ice loading has been revised and updated g) Two informative annexes concerning tropical cyclones have been introduced h) Other parts of the text have been aligned with IEC 61400-1"
+  },
+  {
+    "reference": "IEC 61400-3-2:2025",
+    "edition": "1.0",
+    "date": "2025-01-22",
+    "title": "Wind energy generation systems - Part 3-2: Design requirements for floating offshore wind turbines",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-3-2:2025 specifies requirements for assessment of the external conditions at a floating offshore wind turbine (FOWT) site and specifies essential design requirements to ensure the engineering integrity of FOWTs. Its purpose is to provide an appropriate level of protection against damage from all anticipated hazards during the planned lifetime. This document focuses on the engineering integrity of the structural components of a FOWT but is also concerned with subsystems such as control and protection mechanisms, internal electrical systems and mechanical systems. This first edition cancels and replaces IEC TS 61400-3-2, published in 2019. This edition includes the following significant technical changes with respect to IEC TS 61400‑3-2: a) The relevant contents of IEC 61400-3-1 have been migrated into IEC 61400-3-2, making IEC 61400-3-2 a self-standing document that does not have to be read directly in conjunction with IEC 61400-3-1. b) Several modifications have been made regarding metocean conditions in Clause 6 considering the nature of FOWT and the offshore site where FOWT will be installed, including: (1) the importance of wave directional spreading has been highlighted as it may result in larger loads for FOWT, including the addition of the new informative Annex O and Annex P and (2) the characteristic of swell has been explained, which may be relevant for some FOWT projects, including the addition of new informative Annex R regarding the characteristic of swell. c) Subclauses 7.1, 7.2, 7.3, 7.4 and 7.5 have been changed to include a revised DLC table and its related descriptions, including amongst others updated requirements on directionality, wave conditions, redundancy check and damage stability cases, and a robustness check case; further updates are made related to guidance and necessities provided on load calculations and simulation requirements. d) Subclause 7.6 has been updated with guidance on fatigue assessment along with clarifications on serviceability analysis and the applicable material for WSD; related Annex L has been updated and a new Annex M has been added for clarification of the safety factors and load and load effect approach for floating substructures e) The concept of floater control system that will interact with the wind turbine controller has been introduced in Clause 8. f) Clause 11 has been renamed from \"Foundation and substructure design\" to \"Anchor design\" and requirements for the transient conditions have been added. g) A more detailed clause regarding concrete design has been added to Clause 16 together with an informative Annex Q. h) Clause 15 has been updated with the aim to improve ease of use, using experience from oil and gas and considering unique wind turbine characteristics; updates included guidance for TLPs, damage stability, dynamic stability, testing and the addition for Annex S regarding how to analyse collision probability."
+  },
+  {
+    "reference": "IEC 61400-4:2025",
+    "edition": "2.0",
+    "date": "2025-04-15",
+    "title": "Wind energy generation systems - Part 4: Design requirements for wind turbine gearboxes",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "IEC 61400-4:2025 is applicable to enclosed speed increasing gearboxes for horizontal axis wind turbine drivetrains with a power rating in excess of 500 kW. This document applies to newly designed gearboxes for wind turbines installed onshore or offshore. The technical requirements given in this document are not intended for repaired or refurbished gearboxes, or for the extension of the service life beyond the design life. This document provides requirements and guidance on the analysis of the wind turbine loads in relation to the design of the gear and gearbox elements. The gearing elements covered by this document include such gears as spur, helical or double helical and their combinations in parallel and epicyclic arrangements in the main power path. This document does not apply to power take off (PTO) gears. This document includes requirements, design recommendations, and rating of gearboxes with rolling bearings, plain bearings, or combinations of both bearing types. This document is supported by two Technical Reports: IEC TR 61400‑4‑2 provides additional information on lubrication of wind turbine drivetrains and IEC TR 61400‑4‑3 contains explanatory notes and supportive information to the requirements specified in this document. It is published as a double logo standard. This second edition cancels and replaces the first edition published in 2012. This edition includes the following significant technical changes with respect to the previous edition: - extension of the scope to wind turbines above 2 MW reference power; - considerations for converging differing approaches to reliability in gear, bearing and wind turbine standards; - new clause on wind turbine loads specific to drivetrains; - revised clause on verification and validation; - new clause on design requirements for plain bearings; - revised and expanded design considerations for rolling bearings; - revised clause on considerations and requirements in the design and analysis of gearbox structural elements; - updated considerations and requirements on lubricants and lubrication systems; - removal of requirements for documenting the compliance of a design with the requirements of the document in favour of reference to IECRE OD‑501‑2."
+  },
+  {
+    "reference": "IEC TS 61400-4-1:2026",
+    "edition": "1.0",
+    "date": "2026-02-18",
+    "title": "Wind energy generation systems - Part 4-1: Reliability assessment of drivetrain components in wind turbines",
+    "language": "EN",
+    "description": "CORRECTED VERSION 2026-04 IEC TS 61400-4-1:2026 specifies a method to calculate the design reliability of wind turbines gearboxes covered by IEC 61400‑4, based upon failure modes where standardized calculation methods are publicly available. For the calculable failure mechanisms, it is possible to compare the reliability between different gearbox designs within the limitations of the theoretical models. The use of field-based statistical parameters can improve the accuracy of the calculated reliability. The calculated design reliability can provide information for the lifecycle management strategy. However, this document does not provide trade-off decisions between higher design reliability and maintenance strategies (e.g. preventive or predictive maintenance). This document does not consider repairable system analysis. Due to the lack of accepted theoretical models for some failure modes, the model can currently not predict the apparent failure probability in the field. Neither this document nor IEC 61400-4 specify a minimum value of design reliability. This corrected version of IEC TS 61400-4-1:2026 incorporates the following correction: - addition in the foreword that this is a double logo technical specification prepared in cooperation with ISO/TC 60"
+  },
+  {
+    "reference": "IEC TR 61400-4-2:2026",
+    "edition": "1.0",
+    "date": "2026-02-27",
+    "title": "Wind energy generation systems - Part 4-2: Lubrication of drivetrain components in wind turbines",
+    "language": "EN",
+    "description": "CORRECTED VERSION 2026-04 IEC TR 61400-4-2:2026 provides non-binding information regarding the lubricant, lubrication system layout, and performance for wind turbine gearboxes. This document covers oil lubricated gearboxes. Additionally, guidance for selected lubricant parameters as well as for monitoring and maintaining lubricant characteristics is offered. This document provides a common reference for lubrication related matters for wind turbine drive trains. ISO/TR 18792 provides information for lubrication of industrial gearboxes. Some information is similar or identical to this document. This document is useful to wind turbine system and component designers, wind turbine manufacturers, and owners/operators to ensure that lubricant related matters are addressed in the gearbox design and operation phases. This current document covers oil lubricated gearboxes and is developed based on experience with predominantly gearboxes with rolling bearings. It can be applied to gearboxes with plain bearings but possibly does not yet address all aspects of this technology. The document structure is prepared to receive further content related to other components in the wind turbine drivetrain and include additional types of lubricants. This corrected version of IEC TR 61400-4-2:2026 incorporates the following correction: - addition in the foreword that this is a double logo technical report prepared in cooperation with ISO/TC 60"
+  },
+  {
+    "reference": "IEC 61400-5:2020",
+    "edition": "1.0",
+    "date": "2020-06-16",
+    "title": "Wind energy generation systems - Part 5: Wind turbine blades",
+    "language": "EN-FR",
+    "description": "IEC 61400-5:2020 specifies requirements to ensure the engineering integrity of wind turbine blades as well as an appropriate level of operational safety throughout the design lifetime. It includes requirements for: - aerodynamic and structural design, - material selection, evaluation and testing, - manufacture (including associated quality management), - transportation, installation, operation and maintenance of the blades. The purpose of this document is to provide a technical reference for designers, manufacturers, purchasers, operators, third party organizations and material suppliers, as well as to define requirements for certification."
+  },
+  {
+    "reference": "IEC 61400-5:2020/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-08-28",
+    "title": "Amendment 1 - Wind energy generation systems - Part 5: Wind turbine blades",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-6:2020",
+    "edition": "1.0",
+    "date": "2020-04-21",
+    "title": "Wind energy generation systems - Part 6: Tower and foundation design requirements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-6:2020 specifies requirements and general principles to be used in assessing the structural integrity of onshore wind turbine support structures (including foundations). The scope includes the geotechnical assessment of the soil for generic or site specific purposes. The strength of any flange and connection system connected to the rotor nacelle assembly (including connection to the yaw bearing) are designed and documented according to this document or according to IEC 61400-1. The scope includes all life cycle issues that may affect the structural integrity such as assembly and maintenance. The contents of the corrigendum of November 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-6:2020/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-11-24",
+    "title": "Corrigendum 1 - Wind energy generation systems - Part 6: Tower and foundation design requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-6:2020/AMD1:2025",
+    "edition": "1.0",
+    "date": "2025-06-13",
+    "title": "Amendment 1 - Wind energy generation systems - Part 6: Tower and foundation design requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-8:2024",
+    "edition": "1.0",
+    "date": "2024-07-03",
+    "title": "Wind energy generation systems - Part 8: Design of wind turbine structural components",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-8:2024 outlines the minimum requirements for the design of wind turbine nacelle-based structures and is not intended for use as a complete design specification or instruction manual. This document focuses on the structural integrity of the structural components constituted within and in the vicinity of the nacelle, including the hub, mainframe, main shaft, associated structures of direct-drives, gearbox structures, yaw structural connection, nacelle enclosure. It also addresses connections of the structural components to control and protection mechanisms, as well as structural connections of electrical units and other mechanical systems. This document focuses primarily on ferrous material-based nacelle structures but can apply to other materials also as appropriate"
+  },
+  {
+    "reference": "IEC TS 61400-9:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Wind energy generation systems - Part 9: Probabilistic design measures for wind turbines",
+    "language": "EN",
+    "description": "IEC TS 61400-9:2025 sets out minimum requirements to the use of probabilistic design measures in order to ensure the structural and mechanical integrity of wind turbines. The document is based on the general approach in ISO 2394, which also forms the basis for IEC 61400-1. In 61400-1, the design verification approach is based on deterministic design using safety factors. However, edition 4 of IEC 61400-1:2019 opens for introduction of probabilistic design in an informative annex specifying requirements to the calibration of structural material safety factors and structural design assisted by testing. IEC 61400-1 is the governing standard. This document provides appropriate methodologies and requirements for full probabilistic design by taking into account specific uncertainties on not only material properties but also on environmental conditions, design models and the degree of validation. This document also provides provisions for semi-probabilistic design, including reliability-based calibration of partial safety factors and assessment of existing wind turbines. The probabilistic methods in this document are formulated generically and can be applied to structural and mechanical failure modes where a limit state equation can be formulated."
+  },
+  {
+    "reference": "IEC 61400-11:2012",
+    "edition": "3.0",
+    "date": "2012-11-07",
+    "title": "Wind turbines - Part 11: Acoustic noise measurement techniques",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61400-11:2012 presents measurement procedures that enable noise emissions of a wind turbine to be characterised. This involves using measurement methods appropriate to noise emission assessment at locations close to the machine, in order to avoid errors due to sound propagation, but far away enough to allow for the finite source size. The procedures described are different in some respects from those that would be adopted for noise assessment in community noise studies. They are intended to facilitate characterisation of wind turbine noise with respect to a range of wind speeds and directions. Standardisation of measurement procedures will also facilitate comparisons between different wind turbines. This new edition constitutes a technical revision, introducing new principles for data reduction procedures."
+  },
+  {
+    "reference": "IEC 61400-11:2012/AMD1:2018",
+    "edition": "3.0",
+    "date": "2018-06-15",
+    "title": "Amendment 1 - Wind turbines - Part 11: Acoustic noise measurement techniques",
+    "language": "EN-FR, ES",
+    "description": "The contents of the corrigendum of October 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-11:2012/AMD1:2018/COR1:2019",
+    "edition": "3.0",
+    "date": "2019-10-10",
+    "title": "Corrigendum 1 - Amendment 1 - Wind turbines - Part 11: Acoustic noise measurement techniques",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61400-11-2:2024",
+    "edition": "1.0",
+    "date": "2024-03-27",
+    "title": "Wind energy generation systems - Part 11-2: Acoustic noise measurement techniques - Measurement of wind turbine sound characteristics in receptor position",
+    "language": "EN",
+    "description": "IEC TS 61400-11-2:2024 presents measurement procedures, that enable the sound characteristics of a wind turbine to be determined at receptor (immission) locations. This involves using measurement methods appropriate to sound immission assessment at far-field locations of a wind turbine or wind farm. The procedures described are different in some respects from those that would be used for noise assessment from other industrial sound sources in environmental noise impact assessments. The procedures present methodologies that will enable the sound immission and sound characteristics of wind turbines to be described in a consistent and accurate manner."
+  },
+  {
+    "reference": "IEC 61400-12:2022",
+    "edition": "1.0",
+    "date": "2022-09-05",
+    "title": "Wind energy generation systems - Part 12: Power performance measurements of electricity producing wind turbines - Overview",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12:2022 defines procedures for assessing the power performance characteristics of wind turbines. This document provides a general introduction to the available options for power performance measurement and the contributing evaluations which are further detailed in the other parts of the IEC 61400-12 series. This first edition of IEC 61400-12 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards."
+  },
+  {
+    "reference": "IEC 61400-12-1:2022",
+    "edition": "3.0",
+    "date": "2022-09-05",
+    "title": "Wind energy generation systems - Part 12-1: Power performance measurements of electricity producing wind turbines",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12-1:2022 specifies a procedure for measuring the power performance characteristics of a single wind turbine and applies to the testing of wind turbines of all types and sizes connected to the electrical power network. In addition, this document defines a procedure to be used to determine the power performance characteristics of small wind turbines (as defined in IEC 61400-2) when connected to either the electric power network or a battery bank. This document defines a measurement methodology that requires the measured power curve and derived energy production figures to be supplemented by an assessment of uncertainty sources and their combined effects. This third edition of IEC 61400-12-1 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards. The content of the corrigendum 1 (2025-05) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-12-1:2022/COR1:2025",
+    "edition": "3.0",
+    "date": "2025-05-23",
+    "title": "Corrigendum1 - Wind energy generation systems - Part 12-1: Power performance measurements of electricity producing wind turbines",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-12-2:2022",
+    "edition": "2.0",
+    "date": "2022-09-05",
+    "title": "Wind energy generation systems - Part 12-2: Power performance of electricity producing wind turbines based on nacelle anemometry",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12-2:2022 specifies a procedure for verifying the power performance characteristics of a single electricity-producing, horizontal axis wind turbine that is not considered to be a small wind turbine per IEC 61400-2. It is expected that this document be used when the specific operational or contractual specifications do not comply with the requirements set out in IEC 61400-12-1. The purpose of this document is to provide a uniform methodology of measurement, analysis, and reporting of power performance characteristics for individual electricity producing wind turbines utilising nacelle-anemometry methods. This document is intended to be applied only to horizontal axis wind turbines of sufficient size that the nacelle-mounted anemometer does not significantly affect the flow through the turbine’s rotor and around the nacelle and hence does not affect the wind turbine’s performance. This second edition of IEC 61400-12-2 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards."
+  },
+  {
+    "reference": "IEC 61400-12-3:2022",
+    "edition": "1.0",
+    "date": "2022-08-29",
+    "title": "Wind energy generation systems - Part 12-3: Power performance - Measurement based site calibration",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12-3:2022 specifies a measurement and analysis procedure for deriving the wind speed correction due to terrain effects and applies to the performance testing of wind turbines of all types and sizes connected to the electrical power network as described in IEC 61400‑12‑1. The procedure applies to the performance evaluation of specific wind turbines at specific locations. The purpose of this part of IEC 61400 is to provide a uniform methodology that will ensure consistency, accuracy and reproducibility in the measurement and analysis of a site calibration for use in the determination of the power performance of wind turbines. This document provides guidance in the measurement, analysis, and reporting of the site calibration for subsequent use in power performance testing for wind turbines. This first edition of IEC 61400-12-3 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards. The content of the corrigendum 1 (2025-04) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-12-3:2022/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-04-25",
+    "title": "Corrigendum 1 - Wind energy generation systems - Part 12-3: Power performance - Measurement based site calibration",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61400-12-4:2020",
+    "edition": "1.0",
+    "date": "2020-09-22",
+    "title": "Wind energy generation systems - Part 12-4: Numerical site calibration for power performance testing of wind turbines",
+    "language": "EN",
+    "description": "IEC TR 61400-12-4:2020 summarizes the current state of the art in numerical flow modelling, existing guidelines and past benchmarking experience in numerical model validation and verification. Based on the work undertaken, the document identifies the important technical aspects for using flow simulation over terrain for wind application as well as the existing open issues including recommendations for further validation through benchmarking tests."
+  },
+  {
+    "reference": "IEC 61400-12-5:2022",
+    "edition": "1.0",
+    "date": "2022-08-30",
+    "title": "Wind energy generation systems - Part 12-5: Power performance - Assessment of obstacles and terrain",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12-5:2022 specifies the procedures for assessing the significance of obstacles and terrain variations on a proposed power performance measurement site and applies to the performance testing of wind turbines of all types and sizes connected to the electrical power network as described in other parts of the IEC 61400 series. The procedure applies to the performance evaluation of specific wind turbines at specific locations. This first edition of IEC 61400-12-5 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards. The content of the corrigendum 1 (2025-05) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-12-5:2022/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-05-23",
+    "title": "Corrigendum 1 - Wind energy generation systems - Part 12-5: Power performance - Assessment of obstacles and terrain",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-12-6:2022",
+    "edition": "1.0",
+    "date": "2022-08-30",
+    "title": "Wind energy generation systems - Part 12-6: Measurement based nacelle transfer function of electricity producing wind turbines",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-12-6:2022 specifies a procedure for measuring the nacelle transfer function of a single electricity-producing, horizontal axis wind turbine, which is not considered to be a small wind turbine in accordance with IEC 61400-2. It is expected that this document be used when a valid nacelle transfer function is needed to execute a power performance measurement according to IEC 61400-12-2. This document specifies how to characterise a wind turbine's nacelle transfer function. The nacelle transfer function is determined by collecting simultaneous measurements of nacelle‑measured wind speed and free stream wind speed (as measured on a meteorological mast) for a period that is long enough to establish a statistically significant database over a range of wind speeds and under varying wind and atmospheric conditions. The procedure also provides guidance on determination of measurement uncertainty including assessment of uncertainty sources and recommendations for combining them. This first edition of IEC 61400-12-6 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400‑12‑2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards."
+  },
+  {
+    "reference": "IEC 61400-13:2015",
+    "edition": "1.0",
+    "date": "2015-12-21",
+    "title": "Wind turbines - Part 13: Measurement of mechanical loads",
+    "language": "EN-FR",
+    "description": "IEC 61400-13:2015(B) describes the measurement of fundamental structural loads on wind turbines for the purpose of the load simulation model validation. The standard prescribes the requirements and recommendations for site selection, signal selection, data acquisition, calibration, data verification, measurement load cases, capture matrix, post-processing, uncertainty determination and reporting. Informative annexes are also provided to improve understanding of testing methods. This standard replaces IEC TS 61400-13 published in 2001; it constitutes a technical revision and transition from technical specification to International Standard."
+  },
+  {
+    "reference": "IEC 61400-13:2015/AMD1:2021",
+    "edition": "1.0",
+    "date": "2021-12-03",
+    "title": "Amendment 1 - Wind turbines - Part 13: Measurement of mechanical loads",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61400-14:2005",
+    "edition": "1.0",
+    "date": "2005-03-22",
+    "title": "Wind turbines - Part 14: Declaration of apparent sound power level and tonality values",
+    "language": "EN",
+    "description": "Gives guidelines for declaring the apparent sound power level and tonality of a batch of wind turbines. Is to be used in conjunction with IEC 61400-11 which gives measurement procedures for apparent sound power level and tonality. This publication is of high relevance for Smart Grid."
+  },
+  {
+    "reference": "IEC 61400-15-1:2025",
+    "edition": "1.0",
+    "date": "2025-03-14",
+    "title": "Wind energy generation systems - Part 15-1: Site suitability input conditions for wind power plants",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-15-1:2025 defines a framework for assessment and reporting of the wind turbine suitability conditions for both onshore and offshore wind power plants. This includes: a) definition, measurement, and prediction of the long-term meteorological and wind flow characteristics at the site; b) integration of the long-term meteorological and wind flow characteristics with wind turbine and balance-of-plant characteristics; c) characterizing environmental extremes and other relevant plant design drivers; d) addressing documentation and reporting requirements to help ensure the traceability of the assessment processes. This document is framed to complement and support the scope of related IEC 61400 series by defining environmental input conditions. It is not intended to supersede the design and suitability requirements presented in those documents. Specific analytical and modelling procedures as described in IEC 61400-1, IEC 61400-2, IEC 61400-3-1 and IEC TS 61400-3-2 are excluded from the scope of this document."
+  },
+  {
+    "reference": "IEC 61400-21-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Wind energy generation systems - Part 21-1: Measurement and assessment of electrical characteristics - Wind turbines",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-21-1:2019 includes: · definition and specification of the quantities to be determined for characterizing the electrical characteristics of a grid-connected wind turbine; · measurement procedures for quantifying the electrical characteristics; · procedures for assessing compliance with electrical connection requirements, including estimation of the power quality expected from the wind turbine type when deployed at a specific site. The measurement procedures are valid for single wind turbines with a three-phase grid connection. The measurement procedures are valid for any size of wind turbine, though this part of IEC 61400 only requires wind turbine types intended for connection to an electricity supply network to be tested and characterized as specified in this part of IEC 61400. This first edition cancels and replaces the second edition of 61400-21 published in 2008. This edition includes the following new items with respect to 61400-21: a) frequency control measurement; b) updated reactive power control and capability measurement, including voltage and cos φ control; c) inertia control response measurement; d) overvoltage ride through test procedure; e) updated undervoltage ride through test procedure based on Wind Turbine capability; f) new methods for the harmonic assessment."
+  },
+  {
+    "reference": "IEC 61400-21-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-29",
+    "title": "Wind energy generation systems - Part 21-2: Measurement and assessment of electrical characteristics - Wind power plants",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-21-2:2023 defines and specifies the quantities that are determined to characterize the electrical characteristics of grid-connected power plants (PPs). This document defines the measurement and test procedures for quantifying the electrical characteristics as basis for the verification of compliance of PPs. This document defines a uniform functionality test and measurement procedure for the power plant controller (PPC), as a basis for the unit test of the power plant controller. This document defines the procedures for assessing compliance with electrical connection requirements, including the aggregation methods for power quality aspects such as voltage variations, flicker, harmonics and interharmonics. This document defines the procedures for measurement and fault recording, for example for the verification of power plant electrical simulation models in relation to undervoltage and overvoltage ride-through events."
+  },
+  {
+    "reference": "IEC TR 61400-21-3:2019",
+    "edition": "1.0",
+    "date": "2019-09-13",
+    "title": "Wind energy generation systems - Part 21-3: Measurement and assessment of electrical characteristics - Wind turbine harmonic model and its application",
+    "language": "EN",
+    "description": "IEC TR 61400-21-3:2019 provides guidance on principles which can be used as the basis for determining the application, structure and recommendations for the WT harmonic model. For the purpose of this Technical Report, a harmonic model means a model that represents harmonic emissions of different WT types interacting with the connected network. This document is focused on providing technical guidance concerning the WT harmonic model. It describes the harmonic model in detail, covering such aspects as application, structure, as well as validation. By introducing a common understanding of the WT representation from a harmonic performance perspective, this document aims to bring the overall concept of the harmonic model closer to the industry (e.g. suppliers, developers, system operators, academia, etc.). A standardized approach of WT harmonic model representation is presented in this document. The harmonic model will find a broad application in many areas of electrical engineering related to design, analysis, and optimisation of electrical infrastructure of onshore as well as offshore WPPs."
+  },
+  {
+    "reference": "IEC TS 61400-21-4:2025",
+    "edition": "1.0",
+    "date": "2025-04-16",
+    "title": "Wind energy generation systems - Part 21-4: Measurement and assessment of electrical characteristics - Wind turbine components and subsystems",
+    "language": "EN",
+    "description": "IEC TS 61400-21-4:2025 specifies a uniform methodology, defining measurement, testing and assessment procedures of electrical characteristics of wind turbine components and subsystems, as basis for the verification of the electrical capabilities of wind turbines and wind turbine families. This document includes the following aspects: - definitions of test bench, subsystems and interface; - definitions of system requirements for the test bench to perform relevant measurements (grid strengths, short circuit power, THD, …); - measurement procedures for quantifying the electrical characteristics; - test and measurement procedures for verifying and validating the electrical characteristics of components and subsystems in relation to grid compliance requirements; - procedures for the transferability of the component and subsystem test results, measured at the test bench, to WT product families; - documentation requirements and validation procedures of components, subsystems and wind turbines. The results of the measurements and assessments of the wind turbine components and subsystems will be used as input for the verification of electrical capabilities as described in IEC 61400-21-1 and for the validation and verification of the electrical simulation models for wind power plants (WPP) as described in IEC 61400-27."
+  },
+  {
+    "reference": "IEC 61400-23:2014",
+    "edition": "1.0",
+    "date": "2014-04-08",
+    "title": "Wind turbines - Part 23: Full-scale structural testing of rotor blades",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61400-23:2014 defines the requirements for full-scale structural testing of wind turbine blades and for the interpretation and evaluation of achieved test results. The standard focuses on aspects of testing related to an evaluation of the integrity of the blade, for use by manufacturers and third party investigators. The following tests are considered in this standard: - static load tests; - fatigue tests; - static load tests after fatigue tests; - tests determining other blade properties. The purpose of the tests is to confirm to an acceptable level of probability that the whole population of a blade type fulfils the design assumptions."
+  },
+  {
+    "reference": "IEC 61400-24:2019",
+    "edition": "2.0",
+    "date": "2019-07-03",
+    "title": "Wind energy generation systems - Part 24: Lightning protection",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-24:2019 applies to lightning protection of wind turbine generators and wind power systems. Refer to guidelines for small wind turbines in annex. This document defines the lightning environment for wind turbines and risk assessment for wind turbines in that environment. It defines requirements for protection of blades, other structural components and electrical and control systems against both direct and indirect effects of lightning. Test methods to validate compliance are included. Guidance on the use of applicable lightning protection, industrial electrical and EMC standards including earthing is provided. This second edition cancels and replaces the first edition, published in 2010. This edition includes the following significant technical changes with respect to the previous edition: a) it is restructured with a main normative part, while informative information is placed in annexes."
+  },
+  {
+    "reference": "IEC 61400-24:2019/AMD1:2024",
+    "edition": "2.0",
+    "date": "2024-11-13",
+    "title": "Amendment 1 - Wind energy generation systems - Part 24: Lightning protection",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61400-25-1:2017",
+    "edition": "2.0",
+    "date": "2017-07-20",
+    "title": "Wind energy generation systems - Part 25-1: Communications for monitoring and control of wind power plants - Overall description of principles and models",
+    "language": "EN-FR",
+    "description": "IEC 61400-25-1:2017 gives an overall description of the principles and models used in the IEC 61400­25 series, which is designed for a communication environment supported by a client-server model. Three areas are defined, that are modelled separately to ensure the scalability of implementations: wind power plant information models, information exchange model, and mapping of these two models to a standard communication profile. This new edition includes the following significant technical changes with respect to the previous edition: general harmonization of text and overview models with the other parts of the IEC 61400­25 series, harmonization of definitions in other related standards."
+  },
+  {
+    "reference": "IEC 61400-25-2:2015",
+    "edition": "2.0",
+    "date": "2015-06-30",
+    "title": "Wind turbines - Part 25-2: Communications for monitoring and control of wind power plants - Information models",
+    "language": "EN-FR",
+    "description": "IEC 61400-25-2:2015 specifies the information model of devices and functions related to wind power plant applications. In particular, it specifies the compatible logical node names, and data names for communication between wind power plant components. This includes the relationship between logical devices, logical nodes and data. The names defined in the IEC 61400-25 series are used to build the hierarchical object references applied for communicating with components in wind power plants. Main changes with respect to the previous edition consist of: - harmonization with newer editions of IEC 61850 standards; - reduction of overlap between standards and simplification by increased referencing, - extension of data objects for operation of smart grids, - extended and enhanced semantics for existing data objects, etc."
+  },
+  {
+    "reference": "IEC 61400-25-3:2015",
+    "edition": "2.0",
+    "date": "2015-06-30",
+    "title": "Wind turbines - Part 25-3: Communications for monitoring and control of wind power plants - Information exchange models",
+    "language": "EN-FR",
+    "description": "IEC 61400-25-3:2015 specifies an abstract communication service interface describing the information exchange between a client and a server for: - data access and retrieval, - device control, - event reporting and logging, - self-description of devices (device data dictionary), - data typing and discovery of data types. Main changes with respect to the previous edition consist of: - harmonization with newer editions of IEC 61850 standards; - reduction of overlap between standards and simplification by increased referencing, etc."
+  },
+  {
+    "reference": "IEC 61400-25-4:2016",
+    "edition": "2.0",
+    "date": "2016-11-30",
+    "title": "Wind energy generation systems - Part 25-4: Communications for monitoring and control of wind power plants - Mapping to communication profile",
+    "language": "EN-FR",
+    "description": "IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise: - a mapping to SOAP-based web services, - a mapping to OPC/XML-DA, - a mapping to IEC 61850-8-1 MMS, - a mapping to IEC 60870-5-104, - a mapping to DNP3. The main technical changes with regard to the previous edition are as follows: - general harmonization with information models in IEC 61400-25-2 and information exchange services in IEC 61400-25-3; - reduction of overlap between standards and simplification by increased referencing."
+  },
+  {
+    "reference": "IEC 61400-25-5:2017",
+    "edition": "2.0",
+    "date": "2017-09-20",
+    "title": "Wind energy generation systems - Part 25-5: Communications for monitoring and control of wind power plants - Compliance testing",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition: - harmonization with structure and test cases in IEC 61850-10:2012; - reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."
+  },
+  {
+    "reference": "IEC 61400-25-6:2016",
+    "edition": "2.0",
+    "date": "2016-12-16",
+    "title": "Wind energy generation systems - Part 25-6: Communications for monitoring and control of wind power plants - Logical node classes and data classes for condition monitoring",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-25-6:2016 specifies the information models related to condition monitoring for wind power plants and the information exchange of data values related to these models. This standard is to be used with other standards of the IEC 61400-25 series. This new edition includes the following significant technical changes with respect to the previous edition: - major restructuring of the data model to accommodate flexibility; removal of UFF58 format; - access to data using the standard reporting and logging functions; - recommendations for creating data names to accommodate flexibility"
+  },
+  {
+    "reference": "IEC TS 61400-25-71:2019",
+    "edition": "1.0",
+    "date": "2019-09-13",
+    "title": "Wind energy generation systems - Part 25-71: Communications for monitoring and control of wind power plants - Configuration description language",
+    "language": "EN",
+    "description": "IEC TS 61400-25-71:2019 focus on the communications between wind power plant components such as wind turbines and actors such as SCADA systems. Non­-IEC 61850/IEC 61400-25 internal communication within wind power plant components is outside the normative scope of the IEC 61400-25 series. This document describes how to extend the IEC 61400-25 series with the IEC 61850­6 Substation Configuration description Language (SCL) file format for describing communication­-related Intelligent Electronic Device (IED) configurations of a wind turbine, wind power plant controller, meteorological mast, etc. The extension of SCL to the wind domain is intended to simplify integration of wind power plant equipment for clients, as well as their integration to the electrical system. The adoption of SCL allows formalised tool-based exchange of IED parameters, communication system configurations, switch yard (function) structures, as well as description of the relations between them. The purpose of this format is to formally and efficiently exchange wind turbine and wind power plant IED capability descriptions, and system descriptions between IED engineering tools and the system engineering tool(s) of different manufacturers in a compatible way. The file format is also intended to provide report configuration and alarms as well as HMI interface information from a wind power plant. This information can be used to engineer overlying SCADA systems for the site, for connected DSO, or TSO, or for fleet operators' maintenance and surveillance systems. Finally, the SCL is intended as a documentation of the configuration and topology of the delivered system."
+  },
+  {
+    "reference": "IEC 61400-26-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-29",
+    "title": "Wind energy generation systems - Part 26-1: Availability for wind energy generation systems",
+    "language": "EN-FR",
+    "description": "IEC 61400-26-1:2019 defines an information model from which time-based, and production-based availability indicators for services can be derived and reported. The purpose is to provide standardised metrics that can be used to create and organise methods for availability calculation and reporting according to the user’s needs. The document provides information categories, which unambiguously describe how data is used to characterise and categorise the operation. The information model specifies category priority for discrimination between possible concurrent categories. Further, the model defines entry and exit criteria to allocate fractions of time and production values to the proper information category. A full overview of all information categories, exit and entry criteria is given in Annex. The document can be applied to any number of WTGSs, whether represented by an individual turbine, a fleet of wind turbines, a wind power station or a portfolio of wind power stations. A wind power station is typically made up of all WTGSs, functional services and balance of plant elements as seen from the point of common coupling. This first edition cancels and replaces IEC TS 61400-26-1:2011, IEC TS 61400-26-2:2014 and IEC TS 61400-26-3:2016."
+  },
+  {
+    "reference": "IEC TS 61400-26-4:2024",
+    "edition": "1.0",
+    "date": "2024-08-08",
+    "title": "Wind energy generation systems - Part 26-4: Reliability for wind energy generation systems",
+    "language": "EN",
+    "description": "IEC TS 61400-26-4:2024, which is a Technical Specification, specifies terms and information categories for identification and reporting of reliability metrics. The definitions are applicable to key components, any number of wind turbines, fleets of wind turbine types, a wind power station or a portfolio of wind power stations. The wind power station is made up of all WTGSs (Wind Turbine Generator Systems), functional services and balance of plant elements as seen from the point of common coupling. This document provides guidelines regarding reliability methodologies with informative annexes regarding use. It expands on the information model in IEC 61400-26-1, recognizing that availability and reliability are interrelated."
+  },
+  {
+    "reference": "IEC 61400-27-1:2020",
+    "edition": "2.0",
+    "date": "2020-07-30",
+    "title": "Wind energy generation systems - Part 27-1: Electrical simulation models - Generic models",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-27-1:2020 defines standard electrical simulation models for wind turbines and wind power plants. The specified models are time domain positive sequence simulation models, intended to be used in power system and grid stability analyses. The models are applicable for dynamic simulations of short term stability in power systems. This document defines the generic terms and parameters for the electrical simulation models. This document specifies electrical simulation models for the generic wind power plant topologies / configurations currently on the market. The wind power plant models include wind turbines, wind power plant control and auxiliary equipment. The wind power plant models are described in a modular way which can be applied for future wind power plant concepts and with different wind turbine concepts."
+  },
+  {
+    "reference": "IEC 61400-27-2:2020",
+    "edition": "1.0",
+    "date": "2020-07-14",
+    "title": "Wind energy generation systems - Part 27-2: Electrical simulation models - Model validation",
+    "language": "EN-FR, EN",
+    "description": "IEC 61400-27-2:2020 specifies procedures for validation of electrical simulation models for wind turbines and wind power plants, intended to be used in power system and grid stability analyses. The validation procedures are based on the tests specified in IEC 61400-21 (all parts). The validation procedures are applicable to the generic models specified in IEC 61400-27-1 and to other fundamental frequency wind power plant models and wind turbine models. The validation procedures for wind turbine models focus on fault ride through capability and control performance. The fault ride through capability includes response to balanced and unbalanced voltage dips as well as voltage swells. The control performance includes active power control, frequency control, synthetic inertia control and reactive power control. The validation procedures for wind turbine models refer to the tests specified in IEC 61400-21-1. The validation procedures for wind turbine models refer to the wind turbine terminals."
+  },
+  {
+    "reference": "IEC TS 61400-28:2025",
+    "edition": "1.0",
+    "date": "2025-03-20",
+    "title": "Wind energy generation systems - Part 28: Through-life management and life extension of wind power assets",
+    "language": "EN",
+    "description": "IEC TS 61400-28:2025 sets out minimum requirements for actions, investigations and assessments to ensure the continued structural integrity of wind farm assets, particularly wind turbines, aimed at verifying that they remain safe for personnel to operate. The document describes how to maintain those assets and collect suitable evidence to demonstrate to third parties that risks are minimised, particularly where risks are related to collateral damage or injury, such as could be suffered by personnel or structures neighbouring the wind farm. Covered in this document are assessments of current condition and remaining useful life, resulting in the technical basis for justifying extended operation beyond the design life (defined in 3.1.3) and also beyond the site-specific assessed lifetime, whichever is shorter, for structural or major components and systems contributing to primary layer of the safety system."
+  },
+  {
+    "reference": "IEC TS 61400-29:2023",
+    "edition": "1.0",
+    "date": "2023-02-07",
+    "title": "Wind energy generation systems - Part 29: Marking and lighting of wind turbines",
+    "language": "EN",
+    "description": "IEC TS 61400-29:2023, which is a Technical Specification, instils good practice for aviation lighting and marking of wind turbines in both onshore and offshore domains. Consideration is given to visible lighting and infrared (IR) lighting, which is necessary to maintain conspicuity to users of night vision goggles (NVGs). ICAO Annex 14 Standards and Recommended Practices have been used as the basis to develop supplementary harmonised specifications to assist with implementation. This document provides a set of technical requirements for marking and lighting of wind turbines with a tip height from/at 150 meters and below 315 meters Above Ground Level (AGL), or Above Mean Sea Level (AMSL) for offshore sites. This will improve situational awareness for airspace users, maintain safety of aircraft flying in the vicinity of wind turbines, and provide additional tools to assist with the reduction in environmental impacts consistent with aviation safety objectives."
+  },
+  {
+    "reference": "IEC TS 61400-30:2023",
+    "edition": "1.0",
+    "date": "2023-09-15",
+    "title": "Wind energy generation systems - Part 30: Safety of wind turbine generators - General principles for design",
+    "language": "EN",
+    "description": "IEC TS 61400-30:2023 specifies the essential health and safety requirements related to the design of wind turbines with horizontal axes with the exception of those included in the scope of IEC 61400-2. This document focuses on requirements for safe operation, inspection, maintenance, installation and decommissioning."
+  },
+  {
+    "reference": "IEC TS 61400-31:2023",
+    "edition": "1.0",
+    "date": "2023-11-15",
+    "title": "Wind energy generation systems - Part 31: Siting risk assessment",
+    "language": "EN",
+    "description": "IEC TS 61400-31:2023 establishes a guideline for the assessment of the risks which a wind turbine may pose to the general public. This document aims to facilitate a uniform scope and a uniform use of methods in wind turbine risk assessments. This document covers risk due to internal or external causes, such as technical failures, human errors, extreme wind conditions, turbine icing, lightning strikes, earthquakes, flooding, landslides or fire.This document covers only onshore wind turbines with a horizontal axis and a swept area greater than 200 m2. Substations and other external structures are excluded. This document describes risks during operation of the wind turbine including maintenance, idling and standstill. It does not describe risks during construction, civil works, crane operations, assembly or decommissioning. Risks according to this document are assessed by prescriptive and/or risk-based methods. This document covers risk reduction measures that might be necessary to reduce risk to a tolerable level."
+  },
+  {
+    "reference": "IEC 61400-40:2026",
+    "edition": "1.0",
+    "date": "2026-02-25",
+    "title": "Wind energy generation systems - Part 40: Electromagnetic compatibility (EMC) - Requirements and test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61400-40:2026 provides the EMC requirements and test methods that apply to the individual wind turbine and all the sub systems which are part of the wind turbine. The current document applies to measurements on individual wind turbines and not multiple wind turbines. This document defines the requirements and test methods for the verification of the wind turbine performance against radiated emissions and the immunity of their components against conducted and radiated phenomena. This document is applicable to onshore and offshore wind turbines."
+  },
+  {
+    "reference": "IEC 61400-50:2022",
+    "edition": "1.0",
+    "date": "2022-08-30",
+    "title": "Wind energy generation systems - Part 50: Wind measurement - Overview",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-50:2022 provides a general introduction to the options that are available for wind measurement, which are further detailed in the other parts of the IEC 61400-50 series. Whereas those other standards define use-cases for wind measurements, the IEC 61400-50 series sets those wind measurement requirements which are independent of the use-case. Its purpose is to ensure that wind measurements and the evaluation of uncertainties in those measurements are carried out consistently across the wind industry and that wind measurements are carried out such that the uncertainties can be quantified and that those uncertainties are within an acceptable range. This first edition of IEC 61400-50 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400-12-2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards."
+  },
+  {
+    "reference": "IEC 61400-50-1:2022",
+    "edition": "1.0",
+    "date": "2022-11-16",
+    "title": "Wind energy generation systems - Part 50-1: Wind measurement - Application of meteorological mast, nacelle and spinner mounted instruments",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-50-1:2022 specifies methods and requirements for the application of instruments to measure wind speed (and related parameters, e.g. wind direction, turbulence intensity). Such measurements are required as an input to some of the evaluation and testing procedures for wind energy and wind turbine technology (e.g. resource evaluation and turbine performance testing) described by other standards in the IEC 61400 series. This document is applicable specifically to the use of wind measurement instruments mounted on meteorological masts, turbine nacelles or turbine spinners which measure the wind at the location at which the instruments are mounted. This document excludes remote sensing devices which measure the wind at some location distant from the location at which the instrument is mounted (e.g. vertical profile or forward facing lidars)."
+  },
+  {
+    "reference": "IEC 61400-50-2:2022",
+    "edition": "1.0",
+    "date": "2022-08-30",
+    "title": "Wind energy generation systems - Part 50-2: Wind measurement - Application of ground-mounted remote sensing technology",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-50-2:2022 is applicable specifically to the use of ground-mounted remote sensing wind measurement instruments, i.e. devices which measure the wind at some location generally above and distant from the location at which the instrument is mounted (e.g. sodars, vertical profiling lidars). This document specifically excludes other types of RSD such as forward facing or scanning lidars. This document specifies the following: a. the procedure and requirements for classifying ground-based RSDs in order to assess the uncertainty pertaining from sensitivity of the RSD response to meteorological conditions that can vary between the RSD calibration place and time and the use case (specific measurement campaign – SMC) place and time; b. the procedures and requirements for calibration of RSDs; c. the assessment of wind speed measurement uncertainty; d. additional checks of the RSD performance and measurement uncertainty during the SMC; e. application of the wind speed uncertainty derived from the RSD calibration and classification to the measurements taken during the SMC (e.g. interpolation of uncertainty or calibration results to different heights); f. requirements for reporting. This first edition of IEC 61400-50-2 is part of a structural revision that cancels and replaces the performance standards IEC 61400-12-1:2017 and IEC 61400-12-2:2013. The structural revision contains no technical changes with respect to IEC 61400-12-1:2017 and IEC 61400-12-2:2013, but the parts that relate to wind measurements, measurement of site calibration and assessment of obstacle and terrain have been extracted into separate standards."
+  },
+  {
+    "reference": "IEC 61400-50-3:2022",
+    "edition": "1.0",
+    "date": "2022-01-07",
+    "title": "Wind energy generation systems - Part 50-3: Use of nacelle-mounted lidars for wind measurements",
+    "language": "EN-FR, ES",
+    "description": "IEC 61400-50-3:2022 describes procedures and methods that ensure that wind measurements using nacelle-mounted wind lidars are carried out and reported consistently and according to best practice. This document does not prescribe the purpose or use case of the wind measurements. However, as this document forms part of the IEC 61400 series of standards, it is anticipated that the wind measurements will be used in relation to some form of wind energy test or resource assessment. The scope of this document is limited to forward-looking nacelle-mounted wind lidars (i.e. the measurement volume is located upstream of the turbine rotor). This document aims to describe wind measurements using nacelle-mounted wind lidar with sufficient quality for the use case of power performance testing (according to IEC 61400-12-1:2017). The contents of the corrigendum of November 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61400-50-3:2022/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-11-16",
+    "title": "Corrigendum 1 - Wind energy generation systems - Part 50-3: Use of nacelle-mounted lidars for wind measurements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61400-50-4:2025",
+    "edition": "1.0",
+    "date": "2025-05-09",
+    "title": "Wind energy generation systems - Part 50-4: Use of floating lidar systems for wind measurements",
+    "language": "EN",
+    "description": "IEC TS 61400-50-4:2025 describe procedures and methods which ensure that wind measurements using floating wind lidar systems are carried out and reported consistently and according to best practice. This document does not prescribe the purpose or use case of the wind measurements. However, as this document forms part of the IEC 61400 series of standards and technical specifications, it is anticipated that the wind measurements will be used in relation to some form of wind energy testing or resource assessment. The scope of this document is limited to vertically profiling wind lidar devices in or on buoys. This document aims to be applicable to any type and make of floating wind lidar system. The method and requirements provided in this document are independent of the model and type and of the measurement principle and allow application to new types of floating wind lidar systems as these become available. This part of IEC 61400 aims to describe wind measurements using floating wind lidar with sufficient quality for the use case of wind resource assessment. Readers of this document can consider other use cases that can have other specific requirements."
+  }
+]

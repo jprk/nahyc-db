@@ -1,0 +1,602 @@
+[
+  {
+    "reference": "IEC 60085:2007",
+    "edition": "4.0",
+    "date": "2007-11-07",
+    "title": "Electrical insulation - Thermal evaluation and designation",
+    "language": "EN-FR, ES",
+    "description": "IEC 60085:2007 now distinguishes between thermal classes for electrical insulation systems and electrical insulating materials. It establishes the criteria for evaluating the thermal endurance of either electrical insulating materials (EIM) or electrical insulation systems (EIS). It also establishes the procedure for assigning thermal classes. This standard is applicable where the thermal factor is the dominant ageing factor. The major technical changes with regard to the previous edition concern the fact that this edition is an amalgamation of the third edition of this standard together with IEC 62114:2001."
+  },
+  {
+    "reference": "IEC 60112:2025",
+    "edition": "6.0",
+    "date": "2025-06-23",
+    "title": "Method for the determination of the proof and the comparative tracking indices of solid insulating materials",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-02 IEC 60112:2025 specifies the method of test for the determination of the proof and comparative tracking indices of solid insulating materials on pieces taken from parts of equipment and on plaques of material using alternating voltage. This document provides a procedure for the determination of erosion when required. The proof tracking index is used as an acceptance criterion as well as a means for the quality control of materials and fabricated parts. The comparative tracking index is mainly used for the basic characterization and comparison of the properties of materials. This test method evaluates the composition of the material as well as the surface of the material being evaluated. Both the composition and surface condition directly influence the results of the evaluation and are considered when using the results in material selection process. The described test method is designed for a test voltage up to 600 V AC, because higher test voltages and DC voltage will lead to a reduced test severity. Test results are not directly suitable for the evaluation of safe creepage distances when designing electrical apparatus. The results of this method have been used for insulation coordination of equipment. It is important that use of these results also considers the overvoltage levels, creepage distances, and establishes the pollution degree to which the product insulation system will be expected to be subjected. This is in compliance with IEC 60664-1. This basic safety publication focusing on a safety test method is primarily intended for use by technical committees in the preparation of safety publications in accordance with the principles laid down in IEC Guide 104 and lSO/lEC Guide 51. One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. This sixth edition cancels and replaces the fifth edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - In 7.3, the term \"resistivity\" has been replaced by \"conductivity\". It has the status of a basic safety publication in accordance with IEC Guide 104. The content of the corrigendum 1 (2026-02) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60112:2025/COR1:2026",
+    "edition": "6.0",
+    "date": "2026-02-18",
+    "title": "Corrigendum 1 - Method for the determination of the proof and the comparative tracking indices of solid insulating materials",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60212:2010",
+    "edition": "3.0",
+    "date": "2010-12-15",
+    "title": "Standard conditions for use prior to and during the testing of solid electrical insulating materials",
+    "language": "EN-FR",
+    "description": "IEC 60212:2010 gives the accepted conditions of exposure time, temperature, atmospheric humidity and liquid immersion for use in testing solid electrical insulating materials. The range is sufficiently wide to enable suitable conditions to be selected so that either of the primary objects, set out below as a) and b), of conditioning can be achieved. These objectives aim to obtain greater reproducibility of test results by: a) partly counteracting the variations of the properties of the material due to the past history of the test specimens (often known as \"normalizing\", here called preconditioning), and b) ensuring uniformity of conditions during the testing. This standard is not intended to be applied for determining the influence of exposure to certain temperatures and humidity or immersions in liquids, on the properties of a material. Procedures pertaining to the effect of an environment on a material are given in various parts of IEC 60068. The significant technical changes with respect to the previous edition are as follows: - the scope and normative references have been updated and terms and definitions completely reviewed; - technical details in Table 2 have been aligned to today's usage."
+  },
+  {
+    "reference": "IEC 60216-1:2025",
+    "edition": "7.0",
+    "date": "2025-12-12",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 1: Ageing procedures and evaluation of test results",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60216-1:2025 specifies the general ageing conditions and procedures to be used for deriving thermal endurance characteristics and gives guidance in using the detailed instructions and guidelines in the other parts of IEC 60216. Although originally developed for use with electrical insulating materials and simple combinations of such materials, the procedures are considered to be of more general applicability and are widely used in the assessment of materials not intended for use as electrical insulation. In the application of this document, it is assumed that a practically linear relationship exists between the logarithm of the time required to cause the predetermined property change and the reciprocal of the corresponding absolute temperature (Arrhenius relationship). For the valid application of this document, no transition, in particular no first-order transition, is expected to occur in the temperature range under study. This edition includes the following significant technical changes with respect to the previous edition: a) the definition for temperature index (TI) has been updated; b) requirements for selection of related materials used, e.g. in different colours (5.1.2), have been added; c) test procedure for thickness sensitivity (5.5 et 6.6) has been added; d) Annex C \"Concepts in earlier editions\" has been deleted."
+  },
+  {
+    "reference": "IEC 60216-2:2005",
+    "edition": "4.0",
+    "date": "2005-08-11",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 2: Determination of thermal endurance properties of electrical insulating materials - Choice of test criteria",
+    "language": "EN-FR",
+    "description": "Gives guidance for the choice of test criteria for the determination of thermal endurance characteristics. It includes a list of existing published procedures which is however not exhaustive. The main changes from the previous edition are as follows: - editorial, - Table 1 has been actualized essentially by Part 3 sheets of SC 15C publications. The content of the corrigendum 1 (2024-09) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60216-2:2005/COR1:2024",
+    "edition": "4.0",
+    "date": "2024-09-12",
+    "title": "Corrigendum 1 - Electrical insulating materials - Thermal endurance properties - Part 2: Determination of thermal endurance properties of electrical insulating materials - Choice of test criteria",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60216-3:2021",
+    "edition": "3.0",
+    "date": "2021-03-16",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 3: Instructions for calculating thermal endurance characteristics",
+    "language": "EN-FR",
+    "description": "IEC 60216-3:2021 specifies the calculation procedures used for deriving thermal endurance characteristics from experimental data obtained in accordance with the instructions of IEC 60216-1 and IEC 60216-2, using fixed ageing temperatures and variable ageing times. The experimental data can be obtained using non-destructive, destructive or proof tests. Data obtained from non-destructive or proof tests can be incomplete, in that it is possible that measurement of times taken to reach the end-point will have been terminated at some point after the median time but before all specimens have reached end-point. The procedures are illustrated by worked examples, and suitable computer programs are recommended to facilitate the calculations. This edition includes the following significant technical changes with respect to the previous edition: - a new computer program has been included; - Annex E \" has been completely reworked."
+  },
+  {
+    "reference": "IEC 60216-4-1:2006",
+    "edition": "4.0",
+    "date": "2006-01-19",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 4-1: Ageing ovens - Single-chamber ovens",
+    "language": "EN",
+    "description": "Covers minimum requirements for ventilated and electrically heated single-chamber ovens, with or without forced gas circulation, for thermal endurance evaluation of electrical insulation. It covers ovens designed to operate over all or part of the temperature range from 20 °C above ambient to 500 °C. It gives acceptance tests and in-service monitoring tests for these ageing ovens. The main changes with regard to the previous edition is that this edition adapts IEC 60216-4-1 to the technical content and the editorial form of IEC 60216-4-2 and IEC 60216-4-3. In addition, errors and omissions in the third edition have been corrected."
+  },
+  {
+    "reference": "IEC 60216-4-2:2000",
+    "edition": "1.0",
+    "date": "2000-07-31",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 4-2: Ageing ovens - Precision ovens for use up to 300 °C",
+    "language": "EN-FR, ES",
+    "description": "Covers minimum performance requirements for ventilated and electrically heated precision ovens for thermal endurance evaluation of electrical insulating materials and other appropriate applications. It covers ovens designed to operate over all or part of the temperature range from 20 K above room temperature up to 300°C. Two possible methods of achieving the required performance are described: a) where the required performance is achieved by precise control of temperature in a simple single chamber oven, i.e., upgraded versions of ovens conforming to IEC 60216-4-1, and, otherwise b)where the required performance is achieved by utilizing a second chamber (iso-box), mounted within the chamber of a single-chamber oven, the purpose of which is to reduce the magnitude of any temperature changes to an acceptable level whilst maintaining the required levels of air changes and circulation."
+  },
+  {
+    "reference": "IEC 60216-4-3:2000",
+    "edition": "1.0",
+    "date": "2000-04-28",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 4-3: Ageing ovens - Multi-chamber ovens",
+    "language": "EN-FR, ES",
+    "description": "Covers the minimum requirements for ventilated and heated multi-chamber ovens used for thermal endurance evaluation of electrical insulation and of any other appropriate thermal conditioning application where the use of single-chamber ovens is inappropriate. Covers ovens designated to operate over all or part of the temperature range from 20 K above ambient to 500°C. Gives acceptance tests and in-service monitoring tests for both unloaded and loaded multi-chamber ovens and conditions of use."
+  },
+  {
+    "reference": "IEC 60216-5:2022",
+    "edition": "4.0",
+    "date": "2022-11-18",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 5: Determination of relative temperature index (RTI) of an insulating material",
+    "language": "EN-FR",
+    "description": "IEC 60216-5:2022 specifies the experimental and calculation procedures to be used for deriving the relative temperature index of a material from experimental data obtained in accordance with the instructions of IEC 60216-1 and IEC 60216-2. The calculation procedures are supplementary to those of IEC 60216-3. Guidance is also given for assessment of thermal ageing after a single fixed time and temperature, without extrapolation. This edition includes the following significant technical changes with respect to the previous edition: Annex C “Computer program” has been completely reworked; in 3.1, the terms “ATE” and “RTE” were replaced by “ATI” and “RTI” to emphasize their reference to an electrical insulating material (EIM). This standard is to be read in conjunction with IEC 60216-1:2013, IEC 60216-2:2005 and IEC 60216-3:2021."
+  },
+  {
+    "reference": "IEC 60216-6:2022",
+    "edition": "3.0",
+    "date": "2022-11-28",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 6: Determination of thermal endurance indices (TI and RTI) of an insulating material using the fixed time frame method",
+    "language": "EN-FR",
+    "description": "IEC 60216-6:2022 specifies the experimental and calculation procedures for deriving the thermal endurance characteristics, temperature index (TI) and relative temperature index (RTI) of an electrical insulating material (EIM) using the “fixed time frame method (FTFM)”. In this protocol, the ageing takes place for a small number of fixed times, using the appro­priate number of ageing temperatures throughout each time, the properties of the specimens being measured at the end of the relevant time interval. This differs from the procedure of IEC 60216-1, where ageing is conducted at a small number of fixed temperatures, property measurement taking place after ageing times dependent on the progress of ageing. The diagnostic tests employed in the fixed time frame method are restricted to destructive tests. The method has not yet been applied to non-destructive or proof test procedures. This edition includes the following significant technical changes with respect to the previous edition: - clarification of definition of index properties vs. endurance properties; - complete rework of Annex G and the corresponding program."
+  },
+  {
+    "reference": "IEC TS 60216-7-1:2015",
+    "edition": "1.0",
+    "date": "2015-03-30",
+    "title": "Electrical insulation materials - Thermal endurance properties - Part 7-1: Accelerated determination of relative thermal endurance using analytical test methods (RTEA) - Instructions for calculations based on activation energy",
+    "language": "EN",
+    "description": "IEC TS 60216-7-1:2015(E) describes the procedure for the evaluation of the thermal endurance of electrical insulating materials, based on thermal analysis methods for the evaluation of the activation energy of the thermal degradation reaction and a conventional life test providing a life point in the thermal endurance graph. The purpose of the test procedure is to estimate the relative temperature index (RTE)."
+  },
+  {
+    "reference": "IEC TR 60216-7-2:2024",
+    "edition": "2.0",
+    "date": "2024-09-19",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 7-2: Accelerated determination of relative thermal endurance using analytical test methods (RTEA) - Results of the round robin tests to validate procedures of IEC TS 60216-7-1 by non-isothermal kinetic analysis of thermogravimetric data",
+    "language": "EN",
+    "description": "IEC TR 60216-7-2:2024 is intended to validate the procedures of IEC TS 60216-­7-­1 in providing a similar temperature index to conventional methods used in other parts of the IEC 60216 series. The round robin test results do not provide statistical analysis for precision. The round robin test focuses on preliminary studies to understand the evaluation and calculation procedures, influence on apparatus, and data variance among laboratories before determination of precision. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Annex A (informative) has been added to provide a round robin test with a different polymer type - polybuthylene terephthalate (PBY) - as an additional use case of the method in accordance with IEC TS 60216-7-1; b) Tables 3 to 11 have been corrected by adding units, and texts have been refined for more technical clarifications of the procedures and observations."
+  },
+  {
+    "reference": "IEC 60216-8:2013",
+    "edition": "1.0",
+    "date": "2013-03-15",
+    "title": "Electrical insulating materials - Thermal endurance properties - Part 8: Instructions for calculating thermal endurance characteristics using simplified procedures",
+    "language": "EN-FR",
+    "description": "IEC 60216-8:2013 specifies the general ageing conditions and simplified procedures to be used for deriving thermal endurance characteristics, which are shown by temperature index (TI) and/or relative temperature index (RTI) and the halving interval (HIC). The procedures specify the principles for evaluating the thermal endurance properties of materials exposed to elevated temperature for long periods. In the application of this standard, it is assumed that a practically linear relationship exists between the logarithm of the time required to cause the predetermined property change and the reciprocal of the corresponding absolute temperature (Arrhenius relationship). For the valid application of the standard, no transition, in particular no first-order transition should occur in the temperature range under study."
+  },
+  {
+    "reference": "IEC 60243-1:2013",
+    "edition": "3.0",
+    "date": "2013-03-26",
+    "title": "Electric strength of insulating materials - Test methods - Part 1: Tests at power frequencies",
+    "language": "EN-FR",
+    "description": "IEC 60243-1:2013 provides test methods for the determination of short-time electric strength of solid insulating materials at power frequencies between 48 Hz and 62 Hz. This standard does not cover the testing of liquids and gases, although these are specified and used as impregnates or surrounding media for the solid insulating materials being tested. NOTE: Methods for the determination of breakdown voltages along the surfaces of solid insulating materials are included."
+  },
+  {
+    "reference": "IEC 60243-2:2013",
+    "edition": "3.0",
+    "date": "2013-11-26",
+    "title": "Electric strength of insulating materials - Test methods - Part 2: Additional requirements for tests using direct voltage",
+    "language": "EN-FR",
+    "description": "IEC 60243-2:2013 gives requirements additional to those in IEC 60243-1 for the determination of the electric strength of solid insulating materials under direct voltage stress. This third edition cancels and replaces the second edition published in 2001, and constitutes an editorial revision. This publication is to be read in conjunction with IEC 60243-1:2013 ."
+  },
+  {
+    "reference": "IEC 60243-3:2013",
+    "edition": "3.0",
+    "date": "2013-11-26",
+    "title": "Electric strength of insulating materials - Test methods - Part 3: Additional requirements for 1,2/50 µs impulse tests",
+    "language": "EN-FR",
+    "description": "IEC 60243-3:2013 gives requirements additional to those in IEC 60243-1 for the determination of the electric strength of solid insulating materials under 1,2/50 µs impulse voltage stress. This third edition cancels and replaces the second edition, published in 2001, and constitutes an editorial revision. This publication is to be read in conjunction with IEC 60243-1:2013 ."
+  },
+  {
+    "reference": "IEC 60343:1991",
+    "edition": "2.0",
+    "date": "1991-01-23",
+    "title": "Recommended test methods for determining the relative resistance of insulating materials to breakdown by surface discharges",
+    "language": "EN-FR, ES",
+    "description": "Assesses the relative resistance of solid insulating materials to breakdown when exposed to partial surface discharges at stresses and frequencies used in industrial service."
+  },
+  {
+    "reference": "IEC 60370:2017",
+    "edition": "2.0",
+    "date": "2017-12-13",
+    "title": "Test procedure for thermal endurance of insulating resins and varnishes for impregnation purposes - Electric breakdown methods",
+    "language": "EN-FR",
+    "description": "IEC 60370:2017 covers methods of test for the determination of thermal endurance (temperature index) of electrical insulating resins and varnishes for impregnation purposes. It is done by means of impregnating glass cloth and measuring electric strength or breakdown voltage before and after heat ageing. It covers the materials described in IEC 60455-3-5 and IEC 60464-3-2 and similar materials. This second edition cancels and replaces the first edition published in 1971. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - this document is now describing two methods, the existing one, following ASTM D1932 and new a method following the requirements of IEC 60455-2 and IEC 60464-2; - the theoretical background and way of calculation were removed, and replaced by reference to IEC 60216; - the layout and numbering system was updated; - for better understanding and illustration purposes examples were added. Keywords: thermal endurance testing"
+  },
+  {
+    "reference": "IEC 60377-1:1973",
+    "edition": "1.0",
+    "date": "1973-01-01",
+    "title": "Methods for the determination of the dielectric properties of insulating materials at frequencies above 300 MHz. Part 1: General",
+    "language": "EN-FR",
+    "description": "Applies to the procedures for the determination of relative permittivity and dielectric dissipation factor and of quantities related to them, such as loss index, of dielectric materials in the microwave frequency region."
+  },
+  {
+    "reference": "IEC 60377-2:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Methods for the determination of the dielectric properties of insulating materials at frequencies above 300 MHz. Part 2: Resonance methods",
+    "language": "EN-FR",
+    "description": "Applies to the determination of relative permittivity and dielectric dissipation factor of solid and liquid or fusible dielectric materials in the microwave frequency by resonance methods. Covers test apparatus, test specimens, testing procedures and the evaluation of measured data. The appendix gives details of various types of resonator."
+  },
+  {
+    "reference": "IEC 60426:2007",
+    "edition": "2.0",
+    "date": "2007-01-29",
+    "title": "Electrical insulating materials - Determination of electrolytic corrosion caused by insulating materials - Test methods",
+    "language": "EN-FR, EN",
+    "description": "IEC 60426:2007 determines the ability of insulating materials to produce electrolytic corrosion on metals being in contact with them under the influence of electric stress, high humidity and elevated temperature. The effect of electrolytic corrosion is assessed in one test by using consecutively two methods: - visual semi-quantitative method consisting in comparing visually the corrosion appearing on the anode and cathode metal strips, with those given in the reference figures. This method consists of the direct visual assessment of the degree of corrosion of two copper strips, acting as anode and cathode respectively, placed in contact with the tested insulating material under a d.c. potential difference at specified environmental conditions. The degree of corrosion is assessed by visually comparing the corrosion marks on the anode and cathode metal strips with those shown in the reference figures; - quantitative method, which involves the tensile strength measurement, carried out on the same anode and cathode metal strips after visual inspection. An additional quantitative test method for determining electrolytic corrosion, which involves tensile strength measurement of copper wire, is described in the informative Annex C."
+  },
+  {
+    "reference": "IEC 60493-1:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Guide for the statistical analysis of ageing test data - Part 1: Methods based on mean values of normally distributed test results",
+    "language": "EN-FR",
+    "description": "IEC 60493-1:2011 gives statistical methods which may be applied to the analysis and evaluation of the results of ageing tests. It covers numerical methods based on mean values of normally distributed test results. These methods are only valid under specific assumptions regarding the mathematical and physical laws obeyed by the test data. Statistical tests for the validity of some of these assumptions are also given. This standard deals with data from both complete test sets and censored test sets. This standard provides data treatment based on the concept of \"data sub-group\" as defined in Clause 3. The validity of the coefficients used in the calculation processes to derive statistical parameters of the data groups are described in IEC 60216-1. This second edition cancels and replaces the first edition, published in 1974, and constitutes a technical revision. The main changes with respect to the first edition are that, besides a complete editorial revision, censored data sub-group are considered."
+  },
+  {
+    "reference": "IEC TR 60493-2:2010",
+    "edition": "1.0",
+    "date": "2010-03-30",
+    "title": "Guide for the statistical analysis of ageing test data - Part 2: Validation of procedures for statistical analysis of censored normally distributed data",
+    "language": "EN",
+    "description": "IEC/TR 60493-2:2010(E) provides an account of the work done in designing and validating the statistical procedures for operations on censored groups of normally distributed data. The relationship to similar operations on complete (uncensored) data is examined, and it is shown that \"mixed\" or wholly uncensored data groups may be analysed in the same way as wholly censored ones. Attention is drawn to the effect of some variation of group size and extent of censoring, as well as the effect of non-uniform data group sizes."
+  },
+  {
+    "reference": "IEC TR 60493-3:2017",
+    "edition": "1.0",
+    "date": "2017-05-11",
+    "title": "Guidelines for the statistical analysis of ageing test data - Part 3: Minimum specimen numbers at different test conditions with given experimental data",
+    "language": "EN",
+    "description": "IEC TR 60493-3:2017(E) clarifies how a statistical analysis can be done with a small number of samples. This document will be useful when the accelerated test method is difficult to carry out, for example in cases where the dimensions of test specimens (including test devices) are very large in scale or the cost of test specimens is high. Testing is facilitated by enabling users to reduce the number of test specimens."
+  },
+  {
+    "reference": "IEC 60505:2011",
+    "edition": "4.0",
+    "date": "2011-07-11",
+    "title": "Evaluation and qualification of electrical insulation systems",
+    "language": "EN-FR",
+    "description": "IEC 60505:2011 establishes the basis for estimating the ageing of electrical insulation systems (EIS) under conditions of either electrical, thermal, mechanical, environmental stresses or combinations of these (multifactor stresses). It specifies the principles and procedures that shall be followed, during the development of EIS functional test and evaluation procedures, to establish the estimated service life for a specific EIS. This standard should be used by all IEC technical committees responsible for equipment having an EIS. The contents of the corrigendum of March 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60505:2011/COR1:2017",
+    "edition": "4.0",
+    "date": "2017-03-14",
+    "title": "Corrigendum 1 - Evaluation and qualification of electrical insulation systems",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60544-1:2013",
+    "edition": "3.0",
+    "date": "2013-06-27",
+    "title": "Electrical insulating materials - Determination of the effects of ionizing radiation - Part 1: Radiation interaction and dosimetry",
+    "language": "EN-FR",
+    "description": "IEC 60544-1:2013 deals broadly with the aspects to be considered in evaluating the effects of ionizing radiation on all types of organic insulating materials. It also provides, for X-rays, gamma-rays, and electrons, a guide to dosimetry terminology, methods for dose measurements, testing carried out at irradiation facilities, evaluation and testing of material characteristics and properties, documenting the irradiation process. This edition includes the following significant technical changes with respect to the previous edition: a) recent advances in simulation methods of radiation interaction with different matter enables the prediction of the energy-deposition profile in matter and design the irradiation procedure; b) many new dosimetry systems have become available."
+  },
+  {
+    "reference": "IEC 60544-2:2012",
+    "edition": "3.0",
+    "date": "2012-07-09",
+    "title": "Electrical insulating materials - Determination of the effects of ionizing radiation on insulating materials - Part 2: Procedures for irradiation and test",
+    "language": "EN-FR",
+    "description": "IEC 60544-2:2012 specifies the controls maintained over the exposure conditions during and after the irradiation of insulating materials with ionizing radiation prior to the determination of radiation-induced changes in physical or chemical properties. This standard specifies a number of potentially significant irradiation conditions as well as various parameters which can influence the radiation-induced reactions under these conditions. The objective of this standard is to emphasize the importance of selecting suitable specimens, exposure conditions and test methods for determining the effect of radiation on appropriately chosen properties. Since many materials are used either in air or in inert environments, standard exposure conditions are recommended for both of these situations. It should be noted that this standard does not consider measurements which are performed during the irradiation. This edition includes the following significant technical changes with respect to the previous edition: - alignment with standards recently developed by SC 45A as well as with other parts in the IEC 60544 series."
+  },
+  {
+    "reference": "IEC 60544-4:2003",
+    "edition": "2.0",
+    "date": "2003-07-11",
+    "title": "Electrical insulating materials - Determination of the effects of ionizing radiation - Part 4: Classification system for service in radiation environments",
+    "language": "EN-FR",
+    "description": "Provides a classification system that serves as a guide for the selection and indexing of insulating materials intended to serve in the radiation environment of nuclear reactor facilities, reactor fuel-processing facilities, irradiation facilities, particle accelerators, and X-ray apparatus. The classification system provides a set of parameters defining the utility of the three types of polymeric materials (rigid plastics, flexible plastics, elastomers) for use in devices which are exposed to ionizing radiation. This part of IEC 60544 forms the basis for a quantitative statement of the suitability of such materials for radiation environments and therefore provides a guide for material specifications and for procurement agreements between suppliers and users. The purpose of the revision was to bring Part 4 in line with the revision of Part 1 (1994) and Part 2 (1991), in particular the fact that Part 3 has been incorporated in Part 2. This concerns mainly all the cross-references (which were wrong in the previous edition), and therefore the main changes were editorial."
+  },
+  {
+    "reference": "IEC 60544-5:2022",
+    "edition": "3.0",
+    "date": "2022-06-17",
+    "title": "Electrical insulating materials - Determination of the effects of ionizing radiation - Part 5: Procedures for assessment of ageing in service",
+    "language": "EN-FR",
+    "description": "IEC 60544-5:2022 covers ageing assessment methods which can be applied to components based on polymeric materials (e.g. cable insulation and jackets, elastomeric seals, polymeric coatings, gaiters) which are used in environments where they are exposed to radiation. The object of this document is aimed at providing methods for the assessment of ageing in service. The approaches discussed in Clause 5 through Clause 9 cover ageing assessment programmes based on condition monitoring (CM), the use of sample deposits in severe environments and sampling of real-time aged components. This edition includes the following significant technical changes with respect to the previous edition: - added recent references in 7.4 showing that some electrical condition monitoring methods show promising correlations with ageing; - updated recommendations for implementation of a sample deposit in 9.2, installation of a sample deposit in 9.3 and testing of samples from the deposit in 9.4; - updated list of references."
+  },
+  {
+    "reference": "IEC 60587:2022",
+    "edition": "4.0",
+    "date": "2022-03-30",
+    "title": "Electrical insulating materials used under severe ambient conditions - Test methods for evaluating resistance to tracking and erosion",
+    "language": "EN-FR",
+    "description": "IEC 60587:2022 describes two test methods for the evaluation of electrical insulating materials for use under severe ambient conditions at power frequencies (45 Hz to 65 Hz) by the evaluation of the resistance to tracking and erosion, using a liquid contaminant and inclined plane specimens. The two methods are: - Method 1: test at constant voltage, - Method 2: test at stepwise increased voltage. Method 1 is the most widely used method as there is less need for continual inspection. The test conditions are designed to accelerate the production of the effects, but do not reproduce all the conditions encountered in service. This edition includes the following significant technical changes with respect to the previous edition: a) an improved description of the experimental methods has been implemented; b) an improved description of the preparation of the test specimens has been implemented; c) a more detailed description of the electrode material and of the electrode quality has been added; d) evaluation criterion B (track length) has been removed for testing according to test method 2 (stepwise tracking voltage) as it is not applicable."
+  },
+  {
+    "reference": "IEC 60589:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Methods of test for the determination of ionic impurities in electrical insulating materials by extraction with liquids",
+    "language": "EN-FR",
+    "description": "Applies to the determination of whether or not ionizable soluble organic and inorganic materials are present by measuring the increase in volume conductivity of a liquid extract. The contents of the corrigendum of June 1978 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61234-1:1994",
+    "edition": "1.0",
+    "date": "1994-03-11",
+    "title": "Method of test for the hydrolytic stability of electrical insulating materials - Part 1: Plastic films",
+    "language": "EN-FR",
+    "description": "Describes test method for the determination of the hydrolytic stability of plastic films subjected to the simultaneous influence of water and temperature. With this method, the irreversible changes of the mechanical and electrical properties are measured."
+  },
+  {
+    "reference": "IEC 61234-2:1997",
+    "edition": "1.0",
+    "date": "1997-09-10",
+    "title": "Electrical insulating materials - Methods of test for the hydrolytic stability - Part 2: Moulded thermosets",
+    "language": "EN-FR",
+    "description": "Describes the test method for determination of hydrolytic stability of moulded thermosets made of room temperature or oven-curing reaction resins when subjected to simultaneous influence of water and high temperature. With this test method, irreversible change of mechanical and electrical properties is measured, but no mechanical stress is imposed on the test specimens."
+  },
+  {
+    "reference": "IEC TS 61244-1:2014",
+    "edition": "2.0",
+    "date": "2014-08-22",
+    "title": "Determination of long-term radiation ageing in polymers - Part 1: Techniques for monitoring diffusion-limited oxidation",
+    "language": "EN-FR",
+    "description": "IEC TS 61244-1:2014, which is a technical specification, reviews experimental techniques to quantitatively monitor the effects when oxygen is present during ageing of polymers in various environments including temperature, radiation or ultraviolet. This edition includes the following significant technical changes with respect to the previous edition: a) numerical simulation of DLO is much improved; b) geometry of samples has been expanded from only the case of the infinite plane to the cylindrical and the spherical cases."
+  },
+  {
+    "reference": "IEC TS 61244-2:2014",
+    "edition": "2.0",
+    "date": "2014-08-22",
+    "title": "Determination of long-term radiation ageing in polymers - Part 2: Procedures for predicting ageing at low dose rates",
+    "language": "EN-FR",
+    "description": "IEC TS 61244-2:2014, which is a technical specification, applies to procedures for predicting ageing of polymeric materials at low dose rates. The object is to present three methods which can be used to extrapolate data obtained from high dose rate experiments to the low dose rates typical of service conditions. The techniques described are methods which have been found to be useful for a range of elastomeric, thermoplastic and thermoset materials. This edition includes the following significant technical changes with respect to the previous edition: a) examples and background information moved to annexes; b) examples updated with more recent references."
+  },
+  {
+    "reference": "IEC TR 61244-4:2019",
+    "edition": "1.0",
+    "date": "2019-09-25",
+    "title": "Determination of long-term radiation ageing in polymers - Part 4: Effects of different temperatures and dose rates under radiation conditions",
+    "language": "EN",
+    "description": "IEC TR 61244-4:2019(E) provides general guidance for the evaluation/verification of electrical insulation materials (EIM) and electrical insulation systems (EIS) intended to be used in types of equipment exposed to ionizing radiation. Beside sensors, actuators/motors as well as plugs and terminals, cables are a well-known typical application of those EIM and EIS. Their type spectrum covers low voltage power cables, control cables and instrumentation cables. Because of their comparable simple design, cables are the ideal type of equipment to study EIM and EIS degradation processes. But the results of these studies can be easily transferred to the enumerated types of equipment. Nonetheless, this document provides a state-of-the art report on qualification/verification procedures used to simulate simultaneous effects of temperature and radiation at varying intensities rather than give detailed test programmes valid for specific test methods. NOTE 1 Use of this document with specific products can require specification of additional product related procedures. NOTE 2 Some of the procedures described in this document are emerging technologies. Therefore, specified prerequisites, former experiences as well as boundary conditions can be additionally taken into account."
+  },
+  {
+    "reference": "IEC 61251:2015",
+    "edition": "1.0",
+    "date": "2015-11-18",
+    "title": "Electrical insulating materials and systems - AC voltage endurance evaluation",
+    "language": "EN-FR",
+    "description": "IEC 61251:2015 describes many of the factors involved in voltage endurance tests on electrical insulating materials and systems. It describes the voltage endurance graph, lists test methods illustrating their limitations and gives guidance for evaluating the sinusoidal a.c. voltage endurance of insulating materials and systems from the results of the tests. This International Standard is applicable over the voltage frequency range 20 Hz to 1 000 Hz. The general principles can also be applicable to other voltage shapes, including impulse voltages. The terminology to be used in voltage endurance is defined and explained. This first edition of IEC 61251 cancels and replaces the second edition of IEC TS 61251, published in 2008. This edition constitutes a technical revision and includes the following significant technical changes with respect to the second edition of IEC TS 61251: a) upgrade from Technical Specification to an International Standard; b) clarification of issues raised since publication of IEC TS 61251."
+  },
+  {
+    "reference": "IEC 61302:1995",
+    "edition": "1.0",
+    "date": "1995-04-26",
+    "title": "Electrical insulating materials - Method to evaluate the resistance to tracking and erosion - Rotating wheel dip test",
+    "language": "EN-FR, ES",
+    "description": "Describes a method of test for comparing the performance of insulating materials, when they are exposed intermittently to a liquid contaminant and then to an a.c. electric stress along their surface. The contents of the corrigendum of September 1995 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61302:1995/COR1:1995",
+    "edition": "1.0",
+    "date": "1995-09-01",
+    "title": "Corrigendum 1 - Electrical insulating materials - Method to evaluate the resistance to tracking and erosion - Rotating wheel dip test",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61621:1997",
+    "edition": "1.0",
+    "date": "1997-09-17",
+    "title": "Dry, solid insulating materials - Resistance test to high-voltage, low-current arc discharges",
+    "language": "EN-FR, ES",
+    "description": "Describes a test method which can provide preliminary differentiation between similar insulating materials, with respect to their resistance to damage when exposed to high-voltage, low-current arc discharges, occurring close to their surfaces. Due to its convenience and the short time required for testing, the test method is applicable for preliminary screening of test materials, for detecting the effects of changes in formulation and for quality control testing."
+  },
+  {
+    "reference": "IEC 61857-1:2008",
+    "edition": "3.0",
+    "date": "2008-09-26",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 1: General requirements - Low-voltage",
+    "language": "EN-FR, ES",
+    "description": "IEC 61857-1:2008 specifies a general test procedure for the thermal evaluation and qualification of electrical insulation systems (EIS) and establishes a procedure that compares the performance of a candidate EIS to that of a reference EIS. This standard is applicable to existing or proposed EIS used in electrotechnical products with an input voltage of up to 1 000 V where the thermal factor is the dominating ageing factor. This third edition cancels and replaces the second edition published in 2004, and constitutes editorial revisions to make this standard compatible with Parts 21 and 22."
+  },
+  {
+    "reference": "IEC TR 61857-2:2025",
+    "edition": "2.0",
+    "date": "2025-05-02",
+    "title": "Electrical insulation systems – Procedures for thermal evaluation – Part 2: Selection of the appropriate test method for evaluation and classification of electrical insulation systems",
+    "language": "EN",
+    "description": "IEC TR 61857-2:2025 gives guidelines to identify the appropriate test method for the evaluation of a proposed electrical insulation system (EIS). Some of the standards evaluate the EIS using one stress factor which is thermal. Other standards evaluate the thermal stress factor with adjustments to the conditioning applied prior to the diagnostic testing to simulate applications in air. A third group of these standards when the application is other than in air. This technical report is applicable to existing or proposed EIS used in electrotechnical products across a wide range of operating voltages of IEC Standards. The report takes care to identify the appropriate standard based on construction and intended operating application. For all performance and safety requirements related to an application, refer to the technical committee requirements for the application. This edition includes the following significant technical changes with respect to the previous edition. a) The Introduction is expanded to convey that both TC 112 and TC 2 have established EIS test standards. b) Clause 4 introduces the fact that there are four stress factors, not only thermal. This essential concept carries over into part of Clause 5. c) The large number of established standards are organized into common concept groups in Tables 1 to 5: 1) Table 1 covers an overview of EIS evaluations for background and structure. 2) Table 2 covers evaluation of test objects prior to the start of long-term thermal ageing using screening tests. 3) Table 3 covers test standards for the evaluation of thermal stresses in air and has an increased number of standards. 4) Table 4 covers standards for special environmental applications other than in air 5) Table 5 covers standards for the modification of an established EIS."
+  },
+  {
+    "reference": "IEC 61857-21:2009",
+    "edition": "3.0",
+    "date": "2009-05-13",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 21: Specific requirements for general-purpose models - Wire-wound applications",
+    "language": "EN-FR, ES",
+    "description": "IEC 61857-21:2009 describes a general-purpose model (GPM) and a tall channel alternative model (GPM-TC) which can be used for the evaluation of wire-wound electrical insulation systems (EIS) where specific electrotechnical products are not available or required. The third edition cancels and replaces the second edition published in 2004, and constitutes editorial revisions to make this standard compatible with Parts 1 and 22."
+  },
+  {
+    "reference": "IEC 61857-22:2008",
+    "edition": "2.0",
+    "date": "2008-07-25",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 22: Specific requirements for encapsulated-coil model - Wire-wound electrical insulation system (EIS)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61857-22:2008 provides a general-purpose procedure for the evaluation of wire-wound systems using a general purpose encapsulated-coil model (ECM) where the application is unknown. This second edition cancels and replaces the first edition published in 2002, and constitutes editorial revisions to make this standard compatible with Parts 1 and 21."
+  },
+  {
+    "reference": "IEC 61857-31:2017",
+    "edition": "1.0",
+    "date": "2017-01-24",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 31: Applications with a designed life of 5 000 h or less",
+    "language": "EN-FR, EN",
+    "description": "IEC 61857-31:2017 establishes an EIS evaluation for applications with a designed life of 5 000 h or less. This test method follows the procedures of IEC 60505 and is modified based on the range of designed life."
+  },
+  {
+    "reference": "IEC 61857-32:2019",
+    "edition": "1.0",
+    "date": "2019-10-14",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 32: Multifactor evaluation with increased factors during diagnostic testing",
+    "language": "EN-FR",
+    "description": "IEC 61857-32:2019 series is focused on applications where other possible factors need to be incorporated to evaluate any influence on the performance of the electrical insulation system (EIS). Multi-factor evaluation is the most complex type of project to design and conduct. Clear guidelines are needed to give the user of this document a uniform approach and a method to analyse the test results. This document is for applications where the stresses are some combination of other factors of influence identified in IEC 60505. The multi-factor stresses are applied during the diagnostic portion of each test cycle. A few examples of other factors of influence or multi-factor stresses are: – high vibration; – submersion in oils, water, or solutions; – voltage higher than the test voltage of the reference EIS; – decreased cold shock temperature."
+  },
+  {
+    "reference": "IEC TS 61857-42:2025",
+    "edition": "1.0",
+    "date": "2025-08-15",
+    "title": "Electrical insulation systems - Procedures for thermal evaluation - Part 42: Specific requirements for evaluation of an electrical insulation system (EIS) used for road transportation applications",
+    "language": "EN",
+    "description": "IEC TS 61857-42:2025 provides a procedure to evaluate the lifetime of an electrical insulation system (EIS) in a drivetrain unit within road transportation (automotive) applications. Typical applications include motors and generators in hybrid and full electric passenger vehicles, light-duty and heavy-duty commercial vehicles, as well as buses. In general, the IEC 61857 series is applicable to EIS used in electrotechnical products with an input voltage of up to 1 000 V where the predominant ageing factor is thermal. In the context of this document the limit of 1 000 V is understood to be the application-specific battery DC voltage. The EIS evaluated by this procedure will operate free from partial discharges over its whole lifetime. Evaluation of EIS in the following applications is outside the scope: - motors and generators within the scope of IEC TC 2, Rotating machinery; - rail traction machines in the scope of IEC TC 9, Electrical equipment and systems for railways; - motors and generators for road vehicles that are not intended for the traction of them."
+  },
+  {
+    "reference": "IEC 61858-1:2014",
+    "edition": "1.0",
+    "date": "2014-02-12",
+    "title": "Electrical insulation systems - Thermal evaluation of modifications to an established electrical insulation system (EIS) - Part 1: Wire-wound winding EIS",
+    "language": "EN-FR",
+    "description": "IEC 61858-1:2014 lists the required test procedures for qualification of modifications of an established electrical insulation system (EIS) with respect to its thermal classification. This standard is applicable to EIS used in wire-wound winding electrotechnical devices. The test procedures are comparative in that the performance of a candidate EIS is compared to that of a reference EIS, which has proven service experience in accordance with IEC 60505 or has been evaluated by one of the procedures given in the IEC 61857 series. This first edition of IEC 61858-1 cancels and replaces the third edition of IEC 61858, published in 2008. It constitutes a technical and editorial revision. This edition includes the following significant technical changes with respect to the previous edition: a) this part is specifically for wire-wound winding EIS; b) new figures and charts support the contents."
+  },
+  {
+    "reference": "IEC 61858-2:2014",
+    "edition": "1.0",
+    "date": "2014-02-12",
+    "title": "Electrical insulation systems - Thermal evaluation of modifications to an established electrical insulation system (EIS) - Part 2: Form-wound EIS",
+    "language": "EN-FR",
+    "description": "IEC 61858-2:2014 lists the required test procedures for qualification of modifications of an established electrical insulation system (EIS) with respect to its thermal classification. This standard is applicable to EIS used in form-wound electrotechnical devices. The test procedures are comparative in that the performance of a candidate EIS is compared to that of a reference EIS, which has proven service experience in accordance with IEC 60505 or has been evaluated by one of the procedures given in IEC 60085 and IEC 60034-18-31."
+  },
+  {
+    "reference": "IEC TR 61858-3:2020",
+    "edition": "1.0",
+    "date": "2020-12-08",
+    "title": "Electrical insulation systems - Thermal evaluation of modifications to an established electrical insulation system (EIS) - Part 3: Clarification of electrical insulating materials (EIMs) and auxiliary materials",
+    "language": "EN",
+    "description": "IEC TR 61858-3:2020(E) provides information on the identification of electrical insulating materials and auxiliary components for the assessment of modifications to an established insulation system and gives guidance on the selection of feasible test procedures."
+  },
+  {
+    "reference": "IEC TR 62039:2021",
+    "edition": "2.0",
+    "date": "2021-08-24",
+    "title": "Selection guidelines for polymeric materials for outdoor use under HV stress",
+    "language": "EN",
+    "description": "IEC TR 62039:2021(E) presents the important material properties of polymeric materials used in outdoor insulation and, where applicable, lists standardized test methods including minimum requirements. If no standardized tests are available, the test methods reported in literature are summarized. This document is valid for insulating materials having polymeric insulation, which are used in outdoor high voltage electrical applications with a system voltage greater than 1 000 V AC and 1 500 V DC (several tests are only defined for alternating current, which are not applicable for direct current). Such applications are relevant where the housing is an integral part of the device, for example in surge arresters and cable terminations. The scope of this document is limited to the insulation materials only and is not generally intended for coating materials (coating materials are, for example, thin layers applied on toughened glass and ceramic). Some tests mentioned in this document are applicable for coating and are under consideration by CIGRE. The performance of insulators in service depends on several factors such as the type of material, the design and environmental conditions. Consequently, the choice of materials that fulfil the requirements listed in Table 1 is a necessary condition but does not guarantee satisfactory performance when used in outdoor insulation."
+  },
+  {
+    "reference": "IEC 62068:2013",
+    "edition": "1.0",
+    "date": "2013-03-11",
+    "title": "Electrical insulating materials and systems - General method of evaluation of electrical endurance under repetitive voltage impulses",
+    "language": "EN-FR",
+    "description": "IEC 62068:2013 applies to electrical equipment, regardless of voltage, containing an insulation system, which is: - connected to an electronic power supply, and - requires an evaluation of insulation endurance under repetitive voltage impulses. This standard proposes a general test procedure to facilitate screening of electrical insulating materials (EIM) and systems (EIS) and to achieve a relative evaluation of insulation endurance under conditions of repetitive impulses. This first edition of IEC 62068 replaces IEC 62068-1:2003. It has been re-numbered as IEC 62068, as decided at the Plenary Meeting of TC 112 in Prague 2011. The main changes with regard to IEC 62068-1:2003 concern the terms and definitions which are now aligned, in part, on IEC;TS 61934 and IEC;TS 60034-18-42."
+  },
+  {
+    "reference": "IEC TS 62332-1:2026",
+    "edition": "3.0",
+    "date": "2026-05-26",
+    "title": "Electrical insulation systems (EIS) - Thermal evaluation of combined liquid and solid components - Part 1: General requirements",
+    "language": "EN",
+    "description": "IEC TS 62332-1:2026 specifies a dual-temperature test procedure for the thermal evaluation and qualification of electrical insulation systems (EISs). This document is applicable to EISs containing solid and liquid components where the thermal ageing factor is dominant, without restriction to voltage class. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Modifications have been made based on an extensive test series conducted using this methodology based on the first edition. This included updating expected times and temperatures to use in order to get useful results, as well as making the range of equipment covered more broad. The method now covers electrotechnical devices using different sealing systems, as well as devices using enamel covered wires."
+  },
+  {
+    "reference": "IEC TS 62332-2:2014",
+    "edition": "1.0",
+    "date": "2014-04-24",
+    "title": "Electrical insulation systems (EIS) - Thermal evaluation of combined liquid and solid components - Part 2: Simplified test",
+    "language": "EN-FR",
+    "description": "IEC TS 62332-2:2014 is applicable to EIS containing solid and liquid components where the thermal stress is the dominant ageing factor, without restriction to voltage class. This part specifies a sealed tube test procedure for the thermal evaluation and qualification of electrical insulation systems (EIS). One aspect of this procedure is to also provide a method to assign thermal classifications to materials used in EIS where solid and liquid components are both used. This procedure describes a comparative ageing method whereby a reference system composed of kraft paper and mineral oil is compared to a candidate system of any combination of solid and insulating liquid. The test procedures in this part are specifically applicable to liquid immersed transformer insulation systems."
+  },
+  {
+    "reference": "IEC TS 62332-3:2016",
+    "edition": "1.0",
+    "date": "2016-07-21",
+    "title": "Electrical insulation systems (EIS) - Thermal evaluation of combined liquid and solid components - Part 3: Hermetic motor-compressors",
+    "language": "EN-FR",
+    "description": "IEC TS 62332-3:2016 is applicable to EIM and EIS containing solid and liquid components where the refrigerant, oil and thermal stresses are the dominant ageing factor, without restriction to voltage class."
+  },
+  {
+    "reference": "IEC TR 62392:2006",
+    "edition": "1.0",
+    "date": "2006-11-08",
+    "title": "Suitability of typical electrical insulating material (EIM) for polymer recycling",
+    "language": "EN",
+    "description": "Gives information for the assessment of factors associated with the polymer recycling and/or reuse of typical insulating materials in electrotechnical equipment. It gives information and assistance to developers and design engineers for assessment in selecting polymers and polymer combinations, and is a contribution to the preservation of resources and the minimization of disposal costs at the end of a product life. The environmental compatibility of polymers must be assessed in the light of the function of the materials in the product and the total service life. An important aspect is the recovery of the material at the end of the product life. The value level of material recycling as recovery option can be improved by incorporation of suitability for dismantling into the design of the article and the choice of insulating materials which are generally used. This document will cover material recycling only as part of recovery."
+  },
+  {
+    "reference": "IEC 62539:2007",
+    "edition": "1.0",
+    "date": "2007-07-30",
+    "title": "Guide for the statistical analysis of electrical insulation breakdown data",
+    "language": "EN",
+    "description": "Describes, with examples, statistical methods to analyze times to break down and breakdown voltage data obtained from electrical testing of solid insulating materials, for purposes including characterization of the system, comparison with another insulator system, and prediction of the probability of breakdown at given times or voltages."
+  },
+  {
+    "reference": "IEC 62631-1:2011",
+    "edition": "1.0",
+    "date": "2011-04-28",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 1: General",
+    "language": "EN-FR, ES",
+    "description": "IEC 62631-1:2011 gives general guidelines for the determination of dielectric and resistive properties of solid electrical insulating materials."
+  },
+  {
+    "reference": "IEC 62631-2-1:2018",
+    "edition": "1.0",
+    "date": "2018-02-27",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 2-1: Relative permittivity and dissipation factor - Technical Frequencies (0,1 Hz - 10 MHz) - AC Methods",
+    "language": "EN-FR",
+    "description": "IEC 62631-2-1:2018 describes test methods for the determination of permittivity and dissipation factor properties of solid insulating materials (AC methods from 0,1 Hz up to 10 MHz). This first edition cancels and replaces the first edition IEC 60250, published in 1969. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. technical frequencies confined to AC methods; b. update on measurements on solid dielectric materials."
+  },
+  {
+    "reference": "IEC 62631-2-2:2022",
+    "edition": "1.0",
+    "date": "2022-04-07",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 2-2: Relative permittivity and dissipation factor - High frequencies (1 MHz to 300 MHz) - AC methods",
+    "language": "EN-FR",
+    "description": "IEC 62631-2-2:2022 specifies test methods for the determination of permittivity and dissipation factor properties of solid insulating materials in a high frequency range from 1 MHz to 300 MHz."
+  },
+  {
+    "reference": "IEC 62631-2-3:2024",
+    "edition": "1.0",
+    "date": "2024-04-05",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 2-3: Relative permittivity and dissipation factor - Contact electrode method for insulating films - AC methods",
+    "language": "EN-FR",
+    "description": "IEC 62631-2-3:2024 specifies the measuring technology and the test method for the relative permittivity and dielectric dissipation factor of thin single layer insulating polymer film without any additional metallization on the sample surface. The adaptive thickness range is approximately 10 μm to 100 μm. The proposed frequency is the power frequency (50 Hz or 60 Hz), and it is also suitable in the technical frequency range from 1 Hz to 1 MHz. The content of the corrigendum 1 (2025-04) has been included in this copy."
+  },
+  {
+    "reference": "IEC 62631-2-3:2024/COR1:2025",
+    "edition": "1.0",
+    "date": "2025-04-30",
+    "title": "Corrigendum 1 - Dielectric and resistive properties of solid insulating materials - Part 2-3: Relative permittivity and dissipation factor - Contact electrode method for insulating films - AC methods",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62631-3-1:2023",
+    "edition": "2.0",
+    "date": "2023-01-23",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-1: Determination of resistive properties (DC methods) - Volume resistance and volume resistivity - General method",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-1:2023 specifies a method of test for the determination of volume resistance and volume resistivity of electrical insulating materials by applying a DC voltage. This edition includes the following significant technical changes with respect to the previous edition: - following the withdrawal of IEC 60093 and its partial replacement with the first edition of IEC 62631-3-1, the missing editorial and technical texts have been added and incorporated into this second edition of IEC 62631-3-1; - the alignment of normative texts and informative notes have been addressed as well as the normative references and bibliography."
+  },
+  {
+    "reference": "IEC 62631-3-2:2023",
+    "edition": "2.0",
+    "date": "2023-10-16",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-2: Determination of resistive properties (DC methods) - Surface resistance and surface resistivity",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-2:2023 describes methods of test for the determination of surface resistance and surface resistivity of electrical insulation materials by applying DC voltage. This edition includes the following significant technical changes with respect to the previous edition: a) descriptions of the electrode arrangements have been clarified; b) new descriptions of the conductive means have been added; c) a new informative Annex B summarizing the results of the comparative verification study on surface resistivities using different electrode arrangements has been added."
+  },
+  {
+    "reference": "IEC 62631-3-3:2015",
+    "edition": "1.0",
+    "date": "2015-12-04",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-3: Determination of resistive properties (DC methods) - Insulation resistance",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-3:2015 covers methods of test for the determination of the insulation resistance of electrical insulating materials or insulating systems by applying DC voltage. This first edition cancels and replaces the first edition of IEC 60167, published in 1964, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the first edition of IEC 60167: a) IEC 60167 has been completely revised, both editorially and technically, and incorporated into the new IEC 62631 series; b) test methods have been updated to current day state of the art."
+  },
+  {
+    "reference": "IEC 62631-3-4:2019",
+    "edition": "1.0",
+    "date": "2019-03-28",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-4: Determination of resistive properties (DC methods) - Volume resistance and volume resistivity at elevated temperatures",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-4:2019 covers procedures for the determination of insulation resistance and volume resistivity of insulating materials by applying DC-voltage and temperatures up to 800 °C. The typical application materials include high temperature mica plate and alumina ceramics. This edition of IEC 62631-3-4 cancels and replaces IEC 60345 “Method of test for electrical resistance and resistivity of insulating materials at elevated temperatures”, published in 1971. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60345: The revised standard becomes part of the series IEC 62631-3-x. Title of the standard is changed and adapted to the series as Part 3-4. Clauses 2 \"Normative references\", 3 \"Terms and definitions\", and 4 \"Significance\" are added. Subclauses 5.2 \"Power supply, Voltage\", 5.3.1.2 \"Number of test specimens\" and 5.3.1.3 \"Conditioning and pre-treatment of test specimens\" are added. In 5.3.5 \"Special precautions during measurements\", errors analysis in the measurement of current are modified, and aligned with IEC 62631-3-1. In 6.2 \"Increasing the temperature by steps (method B)\", the method for more than one specimen is removed. The standard atmospheric conditions for testing and conditioning, especially the temperature, are replaced according to IEC 60212. The circuit diagram of test apparatus is modified, and the structure diagram and pictures of test apparatus are added in Annex A. The orders of part clauses are adjusted."
+  },
+  {
+    "reference": "IEC 62631-3-11:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-11: Determination of resistive properties (DC Methods) - Volume resistance and volume resistivity - Method for impregnation and coating materials",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-11:2018 covers a method of test for the determination of volume resistance and volume resistivity of electrical insulation materials by applying DC voltage. It covers the materials described in IEC 60455-3-5, IEC 60464-3-1, IEC 60464-3-2 and similar products."
+  },
+  {
+    "reference": "IEC 62631-3-12:2024",
+    "edition": "1.0",
+    "date": "2024-07-05",
+    "title": "Dielectric and resistive properties of solid insulating materials - Part 3-12: Determination of resistive properties (DC methods) - Volume resistance and volume resistivity - Method for casting resins",
+    "language": "EN-FR",
+    "description": "IEC 62631-3-12:2024 specifies a method of test for the determination of volume resistance and volume resistivity of electrical insulation materials by applying a DC voltage. It covers casting resins described in IEC 60455-3-1, IEC 60455-3-2, IEC 60455-3-3, IEC 60455-3-4, IEC 60455-3-8 and similar products. For other specific types of materials, other standards or the general method described in IEC 62631-3-1 can be more suitable."
+  },
+  {
+    "reference": "IEC TS 62758:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Calibration of space charge measuring equipment based on the pulsed electro-acoustic (PEA) measurement principle",
+    "language": "EN",
+    "description": "IEC/TS 62758:2012(E) presents a standard method to estimate the performance of a pulsed electro-acoustic (PEA) measurement system. For this purpose, a systematic procedure is recommended for the calibration of the measurement system. Using the procedure, users can estimate whether the system works properly or not."
+  },
+  {
+    "reference": "IEC 62836:2024",
+    "edition": "1.0",
+    "date": "2024-02-28",
+    "title": "Measurement of internal electric field in insulating materials - Pressure wave propagation method",
+    "language": "EN-FR",
+    "description": "IEC 62836:2024 provides an efficient and reliable procedure to test the internal electric field in the insulating materials used for high-voltage applications, by using the pressure wave propagation (PWP) method. It is suitable for a planar and coaxial geometry sample with homogeneous insulating materials of thickness larger or equal to 0,5 mm and an electric field higher than 1 kV/mm, but it is also dependent on the thickness of the sample and the pressure wave generator. This first edition cancels and replaces IEC TS 62836 published in 2020. This edition includes the following significant technical changes with respect to IEC TS 62836: a) addition of Clause 12 for the measurement of space charge distribution in a planar sample; b) addition of Clause 13 for coaxial geometry samples; c) addition of Annex D with measurement examples for coaxial geometry samples; d) addition of a Bibliography; e) measurement examples for a planar sample have been moved from Clause 12 in IEC TS 62836 to Annex C."
+  },
+  {
+    "reference": "IEC 63177:2024",
+    "edition": "1.0",
+    "date": "2024-05-29",
+    "title": "Test methods for compatibility of construction materials with electrical insulating liquids",
+    "language": "EN-FR",
+    "description": "IEC 63177:2024 specifies the test method for the compatibility of construction materials with electrical insulating liquids for use in electrical equipment, such as liquid-immersed transformers and tap-changers, liquid-impregnated capacitors, and liquid-cooled rotating machines used in electrical vehicles and oil pumps. This document is applicable to mineral insulating liquids, natural esters, silicone insulating liquids, synthetic organic esters, modified esters, capacitor fluids based on synthetic aromatic hydrocarbons and e-transmission fluids used in electrical vehicles and oil pumps. The compatibility tests are not sufficient for a full qualification of construction materials for a given application without additional tests requested by the appropriate IEC Technical Committee or equipment manufacturers."
+  }
+]

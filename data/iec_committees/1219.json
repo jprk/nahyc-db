@@ -1,0 +1,1050 @@
+[
+  {
+    "reference": "IEC 60062:2016",
+    "edition": "6.0",
+    "date": "2016-07-12",
+    "title": "Marking codes for resistors and capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60062:2016 specifies designation and marking codes for capacitors and resistors. It provides coding methods for the resistance or capacitance value and its tolerance, including colour coding for resistors. It also provides date code systems suitable for the marking of small components. This edition includes the following significant technical changes with respect to the previous edition: - introduction of the new code colour pink for the coding of the multiplier 10 -3 ; - introduction of new subclauses, 3.2 Prescription of code colours, 3.3 Methods for marking resistance value and tolerance, 3.4 Methods for TCR marking, for improved clarity, the subjects of colour assignment, coding of R value and tolerance, and coding of TCR is dealt with in separate clauses; - inclusion of illustrations for TCR marking by interrupted colour band; - inclusion of a new subclause on a fixed length code marking, fixed length code marking of resistance values with up to 3 significant digits, hence a fixed code length of 4 digits, and fixed length code marking of capacitance values with up to 2 significant digits, hence a fixed code length of 3 digits; - introduction of two new clauses, Clause 6, Coding of properties specific to capacitors and Clause 7, Coding of properties specific to resistors; - introduction of Annex A, Special three character coding of resistance value with three significant numerals. The contents of the corrigendum of December 2016 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60062:2016/COR1:2016",
+    "edition": "6.0",
+    "date": "2016-12-05",
+    "title": "Corrigendum 1 - Marking codes for resistors and capacitors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60062:2016/AMD1:2019",
+    "edition": "6.0",
+    "date": "2019-08-20",
+    "title": "Amendment 1 - Marking codes for resistors and capacitors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60063:2015",
+    "edition": "3.0",
+    "date": "2015-03-27",
+    "title": "Preferred number series for resistors and capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60063:2015 provides series of preferred values for the resistance of resistors and for the capacitance of capacitors. The definition of such series with a defined numeric resolution is a basic prerequisite for the marking and coding of capacitors and resistors with their respective capacitance or resistance values as described in IEC 60062. This edition includes the following significant technical changes with respect to the previous edition: - revision of the information on a relationship between an E Series and the tolerance of a resistance or capacitance value of a respective component; - introduction of advice on a possible deduction from the marking of a component to an associated E Series and also to an associated tolerance; - complete editorial revision."
+  },
+  {
+    "reference": "IEC 60115-1:2020",
+    "edition": "5.0",
+    "date": "2020-03-18",
+    "title": "Fixed resistors for use in electronic equipment - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60115-1:2020 is a generic specification and is applicable to fixed resistors for use in electronic equipment. It establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications of electronic components for quality assessment or any other purpose. This edition contains the following significant technical changes with respect to the previous edition: this 5th edition employs a new document structure, where the tests of prior Clause 4 are given in Clauses 6 to 12 now, with an informative Annex X providing cross-references for references to the prior revision of this standard; the terms and definitions have been revised and amended, supplemented by a new section on resistor technologies and a new section on product classification levels; a new Subclause 4.7 on recommendations for permissible substitutions has been added; the provisions for packaging, storage and transportation in Subclauses 4.8, 4.9 and 4.10 have been completely revised; a new Subclause 5.3 on default tolerances for the most common test parameters has been added; the generic method of measuring resistance, now Sublause 5.6, has been separated from the test for compliance with a prescribed resistance value in 6.1, as a revision of the prior 4.5; the test for the temperature coefficient of resistance of Subclause 6.2 is a revision of the prior test 4.8, variation of resistance with temperature, where the special concessions for resistors below 10 Ω have been waived; the test methods for endurance testing of Subclauses 7.1 to 7.3 (prior 4.25.1 to 4.25.3) have been completely revised; the single‑pulse high‑voltage overload test of Subclause 8.2 (prior 4.27) has been completely revised, and now offers adjustable severities for the 1,2/50 and for the 10/700 pulse shape for the benefit of detail specifications with improved significance; the periodic-pulse high-voltage overload test of Subclause 8.3 (prior 4.28) has been revised and a corrected table of severities provided; the period-pulse overload test of Subclause 8.4 (prior 4.39) has been deprecated and streamlined to only offer the severity historically applied in subordinate specifications; the Subclauses 9.1 on visual inspection, 9.2 on the gauging of dimensions, and 9.3 on the assessment of detail dimensions (all parts of prior 4.4) have been completely revised; the tests for robustness of terminations (prior 4.16) have been revised and separated into tests for the robustness of solderable terminations, Subclause 9.5, and tests for the robustness of threaded stud or screw terminations, Subclause 9.6; the bump test of Subclause 9.9 (prior 4.20) and the shock test of Subclause 9.10 (prior 4.21) have been revised to reflect the merged relevant test standard IEC 60068-2-29; the dry heat and cold test of the climatic sequence of Subclause 10.3 (prior 4.23) have been revised to reflect the changes of the relevant test standards IEC 60068‑2‑2 and IEC 60068‑2‑1; the accelerated damp heat, steady state test of Subclause 10.5 (prior 4.37) has been amended with an option for a reduced number of bias voltages; the corrosion test of Subclause 10.6 has been completely revised in order to employ the better suitable test method of IEC 60068-2-52 instead of the prior used IEC 60068-2-11; the whisker growth test of Subclause 10.7 has been revised to reflect the changes of the new revision of the test methods of IEC 60068-2-82; the test methods for solderability of Subclause 11.1 (prior 4.17) and for resistance to soldering heat of Subclause 11.2 (prior 4.18) have been completely revised to incorporate the necessary option for the variety of lead-bearing and lead-free solder alloys and respective process conditions; the solvent resistance test of Subclause 11.3 combines the prior tests 4.29, component solvent resistance, and 4.30, solvent resistance of marking, in one test; the accidental overload test of Subclause 12.3 (prior 4.26) has been completely revised; the Annex Q on quality assessment procedures has been completely revised; a new Annex R on failure rate evaluation, determination and qualification has been added."
+  },
+  {
+    "reference": "IEC 60115-2:2023",
+    "edition": "4.0",
+    "date": "2023-02-15",
+    "title": "Fixed resistors for use in electronic equipment - Part 2: Sectional specification: Low-power film resistors with leads for through-hole assembly on circuit boards (THT)",
+    "language": "EN-FR, EN",
+    "description": "IEC 60115-2:2023 is applicable to fixed low-power film resistors with termination leads for use in electronic equipment, which are typically assembled in through-hole technology (THT) on circuit boards. These resistors are typically described according to types (different geometric shapes) and styles (different dimensions) and product technology. The resistive element of these resistors is typically protected by a conformal lacquer coating. These resistors have wire terminations and are primarily intended to be mounted on a circuit board in through-hole technique. The object of this document is to state preferred ratings and characteristics and to select from IEC 60115-1 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of resistor. This edition includes the following significant technical changes with respect to the previous edition: the definitions of product technologies and product classification levels of the generic specification, IEC 60115‑1:2020, have been adopted; the preferred dimensions given in Table 1 have been reviewed, and the legacy style RA_0922 has been removed; a basis for the optional specification of the lead eccentricity of axial leaded resistors has been amended in 4.2; the 'period-pulse high-voltage overload test' of IEC 60115‑1:2020, 8.3 has been adopted as default test method in 5.3.8, thereby replacing the legacy test 'periodic-pulse overload test' of IEC 60115‑1:2020, 8.4; the revised solderability test of IEC 60115‑1:2020, 11.1 has been adopted in 5.3.19 and 5.3.20; the combined solvent resistance test of IEC 60115‑1:2020, 11.3 has been adopted in 5.3.22; the 'endurance at room temperature test' of IEC 60115‑1:2020, 7.2 (prior IEC 60115 2:2014, Annex C) has been adopted as an optional test in 5.4.1; the 'single-pulse high-voltage overload test' of IEC 60115 1:2020, 8.2, applied with the pulse shape 10/700 in 5.3.7, is complemented with the optional alternative provided by the pulse shape 1,2/50 in 5.4.2; climatic tests for 'operation at low temperature' of IEC 60115‑1:2020, 10.2, and for 'damp heat, steady state, accelerated' of IEC 60115‑1:2020, 10.5, have been adopted as optional tests in 5.4.4 and 5.4.5, respectively; new guidance is provided in 6.2 on the presentation of stability requirements with their permissible absolute and relative deviations; acceptance criteria for the visual examination have been added in 6.5 and in Annex B; visual examination for the primary and proximity packaging has been added in 6.5.2 and in 7.2; the periodical evaluation of termination platings has been added as a new topic of quality assessment in 9.8; the revised test clause numbering of IEC 60115‑1:2020 has been applied; a new Annex C has been added to summarize workmanship requirements for the assembly of leaded film resistors, e.g. as given in the prior IEC 61192 series of standards; the informative Annex F (prior Annex B) on radial formed styles has been amended with details on a formed Z-bend style for surface-mount assembly."
+  },
+  {
+    "reference": "IEC 60115-2-10:2023",
+    "edition": "1.0",
+    "date": "2023-02-15",
+    "title": "Fixed resistors for use in electronic equipment - Part 2-10: Blank detail specification: Low-power film resistors with leads for through-hole assembly on circuit boards (THT), for general electronic equipment, classification level G",
+    "language": "EN-FR, EN",
+    "description": "IEC 60115-2-10:2023 is a detail specification which specifies the characteristics and ratings of low-power film resistors with leads for use in electronic equipment, which are typically assembled in through-hole technology (THT) on circuit boards. This detail specification establishes test schedules and performance requirements permitting the quality assessment of the resistors covered herein according to the quality assessment procedures specified by IEC 60115-1:2020, Annex Q. This first edition cancels and replaces IEC 60115-2-1:1982. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: it employs the product classification based on application requirements as defined in the generic specification IEC 60115‑1:2020; it permits the specification of additional dimensional requirements concerning the eccentricity of termination wires and the coating extending onto wires; it provides for a tabulated presentation of resistance ranges in relationship to the temperature coefficient and the tolerance; it supports solderability testing for both traditional lead-bearing soldering and up-to-date lead-free soldering, as required; it introduces a test for the specimens’ robustness to electrostatic discharge; it introduces a test for the specimens’ resistance to solvents; it introduces a test for the flammability of the specimens; it employs consistent stability requirements grouped in stability classes; it supports the provision of detailed visual acceptance criteria; it includes the requirement for a visual examination of the primary and proximity packaging; it provides the correlated test schedules for a qualification approval and for subsequent quality conformance inspections side by side; it employs quality assessment procedures which meet the requirements of a zero-defect approach, which evades the use of historic AQL levels and the permission of non-conforming specimens in test groups; it provides for the inclusion of specific visual acceptance criteria, to be applied in addition to those given in Annex B of the sectional specification IEC 60115-2:2023; it provides for the optional coverage of 0 Ω resistors (jumpers) within the scope of the drafted detail specification; furthermore, it employs a new document structure, for which a transition guidance is provided in Annex X."
+  },
+  {
+    "reference": "IEC 60115-4:2022",
+    "edition": "3.0",
+    "date": "2022-11-29",
+    "title": "Fixed resistors for use in electronic equipment - Part 4: Sectional specification: Power resistors for through hole assembly on circuit boards (THT) or for assembly on chassis",
+    "language": "EN-FR, EN",
+    "description": "IEC 60115-4:2022 relates to resistors having a rated dissipation typically greater than 1 W up to and including 1 000 W for use in electronic equipment. This document is applicable to fixed power resistors with a maximum surface temperature (MET) higher than the preferred upper category temperature (UCT) of 200 °C. NOTE Heat sink resistors, i.e. resistors which in their operation depend on being mounted on a dedicated heat sink, owing to their special temperature conditions, are covered by a special sectional specification (under consideration at the time of publication). These resistors are typically described according to types (different geometric shapes) and styles (different dimensions), and product technology. The object of this document is to define preferred ratings and characteristics and to select from IEC 60115-1 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of resistor. NOTE SMD resistors are covered by IEC 60115-8, regardless of their dissipation. This edition includes the following significant technical changes with respect to the previous edition: the definitions of product technologies and product classification levels of the generic specification, IEC 60115-1:2020, have been adopted; a basis for the optional specification of the lead eccentricity of axial leaded resistors has been amended in 4.2; the 'period-pulse high-voltage overload test' of IEC 60115-1:2020, 8.3 has been adopted as default test method in 5.3.9, thereby replacing the legacy test 'periodic-pulse overload test of IEC 60115-1:2020, 8.4; the revised solderability test of IEC 60115-1:2020, 11.1 has been adopted in 5.3.22 and 5.3.23; the combined solvent resistance test of IEC 60115-1:2020, 11.3 has been adopted in 5.3.25; the 'endurance at room temperature test' of IEC 60115-1:2020, 7.2 has been reworked and adopted in 5.3.5; the 'single-pulse high-voltage overload test' of IEC 60115-1:2020, 8.2, applied with the pulse shape 10/700 in 5.3.8, is complemented with the optional alternative provided by the pulse shape 1,2/50 in 5.4.1. climatic tests for 'operation at low temperature' of IEC 60115 1:2020, 10.2, and for 'damp heat, steady state, accelerated' of IEC 60115‑1:2020, 10.5, have been adopted as optional tests in 5.4.5. and 5.4.6, respectively; inclusion of an optional flammability test as 5.4.8; new guidance is provided in 6.2 on the presentation of stability requirements with their permissible absolute and relative deviations; acceptance criteria for the visual inspection have been added in 6.5 and in Annex B; visual inspection for the primary and proximity packaging has been added in 6.5.3 and in 7.2; the periodical evaluation of termination platings has been added as a new topic of quality assessment in 9.8; the revised test clause numbering of IEC 60115-1:2020 has been applied; a new Annex C has been added to summarize workmanship requirements for the assembly of leaded power resistors, e.g. as given in the prior IEC 61192 series of standards; the informative Annex F on radial formed styles has been amended with details on a formed Z-bend style for surface-mount assembly; furthermore, the informative Annex X has been ad"
+  },
+  {
+    "reference": "IEC 60115-4-10:2023",
+    "edition": "1.0",
+    "date": "2023-12-15",
+    "title": "Fixed resistors for use in electronic equipment - Part 4-10: Blank detail specification: Power resistors with axial leads for through-hole assembly on circuit boards (THT), for general electronic equipment, classification level G",
+    "language": "EN",
+    "description": "IEC 60115-4-10:2023(E) is applicable to the drafting of detail specifications for fixed power resistors with leads, classified to level G, which is defined in IEC 60115‑1:2020, 3.4 for general electronic equipment. It is a supplementary document to the sectional specification and contains requirements for style, layout and minimum contents of detail specifications."
+  },
+  {
+    "reference": "IEC 60115-6:1983",
+    "edition": "1.0",
+    "date": "1983-01-01",
+    "title": "Fixed resistors for use in electronic equipment. Part 6: Sectional specification Fixed resistor networks with individually measurable resistors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60115-6:1983/AMD1:1987",
+    "edition": "1.0",
+    "date": "1987-02-01",
+    "title": "Amendment 1 - Fixed resistors for use in electronic equipment - Part 6: Sectional specification - Fixed resistor networks with individually measurable resistors",
+    "language": "EN-FR, RU",
+    "description": "Adds an Appendix A: Standardized schematic diagrams and pin identifications for fixed resistor networks."
+  },
+  {
+    "reference": "IEC 60115-6-1:1983",
+    "edition": "1.0",
+    "date": "1983-01-01",
+    "title": "Fixed resistors for use in electronic equipment. Part 6: Blank detail specification: Fixed resistor networks with individually measurable resistors, all of equal value and equal dissipation. Assessment level E",
+    "language": "EN-FR",
+    "description": "Applies to fixed resistor networks with individually measurable resistors. The blank detail specification is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 60115-7:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Fixed resistors for use in electronic equipment. Part 7: Sectional specification: Fixed resistor networks in which not all resistors are individually measurable",
+    "language": "EN-FR",
+    "description": "Applies to fixed resistor networks in which not all resistors are individually measurable. The resistors may be individually isolated or interconnected in any circuit configuration."
+  },
+  {
+    "reference": "IEC 60115-7-1:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Fixed resistors for use in electronic equipment. Part 7: Blank detail specifications: Fixed resistors networks in which not all resistors are individually measurable. Assessment level E",
+    "language": "EN-FR",
+    "description": "Applies to fixed resistor networks in which not all resistors are individually measurable. The blank detail specification is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 60115-8:2023",
+    "edition": "3.0",
+    "date": "2023-08-25",
+    "title": "Fixed resistors for use in electronic equipment - Part 8: Sectional specification: Fixed surface mount resistors",
+    "language": "EN-FR",
+    "description": "IEC 60115-8:2023 is applicable to fixed surface mount resistors for use in electronic equipment. These resistors are typically described according to types (different geometric shapes) and styles (different dimensions) and product technology. These resistors have metallized terminations and are primarily intended to be mounted directly onto a circuit board. The object of this document is to specify preferred ratings and characteristics and to select from IEC 60115-1, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of resistor. This edition includes the following significant technical changes with respect to the previous edition: a) definitions of product technologies and product classification levels of the generic specification, IEC 60115-1:2020, have been adopted; b) new style of transverse (RT) resistors has been added in 3.1.5 and 4.2.2 to cover resistors with wide terminals, which have become common in market; c) recommended test boards in 5.2.2 have been revised to fit the demands from the market for higher rated dissipation in resistors; d) test boards have been revised so that they can be set vertically instead of horizontally during specified tests to optimize the temperature rise stability, area and spacing inside the test chamber; e) 'Periodic-pulse high-voltage overload test' of IEC 60115‑1:2020, 8.3 has been added to the default test method in 5.3.8, however, the legacy test 'periodic-pulse overload test' of IEC 60115‑1:2020, 8.4 is still maintained for historical products; and more. Please see the foreword for the list of changes."
+  },
+  {
+    "reference": "IEC 60115-8-1:2014",
+    "edition": "2.0",
+    "date": "2014-10-17",
+    "title": "Fixed resistors for use in electronic equipment - Part 8-1: Blank detail specification: Fixed surface mount (SMD) low power film resistors for general electronic equipment, classification level G",
+    "language": "EN-FR",
+    "description": "IEC 60115-8-1:2014 is applicable to the drafting of detail specifications for fixed surface mount (SMD) low-power film resistors in rectangular chip shape (styles RR) or in cylindrical MELF shape (styles RC) classified to level G, which is defined in IEC 60115-8:2009, 1.5 for general electronic equipment, typically operated under benign or moderate environmental conditions, where the major requirement is function. Examples for level G include consumer products and telecommunication user terminals. This edition includes the following significant technical changes with respect to the previous edition: - It includes minor revisions related to tables, figures and references. - Dedication to resistors of product classification level G, which is for general electronic equipment, typically operated under benign or moderate environmental conditions, like e.g. consumer products, or telecommunication user terminals. - Implementation of the zero defect policy with the application of the single assessment level EZ in all test schedules. - Substitution of the temperature coefficient of resistance (TCR), specified over the full defined temperature range, for the inferior and less significant temperature characteristic. - Adition of a test for the immunity against electrostatic discharge. - Implementation of the concept of stability classes with coordinated requirements to the performance at all prescribed tests. - Addition of information relevant for the component user in his assembly process. - Addition of an Annex providing special provisions for 0 resistors (jumpers), which may be part of a range of products covered by a detail specification derived from this blank detail specification."
+  },
+  {
+    "reference": "IEC 60115-9:2003",
+    "edition": "1.0",
+    "date": "2003-10-29",
+    "title": "Fixed resistors for use in electronic equipment - Part 9: Sectional specification: Fixed surface mount resistor networks with individually measurable resistors",
+    "language": "EN",
+    "description": "prescribes preferred ratings and characteristics and selects from IEC 60115-1, the appropriate Quality Assessment procedures, tests and measuring methods and gives general performance requirements for this type of resistor."
+  },
+  {
+    "reference": "IEC 60115-9-1:2003",
+    "edition": "1.0",
+    "date": "2003-10-29",
+    "title": "Fixed resistors for use in electronic equipment - Part 9-1: Blank detail specification: Fixed surface mount resistor networks with individually measurable resistors - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60115-9-1:2003 is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications."
+  },
+  {
+    "reference": "IEC 60195:2016",
+    "edition": "2.0",
+    "date": "2016-04-07",
+    "title": "Method of measurement of current noise generated in fixed resistors",
+    "language": "EN-FR",
+    "description": "IEC 60195:2016 specifies a method of measurement and associated test conditions to assess the \"noisiness\", or magnitude of current noise, generated in fixed resistors of any given type. The method applies to all classes of fixed resistors. The aim is to provide comparable results for the determination of the suitability of resistors for use in electronic circuits having critical noise requirements. This edition includes the following significant technical changes with respect to the previous edition: - harmonization of the allocation of isolation resistors R M in the recommended operating conditions given in Table 2; - correction of erroneous numeric values of the contribution of system noise, f(T - S) in Table 3; - addition of advice on the prescription of requirements in a relevant component specification; - addition of a set of recommended measuring conditions for specimens with a rated dissipation of less than 100 mW; - complete editorial revision."
+  },
+  {
+    "reference": "IEC 60286-1:2017",
+    "edition": "3.0",
+    "date": "2017-07-26",
+    "title": "Packaging of components for automatic handling - Part 1: Tape packaging of components with axial leads on continuous tapes",
+    "language": "EN-FR, EN",
+    "description": "IEC 60286-1:2017 applies to the tape packaging of components with axial leads for use in electronic equipment. In general, the tape is applied to the component leads. It covers requirements for taping techniques used with equipment for the preforming of leads, automatic handling, insertion and other operations, and includes only those dimensions which are essential to the taping of components intended for the above-mentioned purposes. This edition includes the following significant changes with respect to the previous edition: a) a complete revision of the structure (detailed in Annex A) and reworked layout."
+  },
+  {
+    "reference": "IEC 60286-1:2017/AMD1:2021",
+    "edition": "3.0",
+    "date": "2021-04-07",
+    "title": "Amendment 1 - Packaging of components for automatic handling - Part 1: Tape packaging of components with axial leads on continuous tapes",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60286-2:2022",
+    "edition": "5.0",
+    "date": "2022-11-15",
+    "title": "Packaging of components for automatic handling - Part 2: Tape packaging of components with unidirectional leads on continuous tapes",
+    "language": "EN-FR",
+    "description": "IEC 60286-2:2022 applies to the tape packaging of components with two or more unidirectional leads for use in electronic equipment. It provides dimensions and tolerances necessary to tape components with unidirectional leads. In general, the tape is applied to the component leads. It covers requirements for taping techniques used with equipment for automatic handling, pre-forming of leads, insertion and other operations and includes only those dimensions which are essential to the taping of components intended for the above-mentioned purposes. This edition includes the following significant technical changes with respect to the previous edition: a) complete revision of structure; b) consolidation of essential parameters and requirements in Clause 4."
+  },
+  {
+    "reference": "IEC 60286-3:2022",
+    "edition": "7.0",
+    "date": "2022-11-15",
+    "title": "Packaging of components for automatic handling - Part 3: Packaging of surface mount components on continuous tapes",
+    "language": "EN-FR",
+    "description": "IEC 60286-3:2022 is applicable to the tape packaging of electronic components without leads or with lead stumps, intended to be connected to electronic circuits. It includes only those dimensions that are essential for the taping of components intended for the above-mentioned purposes. This document also includes requirements related to the packaging of singulated die products including bare die and bumped die (flip chips). This edition includes the following significant technical changes with respect to the previous edition: addition terms and definitions. addition of a table of the classification to symbols concerning drive hole diameter and distance between the reel hole centre and the drive hole centre; addition of drive hole to the reel (optional); revision of reel hole diameter tolerances; revision of 72 mm tape size carrier tape width dimension tolerances; addition of Annex B (informative); addition of component size 0201M."
+  },
+  {
+    "reference": "IEC TR 60286-3-3:2021",
+    "edition": "1.0",
+    "date": "2021-10-22",
+    "title": "Packaging of components for automatic handling - Part 3-3: Packaging of surface mount components on continuous paper tapes for Auto Loading Feeder",
+    "language": "EN",
+    "description": "IEC TR 60286-3-3:2021(E) describes the possible requirements for paper taping for the Auto Loading Feeder mechanism to mount electronic components without leads or with stump type leads used for electric circuits. This document is applicable to the punched carrier tape with the bottom cover tape (nominal tape width: 8 mm only) among the tapes of Type 1a, and the pressed carrier tape (nominal tape width: 8 mm) of Type 1b in IEC 60286-3."
+  },
+  {
+    "reference": "IEC TR 60286-3-4:2021",
+    "edition": "1.0",
+    "date": "2021-10-22",
+    "title": "Packaging of components for automatic handling - Part 3-4: Packaging of surface mount components on continuous embossed tapes for Auto Loading Feeder",
+    "language": "EN",
+    "description": "IEC TR 60286-3-4:2021(E) considers the proposed requirements for emboss taping for the Auto Loading Feeder mechanism to mount electric components without leads or with stump type leads used for electric circuits. This document is applicable to the embossed carrier tape, with single round sprocket holes, with tape pitches of 2 mm or more (nominal tape width: 8 mm only) among the tapes of Type 2a in IEC 60286-3. The contents of the corrigendum of June 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 60286-3-4:2021/COR1:2022",
+    "edition": "1.0",
+    "date": "2022-06-24",
+    "title": "Corrigendum 1 - Packaging of components for automatic handling - Part 3-4: Packaging of surface mount components on continuous embossed tapes for Auto Loading Feeder",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60286-4:2013",
+    "edition": "3.0",
+    "date": "2013-07-26",
+    "title": "Packaging of components for automatic handling - Part 4: Stick magazines for electronic components encapsulated in packages of different forms",
+    "language": "EN-FR",
+    "description": "IEC 60286-4:2013 is applicable to stick magazines (including end stoppers) intended to be used for storage of electronic components, for transport from the manufacturer to the customer and for in-house use in the manufacturing plant. They are also used to feed automatic placement machines for surface mounting as well as for through-hole mounting of electronic components. This edition includes the following significant technical changes with respect to the previous edition: Clause 4 describes the guidelines for customer specific stick magazine design. It replaces the magazine design rules for IEC outlined components and rules for orientation of components in stick magazines which have been moved to Annexes A to D."
+  },
+  {
+    "reference": "IEC 60286-5:2018",
+    "edition": "3.0",
+    "date": "2018-04-25",
+    "title": "Packaging of components for automatic handling - Part 5: Matrix trays",
+    "language": "EN-FR, EN",
+    "description": "IEC 60286-5:2018 describes the common dimensions, tolerances and characteristics of the tray. It includes only those dimensions that are essential for the handling of the trays for the stated purpose and for placing or removing components from the trays. This edition includes the following significant technical changes with respect to the previous edition: - The generic rules for the design of matrix trays are given in this document. Newly developed trays which follow these rules will not be listed individually. Only those trays which conform to the design rules set forth herein are classified as \"standard trays\" and are thus preferred for use. - An update of the matrix trays, which do not conform to the design rules set forth herein, are considered as \"non-standard trays\" and are not preferred for use, is listed in Annex A."
+  },
+  {
+    "reference": "IEC 60286-6:2004",
+    "edition": "2.0",
+    "date": "2004-02-05",
+    "title": "Packaging of components for automatic handling - Part 6: Bulk case packaging for surface mounting components",
+    "language": "EN-FR",
+    "description": "is applicable to bulk case packaging capable of containing surface mounting components. The bulk case is designed for transport and storage of components and the supply of components directly or by an appropriate feeder to the placement machine. The bulk case is attached to the automatic handling machine by means of a coupling interface"
+  },
+  {
+    "reference": "IEC TS 60286-6-1:2023",
+    "edition": "1.0",
+    "date": "2023-11-09",
+    "title": "Packaging of components for automatic handling - Part 6-1: Bulk case packaging for miniaturized surface mounting components",
+    "language": "EN",
+    "description": "IEC TS 60286-6-1:2023 specifies a bulk case capable of containing miniaturized surface mount components of sizes within the range of 0402M to 1005M (see Table 1 for explanation of the codes). The bulk case is designed for transport and storage of components and to supply of components directly or by an appropriate feeder to the placement machine. The bulk case is equipped with a coupling interface to enable its automatic handling, e.g. by a robot or automatic handling machines."
+  },
+  {
+    "reference": "IEC TR 60286-7:2019",
+    "edition": "1.0",
+    "date": "2019-10-14",
+    "title": "Packaging of components for automatic handling - Part 7: Introduction of a bulk blister pack for miniaturized components",
+    "language": "EN-FR",
+    "description": "IEC TR 60286-7:2019 contains information about the introduction of an innovative bulk blister packing system for miniaturized components, for example chip type components of size 1005 (metric) and smaller. It includes a proposal for standardization of the interface between the packaging and automatic assembly systems and requirements to the properties of the packaging."
+  },
+  {
+    "reference": "IEC 60294:2012",
+    "edition": "2.0",
+    "date": "2012-07-13",
+    "title": "Measurement of the dimensions of a cylindrical component with axial terminations",
+    "language": "EN-FR",
+    "description": "IEC 60294:2012 applies to cylindrical capacitors and resistors for use in electronic equipment. This standard gives methods for measurement of the body length and for checking the excessive protective coating extending onto the wire terminations of components with axial wire terminations. It further provides a method for checking the overall body diameter of cylindrical components with axial wire terminations. NOTE: A measuring method for components with unidirectional terminations is given in IEC 60717. This second edition cancels and replaces the first edition, published in 1969, and constitutes a technical revision. The main technical changes with respect to the first edition are the following: - employment of SI units only, causing deletion of all imperial dimensions, - reduction of the tolerance on the chamfer depth in Figure 1 and Figure 2, - elaboration of the method for coating material extending onto wire terminations, - elaboration of the method for the overall body diameter, and - introduction of requirements on information to be given in a relevant specification."
+  },
+  {
+    "reference": "IEC 60301:2012",
+    "edition": "3.0",
+    "date": "2012-07-13",
+    "title": "Preferred diameters of wire terminations of capacitors and resistors",
+    "language": "EN-FR",
+    "description": "IEC 60301:2012 gives a series of preferred diameters of the finished wire terminations of capacitors and resistors for use in electronic equipment. This third edition cancels and replaces the second edition, published in 1971, and its Amendment 1, published in 1972, and constitutes a technical revision. The main technical changes with respect to the second edition are the following: - employment of SI units only in the normative part of this standard, causing transfer of all imperial dimensions from Table 1 to the informative Annex A, - addition of two smaller diameters of wire terminations in Table 1, and - tightening of the tolerance ranges defined by minimum and maximum diameters in Table 1."
+  },
+  {
+    "reference": "IEC 60384-1:2021",
+    "edition": "6.0",
+    "date": "2021-07-16",
+    "title": "Fixed capacitors for use in electronic equipment - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60384-1:2021 is a generic specification and is applicable to fixed capacitors for use in electronic equipment. It establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications of electronic components for quality assessment or any other purpose. This edition includes the following significant technical changes with respect to the previous edition: a) The document has been completely restructured to comply with the ISO/IEC Directives, Part 2; a new technical categorization of test methods has been introduced and the test methods have been reorganized according to these new categories; tables, figures and references have been revised accordingly. b) Annex X has been added for comparison with the previous edition."
+  },
+  {
+    "reference": "IEC 60384-1-1:2022",
+    "edition": "1.0",
+    "date": "2022-07-20",
+    "title": "Fixed capacitors for use in electronic equipment - Part 1-1: Generic blank detail specification",
+    "language": "EN-FR",
+    "description": "IEC 60384-1-1:2022 establishes a generic template and specifies requirements to the content of detail specifications for capacitors within the IEC 60384-X series. This part of IEC 60384-1 is applicable to the drafting of detail specifications for fixed capacitors for use in electronic equipment."
+  },
+  {
+    "reference": "IEC 60384-2:2021",
+    "edition": "5.0",
+    "date": "2021-04-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 2: Sectional specification - Fixed metallized polyethylene terephthalate film dielectric DC capacitors",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-2:2021 applies to fixed capacitors for direct current, with metallized electrodes and polyethylene-terephthalate dielectric for use in electronic equipment. These capacitors have a possibility of \"self-healing properties\" depending on conditions of use. They are primarily intended for applications where the AC component is small with respect to the rated voltage. Two performance grades of capacitors are covered: grade 1 for long-life application and grade 2 for general application. Capacitors for electromagnetic interference suppression and surface mount fixed metallized polyethylene-terephthalate film dielectric DC capacitors are not included, but are covered by IEC 60384-14 and IEC 60384-19, respectively. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60384-1 the appropriate quality assessment procedures, tests and measuring methods, and to give general performance requirements for this type of capacitor. Test severities and requirements prescribed in detail specifications referring to this sectional specification are of equal or higher performance level, because lower performance levels are not permitted. This edition includes the following significant technical changes with respect to the previous edition: a) revision of all parts of the document based on the ISO/IEC Directives, Part 2:2018 and harmonization with other similar kinds of documents; b) the document structure has been organized to follow the new sectional specification structure decided by TC 40; c) revision of tables and Clause 5 so as to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-2-1:2005",
+    "edition": "2.0",
+    "date": "2005-11-09",
+    "title": "Fixed capacitors for use in electronic equipment - Part 2-1: Blank detail specification: Fixed metallized polyethylene-terephthalate film dielectric d.c. capacitors - Assessment levels E and EZ",
+    "language": "EN",
+    "description": "blank detail specification is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of details specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they be so described."
+  },
+  {
+    "reference": "IEC 60384-3:2016",
+    "edition": "4.0",
+    "date": "2016-07-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 3: Sectional specification - Surface mount fixed tantalum electrolytic capacitors with solid (MnO<sub>2</sub>) electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-3:2016 applies to fixed tantalum electrolytic surface mount capacitors with solid (MnO 2 ) electrolyte primarily intended for d.c. applications for use in electronic equipment. The following two styles are considered: - Style 1 - Capacitors protected with external materials; - Style 2 - Capacitors unprotected with external materials. This edition includes the following significant technical changes with respect to the previous edition: a) Revision of the structure in accordance with ISO/IEC Directives, Part 2:2011 (sixth edition) to the extent practicable, and harmonization between other similar kinds of documents. b) In addition, Clause 4 and all the tables have been reviewed in order to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-3-1:2006",
+    "edition": "2.0",
+    "date": "2006-10-25",
+    "title": "Fixed capacitors for use in electronic equipment - Part 3-1: Blank detail specification: Surface mount fixed tantalum electrolytic capacitors with manganese dioxide solid electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-3-1:2006 is a bilingual version and corresponds to the English version. It is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. It cancels and replaces the first edition published in 1989 and constitutes a minor revision related to tables, figures and references."
+  },
+  {
+    "reference": "IEC 60384-3-101:1995",
+    "edition": "1.0",
+    "date": "1995-11-16",
+    "title": "Fixed capacitors for use in electronic equipment - Part 3-101: Detail specification: Fixed tantalum chip capacitors for surface mounting with solid electrolyte and porous anode, style I.  Assessment level E",
+    "language": "EN-FR",
+    "description": "Is a supplementary document to the sectional specification. Defines mounting, dimension, ratings and characteristics for fixed tantalum chip capacitors for surface mounting with solid electrolyte and pourous anode, style I - Assessment level E, as well as inspection requirements."
+  },
+  {
+    "reference": "IEC 60384-4:2016",
+    "edition": "5.0",
+    "date": "2016-08-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 4: Sectional specification - Fixed aluminium electrolytic capacitors with solid (MnO<sub>2</sub>) and non-solid electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-4:2016 applies to fixed aluminium electrolytic capacitors with solid (MnO 2 ) and non-solid electrolyte primarily intended for d.c. applications for use in electronic equipment. It covers capacitors for long-life applications and capacitors for general-purpose applications. Capacitors for special-purpose applications may need additional requirements."
+  },
+  {
+    "reference": "IEC 60384-4-1:2007",
+    "edition": "3.0",
+    "date": "2007-03-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 4-1: Blank detail specification - Fixed aluminium electrolytic capacitors with non-solid electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-4-1:2007 is a blank detail specification and is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they be so described. This third edition cancels and replaces the second edition published in 2000 and constitutes a minor revision related to tables, figures and references. This bilingual version, published in 2008, corresponds to the English version."
+  },
+  {
+    "reference": "IEC 60384-4-2:2007",
+    "edition": "2.0",
+    "date": "2007-03-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 4-2: Blank detail specification - Fixed aluminium electrolytic capacitors with solid (MnO<sub>2</sub>) electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-4-2:2007 is a blank detail specification and is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they be so described. This second edition cancels and replaces the first edition published in 1985 and its amendment 1 (1992) and amendment 2 (1996). This edition constitutes a minor revision related to tables, figures and references. This bilingual version, published in 2008, corresponds to the English version."
+  },
+  {
+    "reference": "IEC 60384-8:2024",
+    "edition": "5.0",
+    "date": "2024-08-14",
+    "title": "Fixed capacitors for use in electronic equipment - Part 8: Sectional specification - Fixed capacitors of ceramic dielectric, Class 1",
+    "language": "EN-FR",
+    "description": "IEC 60384-8:2024 is applicable to fixed capacitors of ceramic dielectric with a defined temperature coefficient (dielectric Class 1), intended for use in electronic equipment, including leadless capacitors but excluding fixed surface mount multilayer capacitors of ceramic dielectric, which are covered by IEC 60384-21 (Class 1). Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384-14. The object of this document is to specify preferred ratings and characteristics and to select from IEC 60384-1:2021, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this document provide specific test severities and requirements of an equal or higher performance level. Further information on the conception of generic, sectional and detail specifications can be found in the Introduction of IEC 60384-1:2021. This edition includes the following significant technical changes with respect to the previous edition: a) The document has been completely restructured to comply with ISO/IEC Directives, Part 2 and to make it more useable; tables, figures and references have been revised accordingly. Annex X contains all cross-references of changes in clause/subclause numbers. b) The terms have been replaced by the letter symbols in Table 3. c) Code of temperature coefficient and tolerance of C0G, U2J have been added in Table 4, Table 6, Table 8, Table 9, Table 11, Table 13, Table 16 and Annex B. d) Annex B has been changed from informative to normative. e) Clause C.5 (Test schedule for quality conformance inspection) has been newly added to withdraw the blank detail specification: IEC 60384-8-1."
+  },
+  {
+    "reference": "IEC 60384-9:2024",
+    "edition": "5.0",
+    "date": "2024-08-14",
+    "title": "Fixed capacitors for use in electronic equipment - Part 9: Sectional specification - Fixed capacitors of ceramic dielectric, Class 2",
+    "language": "EN-FR",
+    "description": "IEC 60384-9:2024 is applicable to fixed capacitors of ceramic dielectric with a defined temperature coefficient (dielectric Class 2), intended for use in electronic equipment, including leadless capacitors but excluding fixed surface mount multilayer capacitors of ceramic dielectric, which are covered by IEC 60384-22 (Class 2). Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384-14. The object of this document is to specify preferred ratings and characteristics and to select from IEC 60384-1:2021 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this document provide specific test severities and requirements of an equal or higher performance level. Further information on the conception of generic, sectional and detail specifications can be found in the Introduction of IEC 60384-1:2021. This edition includes the following significant technical changes with respect to the previous edition: a) The document has been completely restructured to comply with ISO/IEC Directives, Part 2 and to make it more useable; tables, figures and references have been revised accordingly. Annex X contains all cross-references of changes in clause/subclause numbers. b) The requirements of reference temperature 25 °C have been added in Table 7, Table 9, Table 11, Table 13 and Table 15. c) The table of temperature characteristics of capacitance for the reference temperature 25 °C have been added in Table B.1, Table B.2 and Table B.3. d) Annex B has been changed from informative to normative. e) Clause C.5 (Test schedule for quality conformance inspection) has been newly added to withdraw the blank detail specification: IEC 60384-9-1."
+  },
+  {
+    "reference": "IEC 60384-11:2019",
+    "edition": "4.0",
+    "date": "2019-08-22",
+    "title": "Fixed capacitors for use in electronic equipment - Part 11: Sectional specification - Fixed polyethylene-terephthalate film dielectric metal foil DC capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-11:2019 is applicable to fixed direct current capacitors, for rated voltages not exceeding 6 300 V, using as dielectric a polyethylene-terephthalate film and electrodes of thin metal foils. For capacitors with rated voltages exceeding 1 000 V, additional tests and requirements may be specified in the detail specification. The capacitors covered by this document are intended for use in electronic equipment. Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384‑14. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60384-1:2016 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements prescribed in detail specifications referring to this sectional specification are of an equal or higher performance level. Lower performance levels are not permitted. This edition includes the following significant technical changes with respect to the previous edition: a) revision of all parts of the document based on the ISO/IEC Directives, Part 2:2018, and harmonization with other similar kinds of documents; b) the document structure has been organized to follow new sectional specification structure decided in TC 40; c) revised tables and Clause 5 so as to prevent duplications and contradictions. The contents of the corrigendum of April 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-11:2019/COR1:2020",
+    "edition": "4.0",
+    "date": "2020-04-22",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 11: Sectional specification - Fixed polyethylene-terephthalate film dielectric metal foil DC capacitors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-11-1:2008",
+    "edition": "2.0",
+    "date": "2008-02-13",
+    "title": "Fixed capacitors for use in electronic equipment - Part 11-1: Blank detail specification - Fixed polyethylene terephthalate film dielectric metal foil d.c. capacitors - Assessment level EZ",
+    "language": "EN",
+    "description": "It is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. In the preparation of detail specifications, the content of 1.4 of the sectional specification shall be taken into account. It constitutes a minor revision related to tables, figures and references."
+  },
+  {
+    "reference": "IEC 60384-13:2020",
+    "edition": "5.0",
+    "date": "2020-11-11",
+    "title": "Fixed capacitors for use in electronic equipment - Part 13: Sectional specification - Fixed polypropylene film dielectric metal foil d.c. capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-13:2020 specifies preferred ratings and characteristics, selects from IEC 60384-1:2016 the appropriate quality assessment procedures, tests and measuring methods, and gives general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification are of an equal or higher performance level. Lower performance levels are not permitted. This part of IEC 60384 applies to fixed direct current capacitors, using as dielectric a polypropylene film with electrodes of thin metal foils. The capacitors covered by this document are intended for use in electronic equipment. Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384-14. This edition includes the following significant technical changes with respect to the previous edition: a) revision of all parts of the document based on the ISO/IEC Directives, Part 2:2018, and harmonization with other similar kinds of documents; b) the document structure has been organized to follow new sectional specification structure decided in TC 40; c) revised tables and Clause 5 so as to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-13-1:2006",
+    "edition": "2.0",
+    "date": "2006-01-19",
+    "title": "Fixed capacitors for use in electronic equipment - Part 13-1: Blank detail specification - Fixed polypropylene film dielectric metal foil d.c. capacitors - Assessment level E and EZ",
+    "language": "EN",
+    "description": "IEC 60384-13-1:2006(E) is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. The contents of the corrigendum of March 2009 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-13-1:2006/COR1:2009",
+    "edition": "2.0",
+    "date": "2009-03-24",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 13-1: Blank detail specification - Fixed polypropylene film dielectric metal foil d.c. capacitors - Assessment level E",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-14:2023",
+    "edition": "5.0",
+    "date": "2023-01-25",
+    "title": "Fixed capacitors for use in electronic equipment - Part 14: Sectional specification - Fixed capacitors for electromagnetic interference suppression and connection to the supply mains",
+    "language": "EN-FR",
+    "description": "IEC 60384-14:2023 applies to capacitors and resistor-capacitor combinations intended to be connected to AC mains or other supply with a nominal voltage not exceeding 1 000 V AC (RMS), and with a nominal frequency not exceeding 100 Hz. This document includes also additional specific conditions and requirements for the connection to DC supplies with a rated voltage not exceeding 1 500 V DC. The principal object of this part of IEC 60384 is to prescribe preferred ratings and characteristics and to select, from IEC 60384-1, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements prescribed in detail specifications referring to this sectional specification are of equal or higher performance level; lower performance levels are not permitted. This document also provides a schedule of safety tests to be used by national testing stations in countries where approval by such stations is required. The overvoltage categories in combination with the AC mains voltages for the capacitors classified in this document are to be taken from IEC 60664-1. This edition includes the following significant technical changes with respect to the previous edition: in damp heat steady state test, all capacitor types are tested both with and without rated voltage; the number of test pieces has been increased; tangent of loss angle is added In Group 0 tests, in safety tests only; qualification approval based on safety and performance tests has been removed from the main text to a normative annex; the range of rated voltages is given instead of exact rated voltage values; normative annex for description of capacitor styles and of creepage/clearance distance measurement has been added; the importance of mechanical failures (cracks) in component encapsulation as a safety feature is highlighted in handling instructions and requirements after all relevant tests. The content of the corrigendum 1 (2024-10) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-14:2023/COR1:2024",
+    "edition": "5.0",
+    "date": "2024-10-17",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 14: Sectional specification - Fixed capacitors for electromagnetic interference suppression and connection to the supply mains",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-14:2023/AMD1:2025",
+    "edition": "5.0",
+    "date": "2025-07-07",
+    "title": "Amendment 1 - Fixed capacitors for use in electronic equipment - Part 14: Sectional specification - Fixed capacitors for electromagnetic interference suppression and connection to the supply mains",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-14-1:2025",
+    "edition": "4.0",
+    "date": "2025-09-26",
+    "title": "Fixed capacitors for use in electronic equipment - Part 14-1: Blank detail specification - Fixed capacitors for electromagnetic interference suppression and connection to the supply mains - Assessment level DZ",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60384-14-1:2025 forms the basis for a uniform procedure for a common international safety mark. It implements the approval schedule for safety tests in IEC 60384‑14, specifies a declaration of design for parameters relevant to safety and indicates conformance tests to be conducted on every lot prior to its release and requalification tests depending on changes to the declared design. This edition includes the following significant technical changes with respect to the previous edition: a) the tables for dimensions have been replaced with a guidance text in the document; b) the possibility to give the requirements for the service in DC applications and in high humidity conditions have been added; c) the changes in this document in comparison with the previous edition are given in Annex B. This International Standard is to be used in conjunction with IEC 60384‑1 and IEC 60384‑14:2023."
+  },
+  {
+    "reference": "IEC 60384-14-2:2025",
+    "edition": "3.0",
+    "date": "2025-09-26",
+    "title": "Fixed capacitors for use in electronic equipment - Part 14-2: Blank detail specification - Fixed capacitors for electromagnetic interference suppression and connection to the supply mains - Safety tests only",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60384-14-2:2025 forms the basis for a uniform procedure for a common international safety mark. It implements the approval schedule for safety tests in IEC 60384‑14, specifies a declaration of design for parameters relevant to safety and indicates conformance tests to be conducted on every lot prior to its release and requalification tests depending on changes to the declared design. This edition includes the following significant technical changes with respect to the previous edition: a) the tables for dimensions have been replaced with a guidance text in the document, b) the possibility to give the requirements for the service in DC applications and in high humidity conditions have been added. c) the changes in this document in comparison with the previous edition are given in Annex B. This International Standard is to be used in conjunction with IEC 60384‑1:2021 and IEC 60384‑14:2023."
+  },
+  {
+    "reference": "IEC 60384-15:2017",
+    "edition": "2.0",
+    "date": "2017-05-22",
+    "title": "Fixed capacitors for use in electronic equipment - Part 15: Sectional specification: Fixed tantalum capacitors with non-solid or solid electrolyte",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-15:2017 applies to through-hole/leaded polar and bipolar tantalum electrolyte capacitors with solid and non‑solid electrolyte for use in electronic equipment. It includes capacitors for long‑life applications and capacitors for general‑purpose applications. This document prescribes preferred ratings and characteristics and to select from IEC 60384‑1:2016 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. This edition includes the following significant technical changes with respect to the previous edition: a) Revision of the structure in accordance with ISO/IEC Directives, Part 2:2016 (seventh edition) to the extent practicable, and harmonization between other similar kinds of documents. b) In addition, Clause 4 and all the tables have been reviewed in order to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-15-1:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Fixed capacitors for use in electronic equipment. Part 15: Blankdetail specification: Fixed tantalum capacitors with non-solidelectrolyte and foil electrode. Assessment level E",
+    "language": "EN-FR",
+    "description": "Supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Applies to fixed tantalum capacitors with non-solid electrolyte and foil electrode."
+  },
+  {
+    "reference": "IEC 60384-15-2:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Fixed capacitors for use in electronic equipment. Part 15: Blank detail specification: Fixed tantalum capacitors with non-solid electrolyte and process anode. Assessment level E",
+    "language": "EN-FR",
+    "description": "Supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Applies to fixed tantalum capacitors with non-solid electrolyte and porous anode."
+  },
+  {
+    "reference": "IEC 60384-15-3:1984",
+    "edition": "1.0",
+    "date": "1984-12-30",
+    "title": "Fixed capacitors for use in electronic equipment. Part 15: Blank detail specification: Fixed tantalum capacitors with solid electrolyte and porous anode. Assessment level E",
+    "language": "EN-FR",
+    "description": "Supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Applies to fixed tantalum capacitors with non-solid electrolyte and porous anode."
+  },
+  {
+    "reference": "IEC 60384-15-3:1984/AMD1:1992",
+    "edition": "1.0",
+    "date": "1992-02-29",
+    "title": "Amendment 1 - Fixed capacitors for use in electronic equipment. Part 15: Blank detail specification: Fixed tantalum capacitors with solid electrolyte and porous anode. Assessment level E",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-16:2019",
+    "edition": "3.0",
+    "date": "2019-09-16",
+    "title": "Fixed capacitors for use in electronic equipment - Part 16: Sectional specification - Fixed metallized polypropylene film dielectric DC capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-16:2019 applies to fixed capacitors with metallized electrodes and poly­propylene dielectric for use in electronic equipment. These capacitors can have \"self-healing properties\" depending on conditions of use. They are mainly intended for use with direct voltage. Capacitors for alternating voltage and pulse applications are not included, but are covered by IEC 60384-17. Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384-14. Capacitors for electrical shock hazard protection (covered by IEC 60065) and fluorescent lamp and motor capacitors are also excluded. The contents of the corrigendum of December 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-16:2019/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-12-11",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 16: Sectional specification - Fixed metallized polypropylene film dielectric DC capacitors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-16-1:2005",
+    "edition": "2.0",
+    "date": "2005-11-09",
+    "title": "Fixed capacitors for use in electronic equipment - Part 16-1: Blank detail specification: Fixed metallized polypropylene film dielectric d.c. capacitors - Assessment levels E and EZ",
+    "language": "EN",
+    "description": "blank detail specification is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of details specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they be so described."
+  },
+  {
+    "reference": "IEC 60384-17:2019",
+    "edition": "3.0",
+    "date": "2019-03-18",
+    "title": "Fixed capacitors for use in electronic equipment - Part 17: Sectional specification - Fixed metallized polypropylene film dielectric AC and pulse capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-17:2019 applies to fixed capacitors with metallized electrodes and polypropylene dielectric for use in electronic equipment. Capacitors that have mixed film and metallized electrodes are also within the scope of this standard. These capacitors may have \"self-healing\" properties depending on conditions of use. Capacitors covered by this specification are mainly intended for use with alternating voltage and/or for pulse applications. The maximum reactive power applicable is 10 000 var and the maximum peak voltage is 3 000 V. This edition includes the following significant technical changes with respect to the previous edition: a) all parts of the document have been revised based on the ISO/IEC Directives, Part 2:2016 (seventh edition) and harmonization between other similar kinds of documents; b) tables and Clause 4 have been revised so as to prevent duplications and contradictions; c) new damp heat steady-state robustness classes with test conditions have been added in text, in Clause 4 and in Annex A. The contents of the corrigendum of December 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-17:2019/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-12-17",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 17: Sectional specification - Fixed metallized polypropylene film dielectric AC and pulse capacitors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-17-1:2005",
+    "edition": "2.0",
+    "date": "2005-11-09",
+    "title": "Fixed capacitors for use in electronic equipment - Part 17-1: Blank detail specification: Fixed metallized polypropylene film dielectric a.c. and pulse capacitors - Assessment levels E and EZ",
+    "language": "EN",
+    "description": "blank detail specification is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of details specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they be so described."
+  },
+  {
+    "reference": "IEC 60384-18:2016",
+    "edition": "3.0",
+    "date": "2016-05-25",
+    "title": "Fixed capacitors for use in electronic equipment - Part 18: Sectional specification - Fixed aluminium electrolytic surface mount capacitors with solid (MnO<sub>2</sub>) and non-solid electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-18:2016 applies to fixed aluminium electrolytic surface mount capacitors with solid (MnO 2 ) and non-solid electrolyte primarily intended for d.c. applications for use in electronic equipment. It prescribes preferred ratings and characteristics and to select from IEC 60384-1:2016 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements prescribed in detail specifications referring to this sectional specification should be of equal or higher performance level, because lower performance levels are not permitted. This edition includes the following significant technical changes with respect to the previous edition: a) Revision of the structure in accordance with ISO/IEC Directives, Part 2:2011 (sixth edition) to the extent practicable, and harmonization between other similar kinds of documents. b) In addition, Clause 4 and all the tables have been reviewed in order to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-18-1:2007",
+    "edition": "2.0",
+    "date": "2007-03-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 18-1: Blank detail specification - Fixed aluminium electrolytic surface mount capacitors with solid (MnO<sub>2</sub>) electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-18-1:2007 is a blank detail specification and is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. This second edition cancels and replaces the first edition published in 1993 and its amendment (1998) and constitutes a technical revision. This edition constitutes a minor revision related to tables, figures and references."
+  },
+  {
+    "reference": "IEC 60384-18-2:2007",
+    "edition": "2.0",
+    "date": "2007-03-12",
+    "title": "Fixed capacitors for use in electronic equipment - Part 18-2: Blank detail specification - Fixed aluminium electrolytic surface mount capacitors with non-solid electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-18-2:2007 is a blank detail specification and is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. This second edition cancels and replaces the first edition published in 1993 and constitutes a minor revision related to tables, figures and references."
+  },
+  {
+    "reference": "IEC 60384-19:2022",
+    "edition": "4.0",
+    "date": "2022-07-18",
+    "title": "Fixed capacitors for use in electronic equipment - Part 19: Sectional specification: Fixed metallized polyethylene terephthalate film dielectric surface mount DC capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-19:2022 is applicable to fixed surface mount capacitors for direct current, with metallized electrodes and polyethylene-terephthalate dielectric for use in electronic equipment. These capacitors have metallized connecting pads or soldering strips and are intended to be mounted directly onto printed boards or onto substrates for hybrid circuits. These capacitors can have \"self-healing properties\" depending on conditions of use. They are primarily intended for applications where the AC component is small with respect to the rated voltage. This part of IEC 60384 specifies preferred ratings and characteristics, and selects from IEC 60384‑1:2021 the appropriate quality assessment procedures, tests and measuring methods, and gives general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification are of an equal or higher performance level. Lower performance levels are not permitted. Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384‑14. This edition includes the following significant technical changes with respect to the previous edition: revision of all parts of the document based on the ISO/IEC Directives, Part 2:2021, and harmonization with other similar kinds of documents; the document structure has been organized to follow new sectional specification structure decided in TC 40; revised tables and Clause 5 to prevent duplications and contradictions; in Clause 5.2 (Mounting), 5.2.1, 5.2.2 and 5.2.3 have been added; in Clause 5.5 (Shear test), 5.5.1 and 5.5.2 have been added; in Clause 5.14 (Component solvent resistance), 5.14.1 and 5.14.2 have been added. In Table 8 and Table A.2, test 5.14 has been moved before 5.7.5 Final inspections in Group 1A and in Subgroup C1; in Clause 5.15 (Solvent resistance of marking), 5.15.1 and 5.15.2 have been added; tangent of loss angle measurement has been added to resistance to soldering heat test; lot-by-lot and periodical inspection tables including requirements have been moved to Annex A; revised Inspection Level (IL) of A1 subgroup."
+  },
+  {
+    "reference": "IEC 60384-20:2023",
+    "edition": "4.0",
+    "date": "2023-02-03",
+    "title": "Fixed capacitors for use in electronic equipment - Part 20: Sectional specification - Fixed metallized polyphenylene sulfide film dielectric surface mount DC capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-20:2023 is applicable to fixed surface mount capacitors for direct current, with metallized electrodes and polyphenylene sulfide dielectric for use in electronic equipment. These capacitors have metallized connecting pads or soldering strips and are intended to be mounted directly onto printed boards or onto substrates for hybrid circuits. These capacitors can have \"self-healing properties\" depending on conditions of use. They are primarily intended for applications where the AC component is small with respect to the rated voltage. This part of IEC 60384 specifies preferred ratings and characteristics and selects from IEC 60384-1:2021 the appropriate quality assessment procedures, tests and measuring methods, and gives general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification are of an equal or higher performance level; lower performance levels are not permitted. Capacitors for electromagnetic interference suppression are not included but are covered by IEC 60384‑14. This edition includes the following significant technical changes with respect to the previous edition: - revision of all parts of the document based on the ISO/IEC Directives, Part 2:2021, and harmonization with other similar kinds of documents; - the document structure has been organized to follow new sectional specification structure decided in TC 40; - revised tables and Clause 5 so as to prevent duplications and contradictions; - in Clause 5.2 (Mounting), the Subclauses 5.2.1, 5.2.2 and 5.2.3 have been added; - in Subclause 5.5 (Shear test), the Subclauses 5.5.1 and 5.5.2 have been added; - in Subclause 5.14 (Component solvent resistance), the Subclauses 5.14.1 and 5.14.2 have been added. In Table 8 and Table A.2, test 5.14 has been moved before 5.7.5 (Final inspections and requirements) in Group 1A and in Subgroup C1; - in Subclause 5.15 (Solvent resistance of marking), the Subclauses 5.15.1 and 5.15.2 have been added; - tangent of loss angle measurement has been added to resistance to soldering heat test; - lot-by-lot and periodical inspection tables, including requirements, have been moved to Annex A; - revised Inspection Level (IL) of A1 subgroup."
+  },
+  {
+    "reference": "IEC 60384-21:2024",
+    "edition": "4.0",
+    "date": "2024-06-21",
+    "title": "Fixed capacitors for use in electronic equipment - Part 21: Sectional specification - Fixed surface mount multilayer capacitors of ceramic dielectric, Class 1",
+    "language": "EN-FR",
+    "description": "IEC 60384-21:2024 is applicable to fixed unencapsulated surface mount multilayer capacitors of ceramic dielectric with a defined temperature coefficient (dielectric Class 1), intended for use in electronic equipment. These capacitors have metallized connecting pads or soldering strips and are intended to be mounted on printed boards, or directly onto substrates for hybrid circuits. Capacitors for electromagnetic interference suppression are not included but are covered by IEC 60384-14. The object of this document is to specify preferred ratings and characteristics and to select from IEC 60384-1:2021 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification provide specific test severities and requirements of an equal or higher performance level. Further information on the conception of generic, sectional and detail specifications can be found in the Introduction of IEC 60384-1:2021. This edition includes the following significant technical changes with respect to the previous edition: a) the document has been completely restructured to comply with the ISO/IEC Directives, Part 2 and to make it more useable; tables, figures and references have been revised accordingly; Annex X contains all cross-references of changes in clause/subclause numbers; b) the terms have been replaced by the letter symbols in Table 3; c) code of temperature coefficient and tolerance of C0G, U2J have been added in Table 4, Table 6, Table 8, Table 9, Table 11, Table 13, Table 16 and Annex B; d) the requirement in 5.5.2(visual examination) has been repeated in 5.9.3, 5.10.5, 5.11.4, 5.11.4, 5.13.7, 5.14.5 and 5.15.5; e) the deflection D in the very robust designs has been added in 5.9.1; f) Annex B has been changed informative into normative; g) Clause C.5 (Test schedule for quality conformance inspection) has been newly added to withdraw the blank detail specification: IEC 60384-21-1."
+  },
+  {
+    "reference": "IEC 60384-22:2024",
+    "edition": "4.0",
+    "date": "2024-06-21",
+    "title": "Fixed capacitors for use in electronic equipment - Part 22: Sectional specification - Fixed surface mount multilayer capacitors of ceramic dielectric, Class 2",
+    "language": "EN-FR",
+    "description": "IEC 60384-22:2024 is applicable to fixed unencapsulated surface mount multilayer capacitors of ceramic dielectric, Class 2, for use in electronic equipment. These capacitors have metallized connecting pads or soldering strips and are intended to be mounted on printed boards, or directly onto substrates for hybrid circuits. Capacitors for electromagnetic interference suppression are not included but are covered by IEC 60384-14. The object of this document is to specify preferred ratings and characteristics and to select from IEC 60384-1:2021 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification provide specific test severities and requirements of an equal or higher performance level. Further information on the conception of generic, sectional and detail specifications can be found in the Introduction of IEC 60384-1:2021. This edition includes the following significant technical changes with respect to the previous edition: a) The document has been completely restructured to comply with the ISO/IEC Directives, Part 2 and to make it more useable; tables, figures and references have been revised accordingly. b) The requirements of reference temperature 25 °C has been added in Table 5, Table 9, Table 10, Table 12, Table 14 and Table 17. c) The table of temperature characteristics of capacitance for the reference temperature 25 °C have been added in Table C.1, Table C.2 and Table C.3. d) The requirement in 5.5.2 (visual examination) has been repeated in 5.9.3, 5.10.6, 5.11.4, 5.12.6, 5.13.8, 5.14.6 and 5.15.6. e) The deflection D in the very robust designs has been added in 5.9.1. f) Annex C has been changed informative into normative. g) Clause D.5 (Test schedule for quality conformance inspection) has been newly added to withdraw the blank detail specification: IEC 60384-22-1."
+  },
+  {
+    "reference": "IEC 60384-23:2023",
+    "edition": "3.0",
+    "date": "2023-02-03",
+    "title": "Fixed capacitors for use in electronic equipment - Part 23: Sectional specification - Fixed metallized polyethylene naphthalate film dielectric surface mount DC capacitors",
+    "language": "EN-FR",
+    "description": "IEC 60384-23:2023 is applicable to fixed surface mount capacitors for direct current, with metallized electrodes and polyethylene naphthalate dielectric for use in electronic equipment. These capacitors have metallized connecting pads or soldering strips and are intended to be mounted directly onto printed boards or onto substrates for hybrid circuits. These capacitors can have \"self-healing properties\" depending on conditions of use. They are primarily intended for applications where the AC component is small with respect to the rated voltage. This part of IEC 60384 specifies preferred ratings and characteristics, selects from IEC 60384‑1:2021 the appropriate quality assessment procedures, tests and measuring methods and gives general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this sectional specification are of an equal or higher performance level. Lower performance levels are not permitted. Capacitors for electromagnetic interference suppression are not included, but are covered by IEC 60384‑14. This edition includes the following significant technical changes with respect to the previous edition: - this edition includes the following significant technical changes with respect to the previous edition: revision of all parts of the document based on the ISO/IEC Directives, Part 2:2021, and harmonization with other similar kinds of documents; - the document structure has been organized to follow new sectional specification structure decided in TC 40; - revised tables and Clause 5 so as to prevent duplications and contradictions; - in Subclause 5.2 (Mounting), the Subclauses 5.2.1, 5.2.2 and 5.2.3 have been added; - in Subclause 5.5 (Shear test), the Subclauses 5.5.1 and 5.5.2 have been added; - in Subclause 5.14 (Component solvent resistance), the Subclauses 5.14.1 and 5.14.2 have been added. In Table 8 and Table A.2, test 5.14 has been moved before 5.7.5 (Final inspections and requirements) in Group 1A and in Subgroup C1; - in Subclause 5.15 (Solvent resistance of marking), the Subclauses 5.15.1 and 5.15.2 have been added; - tangent of loss angle measurement has been added to the resistance to soldering heat test; - lot-by-lot and periodical inspection tables including requirements have been moved to Annex A; - revised Inspection Level (IL) of A1 subgroup."
+  },
+  {
+    "reference": "IEC 60384-24:2021",
+    "edition": "3.0",
+    "date": "2021-07-14",
+    "title": "Fixed capacitors for use in electronic equipment - Part 24: Sectional specification - Fixed tantalum electrolytic surface mount capacitors with conductive polymer solid electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-24:2021 applies to fixed tantalum electrolytic surface mount capacitors with conductive polymer solid electrolyte, which are primarily intended for DC applications for use in electronic equipment. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60384-1:2016 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. This edition includes the following significant technical changes with respect to the previous edition: - Revision of the structure in accordance with ISO/IEC Directives, Part 2:2018, to the extent practicable, and harmonization between other similar kinds of documents. - In addition, Clause 5 and all the tables have been reviewed in order to prevent duplications and contradictions."
+  },
+  {
+    "reference": "IEC 60384-24-1:2006",
+    "edition": "1.0",
+    "date": "2006-06-26",
+    "title": "Fixed capacitors for use in electronic equipment - Part 24-1: Blank detail specification - Surface mount fixed tantalum electrolytic capacitors with conductive polymer solid electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-24-1:2006 is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described."
+  },
+  {
+    "reference": "IEC 60384-25:2021",
+    "edition": "3.0",
+    "date": "2021-07-14",
+    "title": "Fixed capacitors for use in electronic equipment - Part 25: Sectional specification - Fixed aluminium electrolytic surface mount capacitors with conductive polymer solid electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-25:2021 applies to fixed aluminium electrolytic surface mount capacitors with conductive polymer solid electrolyte, primarily intended for DC applications for use in electronic equipment. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60384-1:2016, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. This edition includes the following significant technical changes with respect to the previous edition: - Revision of the structure in accordance with ISO/IEC Directives, Part 2:2018, to the extent practicable, and harmonization between other similar kinds of documents. - In addition, Clause 5 and all the tables have been reviewed in order to prevent duplications and contradictions. The contents of the corrigendum of May 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-25:2021/COR1:2023",
+    "edition": "3.0",
+    "date": "2023-05-01",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 25: Sectional specification - Fixed aluminium electrolytic surface mount capacitors with conductive polymer solid electrolyte",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-25-1:2006",
+    "edition": "1.0",
+    "date": "2006-06-26",
+    "title": "Fixed capacitors for use in electronic equipment - Part 25-1: Blank detail specification - Surface mount fixed aluminium electrolytic capacitors with conductive polymer solid electrolyte - Assessment level EZ",
+    "language": "EN-FR, EN",
+    "description": "IEC 60384-25-1:2006 is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described."
+  },
+  {
+    "reference": "IEC 60384-26:2018",
+    "edition": "2.0",
+    "date": "2018-05-17",
+    "title": "Fixed capacitors for use in electronic equipment - Part 26: Sectional specification - Fixed aluminium electrolytic capacitors with conductive polymer solid electrolyte",
+    "language": "EN-FR",
+    "description": "IEC 60384-26:2018 applies to fixed aluminium electrolytic capacitors with conductive polymer solid electrolyte primarily intended for d.c. applications for use in electronic equipment. Fixed aluminium electrolytic capacitors with solid (MnO2) electrolyte are covered by IEC 60384-4. Fixed aluminium electrolytic surface mount capacitors with conductive polymer solid electrolyte are covered by IEC 60384-25. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60384-1, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements prescribed in detail specifications referring to this sectional specification shall be of equal or higher performance level, because lower performance levels are not permitted. This edition includes the following significant technical changes with respect to the previous edition: - revision of the structure in accordance with ISO/IEC Directives, Part 2:2016 to the extent practicable, and harmonization between other similar kinds of documents; - in addition, Clause 4 and all the tables have been reviewed in order to prevent duplications and contradictions. The contents of the corrigendum of April 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60384-26:2018/COR1:2020",
+    "edition": "2.0",
+    "date": "2020-04-20",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Part 26: Sectional specification - Fixed aluminium electrolytic capacitors with conductive polymer solid electrolyte",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60384-26-1:2010",
+    "edition": "1.0",
+    "date": "2010-08-27",
+    "title": "Fixed capacitors for use in electronic equipment - Part 26-1: Blank detail specification - Fixed aluminium electrolytic capacitors with conductive polymer solid electrolyte - Assessment level EZ",
+    "language": "EN-FR",
+    "description": "IEC 60384-26-1:2010 is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specification nor shall they so be described."
+  },
+  {
+    "reference": "IEC 60393-1:2008",
+    "edition": "3.0",
+    "date": "2008-05-14",
+    "title": "Potentiometers for use in electronic equipment - Part 1: Generic specification",
+    "language": "EN-FR, EN",
+    "description": "IEC 60393-1:2008 is applicable to all types of resistive potentiometers, including lead- screw actuated types, presets, multi-turn units, etc., to be used in electronic equipment. It establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications of electronic components for quality assessment or any other purpose. It has been mainly written, and the test methods described, to conform to the widely used single-turn rotary potentiometer with an operating shaft. This edition contains the following significant technical changes with respect to the previous edition: implementation of Annex H which replaces Section 3 of the previous edition. It also includes minor revisions related to tables, figures and references."
+  },
+  {
+    "reference": "IEC 60393-2:2015",
+    "edition": "3.0",
+    "date": "2015-12-14",
+    "title": "Potentiometers for use in electronic equipment - Part 2: Sectional specification - Lead-screw actuated and rotary preset potentiometers",
+    "language": "EN-FR",
+    "description": "IEC 60393-2:2015 applies to lead-screw actuated and rotary preset potentiometers, wirewound and non-wirewound for use in electronic equipment. These potentiometers are primarily intended for use in circuits for trimming purposes which require infrequent adjustments. This part of IEC 60393 prescribes preferred ratings and characteristics and selects from IEC 60393-1 the appropriate quality assessment procedures, tests and measuring methods. It provides general performance requirements for this type of potentiometer. This standard gives the minimum performance requirements and test severities. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the information on the assessment level EZ and FZ (zero nonconforming); b) complete editorial revision. This publication is to be read in conjunction with IEC 60393-1:2008 ."
+  },
+  {
+    "reference": "IEC 60393-3:2023",
+    "edition": "3.0",
+    "date": "2023-08-18",
+    "title": "Potentiometers for use in electronic equipment - Part 3: Sectional specification: Rotary precision potentiometers",
+    "language": "EN-FR",
+    "description": "IEC 60393-3:2023 applies to rotary precision potentiometers for use in electronic equipment. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 60393-1, the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of potentiometer. This document gives the minimum performance requirements and test severities. This edition includes the following significant technical changes with respect to the previous edition: a) revised all parts of the document based on the ISO/IEC Directives, Part 2:2018 (eighth edition) and harmonized with other similar kinds of documents; b) the document structure has been organized to follow new sectional specification structure decided in TC 40; c) revision of the information on the assessment level EZ (zero nonconforming). The content of the corrigendum 1 (2025-04) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60393-3:2023/COR1:2025",
+    "edition": "3.0",
+    "date": "2025-04-08",
+    "title": "Corrigendum 1 - Potentiometers for use in electronic equipment - Part 3: Sectional specification: Rotary precision potentiometers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60393-4:2023",
+    "edition": "3.0",
+    "date": "2023-10-20",
+    "title": "Potentiometers for use in electronic equipment - Part 4: Sectional specification: Single-turn rotary power potentiometers",
+    "language": "EN-FR",
+    "description": "IEC 60393-4:2023 is applicable to single-turn rotary power potentiometers wire-wound technology. Enamelled, cemented, moulded, enclosed. This specification is applicable to rotary potentiometers with nominal dissipation in excess of 10 W, the resistive element of which consists of a wire or a wound tape. All the potentiometers specified by this specification are slider-driven without reduction. Their stroke less than 360° is limited by stops. This document specifies preferred ratings and characteristics and selects from IEC 60393-1, appropriate quality assessment procedures, tests and measuring methods. It provides general performance requirements for this type of potentiometer. This document gives the minimum performance requirements and test severities. Annex A lists the letters and symbols used in the clauses of this document. This edition includes the following significant technical changes with respect to the previous edition: a) the document structure has been organized to follow new sectional specification structure decided in TC 40; b) the information on the assessment level EZ and FZ (zero nonconforming) has been revised."
+  },
+  {
+    "reference": "IEC 60393-5:2015",
+    "edition": "3.0",
+    "date": "2015-12-14",
+    "title": "Potentiometers for use in electronic equipment - Part 5: Sectional specification - Single-turn rotary low-power wirewound and non-wirewound potentiometers",
+    "language": "EN-FR",
+    "description": "IEC 60393-5:2015 applies to single-turn rotary low-power wirewound and non-wirewound potentiometers, with a rated dissipation less than to 10 W. These potentiometers are primarily intended for use in electronic equipment. This part of IEC 60393 prescribes preferred ratings and characteristics and selects from IEC 60393-1, appropriate quality assessment procedures, tests and measuring methods. It provides general performance requirements for this type of potentiometer. This standard gives the minimum performance requirements and test severities. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the information on the assessment level EZ and FZ (zero nonconforming); b) complete editorial revision. This publication is to be read in conjunction with IEC 60393-1:2008 ."
+  },
+  {
+    "reference": "IEC 60393-6:2015",
+    "edition": "2.0",
+    "date": "2015-12-14",
+    "title": "Potentiometers for use in electronic equipment - Part 6: Sectional specification - Surface mount preset potentiometers",
+    "language": "EN-FR",
+    "description": "IEC 60393-6:2015 applies to surface mount preset potentiometers for use in electronic equipment. This part of IEC 60393 prescribes preferred ratings and characteristics and selects from IEC 60393-1, the appropriate quality assessment procedures, tests and measuring methods, and it gives general performance requirements for this type of potentiometers. This standard gives the minimum performance requirements and test severities. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the information on the assessment level EZ (zero nonconforming); b) complete editorial revision. This publication is to be read in conjunction with IEC 60393-1:2008 ."
+  },
+  {
+    "reference": "IEC 60440:2012",
+    "edition": "1.0",
+    "date": "2012-07-13",
+    "title": "Method of measurement of non-linearity in resistors",
+    "language": "EN-FR",
+    "description": "IEC 60440:2012 specifies a method of measurement and associated test conditions to assess the magnitude of non-linear distortion generated in a resistor. This method is applied if prescribed by a relevant component specification, or if agreed between a customer and a manufacturer. This International Standard cancels and replaces the Technical Report IEC/TR 60440, published in 1973. The major changes with regard to the Technical Report are: - change of the principle parameter's term from \"third harmonic attenuation\" to \"third harmonic ratio\"; - addition of advice on the prescription of requirements in a relevant component specification; - addition of a set of recommended measuring conditions for a specimen with a rated dissipation of less than 100 mW; - a complete editorial revision."
+  },
+  {
+    "reference": "IEC 60539-1:2022",
+    "edition": "4.0",
+    "date": "2022-12-15",
+    "title": "Directly heated negative temperature coefficient thermistors - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60539-1:2022 is applicable to directly heated negative temperature coefficient thermistors, typically made from transition metal oxide materials with semiconducting properties. It establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications of electronic components for quality assessment or any other purpose. This edition includes the following significant technical changes with respect to the previous edition: Restructured completely to comply to ISO/IEC directives; categorization and reorganization of test methods into these categories; Annex X added for comparison to the previous edition; Some wordings, figures and references have been revised."
+  },
+  {
+    "reference": "IEC 60539-2:2019",
+    "edition": "2.0",
+    "date": "2019-07-19",
+    "title": "Directly heated negative temperature coefficient thermistors - Part 2: Sectional specification - Surface mount negative temperature coefficient thermistors",
+    "language": "EN-FR",
+    "description": "IEC 60539-2:2019 is applicable to surface mount directly heated negative temperature coefficient thermistors, typically made from transition metal oxide materials with semiconducting properties. These thermistors have metallized connecting pads or soldering strips and are intended to be mounted directly on to substrates for hybrid circuits or on to printed boards. This edition includes the following significant technical changes with respect to the previous edition: a) revision for the structure in accordance with ISO/IEC Directives, Part 2:2016 (seventh edition) to the extent practicable, and for harmonizing with IEC 60539-1:2016; b) the upper category temperatures of 175 °C, 200 °C, 250 °C, 315 °C, 400 °C in Table 1 have been added; c) the dimensions of 0402M in Annex A have been added."
+  },
+  {
+    "reference": "IEC 60717:2012",
+    "edition": "2.0",
+    "date": "2012-05-15",
+    "title": "Method for the determination of the space required by capacitors and resistors with unidirectional terminations",
+    "language": "EN-FR",
+    "description": "IEC 60717:2012 applies to capacitors and resistors with unidirectional wire terminations intended for use in electronic equipment. This standard provides a method for determination of the space required by capacitors and resistors with unidirectional wire terminations. NOTE: Instead of measuring the actual space, it may be sufficient to ensure that a component fits into the maximum space for which it is designed. This may be achieved by means of fixed gauges. The main technical changes with respect to the first edition are the following: - employment of the millimetre-based grid, the preferred grid system given in IEC 60097, - employment of SI units only, causing deletion of the imperial dimensions from Table 1, - reduction of the tolerance on the chamfer depth in Figure 1, and - introduction of requirements on information to be given in a relevant specification."
+  },
+  {
+    "reference": "IEC 60738-1:2022",
+    "edition": "4.0",
+    "date": "2022-10-14",
+    "title": "Thermistors - Directly heated positive temperature coefficient - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60738-1:2022 describes terms and methods of test for positive step-function temperature coefficient thermistors, insulated and non-insulated types, typically made from ferro-electric semi-conductor materials. It establishes standard terms, inspection procedures and methods of test for use in detail specifications for qualification approval and for quality assessment systems for electronic components. This edition includes the following significant technical changes with respect to the previous edition: a) Restructured completely to comply with ISO/IEC Directives; categorization and reorganization of test methods into these categories; b) Some wordings, figures and references have been revised."
+  },
+  {
+    "reference": "IEC 60738-1-1:2008",
+    "edition": "3.0",
+    "date": "2008-02-13",
+    "title": "Thermistors - Directly heated positive step-function temperature coefficient - Part 1-1: Blank detail specification - Current limiting application - Assessment level EZ",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60738-1-1:2008 is a supplementary document to the generic specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described. This edition contains changes with respect to the referenced subclauses of the revised generic specification IEC 60738-1. This publication is to be read in conjunction with IEC 60738-1:2009."
+  },
+  {
+    "reference": "IEC 60738-1-2:2008",
+    "edition": "2.0",
+    "date": "2008-02-13",
+    "title": "Thermistors - Directly heated positive step-function temperature coefficient - Part 1-2: Blank detail specification - Heating element application - Assessment level EZ",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60738-1-2:2008 is a supplementary document to the generic specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described. In the preparation of detail specifications the content of IEC 60738-1:2006,1.4 shall be taken into account. This edition contains changes with respect to the referenced subclauses of the revised Generic Specification IEC 60738-1. This publication is to be read in conjunction with IEC 60738-1:2009."
+  },
+  {
+    "reference": "IEC 60738-1-3:2008",
+    "edition": "2.0",
+    "date": "2008-02-13",
+    "title": "Thermistors - Directly heated positive step-function temperature coefficient - Part 1-3: Blank detail specification - Inrush current application - Assessment level EZ",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60738-1-3:2008 is a supplementary document to the generic specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described. In the preparation of detail specifications the content of IEC 60738-1:2006,1.4 shall be taken into account. This edition contains changes with respect to the referenced subclauses of the revised Generic Specification IEC 60738-1. This publication is to be read in conjunction with IEC 60738-1:2009."
+  },
+  {
+    "reference": "IEC 60738-1-4:2008",
+    "edition": "2.0",
+    "date": "2008-02-13",
+    "title": "Thermistors - Directly heated positive step-function temperature coefficient - Part 1-4: Blank detail specification - Sensing application - Assessment level EZ",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60738-1-4:2008 is a supplementary document to the generic specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described. In the preparation of detail specifications the content of IEC 60738-1:2006,1.4 shall be taken into account. This edition contains changes with respect to the referenced subclauses of the revised Generic Specification IEC 60738-1. This publication is to be read in conjunction with IEC 60738-1:2009."
+  },
+  {
+    "reference": "IEC 60915:2006",
+    "edition": "2.0",
+    "date": "2006-11-28",
+    "title": "Capacitors and resistors for use in electronic equipment - Preferred dimensions of shaft ends, bushes and for the mounting of single-hole, bush-mounted, shaft-operated electronic components",
+    "language": "EN-FR, EN",
+    "description": "IEC 60915:2006 contains preferred dimensions for shaft ends and bushes and for the mounting of single-hole, bush-mounted, shaft-operated variable capacitors, variable resistors and potentiometers. If other dimensions not listed in this standard have to be used, it is recommended to select them also from IEC 60390 and IEC 60620. This second edition cancels and replaces the first edition published in 1987 and constitutes a minor revision, related to tables, figures and references. This bilingual version, published in 2008-07, corresponds to the English version. The contents of the corrigendum of December 2008 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60915:2006/COR1:2007",
+    "edition": "2.0",
+    "date": "2007-05-23",
+    "title": "Corrigendum 1 - Fixed capacitors for use in electronic equipment - Preferred dimensions of shaft ends, bushes and for the mounting of single-hole, bush-mounted, shaft-operated electronic components",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60915:2006/COR2:2008",
+    "edition": "2.0",
+    "date": "2008-03-27",
+    "title": "Corrigendum 2 - Capacitors and resistors for use in electronic equipment - Preferred dimensions of shaft ends, bushes and for the mounting of single-hole, bush-mounted, shaft-operated electronic components",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60938-1:2021",
+    "edition": "3.0",
+    "date": "2021-06-16",
+    "title": "Fixed inductors for electromagnetic interference suppression - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60938-1:2021 applies to inductors designed for electromagnetic interference suppression intended for use within all kind of electric and electronic equipment. In this generic specification, normative references and terms and definitions are given. It also prescribes general requirements and the suitable test and measurement procedures for interference suppression inductors. Annex B states special requirements for earth inductors. This edition includes the following significant technical changes with respect to the previous edition: a) material tests added; b) improved readability and clear separation between test descriptions in the generic spec and requirements in the sectional specification; c) creepage and clearance requirements are now defined in sectional specifications only; d) AC testing for voltage test included."
+  },
+  {
+    "reference": "IEC 60938-2:2021",
+    "edition": "3.0",
+    "date": "2021-07-20",
+    "title": "Fixed inductors for electromagnetic interference suppression - Part 2: Sectional specification on power line chokes",
+    "language": "EN-FR",
+    "description": "IEC 60938-2:2021 applies to fixed inductors designed for electromagnetic interference suppression, which will be connected to an AC mains or other supply with a nominal voltage not exceeding 1 000 V AC RMS or 1 500 V DC with a nominal frequency not exceeding 400 Hz. This sectional specification is restricted to fixed inductors for which safety tests are appropriate. This implies that inductors specified according to this specification will either be connected to mains supplies, when compliance with the mandatory tests of Annex A is necessary, or used in other circuit positions where the equipment specification prescribes that some or all of these safety tests are required. The object of this document is to prescribe standard requirements for safety tests, preferred ratings and characteristics, to select from IEC 60938-1 the appropriate methods of test and to give general performance requirements for suppression inductors. This edition includes the following significant technical changes with respect to the previous edition: - the test plan for performance testing has been removed; mandatory safety tests and optional performance tests are listed in one test plan in Annex B; - requirements for Thyristor-Chokes have been withdrawn; - material requirements are harmonized with IEC 60939-3 and UL 60939-3; - AC chokes up to 1 000 V and DC chokes up to 1 500 V are now in the Scope."
+  },
+  {
+    "reference": "IEC 60938-2-1:2023",
+    "edition": "2.0",
+    "date": "2023-12-06",
+    "title": "Fixed inductors for electromagnetic interference suppression - Part 2-1: Blank detail specification - Inductors for which safety tests are required",
+    "language": "EN-FR",
+    "description": "IEC 60938-2-1:2023 is applicable to the drafting of detail specifications for fixed inductors for which safety tests are required for use in electronic equipment. A blank detail specification is a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described. This edition includes the following significant technical changes with respect to the previous edition: a) it combines IEC 60938-2-1:1999 and IEC 60938-2-2:1999 into one Blank detail specification (BDS); b) test schedule for quality conformance inspection is moved to an informative annex (Annex B)."
+  },
+  {
+    "reference": "IEC 60939-1:2010",
+    "edition": "3.0",
+    "date": "2010-07-29",
+    "title": "Passive filter units for electromagnetic interference suppression - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 60939-1:2010 relates to passive filter units for electromagnetic interference suppression for use within, or associated with, electronic or electrical equipment and machines. Both single and multi-channel filters within one enclosure are included within the scope of this generic specification. This generic specification establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications within the IECQ-CECC system for electronic components. This edition includes the following significant technical changes with respect to the previous edition: a) table 3 has been updated, specifying how to handle the Neutral by 3-phase filter with Neutral; b) all details about \"Quality assessment\" have been deleted in this edition, because this standard is a safety standard; c) filters shall be subjected to Test Aa of IEC 60068-2-1 for 16 h, using the degree of severity of the lower category temperature as prescribed in the relevant specification; d) since IEC 60068-2-20 does no longer make a difference between Method 1A and 1B, but only describes Method 1, references to the method to be used are updated."
+  },
+  {
+    "reference": "IEC 60939-2:2005",
+    "edition": "2.0",
+    "date": "2005-02-10",
+    "title": "Passive filter units for electromagnetic interference suppression - Part 2: Sectional specification - Passive filter units for which safety tests are appropriate - Test methods and general requirements",
+    "language": "EN-FR, EN",
+    "description": "IEC 60939-2:2005 applies to passive filter units for electromagnetic interference suppression which fall within the scope of the Generic Specification IEC 60939-1. The scope of this Sectional specification is restricted to passive filter units for which safety tests are appropriate. This implies that filters specified according to this Sectional specification will either be connected to mains supplies, when compliance with the mandatory tests of Table 3 is necessary, or used in other circuit positions where the equipment specification prescribes that some or all of these safety tests are required. The contents of the corrigendum of November 2005 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60939-2:2005/COR1:2005",
+    "edition": "2.0",
+    "date": "2005-11-09",
+    "title": "Corrigendum 1 - Passive filter units for electromagnetic interference suppression - Part 2: Sectional specification: Passive filter units for which safety tests are appropriate - Test methods and general requirements",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60939-2:2005/AMD1:2023",
+    "edition": "2.0",
+    "date": "2023-08-17",
+    "title": "Amendment 1 - Passive filter units for electromagnetic interference suppression - Part 2: Sectional specification - Passive filter units for which safety tests are appropriate - Test methods and general requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60939-2-1:2004",
+    "edition": "1.0",
+    "date": "2004-11-08",
+    "title": "Complete filter units for radio interference suppression - Part 2-1: Blank detail specification - Passive filter units for electromagnetic interference suppression - Filters for which safety tests are required (assessment level D/DZ)",
+    "language": "EN",
+    "description": "is a supplementary document to the sectional specification and contains requirements for style and layout and minimum content of detail specifications. In the preparation of detail specifications, the content of 1.4 of the sectional specification shall be taken into account. The use of IEC 60939-2-2 may be more appropriate for components where approval and requalification tests contribute considerably to the cost of the product, whereas the employment of this specification may be necessary for components manufactured in mass production. This specification offers the assessment levels D and DZ (Zero defect)."
+  },
+  {
+    "reference": "IEC 60939-2-2:2004",
+    "edition": "1.0",
+    "date": "2004-11-08",
+    "title": "Complete filter units for radio interference suppression - Part 2-2: Blank detail specification - Passive filter uits for electromagnetic interference suppression - Filters for which safety tests are required (safety tests only)",
+    "language": "EN-FR, EN",
+    "description": "IEC 60939-2-2:2004 forms the basis for a uniform procedure for a common Safety Mark. It implements the approval schedule for the safety test described in IEC 60939-2, requires a declaration of design for parameters relevant to safety and prescribes conformance tests to be conducted on every lot prior to its release and requalification tests depending on changes to the declared design."
+  },
+  {
+    "reference": "IEC 60939-3:2024",
+    "edition": "2.0",
+    "date": "2024-02-12",
+    "title": "Passive filter units for electromagnetic interference suppression - Part 3: Passive filter units for which safety tests are appropriate",
+    "language": "EN-FR",
+    "description": "IEC 60939-3:2024 covers passive filters used to attenuate unwanted radio-frequency signals (such as noise or interference) generated from electromagnetic sources. Both single and multi-channel filters within one enclosure or which are built on a printed circuit board forming a compact entity are included within the scope of this document. This document applies to passive filter units for electromagnetic interference suppression for which safety tests are appropriate. This implies that filters specified according to this document will either be connected to mains supplies, when compliance with the mandatory tests of Table B.1 is necessary, or used in other circuit positions where the equipment specification specifies that some or all of these safety tests are required. This document applies to passive filter units, which will be connected to an AC mains or other supply (DC or AC) with a nominal voltage not exceeding 1 000 V AC, with a nominal frequency not exceeding 400 Hz, or 1 500 V DC. Note: For AC use, IEC 60384-14 applies to capacitors which will be connected to AC mains with a nominal frequency not exceeding 100 Hz. This document covers appliance filters (US) but does not cover facility filters, cord-connected filters or direct plug-in filters. These other filters will be covered by another sectional specification. This edition includes the following significant technical changes with respect to the previous edition: a) separated clauses for safety and performance tests; b) added note for use of multiple X capacitors bridging basic insulation in 3 phase filters; c) characteristics and conditions to substitute X and Y capacitors are now described in a separate Subclause 4.1; d) creepage and clearance tables updated and in line with the latest editions of IEC 60938-2 and IEC 60664-1; e) allowing voltage measurement for inductance measurements (7.3); f) added requirements for marking depending on remaining energy after disconnection; g) added content of CTL DSH 2044:2016 for temperature test of IEC filters; h) added note about temperature rise required specimens for safety testing; i) changed index of capacitors in Annex A to avoid confusion between index name and capacitor class; j) moved tests from group 1A to 2. Now, samples in group 1A need to be submitted without potting; k) revision of all parts of the document has taken place based on the ISO/IEC Directives, Part 2:2021, and harmonization with other similar kinds of documents. Annex X contains all cross-references of changes in clause/subclause numbers."
+  },
+  {
+    "reference": "IEC 60940:2026",
+    "edition": "3.0",
+    "date": "2026-06-30",
+    "title": "Application of capacitors, resistors, inductors and complete filter units for electromagnetic interference suppression - General rules and safety requirements",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60940:2026 establishes general rules and safety requirements on the application of capacitors, resistors, inductors, and complete filter units for electromagnetic interference suppression which will be connected to an AC mains or other supply (DC or AC) with a nominal voltage not exceeding 1 000 V AC having a nominal frequency not exceeding 400 Hz, or 1 500 V DC. It facilitates drafters of product safety standards and other stakeholders such as designers, manufacturers, service providers, policy makers and regulators to consider safety aspects for the intended use and the reasonably foreseeable misuse of these components in its products and systems and apply risk reduction measures to achieve a tolerable risk level. This third edition includes the following significant technical changes with respect to the previous edition: a) new title to change the document from “guidance” into “general rules and safety requirements; b) new content added (Clause 5 to Clause 9); c) the previous edition is partly contained in Clause 4."
+  },
+  {
+    "reference": "IEC 61051-1:2018",
+    "edition": "3.0",
+    "date": "2018-10-29",
+    "title": "Varistors for use in electronic equipment - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 61051-1:2018 is a generic specification and is applicable to varistors with symmetrical voltage-current characteristics for use in electronic equipment. It establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications for quality assessment or any other purpose. This edition includes the following significant technical changes with respect to the previous edition: a) 10 new terms and definitions – leaded varistors, surface mount varistors(SMV), electrostatic discharge (ESD), ESD clamping voltage, equivalent rectangular pulse duration, maximum peak current derating characteristic, rated average dissipation power, rated energy, abnormal overvoltage withstanding duration and temperature derating curve – have been added (see 3.6, 3.7, 3.14, 3.15, 3.19, 3.20, 3.23, 3.24, 3.25 and 3.29); b) General requirements for electrical tests and 7 new test items – clamping voltage, ESD clamping voltage, maximum peak current, rated average dissipation power, rated energy, electrostatic discharge (ESD), robustness of terminations of surface mount varistors – have been added (see 6.5, 6.11, 6.12, 6.13, 6.14, 6.15, 6.16 and 6.17.8); c) In 6.6, 6.7, 6.8, 6.9.3, 6.23.2, 6.23.4 and 6.26, following test items have been revised: - Varistor voltage, leakage current and capacitance: more detailed requirements and information have been added; - Voltage proof – foil method: the space between the edge of the foil and each termination has been changed from 1 mm ~ 1,5 mm to 3 mm ~ 3.5 mm for testing varistors not having axial terminations and the minimum space between the foil and the termination has been changed from 1 mm to 3 mm for testing varistors having axial terminations; - Climatic sequence – dry heat: the method has been changed from Ba to Bb; - Climatic sequence – cold: the method has been changed from Aa to Ab; - Endurance at upper category temperature: the method of “applying test voltages in cycles of 1,5 h on and 0,5 h off” has been changed to the method of applying test voltages continuously throughout the test lasting for 1 000 h; d) The test items of pulse current, voltage under pulse condition and bump have been deleted from the section of test and measurement procedures; e) Annex A and the contents referring to the test fixture specified in Annex A have been deleted; f) All contents related to silicon carbide varistors have been deleted; g) A new normative annex entitled “Test pulses used in this specification” (Annex B) has been added; h) A new informative annex entitled \"Recommended measurement/test methods for characteristics and parameters for application reference\" (Annex C) has been added, in which guidelines of measuring/testing characteristics and parameters for application reference including voltage vs. current characteristic, maximum peak current derating characteristic, thermal resistance and abnormal overvoltage withstanding duration have been given."
+  },
+  {
+    "reference": "IEC 61051-2:2021",
+    "edition": "2.0",
+    "date": "2021-11-08",
+    "title": "Varistors for use in electronic equipment - Part 2: Sectional specification for surge suppression varistors",
+    "language": "EN-FR",
+    "description": "IEC 61051-2:2021 is a sectional specification and is applicable to metal oxide varistors with symmetrical voltage-current characteristics for use in electronic equipment connected to any AC or DC supply system. These varistors are designed to protect electronic and other sensitive equipment from high transient surges. Varistors under the scope of this sectional specification are not intended to give primary protection against lightning surges. These varistors have metallic connections and are intended to be mounted as through hole component or directly on to printed boards. The object of this document is to prescribe preferred ratings and characteristics and to select from IEC 61051-1 the appropriate quality assessment procedures, tests and measuring methods, and to give general performance requirements for this type of varistors. This edition includes the following significant technical changes with respect to the previous edition: revision for the structure in accordance with ISO/IEC Directives, Part 2) to the extent practicable, and for harmonizing with IEC 61051-1:2018; Annex X has been added for comparison with the previous edition; two lists of preferred voltage ratings for disk type and SMD type varistors have been added; permissible numbers of non-conforming items have been set to zero (zero fault) in the test schedule in 8.4.3."
+  },
+  {
+    "reference": "IEC 61051-2-2:1991",
+    "edition": "1.0",
+    "date": "1991-02-11",
+    "title": "Varistors for use in electronic equipment - Part 2: Blank detail specification for zinc oxide surge suppression varistors. Assessment level E",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62319-1:2005",
+    "edition": "1.0",
+    "date": "2005-02-15",
+    "title": "Polymeric thermistors - Directly heated positive step function temperature coefficient - Part 1: Generic specification",
+    "language": "EN",
+    "description": "IEC 62319-1:2005(E) prescribes terms and methods of test for polymeric positive temperature coefficient thermistors, insulated and non-insulated types, typically intended for use in current limiting and overcurrent protection applications. It establishes standard terms, inspection procedures and methods of test for use in detail specifications for Qualification Approval and for Quality Assessment Systems for electronic components. The contents of the corrigendum of March 2009 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62319-1:2005/COR1:2009",
+    "edition": "1.0",
+    "date": "2009-03-24",
+    "title": "Corrigendum 1 - Polymeric thermistors - Directly heated positive step function temperature coefficient - Part 1: Generic specification",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62319-1-1:2005",
+    "edition": "1.0",
+    "date": "2005-02-15",
+    "title": "Polymeric thermistors - Directly heated positive step function temperature coefficient - Part 1-1: Blank detail specification - Current limiting application",
+    "language": "EN-FR, EN",
+    "description": "IEC 62319-1-1:2005 is a supplementary document to the generic specification and contains requirements for style and layout and minimum content of detail specifications. Detail specifications not complying with these requirements shall not be considered as being in accordance with IEC specifications nor shall they so be described."
+  },
+  {
+    "reference": "IEC 62391-1:2022",
+    "edition": "3.0",
+    "date": "2022-10-20",
+    "title": "Fixed electric double-layer capacitors for use in electric and electronic equipment - Part 1: Generic specification",
+    "language": "EN-FR",
+    "description": "IEC 62391-1:2022 applies to fixed electric double-layer capacitors (hereafter referred to as capacitors) mainly used in DC circuits of electric and electronic equipment. This part of IEC 62391 establishes standard terms, inspection procedures and methods of test for use in sectional and detail specifications of electronic components for quality assessment or any other purpose. This edition includes the following significant technical changes with respect to the previous edition: The document has been completely restructured to comply with the ISO/IEC Directives, Part 2; a new technical categorization of test methods has been introduced and the test methods have been reorganized according to these new categories; tables, figures and references have been revised accordingly. Calculation formula of charging/discharging efficiency in Annex D were divided into two cases: \"Calculation assuming full charge and discharge\" and \"Calculation assuming incomplete charging and discharging due to internal resistance\"."
+  },
+  {
+    "reference": "IEC 62391-2:2025",
+    "edition": "2.0",
+    "date": "2025-02-13",
+    "title": "Fixed electric double-layer capacitors for use in electric and electronic equipment - Part 2: Sectional specification - Electric double-layer capacitors for power application",
+    "language": "EN-FR",
+    "description": "IEC 62391-2:2025 applies to electric double-layer capacitors for power application. Electric double-layer capacitors for power are intended for applications that require discharge currents in the range from mA to A. The characteristics of the capacitors include such performance as relatively high capacitance and low internal resistance, which is applicable to Class 3 and Class 5 of the measurement classification specified in IEC 62391-1:2022. The object of this document is to specify preferred ratings and characteristics and to select from IEC 62391-1:2022 the appropriate quality assessment procedures, tests and measuring methods and to give general performance requirements for this type of capacitor. Test severities and requirements specified in detail specifications referring to this document provide specific test severities and requirements of an equal or higher performance level. The definition of power density and its calculating procedure can be found in Annex A. This edition includes the following significant technical changes with respect to the previous edition: a) the document has been completely restructured to comply with the ISO/IEC Directives, Part 2; b) introduction of a new technical categorization for the test methods; c) reorganization of the test methods have been according to these new categories; d) revision of the tables, figures and references according to changes."
+  },
+  {
+    "reference": "IEC 62391-2-1:2006",
+    "edition": "1.0",
+    "date": "2006-04-10",
+    "title": "Fixed electric double-layer capacitors for use in electronic equipment - Part 2-1: Blank detail specification - Electric double-layer capacitors for power application - Assessment level EZ",
+    "language": "EN",
+    "description": "a supplementary document to the sectional specification and contains requirements for style, layout and minimum content of detail specifications. Detail specifications not complying with these requirements may not be considered as being in accordance with IEC specifications nor shall they so be described. In the preparation of detail specifications, the content of 1.4 of the sectional specification shall be taken into account."
+  },
+  {
+    "reference": "IEC 62490-1:2010",
+    "edition": "1.0",
+    "date": "2010-07-28",
+    "title": "ESL measuring method - Part 1: Capacitors with lead terminal for use in electronic equipment",
+    "language": "EN-FR",
+    "description": "IEC 62490-1:2010 provides the equivalent series inductance L (ESL) measuring method for capacitors with lead terminal type for use in electronic equipment. The inductance values of capacitors provided for this document are within the range of 1 nH to 10 nH."
+  },
+  {
+    "reference": "IEC 62490-2:2010",
+    "edition": "1.0",
+    "date": "2010-07-28",
+    "title": "ESL measuring method - Part 2: Surface mount capacitors for use in electronic equipment",
+    "language": "EN-FR",
+    "description": "IEC 62490-2:2010 provides the ESL measuring method for the surface mount capacitors for use in electronic equipment."
+  },
+  {
+    "reference": "IEC 62812:2019",
+    "edition": "1.0",
+    "date": "2019-05-02",
+    "title": "Low resistance measurements - Methods and guidance",
+    "language": "EN-FR",
+    "description": "IEC 62812:2019 specifies methods of measurement and associated test conditions that eliminate or reduce the influence of adverse phenomena in order to improve the attainable accuracy of low-resistance measurements. The methods described in this document are applicable for the individual measurements of the resistance of individual resistors, and also for resistance measurements as part of a test sequence. They are applied if prescribed by a relevant component specification, or if agreed between a customer and a manufacturer. The contents of the corrigendum of March 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62812:2019/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-03-13",
+    "title": "Corrigendum 1 - Low resistance measurements - Methods and guidance",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62813:2025",
+    "edition": "2.0",
+    "date": "2025-01-17",
+    "title": "Lithium ion capacitors for use in electric and electronic equipment - Test methods for electrical characteristics",
+    "language": "EN-FR",
+    "description": "IEC 62813:2025 specifies the electrical characteristics (capacitance, internal resistance, discharge accumulated electric energy, and voltage maintenance rate) test methods of lithium-ion capacitors (LIC) for use in electric and electronic equipment. This edition includes the following significant technical changes with respect to the previous edition: a) The document has been restructured to comply with the ISO/IEC Directives, Part 2."
+  },
+  {
+    "reference": "IEC TR 63091:2017",
+    "edition": "1.0",
+    "date": "2017-05-24",
+    "title": "Study for the derating curve of surface mount fixed resistors - Derating curves based on terminal part temperature",
+    "language": "EN",
+    "description": "IEC TR 63091:2017(E) is a technical report and is applicable to SMB resistors with sizes equal or smaller than the RR6332M, including the typical rectangular and cylindrical SMD resistors mentioned in IEC 60115-8."
+  },
+  {
+    "reference": "IEC TS 63337:2024",
+    "edition": "1.0",
+    "date": "2024-02-16",
+    "title": "Basic qualification of DC-link film capacitors for automotive use - General requirements, test conditions and tests",
+    "language": "EN",
+    "description": "IEC TS 63337:2024 provides requirements, test conditions and tests to validate characteristics including the service life of customized DC-link film capacitors for use in motor vehicle components. Standard DC-link capacitors qualified according to other IEC standards or AEC-Q200 are excluded from the scope of this document. The requirements, test conditions and tests listed in this document apply to customized film capacitors developed for use in motor vehicle power electronics for the application as a DC-link capacitor in HV applications or in the intermediate circuit of the 48 V on-board electrical system. These qualification requirements can be expanded or adapted for the application of technologically innovative designs, if necessary. The content and scope of supplements is therefore to be specified and documented in coordination between the responsible parties prior to sourcing. Power electronics in the motor vehicle need to be tested in accordance with the environmental qualification standards of the vehicle manufacturers. The tests in this document do not replace the tests specified in the Component Requirement Specifications for complete vehicle components or additional or deviating further requirements, test conditions and tests described therein. This document contains no tests to validate the thermal interface between capacitors, power electronics and the cooling system on the component level."
+  },
+  {
+    "reference": "IEC TR 63362-1:2022",
+    "edition": "1.0",
+    "date": "2022-02-18",
+    "title": "Application of fixed capacitors in electronic equipment - Part 1: Aluminium electrolytic capacitors",
+    "language": "EN",
+    "description": "IEC TR 63362-1:2022(E) establishes guidelines for the application and use of aluminium electrolytic capacitors in electronic equipment. The information given in this document applies to capacitors with non-solid electrolyte but can, in its appropriate clauses, apply to capacitors with solid electrolyte as well. Electrolytic capacitors in general – and aluminium electrolytic capacitors in particular – are an exception in the capacitor field because of the components’ close interaction of physics and chemistry. Therefore, aluminium electrolytic capacitors show, in various aspects, a technical behaviour unaccustomed to the user. That could easily lead to misapplications and even to endangering of persons and goods. The aim of this document is to minimize these risks by providing detailed information on the specific peculiarities of the component. This first edition cancels and replaces CLC/TR 50454 published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: Complete technical revision, details of cleaning processes and failure modes added. Inclusion of parts of JEITA RCR 2367D."
+  },
+  {
+    "reference": "IEC TR 63650:2026",
+    "edition": "1.0",
+    "date": "2026-06-05",
+    "title": "Electrochemical capacitor for use in electrical energy storage",
+    "language": "EN",
+    "description": "IEC TR 63650:2026 investigates the primary technological approaches, current applications, and development prospects of electrochemical capacitors (supercapacitors). In particular, this document also analyses the technical solutions and characteristics of electrochemical capacitor applications in the field of Electrical Energy Storage ( EES ) and provides representative application cases. Then, the testing items of the electrochemical capacitors (supercapacitors) for use in EES are introduced for the cells and modules, respectively. By collecting the existing standards of electrochemical capacitor , this document identifies the gap between the existing IEC and ISO standards and the actual needs of electrochemical capacitors used in EES and proposes descriptions and a roadmap for future standardization of electrochemical capacitors in the field of EES . This work will promote the rapid progress and broader applications of electrochemical capacitors in the field of EES ."
+  }
+]

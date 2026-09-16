@@ -1,0 +1,42 @@
+[
+  {
+    "reference": "IEC TR 62511:2014",
+    "edition": "1.0",
+    "date": "2014-09-25",
+    "title": "Guidelines for the design of interconnected power systems",
+    "language": "EN",
+    "description": "IEC TR 62511:2014(E) provides guidelines in planning and design of the interconnected power system (IPS) and consequently achieve the delivery of reliable supply service. The guidelines for the design of interconnected power systems within this document will enhance system reliability, mitigate many of the adverse impacts associated with the loss of a major portion of the system or unintentional separation of a major portion of the system, and will not be consequential because of normal design contingencies. In the context of this Technical Report, interconnected power system means an entity's (control area or a system operator) high-voltage transmission system that can adversely impact other connected systems due to faults and disturbances within its area. In the case of large areas, the system operator may define a subset of its area to keep the adverse impact contained within a smaller portion of its system. This Technical Report specifies the recommended techniques for securing an IPS to ensure a high level of reliability. Generally, interconnected power systems are synchronously connected or asynchronously connected through DC interconnections. This document aims to ensure that the interconnections are designed and operated consistently on both ends. The recommendations include design and operation requirements to withstand the primary contingencies specified in this document."
+  },
+  {
+    "reference": "IEC TS 63384-1:2023",
+    "edition": "1.0",
+    "date": "2023-03-28",
+    "title": "Power system stability control - Part 1: Guideline for framework design of power system stability control",
+    "language": "EN",
+    "description": "IEC TS 63384-1:2023 provides guidance for power system stability control framework design. It covers the uniform use of terms and definitions, general objectives and principles for power system stability control, the classification of power system stability control, and the framework combining several types of stability controls in a coordinated and cost-effective (risk-based) manner. In accordance with this guideline, the framework is designed to cope with disturbances of different probabilities of occurrence and impact on power system security and stability. Effective control approaches are designed to prevent or minimize the scope of future blackouts."
+  },
+  {
+    "reference": "IEC TS 63384-2:2026",
+    "edition": "1.0",
+    "date": "2026-01-30",
+    "title": "Power System Stability Control - Part 2: Guideline for quantitative assessment of power system stability and security",
+    "language": "EN",
+    "description": "CORRECTED VERSION 2026-02 IEC TS 63384-2:2026 addresses the quantitative assessment of power system stability and security. Its purpose is to provide guidelines encompassing the use of terms and definitions, as well as the objectives and general requirements for conducting quantitative assessments. The TS includes the classification of stability and security, classification of quantitative indices, and key considerations for implementing quantitative assessments. The TS is applicable to various domains, including system planning, operation planning, operation control, stability control system design, and stability control decision planning, as well as software, equipment, and systems for the secure and stable operation of the power system. The stability and security quantitative assessment techniques specified in IEC TS 63384-2 are independent of any specific software, equipment, or systems used for the secure and stable operation of the power system. This corrected version of IEC TS 63384-2:2026 incorporates the following correction: – Addition of bibliographic reference numbers in the content"
+  },
+  {
+    "reference": "IEC TR 63515:2025",
+    "edition": "1.0",
+    "date": "2025-03-11",
+    "title": "Conceptual framework of power system resilience",
+    "language": "EN",
+    "description": "IEC TR 63515:2025 provides a conceptual framework for power system resilience. It covers the definition, evaluation metrics and methods, improvement strategies and uses cases of power system resilience. This document is applicable to developing resilient power system and implementing resilience improvement strategies. This document is not exhaustive, and it is possible to consider other aspects, such as different application scenarios, evaluation methods, and improvement measures."
+  },
+  {
+    "reference": "IEC TS 63537:2026",
+    "edition": "1.0",
+    "date": "2026-06-30",
+    "title": "Hardware-in-the-loop simulation test of power system stability control system",
+    "language": "EN",
+    "description": "IEC TS 63537:2026 addresses the requirements for hardware-in-the-loop (HIL) simulation test of power system stability control system (see definition in 3.1.2). Its purpose is to provide guidelines encompassing the use of terms and definitions, as well as the objective and general requirements for HIL simulation test. The TS covers the test requirements, test system, test contents, and test quality management. This document improves the safe and stable operation of the power system."
+  }
+]

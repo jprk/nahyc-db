@@ -1,0 +1,146 @@
+[
+  {
+    "reference": "IEC 60255-1:2022",
+    "edition": "2.0",
+    "date": "2022-12-15",
+    "title": "Measuring relays and protection equipment - Part 1: Common requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 60255-1:2022 specifies common rules and requirements applicable to measuring relays and protection equipment, including any combination of equipment to form a distributed protection scheme for power system protection such as control, monitoring and process interface equipment, to obtain uniformity of requirements and tests. This document covers the main technologies in use today; other emerging technologies present specific EMC and safety issues but the philosophy in this document will be applied. This second edition cancels and replaces the first edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: a. scope of document clarified; b. merging units and communications as an integral part of the protection added; c. binary output clarification expanded; d. environmental operating conditions added (Annex B); e. test reference conditions added; f. multiple changes to improve understanding across most clauses; g. derating by manufacturer added; h. safety and EMC tests removed from document and referenced only; i. relay setting and type test guidelines modified (Annex A) j. battery monitor port and low power instrument transformers added."
+  },
+  {
+    "reference": "IEC 60255-12:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Electrical relays - Part 12: Directional relays and power relays with two input energizing quantities",
+    "language": "EN-FR",
+    "description": "Specifies performance requirements for the subfamily as shown in the title. This publication forms part of a series dealing with measuring relays with more than one input energizing quantity and for which IEC 60255-6 gives the general requirements."
+  },
+  {
+    "reference": "IEC 60255-13:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Electrical relays - Part 13: Biased (percentage) differential relays",
+    "language": "EN-FR",
+    "description": "Specifies performance requirements for the subfamily. Forms part of a series dealing with measuring relays with more than one input energizing quantity and for which IEC 60255-6 gives the general requirements."
+  },
+  {
+    "reference": "IEC 60255-21-1:1988",
+    "edition": "1.0",
+    "date": "1988-09-30",
+    "title": "Electrical relays - Part 21: Vibration, shock, bump and seismic tests on measuring relays and protection equipment - Section One: Vibration tests (sinusoidal)",
+    "language": "EN-FR, ES",
+    "description": "This part includes two types of vibration tests: the vibration response test and the vibration endurance test, and is generally based upon IEC 68-2-6. The requirements are applicable only to measuring relays and protection equipment in a new condition. The tests specified are type tests."
+  },
+  {
+    "reference": "IEC 60255-21-2:1988",
+    "edition": "1.0",
+    "date": "1988-10-31",
+    "title": "Electrical relays - Part 21: Vibration, shock, bump and seismic tests on measuring relays and protection equipment - Section Two: Shock and bump tests",
+    "language": "EN-FR, ES",
+    "description": "This standard includes two types of tests: -the shock test (on energized and non-energized specimen), -the bump test (on non-energized specimen). These requirements are applicable only to measuring relays and protection equipment in a new condition."
+  },
+  {
+    "reference": "IEC 60255-21-3:1993",
+    "edition": "1.0",
+    "date": "1993-09-21",
+    "title": "Electrical relays - Part 21: Vibration, shock, bump and seismic tests on measuring relays and protection equipment - Section 3: Seismic tests",
+    "language": "EN-FR, ES",
+    "description": "Specifies the vibration, shock, bump and seismic tests applicable to electromechanical and static measuring relays and protection equipment, with or without output contacts."
+  },
+  {
+    "reference": "IEC 60255-24:2013",
+    "edition": "2.0",
+    "date": "2013-04-30",
+    "title": "Measuring relays and protection equipment - Part 24: Common format for transient data exchange (COMTRADE) for power systems",
+    "language": "EN-FR, RU",
+    "description": "IEC 60255-24:2013 defines a format for files containing transient waveform and event data collected from power systems or power system models. The format is intended to provide an easily interpretable form for use in exchanging data. The standard is for files stored on currently used physical media such as portable external hard drives, USB drives, flash drives, CD, and DVD. This standard defines a common format for the data files and exchange medium needed for the interchange of various types of fault, test, and simulation data. The main changes with respect to the previous edition are as follows: - this new edition allows single file format (with extension .CFF) in lieu of four separate files; - the single file with .CFF extension contains four sections of information corresponding to .CFG, .INF, .HDR, and .DAT. The DAT section is either in ASCII or Binary; - the following additional data file types are also supported: binary32 and float32."
+  },
+  {
+    "reference": "IEC 60255-26:2023",
+    "edition": "4.0",
+    "date": "2023-01-24",
+    "title": "Measuring relays and protection equipment - Part 26: Electromagnetic compatibility requirements",
+    "language": "EN-FR",
+    "description": "IEC 60255-26:2023 specifies the requirements for electromagnetic compatibility for measuring relays and protection equipment. It is applicable to measuring relays and protection equipment and combinations of devices to form schemes for power system protection including the control, monitoring, communication and process interface equipment used with those systems. This document specifies limits and test methods, for measuring relays and protection equipment in relation to electromagnetic emissions which might cause interference in other equipment. This document specifies the immunity test requirements for measuring relays and protection equipment in relation to continuous and transient, conducted and radiated disturbances, including electrostatic discharges."
+  },
+  {
+    "reference": "IEC 60255-27:2023",
+    "edition": "3.0",
+    "date": "2023-02-07",
+    "title": "Measuring relays and protection equipment - Part 27: Product safety requirements",
+    "language": "EN-FR",
+    "description": "IEC 60255-27:2023 specifies the product safety requirements for measuring relays and protection equipment having a rated AC voltage up to 1 000 V, or a rated DC voltage up to 1 500 V. This document specifies essential safety requirements to minimize the risk of fire and hazards caused by electric shock or injury to the user and property. This document specifies only product safety requirements; functional performance of the equipment is not covered. This document covers all the ways in which the equipment can be mounted and used in cabinets, racks and panels. This document also applies to auxiliary devices such as shunts, series resistors, transformers, auxiliary control panels, display devices, etc., that are used in conjunction with measuring relays and protection equipment and are tested together."
+  },
+  {
+    "reference": "IEC/IEEE 60255-118-1:2018",
+    "edition": "1.0",
+    "date": "2018-12-17",
+    "title": "Measuring relays and protection equipment - Part 118-1: Synchrophasor for power systems - Measurements",
+    "language": "EN",
+    "description": "IEC/IEEE 60255-118-1:2018 is used for synchronized phasor measurement systems in power systems. It defines a synchronized phasor (synchrophasor), frequency, and rate of change of frequency measurements. It describes time tag and synchronization requirements for measurement of all three of these quantities. It specifies methods for evaluating these measurements and requirements for compliance with the standard under both static and dynamic conditions. It defines a phasor measurement unit (PMU), which can be a stand-alone physical unit or a functional unit within another physical unit. This document does not specify hardware, software or a method for computing phasors, frequency, or rate of change of frequency."
+  },
+  {
+    "reference": "IEC 60255-121:2014",
+    "edition": "1.0",
+    "date": "2014-03-07",
+    "title": "Measuring relays and protection equipment - Part 121: Functional requirements for distance protection",
+    "language": "EN-FR",
+    "description": "IEC 60255-121:2014 specifies minimum requirements for functional and performance evaluation of distance protection function typically used in, but not limited to, line applications for effectively earthed, three-phase power systems. This standard also defines how to document and publish performance tests. This standard covers distance protection function whose operating characteristic can be defined on an impedance plane and includes specification of the protection function, measurement characteristics, phase selection, directionality, starting and time delay characteristics. The test methodologies for verifying performance characteristics and accuracy are included in this standard. The standard defines the influencing factors that affect the accuracy under steady state conditions and performance characteristics during dynamic conditions. It also includes the instrument transformer requirements for the protection function. The general requirements for measuring relays and protection equipment are defined in IEC 60255-1."
+  },
+  {
+    "reference": "IEC 60255-127:2010",
+    "edition": "1.0",
+    "date": "2010-04-27",
+    "title": "Measuring relays and protection equipment - Part 127: Functional requirements for over/under voltage protection",
+    "language": "EN-FR",
+    "description": "IEC 60255-127:2010 specifies minimum requirements for over/under voltage relays. The standard includes specification of the protection function, measurement characteristics and time delay characteristics."
+  },
+  {
+    "reference": "IEC 60255-149:2013",
+    "edition": "1.0",
+    "date": "2013-07-30",
+    "title": "Measuring relays and protection equipment - Part 149: Functional requirements for thermal electrical relays",
+    "language": "EN-FR",
+    "description": "IEC 60255-149:2013 specifies minimum requirements for thermal protection relays. This standard includes specification of the protection function, measurement characteristics and test methodologies. The object is to establish a common and reproducible reference for evaluating dependent time relays which protect equipment from thermal damage by measuring a.c. current flowing through the equipment. Complementary input energizing quantities such as ambient, coolant, top oil and winding temperature may be applicable for the thermal protection specification set forth in this standard. This standard covers protection relays based on a thermal model with memory function."
+  },
+  {
+    "reference": "IEC 60255-151:2009",
+    "edition": "1.0",
+    "date": "2009-08-28",
+    "title": "Measuring relays and protection equipment - Part 151: Functional requirements for over/under current protection",
+    "language": "EN-FR",
+    "description": "IEC 60255-151:2009 specifies minimum requirements for over/under current relays. It includes a specification of the protection function, measurement characteristics and time delay characteristics. Defines the influencing factors that affect the accuracy under steady state conditions and performance characteristics during dynamic conditions."
+  },
+  {
+    "reference": "IEC 60255-181:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Measuring relays and protection equipment - Part 181: Functional requirements for frequency protection",
+    "language": "EN-FR",
+    "description": "IEC 60255-181:2019 specifies the minimum requirements for functional and performance evaluation of frequency protection. This document also defines how to document and publish performance test results. This document covers the functions based on frequency measurement or rate of change of frequency measurements. This document also covers frequency protection where additional blocking elements are used. This document defines the influencing factors that affect the accuracy under steady state conditions and performance characteristics during dynamic conditions. The test methodologies for verifying performance characteristics and accuracy are also included in this document."
+  },
+  {
+    "reference": "IEC 60255-187-1:2021",
+    "edition": "1.0",
+    "date": "2021-07-28",
+    "title": "Measuring relays and protection equipment - Part 187-1: Functional requirements for differential protection - Restrained and unrestrained differential protection of motors, generators and transformers",
+    "language": "EN-FR",
+    "description": "IEC 60255-187-1:2021 specifies the minimum requirements for functional and performance evaluation of (longitudinal) differential protection designed for the detection of faults in ac motors, generators and transformers. This document also defines how to document and publish performance test results. This document defines the influencing factors that affect the accuracy under steady state conditions and performance characteristics during dynamic conditions. The test methodologies for verifying performance characteristics and accuracy are also included in this document. This document, together with IEC 60255-187-2 and IEC 60255-187-3, cancels and replaces IEC 60255-13. This document includes the following significant technical changes with respect to IEC 60255-13: a) IEC 60255-13 has been significantly revised to follow the common structure of the functional standards for protection relays (IEC 60255-1xx series). IEC 60255-187-1 has been developed to address the restrained and unrestrained differential protection of motors, generators and transformers. The revisions include detailed description of the functions including the performance specification, testing and documentation requirements. The contents of the corrigendum of April 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60255-187-1:2021/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-04-21",
+    "title": "Corrigendum 1 - Measuring relays and protection equipment - Part 187-1: Functional requirements for differential protection - Restrained and unrestrained differential protection of motors, generators and transformers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 60255-216-1:2025",
+    "edition": "1.0",
+    "date": "2025-08-11",
+    "title": "Measuring relays and protection equipment - Part 216-1: Digital interface - General requirements and tests for protection functions using digital communication as input and output",
+    "language": "EN",
+    "description": "IEC TS 60255-216-1:2025 covers protection functions with digital inputs and outputs complying with IEC 61850 series and IEC 61869 series, in particular regarding - subscription to sampled values (SV) streams representing energising inputs instead of analog inputs (see Figure 1); - subscription to GOOSE (e.g. circuit breaker position, circuit breaker failure); - publication of GOOSE messages (e.g. trip signals); - subscription to time synchronisation messages. On this basis, this document formulates requirements for protection functions with digital inputs and outputs and for the IED hosting them. The document also covers tests related to the functional interoperability and functional requirements of these protection functions, in addition to the general conformance tests required by IEC 61850-10:2012 and test related requirements in IEC TR 61850‑10-3:2022."
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "reference": "IEC 62683-1:2026",
+    "edition": "2.0",
+    "date": "2026-04-22",
+    "title": "Switchgear, controlgear and their assemblies for low-voltage - Product data and properties for information exchange - Part 1: Catalogue data",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62683-1:2026 establishes the reference dictionary of the general description of classes of low-voltage switchgear and controlgear and their assemblies based on defined properties. This dictionary is used to facilitate the exchange in electronic format of data describing low voltage switchgear and controlgear, their accessories and their assemblies. This document provides clear and unambiguous definitions of a limited number of properties and classes which are mainly used for presentation, selection and identification of products particularly in electronic catalogues. Each property has an unambiguously defined meaning and name, and where relevant, a defined value list, a defined format, and a defined unit. Manufacturer specific features are not covered. This second edition cancels and replaces the first edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition for reflecting the content of the IEC CDD 62683DB which has been updated with the change requests C00073, C00074, C00081, C00087, C00089, C00098, C00100, C00107, C00111, C00116, C00119, C00122, C00146, C00148, C00159, C00167, C00174 and C00135: a) New device class descriptions: ACC304, ACC305, ACC413, ACC417, ACC503, ACC504, ACC505, ACC512, ACC516, ACC536, ACC537, ACC538, ACC540, ACC541, ACC542, ACC543, ACC544, ACC545, ACC546, ACC547, ACC548. b) New associated properties. c) New assembly class structure: ACC101, ACC102, ACC103, ACC104, ACC106, ACC110, ACC111, ACC112, ACC113, ACC114, ACC115, ACC116, ACC117, ACC118, ACC119, ACC120, ACC121, ACC123, ACC124, ACC125, ACC126, ACC127, ACC131, ACC132, ACC133, ACC135, ACC141, ACC142, ACC143, ACC144, ACC145, ACC146, ACC147, ACC148, ACC150, ACC151, ACC152, ACC153, ACC154, ACC155, ACC156, ACC157, ACC158, ACC159, ACC160, ACC161, ACC162, ACC163, ACC164, ACC165, ACC166, ACC167, ACC170, ACC171, ACC172, ACC173, ACC174, ACC175."
+  },
+  {
+    "reference": "IEC 62683-2-2:2025",
+    "edition": "1.0",
+    "date": "2025-09-10",
+    "title": "Low-voltage switchgear and controlgear - Product data and properties for information exchange - Engineering data - Part 2-2: Switchgear and controlgear assembly objects for building information modelling",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62683-2-2:2025 specifies the building information modelling (BIM) with the physical characteristics and technical services of low-voltage switchgear and controlgear assemblies to be used mainly for the construction phase of the building and also for delivering data for operation. This document covers all types of assemblies covered by the IEC 61439 series which can be installed in a building. Busbar trunking systems defined by IEC 61439-6 are under consideration for a next edition. These BIM object models, registered in IEC CDD, are intended to supply the process defined by ISO 16739 series. This document does not cover: – the build-in components included within the assembly such as switchgear and controlgear, – safety related control system of machinery, – the detailed electrical and mechanical configuration of the assembly – logistic information."
+  },
+  {
+    "reference": "IEC 62683-2-3:2024",
+    "edition": "1.0",
+    "date": "2024-11-15",
+    "title": "Low-voltage switchgear and controlgear – Product data and properties for information exchange – Engineering data – Part 2-3: Functional safety and reliability",
+    "language": "EN-FR, ES",
+    "description": "IEC 62683-2:2024 specifies the functional safety and reliability data model descriptions for low‑voltage switchgear and controlgear to be used by engineering tools for the design of safety related control systems according to IEC 62061, IEC 61508-2 and ISO 13849-1, and for dependability analysis of electrotechnical systems. This dictionary is used to facilitate the exchange between computers of data characterizing low-voltage switchgear and controlgear. Each property has an unambiguously defined meaning and naming, and where relevant, a defined value list, a defined format and a defined unit. The data models described in this document are intended to complement the product catalogue data defined by IEC 62683-1. This document does not cover: - exchange format such as defined in VDMA 66413, - explosive atmosphere applications, - manufacturer specific features."
+  },
+  {
+    "reference": "IEC TS 63058:2021",
+    "edition": "1.0",
+    "date": "2021-01-21",
+    "title": "Switchgear and controlgear and their assemblies for low voltage - Environmental aspects",
+    "language": "EN-FR",
+    "description": "IEC TS 63058:2021 provides guidance to manufacturers of low-voltage switchgear and controlgear and their assemblies in evaluating and improving the environmental impact of their products, and in enabling effective communication using common references for environmental information throughout the supply chain."
+  },
+  {
+    "reference": "IEC TR 63196:2020",
+    "edition": "1.0",
+    "date": "2020-01-28",
+    "title": "Switchgear and controlgear and their assemblies for low-voltage - Energy efficiency",
+    "language": "EN",
+    "description": "IEC TR 63196:2020 is following the principles of IEC Guide 119. This document defines the energy efficiency aspects of switchgear and controlgear products complying with IEC 60947 (all parts), IEC 61095 and IEC 62626 (all parts), and associated assemblies complying with IEC 61439 (all parts), in the context of the overall system energy efficiency. This document references energy policy aspects, as well as product and system aspects."
+  },
+  {
+    "reference": "IEC TR 63201:2019",
+    "edition": "1.0",
+    "date": "2019-05-24",
+    "title": "Low-voltage switchgear and controlgear - Guidance for the development of embedded software",
+    "language": "EN",
+    "description": "IEC TR 63201:2019(E) provides information, and recommended minimum requirements related to embedded software supporting the main functions of switchgear and controlgear during the whole lifecycle of the equipment. It includes also the parameterization aspects and basics about secure coding standards."
+  },
+  {
+    "reference": "IEC 63208:2025",
+    "edition": "1.0",
+    "date": "2025-08-22",
+    "title": "Low-voltage switchgear and controlgear and their assemblies - Security requirements",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63208:2025 This document applies to the main functions of switchgear and controlgear and their assemblies, called equipment, in the context of operational technology (OT 3.1.34). It is applicable to equipment with wired or wireless data communication means and their physical accessibility, within their limits of environmental conditions. It is intended to achieve the appropriate physical and cybersecurity mitigation against vulnerabilities to security threats. This document provides requirements on the appropriate: – security risk assessment to be developed including the attack levels, the typical threats, the impact assessment and the relationship with safety; – levels of exposure of the communication interface and the determination of the equipment security level; – assessment of the exposure level of the communication interfaces; – assignment of the required security measures for the equipment; – countermeasures for the physical access and the environment derived from ISO/IEC 27001; – countermeasures referring to IEC 62443-4-2 with their criteria of applicability; – user instructions for installation, operation and maintenance; – conformance verification and testing, and – security protection profiles by family of equipment (Annex E to Annex I). In particular, it focuses on potential vulnerabilities to threats resulting in: – unintended operation, which can lead to hazardous situations; – unavailability of the protective functions (overcurrent, earth fault, etc.); – other degradation of main function. It also provides guidance on the cybersecurity management with the: – roles and responsibilities (Table 4); – typical architectures (Annex A); – use cases (Annex B); – development methods (Annex C); – recommendations to be provided to users and for integration into an assembly (Annex D); – bridging references to cybersecurity management systems (Annex K). This document does not cover security requirements for: – information technology (IT); – industrial automation and control systems (IACS), engineering workstations and their software applications; – critical infrastructure or energy management systems; – network device (communication network switch or virtual private network terminator), or – data confidentiality other than for critical security parameters; – design lifecycle management. For this aspect, see IEC 62443-4-1, ISO/IEC 27001 or other security lifecycle management standards."
+  },
+  {
+    "reference": "IEC 63404:2024",
+    "edition": "1.0",
+    "date": "2024-02-27",
+    "title": "Switchgear and controlgear and their assemblies for low voltage - Integration of radiocommunication device above 380 MHz into an equipment",
+    "language": "EN-FR, ES",
+    "description": "IEC 63404:2024 defines radiocommunication related requirements for equipment intended to integrate a radiocommunication device. It includes the initial integration and update of a the radiocommunication device, having a carrier frequency greater than 380 MHz, into new or updated host equipment with: - The classification of integration categories; - The EMC immunity verification using a capability profile approach; - The verification of the unwanted emission level of the radio transceiver."
+  },
+  {
+    "reference": "IEC TR 63482:2024",
+    "edition": "1.0",
+    "date": "2024-07-24",
+    "title": "Maintenance of low voltage switchgear and controlgear and their assemblies",
+    "language": "EN",
+    "description": "IEC TR 63482:2024 provides guidance for the specification and selection of the appropriate approach and for the planning and the execution of the maintenance of low-voltage switchgear and controlgear and their assemblies having a rated voltage up to and including 1 000 V AC or 1 500 V DC, and designed for a nominal frequency of the incoming supply or supplies not exceeding 1 000 Hz. The content of the corrigendum 1 (2024-11) has been included in this copy."
+  },
+  {
+    "reference": "IEC TR 63482:2024/COR1:2024",
+    "edition": "1.0",
+    "date": "2024-11-26",
+    "title": "Corrigendum 1 - Maintenance of low voltage switchgear and controlgear and their assemblies",
+    "language": "EN",
+    "description": null
+  }
+]

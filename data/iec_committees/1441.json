@@ -1,0 +1,90 @@
+[
+  {
+    "reference": "IEC 62040-1:2017",
+    "edition": "2.0",
+    "date": "2017-07-12",
+    "title": "Uninterruptible power systems (UPS) - Part 1: Safety requirements",
+    "language": "EN-FR",
+    "description": "IEC 62040-1:2017 applies to movable, stationary, fixed or built-in UPS for use in low-voltage distribution systems and that are intended to be installed in an area accessible by an ordinary person or in a restricted access area as applicable, that deliver fixed frequency AC output voltage with port voltages not exceeding 1 000 V AC or 1 500 V DC and that include an energy storage device. It applies to pluggable and to permanently connected UPS, whether consisting of a system of interconnected units or of independent units, subject to installing, operating and maintaining the UPS in the manner prescribed by the manufacturer. This document specifies requirements to ensure safety for the ordinary person who comes into contact with the UPS and, where specifically stated, for the skilled person. The objective is to reduce risks of fire, electric shock, thermal, energy and mechanical hazards during use and operation and, where specifically stated, during service and maintenance. This product standard is harmonized with the applicable parts of group safety publication IEC 62477-1:2012 for power electronic converter systems and contains additional requirements relevant to UPS. This edition includes the following significant technical change with respect to the previous edition: the reference document has been changed from IEC 60950-1:2005 (safety for IT equipment) to IEC 62477-1 (group safety standard for power electronic converters). The contents of the corrigendum of October 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62040-1:2017/COR1:2019",
+    "edition": "2.0",
+    "date": "2019-10-10",
+    "title": "Corrigendum 1 - Uninterruptible power systems (UPS) - Part 1: Safety requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62040-1:2017/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-05-20",
+    "title": "Amendment 1 - Uninterruptible power systems (UPS) - Part 1: Safety requirements",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62040-1:2017/AMD2:2022",
+    "edition": "2.0",
+    "date": "2022-11-29",
+    "title": "Amendment 2 - Uninterruptible power systems (UPS) - Part 1: Safety requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62040-2:2016",
+    "edition": "3.0",
+    "date": "2016-11-25",
+    "title": "Uninterruptible power systems (UPS) - Part 2: Electromagnetic compatibility (EMC) requirements",
+    "language": "EN-FR",
+    "description": "IEC 62040-2:2016 is a type test product standard for electromagnetic compatibility (EMC) and applies to movable, stationary, fixed or built-in, pluggable and permanently connected UPS for use in low-voltage distribution systems with an environment being either residential, commercial, light industrial or industrial, which deliver output voltage with port voltages not exceeding 1 500 V DC or 1 000 V AC and which include an energy storage device. This edition includes the following significant technical changes with respect to the previous edition: a) the inclusion of network port limits in Table 1, Table 2 and Annex C for the sake of consistency with other standards; b) a change of quasi-peak limit for category C3 UPS in Table 2 for the sake of consistency with other standards; c) a clarification in Table 4 about the performance criteria for immunity tests; d) a revision of some test configurations in Annex A. The contents of the Interpretation sheet 1 of June 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62040-2:2016/ISH1:2018",
+    "edition": "3.0",
+    "date": "2018-06-13",
+    "title": "Interpretation sheet 1 - Uninterruptible power systems (UPS) - Part 2: Electromagnetic compatibility (EMC) requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62040-3:2021",
+    "edition": "3.0",
+    "date": "2021-04-21",
+    "title": "Uninterruptible power systems (UPS) - Part 3: Method of specifying the performance and test requirements",
+    "language": "EN-FR, EN",
+    "description": "IEC 62040-3:2021 establishes the performance and test requirements applied to movable, stationary and fixed electronic uninterruptible power systems (UPS) that - are supplied from AC voltage not exceeding 1 000 V, - deliver AC output voltage not exceeding 1 000 V, - incorporate an energy storage device not exceeding 1 500 V DC, and - have a primary function to ensure continuity of load power. This document specifies performance and test requirements of a complete UPS and, where applicable, of individual UPS functional units. This document also includes UPS performance and test requirements related to UPS switches that interact with UPS functional units to maintain continuity of load power. This document does not cover - conventional AC and DC distribution boards and their associated switches, - stand-alone static transfer systems covered by IEC 62310-3, - rotary UPS covered by IEC 88528-11, and - DC UPS covered by IEC 62040-5-3. This edition includes the following significant technical changes with respect to the previous edition: 1) environmental conditions aligned with IEC 62040-1:2017 (UPS safety requirements); 2) compliance requirements included in all sub-clauses referenced in Table 5 UPS test schedule; 3) non-linear step load is no longer a type test and was removed from 6.4 in consistency with requirements for switch mode power supplies incorporating inrush current controls; this resulted in the performance classification coding being shortened from 8 to 7 characters (see 5.3.4); 4) free-fall test aligned with ISO 4180 (see 6.5.1.3); 5) multiple normal mode UPS test requirements introduced; 6) non-linear load requirements relaxed in Annex E in consistency with requirements for switch mode power supplies complying with the applicable limits for harmonic current in IEC 61000-3-2 and IEC 61000-3-12; 7) minimum UPS efficiency values referenced in Annex I became normative and are based on active output power rating and utilisation of weighting factors rather than on allowances related to isolation transformers, input harmonic current filters and input voltages."
+  },
+  {
+    "reference": "IEC 62040-5-3:2016",
+    "edition": "1.0",
+    "date": "2016-10-26",
+    "title": "Uninterruptible power systems (UPS) - Part 5-3: DC output UPS - Performance and test requirements",
+    "language": "EN-FR",
+    "description": "IEC 62040-5-3:2016 establishes the performance and test requirements applied to movable, stationary and fixed electronic DC uninterruptible power systems (DC UPS) that - are supplied from an AC voltage source not exceeding 1 000 V, - deliver a DC output voltage not exceeding 1 500 V, - incorporate an energy storage device, and - have a primary function to ensure continuity of DC power to loads. This document specifies performance and test requirements of a complete DC UPS and not of individual DC UPS functional units."
+  },
+  {
+    "reference": "IEC 62310-1:2005",
+    "edition": "1.0",
+    "date": "2005-03-08",
+    "title": "Static transfer systems (STS) - Part 1: General and safety requirements",
+    "language": "EN-FR",
+    "description": "applies to free standing a.c. static transfer systems (STS) intended to ensure the continuity of power to load by automatically or manually controlled transfer, with or without interruption, from two or several a.c. independent sources. includes requirements for the switching elements, their control and protective elements, where applicable. This part of IEC 62310 also includes information for the overall integration of the STS and its accessories into the a.c. power distribution system"
+  },
+  {
+    "reference": "IEC 62310-2:2006",
+    "edition": "1.0",
+    "date": "2006-01-19",
+    "title": "Static transfer systems (STS) - Part 2: Electromagnetic compatibility (EMC) requirements",
+    "language": "EN-FR",
+    "description": "applies to free standing operation a.c. static transfer systems (STS) intended to ensure the continuity of load supply through controlled transfer, with or without interruption of power, from two or more independent a.c. sources.includes requirements for the switching elements, their control and protective elements, where applicable. The IEC 62310 series also includes information for the overall integration of the STS and its accessories into the a.c. power network. it applies to systems up to 1 000 V a.c. which are intended to be used in single-phase, phase-phase or three-phase applications"
+  },
+  {
+    "reference": "IEC 62310-3:2008",
+    "edition": "1.0",
+    "date": "2008-06-11",
+    "title": "Static transfer systems (STS) - Part 3: Method for specifying performance and test requirements",
+    "language": "EN-FR",
+    "description": "IEC 62310-3:2008 applies to stand-alone operating a.c. static transfer systems (STS) intended to ensure the continuity of load supply through controlled transfer, with or without interruption of power, from two or more independent a.c. sources. It includes information for the overall integration of the STS and its accessories into the a.c. power network and includes requirements for the switching elements, their control and protective elements, where applicable. It concerns general and safety requirements."
+  }
+]

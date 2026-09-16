@@ -1,0 +1,354 @@
+[
+  {
+    "reference": "ISO/IEC TS 4213:2022",
+    "edition": "1.0",
+    "date": "2022-10-13",
+    "title": "Information technology - Artificial intelligence - Assessment of machine learning classification performance",
+    "language": "EN",
+    "description": "This document specifies methodologies for measuring classification performance of machine learning models, systems and algorithms."
+  },
+  {
+    "reference": "ISO/IEC 5259-1:2024",
+    "edition": "1.0",
+    "date": "2024-07-02",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 1: Overview, terminology, and examples",
+    "language": "EN, FR",
+    "description": "This document provides the means for understanding and associating the individual documents of the ISO/IEC 5259 series and is the foundation for conceptual understanding of data quality for analytics and machine learning. It also discusses associated technologies and examples (e.g. use cases and usage scenarios)."
+  },
+  {
+    "reference": "ISO/IEC 5259-2:2024",
+    "edition": "1.0",
+    "date": "2024-11-05",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 2: Data quality measures",
+    "language": "EN, FR",
+    "description": "This document specifies a data quality model, data quality measures and guidance on reporting data quality in the context of analytics and machine learning (ML). This document is applicable to all types of organizations who want to achieve their data quality objectives."
+  },
+  {
+    "reference": "ISO/IEC 5259-3:2024",
+    "edition": "1.0",
+    "date": "2024-07-02",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 3: Data quality management requirements and guidelines",
+    "language": "EN, FR",
+    "description": "This document specifies requirements and provides guidance for establishing, implementing, maintaining and continually improving the quality of data used in the areas of analytics and machine learning. This document does not define a detailed process, methods or metrics. Rather it defines the requirements and guidance for a quality management process along with a reference process and methods that can be tailored to meet the requirements in this document. The requirements and recommendations set out in this document are generic and are intended to be applicable to all organizations, regardless of type, size or nature."
+  },
+  {
+    "reference": "ISO/IEC 5259-4:2024",
+    "edition": "1.0",
+    "date": "2024-07-15",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 4: Data quality process framework",
+    "language": "EN, FR",
+    "description": "This document establishes general common organizational approaches, regardless of the type, size or nature of the applying organization, to ensure data quality for training and evaluation in analytics and machine learning (ML). It includes guidance on the data quality process for: — supervised ML with regard to the labelling of data used for training ML systems, including common organizational approaches for training data labelling; — unsupervised ML; — semi-supervised ML; — reinforcement learning; — analytics. This document is applicable to training and evaluation data that come from different sources, including data acquisition and data composition, data preparation, data labelling, evaluation and data use. This document does not define specific services, platforms or tools."
+  },
+  {
+    "reference": "ISO/IEC 5259-5:2025",
+    "edition": "1.0",
+    "date": "2025-02-12",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 5: Data quality governance framework",
+    "language": "EN",
+    "description": "This document provides a data quality governance framework for analytics and machine learning (ML) to enable governing bodies of organizations to direct and oversee the implementation and operation of data quality measures, management, and related processes with adequate controls throughout the data life cycle (DLC) model according to ISO/IEC 5259-1. This document can be applied to any analytics and ML. This document does not define specific management requirements or process requirements according to ISO/IEC 5259-3 and ISO/IEC 5259-4 respectively."
+  },
+  {
+    "reference": "ISO/IEC TR 5259-6:2026",
+    "edition": "1.0",
+    "date": "2026-05-04",
+    "title": "Artificial intelligence - Data quality for analytics and machine learning (ML) - Part 6: Visualization framework for data quality",
+    "language": "EN",
+    "description": "This document describes a visualization framework for data quality in analytics and machine learning (ML). The aim is to enable stakeholders using visualization methods to assess the results of data quality measures. This visualization framework supports data quality goals."
+  },
+  {
+    "reference": "ISO/IEC 5338:2023",
+    "edition": "1.0",
+    "date": "2023-12-20",
+    "title": "Information technology - Artificial intelligence - AI system life cycle processes",
+    "language": "EN",
+    "description": "This document defines a set of processes and associated concepts for describing the life cycle of AI systems based on machine learning and heuristic systems. It is based on ISO/IEC/IEEE 15288 and ISO/IEC/IEEE 12207 with modifications and additions of AI-specific processes from ISO/IEC 22989 and ISO/IEC 23053. This document provides processes that support the definition, control, management, execution and improvement of the AI system in its life cycle stages. These processes can also be used within an organization or a project when developing or acquiring AI systems. When an element of an AI system is traditional software or a traditional system, the software life cycle processes in ISO/IEC/IEEE 12207 and the system life cycle processes in ISO/IEC/IEEE 15288 can be used to implement that element."
+  },
+  {
+    "reference": "ISO/IEC 5339:2024",
+    "edition": "1.0",
+    "date": "2024-01-15",
+    "title": "Information technology - Artificial intelligence - Guidance for AI applications",
+    "language": "EN",
+    "description": "This document provides guidance for identifying the context, opportunities and processes for developing and applying AI applications. The guidance provides a macro-level view of the AI application context, the stakeholders and their roles, relationship to the life cycle of the system, and common AI application characteristics and considerations."
+  },
+  {
+    "reference": "ISO/IEC 5392:2024",
+    "edition": "1.0",
+    "date": "2024-03-15",
+    "title": "Information technology - Artificial intelligence - Reference architecture of knowledge engineering",
+    "language": "EN",
+    "description": "This document defines a reference architecture of knowledge engineering (KE) in artificial intelligence (AI). The reference architecture describes KE roles, activities, constructional layers, components and their relationships amongst themselves and other systems from systemic user and functional views. This document also provides a common KE vocabulary by defining KE terms."
+  },
+  {
+    "reference": "ISO/IEC TR 5469:2024",
+    "edition": "1.0",
+    "date": "2024-01-08",
+    "title": "Artificial intelligence - Functional safety and AI systems",
+    "language": "EN",
+    "description": "This document describes the properties, related risk factors, available methods and processes relating to: — use of AI inside a safety related function to realize the functionality; — use of non-AI safety related functions to ensure safety for an AI controlled equipment; — use of AI systems to design and develop safety related functions."
+  },
+  {
+    "reference": "ISO/IEC TS 6254:2025",
+    "edition": "1.0",
+    "date": "2025-09-05",
+    "title": "Information technology - Artificial intelligence - Objectives and approaches for explainability and interpretability of machine learning (ML) models and artificial intelligence (AI) systems",
+    "language": "EN",
+    "description": "This document describes approaches and methods that can be used to achieve explainability objectives of stakeholders with regard to machine learning (ML) models and artificial intelligence (AI) systems’ behaviours, outputs and results. Stakeholders include but are not limited to, academia, industry, policy makers and end users. It provides guidance concerning the applicability of the described approaches and methods to the identified objectives throughout the AI system’s life cycle, as defined in ISO/IEC 22989 ."
+  },
+  {
+    "reference": "ISO/IEC 8183:2023",
+    "edition": "1.0",
+    "date": "2023-07-26",
+    "title": "Information technology - Artificial intelligence - Data life cycle framework",
+    "language": "EN, FR",
+    "description": "This document defines the stages and identifies associated actions for data processing throughout the artificial intelligence (AI) system life cycle, including acquisition, creation, development, deployment, maintenance and decommissioning. This document does not define specific services, platforms or tools. This document is applicable to all organizations, regardless of type, size or nature, that use data in the development and use of AI systems."
+  },
+  {
+    "reference": "ISO/IEC TS 8200:2024",
+    "edition": "1.0",
+    "date": "2024-04-10",
+    "title": "Information technology - Artificial intelligence - Controllability of automated artificial intelligence systems",
+    "language": "EN",
+    "description": "This document specifies a basic framework with principles, characteristics and approaches for the realization and enhancement for automated artificial intelligence (AI) systems’ controllability. The following areas are covered: — state observability and state transition; — control transfer process and cost; — reaction to uncertainty during control transfer; — verification and validation approaches. This document is applicable to all types of organizations (e.g. commercial enterprises, government agencies, not-for-profit organizations) developing and using AI systems during their whole life cycle."
+  },
+  {
+    "reference": "ISO/IEC TS 12791:2024",
+    "edition": "1.0",
+    "date": "2024-10-31",
+    "title": "Information technology - Artificial intelligence - Treatment of unwanted bias in classification and regression machine learning tasks",
+    "language": "EN",
+    "description": "This document describes how to address unwanted bias in AI systems that use machine learning to conduct classification and regression tasks. This document provides mitigation techniques that can be applied throughout the AI system life cycle in order to treat unwanted bias. This document is applicable to all types and sizes of organization."
+  },
+  {
+    "reference": "ISO/IEC 12792:2025",
+    "edition": "1.0",
+    "date": "2025-11-11",
+    "title": "Information technology - Artificial intelligence (AI) - Transparency taxonomy of AI systems",
+    "language": "EN, FR",
+    "description": "This document specifies a taxonomy of information elements to assist AI stakeholders with identifying and addressing the needs for transparency of AI systems. The document describes the semantics of the information elements and their relevance to the various objectives of different stakeholders. This document is applicable to any kind of organization and application involving an AI system."
+  },
+  {
+    "reference": "ISO/IEC TR 17903:2024",
+    "edition": "1.0",
+    "date": "2024-05-06",
+    "title": "Information technology - Artificial intelligence - Overview of machine learning computing devices",
+    "language": "EN",
+    "description": "This document surveys machine learning (ML) computing devices, including the following: — ML computing device terminology and characteristics; — existing approaches to the setting and use of characteristics for optimizing ML computing device performance. The information provided in this document is relevant for organizations of all types and sizes."
+  },
+  {
+    "reference": "ISO/IEC TR 20226:2025",
+    "edition": "1.0",
+    "date": "2025-07-01",
+    "title": "Information technology - Artificial intelligence - Environmental sustainability aspects of AI systems",
+    "language": "EN",
+    "description": "This document provides an overview of the environmental sustainability aspects (e.g. workload, resource and asset utilization, carbon impact, pollution, waste, transportation, location) of AI systems during their life cycle, and related potential metrics. NOTE 1 This document does not identify opportunities on how AI, AI applications and AI systems can improve environmental, social or economic sustainability outcomes. NOTE 2 This document can help other projects related to AI system environmental sustainability."
+  },
+  {
+    "reference": "ISO/IEC 20546:2019",
+    "edition": "1.0",
+    "date": "2019-02-28",
+    "title": "Information technology - Big data - Overview and vocabulary",
+    "language": "EN",
+    "description": "This document provides a set of terms and definitions needed to promote improved communication and understanding of this area. It provides a terminological foundation for big data-related standards. This document provides a conceptual overview of the field of big data, its relationship to other technical areas and standards efforts, and the concepts ascribed to big data that are not new to big data."
+  },
+  {
+    "reference": "ISO/IEC TR 20547-1:2020",
+    "edition": "1.0",
+    "date": "2020-08-20",
+    "title": "Information technology - Big data reference architecture - Part 1: Framework and application process",
+    "language": "EN",
+    "description": "This document describes the framework of the big data reference architecture and the process for how a user of the document can apply it to their particular problem domain."
+  },
+  {
+    "reference": "ISO/IEC TR 20547-2:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Information technology - Big data reference architecture - Part 2: Use cases and derived requirements",
+    "language": "EN",
+    "description": "ISO/IEC TR 20547-2:2018 provides examples of big data use cases with application domains and technical considerations derived from the contributed use cases."
+  },
+  {
+    "reference": "ISO/IEC 20547-3:2020",
+    "edition": "1.0",
+    "date": "2020-03-04",
+    "title": "Information technology - Big data reference architecture - Part 3: Reference architecture",
+    "language": "EN",
+    "description": "This document specifies the big data reference architecture (BDRA). The reference architecture includes concepts and architectural views. The reference architecture specified in this document defines two architectural viewpoints: — a user view defining roles/sub-roles, their relationships, and types of activities within a big data ecosystem; — a functional view defining the architectural layers and the classes of functional components within those layers that implement the activities of the roles/sub-roles within the user view. The BDRA is intended to: — provide a common language for the various stakeholders; — encourage adherence to common standards, specifications, and patterns; — provide consistency of implementation of technology to solve similar problem sets; — facilitate the understanding of the operational intricacies in big data; — illustrate and understand the various big data components, processes, and systems, in the context of an overall big data conceptual model; — provide a technical reference for government departments, agencies and other consumers to understand, discuss, categorize and compare big data solutions; and — facilitate the analysis of candidate standards for interoperability, portability, reusability, and extendibility."
+  },
+  {
+    "reference": "ISO/IEC TR 20547-5:2018",
+    "edition": "1.0",
+    "date": "2018-02-09",
+    "title": "Information technology - Big data reference architecture - Part 5: Standards roadmap",
+    "language": "EN",
+    "description": "ISO/IEC TR 20547-5:2018 describes big data relevant standards, both in existence and under development, along with priorities for future big data standards development based on gap analysis."
+  },
+  {
+    "reference": "ISO/IEC TR 21221:2025",
+    "edition": "1.0",
+    "date": "2025-09-05",
+    "title": "Information technology - Artificial intelligence - Beneficial AI systems",
+    "language": "EN",
+    "description": "This document describes the delivery of functional, economic, environmental, social, societal, cultural, intellectual and personal benefits by AI systems as perceived by their stakeholders. The document includes illustrative use cases of AI systems."
+  },
+  {
+    "reference": "ISO/IEC 22989:2022",
+    "edition": "1.0",
+    "date": "2022-07-19",
+    "title": "Information technology - Artificial intelligence - Artificial intelligence concepts and terminology",
+    "language": "EN, FR",
+    "description": "This document establishes terminology for AI and describes concepts in the field of AI. This document can be used in the development of other standards and in support of communications among diverse, interested parties or stakeholders. This document is applicable to all types of organizations (e.g. commercial enterprises, government agencies, not-for-profit organizations)."
+  },
+  {
+    "reference": "ISO/IEC 23053:2022",
+    "edition": "1.0",
+    "date": "2022-06-20",
+    "title": "Framework for Artificial Intelligence (AI) Systems Using Machine Learning (ML)",
+    "language": "EN, FR",
+    "description": "This document establishes an Artificial Intelligence (AI) and Machine Learning (ML) framework for describing a generic AI system using ML technology. The framework describes the system components and their functions in the AI ecosystem. This document is applicable to all types and sizes of organizations, including public and private companies, government entities, and not-for-profit organizations, that are implementing or using AI systems."
+  },
+  {
+    "reference": "ISO/IEC 23894:2023",
+    "edition": "1.0",
+    "date": "2023-02-06",
+    "title": "Information technology - Artificial intelligence - Guidance on risk management",
+    "language": "EN, FR",
+    "description": "This document provides guidance on how organizations that develop, produce, deploy or use products, systems and services that utilize artificial intelligence (AI) can manage risk specifically related to AI. The guidance also aims to assist organizations to integrate risk management into their AI-related activities and functions. It moreover describes processes for the effective implementation and integration of AI risk management. The application of this guidance can be customized to any organization and its context."
+  },
+  {
+    "reference": "ISO/IEC TR 24027:2021",
+    "edition": "1.0",
+    "date": "2021-11-05",
+    "title": "Information technology - Artificial intelligence (AI) - Bias in AI systems and AI aided decision making",
+    "language": "EN",
+    "description": "This document addresses bias in relation to AI systems, especially with regards to AI-aided decision-making. Measurement techniques and methods for assessing bias are described, with the aim to address and treat bias-related vulnerabilities. All AI system lifecycle phases are in scope, including but not limited to data collection, training, continual learning, design, testing, evaluation and use."
+  },
+  {
+    "reference": "ISO/IEC TR 24028:2020",
+    "edition": "1.0",
+    "date": "2020-05-28",
+    "title": "Information technology - Artificial intelligence - Overview of trustworthiness in artificial intelligence",
+    "language": "EN",
+    "description": "This document surveys topics related to trustworthiness in AI systems, including the following: — approaches to establish trust in AI systems through transparency, explainability, controllability, etc.; — engineering pitfalls and typical associated threats and risks to AI systems, along with possible mitigation techniques and methods; and — approaches to assess and achieve availability, resiliency, reliability, accuracy, safety, security and privacy of AI systems. The specification of levels of trustworthiness for AI systems is out of the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC TR 24029-1:2021",
+    "edition": "1.0",
+    "date": "2021-03-10",
+    "title": "Artificial Intelligence (AI) - Assessment of the robustness of neural networks - Part 1: Overview",
+    "language": "EN",
+    "description": "This document provides background about existing methods to assess the robustness of neural networks."
+  },
+  {
+    "reference": "ISO/IEC 24029-2:2023",
+    "edition": "1.0",
+    "date": "2023-08-01",
+    "title": "Artificial intelligence (AI) - Assessment of the robustness of neural networks - Part 2: Methodology for the use of formal methods",
+    "language": "EN",
+    "description": "This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties."
+  },
+  {
+    "reference": "ISO/IEC TR 24030:2024",
+    "edition": "2.0",
+    "date": "2024-04-08",
+    "title": "Information technology - Artificial intelligence (AI) - Use cases",
+    "language": "EN",
+    "description": "This document provides a collection of representative use cases of AI applications in a variety of domains."
+  },
+  {
+    "reference": "ISO/IEC TR 24368:2022",
+    "edition": "1.0",
+    "date": "2022-08-19",
+    "title": "Information technology - Artificial intelligence - Overview of ethical and societal concerns",
+    "language": "EN",
+    "description": "This document provides a high-level overview of AI ethical and societal concerns. In addition, this document: — provides information in relation to principles, processes and methods in this area; — is intended for technologists, regulators, interest groups, and society at large; — is not intended to advocate for any specific set of values (value systems). This document includes an overview of International Standards that address issues arising from AI ethical and societal concerns."
+  },
+  {
+    "reference": "ISO/IEC TR 24372:2021",
+    "edition": "1.0",
+    "date": "2021-12-07",
+    "title": "Information technology - Artificial intelligence (AI) - Overview of computational approaches for AI systems",
+    "language": "EN",
+    "description": "This document provides an overview of the state of the art of computational approaches for AI systems, by describing: a) main computational characteristics of AI systems; b) main algorithms and approaches used in AI systems, referencing use cases contained in ISO/IEC TR 24030."
+  },
+  {
+    "reference": "ISO/IEC 24668:2022",
+    "edition": "1.0",
+    "date": "2022-11-17",
+    "title": "Information technology - Artificial intelligence - Process management framework for big data analytics",
+    "language": "EN",
+    "description": "This document provides a framework for developing processes to effectively leverage big data analytics across the organization irrespective of the industries or sectors. This document specifies process management for big data analytics with its various process categories taken into account along with their interconnectivities. These process categories are organization stakeholder processes, competency development processes, data management processes, analytics development processes and technology integration processes. This document describes processes to acquire, describe, store and process data at an organization level which provides big data analytics services."
+  },
+  {
+    "reference": "ISO/IEC TS 25058:2024",
+    "edition": "1.0",
+    "date": "2024-01-24",
+    "title": "Systems and software engineering - Systems and software Quality Requirements and Evaluation (SQuaRE) - Guidance for quality evaluation of artificial intelligence (AI) systems",
+    "language": "EN",
+    "description": "This document provides guidance for evaluation of artificial intelligence (AI) systems using an AI system quality model. The document is applicable to all types of organizations engaged in the development and use of AI."
+  },
+  {
+    "reference": "ISO/IEC 25059:2023",
+    "edition": "1.0",
+    "date": "2023-06-28",
+    "title": "Software engineering - Systems and software Quality Requirements and Evaluation (SQuaRE) - Quality model for AI systems",
+    "language": "EN",
+    "description": "This document outlines a quality model for AI systems and is an application-specific extension to the standards on SQuaRE. The characteristics and sub-characteristics detailed in the model provide consistent terminology for specifying, measuring and evaluating AI system quality. The characteristics and sub-characteristics detailed in the model also provide a set of quality characteristics against which stated quality requirements can be compared for completeness."
+  },
+  {
+    "reference": "ISO/IEC 38507:2022",
+    "edition": "1.0",
+    "date": "2022-04-08",
+    "title": "Information technology - Governance of IT - Governance implications of the use of artificial intelligence by organizations",
+    "language": "EN",
+    "description": "This document provides guidance for members of the governing body of an organization to enable and govern the use of Artificial Intelligence (AI), in order to ensure its effective, efficient and acceptable use within the organization. This document also provides guidance to a wider community, including: — executive managers; — external businesses or technical specialists, such as legal or accounting specialists, retail or industrial associations, or professional bodies; — public authorities and policymakers; — internal and external service providers (including consultants); — assessors and auditors. This document is applicable to the governance of current and future uses of AI as well as the implications of such use for the organization itself. This document is applicable to any organization, including public and private companies, government entities and not-for-profit organizations. This document is applicable to an organization of any size irrespective of their dependence on data or information technologies."
+  },
+  {
+    "reference": "ISO/IEC 42001:2023",
+    "edition": "1.0",
+    "date": "2023-12-18",
+    "title": "Information technology - Artificial intelligence - Management system",
+    "language": "EN, FR",
+    "description": "This document specifies the requirements and provides guidance for establishing, implementing, maintaining and continually improving an AI (artificial intelligence) management system within the context of an organization. This document is intended for use by an organization providing or using products or services that utilize AI systems. This document is intended to help the organization develop, provide or use AI systems responsibly in pursuing its objectives and meet applicable requirements, obligations related to interested parties and expectations from them. This document is applicable to any organization, regardless of size, type and nature, that provides or uses products or services that utilize AI systems."
+  },
+  {
+    "reference": "ISO/IEC 42005:2025",
+    "edition": "1.0",
+    "date": "2025-05-28",
+    "title": "Information technology - Artificial intelligence (AI) - AI system impact assessment",
+    "language": "EN",
+    "description": "This document provides guidance for organizations performing artificial intelligence (AI) system impact assessments for individuals and societies that can be affected by an AI system and its foreseeable applications. It includes considerations for how and when to perform such assessments and at what stages of the AI system life cycle, as well as guidance for AI system impact assessment documentation. Additionally, this guidance includes how this AI system impact assessment process can be integrated into an organization’s AI risk management and AI management system. This document is intended for use by organizations developing, providing or using AI systems. This document is applicable to any organization, regardless of size, type and nature."
+  },
+  {
+    "reference": "ISO/IEC 42006:2025",
+    "edition": "1.0",
+    "date": "2025-07-07",
+    "title": "Information technology - Artificial intelligence - Requirements for bodies providing audit and certification of artificial intelligence management systems",
+    "language": "EN",
+    "description": "This document specifies additional requirements to ISO/IEC 17021-1. The requirements contained in this document, when implemented, support the demonstration of competence, consistency and reliability by the bodies performing auditing and certification of an artificial intelligence management system (AIMS) according to ISO/IEC 42001 for organizations that provide, develop or use AI systems. Certification of AIMS is a third-party conformity assessment activity (as described in ISO/IEC 17000:2020, 4.5), and bodies performing this activity are third-party conformity assessment bodies. This document also provides the necessary information and confidence to customers about the way certification has been granted. NOTE This document can be used as a criteria document for accreditation or peer assessment."
+  },
+  {
+    "reference": "ISO/IEC TR 42106:2026",
+    "edition": "1.0",
+    "date": "2026-07-20",
+    "title": "Information technology - Artificial intelligence (AI) - Overview of differentiated benchmarking of AI system quality characteristics",
+    "language": "EN",
+    "description": "This document provides an overview of conceptual frameworks for graded benchmarking of artificial intelligence (AI) system quality characteristics. The aim is to examine the feasibility of using differentiated benchmarking of quality characteristics based on the complexity and context of use of an AI system."
+  },
+  {
+    "reference": "ISO/IEC TS 42112:2026",
+    "edition": "1.0",
+    "date": "2026-06-05",
+    "title": "Information technology - Artificial intelligence - Guidance on machine learning model training efficiency optimization",
+    "language": "EN",
+    "description": "This document outlines key factors affecting machine learning model training efficiency and presents corresponding optimization approaches. It provides guidance for AI providers and producers through a structured set of characteristics and related optimizations to improve training efficiency. This information can support the evaluation and comparison of various ML training strategies. This document does not specify any training accelerating mechanisms provided and implemented within machine learning computing device described in ISO/IEC TR 17903."
+  },
+  {
+    "reference": "ISO/IEC TS 42119-2:2025",
+    "edition": "1.0",
+    "date": "2025-11-03",
+    "title": "Artificial intelligence - Testing of AI - Part 2: Overview of testing AI systems",
+    "language": "EN",
+    "description": "This document provides requirements and guidance on the application of the ISO/IEC/IEEE 29119 series to the testing of AI systems. This document follows a risk-based approach and uses risks associated with AI systems, and their development and maintenance, to identify suitable test practices, approaches and techniques applicable to AI systems and their components. When the test practices, approaches and techniques are already specified in the ISO/IEC/IEEE 29119 series, this document provides additional detail and describes their application in the context of AI systems."
+  }
+]

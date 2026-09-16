@@ -1,0 +1,378 @@
+[
+  {
+    "reference": "IEC 60839-5-1:2014",
+    "edition": "2.0",
+    "date": "2014-07-28",
+    "title": "Alarm and electronic security systems - Part 5-1: Alarm transmission systems - General requirements",
+    "language": "EN-FR, RU",
+    "description": "IEC 60839-5-1:2014 specifies the requirements for the performance, reliability, resilience and security of alarm transmission systems and ensures their suitability for use with different types of alarm systems and annunciation equipment. This standard specifies the requirements for alarm transmission systems providing alarm transmission between an alarm system at supervised premises and annunciation equipment at an alarm receiving centre. It applies to transmission systems for all types of alarm messages such as fire, intrusion, access control, social alarm, etc. This edition includes the following significant technical changes with respect to the previous edition published 24 years ago: techniques and constraints have been widely changed since that time, which has been reflected in this new edition."
+  },
+  {
+    "reference": "IEC 60839-5-2:2016",
+    "edition": "2.0",
+    "date": "2016-02-03",
+    "title": "Alarm and electronic security systems - Part 5-2: Alarm transmission systems - Requirements for supervised premises transceiver (SPT)",
+    "language": "EN-FR",
+    "description": "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: - reflects the current technological state of art (IP networks); - harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; - introduces test requirements."
+  },
+  {
+    "reference": "IEC 60839-5-3:2016",
+    "edition": "1.0",
+    "date": "2016-02-03",
+    "title": "Alarm and electronic security systems - Part 5-3: Alarm transmission systems - Requirements for receiving centre transceiver (RCT)",
+    "language": "EN-FR",
+    "description": "IEC 60839-5-3:2016 specifies the minimum equipment requirements for the performance, reliability, resilience, security and safety characteristics of the receiving centre transceiver installed in an ARC and used in alarm transmission systems. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1."
+  },
+  {
+    "reference": "IEC TS 60839-7-8:2019",
+    "edition": "1.0",
+    "date": "2019-05-24",
+    "title": "Alarm systems - Part 7-8: Message formats and protocols for serial data interfaces in alarm transmission systems - Requirements for common protocol for alarm transmission using the Internet protocol",
+    "language": "EN",
+    "description": "IEC 60839-7-8:2019 specifies a protocol for point-to-point transmission of alarms and faults, as well as communications monitoring, between a supervised premises transceiver and a receiving centre transceiver using the Internet protocol (IP). The protocol is intended for use over any network that supports the transmission of IP data. These include Ethernet, xDSL, GPRS, WiFi, UMTS and WIMAX. The system performance characteristics for alarm transmission are specified in IEC 60839‑5‑1. The performance characteristics of the supervised premises equipment comply with the requirements of its associated alarm system standard and apply for transmission of all types of alarms including, but not limited to, fire, intrusion, access control and social alarms."
+  },
+  {
+    "reference": "IEC 60839-11-1:2013",
+    "edition": "1.0",
+    "date": "2013-05-07",
+    "title": "Alarm and electronic security systems - Part 11-1: Electronic access control systems - System and components requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 60839-11-1:2013 specifies the minimum functionality, performance requirements and test methods for electronic access control systems and components used for physical access (entry and exit) in and around buildings and protected areas. This standard applies to electronic access control systems and components intended to be used in security applications for the granting of access and includes requirements for logging, identification and control of information."
+  },
+  {
+    "reference": "IEC 60839-11-2:2014",
+    "edition": "1.0",
+    "date": "2014-07-24",
+    "title": "Alarm and electronic security systems - Part 11-2: Electronic access control systems - Application guidelines",
+    "language": "EN-FR, ES",
+    "description": "IEC 60839-11-2:2014 defines the minimum requirements and guidance for the installation and operation of electronic access control systems (EACS) and/or accessory equipment to meet different levels of protection. This standard includes requirements for planning, installation, commissioning, maintenance and documentation for the application of EACS installed in and around buildings and areas. The equipment functions are defined in IEC 60839-11-1."
+  },
+  {
+    "reference": "IEC 60839-11-5:2020",
+    "edition": "1.0",
+    "date": "2020-07-08",
+    "title": "Alarm and electronic security systems - Part 11-5: Electronic access control systems - Open supervised device protocol (OSDP)",
+    "language": "EN-FR, EN",
+    "description": "IEC 60839-11-5:2020 specifies the Open supervised device protocol (OSDP) for electronic access control systems. This includes communication settings, commands and replies between the ACU and the peripheral devices. It also includes a mapping of mandatory and optional requirements as per IEC 60839-11-1:2013 as covered by Annex. This document applies to physical security only. Physical security prevents unauthorized personnel, attackers or accidental intruders from physically accessing a building, room, etc."
+  },
+  {
+    "reference": "IEC 60839-11-31:2016",
+    "edition": "1.0",
+    "date": "2016-11-24",
+    "title": "Alarm and electronic security systems - Part 11-31: Electronic access control systems - Core interoperability protocol based on Web services",
+    "language": "EN-FR",
+    "description": "IEC 60839-11-31:2016 defines procedures for communication between network clients and devices. This series of interoperability standards makes it possible to build an alarm and electronic security system with clients and devices from different manufacturers using common and well defined interfaces. The functions defined in this document covers discovery, device management and event framework. Supplementary dedicated services are defined in separate documents. The management and control interfaces defined in this document are described as Web services. This document also contains full XML schema and Web Service Description Language (WSDL) definitions. In order to offer full plug-and-play interoperability, this document defines procedures for device discovery. The device discovery mechanisms in this document are based on the WS-Discovery specification with extensions."
+  },
+  {
+    "reference": "IEC 60839-11-32:2016",
+    "edition": "1.0",
+    "date": "2016-11-24",
+    "title": "Alarm and electronic security systems - Part 11-32: Electronic access control systems - Access control monitoring based on Web services",
+    "language": "EN-FR",
+    "description": "IEC 60839-11-32:2016 defines the Web services interface for electronic access control systems. This includes listing electronic access control system components, their logical composition, monitoring their states and controlling them. It also includes a mapping of mandatory and optional requirements as per IEC 60839-11-1. This document applies to physical security only. Physical security prevents unauthorized personnel, attackers or accidental intruders from physically accessing a building, room, etc. Web services usage and device management functionality are outside of the scope of this document. Refer to IEC 60839-11-31 for more information."
+  },
+  {
+    "reference": "IEC 60839-11-33:2021",
+    "edition": "1.0",
+    "date": "2021-08-25",
+    "title": "Alarm and electronic security systems - Part 11-33: Electronic access control systems - Access control configuration based on Web services",
+    "language": "EN-FR",
+    "description": "IEC 60839-11-33:2021 defines the Web services interface for electronic access control systems. This includes listing electronic access control system components, their logical composition, monitoring their states and controlling them. It also includes a mapping of mandatory and optional requirements in accordance with IEC 60839-11-1:2013, as covered by Annex. This document applies to physical security only. Physical security prevents unauthorized personnel, attackers or accidental intruders from physically accessing a building, room, etc. Web services usage and device management functionality are outside the scope of this document. The document specifies only the data and control flow between a client and the services without reference to any physical device as the services required to implement a compliant electronic access control system (EACS) are not necessarily implemented on a single device, i.e. all services can be run on a control panel, event aggregator software on PC, etc."
+  },
+  {
+    "reference": "IEC 62599-1:2010",
+    "edition": "1.0",
+    "date": "2010-05-19",
+    "title": "Alarm systems - Part 1: Environmental test methods",
+    "language": "EN-FR",
+    "description": "IEC 62599-1:2010 specifies environmental test methods to be used for testing the system components of the following alarm systems, intended for use in and around buildings: - access control systems, for security applications; - alarm transmission systems; - CCTV systems, for security applications; - combined and/or integrated systems; - intruder and hold-up alarm systems; - remote receiving and/or surveillance centres; - social alarm systems."
+  },
+  {
+    "reference": "IEC 62599-2:2010",
+    "edition": "1.0",
+    "date": "2010-05-19",
+    "title": "Alarm systems - Part 2: Electromagnetic compatibility - Immunity requirements for components of fire and security alarm systems",
+    "language": "EN-FR",
+    "description": "IEC 62599-2:2010 for immunity requirements applies to the components of the following alarm systems, intended for use in and around buildings in residential, commercial, light industrial and industrial environments: - access control systems, for security applications; - alarm transmission systems; - CCTV systems, for security applications; - fire detection and fire alarm systems; - intruder and hold-up alarm systems; - social alarm systems."
+  },
+  {
+    "reference": "IEC 62642-1:2010",
+    "edition": "1.0",
+    "date": "2010-06-16",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 1: System requirements",
+    "language": "EN-FR",
+    "description": "IEC 62642-1:2010 specifies the requirements for intrusion and hold-up alarm systems (I&HAS) installed in buildings using specific or non-specific wired interconnections or wire-free interconnections. These requirements also apply to the components of an I&HAS installed in a building which are normally mounted on the external structure of a building e.g. ancillary control equipment or warning devices."
+  },
+  {
+    "reference": "IEC 62642-2-2:2010",
+    "edition": "1.0",
+    "date": "2010-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-2: Intrusion detectors - Passive infrared detectors",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-2:2010 is for passive infrared detectors installed in buildings and provides for security grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1). A detector shall fulfil all the requirements of the specified grade."
+  },
+  {
+    "reference": "IEC 62642-2-3:2010",
+    "edition": "1.0",
+    "date": "2010-12-14",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-3: Intrusion detectors - Microwave detectors",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-3:2010 is for microwave detectors installed in buildings and provides for security grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1)."
+  },
+  {
+    "reference": "IEC 62642-2-4:2010",
+    "edition": "1.0",
+    "date": "2010-12-14",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-4: Intrusion detectors - Combined passive infrared / Microwave detectors",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-4:2010 is for combined passive infrared and microwave detectors installed in buildings and provides for security Grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1)."
+  },
+  {
+    "reference": "IEC 62642-2-6:2010",
+    "edition": "1.0",
+    "date": "2010-12-14",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-6: Intrusion detectors - Opening contacts (magnetic)",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-6:2010 provides for security grades 1 to 4, (see IEC 62642-1) specific or non-specific wired or wirefree opening contacts (magnetic), and includes the requirements for four environmental classes covering applications in internal and outdoor locations as specified in IEC 62599-1."
+  },
+  {
+    "reference": "IEC 62642-2-71:2015",
+    "edition": "1.0",
+    "date": "2015-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-71: Intrusion detectors - Glass break detectors (acoustic)",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-71:2015 defines passive acoustic glass break detectors installed in buildings and provides for security grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1)."
+  },
+  {
+    "reference": "IEC 62642-2-72:2015",
+    "edition": "1.0",
+    "date": "2015-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-72: Intrusion detectors - Glass break detectors (passive)",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-72:2015 defines passive surface mounted glass break detectors installed in buildings and provides for security grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1)."
+  },
+  {
+    "reference": "IEC 62642-2-73:2015",
+    "edition": "1.0",
+    "date": "2015-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 2-73: Intrusion detectors - Glass break detectors (active)",
+    "language": "EN-FR",
+    "description": "IEC 62642-2-73:2015 defines active surface mounted glass break detectors installed in buildings and provides for security grades 1 to 4 (see IEC 62642-1), specific or non-specific wired or wire-free detectors, and uses environmental classes I to IV (see IEC 62599-1)."
+  },
+  {
+    "reference": "IEC 62642-3:2010",
+    "edition": "1.0",
+    "date": "2010-10-05",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 3: Control and indicating equipment",
+    "language": "EN-FR",
+    "description": "IEC 62642-3:2010 specifies the requirements, performance criteria and testing procedures for control and indicating equipment (CIE) intended for use in intrusion and hold-up alarm systems (I&HAS) installed in buildings. This document also applies to CIE to be used in IAS or HAS. The CIE may incorporate processing functions of other I&HAS components or its processing requirements may be distributed among such components."
+  },
+  {
+    "reference": "IEC 62642-4:2010",
+    "edition": "1.0",
+    "date": "2010-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 4: Warning devices",
+    "language": "EN-FR",
+    "description": "IEC 62642-4:2010 includes requirements for warning devices used for notification in intrusion and hold up alarm systems installed in buildings. Four grades of warning device are described corresponding to each of the four security grades given in IEC 62642-1. Requirements are also given for four environmental classes covering applications in internal and outdoor locations as specified in IEC 62599-1."
+  },
+  {
+    "reference": "IEC 62642-5-3:2010",
+    "edition": "1.0",
+    "date": "2010-10-07",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 5-3: Interconnections - Requirements for equipment using radio frequency techniques",
+    "language": "EN-FR",
+    "description": "IEC 62642-5-3:2010 applies to intrusion alarm equipment using radio frequency links and located on protected premises. This standard defines the terms used in the field of intrusion alarm equipment using radio frequency links as well as the requirements relevant to the equipment. It is used in conjunction with the other parts of the IEC 62642 series that define the functional requirements of the equipment regardless of the type of interconnections used."
+  },
+  {
+    "reference": "IEC 62642-6:2011",
+    "edition": "1.0",
+    "date": "2011-02-10",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 6: Power supplies",
+    "language": "EN-FR",
+    "description": "IEC 62642-6:2011 specifies the requirements, performance criteria and testing procedures for power supplies (PS) to be used as part of Intrusion and Hold up Alarm Systems (I&HAS). The PS shall either be an integral part of an I&HAS component or stand-alone. The control functions of the PS may be incorporated as part of the PS device, or may be provided by another I&HAS component e.g. a control and indicating equipment."
+  },
+  {
+    "reference": "IEC TS 62642-7:2011",
+    "edition": "1.0",
+    "date": "2011-02-10",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 7: Application guidelines",
+    "language": "EN",
+    "description": "IEC/TS 62642-7:2011(E) provides guidance on the design, planning, operation, installation, commissioning and maintenance of intrusion and hold-up alarm system (I&HAS) installed in buildings. Requirements for I&HAS are specified in IEC 62642-1:2010. It also applies to intruder alarm system and hold-up alarm system when these systems are installed independently. These application guidelines are intended to assist those responsible for establishing an I&HAS to ascertain the appropriate design of I&HAS both in terms of the extent of the supervision required and in determining the grade of system performance necessary to provide the degree of supervision considered appropriate."
+  },
+  {
+    "reference": "IEC 62642-8:2011",
+    "edition": "1.0",
+    "date": "2011-02-10",
+    "title": "Alarm systems - Intrusion and hold-up systems - Part 8: Security fog device/systems",
+    "language": "EN-FR",
+    "description": "IEC 62642-8:2011 specifies the requirements for security fog systems as a part of an I&HAS. It covers application and performance and also gives the necessary tests and trials to ensure efficiency and reliability of such obscuration devices. It also gives guidance on the criteria for design, installation, operation and maintenance of security fog systems."
+  },
+  {
+    "reference": "IEC 62676-1-1:2013",
+    "edition": "1.0",
+    "date": "2013-10-29",
+    "title": "Video surveillance systems for use in security applications - Part 1-1: System requirements - General",
+    "language": "EN-FR, ES",
+    "description": "IEC 62676-1-1:2013 specifies the minimum requirements and gives recommendations for Video Surveillance Systems (VSS) (so far called CCTV), installed for security applications. This Standard specifies the minimum performance requirements and functional requirements to be agreed on between customer, law-enforcement where applicable and supplier in the operational requirement, but does not include requirements for design, planning, installation, testing, operation or maintenance. This standard excludes installation of remotely monitored detector activated VSSs. This IEC Standard also applies to VSS sharing means of detection, triggering, interconnection, control, communication and power supplies with other applications."
+  },
+  {
+    "reference": "IEC 62676-1-2:2013",
+    "edition": "1.0",
+    "date": "2013-10-29",
+    "title": "Video surveillance systems for use in security applications - Part 1-2: System requirements - Performance requirements for video transmission",
+    "language": "EN-FR",
+    "description": "IEC 62676-1-2:2013 introduces general requirements on video transmission. This standard covers the general requirements for video transmissions on performance, security and conformance to basic IP connectivity, based on available, well-known, international standards."
+  },
+  {
+    "reference": "IEC 62676-2-1:2013",
+    "edition": "1.0",
+    "date": "2013-11-07",
+    "title": "Video surveillance systems for use in security applications - Part 2-1: Video transmission protocols - General requirements",
+    "language": "EN-FR",
+    "description": "IEC 62676-2-1:2013 introduces an IP network interface for devices in surveillance applications. This International Standard specifies a network protocol for the full interoperability of video devices. On top of the basic layers protocols are defined to accomplish the full interoperability of video devices. In surveillance applications IP video devices have to use standardized protocols to accomplish following functionality: video streaming, stream control, event handling, discovery, capability description, device management, PTZ control, auxiliaries and other functions."
+  },
+  {
+    "reference": "IEC 62676-2-11:2024",
+    "edition": "1.0",
+    "date": "2024-05-15",
+    "title": "Video Surveillance Systems (VSS) for use in security applications - Part 2-11: Video transmission protocols - Interop profiles for VMS and cloud VSaaS systems for safe cities and law enforcement",
+    "language": "EN-FR",
+    "description": "IEC 62676-2-11:2024 defines minimum requirement profiles for Video Management Systems (VMS) and cloud Video-Surveillance-as-a-Service (VSaaS) Systems to optimize interfacing with third parties. It defines minimum required VMS interoperability levels from video export to exclusive video control, for the sake of remote support, for example in crisis situations, regulating governmental organizations, national law enforcement, private security service companies, public transport operators and other authorities. This document is intended to set the common technical basis for national regulations requiring inter-organizational remote, local or on-site access, for example so that authorities can be granted temporary access to the VSS in the case of emergency situations. This standard is accordingly expected to supersede ISO 22311 (Societal Security - Video-surveillance - Export interoperability)."
+  },
+  {
+    "reference": "IEC 62676-2-31:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Video surveillance systems for use in security applications - Part 2-31: Live streaming and control based on web services",
+    "language": "EN-FR",
+    "description": "IEC 62676-2-31:2019 defines procedures for communication between network video clients and video transmitter devices. This new set of specifications makes it possible to build network video systems with devices and receivers from different manufacturers using common and well-defined interfaces. These interfaces cover functions such as media and imaging configuration, real-time streaming of audio and video, pan, tilt and zoom (PTZ) control as well as analytics. The management and control interfaces defined in this document are described as web services. Annex F contains XML schema and Web Service Description Language (WSDL) definitions for the introduced network services. This first edition, together with IEC 60839-11-31 and IEC 62676-2-32, cancels and replaces IEC 62676-2-3:2013. This edition includes the following significant technical changes with respect to IEC 62676-2-3:2013: a) addition of the Media2 service; b) additional methods for the imaging service; c) method duplicates from the device IO service have been removed; d) both the display and analytics device service are no more included."
+  },
+  {
+    "reference": "IEC 62676-2-32:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Video surveillance systems for use in security applications - Part 2-32: Recording control and replay based on web services",
+    "language": "EN-FR",
+    "description": "IEC 62676-2-32:2019 specifies the web service interface for the configuration of the recording of video, audio and metadata. Additionally, associated events are defined. Web service usage is outside the scope of this document. Please refer to the IEC 60839‑11-31 for more information. This first edition, together with IEC 60839-11-31 and IEC 62676-2-31, cancels and replaces IEC 62676-2-3:2013. This edition includes the following significant technical changes with respect to IEC 62676-2-3:2013: a) an export file format has been added."
+  },
+  {
+    "reference": "IEC 62676-2-33:2022",
+    "edition": "1.0",
+    "date": "2022-07-22",
+    "title": "Video surveillance systems for use in security applications - Part 2-33: Video transmission protocols – Cloud uplink and remote management system access",
+    "language": "EN-FR",
+    "description": "IEC 62676-2-33:2022 specifies management systems interfaces and mechanisms for remote operational access to physical security devices such as video surveillance devices and systems. For video surveillance, the use cases focus on accessing live video and retrieving recordings. The mechanisms defined in this document are not restricted to surveillance applications, but also cover remote access to security systems and electronic access control systems. Configuration of devices and management systems is out of the scope of this document."
+  },
+  {
+    "reference": "IEC 62676-3:2013",
+    "edition": "1.0",
+    "date": "2013-07-22",
+    "title": "Video surveillance systems for use in security applications - Part 3: Analog and digital video interfaces",
+    "language": "EN-FR",
+    "description": "IEC 62676-3:2013 specifies physical, electrical and software interface (non-IP) specifications of analog and digital video interface in video surveillance systems (so far called CCTV) applications. Video interfaces are used both for connection and transmission of surveillance video, audio and control signals. This International Standard applies strictly to Video Surveillance Systems. This standard is based on broadcast television standards and other standards, and it defines the minimum requirements for analog and digital video interfaces to meet VSS's requirements, interoperability and de facto practice."
+  },
+  {
+    "reference": "IEC 62676-4:2025",
+    "edition": "2.0",
+    "date": "2025-10-09",
+    "title": "Video surveillance systems for use in security applications - Part 4: Application guidelines",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62676-4:2025 describes the planning, design, installation, testing, commissioning, and maintaining of video surveillance systems (VSS) comprising image capture device(s), interconnection(s) and image handling device(s), for use in security applications within private or public spaces."
+  },
+  {
+    "reference": "IEC 62676-5:2018",
+    "edition": "1.0",
+    "date": "2018-06-05",
+    "title": "Video surveillance systems for use in security applications - Part 5: Data specifications and image quality performance for camera devices",
+    "language": "EN-FR",
+    "description": "IEC 62676-5:2018 defines recommendations and requirements for representation and measuring methods of performance values to be described in materials such as instruction manuals, brochures and specifications of video surveillance camera equipment. The first part of this document defines requirements for description of video surveillance camera specification items. The second part defines requirements for measurement methods of video surveillance camera specification items."
+  },
+  {
+    "reference": "IEC 62676-5-1:2024",
+    "edition": "1.0",
+    "date": "2024-07-18",
+    "title": "Video surveillance systems for use in security applications - Part 5-1: Data specifications and image quality performance for camera devices - Environmental test methods for image quality performance",
+    "language": "EN-FR",
+    "description": "IEC 62676-5-1:2024 defines measuring methods for performance values of video surveillance camera equipment and defines image quality tests under the given temperature and humidity environment. This document is mainly targeting cameras with integrated lenses as the lenses are a major component that can impact the results. If the lens is selectable, the lens will be stated together with the results."
+  },
+  {
+    "reference": "IEC 62676-6:2026",
+    "edition": "1.0",
+    "date": "2026-02-18",
+    "title": "Video surveillance systems for use in security applications - Part 6: Performance testing and grading of real-time intelligent video content analysis devices and systems for use in video surveillance applications",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62676-6:2026 specifies the functions, performance, interfaces, environmental adaptability, test methods, performance evaluation and grading rules of real-time intelligent video analysis in surveillance systems. This document applies to live and forensic, real-time intelligent video analysis devices and systems in video surveillance. The document is centred on testing performance and grading device functionality which enables: • Core capability: Classification of objects, detection of specific \"object activity\", such as \"stopping\", \"starting\", \"direction of movement\", etc. Examples are listed in Annex A. • Complex capability: Detection of \"scenarios\" which are based on combinations of object activity, such as \"loitering\", \"perimeter intrusion detection\", \"person down\", \"tailgating\", \"intrusion\", \"abandoned object detection\", explosion, fire, flood, potential terrorist attack using a vehicle, owner of an abandoned bag, etc. Examples of current scenarios are listed and described in Annex B. • Degree of difficulty: The application of real operating environments to test the performance under known or required operating stress levels, examples of operating stress levels that are sterile or non-sterile, indoor or outdoor, target obscuration levels, extreme weather conditions, vibrating mechanical rugged environments causing image shake resulting in degradation of image quality requirement, see Table 1 and Annex C. The purpose of this document is to provide end users, at different levels of the service process, from users and installers, integrators and maintenance companies, to certification providers, with methods to measure the performance of video analysis systems that must also comply with other parts of the standard."
+  },
+  {
+    "reference": "IEC 62820-1-1:2026",
+    "edition": "2.0",
+    "date": "2026-03-30",
+    "title": "Building intercom systems - Part 1-1: System requirements - General",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62820-1-1:2026 specifies the technical requirements for building intercom systems and equipment used for building entry."
+  },
+  {
+    "reference": "IEC 62820-1-2:2026",
+    "edition": "2.0",
+    "date": "2026-07-27",
+    "title": "Building intercom systems - Part 1-2: System requirements - Building intercom systems using the Internet protocol (IP)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62820‑1‑2:2026 specifies the technical requirements for the composition, functions, performance and test methods of building intercom systems using the Internet protocol (IP), and it is a supplement to IEC 62820‑1‑1. This document is applicable to the IP building intercom systems for both residential and commercial buildings."
+  },
+  {
+    "reference": "IEC 62820-2:2017",
+    "edition": "1.0",
+    "date": "2017-09-15",
+    "title": "Building intercom systems - Part 2: Requirements for advanced security building intercom systems (ASBIS)",
+    "language": "EN-FR",
+    "description": "IEC 62820-2:2017 specifies the technical requirements for the composition, function, performance and testing methods of Advanced Security Building Intercom Systems. This document is applicable for intercom systems used for any advanced security communication in buildings. Advanced security building intercom systems (ASBIS) are used for rapid emergency and danger messages verification by voice communication, warning of a danger, rapid notification of the responsible emergency services/intervention services and for sending instructions on how to proceed. The requirement for a suitable concept is prior risk assessment and a definition of the protection target."
+  },
+  {
+    "reference": "IEC 62820-3-1:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Building intercom systems - Part 3-1: Application guidelines - General",
+    "language": "EN-FR",
+    "description": "IEC 62820-3-1:2017 gives guidelines for planning, installation, commissioning, operation and maintenance of Building Intercom Systems (BIS), for use in security applications. The different technical requirements for BIS are specified in IEC 62820-1-1 and IEC 62820-1-2. The objectives of this document are to: - provide a framework to assist system integrators, installers, consultant engineers and system owners in establishing their requirements; - assist specifiers and system owners in determining the appropriate equipment required for a given application."
+  },
+  {
+    "reference": "IEC 62820-3-2:2018",
+    "edition": "1.0",
+    "date": "2018-02-06",
+    "title": "Building intercom systems - Part 3-2: Application guidelines - Advanced security building intercom systems (ASBIS)",
+    "language": "EN-FR",
+    "description": "IEC 62820-3-2:2018 describes the basic application requirements for Advanced Security Building Intercom Systems (ASBIS) in public and private buildings with advanced safety and security needs. ASBIS are also used to meet the requirements of the Local Regulations of Workplace Safety and/or other relevant local regulations, in particular, protecting the life and limb of employees and all persons in the building, taking into account the inclusion of people with disabilities (e.g to achieve barrier-free access or calls for help) where required by local applicable law. The recommendations and requirements of IEC 62820-3-1 are mandatory for this document."
+  },
+  {
+    "reference": "IEC 62851-1:2014",
+    "edition": "1.0",
+    "date": "2014-04-10",
+    "title": "Alarm and electronic security systems - Social alarm systems - Part 1: System requirements",
+    "language": "EN-FR",
+    "description": "IEC 62851-1:2014 specifies the minimum requirements for a social alarm system allowing the vocal and/or visual communication between a person and a social alarm service. For people with disabilities (e.g. visual and hearing impairment), additional requirements not covered in this series of standards may apply."
+  },
+  {
+    "reference": "IEC 62851-2:2014",
+    "edition": "1.0",
+    "date": "2014-04-10",
+    "title": "Alarm and electronic security systems - Social alarm systems - Part 2: Trigger devices",
+    "language": "EN-FR",
+    "description": "IEC 62851-2:2014 specifies the requirements and tests for manually-activated trigger devices forming part of a social alarm system. This International Standard only applies to manually-activated trigger devices that transmit the alarm triggering signal to a local unit or controller via cable or wire-free radio transmission, i.e. - push button fixed; - pull switch fixed; - push button portable; - pull switch portable. This standard also gives guidance on automatically-activated trigger devices. For the requirements and tests applicable to such trigger devices, references are made to appropriate ISO/IEC standards for fire alarm, gas alarm and intruder alarm system components."
+  },
+  {
+    "reference": "IEC 62851-3:2014",
+    "edition": "1.0",
+    "date": "2014-04-10",
+    "title": "Alarm and electronic security systems - Social alarm systems - Part 3: Local unit and controller",
+    "language": "EN-FR",
+    "description": "IEC 62851-3:2014 specifies the minimum requirements and tests for local units and controllers forming part of a social alarm system. This International Standard applies to local units and controllers that receive an alarm triggering signal from manually or automatically activated trigger devices and convert this into an alarm signal for transmission to the alarm receiving centre or an alarm recipient. The design should also take into consideration situations where the user may be unable to send an alarm, or where an unwanted alarm may be sent, due to technical malfunctions or poor ergonomic design."
+  },
+  {
+    "reference": "IEC 62851-5:2014",
+    "edition": "1.0",
+    "date": "2014-04-10",
+    "title": "Alarm and electronic security systems - Social alarm systems - Part 5: Interconnections and communications",
+    "language": "EN-FR",
+    "description": "IEC 62851-5:2014 specifies the minimum requirements for the interconnections and communications within a social alarm system."
+  }
+]

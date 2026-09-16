@@ -1,0 +1,74 @@
+[
+  {
+    "reference": "IEC 60071-1:2019",
+    "edition": "9.0",
+    "date": "2019-08-08",
+    "title": "Insulation co-ordination - Part 1: Definitions, principles and rules",
+    "language": "EN-FR, ES",
+    "description": "IEC 60071-1:2019 applies to three-phase AC systems having a highest voltage for equipment above 1 kV. It specifies the procedure for the selection of the rated withstand voltages for the phase-to-earth, phase-to-phase and longitudinal insulation of the equipment and the installations of these systems. It also gives the lists of the standard withstand voltages from which the rated withstand voltages are selected. This document describes that the selected withstand voltages are associated with the highest voltage for equipment. This association is for insulation co-ordination purposes only. The requirements for human safety are not covered by this document. Although the principles of this document also apply to transmission line insulation, the values of their withstand voltages can be different from the standard rated withstand voltages. The apparatus committees are responsible for specifying the rated withstand voltages and the test procedures suitable for the relevant equipment taking into consideration the recommendations of this document. NOTE In IEC 60071-2, all rules for insulation co‑ordination given in this document are justified in detail, in particular the association of the standard rated withstand voltages with the highest voltage for equipment. When more than one set of standard rated withstand voltages is associated with the same highest voltage for equipment, guidance is provided for the selection of the most suitable set. The main changes from the previous edition are as follows: - all references are updated to current IEC standards, and the bibliography is deleted; - some definitions are clarified in order to avoid overlapping and ensure clear understanding; - letter symbols are changed and corrected in order to keep the consistency with relevant IEC standards; - some titles are changed to clarify understanding (see Clauses A.2, A.3 and Annex B). It has the status of a horizontal standard in accordance with IEC Guide 108 ."
+  },
+  {
+    "reference": "IEC 60071-2:2023",
+    "edition": "5.0",
+    "date": "2023-05-24",
+    "title": "Insulation co-ordination - Part 2: Application guidelines",
+    "language": "EN-FR, ES",
+    "description": "IEC 60071-2:2023 constitutes application guidelines and deals with the selection of insulation levels of equipment or installations for three-phase AC systems. Its aim is to give guidance for the determination of the rated withstand voltages for ranges I and II of IEC 60071‑1 and to justify the association of these rated values with the standardized highest voltages for equipment. This association is for insulation co-ordination purposes only. The requirements for human safety are not covered by this document. This document covers three-phase AC systems with nominal voltages above 1 kV, phase-to-earth, phase-to-phase and longitudinal insulation. It has the status of a horizontal standard in accordance with IEC Guide 108. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 4 Concepts governing the insulation co-ordination has been added. b) Subclause 5.3 has been revised, and Subclause 5.4 Detailed simulation has been added because it is widely applied in the recent practices of insulation coordination. c) Special considerations for cable line and GIL/GIB have been added in Clause 9. d) Annex K (informative) Application of line shunt reactor to limitation of TOV and SFO in high voltage overhead transmission lines has been added. e) Annex L (informative) Calculation of lightning stroke rate and lightning outage rate has been added."
+  },
+  {
+    "reference": "IEC TR 60071-4:2004",
+    "edition": "1.0",
+    "date": "2004-06-23",
+    "title": "Insulation co-ordination - Part 4: Computational guide to insulation co-ordination and modelling of electrical networks",
+    "language": "EN",
+    "description": "Gives guidance on conducting insulation co-ordination studies which propose internationally recognized recommendations - for the numerical modelling of electrical systems, and - for the implementation of deterministic and probabilistic methods adapted to the use of numerical programmes. Its object is to give information in terms of methods, modelling and examples, allowing for the application of the approaches presented in IEC 60071-2, and for the selection of insulation levels of equipment or installations, as defined in IEC 60071-1."
+  },
+  {
+    "reference": "IEC 60071-11:2022",
+    "edition": "1.0",
+    "date": "2022-11-08",
+    "title": "Insulation co-ordination - Part 11：Definitions, principles and rules for HVDC system",
+    "language": "EN-FR",
+    "description": "IEC 60071-11:2022 applies to high-voltage direct current (HVDC) systems. It specifies the principles on the procedures for the determination of the specified withstand voltages, creepage distance and air clearances for the equipment and the installations of these systems. This document gives the insulation co-ordination principles related to line commutated converter (LCC) and voltage sourced converters (VSC) HVDC systems. The main principles of this document also apply to other special converter configurations of LCC, such as the capacitor commutated converter (CCC) as well as the controlled series compensated converter (CSCC), etc. This document applies to insulation co-ordination of equipment connected between the converter AC bus (including the AC harmonic filters, the converter transformer, the circuit breakers) and the DC line side. The line and cable terminations in so far as they influence the insulation co-ordination of converter station equipment are also covered. This document applies only for HVDC applications in power systems and not for industrial conversion equipment. Principles and guidance given are for insulation co-ordination purposes only. The requirements for human safety are not covered by this document. This international standard replaces, in conjunction with IEC 60071-12, IEC 60071-5 published in 2014. This edition includes the following significant technical changes with respect to IEC 60071‑5:2014: This standard applies to both LCC and VSC HVDC systems whereas IEC 60071-5 only dealt with LCC HVDC system; Annex C (normative) gives the recommended specified withstand voltage (LI and SI); Annex C (normative) gives the minimum air clearances; Annex E shows the correlation of clauses between this standard and IEC 60071-5:2014. The contents of the corrigendum of November 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60071-11:2022/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-11-29",
+    "title": "Corrigendum 1 - Insulation co-ordination - Part 11：Definitions, principles and rules for HVDC system",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60071-12:2022",
+    "edition": "1.0",
+    "date": "2022-10-14",
+    "title": "Insulation co-ordination - Part 12: Application guidelines for LCC HVDC converter stations",
+    "language": "EN-FR",
+    "description": "IEC 60071-12:2022 applies guidelines on the procedures for insulation co-ordination of line commutated converter (LCC) stations for high-voltage direct current (HVDC) project, whose aim is evaluating the overvoltage stresses on the converter station equipment subjected to combined DC, AC power frequency, harmonic and impulse voltages, and determining the specified withstand voltages for equipment. This document deals only with metal-oxide surge arresters, without gaps, which are used in modern HVDC converter stations. The criteria for determining the protective levels of series and/or parallel combinations of surge arresters used to ensure optimal protection are also presented. Typical arrester protection schemes and stresses of arresters are presented. Annex A contains examples of insulation co-ordination for LCC HVDC converters which support the concepts described in the main text, and the basic analytical techniques used."
+  },
+  {
+    "reference": "IEC TS 61936-0:2023",
+    "edition": "1.0",
+    "date": "2023-05-04",
+    "title": "Power installations exceeding 1 kV AC and 1,5 kV DC - Part 0: Principles to be observed in the design and erection of high voltage installations - Safety of high voltage installations",
+    "language": "EN",
+    "description": "IEC TS 61936-0:2023 provides principles to ensure the coherence amongst HV publications to be observed necessary for the coordination of the design, selection of equipment, operation, and maintenance activities for erection of electrical HV installations to ensure the safety of such systems. In the context of this document, \"safety\" relates to the safety of persons, domestic animals, livestock and property. This Technical Specification is intended for use by technical committees in the preparation of standards with safety aspects which can be a part of an electrical high voltage installation"
+  },
+  {
+    "reference": "IEC 61936-1:2021",
+    "edition": "3.0",
+    "date": "2021-07-07",
+    "title": "Power installations exceeding 1 kV AC and 1,5 kV DC - Part 1: AC",
+    "language": "EN-FR",
+    "description": "IEC 61936-1:2021 provides requirements for the design and the erection of electrical power installations in systems with nominal voltages exceeding 1 kV AC and nominal frequency up to and including 60 Hz, so as to provide safety and proper functioning for the use intended. This document does not apply to the design and erection of any of the following: – overhead and underground lines between separate electrical power installations; – electrified railway tracks and rolling stock; – mining equipment and installations; – fluorescent lamp installations; – installations on ships according to IEC 60092 (all parts) and offshore units according to IEC 61892 (all parts), which are used in the offshore petroleum industry for drilling, processing and storage purposes; – electrostatic equipment (e.g. electrostatic precipitators, spray-painting units); – test sites; – medical equipment, e.g. medical X-ray equipment. This document does not apply to the design of prefabricated, type-tested switchgear and high voltage/low voltage prefabricated substation, for which separate IEC standards exist. This edition includes the following significant technical changes with respect to the previous edition: introduction has been rewritten to reflect the status when this document is produced; the scope has been improved to clarify the application of this document; missing and obsolete terms and definitions have been updated including improvement of existing terms; Table 1 has been updated where agreements between supplier and user are needed; requirements of electromagnetic compatibility have been clarified; insulation coordination clause (Clause 5) has improved wording for better clarity and the technical content has an updated coordination to the latest versions of the insulation coordination standards; wording regarding electrical equipment has been improved and made clearer; subclause for fuses has been improved and reworded; requirements have been added for labelling when multiple sources are required to be disconnected; missing requirements for GIS have been reintroduced; subclause regarding ventilation (HVAC) has been improved; figures in Clause 7 have been updated and moved to the corresponding subclause; requirements for transformer installations have been improved including adjustment of editorial typing-errors; clause on protection, automation and auxiliary systems has been restructured and improved; protection against lightning strokes has been extended; clarification of content due to the distinction between erection (and providing electrical safety for the intended use of the electrical power installation) and subsequent activities such as maintenance and repair with safe working procedures; where no provincial, national or regional regulations are available for safe working procedures, an informative guideline is provided in Annex F. This replaces the former parts of Figure 3 in Clause 7."
+  },
+  {
+    "reference": "IEC 61936-2:2023",
+    "edition": "1.0",
+    "date": "2023-09-26",
+    "title": "Power installations exceeding 1 kV AC and 1,5 kV DC - Part 2: DC",
+    "language": "EN-FR",
+    "description": "IEC 61936-2:2023 provides, in a convenient form, requirements for the design and the erection of DC installations in systems with nominal voltages above 1,5 kV DC, so as to provide safety and proper functioning for the use intended. For the purpose of interpreting this document, a DC installation is considered to be one of the following: a) A converter station or DC switching station; b) one (or more) DC generating or storage unit(s), such as solar farms or battery storage units, located on a single site, the DC installation includes DC equipment and cables with all associated power electronics, controlgear, switchgear and all electrical auxiliary systems. Connections between DC generating or storage units located on different sites are excluded; c) DC installation erected on offshore facilities for the purpose of generation, transmission, distribution and/or storage of electricity; or d) DC transition station (between overhead lines and underground cable or between different sections of underground cables). This International Standard does not apply to the design and erection of any of the following: - overhead and underground lines between separate installations; - electric railways; - mining equipment and installations; i- installations on ships according to IEC 60092 series and offshore units according to IEC 61892 series, which are used in the offshore petroleum industry for drilling, processing and storage purposes; - electrostatic equipment (e.g. electrostatic precipitators, spray-painting units); - test sites; - medical equipment, e.g. medical X-ray equipment; - valve hall or converter hall. This document does not apply to the requirements for carrying out live working on electrical installations. This document does not apply to the design of factory-built, type-tested thyristor valves, VSC valves and switchgear for which separate IEC standards exist. This first edition cancels and replaces the IEC TS 61936-2 published in 2015. This edition constitutes a technical revision. See the foreword of this edition for the list of significant technical changes with respect to the previous edition."
+  }
+]

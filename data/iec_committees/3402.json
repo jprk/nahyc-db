@@ -1,0 +1,330 @@
+[
+  {
+    "reference": "ISO/IEC 7184:2024",
+    "edition": "1.0",
+    "date": "2024-02-02",
+    "title": "Office equipment - Security requirements for hard copy devices (HCDs) - Part 1: Definition of the basic requirements",
+    "language": "EN",
+    "description": "This document defines basic security requirements for the protection of hard copy devices (HCDs) including identification and authentication, security management, software update, field-replaceable nonvolatile storage data protection, network data protection and public switched telephone network (PSTN) fax-network separation. It can be applied to office equipment with network functions including printers, scanners, fax machines, digital copiers, and digital multi-function machines, specifically for small office and home office users. This document assumes a small, private information processing environment in which most elements of security are provided by the physical environment. In such an environment is assumed to be physically and logically protected from threats originating from outside of that environment, typically by limiting physical access to the HCD and connecting it to a LAN that is protected from the public Internet. A small office or home office would be a typical example of this environment. Please note that the requirements outlined in this document are not intended to replace the existing Common Criteria Certification for hardcopy devices which ensure the minimum-security requirements for enterprise environment. For example, aspects being required in Common Criteria Certification such as audit data generation, self-test capabilities, and protection of key material are not adequately addressed."
+  },
+  {
+    "reference": "ISO/IEC 10561:1999",
+    "edition": "2.0",
+    "date": "1999-04-29",
+    "title": "Information technology - Office equipment - Printing devices -  Method for measuring throughput -  Class 1 and Class 2 printers",
+    "language": "EN",
+    "description": "This International Standard specifies a method for measuring the throughput of class 1 and class 2 printers, as defined in ISO/IEC 11160-1. This International Standard specifies three different test patterns: · a standard business letter; · a spreadsheet; · a graphic pattern. In addition, this International Standard defines a method for a performance test and one for an endurance test. These tests are intended to measure only the printer throughput for documents in the same class as the test patterns and not to evaluate any other printer features such as character shaping, print compressions, network/controller performance, colour, etc. The method is relevant to class 1 and class 2 printer types (e.g. dot matrix, daisy wheel, ink jet, thermal transfer printers) and to all configurations (e.g. tractor feed, cut sheet feed, 80-column and over 132-column print width, etc.). It is not the most suitable for comparing performance of other classes of printing devices such as high-speed page-oriented printers or color printers. This method is intended for use by printer manufacturers and test houses so that a common form of test result presentation shall be obtained. It will also enable a user to make a quick and easy comparison of the printing throughput of different printers."
+  },
+  {
+    "reference": "ISO/IEC 10779:2020",
+    "edition": "2.0",
+    "date": "2020-05-11",
+    "title": "Information technology - Office equipment - Accessibility guidelines for older persons and persons with disabilities",
+    "language": "EN",
+    "description": "This document specifies accessibility guidelines to be considered when planning, developing and designing electrophotographic copying machines, page printers and multi-function devices. These guidelines are intended to improve accessibility required when primarily older persons, persons with disabilities and persons with temporary disabilities (hereafter referred to as older persons and persons with disabilities) use office equipment."
+  },
+  {
+    "reference": "ISO/IEC 11160-1:1996",
+    "edition": "1.0",
+    "date": "1996-08-01",
+    "title": "Information technology - Office equipment - Minimum information to be included in specification sheets - Printers - Part 1: Class 1 and Class 2 printers",
+    "language": "EN",
+    "description": "Specifies the minimum information that shall be included in the specification sheets of printers enabling users to compare the characteristics of different machines and select a suitable printer. Applies to Class 3 and Class 4 printers according annex B for an office environment."
+  },
+  {
+    "reference": "ISO/IEC 11160-2:2021",
+    "edition": "3.0",
+    "date": "2021-07-26",
+    "title": "Office equipment - Minimum information to be included in specification sheets - Part 2: Class 3 and Class 4 printers",
+    "language": "EN",
+    "description": "This document specifies the minimum information to be included in the specification sheets of Class 3 and Class 4 printers in order for users to compare the characteristics of different machines. The term “specification sheets” applies to documents which describe the performance characteristics of the printers to be included in instruction manuals, product brochures or on websites. This document applies to printers that can be operated in an office environment. Printers requiring specially equipped rooms or specially instructed operators are not considered in this document. NOTE This document is intended to facilitate users in selecting a printer which meets their requirements. The ISO/IEC 11160 series deals with different classes of printers, such as class 3 and class 4 printers shown in Table C.1 of (Annex C). Elements for classification of printers is given in Annex A. Detailed descriptions of class 3 and class 4 printers are specified in (3.4) and (3.5). Serial printers which are classified as class 1 or class 2 printers as defined and covered in ISO/IEC 11160-1:1997, Annex C."
+  },
+  {
+    "reference": "ISO/IEC 14473:1999",
+    "edition": "1.0",
+    "date": "1999-04-22",
+    "title": "Information technology - Office equipment - Minimum information to be specified for image scanners",
+    "language": "EN",
+    "description": "This International Standard is intended to facilitate user selection of an image scanner. This International Standard specifies the minimum information that shall be included by manufacturers in their specification sheets for scanners. This International Standard is made for the average end user. For this reason it does not describe all specifications of scanners with special features such as double sided scanning or high speed. By insuring consistency of specification of scanner product information, this International Standard enables the end user to make meaningful comparisons of machine functionality and performance characteristics. The most meaningful parameters of function and performance are specified and defined, and measures of performance are provided. This International Standard further applies to types of scanners which are most prevalent in use, including parameters for a scanning engine (an optomechanical physical device) and basic image processing only (those processes include digital data output with encoded gray scale, or unencoded single bit plus halftone data). It does not require specification of advanced application processing such as OCR, translation, vector conversion, etc. Because scanners use both software and/or hardware to achieve some scanner functions and controls, the standard contains some entries related to software even though the standard is primarily for scanner hardware. The manufacturer, at his option, may include description of such additional functionality which may be provided. This standard also does not consider image quality, nor does it provide or use related test targets."
+  },
+  {
+    "reference": "ISO/IEC 15404:2000",
+    "edition": "1.0",
+    "date": "2000-07-20",
+    "title": "Information technology - Office machines - Minimum information to be included in specification sheets - Facsimile equipment",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15775:2022",
+    "edition": "2.0",
+    "date": "2022-12-20",
+    "title": "Information technology - Office equipment - Method of specifying image reproduction of colour copying machines and multifunction devices with copying modes by printed test charts",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 17629:2025",
+    "edition": "2.0",
+    "date": "2025-11-26",
+    "title": "Information technology - Office equipment - Method for measuring first print out time for digital printing devices",
+    "language": "EN",
+    "description": "This document specifies a method for measuring first print out time (FPOT) of digital printing devices. The document is applicable to digital printing devices and multifunctional devices, including black and white (B&W) and colour devices of any underlying marking technology. The document includes instructions for test charts, test setup procedure, test procedure and the reporting requirements for the digital printing measurements."
+  },
+  {
+    "reference": "ISO/IEC 17823:2024",
+    "edition": "2.0",
+    "date": "2024-07-01",
+    "title": "Information technology - Office equipment - Vocabulary for office colour equipment",
+    "language": "EN",
+    "description": "This document provides definitions for colour terms used with office equipment, in particular for use with colour scanning and printing devices that have digital imaging capabilities, including multi-function devices. This document is not intended to replace terms and definitions published in documents or user interfaces issued or created by manufacturers."
+  },
+  {
+    "reference": "ISO/IEC 17991:2021",
+    "edition": "2.0",
+    "date": "2021-01-27",
+    "title": "Information technology - Office equipment - Method for measuring scanning productivity of digital scanning devices",
+    "language": "EN",
+    "description": "This document specifies a method for determining scanning productivity by measuring \"scanning speed\", \"scan to network folder speed\" and \"scan to PC speed\". It includes test files, test setup procedure, test procedure and the reporting requirements for the scanning productivity measurements. This document is applicable to scanning devices including but not limited to multi-function devices, networked scanners and single-function scanners of any underlying scanning technology. This document is applicable to devices which are able to scan a media size of A4/8,5\" × 11\" and which have an automatic document feeder (ADF). It is also applicable to devices which have the ability to scan to network folder, or folder on PC and do not require, but can use, other application programs on a computer or another device to perform a scanning job. This document does not apply to testing and measurement of scan to USB, scan to local hard drive or other storage medium that is part of or plugged into the scanner. This document is not intended to be used for image quality measurement, document or record management of any scanned images."
+  },
+  {
+    "reference": "ISO/IEC 18050:2006",
+    "edition": "1.0",
+    "date": "2006-02-17",
+    "title": "Information technology - Office equipment - Print quality attributes for machine readable Digital Postage Marks",
+    "language": "EN",
+    "description": "ISO/IEC 18050:2006 specifies two methodologies for the measurement of specific print quality attributes of two-dimensional bar code symbols printed within the requirements of Digital Postage Marks. One of these methodologies is applicable to multi-row bar code symbologies and the other to two-dimensional matrix symbologies. ISO/IEC 18050:2006 defines methods for grading print quality attributes and deriving an overall assessment of symbol quality. In addition, it gives information on possible causes of deviation from optimum grades so as to assist users and postal operators in taking appropriate corrective action. ISO/IEC 18050:2006 applies only to those two-dimensional symbologies for which a reference decode algorithm has been defined, and provides an indicative read rate for limiting mean parameter values. The methodologies can be applied partially or wholly to other similar symbologies."
+  },
+  {
+    "reference": "ISO/IEC 19752:2025",
+    "edition": "3.0",
+    "date": "2025-11-20",
+    "title": "Information technology - Office equipment - Method for the determination of toner cartridge yield for monochromatic electrophotographic printers and multi-function devices that contain printer components",
+    "language": "EN",
+    "description": "This document is limited to the evaluation of toner cartridge page yield for toner containing cartridges (i.e. all-in-one toner cartridges and toner cartridges without a photoconductor) for monochrome electrophotographic print systems. This document can also be applied to the printer component of any multifunctional device that has a digital input-printing path, including multi-function devices that contain printer components. This document is only intended for the measurement of toner cartridge yield. No other claims may be made from this testing regarding quality, reliability, etc. This document is not for use with printers whose minimum printable size is equal to or greater than A3 or for photo-only printers. Application of this document for yield measurement of toner replenishment systems (i.e. toner cartridge- and bottle-type systems where the toner reservoir is internal to the printing system and not user-replaceable) implies some procedural modifications specifically noted herein. This document is intended for equipment used in the office space and does not apply to production volume or large format printing machines where the major cost of ownership is not caused by the consumable yield measured in this document. NOTE 1 An all-in-one toner cartridge is a cartridge that includes at least a toner containment part, a photoreceptor part and a developer part (see ISO/IEC 29142-1). NOTE 2 This document can be used for the measurement of one of the contributions to cost per page (CPP). This document does not directly measure CPP, only the yield of the toner cartridges. In most cases, these are not the only contributors to the CPP. It is beyond the scope of this document to provide a methodology for calculation of CPP."
+  },
+  {
+    "reference": "ISO/IEC 19798:2025",
+    "edition": "4.0",
+    "date": "2025-11-20",
+    "title": "Information technology - Office equipment - Method for the determination of toner cartridge yield for colour printers and multi-function devices that contain printer components",
+    "language": "EN",
+    "description": "This document is limited to the evaluation of toner cartridge page yield for toner-containing cartridges (i.e. all-in-one toner cartridges and toner cartridges without a photoconductor) for colour electrophotographic print systems. This document can also be applied to the printer component of any multifunctional device that has a digital input printing path, including multi-function devices that contain electrophotographic printer components. This document is only intended for the measurement of toner cartridge page yield when printing on plain paper using cyan, magenta, yellow and black toner cartridges. No other claims can be made from this testing regarding quality, reliability, etc. This document is not for use with printers whose minimum printable size is equal to or greater than A3 or for photo-only printers. Application of this document for yield measurement of toner replenishment systems (i.e. toner cartridge and bottle type systems where the toner reservoir is internal to the printing system and not user-replaceable) implies some procedural modifications specifically noted herein. This document is intended for equipment used in the office space and does not apply to production volume or large format printing machines where the major cost of ownership is not caused by the consumable yield measured in this document. NOTE 1 An all-in-one toner cartridge is a cartridge that includes at least: a toner containment part, a photoreceptor part and a developer part (see ISO/IEC 29142-1). NOTE 2 This document will be used for the measurement of one of the contributions to cost per page (CPP). This document does not directly measure CPP, only the yield of the magenta, cyan, yellow and black toner cartridges. In most cases, these are not the only contributors to the CPP. It is beyond the scope of this document to provide a methodology for calculation of CPP."
+  },
+  {
+    "reference": "ISO/IEC 19799:2007",
+    "edition": "1.0",
+    "date": "2007-03-13",
+    "title": "Information technology - Method of measuring gloss uniformity on printed pages",
+    "language": "EN",
+    "description": "ISO/IEC 19799:2007 defines methods and processes for measuring objective print quality attributes for the assessment of gloss non-uniformity on printed pages in reflection mode, and provides transforms, when applicable, that relate the objective results to subjective responses if appropriate. The gloss uniformity attributes included in ISO/IEC 19799:2007 are differential gloss, gloss uniformity within a page, and gloss consistency within a run. ISO/IEC 19799:2007 provides a definition of gloss uniformity attributes representative of the print quality on reflection prints, a set of print files for the creation of printed pages for gloss uniformity measurement, a procedure for gloss uniformity testing and the analysis of the resulting data, a method for evaluating and grading these measurements and deriving an assessment of gloss uniformity, the appropriate method of describing the gloss uniformity of printing and copying systems in documentation supplied to the consumer by the manufacturer. The reflection prints that are to be used for measurement can be created via printers or copiers (analog and digital). ISO/IEC 19799:2007 is applicable only to electro-photographic based prints. It does not address the measurement of gloss attributes of printed pages in transmission mode."
+  },
+  {
+    "reference": "ISO/IEC 21117:2012",
+    "edition": "2.0",
+    "date": "2012-06-07",
+    "title": "Information technology - Office equipment - Copying machines and multi-function devices - Information to be included in specification sheets and related test methods",
+    "language": "EN",
+    "description": "ISO/IEC 21117:2012 specifies the information to be listed in specification sheets for electrophotographic digital copying machines and multi-function devices."
+  },
+  {
+    "reference": "ISO/IEC 21118:2020",
+    "edition": "3.0",
+    "date": "2020-02-03",
+    "title": "Information technology - Office equipment - Information to be included in specification sheets for data projectors",
+    "language": "EN",
+    "description": "This document specifies the information to be included in the specification sheets for front projection type data projectors and the form of specification sheets. This document is not applicable to units for a rear screen projection."
+  },
+  {
+    "reference": "ISO/IEC TR 21565:2018",
+    "edition": "1.0",
+    "date": "2018-02-07",
+    "title": "Information technology - Office equipment - Viewing environment guideline for office equipment",
+    "language": "EN",
+    "description": "ISO/IEC TR 21565:2018 provides an overview of office viewing environment and colour characterization guidelines for use with office equipment, in particular colour printing devices that have digital imaging capabilities, including multi-function devices."
+  },
+  {
+    "reference": "ISO/IEC 22505:2019",
+    "edition": "1.0",
+    "date": "2019-12-16",
+    "title": "Information technology - Method for the determination of ink cartridge yield for monochrome inkjet printers and multi-function devices that contain inkjet printer components",
+    "language": "EN",
+    "description": "The scope of this document is limited to the evaluation of black ink cartridge page yield for ink-containing cartridges (i.e. integrated ink cartridges and ink cartridges without integrated printheads) for monochrome inkjet print systems. This document can also be applied to the printer component of any multifunctional device that has a digital input printing path, including multi-function devices that contain inkjet printer components. Both liquid and solid ink products can be tested using this document. This document is only intended for the measurement of ink cartridge page yield when printing on plain paper. No other claims can be made from this testing regarding quality, reliability, etc. This document can be used to measure the yield of any cartridge that is used in a significant amount during the printing of the test page defined in ISO/IEC 19752. This document is not for use with printers whose minimum printable size is equal to or greater than A3 or for printers designed or configured to print photos (for example, maximum printable size less than A4 or a printer configuration intended for photo only printing). In addition, this document only applies to drop on demand printing systems. NOTE Integrated ink cartridge is a cartridge that includes at least: an ink containment part, an ink deposition mechanism and an ink transport part (see ISO/IEC 29142-1)."
+  },
+  {
+    "reference": "ISO/IEC 22592-1:2024",
+    "edition": "1.0",
+    "date": "2024-01-26",
+    "title": "Office equipment - Print quality measurement methods for colour prints - Part 1: Image quality measurement methods",
+    "language": "EN",
+    "description": "This document specifies test methods as well as test charts to measure the image quality attributes and those variations in colour prints typically used in office environment. Included are digital colour prints formed by using a multifunction or single function printer. Printers supporting a maximum paper size of A4 or larger are suitable for the measurements using the test charts defined in this document. The image quality attributes included are colour reproduction, line quality, graininess and mottle. The sources of variation considered are locations in a page (within-page variation), printed side in a sheet (side-to-side variation), printed order of the sheet (sheet-to-sheet variation) and colours printed on the back side of evaluated patch (show-through variation). A duplex print set, comprising several sheets which are printed by multifunction or single function printer with colour images on both surfaces of a substrate, is a main application of the test methods to measure image quality variations in the set. Variations, such as within-page variation and sheet-to-sheet variation, are also applicable for a simplex print set comprising several sheets which are printed colour images on one surface of a substrate and no image on the other surface. Both duplex and simplex printers are applicable to form a print set. When image qualities of duplex prints are measured, duplex printers which are capable to print images on both sides of substrate automatically are applicable to form duplex prints. However, simplex printers which require a manual arrangement of substrates between the front side and back side printing to form duplex prints are out of scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 22592-2:2024",
+    "edition": "1.0",
+    "date": "2024-01-26",
+    "title": "Office equipment - Print quality measurement methods for colour prints - Part 2: Registration and magnification accuracy",
+    "language": "EN",
+    "description": "This document specifies test methods as well as test charts to measure the geometric property attributes and those variations in duplex colour prints typically used in office environment. This document is applicable to duplex prints comprising several sheets which are printed colour images on both surfaces of a substrate. “Within-page variation” and “sheet-to-sheet variation” are also applicable for a simplex print set comprising several sheets, which are printed colour images on one surface of a substrate and no image on the other surface. Prints with four primary colourants other than cyan, magenta, yellow and black are outside the scope of this document. Included are digital prints formed by using a multifunction or single function printer. When a duplex print set is evaluated, duplex printers which are capable to print images on both sides of substrate automatically are applicable, while simplex printers which require a manual arrangement of substrates between the front side and back side printing to form duplex prints are out of scope of this document. The printers of the maximum applicable substrate size of A4 or larger are suitable for the measurements. The geometric property attributes included are registration and magnification of a print set. Microscopic geometrical density variations, such as graininess, mottle and line raggedness, are outside the scope of this document. The sources of variations considered are locations in a page, print side in a sheet, print order of sheets in a print set, and variations among primary colours."
+  },
+  {
+    "reference": "ISO/IEC 22592-3:2025",
+    "edition": "1.0",
+    "date": "2025-01-28",
+    "title": "Office equipment - Print quality measurement methods for colour prints - Part 3: Physical durability measurement methods",
+    "language": "EN",
+    "description": "This document specifies test methods as well as test charts for measuring the physical durability attributes of duplex colour prints, typically used in office environment. This document is applicable to duplex prints comprising several sheets with colour images printed on both sides of a substrate. A multifunction or single function printer is used to form the duplex prints. This document is intended to be used to evaluate the durability of colour prints under environment and stress conditions assuming general office use, including transportation from the place of printing to where practically used. Permanence and durability in archival and storage environments are out of scope of this document and can be evaluated by the methods in ISO 11798. The physical durability attributes included are thermal and humidity blocking, water resistance, abrasion resistance and scratch resistance. All of these attributes are also applicable to a simplex print set comprising several sheets with colour images printed on one side of a substrate and no image on the other side."
+  },
+  {
+    "reference": "ISO/IEC 22954:2022",
+    "edition": "1.0",
+    "date": "2022-05-25",
+    "title": "Information technology - Office equipment - Automated colour profile distribution",
+    "language": "EN",
+    "description": "This document specifies a method of automated colour profile distribution to large format inkjet printers. This document applies to digital colour printers and their printer controllers for which ICC colour management is necessary or desired. This document also applies to the print settings profile providers. The extent of automation covered includes the printer controller acquiring information about the overall situation, connecting to a print settings profile provider on the Internet, determining the best possible profile to download (if it exists), and downloading and installation of the profile. This document covers general concepts and procedures and does not go into a level of detail necessary to establish syntactic or semantic interoperability. This document covers ICC version 4 output profiles as specified by ISO 15076-1, but does not cover device link profiles."
+  },
+  {
+    "reference": "ISO/IEC TR 22981:2020",
+    "edition": "1.0",
+    "date": "2020-06-12",
+    "title": "Information technology - Office equipment - Guidelines for the development of an ontology (vocabulary, components and relationships) for office equipment",
+    "language": "EN",
+    "description": "This document provides background information and guidelines for the development of an ontology for office equipment. An example of how such a standard can be used to automate the identification of resources for colour is provided. NOTE Often the terms vocabulary and ontology are used with the same meaning."
+  },
+  {
+    "reference": "ISO/IEC 23385:2022",
+    "edition": "1.0",
+    "date": "2022-07-18",
+    "title": "Information technology - Office equipment - Method for measuring single photo printing time for digital printing devices",
+    "language": "EN",
+    "description": "This document specifies a method for measuring single photo printing time of digital photo printing devices on a wide range of print technologies. This document is applicable to digital photo printing devices that can produce photo prints on either 2” × 3” (51 mm × 76 mm), L (89 mm × 127 mm), 4” × 6” (102 mm × 152 mm), A6 (105 mm × 148 mm), A4 (210 mm × 297 mm), 8,5” × 11” (215,9 mm × 279,4 mm), 11” × 17” (279,4 mm × 431,8 mm), A3 (297 mm × 420 mm) or A3+ size sheets. Devices can be connected to either the computer system, media card or mobile devices. This document includes test setup procedure, test runtime procedure and reporting requirements for the digital single photo printing time measurements. Instant photoprint systems, which do not complete image formation at the time of paper ejection from device, are out of the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 24700:2005",
+    "edition": "2.0",
+    "date": "2005-06-29",
+    "title": "Quality and performance of office equipment that contains reused components",
+    "language": "EN",
+    "description": "ISO/IEC 24700:2004 specifies product characteristics for use in an original equipment manufacturer's or authorized third party's declaration of conformity to demonstrate that a marketed product that contains reused components performs equivalent to new, meeting equivalent to new component specifications and performance criteria, and continues to meet all the safety and environmental criteria required by responsibly built products. It is relevant to marketed products whose manufacturing and recovery processes result in the reuse of components. Annex C has a description of how reuse relates to other recycling processes. ISO/IEC 24700:2004 is applicable to: A situation in which a government requires a neutral benchmark to evaluate the quality, safety and performance of equipment that contains reused components and to demonstrate the environmental responsibility of the supplier. When regulations mandate a neutral benchmark for equipment, ISO/IEC 24700:2004 provides the benchmark for proving compliance with such regulations. A situation in which a commercial supplier requires a neutral benchmark to demonstrate and communicate the quality, safety and performance of equipment that contains reused components and to demonstrate the environmental responsibility of the supplier. Situations in which consumers require a neutral benchmark to identify or distinguish environmentally responsible products. ISO/IEC 24700:2004 reflects the world's current approaches that yield products from many manufacturing processes including the reuse of components, with the equipment's warranties and guarantees playing an important role in market acceptance. In today's procurement processes, technical equipment definitions used by regulators must be addressed and, in that sense, ISO/IEC 24700:2004 will be useful in procurement and in the trade facilitation area, to communicate with regulators. ISO/IEC 24700:2004 specifically addresses office equipment. However, in the future it may provide valuable directions for other industries and industrial sectors."
+  },
+  {
+    "reference": "ISO/IEC 24711:2021",
+    "edition": "4.0",
+    "date": "2021-01-11",
+    "title": "Information technology - Office equipment - Method for the determination of ink cartridge yield for colour inkjet printers and multi-function devices that contain printer components",
+    "language": "EN",
+    "description": "The scope of this document is limited to the evaluation of ink cartridge page yield for ink-containing cartridges (i.e. integrated ink cartridges and ink cartridges without integrated printheads) for colour inkjet print systems. This document can also be applied to the printer component of any multifunctional device that has a digital input printing path, including multi-function devices that contain inkjet printer components. Both liquid and solid ink products can be tested using this document. This document is only intended for the measurement of ink cartridge page yield when printing on plain paper. No other claims can be made from this testing regarding quality, reliability, etc. This document can be used to measure the yield of any cartridge that is used in a significant amount during the printing of the test page suite defined in ISO/IEC 24712. This document is not for use with printers whose minimum printable size is equal to or greater than A3 or for printers designed or configured to print photos (for example, maximum printable size less than A4 or a printer configuration intended for photo-only printing). In addition, it only applies to drop-on-demand printing systems. NOTE Integrated ink cartridges is a cartridge that includes at least: an ink containment part, an ink deposition mechanism and an ink transport part (see ISO/IEC 29142-1)."
+  },
+  {
+    "reference": "ISO/IEC 24712:2007",
+    "edition": "2.0",
+    "date": "2007-12-10",
+    "title": "Colour test pages for measurement of office equipment consumable yield",
+    "language": "EN",
+    "description": "ISO/IEC 24712:2007 defines colour test pages for the measurement of consumable yield. The test page suite includes four \"customer\" type documents and one \"diagnostic\" page that is used to determine end of ink or toner consumable life. These pages can be used for electro-photographic, inkjet printers and multi-function devices that have a digital printing path, i.e. an all-in-one electro-photographic machine that has digital printing capabilities. ISO/IEC 24712:2007 provides a set of test pages in a common file format that would be used in the testing of consumable yield. The procedure for using these pages is detailed in ISO/IEC 19798 and ISO/IEC 24711. These pages are intended to represent some of the document types that are used in the office and home. They are not intended to represent special applications such as photo printing."
+  },
+  {
+    "reference": "ISO/IEC 24712:2007/AMD1:2026",
+    "edition": "2.0",
+    "date": "2026-06-12",
+    "title": "Colour test pages for measurement of office equipment consumable yield - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 24734:2021",
+    "edition": "3.0",
+    "date": "2021-04-09",
+    "title": "Information technology - Office equipment - Method for measuring digital printing productivity",
+    "language": "EN",
+    "description": "This document specifies a method for measuring the digital printing productivity of digital printing devices with various office applications and print job characteristics. This document is applicable to digital printing devices, including single-function and multi-function devices, regardless of print technology (e.g. inkjet, laser). Devices can be equipped with a range of paper feed and finishing options either directly connected to the computer system or via a network. It is intended to be used for black and white (B&W) as well as colour digital printing devices. It allows for the comparison of the productivity of machines operating in various available modes (simplex, duplex, size of substrates, etc.) and office applications when the test system environment, operating modes, and job mix for each machine are held identical. This document includes test files, test setup procedure, test runtime procedure, and the reporting requirements for the digital printing productivity measurements. This document is not intended to be used for devices which are not able to print on a media size of A4/8,5” × 11” or for devices which are not able to collate multiple copies of a print. This document is not intended to replace manufacturer's rated speeds."
+  },
+  {
+    "reference": "ISO/IEC 24735:2021",
+    "edition": "3.0",
+    "date": "2021-04-09",
+    "title": "Information technology - Office equipment - Method for measuring digital copying productivity",
+    "language": "EN",
+    "description": "This document specifies a method for measuring the digital copying productivity of digital copying devices and multifunctional devices with various copying modes. It is applicable to digital copying devices and multifunctional devices equipped with automatic document feeder (ADF) and collating function. This document is intended to be used for black and white (B&W) as well as colour digital copying devices and multifunctional devices of any underlying marking technology. It allows comparison of the throughput copying rates for a machine operated in various available operating modes (simplex, duplex, size of substrates, 2-up, etc.) and various available digital image processing configurations. This document includes test files, test setup procedures, test procedures, and reporting requirements for digital copying productivity measurements. This document is not intended to be used for devices which are not able to copy on a media size of A4/8,5” × 11”, devices that do not have an ADF, or devices which are not able to collate multiple copies of original prints from a test set. This document is not intended to replace manufacturer's rated speeds."
+  },
+  {
+    "reference": "ISO/IEC 24790:2017",
+    "edition": "1.0",
+    "date": "2017-02-24",
+    "title": "Information technology - Office equipment - Measurement of image quality attributes for hardcopy output - Monochrome text and graphic images",
+    "language": "EN",
+    "description": "ISO/IEC 24790:2017 specifies device-independent image quality attributes, measurement methods and analytical procedures to describe the quality of output images from hardcopy devices. This document is applicable to human-readable monochrome documents produced from printers and copiers. The attributes, methods and procedures rely on measurable properties of printed text and graphic images. Special targets or reference images are not required, but image elements are useful for adequate measurements only if they meet some minimal requirements, e.g. on size or number present. This document is not applicable to images on media other than hardcopy (e.g. images on a visual display) or to images that are intended to be machine readable only (e.g. bar codes)."
+  },
+  {
+    "reference": "ISO/IEC 24790:2017/AMD1:2022",
+    "edition": "1.0",
+    "date": "2022-10-21",
+    "title": "Information technology - Office equipment - Measurement of image quality attributes for hardcopy output - Monochrome text and graphic images - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 29102:2023",
+    "edition": "3.0",
+    "date": "2023-10-06",
+    "title": "Information technology - Office equipment - Method for the determination of ink cartridge yield for colour photo printing with inkjet printers and multi-function devices that contain inkjet printer components",
+    "language": "EN",
+    "description": "The purpose of this document is to provide a method to determine the ink cartridge yield of ink-containing cartridges (i.e. integrated ink cartridges and ink cartridges without integrated print heads) for colour photo printing with colour inkjet printers and multifunction devices that contain inkjet printer components. In the case where a cartridge set can be used in multiple printer models, only one yield test is performed as long as the difference between printer models does not impact yield. NOTE A cartridge supplier can choose to use more than one market identifier for a single physical cartridge. In this case only one yield test is required as long as there are no differences in the cartridges other than market identifiers. This document prescribes the following: — the test method that manufacturers, test laboratories, etc. use to determine ink cartridge yield; — the method for determination of declared cartridge yield values for photo printing from the test results; and — the appropriate method of describing the cartridge yield for photo printing in documentation supplied to the consumer by the manufacturer. This document is only intended for the determination of ink cartridge yield. No other claims can be made from this testing regarding quality, reliability, etc. This document can be used to determine the yield of any cartridge that is used during the printing of the photo test file defined in ISO/IEC 29103. This document is not for use with printers whose minimum printable size is equal to or greater than A3. This document is not intended to measure the yield of photo printing on paper size larger than 4\" × 6\", L or A6. In addition, this document is not for use with industrial printers or point of sale printers. It only applies to desktop printing systems."
+  },
+  {
+    "reference": "ISO/IEC 29103:2011",
+    "edition": "1.0",
+    "date": "2011-04-28",
+    "title": "Information technology - Office equipment - Colour photo test pages for measurement of ink cartridge yield for colour photo printing",
+    "language": "EN",
+    "description": "ISO/IEC 29103:2011 defines a set of test images in a common file format, JPEG, that are used in the testing of cartridge yield for printing of photographs. The defined documents are used in ISO/IEC 29102 to determine the photo yield of cartridges in an inkjet-based printing system."
+  },
+  {
+    "reference": "ISO/IEC 29112:2018",
+    "edition": "1.0",
+    "date": "2018-11-07",
+    "title": "Information technology - Office equipment - Test pages and methods for measuring monochrome printer resolution",
+    "language": "EN",
+    "description": "This document defines methods for the objective measurement of the print quality characteristics that contribute to the perceived resolution of reflection mode monochrome printed pages produced by digital electro-photographic printers. The measurement methods of this document are derived from several existing techniques for the assessment of an imaging system's resolution characteristics. Each of these measurement methods is intended for the engineering evaluation of a printing system's perceived resolution and is not intended to be used for purposes of advertising claims. The methods of this document are applicable only to monochrome prints produced in reflection mode by electro-photographic printing technology. This document is intended for monochrome printers utilizing PostScript®[1] interpreters capable of accepting PostScript and encapsulated PostScript (EPS) jobs. [1] PostScript® and Encapsulated PostScript® are registered trademarks for freely usable page description formats controlled and defined by Adobe Systems Incorporated. This information is given for the convenience of users of this document and does not constitute an endorsement by ISO/IEC."
+  },
+  {
+    "reference": "ISO/IEC 29142-1:2021",
+    "edition": "2.0",
+    "date": "2021-08-31",
+    "title": "Information technology - Print cartridge characterization - Part 1: General: terms, symbols, notations and cartridge characterization framework",
+    "language": "EN",
+    "description": "This document establishes terms, symbols, notations and a framework for characterizing toner and ink cartridges used in printing devices that have a digital input printing path, including multi-function devices. This document is intended for equipment used in office environments. It primarily provides a foundation for measuring, evaluating, or specifying characteristics of such toner and ink cartridges. The terms, symbols, notations and framework established herein can be applied to such cartridges. The characterizations associated with the terms, symbols, notations, and framework established herein are specified throughout the ISO/IEC 29142 series."
+  },
+  {
+    "reference": "ISO/IEC 29142-2:2013",
+    "edition": "1.0",
+    "date": "2013-03-25",
+    "title": "Information technology - Print cartridge characterization - Part 2: Cartridge characterization data reporting",
+    "language": "EN",
+    "description": "ISO/IEC 29142-2:2013 establishes the product and package labelling, and related reporting provisions for toner and ink cartridges used in printing devices that have a digital input printing path, including multi-function devices. It is intended for equipment used in office environments. ISO/IEC 29142-2:2013 defines the information requirements for the cartridge characterization documentation on packaging and cartridges, and in reports."
+  },
+  {
+    "reference": "ISO/IEC 29142-3:2013",
+    "edition": "1.0",
+    "date": "2013-02-12",
+    "title": "Information technology - Print cartridge characterization - Part 3: Environment",
+    "language": "EN",
+    "description": "ISO/IEC 29142-3:2013 describes the principles and framework for environmental assessment of ink and toner cartridges used in printing devices that have a digital input printing path, including multi-function devices, including: a) the goals and definitions related to environmental responsibility; b) guidance to determine the relative benefits of reuse, recycling, recovery, and reduction techniques; c) identification and prioritization of environmental attributes according to each phase of the cartridge life-cycle; d) criteria for establishing environmentally sustainable practices. ISO/IEC 29142-3:2013 establishes foundational terms, definitions, attributes, and test methods for cartridge environmental standards, environmental labels, and green procurement criteria. ISO/IEC 29142-3:2013 standardizes treatment of environmental interactions and impacts throughout the cartridge life-cycle, and promotes harmonization of environmental standards, environmental labels, and green procurement criteria pertaining to ink and toner cartridges, thereby reducing impact on the environment and informing and benefiting the cartridge customer. ISO/IEC 29142-3:2013 establishes environmental terms, definitions, attributes and test methods in accordance with the terms, symbols, notations and framework of ISO/IEC 29142-1 and ISO Guide 64."
+  },
+  {
+    "reference": "ISO/IEC 29183:2021",
+    "edition": "2.0",
+    "date": "2021-04-13",
+    "title": "Information technology - Office equipment - Method for measuring digital copying productivity for a single one-sided original",
+    "language": "EN",
+    "description": "This document specifies a method for measuring productivity of digital copying devices and multifunctional devices with various copying modes and a single one-sided original. The document is applicable to digital copying devices and multifunctional devices. The document is intended to be used for black and white (B&W) as well as colour digital copying devices and multifunctional devices of any underlying marking technology. This document includes instructions for the creation of test charts, test setup procedure, test procedure, and the reporting requirements for the digital copying productivity measurements. This document is not intended to replace manufacturer's rated speeds."
+  },
+  {
+    "reference": "ISO/IEC TR 29186:2012",
+    "edition": "1.0",
+    "date": "2012-07-13",
+    "title": "Information technology - Office equipment - Test method of colour gamut mapping algorithm for office colour softcopy and hardcopy",
+    "language": "EN",
+    "description": "ISO/IEC TR 29186:2012 is a supplement to CIE 156:2004, applicable for use in evaluating the colour gamut mapping algorithms of office colour softcopy and hardcopy equipment. ISO/IEC TR 29186:2012 defines test charts, test chart image processing workflow, media, viewing conditions, measurements, colour spaces and experimental methods, suitable for use with office equipment, which either do not exist in CIE 156:2004 or are different from CIE 156:2004. Colour softcopy may be displayed on monitors, incorporating display technologies such as CRT and LCD. Colour hardcopy may be produced by non-impact colour printers, including technologies such as ink jet and electro photography."
+  }
+]

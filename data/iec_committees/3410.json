@@ -1,0 +1,466 @@
+[
+  {
+    "reference": "ISO/IEC 2382-36:2019",
+    "edition": "3.0",
+    "date": "2019-06-07",
+    "title": "Information technology - Vocabulary - Part 36: Learning, education and training",
+    "language": "EN-FR, RU",
+    "description": "This document provides terms and definitions for vocabulary used in the field of learning, education and training (LET) to facilitate international communication in the field. This document also identifies and provides the relationships among the vocabulary ensuring a cohesive and harmonized approach."
+  },
+  {
+    "reference": "ISO/IEC TR 4339:2022",
+    "edition": "1.0",
+    "date": "2022-01-17",
+    "title": "Information technology for learning, education and training - Reference model for information and communications technology (ICT) evaluation in education",
+    "language": "EN",
+    "description": "This document defines an abstract model and an indicator system framework for the evaluation of information and communications technology (ICT) in learning, education and training (LET). The abstract model accommodates requirements domains, including K12 education, vocational education, higher education and continuing education. The framework describes ICT service levels in the areas of learning, education and training, and aims to assist in quality processes associated with ICT in LET contexts."
+  },
+  {
+    "reference": "ISO/IEC 4932:2025",
+    "edition": "1.0",
+    "date": "2025-12-10",
+    "title": "Information Technology - Learning, education and training - Access for All (AfA) metadata for accessibility core properties",
+    "language": "EN",
+    "description": "This document specifies a common, interoperable set of extensible properties for the description of resource content, functionality, user needs and preferences, to enable network-supported individualization of resources, services and environments to match the unique needs and preferences of the individual. This document includes all relevant mechanisms for the publication of terminology for such descriptions, including publicly available registries of properties and related metadata resources such as application profiles. This document takes an inclusive approach to individualization, since any user can experience a mismatch of their individual needs and preferences and the content or services delivered; it is not restricted to descriptions related to stereotypical notions of disability. It provides properties for describing access attributes of resources. It does not ascribe medical conditions to such properties (e.g. ‘non-visual’ as a property value does not infer visual disability, as when the user’s eyes are busy watching the road). This document defines a set of core Access for All (AfA) properties that can be used in a digital resource description (DRD), an AfA record, and equally in a stored personal needs and preferences profile, also an AfA record. It also includes how to extend or add a property or its value using an application profile as defined by ISO/IEC 19788-1."
+  },
+  {
+    "reference": "ISO/IEC 8808:2026",
+    "edition": "1.0",
+    "date": "2026-02-06",
+    "title": "Information technology for learning, education and training - Online course information model",
+    "language": "EN",
+    "description": "This document presents an online course information model, highlighting common elements and their descriptions. This document also describes online courses. Its purpose is to support conceptual understanding of online courses and instructional strategies in online education. This model can be used to inform about the design and development of online courses, and to support migration of online courses between different platforms under the premise of copyright transfer. The information model of online courses can be extended based on metadata of learning resource (MLR) rules."
+  },
+  {
+    "reference": "ISO/IEC TR 9858:2026",
+    "edition": "1.0",
+    "date": "2026-01-28",
+    "title": "Information technology - Use cases on advanced learning analytics services using emerging technologies",
+    "language": "EN",
+    "description": "This document provides a collection of use cases on advanced learning analytics services, which leverages emerging technologies such as cloud computing, blockchain, virtual reality, internet of things, artificial intelligence in K12 education, higher education, and vocational education and training (VET). This document also establishes a categorization of different groups of learning analytics services and outlines their interrelationships. This document is applicable to the design and development of learning analytics activities."
+  },
+  {
+    "reference": "ISO/IEC 12785-1:2009",
+    "edition": "1.0",
+    "date": "2009-12-03",
+    "title": "Information technology - Learning, education, and training - Content packaging - Part 1: Information model",
+    "language": "EN",
+    "description": "ISO/IEC 12785-1:2009 defines the data structures that can be used to exchange language, education and training (LET) content among systems that wish to import, export, aggregate, and disaggregate packages of LET content. It illustrates the conceptual structure of the Content Packaging Information Model and defines the structural relationships, data-type, value-space, and number of occurrences permitted for each kind of information object."
+  },
+  {
+    "reference": "ISO/IEC 12785-1:2009/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-05-13",
+    "title": "Information technology - Learning, education, and training - Content packaging - Part 1: Information model - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 12785-2:2011",
+    "edition": "1.0",
+    "date": "2011-11-14",
+    "title": "Information technology - Learning, education, and training - Content packaging - Part 2: XML binding",
+    "language": "EN",
+    "description": "ISO/IEC 12785-2:2011 specifies how to express the ISO/IEC 12785-1 information model in XML."
+  },
+  {
+    "reference": "ISO/IEC TR 12785-3:2012",
+    "edition": "1.0",
+    "date": "2012-04-23",
+    "title": "Information technology - Learning, education, and training - Content packaging - Part 3: Best practice and implementation guide",
+    "language": "EN",
+    "description": "ISO/IEC TR 12785-3:2012 presents use cases and shows how they are satisfied by ISO/IEC 12785-1 which is derived from the IMS Global Learning Consortium (GLC) Content Packaging version 1.2 (v1.2)."
+  },
+  {
+    "reference": "ISO/IEC TR 18120:2016",
+    "edition": "1.0",
+    "date": "2016-08-04",
+    "title": "Information technology - Learning, education, and training - Requirements for e-textbooks in education",
+    "language": "EN",
+    "description": "ISO/IEC TR 18120:2016 makes recommendations that are intended to build consensus on which International Standards for e-textbooks can be developed. It is a follow up to the collection of inputs from interested parties and aims to - review the current state of the e-textbook market, - summarize LET requirements for e-textbooks based on use cases and survey of interested parties, - review existing data standards that are referenced by potential e-textbook standards, - describe key terms and concepts that underpin any further discussion on e-textbook standards, - propose a set of functionalities that will be required for e-textbook reader software, - make recommendations for any modification to existing data standards, and - make recommendations for any new data standards that might be needed."
+  },
+  {
+    "reference": "ISO/IEC TR 18121:2015",
+    "edition": "1.0",
+    "date": "2015-12-03",
+    "title": "Information technology - Learning, education and training - Virtual experiment framework",
+    "language": "EN",
+    "description": "ISO/IEC TR 18121:2015 defines the framework for IT standards and specifications on virtual experiments supporting IT-enhanced learning, education and training. It is based on implementations of standards and specifications that are used to support virtual experiment, development, evaluation and management that rely on ITLET. This ISO/IEC TR 18121:2015 - provides a framework that can be used for virtual experiment systems that rely on ITLET, - determines the categories of different virtual experiment standards and specifications and their relationships to facilitate their integration, - promotes the appropriate design and application of virtual experiment components so that IT systems that are being used are reusable, low cost, and more broadly applicable, - indicates considerations to be taken into account when developing ITLET systems that are being developed or used to support virtual experiment systems, - provides sample architecture of a virtual experiment system framework that can be used to support further development of virtual experiments, - illustrates various roles that different actors can have at various points within the virtual experiment system, - demonstrates how standards and specifications that support virtual experiments can be combined to form the basis for future work and implementations. The following aspects are not addressed in this ISO/IEC TR 18121:2015: - specifications of the implementation details of virtual experiment systems; - accessibility; - privacy; - security."
+  },
+  {
+    "reference": "ISO/IEC 19479:2019",
+    "edition": "1.0",
+    "date": "2019-03-01",
+    "title": "Information technology for learning, education, and training - Learner mobility achievement information (LMAI)",
+    "language": "EN",
+    "description": "This document defines a model for the recording and exchange of learner achievement information among student information systems (SIS) (also known as student management information systems), as well as the aggregation of information by third party suppliers. In addition, this document defines refinements to the learner mobility achievement award (LMAI) model for representing the digital diploma supplement (DDS). NOTE The proposed model proposed is not intended to define the representation of the entire spectrum of learner mobility information but to define the formally structured representation of official, institutionally attested achievement information for learners engaged in formal learning processes, in order to facilitate its recording and subsequent exchange within any international area within which learner mobility is possible. Achievement information structured and presented in compliance with this document could, of course, be used for other purposes, for instance, to provide descriptions of achievement to enrich a learner-owned report in an e-portfolio. However, guidance on the document and the organisation of information for purposes other than the representation of formal achievement reports is outside the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 19778-1:2015",
+    "edition": "2.0",
+    "date": "2015-10-19",
+    "title": "Information technology - Learning, education and training - Collaborative technology - Collaborative workplace - Part 1: Collaborative workplace data model",
+    "language": "EN",
+    "description": "ISO/IEC 19778:2015 specifies a table-based approach for defining Data Models. This Data Model specification is used for specifying the collaborative workplace Data Model. The same Data Model specification is also used in ISO/IEC 19778‑2 and ISO/IEC 19778‑3 to define the related components of the collaborative environment (ISO/IEC 19778‑2) and the collaborative group (ISO/IEC 19778‑3) in separate Data Models. The collaborative workplace Data Model specifies the Data Model Elements and their interrelationships that enable the creation of collaborative workplace Data Model instantiations. Any conforming collaborative workplace Data Model instantiation describes or specifies a particular collaborative workplace with which it is associated."
+  },
+  {
+    "reference": "ISO/IEC 19778-2:2015",
+    "edition": "2.0",
+    "date": "2015-10-19",
+    "title": "Information technology - Learning, education and training - Collaborative technology - Collaborative workplace - Part 2: Collaborative environment data model",
+    "language": "EN",
+    "description": "ISO 19778-2:2015 specifies the Data Model for a collaborative environment. The collaborative environment Data Model composes collaborative tools and declares their collaborative functions by specifying their names. These names can be used as references to collaborative tools and collaborative functions specified in detail by further specifications or standards. Where no such specifications or standards are available or identified, the provision of descriptions for human interpretation may support harmonized use of these names."
+  },
+  {
+    "reference": "ISO/IEC 19778-3:2015",
+    "edition": "2.0",
+    "date": "2015-10-19",
+    "title": "Information technology - Learning, education and training - Collaborative technology - Collaborative workplace - Part 3: Collaborative group data model",
+    "language": "EN",
+    "description": "ISO/IEC 19778-3:2015 specifies the Data Model for a collaborative group. The collaborative group Data Model composes roles which can be played by the participants of a collaborative group, declares the intended role holders (positions for playing a particular role) for each role, and (at least during the life-span of the collaborative workplace) assigns participants to these role holders. The role names may be used as references to roles specified in detail by further specifications or standards. Where no such specifications or standards are available or identified, the provision of descriptions for human interpretation may support harmonized use of these names. Provided participant identifiers may be used as references to detailed participant information which may be specified in a provided user management system. In future editions of this part of ISO/IEC 19778, the identification of participant types referring to a harmonized or standardized participant typology may be provided. Such a provision would upgrade the value of anonymized collaborative group Data Model instantiations for being reused as templates. Currently, the collaborative groups specified by this Data Model are static. Participants may not be online all the time; in a collaborative group, private discussions may occur; participants may leave the collaborative group during the life-state of the collaborative workplace. It is not yet clear to which degree such aspects can and should be addressed in future editions of this part of ISO/IEC 19778."
+  },
+  {
+    "reference": "ISO/IEC 19780-1:2015",
+    "edition": "2.0",
+    "date": "2015-10-20",
+    "title": "Information technology - Learning, education and training - Collaborative technology - Collaborative learning communication - Part 1: Text-based communication",
+    "language": "EN",
+    "description": "ISO/IEC 19780-1:2015 specifies the Data Model for text-based expressions. It provides a standardized way of isolating and describing textual expressions composed and communicated by collaborative group members."
+  },
+  {
+    "reference": "ISO/IEC 19788-1:2024",
+    "edition": "2.0",
+    "date": "2024-11-08",
+    "title": "Information technology for learning, education and training - Metadata for learning resources - Part 1: Framework",
+    "language": "EN, FR",
+    "description": "This document provides a framework that applies to all resources and specifies how to describe resources. It includes rules governing the way in which descriptions are made. This document provides principles, rules and structures for specifying the description of any type of resource; it identifies and establishes attributes for specifying properties, resources classes, vocabularies and application profiles and the rules governing their use. The key principles set out in this document are framed in a user-centric context and aim to meet the requirements of multilingual and cultural adaptability from a global perspective. This document can be used for the specification of metadata describing any type of resource (not only learning resources). This document is information-technology-neutral and defines a set of common approaches. This document specifies generic properties, generic resource classes and predefined rule sets for content value rules. These generic elements are proposed in such a way that they can be widely reused, thereby promoting interoperability. This document is applicable to the development of: — application profiles based on the ISO/IEC 19788 series but not part of it or any other document based on it, — standards consisting of the description of resources (in a broad sense), whether they belong to the domain of education or to any other domain."
+  },
+  {
+    "reference": "ISO/IEC 19788-2:2026",
+    "edition": "2.0",
+    "date": "2026-09-09",
+    "title": "Information technology for learning, education and training - Metadata for learning resources - Part 2: Dublin Core properties",
+    "language": "EN",
+    "description": "This document provides a set of properties for the description of learning resources from ISO 15836-1 and ISO 15836-2 using the framework provided in ISO/IEC 19788-1. This document specifies properties whose codomain is \"literal\" (as considered in early Dublin Core) and properties whose codomain is a resource class; the ISO 15836 series implicitly allowing both. This provides full interoperability at the time of expressing existing Dublin Core records with MLR, while allowing a linked data approach for the description of learning resources."
+  },
+  {
+    "reference": "ISO/IEC 19788-3:2011",
+    "edition": "1.0",
+    "date": "2011-12-06",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 3: Basic application profile",
+    "language": "EN, FR",
+    "description": "The primary purpose of ISO/IEC 19788 is to specify metadata elements and their attributes for the description of learning resources. This includes the rules governing the identification of data elements and the specification of their attributes. ISO/IEC 19788 provides data elements for the description of learning resources and resources directly related to learning resources. ISO/IEC 19788-3:2011 is designed to help implementers with a starting point for adopting ISO/IEC 19788, defining an application profile that specifies, through adding constraints to the use of some data elements, how the ISO/IEC 19788-2 element set can be used."
+  },
+  {
+    "reference": "ISO/IEC 19788-3:2011/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-11-01",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 3: Basic application profile - Amendment 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19788-4:2014",
+    "edition": "1.0",
+    "date": "2014-11-20",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 4: Technical elements",
+    "language": "EN",
+    "description": "ISO/IEC 19788-4:2014 specifies, in a rule-based manner, metadata elements and their attributes for the description of learning resources. This includes the rules governing the identification of metadata elements and the specification of metadata attributes. These metadata elements are used to form the description of a learning resource, i.e. as a metadata learning resource (MLR) record. This part of ISO/IEC 19788 specifies, using ISO/IEC 19788-1, technical aspects of learning resources, i.e., requirements for use, location, size, etc."
+  },
+  {
+    "reference": "ISO/IEC 19788-5:2012",
+    "edition": "1.0",
+    "date": "2012-04-25",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 5: Educational elements",
+    "language": "EN, FR",
+    "description": "ISO/IEC 19788 specifies, in a rule-based manner, metadata elements and their attributes for the description of learning resources. This includes the rules governing the identification of metadata elements and the specification of metadata attributes. These metadata elements are used to form the description of a learning resource, i.e. as a metadata learning resource (MLR) record. ISO/IEC 19788-5:2012 specifies, using the framework specified in ISO/IEC 19788-1, educational aspects of learning resources across various educational, cultural and linguistic settings."
+  },
+  {
+    "reference": "ISO/IEC 19788-7:2019",
+    "edition": "1.0",
+    "date": "2019-04-10",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 7: Bindings",
+    "language": "EN",
+    "description": "This document provides RDF mappings of the different MLR entities introduced in the MLR framework (ISO/IEC 19788‑1 and its amendment): data element specifications (DESs), resource classes (RCs), data elements (DEs), application profiles (APs), MLR records and data element group specifications (DEGSs). This document associates HTTP IRIs (linguistically neutral and linguistic) to conceptual MLR entities denoted by MLR identifiers. This is needed for the management of MLR entities and their versions. Moreover, this document provides excerpts of an OWL 2 DL ontology for the resource classes and data element specifications (properties) introduced in the ISO/IEC 19788 series."
+  },
+  {
+    "reference": "ISO/IEC 19788-8:2015",
+    "edition": "1.0",
+    "date": "2015-11-03",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 8: Data elements for MLR records",
+    "language": "EN",
+    "description": "ISO/IEC 19788-8:2015 provides data elements for the description of MLR records: sets of data elements describing a learning resource [and resources directly related to that learning resource, e.g. persons (authors, contributors), annotations, learning activities, metadata records, etc.]. It can also be used to keep track of the record editing process including global metadata author identification, last record update, and application profile used for the description of a learning resource. These elements can later be combined with other descriptive elements from other parts of ISO/IEC 19788 or other standards to provide the description of a learning resource and of related entities needed for that description. ISO/IEC 19788-8:2015 enables the storage of learning resource description in the traditional database approach and the exchange of descriptions through harvesting mechanisms."
+  },
+  {
+    "reference": "ISO/IEC 19788-9:2015",
+    "edition": "1.0",
+    "date": "2015-11-06",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 9: Data elements for persons",
+    "language": "EN",
+    "description": "ISO/IEC 19788-9:2015 provides data elements for the description of persons (individual or organization) that are related to the description of a learning resource. These elements can later be combined with other descriptive elements from other type 1 parts of ISO/IEC 19788 or other standards to provide the description of a learning resource and of related entities needed for that description."
+  },
+  {
+    "reference": "ISO/IEC TR 19788-11:2017",
+    "edition": "1.0",
+    "date": "2017-04-21",
+    "title": "Information technology - Learning, education and training - Metadata for learning resources - Part 11: Migration from LOM to MLR",
+    "language": "EN",
+    "description": "ISO/IEC TR 19788-11:2017 provides guidance in the form of rules and heuristics for the development of a conversion script from an IEEE 1484.12.1-2002 (LOM) record to an MLR data element set. Not all of LOM can be mapped to the MLR. As more parts are added to the ISO/IEC 19788 series, future version of this document is expected to provide a better coverage of the LOM metadata."
+  },
+  {
+    "reference": "ISO/IEC 19796-3:2009",
+    "edition": "1.0",
+    "date": "2009-01-19",
+    "title": "Information technology - Learning, education and training - Quality management, assurance and metrics - Part 3: Reference methods and metrics",
+    "language": "EN",
+    "description": "ISO/IEC 19796-3:2009 extends the reference framework for the description of quality approaches (RFDQ) defined in ISO/IEC 19796-1 by providing a harmonized description of the methods and metrics required to implement quality management and quality assurance systems for stakeholders designing, developing, or utilizing information technology systems used for learning, education, and training."
+  },
+  {
+    "reference": "ISO/IEC 20006-1:2014",
+    "edition": "1.0",
+    "date": "2014-07-03",
+    "title": "Information technology for learning, education and training - Information model for competency - Part 1: Competency general framework and information model",
+    "language": "EN",
+    "description": "ISO/IEC 20006-1:2014 provides: a general framework for dealing with competency information in information technology for learning, education, and training (ITLET) contexts; a system architecture for managing and exchanging competency information and its related objects; an information model for expressing competency and its related objects that includes an introduction to the composition of competency; use cases used to support the development of the general framework and competency information model. ISO/IEC 20006-1:2014 is for those who design and use learning systems and human resources systems to support management and exchange of competency information using ITLET systems. ISO/IEC 20006-1:2014 is related to the Conceptual Reference Model developed in ISO/IEC TR 24763. Information regarding the relationships between the ISO/IEC 20006 and ISO/IEC TR 24763 is provided."
+  },
+  {
+    "reference": "ISO/IEC 20006-2:2015",
+    "edition": "1.0",
+    "date": "2015-03-18",
+    "title": "Information technology for learning, education and training - Information model for competency - Part 2: Proficiency level information model",
+    "language": "EN",
+    "description": "ISO/IEC 20006-2:2015 provides an information model for competency proficiency and its level. Moreover, it presents several use cases that can be used by software developers, implementers, and architects of human resources systems and learning systems. These use cases will support management and exchange of competency information within information technology systems used for learning, education, and training. NOTE: This International Standard is based on work completed in ISO/IEC TR 24763."
+  },
+  {
+    "reference": "ISO/IEC 20013:2020",
+    "edition": "1.0",
+    "date": "2020-10-15",
+    "title": "Information technology for learning, education and training - Reference framework of e-Portfolio information",
+    "language": "EN",
+    "description": "This document specifies a reference framework of e-Portfolio implementation that can be used to inform and support development of ITLET systems that meet the requirements of learners, instructors, e-learning service providers and others in contexts such as K-12 education, higher education, training and personal development. The reference framework identifies content and functional components that support e-Portfolio systems. It addresses interoperability issues required for data exchange between these components and among the various categories. This document: — provides an e-Portfolio reference framework; — provides descriptions of e-Portfolios in terms of components (content or functional), categories, elements and items; — identifies commonalities of current implementations of e-Portfolios; and, — represents the needs of stakeholders (learners, instructors, etc.). This document does not include: — in-depth technical review of issues related to adaptability to culture, language, and human functions; — security techniques related to the protection of privacy information; — authentication of the identity of an IT or ITLET system user; — how e-Portfolios might integrate with ITLET systems; and, — specific requirements of e-Portfolios or e-Portfolio systems to meet jurisdictional domain requirements."
+  },
+  {
+    "reference": "ISO/IEC 20016-1:2014",
+    "edition": "1.0",
+    "date": "2014-02-05",
+    "title": "Information technology for learning, education and training - Language accessibility and human interface equivalencies (HIEs) in e-learning applications - Part 1: Framework and reference model for semantic interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 20016-1:2014 states the principles, rules and metadata elements for specifying language accessibility and Human Interface Equivalents (HIEs) in e-learning environments. It is structured to be able to support the requirements of applicable jurisdictional domains and in particular that of the UN Convention on the Rights of Persons with Disabilities."
+  },
+  {
+    "reference": "ISO/IEC TR 20748-1:2016",
+    "edition": "1.0",
+    "date": "2016-12-15",
+    "title": "Information technology for learning, education and training - Learning analytics interoperability - Part 1: Reference model",
+    "language": "EN",
+    "description": "ISO/IEC TR 20748-1:2016 specifies a reference model that identifies the diverse IT system requirements of learning analytics interoperability. The reference model identifies relevant terminology, user requirements, workflow and a reference architecture for learning analytics."
+  },
+  {
+    "reference": "ISO/IEC TR 20748-2:2017",
+    "edition": "1.0",
+    "date": "2017-08-28",
+    "title": "Information technology for learning, education and training - Learning analytics interoperability - Part 2: System requirements",
+    "language": "EN",
+    "description": "ISO/IEC TR 20748-2:2017 specifies system requirements for learning analytics systems and services. Learning analytics systems and services are assumed to be composed of independent processes and applications having diverse purposes. To improve efficiency for communication and operation between systems and/or services, the system requirements identify each system's role, capability and recommended performance, etc. The system requirements are based on ISO/IEC TR 20748‑1 and additional use cases came from the National Bodies and Liaison Organizations (NBLOs)."
+  },
+  {
+    "reference": "ISO/IEC TS 20748-3:2020",
+    "edition": "1.0",
+    "date": "2020-03-26",
+    "title": "Information technology for learning, education and training - Learning analytics interoperability - Part 3: Guidelines for data interoperability",
+    "language": "EN",
+    "description": "This document specifies guidelines for mapping between different learning analytics data representations. Using xAPI and IMS Caliper as reference specifications, this document introduces data API regarding learning analytics as well as guidelines to use the APIs, which can be generalized to other contexts. Both syntactic and semantic mappings are in scope."
+  },
+  {
+    "reference": "ISO/IEC TS 20748-4:2019",
+    "edition": "1.0",
+    "date": "2019-09-02",
+    "title": "Information technology for learning, education and training - Learning analytics interoperability - Part 4: Privacy and data protection policies",
+    "language": "EN",
+    "description": "This document specifies privacy and data protection requirements and attributes to inform design of learning analytics systems and learning analytics practices in schools, universities, workplace learning and blended learning settings."
+  },
+  {
+    "reference": "ISO/IEC TR 20821:2018",
+    "edition": "1.0",
+    "date": "2018-07-18",
+    "title": "Information technology - Learning, education and training - Learning environment components for automated contents adaptation",
+    "language": "EN",
+    "description": "This document specifies two methods for adaptive content automation. Firstly, a learning environment profile for the expression of device and learning environment information required for mobile learning providers of both content and services, and for effective use of such services. Secondly, a grouping method is specified so that similar learning environment profiles can be bound into one and expressed collectively."
+  },
+  {
+    "reference": "ISO/IEC 22602:2019",
+    "edition": "1.0",
+    "date": "2019-09-30",
+    "title": "Information technology - Learning, education and training - Competency models expressed in MLR",
+    "language": "EN, FR",
+    "description": "This document specifies the description of entities of the real world dealing with competencies, competencies description, competencies evaluation, and of the operations done by these entities on competencies. This document provides a model to express all information required for the exchange and integration of heterogeneous descriptions of \"competency\" and of heterogeneous \"competency objects\": — any item of discourse in the real world related to \"competency\" has a representation preserving its meaning in the proposed model; — this representation allows comparison, hierarchical classification and aggregation of different items of discourse related to \"competency\". The concrete content of items of discourse in the real world related to \"competency\" is not specified in this document, which only deals with the formal expression of the discourse."
+  },
+  {
+    "reference": "ISO/IEC 23126:2021",
+    "edition": "1.0",
+    "date": "2021-04-19",
+    "title": "Information technology for learning, education and training - Ubiquitous learning resource organization and description framework",
+    "language": "EN-FR, EN",
+    "description": "This document specifies a framework to describe and organize learning resources in ubiquitous learning. It provides features to enable dynamic aggregation of resources in different learning contexts, in which the social interactions are recorded to facilitate social learning. The features that reflect the evolutionary history of resources based on learners’ contributions are also defined. The framework includes an aggregation model, content organization, context-aware learning services, and learning cell service provider."
+  },
+  {
+    "reference": "ISO/IEC 23127-1:2021",
+    "edition": "1.0",
+    "date": "2021-06-30",
+    "title": "Information technology - Learning, education, and training - Metadata for facilitators of online learning - Part 1: Framework",
+    "language": "EN",
+    "description": "This document specifies a metadata structure to store, present and exchange online learning facilitator (OLF) information by specifying the data elements and their attributes to describe facilitator’s information on various kinds of online education platforms. This document provides a generic information model of OLF to describe relevant information that applies to the facilitation and training services provided online, and includes information about the person offering facilitation, the affiliation of the person, facilitation ability, facilitation practices, the facilitation service offered, learners’ reviews and testimonies, and related social network information. The conceptual data model allows the linguistic diversity of OLF information attributes and offers a flexible metadata schema to describe them. NOTE 1 Although this document provides suggestions on how to designate metadata elements that require privacy protection, it does not provide detailed methods or techniques for how to implement privacy protection measures. NOTE 2 For metadata with privacy, the application profile in ISO/IEC 19788-1 can be used to tag data elements concerning privacy and define them with conditions. OLF information privacy protection methods and techniques, such as privacy-by-design, can be selected and applied as needed by implementers."
+  },
+  {
+    "reference": "ISO/IEC TR 23842-1:2020",
+    "edition": "1.0",
+    "date": "2020-10-06",
+    "title": "Information technology for learning, education and training - Human factor guidelines for virtual reality content - Part 1: Considerations when using VR content",
+    "language": "EN",
+    "description": "This document presents considerations for using VR content in the learning, education and training (LET) domain for reducing reality and virtual reality crossover confusion among users and assisting users to effectively use these emerging technologies. This document addresses VR content that uses a head-mounted display (HMD) in the LET domain. It does not address VR content using immersive technology and does not address augmented reality, mixed or merged reality content."
+  },
+  {
+    "reference": "ISO/IEC TR 23842-2:2020",
+    "edition": "1.0",
+    "date": "2020-10-06",
+    "title": "Information technology for learning, education, and training - Human factor guidelines for virtual reality content - Part 2: Considerations when making VR content",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 23843:2020",
+    "edition": "1.0",
+    "date": "2020-10-19",
+    "title": "Information technology for learning, education and training - Catalogue model for virtual, augmented and mixed reality content",
+    "language": "EN",
+    "description": "This document describes how to search for virtual reality (VR), augmented reality (AR) and mixed reality (MR) content through a curriculum catalogue based on curriculum and achievement standards information. The curriculum catalogue metadata is defined in order to search for educational VR and MR content information."
+  },
+  {
+    "reference": "ISO/IEC TR 23844:2023",
+    "edition": "1.0",
+    "date": "2023-02-17",
+    "title": "Information technology for learning, education, and training - Immersive content and technology",
+    "language": "EN",
+    "description": "This document specifies potential directions for using immersive technologies in learning, education, and training (LET) and provides suggestions on what can be standardized for this purpose. For the purposes of this document, immersive technologies include augmented reality (AR), virtual reality (VR), mixed reality or merged reality (MR). This document does not apply to technologies such as metaverse, digital twin and extended reality (XR)."
+  },
+  {
+    "reference": "ISO/IEC 23988:2007",
+    "edition": "1.0",
+    "date": "2007-01-23",
+    "title": "Information technology - A code of practice for the use of information technology (IT) in the delivery of assessments",
+    "language": "EN, RU",
+    "description": "Growth in the power and capabilities of information technology (IT) has led to the increasing use of IT to deliver, score and record responses of tests and assessments in a wide range of educational and other contexts. Suitably used, IT delivery offers advantages of speed and efficiency, better feedback and improvements in validity and reliability, but its increased use has raised issues about the security and fairness of IT-delivered assessments, as well as resulting in a wide range of different practices. ISO/IEC 23988:2007 provides a means of showing that the delivery and scoring of the assessment are fair and do not disadvantage some groups of candidates, for example those who are not IT literate; showing that a summative assessment has been conducted under secure conditions and is the authentic work of the candidate; showing that the validity of the assessment is not compromised by IT delivery; providing evidence of the security of the assessment, which can be presented to regulatory and funding organizations (including regulatory bodies in education and training, in industry or in financial services); establishing a consistent approach to the regulations for delivery, which should be of benefit to assessment centres who deal with more than one assessment distributer; giving an assurance of quality to purchasers of \"off-the-shelf\" assessment software. ISO/IEC 23988:2007 gives recommendations on the use of IT to deliver assessments to candidates and to record and score their responses. Its scope is defined in terms of three dimensions: the types of assessment to which it applies, the stages of the assessment \"life cycle\" to which it applies and its focus on specifically IT aspects."
+  },
+  {
+    "reference": "ISO/IEC 24703:2004",
+    "edition": "1.0",
+    "date": "2004-05-26",
+    "title": "Information technology - Participant Identifiers",
+    "language": "EN",
+    "description": "The purpose of ISO/IEC 24703:2004 is to define the datatype of identifiers that can be associated with participants in learning, education and training. Participants may be users, teachers, agents, groups, organizations or institutions."
+  },
+  {
+    "reference": "ISO/IEC 24751-1:2008",
+    "edition": "1.0",
+    "date": "2008-09-16",
+    "title": "Information technology - Individualized adaptability and accessibility in e-learning, education and training - Part 1: Framework and reference model",
+    "language": "EN-FR",
+    "description": "ISO/IEC 24751 is intended to meet the needs of learners with disabilities and anyone in a disabling context. ISO/IEC 24751-1:2008 provides a common framework to describe and specify learner needs and preferences on the one hand and the corresponding description of the digital learning resources on the other hand, so that individual learner preferences and needs can be matched with the appropriate user interface tools and digital learning resources."
+  },
+  {
+    "reference": "ISO/IEC 24751-2:2008",
+    "edition": "1.0",
+    "date": "2008-09-16",
+    "title": "Information technology - Individualized adaptability and accessibility in e-learning, education and training - Part 2: \"Access for all\" personal needs and preferences for digital delivery",
+    "language": "EN",
+    "description": "ISO/IEC 24751-2:2008 provides a common information model for describing the learner or user needs and preferences when accessing digitally delivered resources or services. This description is one side of a pair of descriptions used in matching user needs and preferences with education delivery (as described in ISO/IEC 24751-1). ISO/IEC 24751-2:2008 discusses the basic principles adhered to in developing this model for describing personal needs and preferences. It explains: the rationale for using a functional approach to describing needs, possible methods of creating a personal needs and preference statement, the major groupings of needs and preferences within the standard, the use of different needs and preferences statements in different contexts, how needs and preferences can be ranked with respect to priority, and the use of generic and application-specific needs and preference specifications. It contains the information model for ISO/IEC 24751-2:2008, including the attribute, allowed occurrence and datatype of each element. It defines and describes how the terms in the information model should be used. Conformance to ISO/IEC 24751-2:2008 is discussed. Conformance is dependent on the role played by the conformant technology. Conformance requirements for both education delivery applications and alternative access systems are explained. ISO/IEC 24751-2:2008 provides a consolidated list of all the terms defined in ISO/IEC 24751-2:2008, sorted in French alphabetical order, the ISO French language equivalent terms and definitions, and the codes representing the gender of the French terms. The vocabulary codes, values and associated rules of application are defined. An informative list of recommended default values for the learner preferences and needs is provided. It lists existing bindings of the IMS Learner Information Package Accessibility for LIP - Version 1 [ACCLIP] that serves as the reference specification for ISO/IEC 24751-2:2008. It describes information scenarios for applying ISO/IEC 24751-2:2008 and gives informative implementation examples. Use of ISO/IEC 24751-2:2008 will assist in matching individual learner needs in a computer mediated learning environment with the necessary user interface and resources needed to meet those needs."
+  },
+  {
+    "reference": "ISO/IEC 24751-3:2008",
+    "edition": "1.0",
+    "date": "2008-09-16",
+    "title": "Information technology - Individualized adaptability and accessibility in e-learning, education and training - Part 3: \"Access for all\" digital resource description",
+    "language": "EN",
+    "description": "ISO/IEC 24751-3:2008 provides a common language for describing digital learning resources to facilitate matching of those resources to learners' accessibility needs and preferences (as defined in ISO/IEC 24751-2). This description is one side of a pair of descriptions used in matching user needs and preferences with education delivery (as described in ISO/IEC 24751-1). ISO/IEC 24751-3:2008 discusses the basic principles adhered to in developing this model for describing digital learning resources. It explains: the assumptions made in developing ISO/IEC 24751-3:2008, the notion of an original and adapted resource, the major categories of metadata for original and adapted resources, the notion of an access mode for a resource, what is meant by adaptability, and the importance of interoperability and the role played by consistent implementation in interoperability. It contains the information model for ISO/IEC 24751-3, including the attribute, allowed occurrence and datatype of each element. It defines and describes how the terms in the information model should be used, and explains how ISO/IEC 24751-3:2008 can be extended. It discusses conformance to ISO/IEC 24751-3. Conformance is dependent on the role played by the conformant technology. Conformance requirements for both education delivery applications, resources and metadata authoring tools are explained. ISO/IEC 24751-3:2008 provides a consolidated list of all the terms defined in ISO/IEC 24751-3:2008, sorted in French alphabetical order, the ISO French language equivalent terms and definitions, and the codes representing the gender of the French terms. The vocabulary codes, values and associated rules of application are defined. An informative list of recommended default values for the learner preferences and needs is provided. It lists existing bindings of the IMS Access for All Metadata Specification Version 1 (ACCMD) that serves as the reference specification for ISO/IEC 24751-3:2008. It describes information scenarios for applying ISO/IEC 24751-3:2008 and gives informative implementation examples. Use of ISO/IEC 24751-3:2008 will assist in matching individual learner needs in a computer-mediated learning environment with the necessary user interface and resources needed to meet those needs."
+  },
+  {
+    "reference": "ISO/IEC 24751-4:2023",
+    "edition": "1.0",
+    "date": "2023-02-03",
+    "title": "Information technology - Individualized adaptability and accessibility in e-learning, education and training - Part 4: \"Access for all\" framework for individualized accessibility and registry server application programming interface (API)",
+    "language": "EN",
+    "description": "This document specifies an AfA concept registry service, in particular: — requirements on registries; — requirements on concept submissions; — a data format (in JSON) for the exchange of registry entries (AfA concept records) between registry servers; — a set of RESTful operations for AfA concept registry servers to allow for the manipulation of AfA concept registry entries by external clients other than server-internal web interfaces."
+  },
+  {
+    "reference": "ISO/IEC TR 24763:2011",
+    "edition": "1.0",
+    "date": "2011-05-19",
+    "title": "Information technology - Learning, education and training - Conceptual Reference Model for Competency Information and Related Objects",
+    "language": "EN",
+    "description": "ISO/IEC TR 24763:2011 provides a Conceptual Reference Model that comprises categories of items, attributes, and relationships. It can be used to identify the relationships between concepts represented within an information technology for learning, education and training (ITLET) system, such as competency, knowledge, skills, capabilities, qualifications, performance, and learning objectives. It can be used to identify related objects that are used to convey competency information. ISO/IEC TR 24763:2011 pertains to the exchange and integration of heterogeneous information relating to information technology (IT) systems that are used by learning, education and training (LET) organizations and their communities in order to manage, develop, describe, transfer or assess competency information or other related objects. The scope is further elaborated as follows. ISO/IEC TR 24763:2011 provides guidance regarding the level of detail and precision expected and required to describe, in relation to the ITLET Conceptual Reference Model, IT systems that are used to manage, develop, describe, transfer or assess competency information or other related objects within the LET fields. ISO/IEC TR 24763:2011 provides a definition of competency (ITLET) specific to competency as it is represented within an IT system. This definition is not domain dependent and acknowledges the unique challenges of representing competency information within IT systems. ISO/IEC TR 24763:2011 is intended specifically to introduce requisite contextual information, i.e. the environment, which can, for example, include information such as location description, duration, date and time. The exchange of relevant information from IT systems among LET organizations and their communities, and harmonization with their models, fall within the scope of ISO/IEC TR 24763:2011. ISO/IEC TR 24763:2011 introduces the topic of privacy needs as they relate to IT systems that are used by LET organizations in order to manage, develop, describe, transfer or assess competency information or other related objects. ISO/IEC TR 24763:2011 focuses on information about participants, related elements, and the respective relationships included within IT systems in LET that are used to manage, develop, describe, transfer or assess competency information or other related objects."
+  },
+  {
+    "reference": "ISO/IEC 29140:2021",
+    "edition": "1.0",
+    "date": "2021-11-15",
+    "title": "Information technology for learning, education and training - Nomadicity and mobile technologies",
+    "language": "EN",
+    "description": "This document establishes a learner information model specific to mobile learning to enable learning, education and training environments to reflect the specific needs of mobile participants. It gives guidance on the use of a learner information model for mobile technology in learning, education and training (mobile learning). This document can be used as a reference by software developers, implementers, instructional designers, teachers, trainers, automated systems and learning management systems."
+  },
+  {
+    "reference": "ISO/IEC TR 29163-1:2009",
+    "edition": "1.0",
+    "date": "2009-12-03",
+    "title": "Information technology - Sharable Content Object Reference Model (SCORM®) 2004 3rd Edition - Part 1: Overview Version 1.1",
+    "language": "EN",
+    "description": "ISO/IEC TR 29163-1:2009 provides an overview of the Sharable Content Object Reference Model (SCORM®) 2004 3rd Edition documentation suite, the SCORM® 2004 3rd Edition Conformance Test Suite and SCORM® 2004 3rd Edition Sample Run-Time Environment."
+  },
+  {
+    "reference": "ISO/IEC TR 29163-2:2009",
+    "edition": "1.0",
+    "date": "2009-12-03",
+    "title": "Information technology - Sharable Content Object Reference Model (SCORM®) 2004 3rd Edition - Part 2: Content Aggregation Model Version 1.1",
+    "language": "EN",
+    "description": "Within the context of the Sharable Content Object Reference Model (SCORM®), ISO/IEC TR 29163-2:2009 describes the components used in a learning experience, how to package those components for exchange from system to system, how to describe those components to enable search and discovery and how to define sequencing information for the components. ISO/IEC TR 29163-2:2009 promotes the consistent storage, labeling, packaging, exchange and discovery of learning content. ISO/IEC TR 29163-2:2009 describes responsibilities and requirements for building content and content organizations (e.g., course, lessons, modules, etc.). It contains information on creating content packages, applying metadata to the components in the content package and applying sequencing and navigation details in the context of a content package. SCORM® Content Packaging, as described in ISO/IEC TR 29163-2:2009, provides a consistent form for describing content structures, learning content, the metadata that describes the various components of the content structures and sequencing and navigation rules. This consistency facilitates search and discovery of content packages and their resources (helping facilitate reuse of SCORM® conformant content), building of content organizations that will behave in a similar manner from system to system and standard understanding of the contents of the content package. General subjects discussed include the following: Content Model: Definition of common terminology used throughout the CAM book; Content Packaging: Descriptions and requirements for aggregating and bundling learning content; Metadata: Descriptions and requirements for describing SCORM® components; Sequencing and Navigation: Descriptions and requirements for defining sequencing and navigation information."
+  },
+  {
+    "reference": "ISO/IEC TR 29163-3:2009",
+    "edition": "1.0",
+    "date": "2009-12-03",
+    "title": "Information technology - Sharable Content Object Reference Model (SCORM®) 2004 3rd Edition - Part 3: Run-Time Environment Version 1.1",
+    "language": "EN",
+    "description": "Within the context of the Sharable Content Object Reference Model (SCORM®), ISO/IEC TR 29163-3:2009 describes the Learning Management System (LMS) requirements in managing the run-time environment (i.e., content launch process, standardized communication between content and LMSs and standardized data model elements used for passing information relevant to the learner's experience with the content). It also covers the requirements of Sharable Content Objects (SCOs) and their use of a common Application Programming Interface (API) and the SCORM® Run-Time Environment (RTE) Data Model. ISO/IEC TR 29163-3:2009 covers the essential LMS responsibilities for sequencing content objects (SCOs or Assets) during run-time and allowing SCOs to indicate navigation requests. In addition, guidance is offered for providing navigation controls to learners. General subjects discussed include the following: RTE Management: Launching of content objects – SCOs and Assets, Management of communications with a SCO, Run-time environment data model management; Application Programming Interface (API): LMS API requirements, SCORM® communication requirements, communication error conditions; SCORM® Run-Time Environment Data Model: Data model management and behavior requirements, Data type requirements."
+  },
+  {
+    "reference": "ISO/IEC TR 29163-4:2009",
+    "edition": "1.0",
+    "date": "2009-12-03",
+    "title": "Information technology - Sharable Content Object Reference Model (SCORM®) 2004 3rd Edition - Part 4: Sequencing and Navigation Version 1.1",
+    "language": "EN",
+    "description": "Within the context of the Sharable Content Object Reference Model (SCORM®), ISO/IEC TR 29163-4:2009 describes how SCORM® conformant content can be sequenced to the learner through a set of learner or system-initiated navigation events. The branching and flow of that content can be described by a predefined set of activities. ISO/IEC TR 29163-4:2009 covers the essential Learning Management System (LMS) responsibilities for sequencing content objects (Sharable Content Objects [SCOs] or Assets) during run-time and allowing SCOs to indicate navigation requests. In addition, guidance is offered for providing navigation controls to learners. General subjects discussed include the following: Sequencing Concepts and Terminology (e.g., Learning Activities, Activity Trees, Clusters); Sequencing Definition Model (i.e., detailed descriptions and requirements of the sequencing information that can be applied to learning activities); Sequencing Behavior Model (i.e., detailed descriptions of LMS behaviors to prescribed sequencing information and learner's experience with learning content); Navigation Controls and Requirements; Navigation Data Model. Communication between content and LMSs facilitates use of SCORM® Sequencing and Navigation to present content to learners based on learner choices and performance at run-time. This communication also enables LMSs to track learner completion and progress while content is presented to the learner. ISO/IEC TR 29163-4:2009 describes in detail how sequencing behaviors are applied to track learner progress."
+  },
+  {
+    "reference": "ISO/IEC 29187-1:2013",
+    "edition": "1.0",
+    "date": "2013-02-06",
+    "title": "Information technology - Identification of privacy protection requirements pertaining to learning, education and training (LET) - Part 1: Framework and reference model",
+    "language": "EN",
+    "description": "ISO/IEC 29187-1:2013 has been developed to support modelling generic international requirements for identifying and providing privacy protection of personal information throughout any kind of ICT-based learning transaction where the individual has the role of an individual learner. It provides users and designers with a methodology and tools addressing privacy protection and related requirements imposed by applicable jurisdictional domains. ISO/IEC 29187-1:2013 takes the \"learning operational view\" (LOV) aspects based on the ISO/IEC 14662 Open-edi Reference Model (a freely available ISO standard) together with applicable ISO standards including ISO/IEC 15944-1 and ISO/IEC 15944‑5 (also available without charge) as well as many other international referenced specifications. ISO/IEC 29187-1:2013 models the requirements of jurisdictional domains as external constraints upon the creation, use, interchange, and information life cycle management of personal information. ISO/IEC 29187-1:2013 addresses the specified context of public policy requirements of jurisdictional domains controlling the use of personal information (PI). These include regulations for consumer protection, privacy protection, individual accessibility, etc. ISO/IEC 29187-1:2013 in a LET context identifies and expands upon eleven generic, primitive, international principles that have been associated with privacy protection requirements by international, regional, and UN member states. It models them with respect to the \"collaboration space\" of a learning transaction and commitment exchange involving an individual acting in the role of an individual learner. In a LET context, it provides principles and rules governing the establishment, management and use of identifiers of that individual, including the use of legally recognized names (LRNs), recognized individual identity (rii), and methods of non-identification, such as the use of anonymization and pseudonymization of personal information. ISO/IEC 29187-1:2013 also sets out principles governing information lifecycle management (ILCM) as well as the rules and associated coded domains for obtaining informed consent for collection, specifying state changes, records retention, record deletion and related matters in support of privacy protection requirements."
+  },
+  {
+    "reference": "ISO/IEC/IEEE 39274-1-1:2025",
+    "edition": "1.0",
+    "date": "2025-10-28",
+    "title": "Learning technology - JavaScript Object Notation (JSON) data model format and Representational State Transfer (RESTful) web service for learner experience data tracking and access - Part 1-1: xAPI using JSON serialization and RESTful data transport",
+    "language": "EN",
+    "description": "This document describes a JavaScript Object Notation (JSON) data model format and a Representational State Transfer (RESTful) Web Service Application Programming Interface (API) for communication between Activities experienced by an individual, group, or other entity and a Learning Record Store (LRS). The LRS is a system that exposes the xAPI RESTful Web Service API for the purpose of tracking and accessing experiential data, especially in learning and human performance."
+  },
+  {
+    "reference": "ISO/IEC 40180:2017",
+    "edition": "1.0",
+    "date": "2017-10-10",
+    "title": "Information technology - Quality for learning, education and training - Fundamentals and reference framework",
+    "language": "EN",
+    "description": "ISO/IEC 40180 provides the fundamentals and the reference framework for quality assurance, quality management and quality improvement in IT-enhanced learning, education and training (called E-Learning). It consists mainly of the Quality Reference Framework (QRF) for E-Learning, which is a common and generic framework to describe, specify and understand critical properties, characteristics and metrics of quality. The QRF combines an elaborated and extensive process model with a descriptive model for the processes. ISO/IEC 40180 harmonizes existing approaches, concepts, specifications, terms and definitions related to quality for E-Learning, education and training."
+  }
+]

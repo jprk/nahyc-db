@@ -1,0 +1,58 @@
+[
+  {
+    "reference": "IEC 62962:2019",
+    "edition": "1.0",
+    "date": "2019-09-13",
+    "title": "Particular requirements for load-shedding equipment (LSE)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62962:2019 The purpose of this document is to provide requirements for equipment to be used in energy efficiency systems. This document covers load-shedding equipment (LSE). Guidelines relating to safety for LSE as given in IEC Guide 110 have been followed. This document applies to load-shedding equipment for household and similar uses. The load-shedding function is used in energy management systems to optimize the overall use of electrical energy including production and storage. Load-shedding can be used for example for energy efficiency purposes as per IEC 60364-8-1:2019."
+  },
+  {
+    "reference": "IEC 62991:2022",
+    "edition": "1.0",
+    "date": "2022-12-07",
+    "title": "Particular requirements for source switching equipment (SSE)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62991:2022 applies to source switching equipment, hereafter referred to as SSE, for household and similar uses, primarily intended to be used for energy efficiency (EE) purposes with local production and/or storage of energy. SSE is intended to be installed in low voltage prosumer electrical installations (PEI) to deliver the electrical energy: either to current-using equipment (direct feeding mode or island mode); or to the grid (reverse feeding mode)."
+  },
+  {
+    "reference": "IEC 63345:2023",
+    "edition": "1.0",
+    "date": "2023-09-20",
+    "title": "Energy efficiency systems - Simple external consumer display",
+    "language": "EN-FR, ES",
+    "description": "IEC 63345:2023 specifies a data model to abstract the metering world towards a simple external consumer display. The data model, as described by means of functional blocks contained in this document, lays down the format of metering data accessible by a simple external consumer display. This data interface would be typically part of the meter communication functions and be accessed by a simple external consumer display via the H1 interface of CEN/CLC/ETSI TR 50572 between the display and the meter communication functions."
+  },
+  {
+    "reference": "IEC 63402-1:2025",
+    "edition": "1.0",
+    "date": "2025-06-26",
+    "title": "Energy Efficiency - Customer Energy Management Systems -- Part 1: General Requirements and Architecture",
+    "language": "EN-FR",
+    "description": "IEC 63402-1:2025 specifies general requirements and the architecture between the Point of Common Coupling (PCC) and smart devices (SD) operating within the Smart Grid premises-side system (i.e. residential or commercial but not industrial premises). This document does not include requirements for: - safety - electromagnetic compatibility (EMC); - data security, as it is assumed that the underlying protocols will take the data security aspect into account - special equipment (e.g. legacy heat pumps) with a direct physical connection to the grid, as such equipment bypasses the customer energy manager (CEM) and is not HBES/BACS enabled (covered by other standards than the IEC 63402 series). This group EE publication is primarily intended to be used as an EE standard for the products mentioned in the scope, but is also intended to be used by TCs in the preparation of publications for products which are included in the boundary mentioned in the scope of this document. It has the status of a group energy efficiency publication in accordance with IEC Guide 118."
+  },
+  {
+    "reference": "IEC 63402-2-2:2026",
+    "edition": "1.0",
+    "date": "2026-08-25",
+    "title": "Energy efficiency - Customer energy management system - Part 2-2: Data model and messaging - Interface between the customer energy manager and resource managers",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63402-2-2:2026 specifies the fundamental aspects of semantic interoperability for the S2 interface and the related data exchange between a CEM and the resource managers within the premises. It provides a technology independent set of data models and interaction patterns in order to enable applications for energy management within the premises. This document does not include: – mappings to concrete data representations (XML, JSON and similar); – mappings to application protocols for the message passing; – security related aspects. This group EE publication is primarily intended to be used as an EE standard for the products mentioned in the scope, but is also intended to be used by TCs in the preparation of publications for products which are included in the boundary mentioned in the scope of this document"
+  },
+  {
+    "reference": "IEC 63445:2025",
+    "edition": "1.0",
+    "date": "2025-09-08",
+    "title": "System referencing conductor switching device",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63445:2025 applies to system referencing conductor switching device (SRCSD) for household and similar uses within a Prosumer’s electrical installations ( PEI ). The SRCSD provides functions as described in IEC 60364-8-82:2022 [2] , 82.8.2.2.4. PEI intended for operating by either being connected to a distribution network or disconnected from the distribution network is an islandable PEI . Intentional disconnection from and connection to the distribution network relies on the local earthing system being switched by the SRCSD. In addition, unintentional loss of distribution network is covered. The SRCSD is a single pole device intended to connect one live conductor of the power system to an earthing arrangement."
+  },
+  {
+    "reference": "IEC 63552:2026",
+    "edition": "1.0",
+    "date": "2026-06-02",
+    "title": "Switching device for islanding (SDFI)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63552:2026 applies to switching device for islanding, hereafter referred to as SDFI, for household and similar uses, primarily intended to be used for energy efficiency (EE) purposes with local production or local storage of energy, or with both. SDFI are intended to be installed in low voltage prosumer electrical installations (PEI) able to operate in island mode as defined in IEC 60364-8-82, so called islandable PEI. SDFI are used to disconnect the PEI from the grid to allow operating the PEI in island mode and further reconnect the PEI to the grid."
+  }
+]

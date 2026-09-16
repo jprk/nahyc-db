@@ -1,0 +1,186 @@
+[
+  {
+    "reference": "IEC 61800-1:2021",
+    "edition": "2.0",
+    "date": "2021-01-19",
+    "title": "Adjustable speed electrical power drive systems - Part 1: General requirements - Rating specifications for low voltage adjustable speed DC power drive systems",
+    "language": "EN-FR",
+    "description": "IEC 61800-1:2021 applies to adjustable speed electric DC power drive systems, which include semiconductor power conversion and the means for their control, protection, monitoring, measurement and the DC motors. It applies to adjustable speed electric power drive systems intended to feed DC motors from a BDM/CDM connected to line-to-line voltages up to and including 1 kV AC 50 Hz or 60 Hz and/or voltages up to and including 1,5 kV DC input side. NOTE 1 Adjustable speed electric AC power drive systems intended to feed AC motors are covered by IEC 61800-2. NOTE 2 This document can be used as a reference for adjustable speed electric power drive systems, intended to feed DC motors from a BDM/CDM connected to line-to-line voltages up to and including 1,5 kV AC, 50 Hz or 60 Hz and/or voltages up to and including 2,25 kV DC input side. This edition includes the following significant technical changes with respect to the previous edition: a) the clause structure has been harmonized with IEC 61800-2; b) Clause 2 has been updated; c) Clause 3 has been updated including fundamental definitions to be used across IEC 61800 (all parts); d) Clause 4 has been updated with respect to: 1) description of the basic topology for BDM/CDM/PDS (4.2); 2) ratings and performance (4.3 and 4.4); 3) reference to applicable standards within the IEC 61800 series with respect to EMC (IEC 61800-3), general safety (IEC 61800-5-1), functional safety (IEC 61800-5-2), load duty aspects (IEC TR 61800-6), communication profiles (IEC 61800-7 series),power interface voltage (IEC TS 61800-8), and ecodesign energy efficiency standards (IEC 61800-9) to avoid conflicting requirements (4.5, 4.6, 4.7, 4.10, 4.11, 4.12); 4) update of requirement for ecodesign (4.8); 5) update of requirement for environmental evaluation (4.9); 6) implementation of requirement for explosive atmosphere (4.13); e) Clause 5 has been updated with test requirement in order to provide a clear link between design requirement and test requirement; f) Clause 6 has been updated to harmonize the marking and documentation requirement within IEC 61800 (all parts); g) the Annexes have been updated."
+  },
+  {
+    "reference": "IEC 61800-2:2021",
+    "edition": "3.0",
+    "date": "2021-03-03",
+    "title": "Adjustable speed electrical power drive systems - Part 2: General requirements - Rating specifications for adjustable speed AC power drive systems",
+    "language": "EN-FR",
+    "description": "IEC 61800-2:2021 applies to adjustable speed electric AC power drive systems , which include semiconductor power conversion and the means for their control, protection, monitoring, measurement and the AC motor s. It applies to adjustable speed electric power drive systems intended to feed AC motors from a BDM or CDM connected to line-to-line voltages up to and including 35 kV AC 50 Hz or 60 Hz and/or voltages up to and including 1,5 kV DC input side. NOTE Adjustable speed electric DC power drive systems intended to feed DC motors are covered by IEC 61800-1. This documents defines and describes a non-exhaustive list of criteria for the selection of BDM/CDM/PDS performance and functional attributes. This list is reviewed by the responsible parties to determine considerations for the design of device(s), equipment or system(s) with related testing specification. It also suggests a selection of performance and functional attributes for driven equipment and extended products. The performance and functional attributes focus on the following categories: principal parts topology and classification of the PDS ; ratings, performance and functionality; specifications for the environment in which the PDS is intended to be installed and operated; other specifications which might be applicable when specifying a complete PDS . Traction applications and electric vehicles are excluded from the scope of this document. This document provides a non-exhaustive list from which minimum requirements can be used for the development of a specification between customer and manufacturer based on the application requirements. This same non-exhaustive list can be used by a manufacturer to determine the minimum requirements for a commoditised BDM/CDM/PDS without customer interaction based on the specified application of that BDM/CDM/PDS . This third edition cancels and replaces the second edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. the requirements from IEC 61800-4 for high-voltage PDS are now merged with requirements from IEC 61800-2:2015; b. Clause 1 has been updated to introduce the new concept of Clause 4; c. terms and definitions in Table 1 to Table 4 have been classified in logical order; classification in low voltage and high voltage has been considered in Table 5, and Figure 3 clarifies boundaries within BDM/CDM/PDS . d. Clause 4 is new and creates the methods for evaluating a product to this document; e. Clause 5 has been updated with respect to: specific content for high-voltage BDM/CDM/PDS ; description of the basic topology for BDM/CDM/PDS (5.2); ratings and performance (5.3 and 5.4); reference to applicable standards within the IEC 61800 series with respect to EMC (IEC 61800-3), electrical safety (IEC 61800-5-1), functional safety (IEC 61800-5-2), load duty aspects (IEC TR 61800-6), communication profiles (IEC 61800-7 series), power interface voltage (IEC TS 61800-8), and ecodesign (IEC 61800-9 series) to avoid conflicting requirements (5.5, 5.6, 5.7, 5.10, 5.11, 5.12); update of requirement for ecodesign (5.8); update of requirement for environmental evaluation (5.9); implementation of requirement for explosive atmosphere (5.14); f) Clause 6 has been updated with test requirement in order to provide a clear link between design requirement and test requirement; g) Clause 7 has been updated to harmonize the marking and documentation requirement within IEC 61800 (all parts); h) existing Annex A and Annex B have been updated to include specific detail pertaining to high voltage BDM/CDM/PDS."
+  },
+  {
+    "reference": "IEC 61800-3:2022",
+    "edition": "4.0",
+    "date": "2022-11-30",
+    "title": "Adjustable speed electrical power drive systems - Part 3: EMC requirements and specific test methods for PDS and machine tools",
+    "language": "EN-FR",
+    "description": "IEC 61800-3:2022 specifies electromagnetic compatibility (EMC) requirements for adjustable speed power drive systems (PDSs) and machine tools (MTs). A PDS is an AC or DC motor drive including an electronic converter. Requirements are stated for AC and DC PDSs and MTs with input and/or output voltages (line-to-line voltage), up to 35 kV AC RMS. This document applies to equipment of all power ratings. As a product EMC standard, this document can be used for the assessment of PDS and MT. It can also be used for the assessment of complete drive modules (CDM) or basic drive modules (BDM). Traction applications and electric vehicles are excluded. Equipment which is defined as group 2 in CISPR 11:2015 is excluded. This document does not give requirements for the electrical machine which converts power between the electrical and mechanical forms within the PDS. Requirements for rotating electrical machines are covered by the IEC 60034 series. In this document, the term \"motor\" is used to describe the electrical machine, whether rotary or linear, and regardless of the direction of power flow. This document is applicable to BDMs, CDMs, PDSs and MTs with or without radio function. However, this document does not specify any radio transmission and reception requirements. This document defines the minimum requirements for emission and immunity in the frequency range from 0 Hz to 400 GHz. Tests are not required in frequency ranges where no requirements are specified. This fourth edition cancels and replaces the third edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: extension of the scope to machine tools with one or more embedded PDS; extension of the frequency range for radiated immunity tests to 6 GHz; general updates in the normative part and the informative annexes. The content of the corrigendum 1 (2025-04) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61800-3:2022/COR1:2025",
+    "edition": "4.0",
+    "date": "2025-04-14",
+    "title": "Corrigendum 1 - Adjustable speed electrical power drive systems - Part 3: EMC requirements and specific test methods for PDS and machine tools",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61800-5-1:2022",
+    "edition": "3.0",
+    "date": "2022-08-31",
+    "title": "Adjustable speed electrical power drive systems - Part 5-1: Safety requirements - Electrical, thermal and energy",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-12 IEC 61800-5-1:2022 specifies requirements for adjustable speed electrical power drive systems (PDS) or their elements, with respect to electrical, thermal, fire, mechanical, energy and other relevant hazards. It does not cover the driven equipment except for interface requirements. It applies to adjustable speed electrical PDS which include the power conversion, basic drive module (BDM)/complete drive module (CDM) control, and a motor or motors. Excluded are traction and electric vehicle BDM/CDM. It applies to low-voltage adjustable speed electrical PDS intended to feed a motor or motors from a BDM/CDM connected to phase-to-phase voltages of up to and including 1,0 kV AC (50 Hz or 60 Hz) and up to and including 1,5 kV DC. It also applies to high-voltage adjustable speed electrical PDS intended to feed a motor or motors from a BDM/CDM connected to phase-to-phase voltages of up to and including 35 kV AC (50 Hz or 60 Hz) and up to and including 52 kV DC. This document also applies to PDS which intentionally emits or receives radio waves for the purpose of radio communication. This edition includes the following significant technical changes with respect to the previous edition: a) harmonization with IEC 62477-1:2022; b) harmonization with UL 61800-5-1 and CSA C22.2 No. 274, including an annex with a list of national deviation which was considered not possible to harmonize within a reasonable timeframe; c) more detailed information about the evaluation of components according to this document and relevant safety component standards; d) updated requirement for mechanical hazards including multiple IP ratings. The contents of the corrigenda 1 (2023-09) and 2 (2025-12) have been included in this copy."
+  },
+  {
+    "reference": "IEC 61800-5-1:2022/COR1:2023",
+    "edition": "3.0",
+    "date": "2023-09-04",
+    "title": "Corrigendum 1 - Adjustable speed electrical power drive systems - Part 5-1: Safety requirements - Electrical, thermal and energy",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61800-5-1:2022/COR2:2025",
+    "edition": "3.0",
+    "date": "2025-12-19",
+    "title": "Corrigendum 2 - Adjustable speed electrical power drive systems - Part 5-1: Safety requirements - Electrical, thermal and energy",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61800-5-2:2016",
+    "edition": "2.0",
+    "date": "2016-04-18",
+    "title": "Adjustable speed electrical power drive systems - Part 5-2: Safety requirements - Functional",
+    "language": "EN-FR",
+    "description": "IEC 61800-5-2:2016 specifies requirements and makes recommendations for the design and development, integration and validation of safety related power drive systems (PDS(SR)) in terms of their functional safety considerations. It applies to adjustable speed electrical power drive systems covered by the other parts of the IEC 61800 series of standards as referred in IEC 61800-2. IEC 61800-5-2, which is a product standard, sets out safety-related considerations of PDS(SR)s in terms of the framework of IEC 61508, and introduces requirements for PDS(SR)s as subsystems of a safety-related system. It is intended to facilitate the realisation of the electrical/ electronic/programmable electronic (E/E/PE) parts of a PDS(SR) in relation to the safety performance of safety sub-function(s) of a PDS. This edition includes the following significant technical changes with respect to the previous edition: a) rational added in the scope why low demand mode is not covered by this standard, b) definition added for: \"category\" and \"safety function\", c) \"Other sub-functions\" sorted into \"Monitoring sub-functions\" and \"Output functions\", d) deleted \"proof test\" throughout the document because for PDS(SR) a proof test is not applicable, e) replaced the term \"safety function\" by \"safety sub-function\" throughout the document, f) Updated references to IEC 61508 series Ed.2010, g) Added the principle rules of ISO 13849-1 and reference to tables of ISO 13849-2, h) 6.1.6 Text replaced by Table 2, i) 6.1.7 Integrated circuits with on-chip redundancy matched to changed requirement in IEC 61508-2: 2010, Annex E, j) 6.2.8 Design requirements for thermal immunity of a PDS(SR) k) 6.2.9 Design requirements for mechanical immunity of a PDS(SR), l) 6.1.6 SIL for multiple safety sub-functions within one PDS(SR), m) 6.1.7 Integrated circuits with on-chip redundancy, n) 6.2.1 Basic and well-tried safety principles, o) 6.2.2.1.4 Diagnostic test interval when the hardware fault tolerance is greater than zero, p) 6.2.5.2.7 PDS(SR) parameterization, q) 9 Test requirements, r) 9.3 Electromagnetic (EM) immunity testing, s) 9.4 Thermal immunity testing, t) 9.5 Mechanical immunity testing, u) Annex A Sequential task table, v) Annex D, D.3.16, Motion and position feedback sensors updated, w) Annex E Electromagnetic immunity (EM) requirement for PDS(SR), x) Annex F Estimation of PFDavg value for low demand with given PFH value."
+  },
+  {
+    "reference": "IEC 61800-5-3:2021",
+    "edition": "1.0",
+    "date": "2021-02-23",
+    "title": "Adjustable speed electrical power drive systems - Part 5-3: Safety requirements - Functional, electrical and environmental requirements for encoders",
+    "language": "EN-FR",
+    "description": "IEC 61800-5-3:2021, which is a product standard, specifies requirements and makes recommendations for the design and development, integration and validation of safety-related encoder (Encoder(SR)) in terms of their functional safety considerations, electrical safety and environmental conditions. It applies to Encoder(SR), being sensors as part of a PDS(SR). This document can also be referred to and used for Encoder(SR) in any other safety-related application, for example safety-related position monitoring. This document is applicable where functional safety of an encoder is claimed and the Encoder(SR) is operating mainly in the high demand or continuous mode. The requirements of IEC 61800-5-2:2016 for PDS(SR) apply to Encoder(SR) as applicable. This document includes additional or different requirements for Encoder(SR). It sets out safety-related considerations of Encoder(SR) in terms of the framework of IEC 61508 (all parts), and introduces requirements for Encoder(SR) as subsystems of a safety-related system. It is intended to facilitate the realisation of the electrical/electronic/programmable electronic (E/E/PE) and mechanical parts of an Encoder(SR) in relation to the safety performance of safety sub-function(s) of an Encoder(SR)."
+  },
+  {
+    "reference": "IEC TR 61800-6:2003",
+    "edition": "1.0",
+    "date": "2003-03-31",
+    "title": "Adjustable speed electrical power drive systems - Part 6: Guide for determination of types of load duty and corresponding current ratings",
+    "language": "EN-FR",
+    "description": "provides alternative methods for specifying ratings for adjustable speed electrical power drive systems (PDS) and in particular their basic drive modules (BDM"
+  },
+  {
+    "reference": "IEC 61800-7-1:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-1: Generic interface and use of profiles for power drive systems - Interface definition",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-1:2015 specifies a generic interface between power drive system(s) (PDS) and the application control program in a controller. The generic PDS interface is not specific to any particular communication network technology. Annexes of this part of IEC 61800 specify the mapping of the different drive profiles types onto the generic PDS interface. The functions specified in this part of IEC 61800 are not intended to ensure functional safety. This requires additional measures according to the relevant standards, agreements and laws. This edition includes the following significant technical changes with respect to the previous edition: a) mapping of drive profile type 1 onto additional network technologies; b) minor updates in the subclauses for profile types 1, 2 and 4, in relation with corresponding changes in the dedicated IEC 61800-7-20x parts."
+  },
+  {
+    "reference": "IEC 61800-7-201:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-201: Generic interface and use of profiles for power drive systems - Profile type 1 specification",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-201:2015 specifies profile type 1 for power drive systems (PDS). Profile type 1 can be mapped onto different network technologies. This edition includes the following significant technical changes with respect to the previous edition: - Updates, clarifications and enhancements."
+  },
+  {
+    "reference": "IEC 61800-7-202:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-202: Generic interface and use of profiles for power drive systems - Profile type 2 specification",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-202:2015 specifies profile type 2 (CIP MotionTM) for Power Drive Systems (PDS). Profile type 2 can be mapped onto different communication network technologies. This edition includes the following significant technical changes with respect to the previous edition: a) update of patent information; b) new revision of the Drive Profile and Drive Axis specifications, with multiple clarifications and enhancements."
+  },
+  {
+    "reference": "IEC 61800-7-203:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-203: Generic interface and use of profiles for power drive systems - Profile type 3 specification",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-203:2015 specifies profile type 3 for power drive systems (PDS). Profile type 3 can be mapped onto different communication network technologies. This edition includes the following significant technical changes with respect to the previous edition: a) minor updates in the Base Mode Parameter Access mechanism; b) minor updates and simplification in the Application Class 3 state machine definition."
+  },
+  {
+    "reference": "IEC 61800-7-204:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-204: Generic interface and use of profiles for power drive systems - Profile type 4 specification",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-204:2015 specifies profile type 4 for power drive systems (PDS). Profile type 4 can be mapped onto different communication network technologies. This edition includes the following significant technical change with respect to the previous edition: - update of drive parameters and their specification."
+  },
+  {
+    "reference": "IEC 61800-7-301:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-301: Generic interface and use of profiles for power drive systems - Mapping of profile type 1 to network technologies",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-301:2015 specifies the mapping of the profile type 1 (CiA 402) specified in IEC 61800-7-201 onto different network technologies. This edition includes the following significant technical changes with respect to the previous edition: - Additional mappings to communication systems are included (Mapping to CC-Link IE Field Network and Mapping to EPA)."
+  },
+  {
+    "reference": "IEC 61800-7-302:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-302: Generic interface and use of profiles for power drive systems - Mapping of profile type 2 to network technologies",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-302:2015 specifies the mapping of the profile type 2 (CIP MotionTM) specified in IEC 61800-7-202 onto different network technologies. This edition includes the following significant technical changes with respect to the previous edition: - update of patent information; - updates to the Connection Format and connection points; - support of an additional object."
+  },
+  {
+    "reference": "IEC 61800-7-303:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-303: Generic interface and use of profiles for power drive systems - Mapping of profile type 3 to network technologies",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-303:2015 specifies the mapping of the profile type 3 (PROFIdrive) specified in IEC 61800-7-203 onto different network technologies. This edition includes the following significant technical changes with respect to the previous edition: - Enhanced definition of the using of PROFINET IO Diagnosis ASE and Alarm ASE; - Minor updates in the mapping of the Base Mode Parameter Access to PROFIBUS and PROFINET."
+  },
+  {
+    "reference": "IEC 61800-7-304:2015",
+    "edition": "2.0",
+    "date": "2015-11-20",
+    "title": "Adjustable speed electrical power drive systems - Part 7-304: Generic interface and use of profiles for power drive systems - Mapping of profile type 4 to network technologies",
+    "language": "EN-FR",
+    "description": "IEC 61800-7-304:2015 specifies the mapping of the profile type 4 (SERCOS) specified in IEC 61800-7-204 onto different network technologies. This edition includes the following significant technical change with respect to the previous edition: Update of mapping specification."
+  },
+  {
+    "reference": "IEC TS 61800-8:2010",
+    "edition": "1.0",
+    "date": "2010-05-31",
+    "title": "Adjustable speed electrical power drive systems - Part 8: Specification of voltage on the power interface",
+    "language": "EN",
+    "description": "IEC/TS 61800-8:2010(E) gives the guidelines for the determination of voltage on the power interface of power drive systems (PDS's)."
+  },
+  {
+    "reference": "IEC 61800-9-1:2017",
+    "edition": "1.0",
+    "date": "2017-03-03",
+    "title": "Adjustable speed electrical power drive systems - Part 9-1: Ecodesign for power drive systems, motor starters, power electronics and their driven applications - General requirements for setting energy efficiency standards for power driven equipment using the extended product approach (EPA) and semi analytic model (SAM)",
+    "language": "EN-FR",
+    "description": "IEC 61800-9-1:2017 specifies the general methodology to energy efficiency standardization for any extended product by using the guidance of the extended product approach (EPA). This document specifies the methodology of determination of losses of the extended product and its sub-parts. It is applicable to motor systems operated by a motor starter or by a converter (power drive systems)."
+  },
+  {
+    "reference": "IEC 61800-9-2:2023",
+    "edition": "2.0",
+    "date": "2023-10-20",
+    "title": "Adjustable speed electrical power drive systems (PDS) - Part 9-2: Ecodesign for motor systems - Energy efficiency determination and classification",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2025-11 IEC 61800-9-2:2023 specifies energy efficiency indicators of power electronics (complete drive modules (CDM), input or output sub drive modules (SDM), power drive systems (PDS) and motor starters, all used for motor driven equipment. It defines IE and IES classes, their limit values and provides test procedures for the classification of the overall losses of the motor system. Furthermore, this document proposes a methodology for the implementation of the best energy efficiency solution of drive systems. This depends on the architecture of the motor driven system, on the speed/torque profile and on the operating points over time of the driven load equipment. It provides a link for the energy efficiency evaluation and classification of the extended product. This edition includes the following significant technical changes with respect to the previous edition: a) Additional IES Classes defined to IES5; b) Removed reference motor loss data and now point to IEC 60034-30-2; c) Expanded and modified factors in Clause 6 for CDMs; d) Annex C is now the Mathematical Model for CDM Losses; e) Moved the mathematical model for the CDM to Annex C; f) Added Sub Drive Input Module and Sub Drive Output Modules to Annex B; g) Annex D is now the Converter Topology (old Annex C); h) Annex E is now the Interpolation of Motor Losses (Old Annex D); i) Annex E expanded to include various motor connections and updated interpolation method; j) New Annex E for determination of Interpolation Coefficients; k) Annex F is the old Annex E; l) New Annex J Explanation of Correction Factors for the Reference Losses in Table 8."
+  },
+  {
+    "reference": "IEC 61800-9-2:2023/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-12-23",
+    "title": "Amendment 1 - Adjustable speed electrical power drive systems (PDS) - Part 9-2: Ecodesign for motor systems - Energy efficiency determination and classification",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  }
+]

@@ -1,0 +1,666 @@
+[
+  {
+    "reference": "IEC 60096-0-1:2012",
+    "edition": "3.0",
+    "date": "2012-10-30",
+    "title": "Radio frequency cables - Part 0-1: Guide to the design of detail specifications - Coaxial cables",
+    "language": "EN-FR",
+    "description": "IEC 60096-0-1:2012 provides guidance for the design of radio frequency coaxial cables with braid, metallic tapes or tubular outer conductors. This third edition cancels and replaces the second edition published in 1990. It constitutes a technical revision. The significant changes with respect to the previous edition are as follows: - tables of material constants and factors and have been updated, different equations have been updated and corrected; - a subclause dealing with the calculation of \"Current carrying capacity of coaxial cables has been added as Subclause 7.7."
+  },
+  {
+    "reference": "IEC 60096-0-1:2012/AMD1:2017",
+    "edition": "3.0",
+    "date": "2017-01-25",
+    "title": "Amendment 1 - Radio frequency cables - Part 1- 0: Guide to the design of detail specifications - Coaxial cables",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60339-1:1971",
+    "edition": "1.0",
+    "date": "1971-01-01",
+    "title": "General purpose rigid coaxial transmission lines and their associated flange connectors. Part 1: General requirements and measuring methods",
+    "language": "EN-FR, RU",
+    "description": "Gives general requirements for general purpose rigid coaxial transmission lines and their associated flange connectors in order to ensure compatibility and interchangeability, gives the tolerances necessary to ensure adequate electrical performance and the test methods."
+  },
+  {
+    "reference": "IEC 61196-1:2005",
+    "edition": "2.0",
+    "date": "2005-06-21",
+    "title": "Coaxial communication cables - Part 1: Generic specification - General, definitions and requirements",
+    "language": "EN-FR, ES",
+    "description": "Specifies the general requirements, the definitions and the requirements for the design and test methods of coaxial communication cables."
+  },
+  {
+    "reference": "IEC 61196-1-1:2007",
+    "edition": "1.0",
+    "date": "2007-04-11",
+    "title": "Coaxial communication cables - Part 1-1: Capability approval for coaxial cables",
+    "language": "EN-FR",
+    "description": "It specifies the requirements for a manufacturer seeking approval of his capability to design (if applicable), manufacture, inspect, test and release coaxial communication cables as defined in his capability manual"
+  },
+  {
+    "reference": "IEC 61196-1-100:2022",
+    "edition": "3.0",
+    "date": "2022-01-24",
+    "title": "Coaxial communication cables - Part 1-100: Electrical test methods - General requirements",
+    "language": "EN",
+    "description": "IEC 61196-1-100:2022 gives the general requirements and conditions for electrical tests to be performed on coaxial communication cables and applies to IEC 61196-1-1xx (all parts), which specifies electrical test methods for coaxial communication cables. Further test details (for example, temperature, duration) and/or test requirements are given in the relevant test procedure and/or the relevant sectional or detail specification. A table with electrical test methods of the IEC 61196-1-1xx series is given in Annex A. This third edition cancels and replaces the second edition published in 2015. This edition includes the following significant technical changes with respect to the previous edition: - update of Annex A, Electrical test methods of the IEC 61196-1-1xx series."
+  },
+  {
+    "reference": "IEC 61196-1-101:2025",
+    "edition": "2.0",
+    "date": "2025-05-19",
+    "title": "Coaxial communication cables - Part 1-101: Electrical test methods - Test for conductor DC resistance of cable",
+    "language": "EN",
+    "description": "IEC 61196-1-101:2025 applies to coaxial communications cables. It specifies test methods for determining the conductor DC resistance of coaxial cables. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 4, Test equipment, is extended; b) in Clause 5, the cable length is specified; c) Clause 6, Test procedure, is revised; d) Clause 7, Expression of test results, is revised; e) Clause 8, Failure criterion, is introduced; f) Clause 9, Information to be given in the relevant specification, is revised; g) Clause 10, Test report, is revised."
+  },
+  {
+    "reference": "IEC 61196-1-102:2025",
+    "edition": "2.0",
+    "date": "2025-06-27",
+    "title": "Coaxial communication cables - Part 1-102: Electrical test methods - Test for insulation resistance of cable dielectric",
+    "language": "EN",
+    "description": "IEC 61196-1-102:2025 applies to coaxial communication cables. It specifies test methods for determining the insulation resistance of coaxial cables. It is intended to detect the flaws in the dielectric of finished coaxial cables. This second edition cancels and replaces the first edition, published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the scope was extended; b) the procedure is updated for the period of discharge and the test sample with high insulation resistance; c) the unit of cable length has been amended; d) the test procedures for the cables with special structure are specified in Annex A."
+  },
+  {
+    "reference": "IEC 61196-1-103:2015",
+    "edition": "2.0",
+    "date": "2015-08-18",
+    "title": "Coaxial communication cables - Part 1-103: Electrical test methods - Test for capacitance of cable",
+    "language": "EN",
+    "description": "IEC 61196-1-103:2015(E) applies to coaxial communications cables. It specifies test methods for determining the capacitance. This edition constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: Subclause 4.2, Requirements for the test sample."
+  },
+  {
+    "reference": "IEC 61196-1-104:2015",
+    "edition": "2.0",
+    "date": "2015-08-18",
+    "title": "Coaxial communication cables - Part 1-104: Electrical test methods - Test for the stability of the capacitance of cable versus temperature",
+    "language": "EN",
+    "description": "IEC 61196-1-104:2015(E) applies to coaxial communications cables. It specifies test methods for determining the capacitance stability of the cable when subjected to temperature change. This edition includes the following significant technical changes with respect to the previous edition: a) Subclause 4.2, Requirements for the test sample; b) Change in the title of Part 1-104."
+  },
+  {
+    "reference": "IEC 61196-1-105:2024",
+    "edition": "2.0",
+    "date": "2024-06-19",
+    "title": "Coaxial communication cables - Part 1-105: Electrical test methods - Test for withstand voltage of cable dielectric",
+    "language": "EN",
+    "description": "IEC 61196-1-105:2024 applies to coaxial communication cables. It specifies test methods for determining the withstand voltage of the dielectric of coaxial cables. It is intended to detect the flaws in the dielectric of finished coaxial cables. The test procedures for the cables with special structure are specified in Annex A."
+  },
+  {
+    "reference": "IEC 61196-1-106:2008",
+    "edition": "1.0",
+    "date": "2008-02-07",
+    "title": "Coaxial communication cables - Part 1-106: Electrical test methods - Test for withstand voltage of cable sheath",
+    "language": "EN-FR",
+    "description": "It applies to coaxial communication cables. It specifies test methods for determining the withstand voltage of the dielectric of coaxial cables."
+  },
+  {
+    "reference": "IEC 61196-1-107:2005",
+    "edition": "1.0",
+    "date": "2005-08-11",
+    "title": "Coaxial communication cables - Part 1-107: Electrical test methods - Test for cable microphony charge level (mechanically induced noise)",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communications cables. It specifies a test method to determine the microphony charge level (mechanically induced noise), which is generated in a cable when the cable is subjected to mechanical stress."
+  },
+  {
+    "reference": "IEC 61196-1-108:2025",
+    "edition": "3.0",
+    "date": "2025-01-09",
+    "title": "Coaxial communication cables - Part 1-108: Electrical test methods - Test for phase, phase constant, phase and group delay, propagation velocity, electrical length, and mean characteristic impedance",
+    "language": "EN",
+    "description": "IEC 61196-1-108:2025 applies to coaxial communications cables. It specifies test methods for determining the phase, phase constant, phase and group delay, propagation velocity, electrical length, and mean characteristic impedance of coaxial cables for use in communications systems. A procedure to measure phase dispersion of coaxial cable is included as Annex A. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Change of title, \"phase and phase constant\" was added. b) Clause 6, \"Preparation of test sample (TS)\" was added. c) Clause 7, \"Test procedure\" was added. d) Clause 8, \"Failure criterion\" was added. e) Clause 9, \"Information to be given in the relevant specification\" was added."
+  },
+  {
+    "reference": "IEC 61196-1-110:2016",
+    "edition": "1.0",
+    "date": "2016-01-05",
+    "title": "Coaxial communication cables - Part 1-110: Electrical test methods - Test for continuity",
+    "language": "EN",
+    "description": "IEC 61196-1-110:2016 specifies the test for electrical continuity of coaxial cables used in analogue and digital communication systems. This publication is to be read in conjunction with IEC 61196-1:2005 ."
+  },
+  {
+    "reference": "IEC 61196-1-111:2024",
+    "edition": "3.0",
+    "date": "2024-09-18",
+    "title": "Coaxial communication cables - Part 1-111: Electrical test methods - Stability of phase test methods",
+    "language": "EN",
+    "description": "IEC 61196-1-111:2024 provides test methods to determine the stability of phase of coaxial communication cables. This document is applicable to RF coaxial cables. RF coaxial cable assemblies can also use this document for reference. This part of IEC 61196 comprises following test methods: a) phase variation with temperature (Clause 4); b) phase constant variation with temperature (Clause 5); c) phase stability with bending (Clause 6); d) phase stability with twisting (Clause 7); e) phase consistency test for two or more cables (Annex A); f) phase variation with temperature test between two cables (Annex B). This second edition cancels and replaces the first edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of the list of test methods in the Scope; b) addition of \"the number of scanning points\" in every test method; c) addition of Annex A, Phase consistency test for two or more cables; d) addition of Annex B, Phase variation with temperature test between two cables."
+  },
+  {
+    "reference": "IEC 61196-1-112:2025",
+    "edition": "2.0",
+    "date": "2025-01-07",
+    "title": "Coaxial communication cables - Part 1-112: Electrical test methods - Test for return loss and voltage standing wave ratio",
+    "language": "EN",
+    "description": "IEC 61196-1-112:2025 applies to coaxial communications cables. It specifies test methods for determining return loss (RL) and voltage standing wave ratio (VSWR) of coaxial cables for use in communications systems. This second edition cancels and replaces the first edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) added \"voltage standing wave ratio\" in the title; b) added 3.1 voltage standing wave ratio (VSWR) and 3.2 return loss (RL); c) revised Clause 4 \"Principle\"; d) added Figure 1 and Figure 2; e) revised Clause 7 \"Number of measuring points\"; f) added Clause 8 \"Test procedure\"; g) added Clause 10 \"Information to be given in the relevant specification\"; h) added Annex B."
+  },
+  {
+    "reference": "IEC 61196-1-113:2024",
+    "edition": "3.0",
+    "date": "2024-09-23",
+    "title": "Coaxial communication cables - Part 1-113: Electrical test methods - Test for attenuation constant",
+    "language": "EN",
+    "description": "IEC 61196-1-113:2024 applies to coaxial communications cables. It specifies a test method for determining the attenuation constant of coaxial cables for use in communications systems. The test is applicable preferably at frequencies ≥5 MHz but also for lower frequencies if the magnitude of the complex characteristic impedance is approximately equal to the nominal characteristic impedance of the test sample (TS) or if a form fitting function is applied. This third edition cancels and replaces the second edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) add Clause 3 \"Terms and definitions\"; b) add Clause 4 \"Test environment\"; c) add Clause 5 \"Preconditioning\"; d) add Subclause 7.1 \"General\"; e) add detail test methods including 7.2 \"long cable methods\" and 7.3 \"double-cable method\"; f) add \"Annex A Stability of attenuation constant at different temperatures\"; g) add \"Annex B Test examples of stability of attenuation constants at different temperature\"."
+  },
+  {
+    "reference": "IEC 61196-1-114:2025",
+    "edition": "2.0",
+    "date": "2025-11-10",
+    "title": "Coaxial communication cables - Part 1-114: Electrical test methods - Test for inductance",
+    "language": "EN",
+    "description": "IEC 61196-1-114:2025 specifies a test method to determine the inductance characteristics of coaxial communication cables. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the term \"inductance\" has been revised; b) the necessary abbreviated term is added; c) the length and layout of the test sample have been revised; d) the measuring procedure has been revised; e) the additional information for the bending effect on coaxial cable inductance test is provided in Annex A."
+  },
+  {
+    "reference": "IEC 61196-1-115:2006",
+    "edition": "1.0",
+    "date": "2006-03-13",
+    "title": "Coaxial communication cables - Part 1-115: Electrical test methods - Test for regularity of impedance (pulse/step function return loss)",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communications cables. It specifies test methods for determining the regularity of impedance of coaxial cables for use in communications systems in the time domain."
+  },
+  {
+    "reference": "IEC 61196-1-116:2015",
+    "edition": "1.0",
+    "date": "2015-11-23",
+    "title": "Coaxial communication cables - Part 1-116: Electrical test methods - Test for impedance with time domain reflectometry (TDR)",
+    "language": "EN-FR",
+    "description": "IEC 61196-1-116:2015 applies to coaxial communications cables. It specifies test methods for determining the impedance of coaxial communications cables with time domain reflectometry (TDR). This publication is to be read in conjunction with IEC 61196-1:2005 ."
+  },
+  {
+    "reference": "IEC 61196-1-119:2023",
+    "edition": "3.0",
+    "date": "2023-07-27",
+    "title": "Coaxial communication cables - Part 1-119: Electrical test methods - RF power for coaxial cables and cable assemblies",
+    "language": "EN",
+    "description": "IEC 61196-1-119:2023 provides test methods for RF power rating and power withstanding of RF coaxial cables and cable assemblies at specified frequency, temperature and altitude. This document is applicable to RF coaxial cables and cable assemblies."
+  },
+  {
+    "reference": "IEC 61196-1-122:2006",
+    "edition": "1.0",
+    "date": "2006-03-13",
+    "title": "Coaxial communication cables - Part 1-122: Electrical test methods - Test for cross-talk between coaxial cables",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communications cables. It specifies a test method for determining the cross-talk between coaxial cables for use in communications systems. This method is applicable for the measurement of the cross-talk between coaxial cables of the same type, but also different types (for example, different dimensions, different impedance, different velocity etc.). It is also applicable for multi-coaxial or hybrid-cables."
+  },
+  {
+    "reference": "IEC 61196-1-123:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Coaxial communication cables - Part 1-123: Electrical test methods - Test for attenuation constant of radiating cable",
+    "language": "EN",
+    "description": "IEC 61196-1-123:2023 defines the test method to determine the attenuation constant of radiating coaxial communication cables that are intended for use in wireless communication systems such as tunnels, railways, highways, subways, elevators and other confined areas in which conventional antenna transmission is not satisfactory or even impossible."
+  },
+  {
+    "reference": "IEC 61196-1-124:2022",
+    "edition": "1.0",
+    "date": "2022-08-12",
+    "title": "Coaxial communication cables - Part 1-124: Electrical test methods - Test for coupling loss of radiating cable",
+    "language": "EN-FR",
+    "description": "IEC 61196-1-124:2022 defines the test method to determine the coupling loss of radiating coaxial communication cables that are intended for use in wireless communication systems such as tunnels, railways, highways, subways, elevators and other confined areas in which conventional antenna transmission is not satisfactory or even impossible."
+  },
+  {
+    "reference": "IEC 61196-1-125:2022",
+    "edition": "1.0",
+    "date": "2022-09-06",
+    "title": "Coaxial communication cables - Part 1-125: Electrical test methods - Test for equivalent relative permittivity and equivalent dissipation factor of dielectric",
+    "language": "EN",
+    "description": "IEC 61196-1-125:2022 specifies the test method to determine the equivalent relative permittivity and dissipation factor of dielectric for coaxial cables. It is intended to provide the dielectric properties of finished cables."
+  },
+  {
+    "reference": "IEC 61196-1-126:2022",
+    "edition": "1.0",
+    "date": "2022-09-06",
+    "title": "Coaxial communication cables - Part 1-126: Electrical test methods - Corona extinction voltage",
+    "language": "EN",
+    "description": "IEC 61196-1-126:2022 provides the test method for the corona (partial discharge) extinction voltage of coaxial communication cables under specified environmental conditions."
+  },
+  {
+    "reference": "IEC 61196-1-127:2024",
+    "edition": "1.0",
+    "date": "2024-03-06",
+    "title": "Coaxial communication cables - Part 1-127: Electrical test methods - Link loss of radiating cable",
+    "language": "EN",
+    "description": "IEC 61196-1-127:2024 applies to radiating cables. It specifies a test method for determining the link loss of radiating cables for use in communication systems."
+  },
+  {
+    "reference": "IEC 61196-1-128:2025",
+    "edition": "1.0",
+    "date": "2025-08-14",
+    "title": "Coaxial communication cables - Part 1-128: Electrical test methods - Polarization directivity of radiating cable",
+    "language": "EN",
+    "description": "IEC 61196-1-128:2025 applies to radiating cables. It specifies a test method for determining the polarization directivity of radiating cables for use in MIMO communication systems."
+  },
+  {
+    "reference": "IEC 61196-1-200:2022",
+    "edition": "3.0",
+    "date": "2022-02-07",
+    "title": "Coaxial communication cables - Part 1-200: Environmental test methods - General requirements",
+    "language": "EN-FR",
+    "description": "IEC 61196-1-200:2022 gives the general requirements and conditions for environmental tests to be performed on coaxial communication cables and applies to the IEC 61196-1-2xx series, which specifies environmental test methods for coaxial communication cables. Further test details (e.g. temperature, duration) and/or test requirements can be given in the relevant test procedure and/or the relevant sectional or detail specification. This third edition cancels and replaces the second edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: a. Update of Annex A."
+  },
+  {
+    "reference": "IEC 61196-1-201:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Coaxial communication cables - Part 1-201: Environmental test methods - Test for cold bend performance of cable",
+    "language": "EN",
+    "description": "IEC 61196-1-201:2009(E) applies to CATV and telecommunications cables. It specifies test methods for determining the cold bend performance of coaxial cables for use in cabled distribution telecommunications networks."
+  },
+  {
+    "reference": "IEC 61196-1-203:2007",
+    "edition": "1.0",
+    "date": "2007-03-29",
+    "title": "Coaxial communication cables - Part 1-203: Environmental test methods - Test for water penetration of cable",
+    "language": "EN-FR",
+    "description": "applies to coaxial communications cables. It specifies test methods to determine the ability of a cable used in communications cabled systems to limit water migration along a specified path."
+  },
+  {
+    "reference": "IEC 61196-1-205:2008",
+    "edition": "1.0",
+    "date": "2008-02-07",
+    "title": "Coaxial communication cables - Part 1-205: Environmental test methods - Resistance to solvents and contaminating fluids",
+    "language": "EN-FR",
+    "description": "It applies to coaxial communication cables. It specifies test methods to determine the ability to withstand solvents and contaminating fluids."
+  },
+  {
+    "reference": "IEC 61196-1-206:2017",
+    "edition": "2.0",
+    "date": "2017-11-14",
+    "title": "Coaxial communication cables - Part 1-206: Environmental test methods - Climatic sequence",
+    "language": "EN-FR",
+    "description": "IEC 61196-1-206:2017 specifies the method of test to determine the stability of transmission performance of a finished RF coaxial cable when subjected to a set of temperatures, temperature changes, and humidity stresses that would accelerate exposures observed in storage and transportation. This edition includes the following significant technical changes with respect to the previous edition: It utilizes the test method of IEC 60068-2-61: Environmental Testing - Part 2-61: Test methods - Test Z/ABDM: Climatic sequence, which replaces the thermal cycle test."
+  },
+  {
+    "reference": "IEC 61196-1-208:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Coaxial communication cables - Part 1-208: Environmental test methods - Longitudinal pneumatic resistance",
+    "language": "EN",
+    "description": "IEC 61196-1-208:2009(E) details a method of test to determine the longitudinal pneumatic resistance of coaxial communication cables protected by gas pressurisation."
+  },
+  {
+    "reference": "IEC 61196-1-209:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Coaxial communication cables - Part 1-209: Environmental test methods - Thermal cycling",
+    "language": "EN",
+    "description": "IEC 61196-1-209:2016(E) specifies a test method to determine the ability of a coaxial cable to withstand the effects of temperature cycling on its transmission performance. The purpose of this procedure is to accelerate the effects of temperature cycling on a cable."
+  },
+  {
+    "reference": "IEC 61196-1-212:2021",
+    "edition": "1.0",
+    "date": "2021-07-08",
+    "title": "Coaxial communication cables - Part 1-212: Environmental test methods - UV stability",
+    "language": "EN",
+    "description": "IEC 61196-1-212:2021 describes three methods to determine the UV resistance of sheath materials for electric and optical fibre cables. These tests apply for outdoor and indoor cable applications according to the product standard. The samples of sheath are taken from the finished cables. Although this test method is written principally for communication cables, it can be used for energy cables if called up by the relevant product standard."
+  },
+  {
+    "reference": "IEC 61196-1-215:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Coaxial communication cables - Part 1-215: Environmental test methods - High temperature cable ageing",
+    "language": "EN",
+    "description": "IEC 61196-1-215:2016(E) defines a thermal ageing test to evaluate the transmission performance of coaxial cables under the effects of material temperature ageing. This procedure specifies a qualitative thermal ageing test that evaluates the performance degradation of the cable due to chemical and physical reactions that are accelerated by high temperature."
+  },
+  {
+    "reference": "IEC 61196-1-301:2005",
+    "edition": "1.0",
+    "date": "2005-11-17",
+    "title": "Coaxial communication cables - Part 1-301: Mechanical test methods - Test for ovality",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communication cables. It specifies test methods for determining the ovality of dielectric, outer conductor(s) and overall jacket(s) or sheath(s) of coaxial cables."
+  },
+  {
+    "reference": "IEC 61196-1-302:2005",
+    "edition": "1.0",
+    "date": "2005-11-17",
+    "title": "Coaxial communication cables - Part 1-302: Mechanical test methods - Test for eccentricity",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communication cables. It specifies a test method for determining the eccentricity of the dielectric, outer conductor or sheath of coaxial communications cables."
+  },
+  {
+    "reference": "IEC 61196-1-303:2018",
+    "edition": "1.0",
+    "date": "2018-01-09",
+    "title": "Coaxial communication cables - Part 1-303: Mechanical test methods - Test for silver and tin plating thickness",
+    "language": "EN",
+    "description": "IEC 61196-1-303:2018(E) defines the requirements for measuring the plating thickness for silver and tin conductors for coaxial cables used in analogue and digital communication systems. This test method uses a procedure for determining the plating thickness of silver and tin coatings on conductors by galvanic removal (coulometric method)."
+  },
+  {
+    "reference": "IEC 61196-1-304:2011",
+    "edition": "1.0",
+    "date": "2011-11-29",
+    "title": "Coaxial communication cables - Part 1-304: Mechanical test methods - Impact resistance",
+    "language": "EN",
+    "description": "IEC 61196-1-304:2011(E) details the method of test to determine the impact resistance of coaxial communication cables."
+  },
+  {
+    "reference": "IEC 61196-1-305:2026",
+    "edition": "2.0",
+    "date": "2026-03-30",
+    "title": "Coaxial communication cables - Part 1-305: Mechanical test methods - Solderability and resistance to soldering",
+    "language": "EN",
+    "description": "IEC 61196-1-305:2026 applies to coaxial communication cables. It specifies the test methods to determine solderability and the resistance to soldering of inner and outer conductors of cables used in analogue and digital communication systems. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) 4.1 Preparation of test specimen was added; b) 4.2 Procedure, 4.3 Requirements and 4.4 Test report were revised; c) 4.5 Information to be given in the relevant specification was added; d) 5.1 Preparation of the specimen was added; e) 5.2 Procedure was revised; f) 5.5 Information to be given in the relevant specification was added; g) Figure 1 to Figure 5 were added."
+  },
+  {
+    "reference": "IEC 61196-1-308:2012",
+    "edition": "2.0",
+    "date": "2012-10-30",
+    "title": "Coaxial communication cables - Part 1-308: Mechanical test methods - Test for tensile strength and elongation for copper-clad metals",
+    "language": "EN",
+    "description": "IEC 61196-1-308:2012(E) applies to coaxial communication cables. It specifies test methods for tensile strength and percentage elongation at fracture for annealed and hard-drawn solid copper clad metals to be used as inner conductor for coaxial cables. This second edition cancels and replaces the first edition published in 2005. It constitutes a technical revision. Changes from the previous edition of the document are the addition of test methods for annealed copper-clad conductors. This second edition makes a distinction between annealed and hard-drawn solid copper clad metals. Requirements are more precise than in the first edition."
+  },
+  {
+    "reference": "IEC 61196-1-310:2005",
+    "edition": "1.0",
+    "date": "2005-07-27",
+    "title": "Coaxial communication cables - Part 1-310: Mechanical test methods - Test for torsion characteristics of copper-clad metals",
+    "language": "EN-FR, ES",
+    "description": "Applies to coaxial communications cables. It specifies test methods for torsion characteristics of copper-clad metals of coaxial cables."
+  },
+  {
+    "reference": "IEC 61196-1-313:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Coaxial communication cables - Part 1-313: Mechanical test methods - Adhesion of dielectric and sheath",
+    "language": "EN",
+    "description": "IEC 61196-1-313:2009(E) applies to coaxial communication cables. It specifies the test method to determine the adhesion of the dielectric to inner conductor and of the sheath to outer conductor of coaxial cables."
+  },
+  {
+    "reference": "IEC 61196-1-314:2015",
+    "edition": "2.0",
+    "date": "2015-08-18",
+    "title": "Coaxial communication cables - Part 1-314: Mechanical test methods - Test for bending",
+    "language": "EN",
+    "description": "IEC 61196-1-314:2015(E) applies to coaxial communications cables. It specifies test methods to determine the bending tests for cables: - bending around a test mandrel; - repeated bending; - repeated flexing in service; - flexing in service; - bending around rollers or bows during installation; and for - measuring the stiffness of such a cable; - kink test. This edition includes the following significant technical change with respect to the previous edition: - Clause 4 (single bending test) was completely revised."
+  },
+  {
+    "reference": "IEC 61196-1-316:2005",
+    "edition": "1.0",
+    "date": "2005-11-17",
+    "title": "Coaxial communication cables - Part 1-316: Mechanical test methods - Test of maximum pulling force of cable",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communication cables. It specifies a test method for applying the specified maximum permissible load (longitudinal pull) of coaxial cables"
+  },
+  {
+    "reference": "IEC 61196-1-317:2006",
+    "edition": "1.0",
+    "date": "2006-03-13",
+    "title": "Coaxial communication cables - Part 1-317: Mechanical test methods - Test for crush resistance of cable",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communications cables. It specifies test methods for determining the crush resistance of coaxial cables"
+  },
+  {
+    "reference": "IEC 61196-1-318:2008",
+    "edition": "1.0",
+    "date": "2008-02-12",
+    "title": "Coaxial communication cables - Part 1-318: Mechanical test methods - Heat performance tests",
+    "language": "EN-FR",
+    "description": "Applies to coaxial communication cables. It specifies several test methods for determining: - heat flow resistance of dielectric (the resistance of the dielectric to the mechanical distortion induced by radial stress imposed by the inner conductor at high temperatures); - resistance to heat exposure (formerly \"heat shock resistance\": the resistance of the dielectric or the sheath to high temperatures); - heat behaviour of semi-rigid cables (the ability of the cable construction of semi-rigid cables to withstand the expansion of the dielectric at high temperature); - dimensional stability (the displacement of the cable elements with respect to each other in order to demonstrate the suitability of a cable for use with connectors)."
+  },
+  {
+    "reference": "IEC 61196-1-324:2006",
+    "edition": "1.0",
+    "date": "2006-03-13",
+    "title": "Coaxial communication cables - Part 1-324: Mechanical test methods - Test for abrasion resistance of cable",
+    "language": "EN-FR, ES",
+    "description": "applies to coaxial communication cables. It specifies the test method for determining abrasion resistance of coaxial communication cables."
+  },
+  {
+    "reference": "IEC 61196-1-325:2008",
+    "edition": "1.0",
+    "date": "2008-02-12",
+    "title": "Coaxial communication cables - Part 1-325: Mechanical test methods - Aeolian vibration",
+    "language": "EN-FR",
+    "description": "It applies to coaxial communication cables. It specifies the test method to determine the ability of exposed overhead cables used in analogue and digital communication systems to withstand dynamic stresses similar to those imposed by laminar wind flow induced vibrations in overhead lines."
+  },
+  {
+    "reference": "IEC 61196-4:2022",
+    "edition": "4.0",
+    "date": "2022-09-20",
+    "title": "Coaxial communication cables - Part 4: Sectional specification for radiating cables",
+    "language": "EN-FR",
+    "description": "IEC 61196-4:2022 applies to radiating coaxial communication cables, and specifies the terms and definitions, material and construction, IEC type designation, standard rating and characteristics, identification, marking and labelling, requirements of finished cables, quality assessment, delivery and storage, etc. This fourth edition cancels and replaces the third edition published in 2015 This edition includes the following significant technical changes with respect to the previous edition: a. rewrote \"1 Scope\" to be consistent with other blank detail specifications of coaxial cables; b. updated different standards in \"Clause 2 Normative references\"; c. added the definitions of uniformly radiating type cable, stop frequency band and link loss; d. added different materials and constructions in 4.2 to 4.5; e. added \"Clause 5 IEC type designation\"; f. added a detailed rated temperature range of different materials in \"6.2 Rated temperature range\"; g. added detailed frequencies in \"6.3 Operating frequency range\"; h. added \"6.4 Stop frequency band\" and \"6.5 Radiating characteristics\"; i. added different detail requirements or typical values in 8.2.4, 8.2.7, 8.2.8, 8.4.3 to 8.4.8; j. deleted \"7.4.4 Ovality of outer conductor\"; k. added \"8.2.11 Link loss\", \"8.4.9 Adhesion of dielectric\", \"8.4.10 Shrinkage for insulations\", \"8.4.11 Maximum pulling force of cable\"; i. used IEC 61196-1-123 and IEC 61196-1-124 in the electrical requirements to replace Annex A and Annex B respectively and deleted Annex A and Annex B; m. added \"Figure A.1 Example of testing coupling loss around circumferential orientation of radiating cable (Y-Z)\" in Annex A."
+  },
+  {
+    "reference": "IEC 61196-4-1:2022",
+    "edition": "2.0",
+    "date": "2022-09-13",
+    "title": "Coaxial communication cables - Part 4-1: Blank detail specification for radiating cables",
+    "language": "EN-FR",
+    "description": "IEC 61196-4-1:2022 applies to radiating coaxial communication cables. These cables are intended for use in wireless communication system in long, narrow, semi-closed and indoor environment, such as tunnels, railways, highways, subways, elevators and other installations. This second edition cancels and replaces the first edition published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. rewrote \"1 Scope\" to be consistent with other blank detail specifications of coaxial cables; b. added detail construction requirements of inner and outer conductor in \"[7] Cable construction\"; c. added \"Storage temperature range\", \"Installation temperature range\" and \"Stop frequency band\" in \"[8] Engineering information (reference only)\"; d. added \"8.2.11 Link loss\", \"8.4.9 Adhesion of dielectric\", \"8.4.10 Shrinkage for insulations\", \"8.4.11 Maximum pulling force of cable\"; e. added different detail requirements or typical values in 8.2.4, 8.2.6 to 8.2.8, 8.3.1 to 8.3.4， 8.4.1, 8.4.3 to 8.4.8; f. deleted \"7.4.4 Ovality of outer conductor\"."
+  },
+  {
+    "reference": "IEC 61196-5:2022",
+    "edition": "4.0",
+    "date": "2022-12-16",
+    "title": "Coaxial communication cables - Part 5: Sectional specification for CATV trunk and distribution cables",
+    "language": "EN",
+    "description": "IEC 61196-5:2022, which is a sectional specification, applies to coaxial cables for analogue and digital one- and two-way signal transmission, for example for cable networks for television signals, sound signals and interactive services in accordance with IEC 60728-1, IEC 60728-1-1, IEC 60728-101, IEC 60728-10, ISO/IEC 11801-1 and ISO/IEC 11801-4. This includes also the transmission of BCT signals provided by a CATV, MATV or SMATV cable networks. This document specifies the test procedures and requirements for trunk and distribution cables for temperatures between −40 °C and +65 °C and in the frequency range of 5 MHz to 2 000 MHz. This fourth edition cancels and replaces the third edition published in 2018. This edition includes the following significant technical changes with respect to the previous edition: a. complete revision; b. cable identification and marking has been added; c. Table B.1, cable types have been added."
+  },
+  {
+    "reference": "IEC 61196-5-1:2012",
+    "edition": "2.0",
+    "date": "2012-09-26",
+    "title": "Coaxial communication cables - Part 5-1: Blank detail specification for CATV trunk and distribution cables",
+    "language": "EN",
+    "description": "IEC 61196-5-1:2012(E) applies to CATV cables. It specifies the requirements for drop cables for use in cabled television distribution networks operating at temperatures between -40 °C and +65 °C and in the frequency range from 5 MHz to 1 002 MHz as described in IEC 61196-5."
+  },
+  {
+    "reference": "IEC 61196-6:2021",
+    "edition": "2.0",
+    "date": "2021-08-27",
+    "title": "Coaxial communication cables - Part 6: Sectional specification for CATV drop cables",
+    "language": "EN",
+    "description": "IEC 61196-6:2021 applies to coaxial communications cables. It specifies the requirements for CATV drop cables for analogue and digital one and two way signal transmission, e.g. for cable networks for television signals, sound signals, interactive services, surveillance & control systems, and satellite television receiving systems according to the requirements of IEC 60728-1, IEC 60728-1-1, IEC 60728-101, IEC 60728-10, ISO/IEC 11801-1 and ISO/IEC 11801-4. This also includes the transmission of BCT signals provided by a CATV, MATV or SMATV cable network. This second edition cancels and replaces the first edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: - extended scope, - revised sheath marking and labelling."
+  },
+  {
+    "reference": "IEC 61196-6-1:2021",
+    "edition": "2.0",
+    "date": "2021-08-27",
+    "title": "Coaxial communication cables - Part 6-1: Blank detail specification for CATV drop cables",
+    "language": "EN",
+    "description": "IEC 61196-6-1:2021 applies to coaxial communication cables as described in IEC 61196-6. It specifies the requirements for drop cables for use in cabled television distribution networks operating at temperatures between −40 °C and +70 °C and in the frequency range from 5 MHz to 1 000 MHz or from 5 MHz to 3 000 MHz. This second edition cancels and replaces the first edition published in 2009. This edition includes the following significant technical changes with respect to the previous edition: - Annex A, Cable identification and marking was added."
+  },
+  {
+    "reference": "IEC 61196-6-2:2020",
+    "edition": "2.0",
+    "date": "2020-05-27",
+    "title": "Coaxial communication cables - Part 6-2: Detail specification for 75-4 type CATV drop cables",
+    "language": "EN",
+    "description": "IEC 61196-6-2:2020 applies to coaxial communication cables described in IEC 61196-6. It specifies the requirements for 75-4 type CATV drop cables. These cables are used in CATV distribution systems, surveillance & control systems, satellite television receiving systems and as bidirectional hybrid fibre coaxes (HFC). The operating frequency is from 5 MHz to 3 000 MHz. This document is to be used in conjunction with IEC 61196-1 and IEC 61196‑6. It determines the layout and style with respect to the model and type. This second edition cancels and replaces the first edition, published in 2018. This edition includes the following significant technical changes with respect to the previous edition: - designation of variants including construction details - consistent screening classes, - bending test only for flexible cables."
+  },
+  {
+    "reference": "IEC 61196-6-3:2020",
+    "edition": "2.0",
+    "date": "2020-05-27",
+    "title": "Coaxial communication cables - Part 6-3: Detail specification for 75-5 type CATV drop cables",
+    "language": "EN",
+    "description": "IEC 61196-6-3:2020 applies to coaxial communication cables described in IEC 61196-6. It specifies the requirements for 75-5 type CATV drop cables. These cables are used in CATV distribution systems, surveillance & control systems, satellite television receiving systems and as bidirectional hybrid fibre coaxes (HFC). The operating frequency is from 5 MHz to 3 000 MHz. This part of IEC 61196 is to be used in conjunction with IEC 61196-1:2005 and IEC 61196‑6:2009. It determines the layout and style with respect to the model and type. This second edition cancels and replaces the first edition, published in 2018. This edition includes the following significant technical changes with respect to the previous edition: - designation of variants including construction details, - consistent screening classes, - bending test only for flexible cables."
+  },
+  {
+    "reference": "IEC 61196-6-4:2020",
+    "edition": "2.0",
+    "date": "2020-05-27",
+    "title": "Coaxial communication cables - Part 6-4: Detail specification for 75-7 type CATV drop cables",
+    "language": "EN",
+    "description": "IEC 61196-6-4:2020 applies to coaxial communication cables described in IEC 61196-6. It specifies the requirements for 75-7 type CATV drop cables. These cables are used in CATV distribution systems, surveillance & control systems, satellite television receiving systems and as bidirectional hybrid fibre coaxes (HFC). The operating frequency is from 5 MHz to 3 000 MHz. This part of IEC 61196 is to be used in conjunction with IEC 61196-1:2005 and IEC 61196‑6:2009. It determines the layout and style with respect to the model and type. This second edition cancels and replaces the first edition, published in 2018. This edition includes the following significant technical changes with respect to the previous edition: - designation of variants including construction details; - consistent screening classes; - bending test only for flexible cables."
+  },
+  {
+    "reference": "IEC 61196-6-5:2020",
+    "edition": "1.0",
+    "date": "2020-06-10",
+    "title": "Coaxial communication cables - Part 6-5: Detail specification for Type A quad-shield CATV drop cables with screening class A++",
+    "language": "EN, ES",
+    "description": "IEC 61196-6-5:2020 applies to coaxial communication cables described in IEC 61196-6. It specifies the requirements for type A quad-shield CATV drop cables with screening class A++. These cables are used in CATV distribution systems, surveillance and control systems, satellite television receiving systems and bidirectional hybrid fibre coaxes (HFC). The operating frequency is up to 3000 MHz. This part of IEC 61196 is to be used in conjunction with IEC 61196-1 and IEC 61196-6:2009."
+  },
+  {
+    "reference": "IEC 61196-7:2021",
+    "edition": "2.0",
+    "date": "2021-08-27",
+    "title": "Coaxial communication cables - Part 7: Sectional specification for cables for BCT cabling in accordance with ISO/IEC 11801-4 - Indoor drop cables for systems operating at 5 MHz - 6 000 MHz",
+    "language": "EN",
+    "description": "IEC 61196-7:2021 applies to coaxial communications cables. It specifies the requirements for cables for broadcast and communications technologies (BCT) cabling in accordance with ISO/IEC 11801-4 for use in cabled television distribution networks operating at temperature between −40 °C and +70 °C and in the frequency range from 5 MHz to 6 000 MHz.This second edition cancels and replaces the first edition published in 2011. This edition includes the following significant technical changes with respect to the previous edition: - extension of frequency range up to 6 GHz, - revised sheath marking and labelling, - a table with typical cable characteristics was added as annex B."
+  },
+  {
+    "reference": "IEC 61196-8:2023",
+    "edition": "2.0",
+    "date": "2023-06-28",
+    "title": "Coaxial communication cables - Part 8: Sectional specification for semi-flexible cables with fluoropolymer dielectric",
+    "language": "EN",
+    "description": "IEC 61196-8:2023 specifies the materials and cable construction for semi-flexible coaxial communication cables with fluoropolymer dielectric, IEC type designation, identification, marking and labelling, standard rating and characteristics, requirements of finished cables, quality assessment, delivery and storage, etc. This document applies to semi-flexible coaxial communication cables with fluoropolymer dielectric and tin soaked copper wire braid outer conductor. These cables are intended for use in mobile communication base station antenna systems, terrestrial microwave communication, radar systems and wireless equipment or other signal transmission equipment or units. It is read in conjunction with IEC 61196-1:2005."
+  },
+  {
+    "reference": "IEC 61196-8-1:2023",
+    "edition": "2.0",
+    "date": "2023-10-13",
+    "title": "Coaxial communication cables - Part 8-1: Blank detail specification for semi-flexible cables with fluoropolymer dielectric",
+    "language": "EN",
+    "description": "IEC 61196-8-1:2023 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements of semi-flexible coaxial communication cables with fluoropolymer dielectric and tin soaked copper wire braid outer conductor. These cables are intended for use in mobile communication base station antenna systems, terrestrial microwave communication, radar systems and wireless equipment or other signal transmission equipment or units. This document determines the layout and style for detail specifications. Detail specifications (DS) can be prepared by a national organization, a manufacturer or a user by entering the details in the blank detail specification."
+  },
+  {
+    "reference": "IEC 61196-8-2:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-2: Detail specification for 50-047 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-2:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 50-047 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-3:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-3: Detail specification for 50-086 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-3:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 50-086 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-4:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-4: Detail specification for 50-141 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-4:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 50-141 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-5:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-5: Detail specification for 50-250 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-5:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 50-250 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-6:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-6: Detail specification for 75-047 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-6:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 75-047 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-7:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-7: Detail specification for 75-086 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-7:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 75-086 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-8:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-8: Detail specification for 75-141 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-8:2012 applies to coaxial communication cables described in IEC 61196-8. It specifies the requirements for 75-141 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-8-9:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Coaxial communication cables - Part 8-9: Detail specification for 75-250 type semi-flexible cables with solid polytetrafluoroethylene (PTFE) insulation",
+    "language": "EN-FR",
+    "description": "IEC 61196-8-9 applies to coaxial communications cables described in IEC 61196-8. It specifies the requirements for 75-250 type semi-flexible radio frequency and coaxial cables with polytetrafluoroethylene (PTFE) dielectric. These cables are for use in microwave and wireless equipment or other signal transmission equipment or units at frequencies from 500 MHz up to 18 GHz. It determines the layout and style with respect to the model and type. This publication is to be read in conjunction with IEC 61196-1:2005 and IEC 61196-8:2012 ."
+  },
+  {
+    "reference": "IEC 61196-9:2023",
+    "edition": "2.0",
+    "date": "2023-06-28",
+    "title": "Coaxial communication cables - Part 9: Sectional specification for flexible RF coaxial cables",
+    "language": "EN",
+    "description": "IEC 61196-9:2023 specifies the materials and cable construction for RF flexible coaxial communication cables with solid or with semi-air-spaced dielectric, IEC type designation, identification, marking and labelling, standard rating and characteristics, requirements of finished cables, quality assessment, delivery and storage, etc. This document applies to RF flexible coaxial communication cables for use in mobile communication systems, microwave test equipment and other fields. It is read in conjunction with IEC 61196-1:2005."
+  },
+  {
+    "reference": "IEC 61196-9-1:2023",
+    "edition": "2.0",
+    "date": "2023-10-13",
+    "title": "Coaxial communication cables - Part 9-1: Blank detail specification for flexible RF coaxial cables",
+    "language": "EN",
+    "description": "IEC 61196-9-1:2023 applies to coaxial communication cables described in IEC 61196-9. It specifies the requirements of flexible coaxial communication cables with solid or semi-air-spaced dielectric and wrap or/and braid outer conductor. These cables are widely used in mobile communication systems, microwave test equipment, consumer electronics and other fields. This document determines the layout and style for detail specifications. Detail specifications (DS) can be prepared by a national organization, a manufacturer or a user by entering the details in the blank detail specification."
+  },
+  {
+    "reference": "IEC 61196-9-2:2022",
+    "edition": "1.0",
+    "date": "2022-03-16",
+    "title": "Coaxial communication cables - Part 9-2: Detail specification for 50-0,4 type RF flexible cables",
+    "language": "EN",
+    "description": "IEC 61196-9-2:2022 applies to coaxial communication cables described in IEC 61196-9. It specifies the requirements for 50-0,4 type RF flexible cables. These cables are used in routers, notebook computers, mobile phones or other electronics. The operating frequency is from 5 MHz to 6 000 MHz."
+  },
+  {
+    "reference": "IEC 61196-10:2022",
+    "edition": "2.0",
+    "date": "2022-11-23",
+    "title": "Coaxial communication cables - Part 10: Sectional specification for semi-rigid cables with fluoropolymer dielectric",
+    "language": "EN",
+    "description": "IEC 61196-10:2022 specifies the materials and cable construction for semi-rigid coaxial communication cables with fluoropolymer dielectric, IEC type designation, identification, marking and labelling, standard rating and characteristics, requirements of finished cables, quality assessment, delivery and storage, etc. This part of IEC 61196 applies to semi-rigid coaxial communication cables with fluoropolymer dielectric and tubular outer conductor. Semi-rigid coaxial communication cables with fluoropolymer dielectric are widely used in mobile communication systems, microwave test equipment, radar, aerospace and other fields. This second edition cancels and replaces the first edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: a. Title was changed to: Sectional specification for semi-rigid cables with fluoropolymer dielectric b. Dielectric: other fluoropolymer materials (such as FEP, PFA) were added c. Table 1 – Distinguishing number was added d. Table 2 – Rated temperature was added e. 7.4.8, Thermal cycling was deleted f. Annex A: Performance requirements of typical cables was added g. Annex B: Requirements for thermal shock was added"
+  },
+  {
+    "reference": "IEC 61196-10-1:2022",
+    "edition": "2.0",
+    "date": "2022-11-23",
+    "title": "Coaxial communication cables - Part 10-1: Blank detail specification for semi-rigid cables with fluoropolymer dielectric",
+    "language": "EN",
+    "description": "IEC 61196-10-1:2022 applies to coaxial communication cables described in IEC 61196-10, which specifies the requirements of semi-rigid coaxial communication cables with fluoropolymer dielectric and tubular outer conductors. Semi-rigid coaxial communication cables with fluoropolymer dielectric are widely used in mobile communication systems, microwave test equipment, radar, aerospace, electronic countermeasures and other fields. This part of IEC 61196 is used in conjunction with IEC 61196-1 and IEC 61196-10, which determines the layout and style for detail specifications, based on the blank detail specification, that can be prepared by a national organization, a manufacturer, or a user. This second edition cancels and replaces the first edition published in 2014. This edition includes the following significant technical changes with respect to the previous edition: a. Title was changed to: Blank detail specification for semi-rigid cables with fluoropolymer dielectric. b. Further changes in accordance with IEC 61196-10."
+  },
+  {
+    "reference": "IEC 61196-11:2022",
+    "edition": "2.0",
+    "date": "2022-03-16",
+    "title": "Coaxial communication cables - Part 11: Sectional specification for semi-rigid cables with polyethylene (PE) dielectric",
+    "language": "EN",
+    "description": "IEC 61196-11:2022 specifies the general requirements of semi-rigid coaxial communication cables with polyethylene (PE) dielectric, including material and construction, IEC type designation, identification, marking and labelling, standard ratings and characteristics, requirements of finished cables, quality assessment, delivery and storage, etc. This part of IEC 61196 applies to semi-rigid coaxial communication cables with polyethylene (PE) dielectric and tubular outer conductor. These cables are widely used in the interconnection between wireless communication equipment and antenna, as well as RF and microwave electronic equipment, broadcast television, microwave relay, navigation, etc. This second edition cancels and replaces the first edition published in 2016. This edition includes the following significant technical changes with respect to the previous edition: a. The scope is more detailed. b. Outer diameter ratings of the inner conductor recommended. c. Dielectric: outer diameter ratings of the dielectric recommended. d. IEC type designation introduced. e. Standard ratings and characteristics: completely revised. f. Requirements of finished cables: completely revised."
+  },
+  {
+    "reference": "IEC 61196-11-1:2022",
+    "edition": "2.0",
+    "date": "2022-03-16",
+    "title": "Coaxial communication cables - Part 11-1: Blank detail specification for semi-rigid cables with polyethylene (PE) dielectric",
+    "language": "EN",
+    "description": "IEC 61196-11-1:2022 applies to coaxial communication cables described in IEC 61196-11. It specifies the layout and style for detail specifications for semi-rigid coaxial communication cables with polyethylene (PE) dielectric. Semi-rigid coaxial communication cables with polyethylene (PE) dielectric are widely used in the interconnection between wireless communication equipment and antenna, as well as RF and microwave electronic equipment, broadcast television, microwave relay, navigation, etc. This part of IEC 61196 is used in conjunction with IEC 61196-1 and IEC 61196-11, which determines the layout and style for detail specifications, based on the blank detail specification. This second edition cancels and replaces the first edition published in 2016.This edition includes the following significant technical changes with respect to the previous edition: a. engineering information: Maximum tensile force and average power introduced, b. electrical, environmental and mechanical characteristics more detailed, c. requirements for “Content of toxic and harmful substances” introduced."
+  },
+  {
+    "reference": "IEC 61196-13:2023",
+    "edition": "1.0",
+    "date": "2023-08-18",
+    "title": "Coaxial communication cables - Part 13 - Sectional specification for semi-rigid cables with silicon dioxide dielectric",
+    "language": "EN",
+    "description": "IEC 61196-13:2023 specifies the materials and cable construction for semi-rigid coaxial communication cables with silicon dioxide dielectric, IEC type designation, identification, marking and labelling, standard rating and characteristics, requirements of finished cables, quality assessment, delivery and storage, etc. This part of IEC 61196 applies to semi-rigid coaxial communication cables with silicon dioxide dielectric and tubular outer conductor. These cables are intended for use in applications requiring extreme environments as well as in nuclear power plants, oil rigs and aircraft engines."
+  },
+  {
+    "reference": "IEC 61196-13-1:2024",
+    "edition": "1.0",
+    "date": "2024-02-15",
+    "title": "Coaxial communication cables - Part 13-1: Blank detail specification for semi-rigid cables with silicon dioxide dielectric",
+    "language": "EN",
+    "description": "IEC 61196-13-1:2024 applies to coaxial communication cables described in IEC 61196-13. It specifies the requirements of semi-rigid coaxial communication cables with silicon dioxide dielectric and tubular outer conductor. These cables are intended for use in applications demanding the extreme environments as well as the nuclear power plant, oil rig and aircraft engine. This document determines the layout and style for detail specifications. Detail specifications (DS) can be prepared by a national organization, a manufacturer or a user by entering the details in the blank detail specification."
+  },
+  {
+    "reference": "IEC 62153-1-1:2003",
+    "edition": "1.0",
+    "date": "2003-10-09",
+    "title": "Metallic communication cables test methods - Part 1-1: Electrical - Measurement of the pulse/step return loss in the frequency domain using the Inverse Discrete Fourier Transformation (IDFT)",
+    "language": "EN-FR",
+    "description": "describes the test which determines the regularity of impedance of r.f. cables by measuring the return loss in the frequency domain using a vector network analyser equipped with a reflection test set (bridge) and transferring the results into the time domain by using the Inverse Discrete Fourier Transformation (IDFT)."
+  }
+]

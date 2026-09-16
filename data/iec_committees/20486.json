@@ -1,0 +1,450 @@
+[
+  {
+    "reference": "ISO/IEC 19637:2016",
+    "edition": "1.0",
+    "date": "2016-12-05",
+    "title": "Information technology - Sensor network testing framework",
+    "language": "EN",
+    "description": "ISO/IEC 19637:2016 specifies: - testing framework for conformance test for heterogeneous sensor networks, - generic services between test manager (TMR) and test agent (TA) in the testing framework, and - guidance for creating testing platform and enabling the test of different sensor network protocols."
+  },
+  {
+    "reference": "ISO/IEC 20005:2013",
+    "edition": "1.0",
+    "date": "2013-07-03",
+    "title": "Information technology - Sensor networks - Services and interfaces supporting collaborative information processing in intelligent sensor networks",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 20924:2024",
+    "edition": "3.0",
+    "date": "2024-02-20",
+    "title": "Internet of Things (IoT) and digital twin - Vocabulary",
+    "language": "EN",
+    "description": "ISO/IEC 20924:2024 provides a definition of Internet of Things and digital twin along with a set of terms and definitions. This document is a terminology foundation for the Internet of Things and digital twin. This third edition cancels and replaces the second edition published in 2021. This edition constitutes a technical revision. This edition includes the following technical changes with respect to the previous edition: a) addition of new terms which are used in other ISO/IEC IoT related standards; b) update of some definitions to align with current usage in IoT standards; c) extension of digital twin related vocabularies with title and scope changes"
+  },
+  {
+    "reference": "ISO/IEC 21823-1:2019",
+    "edition": "1.0",
+    "date": "2019-02-15",
+    "title": "Internet of Things (IoT) - Interoperability for IoT systems - Part 1: Framework",
+    "language": "EN",
+    "description": "ISO/IEC 21823-1:2019(E) provides an overview of interoperability as it applies to IoT systems and a framework for interoperability for IoT systems. This document enables IoT systems to be built in such a way that the entities of the IoT system are able to exchange information and mutually use the information in an efficient way. This document enables peer-to-peer interoperability between separate IoT systems. This document provides a common understanding of interoperability as it applies to IoT systems and the various entities within them."
+  },
+  {
+    "reference": "ISO/IEC 21823-2:2020",
+    "edition": "1.0",
+    "date": "2020-04-24",
+    "title": "Internet of Things (IoT) - Interoperability for IoT systems - Part 2: Transport interoperability",
+    "language": "EN",
+    "description": "IEC 21823-2:2020 (E) specifies a framework and requirements for transport interoperability, in order to enable the construction of IoT systems with information exchange, peer-to-peer connectivity and seamless communication both between different IoT systems and also among entities within an IoT system. This document specifies: • transport interoperability interfaces and requirements between IoT systems; • transport interoperability interfaces and requirements within an IoT system"
+  },
+  {
+    "reference": "ISO/IEC 21823-3:2021",
+    "edition": "1.0",
+    "date": "2021-09-21",
+    "title": "Internet of Things (IoT) - Interoperability for IoT systems - Part 3: Semantic interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 21823-3:2021 provides the basic concepts for IoT systems semantic interoperability, as described in the facet model of ISO/IEC 21823-1, including: – requirements of the core ontologies for semantic interoperability; – best practices and guidance on how to use ontologies and to develop domain-specific applications, including the need to allow for extensibility and connection to external ontologies; – cross-domain specification and formalization of ontologies to provide harmonized utilization of existing ontologies; – relevant IoT ontologies along with comparative study of the characteristics and approaches in terms of modularity, extensibility, reusability, scalability, interoperability with upper ontologies, and so on, and; – use cases and service scenarios that exhibit necessities and requirements of semantic interoperability."
+  },
+  {
+    "reference": "ISO/IEC 21823-4:2022",
+    "edition": "1.0",
+    "date": "2022-03-09",
+    "title": "Internet of Things (IoT) - Interoperability for IoT systems - Part 4: Syntactic interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 21823-4:2022 specifies the IoT interoperability from a syntactic point of view. In ISO/IEC 21823-1: Framework [2], five facets are described for IoT interoperability, i.e. transport, semantic, syntactic, behavioural and policy. In this document, the following specifications for IoT interoperability from syntactic viewpoint are included; – A principle of how to achieve syntactic interoperability among IoT systems which include IoT devices – Requirements on information related to IoT devices for syntactic interoperability – A framework for processes on developing information exchange rules related to IoT devices from the syntactic viewpoint"
+  },
+  {
+    "reference": "ISO/IEC TR 22417:2017",
+    "edition": "1.0",
+    "date": "2017-11-22",
+    "title": "Information technology - Internet of things (IoT) - IoT use cases",
+    "language": "EN",
+    "description": "ISO/IEC TR 22417:2017(E) This technical report identifies IoT scenarios and use cases based on real-world applications and requirements. The use cases provide a practical context for considerations on interoperability and standards based on user experience. They also clarify where existing standards can be applied and highlight where standardization work is needed."
+  },
+  {
+    "reference": "ISO/IEC TR 22560:2017",
+    "edition": "1.0",
+    "date": "2017-10-12",
+    "title": "Information technology - Sensor network - Guidelines for design in the aeronautics industry: Active air-flow control",
+    "language": "EN",
+    "description": "This Technical Report describes the concepts, issues, objectives, and requirements for the design of an active air-flow control (AFC) system for commercial aircraft based on a dense deployment of wired and wireless sensor and actuator networks. It focuses on the architecture design, module definition, statement of objectives, scalability analysis, system-level simulation, as well as networking and implementation issues using standardized interfaces and service-oriented middleware architectures."
+  },
+  {
+    "reference": "ISO/IEC 29182-1:2013",
+    "edition": "1.0",
+    "date": "2013-06-03",
+    "title": "Information technology - Sensor networks: Sensor Network Reference Architecture (SNRA) - Part 1: General overview and requirements",
+    "language": "EN",
+    "description": "ISO/IEC 29182-1:2013 provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."
+  },
+  {
+    "reference": "ISO/IEC 29182-2:2013",
+    "edition": "1.0",
+    "date": "2013-06-03",
+    "title": "Information technology - Sensor networks: Sensor Network Reference Architecture (SNRA) - Part 2: Vocabulary and terminology",
+    "language": "EN",
+    "description": "ISO/IEC 29182-2:2013 is intended to facilitate the development of International Standards in sensor networks. It presents terms and definitions for selected concepts relevant to the field of sensor networks. It establishes a general description of concepts in this field and identifies the relationships among those concepts. It may also be used as guidance for development of other parts of ISO/IEC 29182 and any other sensor network related standard."
+  },
+  {
+    "reference": "ISO/IEC 29182-3:2014",
+    "edition": "1.0",
+    "date": "2014-02-13",
+    "title": "Information technology - Sensor networks: Sensor Network Reference Architecture (SNRA) - Part 3: Reference architecture views",
+    "language": "EN",
+    "description": "ISO/IEC 29182-3:2014 provides Sensor Network Reference Architecture (SNRA) views. The architecture views include business, operational, systems, and technical perspectives, and these views are presented in functional, logical, and/or physical views where applicable. ISO/IEC 29182-3:2014 focuses on high-level architecture views which can be further developed by system developers and implementers for specific applications and services."
+  },
+  {
+    "reference": "ISO/IEC 29182-4:2013",
+    "edition": "1.0",
+    "date": "2013-07-23",
+    "title": "Information technology - Sensor networks: Sensor Network Reference Architecture (SNRA) - Part 4: Entity models",
+    "language": "EN",
+    "description": "The purpose of the ISO/IEC 29182 series is to - provide guidance to facilitate the design and development of sensor networks, - improve interoperability of sensor networks, and - make sensor network components plug-and-play, so that it becomes fairly easy to add/remove sensor nodes to/from an existing sensor network. ISO/IEC 29182-4 presents models for the entities that enable sensor network applications and services according to the Sensor Network Reference Architecture (SNRA)."
+  },
+  {
+    "reference": "ISO/IEC 29182-5:2013",
+    "edition": "1.0",
+    "date": "2013-07-29",
+    "title": "Information technology -- Sensor networks: Sensor Network Reference Architecture (SNRA) -- Part 5: Interface definitions",
+    "language": "EN",
+    "description": "ISO/IEC 29182-5:2013 provides the definitions and requirements of sensor network (SN) interfaces of the entities in the Sensor Network Reference Architecture and covers the following aspects: - interfaces between functional layers to provide service access for the modules in the upper layer to exchange messages with modules in the lower layer; - interfaces between entities introduced in the Sensor Network Reference Architecture enabling sensor network services and applications."
+  },
+  {
+    "reference": "ISO/IEC 29182-6:2014",
+    "edition": "1.0",
+    "date": "2014-07-21",
+    "title": "Information technology -- Sensor networks: Sensor Network Reference Architecture (SNRA) -- Part 6: Applications",
+    "language": "EN",
+    "description": "ISO/IEC 29182-6:2014, describes and provides - a compilation of sensor network applications for which International Standardized Profiles (ISPs) are needed, - guidelines for the structured description of sensor network applications, and - examples for structured sensor network applications. It does not cover ISPs for which drafting rules are described in ISO/IEC TR 10000. Due to the generic character of ISO/IEC 29182, fully developed ISPs will not be included in this International Standard."
+  },
+  {
+    "reference": "ISO/IEC 29182-7:2015",
+    "edition": "1.0",
+    "date": "2015-02-09",
+    "title": "Information technology -- Sensor networks: Sensor Network Reference Architecture (SNRA) -- Part 7: Interoperability guidelines",
+    "language": "EN",
+    "description": "ISO/IEC 29182-7:2015 provides a general overview and guidelines for achieving interoperability between sensor network services and related entities in a heterogeneous sensor network."
+  },
+  {
+    "reference": "ISO/IEC 30101:2014",
+    "edition": "1.0",
+    "date": "2014-11-12",
+    "title": "Information technology -- Sensor networks: Sensor network and its interfaces for smart grid system",
+    "language": "EN",
+    "description": "ISO/IEC 30101:2014 is for sensor networks in order to support smart grid technologies for power generation, distribution, networks, energy storage, load efficiency, control and communications, and associated environmental challenges. This International Standard characterizes the requirements for sensor networks to support the aforementioned applications and challenges. Data from sensors in smart grid systems is collected, transmitted, published, and acted upon to ensure efficient coordination of the various systems and subsystems. The intelligence derived through the sensor networks supports synchronization, monitoring and responding, command and control, data/information processing, security, information routing, and human-grid display/graphical interfaces. This International standard specifies: - interfaces between the sensor networks and other networks for smart grid system applications, - sensor network architecture to support smart grid systems, - interface between sensor networks with smart grid systems, and - sensor network based emerging applications and services to support smart grid systems."
+  },
+  {
+    "reference": "ISO/IEC TR 30123:2026",
+    "edition": "1.0",
+    "date": "2026-03-05",
+    "title": "Internet of Things (IoT) - Guidance on IoT application to home healthcare",
+    "language": "EN",
+    "description": "ISO/IEC TR 30123:2026 provides guidance on applying IoT technologies to home healthcare systems, taking into account the specific characteristics."
+  },
+  {
+    "reference": "ISO/IEC 30128:2014",
+    "edition": "1.0",
+    "date": "2014-11-12",
+    "title": "Information technology -- Sensor networks -- Generic Sensor Network Application Interface",
+    "language": "EN",
+    "description": "ISO/IEC 30128:2014 specifies the interfaces between the application layers of service providers and sensor network gateways, which is Protocol A in interface 3, defined in ISO/IEC 29182-5. This International Standard covers: - description of generic sensor network applications' operational requirements, - description of sensor network capabilities, and - mandatory and optional interfaces between the application layers of service providers and sensor network gateways"
+  },
+  {
+    "reference": "ISO/IEC 30140-1:2018",
+    "edition": "1.0",
+    "date": "2018-02-14",
+    "title": "Information technology - Underwater acoustic sensor network (UWASN) - Part 1: Overview and requirements",
+    "language": "EN",
+    "description": "ISO/IEC 30140-1:2018(E) This part of ISO/IEC 30140 provides a general overview of underwater acoustic sensor networks (UWASN). It describes their main characteristics in terms of the effects of propagation variability and analyses the main differences with respect to terrestrial networks. It further identifies the specificities of UWASN and derives some specific and general requirements for these networks."
+  },
+  {
+    "reference": "ISO/IEC 30140-2:2017",
+    "edition": "1.0",
+    "date": "2017-10-26",
+    "title": "Information technology - Underwater acoustic sensor network (UWASN) - Part 2: Reference architecture",
+    "language": "EN",
+    "description": "ISO/IEC 30140-2:2017(E) This part of ISO/IEC 30140 provides an underwater acoustic sensor network (UWASN) conceptual model by identifying and defining three domains (application domain, network domain and UWASN domain). It also provides multiple reference architecture views consistent with the requirements defined in ISO/IEC 30140-1 (systems reference architecture, communication reference architecture and information reference architecture). For each view, related physical and functional entities are described."
+  },
+  {
+    "reference": "ISO/IEC 30140-3:2018",
+    "edition": "1.0",
+    "date": "2018-07-25",
+    "title": "Information technology - Underwater Acoustic Sensor Network (UWASN) - Part 3: Entities and interfaces",
+    "language": "EN",
+    "description": "ISO/IEC 30140-3:2018 The 30140 series provides general requirements, reference architecture and high-level interface guidelines supporting interoperability among underwater acoustic sensor networks (UWASNs). Part 3 provides descriptions for the entities and interfaces of the UWASN reference architecture."
+  },
+  {
+    "reference": "ISO/IEC 30140-4:2018",
+    "edition": "1.0",
+    "date": "2018-07-25",
+    "title": "Information technology - Underwater Acoustic Sensor Network (UWASN) - Part 4: Interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 30140-4:2018 The ISO/IEC 30140 series provides general requirements, reference architecture and high-level interface guidelines supporting interoperability among underwater acoustic sensor networks (UWASNs). Part 4 provides information on interoperability requirements among entities within a UWASN and among various UWASNs."
+  },
+  {
+    "reference": "ISO/IEC 30141:2024",
+    "edition": "2.0",
+    "date": "2024-08-23",
+    "title": "Internet of things (IoT) - Reference architecture",
+    "language": "EN",
+    "description": "ISO/IEC 30141:2024 provides a standardized IoT Reference Architecture using a common vocabulary, reusable designs and industry best practices. It uses a top down approach, beginning with collecting the most important characteristics of IoT, and abstracting those into a foundational view, then providing five more views including a construction view with a set of architecture and design patterns for building IoT systems. This second edition cancels and replaces the first edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) conformance with ISO/IEC/IEEE 42010:2022; b) improved usability; c) implementation pattern support."
+  },
+  {
+    "reference": "ISO/IEC 30142:2020",
+    "edition": "1.0",
+    "date": "2020-06-22",
+    "title": "Internet of Things (IoT) - Underwater acoustic sensor network (UWASN) - Network management system overview and requirements",
+    "language": "EN",
+    "description": "ISO/IEC 30142:2020 provides the overview and requirements of a network management system in underwater acoustic sensor network (UWASN) environment. It specifies the following: – functions which support underwater network management system; – entities required for underwater network management system; – data about the communication between elements in underwater network management system; – guidelines to model the underwater network management system; – general and functional requirements of underwater network management system"
+  },
+  {
+    "reference": "ISO/IEC 30142-2:2022",
+    "edition": "1.0",
+    "date": "2022-08-17",
+    "title": "Internet of Things (IoT) - Underwater acoustic sensor network (UWASN) - Network management system - Part 2: Underwater management information base (u-MIB)",
+    "language": "EN",
+    "description": "ISO/IEC 30142-2:2022 (E) provides the underwater management information base (u-MIB) of the underwater network management system (U-NMS). It specifies the following: – general requirements for constructing u-MIB in U-NMS; – designing the managed objects of the manager and agent u-MIB; – integrating the managed objects of the manager and agent u-MIB"
+  },
+  {
+    "reference": "ISO/IEC 30143:2020",
+    "edition": "1.0",
+    "date": "2020-06-22",
+    "title": "Internet of Things (IoT) - Underwater acoustic sensor network (UWASN) - Application profiles",
+    "language": "EN",
+    "description": "ISO/IEC 30143:2020 provides the guidelines for designing and developing new applications in the underwater environment such as fish farming, environment monitoring, harbour security, etc. This document also: • provides the components required for developing the application; • provides instructions for modelling the application with examples; • helps the user to understand the communication between the elements in the application for modelling the communication between elements; • guides the user with the design process of underwater applications."
+  },
+  {
+    "reference": "ISO/IEC 30144:2020",
+    "edition": "1.0",
+    "date": "2020-10-29",
+    "title": "Internet of things (IoT) - Wireless sensor network system supporting electrical power substation",
+    "language": "EN",
+    "description": "ISO/IEC 30144:2020 (E) specifies intelligent wireless sensor network (iWSN) from the perspectives of iWSN's system infrastructure and communications internal and external to the infrastructure, and technical requirements for iWSN to realize smart electrical power substations."
+  },
+  {
+    "reference": "ISO/IEC 30147:2021",
+    "edition": "1.0",
+    "date": "2021-05-28",
+    "title": "Internet of Things (IoT) - Integration of IoT trustworthiness activities in ISO/IEC/IEEE 15288 system engineering processes",
+    "language": "EN",
+    "description": "ISO/IEC 30147:2021(E) provides system life cycle processes to implement and maintain trustworthiness in an IoT system or service by applying and supplementing ISO/IEC/IEEE 15288:2015. The system life cycle processes are applicable to IoT systems and services common to a wide range of application areas."
+  },
+  {
+    "reference": "ISO/IEC TR 30148:2019",
+    "edition": "1.0",
+    "date": "2019-10-22",
+    "title": "Internet of things (IoT) - Application of sensor network for wireless gas meters",
+    "language": "EN",
+    "description": "ISO/IEC TR 30148:2019 (E) describes: – the structure of wireless gas meter networks, and – the application protocol of wireless gas meter networks"
+  },
+  {
+    "reference": "ISO/IEC TS 30149:2024",
+    "edition": "1.0",
+    "date": "2024-05-24",
+    "title": "Internet of Things (IoT) - Trustworthiness principles",
+    "language": "EN",
+    "description": "ISO/IEC TS 30149:2024 provides principles for IoT trustworthiness based on ISO/IEC 30141 - IoT Reference Architecture."
+  },
+  {
+    "reference": "ISO/IEC 30161-1:2020",
+    "edition": "1.0",
+    "date": "2020-11-27",
+    "title": "Internet of things (IoT) - Data exchange platform for IoT services - Part 1: General requirements and architecture",
+    "language": "EN",
+    "description": "ISO/IEC 30161-1:2020(E) specifies requirements for an Internet of Things (IoT) data exchange platform for various services in the technology areas of: • the middleware components of communication networks allowing the co-existence of IoT services with legacy services; • the end-points performance across the communication networks among the IoT and legacy services; • the IoT specific functions and functionalities allowing the efficient deployment of IoT services; • the IoT service communication networks’ framework and infrastructure; and • the IoT service implementation guideline for the IoT data exchange platform"
+  },
+  {
+    "reference": "ISO/IEC 30161-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-10",
+    "title": "Internet of Things (IoT) – Data exchange platform for IoT services – Part 2: Transport interoperability between nodal points",
+    "language": "EN",
+    "description": "ISO/IEC 30161-2:2023 specifies the following items for the transport interoperability between nodal points in the IoT data exchange platform (IoT DEP): – requirements; – functional blocks; – operation mechanism."
+  },
+  {
+    "reference": "ISO/IEC 30162:2022",
+    "edition": "1.0",
+    "date": "2022-02-07",
+    "title": "Internet of Things (IoT) - Compatibility requirements and model for devices within Industrial IoT systems",
+    "language": "EN",
+    "description": "ISO/IEC 30162:2022 specifies network models for IIoT connectivity and general compatibility requirements for devices and networks within IIoT systems in terms of: a) data transmission protocols interaction; b) distributed data interoperability & management; c) connectivity framework; d) connectivity transport; e) connectivity network; f) best practices and guidance to use in IIoT area."
+  },
+  {
+    "reference": "ISO/IEC 30163:2021",
+    "edition": "1.0",
+    "date": "2021-03-11",
+    "title": "Internet of Things (IoT) - System requirements of IoT and sensor network technology-based integrated platform for chattel asset monitoring",
+    "language": "EN",
+    "description": "ISO/IEC 30163:2021 specifies the system requirements of an Internet of Things (IoT)/Sensor Network (SN) technology-based platform for chattel asset monitoring supporting financial services, including: - System infrastructure that describes functional components; - System and functional requirements during the entire chattel asset management process, including chattel assets in transition, in/out of warehouse, storage, mortgage, etc.; - Performance requirements and performance specifications of each functional component; - Interface definition of the integrated platform system. This document is applicable to the design and development of IoT/SN system for chattel asset monitoring supporting financial services."
+  },
+  {
+    "reference": "ISO/IEC TR 30164:2020",
+    "edition": "1.0",
+    "date": "2020-04-24",
+    "title": "Internet of Things (IoT) - Edge computing",
+    "language": "EN",
+    "description": "ISO/IEC TR 30164:2020 describes the common concepts, terminologies, characteristics, use cases and technologies (including data management, coordination, processing, network functionality, heterogeneous computing, security, hardware/software optimization) of edge computing for IoT systems applications. This document is also meant to assist in the identification of potential areas for standardization in edge computing for IoT."
+  },
+  {
+    "reference": "ISO/IEC 30165:2021",
+    "edition": "1.0",
+    "date": "2021-07-06",
+    "title": "Internet of things (IoT) - Real-time IoT framework",
+    "language": "EN",
+    "description": "ISO/IEC 30165:2021 specifies the framework of a real-time IoT (RT-IoT) system, including: - RT-IoT system conceptual model based on domain-based IoT reference model defined in ISO/IEC 30141; - impacts of time-parameter in terms of four viewpoints (time, communication, control and computation)."
+  },
+  {
+    "reference": "ISO/IEC TR 30166:2020",
+    "edition": "1.0",
+    "date": "2020-04-29",
+    "title": "Internet of Things (IoT) - Industrial IoT",
+    "language": "EN",
+    "description": "ISO/IEC TR 30166:2020 (E) describes the following: • general Industrial IoT (IIoT) systems and landscapes which outline characteristics, technical aspects and functional as well as non-functional elements of the IIoT structure and a listing of standardizing organisations, consortia and open-source communities with work on all aspects on IIoT; • considerations for the future standardization perspective of IIoT including risk analysis, new technologies and identified collaboration"
+  },
+  {
+    "reference": "ISO/IEC TR 30167:2021",
+    "edition": "1.0",
+    "date": "2021-06-22",
+    "title": "Internet of Things (IoT) - Underwater communication technologies for IoT",
+    "language": "EN",
+    "description": "ISO/IEC TR 30167:2021 describes the enabling and driving technologies of underwater communication such as acoustic communication, optical communication, Very Low Frequency (VLF)/Extremely, Low Frequency (ELF) communication, and Magnetic Fusion Communication (MFC). This document also highlights: – technical overview of different communication technologies; – characteristics of different communication technologies; – trends of different communication technologies; – applications of each communication technology; – benefits and challenges of each communication technology."
+  },
+  {
+    "reference": "ISO/IEC TS 30168:2024",
+    "edition": "1.0",
+    "date": "2024-05-02",
+    "title": "Internet of Things (IoT) - Generic trust anchor application programming interface for industrial IoT devices",
+    "language": "EN",
+    "description": "ISO/IEC TS 30168:2024 specifies a generic programming interface for the integration of secure elements within Industrial IoT devices. This includes requirements from industrial usage scenarios and applications. This document also provides guidance for implementation and testing."
+  },
+  {
+    "reference": "ISO/IEC 30169:2022",
+    "edition": "1.0",
+    "date": "2022-05-25",
+    "title": "Internet of Things (IoT) - IoT applications for electronic label system (ELS)",
+    "language": "EN",
+    "description": "ISO/IEC 30169:2022 specifies the system framework, IoT application model and overall technical requirements for ELS. This document applies to the design and development of the IoT applications for ELS. The IoT applications for ELS specified in this document are mainly applicable to the retail industry, and can also provide reference for the design and development of the IoT applications for ELS in other industries."
+  },
+  {
+    "reference": "ISO/IEC 30171-1:2022",
+    "edition": "1.0",
+    "date": "2022-03-30",
+    "title": "Internet of Things (IoT) - Base-station based underwater wireless acoustic network (B-UWAN) - Part 1: Overview and requirements",
+    "language": "EN",
+    "description": "ISO/IEC 30171-1:2022 provides the general overview of base-station based underwater wireless acoustic networks (B-UWANs). It gives detailed description for main components of B-UWAN and also provides functions of B-UWAN components. It further specifies the requirements of B-UWAN."
+  },
+  {
+    "reference": "ISO/IEC TR 30172:2023",
+    "edition": "1.0",
+    "date": "2023-10-30",
+    "title": "Internet of things (loT) - Digital twin - Use cases",
+    "language": "EN",
+    "description": "ISO/IEC TR 30172:2023 provides a collection of representative use cases of digital twin applications in a variety of domains, for example, smart manufacturing and smart cities. This document is applicable to all types of organization (for example, commercial enterprises, government agencies, and not-for-profit organizations)."
+  },
+  {
+    "reference": "ISO/IEC 30173:2023",
+    "edition": "1.0",
+    "date": "2023-11-07",
+    "title": "Digital twin - Concepts and terminology",
+    "language": "EN",
+    "description": "ISO/IEC 30173:2023 establishes terminology for digital twin (DTw) and describes concepts in the field of digital twin, including the terms and definitions of digital twin, concepts of digital twin (e.g. digital twin system context, life cycle process for digital twin, types of digital twin), functional view of digital twin, and digital twin stakeholders. This document can be used in the development of other standards and in support of communications among diverse, interested parties or stakeholders. This document is applicable to all types of organizations (e.g. commercial enterprises, government agencies, not-for-profit organizations)."
+  },
+  {
+    "reference": "ISO/IEC TR 30174:2021",
+    "edition": "1.0",
+    "date": "2021-11-04",
+    "title": "Internet of Things (IoT) - Socialized IoT system resembling human social interaction dynamics",
+    "language": "EN",
+    "description": "ISO/IEC TR 30174:2021(E) describes: • key features of the socialized IoT systems, e.g. sensing the external physical world, resolving the uncertainties of targets, satisfying users' demand and providing quality service, etc.; • socialized attributes, i.e. socialized network, socialized collaboration, and socialized services, which are derived from the key features; and • guidelines on how to use or apply the socialized attributes in the design and development of IoT systems."
+  },
+  {
+    "reference": "ISO/IEC TR 30176:2021",
+    "edition": "1.0",
+    "date": "2021-11-04",
+    "title": "Internet of Things (IoT) - Integration of IoT and DLT/blockchain: Use cases",
+    "language": "EN",
+    "description": "ISO/IEC TR 30176:2021(E) identifies and collects use cases for the integration of the DLT/blockchain within IoT systems, applications, and/or services. The use cases presented in this document use the IoT use case template"
+  },
+  {
+    "reference": "ISO/IEC 30178:2026",
+    "edition": "1.0",
+    "date": "2026-07-30",
+    "title": "Internet of Things (IoT) - Data format, value and coding for interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 30178:2026 defines common formats, values, and coding for data interoperability and exchange among systems in the Internet of Things (IoT)."
+  },
+  {
+    "reference": "ISO/IEC 30179:2023",
+    "edition": "1.0",
+    "date": "2023-01-26",
+    "title": "Internet of Things (IoT) - Overview and general requirements of IoT system for ecological environment monitoring",
+    "language": "EN",
+    "description": "ISO/IEC 30179:2023 specifies the Internet of Things system for ecological environment monitoring in terms of the following: – system infrastructure and system entities of the IoT system for ecological environment monitoring for natural entities such as air, water, soil, living organisms; and – the general requirements of the IoT system for ecological environment monitoring"
+  },
+  {
+    "reference": "ISO/IEC TS 30180:2025",
+    "edition": "1.0",
+    "date": "2025-08-21",
+    "title": "Internet of Things (IoT) - Functional requirements to determine the status of self-quarantine through IoT data interfaces",
+    "language": "EN",
+    "description": "ISO/IEC TS 30180:2025 specifies the functional requirements of the following items to determine the status of self-quarantine through IoT data interfaces working over a set of hand-held devices, monitoring tag, and a management system: - functional requirements for monitoring entity and monitoring tag at a self-quarantine place; - functional requirements for managing entity and proxy managing entity at the management side; and - functional requirements for the protection of the self-quarantine status and the privacy information."
+  },
+  {
+    "reference": "ISO/IEC 30181:2024",
+    "edition": "1.0",
+    "date": "2024-11-29",
+    "title": "Internet of Things (IoT) - Functional architecture for resource identifier interoperability",
+    "language": "EN",
+    "description": "ISO/IEC 30181:2024 specifies functional requirements and architecture about the following items for resource interoperability among heterogeneous IoT platforms through the conversion of resource identifiers (IDs) and paths (e.g. uniform resource identifier (URI)): – requirements for interoperability of resource IDs in the heterogeneous IoT platforms; – functional architecture for converting IDs and paths of resources on heterogeneous IoT platforms; and, – functional architecture for mapping and managing resource IDs among heterogeneous IoT platforms."
+  },
+  {
+    "reference": "ISO/IEC 30184:2024",
+    "edition": "1.0",
+    "date": "2024-12-06",
+    "title": "Internet of Things (IoT) - Autonomous IoT object identification in a connected home - Requirements and framework",
+    "language": "EN",
+    "description": "ISO/IEC 30184:2024 specifies the following items for the autonomous IoT object identification in a connected home: – requirements; – architecture, functional entities and interfaces; – operation procedures. Information model formats, data formats, and identifier assignment are out of scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 30186:2025",
+    "edition": "1.0",
+    "date": "2025-07-10",
+    "title": "Digital twin - Maturity model and guidance for a maturity assessment",
+    "language": "EN",
+    "description": "ISO/IEC 30186:2025 provides a generic digital twin maturity model, definition of assessment indicators, and guidance for a maturity assessment."
+  },
+  {
+    "reference": "ISO/IEC 30187:2026",
+    "edition": "1.0",
+    "date": "2026-05-13",
+    "title": "Internet of Things (IoT) - Evaluation indicators for IoT systems",
+    "language": "EN",
+    "description": "ISO/IEC 30187:2026 specifies the evaluation indicators for IoT systems. This document is applicable to the compilation of the evaluation indicators for IoT systems in specific industries. NOTE The indicators identified in this document are typical indicators but are not a comprehensive list; and conversely, not every indicator listed applies to every IoT system."
+  },
+  {
+    "reference": "ISO/IEC 30188:2026",
+    "edition": "1.0",
+    "date": "2026-07-22",
+    "title": "Digital twin - Reference architecture",
+    "language": "EN",
+    "description": "ISO/IEC 30188:2026 specifies a general reference architecture for a digital twin system in terms of defining system fundamentals through the use of architecture views."
+  },
+  {
+    "reference": "ISO/IEC TR 30189-1:2025",
+    "edition": "1.0",
+    "date": "2025-03-07",
+    "title": "Internet of Things (IoT) – IoT-based management of tangible cultural heritage assets – Part 1: Framework",
+    "language": "EN",
+    "description": "ISO/IEC TR 30189-1:2025 describes a framework for the use of IoT technology for management of tangible cultural heritage assets, which includes the associated functional entities and information flows."
+  },
+  {
+    "reference": "ISO/IEC TR 30194:2024",
+    "edition": "1.0",
+    "date": "2024-12-05",
+    "title": "Internet of things (IoT) and digital twin - Best practices for use case projects",
+    "language": "EN",
+    "description": "ISO/IEC TR 30194:2024 (E) describes best practices for use case projects in terms of projects, templates and plans, with the objective to improve the consistency of content across different use case projects and enable sharing of knowledge between projects. A long-term goal is to foster interoperability between tools supporting the collection and maintenance of use cases. This document is intended for developers of use case projects, including in the context of standardization. The document can be used to complement existing methodology standards such as IEC 62559."
+  }
+]

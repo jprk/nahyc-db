@@ -9,3 +9,17 @@
 
 pandas==3.0.5
 duckduckgo_search==8.1.1
+
+# src/tools/harvest_iec_publications.py (doc/PLAN.md §25, 2026-09-17)
+# ONLY — www.iec.ch sits behind an AWS WAF Bot Control "challenge" that
+# a plain requests/curl client cannot pass; headless Chromium can, but
+# needs its own browser binary AND system runtime libraries, neither of
+# which pip alone provides:
+#
+#   .venv/bin/pip install -r requirements.txt -r requirements-optional.txt
+#   .venv/bin/playwright install chromium
+#   sudo .venv/bin/playwright install-deps chromium   # one-time, needs root
+#
+# Not needed for the app, the regular pipeline, or any other src/sites/
+# module — every one of those still uses plain requests/BeautifulSoup.
+playwright==1.63.0

@@ -1,0 +1,522 @@
+[
+  {
+    "reference": "IEC 60034-1:2026",
+    "edition": "15.0",
+    "date": "2026-03-13",
+    "title": "Rotating electrical machines - Part 1: Rating and performance",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60034-1:2026 is available as IEC 60034-1:2026 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 60034-1:2026 is applicable to all rotating electric machines, except rotating electric machines for rail and road vehicles, which are covered by the IEC 60349 series of standards. Machines with integrated EMC-active components such as a variable frequency converter are considered being a power drive system (see the IEC 61800 series of standards). In such cases, this document applies to the motor component of the power drive system only. Machines within the scope of this document can also be subject to superseding, modifying or additional requirements in other standards, for example, IEC 60079 and IEC 60092. NOTE If particular clauses of this document are modified to meet special applications, for example machines subject to radioactivity or machines for aerospace, all other clauses apply insofar as they are compatible. This fifteenth edition cancels and replaces the fourteenth edition published in 2022. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: Clause 1: Clarification with respect to machines with integrated EMC-active components added Clause 2: Normative references updated Clause 3: Note on meaning of “agreement” deleted; list of abbreviations added Clause 4.2.9, 4.2.10: References to IEC TS 60034-25 deleted, as converter duty is now defined in 3.36 Clause 5.1: Reference to IEC TS 60034-25 converted into note Clause 6.6 Clarification of requirements Clause 7.2.1: Reference to IEC TS 60034-25 converted into note Clause 7.5: Clarification of requirements Clause 7.6: Reference to IEC TS 60034-25 converted into note Clause 8.1: Clarification of references Clause 8.6.1: Clarification on choice of method for large machines Table 11: Updated values for thermal class 200 (N) Clause 8.10.3: Clarification of requirements Clause 9.2: Clarification on test voltage for old machines after rewinding Table 17: Items 9 and 10 merged and clarified Clause 9.7: Clarification on overspeed test for machines held at stock added Table 20: Clarification on test speed for converter duty machines Clause 10.2: Clarification of term ‘digital form’ Clause :10.3 Note on QR code deleted Clause 11.1: Reference to protective earth test added Clause 13.1: Clarifying flowchart added Clause 13.2.2: Clarification on motors with integrated VSD added Clause 13.3: Clarification of requirements after consultation with ACEC Clause 13.5: Clarification of requirements after consultation with ACEC Clause 14: Note on safety converted to normal text"
+  },
+  {
+    "reference": "IEC 60034-2-1:2024",
+    "edition": "3.0",
+    "date": "2024-03-12",
+    "title": "Rotating electrical machines - Part 2-1: Standard methods for determining losses and efficiency from tests (excluding machines for traction vehicles)",
+    "language": "EN-FR",
+    "description": "IEC 60034-2-1:2024 is intended to establish methods of determining efficiencies from tests, and also to specify methods of obtaining specific losses. This document applies to DC machines and to AC synchronous and induction machines of all sizes within the scope of IEC 60034-1 rated for mains operation. These methods may be applied to other types of machines such as rotary converters, AC commutator motors and single-phase induction motors. This third edition cancels and replaces the second edition of IEC 60034-2-1 published in 2014. This edition includes the following significant technical changes with respect to the previous edition: - Harmonization of layout and requirements with IEC 60034-2-2 and IEC 60034-2-3."
+  },
+  {
+    "reference": "IEC 60034-2-2:2024",
+    "edition": "2.0",
+    "date": "2024-03-12",
+    "title": "Rotating electrical machines - Part 2-2: Specific methods for determining separate losses of large machines from tests - Supplement to IEC 60034-2-1",
+    "language": "EN-FR",
+    "description": "IEC 60034-2-2:2024 applies to large rotating electrical machines and establishes additional methods of determining separate losses and to define an efficiency supplementing IEC 60034‑2‑1. These methods apply when full-load testing is not practical and results in a greater uncertainty. The specific methods described are: - Calibrated-machine method. - Retardation method. - Calorimetric method. - Summation of losses for permanent magnet excited synchronous machines. This second edition cancels and replaces the first edition published in 2010. This edition includes the following significant technical changes with respect to the previous edition: - Layout and procedures aligned with IEC 60034-2-1 and IEC 60034-2-3. - Annex A added: an informative procedure for the summation of losses for large permanent-magnet excited synchronous machines."
+  },
+  {
+    "reference": "IEC 60034-2-3:2024",
+    "edition": "2.0",
+    "date": "2024-03-12",
+    "title": "Rotating electrical machines - Part 2-3: Specific test methods for determining losses and efficiency of converter-fed AC motors",
+    "language": "EN-FR",
+    "description": "IEC 60034-2-3:2024 specifies test methods and an interpolation procedure for determining losses and efficiencies of converter-fed motors. The motor is then part of a variable frequency power drive system (PDS) as defined in IEC 61800‑9‑2. This document also specifies procedures to determine motor losses at any load point (torque, speed) within the constant flux range (constant torque range, base speed range), the field weakening range and the overload range based on determination of losses at seven standardized load points. This procedure is applicable to any variable speed AC motor (induction and synchronous) rated according to IEC 60034-1 for operation on a variable frequency and variable voltage power supply. This second edition cancels and replaces the first edition of IEC 60034-2-3 published in 2020. This edition includes the following significant technical changes with respect to the previous edition: - Harmonization of requirements and procedures with IEC 60034-2-1. - Extension of the interpolation procedure to the field weakening range."
+  },
+  {
+    "reference": "IEC 60034-3:2020",
+    "edition": "7.0",
+    "date": "2020-05-26",
+    "title": "Rotating electrical machines - Part 3: Specific requirements for synchronous generators driven by steam turbines or combustion gas turbines and for synchronous compensators",
+    "language": "EN-FR",
+    "description": "IEC 60034-3:2020 applies to large three-phase synchronous generators, having rated outputs of 10 MVA and above driven by steam turbines or combustion gas turbines. Also included are synchronous Mvar compensators of the same output range connected to a grid for the purpose of exchanging reactive power. This document supplements basic requirements for rotating machines given in IEC 60034-1. This seventh edition cancels and replaces the sixth edition published in 2007. This edition includes the following significant technical changes with respect to the previous edition: - title modified; - scope extended to synchronous compensators; - rotor overcurrent requirements added; - impact of stator harmonics on rotor unbalanced load capability introduced; - synchronisation requirements added; - adjustments of temperatures or temperature rise revised for gas turbine applications; - requirements for auxiliaries updated."
+  },
+  {
+    "reference": "IEC 60034-4-1:2018",
+    "edition": "1.0",
+    "date": "2018-04-27",
+    "title": "Rotating electrical machines - Part 4-1: Methods for determining electrically excited synchronous machine quantities from tests",
+    "language": "EN-FR",
+    "description": "IEC 60034-4-1:2018 applies to three-phase synchronous machines of 1 kVA rating and larger and describes methods intended to be used for machines having an excitation winding with slip-rings and brushes for their supply. Synchronous machines with brushless excitation require special effort for some of the tests. For machines with permanent magnet excitation, there is a limited applicability of the described tests, and special precautions should be taken against irreversible demagnetization."
+  },
+  {
+    "reference": "IEC 60034-5:2020",
+    "edition": "5.0",
+    "date": "2020-04-29",
+    "title": "Rotating electrical machines - Part 5: Degrees of protection provided by the integral design of rotating electrical machines (IP code) - Classification",
+    "language": "EN-FR, EN",
+    "description": "IEC 60034-5:2020 applies to the classification of degrees of protection provided by enclosures for rotating electrical machines. It defines the requirements for protective enclosures that are in all other respects suitable for their intended use and which, from the point of view of materials and workmanship, ensure that the properties dealt with in this document are maintained under normal conditions of use. This document does not specify degrees of protection against mechanical damage of the machine, or conditions such as moisture (produced for example by condensation), corrosive dust and vapour, fungus or vermin. This document is also applicable to explosion proof machines, but it does not specify the types of protection for use in a potentially explosive (dust, gas) environment. Those are defined in the IEC 60079 series of standards. This document gives definitions for standard degrees of protection provided by enclosures applicable to rotating electrical machines as regards the: a. protection of persons against contacts with or approach to live parts and against contact with moving parts (other than smooth rotating shafts and the like) inside the enclosure and protection of the machine against ingress of solid foreign objects b. protection of machines against the harmful effects due to ingress of water; c. protection of machines against the harmful effects due to ingress of dust. This fifth edition cancels and replaces the fourth edition, published in 2000, and its Amendment 1:2006.The main technical changes with respect to the previous edition are: - the inclusion of an additional second numeral 9 including its test method, - an additional note for clarification in Table 3, - a clarification on the term open drain hole, - a clarification on the ingress of dust in Table 4, - pressure values given now in Pa only, - a clarification in the scope on the applicability of this standard for (Ex) motors, - a new Clause 3 with definitions, The contents of the corrigendum of January 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60034-5:2020/COR1:2024",
+    "edition": "5.0",
+    "date": "2024-01-19",
+    "title": "Corrigendum 1 - Rotating electrical machines - Part 5: Degrees of protection provided by the integral design of rotating electrical machines (IP code) - Classification",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60034-6:1991",
+    "edition": "2.0",
+    "date": "1991-10-01",
+    "title": "Rotating electrical machines - Part 6: Methods of cooling (IC Code)",
+    "language": "EN-FR, ES",
+    "description": "Identifies circuit arrangements and movement methods of the coolant. Classifies methods of cooling and gives a designation system for them. Complete and simplified designations are defined."
+  },
+  {
+    "reference": "IEC 60034-7:2020",
+    "edition": "3.0",
+    "date": "2020-10-07",
+    "title": "Rotating electrical machines - Part 7: Classification of types of construction, mounting arrangements and terminal box position (IM Code)",
+    "language": "EN-FR",
+    "description": "IEC 60034-7:2020 specifies the IM Code, a classification of types of construction, mounting arrangements and the terminal box position of rotating electrical machines. Two systems of classification are provided as follows: - Code I: An alpha-numeric designation applicable to machines with end-shield bearing(s) and only one shaft extension - Code II: An all-numeric designation applicable to a wider range of types of machines including types covered by Code I. This third edition cancels and replaces the second edition, published in 1992, and its Amendment 1:2000. The main technical changes with regard to the previous edition are as follows: - note on twin motors added - reference to 4.3 instead of duplication of text - new subclause on marking of shaft inclination or declination. The contents of the corrigendum of March 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60034-7:2020/COR1:2023",
+    "edition": "3.0",
+    "date": "2023-03-16",
+    "title": "Corrigendum 1 - Rotating electrical machines - Part 7: Classification of types of construction, mounting arrangements and terminal box position (IM Code)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60034-8:2026",
+    "edition": "4.0",
+    "date": "2026-06-02",
+    "title": "Rotating electrical machines - Part 8: Terminal markings and direction of rotation",
+    "language": "EN-FR, EN, FR",
+    "description": "CORRECTED VERSION 2026-07 IEC 60034-8:2026 applies to AC and DC machines and specifies: a) rules for the identification of winding connection points; b) marking of winding terminals; c) direction of rotation; d) relationship between terminal markings and direction of rotation; e) terminal marking of auxiliary devices; f) connection diagrams of machines for common applications. This fourth edition cancels and replaces the third edition published in 2007 and Amendment 1:2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The inclusion of turbine-type synchronous machines in the scope. The content of the corrigendum 1 (2026-07) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60034-8:2026/COR1:2026",
+    "edition": "4.0",
+    "date": "2026-07-29",
+    "title": "Corrigendum 1 - Rotating electrical machines - Part 8: Terminal markings and direction of rotation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60034-9:2021",
+    "edition": "5.0",
+    "date": "2021-10-14",
+    "title": "Rotating electrical machines - Part 9: Noise limits",
+    "language": "EN-FR",
+    "description": "IEC 60034-9:2021 specifies test methods for the determination of sound power level of rotating electrical machines and specifies maximum A-weighted sound power levels for factory acceptance testing of network-supplied, rotating electrical machines in accordance with lEC 60034-1, having methods of cooling according to lEC 60034-6 and degrees of protection according to lEC 60034-5, and having the following characteristics: - standard design, either AC or DC, without additional special electrical, mechanical, or acoustical modifications intended to reduce the sound power level - rated output from 1 kW (or kVA) up to and including 5 500 kW (or kVA) - rated speed not greater than 3 750 min–1 This fifth edition cancels and replaces the fourth edition, published in 2003 and its amendment 1, published in 2007. This edition includes the following significant technical changes with respect to the previous edition: a) In Table 2 and Table 3 cooling methods IC01, IC11, IC21 and IC31, IC71, IC81 are now covered. b) This edition adds Table 3 for 60 Hz machines, whereas Table 2, which covers only 50 Hz machines, has no change in levels. c) In Table 3, grade A is added to harmonize the highest levels seen in IEC and NEMA, whereas grade B was added to harmonize the lowest, more restrictive levels seen in IEC and NEMA. d) The clause “Determination of noise increments caused by converter supply” has been shifted to Annex B and renamed “Information on typical noise increments caused by converter supply”."
+  },
+  {
+    "reference": "IEC 60034-11:2020",
+    "edition": "3.0",
+    "date": "2020-10-05",
+    "title": "Rotating electrical machines - Part 11: Thermal protection",
+    "language": "EN-FR",
+    "description": "IEC 60034-11:2020 specifies requirements relating to the use of thermal protectors and thermal detectors incorporated into the stator windings or placed in other suitable positions in induction machines in order to protect them against serious damage due to thermal overloads. It applies to single-speed three-phase 50 Hz or 60 Hz cage induction motors in accordance with IEC 60034-1 and IEC 60034-12 that: - have a rated voltage up to 1 000 V; - are intended for direct-on-line or star-delta starting. The main changes with respect to the previous edition are: - the additional specification of winding temperature limits for temperature class 200 (N), - the increased limits of maximum winding temperatures for overloads with rapid variation, - the clarification that the motor winding may be permanently damaged after it has been exposed to temperatures - a clarification of the definition of indirect thermal protection, - a clarification on the test methods for larger motors."
+  },
+  {
+    "reference": "IEC 60034-12:2024",
+    "edition": "4.0",
+    "date": "2024-05-22",
+    "title": "Rotating electrical machines - Part 12: Starting performance of single-speed three-phase cage induction motors",
+    "language": "EN-FR",
+    "description": "IEC 60034-12:2024 specifies the parameters for eight designs of starting performance of single-speed three-phase 50 Hz or 60 Hz cage induction motors in accordance with IEC 60034‑1 that: - have a rated voltage up to 1 000 V; - are intended for direct-on-line or star-delta starting; - are rated on the basis of duty type S1; - are constructed to any degree of protection as defined in IEC 60034-5 and explosion protection. This document also applies to dual voltage motors provided that the flux saturation level is the same for both voltages. This fourth edition cancels and replaces the third edition published in 2016. Aligned with the requirements for explosion protected motors from TC31 WG27 - new clause on methods for measuring locked-rotor current and torque; - new informative annex on the general current and torque characteristics with locked rotor; - new informative annex on correction of voltage and frequency; - aligned with the requirements for explosion protected motors from TC31 WG27."
+  },
+  {
+    "reference": "IEC 60034-14:2018",
+    "edition": "4.0",
+    "date": "2018-08-17",
+    "title": "Rotating electrical machines - Part 14: Mechanical vibration of certain machines with shaft heights 56 mm and higher - Measurement, evaluation and limits of vibration severity",
+    "language": "EN-FR",
+    "description": "IEC 60034-14:2018 specifies the factory acceptance vibration test procedures and vibration limits for certain electrical machines under specified conditions, when uncoupled from any load or prime mover. It is applicable to DC and three-phase AC machines, with shaft heights 56 mm and higher and a rated output up to 50 MW, at operational speeds from 120 min–1 up to and including 15 000 min–1. This new edition includes the following significant technical changes with respect to the previous edition: - Improved explanation of the definition “free suspension”. - Addition of an alternative method of rigid mount - Definition of an improved option for shaft key."
+  },
+  {
+    "reference": "IEC 60034-15:2025",
+    "edition": "4.0",
+    "date": "2025-06-06",
+    "title": "Rotating electrical machines - Part 15: Impulse voltage withstand levels of form-wound stator coils for rotating a.c. machines",
+    "language": "EN-FR",
+    "description": "IEC 60034-15: 2025 relates to AC machines incorporating form-wound stator coils that are intended to be connected to a standard grid supply. It specifies the test procedures and voltages to be applied to sample coils, as well as routine tests performed on coils mounted in the stator core. The purpose of this document is to show the ability of a stator winding to resist voltage transients originating from the grid the machine is connected to. Annex A gives further information. The stator windings and coils for converter-fed machines are excluded from the scope of this document. This document is not intended for use on complete windings since it is difficult to determine when the turn insulation has failed due to the test. This fourth edition cancels and replaces the third edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - harmonize the standard test levels with IEEE Std 522TM [2]; - introduce an enhanced surge impulse voltage withstand level; - introduce the option to test up to the point of electrical breakdown; - improve the evaluation of the recorded impulses in case of oscillations and overshoot; - indicate that converter fed machines are excluded from the scope; - provide guidance on the execution of impulse tests."
+  },
+  {
+    "reference": "IEC 60034-16-1:2011",
+    "edition": "2.0",
+    "date": "2011-05-25",
+    "title": "Rotating electrical machines - Part 16-1: Excitation systems for synchronous machines - Definitions",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-16-1:2011 defines terms applicable to the excitation systems of synchronous rotating electrical machines. The main technical changes with respect to the previous edition are some definitions which were added and some others which were brought up-to-date."
+  },
+  {
+    "reference": "IEC TR 60034-16-2:1991",
+    "edition": "1.0",
+    "date": "1991-02-15",
+    "title": "Rotating electrical machines - Part 16: Excitation systems for synchronous machines - Chapter 2: Models for power system studies",
+    "language": "EN-FR, ES",
+    "description": "Recommends modelling guidelines and appropriate models for excitation systems for use in power system stability studies and includes a nomenclature defining the parameters and variables used."
+  },
+  {
+    "reference": "IEC TS 60034-16-3:1996",
+    "edition": "1.0",
+    "date": "1996-02-14",
+    "title": "Rotating electrical machines - Part 16: Excitation systems for synchronous machines - Section 3: Dynamic performance",
+    "language": "EN-FR",
+    "description": "Briefly reviews the methods available for investigating the response characteristics of the synchronous machine with its closed-loop excitation control This publication has the status of a technical report type 2"
+  },
+  {
+    "reference": "IEC 60034-18-1:2022",
+    "edition": "3.0",
+    "date": "2022-12-22",
+    "title": "Rotating electrical machines - Part 18-1: Functional evaluation of insulation systems - General guidelines",
+    "language": "EN-FR",
+    "description": "IEC 60034-18-1:2022 deals with the general guidelines for functional evaluation of electrical insulation systems, used or proposed to be used in rotating electrical machines within the scope of IEC 60034-1, in order to qualify them. IEC 60034-18-1 defines general requirements on the qualification of insulation systems, where – for thermal ageing – the Arrhenius equations do not necessarily fit, according to many experiences. This third edition cancels and replaces the second edition published in 2010. This edition includes the following significant technical changes with respect to the previous edition: a. provides general guidelines for functional evaluation of different types of windings as before but incorporates those changes, which have been introduced for the electrical qualification and evaluation of windings which are electrically stressed by converter-supply; b. is now focused on general guidelines with all technical details of procedures and qualification principles moved to the subsequent parts; c. details additional general aspects of functional evaluation and qualification, particularly the procedure for comparison between reference and candidate insulation systems, the introduction of the concept of qualification for different expected life-times in service and the evaluation of minor component or manufacturing changes."
+  },
+  {
+    "reference": "IEC 60034-18-21:2012",
+    "edition": "2.0",
+    "date": "2012-09-19",
+    "title": "Rotating electrical machines - Part 18-21: Functional evaluation of insulation systems - Test procedures for wire-wound windings - Thermal evaluation and classification",
+    "language": "EN-FR",
+    "description": "IEC 60034-18-21:2012 gives test procedures for the thermal evaluation and classification of insulation systems used or proposed for use in wire-wound alternating current (a.c.) or direct current (d.c.) rotating electrical machines. The test performance of a candidate insulation system is compared to the test performance of a reference insulation system with proven service experience. The main technical changes with regard to the previous edition can be seen in the introduction of some basic statistical methods in the evaluation of comparative data. Moreover, the standard states a simpler use of different test procedures."
+  },
+  {
+    "reference": "IEC 60034-18-31:2012",
+    "edition": "2.0",
+    "date": "2012-06-25",
+    "title": "Rotating electrical machines - Part 18-31: Functional evaluation of insulation systems - Test procedures for form-wound windings - Thermal evaluation and classification of insulation systems used in rotating machines",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-18-31:2012 describes thermal endurance test procedures for classification of insulation systems used in a.c. or d.c. rotating electrical machines with indirect cooling and form-wound windings. These test procedures are intended to compare the thermal endurance performance of the mainwall insulation between conductor(s) and ground and, where required by the design of the coil or bar, the insulation between the turns. The main technical changes with regard to the previous edition include: - Definition of the test method and sub-cycles required to establish a consistent standardized platform for thermal ageing of insulation systems for form-wound windings. - Recommendations for establishing a thermal life curve based on confidence intervals. - Comparison of candidate and reference system performance for specific requirements of thermal class, within feasible limits. Keywords: rotating machinery, insulation systems"
+  },
+  {
+    "reference": "IEC 60034-18-32:2022",
+    "edition": "2.0",
+    "date": "2022-01-25",
+    "title": "Rotating electrical machines - Part 18-32: Functional evaluation of insulation systems (Type II) - Electrical endurance qualification procedures for form-wound windings",
+    "language": "EN-FR",
+    "description": "IEC 60034-18-32:2022 describes qualification procedures for the evaluation of electrical endurance of insulation systems for use in rotating electrical machines using form-wound windings energized with sinusoidal power frequency voltage. The test procedures for the main wall insulation are comparative in nature, such that the performance of a candidate insulation system is compared to that of a reference insulation system with proven service experience. If no reference system is available, the diagram in Annex A is available for use. The qualification procedures of inverter duty insulation system for form-wound windings can be found in IEC 60034-18-42 or IEC 60034-18-41. A new and informative test procedure for the stress control system is introduced and defined in Annex B. This second edition cancels and replaces the first edition published in 2010. This edition includes the following significant technical changes with respect to the previous edition: a. Title modified. b. Simplification of clauses. c. Reduction in the number of test procedures. d. Inclusion of full bars and coils as test objects. e. A new clause dealing with failures and failure criteria."
+  },
+  {
+    "reference": "IEC TS 60034-18-33:2010",
+    "edition": "2.0",
+    "date": "2010-07-22",
+    "title": "Rotating electrical machines - Part 18-33: Functional evaluation of insulation systems - Test procedures for form-wound windings - Multifactor evaluation by endurance under simultaneous thermal and electrical stresses",
+    "language": "EN",
+    "description": "IEC/TS 60034-18-33:2010 describes procedures for evaluation of insulation systems by endurance testing where thermal and electrical stresses are applied simultaneously. The procedures are intended for insulation systems used in a.c. electrical machines using form-wound windings. The test procedures provide a comparison of performance between reference and candidate systems at combinations of voltage and temperature which have been used separately to assess quality in the past and which are chosen to produce failures within a suitable timescale and at stresses within practical limits. The outcome of the test on the candidate insulation system will indicate whether it is better or worse than the reference system with proven service experience. The main changes of this new edition with respect to the previous one are as follows: - the requirement to investigate the nature of interactions between thermal and electrical stresses has been abandoned; - the use of single stress acceleration factors has been removed; - the selection of stress levels has been adjusted and the temperatures are now related to the thermal class temperature of the insulation system; - the introduction of end-point criteria; - a simplified method to display results."
+  },
+  {
+    "reference": "IEC 60034-18-34:2012",
+    "edition": "1.0",
+    "date": "2012-06-14",
+    "title": "Rotating electrical machines - Part 18-34: Functional evaluation of insulation systems - Test procedures for form-wound windings - Evaluation of thermomechanical endurance of insulation systems",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-18-34:2012 gives test procedures for the evaluation of thermomechanical endurance of insulation systems of form-wound windings. In this evaluation, the performance of a candidate system is compared to that of a reference insulation system with proven service experience."
+  },
+  {
+    "reference": "IEC 60034-18-41:2014",
+    "edition": "1.0",
+    "date": "2014-03-06",
+    "title": "Rotating electrical machines - Part 18-41: Partial discharge free electrical insulation systems (Type I) used in rotating electrical machines fed from voltage converters - Qualification and quality control tests",
+    "language": "EN-FR",
+    "description": "IEC 60034-18-41:2014 defines criteria for assessing the insulation system of stator/rotor windings which are subjected to voltage-source pulse-width-modulation drives. It applies to stator/rotor windings of single or polyphase AC machines with insulation systems for converter operation. It describes qualification tests and quality control (type and routine) tests on representative samples or on completed machines which verify fitness for operation with voltage source converters."
+  },
+  {
+    "reference": "IEC 60034-18-41:2014/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-06-25",
+    "title": "Amendment 1 - Rotating electrical machines - Part 18-41: Partial discharge free electrical insulation systems (Type I) used in electrical rotating machines fed from voltage converters - Qualification and quality control tests",
+    "language": "EN-FR",
+    "description": "The contents of the corrigendum of December 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60034-18-41:2014/AMD1:2019/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-12-11",
+    "title": "Corrigendum 1 - Amendment 1 - Rotating electrical machines - Part 18-41: Partial discharge free electrical insulation systems (Type I) used in electrical rotating machines fed from voltage converters - Qualification and quality control tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60034-18-42:2017",
+    "edition": "1.0",
+    "date": "2017-02-07",
+    "title": "Rotating electrical machines - Part 18-42: Partial discharge resistant electrical insulation systems (Type II) used in rotating electrical machines fed from voltage converters - Qualification tests",
+    "language": "EN-FR",
+    "description": "IEC 60034-18-42:2017 defines criteria for assessing the insulation system of stator/rotor windings of single or polyphase AC machines which are subjected to repetitive impulse voltages, such as those generated by pulse width modulation (PWM) converters, and are expected to experience and withstand partial discharge activity during service. It specifies electrical qualification tests on representative specimens to verify fitness for operation with voltage-source converters. It also describes an additional classification system which defines the limits of reliable performance under converter-fed conditions."
+  },
+  {
+    "reference": "IEC 60034-18-42:2017/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-08-18",
+    "title": "Amendment 1 - Rotating electrical machines - Part 18-42: Partial discharge resistant electrical insulation systems (Type II) used in rotating electrical machines fed from voltage converters - Qualification tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60034-19:2014",
+    "edition": "2.0",
+    "date": "2014-09-25",
+    "title": "Rotating electrical machines - Part 19: Specific test methods for d.c. machines on conventional and rectifier-fed supplies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-19:2014 applies to d.c. machines rated 1 kW and above operating on rectifier-fed power supplies, d.c. buses or other d.c. sources and provides standardized methods intended to determine characteristic quantities for conventional and rectifier-fed d.c. machines. These methods supplement the requirements in IEC 60034-1 and IEC 60034-2-1. The main changes with regard to the previous edition are as follows: - description of the procedure for black band testing has been detailed and clarified; - procedures for measurement of the magnetization curves under no-load and load conditions have been added."
+  },
+  {
+    "reference": "IEC 60034-23:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Rotating electrical machines - Part 23: Repair, overhaul and reclamation",
+    "language": "EN-FR",
+    "description": "IEC 60034-23:2019 covers the procedures necessary to ensure the satisfactory repair, overhaul, and reclamation of all types and sizes of rotating electrical machines covered by IEC 60034. This standard creates a generic industry procedure covering common aspects of a complete repair. The scope of work depends on the machine type, rating, condition, and the importance of plant reliability and safety. This standard does not supersede the requirements prescribed in IEC 60079-19 or elsewhere concerning the repair and overhaul for machines used in explosive atmospheres. This first edition cancels and replaces IEC TS 60034-23 published in 2003. This edition includes the following significant technical changes with respect to the previous edition: – the title of the standard has been changed to Rotating electrical machines – Part 23: Repair, overhaul and reclamation; – general Principles added to cover: hazardous areas, traction motors, machine efficiency, environment, end of life recycling. and circular economy considerations; – general: Scope of work, health and safety, standards, quality, information required and documentation now covered; – final tests updated; – additional requirements for the repair and testing of DC machines added; – additional requirements for the repair and testing of High Voltage AC machines added; – customer reports and handover added; – new standard tolerances added."
+  },
+  {
+    "reference": "IEC TS 60034-24:2009",
+    "edition": "1.0",
+    "date": "2009-09-16",
+    "title": "Rotating electrical machines - Part 24: Online detection and diagnosis of potential failures at the active parts of rotating electrical machines and of bearing currents - Application guide",
+    "language": "EN-FR",
+    "description": "IEC/TS 60034-24:2009 is applicable to the on-line detection and diagnosis of failures at the active parts of multi-phase rotating electrical machines (induction and synchronous machines) and of bearing currents. The failure analysis includes - inter-turn faults; - phase-to-phase short-circuits; - double earth faults and single earth faults of motors with earth connection of the star-point; - static and dynamic eccentricities; - cage imperfection or defects (e.g. broken bars or end-rings); - bearing currents."
+  },
+  {
+    "reference": "IEC TS 60034-25:2022",
+    "edition": "4.0",
+    "date": "2022-06-27",
+    "title": "Rotating electrical machines - Part 25: AC electrical machines used in power drive systems - Application guide",
+    "language": "EN",
+    "description": "IEC TS 60034-25:2022 describes the performance characteristics of AC electrical machines for use on converter supplies. For electrical machines specifically designed for converter duty application design features are defined. It also specifies the interface parameters and interactions between the electrical machine and the converter including installation guidance as part of a power drive system, but except for the voltage at the power interface which is described in IEC TS 61800-8. This fourth edition of IEC TS 60034-25 cancels and replaces the third edition, This edition includes the following significant technical changes with respect to the previous edition: a. The definitions of a converter capable motor and a converter duty motor are added. b. Clause 18 modified to include the performance expectations of a converter capable motor. c. Clause 8 modified to update shaft currents section. d. Annex D added to define the derating requirements."
+  },
+  {
+    "reference": "IEC 60034-26:2026",
+    "edition": "2.0",
+    "date": "2026-01-16",
+    "title": "Rotating electrical machines - Part 26: Effects of unbalanced voltages on the performance of three-phase cage induction motors",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60034-26:2026 is available as IEC 60034-26:2026 RLV which contains the International Standard and its Redline version, showing all changes of the technical content compared to the previous edition. IEC 60034-26:2026 describes the effects of unbalanced voltages on the performance of three-phase cage induction motors. This second edition cancels and replaces the first edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) clarification that voltages are line-to-line voltages in Clause 4, Annex A and Annex B; b) addition of design NE according to IEC 60034-12 in Clause 4."
+  },
+  {
+    "reference": "IEC 60034-27-1:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Rotating electrical machines - Part 27-1: Off-line partial discharge measurements on the winding insulation",
+    "language": "EN-FR",
+    "description": "IEC 60034-27-1:2017 provides a common basis for: - measuring techniques and instruments; - the arrangement of test circuits; - normalization and testing procedures; - noise reduction; - the documentation of test results; - the interpretation of test results, with respect to partial discharge off-line measurements on the winding insulation of rotating electrical machines. This International Standard cancels and replaces IEC TS 60034-27 (2006). It constitutes a technical revision and reflects numerous improvements and corrections with respect to the previous publication."
+  },
+  {
+    "reference": "IEC 60034-27-2:2023",
+    "edition": "1.0",
+    "date": "2023-12-07",
+    "title": "Rotating electrical machines - Part 27-2: On-line partial discharge measurements on the stator winding insulation",
+    "language": "EN-FR",
+    "description": "IEC 60034-27-2:2023 deals with on-line PD measurements and provides a common basis with standardized procedures if possible for: - measuring techniques and instruments; - the arrangement of the installation; - normalization and sensitivity assessment; - measuring procedures; - noise reduction; - the documentation of results; - the interpretation of results; with respect to partial discharge on-line measurements on the stator winding insulation of non‑converter driven rotating electrical machines with rated voltage of 3 kV and up. This document covers PD measuring systems and methods detecting electrical PD signals. The same measuring devices and procedures can also be used to detect electrical sparking and arcing phenomena."
+  },
+  {
+    "reference": "IEC 60034-27-3:2015",
+    "edition": "1.0",
+    "date": "2015-12-16",
+    "title": "Rotating electrical machines - Part 27-3: Dielectric dissipation factor measurement on stator winding insulation of rotating electrical machines",
+    "language": "EN-FR",
+    "description": "IEC 60034-27-3:2015 provides guidelines for the test procedures and the interpretation of test results for dielectric dissipation factor measurements on the stator winding insulation of rotating electrical machines. These guidelines are valid for rotating electrical machines with conductive slot coatings operating at a rated voltage of 6 kV and higher. This standard applies to individual form-wound stator bars and coils outside a core (uninstalled), individual stator bars and coils installed in a core and complete form-wound stator winding of machines in new or aged condition. This edition includes the following significant technical changes with respect to the previous publication IEC TR 60894:1987: - inclusion of digital measurement of dissipation factor and capacitance; - inclusion of limits for dissipation factor values; - detailed description of measuring techniques; extension of scope to complete windings."
+  },
+  {
+    "reference": "IEC 60034-27-4:2018",
+    "edition": "1.0",
+    "date": "2018-01-24",
+    "title": "Rotating electrical machines - Part 27-4: Measurement of insulation resistance and polarization index of winding insulation of rotating electrical machines",
+    "language": "EN-FR",
+    "description": "IEC 60034-27-4:2018 provides recommended test procedures for the measurement of insulation resistance and polarization index of stator and rotor winding insulation of rotating electrical machines. This document recommends minimum acceptable values of insulation resistance and polarization index of winding insulation valid for fully processed low and high voltage AC and DC rotating electrical machines with a rated power of 750 W or higher."
+  },
+  {
+    "reference": "IEC TS 60034-27-5:2021",
+    "edition": "1.0",
+    "date": "2021-04-07",
+    "title": "Rotating electrical machines - Part 27-5: Off-line measurement of partial discharge inception voltage on winding insulation under repetitive impulse voltage",
+    "language": "EN",
+    "description": "IEC TS 60034-27-5:2021 provides an off-line measurement method of the partial discharge inception and extinction voltage on winding insulation under repetitive impulse voltage. This document is relevant to rotating machines supplied by a voltage source converter."
+  },
+  {
+    "reference": "IEC TS 60034-27-6:2026",
+    "edition": "1.0",
+    "date": "2026-05-20",
+    "title": "Rotating electrical machines - Part 27-6: On-line partial discharge measurements of rotating machine windings supplied from a converter",
+    "language": "EN",
+    "description": "IEC TS 60034-27-6:2026 which is a Technical Specification, deals with the on-line electrical detection and monitoring of partial discharges on both motors and generators whose rotor windings or stator windings, or both, are supplied from converters. The tests are applicable to both type I and type II insulation systems, encompassing AC windings rated 300 V and above. Details of non-electrical methods such as optical or acoustic detection are not included. The on-line measurement of PD where the winding is supplied via slip rings are also not covered."
+  },
+  {
+    "reference": "IEC 60034-28:2012",
+    "edition": "2.0",
+    "date": "2012-12-13",
+    "title": "Rotating electrical machines - Part 28: Test methods for determining quantities of equivalent circuit diagrams for three-phase low-voltage cage induction motors",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-28:2012 applies to three-phase low-voltage cage induction motors of frame numbers 56 to 400 as specified in IEC 60072-1. This standard establishes procedures to obtain values for elements of single phase equivalent circuit diagrams from tests and defines standard elements of these diagrams. This edition includes the following significant technical changes with respect to the previous edition: - the formulae are now all given for equivalent star-connection equivalent circuit diagrams; - procedures for the determination of equivalent circuit parameters from a load curve test as an alternative to the reverse rotation and locked rotor tests have been added."
+  },
+  {
+    "reference": "IEC 60034-29:2008",
+    "edition": "1.0",
+    "date": "2008-03-11",
+    "title": "Rotating electrical machines - Part 29: Equivalent loading and  superposition techniques - Indirect testing to determine temperature rise",
+    "language": "EN-FR, ES",
+    "description": "IEC 60034-29 provides various indirect load tests, the purpose of which is to determine the temperature rise of rotating electrical machines, including a.c. induction machines, a.c. synchronous machines and d.c. machines. The test methods in some cases provide, in addition, means of measuring or estimating other parameters such as losses and vibration. Applies to machines covered by IEC 60034-1 when they cannot be loaded to a specific condition. Is applicable to both motors and generators."
+  },
+  {
+    "reference": "IEC 60034-30-1:2025",
+    "edition": "2.0",
+    "date": "2025-12-01",
+    "title": "Rotating electrical machines - Part 30-1: Efficiency classes of line operated AC motors (IE code)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60034-30-1:2025 specifies efficiency classes for single-speed electric motors that are rated in accordance with IEC 60034‑1 or IEC 60079‑0 and are rated for operation on a sinusoidal either 50 Hz or 60 Hz, or both voltage supply. The motors within this document: - have a rated power PN from 0,12 kW to 1 000 kW; - have a rated voltage UN from 50 V up to and including 1 000 V; - have 2, 4, 6 or 8 poles; - are capable of continuous operation at their rated power with a temperature rise within the specified insulation temperature class; NOTE 1 Most motors covered by this document are rated for duty type S1 (continuous duty). However, some motors that are rated for other duty cycles are still capable of continuous operation at their rated power, and these motors are also covered by this document. - are marked with any ambient temperature within the range of –30 °C to +60 °C; NOTE 2 The rated efficiency and efficiency classes are based on 25 °C ambient temperature in accordance with IEC 60034‑2‑1. NOTE 3 Motors exclusively rated for temperatures outside the range – 30 °C and +60 °C are considered to be of special construction and are consequently excluded from this document. NOTE 4 Smoke extraction motors with a temperature class of up to and including 400 °C are covered by this document. - are marked with an altitude up to 4 000 m above sea level. NOTE 5 The rated efficiency and efficiency class are based on a rating for altitudes up to 1 000 m above sea level. This document establishes a set of nominal efficiency values based on supply frequency, number of poles and motor output power. No distinction is made between motor technologies, supply voltage or motors with increased insulation designed specifically for converter operation even though not all motor technologies are capable of reaching the higher efficiency classes (see Table 1). This makes different motor technologies fully comparable with respect to their energy efficiency potential. The efficiency of power-drive systems is not covered by this document. Motor losses due to harmonic content of the supply voltage, losses in cables, filters and frequency-converters, are not covered. Motors with flanges, feet or shafts with mechanical dimensions different from IEC 60072‑1 are covered by this document. Geared motors are covered by this document including those incorporating non-standard shafts and flanges. This document does not apply to the following: - Single-speed motors with 10 or more poles or multi-speed motors. - Motors with mechanical commutators (such as DC motors). - Motors completely integrated into a machine (for example pump, fan and compressor) that cannot be practically tested separately from the machine even with provision of a temporary end-shield and drive-end bearing. This means the motor: a) shares common components (apart from connectors such as bolts) with the driven unit (for example, a shaft or housing) and b) is not designed in such a way as to enable the motor to be separated from the driven unit as an entire motor that can operate independently of the driven unit. That is, for a motor to be excluded from this document, the process of separation shall render the motor inoperative. - Totally enclosed air-over machines (TEAO, IC418), i.e. totally enclosed frame-surface cooled machines intended for exterior cooling by a ventilating means external to the machine. Efficiency testing of such motors can be performed with the fan removed and the cooling provided by an external blower with a similar airflow rate as the original fan. - Motors with integrated frequency converters (compact drives) when the motor cannot be tested separately from the converter. Energy efficiency classification of compact drives is based on the complete product (PDS, ie. Power Drive System) and is defined in IEC 61800‑9‑2. NOTE 6 A motor is not excluded when the motor and frequency-converter can be separated, and the motor can be tested independently of the converter. - Brake motors when the brake is an integral part of the inner motor construction and can neither be removed nor supplied by a separate power source during the testing of motor efficiency. NOTE 7 Brake motors with a brake coil that is integrated into the flange of the motor are covered as long as it is possible to test motor efficiency without the losses of the brake (for example by dismantling the brake or by energizing the brake coil from a separate power source). When the manufacturer offers a motor of the same design with and without a brake the test of motor efficiency can be done on a motor without the brake. The determined efficiency may then be used as the rating for a motor with or without the brake. - Submersible motors specifically designed to operate wholly immersed in a liquid. - Smoke extraction motors with a temperature class above 400 °C. This second edition of IEC 60034‑30‑1 cancels and replaces the first edition of IEC 60034‑30‑1 published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Table 1 in Clause 4 revised and IE5 efficiency introduced. b) New efficiency tables (Table 11 and Table 12) added for IE5 nominal efficiency limits. c) Table 13 for interpolation coefficients revised based on IE5 limits and the coefficients limited from 0,12 kW to 0,75 kW 0,12 kW to 0,55 kW. A linear interpolation shall be applied to obtain minimum efficiency between 0,55 kW and 0,75 kW. d) Annex A revised and added Figure A.1 showing nominal, rated, minimum efficiency and tolerance."
+  },
+  {
+    "reference": "IEC TS 60034-30-2:2016",
+    "edition": "1.0",
+    "date": "2016-12-08",
+    "title": "Rotating electrical machines - Part 30-2: Efficiency classes of variable speed AC motors (IE-code)",
+    "language": "EN",
+    "description": "IEC TS 60034-30-2:2016(E) specifies efficiency classes for variable speed rotating electric machines not covered in IEC 60034-30-1. The classification only covers machines designed for operation with sinusoidal fundamental current that are not designed to be operated direct on-line (grid), for example permanent magnet synchronous machines with and without additional reluctance torque, sinusoidal reluctance synchronous machines and synchronous machines with DC field windings."
+  },
+  {
+    "reference": "IEC 60034-30-3:2024",
+    "edition": "1.0",
+    "date": "2024-02-15",
+    "title": "Rotating electrical machines - Part 30-3: Efficiency classes of high voltage AC motors (IE-code)",
+    "language": "EN-FR",
+    "description": "IEC 60034-30-3:2024 specifies efficiency classes for fixed-speed three-phase high-voltage cage induction motors in accordance with IEC 60034-1 that - have a rated voltage exceeding 1 000 V, but not exceeding 11 kV; - have a rated power from 200 kW to 2 000 kW; This document provides the global harmonization of energy-efficiency classes of three-phase cage induction motors with rated voltage above 1 000 V that are rated for direct online starting and fixed-speed operation at a 50 Hz or 60 Hz supply with sinusoidal voltage."
+  },
+  {
+    "reference": "IEC TS 60034-31:2021",
+    "edition": "2.0",
+    "date": "2021-03-17",
+    "title": "Rotating electrical machines - Part 31: Selection of energy-efficient motors including variable speed applications - Application guidelines",
+    "language": "EN",
+    "description": "IEC TS 60034-31:2021 provides a guideline of technical and economical aspects for the application of energy-efficient electric AC motors. It applies to motor manufacturers, OEMs (original equipment manufacturers), end users, regulators, legislators and other interested parties. This document is applicable to all electrical machines covered by IEC 60034-1, IEC 60034-30‑1 and IEC TS 60034-30-2. a. references to relevant standards have been updated; b. global market data for industrial motors have been updated; c. guidelines and theories about normal industrial applications have been described; d. energy efficiency comparison examples have been given. This publication contains an attached file titled, “TS 60034-31 Generic Efficiency Interpolation”, in the form of an XLS document."
+  },
+  {
+    "reference": "IEC TS 60034-32:2016",
+    "edition": "1.0",
+    "date": "2016-12-15",
+    "title": "Rotating electrical machines - Part 32: Measurement of stator end-winding vibration at form-wound windings",
+    "language": "EN",
+    "description": "IEC TS 60034-32:2016(E) is intended to provide consistent guidelines for measuring and reporting end-winding vibration behaviour during operation and at standstill. It - defines terms for measuring, analysis and evaluation of stator end-winding vibration and related structural dynamics; - gives guidelines for measuring dynamic / structural characteristics offline and stator end-winding vibrations online; - describes instrumentation and installation practices for end-winding vibration measurement equipment; - establishes general principles for documentation of test results; - describes the theoretical background of stator end-winding vibrations. This part of IEC 60034 is applicable to three-phase synchronous generators and three-phase synchronous direct online (DOL) motors."
+  },
+  {
+    "reference": "IEC 60034-33:2022",
+    "edition": "1.0",
+    "date": "2022-01-28",
+    "title": "Rotating electrical machines - Part 33: Synchronous hydrogenerators including motor-generators - Specific requirements",
+    "language": "EN-FR",
+    "description": "IEC 60034-33:2022 applies to three-phase salient-pole synchronous generators and synchronous motor-generators for hydraulic turbine and pump-turbine applications, that have rated frequency of 50 Hz or 60 Hz, rated output of 10 MVA and above, pole pair number 3 and above, and rated voltage of 6 kV and above. This document supplements basic requirements for rotating machines given in IEC 60034-1."
+  },
+  {
+    "reference": "IEC TS 60034-34:2020",
+    "edition": "1.0",
+    "date": "2020-11-19",
+    "title": "Rotating electrical machines - Part 34: AC adjustable speed rolling mill motors",
+    "language": "EN",
+    "description": "IEC TS 60034-34:2020 is applicable to AC adjustable speed rolling mill motors and identifies specific requirements for AC adjustable speed rolling mill motors, where those performance characteristics are different from those for conventional AC motors. Various types of overload capacity conditions and overloads are defined. The possible effect on motor insulation life due to operating the motor beyond its design capability is discussed. Requirements for confirmation of motor under specified variable speed operational conditions are introduced."
+  },
+  {
+    "reference": "IEC 60072-1:2022",
+    "edition": "7.0",
+    "date": "2022-03-30",
+    "title": "Rotating electrical machines - Dimensions and output series - Part 1: Frame numbers 56 to 400 and flange numbers 55 to 1080",
+    "language": "EN-FR",
+    "description": "IEC 60072-1:2022 is applicable for the majority of rotating electrical machines for industrial purposes within the dimension range and output powers. - Foot- mounted: shaft heights: 56 mm to 400 mm - Flange- mounted: pitch circle diameter of flange: 55 mm to 1 080 mm. This seventh edition cancels and replaces the sixth edition published in 1991. This edition includes the following significant technical changes with respect to the previous edition: a. modification of the series title; b. complete revision on the basis of EN 50347; c. integration of the relationships between frame size, shaft extensions, rated outputs and flange numbers; d. additional tolerances and measurements for shafts; e. modification of Annex A with additional frame numbers and relationships between frame size and rated power."
+  },
+  {
+    "reference": "IEC 60072-2:2025",
+    "edition": "2.0",
+    "date": "2025-09-05",
+    "title": "Dimensions and output series for rotating electrical machines - Part 2: Frame numbers 355 to 1 000 and flange numbers 1 180 to 2 360",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60072-2: 2025 covers the majority of rotating electrical machines for industrial purposes within the dimension range and output powers: - Foot-mounted: shaft heights: 355 mm to 1 000 mm. - Flange-mounted: pitch circle diameter of flange: 1 180 mm to 2 360 mm. It gives tables of fixing dimensions, shaft extension dimensions and their tolerances. However, the variety of construction and the wide range of applications for the large machines with shaft heights above 315 mm have led to the establishment of a relatively large number of values for the dimension in order to cover all possible constructions. Owing to this, the present part covers a wider range than IEC 60072-1 within which range values suitable for all designs or for a more detailed standardization can be chosen. NOTE The mounting dimensions given in this document for shaft heights 355 mm and 400 mm have been chosen from values given in IEC 60072-1. This second edition cancels and replaces the first edition published in 1990. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) complete revision on the basis of IEC 60072-1; b) additional tolerances and measurements for shafts and flanges (DIN SPEC 42955)."
+  },
+  {
+    "reference": "IEC 60072-3:2026",
+    "edition": "2.0",
+    "date": "2026-02-06",
+    "title": "Rotating electrical machines - Dimensions and output series - Part 3: Small built-in motors - Flange numbers BF10 to BF50",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60072-3: 2026 applies to small built-in motors with a pitch circle diameter of the flange between 10 mm and 50 mm. It provides a table with fixing dimensions, shaft extension dimensions and their tolerances. This second edition cancels and replaces the firstedition published in 1994. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) clarification of the scope."
+  },
+  {
+    "reference": "IEC 60136:2024",
+    "edition": "3.0",
+    "date": "2024-05-08",
+    "title": "Dimensions, marking and testing of carbon brushes and dimensions of brush-holders for electrical machinery",
+    "language": "EN-FR",
+    "description": "IEC 60136:2024 applies primarily to brushes and brush-holders for cylindrical commutators and slip rings for electrical rotating machines. Some clauses of this document may cover other configurations, such as flat commutators or plain disks. It defines the dimensions of brushes and their components, together with their tolerances: - dimensions of brush block (t, a, r), - angles α and β, - chamfer, - flexibles (shunts), - standard terminals. It also covers the conventional designation of principal dimensions, the marking of brushes and the testing methods for the qualification of brushes after their manufacturing (except the brush grade material, covered by IEC 60413). This third edition cancels and replaces the second edition published in 1986 and Amendment 1:1995. This edition constitutes a technical revision. Please refer to the Foreword of the document for a comprehensive listing of the changes with respect to the previous edition."
+  },
+  {
+    "reference": "IEC 60276:2018",
+    "edition": "2.0",
+    "date": "2018-05-08",
+    "title": "Carbon brushes, brush holders, commutators and slip-rings - Definitions and nomenclature",
+    "language": "EN-FR",
+    "description": "IEC 60276:2018 applies to carbon brushes for electrical machinery. This edition applies only to carbon brushes for commutators and slip-rings in rotating machines. Terms and definitions are relative to the brush construction (references 100’s to 500’s and parts of 900’s) and to the markings when operating on a rotating machine (references 600’s to 800’s). This new edition includes the following significant technical changes with respect to the previous edition: Some nomenclature has been deleted or added, whereas remaining definitions have been detailed and clarified, to reflect the technical evolution since 1987. Additional definitions have been included to address the request for reviewing this standard, in particular nomenclature of commutator/slip-rings markings, brush markings and commutation sparks codes."
+  },
+  {
+    "reference": "IEC 60356:1971",
+    "edition": "1.0",
+    "date": "1971-01-01",
+    "title": "Dimensions for commutators and slip-rings",
+    "language": "EN-FR",
+    "description": "Covers copper bars for commutator segments as well as diameters of finished commutators and slip-rings for rotating electrical machines."
+  },
+  {
+    "reference": "IEC 60413:2026",
+    "edition": "2.0",
+    "date": "2026-03-13",
+    "title": "Test procedures for determining physical properties of brush materials",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60413:2026 concerns graphite-based grades that are used for sliding electrical contacts, such as carbon brushes or pantograph strips. By extension, it is possible to apply the test procedures of this document to all electrical sliding contacts for electrical transmission appliances and to other appliances of graphite-based materials (heat exchangers, bearings, etc.). This document specifies uniformized procedures for determining their following properties: - density and porosity; - resistivity; - flexural strength; - hardness; - ash content. In addition, it provides recommendations on test procedures for other properties: - Mechanical properties: Charpy impact test, compressive strength, tensile strength (Annex B). - Thermal properties: coefficient of thermal expansion, specific heat capacity, thermal conductivity (Annex C). The properties determined by these tests are inherent to the graphite-based materials and it is therefore important to distinguish them from performance characteristics in operation on electrical equipment (carbon brush in an electrical rotating machine, contact strips on a pantograph, etc.). Since these materials are generally brittle, porous materials, it is reasonable that their properties vary much more than the same properties in metals. Some test methods are suitable for use in production quality control (routine tests), others only for more thorough investigations, using precise laboratory techniques (see Annex A). WARNING — The use of this document can involve hazardous substances, operations and equipment. It does not purport to address all of the safety or environmental problems associated with its use. It is the responsibility of the user of this document to establish appropriate safety and health practices and determine the applicability of regulatory limitations prior to use. This second edition cancels and replaces the first edition published in 1972. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Title modified. b) Addition of definitions in Clause 3. c) Clause 5 on test specimen: Nomenclature and addition of the different types of test specimen, specification on their dimensions, tolerances and preparation. d) Improvement of test procedures of the properties already disclosed in the previous edition (Clause 6 to Clause 11). e) Separation of apparent density and apparent porosity (respectively Clause 6 and Clause 10). f) Resistivity (Clause 7): Addition of the eddy current method. g) Rebound hardness (Clause 9): Addition of a new model of scleroscope and addition of Leeb method, as a possible alternative to the traditional scleroscope method. h) Common elements of the test report in a dedicated Clause 12. i) Addition of Annex A (normative): introduction of tests categories (serial/type tests), list of properties to be tested for each test category of test according to their purpose. j) Addition of Annex B: test procedures for other mechanical properties than flexural strength and hardness: tensile, compressive and impact strength. k) Addition of Annex C: test procedures for thermal properties (coefficient of linear expansion, specific heat capacity and thermal conductivity). l) Addition of Annex D: supplement to density and porosity. m) Addition of Annex E: recommendations on methods for elements analysis. n) Addition of Annex F: supplement of information concerning scleroscope hardness."
+  },
+  {
+    "reference": "IEC 60560:1977",
+    "edition": "1.0",
+    "date": "1977-01-01",
+    "title": "Definitions and terminology of brush-holders for electrical machines",
+    "language": "EN-FR, RU",
+    "description": "Establishes a common vocabulary for terms and definitions for determining the functions and characteristics of brush-holders. Covers arrangements of brushes and boxes, pressure systems and characteristics of construction. Contains illustrations for each term. Gives the terms in Dutch, English, French, German, Italian, Polish, Russian, Spanish and Swedish. Note: -For definitions and nomenclature for carbon brushes, brush-holders, commutators and slip-rings, see IEC 60276."
+  },
+  {
+    "reference": "IEC 60773:2021",
+    "edition": "2.0",
+    "date": "2021-04-07",
+    "title": "Rotating electrical machines - Test methods and apparatus for the measurement of the operational characteristics of brushes",
+    "language": "EN-FR",
+    "description": "IEC 60773:2021 applies to test methods for the measurement of the operational characteristics of brushes designed to operate on commutating and slip ring machines under specified test conditions. By extension some tests may be relevant for other kinds of sliding electrical contacts for electrical appliances. This second edition cancels and replaces the first edition published in 1983. This edition includes the following significant technical changes with respect to the previous edition: - the clause structure has been modified on the view point of a laboratory testing procedure. The new sequence is as follows: test rig specification, general testing procedure, and specific procedure for each operational characteristic - a new clause has been added to introduce the black-band test for the characterisation of the brush grades for DC machines."
+  },
+  {
+    "reference": "IEC TR 60778:1984",
+    "edition": "1.0",
+    "date": "1984-01-01",
+    "title": "Brush-holders for slip-rings, Group R - type RA",
+    "language": "EN-FR",
+    "description": "Applies to radial brush-holders for slip-rings to be used on medium size asynchronous industrial machines of conventional construction for general applications, having shaft heights between 160 mm and 400 mm in the recommended range (in millimetres): 160, 180, 200, 225, 250, 280, 315, 355, 400. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TR 61015:1990",
+    "edition": "1.0",
+    "date": "1990-03-31",
+    "title": "Brush-holders for electrical machines. Guide to the measurement of the static thrust applied to brushes",
+    "language": "EN-FR",
+    "description": "Specifies a method of measuring the thrust applied to brushes by brush-holder pressure systems. Applies only to the type of brush-holder in which the brush travels freely within a box. Has the status of a technical report."
+  },
+  {
+    "reference": "IEC TS 63573:2026",
+    "edition": "1.0",
+    "date": "2026-04-09",
+    "title": "Technical requirements for electrical sheet metal and strip metal used in rotating electrical machines",
+    "language": "EN",
+    "description": "IEC TS 63573-1:2026, which is a Technical specification, defines specific requirements for materials to be used for the stator and/or rotor core of rotating electrical machines according to the IEC 60034 series. This document applies in addition to IEC 60404- series and is addressed to the suppliers of the raw material (electrical sheet), to producers of magnetic cores (including a possible annealing treatment), to electric motor manufacturers as well as to users of electrical steel. This document does not apply to motor customers. The objective of this document is to address the immediate needs of motor manufacturers striving to achieve high IEC efficiency classes. IEC TS 63573 is an independent product-specific specification focusing on rotating electrical machines in accordance with the IEC 60034 series and can be applied as a supplement to IEC 60404-8-4. At the time of publication of this document it is anticipated that collaboration with IEC Technical Committee 68 (Magnetic alloys and steels) will lead to the development of Amendment 2 to IEC 60404-8-4:2022. This amendment is expected to clarify the relevant issues and provide a comprehensive solution. This Technical Specification will be withdrawn once Amendment 2 to IEC 60404-8-4:2022 is published and takes effect, provided it addresses the identified need."
+  },
+  {
+    "reference": "IEC 88528-11:2004",
+    "edition": "1.0",
+    "date": "2004-03-23",
+    "title": "Reciprocating internal combustion engine driven alternating current generating sets - Part 11: Rotary uninterruptible power systems - Performance requirements and test methods",
+    "language": "EN",
+    "description": "Specifies criteria, including performance and test methods, for rotary uninterruptible power systems arising out of a combination of mechanical and electrical rotating machines. Applies to power supplies primarily designed for supplying uninterrupted a.c. power to the consumer."
+  }
+]

@@ -1,0 +1,546 @@
+[
+  {
+    "reference": "IEC 60945:2002",
+    "edition": "4.0",
+    "date": "2002-08-14",
+    "title": "Maritime navigation and radiocommunication equipment and systems - General requirements - Methods of testing and required test results",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Specifies minimum performance requirements, methods of testing and required test results for general requirements which can be applied to those characteristics common to the following equipment: shipborne radio equipment, shipborne navigational equipment, and, for EMC only, all other bridge-mounted equipment, equipment in close proximity to receiving antennas, and equipment capable of interfering with safe navigation of the ship and with radiocommunications The contents of the corrigendum of April 2008 have been included in this copy. The corrigendum updates some of the normative references, particularly those to CISPR 16 which has been republished in multiple parts. The technical content of the revised references has not however changed and there are no changes to the text of standard."
+  },
+  {
+    "reference": "IEC 60945:2002/COR1:2008",
+    "edition": "4.0",
+    "date": "2008-04-14",
+    "title": "Corrigendum 1 - Maritime navigation and radiocommunication equipment and systems - General requirements - Methods of testing and required test results",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61023:2007",
+    "edition": "3.0",
+    "date": "2007-06-27",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Marine speed and distance measuring equipment (SDME) - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61023:2007 Specifies the minimum performance requirements, methods of testing and required test results of devices to indicate speed and distance - speed and distance measuring equipment (SDME) required by Regulation 192 of Chapter V of the International Convention for the Safety of Life at Sea (SOLAS), 1974, as amended. Is associated with IEC 60945 and based upon the requirements of IMO Resolution A.824MSC.96(72). This new edition takes into account changes to the IMO performance standards for SDME agreed in resolution MSC.96(72) in 2000."
+  },
+  {
+    "reference": "IEC 61097-1:2007",
+    "edition": "2.0",
+    "date": "2007-06-27",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 1: Radar transponder - Marine search and rescue (SART) - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61097-1:2007 specifies the performance standards and type testing of marine radar transponders used in search and rescue operations at sea (SART), as required by Regulation 6.2.2 of Chapter III, and 7.1.3 and 8.3.1 of Chapter IV of the 1988 amendments to the 1974 International Convention for Safety of Life at Sea (SOLAS), and which is associated with IEC 60936 (Shipborne radar) and IEC 60945 (General requirements). This standard incorporates the performance standards of IMO Resolutions A.530 (13) and A.802 (19) (Survival craft radar transponders for use in search and rescue operations) and the technical characteristics for such transponders contained in ITU-R Recommendation M.628-4, and takes account of the general requirements contained in IMO Resolution A.694 (17). This second edition cancels and replaces the first edition published in 1992. This edition constitutes a technical revision. The main changes with respect to the previous edition are listed below: - some amendments to bring the standard up to date with newer IMO resolutions and ITU recommendations. In particular, in 1995, the IMO adopted new performance standards for the SART in resolution A.802(19) which replaced those of resolution A.697(17). This new resolution introduced a new requirement for the SART to be provided with a pole arrangement. In 2006, the ITU-R revised recommendation M.628 to permit the optional use of circular polarisation with the SART; - the Introduction has been deleted as it was of historical interest only; - Annex A, which contained details of the parts of the IEC 61097 series of standards, has been deleted as this information is now available from this Foreword; - Annex B which contained a Bibliography has been deleted and the information moved into the normative references."
+  },
+  {
+    "reference": "IEC 61097-2:2021",
+    "edition": "4.0",
+    "date": "2021-06-24",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 2: Cospas-Sarsat EPIRB - Emergency position indicating radio beacon operating on 406 MHz - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC 61097-2:2021(E) specifies the minimum performance requirements, technical characteristics and type-testing requirements of the emergency position-indicating radio beacon used in the Cospas-Sarsat satellite system (EPIRB), as required by the International Convention for Safety of Life at Sea (SOLAS) as amended, and which is associated with IEC 60945. When a requirement in this document is different from the requirements in IEC 60945 or other standards, the requirement in this document takes precedence. This document incorporates the performance standards of IMO Resolution MSC.471(101), the International Telecommunication Union (ITU) Radio Regulations as well as the technical characteristics for such transmitters contained in Recommendation ITU-R M.633, and takes account of the general requirements contained in IMO Resolution A.694(17). This document also includes minimum performance standards for a non-float-free EPIRB without float-free release mechanism (see Annex C). The contents of the corrigendum of December 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61097-2:2021/COR1:2021",
+    "edition": "4.0",
+    "date": "2021-12-17",
+    "title": "Corrigendum 1 - Global maritime distress and safety system (GMDSS) - Part 2: Cospas-Sarsat EPIRB - Emergency position indicating radio beacon operating on 406 MHz - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61097-3:2017",
+    "edition": "2.0",
+    "date": "2017-10-19",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 3: Digital selective calling (DSC) equipment - Operational and performance requirements, methods of testing and required test results<br />_x000D_",
+    "language": "EN",
+    "description": "IEC 61097-3:2017 specifies the performance requirements, technical characteristics, operational requirements and methods of testing of shipborne DSC equipment for use with MF, MF/HF and VHF installations in the GMDSS, including those required by Chapter IV of the 1974 International Convention for Safety of Life at Sea (SOLAS) as amended, and is associated with IEC 60945 (Shipborne radio equipment forming part of the global maritime distress and safety system and marine navigational equipment). This document incorporates applicable parts of the performance standards of IMO Resolutions A.803(19), A.804(19) and A.806(19) (DSC facilities for VHF, MF and MF/HF radio installations), IMO MSC/Circ.862 (describing the operation of the distress button), the provisions of the ITU Radio Regulations, the technical characteristics of DSC equipment and the operational procedures for its use contained in Recommendations ITU-R M.493, M.541, M.689, M.821 and M.1082, and takes into account the general requirements contained in IMO Resolution A.694(17). This edition includes the following significant technical changes with respect to the previous edition: a) changes in the operation of DSC which have been developed by IMO and ITU since the first edition was published; b) compliance with bridge alert management (BAM); c) optional addition of remote operation of the DSC functionality. This facility can also used for type approval testing of the performance of the DSC equipment; d) incorporation of the radio frequency test methods for MF, MF/HF and VHF transceivers and watch receivers for convenience of testing."
+  },
+  {
+    "reference": "IEC 61097-4:2024",
+    "edition": "4.0",
+    "date": "2024-02-20",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 4: Inmarsat-C ship earth station and Inmarsat enhanced group call (EGC) equipment - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC 61097-4:2024 specifies the performance requirements and methods of testing for Inmarsat-C ship earth stations (SES) capable of transmitting and receiving direct-printing communications, and for enhanced group call (EGC) receivers, for use in the GMDSS and for use for long-range identification and tracking (LRIT). The available variants are: Class 0: An EGC receiver, either stand-alone or an element of a GMDSS installation in accordance with the Inmarsat design and installation guidelines (DIGs) for GMDSS installations. Class 1: A basic SES providing shore-to-ship and ship-to-shore message transfer only. Class 2: As class 1 but with EGC as an alternative to shore-to-ship transfer using a shared receiver. Class 3: As class 1 but with EGC using an independent receiver. NOTE 1 The 34th session of the IMO Sub-Committee on Radiocommunications decided that class 2 equipment would be adequate to provide sufficient availability for the reception of maritime safety information for the GMDSS. This document complies with IMO performance requirements stated in the normative references, Inmarsat technical characteristics and test procedures, and IEC 60945 general requirements except where modifications are explicitly stated in this document. Technical characteristics essential to GMDSS and LRIT operation as defined by the IMO are identified. All text of this document, whose wording is identical to that in IMO SOLAS Convention 1974 as amended in 1988 and Resolutions MSC.513(105), MSC.263(84) and MSC.306(87) is printed in italics and reference made to the Resolution/Recommendation and subclause number. This document covers equipment construction and testing. Matters relating to installation can be found in the Inmarsat Maritime design and installation guidelines (see Bibliography). Those to be found in IMO Resolutions MSC.513(105), MSC.263(84) and MSC.306(87) are reproduced in Annex A. Responsibility for type approval of Inmarsat-C and Inmarsat-EGC is vested in Inmarsat by IMO Resolutions MSC.513(105) and MSC.306(87) (see 4.2.1). Therefore, this document does not reproduce Inmarsat test procedures in full but refers to where they are given in Inmarsat documentation cited in the normative references to this document (Annex C). NOTE 2 For the purposes of this document the terms Inmarsat C, Inmarsat-C, Inmarsat Standard-C, Standard-C refer to the same equipment."
+  },
+  {
+    "reference": "IEC 61097-6:2005",
+    "edition": "2.0",
+    "date": "2005-12-07",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 6: Narrowband direct-printing telegraph equipment for the reception of navigational and meteorological warnings and urgent information to ships (NAVTEX)",
+    "language": "EN",
+    "description": "Specifies the minimum performance requirements, technical characteristics and type-testing requirements for narrowband telegraph equipment for the reception of navigational and meteorological information as required by the International Convention for Safety of Life at Sea (SOLAS), and which is associated with IEC 60945. Also incorporates the performance standards of the relevant IMO resolutions and conforms with the ITU-R regulations where applicable."
+  },
+  {
+    "reference": "IEC 61097-6:2005/AMD1:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Amendment 1 - Global maritime distress and safety system (GMDSS) - Part 6: Narrowband direct-printing telegraph equipment for the reception of navigational and meteorological warnings and urgent information to ships (NAVTEX)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61097-6:2005/AMD2:2019",
+    "edition": "2.0",
+    "date": "2019-07-10",
+    "title": "Amendment 2 - Global maritime distress and safety system (GMDSS) - Part 6: Narrowband direct-printing telegraph equipment for the reception of navigational and meteorological warnings and urgent information to ships (NAVTEX)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61097-7:2025",
+    "edition": "2.0",
+    "date": "2025-06-11",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 7: Shipborne VHF radiotelephone transmitter and receiver - Operational and performance requirements, test methods and required test results",
+    "language": "EN",
+    "description": "IEC 61097-7:2025 specifies the minimum performance requirements, technical characteristics and test methods with required test results for VHF radio installations capable of voice communication and digital selective calling as required by chapter IV of the International Convention for Safety of Life at Sea (SOLAS). This document incorporates the applicable part of the performance standards included in IMO Resolution A.524(13) and MSC.511(105), the technical characteristics included in Recommendation ITU-R M.489-2 and Recommendation ITU-R M.493-16, and takes account of IMO Resolution A.694(17) which is associated with IEC 60945, and conforms with the ITU Radio Regulations where applicable. When a requirement in this document is different from IEC 60945, the requirement in this document shall take precedence. This edition includes the following significant technical changes with respect to the previous edition: a) the text has been updated to incorporate the provisions of the new IMO performance standards given in Resolution MSC.511(105) and new ITU-R recommendations given in M.493-16; b) the provisions for digital selective calling which were previously in IEC 61097-3 have been incorporated; c) the provisions for watch keeping receivers which were previously in IEC 61097-8 have been incorporated; d) new requirements have been added for a received signal strength indicator in 4.3.4 and for software maintenance in 4.6 in support of IMO recommendations; e) new Annex B and Annex E have been added for bridge alert management; f) new Annex C and Annex D have been added for digital selective calling; g) a new Annex F has been added for remote control operation; h) a new Annex G has been added for equipment manuals."
+  },
+  {
+    "reference": "IEC 61097-8:1998",
+    "edition": "1.0",
+    "date": "1998-09-11",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 8: Shipborne watchkeeping receivers for the reception of digital selective calling (DSC) in the maritime MF, MF/HF and VHF bands - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "Specifies the minimum requirements for shipborne receivers intended to be connected to an external installation, including a decoder for digital selective calling (DSC), and used as receivers for watchkeeping on DSC channels on board ships operating in the maritime mobile MF, MF/HF and VHF bands."
+  },
+  {
+    "reference": "IEC 61097-9:2025",
+    "edition": "2.0",
+    "date": "2025-06-11",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 9: Shipborne transmitters and receivers for use in the MF and HF bands suitable for telephony, digital selective calling (DSC) and reception of maritime safety information and search and rescue related information - Operational and performance requirements, test methods and required test results",
+    "language": "EN",
+    "description": "IEC 61097-9:2025 specifies the minimum operational and performance requirements and test methods with required test results for transmitters and receivers capable of voice communication and digital selective calling for the GMDSS operating in either the medium frequency band only or in medium and high frequency bands allocated in the ITU Radio Regulations to the Maritime Mobile Service, as required by Chapter IV of SOLAS 1974 as amended. It is based on IMO resolution MSC.512(105) and takes account of Recommendation ITU-R M.493 for digital selective calling including the automatic connection system. This second edition cancels and replaces the first edition published in 1997. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the text has been updated to incorporate the provisions of the new IMO performance standards given in Resolution MSC.512(105) and new ITU-R recommendations given in M.493-16. These provisions in particular add new requirements for reception of maritime safety information and for the automatic connection system; b) the provisions for digital selective calling which were previously in IEC 61097-3 have been incorporated; c) the provisions for watch keeping receivers which were previously in IEC 61097-8 have been incorporated; d) new requirements have been added for software maintenance in 4.10 in support of IMO recommendations; e) new Annex A, Annex B and Annex C have been added for digital selective calling; f) new Annex D and Annex G have been added for bridge alert management; g) new Annex E and Annex I have been added for maritime safety information; h) a new Annex F has been added for the automatic connection system; i) a new Annex H has been added for equipment manuals; j) a new Annex J has been added for remote control operation; k) previous Annex A, Annex B and Annex C have been deleted as they are no longer relevant."
+  },
+  {
+    "reference": "IEC 61097-12:1996",
+    "edition": "1.0",
+    "date": "1996-12-02",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 12: Survival craft portable two-way VHF radiotelephone apparatus - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN, FR",
+    "description": "IEC 61097-12:1996 specifies the minimum performance requirements, technical characteri stics and methods of testing of survival craft portable two-way radiotelephone apparatus as required by the 1988 amendments to the 1974 International Convention for the Safety of Life at Sea (SOLAS)."
+  },
+  {
+    "reference": "IEC 61097-12:1996/AMD1:2017",
+    "edition": "1.0",
+    "date": "2017-07-13",
+    "title": "Amendment 1 - Global maritime distress and safety system (GMDSS) - Part 12: Survival craft portable two-way VHF radiotelephone apparatus - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61097-12:1996/AMD2:2023",
+    "edition": "1.0",
+    "date": "2023-11-20",
+    "title": "Amendment 2 - Global maritime distress and safety system (GMDSS) - Part 12: Survival craft portable two-way VHF radiotelephone apparatus - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61097-14:2010",
+    "edition": "1.0",
+    "date": "2010-02-18",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 14: AIS search and rescue transmitter (AIS-SART) - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61097-14:2010 specifies the minimum performance requirements, technical characteristics and methods of testing, and required test results, for Automatic Identification Systems (AIS) search and rescue transmitters (AIS-SART) which may be carried by ships as a search and rescue locating device as required by Chapters III and IV of the International Convention for Safety of Life at Sea (SOLAS), as amended. It takes account of IMO resolution A.694(17) and is associated with IEC 60945."
+  },
+  {
+    "reference": "IEC 61097-15:2012",
+    "edition": "1.0",
+    "date": "2012-05-29",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 15: Inmarsat FB500 ship earth station - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC 61097-15:2012(E) specifies the minimum operational and performance requirements, technical characteristics, methods of testing and required test results for Inmarsat FB500 ship earth stations (SES), capable of transmitting and receiving distress and safety communications, initiating and receiving distress priority calls and transmitting and receiving general radiocommunications, using radiotelephony (voice), as required within Regulation IV/10.1 and 14.1 of the 1988 amendments to the 1974 International Convention for the Safety of Life at Sea (SOLAS), for use in the GMDSS. This standard incorporates the performance standards of IMO Resolution MSC.130(75) and also takes into account the priority access (voice pre-emption) requirements of IMO Resolution A.1001(25). This standard takes account of IMO Resolution A.694(17) associated with IEC 60945. This standard is part of the IEC 61097 series."
+  },
+  {
+    "reference": "IEC 61097-16:2019",
+    "edition": "1.0",
+    "date": "2019-07-08",
+    "title": "Global maritime distress and safety system (GMDSS) - Part 16: Ship earth stations operating in mobile-satellite systems recognized for use in the GMDSS - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 61097-16:2019 specifies the minimum operational and performance requirements, methods of testing and required test results for any ship earth stations intended for operation in mobile-satellite systems and services which are recognized by the International Maritime Organization as meeting the criteria required by the IMO under regulation IV/4-1 of the International Convention for the Safety of Life at Sea, 1974, as amended, for the provision of mobile-satellite systems and services in the GMDSS, regardless of the mobile satellite provider used. This document incorporates the minimum criteria and performance standards of the IMO, currently prescribed in IMO Resolution A.1001(25) in IMO Resolution MSC.434(98) and is also associated with IMO Resolution A.694(17) and IEC 60945. Matters relating to the installation of the ship earth station are given in Annex A."
+  },
+  {
+    "reference": "IEC 61108-1:2003",
+    "edition": "2.0",
+    "date": "2003-07-31",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 1: Global positioning system (GPS) - Receiver equipment - Performance standards, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61108-1:2003 Specifies the minimum performance standards, methods of testing and required test results for GPS shipborne receiver equipment, based on the relevant IMO Resolution, which uses the signals from the United States of America, Department of Defence (US DOD), Global Positioning System (GPS) in order to determine position."
+  },
+  {
+    "reference": "IEC 61108-2:1998",
+    "edition": "1.0",
+    "date": "1998-06-05",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 2: Global navigation satellite system (GLONASS) - Receiver equipment - Performance standards, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "Specifies minimum performance standards, methods of testing and required test results for GLONASS shipborne receiver equipment, based upon the IMO Resolution MSC.53(66), which uses the signals from the Russian Ministry of Defence Global Navigation Satellite System, in order to determine position."
+  },
+  {
+    "reference": "IEC 61108-3:2010",
+    "edition": "1.0",
+    "date": "2010-05-26",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 3: Galileo receiver equipment - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61108-3:2010 specifies the minimum performance standards, methods of testing and required test results for Galileo shipborne receiver equipment, based on IMO resolution MSC.233(82), which uses the signals from the Galileo Global Navigation Satellite System in order to determine position. It takes account of the general requirements given in IMO resolution A.694(17) and is associated with IEC 60945."
+  },
+  {
+    "reference": "IEC 61108-4:2004",
+    "edition": "1.0",
+    "date": "2004-07-19",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 4: Shipborne DGPS and DGLONASS maritime radio beacon receiver equipment - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61108-4:2004 specifies the minimum operational and performance requirements, methods of testing and required test results conforming to performance standards not inferior to those adopted by the IMO in resolution MSC.114(73). It takes into account IMO resolution A.694(17) and is associated with IEC 60945."
+  },
+  {
+    "reference": "IEC 61108-5:2020",
+    "edition": "1.0",
+    "date": "2020-03-11",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 5: BeiDou navigation satellite system (BDS) - Receiver equipment - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 61108-5:2020 specifies the minimum performance requirements, methods of testing and required test results for BDS shipborne receiver equipment, based on IMO resolution MSC.379(93), which uses the signals from the BeiDou navigation satellite system in order to determine position. It takes account of the general requirements given in IMO resolution A.694(17) and is associated with IEC 60945. When a requirement in this document is different from IEC 60945, the requirement in this document takes precedence. This document also takes account, as appropriate, of requirements for the presentation of navigation-related information on shipborne navigational displays given in IMO resolution MSC.191(79) and is associated with IEC 62288 and MSC.302(87) associated with IEC 62923-1. This receiver standard applies to navigation in the ocean, coastal, harbour entrances, harbour approaches and restricted waters, as defined in IMO resolution A.915(22) and IMO resolution A.1046(27)."
+  },
+  {
+    "reference": "IEC 61108-6:2023",
+    "edition": "1.0",
+    "date": "2023-02-23",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 6: Navigation with Indian constellation (NavIC)/Indian regional navigation satellite system (IRNSS) - Receiver equipment - Performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC 61108-6:2023 specifies the minimum performance requirements, methods of testing and required test results for the Indian regional satellite system (IRNSS) shipborne receiver equipment, based on IMO resolution MSC.449(99), which uses the signals from IRNSS in order to determine position. This document takes account of the general requirements given in IMO resolution A.694(17) and is associated with IEC 60945. When a requirement in this document is different from IEC 60945, the requirement in this document takes precedence. This document also takes into account, as appropriate, requirements for the presentation of navigation-related information on shipborne navigational displays given in IMO resolution MSC.191(79) and is associated with IEC 62288. This document further takes into account, as appropriate, requirements for bridge alert management given in IMO resolution MSC.302(87) and is associated with IEC 62923-1. This document applies to navigation in ocean waters for the standard positioning service and harbour entrances, harbour approaches and coastal waters, as defined in IMO resolution A.1046(27) within IRNSS/NavIC coverage area."
+  },
+  {
+    "reference": "IEC 61108-7:2024",
+    "edition": "1.0",
+    "date": "2024-05-03",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Global navigation satellite systems (GNSS) - Part 7: Satellite based augmentation system (SBAS) L1 - Receiver equipment - Performance standards, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC 61108-7:2024 specifies the minimum performance standards, methods of testing and required test results for Satellite based augmentation system (SBAS) shipborne receiver equipment, which uses L1 signals from GPS and satellite based augmentation system (SBAS) in order to improve the estimated GPS position. This document addresses the use of SBAS L1 to provide augmentation to the GPS shipborne receiver (IMO Resolution MSC.112(73)). This document includes the minimum performances for SBAS L1 maritime receivers to be obtained by the receiver equipment under coverage of SBAS service in order to be compliant with the IMO Resolution A.1046(27) describing operational requirements for ocean waters, harbour entrances, harbour approaches and coastal waters."
+  },
+  {
+    "reference": "IEC 61162-1:2024",
+    "edition": "6.0",
+    "date": "2024-04-04",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 1: Single talker and multiple listeners",
+    "language": "EN-FR",
+    "description": "IEC 61162-1:2024 contains the requirements for data communication between maritime electronic instruments, navigation and radiocommunication equipment when interconnected via an appropriate system. This document is intended to support one-way serial data transmission from a single talker to one or more listeners. These data are in printable ASCII form and can include information such as position, speed, depth, frequency allocation, etc. Typical messages can be from about 11 to a maximum of 79 characters in length and generally require transmission no more rapidly than one message per second. The electrical definitions in this document are not intended to accommodate high-bandwidth applications such as radar or video imagery, or intensive database or file transfer applications. Since there is no provision for guaranteed delivery of messages and only limited error checking capability, it is important this document is used with caution in all safety applications. For applications where a faster transmission rate is necessary, IEC 61162-2 applies. For applications to shore based equipment of the automatic identification system (AIS) the IEC 62320 series applies."
+  },
+  {
+    "reference": "IEC 61162-2:2024",
+    "edition": "2.0",
+    "date": "2024-04-04",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 2: Single talker and multiple listeners, high-speed transmission",
+    "language": "EN-FR",
+    "description": "IEC 61162-2:2024 contains the requirements for data communication between maritime electronic instruments, navigation and radiocommunication equipment when interconnected via an appropriate interface. This document is intended to support one-way serial data transmission from a single talker to one or more listeners. This data is in printable ASCII form and can include any information as specified by approved sentences or information coded according to the rules for proprietary sentences. Typical messages can be from 11 to a maximum of 79 characters in length and generally require repetition rates up to once per 20 ms. The electrical definitions in this document are intended to accommodate higher data rates than are specified in IEC 61162-1. Since there is no provision for guaranteed delivery of messages and only limited error-checking capability, it is important this document is used with caution in all safety applications."
+  },
+  {
+    "reference": "IEC 61162-3:2008",
+    "edition": "1.0",
+    "date": "2008-05-27",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 3: Serial data instrument network",
+    "language": "EN-FR, EN",
+    "description": "IEC 61162-3:2008 provides information for the application of NMEA 2000 aboard SOLAS vessels. Exceptions, additions and specific requirements for implementation upon SOLAS vessels are contained in the document. The NMEA 2000 standard contains the requirements for the implementation of a serial-data communications network adopting controller area network (CAN) technology."
+  },
+  {
+    "reference": "IEC 61162-3:2008/AMD1:2010",
+    "edition": "1.0",
+    "date": "2010-06-21",
+    "title": "Amendment 1 - Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 3: Serial data instrument network",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61162-3:2008/AMD2:2014",
+    "edition": "1.0",
+    "date": "2014-07-21",
+    "title": "Amendment 2 - Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 3: Serial data instrument network",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61162-450:2024",
+    "edition": "3.0",
+    "date": "2024-04-04",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 450: Multiple talkers and multiple listeners - Ethernet interconnection",
+    "language": "EN-FR",
+    "description": "IEC 61162-450:2024 specifies interface requirements and methods of test for high speed communication between shipboard navigation and radiocommunication equipment as well as between such systems and other ship systems that need to communicate with navigation and radio-communication equipment. This document is based on the application of an appropriate suite of existing international standards to provide a framework for implementing data transfer between devices on a shipboard Ethernet network."
+  },
+  {
+    "reference": "IEC 61162-460:2024",
+    "edition": "3.0",
+    "date": "2024-04-04",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 460: Multiple talkers and multiple listeners - Ethernet interconnection - Safety and security",
+    "language": "EN",
+    "description": "IEC 61162-460:2024 is an add-on to IEC 61162-450 where higher safety and security standards are needed, for example due to higher exposure to external threats or to improve network integrity. This document provides requirements and test methods for equipment to be used in an IEC 61162-460 compliant network as well as requirements for the network itself and requirements for interconnection from the network to other networks. This document also contains requirements for a redundant IEC 61162-460 compliant network. This document does not introduce new application level protocol requirements to those that are defined in IEC 61162-450. The contents of the corrigendum of July 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61162-460:2024/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-08-06",
+    "title": "Corrigendum 1 - Maritime navigation and radiocommunication equipment and systems - Digital interfaces - Part 460: Multiple talkers and multiple listeners - Ethernet interconnection - Safety and security",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61174:2015",
+    "edition": "4.0",
+    "date": "2015-08-19",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Electronic chart display and information system (ECDIS) - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61174:2015 specifies the performance requirements, methods of testing and required test results of equipment conforming to performance standards not inferior to those adopted by the IMO in resolution MSC.232(82). This standard is based upon the performance standards of IMO resolution MSC.232(82), and is also associated with IMO resolution A.694(17) and IEC 60945. Reference is made, where appropriate, to IMO resolution MSC.232(82), and all subclauses whose wording is identical to that in the resolution are printed in italics. The requirements of this standard are not intended to prevent the use of new techniques in equipment and systems, provided the facilities offered are not inferior to those stated. This edition includes the following significant technical changes with respect to the previous edition: - updated references are provided to IHO publications and test methods are updated to IHO test data sets; - requirements have been added for display of radar and AIS information; - new interface requirements have been added for BNWAS, VDR, BAM, MSI, INS and route transfer; - a requirement for an anchor watch has been added; - additional test methods are specified for operation of ECDIS beyond the normal range between 85 degrees South latitude and 85 degrees North latitude."
+  },
+  {
+    "reference": "IEC PAS 61174-1:2021",
+    "edition": "1.0",
+    "date": "2021-03-03",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Part 1: Route plan exchange format (RTZ) - General requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": "IEC PAS 61174-1:2021 specifies requirements, methods of testing and required test results for route plan exchange format (RTZ). This PAS has been developed to improve interoperability between equipment implementing route plan exchange format by addressing issues uncovered in the original RTZ specification (Annex S of IEC 61174:2015), and in recognition of the fact that some manufacturers have identified a pressing business need to implement an improved and expanded version of the RTZ format. It is intended to complement the original RTZ specification. This PAS provides a revised version 1.2 of the RTZ schema but retains the original version 1.0 of the schema unchanged. The intention is that compliance with this PAS can be achieved without compromising compliance with IEC 61174:2015."
+  },
+  {
+    "reference": "IEC 61924-2:2021",
+    "edition": "2.0",
+    "date": "2021-02-12",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Integrated navigation systems (INS) - Part 2: Modular structure for INS - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 61924-2:2021 specifies the minimum requirements for the design, manufacture, integration, methods of testing and required test results for an integrated navigation system (INS) to comply with the International Maritime Organization (IMO) requirements of Resolution MSC.252(83), as amended by Resolution MSC.452(99). In addition, it takes account of IMO Resolution A.694(17) to which IEC 60945 is associated. When a requirement in this document is different from IEC 60945, the requirement of this document takes precedence."
+  },
+  {
+    "reference": "IEC 61993-2:2018",
+    "edition": "3.0",
+    "date": "2018-07-19",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Automatic identification systems (AIS) - Part 2: Class A shipborne equipment of the automatic identification system (AIS) - Operational and performance requirements, methods of test and required test results",
+    "language": "EN-FR",
+    "description": "IEC 61993-2:2018 specifies the minimum operational and performance requirements, methods of testing and required test results conforming to performance standards adopted by IMO in Resolution MSC.74(69):1998, Annex 3. This document incorporates the applicable technical characteristics of Class A shipborne equipment included in Recommendation ITU-R M.1371 and takes into account the ITU Radio Regulations, where applicable. In addition, it takes account of IMO Resolution A.694(17) to which IEC 60945 is associated. When a requirement in this document is different from IEC 60945, the requirement of this document takes precedence. This document also specifies the minimum requirements both for the means to input and display data and for the interfaces to other equipment suitable to be used as means of input and display data. This third edition cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following technical changes with respect to the previous edition: a) it incorporates the technical characteristics included in Recommendation ITU R M.1371-5:2014; b) it introduces the concept of locating device groups in order to include EPIRB AIS and MOB AIS in addition to AIS SART; c) it adds security features for configuration input by introducing a new sentence SSA; d) it adds optional implementation of IEC 61162-450/460 interfaces; e) it adds requirements for bridge alert management (BAM); f) it introduces extended dimension values used by towing vessels; g) it adds a software update requirement."
+  },
+  {
+    "reference": "IEC 61996-1:2013",
+    "edition": "2.0",
+    "date": "2013-05-23",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Shipborne voyage data recorder (VDR) - Part 1: Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 61996-1:2013 specifies the minimum performance requirements, technical characteristics, methods of testing and required test results, for shipborne voyage data recorder (VDR) installations as required by Chapter V of the International Convention for Safety of Life at Sea (SOLAS), as amended. It takes account of IMO resolution A.694(17) and is associated with IEC 60945. When a requirement in this standard is different from IEC 60945, the requirement in this standard takes precedence. This standard incorporates the applicable parts of the performance standards included in IMO Resolution MSC.333(90). This edition includes the following significant technical changes with respect to the previous edition. a) The description of the protective capsule in 4.3.4 has been changed in line with the requirements of the new IMO performance standards given in Resolution MSC.333(90) which now require a final recording medium comprising three parts; fixed, float-free and long-term. b) A new requirement for a performance test has been added in 4.3.6. c) Further data items to be recorded have been added to 4.6 for ECDIS, AIS, rolling motion and electronic logbooks. d) Clause 5 contains new technical requirements for configuration data, operational performance test and bridge alert management system. In addition, further technical requirements have been added to 5.6 for bridge audio and to 5.8 for radar and ECDIS images. e) References to \"alarm\" requirements in the previous edition have been substituted by references to \"cautions\" in line with current IMO recommendations. The test methods in Clause 6 have been updated to reflect the new requirements. f) New Annexes E, F and G concerning protocols for interfacing images using a Local Area Network have been added. The contents of the corrigendum of February 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61996-1:2013/COR1:2014",
+    "edition": "2.0",
+    "date": "2014-02-12",
+    "title": "Corrigendum 1 - Maritime navigation and radiocommunication equipment and systems - Shipborne voyage data recorder (VDR) - Part 1: Performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61996-1:2013/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-05-20",
+    "title": "Amendment 1 - Maritime navigation and radiocommunication equipment and systems - Shipborne voyage data recorder (VDR) - Part 1: Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61996-2:2007",
+    "edition": "2.0",
+    "date": "2007-11-21",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Shipborne voyage data recorder (VDR) - Part 2: Simplified voyage data recorder (S-VDR) - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "Specifies the minimum performance requirements, technical characteristics and methods of testing, and required test results, for simplified shipborne voyage data recorders (S-VDRs) as required by IMO MSC.163(78). It takes into account IMO resolution A.694(17) and is associated with IEC 60945. This second edition includes a new requirement for an interface to be used for downloading the stored data to an external computer and an optional LAN interface for connection to radar."
+  },
+  {
+    "reference": "IEC 62065:2025",
+    "edition": "3.0",
+    "date": "2025-10-16",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Track control systems - Operational and performance requirements, test methods and required test results",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62065:2025 specifies the minimum operational and performance requirements, test methods and required test results conforming to performance standards adopted by the IMO in resolution MSC.74(69) Annex 2 Recommendation on Performance Standards for Track Control Systems. In addition, it takes into account IMO resolution A.694(17) to which IEC 60945 is associated. It also takes into account IMO resolution MSC.302(87) on bridge alert management (BAM), to which IEC 62923-1 and IEC 62923-2 are associated. This third edition cancels and replaces the second edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alert management has been brought in line with MSC.302(87), IEC 62923-1 and IEC 62923‑2, reducing the number of alerts for one situation and improving the information provided by alerts. An overview is provided in Annex F; b) the previous Annex F has been removed as it was outdated and not instrumental in this document; c) the requirements in Clause 5 have been further detailed: d) the structure of Clause 6 has been updated."
+  },
+  {
+    "reference": "IEC 62238:2003",
+    "edition": "1.0",
+    "date": "2003-03-26",
+    "title": "Maritime navigation and radiocommunication equipment and systems  - VHF radiotelephone equipment incorporating Class \"D\" Digital Selective Calling (DSC) - Methods of testing and required test results",
+    "language": "EN",
+    "description": "Includes the minimum requirements for general communication for shipborne fixed installations using a VHF radiotelephone incorporating class \"D\" Digital Selective Calling. Includes the relevant provisions of the ITU Radio Regulations and incorporates the relevant IMO guidelines. Also specifies technical characteristics, methods of measurement and required test results."
+  },
+  {
+    "reference": "IEC 62287-1:2017",
+    "edition": "3.0",
+    "date": "2017-04-05",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Class B shipborne equiment of the automatic identification system (AIS) - Part 1: Carrier-sense time division multiple access (CSTDMA) techniques",
+    "language": "EN-FR, EN",
+    "description": "IEC 62287-1:2017 specifies the minimum operational and performance requirements, methods of testing and required test results for Class B shipborne automatic identification system (AIS) equipment using carrier-sense time division multiple access (CSTDMA) techniques. This document takes into account other associated IEC International Standards and existing national standards, as applicable. It is applicable for AIS equipment used on craft that are not covered by the mandatory carriage requirement of AIS under SOLAS Chapter V. An AIS station intended to operate in receive-only mode is not considered a Class B shipborne mobile AIS station. This edition includes the following significant technical change with respect to the previous edition: in the synchronisation method, addition of a direct method for synchronisation from an internal UTC source."
+  },
+  {
+    "reference": "IEC 62287-1:2017/AMD1:2022",
+    "edition": "3.0",
+    "date": "2022-11-23",
+    "title": "Amendment 1 - Maritime navigation and radiocommunication equipment and systems - Class B shipborne equipment of the automatic identification system (AIS) - Part 1: Carrier-sense time division multiple access (CSTDMA) techniques",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62287-2:2017",
+    "edition": "2.0",
+    "date": "2017-02-07",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Class B shipborne equiment of the automatic identification system (AIS) - Part 2: Self-organising time division multiple access (SOTDMA) techniques",
+    "language": "EN-FR, EN",
+    "description": "IEC 62287-2:2017 specifies operational and performance requirements, methods of testing and required test results for Class B \"SO\" shipborne automatic identifications system (AIS) equipment using self-organising time division multiple access (SOTDMA) techniques as described in Recommendation ITU-R M.1371. This document takes into account other associated IEC International Standards and existing national standards, as applicable. This edition includes the following significant technical change with respect to the previous edition: the introduction of transmission of Message 27 on channels 75 and 76 for the long range application by broadcast."
+  },
+  {
+    "reference": "IEC 62288:2021",
+    "edition": "3.0",
+    "date": "2021-12-20",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Presentation of navigation-related information on shipborne navigational displays - General requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 62288:2021 specifies the general requirements, methods of testing, and required test results, for the presentation of navigation-related information on shipborne navigational displays in support of IMO resolutions MSC.191(79) as amended by MSC.466(101) in June 2019, and where applicable MSC.302(87). This document also supports the guidelines included in the related IMO Circulars MSC.1/Circ.1609 on the standardization of user interface design for navigation equipment and SN.1/Circ.243 as revised in June 2019 on the presentation of navigation related symbols, terms, and abbreviations. This document also specifies the presentation of AIS data reports and the AIS Application Specific Messages defined for international use in IMO SN.1/Circ.289 and intended to be received by a ship for display onboard."
+  },
+  {
+    "reference": "IEC 62288:2021/AMD1:2024",
+    "edition": "3.0",
+    "date": "2024-11-07",
+    "title": "Amendment 1 - Maritime navigation and radiocommunication equipment and systems - Presentation of navigation-related information on shipborne navigational displays - General requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62320-1:2015",
+    "edition": "2.0",
+    "date": "2015-01-20",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Automatic identification system (AIS) - Part 1: AIS Base Stations - Minimum operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 62320-1:2015 specifies the minimum operational and performance requirements, methods of testing and required test results for AIS Base Stations, compatible with the performance standards adopted by IMO Resolution MSC.74 (69), Annex 3, Universal AIS. It incorporates the technical characteristics of non-shipborne, fixed station AIS equipment, included in recommendation ITU-R M.1371 and IALA Recommendation A-124. Where applicable, it also takes into account the ITU Radio Regulations. This standard takes into account other associated IEC international standards and existing national standards, as applicable. This standard is applicable for AIS Base Stations. It does not include specifications for the display of AIS data on shore. This second edition cancels and replaces the first edition published in 2007 and its Amendment 1:2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - incorporation of the technical characteristics included in Recommendation ITU R M.1371 5; - the BCE, BCF and CAB sentences replaced with BCG, BCL and RST; - comment blocks replaced with TAG blocks; - scheduled broadcast of Message 26 added; - Message 27 control added; - transmitter intermodulation attenuation harmonised with ITU; - 12,5 kHz channel operation removed; - transmission of Message 24A, Message 25 and Message 26 added; - 90 % channel load test with VSI and TAG blocks enabled added."
+  },
+  {
+    "reference": "IEC 62320-2:2016",
+    "edition": "2.0",
+    "date": "2016-10-31",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Automatic identification system (AIS) - Part 2: AIS AtoN Stations - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 62320-2:2016 specifies the operational and performance requirements, methods of testing and required test results for AIS AtoN Stations compatible with the performance standards adopted by IMO Resolution MSC.74(69), Annex 3, Universal AIS. It incorporates the technical characteristics of non-shipborne AIS AtoN equipment, included in Recommendation ITU-R M.1371 and IALA Recommendation A-126. Where applicable, it also takes into account the ITU Radio Regulations. This standard takes into account other associated IEC International Standards and existing national standards, as applicable. This document is applicable for automatic identification system (AIS) installations on aids to navigation (AtoN). This edition includes the following significant technical changes with respect to the previous edition: - additional cyber security measures; - updated description of configuration via VDL; - updated VDL access scheme requirements; - new PI sentences and VDL message structures with added description for optional TAG blocks; - added requirement for at least one standard method for configuration using Standard PI sentences; - updated test methods and updated Annexes."
+  },
+  {
+    "reference": "IEC 62320-3:2015",
+    "edition": "1.0",
+    "date": "2015-01-28",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Automatic identification systems (AIS) - Part 3: Repeater stations - Minimum operational and performance requirements - Methods of test and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 62320-3:2015 specifies the minimum operational and performance requirements, methods of testing and required test results for AIS repeater stations, compatible with the performance standards adopted by IMO Res. MSC.74 (69), annex 3, Universal AIS. It incorporates the technical characteristics of non-shipborne, fixed station AIS equipment, included in Recommendation ITU-R M.1371 and IALA Recommendation A-124. Where applicable, it also takes into account the ITU Radio Regulations. This standard takes into account other associated IEC International Standards and existing national standards, as applicable. This standard is applicable for AIS repeater stations. It does not include specifications for the display of AIS data on shore."
+  },
+  {
+    "reference": "IEC 62388:2013",
+    "edition": "2.0",
+    "date": "2013-06-26",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Shipborne radar - Performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 62388:2013 specifies the minimum operational and performance requirements, methods of testing and required test results conforming to performance standards not inferior to those adopted by the IMO in Resolution MSC.192(79). (MSC.192/2) The radar installation, in addition to meeting the general requirements as set out in resolution A.694(17) and the related standard IEC 60945, should comply with the performance standards of MSC.192(79). When a requirement of this standard is different from IEC 60945, the requirement in this standard takes precedence. This second edition cancels and replaces the first edition published in 2007. This edition constitutes a technical revision. The contents of the corrigendum of February 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62388:2013/COR1:2014",
+    "edition": "2.0",
+    "date": "2014-02-12",
+    "title": "Corrigendum 1 - Maritime navigation and radiocommunication equipment and systems - Shipborne radar - Performance requirements, methods of testing and required test results",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62616:2010",
+    "edition": "1.0",
+    "date": "2010-02-11",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Bridge navigational watch alarm system (BNWAS)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62616:2010 specifies the minimum performance requirements, technical characteristics and methods of testing, and required test results, for a bridge navigational watch alarm system (BNWAS) as required by Chapter V of the International Convention for the Safety of Life at Sea (SOLAS), as amended. Takes account of the general requirements given in IMO resolution A.694(17) and is associated with IEC 60945. The contents of the corrigendum of July 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62616:2010/COR1:2012",
+    "edition": "1.0",
+    "date": "2012-07-25",
+    "title": "Corrigendum 1 - Maritime navigation and radiocommunication equipment and systems - Bridge navigational watch alarm system (BNWAS)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62729:2012",
+    "edition": "1.0",
+    "date": "2012-06-27",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Shipborne equipment for long-range identification and tracking (LRIT) - Performance requirements",
+    "language": "EN-FR, EN",
+    "description": "IEC 62729:2012 specifies the performance requirements and methods of testing for shipborne equipment for use for long-range identification and tracking (LRIT). LRIT of ships is a requirement of regulation V/19-1 of SOLAS 1974 as amended. The standard takes account of the general requirements given in IMO resolution A.694(17) and is associated with IEC 60945. When a requirement in this International Standard is different from IEC 60945, the requirement in this standard takes precedence. This standard incorporates the parts of the performance standards included in IMO resolution MSC.263(84), Revised performance standards and functional requirements for the long-range identification and tracking of ships."
+  },
+  {
+    "reference": "IEC 62923-1:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Bridge alert management - Part 1: Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 62923-1:2018 specifies the operational and performance requirements, methods of testing, and required test results for the bridge alert management (BAM) in support of IMO resolution MSC.302(87). It is applicable to all alerts presented on and transferred to the bridge"
+  },
+  {
+    "reference": "IEC 62923-2:2018",
+    "edition": "1.0",
+    "date": "2018-08-29",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Bridge alert management - Part 2: Alert and cluster identifiers and other additional features",
+    "language": "EN-FR",
+    "description": "IEC 62923-2:2018 specifies standard alert identifiers and reserved cluster identifiers to be used when applying bridge alert management. The intent is to reduce the number of different identifiers used for similar alerts as much as possible."
+  },
+  {
+    "reference": "IEC PAS 62923-101:2022",
+    "edition": "1.0",
+    "date": "2022-09-15",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Bridge alert management - Part 101: Guideline on implementation",
+    "language": "EN",
+    "description": "IEC PAS 62923-101:2022 primarily provides support to other workgroups to include alert requirements in standards in line with Bridge Alert Management (BAM), and additionally provides support to designers to implement alert properties so that they conform with the BAM requirements. This document is applicable, and is intended to provide guidance, when the intention is to implement BAM according to IMO Resolution MSC.302(87). Based on the IMO decision to adopt the BAM Performance Standard MSC.302(87) as a high level leading umbrella standard for intended implementation of BAM, IMO resolved in MSC.302(87), 3.6, that in case of conflict with alert requirements in existing performance standards, MSC.302(87) takes precedence."
+  },
+  {
+    "reference": "IEC 62940:2016",
+    "edition": "1.0",
+    "date": "2016-10-26",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Integrated communication system (ICS) - Operational and performance requirements, methods of testing and required test results",
+    "language": "EN-FR, EN",
+    "description": "IEC 62940:2016 specifies the minimum operational and performance requirements, technical characteristics and methods of testing, and required test results, for shipborne integrated communication systems (ICS) designed to perform ship external communication and distress and safety communications (GMDSS) and the functions of onboard routeing of this communication. It takes account of IMO Resolution A.694(17) and is associated with IEC 60945. When a requirement in this document is different from IEC 60945, the requirement in this document takes precedence."
+  },
+  {
+    "reference": "IEC 63135:2018",
+    "edition": "1.0",
+    "date": "2018-11-23",
+    "title": "Maritime navigation and radio communication equipment and systems - Automatic identification systems (AIS) - SAR airborne equipment - Operational and performance requirements, methods of test and required test results",
+    "language": "EN-FR",
+    "description": "IEC 63135:2018 specifies the minimum operational and performance requirements, methods of testing and required test results as applicable for automatic identification systems (AIS) VHF data link (VDL) related parts of an AIS SAR airborne station. This document incorporates the applicable technical characteristics of AIS SAR airborne equipment included in Recommendation ITU-R M.1371 and takes into account the ITU Radio Regulations, where applicable. This document also specifies the minimum requirements for the interfaces to other equipment suitable to be used as means of input and display data. Attention is drawn on that other requirements specific for airborne equipment can exist and are beyond the scope of this document."
+  },
+  {
+    "reference": "IEC 63154:2021",
+    "edition": "1.0",
+    "date": "2021-03-09",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Cybersecurity - General requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 63154:2021 specifies requirements, methods of testing and required test results where standards are needed to provide a basic level of protection against cyber incidents (i.e. malicious attempts, which actually or potentially result in adverse consequences to equipment, their networks or the information that they process, store or transmit) for: a) shipborne radio equipment forming part of the global maritime distress and safety system (GMDSS) mentioned in the International Convention for Safety of Life at Sea (SOLAS) as amended, and by the Torremolinos International Convention for the Safety of Fishing Vessels as amended, and to other shipborne radio equipment, where appropriate; b) shipborne navigational equipment mentioned in the International Convention for Safety of Life at Sea (SOLAS) as amended, and by the Torremolinos International Convention for the Safety of Fishing Vessels as amended, c) other shipborne navigational aids, and Aids to Navigation (AtoN), where appropriate."
+  },
+  {
+    "reference": "IEC 63173-1:2021",
+    "edition": "1.0",
+    "date": "2021-06-16",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Data interfaces - Part 1: S-421 route plan based on S-100",
+    "language": "EN-FR, EN",
+    "description": "IEC 63173-1:2021 specifies an S-100 compliant product specification for route plan intended for exchange of information. It specifies the content, structure, and metadata needed for creating fully S-100 compliant route plan information and its portrayal within an S-100-based application. The IHO manages all numbers for S-100 compliant product specifications and has assigned S-421 for this route plan IEC standard. This document specifies only a data format for the route plan exchange. This document does not specify a data format of vessel monitoring and logging information. This information can be provided by other mechanisms or be specified in other standards. The format of the route plan exchange includes some limited vessel static information. When more static information is required, it can be obtained by other methods such as AIS."
+  },
+  {
+    "reference": "IEC 63173-2:2022",
+    "edition": "1.0",
+    "date": "2022-05-30",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Data interfaces - Part 2: Secure communication between ship and shore (SECOM)",
+    "language": "EN-FR",
+    "description": "IEC 63173-2:2022 the scope of secure communication between ship and shore (SECOM) includes interfaces (APIs) for data exchange (information services), information security measures to enable secure communication and interfaces for service discoverability. SECOM provides technical interoperability, where the same service interface is used for exchanging the information regardless of its operational use, up to the level of exchanging information securely online. Although designed for IHO S-100 based products, SECOM is technically payload agnostic and applicable also for other types of data. Communication between SECOM information services for data exchange relies on IP based web services. The \"last mile\" links between a SECOM information service and the end-user application is not defined in this document, thus the communication technology between the vendor API and a ship/shore system can be non-IP based as well as IP based. The informative Annex D describes one such implementation of this. This allows different solutions between the service and shore/ship’s system/applications. SECOM does not define physical layer or link layer for transport of data between SECOM information services, but requires that the transport supports IP communication. SECOM is applicable for both public (governmental) and private (business) services. SECOM is applicable for ship-shore and shore-ship communication, and can be used for ship-ship communication."
+  },
+  {
+    "reference": "IEC 63269:2022",
+    "edition": "1.0",
+    "date": "2022-05-25",
+    "title": "Maritime navigation and radiocommunication equipment and systems - Maritime survivor locating devices (man overboard devices) - Minimum requirements, methods of testing and required test results",
+    "language": "EN-FR",
+    "description": "IEC 63269:2022 specifies the minimum requirements for aspects related to operation, construction, documentation, methods of testing and required test results for ITU-R M.2135 AMRD Group A man overboard (MOB) devices intended for alerting and locating purposes, as defined by IMO and in accordance with ITU‑R M.493 Class-M. This document consists of three modules where the first module, Module A, covers general requirements and aspects. Further Module B covers AIS technologies and Module C covers DSC technologies that are required within MOB equipment. This document incorporates the technical characteristics included in applicable ITU recommendations. Where applicable, it also takes into account the ITU Radio Regulations. This document takes into account other associated IEC International Standards and existing national standards, as applicable. This document defines the requirements for coexistence of AIS and DSC technology incorporated within a single equipment. Only when the equipment complies with the three Modules can it be categorised as AMRD Group A equipment and be entitled to operate on channel AIS 1, channel AIS 2 and channel 70."
+  },
+  {
+    "reference": "IEC PAS 63343:2021",
+    "edition": "1.0",
+    "date": "2021-02-18",
+    "title": "Maritime navigation and radiocommunication equipment and systems - VHF data exchange system - Requirements and methods of testing for stations including ASM functionality",
+    "language": "EN",
+    "description": "IEC PAS 63343:2021 specifies technical requirements, methods of test and required test results for equipment implementing ASM part of the VHF Data exchange system (VDES) as defined in ITU-R M.2092."
+  }
+]

@@ -1,0 +1,490 @@
+[
+  {
+    "reference": "IEC 60364-1:2025",
+    "edition": "6.0",
+    "date": "2025-09-05",
+    "title": "Low-voltage electrical installations - Part 1: Fundamental principles, assessment of general characteristics, and definitions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60364-1:2025 defines the scope and objective of the IEC 60364 series and specifies the fundamental safety requirements for an electrical installation. This document addresses the fundamental principles, assessment of general characteristics and definitions of low-voltage electrical installations. This sixth edition cancels and replaces the fifth edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the entire document has been restructured and renumbered, maintaining the numbering of the (sub)clauses which are preceded with the part number, i.e. 1.1, 1.2, etc.; b) the scope has been expanded to include new areas of application and has been restructured; c) in 1.5.2.2.2, the topic of safety services and standby electric supply systems has been added; d) in 1.5.2.14, the topic of energy efficiency has been included; e) in 1.5.2.15, the topic of prosumer electrical installations has been included; f) in 1.5.3.5, the requirement for an equivalent safety level for the use of new materials and innovations for which no product standards exist yet has been added; g) in 1.5.4.3, the recommendation to assess the effectiveness of protective measures for the safety of human beings and livestock to be maintained by periodic verification during the entire lifetime of the installation has been added; h) Table 3 shows the symbol for the newly introduced \"system-referencing-conductor (SRC)\"; i) the number of figures showing the type of electric system in AC and DC systems is limited to illustrate requirements."
+  },
+  {
+    "reference": "IEC 60364-4-41:2005",
+    "edition": "5.0",
+    "date": "2005-12-15",
+    "title": "Low-voltage electrical installations - Part 4-41: Protection for safety - Protection against electric shock",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "IEC 60364-4-41:2005 Specifies essential requirements regarding protection against electric shock of persons and livestock. It deals also with the application and co-ordination of these requirements in relation to external influences. Requirements are also given for the application of additional protection in certain cases."
+  },
+  {
+    "reference": "IEC 60364-4-41:2005/AMD1:2017",
+    "edition": "5.0",
+    "date": "2017-03-17",
+    "title": "Amendment 1 - Low voltage electrical installations - Part 4-41: Protection for safety - Protection against electric shock",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-4-42:2024",
+    "edition": "4.0",
+    "date": "2024-11-22",
+    "title": "Low-voltage electrical installations - Part 4-42: Protection for safety - Protection against thermal effects",
+    "language": "EN-FR",
+    "description": "IEC 60364-4-42:2024 applies to electrical installations with regard to measures for the protection of persons, livestock and property against: • thermal effects, risk of combustion or degradation of materials, and risk of burns caused by electrical equipment, • flames in case of a fire hazard being propagated from electrical installations to other fire compartments segregated by barriers which are in the vicinity, and • the impairment of the safe functioning of electrical equipment, including safety services due to thermal effects. This group safety publication (GSP) focusing on safety essential requirements is primarily intended to be used as a product safety standard for the installations mentioned in the scope, but is also intended to be used by TCs in the preparation of publications for installations similar to those mentioned in the scope of this GSP, in accordance with the principles laid down in IEC Guide 104 and lSO/lEC Guide 51. One of the responsibilities of a TC is, wherever applicable, to make use of basic safety publications and/or group safety publications in the preparation of its publications This fourth edition cancels and replaces the third edition published in 2010 and Amendment 1:2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the Scope now includes a new paragraph stating that IEC 60364-4-42 has become a group safety publication (GSP) following the Advisory Committee on Safety (ACOS) recommendation for approval of the group safety function \"protection against thermal effects for any kind of low-voltage electrical installations\" to TC 64; this GSP is primarily intended to be used as a product safety standard for the installations mentioned in the scope, but also to be used by TCs in the preparation of publications for installations similar to those mentioned in the scope of this GSP; b) new terms and definitions have been added; c) a new Subclause 421.6 regarding measures for preventing fires originating from the use of an electrical stove or cooker or hob has been added; d) the previous Subclause 421.7 was expanded and moved to a new Clause 426: Additional protective measures against thermal effect for locations where consequences of fire are severe; e) requirements for escape routes have been expanded and modified; f) requirements for final circuits in BE2 locations have been expanded and modified; g) requirements for locations with irreplaceable goods or with business critical facilities have been expanded and modified; h) a new Clause 425 for protection against fire due to fault currents has been added; i) a new Clause 427 for protection against assembly internal arc faults has been added"
+  },
+  {
+    "reference": "IEC 60364-4-43:2023",
+    "edition": "4.0",
+    "date": "2023-07-19",
+    "title": "Low-voltage electrical installations - Part 4-43: Protection for safety - Protection against overcurrent",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-4-43:2023 provides requirements for: - protection of live conductors, PEN conductors, PEM conductors, and PEL conductors against the harmful effects caused by overcurrent; - coordination of measures for protection against overcurrent. This fourth edition cancels and replaces the third edition published in 2008. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the standard has been restructured, see Table 1 (Correspondence between IEC 60364‑4‑43:2008 and this document) below; b) the measure \"automatic disconnection of supply\" has been designated as the preferred measure for protection against overcurrent; c) all measures except the measure \"automatic disconnection of supply\" have been transferred into new normative annexes to indicate that these measures are usable in certain applications and under certain restricted conditions only (see Annex A, Annex B and Annex E); d) a new clause \"Terms and definitions\" has been added; e) new requirements have been added for the protection of the neutral or mid-point conductor (with and without triplen harmonics)."
+  },
+  {
+    "reference": "IEC 60364-4-44:2024",
+    "edition": "3.0",
+    "date": "2024-12-19",
+    "title": "Low-voltage electrical installations - Part 4-44: Protection for safety - Protection against voltage disturbances and electromagnetic disturbances",
+    "language": "EN",
+    "description": "IEC 60364-4-44:2024 provides requirements for the safety of electrical installations in the event of voltage disturbances and electromagnetic disturbances generated for different specified reasons. The requirements of this document are not intended to apply to systems for distribution of energy to the public, or power generation and transmission for such systems (see the scope of IEC 60364-1) although such disturbances can be conducted into or between electrical installations via these supply systems. This third edition cancels and replaces the second edition published in 2007, Amendment 1:2015 and Amendment 2:2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the structure of the document has been updated in accordance with the ISO/IEC Directives, Part 2:2021: the terms, definitions and symbols have been regrouped under a new Subclause 440.3, the tables and figures have been renumbered; b) Clause 443 has been amended to better introduce the DC SPD and to improve some of the wording."
+  },
+  {
+    "reference": "IEC 60364-5-51:2005",
+    "edition": "5.0",
+    "date": "2005-04-14",
+    "title": "Electrical installations of buildings - Part 5-51: Selection and erection of electrical equipment - Common rules",
+    "language": "EN-FR, EN, FR",
+    "description": "Deals with the selection of equipment and its erection. It provides common rules for compliance with measures of protection for safety, requirements for proper functioning for intended use of the installation, and requirements appropriate to the external influences foreseen. The main changes with respect to the previous edition are listed below: - corrections of misprints in Table 51 based on Table 321 derived from the old Part 3; - introduction of a new Clause 516 dealing with measures for mitigation of protective conductor currents; - introduction of an informative Annex B extracted from IEC 61140 in Annex E of this standard. Annex B of IEC 61140 deals with protective conductor currents."
+  },
+  {
+    "reference": "IEC 60364-5-52:2009",
+    "edition": "3.0",
+    "date": "2009-10-20",
+    "title": "Low-voltage electrical installations - Part 5-52: Selection and erection of electrical equipment - Wiring systems",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-5-52:2009 deals with the selection and erection of wiring systems. This third edition cancels and replaces the second edition, published in 2001, and constitutes a technical revision. The main changes with respect to the previous edition are as follows: - Subclause 521.4 introduces minor changes with regard to busbar trunking systems and powertrack systems. - Subclause 523.6 introduces minor changes with regard to the sizing of cables where harmonic currents are present. - A new sublause 523.9 concerning single-core cables with a metallic covering has been introduced. - Clause 525 introduces changes in the maximum value of voltage drop permitted between the origin of the consumer's installation and the equipment which should not be greater than that given in the relevant annex. - Clause 526 introduces minor changes to electrical connections including additional exceptions for inspection of connections and additional notes. - Clause 528 introduces additional requirements with regard to proximity of underground power and telecommunication cables. - Clause 529 introduces minor changes to selection and erection of wiring systems in relation to maintainability, including cleaning. The contents of the corrigendum of February 2011 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60364-5-52:2009/COR1:2011",
+    "edition": "3.0",
+    "date": "2011-02-10",
+    "title": "Corrigendum 1 - Low-voltage electrical installations - Part 5-52: Selection and erection of electrical equipment - Wiring systems",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-52:2009/AMD1:2024",
+    "edition": "3.0",
+    "date": "2024-11-22",
+    "title": "Amendment 1 - Low-voltage electrical installations - Part 5-52: Selection and erection of electrical equipment - Wiring systems",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-53:2019",
+    "edition": "4.0",
+    "date": "2019-02-21",
+    "title": "Low-voltage electrical installations - Part 5-53: Selection and erection of electrical equipment - Devices for protection for safety, isolation, switching, control and monitoring",
+    "language": "EN-FR, EN",
+    "description": "IEC 60364-5-53:2019 Deals with general requirements for isolation, switching and control and with the requirements for selection and erection of the devices provided to fulfil such functions. This fourth edition cancels and replaces the third edition published in 2001, Amendment 1:2002 and Amendment 2:2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of all clauses except 531 and 534; b) introduction of a new Clause 537 Monitoring; c) Clause 530 contains all normative references and all terms and definitions."
+  },
+  {
+    "reference": "IEC 60364-5-53:2019/AMD1:2020",
+    "edition": "4.0",
+    "date": "2020-12-10",
+    "title": "Amendment 1 - Low-Voltage electrical installations - Part 5-53: Selection and erection of electrical equipment - Devices for protection for safety, isolation, switching, control and monitoring",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-53:2019/AMD2:2024",
+    "edition": "4.0",
+    "date": "2024-12-18",
+    "title": "Amendment 2 - Low-voltage electrical installations - Part 5-53: Selection and erection of electrical equipment - Devices for protection for safety, isolation, switching, control and monitoring",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-54:2011",
+    "edition": "3.0",
+    "date": "2011-03-23",
+    "title": "Low-voltage electrical installations - Part 5-54: Selection and erection of electrical equipment - Earthing arrangements and protective conductors",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-5-54:2011 addresses the earthing arrangements and protective conductors including protective bonding conductors in order to satisfy the safety of the electrical installation. This third edition cancels and replaces the second edition, published in 2002, and constitutes a technical revision. The main changes with respect to the previous edition are listed below: - clarification of the definition of protective conductor; - improved specification of mechanical characteristics of the earth electrode; - introduction of earth electrode for protection against electric shock and lighting protection; - annexes describing concrete-embedded foundation earth electrodes and soil-embedded earth electrode."
+  },
+  {
+    "reference": "IEC 60364-5-54:2011/AMD1:2021",
+    "edition": "3.0",
+    "date": "2021-04-13",
+    "title": "Amendment 1 - Low-voltage electrical installations - Part 5-54: Selection and erection of electrical equipment - Earthing arrangements and protective conductors",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-55:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Electrical installations of buildings - Part 5-55: Selection and erection of electrical equipment - Other equipment",
+    "language": "EN-FR",
+    "description": "IEC 60364-5-55:2011 covers requirements for the selection and erection of low-voltage generating sets and for the selection and erection of luminaires and lighting installations intended to be part of the fixed installation. This second edition cancels and replaces the first edition, published in 2001, its Amendment 1 (2001) and its Amendment 2 (2008). The major technical changes with respect to the previous edition are: - additional requirements for connection of luminaires to the fixed wiring; - modification of requirements regarding the fixing of luminaires; - inclusion of alternative solutions for connecting devices used for through wiring and for connection of luminaires to the supply; - withdrawal of Clause 556, as IEC 60364-5-56 now covers this matter."
+  },
+  {
+    "reference": "IEC 60364-5-55:2011/AMD1:2012",
+    "edition": "2.0",
+    "date": "2012-10-12",
+    "title": "Amendment 1 - Electrical installations of buildings - Part 5-55: Selection and erection of electrical equipment - Other equipment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-55:2011/AMD2:2016",
+    "edition": "2.0",
+    "date": "2016-07-28",
+    "title": "Amendment 2 - Electrical installations of buildings - Part 5-55: Selection and erection of electrical equipment - Other equipment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-5-56:2018",
+    "edition": "3.0",
+    "date": "2018-11-02",
+    "title": "Low-voltage electrical installations - Part 5-56: Selection and erection of electrical equipment - Safety services",
+    "language": "EN, ES",
+    "description": "IEC 60364-5-56:2018 covers general requirements for safety services, selection and erection of electrical supply systems for safety services and electrical safety sources. Standby electrical supply systems are outside the scope of this part. This part does not apply to installations in hazardous areas (BE3), for which requirements are given in IEC 60079-14. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: 1) Modifications to normative references and terms and definitions. 2) Under electrical circuits for safety services, addition of requirements concerning circuit and overcurrent protection in order to maintain reliability of safety service power supplies under fire conditions. 3) Under electrical circuits for safety services, addition of requirements stating that circuits for safety services are not to be protected by RCDs or AFDDs. 4) Under emergency lighting applications, addition of requirements to prevent emergency lighting systems being adversely affected by any control system. 5) Addition of requirements for all emergency luminaires in the area to provide full design light output in the event of any final circuit failure. 6) Addition of a new Annex D (informative): Fire switch. 7) Addition of a new Annex E (informative): Example of installation methods of safety services with cable management system. 8) Addition of a new Annex F (informative): Wiring systems. 9) Addition of a new Annex G (informative): Guidance on suitable locations for electrical sources for safety services."
+  },
+  {
+    "reference": "IEC 60364-5-57:2022",
+    "edition": "1.0",
+    "date": "2022-10-20",
+    "title": "Low-voltage electrical installations - Part 5-57: Selection and erection of electrical equipment - Erection of stationary secondary batteries",
+    "language": "EN-FR",
+    "description": "IEC 60364-5-57:2022 provides requirements and recommendations for the design, erection, correct use and protection of installations with secondary stationary batteries as prime storage medium, hereinafter referred to as \"stationary secondary batteries\". This document is not applicable to products such as batteries and to systems design (including batteries) which are already covered by their own IEC standard."
+  },
+  {
+    "reference": "IEC 60364-6:2016",
+    "edition": "2.0",
+    "date": "2016-04-27",
+    "title": "Low voltage electrical installations - Part 6: Verification",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-6:2016 provides requirements for initial and periodic verification of an electrical installation. This second edition cancels and replaces the first edition published in 2006 and constitutes a technical revision. The contents of the corrigendum of September 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60364-6:2016/COR1:2017",
+    "edition": "2.0",
+    "date": "2017-09-20",
+    "title": "Corrigendum 1 - Low voltage electrical installations - Part 6: Verification",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-7-701:2019",
+    "edition": "3.0",
+    "date": "2019-10-14",
+    "title": "Low-voltage electrical installations - Part 7-701: Requirements for special installations or locations - Locations containing a bath or shower",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-701:2019 applies to electrical installations in indoor or outdoor locations where a bath tub and/or a shower is intended to be permanently placed in a specific location. The extent of the location containing a bath tub and/or a shower is limited by: – the lowest finished floor level; – a horizontal plane 3 m above the lowest finished floor level; – a vertical circumscribing virtual surface at a distance of 4 m from the fixed water outlet for the bath tub or shower; and – the volume within the walls, floor and ceiling that border the location containing a bath or shower, measured to a depth of 6 cm. The requirements of this document also apply to fixed electrical installations in mobile applications, for example caravans, mobile homes, shower containers. This document does not apply to emergency facilities, for example emergency showers used in industrial areas or laboratories. This third edition cancels and replaces the second edition published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: – the scope gives precisions relevant to the application of this document; – the description of zones is improved; – relevant terms are defined."
+  },
+  {
+    "reference": "IEC 60364-7-702:2010",
+    "edition": "3.0",
+    "date": "2010-05-12",
+    "title": "Low-voltage electrical installations - Part 7-702: Requirements for special installations or locations - Swimming pools and fountains",
+    "language": "EN-FR",
+    "description": "IEC 60364-7-702:2010 applies to electrical installations of: - basins of swimming pools and paddling pools and their surrounding zones; - areas in natural waters, lakes in gravel pits and coastal and similar areas, specially intended to be occupied by persons for swimming, paddling and similar purposes, and their surrounding zones. Such areas in natural waters, lakes in gravel pits and coastal and similar areas, are considered as swimming pools; - basins of fountains and their surrounding zones. For swimming pools for medical use, special requirements may apply. This third edition cancels and replaces the second edition published in 1997 and constitutes a technical revision. The main changes with respect to the previous edition are as follows: - the scope has been improved, including natural areas in natural waters; - the description of zones has been improved; - all figures have been updated. This publication contains colours which are considered to be useful for the correct understanding of its contents."
+  },
+  {
+    "reference": "IEC 60364-7-703:2004",
+    "edition": "2.0",
+    "date": "2004-10-26",
+    "title": "Electrical installations of buildings - Part 7-703: Requirements for special installations or locations - Rooms and cabins containing sauna heaters",
+    "language": "EN-FR, ES",
+    "description": "The particular requirements of this part of IEC 60364 apply to: - sauna cabins erected on site, e.g. in a location or in a room; - the room where the sauna heater is, or the sauna heating appliances are installed. In this case the whole room is considered as the sauna. They do not apply to prefabricated sauna cabins complying with a relevant equipment standard. Where facilities like cold water basins or showers, etc. are installed, the requirements of Part 7-701 also apply. The main technical changes with respect to the previous edition concern the updating of requirements to take into account the evolution in sauna equipment, with particular emphasis on prefabricated cabins. In addition, in response to a need from installers, there has been some elaboration on temperature repartition in saunas as well as protection against electric shock. Finally, the four zones described in the first edition have now been reduced to three zones."
+  },
+  {
+    "reference": "IEC 60364-7-704:2017",
+    "edition": "3.0",
+    "date": "2017-03-28",
+    "title": "Low-voltage electrical installations - Part 7-704: Requirements for special installations or locations - Construction and demolition site installations",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60364-7-7-704:2017 lays down requirements which apply to installations for construction and demolition sites for use during the period of the construction or demolition work which are intended to be taken out of service upon completion of the works. Examples include the following: - construction work of new buildings; - repair, alteration, extension or demolition of existing buildings or parts of existing buildings; - engineering works; - earthworks; - work of similar nature. The requirements apply to fixed or moveable installations. This new edition includes the following significant technical changes with respect to the previous edition: - clarification of the scope; - clarification of compliance with standards; - clarification of devices for isolation."
+  },
+  {
+    "reference": "IEC 60364-7-705:2006",
+    "edition": "2.0",
+    "date": "2006-07-10",
+    "title": "Low-voltage electrical installations - Part 7-705: Requirements for special installations or locations - Agricultural and horticultural premises",
+    "language": "EN-FR, EN, FR",
+    "description": "The requirements of this part of IEC 60364 apply to fixed electrical installations inside and outdoors of agricultural and horticultural premises. Some of the requirements are also applicable to other locations that are in common buildings belonging to the agricultural and horticultural premises. Rooms, locations and areas for household applications and similar are not covered by this standard. If some of the special requirements of Part 705 are also applicable for residences and other locations in such common buildings this is stated in the normative text."
+  },
+  {
+    "reference": "IEC 60364-7-706:2024",
+    "edition": "3.0",
+    "date": "2024-03-26",
+    "title": "Low-voltage electrical installations - Part 7-706: Requirements for special installations or locations - Conducting locations with restricted movement",
+    "language": "EN-FR",
+    "description": "IEC 60364-7-706:2024 applies to: • fixed equipment within conducting locations with restricted movement; and • supplies to equipment used within conducting locations with restricted movement. This third edition cancels and replaces the second edition published in 2005 and Amendment 1:2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The structure of clauses 706.41X has been updated following the structure of IEC 60364-4-41:2005 and IEC 60364-4-41:2005/AMD1:2017."
+  },
+  {
+    "reference": "IEC 60364-7-708:2017",
+    "edition": "3.0",
+    "date": "2017-04-10",
+    "title": "Low-voltage electrical installations - Part 7-708: Requirements for special installations or locations - Caravan parks, camping parks and similar locations",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60364-7-708:2017 lays down requirements applying only to circuits intended to supply leisure accommodation vehicles, tents or residential park homes in caravan parks, camping parks and similar locations. This new edition includes the following significant technical changes with respect to the previous edition: - new requirements to protect against impact; - new requirements for socket outlets and connectors."
+  },
+  {
+    "reference": "IEC 60364-7-709:2007",
+    "edition": "2.0",
+    "date": "2007-05-10",
+    "title": "Low-voltage electrical installations - Part 7-709: Requirements for special installations or locations - Marinas and similar locations",
+    "language": "EN-FR",
+    "description": "The particular requirements specified in this part of IEC 60364 apply only to circuits intended to supply pleasure craft or houseboats in marinas and similar locations. The particular requirements do not apply to the supply of house boats if they are directly supplied from the public network. The particular requirements do not apply to the internal electrical installations of pleasure craft or house boats. For the remainder of the electrical installation of marinas and similar locations the general requirements of IEC 60364 together with the relevant particular requirements of IEC 60364-7 apply. This second edition of IEC 60364-7-709 cancels and replaces the first edition, published in 1994. It constitutes a technical revision. The major changes with regard to the previous edition concern: - the removal of the requirements for the electrical installation in pleasure craft as these are now covered by IEC 60092-507; - the requirements of this part have been aligned with those in other parts of IEC 60364."
+  },
+  {
+    "reference": "IEC 60364-7-709:2007/AMD1:2012",
+    "edition": "2.0",
+    "date": "2012-02-15",
+    "title": "Amendment 1 - Low-voltage electrical installations - Part 7-709: Requirements for special installations or locations - Marinas and similar locations",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60364-7-710:2021",
+    "edition": "2.0",
+    "date": "2021-05-05",
+    "title": "Low-voltage electrical installations - Part 7-710: Requirements for special installations or locations - Medical locations",
+    "language": "EN-FR",
+    "description": "IEC 60364-7-710:2021 applies to electrical installations in medical locations so as to provide safety of patients and medical staff. These requirements refer to: – hospitals and clinics or equivalent institutions (including equivalent transportable and mobile locations); which, subject to assessment (710.30), can also include: – sanatoriums and health clinics; – dedicated locations in homes for senior citizens and aged care homes, where patients receive medical care; – medical centres, outpatients' clinics and departments, casualty wards; – other outpatients' institutions (industrial, sports and others); – medical and dental practices; – dedicated medical rooms in the workplace; – other locations where medical electrical equipment is used; – veterinary clinics; – rooms in existing installations where a change of utilization for medical applications occur. This list is not exhaustive. The requirements of this document do not apply to ME equipment or ME systems. This edition includes the following significant technical changes with respect to the previous edition: a) the scope provides improved information to the application of this document; b) some terms and definitions have been revised; c) the validity of the respective parts of the IEC 60364 series has been verified and clauses updated; d) Clause 710.30 has been extended; e) Clause 710.41 has been updated; f) Clause 710.413 has been renumbered as Clause 710.411; g) in 710.411 insulation fault location systems have been added; h) Clause 710.421 has been extended to include arc fault detection devices; i) Clause 710.44 has been added; j) Clause 710.51 has been updated and now covers distribution boards and electrical operating areas; k) Clause 710.514, has been extended and includes separate subclauses on diagrams, documentation and operating instructions; l) Subclauses 710.531 to 710.537 have been added; m) Clause 710.55 has been updated; n) Clause 710.56 has been added; o) Clause 710.6, Verification, has been revised; p) Annex A was deleted, and the contents integrated into 710.560.4; q) former Annex B is now Annex A and has been updated; r) an informative Annex B on guidance concerning electromagnetic interferences (EMI) in installations of buildings has been added"
+  },
+  {
+    "reference": "IEC 60364-7-711:2026",
+    "edition": "3.0",
+    "date": "2026-01-26",
+    "title": "Low-voltage electrical installations - Part 7-711: Requirements for special installations or locations - Temporary electrical installations for exhibitions and entertainment related purposes",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60364-7-711:2026 applies to: • electrical installations of temporary structures erected for exhibitions, shows, stands and fairgrounds for entertainment related purposes, and • temporary electrical installations supplying such temporary structures and amusement devices for entertainment related purposes. This third edition cancels and replaces the second edition published in 2018 and the first edition of IEC 60364-7-740 published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) merging of IEC 60364-7-711 and IEC 60364-7-740; b) removal of requirements for installations in locations intended for livestock as they are covered by IEC 60364-7-705"
+  },
+  {
+    "reference": "IEC 60364-7-712:2025",
+    "edition": "3.0",
+    "date": "2025-10-21",
+    "title": "Low-voltage electrical installations - Part 7-712: Requirements for special installations or locations - Solar photovoltaic (PV) power supply installations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60364-7-712:2025 applies to electrical installations of PV systems. The equipment of a PV system, like any other item of equipment, is dealt with only so far as its selection and application in the installation is concerned. A PV installation comprises all equipment from PV modules(s) up to the connection point to other parts of the installation, for example a distribution board or the utility supply point (point of connection). This part of IEC 60364 includes requirements on electrical installation resulting from the installation of PV power supply installations. Requirements relating to the possible installation of energy storage systems (e.g. batteries) are included. Requirements are also included for PV installations for island mode operation described in IEC 60364-8-82. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The technical content has been extensively revised and expanded, taking into account experience gained in the construction and operation of PV installations, and developments made in technology, since the second edition was published. b) Key changes include requirements for PV power generation plants, direct connection to battery circuits, introduction of DC bus circuit and DCUs."
+  },
+  {
+    "reference": "IEC 60364-7-713:2013",
+    "edition": "2.0",
+    "date": "2013-02-06",
+    "title": "Low-voltage electrical installations - Part 7-713: Requirements for special installations or locations - Furniture",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-713:2013 applies to the wiring system of furniture (and similar fitments) which is connected to the electrical installation. Examples are beds, cupboards, desks and shop display cases, in which electrical equipment such as luminaires, installation couplers according to IEC 61535, socket-outlets, switching devices and wiring systems are installed. This second edition cancels and replaces the first edition, published in 1996, and constitutes a technical revision. This edition includes changes to the scope: the requirements of Part 7-713 now apply to electrical equipment of furniture connected to a supply with a nominal voltage UO not exceeding 230 V and a total load current not exceeding 32 A, including three-phase 32 A supplies. This new edition makes reference to Part 4-41 additional protection and requires that the fixed circuit is protected by an RCD with a rated residual operating current not exceeding 30 mA."
+  },
+  {
+    "reference": "IEC 60364-7-714:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Low-voltage electrical installations - Part 7-714: Requirements for special installations or locations - External lighting installations",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-714:2011 applies to the selection and erection of luminaires and lighting installations forming part of an outdoor fixed installation. The origin of the external lighting installation is the supply delivery point of electrical energy by the supply authority or the origin of the circuit supplying the external lighting installation exclusively. The requirements apply to, for example, lighting installations for roads, parks, gardens, places open to the public, sporting areas, illumination of monuments, floodlighting, telephone kiosks, bus shelters, advertising panels, town plans and road signs. The requirements do not apply to: - public street-lighting installations which are part of the public power grid; - temporary festoon lighting; - road traffic signal systems; - and luminaires which are fixed to the outside of a building and are supplied directly from the internal wiring of that building. This second edition cancels and replaces the first edition, published in 1996, and constitutes a technical revision. The major technical changes with respect to the previous edition are listed below: - clause numbering is aligned with present structure of IEC 60364; - additional protection is required in some cases of equipment incorporating lighting; - more stringent requirements regarding IP degree of protection; - introduction of particular requirements for isolation."
+  },
+  {
+    "reference": "IEC 60364-7-715:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Low-voltage electrical installations - Part 7-715: Requirements for special installations or locations - Extra-low-voltage lighting installations",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-5-55:2011 The particular requirements apply to extra-low-voltage lighting installations supplied from sources with a maximum rated voltage of 50 V a.c. or 120 V d.c. For the definition of an extra-low voltage lighting system reference should be made to IEC 60598-2-23. This second edition cancels and replaces the first edition, published in 1999, and constitutes a technical revision. The major technical changes with respect to the previous edition are: - the clause numbering is aligned with the present structure of IEC 60364; - references to LED modules and their particular installation requirements have been introduced; - and requirements for cross-sectional area of conductors are modified."
+  },
+  {
+    "reference": "IEC 60364-7-716:2023",
+    "edition": "1.0",
+    "date": "2023-08-16",
+    "title": "Low-voltage electrical installations - Part 7-716: Requirements for special installations or locations – ELV DC power distribution over information and communications technology (ICT) cable infrastructure",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-716:2023 specifies requirements in electrical installations for the distribution of ELV DC power using balanced, information technology cables and accessories primarily designed for data transmission, as specified in terms of a category within the channels of ISO/IEC 11801-1 using power sourcing equipment in accordance with IEC 62368-3. Requirements are included for the design, erection, and verification of telecommunications infrastructure for the purpose of both telecommunications and distribution of ELV DC power. In addition, requirements are included for use of existing telecommunications infrastructure for distribution of ELV DC power. The power delivery systems include, but are not restricted to, the Power over Ethernet systems specified by IEEE 802.3. This document does not apply to the use of cables and accessories within the core and access networks for example private branch exchange (PBX)."
+  },
+  {
+    "reference": "IEC 60364-7-717:2026",
+    "edition": "3.0",
+    "date": "2026-01-29",
+    "title": "Low-voltage electrical installations - Part 7-717: Requirements for special installations or locations - Mobile or transportable units",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60364-7-717:2026 applies to electrical installations of mobile units or transportable units. The requirements of this document are not applicable to: – generating sets; – pleasure craft; – caravans and motor caravans; – electrical circuits and equipment for automotive purposes. This third edition cancels and replaces the second edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The scope has been improved, providing more detail. b) The content of Clause 717.41 has been updated following the publication of IEC 60364-4-41:2005/AMD1:2017. c) Clauses concerning protection by automatic disconnection of the supply and additional protection have been added. d) Figures have been simplified, updated or deleted. e) Designation of SPD has been updated to use Tx SPD instead of Class x tested SPD."
+  },
+  {
+    "reference": "IEC 60364-7-718:2011",
+    "edition": "1.0",
+    "date": "2011-03-23",
+    "title": "Low-voltage electrical installations - Part 7-718: Requirements for special installations or locations - Communal facilities and workplaces",
+    "language": "EN-FR",
+    "description": "IEC 60364-7-718:2011 provides additional requirements for electrical installations applicable to communal facilities and workplaces. Typical examples of communal facilities and workplaces are: - assembly halls, - assembly rooms, - exhibition halls, - theatres, - cinemas, - sport arenas, - sales areas, - restaurants, - hotels, - guest houses, - residential care homes, - schools, - enclosed car parks, - meeting places, - swimming halls, - airports, - railway stations, - high-rise buildings, - workshops, - factories and - industrial plants. Access routes and escape routes are part of the above-mentioned examples. The necessity of providing safety services in special buildings and areas may be governed by national regulations which may contain more stringent requirements."
+  },
+  {
+    "reference": "IEC 60364-7-721:2017",
+    "edition": "2.0",
+    "date": "2017-06-15",
+    "title": "Low-voltage electrical installations - Part 7-721: Requirements for special installations or locations - Electrical installations in caravans and motor caravans",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 60364-7-721:2017 lays down particular requirements applying to electrical circuits and equipment intended for the use of the caravan for habitation purposes. This new edition includes the following significant technical changes with respect to the previous edition: - a minimum height of not less than 500 mm above the base of the cylinders is now required for cables passing through the gas cylinder compartment; - it is now required that each independent installation shall be provided with its own main isolating switch which shall disconnect all live conductors and which shall be suitably placed in a readily accessible location in the caravan."
+  },
+  {
+    "reference": "IEC 60364-7-722:2018",
+    "edition": "2.0",
+    "date": "2018-09-21",
+    "title": "Low-voltage electrical installations - Part 7-722: Requirements for special installations or locations - Supplies for electric vehicles",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-722:2018 applies to: • circuits intended to supply energy to electric vehicles, and • circuits intended for feeding back electricity from electric vehicles. Circuits covered by this document are terminated at the connecting point. This edition includes the following significant technical changes with respect to the previous edition: a) introduction of requirements for electrical installations incorporating wireless power transfer systems; b) clarification of the requirements regarding the protective measure placing out of reach in order to allow the use of pantographs in areas accessible to the public; c) introduction of requirements covering the case where the EV may operate as a source in parallel with other sources. NOTE 1 The requirements for EV supply equipment for conductive charging and the relevant charging modes are described in IEC 61851 (all parts). The requirements for EV supply equipment for wireless power transfer are described in IEC 61980 (all parts). NOTE 2 IEC 60364-7-722 does not cover the assessment of the risk of explosion due to the possible production of hydrogen/other flammable gases during the battery recharging phase."
+  },
+  {
+    "reference": "IEC TS 60364-7-725:2026",
+    "edition": "1.0",
+    "date": "2026-01-30",
+    "title": "Low-voltage electrical installations - Part 7-725: Requirements for special installations or locations - Resilient power supply system",
+    "language": "EN",
+    "description": "IEC TS 60364-7-725:2026 provides additional requirements for the design, erection and verification of electrical installations applicable for resilient power supply systems that must be operational in a time of disaster. It specifies additional requirements for – generating sets, – a circuit concerning external generating sets, and – circuits of an installation to be supplied so as to prevent or limit the effects of a natural disaster such as – earthquake, – flood damage, or – wind hazard (e.g. tropical cyclone such as hurricane, typhoon)."
+  },
+  {
+    "reference": "IEC 60364-7-729:2007",
+    "edition": "1.0",
+    "date": "2007-07-16",
+    "title": "Low-voltage electrical installations - Part 7-729: Requirements for special installations or locations - Operating or maintenance gangways",
+    "language": "EN-FR",
+    "description": "The requirements of this part of IEC 60364 apply to basic protection and other aspects in restricted access areas with switchgear and controlgear assemblies, including requirements for operating or maintenance gangways."
+  },
+  {
+    "reference": "IEC 60364-7-753:2014",
+    "edition": "2.0",
+    "date": "2014-05-07",
+    "title": "Low-voltage electrical installations - Part 7-753: Requirements for special installations or locations - Heating cables and embedded heating systems",
+    "language": "EN-FR, ES",
+    "description": "IEC 60364-7-753:2014 applies to embedded electric heating systems for surface heating. It also applies to electric heating systems for de-icing or frost prevention or similar applications. Both indoor and outdoor systems are covered. Heating systems for industrial and commercial applications complying with relevant parts of IEC 60519, IEC 62395 and IEC 60079 are not covered. This second edition cancels and replaces the first edition published in 2005 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the title has been changed from \"Floor and ceiling heating systems\" to \"Heating cables and embedded heating systems\" to align with the revised scope; - the scope has been extended and now covers embedded electric heating systems for surface heating, also electric heating systems for de-icing or frost prevention or similar applications, and covers both indoor and outdoor systems. This includes heating systems for: walls, ceiling, floors, roofs, drainpipes, gutters, pipes, stairs, roadways, non-hardened compacted areas (e.g. football fields, lawns); - for wall heating systems, this standard contains additional requirements (e.g. metal sheath/enclosure/grid) to protect against the effects of overheating caused by a short-circuit between live conductors due to penetration of an embedded heating unit; - from heating units delivered from the manufacturer without exposed-conductive-parts, this standard requires a metallic mesh grid covering. This has been reduced to 3 mm for wall heating systems; - this standard now requires that electric heating systems shall be selected and erected so as to avoid any harmful influence between the heating system and any electrical or non-electrical installations envisaged; - and this standard covers surface temperatures and now refers the reader to the appropriate IEC guide."
+  },
+  {
+    "reference": "IEC TS 60364-8-3:2020",
+    "edition": "1.0",
+    "date": "2020-05-27",
+    "title": "Low-voltage electrical installations - Part 8-3 : Functional aspects - Operation of prosumer’s electrical installations",
+    "language": "EN",
+    "description": "IEC TS 60364-8-3:2020 (E) specifies requirements and recommendations for the safe and proper functioning of prosumers' electrical installations. It is intended for use by contractors, users, facility managers and similar of electrical low-voltage installations. This document also provides requirements and recommendations on technical parameters and their limiting values influencing: a) safety: – protection; – alarm; b) proper functioning: – stability (voltage, frequency, etc); – reliability (power quality, interoperability of communication, etc); – energy management (power, power factor, current, stored energy, etc); – ability to ensure correct operation of equipment. This document also provides requirements and recommendations on data exchange models, and test procedures for the prosumer’s electrical installations that could include the following applications: – local generating sources (e.g. photovoltaic systems, rotating generators, wind turbines); – energy storage units (e.g. stationary secondary batteries); – electric vehicle charging and/or discharging; – prosumer’s energy measurement unit (PEMU); – control and monitoring system; – loads which can be controlled. This part of IEC 60364 is intended to be applied in conjunction with the other parts of IEC 60364."
+  },
+  {
+    "reference": "IEC 60364-8-81:2026",
+    "edition": "1.0",
+    "date": "2026-02-12",
+    "title": "Low-voltage electrical installations - Part 8-81: Functional aspects - Energy efficiency",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60364-8-81:2026 provides additional requirements, measures and recommendations for the design, erection, operation and verification of all types of low-voltage electrical installation including local production and storage of energy for optimizing the overall efficient use of electricity. It introduces requirements, recommendations and methods for the design and the energy efficiency (EE) assessment of an electrical installation within the framework of an energy efficiency management approach in order to get the best permanent functionally equivalent service for the lowest electrical energy consumption and the optimal availability and acceptable cost-effectiveness. These requirements, recommendations and methods apply, within the scope of the IEC 60364 series, for new installations and modification of existing installations. This document is applicable to the electrical installation of a building or system and does not apply to products. The energy efficiency of products and their operational requirements are covered by the relevant product standards. It is possible that another standard provides specific requirements for a particular system or installation application (e.g. manufacturing system covered by ISO 20140 series). This document does not specifically provide requirements for building automation systems. The contribution of building automation systems to improve energy efficiency of the installation is considered. This group energy efficiency publication is primarily intended to be used as an energy efficiency standard for the low-voltage electrical installations mentioned in the scope, but is also intended to be used by technical committees in the preparation of publications, in accordance with the principles laid down in IEC Guide 118 This first edition cancels and replaces the second edition of IEC 60364-8-1 published in 2019. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) modified numbering that allows IEC 60364-7 subparts to amend this document; b) alignment of the definitions with IEC 60050-826; c) introduction of minimum energy moment method in Annex A; d) improvements in Annex B"
+  },
+  {
+    "reference": "IEC 60364-8-82:2022",
+    "edition": "1.0",
+    "date": "2022-10-20",
+    "title": "Low-voltage electrical installations - Part 8-82: Functional aspects - Prosumer's low-voltage electrical installations",
+    "language": "EN-FR",
+    "description": "IEC 60364-8-82:2022 provides requirements and recommendations that apply to low-voltage electrical installations connected or not to a distribution network able to operate: - with local power supplies, and/or - with local storage units, and that monitors and controls the energy from the locally connected sources delivering it to: - current-using equipment, and/or - local storage units, and/or - distribution networks. Such electrical installations are designated as prosumer's electrical installations (PEIs). These requirements and recommendations apply to new installations and modifications of existing installations. This document also provides requirements and recommendations for the safe, efficient and correct behaviour of these installations when integrated into a smart grid. Information related to grid interaction to ensure the stability of the electrical system for grid connected PEIs is given in Annex B. This document covers the requirements related to stability of islanded and stand-alone PEIs. This first edition cancels and replaces IEC 60364-8-2 published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 60364­-8-­2:2018: a) the vocabulary and concepts have been aligned as much as possible with those used by TC 8 and SC 8B, taking notably into account the IEC 62898 and IEC 62786 series, still respecting the installers mindset (installers being the first users of the IEC 60364 series and being used to only refer to the IEC 60364 series); b) the type of system earthing and the change of type of system earthing (sequencing) when there is a change of mode of the prosuming installation, have been clarified; c) the conditions of connection and disconnection from the DSO network have also been described, both from the safety point of view and the proper functioning point of view; d) additional requirements have been introduced; e) the figures have been updated; f) a new normative Annex D on single dwelling or similar application islandable PEIs has been added; g) the numbering has also been reviewed to follow the updated numbering system of the IEC 60364 series, in line with the IEC Directives and compatible with Parts 7."
+  },
+  {
+    "reference": "IEC 60364-8-82:2022/AMD1:2026",
+    "edition": "1.0",
+    "date": "2026-04-16",
+    "title": "Amendment 1 - Low-voltage electrical installations - Part 8-82: Functional aspects - Prosumer's low-voltage electrical installations",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60479-1:2018",
+    "edition": "1.0",
+    "date": "2018-12-13",
+    "title": "Effects of current on human beings and livestock - Part 1: General aspects",
+    "language": "EN, ES",
+    "description": "IEC 60479-1:2018(E) provides basic guidance on the effects of shock current on human beings and livestock. This basic safety publication is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and lSO/lEC Guide 51. It is not intended for use by manufacturers or certification bodies."
+  },
+  {
+    "reference": "IEC 60479-2:2019",
+    "edition": "1.0",
+    "date": "2019-05-14",
+    "title": "Effects of current on human beings and livestock - Part 2: Special aspects",
+    "language": "EN, ES",
+    "description": "IEC 60479-2:2019 describes the effects on the human body when a sinusoidal alternating current in the frequency range above 100 Hz passes through it. The effects of current passing through the human body for: – alternating sinusoidal current with DC components, – alternating sinusoidal current with phase control, and – alternating sinusoidal current with multicycle control are given but are only deemed applicable for alternating current frequencies from 15 Hz up to 100 Hz. Means of extending the frequency of applicability of pure sinusoids to a frequency of 150 kHz are given and means of examining random complex irregular waveforms are given. This document describes the effects of current passing through the human body in the form of single and multiple successive unidirectional rectangular impulses, sinusoidal impulses and impulses resulting from capacitor discharges. The values specified are deemed to be applicable for impulse durations from 0,1 ms up to and including 10 ms. This document only considers conducted current resulting from the direct application of a source of current to the body, as does IEC 60479-1. It does not consider current induced within the body caused by its exposure to an external electromagnetic field. This basic safety publication is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies. One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. The requirements, test methods or test conditions of this basic safety publication will not apply unless specifically referred to or included in the relevant publications. This first edition cancels and replaces IEC TS 60479-2:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 60479 2:2017: a) change in status from Technical Specification to International Standard."
+  },
+  {
+    "reference": "IEC TR 60479-4:2020",
+    "edition": "3.0",
+    "date": "2020-02-26",
+    "title": "Effects of current on human beings and livestock - Part 4: Effects of lightning strokes",
+    "language": "EN",
+    "description": "IEC TR 60479-4:2020 (E) summarizes the basic parameters for lightning and its variability insofar as they apply to human beings and livestock. The possible direct and indirect interactions of strikes with bodies of living beings are indicated. The resulting effects caused by lightning currents for the organism are described. This document shows the differences of effects on human beings and livestock due to lightning strokes versus those effects of electric shocks derived from electrical systems. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) lightning occurence and climatory effects around the world are depicted; b) direct strike description is extended; c) step voltage effects are expanded; d) upward streamer explanation is enhanced; e) other direct or indirect related effects to lightning injuries to the human body are specified; f) various safety procedures and related possibilities with respect to the personsal danger of lightning are presented."
+  },
+  {
+    "reference": "IEC TR 60479-5:2007",
+    "edition": "1.0",
+    "date": "2007-11-07",
+    "title": "Effects of current on human beings and livestock - Part 5: Touch voltage threshold values for physiological effects",
+    "language": "EN-FR",
+    "description": "This Technical Report provides touch voltage-duration combination thresholds based on analysis of information concerning body impedances and current thresholds of physiological effects, as given in IEC/TS 60479-1. Such threshold combinations relate to specific environmental and contact conditions that determine body impedance for particular current pathways. This technical report considers only (i) 50/60 Hz sinusoidal alternating voltage having no other frequency components and no significant direct voltage component, and (ii) direct voltage with no significant alternating component. This technical report provides thresholds as a result of calculations based on values from IEC/TS 60479-1, with uncertainties. Therefore thresholds proposed in this report also correspond to values with uncertainties. Touch voltage-duration combination thresholds are for use by technical committees as guidance for the determination of limits for touch voltage and touch voltage durations in various environmental situations. The contents of the corrigendum of July 2013 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 60479-5:2007/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-07-11",
+    "title": "Corrigendum 1 - Effects of current on human beings and livestock - Part 5: Touch voltage threshold values for physiological effects",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61140:2016",
+    "edition": "4.0",
+    "date": "2016-01-07",
+    "title": "Protection against electric shock - Common aspects for installation and equipment",
+    "language": "EN-FR, ES",
+    "description": "IEC 61140:2016 applies to the protection of persons and livestock against electric shock. The intent is to give fundamental principles and requirements which are common to electrical installations, systems and equipment or necessary for their coordination, without limitations with regard to the magnitude of the voltage or current, or the type of current, and for frequencies up to 1 000 Hz. It has the status of a basic safety publication in accordance with IEC Guide 104. This fourth edition cancels and replaces the third edition published in 2001 and Amendment 1:2004. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TR 61200-52:2013",
+    "edition": "2.0",
+    "date": "2013-07-10",
+    "title": "Electrical installation guide - Part 52: Selection and erection of electrical equipment - Wiring systems",
+    "language": "EN-FR",
+    "description": "IEC/TR 61200-52:2013 is Technical Report which serves as a supplement to IEC 60364-5-52:2009 and explains the rules so as to facilitate the design, selection, erection and maintenance of wiring systems. It follows the numbering of that standard. This technical report is written for everyone concerned with the design, the selection and supply of equipment, as well as the persons who install, maintain and use electrical installations. This second edition cancels and replaces the first edition, published in 1993, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - guidance associated with conduit systems, cable ducting systems, cable trunking systems, cable tray systems and cable ladder systems has been added giving, for example, recommended maximum straight lengths of conduit to ease the installation circuit wiring; - guidance associated with selection and erection of wiring systems in relation to external influences has been extended to cover impact, and other mechanical stresses; - guidance for grouping of cables has been added; and - guidance on maximum temperatures of terminals in normal service conditions has been extended."
+  },
+  {
+    "reference": "IEC TS 61200-101:2018",
+    "edition": "1.0",
+    "date": "2018-11-23",
+    "title": "Electrical installation guide - Part 101: Application guidelines on extra-low-voltage direct current electrical installations not intended to be connected to a public distribution network",
+    "language": "EN",
+    "description": "IEC TS 61200-101:2018(E) applies to individual DC low-voltage electrical installations entirely supplied by local power sources, and not intended to be connected to a public distribution network and having a nominal voltage lower or equal to 60 V DC within the extra-low-voltage limit. This document also applies to DC installations according to use cases TIER 2 and TIER 3 of the World Bank defined in ESMAP 008/15 Report. This document does not apply to shared or collective electrical installations which are covered in IEC 61200-102."
+  },
+  {
+    "reference": "IEC TS 61200-102:2020",
+    "edition": "1.0",
+    "date": "2020-03-27",
+    "title": "Electrical installation guide - Part 102: Application guidelines for low-voltage direct current electrical installations not intended to be connected to a public distribution network",
+    "language": "EN",
+    "description": "IEC TS 61200-102:2020(E) applies to low-voltage DC electrical installations entirely supplied by local power sources and having a nominal voltage lower or equal to the low-voltage limit. These installations can be connected to collective or shared private electrical installations. This document also applies to DC installations according to use cases TIER 2 and TIER 3 of the World Bank defined in ESMAP 008/15 report: Beyond Connections Energy Access Redefined"
+  },
+  {
+    "reference": "IEC TS 61200-201:2026",
+    "edition": "1.0",
+    "date": "2026-08-07",
+    "title": "Application guidance based on the IEC 60364 series - Part 201: Asynchronous motor starting and protection",
+    "language": "EN",
+    "description": "IEC TS 61200-201:2026 provides guidance, based on the general requirements provided in the IEC 60364 series, on the implementation of protective measures for low-voltage asynchronous motors. This document covers the control and the protection of low-voltage asynchronous motors."
+  },
+  {
+    "reference": "IEC TS 61201:2007",
+    "edition": "2.0",
+    "date": "2007-08-30",
+    "title": "Use of conventional touch voltage limits - Application guide",
+    "language": "EN-FR",
+    "description": "Provides guidance on the use of conventional touch voltage limits with reference to thresholds given in IEC 60479-5. Consideration is given to different physiological effects, environmental conditions, contact conditions, etc. This specification only discusses voltages for sinusoidal a.c. at 50/60 Hz and pure d.c. having no significant a.c. component. This specification does not consider immersion of body parts or medical applications. Touch voltage limits are for use by technical committees as guidance for the determination of their own specific limits. This basic safety publication is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. The requirements, test methods or test conditions of this basic safety publication will not apply unless specifically referred to or included in the relevant publications. This second edition cancels and replaces the first edition which was issued as a technical report in 1992. It constitutes a technical revision and now has the status of a technical specification. The main changes with respect to the previous edition are listed below: - proposal of maximum contact areas for various conventional touch voltage limit; - introduction of different current pathways through the human body for the selection of conventional touch voltage limit; - introduction of conventional touch voltage limit corresponding to the startle reaction current threshold, the inability of let-go current threshold and the ventricular fibrillation current threshold; - possibility of interpolation on contact area for other conventional touch voltage limits. It has the status of a basic safety publication in accordance with IEC Guide 104 and ISO/IEC Guide 51."
+  },
+  {
+    "reference": "IEC TR 62066:2002",
+    "edition": "1.0",
+    "date": "2002-06-24",
+    "title": "Surge overvoltages and surge protection in low-voltage a.c. power systems - General basic information",
+    "language": "EN",
+    "description": "Presents a general overview on the different kinds of surge overvoltages that can occur on low-voltage installations. Typical surge magnitude and duration as well as frequency of occurrence are described. Information on overvoltages resulting from interactions between power system and communications system is also provided. Additionally, general guidelines are given concerning surge protection means and systems on the basis of availability and risk considerations, including interactions and the need for coordination and consideration of temporary overvoltages in the selection of surge-protective devices."
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "reference": "IEC 61643-311:2013",
+    "edition": "2.0",
+    "date": "2013-04-11",
+    "title": "Components for low-voltage surge protective devices - Part 311: Performance requirements and test circuits for gas discharge tubes (GDT)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61643-311:2013 is applicable to gas discharge tubes (GDT) used for overvoltage protection in telecommunications, signalling and low-voltage power distribution networks with nominal system voltages up to 1 000 V (r.m.s.) a.c. and 1 500 V d.c..They are defined as a gap, or several gaps with two or three metal electrodes hermetically sealed so that gas mixture and pressure are under control. They are designed to protect apparatus or personnel, or both, from high transient voltages. This standard contains a series of test criteria, test methods and test circuits for determining the electrical characteristics of GDTs having two or three electrodes. This standard does not specify requirements applicable to complete surge protective devices, nor does it specify total requirements for GDTs employed within electronic devices, where precise coordination between GDT performance and surge protective device withstand capability is highly critical. This second edition of IEC 61643-311 cancels and replaces the first edition published in 2001. It constitutes a technical revision. Specific changes with respect to the previous edition are: Addition of performance values. Key words: gas discharge tubes (GDT), overvoltage protection in telecommunications, signalling and low-voltage power distribution networks, nominal system voltages up to 1 000 V (r.m.s.) a.c. and 1 500 V d.c."
+  },
+  {
+    "reference": "IEC 61643-312:2013",
+    "edition": "1.0",
+    "date": "2013-04-22",
+    "title": "Components for low-voltage surge protective devices - Part 312: Selection and application principles for gas discharge tubes",
+    "language": "EN-FR, ES",
+    "description": "IEC 61643-312:2013 is applicable to gas discharge tubes (GDT) used for overvoltage protection in telecommunications, signalling and low-voltage power distribution networks with nominal system voltages up to 1 000 V (r.m.s.) a.c. and 1 500 V d.c. They are defined as a gap, or several gaps with two or three metal electrodes hermetically sealed so that gas mixture and pressure are under control. They are designed to protect apparatus or personnel, or both, from high transient voltages. This standard provides information about the characteristics and circuit applications of GDTs having two or three electrodes. This standard does not specify requirements applicable to complete surge protective devices, nor does it specify total requirements for GDTs employed within electronic devices, where precise coordination between GDT performance and surge protective device withstand capability is highly critical. Keywords: gas discharge tubes (GDT), overvoltage protection in telecommunications, signalling and low-voltage power distribution networks, nominal system voltages up to 1 000 V (r.m.s.) a.c. and 1 500 V d.c. The contents of the corrigendum of July 2013 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61643-312:2013/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-07-16",
+    "title": "Corrigendum 1 - Components for low-voltage surge protective devices - Part 312: Selection and application principles for gas discharge tubes",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61643-321:2001",
+    "edition": "1.0",
+    "date": "2001-12-04",
+    "title": "Components for low-voltage surge protective devices - Part 321: Specifications for avalanche breakdown diode (ABD)",
+    "language": "EN-FR, ES",
+    "description": "Is applicable to avalanche breakdown diodes (ABDs) which represent one type of surge protective device component (hereinafter referred to as SPDC) used in the design and construction of surge protective devices connected to low-voltage power distribution systems, transmission, and signalling networks. Test specifications in this standard are for single ABDs consisting of two terminals. However, multiple ABDs may be assembled within a single package defined as a diode array. Each diode within the array can be tested to this specification. This standard contains a series of test criteria for determining the electrical characteristics of the ABD. From the standard test methods described herein, the performance characteristics and ratings of the ABD can be verified or established for specific packaged designs."
+  },
+  {
+    "reference": "IEC 61643-331:2020",
+    "edition": "3.0",
+    "date": "2020-03-19",
+    "title": "Components for low-voltage surge protection - Part 331: Performance requirements and test methods for metal oxide varistors (MOV)",
+    "language": "EN-FR, EN",
+    "description": "IEC 61643-331:2020 is a test specification for metal oxide varistors (MOV), which are used for applications up to 1 000 V AC or 1 500 V DC in power lines, or telecommunication, or signalling circuits. They are designed to protect apparatus or personnel, or both, from high transient voltages. This document applies to MOVs having two electrodes and hybrid surge protection components. This document also does not apply to mountings and their effect on the MOV’s characteristics. Characteristics given apply solely to the MOV mounted only in the ways described for the tests. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - a Varistor MCOV rating assurance test; - an energy rating test (2ms); - revised Dielectric strength and insulation resistance tests."
+  },
+  {
+    "reference": "IEC 61643-332:2024",
+    "edition": "1.0",
+    "date": "2024-04-17",
+    "title": "Components for low-voltage surge protection - Part 332: Selection and application principles for metal oxide varistors (MOV)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61643-332:2024 describes the theory of operation, principles for the selection and application of MOVs to be connected to power lines or telecommunication or signalling circuits, up to 1 000 V AC or 1 500 V DC. These SPCs are designed to protect apparatus or personnel, or both, from high transient voltages. This document applies to MOVs having two electrodes and voltage dependents elements with or without disconnectors. It does not apply to assemblies that include MOVs and their influence on the MOV's characteristics. This standard specifically discusses the zinc-oxide type of MOVs."
+  },
+  {
+    "reference": "IEC TR 61643-333:2026",
+    "edition": "1.0",
+    "date": "2026-06-02",
+    "title": "Components for low-voltage surge protection - Part 333: characteristic equations and life evaluation for metal oxide varistors (MOV)",
+    "language": "EN",
+    "description": "IEC TR 61643-333:2026 presents the U-I/R-I characteristic equations and the life evaluation method for MOVs, which are used for applications up to 1 000 V AC or 1 500 V DC in power line, or telecommunication, or signalling circuits. They are designed to protect apparatus or personnel, or both, from high transient voltages. This document specifically addresses the zinc-oxide type of MOVs."
+  },
+  {
+    "reference": "IEC 61643-341:2020",
+    "edition": "2.0",
+    "date": "2020-05-13",
+    "title": "Components for low-voltage surge protection - Part 341: Performance requirements and test circuits for thyristor surge suppressors (TSS)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61643-341:2020 specifies standard test circuits and methods for thyristor surge suppressor (TSS) components. These surge protective components, SPCs, are specially formulated thyristors designed to limit overvoltages and divert surge currents by clamping and switching actions. These SPCs are used in the construction of surge protective devices (SPDs) and equipment used in Information & Communications Technologies (ICT) networks with voltages up to AC 1 000 V and DC 1 500 V. This document is applicable to gated or non-gated TSS components with third quadrant (-v and –i) characteristics of blocking, conducting or switching. This document contains information on - terminology; - letter symbols; - essential ratings and characteristics; - rating verification and characteristic measurement; This document does not apply to the conventional three-terminal thyristors as covered by IEC 60747-6. This second edition of IEC 61643-341 cancels and replaces the first edition published in 2001. This edition constitutes a technical revision.This edition includes the following significant technical changes with respect to the previous edition: Addition of performance values."
+  },
+  {
+    "reference": "IEC 61643-351:2016",
+    "edition": "1.0",
+    "date": "2016-10-28",
+    "title": "Components for low-voltage surge protective devices - Part 351: Performance requirements and test methods for telecommunications and signalling network surge isolation transformers (SIT)",
+    "language": "EN-FR",
+    "description": "IEC 61643-351:2016 defines test circuits and test methods for determining and verifying the SIT surge parameters. Preferred performance values for key parameters are given. Surge isolation transformers (SITs) are used for signal transformer applications with signal levels up to 400 V peak to peak. SITs are transformers, with or without an internal-winding screen, with a rated impulse withstand voltage greater than the peak voltage of the expected common-mode surge environment. SITs are applicable to components for surge protection against indirect and direct effects of lightning or other transient overvoltage. SITs are used to mitigate the onward propagation of common-mode voltage surges. This part of IEC 61643 does not cover SIT operation under differential-mode lightning surge conditions. Keywords: Surge isolation transformers (SITs)"
+  },
+  {
+    "reference": "IEC 61643-352:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Components for low-voltage surge protection - Part 352: Selection and application principles for telecommunications and signalling network surge isolation transformers (SITs)",
+    "language": "EN-FR",
+    "description": "IEC 61643-352:2018 covers the application of surge isolation transformers (SITs) that are used in telecommunication transformer applications with signal levels up to 400 V peak to peak. These transformers have a high rated impulse voltage with or without screen between the input and output windings. SITs are components for surge protection and are used to mitigate the onward propagation of common-mode voltage surges. This document describes SITs' selection, application principles and related information. This document does not cover power line communication transformers."
+  },
+  {
+    "reference": "IEC 61643-361:2026",
+    "edition": "1.0",
+    "date": "2026-04-28",
+    "title": "Low-voltage surge protective devices - Part 361: Surge isolation transformers (SITs) connected to low-voltage distribution system – Requirements and test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61643-361:2026 applies to surge isolation transformers (SITs) dedicated to surge mitigation and for connection to 50/60 Hz power circuits and equipment rated up to 1 000 V RMS. This document covers the surge and mitigation performance of SITs with an impulse withstand voltage performance of at least 30 kV, and provides standard methods for testing and rating. This document covers surge-related parameters but does not address typical transformer tests and parameters covered by the IEC 61558 series [13] [1] . This document also does not cover SIT operation under differential mode lightning surge conditions. [1] Numbers in square brackets refer to the Bibliography."
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "reference": "IEC 61820-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-02",
+    "title": "Electrical installations for aeronautical ground lighting at aerodromes - Part 1: Fundamental principles",
+    "language": "EN-FR, ES",
+    "description": "IEC 61820-1:2019 covers principles of design and installation requirements for AGL systems including control, monitoring and transformation of energy, the cables and any electrical component utilized to produce the light intended to be used as a visual aid for air and ground navigation. This document defines in general the fundamental principles to provide safe, reliable and efficient operation of AGL systems independent of the particular system design. Where certain aspects of design are specific to a particular type of system (e.g. series-circuit), these are supplemented in the applicable part."
+  },
+  {
+    "reference": "IEC 61820-1-2:2024",
+    "edition": "1.0",
+    "date": "2024-04-05",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Part 1-2: Fundamental principles - Particular requirements for series circuits",
+    "language": "EN-FR",
+    "description": "IEC 61820-1-2:2024 describes requirements for AGL systems including power supplies, transformation of energy, cables, and any electrical component utilized to produce the light intended to be used as a visual aid for air and ground navigation based on IEC 61820-1, complemented with series circuit specific topics."
+  },
+  {
+    "reference": "IEC 61820-3-2:2023",
+    "edition": "1.0",
+    "date": "2023-10-10",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Part 3-2: Requirements for power supplies - Particular requirements for series circuits",
+    "language": "EN-FR, ES",
+    "description": "IEC 61820-3-2:2023 specifies the requirements for power electronic converter systems (PECS) dedicated to powering aeronautical ground lighting (AGL) circuits with series circuit topology. An example of a traditional implementation is an AGL circuit with 6,6 A RMS nominal current, powered by a constant current regulator (CCR). In addition to revising the requirements for 6,6 A CCR setups, this document introduces requirements for general PECS for new AGL systems including systems specifically designed for LED based luminaires. This first edition cancels and replaces IEC 61822 published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC 61822:2009: a) introduction of power electronic converter systems (PECS) to be used in the aeronautical ground lighting systems other than the 6,6 A aeronautical ground lighting systems; b) introduction of classification for different device types; c) introduction of IEC 62477-1:2022 and IEC 62477-2:2018 as the basis for safety related requirements."
+  },
+  {
+    "reference": "IEC 61820-3-4:2023",
+    "edition": "1.0",
+    "date": "2023-05-11",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Part 3-4: Safety secondary circuits in series circuits - General safety requirements",
+    "language": "EN-FR",
+    "description": "IEC 61820-3-4:2023 specifies protective provisions for the operation of lamp systems powered by series circuits in aeronautical ground lighting. The protective provisions described here refer only to secondary supply systems for loads that are electrically separated from the series circuit. This document specifies the level of SELV, and alternatively PELV, under consideration of additional personnel protection during work on live secondary circuits by electrically skilled persons. This document also covers the special operational features of aeronautical ground lighting and addresses the level of training and the requirements for maintenance procedures detailed in IEC 61821 and other national or regional regulation. The requirements and tests are intended to set a specification framework for system designers, system installers, users, and maintenance personnel to ensure a safe and economic use of electrical systems in installations for the beaconing of aerodromes. This document complements existing IEC aeronautical ground lighting (AGL) standards and can be used as a design specification."
+  },
+  {
+    "reference": "IEC 61821:2011",
+    "edition": "2.0",
+    "date": "2011-09-29",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Maintenance of aeronautical ground lighting constant current series circuits",
+    "language": "EN-FR, ES",
+    "description": "IEC 61821:2011 applies to the maintenance of AGL constant current series circuits. This International Standard: - covers constant current series circuits for AGL installed at aerodromes and heliports; - concentrates on providing the safety requirements for the maintenance of an AGL constant current series circuit. It is recognized that AGL constant current series circuits of different design characteristics and parameters are in existence; - is mainly concerned with safety to persons by specifying the rules and fundamental principles for the maintenance of AGL constant current series circuits; - is not intended to apply to AGL primary series circuits supplied directly from a mains constant voltage source; - is not intended to be used for public street lighting, roadway lighting or any other installation requiring the use of constant current series circuits. This second edition cancels and replaces the first edition published in 2002. It is a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of references to normative references; b) addition of notes in Clauses 5, 6 and 7; c) modification of pre-work procedures in item e) of 7.2.2."
+  },
+  {
+    "reference": "IEC 61823:2002",
+    "edition": "1.0",
+    "date": "2002-12-13",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - AGL series transformers",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61823:2002 specifies the characteristics of aeronautical ground lighting series trans-formers (AGLST) used in aeronautical ground lighting for 6,6 A series circuits, at a service voltage of up to 5 kV, supplied by constant current regulators up to 30 kVA in rating. AGL series transformers provide power to airport lighting luminaires or other loads (resistive) from their secondary circuits. The AGL series transformers provide continuity of the series circuit in the event of a loss of the load on the transformer, and electrical isolation between the primary circuit supplied by a constant current regulator, and the secondary circuit connected to the load under conditions defined in this standard. This bilingual version (2016-11) corresponds to the English version, published in 2002-12."
+  },
+  {
+    "reference": "IEC TS 61827:2004",
+    "edition": "1.0",
+    "date": "2004-05-14",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Characteristics of inset and elevated luminaires used on aerodromes and heliports",
+    "language": "EN, ES",
+    "description": "This Technical specification defines the requirements and testing procedures for inset and elevated luminaires with lamps used in aeronautical ground lighting systems and excluding luminaires for general lighting."
+  },
+  {
+    "reference": "IEC TS 62143:2002",
+    "edition": "1.0",
+    "date": "2002-07-05",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Aeronautical ground lighting systems - Guidelines for the development of a safety lifecycle methodology",
+    "language": "EN, ES",
+    "description": "IEC 62143:2002(E) This technical specification: - outlines a methodology to address the safety at all lifecycle phases of an AGL system, including the evaluation, design, procurement, manufacture, installation, commissioning, operational use, maintenance, modification, and decommissioning of the AGL system; - applies to an AGL system at an aerodrome or heliport which provides visual guidance to a pilot and is provided, operated and maintained by the aerodrome authority; - applies primarily to a new AGL system."
+  },
+  {
+    "reference": "IEC 63067:2020",
+    "edition": "1.0",
+    "date": "2020-06-24",
+    "title": "Electrical installations for lighting and beaconing of aerodromes - Connecting devices - General requirements and tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 63067:2020 applies to plugs and receptacles for single or multiple pole connecting devices used for aeronautical ground lighting applications. Additional requirements and usage of connecting devices are given in different parts of IEC 61820 series. Connecting devices complying with this document are suitable for use in environmental class E11 according to IEC 61820-1."
+  }
+]

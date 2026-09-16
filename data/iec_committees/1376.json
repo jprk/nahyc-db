@@ -1,0 +1,1538 @@
+[
+  {
+    "reference": "IEC/IEEE 60802:2026",
+    "edition": "1.0",
+    "date": "2026-06-29",
+    "title": "Time-sensitive networking profile for industrial automation",
+    "language": "EN",
+    "description": "IEC/IEEE 60802:2026 defines time-sensitive networking profiles for industrial automation. The profiles select features, options, configurations, defaults, protocols, and procedures of bridges, end stations, and LANs to build industrial automation networks. This document also specifies YANG modules defining read-only information available online and offline as a digital data sheet. This document also specifies YANG modules for remote procedure calls and actions to address requirements arising from industrial automation networks."
+  },
+  {
+    "reference": "IEC 61139-2:2022",
+    "edition": "1.0",
+    "date": "2022-08-19",
+    "title": "Industrial networks - Single-drop digital communication interface - Part 2: Functional safety extensions",
+    "language": "EN-FR",
+    "description": "IEC 61139-2:2022 specifies the extensions to SDCI in IEC 61131-9 for functional safety. This comprises: • a standardized OSSDe interface for redundant switching signals based on IEC 61131-2, • minor modifications/extensions to state machines of SDCI to support the safety operations, • a lean functional safety communication protocol on top of the standard SDCI communication which is a black channel according to IEC 61784-3:2021, • protocol management functions for configuration, parameterization, and commissioning, • IODD extensions for functional safety, • a Device tool interface to support Dedicated Tools according to functional safety standards. This document does not cover: • communication interfaces or systems including multi-point or multi-drop linkages, • communication interfaces or systems including multi-channel or encrypted linkages, • wireless communication interfaces or systems, • integration of SDCI-FS into upper-level systems such as fieldbuses/FSCPs."
+  },
+  {
+    "reference": "IEC 61139-3:2023",
+    "edition": "1.0",
+    "date": "2023-11-01",
+    "title": "Industrial networks - Single-drop digital communication interface - Part 3: Wireless extensions",
+    "language": "EN-FR",
+    "description": "IEC 61139-3:2023 specifies a wireless single-drop digital communication interface (SDCI wireless). This is an extension to the single-drop digital communication interface (SDCI) technology that is specified in IEC 61131-9. This document specifies the wireless communication services and protocol (physical layer, data link layer and application layer in accordance with the ISO/OSI reference model) for W‑Masters and W‑Devices. NOTE This document does not cover the integration into higher level systems such as fieldbuses."
+  },
+  {
+    "reference": "IEC 61158-1:2023",
+    "edition": "3.0",
+    "date": "2023-03-16",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 1: Overview and guidance for the IEC 61158 and IEC 61784 series",
+    "language": "EN-FR",
+    "description": "IEC 61158-1:2023 specifies the generic concept of fieldbuses. This document also presents an overview and guidance for the IEC 61158 eries by: explaining the structure and content of the IEC 61158 series; relating the structure of the IEC 61158 series to the ISO/IEC 7498-1 OSI Basic Reference Model; showing the logical structure of the IEC 61784 series; showing how to use parts of the IEC 61158 series in combination with the IEC 61784 series; providing explanations of some aspects of the IEC 61158 series that are common to the type specific parts of the IEC 61158‑5 series including the application layer service description concepts and the generic fieldbus data types."
+  },
+  {
+    "reference": "IEC 61158-2:2023",
+    "edition": "7.0",
+    "date": "2023-03-09",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 2: Physical layer specification and service definition",
+    "language": "EN-FR",
+    "description": "IEC 61158-2:2023 is one of a series produced to facilitate the interconnection of automation system components. It is related to other standards in the set as defined by the \"three-layer\" fieldbus reference model described in IEC 61158‑1."
+  },
+  {
+    "reference": "IEC 61158-3-1:2014",
+    "edition": "2.0",
+    "date": "2014-08-13",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-1: Data-link layer service definition - Type 1 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-1:2014 defines the services provided to the Type 1 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This second edition cancels and replaces the first edition published in 2007. It constitutes a technical revision. The main change is the improved terms."
+  },
+  {
+    "reference": "IEC 61158-3-2:2023",
+    "edition": "3.0",
+    "date": "2023-03-09",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-2: Data-link layer service definition - Type 2 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-2:2023 is one of a series produced to facilitate the interconnection of automation system components. It is related to other standards in the set as defined by the \"three-layer\" fieldbus reference model described in IEC 61158‑1. Throughout the set of fieldbus standards, the term \"service\" refers to the abstract capability provided by one layer of the OSI Basic Reference Model to the layer immediately above. Thus, the data-link layer service defined in this document is a conceptual architectural service, independent of administrative and implementation divisions."
+  },
+  {
+    "reference": "IEC 61158-3-3:2014",
+    "edition": "2.0",
+    "date": "2014-08-13",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-3: Data-link layer service definition - Type 3 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-3:2014 defines the services provided to the Type 3 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This second edition cancels and replaces the first edition published in 2007. It constitutes a technical revision. The main changes are: Two notes in definitions modified."
+  },
+  {
+    "reference": "IEC 61158-3-4:2023",
+    "edition": "4.0",
+    "date": "2023-03-16",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-4: Data-link layer service definition - Type 4 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-4:2023 provides common elements for basic time-critical messaging communications between devices in an automation environment. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This document defines in an abstract way the externally visible services provided by the Type 4 fieldbus data-link layer in terms of the primitive actions and events of the services; the parameters associated with each primitive action and event, and the form which they take; and the interrelationship between these actions and events, and their valid sequences. The purpose of this document is to define the services provided to the Type 4 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model; systems management at the boundary between the data-link layer and systems management of the fieldbus reference model."
+  },
+  {
+    "reference": "IEC 61158-3-7:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-7: Data-link layer service definition - Type 7 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-7:2007 defines in an abstract way the externally visible service provided by the Type 7 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This edition of this part constitutes an editorial revision. This edition includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-8:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-8: Data-link layer service definition - Type 8 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-8:2007 defines in an abstract way the externally visible service provided by the Type 8 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - and the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This edition of this part constitutes an editorial revision. This edition includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-11:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-11: Data-link layer service definition - Type 11 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-11:2007 defines in an abstract way the externally visible service provided by the Type 11 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - and the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This part and its Type 11 companion parts also replace IEC/PAS 62406 published in 2005. This edition of this part constitutes a technical addition. This edition includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-12:2019",
+    "edition": "4.0",
+    "date": "2019-04-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-12: Data-link layer service definition - Type 12 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-12:2019 defines the services provided to the Type 12 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This fourth edition cancels and replaces the third edition published in 2014. It constitutes a technical revision. The main changes are: - Technical corrections in the communication services - Editorial improvements for clarification."
+  },
+  {
+    "reference": "IEC 61158-3-13:2014",
+    "edition": "2.0",
+    "date": "2014-08-13",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-13: Data link layer service definition - Type 13 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-13:2014 defines the services provided to the Type 13 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This second edition cancels and replaces the first edition published in 2007. It constitutes a minor technical revision. The main changes are: - addition of a new communication class; - corrections and editorial improvements."
+  },
+  {
+    "reference": "IEC 61158-3-14:2014",
+    "edition": "3.0",
+    "date": "2014-08-13",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-14: Data-link layer service definition - Type 14 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-14:2014 defines the services provided to the Type 14 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This third edition cancels and replaces the second edition published in 2010. It constitutes a technical revision. The main changes are: - update the Communication model; - update the primitives and parameters of the DL-management service for FRT applications in 5.4.2; - correct the edit error; - update of the requirements for all conformance classes; - update of the requirements for all conformance services."
+  },
+  {
+    "reference": "IEC 61158-3-16:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-16: Data-link layer service definition - Type 16 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-16:2007 defines in an abstract way the externally visible service provided by the Type 16 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - and the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This edition of this part constitutes a technical addition. This publication along with its companion parts for Type 16, replaces also partially IEC 61401:2001. This edition includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-17:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-17: Data-link layer service definition - Type 17 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-17:2007 defines in an abstract way the externally visible service provided by the Type 17 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - and the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This edition of this part constitutes a technical addition. This part and its companion parts for Type 17, replace also IEC/PAS 62405:2005. This edition includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-18:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-18: Data-link layer service definition - Type 18 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-18:2007 defines in an abstract way the externally visible service provided by the Type 18 fieldbus data-link layer in terms of: - the primitive actions and events of the service; - the parameters associated with each primitive action and event, and the form which they take; - and the interrelationship between these actions and events, and their valid sequences. This first edition and its companion parts of the IEC 61158-3 subseries cancel and replace IEC 61158-3:2003. This edition of this part constitutes a technical addition. It includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered 3-1, 3-2,..., 3-19. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-3-19:2019",
+    "edition": "4.0",
+    "date": "2019-04-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-19: Data-link layer service definition - Type 19 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-19:2019 defines the services provided to the Type 19 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. This fourth edition cancels and replaces the third edition published in 2014. It constitutes a technical revision. The main changes are: -improving the hotplug and redundancy features; -improving the phase switching and the error handling; -editorial improvements"
+  },
+  {
+    "reference": "IEC 61158-3-20:2014",
+    "edition": "1.0",
+    "date": "2014-08-13",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-20: Data-link layer service definition - Type 20 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-20:2014 defines the services provided to the Type 20 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. Type 20 DL-service provides both a connected and a connectionless subset of those services specified in ISO/IEC 8886."
+  },
+  {
+    "reference": "IEC 61158-3-21:2019",
+    "edition": "2.0",
+    "date": "2019-04-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-21: Data-link layer service definition - Type 21 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-21:2019 defines in an abstract way the externally visible service provided by the Type 21 fieldbus data-link layer in terms of the primitive actions and events of the service; the parameters associated with each primitive action and event, and the form which they take and the interrelationship between these actions and events, and their valid sequences. It cancels and replaces the first edition published in 2010 and constitutes a technical revision. The main changes are listed below: •Added Network Control Message Type; •Miscellaneous editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-3-24:2023",
+    "edition": "2.0",
+    "date": "2023-03-16",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-24: Data-link layer service definition - Type 24 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-24:2023 provides common elements for basic time-critical messaging communications between devices in an automation environment. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time-window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This document defines in an abstract way the externally visible service provided by the Type 24 fieldbus data-link layer in terms of the primitive actions and events of the service; the interrelationship between these actions and events, and their valid sequences; the parameters associated with each primitive action and event, and the form which they take."
+  },
+  {
+    "reference": "IEC 61158-3-25:2019",
+    "edition": "1.0",
+    "date": "2019-04-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-25: Data-link layer service definition - Type X elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-3-25:2019 defines the services provided to the Type 25 fieldbus application layer at the boundary between the application and data-link layers of the fieldbus reference model and systems management at the boundary between the data-link layer and systems management of the fieldbus reference model. It provides common elements for basic time-critical messaging communications between devices in an automation environment."
+  },
+  {
+    "reference": "IEC 61158-3-28:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 3-28: Data-link layer service definition - Type 28 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-3-28:2023 describes basic packet communication services and models in an automation control industrial field environment. The Type 28 data-link layer provides time-critical and non-time-critical communication services. Time-critical refers to the requirement to complete specified functions between devices in a defined time window in an industrial field environment. Failure to complete specified functions within the time window can lead to failure or harm in industrial production."
+  },
+  {
+    "reference": "IEC 61158-4-1:2014",
+    "edition": "2.0",
+    "date": "2014-08-15",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-1: Data-link layer protocol specification - Type 1 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-4-1:2014 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main change is: Improved terms"
+  },
+  {
+    "reference": "IEC 61158-4-2:2023",
+    "edition": "5.0",
+    "date": "2023-03-09",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-2: Data-link layer protocol specification - Type 2 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-2:2023 is one of a series produced to facilitate the interconnection of automation system components. It is related to other standards in the set as defined by the \"three-layer\" fieldbus reference model described in IEC 61158‑1. The data-link protocol provides the data-link service by making use of the services available from the physical layer. The primary aim of this document is to provide a set of rules for communication expressed in terms of the procedures to be carried out by peer data-link entities (DLEs) at the time of communication. These rules for communication are intended to provide a sound basis for development in order to serve a variety of purposes: - as a guide for implementers and designers; - for use in the testing and procurement of equipment; - as part of an agreement for the admittance of systems into the open systems environment; - as a refinement to the understanding of time-critical communications within OSI."
+  },
+  {
+    "reference": "IEC 61158-4-3:2019",
+    "edition": "4.0",
+    "date": "2019-04-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-3: Data-link layer protocol specification - Type 3 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-3:2019 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This fourth edition cancels and replaces the third edition published in 2014 and constitutes a technical revision. The main changes are: This edition includes the following significant technical changes with respect to the previous edition: •corrections in Table 3; •corrections in Table A.15; •spelling and grammar."
+  },
+  {
+    "reference": "IEC 61158-4-4:2023",
+    "edition": "4.0",
+    "date": "2023-03-22",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-4: Data-link layer protocol specification - Type 4 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-4:2023 specifies - procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider; - the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this document, and their representation as physical interface data units."
+  },
+  {
+    "reference": "IEC 61158-4-7:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-7: Data-link layer protocol specification - Type 7 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-7:2007 describes the data-link layer which provides basic time-critical messaging communications between devices in an automation environment. It specifies the procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider. This first edition and its companion parts of the IEC 61158-4 subseries cancel and replace IEC 61158-4:2003 and constitutes an editorial revision. It includes the following changes: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered -4 1, -4 2,..., -4-19. This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-4-7:2007/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-01-24",
+    "title": "Corrigendum - Industrial communication networks - Fieldbus specifications - Part 4-7: Data-link layer protocol specification - Type 7 elements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61158-4-8:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-8: Data-link layer protocol specification - Type 8 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-8:2007 provides a highly-optimized means of interchanging fixed-length input/output data and variable-length segmented messages between a single master device and a set of slave devices interconnected in a loop (ring) topology. The exchange of input/output data is totally synchronous by configuration, and is unaffected by the messaging traffic. Devices are addressed implicitly by their position on the loop. The determination of the number, identity and characteristics of each device can be configured, or can be detected automatically at start-up. This first edition and its companion parts of the IEC 61158-4 subseries cancel and replace IEC 61158-4:2003. It constitutes an editorial revision and includes the following significant changes: - deletion of the former Type 6 fieldbus and the placeholder for a Type 5 fieldbus data link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple. This bilingual version corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-4-11:2014",
+    "edition": "3.0",
+    "date": "2014-08-15",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-11: Data-link layer protocol specificationn - Type 11 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-4-11:2014 specifies procedures for: the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider; procedures for giving communications opportunities to all participating DL entities, sequentially and in a cyclic manner for deterministic and synchronized transfer at cyclic intervals up to one millisecond; procedures for giving communication opportunities available for time-critical data transmission together with non-time-critical data transmission without prejudice to the time-critical data transmission; procedures for giving cyclic and acyclic communication opportunities for time-critical data transmission with prioritized access; procedures for giving communication opportunities based on standard ISO/IEC 8802-3 medium access control, with provisions for nodes to be added or removed during normal operation and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: Subclauses 4.6.1, 4.6.4 and 5.4.6, Clause 6 and 7.2 for the loop-architecture are modified to cover the additional specifications for the higher data rate in the loop-architecture."
+  },
+  {
+    "reference": "IEC 61158-4-12:2019",
+    "edition": "4.0",
+    "date": "2019-04-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-12: Data-link layer protocol specification - Type 12 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-12:2019 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This fourth edition cancels and replaces the third edition published in 2014 and constitutes a technical revision. The main changes are: technical corrections and editorial improvements for clarification."
+  },
+  {
+    "reference": "IEC 61158-4-13:2014",
+    "edition": "2.0",
+    "date": "2014-08-15",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-13: Data-link layer protocol specificationn - Type 13 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-4-13:2014 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: - addition of a new communication class; - editorial improvements and editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-4-14:2014",
+    "edition": "3.0",
+    "date": "2014-08-15",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-14: Data-link layer protocol specificationn - Type 14 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-4-14:2014 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - update the Communication model; - update the Encoding of DL-management Tag for FRT applications in Subclause 6.2.3; - corrections the edit error; - update of the requirements for all conformance classes; - update of the requirements for all conformance services."
+  },
+  {
+    "reference": "IEC 61158-4-16:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-16: Data-link layer protocol specification - Type 16 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-16:2007, defines the data-link layer which provides basic time-critical messaging communications between devices in an automation environment. It defines procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider. This first edition and its companion parts of the IEC 61158-4 subseries cancel and replace IEC 61158 4:2003. It includes the following: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered -4 1, -4 2, ..., -4-19. This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-4-17:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-17: Data-link layer protocol specification - Type 17 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-17:2007, defines the data-link layer which provides basic time-critical messaging communications between devices in an automation environment. It defines procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider. This first edition and its companion parts of the IEC 61158-4 subseries cancel and replace IEC 61158-4:2003. It includes the following: - deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data link layer, for lack of market relevance; - addition of new types of fieldbuses; - division of this part into multiple parts numbered -4-1, -4-2, ..., -4-19. This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-4-18:2010",
+    "edition": "2.0",
+    "date": "2010-08-05",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-18: Data-link layer protocol specification - Type 18 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-18:2010 specifies the protocol which provides communication opportunities to all participating data-link entities in a synchronously-starting cyclic manner, according to a pre-established schedule, and in a cyclic or acyclic asynchronous manner, as requested each cycle by each of those data-link entities. The described procedures are applicable to instances of communication between systems which support time-critical communications services within the data-link layer of the OSI or fieldbus reference models, and which require the ability to interconnect in an open systems interconnection environment. Profiles provide a simple multi-attribute means of summarizing an implementation's capabilities, and thus its applicability to various time-critical communications needs. This bilingual version (2012-08) corresponds to the monolingual English version, published in 2010-08. This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes with respect to the previous edition are: Editorial improvements and Addition of cyclic data segmenting."
+  },
+  {
+    "reference": "IEC 61158-4-19:2019",
+    "edition": "4.0",
+    "date": "2019-04-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-19: Data-link layer protocol specification - Type 19 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-19:2019 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units. This fourth edition cancels and replaces the third edition published in 2014 and constitutes a technical revision. The main changes are: •improving the hotplug and redundancy features; •improving the phase switching and the error handling; •editorial improvements"
+  },
+  {
+    "reference": "IEC 61158-4-20:2014",
+    "edition": "1.0",
+    "date": "2014-08-15",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-20: Data-link layer protocol specification - Type 20 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-4-20:2014 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider and the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this standard, and their representation as physical interface data units."
+  },
+  {
+    "reference": "IEC 61158-4-21:2023",
+    "edition": "3.0",
+    "date": "2023-03-28",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-21: Data-link layer protocol specification - Type 21 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-21:2023 describes: procedures for the timely transfer of data and control information from one data link user entity to a peer user entity, and among the data link entities forming the distributed data link service provider; procedures for giving communication opportunities based on ISO/IEC/IEEE 8802‑3 MAC, with provisions for nodes to be added or removed during normal operation; structure of the fieldbus data link protocol data units (DLPDUs) used for the transfer of data and control information by the protocol of this document, and their representation as physical interface data units."
+  },
+  {
+    "reference": "IEC 61158-4-24:2023",
+    "edition": "3.0",
+    "date": "2023-03-28",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-24: Data-link layer protocol specification - Type 24 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-24:2023 provides procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed datalink service provider; procedures for giving communications opportunities to all participating DL-entities (DLEs), sequentially and in a cyclic manner for deterministic and synchronized transfer at cyclic intervals up to 64 ms; procedures for giving communication opportunities available for time-critical data transmission together with non-time-critical data transmission without prejudice to the time-critical data transmission; procedures for giving cyclic and acyclic communication opportunities for time-critical data transmission with prioritized access; procedures for giving communication opportunities based on ISO/IEC/IEEE 8802‑3 medium access control, with provisions for nodes to be added or removed during normal operation; the structure of the fieldbus DLPDUs used for the transfer of data and control information by the protocol of this document, and their representation as physical interface data units."
+  },
+  {
+    "reference": "IEC 61158-4-25:2019",
+    "edition": "1.0",
+    "date": "2019-04-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-25: Data-link layer protocol specification - Type 25 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-4-25:2019 specifies procedures for the timely transfer of data and control information from one data-link user entity to a peer user entity, and among the data-link entities forming the distributed data-link service provider, and the communication and interworking of sensors, effectors and other automation devices. By using this document together with other standards positioned within the OSI or fieldbus reference models, otherwise incompatible systems may work together in any combination"
+  },
+  {
+    "reference": "IEC 61158-4-28:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 4-28: Data-link layer protocol specification - Type 28 elements",
+    "language": "EN-FR",
+    "description": "IEC 61558-4-28:2023 provides a means of connecting devices through a partial mesh network, such that most failures of an interconnection between two devices can be circumvented. In common practice, the devices are interconnected in a non-redundant hierarchical manner reflecting application needs."
+  },
+  {
+    "reference": "IEC 61158-5-2:2023",
+    "edition": "5.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-2: Application layer service definition - Type 2 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-2:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-3:2014",
+    "edition": "3.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-3: Application layer service definition - Type 3 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-3:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: Correction of spelling and improved formatting for a better reading."
+  },
+  {
+    "reference": "IEC 61158-5-4:2023",
+    "edition": "4.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-4: Application layer service definition - Type 4 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-4:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 4 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-5:2014",
+    "edition": "2.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-5: Application layer service definition - Type 5 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-5:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: Added message padding."
+  },
+  {
+    "reference": "IEC 61158-5-7:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-7: Application layer service definition - Type 7 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-7:2007 defines the services provided to the FAL user at the boundary between the user and the Application Layer of the Fieldbus Reference Model, and SystemsManagement at the boundary between the Application Layer and Systems Management of the Fieldbus Reference Model. This standard specifies the structure and services of the IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI Application Layer Structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-5 subseries cancel and replace IEC 61158-5:2003. This edition of this part constitutes an editorial revision. This edition of IEC 61158-5 includes the following significant changes from the previous edition: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 5 of the third edition into multiple parts numbered 5-2, 5-3,... This bilingual version (2014-12) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-5-8:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-8: Application layer service definition - Type 8 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-8:2007 specifies the structure and services of the Type 8 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545).This first edition and its companion parts of the IEC 61158-5 subseries cancel and replace IEC 61158-5:2003. This edition of this part constitutes a technical revision and includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 5 of the third edition into multiple parts numbered -5-2, -5-3,. This bilingual version (2015-06) corresponds to the English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-5-9:2014",
+    "edition": "2.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-9: Application layer service definition - Type 9 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-9:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: Correct download state machine event service."
+  },
+  {
+    "reference": "IEC 61158-5-10:2023",
+    "edition": "5.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks – Fieldbus specifications – Part 5-10: Application layer service definition – Type 10 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-10:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 10 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-11:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-11: Application layer service definition - Type 11 elements",
+    "language": "EN-FR, EN",
+    "description": "L'IEC 61158-5-11:2007 defines the services provided to the FAL user at the boundary between the user and the Application Layer of the Fieldbus Reference Model, and Systems Management at the boundary between the Application Layer and Systems Management of the Fieldbus Reference Model. This part of IEC 61158 specifies the structure and services of the IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI Application Layer Structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-5 subseries cancel and replace IEC 61158-5:2003. This edition of this part constitutes a technical addition. This part and its Type 11 companion parts also cancel and replace IEC/PAS 62406, published in 2005. It includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 5 of the third edition into multiple parts numbered -5 2, -5 3. This bilingual version (2014-07) corresponds to the English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-5-12:2019",
+    "edition": "4.0",
+    "date": "2019-04-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-12: Application layer service definition - Type 12 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-12:2019 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This fourth edition cancels and replaces the third edition published in 2014 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: •Technical corrections; and •Editorial improvements for clarification"
+  },
+  {
+    "reference": "IEC 61158-5-13:2014",
+    "edition": "2.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-13: Application layer service definition - Type 13 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-13:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: addition of synchronization feature, corrections, and editorial improvements."
+  },
+  {
+    "reference": "IEC 61158-5-14:2014",
+    "edition": "3.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-14: Application layer service definition - Type 14 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-14:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - corrections of the edit error; - specification changes for CPF4; - update of the requirements for all conformance classes; - update of the requirements for all conformance services."
+  },
+  {
+    "reference": "IEC 61158-5-15:2010",
+    "edition": "2.0",
+    "date": "2010-08-05",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-15: Application layer service definition - Type 15 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-15:2010 specifies the structure and services of the type 15 IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI Application Layer Structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main change with respect to the previous edition are editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-5-16:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-16: Application layer service definition - Type 16 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-16:2007 provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs.\" This standard provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 16 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. It includes the following significant changes with respect to the previous edition deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; addition of new types of fieldbuses; division of this part into multiple parts numbered."
+  },
+  {
+    "reference": "IEC 61158-5-17:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-17: Application layer service definition - Type 17 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-17:2007 provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs.\" This standard provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 17 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. It includes the following significant changes with respect to the previous edition deletion of the former Type 6 fieldbus, and the placeholder for a Type 5 fieldbus data-link layer, for lack of market relevance; addition of new types of fieldbuses; division of this part into multiple parts numbered."
+  },
+  {
+    "reference": "IEC 61158-5-18:2010",
+    "edition": "2.0",
+    "date": "2010-08-05",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-18: Application layer service definition - Type 18 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-18:2010 specifies the structure and services of the type 18 IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI Application Layer Structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main change with respect to the previous edition are Editorial corrections and Addition of cyclic data segmenting."
+  },
+  {
+    "reference": "IEC 61158-5-19:2019",
+    "edition": "4.0",
+    "date": "2019-04-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-19: Application layer service definition - Type 19 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-19:2019 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This fourth edition cancels and replaces the third edition published in 2014 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: • improving the hotplug and redundancy features; • improving the phase switching and the error handling; • editorial improvements."
+  },
+  {
+    "reference": "IEC 61158-5-20:2014",
+    "edition": "3.0",
+    "date": "2014-08-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-20: Application layer service definition - Type 20 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-20:2014 defines the services provided to the FAL user at the boundary between the user and the application layer of the fieldbus reference model, and Systems Management at the boundary between the application layer and Systems Management of the fieldbus reference model. This standard specifies the structure and services of the IEC fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - added Data types; - added services; - updated the Normative references, Terms, definitions, symbols, abbreviations; - corrected the editorial errors and the text."
+  },
+  {
+    "reference": "IEC 61158-5-21:2019",
+    "edition": "2.0",
+    "date": "2019-04-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-21: Application layer service definition - Type 21 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-21:2019 specifies the structure and services of the type 21 IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI Application Layer Structure (ISO/IEC 9545). This second edition cancels and replaces the first edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: •added Write and Read service; •miscellaneous editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-5-23:2023",
+    "edition": "3.0",
+    "date": "2023-03-09",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-23: Application layer service definition - Type 23 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-25:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 23 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-24:2023",
+    "edition": "2.0",
+    "date": "2023-03-09",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-24: Application layer service definition - Type 24 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-24:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 24 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-25:2019",
+    "edition": "1.0",
+    "date": "2019-04-18",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-25: Application layer service definition - Type 25 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-25:2019 specifies the structure and services of the IEC fieldbus Application Layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI ApplicationLayer Structure (ISO/IEC 9545).FAL services and protocols are provided by FAL application-entities (AE) contained within the application processes. The FAL AE is composed of a set of object-oriented Application Service Elements (ASEs) and a Layer Management Entity (LME) that manages the AE. The ASEs provide communication services that operate on a set of related application process object (APO) classes. One of the FAL ASEs is a management ASE that provides a common set of services for the management of the instances of FAL classes"
+  },
+  {
+    "reference": "IEC 61158-5-26:2023",
+    "edition": "2.0",
+    "date": "2023-03-16",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-26: Application layer service definition - Type 26 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-5-26:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 26 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This document defines in an abstract way the externally visible service provided by the Type26 fieldbus application layer in terms of: an abstract model for defining application resources (objects) capable of being manipulated by users via the use of the FAL service; the primitive actions and events of the service; the parameters associated with each primitive action and event, and the form which they take; and the interrelationship between these actions and events, and their valid sequences."
+  },
+  {
+    "reference": "IEC 61158-5-27:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-27: Application layer service definition - Type 27 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-5-27:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 27 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-5-28:2023",
+    "edition": "1.0",
+    "date": "2023-03-10",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 5-28: Application layer service definition - Type 28 elements",
+    "language": "EN-FR",
+    "description": "IEC 61558-5-28:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 28 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, in which one or more specified actions are required to be completed with some defined level of certainty."
+  },
+  {
+    "reference": "IEC 61158-6-2:2023",
+    "edition": "5.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-2: Application layer protocol specification - Type 2 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-2:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-3:2019",
+    "edition": "4.0",
+    "date": "2019-06-20",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-3: Application layer protocol specification - Type 3 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-3:2019 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This International Standard specifies interactions between remote applications and defines the externally visible behavior provided by the Type 2 fieldbus application layer. The purpose of this document is to define the protocol provided to a) define the wire-representation of the service primitives defined in this document, and b) define the externally visible behavior associated with their transfer. This document specifies the protocol of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This fourth edition includes the following significant technical changes with respect to the previous edition: - corrected substitutions in Table 4; - corrections in 5.3.14; - corrections in 5.5.6; - corrections in 5.17.15; - corrections in 5.17.16.2; - spelling and grammar."
+  },
+  {
+    "reference": "IEC 61158-6-4:2023",
+    "edition": "4.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-4: Application layer protocol specification - Type 4 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-4:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 4 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-5:2014",
+    "edition": "2.0",
+    "date": "2014-08-19",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-5: Application layer protocol specification - Type 5 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-5:2014 defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-5, and define the externally visible behavior associated with their transfer. This standard specifies the protocol of the Type 54 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This secod edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: - Add support for message padding; - Clarified encoding rules; - Clarified open session service; - Time synchronization now present in annunciation message; - Additional redundancy options in annunciation message."
+  },
+  {
+    "reference": "IEC 61158-6-7:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-7: Application layer protocol specification - Type 7 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-7:2007 describes the fieldbus application layer (FAL) which provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs.\" It specifies the protocol of the Type 7 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-6 subseries cancel and replace IEC 61158-6:2003. It includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 6 of the third edition into multiple parts numbered -6 2, -6 3,.... This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-6-8:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-8: Application layer protocol specification - Type 8 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-8:2007 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 8 fieldbus. It specifies interactions between remote applications and defines the externally visible behavior provided by the Type 8 fieldbus application layer. It defines the protocol provided to: define the wire-representation of the service primitives defined in IEC 61158 5-8, and define the externally visible behavior associated with their transfer. It specifies the protocol of the Type 8 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-6 subseries cancel and replace IEC 61158-6:2003 and constitutes a technical revision. It includes the following significant changes from the previous edition: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 6 of the third edition into multiple parts. This bilingual version corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-6-9:2014",
+    "edition": "3.0",
+    "date": "2014-08-19",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-9: Application layer protocol specification - Type 9 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-9:2014 defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-9, and define the externally visible behavior associated with their transfer. This standard specifies the protocol of the Type 9 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - Correct Time-difference valid range; - Correct Table 3 state transition; - Include Transparent timeliness class in BNU AREP formal model."
+  },
+  {
+    "reference": "IEC 61158-6-10:2023",
+    "edition": "5.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-10: Application layer protocol specification - Type 10 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-10:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 10 fieldbus. The term “time-critical” is used to represent the presence of a time window, within which one or more specified actions are required to be completed with a defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-11:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-11: Application layer protocol specification - Type 11 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-11:2007 describes the fieldbus application layer (FAL) which provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs\". It specifies the protocol of the Type 11 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-6 subseries cancel and replace IEC 61158-6:2003. This part and its Type 11 companion parts also cancel and replace IEC/PAS 62406, published in 2005. It includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 6 of the third edition into multiple parts numbered -6 2, -6 3, .... This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-6-12:2019",
+    "edition": "4.0",
+    "date": "2019-06-20",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-12: Application layer protocol specification - Type 12 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-12:2019 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This International Standard specifies interactions between remote applications and defines the externally visible behavior provided by the Type 2 fieldbus application layer. The purpose of this document is to define the protocol provided to a) define the wire-representation of the service primitives defined in this document, and b) define the externally visible behavior associated with their transfer. This document specifies the protocol of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This fourth edition includes the following significant technical changes with respect to the previous edition: - technical corrections; and - editorial improvements for clarification."
+  },
+  {
+    "reference": "IEC 61158-6-13:2014",
+    "edition": "2.0",
+    "date": "2014-08-19",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-13: Application layer protocol specification - Type 13 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-13:2014 defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-13, and define the externally visible behavior associated with their transfer. This standard specifies the protocol of the Type 13 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This secod edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes are: addition of synchronization feature, corrections and editorial improvements."
+  },
+  {
+    "reference": "IEC 61158-6-14:2014",
+    "edition": "3.0",
+    "date": "2014-08-19",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-14: Application layer protocol specification - Type 14 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-14:2014 defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-14, and define the externally visible behavior associated with their transfer. This standard specifies the protocol of the Type 14 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - corrections of editorial errors; - specification changes for CPF4; - update of the requirements for all conformance classes; - update of the requirements for all conformance services."
+  },
+  {
+    "reference": "IEC 61158-6-15:2010",
+    "edition": "2.0",
+    "date": "2010-08-06",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-15: Application layer protocol specification - Type 15 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-15:2010 specifies the protocol of the Type 15 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). It defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-15:2010, and the externally visible behavior associated with their transfer. This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes with respect to the previous edition are editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-6-16:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-16: Application layer protocol specification - Type 16 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-16:2007 describes the fieldbus application layer (FAL) which provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs\". It specifies the protocol of the Type 16 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-6 subseries cancel and replace IEC 61158-6:2003. This publication, together with its companion parts for Type 16, also partially replaces IEC 61491:2002. It includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 6 of the third edition into multiple parts numbered -6 2, -6 3,... This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-6-17:2007",
+    "edition": "1.0",
+    "date": "2007-12-14",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-17: Application layer protocol specification - Type 17 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-17:2007 describes the fieldbus application layer (FAL) which provides user programs with a means to access the fieldbus communication environment. In this respect, the FAL can be viewed as a \"window between corresponding application programs.\" It specifies the protocol of the Type 17 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498) and the OSI application layer structure (ISO/IEC 9545). This first edition and its companion parts of the IEC 61158-6 subseries cancel and replace IEC 61158-6:2003. This part and its Type 17 companion parts also cancel and replace IEC/PAS 62405, published in 2005. It includes the following changes: - deletion of the former Type 6 fieldbus for lack of market relevance; - addition of new types of fieldbuses; - partition of part 6 of the third edition into multiple parts numbered -6 2, -6 3, .... This bilingual version (2013-09) corresponds to the monolingual English version, published in 2007-12."
+  },
+  {
+    "reference": "IEC 61158-6-18:2010",
+    "edition": "2.0",
+    "date": "2010-08-06",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-18: Application layer protocol specification - Type 18 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-18:2010 specifies the protocol of the Type 18 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). It defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-18:2010, and the externally visible behavior associated with their transfer. This second edition cancels and replaces the first edition published in 2007 and constitutes a technical revision. The main changes with respect to the previous edition are: - editorial corrections; - addition of cyclic data segmenting."
+  },
+  {
+    "reference": "IEC 61158-6-19:2019",
+    "edition": "4.0",
+    "date": "2019-06-20",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-19: Application layer protocol specification - Type 19 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-19:2019 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This International Standard specifies interactions between remote applications and defines the externally visible behavior provided by the Type 2 fieldbus application layer. The purpose of this document is to define the protocol provided to a) define the wire-representation of the service primitives defined in this document, and b) define the externally visible behavior associated with their transfer. This document specifies the protocol of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This fourth edition includes the following significant technical changes with respect to the previous edition: - improving the hotplug and redundancy features; - improving the phase switching and the error handling; - editorial improvements."
+  },
+  {
+    "reference": "IEC 61158-6-20:2014",
+    "edition": "3.0",
+    "date": "2014-08-19",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-20: Application layer protocol specification - Type 20 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-20:2014 defines the protocol provided to define the wire-representation of the service primitives defined in IEC 61158-5-20, and define the externally visible behavior associated with their transfer. This standard specifies the protocol of the Type 20 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. The main changes are: - added protocol for new services that are added to IEC 61158-5-20; - added normative annexes; - updated then references, terms, definitions, symbols, abbreviations; - corrected the editorial errors and the text."
+  },
+  {
+    "reference": "IEC 61158-6-21:2019",
+    "edition": "2.0",
+    "date": "2019-06-20",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-21: Application layer protocol specification - Type 21 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-21:2019 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This International Standard specifies interactions between remote applications and defines the externally visible behavior provided by the Type 2 fieldbus application layer. The purpose of this document is to define the protocol provided to a) define the wire-representation of the service primitives defined in this document, and b) define the externally visible behavior associated with their transfer. This document specifies the protocol of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545). This second edition includes the following significant technical changes with respect to the previous edition: - added WriteAndRead service; - miscellaneous editorial corrections."
+  },
+  {
+    "reference": "IEC 61158-6-23:2023",
+    "edition": "3.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-23: Application layer protocol specification - Type 23 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-23:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 23 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-24:2023",
+    "edition": "2.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-24: Application layer protocol specification - Type 24 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-24:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 24 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-25:2019",
+    "edition": "1.0",
+    "date": "2019-06-20",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-25: Application layer protocol specification - Type 25 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-25:2019 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 2 fieldbus. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This International Standard specifies interactions between remote applications and defines the externally visible behavior provided by the Type 2 fieldbus application layer. The purpose of this document is to define the protocol provided to a) define the wire-representation of the service primitives defined in this document, and b) define the externally visible behavior associated with their transfer. This document specifies the protocol of the Type 2 fieldbus application layer, in conformance with the OSI Basic Reference Model (ISO/IEC 7498-1) and the OSI application layer structure (ISO/IEC 9545)."
+  },
+  {
+    "reference": "IEC 61158-6-26:2023",
+    "edition": "2.0",
+    "date": "2023-03-28",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-26: Application layer protocol specification - Type 26 elements",
+    "language": "EN-FR, EN",
+    "description": "IEC 61158-6-26:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 26 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61158-6-27:2023",
+    "edition": "1.0",
+    "date": "2023-03-16",
+    "title": "Industrial communication networks - Fieldbus Specifications Part 6-27: Application layer protocol specification - Type 27 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-27:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 27 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This document defines in an abstract way the externally visible behavior provided by the Type 27 fieldbus application layer in terms of the abstract syntax defining the application layer protocol data units conveyed between communicating application entities, the transfer syntax defining the application layer protocol data units conveyed between communicating application entities, the application context state machines defining the application service behavior visibly between communicating application entities, and the application relationship state machines defining the communication behavior visibly between communicating application entities."
+  },
+  {
+    "reference": "IEC 61158-6-28:2023",
+    "edition": "1.0",
+    "date": "2023-03-24",
+    "title": "Industrial communication networks - Fieldbus specifications - Part 6-28: Application layer protocol specification - Type 28 elements",
+    "language": "EN-FR",
+    "description": "IEC 61158-6-28:2023 provides common elements for basic time-critical and non-time-critical messaging communications between application programs in an automation environment and material specific to Type 28 fieldbus. The term \"time-critical\" is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window can cause failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life."
+  },
+  {
+    "reference": "IEC 61588:2021",
+    "edition": "3.0",
+    "date": "2021-06-08",
+    "title": "Precision Clock Synchronization Protocol for Networked Measurement and Control Systems",
+    "language": "EN",
+    "description": "CORRECTED VERSION 2026-01 IEC 61588:2021 defines a network protocol, the Precision Time Protocol (PTP), enabling accurate and precise synchronization of the real-time clocks of devices in networked distributed systems. The protocol is applicable to systems where devices communicate via networks, including Ethernet. The standard allows multicast communication, unicast communication or both. The standard specifies requirements for mapping the protocol to specific network implementations and defines such mappings, including User Datagram Protocol (UDP)/Internet Protocol (IP versions 4 and 6), and layer-2 IEEE 802.3 Ethernet."
+  },
+  {
+    "reference": "IEC 61784-1-0:2023",
+    "edition": "1.0",
+    "date": "2023-03-24",
+    "title": "Industrial networks - Profiles - Part 1-0: Fieldbus profiles - General concepts and terminology",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-0:2023 series defines several Communication Profile Families (CPF). Each CPF specifies a set of protocol specific communication profiles (CPs) based primarily on the IEC 61158 series, to be used in the design of devices involved in communications in factory manufacturing and process control. This part of IEC 61784-1 defines a common terminology for all CPFs and conventions to be used in the specification of the CPs. It also provides a compliance statement and an overview of the structure and contents of the CPFs in the IEC 61784-1 series."
+  },
+  {
+    "reference": "IEC 61784-1-1:2023",
+    "edition": "1.0",
+    "date": "2023-03-22",
+    "title": "Industrial networks - Profiles - Part 1-1: Fieldbus profiles - Communication Profile Family 1",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-1:2023 defines Communication Profile Family 1 (CPF 1). CPF 1 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 1, Type 5 and Type 9) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-22",
+    "title": "Industrial networks - Profiles - Part 1-2: Fieldbus profiles - Communication Profile Family 2",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-2:2023 defines Communication Profile Family 2 (CPF 2). CPF 2 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 2) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 Some CPs of CPF 2 are specified in IEC 61784-2-2. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-3:2023",
+    "edition": "1.0",
+    "date": "2023-03-22",
+    "title": "Industrial networks - Profiles - Part 1-3: Fieldbus profiles - Communication Profile Family 3",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-3:2023 defines Communication Profile Family 3 (CPF 3). CPF 3 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 3 and Type 10) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 Some CPs of CPF 3 are specified in IEC 61784-2-3. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-4:2023",
+    "edition": "1.0",
+    "date": "2023-03-21",
+    "title": "Industrial networks - Profiles - Part 1-4: Fieldbus profiles - Communication Profile Family 4",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-4:2023 defines Communication Profile Family 4 (CPF 4). CPF 4 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 4) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 Some CPs of CPF 4 are specified in IEC 61784-2-4. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-5:2023",
+    "edition": "1.0",
+    "date": "2023-03-21",
+    "title": "Industrial networks - Profiles - Part 1-5: Fieldbus profiles - Communication Profile Family 5",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-5:2023 defines Communication Profile Family 5 (CPF 5). CPF 5 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 7) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-6:2023",
+    "edition": "1.0",
+    "date": "2023-03-21",
+    "title": "Industrial networks - Profiles - Part 1-6: Fieldbus profiles - Communication Profile Family 6",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-6:2023 defines Communication Profile Family 6 (CPF 6). CPF 6 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 8) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control."
+  },
+  {
+    "reference": "IEC 61784-1-8:2023",
+    "edition": "1.0",
+    "date": "2023-03-21",
+    "title": "Industrial networks - Profiles - Part 1-8: Fieldbus profiles - Communication Profile Family 8",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-8:2023 defines Communication Profile Family 8 (CPF 8). CPF 8 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 18 and Type 23) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control."
+  },
+  {
+    "reference": "IEC 61784-1-9:2023",
+    "edition": "1.0",
+    "date": "2023-03-24",
+    "title": "Industrial networks - Profiles - Part 1-9: Fieldbus profiles - Communication Profile Family 9",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-9:2023 defines Communication Profile Family 9 (CPF 9). CPF 9 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 20) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-16:2023",
+    "edition": "1.0",
+    "date": "2023-03-24",
+    "title": "Industrial networks - Profiles - Part 1-16: Fieldbus profiles - Communication Profile Family 16",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-16:2023 defines Communication Profile Family 16 (CPF 16). CPF 16 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 16 and Type 19) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 Some CPs of CPF 16 are specified in IEC 61784-2-16. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-19:2023",
+    "edition": "1.0",
+    "date": "2023-03-24",
+    "title": "Industrial networks - Profiles - Part 1-19: Fieldbus profiles - Communication Profile Family 19",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-19:2023 defines Communication Profile Family 19 (CPF 19). CPF 19 specifies a set of protocol specific communication profiles (CPs) based on the IEC 61158 series (Type 24 and Type 27) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 Some CPs of CPF 19 are specified in IEC 61784-2-19. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-1-22:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Industrial networks - Profiles - Part 1-22: Fieldbus profiles - Communication Profile Family 22",
+    "language": "EN-FR",
+    "description": "IEC 61784-1-22:2023 defines Communication Profile Family 22 (CPF 22). CPF 22 specifies a protocol specific communication profile (CP) based on the IEC 61158 series (Type 28) and other standards, to be used in the design of devices involved in communications in factory manufacturing and process control. NOTE All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. Each CP selects an appropriate consistent and compatible subset of services and protocols from the relevant set that is defined and modelled in the IEC 61158 series. For the selected subset of services and protocols, the profile also describes any possible or necessary constraints in parameter values."
+  },
+  {
+    "reference": "IEC 61784-2-0:2023",
+    "edition": "1.0",
+    "date": "2023-03-22",
+    "title": "Industrial networks - Profiles - Part 2-0: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - General concepts and terminology",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-0:2023 specifies: basic principles of performance indicators expressing RTE performance of a CP (see 5.1); how an application-dependent class could be used to find out a suitable CP to meet application requirements (see 5.2); characteristics of RTE performance indicators (see 5.3); the methodology of a conformance test for an RTE end device for one or more CPs (see Clause 6)."
+  },
+  {
+    "reference": "IEC 61784-2-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Industrial networks - Profiles - Part 2-2: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 2",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-2:2023 defines extensions of Communication Profile Family 2 (CPF 2) for Real-Time Ethernet (RTE). CPF 2 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 2), ISO/IEC/IEEE 8802-3 and other standards."
+  },
+  {
+    "reference": "IEC 61784-2-3:2023",
+    "edition": "1.0",
+    "date": "2023-03-29",
+    "title": "Industrial networks - Profiles - Part 2-3: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 3",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-3:2023 defines extensions of Communication Profile Family 3 (CPF 3) for Real-Time Ethernet (RTE). CPF 3 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 10), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators."
+  },
+  {
+    "reference": "IEC 61784-2-4:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Industrial networks - Profiles - Part 2-4: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 4",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-4:2023 defines extensions of Communication Profile Family 4 (CPF 4) for Real-Time Ethernet (RTE). CPF 4 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 4), ISO/IEC/IEEE 8802-3 and other standards"
+  },
+  {
+    "reference": "IEC 61784-2-6:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Industrial networks - Profiles - Part 2-6: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 6",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-6:2023 defines extensions of Communication Profile Family 6 (CPF 6) for Real-Time Ethernet (RTE). CPF 6 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 8 and Type 10), ISO/IEC/IEEE 8802-3 and other standards."
+  },
+  {
+    "reference": "IEC 61784-2-8:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Industrial networks - Profiles - Part 2-8: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 8",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-8:2023 defines extensions of Communication Profile Family 8 (CPF 8) for Real-Time Ethernet (RTE). CPF 8 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 23), ISO/IEC/IEEE 8802-3 and other standards."
+  },
+  {
+    "reference": "IEC 61784-2-10:2023",
+    "edition": "1.0",
+    "date": "2023-03-22",
+    "title": "Industrial networks - Profiles - Part 2-10: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 10",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-10:2023 defines Communication Profile Family 10 (CPF 10). CPF 10 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 17), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators."
+  },
+  {
+    "reference": "IEC 61784-2-11:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-11: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 11",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-11:2023 defines Communication Profile Family 11 (CPF 11). CPF 11 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 11), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profiles use ISO/IEC/IEEE 8802-3 communication networks and its related network components or IEC 61588 and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-12:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-12: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 12",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-12:2023 defines Communication Profile Family 12 (CPF 12). CPF 12 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 12), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profiles use ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-13:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-13: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 13",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-13:2023 defines Communication Profile Family 13 (CPF 13). CPF 13 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 13), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profile use ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-14:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-14: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 14",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-14:2023 defines Communication Profile Family 14 (CPF 14). CPF 14 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 14), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profiles use ISO/IEC/IEEE 8802-3 communication networks and its related network components or IEC 61588 and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-15:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-15: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 15",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-15:2023 defines Communication Profile Family 15 (CPF 15). CPF 15 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 15), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profiles use ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-16:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-16: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 16",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-16:2023 defines extensions of Communication Profile Family 16 (CPF 16) for Real-Time Ethernet (RTE). CPF 16 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 19), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profile uses ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features. NOTE 3 Some CPs of CPF 16 are specified in IEC 61784-1-16."
+  },
+  {
+    "reference": "IEC 61784-2-17:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-17: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 17",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-17:2023 defines Communication Profile Family 17 (CPF 17). CPF 17 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 21), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profile uses ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-19:2023",
+    "edition": "1.0",
+    "date": "2023-03-07",
+    "title": "Industrial networks - Profiles - Part 2-19: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 – CPF 19",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-19:2023 defines extensions of Communication Profile Family 19 (CPF 19) for Real-Time Ethernet (RTE). CPF 19 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 27), ISO/IEC/IEEE 8802-3 and other standards."
+  },
+  {
+    "reference": "IEC 61784-2-20:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-20: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 20",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-20:2023 defines Communication Profile Family 20 (CPF 20). CPF 20 specifies a set of Real-Time Ethernet (RTE) communication profiles (CPs) and related network components based on the IEC 61158 series (Type 25), ISO/IEC/IEEE 8802-3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profiles use ISO/IEC/IEEE 8802-3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-2-21:2023",
+    "edition": "1.0",
+    "date": "2023-05-05",
+    "title": "Industrial networks - Profiles - Part 2-21: Additional real-time fieldbus profiles based on ISO/IEC/IEEE 8802-3 - CPF 21",
+    "language": "EN-FR",
+    "description": "IEC 61784-2-21:2023 defines Communication Profile Family 21 (CPF 21). CPF 21 specifies a Real-Time Ethernet (RTE) communication profile (CP) and related network components based on the IEC 61158 series (Type 26), ISO/IEC/IEEE 8802‑3 and other standards. For each RTE communication profile, this document also specifies the relevant RTE performance indicators and the dependencies between these RTE performance indicators. NOTE 1 All CPs are based on standards or draft standards or International Standards published by the IEC or on standards or International Standards established by other standards bodies or open standards processes. NOTE 2 The RTE communication profile uses ISO/IEC/IEEE 8802‑3 communication networks and its related network components and in some cases amend those standards to obtain RTE features."
+  },
+  {
+    "reference": "IEC 61784-3:2021",
+    "edition": "4.0",
+    "date": "2021-02-16",
+    "title": "Industrial communication networks - Profiles - Part 3: Functional safety fieldbuses - General rules and profile definitions",
+    "language": "EN-FR",
+    "description": "IEC 61784-3:2021 explains some common principles that can be used in the transmission of safety-relevant messages among participants within a distributed network which use fieldbus technology in accordance with the requirements of IEC 61508 (all parts) for functional safety. These principles are based on the black channel approach. They can be used in various industrial applications such as process control, manufacturing automation and machinery."
+  },
+  {
+    "reference": "IEC 61784-3:2021/AMD1:2024",
+    "edition": "4.0",
+    "date": "2024-04-19",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 3: Functional safety fieldbuses - General rules and profile definitions",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-3-1:2010",
+    "edition": "2.0",
+    "date": "2010-06-29",
+    "title": "Industrial communication networks - Profiles - Part 3-1: Functional safety fieldbuses - Additional specifications for CPF 1",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-3-1:2010 specifies a safety communication layer (services and protocol) based on CPF 1 of IEC 61784-1 and IEC 61158 Types 1 and 9. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This second edition cancels and replaces the first edition published in 2007. This edition constitutes a technical revision. The main changes with respect to the previous edition are: - updates in relation with changes in IEC 61784-3; - adjustment of Figure 5; - change of sequence number from two octets to four octets in 7.2.2 to match the final protocol from the consortium; - addition of details for time synchronization in 7.2.4; - addition of information for safety response time in 9.3; - addition of information in constraints for calculation of system characteristics in 9.5."
+  },
+  {
+    "reference": "IEC 61784-3-2:2021",
+    "edition": "4.0",
+    "date": "2021-05-19",
+    "title": "Industrial communication networks - Profiles - Part 3-2: Functional safety fieldbuses - Additional specifications for CPF 2",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-2:2021 specifies a safety communication layer (services and protocol) based on CPF 2 of IEC 61784 1, IEC 61784 2 and IEC 61158 Type 2. It identifies the principles for functional safety communications defined in IEC 61784 3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 It does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of IEC 61508 (all parts) for functional safety. These mechanisms may be used in various industrial applications such as process control, manufacturing automation and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems."
+  },
+  {
+    "reference": "IEC 61784-3-3:2021",
+    "edition": "4.0",
+    "date": "2021-05-05",
+    "title": "Industrial communication networks - Profiles - Part 3-3: Functional safety fieldbuses - Additional specifications for CPF 3",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-3:2021 specifies a safety communication layer (services and protocol) based on CPF 3 of IEC 61784-1, IEC 61784-2 (CP 3/1, CP 3/2, CP 3/4, CP 3/5 and CP 3/6) and IEC 61158 Types 3 and 10. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 It does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of IEC 61508 (all parts) for functional safety. These mechanisms may be used in various industrial applications such as process control, manufacturing automation and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems. NOTE 2 The resulting SIL claim of a system depends on the implementation of the selected functional safety communication profile within this system – implementation of a functional safety communication profile according to this document in a standard device is not sufficient to qualify it as a safety device."
+  },
+  {
+    "reference": "IEC 61784-3-6:2010",
+    "edition": "2.0",
+    "date": "2010-06-29",
+    "title": "Industrial communication networks - Profiles - Part 3-6: Functional safety fieldbuses - Additional specifications for CPF 6",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784 3-6:2010 specifies a safety communication layer (services and protocol) based on CPF 6 of IEC 61784-1, IEC 61784-2 and IEC 61158 Type 8. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This part defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of IEC 61508 series for functional safety. These mechanisms may be used in various industrial applications such as process control, manufacturing automation and machinery. This second edition cancels and replaces the first edition published in 2007. It constitutes a technical revision. The main changes with respect to the previous edition are: updates in relation with changes in IEC 61784 3. This bilingual version published in 2011-11, corresponds to the English version published in 2010-07."
+  },
+  {
+    "reference": "IEC 61784-3-8:2021",
+    "edition": "3.0",
+    "date": "2021-05-19",
+    "title": "Industrial communication networks - Profiles - Part 3-8: Functional safety fieldbuses - Additional specifications for CPF8",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-8:2021 specifies a safety communication layer (services and protocol) based on CPF 8 of IEC 61784 1, IEC 61784-2 and IEC 61158 Type 18 and Type 23. It identifies the principles for functional safety communications defined in IEC 61784 3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 It does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of IEC 61508 (all parts) for functional safety. These mechanisms may be used in various industrial applications such as process control, manufacturing automation and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems."
+  },
+  {
+    "reference": "IEC 61784-3-12:2010",
+    "edition": "1.0",
+    "date": "2010-06-29",
+    "title": "Industrial communication networks - Profiles - Part 3-12: Functional safety fieldbuses - Additional specifications for CPF 12",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-3-12:2010 specifies a safety communication layer (services and protocol) based on CPF 12 of IEC 61784-2 and IEC 61158 Type 12. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This bilingual version (2012-02) corresponds to the monolingual English version, published in 2010-06."
+  },
+  {
+    "reference": "IEC 61784-3-12:2010/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-11-06",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 3-12: Functional safety fieldbuses - Additional specifications for CPF 12",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-3-13:2021",
+    "edition": "3.0",
+    "date": "2021-05-19",
+    "title": "Industrial communication networks - Profiles - Part 3-13: Functional safety fieldbuses - Additional specifications for CPF 13",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-13:2021 specifies a safety communication layer (services and protocol) based on CPF 13 of IEC 61784 2 and IEC 61158 Type 13. It identifies the principles for functional safety communications defined in IEC 61784 3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 It does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of IEC 61508 (all parts) for functional safety. These mechanisms may be used in various industrial applications such as process control, manufacturing automation and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems."
+  },
+  {
+    "reference": "IEC 61784-3-14:2010",
+    "edition": "1.0",
+    "date": "2010-06-29",
+    "title": "Industrial communication networks - Profiles - Part 3-14: Functional safety fieldbuses - Additional specifications for CPF 14",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-3-14:2010 specifies a safety communication layer (services and protocol) based on CPF 14 of IEC 61784-2 and IEC 61158 Type 14. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This bilingual version (2012-02) corresponds to the monolingual English version, published in 2010-06."
+  },
+  {
+    "reference": "IEC 61784-3-17:2016",
+    "edition": "1.0",
+    "date": "2016-07-28",
+    "title": "Industrial communication networks - Profiles - Part 3-17: Functional safety fieldbuses - Additional specifications for CPF 17",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-17:2016 specifies a safety communication layer (services and protocol) based on CPF 17 of IEC 61784-2 (CP 17/1) and IEC 61158 Type 21. It identifies the principles for functional safety communications defined in IEC 61784-3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only."
+  },
+  {
+    "reference": "IEC 61784-3-19:2024",
+    "edition": "1.0",
+    "date": "2024-10-15",
+    "title": "Industrial communication networks – Profiles – Part 3-19: Functional safety fieldbuses – Additional specifications for CPF 19",
+    "language": "EN-FR",
+    "description": "IEC 61784-3-19:2024 specifies a safety communication layer (services and protocol) based on IEC 61784‑1-19, IEC 61784-2-19 and the IEC 61158 series (Type 24 and Type 27). It identifies the principles for functional safety communications defined in IEC 61784‑3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 It does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a distributed network using fieldbus technology in accordance with the requirements of the IEC 61508 series for functional safety. These mechanisms can be used in various industrial applications such as process control, manufacturing automation and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems. NOTE 2 The resulting SIL claim of a system depends on the implementation of the selected functional safety communication profile within this system – implementation of a functional safety communication profile according to this document in a standard device is not sufficient to qualify it as a safety device."
+  },
+  {
+    "reference": "IEC 61784-5-1:2013",
+    "edition": "1.0",
+    "date": "2013-09-11",
+    "title": "Industrial communication networks - Profiles - Part 5-1: Installation of fieldbuses - Installation profiles for CPF 1",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-1:2013 specifies installation profiles for CPF 1 (FOUNDATION Fieldbus). Each CP installation profile is specified in a separate part of this series of standards. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-2:2018",
+    "edition": "4.0",
+    "date": "2018-08-30",
+    "title": "Industrial communication networks - Profiles - Part 5-2: Installation of fieldbuses - Installation profiles for CPF 2",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-2:2018 specifies the installation profiles for CPF 2 (CIP™ ). This contribution contains a number of related files covering the communication profiles to be used in conjunction with IEC 61918. The installation profile documents contained herewith provide the installation profiles of the communication profiles (CP) of a specific communication profile family (CPF) by stating which requirements of IEC 61918 fully apply and, where necessary, by supplementing, modifying, or replacing the other requirements. The installation profiles are specified in the annexes. These annexes are read in conjunction with IEC 61918. This fourth edition cancels and replaces the third edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) references to ISO/IEC 24702 have been replaced with references to ISO/IEC 11801-3 in Table B.1; b) errors have been corrected; c) Tables B11 and B13 have been added in support of 1,000 Mb/s 4 Pair Ethernet; d) Clarification of dual power supplies for Annex C."
+  },
+  {
+    "reference": "IEC 61784-5-2:2018/AMD1:2024",
+    "edition": "4.0",
+    "date": "2024-03-21",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-2: Installation of fieldbuses - Installation profiles for CPF 2",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-3:2018",
+    "edition": "4.0",
+    "date": "2018-08-30",
+    "title": "Industrial communication networks - Profiles - Part 5-3: Installation of fieldbuses - Installation profiles for CPF 3",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-3:2018 specifies the installation profiles for CPF 3 (PROFIBUS/PROFINET). This contribution contains a number of related files covering the communication profiles to be used in conjunction with IEC 61918. This installation profile documents contained herewith provide the installation profiles of the communication profiles (CP) of a specific communication profile family (CPF) by stating which requirements of IEC 61918 fully apply and, where necessary, by supplementing, modifying, or replacing the other requirements. The installation profiles are specified in the annexes. These annexes are read in conjunction with IEC 61918. This fourth edition cancels and replaces the third edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) an addition of 4-pair cabling (see C.4.4.1.2.1and C.5.3.2); b) an addition of the connector M12 X-Coding (see C.4.4.2.2); c) an addition of the definition of End-to-end links (see C.4.4.3.1); d) a revision of Table C.17 (see C.5.2.1); e) a formula for the NEXT limits of End-to-end links (see C.6.3.2.1.2)."
+  },
+  {
+    "reference": "IEC 61784-5-3:2018/AMD1:2024",
+    "edition": "4.0",
+    "date": "2024-03-26",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-3: Installation of fieldbuses - Installation profiles for CPF 3",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-4:2010",
+    "edition": "1.0",
+    "date": "2010-07-22",
+    "title": "Industrial communication networks - Profiles - Part 5-4: Installation of fieldbuses - Installation profiles for CPF 4",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-4:2010 specifies the installation profiles for CPF 4 (P-NET). The installation profiles are specified in the annexes. This bilingual version (2012-02) corresponds to the monolingual English version, published in 2010-07. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-4:2010/AMD1:2015",
+    "edition": "1.0",
+    "date": "2015-06-16",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-4: Installation of fieldbuses - Installation profiles for CPF 4",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-6:2024",
+    "edition": "5.0",
+    "date": "2024-04-03",
+    "title": "Industrial networks - Profiles - Part 5-6: Installation of fieldbuses - Installation profiles for CPF 6",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-6:2024 specifies the installation profiles for CPF 6 (INTERBUSTM)[1]. The installation profiles are specified in the annexes. These annexes are read in conjunction with IEC 61918:2018, IEC 61918:2018/AMD1:2022 and IEC 61918:2018/AMD2:2024. [1] INTERBUSTM is a trade name of INTERBUS Club, an independent organisation of users and vendors of INTERBUS products. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance to this profile does not require use of the trade name INTERBUS. Use of the trade name INTERBUS requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 61784-5-8:2024",
+    "edition": "3.0",
+    "date": "2024-04-03",
+    "title": "Industrial networks - Profiles - Part 5-8: Installation of fieldbuses - Installation profiles for CPF 8",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-8:2024 specifies the installation profiles for CPF 8 (CC-LinkTM[1]). The installation profiles are specified in the annexes. These annexes are read in conjunction with IEC 61918:2018, IEC 61918:2018/AMD1:2022 and IEC 61918:2018/AMD2:2024. [1] CC-Link™, CC-Link/LT™ and CC‑Link IE™ are trade names of Mitsubishi Electric Co., control of trade name use is given to CCLink Partner Association. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance to this profile does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 61784-5-10:2010",
+    "edition": "2.0",
+    "date": "2010-07-22",
+    "title": "Industrial communication networks - Profiles - Part 5-10: Installation of fieldbuses - Installation profiles for CPF 10",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-10:2010 specifies the installation profiles for CPF 10 (Vnet/IP ).The installation profiles are specified in the annex. This second edition cancels and replaces the first edition published in 2007. It constitutes an editorial revision. This edition does not include technical changes with respect to the previous edition. This bilingual version (2012-02) corresponds to the monolingual English version, published in 2010-07. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-10:2010/AMD1:2015",
+    "edition": "2.0",
+    "date": "2015-06-18",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-10: Installation of fieldbuses - Installation profiles for CPF 10",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-11:2013",
+    "edition": "3.0",
+    "date": "2013-09-17",
+    "title": "Industrial communication networks - Profiles - Part 5-11: Installation of fieldbuses - Installation profiles for CPF 11",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-11:2013 specifies the installation profiles for CPF 11 (TCnet). Each CP installation profile is specified in a separate part of this standard. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This third edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. It includes the following changes: Addition of a new Annex C (normative). This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-12:2024",
+    "edition": "3.0",
+    "date": "2024-03-21",
+    "title": "Industrial networks - Profiles - Part 5-12: Installation of fieldbuses - Installation profiles for CPF 12",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-12:2024 specifies the installation profile for CPF 12 (EtherCAT™). The installation profile is specified in Annex A. This annex is read in conjunction with IEC 61918:2018, IEC 61918:2018/AMD1:2022 and IEC 61918:2018/AMD2:2024. EtherCAT™ is a trade name of Beckhoff, Verl. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance to this profile does not require use of the trade name. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 61784-5-13:2013",
+    "edition": "1.0",
+    "date": "2013-09-17",
+    "title": "Industrial communication networks - Profiles - Part 5-13: installation of fieldbuses - Installation profiles for CPF 13",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-13:2013 specifies installation profiles for CPF 13 (Ethernet POWERLINK). Each CP installation profile is specified in a separate part of this series of standards. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-14:2013",
+    "edition": "2.0",
+    "date": "2013-09-13",
+    "title": "Industrial communication networks - Profiles - Part 5-14: Installation of fieldbuses - Installation profiles for CPF 14",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-14:2013 specifies the installation profiles for CPF 14 (EPA). Each CP installation profile is specified in a separate part of this standard. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This second edition cancels and replaces the second edition published in 2010 and constitutes a technical revision. It includes the following changes: - requirements for CP 14/3 have been added, - recommendations for the applications about the linear/ring topology networks have been added, - Table A.2 and Table A.6 have been updated. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-15:2010",
+    "edition": "1.0",
+    "date": "2010-07-22",
+    "title": "Industrial communication networks - Profiles - Part 5-15: Installation of fieldbuses - Installation profiles for CPF 15",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-15:2010 specifies the installation profiles for CPF 15/1 (MODBUS -TCP) and CPF 15/2 (RTPS).The installation profiles are specified in the annex. This annex is read in conjunction with IEC 61918:2010. This bilingual version (2012-02) corresponds to the monolingual English version, published in 2010-07. This publication is to be read in conjunction with IEC 61918:2010 ."
+  },
+  {
+    "reference": "IEC 61784-5-15:2010/AMD1:2015",
+    "edition": "1.0",
+    "date": "2015-06-18",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-15: Installation of fieldbuses - Installation profiles for CPF 15",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-16:2013",
+    "edition": "1.0",
+    "date": "2013-09-13",
+    "title": "Industrial communication networks - Profiles - Part 5-16: Installation of fieldbuses - Installation profiles for CPF 16",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-16:2013 specifies installation profiles for CPF 16 (SERCOS). Each CP installation profile is specified in a separate part of this series of standards. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-17:2013",
+    "edition": "1.0",
+    "date": "2013-09-17",
+    "title": "Industrial communication networks - Profiles - Part 5-17: Installation of fieldbuses - Installation profiles for CPF 17",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-17:2013 specifies installation profiles for CPF 17 (RAPIEnet). Each CP installation profile is specified in a separate part of this series of standards. The IEC 61784 series is produced to facilitate the use of communication networks in industrial control systems. This publication is to be read in conjunction with IEC 61918:2013 ."
+  },
+  {
+    "reference": "IEC 61784-5-19:2024",
+    "edition": "2.0",
+    "date": "2024-04-03",
+    "title": "Industrial networks - Profiles - Part 5-19: Installation of fieldbuses - Installation profiles for CPF 19",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-19:2024 specifies the installation profile for CPF 19 (MECHATROLINKTM[1]). The installation profiles are specified in the annexes. These annexes are read in conjunction with IEC 61918:2018, IEC 61918:2018/AMD1:2022 and IEC 61918:2018/AMD2:2024. [1] MECHATROLINKTM and Σ-LINKTM II are trade names of YASKAWA ELECTRIC CORPORATION. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trade names holder or any of its products. Compliance to this profile does not require use of the trade names. Use of the trade name requires permission of the trade name holder."
+  },
+  {
+    "reference": "IEC 61784-5-20:2018",
+    "edition": "1.0",
+    "date": "2018-08-30",
+    "title": "Industrial communication networks - Profiles - Part 5-20: Installation of fieldbuses - Installation profiles for CPF 20",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-20:2018 specifies the installation profiles for CPF 20 (ADS-net). This contribution contains a number of related files covering the communication profiles to be used with IEC 61918. This installation profile documents contained herewith provide the installation profiles of the communication profiles (CP) of a specific communication profile family (CPF) by stating which requirements of IEC 61918 fully apply and, where necessary, by supplementing, modifying, or replacing the other requirements. The installation profiles are specified in Annex A. This annex is read in conjunction with IEC 61918."
+  },
+  {
+    "reference": "IEC 61784-5-21:2018",
+    "edition": "1.0",
+    "date": "2018-08-30",
+    "title": "Industrial communication networks - Profiles - Part 5-21: Installation of fieldbuses - Installation profiles for CPF 21",
+    "language": "EN-FR, EN",
+    "description": "IEC 61784-5-21:2018 specifies the installation profiles for CPF 21 (FL-net). This contribution contains a number of related files covering the communication profiles to be used with IEC 61918. This installation profile documents contained herewith provide the installation profiles of the communication profiles (CP) of a specific communication profile family (CPF) by stating which requirements of IEC 61918 fully apply and, where necessary, by supplementing, modifying, or replacing the other requirements. The installation profiles are specified in Annex A. This annex is read in conjunction with IEC 61918."
+  },
+  {
+    "reference": "IEC 61784-5-21:2018/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-03-22",
+    "title": "Amendment 1 - Industrial communication networks - Profiles - Part 5-21: Installation of fieldbuses - Installation profiles for CPF 21",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61784-5-22:2024",
+    "edition": "1.0",
+    "date": "2024-03-11",
+    "title": "Industrial networks - Profiles - Part 5-22: Installation of fieldbuses - Installation profiles for CPF 22",
+    "language": "EN-FR",
+    "description": "IEC 61784-5-22:2024 specifies the installation profile for CPF 22 (AUTBUSTM [1] ). The installation profile is specified in Annex A. This annex is read in conjunction with IEC 61918:2018, IEC 61918:2018/AMD1:2022 and IEC 61918:2018/AMD2:2024. [1] AUTBUSTM is the trade name of the Kyland Technology Co., Ltd. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of the trademark holder or any of its products. Compliance does not require use of the trade name. Use of the trade name requires permission of Kyland Technology Co., Ltd."
+  },
+  {
+    "reference": "IEC 61918:2018",
+    "edition": "4.0",
+    "date": "2018-09-20",
+    "title": "Industrial communication networks - Installation of communication networks in industrial premises",
+    "language": "EN-FR",
+    "description": "IEC 61918:2018 specifies basic requirements for the installation of media for communication networks in industrial premises and within and between the automation islands, of industrial sites. This standard covers balanced and optical fibre cabling. It also covers the cabling infrastructure for wireless media, but not the wireless media itself. Additional media are covered in the IEC 61784-5 series. This fourth edition cancels and replaces the third edition published in 2013. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the reference to ISO/IEC 24702 has been replaced with reference to the new ISO/IEC 11801-3; this affects Table 2; b) some terms and abbreviated terms have been modified in Clause 3; c) Subclauses 4.1.2, 4.4.2.5, 4.4.3.4.1 and 5.7 have been updated; d) Figure 2 and Figure 3 have been updated; Figure 13, Figure 16, Figure 30 and Figure 49 have been added; e) Table 7 has been updated; f) Annex D and Annex M have been extended to cover additional communication profile families; Annex H has been extended to cover the M12-8 X-coding connector use; g) Annex O has been modified by including references to the new edition of the ISO/IEC 11801 series, ISO/IEC TR 11801-9902 and ISO/IEC 14763-4; h) Annex P has been added. This standard is to be used in conjunction with the IEC 61784-5 series with regard to the installation of communication profiles (CPs)."
+  },
+  {
+    "reference": "IEC 61918:2018/AMD1:2022",
+    "edition": "4.0",
+    "date": "2022-03-09",
+    "title": "Amendment 1 - Industrial communication networks - Installation of communication networks in industrial premises",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61918:2018/AMD2:2024",
+    "edition": "4.0",
+    "date": "2024-03-15",
+    "title": "Amendment 2 - Industrial communication networks - Installation of communication networks in industrial premises",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-1:2010",
+    "edition": "1.0",
+    "date": "2010-02-25",
+    "title": "Industrial communication networks - High availability automation networks - Part 1: General concepts and calculation methods",
+    "language": "EN-FR, EN",
+    "description": "IEC 62439-1:2010 is applicable to high-availability automation networks based on the ISO/IEC 8802-3 (IEEE 802.3) (Ethernet) technology. It specifies: - the common elements and definitions for other parts of the IEC 62439 series; - the conformance test specification (normative); - a classification scheme for network characteristics (informative); - a methodology for estimating network availability (informative); - the configuration rules, calculation and measurement method for a deterministic recovery time in RSTP. This standard cancels and replaces IEC 62439 published in 2008 and constitutes a technical revision. It includes the following changes: - a new calculation method for RSTP (rapid spanning tree protocol, IEEE 802.1Q), - two new redundancy protocols: HSR (High-availability Seamless Redundancy) and DRP (Distributed Redundancy Protocol), - a new method to calculate the maximum recovery time of RSTP in a restricted configuration (ring) to IEC 62439-1 as Clause 8, new specifications of the HSR (High-availability Seamless Redundancy) protocol, which shares the principles of PRP to IEC 62439-3 as Clause 5, and - introduces the DRP protocol as IEC 62439-6. This bilingual version (2013-07) corresponds to the monolingual English version, published in 2010-02."
+  },
+  {
+    "reference": "IEC 62439-1:2010/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-06-14",
+    "title": "Amendment 1 - Industrial communication networks - High availability automation networks - Part 1: General concepts and calculation methods",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-1:2010/AMD2:2016",
+    "edition": "1.0",
+    "date": "2016-02-25",
+    "title": "Amendment 2 - Industrial communication networks - High availability automation networks - Part 1: General concepts and calculation methods",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-2:2021",
+    "edition": "3.0",
+    "date": "2021-12-15",
+    "title": "Industrial communication networks - High availability automation networks - Part 2: Media Redundancy Protocol (MRP)",
+    "language": "EN-FR",
+    "description": "IEC 62439-2:2021 is applicable to high-availability automation networks based on the ISO/IEC/IEEE 8802-3 (IEEE Std 802.3) (Ethernet) technology. The IEC 62439-2:2021 specifies a recovery protocol based on a ring topology, designed to react deterministically on a single failure of an inter-switch link or switch in the network, under the control of a dedicated media redundancy manager node. The contents of the corrigendum of May 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62439-2:2021/COR1:2023",
+    "edition": "3.0",
+    "date": "2023-05-12",
+    "title": "Corrigendum 1 - Industrial communication networks - High availability automation networks - Part 2: Media Redundancy Protocol (MRP)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-3:2021",
+    "edition": "4.0",
+    "date": "2021-12-15",
+    "title": "Industrial communication networks - High availability automation networks - Part 3: Parallel Redundancy Protocol (PRP) and High-availability Seamless Redundancy (HSR)",
+    "language": "EN-FR",
+    "description": "IEC 62439-3:2021 specifies two related redundancy protocols that, in the event of failure of any network element, provide seamless switchover with zero recovery time: • PRP (Parallel Redundancy Protocol), which allows attaching nodes to two separate networks while allowing attachment of nodes to one network only; and • HSR (High-availability Seamless Redundancy), which allows threading two-port nodes in a ring or multi-port nodes in a meshed network. The contents of the corrigendum of April 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62439-3:2021/COR1:2023",
+    "edition": "4.0",
+    "date": "2023-04-21",
+    "title": "Corrigendum 1 - Industrial communication networks - High availability automation networks - Part 3: Parallel Redundancy Protocol (PRP) and High-availability Seamless Redundancy (HSR)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-4:2010",
+    "edition": "1.0",
+    "date": "2010-02-26",
+    "title": "Industrial communication networks - High availability automation networks - Part 4: Cross-network Redundancy Protocol (CRP)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62439-4:2010 is applicable to high-availability automation networks based on the ISO/IEC 8802-3 (IEEE 802.3) (Ethernet) technology. It specifies a redundancy protocol that is based on the duplication of the network, the redundancy protocol being executed within the end nodes, as opposed to a redundancy protocol built in the switches. The switchover decision is taken in each node individually. The cross-network connection capability enables single attached end nodes to be connected on either of the two networks. It cancels and replaces IEC 62439 published in 2008 and constitutes a technical revision. It includes the following significant technical changes with respect to IEC 62439 (2008): - adding a calculation method for RSTP (rapid spanning tree protocol, IEEE 802.1Q), - adding two new redundancy protocols: HSR (High-availability Seamless Redundancy) and DRP (Distributed Redundancy Protocol), - moving former Clauses 1 to 4 (introduction, definitions, general aspects) and the Annexes (taxonomy, availability calculation) to IEC 62439-1, which serves now as a base for the other documents, - moving Clause 5 (MRP) to IEC 62439-2 with minor editorial changes, - moving Clause 6 (PRP) was to IEC 62439-3 with minor editorial changes, - moving Clause 7 (CRP) was to IEC 62439-4 with minor editorial changes, and - moving Clause 8 (BRP) was to IEC 62439-5 with minor editorial changes, - adding a method to calculate the maximum recovery time of RSTP in a restricted configuration (ring) to IEC 62439-1 as Clause 8, - adding specifications of the HSR (High-availability Seamless Redundancy) protocol, which shares the principles of PRP to IEC 62439-3 as Clause 5, and - introducing the DRP protocol as IEC 62439-6. This publication is to be read in conjunction with IEC 62439-1:2010 ."
+  },
+  {
+    "reference": "IEC 62439-4:2010/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-02-24",
+    "title": "Amendment 1 - Industrial communication networks - High availability automation networks - Part 4: Cross-network Redundancy Protocol (CRP)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62439-6:2010",
+    "edition": "1.0",
+    "date": "2010-02-26",
+    "title": "Industrial communication networks - High availability automation networks - Part 6: Distributed Redundancy Protocol (DRP)",
+    "language": "EN-FR, EN",
+    "description": "IEC 62439-6:2010 is applicable to high-availability automation networks based on the ISO/IEC 8802-3 (IEEE 802.3) (Ethernet) technology. It specifies a recovery protocol based on a ring topology, designed to react deterministically on a single failure of an inter-switch link or switch in the network. Each switch has equal management role in the network. Double rings are supported. It cancels and replaces IEC 62439 published in 2008 and constitutes a technical revision. It includes the following significant technical changes with respect to IEC 62439 (2008): - adding a calculation method for RSTP (rapid spanning tree protocol, IEEE 802.1Q), - adding two new redundancy protocols: HSR (High-availability Seamless Redundancy) and DRP (Distributed Redundancy Protocol), - moving former Clauses 1 to 4 (introduction, definitions, general aspects) and the Annexes (taxonomy, availability calculation) to IEC 62439-1, which serves now as a base for the other documents, - moving Clause 5 (MRP) to IEC 62439-2 with minor editorial changes, - moving Clause 6 (PRP) was to IEC 62439-3 with minor editorial changes, - moving Clause 7 (CRP) was to IEC 62439-4 with minor editorial changes, and - moving Clause 8 (BRP) was to IEC 62439-5 with minor editorial changes, - adding a method to calculate the maximum recovery time of RSTP in a restricted configuration (ring) to IEC 62439-1 as Clause 8, - adding specifications of the HSR (High-availability Seamless Redundancy) protocol, which shares the principles of PRP to IEC 62439-3 as Clause 5, and - introducing the DRP protocol as IEC 62439-6. This publication is to be read in conjunction with IEC 62439-1:2010 ."
+  },
+  {
+    "reference": "IEC 62439-7:2011",
+    "edition": "1.0",
+    "date": "2011-12-16",
+    "title": "Industrial communication networks - High availability automation networks - Part 7: Ring-based Redundancy Protocol (RRP)",
+    "language": "EN-FR",
+    "description": "IEC 62439-7:2011 specifies a redundancy protocol that is based on a ring topology, in which the redundancy protocol is executed at the end nodes, as opposed to being built into the switches. Each node detects link failure and link establishment using media-sensing technologies, and shares the link information with the other nodes, to guarantee fast connectivity recovery times. The nodes have equal RRP network management functions. This publication is to be read in conjunction with IEC 62439-1:2010 . The contents of the corrigendum of May 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62439-7:2011/COR1:2015",
+    "edition": "1.0",
+    "date": "2015-05-20",
+    "title": "Corrigendum 1 -  Industrial communication networks - High availability automation networks - Part 7: Ring-based Redundancy Protocol (RRP)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62541-15:2025",
+    "edition": "1.0",
+    "date": "2025-02-27",
+    "title": "OPC unified architecture - Part 15: Safety",
+    "language": "EN-FR",
+    "description": "IEC 62541-15:2025 describes a safety communication layer (services and a protocol) for the exchange of SafetyData using IEC 62541 mechanisms. It identifies the principles for functional safety communications defined in IEC 61784‑3 that are relevant for this safety communication layer. This safety communication layer is intended for implementation in safety devices only. NOTE 1 This document targets controller-to-controller communication. However, easy expandability to other use-cases (e.g. OPC UA field level communication) has already been considered in the design of this document. NOTE 2 This document does not cover electrical safety and intrinsic safety aspects. Electrical safety relates to hazards such as electrical shock. Intrinsic safety relates to hazards associated with potentially explosive atmospheres. This document defines mechanisms for the transmission of safety-relevant messages among participants within a network using OPC UA technology in accordance with the requirements of the IEC 61508 series and IEC 61784-3 for functional safety. These mechanisms can be used in various industrial applications such as process control, manufacturing, automation, and machinery. This document provides guidelines for both developers and assessors of compliant devices and systems. NOTE 3 The resulting SIL claim of a system depends on the implementation of this document within the system – implementation of this document in a standard device is not sufficient to qualify it as a safety device."
+  },
+  {
+    "reference": "IEC 62591:2016",
+    "edition": "2.0",
+    "date": "2016-03-30",
+    "title": "Industrial networks - Wireless communication network and communication profiles - WirelessHART<sup>TM</sup>",
+    "language": "EN-FR",
+    "description": "IEC 62591:2016 specifies a wireless communication network in addition to the Type 20 in IEC 61158-3-20, IEC 61158-4-20, IEC 61158-5-20, IEC 61158-6-20 and a Communication Profile CP 9/2 in addition to IEC 61784-1, CPF 9. It specifies the following: - Physical layer service definition and protocol specification, - Data-link layer service and protocol, - Application layer service and protocol, - Network management, - Security, - Communication profile, - Wireless procedures and Gateway. This second edition cancels and replaces the first edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - enhancements to the performance statistics using key performance indicators (KPI); - \"Stale Data\" detection was added (see services Read stale data setpoints, Write stale data timer and Write stale data count setpoint).; - gateway commands were added; - a Quarantined State was added; - CCA Modes were extended to be more in-line with IEEE 802.15.4; - clarifications on whitelist and blacklist management were added; - clarifications on join (e.g. only require a single neighbor) were added; - clarifications on use of join links, table management, and defaults were added; - corrections and updates were made. The reader's attention is drawn to the fact that Annex M lists all of the \"in-some-country\" clauses on differing practices of a less permanent nature relating to the subject of this standard. The contents of the corrigendum of March 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62591:2016/COR1:2021",
+    "edition": "2.0",
+    "date": "2021-03-03",
+    "title": "Corrigendum 1 - Industrial networks - Wireless communication network and communication profiles - WirelessHART<sup>TM</sup>",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62601:2015",
+    "edition": "2.0",
+    "date": "2015-12-09",
+    "title": "Industrial networks - Wireless communication network and communication profiles - WIA-PA",
+    "language": "EN-FR",
+    "description": "IEC 62061:2015 specifies the system architecture and the communication protocol of Wireless networks for Industrial Automation - Process Automation (WIA-PA) that is built on IEEE STD 802.15.4-2011. This second edition cancels and replaces the first edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - changed IEEE STD 802.15.4-2006 to IEEE STD 802.15.4-2011 and added common modification for IEEE STD 802.15.4-2011 MAC profile, PHY profile and IEEE STD 802.15.4-2011 related references; - added common modifications for regional adoption and added Annex D and Annex E; - deleted extended MAC management services and added two DLSL management services; - added specific state machines for DLSL and NL; - unified representation of frame format and packet format; - changed format of definition of data types; - added detailed description of technologies for clearer understanding; - provided support for CCA modes 1, 2, and 3. Annex E lists all of the \"in-some-country\" clauses on differing practices of a less permanent nature relating to the subject of this standard. The contents of the corrigendum of March 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62601:2015/COR1:2021",
+    "edition": "2.0",
+    "date": "2021-03-03",
+    "title": "Corrigenda 1 - Industrial networks - Wireless communication network and communication profiles - WIA-PA",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62657-1:2017",
+    "edition": "1.0",
+    "date": "2017-06-19",
+    "title": "Industrial communication networks - Wireless communication networks - Part 1: Wireless communication requirements and spectrum considerations",
+    "language": "EN-FR",
+    "description": "IEC 62657-1:2017 provides the wireless communication requirements dictated by the applications of wireless communication systems in industrial automation, and requirements of related context. The requirements are specified in a way that is independent of the wireless technology employed. The requirements are described in detail and in such a way as to be understood by a large audience, including readers who are not familiar with the industry applications. This first edition cancels and replaces the first edition of IEC TS 62657-1 published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 62657‑1:2014: a) update of requirements for wireless industrial applications; b) addition of performance indicators and their measurement."
+  },
+  {
+    "reference": "IEC 62657-2:2025",
+    "edition": "4.0",
+    "date": "2025-02-14",
+    "title": "Industrial networks - Coexistence of wireless systems - Part 2: Coexistence management",
+    "language": "EN-FR",
+    "description": "IEC 62657-2:2025 specifies: – the fundamental assumptions, concepts, parameters, and procedures for wireless communication coexistence; – specifies coexistence parameters and how they are used in an application requiring wireless coexistence; – provides guidelines, requirements, and best practices for wireless communication's availability and performance in an industrial automation plant; it covers the life‑cycle of wireless communication coexistence; – helps the work of all persons involved with the relevant responsibilities to cope with the critical aspects at each phase of life-cycle of the wireless communication coexistence management in an industrial automation plant. Life-cycle aspects include: planning, design, installation, implementation, operation, maintenance, administration and training; – provides a common point of reference for wireless communication coexistence for industrial automation sites as a homogeneous guideline to help the users assess and gauge their plant efforts; – deals with the operational aspects of wireless communication coexistence regarding both the static human/tool-organization and the dynamic network self-organization. This document provides a major contribution to national and regional regulations by supporting to fulfil the requirements using coexistence management. This edition includes the following significant technical changes with respect to the previous edition: a) alignment of some definitions and specifications of coexistence parameters in order to facilitate their future inclusion in the IEC Common Data Dictionary (IEC CDD) maintained by the IEC; b) alignment of some definitions and specifications to be consistent with the new IEC 62657-3 and IEC 62657-4; c) edition 3 of this document was published in June 2022. Some comments were made in the last development stages of this document asking for explanations on how the parts of the IEC 62657 series were structured and how they were related to each other. Resolution of these comments was deferred until a next edition, which means this edition."
+  },
+  {
+    "reference": "IEC 62657-3:2022",
+    "edition": "1.0",
+    "date": "2022-05-30",
+    "title": "Industrial networks - Coexistence of wireless systems - Part 3: Formal description of the automated coexistence management and application guidance",
+    "language": "EN-FR",
+    "description": "IEC 62657-3:2022 specifies a general model approach for automated coexistence management and provides application guidance. This document provides the usage of related parameters and interfaces to establish and to maintain functions for automatic coexistence management. This document specifies an abstract description of the system elements, properties, interfaces and relationships between influencing parameters and characteristic parameters specified in IEC 62657-1 and IEC 62657-2."
+  },
+  {
+    "reference": "IEC 62657-4:2025",
+    "edition": "2.0",
+    "date": "2025-02-14",
+    "title": "Industrial networks - Coexistence of wireless systems - Part 4: Coexistence management with central coordination of wireless applications",
+    "language": "EN-FR",
+    "description": "IEC 62657-4:2025 specifies a concept and methods for central coordination (CC) of automation applications using wireless communications to extend the coexistence management according to IEC 62657-2. It establishes system elements, interfaces and relationships for a central coordination. Functions, data, and data exchange for assessing and maintaining the coexistence state are specified. This document specifies the central coordination point (CCP) approach as one example of the usage of the formal description given in IEC 62657-3. This document is applicable to develop, implement, or modify procedures or solutions. This document provides requirements for automated coexistence management systems. This document provides requirements for: – determination of the coexistence state, – automated coexistence management procedures, – CC amendments for existing wireless communication solutions, – CC functions that coordinate legacy and new wireless communication systems, – CC sequences and message formats for data exchange. This document is not restricted to a specific radio frequency range nor is it restricted to a specific wireless communication technology. This edition includes the following significant technical changes with respect to the previous edition: a) The data item (parameter) to be exchanged between CCP and CMWCA and CMWD to ensure interoperability between CCP providers and device providers. b) The sequence of services conducted between CCP and CMWCA and CMWD are now defined. When the CCP providers and the device providers implement similar process, clearly defined sequence and unified execution specifications ensure interoperability as expected. c) The message formats of sequence diagram to be exchanged between CCP and CMWCA and CMWD are defined. By defining the message formats, the hierarchical structure of each data (parameter), and implementing the same message format by the CCP provider and the device provider, enables to exchange data correctly and ensure interoperability."
+  },
+  {
+    "reference": "IEC 62734:2014",
+    "edition": "1.0",
+    "date": "2014-10-28",
+    "title": "Industrial networks - Wireless communication network and communication profiles - ISA 100.11a",
+    "language": "EN-FR",
+    "description": "IEC 62734:2014 provides specifications in accordance with the OSI Basic Reference Model, ISO/IEC 7498-1, (e.g., PhL, DL, etc.). It is intended to provide reliable and secure wireless operation for non-critical monitoring, alerting, supervisory control, open loop control, and closed loop control applications. It defines a protocol suite, including system management, gateway considerations, and security specifications, for low-data-rate wireless connectivity with fixed, portable, and slowly-moving devices, often operating under severe energy and power constraints. The application focus is the performance needs of process automation monitoring and control where end-to-end communication latencies on the order of at least 100 ms can be tolerated."
+  },
+  {
+    "reference": "IEC 62734:2014/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-07-31",
+    "title": "Amendment 1 - Industrial networks - Wireless communication network and communication profiles - ISA 100.11a",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62948:2017",
+    "edition": "1.0",
+    "date": "2017-07-27",
+    "title": "Industrial networks - Wireless communication network and communication profiles - WIA-FA",
+    "language": "EN-FR, EN",
+    "description": "IEC 62948:2017 specifies the system architecture and communication protocol of WIA-FA (Wireless Networks for Industrial Automation - Factory Automation) based on IEEE STD 802.11-2012 physical layer (PHY). This document applies to wireless network systems for factory automation measuring, monitoring and control. The contents of the corrigendum of March 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62948:2017/COR1:2021",
+    "edition": "1.0",
+    "date": "2021-03-03",
+    "title": "Corrigendum 1 - Industrial networks - Wireless communication network and communication profiles - WIA-FA",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 63444:2026",
+    "edition": "2.0",
+    "date": "2026-06-04",
+    "title": "Industrial networks - Ethernet-APL port profile / Ethernet-SPE profile specification",
+    "language": "EN",
+    "description": "IEC TS 63444:2026 is applicable to process automation equipment using a 10BASE-T1L compliant Physical Layer (PHY). Ethernet-APL intrinsically safe profiles with different predefined entity or limitation parameters (for example voltage, current, power, capacitance, inductance, cable length) simplify the examination of the interconnection of different Ethernet-APL ports. Furthermore, this document is also applicable to factory and building automation and control equipment using a 10BASE-T1L compliant, and Power over Data Lines (PoDL) compliant Physical Layer (PHY) for non-intrinsically safe Ethernet installations. NOTE In this document the term Ethernet-SPE is used for PoDL compliant PHY. The following technical features are part of this document: - topology with trunk and spur installation capability; - 2-wire technology (full-duplex communication data rate of 10 Mbit/s); - long distance (refers to cable lengths of several hundred meters, with spans up to 1 000 m); - intrinsic safety (installation of Ethernet-capable field devices in hazardous areas); - power supply to field devices over the same 2-wire cable used for data communication; - non-intrinsically safe Ethernet installation in factory and building automation. This second edition cancels and replaces the first edition published in 2023. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) new power class for Ethernet-APL; b) addition of Ethernet-SPE; c) clarification of usability of Ethernet-APL in non-hazardous locations."
+  },
+  {
+    "reference": "IEC PAS 63595:2025",
+    "edition": "1.0",
+    "date": "2025-09-10",
+    "title": "Industrial networks - 5G communication technology - General considerations",
+    "language": "EN",
+    "description": "IEC PAS 63595:2025 defines wireless communication systems based on 5G and beyond technologies applicable for industrial process measurement and control applications. Based on common terminology, generic descriptions, and use cases, this document provides requirements for related users, designers, and device manufacturers. This document considers cellular wireless communication systems according to the specifications of the terrestrial radio interfaces of International Mobile Telecommunications-2020 (IMT-2020) developed by 3GPP as 5G Release 15 and beyond (see ITU-R M.2150-1:02/2022). NOTE 1 Non-cellular professional stand-alone wireless communication systems, also called NR+, are not considered. NOTE 2 The PAS is a pre-standard and can be converted into a series of documents for users, designers, and device manufacturers. NOTE In accordance with ISO/IEC Directives, Part 1, IEC PASs are automatically withdrawn after 4 years."
+  },
+  {
+    "reference": "IEC PAS 63693:2026",
+    "edition": "1.0",
+    "date": "2026-06-03",
+    "title": "Industrial networks - Fieldbus specifications - WiTSnet",
+    "language": "EN",
+    "description": "IEC PAS 63693:2026 provides the common elements for basic time-critical messaging communications between devices in an automation environment and user programs with a means to access the fieldbus communication environment. The term “time-critical” is used to represent the presence of a time-window, within which one or more specified actions are required to be completed with some defined level of certainty. Failure to complete specified actions within the time window risks failure of the applications requesting the actions, with attendant risk to equipment, plant and possibly human life. This document defines in an abstract way: a) The externally visible services provided by the WiTSnet in terms of: 1) an abstract model for defining application resources (objects) capable of being manipulated by users via the use of the FAL services; 2) the primitive actions and events of the services; 3) the parameters associated with each primitive action and event, and the form which they take; 4) the interrelationship between these actions and events, and their valid sequences. b) The externally visible behavior provided by the WiTSnet in terms of: 1) the abstract syntax defining the data-link layer and application layer protocol data units conveyed between communicating data-link and application entities; 2) the transfer syntax defining encoding rules that are applied to the data-link layer and the application layer protocol data units; 3) the data-link and the application context state machines defining the data-link and the application service behaviors visible between communicating data-link and application entities; and 4) the data-link and the application relationship state machines defining the data-link and the application service behaviors visible between communicating data-link and application entities. The purpose of this document is to define the services provided to: c) the WiTSnet fieldbus application layer at the boundary between the application and data-link layers of the Fieldbus Reference Model; d) systems management at the boundary between the data-link layer and systems management of the Fieldbus Reference Model; e) the FAL user at the boundary between the user and the application layer of the Fieldbus Reference Model, and f) systems management at the boundary between the application layer and systems management of the Fieldbus Reference Model. The purpose of this document is to define the protocol provided to: g) define the wire-representation of the service primitives defined in clause 7; and h) define the externally visible behavior associated with their transfer."
+  }
+]

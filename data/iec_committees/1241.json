@@ -1,0 +1,242 @@
+[
+  {
+    "reference": "IEC 60044-7:1999",
+    "edition": "1.0",
+    "date": "1999-12-17",
+    "title": "Instrument transformers - Part 7: Electronic voltage transformers",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Applies to newly manufactured electronic voltage transformers with analogue output, for use with electrical measuring instruments and electrical protective devices at frequencies from 15 Hz to 100 Hz. The standard covers optical arrangements with electronic components. Three-phase voltage transformers are not included, but some of the requirements apply."
+  },
+  {
+    "reference": "IEC 60044-8:2002",
+    "edition": "1.0",
+    "date": "2002-07-19",
+    "title": "Instrument transformers - Part 8: Electronic current transformers",
+    "language": "EN, ES",
+    "description": "This part of IEC 60044 applies to newly manufactured electronic current transformers having an analogue voltage output or a digital output, for use with electrical measuring instruments and electrical protective devices at nominal frequencies from 15 Hz to 100 Hz."
+  },
+  {
+    "reference": "IEC 61869-1:2023",
+    "edition": "2.0",
+    "date": "2023-06-14",
+    "title": "Instrument transformers - Part 1: General requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-1:2023 is applicable to newly manufactured instrument transformers intended for applications where the nominal voltage is higher than 1 kV AC or 1,5 kV DC, with an analogue or a digital secondary signal for measuring, protection and control purposes, with rated frequencies from 15 Hz to 400 Hz, or for DC applications. The general requirements for instrument transformers for applications in LV systems (nominal voltage = 1 kV AC or = 1,5 kV DC) are covered by IEC 61869-201. This part of IEC 61869 is a product family standard and covers general requirements only. For each type of instrument transformer, the product standard is composed of this document and the relevant specific product standard. This part of IEC 61869 contains the requirements for the limits of the errors both for analogue and digital secondary signal. The other characteristics of a digital interface for instrument transformer are standardised in IEC 61869-9 as an application of the IEC 61850 horizontal standard series, covering communication networks and systems for power utility automation. This part of IEC 61869 considers bandwidth requirements. The accuracy requirements on harmonics and requirements for the anti-aliasing filter are specified in 5.7. IEC 61869-1:2023 cancels and replaces the first edition published in 2007 and IEC 61869-6:2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) merger with IEC 61869-6:2016; b) new scope: equipment for HV applications with a nominal voltage ; 1 kV AC or 1,5 kV DC; c) new classification of some special tests as type tests or routine test; d) additional type tests, additional special tests and new clause for commissioning tests; e) new annexes E, F, G and I."
+  },
+  {
+    "reference": "IEC 61869-2:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Instrument transformers - Part 2: Additional requirements for current transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-2:2012 is applicable to newly manufactured inductive current transformers for use with electrical measuring instruments and/or electrical protective devices having rated frequencies from 15 Hz to 100 Hz. This International Standard cancels and replaces the first edition of IEC 60044-1, published in 1996, and its Amendment 1 (2000) and Amendment 2 (2002), and the first edition of IEC 60044-6, published in 1992. Additionally it introduces technical innovations in the standardization and adaptation of the requirements for current transformers for transient performance. This publication is to be read in conjunction with IEC 61869-1:2007 . The contents of the Interpretation Sheet 1 of January 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-2:2012/ISH1:2022",
+    "edition": "1.0",
+    "date": "2022-01-27",
+    "title": "Interpretation Sheet 1 - Instrument transformers - Part 2: Additional requirements for current transformers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61869-3:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Instrument transformers - Part 3: Additional requirements for inductive voltage transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-3:2011 applies to new inductive voltage transformers for use with electrical measuring instruments and electrical protective devices at frequencies from 15 Hz to 100 Hz. This standard replaces IEC 60044-2: Inductive Voltage Transformers. This publication is to be read in conjunction with IEC 61869-1:2007 ."
+  },
+  {
+    "reference": "IEC 61869-4:2013",
+    "edition": "1.0",
+    "date": "2013-11-19",
+    "title": "Instrument transformers - Part 4: Additional requirements for combined transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-4:2013 applies to newly-manufactured combined transformers for use with electrical measuring instruments and electrical protective devices at frequencies from 15 Hz to 100 Hz. The requirements and tests of this standard, in addition to the requirements and tests of IEC 61869-1, IEC 61869-2 and IEC 61869-3 cover current and inductive voltage transformers that are necessary for combined instrument transformers. This standard replaces IEC 60044-3: Combined transformers. This publication is to be read in conjunction with IEC 61869-1:2007 , IEC 61869-2:2012 and IEC 61869-3:2011 . The contents of the corrigendum of August 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-4:2013/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-08-27",
+    "title": "Corrigendum 1 - Instrument transformers - Part 4: Additional requirements for combined transformers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61869-5:2011",
+    "edition": "1.0",
+    "date": "2011-07-13",
+    "title": "Instrument transformers - Part 5: Additional requirements for capacitor voltage transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-5:2011 applies to new single-phase capacitor voltage transformers connected between line and ground for system voltages Um ≥ 72,5 kV at power frequencies from 15 Hz to 100 Hz. They are intended to supply a low voltage for measurement, control and protective functions. This standard replaces IEC 60044-5 regarding capacitor voltage transformers as well as IEC-PAS 60044-5 for capacitor voltage transformers. This publication is to be read in conjunction with IEC 61869-1:2007 . The contents of the corrigendum of August 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-5:2011/COR1:2015",
+    "edition": "1.0",
+    "date": "2015-08-28",
+    "title": "Corrigendum 1 - Instrument transformers - Part 5: Additional requirements for capacitor voltage transformers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61869-9:2016",
+    "edition": "1.0",
+    "date": "2016-04-27",
+    "title": "Instrument transformers - Part 9: Digital interface for instrument transformers",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61869-9:2016 is a product family standard applicable to instrument transformers with digital output. The product standard is composed of IEC 61869-1 and IEC 61869-6, in addition to this standard and the relevant product specific standards in the IEC 61869 series (Part 7, Part 8, Part 12, Part 13, Part 14, and Part 15). This standard defines requirements for digital communications of instrument transformer measurements. It is based on the IEC 61850 series, UCA international users group document Implementation guideline for digital interface to instrument transformers using IEC 61850-9-2, and the relevant parts of IEC 60044-8 that are replaced by this standard. It includes additional improvements including the IEC 61588 network based time synchronization. This first edition replaces the corresponding specific requirements previously contained in IEC 60044-8, published in 2002. This International Standard contains specific requirements for electronic low power instrument transformers (LPIT) having a digital output. However, the reader is encouraged to use its most recent edition. This publication contains an attached file in the form of a .xml file. This file is intended to be used as a complement and does not form an integral part of the publication."
+  },
+  {
+    "reference": "IEC 61869-10:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Instrument transformers - Part 10: Additional requirements for low-power passive current transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-10:2017 is a product standard and covers only additional requirements for low-power passive current transformers. The product standard for low-power passive current transformers comprises IEC 61869-1, together with IEC 61869-6 and this document with specific requirements. This document is applicable to newly manufactured low-power passive current transformers with analogue output for use with electrical measuring instruments or electrical protective devices having a rated frequency from 15 Hz to 100 Hz. This document covers low-power passive current transformers used for measurement or protection and multi-purpose low-power passive current transformers used for both measurement and protection. This first edition of IEC 61869-10, together with IEC 61869-1, IEC 61869-6, IEC 61869-8 and IEC 61869-9, cancels and replaces the first edition of IEC 60044-8, published in 2002. This edition constitutes a technical revision. The technical changes concern IEC TC 38's decision to restructure the whole set of stand-alone standards in the IEC 60044 series and transform it into a new set of standards composed of general requirements documents and specific requirements documents."
+  },
+  {
+    "reference": "IEC 61869-11:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Instrument transformers - Part 11: Additional requirements for low power passive voltage transformers",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-11:2017 is a product standard and covers only additional requirements for low-power passive voltage transformers (passive LPVT). The product standard for low-power passive voltage transformers is composed of IEC 61869-1, along with IEC 61869-6 and this document with specific requirements. This document is applicable to newly manufactured low-power passive voltage transformers with analogue output having rated frequencies from 15 Hz to 100 Hz for use with electrical measuring instruments or electrical protective devices. This document covers low-power passive voltage transformers used for measurement or protection and low-power passive voltage transformers used for both measurement and protection. Low-power passive voltage transformers have analogue output only (for digital output or for technology using any kind of active electronic components refer to future IEC 61869-7). Such low-power passive voltage transformers can include the secondary signal cable (transmitting cable). The secondary voltage of the low-power passive voltage transformer is proportional to the primary voltage. Derivative output signals are not within the scope of this document. This first edition of IEC 61869-11, together with IEC 61869-1 and IEC 61869-6, cancels and replaces the relevant clauses or subclauses of the first edition of IEC 60044-7, published in 1999 and the first edition of IEC 60044-8, published in 2002. This edition constitutes a technical revision. The contents of the Interpretation Sheet 1 of September 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-11:2017/ISH1:2021",
+    "edition": "1.0",
+    "date": "2021-09-15",
+    "title": "Interpretation sheet 1 - Instrument transformers - Part 11: Additional requirements for low-power passive voltage transformers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61869-13:2021",
+    "edition": "1.0",
+    "date": "2021-02-03",
+    "title": "Instrument transformers - Part 13: Stand-alone merging unit (SAMU)",
+    "language": "EN-FR",
+    "description": "IEC 61869-13:2021 is a product standard and covers only additional requirements for stand-alone merging units (SAMUs) used for AC applications having rated frequencies from 15 Hz to 100 Hz. The digital output format specification is not covered by this document; it is standardized in IEC 61869-9 as an application of IEC 61850, which specifies the power utility communication architecture. This document covers SAMUs having standardized analogue inputs (for example: 1 A, 5 A, 3,25 V / √3 or 100 V / √3) provided by instrument transformers compliant with relevant product standards (e.g. IEC 61869-2 to IEC 61869-5, IEC 61869-7, IEC 61869-8, IEC 61869-10, IEC 61869-11, IEC 60044-1 to IEC 60044-6, IEC 60185, IEC 60186, IEEE C57.13), and aims to convert them to the digital output compliant with IEC 61869-9. Other input and output types are outside the scope of this document. Appropriate SAMU functionality can be combined with switchgear controller functionality defined in IEC 62271-3 or other IED functionality defined in IEC 60255 (all parts). Cyber security requirements are outside the scope of this document and are covered by the IEC 62351 series. IEC 61869-13:2021 is to be used in conjunction with IEC 61869-9:2016, Digital interface for instrument transformers, and IEC 61869­6:2016, Additional general requirements for low-power instrument transformers, which, in turn, are based on IEC 61869-1:2007, General requirements."
+  },
+  {
+    "reference": "IEC 61869-14:2018",
+    "edition": "1.0",
+    "date": "2018-07-17",
+    "title": "Instrument transformers - Part 14: Additional requirements for current transformers for DC applications",
+    "language": "EN-FR",
+    "description": "IEC 61869-14:2018 provides all requirements specific to current transformers to be used in DC applications (DCCTs), whatever the technology used. The output signal can be analogue or digital. It is applicable to newly manufactured current transformers used for measuring, protection and/or control applications in DC power systems with a rated voltage above 1,5 kV. The general configuration of a single-pole low-power instrument transformer is described in Figure 601 of IEC 61869-6:2016. The DCCTs intended for current measurement in the transistor branch of the VSC valve (referred to as CT4a and CT4b in Figure 1403 and Table 1402) are not covered by this document, and will be considered in a future revision. IEC 61869-14:2018 applies to current transformers intended to be used in DC applications with at least one of the following functions: • measure DC current (with significant harmonics); • withstand DC voltage. Depending on the position on the DC system, different kinds of application exist, which are briefly described below, together with the approximate voltage or current wave shape."
+  },
+  {
+    "reference": "IEC 61869-15:2018",
+    "edition": "1.0",
+    "date": "2018-07-17",
+    "title": "Instrument transformers - Part 15: Additional requirements for voltage transformers for DC applications",
+    "language": "EN-FR",
+    "description": "IEC 61869-15:2018 provides all requirements specific to voltage transformers to be used in DC applications (DCVTs), whatever the technology used. The output signal can be analogue or digital. It is applicable to newly manufactured voltage transformers used for measuring, protection and/or control applications in DC power systems with a rated voltage above 1,5 kV. This document covers passive voltage dividers as well as active voltage transformers, used for measurement, control and protection. The general configuration of a single-pole low-power instrument transformer is described in Figure 601 of IEC 61869-6:2016. IEC 61869-15:2018 applies to voltage transformers (VT) intended to be used in DC applications with the following functions: • measure DC voltage (with significant harmonics); • withstand DC voltage. Two main technologies of DC converters exist today: LCC and VSC • Line-commutated converters (LCC) are based on thyristor converters. They are characterized by a single direction of current flow, and a voltage polarity reversal possibility. Significant voltage and current harmonics exist up to frequencies of about 3 kHz to 4 kHz. • Voltage source converters (VSC) are based on transistor converters. They are characterized by a bi-directional current flow and a single voltage polarity. Voltage and current harmonics exist up to frequencies of about 20 kHz."
+  },
+  {
+    "reference": "IEC 61869-20:2025",
+    "edition": "1.0",
+    "date": "2025-04-16",
+    "title": "Instrument transformers – Part 20: Safety requirements of instrument transformers for high voltage applications",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-01 IEC 61869-20:2025 This part of IEC 61869 specifies the requirements for the safe design and operation, and tests for the safety of instrument transformers whose highest voltage for equipment is higher than 1 kV AC or 1,5 kV DC. Low power instrument transformers are not covered by this document. The content of the corrigendum 1 (2026-01) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-20:2025/COR1:2026",
+    "edition": "1.0",
+    "date": "2026-01-08",
+    "title": "Corrigendum 1 - Instrument transformers – Part 20: Safety requirements of instrument transformers for high voltage applications",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC/IEEE 61869-21:2025",
+    "edition": "1.0",
+    "date": "2025-12-15",
+    "title": "Instrument transformers - Part 21: Uncertainty evaluation in the accuracy test of instrument transformers",
+    "language": "EN",
+    "description": "IEC/IEEE 61869-21:2025 provides the requirements, the methods and the guidelines to be applied on the evaluation of uncertainty in testing the accuracy of instrument transformers (IT) with an analogue or a digital secondary signal for measuring, protection and control purposes, with rated frequencies from 15 Hz to 400 Hz. This document covers the uncertainty evaluation in testing the accuracy of IT (including on-site testing of accuracy) independently of the technology used (either inductive or non-inductive). This document reports on how to take into account the sources of uncertainty in the setups for accuracy and how to combine their effects in order to evaluate the uncertainty in the test results."
+  },
+  {
+    "reference": "IEC 61869-99:2022",
+    "edition": "1.0",
+    "date": "2022-11-08",
+    "title": "Instrument transformers - Part 99: Glossary",
+    "language": "EN-FR, ES",
+    "description": "IEC 61869-99:2022 contains the glossary of specific terminology and definitions used in the field of instrument transformers within the various parts of the series. Unless it is otherwise specified, in this document all periodic electrical quantities are understood to be RMS values. The contents of the corrigendum of January 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61869-99:2022/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-01-04",
+    "title": "Corrigendum 1 - Instrument transformers - Part 99: Glossary",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61869-100:2017",
+    "edition": "1.0",
+    "date": "2017-01-20",
+    "title": "Instrument transformers - Part 100: Guidance for application of current transformers in power system protection",
+    "language": "EN",
+    "description": "IEC TR 61869-100:2017(E) is applicable to inductive protective current transformers meeting the requirements of the IEC 61869-2 standard. It may help relay manufacturers, CT manufacturers and project engineers to understand how a CT responds to simplified or standardized short circuit signals. Therefore, it supplies advanced information to comprehend the definition of inductive current transformers as well as their requirements. The document aims to provide information for the casual user as well as for the specialist. Where necessary, the level of abstraction is mentioned in the document. It also discusses the question about the responsibilities in the design process for current transformers. The contents of the corrigendum of October 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 61869-100:2017/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-10-18",
+    "title": "Corrigendum 1 - Instrument transformers - Part 100: Guidance for application of current transformers in power system protection",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61869-102:2014",
+    "edition": "1.0",
+    "date": "2014-01-21",
+    "title": "Instrument transformers - Part 102: Ferroresonance oscillations in substations with inductive voltage transformers",
+    "language": "EN, ES",
+    "description": "IEC/TR 61869-102:2014(E) provides technical information for understanding the undesirable phenomenon of ferroresonance oscillations in medium voltage and high voltage networks in connection with inductive voltage transformers. Ferroresonance can cause considerable damage to voltage transformers and other equipment. Ferroresonance oscillations may also occur with other non-linear inductive components."
+  },
+  {
+    "reference": "IEC TR 61869-103:2012",
+    "edition": "1.0",
+    "date": "2012-05-07",
+    "title": "Instrument transformers - The use of instrument transformers for power quality measurement",
+    "language": "EN",
+    "description": "IEC/TR 61869-103:2012(E) is applicable to inductive and electronic instrument transformers for use with electrical measuring instruments for measurement and interpretation of results for power quality parameters in 50/60 Hz a.c. power supply systems. It gives guidance in the usage of HV instrument transformers for measuring the following power quality parameters; power frequency, magnitude of the supply voltage and current, flicker, supply voltage dips and swells, voltage interruptions, transient voltages, supply voltage unbalance, voltage and current harmonics and interharmonics, mains signalling on the supply voltage and rapid voltage changes."
+  },
+  {
+    "reference": "IEC 62689-1:2016",
+    "edition": "1.0",
+    "date": "2016-05-12",
+    "title": "Current and voltage sensors or detectors, to be used for fault passage indication purposes - Part 1: General principles and requirements",
+    "language": "EN-FR",
+    "description": "IEC 62689-1:2016 defines the minimum requirements (therefore performances) and consequent classification and tests (with the exception of functional and communication ones) for fault passage indicators (FPIs) and distribution substation units (DSUs) (including their current and/or voltage sensors), which are, respectively, a device or a device/combination of devices and/or functions able to detect faults and provide indications about their localization."
+  },
+  {
+    "reference": "IEC 62689-2:2016",
+    "edition": "1.0",
+    "date": "2016-05-13",
+    "title": "Current and voltage sensors or detectors, to be used for fault passage indication purposes - Part 2: System aspects",
+    "language": "EN-FR",
+    "description": "IEC 62689-2:2016 describes electric phenomena and electric system behaviour during faults, according to the most widely diffused distribution system architecture and to fault typologies, to define the functional requirements for fault passage indicators (FPI) and distribution substation units (DSU) (including their current and/or voltage sensors), which are, respectively, a device or a device/combination of devices and/or of functions able to detect faults and provide indications about their localization. By localization of the fault is meant the fault position with respect to the FPI/DSU installation point on the network (upstream or downstream from the FPI/DSU's location) or the direction of the fault current flowing through the FPI itself. The fault localization may be obtained - directly from the FPI/DSU, or - from a central system using information from more FPIs or DSUs, considering the features and the operating conditions of the electric system where the FPIs/DSUs are installed. This part of IEC 62689 is therefore aimed at helping users in the appropriate choice of FPIs/DSUs (or of a system based on FPI/DSU information) properly operating in their networks, considering adopted solutions and operation rules (defined by tradition and/or depending on possible constraints concerning continuity and quality of voltage supply defined by a national regulator), and also taking into account complexity of the apparatus and consequent cost. This part of IEC 62689 is mainly focused on system behaviour during faults, which is the \"core\" of FPI/DSU fault detection capability classes described in IEC 62689-1, where all requirements are specified in detail."
+  },
+  {
+    "reference": "IEC TR 62689-100:2016",
+    "edition": "1.0",
+    "date": "2016-10-26",
+    "title": "Current and voltage sensors or detectors, to be used for fault passage indication purposes - Part 100: Requirements and proposals for the IEC 61850 series data model extensions to support fault passage indicators applications",
+    "language": "EN",
+    "description": "IEC TR 62689-100:2016(E), which is a Technical Report, was prepared jointly with TC 57 with the scope to prepare requirements and proposals for the IEC 61850 series data model extensions to support fault passage indicators (all classes and extended functions) applications to be introduced in the future IEC 61850-90-6 and that, in turn, will be needed for the preparation of the future IEC 62689-3."
+  },
+  {
+    "reference": "IEC/IEEE 63253-5713-8:2024",
+    "edition": "1.0",
+    "date": "2024-11-26",
+    "title": "Station Service Voltage Transformers (SSVT)",
+    "language": "EN",
+    "description": "IEC/IEEE 63253-5713-8:2024 describes electrical and mechanical requirements of single-phase station service voltage transformers with system voltages of 46 kV or higher and with the maximum rated voltage of the power winding of 1 000 V. This document is a basis for the establishment of performance and limited electrical and mechanical interchangeability requirements of the equipment are described. It is also a basis for assistance in the proper selection of such equipment. A station service voltage transformer (SSVT) is a single-phase transformer to be connected line-to-earth on an effectively earthed system. It can be used either as an individual unit for supplying single-phase loads, or in a three-phase bank to support three-phase loads. A typical application is to supply substation power such as lighting, pump and motor loads. The SSVT can be provided with a measuring winding when requested by the user."
+  }
+]

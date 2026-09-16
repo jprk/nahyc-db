@@ -1,0 +1,1138 @@
+[
+  {
+    "reference": "ISO/IEC 2382-37:2022",
+    "edition": "3.0",
+    "date": "2022-03-29",
+    "title": "Information technology - Vocabulary - Part 37: Biometrics",
+    "language": "EN, FR",
+    "description": "This document establishes a systematic description of the concepts in the field of biometrics pertaining to recognition of human beings. This document also reconciles variant terms in use in pre-existing International Standards on biometrics against the preferred terms, thereby clarifying the use of terms in this field. This document does not cover concepts (represented by terms) from information technology, pattern recognition, biology, mathematics, etc. Biometrics uses such fields of knowledge as a basis. In principle, mode-specific terms are outside of scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 5152:2024",
+    "edition": "1.0",
+    "date": "2024-07-11",
+    "title": "Information technology - Biometric performance estimation methodologies using statistical models",
+    "language": "EN",
+    "description": "This document provides statistical methodologies to estimate false match rates (FMRs) from small biometric sample sets. This document intends to: — lay out a methodology for biometric performance estimation based on extrapolation using extreme value statistical models; — provide statistical methodologies to estimate FMRs of biometric verification systems; — be applicable to systems that include algorithms that produce likelihood dissimilarity or similarity scores; NOTE Throughout the document, if not otherwise specified, scores refer to similarity scores. — specify the methodology for data recording and result reporting; — introduce metrics for the estimated biometric performance. The following are not within the scope of this document. — Estimation of false positive identification rates for one-to-many implementations. — Estimation of false accept rates for verification transactions."
+  },
+  {
+    "reference": "ISO/IEC 9868:2025",
+    "edition": "1.0",
+    "date": "2025-02-13",
+    "title": "Information technology - Design, development, use and maintenance of biometric identification systems involving passive capture subjects",
+    "language": "EN",
+    "description": "This document provides recommendations and requirements for the design, development, use and maintenance of biometric identification systems involving passive capture subjects, including pre- and post-deployment evaluation. While the emphasis is on surveillance systems, this document is also applicable to other types of biometric identification systems involving passive capture subjects, regardless of biometric characteristic or sensing technology. This includes systems involving passive capture of subjects where some capture subjects enrolled voluntarily. This document does not apply to biometric verification systems and biometric identification systems only involving capture subjects deliberately taking part in the capture. This document does not define specific services, platforms or tools."
+  },
+  {
+    "reference": "ISO/IEC 19784-1:2018",
+    "edition": "2.0",
+    "date": "2018-03-23",
+    "title": "Information technology - Biometric application programming interface - Part 1: BioAPI specification",
+    "language": "EN",
+    "description": "ISO/IEC 19784-1:2018 defines the Application Programming Interface (API) and Service Provider Interface (SPI) for standard interfaces within a biometric system that support the provision of that biometric system using components from multiple vendors. It provides interworking between such components through adherence to this and to other International Standards. For use in a system that does not include a BioAPI Framework (called a framework-free BioAPI system), only the SPI interface is applicable, with applications interfacing directly to that in a platform-specific manner. NOTE 1 Many clauses and/or sub-clauses of this document are not applicable for implementation of a framework-free BioAPI system. These are identified at the head of the clause of sub-clause. The BioAPI specification is applicable to a broad range of biometric technology types. It is also applicable to a wide variety of biometrically enabled applications, from personal devices, through network security applications, to large complex identification systems. ISO/IEC 19784-1:2018 supports an architecture in which a BioAPI Framework supports multiple simultaneous biometric applications (provided by different vendors), using multiple dynamically installed and loaded (or unloaded) Biometric Service Provider (BSP) components and BioAPI Units (provided by other different vendors), possibly using one of an alternative set of BioAPI Function Provider (BFP) components (provided by other vendors) or by direct management of BioAPI Units. NOTE 2 Where BioAPI Units are provided by a different vendor fom a BSP, a standardised BioAPI Function Provider Interface (FPI) may be needed. This is outside the scope of this document, but is specified by later parts for the different categories of FPI. NOTE 3 Where a BioAPI Framework is not used in a system, the ability to support multiple applications and multiple BSPs is platform-dependent and depends on the nature of the system-integration techniques employed. ISO/IEC 19784-1:2018 is not required (and should normally not be referenced) when a complete biometric system is being procured from a single vendor, particularly if the addition or interchange of biometric hardware, services, or applications is not a feature of that biometric system. (Such systems are sometimes referred to as \"embedded systems\".) Standardisation of such systems is not in the scope of this document. ISO/IEC 19784-1:2018 does not define security requirements for biometric applications and biometric service providers. NOTE 4 ISO 19092 provides guidelines on security aspects of biometric systems[3]. The performance of biometric systems (particularly in relation to searches of a large population to provide the biometric identification capability) is not in the scope of this document. Trade-offs between interoperability and performance are not in the scope of this document. ISO/IEC 19784-1:2018 specifies a version of the BioAPI specification that is defined to have a version number described as Major 2, Minor 0, or version 2.0. It also specifies a version number described as Major 2, Minor 1, or version 2.1 that provides an enhanced Graphical User Interface. It also specifies a version number described as Major 2, Minor 2, or version 2.2 that provides features supporting fusion and security. Some clauses and sub-clauses apply only to one of these versions, some to two or more. This is identified at the head of the relevant clauses and sub-clauses. NOTE 5 Earlier versions of the BioAPI specification were not International Standards. NOTE 6 The differences between the requirements of the 2.0 specification and the 2.1 specification for framework-free operation relate only to the biometric type values and encodings. Conformance requirements are specified in Clause 5."
+  },
+  {
+    "reference": "ISO/IEC 19784-2:2007",
+    "edition": "1.0",
+    "date": "2007-01-15",
+    "title": "Information technology - Biometric application programming interface - Part 2: Biometric archive function provider interface",
+    "language": "EN",
+    "description": "ISO/IEC 19784-2:2007 defines the interface between a biometric service provider (BSP) and a biometric archive function provider (BAFP) for BioAPI. A BAFP encapsulates all functionality for the storage, search and management of biometric reference data regardless of the kind of physical storage media. Using a BAFP, a BSP does not have to provide special handling of different storage media like database servers, smartcards, database web services, etc. Whatever media is used, the BSP in all cases handles the same interface for a BAFP. The interface description contains management functions to attach and detach different BAFPs, to query biometric data records and to store biometric data records."
+  },
+  {
+    "reference": "ISO/IEC 19784-2:2007/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-05-11",
+    "title": "Information technology - Biometric application programming interface - Part 2: Biometric archive function provider interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19784-2:2007/COR2:2013",
+    "edition": "1.0",
+    "date": "2013-11-13",
+    "title": "Information technology - Biometric application programming interface - Part 2: Biometric archive function provider interface - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19784-4:2011",
+    "edition": "1.0",
+    "date": "2011-02-16",
+    "title": "Information technology - Biometric application programming interface - Part 4: Biometric sensor function provider interface",
+    "language": "EN",
+    "description": "ISO/IEC 19784-4:2011 specifies a biometric sensor interface for a Biometric Service Provider (BSP, see ISO/IEC 19784-1). The interface supports a BSP wishing to provide the BioAPI Service Provider Interface (SPI) functions, whilst removing device handling activity from the BSP. ISO/IEC 19784-4:2011 provides an interface that can be used by all types of biometric sensor, including inter alia image streaming sensors (infrared, face, iris, finger, etc.), voice streaming sensors and digital tablets providing dynamic signature data. It is not in the scope of ISO/IEC 19784-4:2011 to define security and privacy requirements for capturing and transferring of biometric data across the Sensor Function Provider Interface (SFPI)."
+  },
+  {
+    "reference": "ISO/IEC 19784-4:2011/COR1:2013",
+    "edition": "1.0",
+    "date": "2013-02-11",
+    "title": "Information technology - Biometric application programming interface - Part 4: Biometric sensor function provider interface - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19785-1:2020",
+    "edition": "3.0",
+    "date": "2020-09-14",
+    "title": "Information technology - Common Biometric Exchange Formats Framework - Part 1: Data element specification",
+    "language": "EN",
+    "description": "This document defines: — structures and data elements for biometric information records (BIRs); — the concept of a domain of use to establish the applicability of a standard or specification that conforms with CBEFF requirements; — the concept of a CBEFF patron format, which is a published BIR format specification that complies with CBEFF requirements, specified by a CBEFF patron; — the abstract values and associated semantics of a set of CBEFF data elements to be used in the definition of CBEFF patron formats; This document describes methods to define CBEFF patron formats using CBEFF data elements to specify the structure of BIRs, including the standard biometric headers (SBHs). This document also provides the means for identification of BDB formats in a BIR, but the standardization and interoperability of BDB formats is not within the scope of this document. This document provides a security block (SB) as a means for BIRs to carry information about the encryption of a BDB in the BIR and about integrity mechanisms applied to the BIR itself. The structure and content of SBs is not within the scope of this document. Further, the specification of encryption mechanisms for BDBs and of integrity mechanisms for BIRs is not within the scope of this document. This document specifies transformations from one CBEFF patron format to a different CBEFF patron format. The following are not within the scope of this document: — the encoding of the abstract values of CBEFF data elements to be used in the specification of CBEFF patron formats; and — protection of the privacy of individuals from inappropriate dissemination and use of biometric data."
+  },
+  {
+    "reference": "ISO/IEC 19785-2:2021",
+    "edition": "2.0",
+    "date": "2021-12-14",
+    "title": "Information technology - Common Biometric Exchange Formats Framework - Part 2: Biometric registration authority",
+    "language": "EN",
+    "description": "This document describes the identification scheme used by the Biometric Registration Authority (BRA) in preparing, maintaining and publishing registers of identifiers for biometric organizations and biometric objects, and provides a description of BRA responsibilities and services. Procedural requirements and recommendations are not within the scope of this document and are maintained separately on the ISO/IEC JTC 1/SC 37 website."
+  },
+  {
+    "reference": "ISO/IEC 19785-3:2025",
+    "edition": "4.0",
+    "date": "2025-07-14",
+    "title": "Information technology - Common Biometric Exchange Formats Framework - Part 3: Patron format specifications",
+    "language": "EN",
+    "description": "This document specifies and publishes registered Common Biometric Exchange Formats Framework (CBEFF) patron formats defined by the CBEFF patron ISO/IEC JTC 1/SC 37, and specifies their registered CBEFF patron format types (see ISO/IEC 19785-1) and resulting full ASN.1 OIDs. See Annex A for rules on how patron formats are defined using CBEFF data elements."
+  },
+  {
+    "reference": "ISO/IEC 19785-4:2025",
+    "edition": "2.0",
+    "date": "2025-07-25",
+    "title": "Information technology - Common Biometric Exchange Formats Framework - Part 4: Security block format specifications",
+    "language": "EN",
+    "description": "This document specifies security block (SB) formats (see ISO/IEC 19785-1) registered in accordance with ISO/IEC 19785-2 as formats defined by the Common Biometric Exchange Formats Framework (CBEFF) biometric organization ISO/IEC JTC 1/SC 37. This document also specifies registered SB format identifiers. NOTE The SB format identifier is recorded in the standard biometric header (SBH) of a patron format (or defined by that patron format as the only available SB format). The general-purpose SB format specifies whether the biometric data block (BDB) is encrypted or the SBH and BDB have integrity applied (or both). The general-purpose SB format can include ACBio instances (see ISO/IEC 24761). This SB provides all necessary security parameters, including those used for encryption or integrity. This document does not restrict the algorithms and parameters used for encryption or integrity, but it provides for the recording of such algorithms and parameter values. This document does not cover profiling to determine what algorithms and parameter ranges can be used by the generator of an SB for a particular application area, and hence what algorithms and parameter ranges have to be supported by the user of an SB. The second SB format is more limited but simpler. In particular, it cannot contain ACBio instances and does not support encryption of the BDB. The general-purpose SB format in XML provides for specification of whether the BDB is encrypted or the SBH and BDB have integrity applied (or both)."
+  },
+  {
+    "reference": "ISO/IEC 19794-1:2011",
+    "edition": "2.0",
+    "date": "2011-07-01",
+    "title": "Information technology - Biometric data interchange formats - Part 1: Framework",
+    "language": "EN",
+    "description": "ISO/IEC 19794-1:2011 describes the general aspects and requirements for defining biometric data interchange formats. The notation and transfer formats provide platform independence and separation of transfer syntax from content definition. ISO/IEC 19794-1:2011 defines what is commonly applied for biometric data formats, i.e. the standardization of the common content, meaning, and representation of biometric data formats of biometric types considered in the specific parts of ISO/IEC 19794."
+  },
+  {
+    "reference": "ISO/IEC 19794-1:2011/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-02-06",
+    "title": "Information technology - Biometric data interchange formats - Part 1: Framework - Amendment 1: Conformance testing methodology",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-1:2011/AMD2:2015",
+    "edition": "2.0",
+    "date": "2015-05-05",
+    "title": "Information technology - Biometric data interchange formats - Part 1: Framework - Amendment 2: Framework for XML encoding",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-1:2006",
+    "edition": "1.0",
+    "date": "2006-03-31",
+    "title": "Information technology - Biometric data interchange formats - Part 1: Framework",
+    "language": "EN",
+    "description": "Standardized biometric data interchange formats are crucial to the interoperability of biometric components. ISO/IEC 19794-1:2006 describes general aspects of biometric data interchange formats and specifies requirements to be taken into account in standardizing specific formats. It classifies biometric data according to their processing level and establishes a naming concept for biometric data interchange formats on this basis."
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-2:2011 specifies a concept and data formats for representation of fingerprints using the fundamental notion of minutiae. It is generic, in that it may be applied and used in a wide range of application areas where automated fingerprint recognition is involved. It contains definitions of relevant terms, a description of how minutiae are to be determined, data formats for containing the data for both general use and for use with cards, and conformance information. Guidelines and values for matching and decision parameters are provided. ISO/IEC 19794-2:2011 specifies the following: the fundamental data elements used for minutiae-based representation of a fingerprint; three data formats for interchange and storage of this data: a record-based format, and normal and compact formats for use on a smart card in a match-on-card application; optional extended data formats for including additional data such as ridge counts and core and delta location. ISO/IEC 19794-2:2011 provides for interchange of finger minutiae data between sensing, storage and matching systems."
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-03-28",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2011/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-11-27",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Amendment 1: Conformance testing methodology and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2011/AMD2:2015",
+    "edition": "2.0",
+    "date": "2015-11-17",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Amendment 2: XML encoding and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2005",
+    "edition": "1.0",
+    "date": "2005-09-20",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-2:2005 specifies a concept and data formats for representation of fingerprints using the fundamental notion of minutiae. It is generic, in that it may be applied and used in a wide range of application areas where automated fingerprint recognition is involved. ISO/IEC 19794-2:2005 contains definitions of relevant terms, a description of how minutiae shall be determined, data formats for containing the data for both general use and for use with cards, and conformance information. Guidelines and values for matching and decision parameters are provided in an informative annex. ISO/IEC 19794-2:2005 specifies the fundamental data elements used for minutiae-based representation of a fingerprint; three data formats for interchange and storage of this data: a record-based format, and normal and compact formats for use on a smart card in a match-on-card application; optional extended data formats for including additional data such as ridge counts and core and delta location. ISO/IEC 19794-2:2005 provides for interchange of finger minutiae data between sensing, storage and matching systems."
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2005/COR1:2009",
+    "edition": "1.0",
+    "date": "2009-10-09",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2005/AMD1:2010",
+    "edition": "1.0",
+    "date": "2010-03-25",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Amendment 1: Detailed description of finger minutiae location, direction, and type",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-2:2005/AMD1:2010/COR2:2014",
+    "edition": "1.0",
+    "date": "2014-08-29",
+    "title": "Information technology - Biometric data interchange formats - Part 2: Finger minutiae data - Amendment 1: Detailed description of finger minutiae location, direction, and type - Technical Corrigendum 2",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-3:2006",
+    "edition": "1.0",
+    "date": "2006-08-16",
+    "title": "Information technology - Biometric data interchange formats - Part 3: Finger pattern spectral data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-3:2006, the finger pattern spectral data interchange format, specifies requirements for the representation of local or global spectral data derived from a fingerprint image. The format is designed to provide flexibility in the choice of spectral representation in that spectral components may be based on quantized co-sinusoidal triplets, Discrete Fourier Transformations or Gabor filters. The format also allows for a variable number of spectral components to be retained, which enables data representations in a form that is more compact than storage of the entire fingerprint image. ISO/IEC 19794-3:2006 provides example data records for each of the spectral representations."
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-4:2011 specifies a data record interchange format for storing, recording, and transmitting the information from one or more finger or palm image areas within an ISO/IEC 19785-1 data structure. This can be used for the exchange and comparison of finger image data. It defines the content, format, and units of measurement for the exchange of finger image data that may be used in the verification or identification process of a subject. The information consists of a variety of mandatory and optional items, including scanning parameters, compressed or uncompressed images and vendor-specific information. This information is intended for interchange among organizations that rely on automated devices and systems for identification or verification purposes based on the information from finger image areas. Information compiled and formatted in accordance with ISO/IEC 19794-4:2011 can be recorded on machine-readable media or may be transmitted by data communication facilities."
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-03-28",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2011/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-06-12",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data - Amendment 1: Conformance testing methodology and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2011/AMD2:2015",
+    "edition": "2.0",
+    "date": "2015-11-17",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data - Amendment 2: XML encoding and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2005",
+    "edition": "1.0",
+    "date": "2005-06-10",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-4:2005 specifies a data record interchange format for storing, recording, and transmitting the information from one or more finger or palm image areas within an ISO/IEC 19785-1 CBEFF data structure. This can be used for the exchange and comparison of finger image data. It defines the content, format, and units of measurement for the exchange of finger image data that may be used in the verification or identification process of a subject. The information consists of a variety of mandatory and optional items, including scanning parameters, compressed or uncompressed images and vendor-specific information. This information is intended for interchange among organizations that rely on automated devices and systems for identification or verification purposes based on the information from finger image areas. Information compiled and formatted in accordance with ISO/IEC 19794-4:2005 can be recorded on machine-readable media or may be transmitted by data communication facilities."
+  },
+  {
+    "reference": "ISO/IEC 19794-4:2005/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-10-17",
+    "title": "Information technology - Biometric data interchange formats - Part 4: Finger image data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-5:2011",
+    "edition": "2.0",
+    "date": "2011-11-03",
+    "title": "Information technology - Biometric data interchange formats - Part 5: Face image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-5:2011 specifies a record format for storing, recording, and transmitting information from one or more facial images or a short video stream of facial images, specifies scene constraints of the facial images, specifies photographic properties of the facial images, specifies digital image attributes of the facial images, and provides best practices for the photography of faces."
+  },
+  {
+    "reference": "ISO/IEC 19794-5:2011/AMD1:2014",
+    "edition": "2.0",
+    "date": "2014-02-03",
+    "title": "Information technology - Biometric data interchange formats - Part 5: Face image data - Amendment 1: Conformance testing methodology and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-5:2011/AMD2:2015",
+    "edition": "2.0",
+    "date": "2015-11-16",
+    "title": "Information technology - Biometric data interchange formats - Part 5: Face image data - Amendment 2: XML encoding and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-5:2011/AMD2:2015/COR1:2016",
+    "edition": "2.0",
+    "date": "2016-12-09",
+    "title": "Information technology - Biometric data interchange formats - Part 5: Face image data - Amendment 2: XML encoding and clarification of defects - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-5:2005",
+    "edition": "1.0",
+    "date": "2005-06-29",
+    "title": "Information technology - Biometric data interchange formats - Part 5: Face image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-5:2005 specifies scene, photographic, digitization and format requirements for images of faces to be used in the context of both human verification and computer automated recognition. The approach to specifying scene and photographic requirements in this format is to carefully describe constraints on how a photograph should appear rather than to dictate how the photograph should be taken. The format is designed to allow for the specification of visible information discernable by an observer pertaining to the face, such as gender, pose and eye colour. The digital image format can be either ISO standard JPEG or JPEG2000. Finally, the 'best practice' appendices provide guidance on photo capture for travel documents and face recognition performance versus digital compression. This consolidated reprint of ISO/IEC 19794-5:2005 contains the original content of ISO/IEC 19794-5:2005 and incorporates the Amendments ISO/IEC 19794-5:2005/Amd 1:2007 and ISO/IEC 19794-5:2005/Amd 2:2009 and the Technical Corrigenda ISO/IEC 19794-5:2005/Cor 1:2008, ISO/IEC 19794-5:2005/Cor 2:2008, ISO/IEC 19794-5:2005/Cor 3:2013, ISO/IEC 19794-5:2005/Cor 4:2015, and the unpublished draft of ISO/IEC 19794-5:2005/Cor 5."
+  },
+  {
+    "reference": "ISO/IEC 19794-6:2011",
+    "edition": "2.0",
+    "date": "2011-09-29",
+    "title": "Information technology - Biometric data interchange formats - Part 6: Iris image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-6:2011 specifies iris image interchange formats for biometric enrolment, verification and identification systems. The image information might be stored as an array of intensity values optionally compressed with ISO/IEC 15948 or ISO/IEC 15444, or an array of intensity values optionally compressed with ISO/IEC 15948 or ISO/IEC 15444 that might be cropped around the iris, with the iris at the centre, and which might incorporate region-of-interest masking of non-iris regions. ISO/IEC 19794-6:2011 does not establish requirements on the optical specifications of cameras, requirements on photometric properties of iris images, or requirements on enrolment processes, workflow and use of iris equipment."
+  },
+  {
+    "reference": "ISO/IEC 19794-6:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-03-28",
+    "title": "Information technology - Biometric data interchange formats - Part 6: Iris image data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-6:2011/AMD1:2015",
+    "edition": "2.0",
+    "date": "2015-09-16",
+    "title": "Information technology - Biometric data interchange formats - Part 6: Iris image data - Amendment 1: Conformance testing methodology and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-6:2011/AMD2:2016",
+    "edition": "2.0",
+    "date": "2016-11-18",
+    "title": "Information technology - Biometric data interchange formats - Part 6: Iris image data - Amendment 2: XML encoding and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-6:2005",
+    "edition": "1.0",
+    "date": "2005-06-10",
+    "title": "Information technology - Biometric data interchange formats - Part 6: Iris image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-6:2005 specifies two alternative image interchange formats for biometric authentication systems that utilize iris recognition. The first is based on a rectilinear image storage format that may be a raw, uncompressed array of intensity values or a compressed format such as that specified by ISO/IEC 15444. The second format is based on a polar image specification that requires certain pre-processing and image segmentation steps, but produces a much more compact data structure that contains only iris information. Data that comply with either one of the iris image formats specified in ISO/IEC 19794-6:2005 are intended to be embedded in a CBEFF-compliant structure in the CBEFF Biometric Data Block (BDB) as specified in ISO/IEC 19785-1."
+  },
+  {
+    "reference": "ISO/IEC 19794-7:2021",
+    "edition": "3.0",
+    "date": "2021-10-29",
+    "title": "Information technology - Biometric data interchange formats - Part 7: Signature/sign time series data",
+    "language": "EN",
+    "description": "This document specifies data interchange formats for signature/sign behavioural data captured in the form of a multi-dimensional time series using devices such as digitizing tablets or advanced pen systems. The data interchange formats are generic, in that they can be applied and used in a wide range of application areas where handwritten signs or signatures are involved. No application-specific requirements or features are addressed in this document. This document contains: — a description of what data can be captured; — three binary data formats for containing the data: a full format for general use, a compression format capable of holding the same amount of information as the full format but in compressed form, and a compact format for use with smart cards and other tokens that does not require compression/ decompression but conveys less information than the full format; — an XML schema definition; and — examples of data record contents and best practices in capture. Specifying which of the format types and which options defined in this document are to be applied in a particular application is out of scope; this needs to be defined in application-specific requirements specifications or application profiles. It is advisable that cryptographic techniques be used to protect the authenticity, integrity, and confidentiality of stored and transmitted biometric data; yet such provisions are beyond the scope of this document. This document also specifies elements of conformance testing methodology, test assertions and test procedures as applicable to this document. It establishes test assertions on the structure and internal consistency of the signature/sign time series data formats defined in this document (type A level 1 and 2 as defined in ISO/IEC 19794-1) and semantic test assertions (type A level 3 as defined in ISO/IEC 19794-1). The conformance testing methodology specified in this document does not establish: — tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security); or — tests of conformance of systems that do not produce data records claimed to conform to the requirements of this document."
+  },
+  {
+    "reference": "ISO/IEC 19794-7:2007",
+    "edition": "1.0",
+    "date": "2007-06-12",
+    "title": "Information technology - Biometric data interchange formats - Part 7: Signature/sign time series data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-7:2007 specifies two data interchange formats for signature/sign behavioural data captured in the form of time series using devices such as digitizing tablets or advanced pen systems. One data interchange format is for general use and the other one is a compact format for use with smart cards or other tokens. Both data interchange formats can be used for both acquired signature/sign samples (serving as a starting point for feature extraction) and for time-series features (to be compared directly by time-series based comparison algorithms). Abstract syntax notation one (ASN.1) specifications of the data interchange formats and encoding instructions are provided in an informative annex."
+  },
+  {
+    "reference": "ISO/IEC 19794-7:2007/COR1:2009",
+    "edition": "1.0",
+    "date": "2009-11-20",
+    "title": "Information technology - Biometric data interchange formats - Part 7: Signature/sign time series data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-8:2011",
+    "edition": "2.0",
+    "date": "2011-12-14",
+    "title": "Information technology - Biometric data interchange formats - Part 8: Finger pattern skeletal data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-8:2011 describes all characteristics of a fingerprint in a small data record. Thus it allows for the extraction of both spectral information (orientation, frequency, phase, etc.) and features (minutiae, core, ridge count, etc.). Transformations like translation and rotation can also be accommodated by the format defined in ISO/IEC 19794-8:2011. ISO/IEC 19794-8:2011 supports the proliferation of low-cost commercial fingerprint sensors with limited coverage, dynamic range, or resolution. Thus, it defines a data record that can be used to store biometric information on a variety of storage mediums (including, but not limited to, portable devices and smart cards)."
+  },
+  {
+    "reference": "ISO/IEC 19794-8:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-03-28",
+    "title": "Information technology - Biometric data interchange formats - Part 8: Finger pattern skeletal data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-8:2011/AMD1:2014",
+    "edition": "2.0",
+    "date": "2014-03-14",
+    "title": "Information technology - Biometric data interchange formats - Part 8: Finger pattern skeletal data - Amendment 1: Conformance testing methodology",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-8:2006",
+    "edition": "1.0",
+    "date": "2006-09-22",
+    "title": "Information technology - Biometric data interchange formats - Part 8: Finger pattern skeletal data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-8:2006 specifies the interchange format for the exchange of pattern-based skeletal fingerprint recognition data. The data format is generic, in that it may be applied and used in a wide range of application areas where automated fingerprint recognition is involved. The exchange format defined in ISO/IEC 19794-8:2006 describes all characteristics of a fingerprint in a small data record. Thus it allows for the extraction of both spectral information (orientation, frequency, phase, etc.) and features (minutiae, core, ridge count, etc.). Transformations like translation and rotation can also be accommodated by the format defined herein. ISO/IEC 19794-8:2006 supports the proliferation of low-cost commercial fingerprint sensors with limited coverage, dynamic range, or resolution. Thus it defines a data record that can be used to store biometric information on a variety a storage media (including, but not limited to, portable devices and smart cards)."
+  },
+  {
+    "reference": "ISO/IEC 19794-8:2006/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-01-27",
+    "title": "Information technology - Biometric data interchange formats - Part 8: Finger pattern skeletal data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-9:2011",
+    "edition": "2.0",
+    "date": "2011-09-21",
+    "title": "Information technology - Biometric data interchange formats - Part 9: Vascular image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-9:2011 specifies an image interchange format for biometric person identification or verification technologies that utilize human vascular biometric images and can be used for the exchange and comparison of vascular image data. It specifies a data record interchange format for storing, recording, and transmitting vascular biometric information from one or more areas of the human body. It defines the contents, format, and units of measurement for the image exchange. The format consists of mandatory and optional items, including scanning parameters, compressed or uncompressed image specifications and vendor-specific information. Information compiled and formatted in accordance with ISO/IEC 19794-9:2011 can be recorded on machine-readable media or can be transmitted by data communication facilities."
+  },
+  {
+    "reference": "ISO/IEC 19794-9:2011/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-04-04",
+    "title": "Information technology - Biometric data interchange formats - Part 9: Vascular image data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-9:2011/AMD1:2013",
+    "edition": "2.0",
+    "date": "2013-03-13",
+    "title": "Information technology - Biometric data interchange formats - Part 9: Vascular image data - Amendment 1: Conformance testing methodology",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-9:2011/AMD2:2015",
+    "edition": "2.0",
+    "date": "2015-07-24",
+    "title": "Information technology - Biometric data interchange formats - Part 9: Vascular image data - Amendment 2: XML Encoding and clarification of defects",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-9:2007",
+    "edition": "1.0",
+    "date": "2007-02-28",
+    "title": "Information technology - Biometric data interchange formats - Part 9: Vascular image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-9:2007 defines the exchange of human vascular biometric image information. It defines a specific definition of attributes, a data record format for storing and transmitting vascular biometric images and certain attributes, a sample record and conformance criteria. ISO/IEC 19794-9:2007 is intended for applications requiring the exchange of raw or processed vascular biometric images. It is intended for applications not limited by the amount of storage required. It is a compromise or a trade-off between the resources required for data storage or transmission and the potential for improved data quality/accuracy. Basically, it is to enable various algorithms to identify or verify the vascular biometric image data transferred from other image sources. Currently available vascular biometric technologies that may utilize ISO/IEC 19794-9:2007 for image exchange are technologies that use the back of the hand, palm and finger."
+  },
+  {
+    "reference": "ISO/IEC 19794-10:2007",
+    "edition": "1.0",
+    "date": "2007-05-31",
+    "title": "Information technology - Biometric data interchange formats - Part 10: Hand geometry silhouette data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-10:2007 specifies a data record interchange format for storing, recording and transmitting the information from one or more hand silhouettes within a Common Biometric Exchange Formats Framework (CBEFF) data structure. It defines the content, format and units of measurement for the exchange of hand silhouette data that may be used in the verification or identification process of a subject. The information consists of a variety of mandatory and optional items, including data capture parameters, standardized hand position and vendor-specific information. This information is intended for interchange among organizations that rely on automated devices and systems for identification or verification purposes based on the information from hand geometry measurements."
+  },
+  {
+    "reference": "ISO/IEC 19794-11:2013",
+    "edition": "1.0",
+    "date": "2013-02-01",
+    "title": "Information technology - Biometric data interchange formats - Part 11: Signature/sign processed dynamic data",
+    "language": "EN",
+    "description": "For the purpose of biometric comparison, ISO/IEC 19794-11:2013 specifies a data interchange format for processed signature/sign behavioural data extracted from a time series, captured using devices such as digitizing tablets, pen-based computing devices, or advanced pen systems. The data interchange format is generic, in that it may be applied and used in a wide range of application areas where handwritten signs or signature/signs are involved. No application-specific requirements or features are addressed in ISO/IEC 19794-11:2013. ISO/IEC 19794-11:2013 contains definitions of relevant terms, a description of what data is extracted, and a data format for containing the data, together with advice on whether a set of user's signature/sign is suitable for identification purposes using ISO/IEC 19794-11:2013. It is advisable that stored and transmitted biometric data is time-stamped and that cryptographic techniques be used to protect their authenticity, integrity, and confidentiality; however, such provisions are beyond the scope of ISO/IEC 19794-11:2013."
+  },
+  {
+    "reference": "ISO/IEC 19794-11:2013/AMD1:2014",
+    "edition": "1.0",
+    "date": "2014-07-09",
+    "title": "Information technology - Biometric data interchange formats - Part 11: Signature/sign processed dynamic data - Amendment 1: Conformance test assertions",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-13:2018",
+    "edition": "1.0",
+    "date": "2018-02-23",
+    "title": "Information technology - Biometric data interchange formats - Part 13: Voice data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-13:2018 specifies a data interchange format that can be used for storing, recording, and transmitting digitized acoustic human voice data (speech) assumed to be from a single speaker recorded in a single session. This format is designed specifically to support a wide variety of Speaker Identification and Verification (SIV) applications, both text-dependent and text-independent, with minimal assumptions made regarding the voice data capture conditions or the collection environment. Other uses for the data encapsulated in this format, such as automated speech recognition (ASR), may be possible, but are not addressed in this documnet. This document also does not address handling of data that has been processed to the feature or voice model levels. No application-specific requirements, equipment, or features are addressed in this document. This document supports the optional inclusion of non-standardized extended data. This document allows both the original data captured and digitally-processed (enhanced) voice data to be exchanged. A description of any processing of the original source input is intended to be included in the metadata associated with the voice representations (VRs). This document does not address data streaming. Provisions that stored and transmitted biometric data be time-stamped and that cryptographic techniques be used to protect their authenticity, integrity and confidentiality are out of the scope of this document. Information formatted in accordance with this document can be recorded on machine-readable media or can be transmitted by data communication between systems. A general content-oriented subclause describing the voice data interchange format is followed by a subclause addressing an XML schema definition. ISO/IEC 19794-13:2018 includes vocabulary in common use by the speech and speaker recognition community, as well as terminology from other ISO standards."
+  },
+  {
+    "reference": "ISO/IEC 19794-14:2022",
+    "edition": "2.0",
+    "date": "2022-10-14",
+    "title": "Information technology - Biometric data interchange formats - Part 14: DNA data",
+    "language": "EN",
+    "description": "This document specifies a data interchange format for the exchange of deoxyribonucleic acid (DNA) data for person identification or verification technologies that utilize human DNA. Consideration of laboratory procedures is out of scope of this document. This document provides the ability for DNA profile data to be exchanged and used for comparison (subject to privacy regulations) with DNA profile data produced by any other system that is based on a compatible DNA profiling technique and where the data format conforms to this document. This document is intended to cover current forensic DNA profiling or typing techniques that are based on short tandem repeats (STRs), including STRs on the X chromosome (X-STRs) the Y chromosome (Y-STRs), as well as mitochondrial DNA. A single DNA profile for a subject can contain data resulting from more than one of these different DNA techniques. This document enables data from multiple DNA techniques to be presented in a single DNA profile for a given subject. This document has been prepared in light of ongoing efforts to reduce human involvement in the processing (enrolment and comparison) of DNA. In anticipation of the data format requirements for automated DNA techniques, this document describes a format for both processed and raw (electrophoretic) DNA data. A normative XML schema definition (XSD) is provided in Clause A.1 for the syntax of DNA data XML documents. In Clause A.2, there is a sample DNA data XML document. This document is not intended for any other purposes than exchange of DNA for biometric verification and identification of individuals. In particular, it is not intended for the exchange of medical and other health-related information. This document also specifies elements of conformance testing methodology, test assertions and test procedures as applicable to this document. It establishes test assertions pertaining to the structure of the DNA data format (Type A Level 1 as defined in ISO/IEC 19794-1:2011/Amd. 1:2013) and test assertions pertaining to internal consistency of the values contained within each field (Type A,ind Level 2 as defined in ISO/IEC 19794-1:2011/Amd. 1:2013). This document also specifies test assertions pertaining to the content of DNA data XML documents (Level 3 as defined in ISO/IEC 19794-1:2011/Amd. 1:2013). The successful completion of Level 1 and Level 2 is a prerequisite for carrying out the tests at Level 3. The conformance testing methodology specified in this document does not establish: — tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security); — tests of systems not claimed to conform to the requirements of this document."
+  },
+  {
+    "reference": "ISO/IEC 19794-14:2022/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-03-07",
+    "title": "Information technology - Biometric data interchange formats - Part 14: DNA data - Amendment 1: Conformance requirements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 19794-15:2017",
+    "edition": "1.0",
+    "date": "2017-05-09",
+    "title": "Information technology - Biometric data interchange format - Part 15: Palm crease image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-15:2017 specifies an image interchange format for biometric person identification or verification technologies that utilize human palm crease biometric images and can be used for the exchange and comparison of palm crease image data. It specifies a data record interchange format for storing, recording, and transmitting palm crease biometric information from palm crease imaging. It defines the contents, format, and units of measurement for the image exchange. The format consists of mandatory and optional items, including scanning parameters, compressed or uncompressed image specifications and vendor-specific information. Information compiled and formatted in accordance with this document can be recorded on machine-readable media or may be transmitted by data communication facilities."
+  },
+  {
+    "reference": "ISO/IEC 19795-1:2021",
+    "edition": "2.0",
+    "date": "2021-05-27",
+    "title": "Information technology - Biometric performance testing and reporting - Part 1: Principles and framework",
+    "language": "EN",
+    "description": "This document: — establishes general principles for testing the performance of biometrics systems in terms of error rates and throughput rates for purposes including measurement of performance, prediction of performance, comparison of performance, and verifying conformance with specified performance requirements; — specifies performance metrics for biometric systems; — specifies requirements on the recording of test data and reporting of test results; and — specifies requirements on test protocols in order to: — reduce bias due to inappropriate data collection or analytic procedures; — help achieve the best estimate of field performance for the expended effort; — improve understanding of the limits of applicability of the test results. This document is applicable to empirical performance testing of biometric systems and algorithms through analysis of the comparison scores and decisions output by the system, without requiring detailed knowledge of the system’s algorithms or of the underlying distribution of biometric characteristics in the population of interest. Not within the scope of this document is the measurement of error and throughput rates for people deliberately trying to subvert the intended operation of the biometric system (e.g. by presentation attacks)."
+  },
+  {
+    "reference": "ISO/IEC 19795-2:2007",
+    "edition": "1.0",
+    "date": "2007-01-12",
+    "title": "Information technology - Biometric performance testing and reporting - Part 2: Testing methodologies for technology and scenario evaluation",
+    "language": "EN",
+    "description": "ISO/IEC 19795-2:2007 addresses two specific biometric performance testing methodologies: technology and scenario evaluation. The large majority of biometric tests are of one of these two generic evaluation types. Technology evaluations evaluate enrolment and comparison algorithms by means of previously collected corpuses, while scenario evaluations evaluate sensors and algorithms by processing of samples collected from Test Subjects in real time. The former is intended for generation of large volumes of comparison scores and candidate lists indicative of the fundamental discriminating power of an algorithm. The latter is intended for measurement of performance in modeled environments, inclusive of Test Subject-system interactions. ISO/IEC 19795-2:2007 provides requirements and recommendations on data collection, analysis and reporting specific to the two primary types of evaluation: technology evaluation and scenario evaluation. It specifies requirements in the following areas: development and full description of protocols for technology and scenario evaluations; execution and reporting of biometric evaluations reflective of the parameters associated with biometric evaluation types."
+  },
+  {
+    "reference": "ISO/IEC 19795-2:2007/AMD1:2015",
+    "edition": "1.0",
+    "date": "2015-07-17",
+    "title": "Information technology - Biometric performance testing and reporting - Part 2: Testing methodologies for technology and scenario evaluation - Amendment 1: Testing of multimodal biometric implementations",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC TR 19795-3:2007",
+    "edition": "1.0",
+    "date": "2007-12-06",
+    "title": "Information technology - Biometric performance testing and reporting - Part 3: Modality-specific testing",
+    "language": "EN",
+    "description": "In biometric performance testing and reporting, careful consideration needs to be given to the characteristic differences of each modality (fingerprint, face, iris, etc.). These differences naturally require variations within the general methodology defined in ISO/IEC 19795-1. ISO/IEC TR 19795-3:2007 describes the methodologies relating to these modality-dependent variations. It presents and defines methods for determining, given a specific biometric modality, how to develop a technical performance test."
+  },
+  {
+    "reference": "ISO/IEC 19795-4:2008",
+    "edition": "1.0",
+    "date": "2008-05-29",
+    "title": "Information technology - Biometric performance testing and reporting - Part 4: Interoperability performance testing",
+    "language": "EN",
+    "description": "ISO/IEC 19795-4:2008 prescribes methods for technology and scenario evaluations of multi-supplier biometric systems that use biometric data conforming to biometric data interchange format standards. It specifies requirements needed to assess performance available from samples formatted according to a standard interchange format (SIF), performance available when samples formatted according to a SIF are exchanged, performance available from samples formatted according to a SIF, relative to proprietary data formats, SIF interoperability by quantifying cross-product performance relative to single-product performance, performance available from multi-sample and multimodal data formatted according to one or more SIFs, and performance interoperability of biometric capture devices. In addition, ISO/IEC 19795-4:2008 includes procedures for establishing an interoperable set of implementations, defines procedures for testing interoperability with previously established sets of implementations, and gives testing procedures for the measurement of interoperable performance. It does not establish a conformance test for biometric data interchange formats, or provide test procedures for online data collection."
+  },
+  {
+    "reference": "ISO/IEC 19795-5:2011",
+    "edition": "1.0",
+    "date": "2011-02-23",
+    "title": "Information technology - Biometric performance testing and reporting - Part 5: Access control scenario and grading scheme",
+    "language": "EN",
+    "description": "ISO/IEC 19795-5:2011 specifies a framework for testing and a grading scheme for reporting the performance of a biometric system suitable for use in access control applications. It also allows for specifying application performance requirements in terms of the required performance of the biometric component of the access control system. It specifies the environment in which and the means by which testing will be performed and how the results will be reported. The grading scheme takes a conservative approach, using statistical analysis and confidence intervals to support the claim that the device performance is at least as good as the graded performance indicates. ISO/IEC 19795-5:2011 addresses conventional access control circumstances, and unusual or extreme circumstances are not within its scope."
+  },
+  {
+    "reference": "ISO/IEC 19795-6:2012",
+    "edition": "1.0",
+    "date": "2012-01-23",
+    "title": "Information technology - Biometric performance testing and reporting - Part 6: Testing methodologies for operational evaluation",
+    "language": "EN",
+    "description": "ISO/IEC 19795-6:2012: provides guidance on the operational testing of biometric systems; specifies performance metrics for operational systems; details data that may be retained by operational systems to enable performance monitoring; and specifies requirements on test methods, recording of data, and reporting of results of operational evaluations. ISO/IEC 19795-6:2012 does not: cover testing of operational systems in the laboratory or address vulnerability testing."
+  },
+  {
+    "reference": "ISO/IEC 19795-7:2011",
+    "edition": "1.0",
+    "date": "2011-01-11",
+    "title": "Information technology - Biometric performance testing and reporting - Part 7: Testing of on-card biometric comparison algorithms",
+    "language": "EN",
+    "description": "ISO/IEC 19795-7:2011 establishes a mechanism for measuring the core algorithmic capabilities of biometric comparison algorithms running on ISO/IEC 7816 integrated circuit cards. Specifically, ISO/IEC 19795-7:2011 instantiates a mechanism for on-card biometric comparison testing; standardizes procedures for the measurement of the accuracy of on-card biometric comparison implementations running on object-based, test-specific sample cards; standardizes procedures for the measurement of durations of the various operations; gives examples for matching ISO/IEC 19794-2:2005 compact card minutiae templates. The following are specifically not within the scope of ISO/IEC 19795-7:2011: procedures for securing the communications channel, including cryptographic protection of the biometric templates; procedures for protection of sample or template integrity using digital signatures; authentication of the card and reader; selection or use of transmission protocols (e.g. contactless); profiles of specific data interchange standards; procedures for evaluation of readers, including performance, conformance and interoperability; procedures for evaluation of ruggedness or durability of the card; on-card template generation (e.g. extraction of minutiae from images); template update or adaptation; formal conformance tests of ISO/IEC 7816-4 and ISO/IEC 7816-11; testing of devices not conforming to ISO/IEC 7816, including all system-on-card devices."
+  },
+  {
+    "reference": "ISO/IEC TS 19795-9:2019",
+    "edition": "1.0",
+    "date": "2019-12-18",
+    "title": "Information technology - Biometric performance testing and reporting - Part 9: Testing on mobile devices",
+    "language": "EN",
+    "description": "This document provides guidance for performance testing of biometrics when this technology is used on mobile devices with local biometric authentication to improve authentication assurance. This document aims to: — Provide guidance for affordable and cost-efficient testing and reporting methods for performance assessment at a full system level of biometric systems embedded in mobile devices with offline evaluation of false accept rate (FAR) claims. — Define modality-specific considerations of these methods. This document is applicable to: — verification use cases related to secure transactions. This document is not applicable to: — privacy aspects; — secure authentication from mobile device to server; — testing and reporting for presentation attack detection (PAD) mechanisms in mobile devices; — performance testing of biometric sub-systems such as acquisition sub-system or comparison sub-system; — continuous authentication."
+  },
+  {
+    "reference": "ISO/IEC 19795-10:2024",
+    "edition": "1.0",
+    "date": "2024-10-04",
+    "title": "Information technology - Biometric performance testing and reporting - Part 10: Quantifying biometric system performance variation across demographic groups",
+    "language": "EN",
+    "description": "This document establishes requirements for estimating and reporting on performance variations observed when cohorts belonging to different demographic groups engage with biometric enrolment and recognition systems. In this context, performance refers to failure-to-enrol rate, failure-to-acquire rate, shifts in comparison score, recognition error rates, and aspects of response and processing time (throughput). This document is applicable to the following: — demographic group membership; — using phenotypic measures; — reporting on tests; — stating statistical uncertainty estimates; — operational thresholds settings; — equitability; — procurement agency activities. This document also provides terms and definitions to be used when reporting performance variation across demographic groups. This document is applicable to: — technology evaluations of algorithms, subsystems and systems; — scenario evaluations of systems; — operational evaluations of fielded systems. Application of this document does not require detailed knowledge of a system’s algorithms but it does require specific knowledge of the demographic characteristics for the population of interest."
+  },
+  {
+    "reference": "ISO/IEC 20027:2018",
+    "edition": "1.0",
+    "date": "2018-07-19",
+    "title": "Information technology - Guidelines for slap tenprint fingerprintture",
+    "language": "EN",
+    "description": "This document provides guidelines to follow during the acquisition process of slap tenprints in order to obtain fingerprints of the best quality possible within acceptable time constraints. Non-cooperative users are out of the scope of this document. When using ten-fingerprint sensors, it is fundamental to know how to use them and how to proceed with the acquisition. This document describes how to capture fingerprints correctly by specifying best practices for slap tenprint captures. It gives recommendations on the following topics: 1) hardware of the fingerprint sensor and its deployment; 2) user guidance; 3) enrolment process including a sample workflow; 4) application software for developers and system integrators; 5) processing, compression and coding of the acquired fingerprint images; 6) operational issues and data logging; 7) evaluation of a solution and its components. Although this document primarily focuses on reaching optimal data quality for enrolment purposes, the recommendations given here are applicable for other purposes. All processes which rely on good quality tenprint slaps can take advantage of the best practices."
+  },
+  {
+    "reference": "ISO/IEC 20059:2025",
+    "edition": "1.0",
+    "date": "2025-08-25",
+    "title": "Information technology - Methodologies to evaluate the resistance of biometric systems to morphing attacks",
+    "language": "EN",
+    "description": "This document establishes a methodology to evaluate the resistance of BSs to morphing attacks, including multiple identity attacks. The document is limited to image-based morphing attacks. The term \"image-based\" includes modalities such as face, iris and finger image data. The document establishes: — a definition of biometric sample modifications and manipulation with a specific focus on manipulations that constitute a multiple identity attack. This can be, for instance, an enrolment attack with face image morphing; — a methodology to measure the morphing attack potential of a morphing method. The document also describes how morphing algorithms can be used for system evaluation."
+  },
+  {
+    "reference": "ISO/IEC TR 20322:2023",
+    "edition": "1.0",
+    "date": "2023-03-30",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Biometrics and elderly people",
+    "language": "EN-FR, EN",
+    "description": "This document builds upon the information provided in ISO/IEC TR 24714 - 1 , ISO/IEC TR 29194 and ISO/IEC 29138 - 1 in order to highlight in a more detailed way the medical, physical and cognitive aspects that are specific for the use of biometrics by elderly persons."
+  },
+  {
+    "reference": "ISO/IEC TS 21419:2024",
+    "edition": "1.0",
+    "date": "2024-11-22",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Use of biometrics for identity management in healthcare",
+    "language": "EN",
+    "description": "This document describes potential applications of biometrics in identity management systems used for medical and healthcare purposes. It provides feedback from healthcare practitioners on the advantages, disadvantages, risks and priority of implementing certain use cases of healthcare with biometrics. For those use cases, information related to the selection of biometric type and associated measures related to security and privacy protection is provided to system designers. The document concentrates on aspects of the subject which apply to the good management of healthcare services for patients who need monitoring, treatment and care in hospitals, clinics or at home, but can be incapacitated. It does not cover the measurement and interpretation of symptoms and biological data for the purposes of medical treatment or research. The document is intended to be useful for the management of public and private healthcare systems anywhere in the world, and to commercial providers of identity management services and equipment. It is also potentially relevant to regulatory stakeholders addressing issues of privacy and legality, and the assessment of potential vulnerabilities in biometrics and identity management systems applied in the healthcare sector."
+  },
+  {
+    "reference": "ISO/IEC 21472:2021",
+    "edition": "1.0",
+    "date": "2021-10-06",
+    "title": "Information technology - Scenario evaluation methodology for user interaction influence in biometric system performance",
+    "language": "EN",
+    "description": "This document addresses: — requirements for planning, executing and reporting the influence of user interaction on biometric system performance based on scenario test methodologies, considering three kinds of factors: a) factors related to the design, position or condition of the capture device, b) factors depending on users and user attributes, c) factors depending on the interaction of users with the biometric system; — specifications for the definition, establishment and measurement of conditions needed for evaluation, including those relating to equipment; — requirements for establishing a reference evaluation condition (REC) and target evaluation condition(s) (TEC) to compare the influence of user interaction factors; — a specification of the biometric evaluation including requirements for test population, test protocols, data to record, test results; and — procedures for carrying out the overall evaluation. This document does not: — determine which parameters ought to be analysed for a specific biometric modality. This is currently covered in ISO/IEC TR 19795-3; — specify requirements for performing a vulnerability analysis modifying user interaction influence factors; — include procedures for performing usability testing."
+  },
+  {
+    "reference": "ISO/IEC TR 22116:2021",
+    "edition": "1.0",
+    "date": "2021-06-18",
+    "title": "Information technology - A study of the differential impact of demographic factors in biometric recognition system performance",
+    "language": "EN",
+    "description": "This document introduces the effects of population demographics on biometric functions. It: — establishes terms and definitions relevant to the study of demographic factors in biometric recognition system performance; — identifies areas where biometric systems can exhibit different performances based on different demographic factors of the individuals submitting the biometric samples; — explains how different demographic factors can influence the biometric characteristics captured by different biometric modalities and how these influences can affect biometric performance measures; — presents a case study on existing scientific material that explores the impact of demographic factors on biometric system performance. Only biometric modalities where quantitative information is available on the impact of demographic factors are considered. Outside of the scope of this document are: — effects of disease and injury on biometric performance; and — how religious and cultural norms can affect biometric operations."
+  },
+  {
+    "reference": "ISO/IEC TS 22604:2024",
+    "edition": "2.0",
+    "date": "2024-12-05",
+    "title": "Information technology - Biometric recognition of subjects in motion in access-related systems",
+    "language": "EN",
+    "description": "This document establishes requirements for the development of biometric solutions for verification and identification processes for secure access without physical contact with any device at any time. The solutions acquire biometric characteristics that are captured while the data subjects are in motion to verify or identify the individuals requiring access, thus controlling access using contactless biometrics."
+  },
+  {
+    "reference": "ISO/IEC 24708:2008",
+    "edition": "1.0",
+    "date": "2008-12-15",
+    "title": "Information technology - Biometrics - BioAPI Interworking Protocol",
+    "language": "EN",
+    "description": "ISO/IEC 24708:2008 specifies the syntax, semantics, and encodings of a set of messages (BIP messages) that enable a BioAPI-conforming application (see ISO/IEC 19784-1) to request biometric operations in BioAPI-conforming biometric service providers (BSPs) across node or process boundaries, and to be notified of events originating in those remote BSPs. It also specifies extensions to the architecture and behaviour of the BioAPI framework (specified in ISO/IEC 19784-1) that supports the creation, processing, sending and reception of BIP messages. It is applicable to all distributed applications of BioAPI."
+  },
+  {
+    "reference": "ISO/IEC 24709-1:2017",
+    "edition": "2.0",
+    "date": "2017-11-15",
+    "title": "Information technology - Conformance testing for the biometric application programming interface (BioAPI) - Part 1: Methods and procedures",
+    "language": "EN",
+    "description": "ISO/IEC 24709-1:2017 specifies the concepts, framework, test methods, and criteria required to test conformity of biometric products claiming conformance to BioAPI (see ISO/IEC 19784-1). Guidelines for specifying BioAPI conformance test suites, writing test assertions, and defining procedures to be followed during the conformance testing are provided. ISO/IEC 24709-1:2017 is concerned with conformance testing of biometric products claiming conformance to BioAPI (see ISO/IEC 19784-1). It is not concerned with testing other characteristics of biometric products or other types of testing of biometric products (i.e. acceptance, performance, robustness, security, etc.) Testing by means of test methods, which are specific to particular biometric products, are not the subject of ISO/IEC 24709-1:2017. ISO/IEC 24709-1:2017 is applicable to the development and use of conformance test method specifications, BioAPI conformance test suites, and conformance testing programs for BioAPI-conformant products. It is intended primarily for use by testing organizations, but can be applied by developers and users of test assertions and test method implementations."
+  },
+  {
+    "reference": "ISO/IEC 24709-2:2007",
+    "edition": "1.0",
+    "date": "2007-02-02",
+    "title": "Information technology - Conformance testing for the biometric application programming interface (BioAPI) - Part 2: Test assertions for biometric service providers",
+    "language": "EN",
+    "description": "ISO/IEC 24709-2:2007 defines a number of test assertions written in the assertion language specified in ISO/IEC 24709-1. These assertions enable a user of ISO/IEC 24709-2:2007 (such as a testing laboratory) to test the conformance to ISO/IEC 19784-1 (BioAPI 2.0) of any biometric service provider (BSP) that claims to be a conforming implementation of that International Standard. Each test assertion specified in ISO/IEC 24709-2:2007 exercises one or more features of an implementation under test. Assertions are placed into packages (one or more assertions per package) as required by the assertion language. These assertions allow for testing conformance of BSPs of all conformance subclasses, and are further organized according to conformance subclasses and claimed support of optional features."
+  },
+  {
+    "reference": "ISO/IEC 24709-3:2011",
+    "edition": "1.0",
+    "date": "2011-01-13",
+    "title": "Information technology - Conformance testing for the biometric application programming interface (BioAPI) - Part 3: Test assertions for BioAPI frameworks",
+    "language": "EN",
+    "description": "ISO/IEC 24709-3:2011 defines a number of test assertions written in the assertion language specified in ISO/IEC 24709-1:2007. These assertions enable a user of ISO/IEC 24709-3:2011 (such as a testing laboratory) to test the conformance to ISO/IEC 19784-1 (BioAPI 2.0) of any BioAPI Framework that claims to be a conforming implementation of ISO/IEC 19784-1. Each test assertion specified in ISO/IEC 24709-3:2011 exercises one or more features of an implementation under test."
+  },
+  {
+    "reference": "ISO/IEC 24714:2023",
+    "edition": "1.0",
+    "date": "2023-07-21",
+    "title": "Biometrics - Cross-jurisdictional and societal aspects of biometrics - General guidance",
+    "language": "EN-FR, EN",
+    "description": "This document gives general guidance for the stages in the life cycle of a system’s biometric and associated elements. This covers the following: — the capture and design of initial requirements, including legal frameworks; — development and deployment; — operations, including enrolment and subsequent usage; — interrelationships with other systems; — related data storage and security of data; — data updates and maintenance; — training and awareness; — system evaluation and audit; — controlled system expiration. The areas addressed are limited to the design and implementation of biometric technologies with respect to the following: — legal and societal constraints on the use of biometric data; — accessibility for the widest population; — health and safety, addressing the concerns of users regarding direct potential hazards as well as the possibility of the misuse of inferred data from biometric information. This document is intended for planners, implementers and system operators of biometric applications. Specification and assessment of government policy are not within the scope of this document. However, this document is intended to be beneficial to public authorities when deploying biometric systems."
+  },
+  {
+    "reference": "ISO/IEC TR 24722:2024",
+    "edition": "3.0",
+    "date": "2024-12-05",
+    "title": "Information technology - Biometrics - Multimodal and other multibiometric fusion",
+    "language": "EN",
+    "description": "This document provides descriptions and analyses of current practices on multimodal and other multibiometric fusion, including (as appropriate) references to more detailed descriptions. This document contains descriptions and explanations of high-level multibiometric concepts to aid in the explanation of multibiometric fusion approaches including: multi-characteristic-type, multi-instance, multi-sensorial, multialgorithmic, decision-level and score-level logic."
+  },
+  {
+    "reference": "ISO/IEC 24741:2024",
+    "edition": "3.0",
+    "date": "2024-06-12",
+    "title": "Information technology - Biometrics - Overview and application",
+    "language": "EN",
+    "description": "This document describes the history and purpose of biometrics, the various biometric technologies in general use today (for example, fingerprint recognition, face recognition and iris recognition) and the architecture of the systems and the system processes that allow automated recognition using those technologies. It provides information on the application of biometrics in various business domains, such as border management, law enforcement and driver licencing. It also provides information on the societal and jurisdictional considerations that are typically taken into account in biometric systems. Additionally, this document provides guidance on the use of the International Standards that underpin the use of biometric recognition systems."
+  },
+  {
+    "reference": "ISO/IEC 24779-1:2016",
+    "edition": "1.0",
+    "date": "2016-04-08",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Pictograms, icons and symbols for use with biometric systems - Part 1: General principles",
+    "language": "EN",
+    "description": "ISO/IEC 24779-1:2016 multi-part International Standard specifies a family of icons and symbols used in association with devices for biometric enrolment, verification and/or identification. This part of ISO/IEC 24779 describes the approach used in specifying icons and the range of biometric technologies for which icon and symbol development is considered. The symbols and icons are intended to show the modality of biometrics and to advise the necessity of appropriate preparation for and behaviour required when using the biometric systems. They are also intended to assist subjects by guiding them as they use the biometric systems. ISO/IEC 24779-1:2016 Standard focuses on both enrolment and recognition processes. Icons and symbols used exclusively for biometric enrolment are not specified since most enrolment systems will be supervised, and an attendant will be available to explain to biometric capture subjects what to do. ISO/IEC 24779-1:2016 Standard focuses on communication with the data capture subject. Operators could use this part of ISO/IEC 24779, but they might need additional symbols and information."
+  },
+  {
+    "reference": "ISO/IEC 24779-4:2017",
+    "edition": "1.0",
+    "date": "2017-01-05",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Pictograms, icons and symbols for use with biometric systems - Part 4: Fingerprint applications",
+    "language": "EN",
+    "description": "ISO/IEC 24779-4:2017 contains a set of symbols, icons and pictograms to help the general public understand the concepts and procedures for using electronic systems that collect and/or process fingerprints. This set of symbols, icons and pictograms is designed to be used to - identify the type of biometric device, - provide static instructions related to a fingerprint device, - display dynamic real-time information related to the fingerprint device, and - indicate the status of the fingerprint device. To provide this functionality, the set of symbols, icons and pictograms includes both directional symbols, icons and pictograms and real-time action or feedback symbols, icons and pictograms. The fingerprint device symbols, icons and pictograms can be categorized as - finger/hand general biometric, - kind of finger, four fingers or hand device, - finger/hand placement, - biometric position and impression which needs to be presented next, - hand orientation (switched hands), - finger/hand quality feedback, - press (more or less), - raise/lower angle, - finger/hand positioning, - hand/finger orientation, - necessary finger/hand movement (forward, backward, lateral), - rotation, - change angle, and - rolling finger(s). Although the symbols, icons and pictograms are presented individually, it is intended that the symbols, icons and pictograms be combined to fully illustrate the fingerprinting interaction. Alternative illustrations might be used; for example, in a customs or immigration environment, procedures constructed from the individual symbols, icons and pictograms could additionally be presented as - a series of posters while waiting to use the biometric system, - a series of transitional frames in a biometric booth, - an animated video or series of transitional frames while waiting to use the biometric system, and - instructional leaflets to read while waiting to use the biometric system. This multi-part International standard focuses on communication with the data capture subject. Operators could use this International standard, but they might need additional symbols and information."
+  },
+  {
+    "reference": "ISO/IEC 24779-5:2020",
+    "edition": "1.0",
+    "date": "2020-03-05",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Pictograms, icons and symbols for use with biometric systems - Part 5: Face applications",
+    "language": "EN",
+    "description": "The ISO/IEC 24779 series of standards focuses on communication with the data capture subject. This document contains a set of pictograms, icons and symbols to help the general public understand the concepts and procedures for using electronic systems that collect and/or evaluate facial images. Operators can use this document, with the possibility of using additional symbols and information. This set of pictograms, icons and symbols is designed to be used to: — identify the type of biometric sensor; — provide supporting instructions related to facial image collection. To provide this functionality, the set of pictograms, icons and symbols includes both directional pictograms, icons and symbols and action or feedback pictograms, icons and symbols. The facial image pictograms, icons and symbols include: — facial image capture; — single person; — no hat; — no sunglasses; — neutral expression; — hair up; — view direction. Although the pictograms, icons and symbols are presented individually, the pictograms, icons and symbols are intended to be combined to fully illustrate the facial image capture interaction. For example, in a customs or immigration environment, procedures constructed from the individual pictograms, icons and symbols could be presented as: — a series of posters while passengers are in the queue; — a series of transitional frames in a biometric booth; — an animated video or series of transitional frames while passengers are in the queue; — instructional leaflets for passengers to read in the queue."
+  },
+  {
+    "reference": "ISO/IEC 24779-9:2015",
+    "edition": "1.0",
+    "date": "2015-11-03",
+    "title": "Information technology - Cross-jurisdictional and societal aspects of implementation of biometric technologies - Pictograms, icons and symbols for use with biometric systems - Part 9: Vascular applications",
+    "language": "EN",
+    "description": "ISO/IEC 24779-9:2015 specifies the symbols and icons to be used in conjunction with vascular image recognition. It specifies a family of symbols and icons used in association with devices for biometric enrolment, verification, and/or identification. Icons are for display on visual display screens. Symbols are printed on signs and printed documents including user documents, hand outs, training material, installation/maintenance manuals, and on case or key tops and buttons of devices. The symbols and icons are intended to show the modality of biometrics and to advise the necessity of appropriate preparation and the behaviour required in order to use the biometric systems. T ISO/IEC 24779-9:2015 focuses on communication with the data capture subject. Operators could use ISO/IEC 24779-9:2015 but they might need additional symbols and information."
+  },
+  {
+    "reference": "ISO/IEC 29109-1:2009",
+    "edition": "1.0",
+    "date": "2009-07-23",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 1: Generalized conformance testing methodology",
+    "language": "EN",
+    "description": "ISO/IEC 29109-1:2009 defines the concepts of conformance testing for biometric data interchange formats and defines a general conformance testing framework. It specifies common (modality-neutral) elements of the testing methodology, such as test methods and procedures, implementation conformance claim, and test results reporting. It also provides the assertion language definition and sets forth other testing and reporting requirements, and outlines other aspects of the conformance testing methodology that are generally applicable and not modality-specific. As part of the conformance testing methodology, different types and levels of conformance testing are described, as well as their applicability. The conformance testing methodology specified in ISO/IEC 29109-1:2009 is concerned only with data interchange format records and systems that produce or use these records."
+  },
+  {
+    "reference": "ISO/IEC 29109-1:2009/COR1:2010",
+    "edition": "1.0",
+    "date": "2010-11-30",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 1: Generalized conformance testing methodology - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 29109-2:2010",
+    "edition": "1.0",
+    "date": "2010-04-19",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 2: Finger minutiae data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-2:2010 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to the biometric data interchange format standard relating to finger minutiae data (i.e. ISO/IEC 19794-2). It establishes tests of assertions of the structure of the finger minutiae data format as specified in ISO/IEC 19794-2:2005 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), tests of assertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009), and tests of semantic assertions (Type A Level 3 as defined in ISO/IEC 29109-1:2009). ISO/IEC 29109-2:2010 does not establish tests of conformance of CBEFF structures embedding ISO/IEC 19794-2:2005 biometric data blocks (BDBs), tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), tests of conformance of systems that do not produce ISO/IEC 19794-2:2005 records, or tests for level 3 conformance testing."
+  },
+  {
+    "reference": "ISO/IEC 29109-4:2010",
+    "edition": "1.0",
+    "date": "2010-04-22",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 4: Finger image data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-4:2010 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to ISO/IEC 19794-4. ISO/IEC 29109-4:2010 establishes test assertions of the structure of the finger image data format as specified in ISO/IEC 19794-4:2005 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), test asssertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009), tests of semantic assertions (Type A Level 3 as defined in ISO/IEC 29109-1:2009). ISO/IEC 29109-4:2010 does not establish tests of conformance of CBEFF structures required by ISO/IEC 19794-4:2005, tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), tests of conformance of systems that do not produce ISO/IEC 19794-4:2005 records."
+  },
+  {
+    "reference": "ISO/IEC 29109-4:2010/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-09-29",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 4: Finger image data - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 29109-5:2019",
+    "edition": "4.0",
+    "date": "2019-05-21",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 5: Face image data",
+    "language": "EN",
+    "description": "This document specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to two-dimensional face images defined in the ISO/IEC 19794-5:2005 biometric data interchange format standard for face image data. This document establishes — test assertions of the structure of the face image data format as specified in ISO/IEC 19794-5:2005 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), — test assertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009). This document does not establish — tests of conformance of 3D face records defined in ISO/IEC 19794-5:2005, 5.7.1, codes 0x80, 0x81, and 0x82, — tests of conformance of CBEFF structures required by ISO/IEC 19794-5:2005, — tests of consistency with the input biometric data record (Level 3), — tests of conformance of the image data to the quality-related specifications of ISO/IEC 19794-5:2005, — tests of conformance of the image data blocks to the respective JPEG or JPEG 2000 standards, — tests of other characteristics of biometric products or other types of testing of biometric products (e.g., acceptance, performance, robustness, security)."
+  },
+  {
+    "reference": "ISO/IEC 29109-6:2011",
+    "edition": "1.0",
+    "date": "2011-09-29",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 6: Iris image data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-6:2011 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to ISO/IEC 19794-6:2005. ISO/IEC 29109-6:2011 establishes test assertions of the structure of the iris image data format as specified in ISO/IEC 19794-6:2005 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), test asssertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009), tests of semantic assertions (Type A Level 3 as defined in ISO/IEC 29109-1:2009). ISO/IEC 29109-6:2010 does not establish tests of conformance of CBEFF structures required by ISO/IEC 19794-6:2005, tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), tests of conformance of systems that do not produce ISO/IEC 19794-6:2005 records."
+  },
+  {
+    "reference": "ISO/IEC 29109-7:2011",
+    "edition": "1.0",
+    "date": "2011-09-21",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 7: Signature/sign time series data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-7:2011 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to ISO/IEC 19794-7. ISO/IEC 19794-7 defines two data interchange formats for signature/sign time series data, one for general use and one compact format for use with smart cards and other tokens. ISO/IEC 29109-7:2011 establishes test assertions of the structure of both signature/sign time series data formats as specified in ISO/IEC 19794-7 (Type A Level 1 as defined in ISO/IEC 29109-1), test assertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1), and test assertions on the contents of data records in the signature/sign time series data formats as specified in ISO/IEC 19794-7 (Type A Level 3 as defined in ISO/IEC 29109-1). ISO/IEC 29109-7:2011 does not establish tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), and tests of conformance of systems that do not produce ISO/IEC 19794-7 records."
+  },
+  {
+    "reference": "ISO/IEC 29109-8:2011",
+    "edition": "1.0",
+    "date": "2011-12-15",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 8: Finger pattern skeletal data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-8:2011 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to ISO/IEC 19794-8:2006. It establishes test assertions of the structure of the finger pattern skeletal data format as specified in ISO/IEC 19794-8:2006 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), test asssertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009). It does not establish test of conformance of Common Biometric Exchange Formats Framework (CBEFF) structures required by ISO/IEC 19794-8:2006, test of consistency with input biometric data record (Level 3), test of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), test of conformance of systems that do not produce ISO/IEC 19794-8:2006 records."
+  },
+  {
+    "reference": "ISO/IEC 29109-9:2011",
+    "edition": "1.0",
+    "date": "2011-07-01",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 9: Vascular image data",
+    "language": "EN",
+    "description": "ISO/IEC 19794-9:2007 specifies a data record interchange format for recording, storing, and transmitting one or more hand vascular images. Each image is accompanied by image-specific metadata contained in a header record. ISO/IEC 29109-9:2011 establishes tests for checking the correctness of the binary record. It defines a testing methodology to ensure conformance of a vendor's application or service to ISO/IEC 19794-9:2007. The objective of ISO/IEC 19794-9:2007 cannot be completely achieved until biometric products can be tested to determine whether they conform to those specifications. Conforming implementations are a necessary prerequisite for achieving interoperability among implementations. The conformance test assertions will cover, as much as is practical, the ISO/IEC 19794 requirements (covering the most critical features), so that the conformity results produced by the test suites will reflect the real degree of conformity of the implementations to ISO/IEC 19794 data interchange format records. This is the motivation for the development of this conformance testing methodology."
+  },
+  {
+    "reference": "ISO/IEC 29109-10:2010",
+    "edition": "1.0",
+    "date": "2010-12-07",
+    "title": "Information technology - Conformance testing methodology for biometric data interchange formats defined in ISO/IEC 19794 - Part 10: Hand geometry silhouette data",
+    "language": "EN",
+    "description": "ISO/IEC 29109-10:2010 specifies elements of conformance testing methodology, test assertions, and test procedures as applicable to ISO/IEC 19794-10. ISO/IEC 29109-10:2010 establishes test assertions of the structure of the hand geometry silhouette data format as specified in ISO/IEC 19794-10:2007 (Type A Level 1 as defined in ISO/IEC 29109-1:2009), test assertions of internal consistency by checking the types of values that may be contained within each field (Type A Level 2 as defined in ISO/IEC 29109-1:2009), informative guidance for testing the consistency of selected encoded data fields with the input biometric data (Type B Level 3 as defined in ISO/IEC 29109-1:2009). ISO/IEC 29109-10:2010 does not establish test of conformance of CBEFF structures required by ISO/IEC 19794-10:2007, test of consistency with input biometric data record (Level 3 as defined in ISO/IEC 29109-1:2009), test of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), test of conformance of systems that do not produce ISO/IEC 19794-10:2007 records."
+  },
+  {
+    "reference": "ISO/IEC 29120-1:2022",
+    "edition": "2.0",
+    "date": "2022-10-28",
+    "title": "Information technology - Machine-readable test data for biometric testing and reporting - Part 1: Test reports",
+    "language": "EN",
+    "description": "This document establishes: — machine-readable records for documenting the output of a biometric test; — formats for data that ISO/IEC 19795 series tests are required to report; and — an ASN.1 syntax for test reports. This document does not: — require, prohibit, or otherwise specify the format of biometric samples or templates used in a test; — require, prohibit or otherwise specify the encapsulation of biometric samples or templates used in a test; or — regulate metrics for tests. NOTE The reportable metrics are established in ISO/IEC 19795-1."
+  },
+  {
+    "reference": "ISO/IEC 29141:2009",
+    "edition": "1.0",
+    "date": "2009-11-27",
+    "title": "Information technology - Biometrics - Tenprint capture using biometric application programming interface (BioAPI)",
+    "language": "EN",
+    "description": "ISO/IEC 29141:2009 specifies requirements for the use of ISO/IEC 19784-1, as amended by ISO/IEC 19784-1/Amd.1 (BioAPI) for the purpose of performing a tenprint capture operation. It specifies a biometric data block format that is used to interact with a BioAPI framework [and hence with biometric service providers (BSPs)] to support an application wishing to perform a tenprint capture. It specifies a capture control block and a capture output block that conforming BSPs are required to support if they conform to ISO/IEC 29141:2009."
+  },
+  {
+    "reference": "ISO/IEC TR 29144:2014",
+    "edition": "1.0",
+    "date": "2014-07-02",
+    "title": "Information technology - Biometrics - The use of biometric technology in commercial Identity Management applications and processes",
+    "language": "EN",
+    "description": "ISO/IEC TR 29144:2014 discusses concepts and considerations for the use of biometrics in a commercial Identity Management Solution, items that need to be considered when integrating biometrics into a commercial Identity Management Solution, and implementation issues when implementing biometrics into commercial Identity Management Solutions. ISO/IEC TR 29144:2014 does not define an architecture and framework for IDM, discuss any specification or assessment of government policy, discuss the business need for a biometric database or process, discuss the specific biometrics and which ones are to be used in particular systems, consider the legality and acceptability in particular jurisdictions and cultures, analyse the general structure of identifiers and the global identification of objects (e.g. object identifiers), and discuss technical specifications in relation to the use of trusted biometric hardware and software."
+  },
+  {
+    "reference": "ISO/IEC TR 29156:2015",
+    "edition": "1.0",
+    "date": "2015-11-16",
+    "title": "Information technology - Guidance for specifying performance requirements to meet security and usability needs in applications using biometrics",
+    "language": "EN",
+    "description": "ISO/IEC TR 29156:2015 provides guidance on specifying performance requirements for authentication using biometric recognition in order to achieve desired levels of security and usability for the authentication mechanism. Guidance addresses issues such as the following: - the biometric performance metrics that impact security and usability; - comparing and quantifying the security and usability of biometrics and other authentication mechanisms, when used alone or in combination; - how to combine performance of individual authentication elements in order to meet an overall security and usability requirement; - the trade-off between security and usability in applications using biometric recognition; - considerations in maintaining security and usability in systems incorporating biometrics. The guidance is targeted towards applications that - use biometrics for the authentication of individuals, and - are of small to medium size (in terms of the number of enrolled individuals). The guidance does not address the following: - surveillance systems; - systems whose primary aim is to detect and prevent attempts by individuals to create multiple enrolments under different identities; - systems with a large and diverse population of enrolees, which can include people with special needs; - other systems with a complex mix of functional, security and usability requirements. Such large-scale applications are typically the domain of large organizations, and it is assumed that the developers of such systems will have access to appropriate biometric expertise able to provide guidance beyond the scope of this Technical Report. This Technical Report does not address biometric modality and technology specific issues, nor does it provide quantitative biometric performance requirements that would satisfy a particular application."
+  },
+  {
+    "reference": "ISO/IEC 29159-1:2010",
+    "edition": "1.0",
+    "date": "2010-08-26",
+    "title": "Information technology - Biometric calibration, augmentation and fusion data - Part 1: Fusion information format",
+    "language": "EN",
+    "description": "ISO/IEC 29159-1:2010 specifies a biometric fusion information format that establishes machine readable data formats to describe the statistics of comparison score inputs to a fusion process. ISO/IEC 29159-1:2010 does not standardize comparison-score normalization processes, nor standardize or define fusion processes."
+  },
+  {
+    "reference": "ISO/IEC 29164:2011",
+    "edition": "1.0",
+    "date": "2011-09-29",
+    "title": "Information technology - Biometrics - Embedded BioAPI",
+    "language": "EN",
+    "description": "ISO/IEC 29164:2011 provides a standard interface to hardware biometric modules designed to be integrated in embedded systems which can be constrained in memory and computational power. It specifies a full interface for such hardware-based biometric modules. This interface, called Embedded BioAPI, is defined by the specification of commands to be implemented by these modules. Such a specification is done on two levels. Low level implementation is not covered by ISO/IEC 29164:2011. Security mechanisms, although considered, are outside of the scope of ISO/IEC 29164:2011, and are referred to in other relevant standards. In particular, key management is outside of the scope of ISO/IEC 29164:2011, and is expected to be done prior to the application of ISO/IEC 29164:2011. Specifications and requirements for Embedded BioAPI subcomponents, or any kind of devices suitable to implement Embedded BioAPI, are also outside of the scope of ISO/IEC 29164:2011."
+  },
+  {
+    "reference": "ISO/IEC TR 29189:2015",
+    "edition": "1.0",
+    "date": "2015-07-09",
+    "title": "Information technology - Biometrics - Evaluation of examiner assisted biometric applications",
+    "language": "EN",
+    "description": "The purpose of ISO/IEC TR 29189:2015 is to identify and characterize those aspects of performance testing that are unique to examiner assisted biometric applications."
+  },
+  {
+    "reference": "ISO/IEC TR 29194:2015",
+    "edition": "1.0",
+    "date": "2015-05-21",
+    "title": "Information Technology - Biometrics - Guide on designing accessible and inclusive biometric systems",
+    "language": "EN",
+    "description": "Procurements of biometric systems often stipulate requirements for the systems to be inclusive and make provision for exception handling. ISO/IEC TR 29194:2015 provides guidance for biometric system design and procurement to handle the range of accessibility and usability issues. This report will build upon the generic guidance in ISO/IEC/TR 24714‑1, Information technology ? Biometrics ? Jurisdictional and societal considerations for commercial applications ? Part 1: General guidance."
+  },
+  {
+    "reference": "ISO/IEC TR 29195:2015",
+    "edition": "1.0",
+    "date": "2015-03-17",
+    "title": "Traveller processes for biometric recognition in automated border control systems",
+    "language": "EN",
+    "description": "ISO/IEC TR 29195:2015 provides recommended best practices and processes for automated border control systems using biometrics to verify an identity claim by a traveller that uses an ePassport or equivalent identity card as the basis for the claim. It indicates areas that organisations proposing to use biometric technologies will need to address during design, deployment, and operation. Much of the information is generic to all types of applications especially around signage; however, some information will be specific to the modality of biometric technology used and how that technology is physically implemented."
+  },
+  {
+    "reference": "ISO/IEC TS 29196:2025",
+    "edition": "1.0",
+    "date": "2025-12-12",
+    "title": "Information technology - Guidance for biometric enrolment",
+    "language": "EN",
+    "description": "This document gives guidance relating to successful, secure and usable implementation of biometric enrolment processes, while indicating risk factors that organizations which use biometric technologies can address during procurement, design, deployment and operation. Much of this document is generic to many types of applications, e.g. from national scale commercial and government applications, to closed systems for in-house operations, and to consumer applications. However, the intended application and its purpose often have influence on the necessary enrolment data quality and are taken into account when specifying an enrolment system and process. This document specifies the differences in operation relating to specific types of application, e.g. where self-enrolment is more appropriate than attended enrolment. This document focuses on mandatory, attended enrolment at fixed locations. It ultimately consolidates information relating to better practices for the implementation of biometric enrolment capability in various business contexts including considerations of process, function (system), and technology, as well as legal/privacy and policy aspects. This document provides guidance on collection and storage of biometric enrolment data and the impact on dependent processes of verification and identification. This document does not include material specific to forensic and law enforcement applications."
+  },
+  {
+    "reference": "ISO/IEC 29197:2015",
+    "edition": "1.0",
+    "date": "2015-03-17",
+    "title": "Information technology - Evaluation methodology for environmental influence in biometric system performance",
+    "language": "EN",
+    "description": "ISO/IEC 29197:2015 addresses ? fundamental requirements for planning and execution of environmental performance evaluations for biometric systems based on scenario and operational test methodologies, ? specifications to define, establish, and measure specific conditions to assess, including requirements for equipment, ? requirements for establishing a baseline performance in order to compare the influence of environmental parameters, ? a specification of the biometric evaluation including requirements for test population, test protocols, data to record, and test results, and ? procedures for carrying out the overall evaluation. It does not ? determine which parameters should be analysed for a specific biometric modality (This is currently covered in ISO/IEC/TR 19795‑3.), ? specify requirements to perform a vulnerability analysis modifying environmental factors (This is covered by ISO/IEC 19792.), ? classify biometric systems upon performance against different environmental conditions, or ? specify requirements for determining the functional effects of environmental conditions on hardware components (such as corrosion, electrical interference, breakage, etc.) of biometric systems."
+  },
+  {
+    "reference": "ISO/IEC TR 29198:2013",
+    "edition": "1.0",
+    "date": "2013-12-13",
+    "title": "Information technology - Biometrics - Characterization and measurement of difficulty for fingerprint databases for technology evaluation",
+    "language": "EN",
+    "description": "ISO/IEC TR 29198:2013 provides guidance on estimating how \"challenging\" or \"stressing\" is an evaluation dataset for fingerprint recognition, based on relative sample quality, relative rotation, deformation, and overlap between impressions. In addition, it establishes a method for construction of datasets of different levels of difficulty. It defines the relative level of difficulty of a fingerprint dataset used in technology evaluation of fingerprint recognition algorithms. Level of difficulty is based on differences between reference and probe samples in the aforementioned factors. ISO/IEC TR 29198:2013 addresses such issues as: characterizing level of difficulty attributable to differences between samples acquired from the same finger, developing statistical methodologies for representing the level of difficulty of a fingerprint dataset by aggregating influencing factors, comparing the level of difficulty of different fingerprint datasets, defining procedures for testing and reporting the level of difficulty of fingerprint datasets collected for technology evaluation, analysing mated pair data characteristics based on comparison scores, describing the archived data selection methodology for building a dataset for evaluation. It provides guidelines for comparing the relative level of difficulty of fingerprint datasets. Outside the scope of ISO/IEC TR 29198:2013 are: defining the quality of individual fingerprint images, defining the methodologies or explicit measures for evaluating or predicting the performance of fingerprint recognition algorithms."
+  },
+  {
+    "reference": "ISO/IEC 29794-1:2024",
+    "edition": "3.0",
+    "date": "2024-05-30",
+    "title": "Information technology - Biometric sample quality - Part 1: Framework",
+    "language": "EN",
+    "description": "This document establishes the following items for any or all biometric sample types as necessary: — terms and definitions that are useful in the specification and use of quality measures; — purpose and interpretation of biometric quality scores; — motivation for developing biometric sample datasets for the purpose of quality score normalization; — format for exchange of quality assessment algorithm results; — methods for aggregation of quality scores; — methods for evaluating the efficiency of quality assessment algorithms. The following are outside the scope of this document: — specification of minimum requirements for sample, module, or system quality scores; — standardization of quality assessment algorithms; — assessment of utility of biometric samples or references for human examiners."
+  },
+  {
+    "reference": "ISO/IEC 29794-4:2024",
+    "edition": "2.0",
+    "date": "2024-09-30",
+    "title": "Information technology - Biometric sample quality - Part 4: Finger image data",
+    "language": "EN",
+    "description": "ISO/IEC 29794-4:2017 establishes - terms and definitions for quantifying finger image quality, - methods used to quantify the quality of finger images, and - standardized encoding of finger image quality, for finger images at 196,85 px/cm spatial sampling rate scanned or captured using optical sensors with capture dimension (width, height) of at least 1,27 cm × 1,651 cm."
+  },
+  {
+    "reference": "ISO/IEC 29794-5:2025",
+    "edition": "1.0",
+    "date": "2025-04-16",
+    "title": "Information technology - Biometric sample quality - Part 5: Face image data",
+    "language": "EN",
+    "description": "This document establishes requirements on implementations that quantify how a face image’s properties conform with those of canonical face images, for example those specified in ISO/IEC 39794-5:2019, Clause D.1, for three use-cases: 1) collection of reference samples for ID documents; 2) sample system enrolment; and 3) probes for instantaneous response. This document also establishes terms and definitions for quantifying face image quality and specifies methods for quantifying the quality of face images. This document does not establish requirements on: — assessing the quality of pairs or sequences of images; NOTE This document establishes requirements for software that inspects exactly one image. This document does not establish requirements for software that compares two or more images (such as biometric recognition). However, the computations of this document can be applied separately to each image in a pair or sequence. — assessing the quality of 3D captures; — encodings of face image quality data; — performance evaluation of face image quality assessment algorithms. The use cases within scope of this document primarily address the assessment of images from data capture subjects who consent to processing of their biometric data, or for whom biometric capture is operationally authorized."
+  },
+  {
+    "reference": "ISO/IEC 29794-6:2015",
+    "edition": "1.0",
+    "date": "2015-07-03",
+    "title": "Information technology - Biometric sample quality - Part 6: Iris image data",
+    "language": "EN",
+    "description": "ISO/IEC 29794-6:2015 establishes: methods used to quantify the quality of iris images, normative requirements on software and hardware producing iris images, normative requirements on software and hardware measuring the utility of iris images, terms and definitions for quantifying iris image quality, and standardized encoding of iris image quality. Outside the scope is performance evaluation of specific iris quality assessment algorithms."
+  },
+  {
+    "reference": "ISO/IEC 30106-1:2016",
+    "edition": "1.0",
+    "date": "2016-03-23",
+    "title": "Information technology - Object oriented BioAPI - Part 1: Architecture",
+    "language": "EN",
+    "description": "ISO/IEC 30106-1:2016 specifies an architecture for a set of interfaces which define the OO BioAPI. Components defined in this part of ISO/IEC 30106 include a framework, Biometric Service Providers (BSPs), Biometric Function Providers (BFPs) and a component registry. NOTE Each of these components have an equivalent component specified in ISO/IEC 19784‑1 as the OO BioAPI is intended to be an OO interpretation of this part of ISO/IEC 30106. For this reason, this part of ISO/IEC 30106 is conceptually equivalent to ISO/IEC 19784‑1. Concepts present in this part of ISO/IEC 30106 (for example, BioAPI_Unit and component registry) have the same meaning as in ISO/IEC 19784‑1. While the conceptual equivalence of this part of ISO/IEC 30106 will be maintained with ISO/IEC 19784‑1, there are differences in the parameters passed between functions and the sequence of function calls. These differences exist to take advantage of the features provided by Object Oriented Programming Languages."
+  },
+  {
+    "reference": "ISO/IEC 30106-1:2016/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-05-22",
+    "title": "Information technology - Object oriented BioAPI - Part 1: Architecture - Amendment 1: Additional specifications and conformance statements",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 30106-2:2020",
+    "edition": "2.0",
+    "date": "2020-11-04",
+    "title": "Information technology - Object oriented BioAPI - Part 2: Java implementation",
+    "language": "EN",
+    "description": "This document specifies an interface of a BioAPI Java framework and BioAPI Java BSP, which will mirror the corresponding components, specified in ISO/IEC 30106-1. The semantic equivalent of ISO/IEC 30106-1 is maintained in this document."
+  },
+  {
+    "reference": "ISO/IEC 30106-3:2020",
+    "edition": "2.0",
+    "date": "2020-11-04",
+    "title": "Information technology - Object oriented BioAPI - Part 3: C# implementation",
+    "language": "EN",
+    "description": "This document specifies an interface of a BioAPI C# framework and BioAPI C# BSP which mirror the corresponding components specified in ISO/IEC 30106-1. The semantic equivalence of this document will be maintained with ISO/IEC 30106-2 (Java implementation). In spite of the differences in actual parameters passed between functions, the names and interface structure are the same."
+  },
+  {
+    "reference": "ISO/IEC 30106-4:2019",
+    "edition": "1.0",
+    "date": "2019-09-15",
+    "title": "Information technology - Object oriented BioAPI - Part 4: C++ implementation",
+    "language": "EN",
+    "description": "This document specifies an interface of a BioAPI C++ framework and BioAPI C++ BSP which will mirror the corresponding components specified in ISO/IEC 30106-1. The semantic equivalence of this document will be maintained with ISO/IEC 30106-2 (Java implementation) and ISO/IEC 30106-3 (C# implementation). In spite of the differences in actual parameters passed between functions, the names and interface structure are the same."
+  },
+  {
+    "reference": "ISO/IEC 30107-1:2023",
+    "edition": "2.0",
+    "date": "2023-08-10",
+    "title": "Information technology - Biometric presentation attack detection - Part 1: Framework",
+    "language": "EN",
+    "description": "This document establishes terms and definitions that are useful in the specification, characterization and evaluation of presentation attack detection (PAD) methods. This document does not provide the following: — standardization of specific PAD detection methods; — detailed information about countermeasures (i.e. anti-spoofing mechanisms), algorithms or sensors; — overall system-level security or vulnerability assessment. The attacks to be considered in this document are those that take place at the capture device during the presentation and collection of the biometric characteristics. Any other attacks are considered outside the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 30107-2:2017",
+    "edition": "1.0",
+    "date": "2017-12-15",
+    "title": "Information technology - Biometric presentation attack detection - Part 2: Data formats",
+    "language": "EN",
+    "description": "ISO/IEC 30107-2:2017 defines data formats for conveying the mechanism used in biometric presentation attack detection and for conveying the results of presentation attack detection methods. The attacks considered in the ISO/IEC 30107 series take place at the sensor during the presentation and collection of the biometric characteristics. Any other attacks are outside the scope of this document. ISO/IEC 30107-2:2017 contains the following data formats: a binary format and an XML schema. The data interchange formats in this document are generic, in that they may be applied and used in a wide range of application areas. No application-specific requirements are addressed here. Provisions for the cryptographic protection of the authenticity, integrity, and confidentiality of stored and transmitted presentation attack detection data are beyond the scope of this document. NOTE While addressing security is out of the scope of this document, PAD data may be protected by encoding them into a biometric information record (see ISO/IEC 19785-1) that includes an optional security block."
+  },
+  {
+    "reference": "ISO/IEC 30107-3:2023",
+    "edition": "2.0",
+    "date": "2023-01-10",
+    "title": "Information technology - Biometric presentation attack detection - Part 3: Testing and reporting",
+    "language": "EN",
+    "description": "This document establishes: — principles and methods for the performance assessment of presentation attack detection (PAD) mechanisms; — reporting of testing results from evaluations of PAD mechanisms; and — a classification of known attack types ( Annex A ). Outside the scope are: — standardization of specific PAD mechanisms; — detailed information about countermeasures (i.e. anti-spoofing techniques), algorithms or sensors; and — overall system-level security or vulnerability assessment. The attacks considered in this document take place at the biometric capture device during presentation. Any other attacks are considered outside the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 30107-4:2024",
+    "edition": "2.0",
+    "date": "2024-02-07",
+    "title": "Information technology - Biometric presentation attack detection - Part 4: Profile for testing of mobile devices",
+    "language": "EN",
+    "description": "This document is a profile that specifies requirements for testing biometric presentation attack detection (PAD) mechanisms on mobile devices with local biometric recognition and on biometric modules integrated into mobile devices. The profile lists requirements from ISO/IEC 30107-3 that are specific to mobile devices. It also establishes requirements that are not present in ISO/IEC 30107-3. For each requirement, the profile defines an “Approach in PAD Tests for Mobile Devices”. For some requirements, numerical values or ranges are provided in the form of best practices. This profile is applicable to mobile devices that operate as closed systems with no access to internal results, including mobile devices with local biometric recognition as well as biometric modules for mobile devices. This document is not applicable to mobile devices with solely remote biometric recognition. The attacks considered in this document take place at the capture device during the presentation and collection of biometric characteristics. Any other attacks are outside the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 30108-1:2026",
+    "edition": "2.0",
+    "date": "2026-01-12",
+    "title": "Biometrics - Identity attributes verification services - Part 1: IAVS services",
+    "language": "EN",
+    "description": "This document defines biometric services used for identity assurance that are invoked over a services-based framework. It provides a generic set of biometric and identity-related functions and associated data definitions to allow remote access to biometric services. The binding of these services to specific frameworks is not included in this document but is the subject of other parts of the ISO/IEC 30108 series. Although focused on biometrics, this document includes support for other related identity assurance mechanisms such as biographic and document capabilities. IAVS is intended to be compatible with and used in conjunction with other biometric standards as des cribed in Clause 6. Specification of biometric functionality is limited to remote (backend) services. Services between a client-side application and biometric capture devices are not within the scope of this document. Integration of biometric services as part of an authentication service or protocol is not within the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC 30108-2:2023",
+    "edition": "1.0",
+    "date": "2023-10-26",
+    "title": "Biometrics - Identity attributes verification services - Part 2: RESTful specification",
+    "language": "EN",
+    "description": "The ISO/IEC 30108 series defines biometric services used for identity assurance that are invoked over a services-based framework. It provides a generic set of biometric and identity-related functions and associated data definitions to allow remote access to biometric services. Although focused on biometrics, the ISO/IEC 30108 series includes support for other related identity assurance mechanisms such as biographic and document capabilities. Identity attributes verification services (IAVSs) are intended to be compatible with and used in conjunction with other biometric standards as described in ISO/IEC 30108-1. This document implements the specification provided in ISO/IEC 30108-1 using representational state transfer (REST). Specification of biometric functionality is limited to remote (backend) services. Services between a client-side application and biometric capture devices are not within the scope of this document. Integration of biometric services as part of an authentication service or protocol is not within the scope of this document."
+  },
+  {
+    "reference": "ISO/IEC TR 30110:2015",
+    "edition": "1.0",
+    "date": "2015-11-04",
+    "title": "Information technology - Cross jurisdictional and societal aspects of implementation of biometric technologies - Biometrics and children",
+    "language": "EN",
+    "description": "ISO/IEC TR 30110:2015 builds upon the general recommendations given in ISO/IEC TR 24714‑1. It provides guidance for users (as defined in ISO/IEC 2382‑37) of biometric recognition systems on specific requirements in relation to deployments when children are included as subjects in the biometric process."
+  },
+  {
+    "reference": "ISO/IEC TR 30125:2016",
+    "edition": "1.0",
+    "date": "2016-04-29",
+    "title": "Information technology - Biometrics used with mobile devices",
+    "language": "EN",
+    "description": "ISO/IEC TR 30125:2016 provides guidance for developing a consistent and secure method of biometric (either alone or supported by non-biometric) personalization and authentication in a mobile environment for systems procured on the open market. Guidance is provided for - 1:1 verification or 1:few positive identification; - biometric sample capture in the mobile environment where conditions are not well controlled and not covered in ISO/IEC Biometric interchange format standards and the ISO/IEC Biometric sample quality Technical Reports; NOTE 1 Further information regarding architectures may be found in NIST/SP 500-288. - the best use of multiple biometric and non-biometric (PINs, passwords, personal data) personalization and authentication methods (i.e. multifactor). NOTE 2 More information may be found in ISO/IEC 30108‑1. ISO/IEC TR 30125:2016 defines a framework to address methods and approaches for remote and unsupervised enrolment, together with secure storage and transmission of biometric and supporting biographic data, covering a variety of both online connected and offline modes. ISO/IEC TR 30125:2016 identifies the functional elements and components of a generic mobile biometric system and the distinct characteristics of each component. It provides guidance related to a generic mobile architecture with reference to supporting standards. The context recognizes a) the user as being mobile and b) operation across a variety of platforms, particularly mobile devices but also including tablet, laptop and other personal computing devices. The key to defining this context is whether the user's environment is physically controlled by the organization to which the user seeks access."
+  },
+  {
+    "reference": "ISO/IEC 30136:2018",
+    "edition": "1.0",
+    "date": "2018-03-09",
+    "title": "Information technology - Performance testing of biometric template protection schemes",
+    "language": "EN",
+    "description": "ISO/IEC 30136:2018 supports evaluation of the accuracy, secrecy, and privacy of biometric template protection schemes. It establishes definitions, terminology, and metrics for stating the performance of such schemes. Particularly, this document establishes requirements for the measurement and reporting of: - theoretical and empirical accuracy of biometric template protection schemes, - theoretical and empirical probability of a successful attack on biometric template protection schemes (single or multiple), and - the information leaked about the original biometric when one or more biometric template protection schemes are compromised. ISO/IEC 30136:2018 also gives guidance on measuring and reporting diversity and unlinkability of templates. ISO/IEC 30136:2018 does not: - establish template protection schemes; - address testing of traditional encryption schemes."
+  },
+  {
+    "reference": "ISO/IEC 30137-1:2024",
+    "edition": "2.0",
+    "date": "2024-03-08",
+    "title": "Information technology - Use of biometrics in video surveillance systems - Part 1: System design and specification",
+    "language": "EN",
+    "description": "The ISO/IEC 30137 series is applicable to the use of biometrics in VSSs (also known as closed circuit television or CCTV systems) for a number of scenarios, including real-time operation against watchlists and in post-event analysis of video data. In most cases, the biometric mode of choice will be face recognition, but this document also provides guidance for other modalities, such as gait recognition. This document: — defines the key terms for use in the specification of biometric technologies in a VSS, including metrics for defining performance; — provides guidance on the selection of camera types, placement of cameras, image specification, etc., for the operation of a biometric recognition capability in conjunction with a VSS; — provides guidance on the composition of the gallery (or watchlist) against which facial images from the VSS are compared, including the selection of appropriate images of sufficient quality, and the size of the gallery in relation to performance requirements; — makes recommendations on data formats for facial images and other relevant information (including metadata) obtained from video footage, used in watchlist images, or from observations made by human operators; — establishes general principles for supporting the operator of the VSS, including user interfaces and processes to ensure efficient and effective operation, and highlights the need to have suitably trained personnel; — highlights the need for robust governance processes to provide assurance that the implemented security, privacy and personal data protection measures specific to the use of biometric technologies with a VSS (e.g. internationally recognizable signage) are fit for purpose, and that societal considerations are reflected in the deployed system. This document also provides information on related recognition and detection tasks in a VSS, such as: — estimation of crowd densities; — determination of patterns of movement of individuals; — identification of individuals appearing in more than one camera; — use of other biometric modalities such as gait or iris; — use of specialized software to infer attributes of individuals, e.g. estimation of gender and age; — interfaces to another related functionality, e.g. video analytics to measure queue lengths or to provide alerts for abandoned baggage."
+  },
+  {
+    "reference": "ISO/IEC 30137-4:2021",
+    "edition": "1.0",
+    "date": "2021-06-22",
+    "title": "Information technology - Use of biometrics in video surveillance systems - Part 4: Ground truth and video annotation procedure",
+    "language": "EN",
+    "description": "This document establishes requirements for the annotation of humans, human faces and other body parts, and arbitrary objects appearing in imagery. It specifies the following: — metadata to be inserted in a video stream; — encoding of full and partial spatial and temporal ground truth information for: — objects present in a video, and — objects absent in a video; — procedures for different annotation of known and unknown subjects. This document does not specify: — encoding of video data."
+  },
+  {
+    "reference": "ISO/IEC 39794-1:2019",
+    "edition": "1.0",
+    "date": "2019-12-20",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 1: Framework",
+    "language": "EN",
+    "description": "This document specifies: — rules and guidelines for defining extensible biometric data interchange formats that are extensible without invalidating previous data structures; — the meaning of common data elements for use in extensible biometric data interchange formats; — common data structures for tagged binary data formats based on an extensible specification in ASN.1; — common data structures for textual data formats based on an XML schema definition; and — conformance testing concepts and methodologies for testing the syntactic conformance of biometric data blocks."
+  },
+  {
+    "reference": "ISO/IEC 39794-2:2023",
+    "edition": "1.0",
+    "date": "2023-09-21",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 2: Finger minutiae data",
+    "language": "EN",
+    "description": "This document specifies: — generic extensible data interchange formats for the representation of finger minutia data: — a tagged binary data format based on an extensible specification in ASN.1, — a textual data format based on an XML schema definition that is capable of holding the same information as the tagged binary format, and — an on-card biometric comparison format based on extensible TLV encoding; — on-card biometric comparison parameters based on extensible TLV encoding for constructing valid probe data in the on-card biometric comparison format; — examples of data record contents; — application-specific requirements, recommendations and best practices in determining minutiae location, direction and type; and — conformance test assertions and conformance test procedures applicable to this document. NOTE Whereas ISO/IEC 39794-4 covers finger, palm, toe and foot image data, this document covers only finger minutiae and is not applicable to palms, toes or feet."
+  },
+  {
+    "reference": "ISO/IEC 39794-4:2019",
+    "edition": "1.0",
+    "date": "2019-12-20",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 4: Finger image data",
+    "language": "EN",
+    "description": "This document specifies: — generic extensible data interchange formats for the representation of friction ridge image data: a tagged binary data format based on an extensible specification in ASN.1 and a textual data format based on an XML schema definition that are both capable of holding the same information; — examples of data record contents; — application specific requirements, recommendations, and best practices in data acquisition; and — conformance test assertions and conformance test procedures applicable to this document."
+  },
+  {
+    "reference": "ISO/IEC 39794-4:2019/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-08-07",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 4: Finger image data - Amendment 1: Extension towards improved interoperability with ANSI/NIST-ITL",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 39794-5:2019",
+    "edition": "1.0",
+    "date": "2019-12-20",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 5: Face image data",
+    "language": "EN",
+    "description": "This document specifies: — generic extensible data interchange formats for the representation of face image data: A tagged binary data format based on an extensible specification in ASN.1 and a textual data format based on an XML schema definition that are both capable of holding the same information; — examples of data record contents; — application specific requirements, recommendations, and best practices in data acquisition; and — conformance test assertions and conformance test procedures applicable to this document."
+  },
+  {
+    "reference": "ISO/IEC 39794-6:2021",
+    "edition": "1.0",
+    "date": "2021-03-10",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 6: Iris image data",
+    "language": "EN",
+    "description": "This document specifies: — generic extensible data interchange formats for the representation of iris image data: a tagged binary data format based on an extensible specification in ASN.1 and a textual data format based on an XML schema definition that are both capable of holding the same information, — examples of data record contents, — application specific requirements, recommendations, and best practices in data acquisition, and — conformance test assertions and conformance test procedures applicable to this document. The iris image information is stored as: — an array of intensity values optionally compressed with ISO/IEC 15948 or ISO/IEC 15444-1, or — an array of intensity values optionally compressed with ISO/IEC 15948 or ISO/IEC 15444-1 that can be cropped around the iris, with the iris at the centre, and which can incorporate region-of-interest masking of non-iris regions. This document also specifies elements of conformance testing methodology, test assertions, and test procedures, as applicable to this document. It establishes: — test assertions pertaining to the structure of the iris image data format, as specified in Clauses 6, 7, 8 and 9 of this document, — test assertions pertaining to internal consistency by checking the types of values that may be contained within each field, and — semantic test assertions. The conformance testing methodology specified in this document does not establish: — tests of other characteristics of biometric products or other types of testing of biometric products (e.g. acceptance, performance, robustness, security), or — tests of conformance of systems that do not produce data records conforming to the requirements of this document. This document does not establish: — requirements on the optical specifications of cameras, or — requirements on photometric properties of iris images, or — requirements on enrolment processes, workflow and use of iris equipment."
+  },
+  {
+    "reference": "ISO/IEC 39794-9:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 9: Vascular image data",
+    "language": "EN",
+    "description": "This document specifies — generic extensible data interchange formats for the representation of vascular image data: a tagged binary data format based on an extensible specification in ASN.1 and a textual data format based on an XML schema definition that are both capable of holding the same information, — examples of data record contents, — application specific requirements, recommendations, and best practices in data acquisition, and — conformance test assertions and conformance test procedures applicable to this document."
+  },
+  {
+    "reference": "ISO/IEC 39794-16:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 16: Full body image data",
+    "language": "EN",
+    "description": "This document is intended to provide a generic extensible full body image data format for biometric recognition applications requiring exchange of human full body image data. Typical applications are: a) automated body biometric verification and identification of an unknown individual or cadaver (one-to-one as well as one-to-many comparison); b) support for human verification of identity by comparison of individuals against full body images; and c) support for human examination of full body images with sufficient resolution to allow a human examiner to verify identity or identify a living individual or a cadaver. This document ensures that full human body images and image sequence data generated by video surveillance and other similar systems are suitable for identification and verification. The structure of the data format in this document is compatible with ISO/IEC 39794-5. In addition to the data format, this document specifies application-specific profiles including scene constraints, photographic properties and digital image attributes like image spatial sampling rate, image size, etc. These application profiles are contained in a series of annexes. The 3D encoding types \"3D point map\" and \"range image\" are not supported by this document."
+  },
+  {
+    "reference": "ISO/IEC 39794-17:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Information technology - Extensible biometric data interchange formats - Part 17: Gait image sequence data",
+    "language": "EN",
+    "description": "This document specifies examples of application-specific requirements, recommendations and best practices in data acquisition applicable to gait image sequence data. Its typical applications include: a) support for human examination of high-resolution video and still images; b) support for human biometric verification and identification based on video and still images; c) automated gait image sequence verification and identification. This document ensures that image sequences are suitable for human identification and human verification generated by video surveillance and other similar systems. The following topics are not in scope of this document: — Definitions for facial and/or full body image related biometric profiles, which are fully covered in ISO/IEC 39794-5 and ISO/IEC 39794-16 respectively. — Security aspects like digital image sequence electronic signature, Presentation Attack Detection (PAD) and morphing prevention."
+  }
+]

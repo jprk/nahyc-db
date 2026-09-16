@@ -1,0 +1,34 @@
+[
+  {
+    "reference": "IEC TS 63346-1-1:2024",
+    "edition": "1.0",
+    "date": "2024-12-20",
+    "title": "Low-voltage auxiliary power systems - Part 1-1: Terminology",
+    "language": "EN",
+    "description": "IEC TS 63346-1-1:2024 contains the terms used by low-voltage auxiliary power systems in power stations, substations, converter substations and associated telecommunications equipment. Terms relating to low-voltage auxiliary power systems in nuclear power stations and railways substations are beyond the scope of this document."
+  },
+  {
+    "reference": "IEC TS 63346-2-1:2026",
+    "edition": "1.0",
+    "date": "2026-06-29",
+    "title": "Low-voltage auxiliary power systems - Part 2-1: Design criteria - General requirements",
+    "language": "EN",
+    "description": "IEC TS 63346-2-1:2026 establishes the general principles for the design of low-voltage auxiliary power systems (APS) with nominal voltages below or equal to 1 kV AC and 1,5 kV DC, and nominal frequency up to and including 60 Hz, so as to provide safe and correct operation for the intended use. This document applies to the design of low-voltage auxiliary systems for - substations, which are part of an electrical system, confined to a given area, mainly including ends of transmission or distribution lines, electrical switchgear and controlgear, buildings and transformers, - converter stations, - hydropower stations, where the gravitational energy of water is converted into electricity, and - thermal power stations, where the thermal energy is obtained by burning fossil fuels."
+  },
+  {
+    "reference": "IEC TS 63346-2-2:2026",
+    "edition": "1.0",
+    "date": "2026-07-15",
+    "title": "Low-voltage auxiliary power systems - Part 2-2: Design criteria - Low-voltage DC auxiliary power systems for substations",
+    "language": "EN",
+    "description": "IEC TS 63346-2-2:2026 provides common rules and specific requirements for the design of low voltage DC auxiliary power systems (APSs) intended to be installed in substations, mainly covering the configuration of DC power sources, system wiring, electric equipment selection and physical layout. For the purpose of interpreting this document, a DC APS in this document is considered as follows. Its scope covers from the low voltage AC input of the charger to the DC input points of loads. Though DC load is discussed where necessary, the load itself is beyond the scope of this document. Unless particularly stated, DC APS refers to the system using lead-acid and nickel-cadmium cells which are connected in series. The system using parallel cells can implement this document by reference. Substations in this document refer to those which are part of an electrical system and contain equipment that either receives and distributes electrical energy or transforms voltages to the levels required by the loads they supply, or both. This document does not apply to the design of any of the following: traction substation, which have different power supply requirements, such as unbalanced load power supply and harmonic behaviour; offshore substations, as factors such as waves, typhoons, salt spray, etc. need to be taken into account, which have different requirements for power supply and equipment selection; the substation connecting a nuclear power plant to the grid and its associated LV APS integrated with the nuclear power plant."
+  },
+  {
+    "reference": "IEC TS 63346-2-3:2025",
+    "edition": "1.0",
+    "date": "2025-11-06",
+    "title": "Low-voltage auxiliary power systems - Part 2-3: Design criteria - Low-voltage AC auxiliary power systems for substations",
+    "language": "EN",
+    "description": "IEC TS 63346-2-3:2025 specifies common rules and requirements for the design of low voltage (LV) AC auxiliary power systems (APSs) intended to be installed in substations, mainly covering the configuration of AC power sources, system wiring, protection, electric equipment selection and physical layout. For the purpose of interpreting this document, an AC APS in this document is considered as follows: - with a nominal voltage up to and including 1 kV AC; - providing LV AC power to substation AC loads. Though it is discussed where necessary, AC loads as well as high voltage (HV) part is beyond the scope of this document. Substations in this document refer to those which are part of an electrical system and contain equipment that either receives and distributes electrical energy or transforms voltages to the levels required by the loads they supply, or both."
+  }
+]

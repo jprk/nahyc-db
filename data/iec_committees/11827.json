@@ -1,0 +1,114 @@
+[
+  {
+    "reference": "IEC TS 63134:2020",
+    "edition": "1.0",
+    "date": "2020-04-09",
+    "title": "Active assisted living (AAL) use cases",
+    "language": "EN",
+    "description": "IEC TS 63134:2020 identifies AAL scenarios and use cases based on real-world applications and requirements. The use cases provide a practical context for considerations of interoperability and standards based on user experience. Use cases provide a context for utilizing existing standards and identifying further standardization work. User requirements have also been identified. This document also highlights potential areas for standardization in the AAL environment to ensure safety, security, privacy, ease of operation, performance and interoperability. Lastly, this document is a contribution to the IEC use case management repository, the purpose of which is to collect, administer, maintain, and analyse use cases."
+  },
+  {
+    "reference": "IEC TS 63134:2020/AMD1:2022",
+    "edition": "1.0",
+    "date": "2022-12-01",
+    "title": "Amendment 1 - Active Assisted Living (AAL) use cases",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC SRD 63219:2022",
+    "edition": "1.0",
+    "date": "2022-02-24",
+    "title": "Active assisted living (AAL) system development guidance for AAL service providers",
+    "language": "EN",
+    "description": "IEC SRD 63219:2022 provides guidance for AAL service providers to design, procure, implement, and maintain AAL systems throughout their service life. The objective is to ensure that AAL systems are designed, configured, and installed to meet the needs of the AAL user and the requirements from applicable industry standards and global regulations. Ultimately, however, users of this document are responsible for checking the applicable laws and regulations. This document is intended for use by persons and organizations acting within an AAL service organization such as employees, contractors, and consultants and those working with external AAL technology vendors, as appropriate. This document provides guidance on ensuring that AAL systems meet the needs of the AAL service user, in terms of safety, security, privacy, usability, accessibility, performance and interoperability. This document provides guidance to supplement the AAL service organization's established policies and procedures."
+  },
+  {
+    "reference": "IEC SRD 63234-1:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Economic evaluation of active assisted living services - Part 1: Framework",
+    "language": "EN",
+    "description": "IEC SRD 63234-1:2020 provides a descriptive framework and template for the economic evaluation of the implementation of technology-supported home healthcare or wellness services, or AAL services that support communications, transportation, etc. as defined in a series of AAL use cases. The financial analysis is completed from the point of view of the healthcare services funder, aged care services funder, or similar governmental or non-governmental organization (e.g. the government in a state-sponsored system or possibly a health management/health insurance company in a privately funded system, a private or governmental organization financing delivery of home support or specialized transportation services). This document is structured to provide a means of capturing data for a Reference Scenario (typically the current means of providing care, often known as 'usual care', to the target patient population) to compare against an Alternate Scenario (the service or technology intervention) for an economic comparison. Standard economic measures can be estimated (using an electronic spreadsheet or other analysis tool) such as Return on Investment (ROI), Net Present Value (NPV), and Payback Period of the investment. This document is applicable to all potential AAL services and AAL systems that may be developed or the development and manufacture of any of the underlying components (whether hardware or software)."
+  },
+  {
+    "reference": "IEC SRD 63234-2:2020",
+    "edition": "1.0",
+    "date": "2020-02-19",
+    "title": "Economic evaluation of active assisted living services - Part 2: Example of use - Monitoring patients with chronic diseases",
+    "language": "EN",
+    "description": "IEC SRD 63234-1:2020 provides a descriptive framework and template for the economic evaluation of the implementation of technology-supported home healthcare, wellness or AAL services. IEC SRD 63234-2:2020 provides an example of the use of the framework, specifically analysis and economic evaluation of the implementation of technology-supported, remote, in-home monitoring of patients (AAL care recipients) with chronic diseases. This analysis is completed from the point of view of the healthcare system/services funder (e.g. the government in a state-sponsored healthcare system or possibly a health management/health insurance company in a privately funded system). This document is structured like IEC SRD 63234-1:2020, to provide a means of capturing data for the Reference Scenario (the current means of providing care, also known as 'usual care', to the target population of members of the population with one or more chronic diseases living at home), compared against an Alternate Scenario (the deployment of an AAL service which provides remote patient monitoring). Standard economic measures have been estimated (using an electronic spreadsheet) including Return on Investment (ROI), Net Present Value (NPV), and Payback Period of the investment."
+  },
+  {
+    "reference": "IEC 63240-1:2024",
+    "edition": "2.0",
+    "date": "2024-11-08",
+    "title": "Active assisted living (AAL) reference architecture and architecture model - Part 1: Reference architecture",
+    "language": "EN",
+    "description": "IEC 63240-1:2024 specifies the AAL reference architecture. This document defines concepts and introduces terminology. It provides generic rules for designers of AAL systems and services with the aim to facilitate systems design and enable interoperability between components. This document identifies safety, security, privacy, and other requirements for AAL systems such as usability, accessibility, and trustworthiness (reliability, resilience) and sets up a process to identify the needs on the body area network (BAN), edge and cloud computing in the architecture perspective. IEC 63240-1:2024 cancels and replaces the first edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) clarifying the Introduction; b) new terms and definitions have been added in 3.1; c) adaption of terms according to the IEV in the whole document; d) reference to ethical considerations of AI when applied in the AAL context has been added in Clause 5; e) clarifying the description of AAL reference architecture in 6.3.1; f) process to identify the needs on BAN, edge and cloud computing in the architecture perspective has been added in 6.3.2 and 6.3.3; g) new figures have been added in 6.3.2 and 6.3.3; h) reference to standards inventory has been added in 7.1; i) clarification of 7.5; j) Annex A has been added; k) updated bibliography."
+  },
+  {
+    "reference": "IEC 63240-2:2020",
+    "edition": "1.0",
+    "date": "2020-11-18",
+    "title": "Active assisted living (AAL) reference architecture and architecture model - Part 2: Architecture model",
+    "language": "EN",
+    "description": "IEC 63240-2:2020 specifies the AAL architecture model. This document defines concepts and introduces terminology. IEC 63240-1 provides generic rules for designers of AAL systems and services with the aim to facilitate systems design and enable interoperability between components. This document provides a framework to analyse use cases on a common view and terminology, which is a foundation for communication to discuss the interoperability of the components of the AAL system. This document allows for the mapping of defined AAL use cases and supports the identification of interoperability issues and gap analysis of the standards. This document also identifies safety, security, privacy, and other requirements for AAL systems such as usability, accessibility, and trustworthiness (reliability, resilience)."
+  },
+  {
+    "reference": "IEC 63310:2025",
+    "edition": "1.0",
+    "date": "2025-01-17",
+    "title": "Functional performance criteria for AAL robots used in connected home environment",
+    "language": "EN",
+    "description": "IEC 63310:2025 deals with the functional performance criteria and guidelines for robots intended for use in the active assisted living connected home environment (AAL CHE). This document does not cover safety requirements of robots. This document is applicable to robots which provide the AAL user (or AAL care recipient) with one or more of the following services and support in the AAL CHE: - information and data management; - monitoring service; - communication support; - activity support; - mobility support; - other support. AAL robots can be subject to additional relevant regulations and standards. This document is not applicable to robots used for medical purposes."
+  },
+  {
+    "reference": "IEC SRD 63314:2024",
+    "edition": "1.0",
+    "date": "2024-09-03",
+    "title": "Active assisted living (AAL) guidance for education and training of persons working in the field of AAL",
+    "language": "EN",
+    "description": "IEC SRD 63314:2024 provides guidance on the vocational education, training, and required competencies for persons working in the AAL field. For the purposes of this document persons working in the AAL field are referred to as AAL working persons. The AAL technical assistant, AAL consultant, AAL technical expert, and AAL formal carer are considered as AAL working persons. For the AAL informal carer, this document can be a reference when their training and education are developed and/or evaluated."
+  },
+  {
+    "reference": "IEC SRD 63408:2024",
+    "edition": "1.0",
+    "date": "2024-11-05",
+    "title": "Safety aspects – Guidelines for adult AAL care recipients in standards and other specifications",
+    "language": "EN",
+    "description": "IEC SRD 63408:2024 supports the experts in identifying hazards when developing and revising standards, specifications, and similar publications that deal with products and services for adult AAL care recipients. This document aims to address potential sources of bodily harm to adult AAL care recipients from products they use or are likely to contact, even if not explicitly intended for adult AAL care recipients. This document provides valuable information for stakeholders in the absence of a specific standard. Stakeholders can include auditors, safety inspectors, product designers, architects, interior home designers, installers, etc."
+  },
+  {
+    "reference": "IEC SRD 63416:2023",
+    "edition": "1.0",
+    "date": "2023-09-15",
+    "title": "Ethical considerations of artificial intelligence (AI) when applied in the active assisted living (AAL) context",
+    "language": "EN",
+    "description": "IEC SRD 63416:2023 describes ethical considerations that are relevant when developing AAL systems and AAL services. This document covers AAL-specific issues related to AI that supplement those ethical considerations already addressed in other AI documents. Examples include the WHO and OECD principles of AI and those of the High-Level Expert Group on Artificial Intelligence set up by the European Commission. This document analyses whether these frameworks for the governance of AI are sufficient to meet the requirements of the AAL environment and in particular to meet the needs of AAL care recipients. The objective of the ethical assessment is to create concrete and clear ethical guidelines that can be used as checklists in AAL service and system platform design, development and implementation."
+  },
+  {
+    "reference": "IEC SRD 63426:2024",
+    "edition": "1.0",
+    "date": "2024-06-28",
+    "title": "Reference standards portfolio (RSP) on interoperability and connectivity for active assisted living (AAL) in the connected home environment (CHE)",
+    "language": "EN",
+    "description": "IEC SRD 63426:2024 classifies elements suitable for an AAL connected home environment based on AAL system components. This document defines instances which are specific examples of elements used in an AAL connected home environment (AAL CHE). An element defined in this document is a specialized and subdivided classification of a connected home environment. An instance is a specific example of an element used in an AAL CHE. This document lists standards applicable to AAL CHE elements and AAL CHE instances, with a focus on interoperability and connectivity."
+  },
+  {
+    "reference": "IEC SRD 63473:2024",
+    "edition": "1.0",
+    "date": "2024-04-17",
+    "title": "Active assisted living (AAL) use case standards inventory and mapping",
+    "language": "EN",
+    "description": "IEC SRD 63473:2024 is to describe the process of building an inventory of international standards based on use cases, mapping these international standards to individual use cases, and providing a visual representation in the IEC mapping platform. This document identifies the main categories of international standards applicable to AAL systems and applies these international standards to AAL components and the complete AAL system. Although there are national and regional standards that can address parts of AAL systems, this document will focus only on standards developed at the international level (e.g., IEC, ISO, ITU‑T)."
+  },
+  {
+    "reference": "ISO TS 25558:2026",
+    "edition": "1.0",
+    "date": "2026-02-10",
+    "title": "Ageing societies - Guidance for enhancing safety and usability of smart home products, services, and systems for older persons in smart home environment",
+    "language": "EN",
+    "description": "ISO TS 25558:2026 This document provides guidance for enhancing safety and usability aspects of smart home products, services, and systems to enable older persons to live the healthy lives they desire. It presents a process to assess the needs of older persons who use smart products, services, and systems in the smart home, the general living space of the future society, to select, apply, and evaluate appropriate smart home products, services, and systems. This document addresses older persons’ safety and usability needs as their health conditions and lifestyles change. It applies to designers, developers, and providers of smart homes for older persons and products, services, and systems in smart homes."
+  }
+]

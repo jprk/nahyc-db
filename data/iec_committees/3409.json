@@ -1,0 +1,802 @@
+[
+  {
+    "reference": "ISO/IEC 4933:2026",
+    "edition": "1.0",
+    "date": "2026-01-26",
+    "title": "Information technology - User interfaces - Unifying input actions across devices",
+    "language": "EN",
+    "description": "This document specifies a unification module for input actions, including its framework, requirements and recommendations, for consistently accessing the operations across multiple types of devices. This document recognizes the input actions as user behaviours that are commonly used to manipulate system or application operations (functions) through user interfaces. It also identifies the need and use cases of unifying input actions across devices. This document does not specify parameter settings and details of the input actions. This document is applicable to all types of organizations."
+  },
+  {
+    "reference": "ISO/IEC 4944:2024",
+    "edition": "1.0",
+    "date": "2024-09-18",
+    "title": "Information technology - User interfaces - Evaluating usability of natural user interfaces",
+    "language": "EN",
+    "description": "This document provides a framework, requirements and recommendations for evaluating the usability of a natural user interface (NUI) for systems, products or services. Measuring and reporting the usability of the NUI are also described. The usability evaluation focuses on the efficiency, effectiveness and satisfaction of the NUI. This document can also be applied to the usability evaluation of other user interfaces (UIs) for emerging technologies."
+  },
+  {
+    "reference": "ISO/IEC 7818:2025",
+    "edition": "1.0",
+    "date": "2025-09-25",
+    "title": "Information technology - User interfaces - Framework of voice user interfaces for personal mobility services",
+    "language": "EN",
+    "description": "This document provides a framework of voice user interfaces (VUI) for personal mobility services (PMS). The users of PMS ride personal mobility devices (PMD), which are empowered by electricity or a human, and interact with the PMS through the VUI (see Annex A) attached to the PMD. This document describes the functional requirements, the performance requirements and the procedure of the VUI. This document is applicable to a VUI attached to a PMD, which can be used for interaction between users and the PMD."
+  },
+  {
+    "reference": "ISO/IEC 9995-1:2026",
+    "edition": "4.0",
+    "date": "2026-01-16",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 1: General principles governing keyboard layouts",
+    "language": "EN",
+    "description": "This document identifies the sections of the keyboard and specifies the general shape and relative placement of the sections. Spacing of keys and physical characteristics are covered, as are the principles governing the placement of characters and symbols on keys. It specifies a key numbering system which applies to all types of numeric, alphanumeric and composite keyboards of information technology equipment (ITE). It specifies the principles governing the placement of characters and symbols on keys used on all types of numeric, alphanumeric and composite keyboards of ITE. Although the keyboard defined by the ISO/IEC 9995 series can be used for different languages, the specifications are written as applying to Latin languages with a character path from left to right and a line progression from top to bottom. It defines characteristics related to interface 1 in Figure 1."
+  },
+  {
+    "reference": "ISO/IEC 9995-2:2026",
+    "edition": "4.0",
+    "date": "2026-01-23",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 2: Alphanumeric section",
+    "language": "EN",
+    "description": "Within the general scope described in ISO/IEC 9995-1, this document specifies the alphanumeric section of a keyboard and the division of that section into zones; the arrangement, number, and location of the keys in the alphanumeric zone ZA0 of the alphanumeric section; and the layout, allocation and effect of several control functions to the keys in the function zones of the alphanumeric section."
+  },
+  {
+    "reference": "ISO/IEC 9995-3:2026",
+    "edition": "4.0",
+    "date": "2026-01-28",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 3: Latin International keyboard layout",
+    "language": "EN",
+    "description": "Within the general scope described in ISO/IEC 9995-1, this document defines a specific keyboard layout for the Latin script. This document is primarily intended for word-processing and text-processing applications."
+  },
+  {
+    "reference": "ISO/IEC 9995-4:2025",
+    "edition": "4.0",
+    "date": "2025-11-19",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 4: Numeric section",
+    "language": "EN",
+    "description": "Within the general scope described in ISO/IEC 9995-1, this document specifies the numeric section of a keyboard and the division of that section into zones. It specifies the arrangement, the number and the location of the keys in the numeric zone ZN0 and in the function zone ZN1 of the numeric section, as well as the allocation of functions to the keys. The numeric zone ZN0 is to be used in keyboards for applications such as text and data processing, general office environment, banking, point of sales (POS), telematic services, telephony apparatus, home electronic systems, numerical control of machinery and equipment, input of personal identification number (PIN), etc. The function zone ZN1 is to be used in keyboards for applications such as data entry, text and data processing, general office environment, etc. NOTE Certain of these applications are under the responsibility of the ITU-T."
+  },
+  {
+    "reference": "ISO/IEC 9995-5:2009",
+    "edition": "3.0",
+    "date": "2009-10-08",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 5: Editing and function section",
+    "language": "EN, FR",
+    "description": "ISO/IEC 9995 defines a framework for the layout of all alphanumeric and numeric keyboards across the widest spectrum of today's and upcoming applications using keyboards. The functions to be performed by keyboards are grouped into three categories that correspond to the main physical sections of the keyboard. Application of ISO/IEC 9995 in the design of keyboards will provide the user with a unified, predictable user-machine interface by dividing the keyboard into functional areas and sections and allocating functions to keys. ISO/IEC 9995-5:2009 specifies the editing and function section and the division of that section into zones. It also specifies the cursor key zone (ZEF0) and the allocation of functions to its keys. Further, it specifies the arrangement, the number, and the location of the keys in the editing and function zone (ZEF1), as well as guidelines for the allocation of functions to the keys."
+  },
+  {
+    "reference": "ISO/IEC 9995-7:2009",
+    "edition": "3.0",
+    "date": "2009-10-08",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 7: Symbols used to represent functions",
+    "language": "EN-FR",
+    "description": "ISO/IEC 9995 defines a framework for the layout of all alphanumeric and numeric keyboards across the widest spectrum of today's and upcoming applications using keyboards. The functions to be performed by keyboards are grouped into three categories that correspond to the main physical sections of the keyboard. Application of ISO/IEC 9995 in the design of keyboards will provide the user with a unified, predictable user-machine interface by dividing the keyboard into functional areas and sections and allocating functions to keys. ISO/IEC 9995-7:2009 defines symbols for functions found on any type of numeric, alphanumeric or composite keyboards. Each of these symbols is intended to be considered as universal and non-language related equivalent of names for the function they represent. Names of functions and descriptions are given in English and French."
+  },
+  {
+    "reference": "ISO/IEC 9995-7:2009/AMD1:2012",
+    "edition": "3.0",
+    "date": "2012-10-15",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 7: Symbols used to represent functions - Amendment 1",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 9995-8:2009",
+    "edition": "3.0",
+    "date": "2009-10-08",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 8: Allocation of letters to the keys of a numeric keypad",
+    "language": "EN, FR",
+    "description": "ISO/IEC 9995 defines a framework for the layout of all alphanumeric and numeric keyboards across the widest spectrum of today's and upcoming applications using keyboards. The functions to be performed by keyboards are grouped into three categories that correspond to the main physical sections of the keyboard. Application of ISO/IEC 9995 in the design of keyboards will provide the user with a unified, predictable user-machine interface by dividing the keyboard into functional areas and sections and allocating functions to keys. ISO/IEC 9995-8:2009 specifies the allocation of letters to the keys of the numeric zone ZN0 of a keyboard which has the ten digits zero to nine allocated in the \"1-2-3\" layout. The layout specified in ISO/IEC 9995-8:2009 is intended for applications of information technology equipment keyboards where letters instead of digits are used for the mnemonic retention of numeric information."
+  },
+  {
+    "reference": "ISO/IEC 9995-9:2026",
+    "edition": "2.0",
+    "date": "2026-01-23",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 9: Groups and mechanisms for multilingual and multiscript input",
+    "language": "EN",
+    "description": "Within the general scope described in ISO/IEC 9995-1, this document defines mappings of different sets of graphic characters onto the uppercase and lowercase forms of the 26 basic Latin characters (A–Z and a–z) and the digits 0–9, each of these mappings constituting a “group” as defined in ISO/IEC 9995-2. A detailed synopsis is contained in the informative Annex C. This document is primarily intended for word-processing and text-processing applications, to be used with keyboards which have at least 26 dedicated keys to enter letters and 10 additional keys to enter decimal digits."
+  },
+  {
+    "reference": "ISO/IEC 9995-10:2025",
+    "edition": "2.0",
+    "date": "2025-11-21",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 10: Conventional symbols and methods to represent graphic characters not uniquely recognizable by their glyph on keyboards and in documentation",
+    "language": "EN",
+    "description": "Within the general scope described in ISO/IEC 9995-1, this document specifies symbols and methods to distinguish graphic characters which share the same glyph or are represented by similar glyphs on keyboards (including virtual keyboards) and in documentation. Each of these symbols is intended to be considered as universal and non-language related equivalent of names for the function they represent."
+  },
+  {
+    "reference": "ISO/IEC 9995-11:2026",
+    "edition": "2.0",
+    "date": "2026-01-16",
+    "title": "Information technology - Keyboard layouts for office systems - Part 11: Functionality and labelling of dead keys",
+    "language": "EN",
+    "description": "This document defines the functionality of dead keys and repertoires of characters entered by dead keys within the general scope described in ISO/IEC 9995-1. This document is primarily intended for word-processing and text-processing applications."
+  },
+  {
+    "reference": "ISO/IEC 9995-12:2020",
+    "edition": "1.0",
+    "date": "2020-09-07",
+    "title": "Information technology - Keyboard layouts for text and office systems - Part 12: Keyboard group selection",
+    "language": "EN",
+    "description": "This document specifies mechanisms to choose between the keyboard groups specified in the ISO/IEC 9995 series, national keyboards standards, or other keyboard definitions. These mechanisms primarily become useful when the stipulated marking on the key top can be dynamically displayed on the key top."
+  },
+  {
+    "reference": "ISO/IEC 10741-1:1995",
+    "edition": "1.0",
+    "date": "1995-10-12",
+    "title": "Information technology - User system interfaces - Dialogue interaction - Part 1: Cursor control for text editing",
+    "language": "EN",
+    "description": "Specifies how incremental cursor control is effected as a result of user interaction with a text editor. Cursor control in form filling and spread sheet applications, cursor control in editing other forms of text such as graphics and cursor control in manipulating simple and complex documents are not covered."
+  },
+  {
+    "reference": "ISO/IEC 10741-1:1995/AMD1:1996",
+    "edition": "1.0",
+    "date": "1996-12-26",
+    "title": "Information technology - User system interfaces - Dialogue interaction - Part 1: Cursor control for text editing - Amendment 1: Macro cursor control",
+    "language": "EN",
+    "description": "Replaces the wording of some clauses and subclauses of ISO/IEC 10741-1:1995 and adds some new definitions and clauses and subclauses."
+  },
+  {
+    "reference": "ISO/IEC TR 11580:2007",
+    "edition": "1.0",
+    "date": "2007-03-09",
+    "title": "Information technology - Framework for describing user interface objects, actions and attributes",
+    "language": "EN",
+    "description": "ISO/IEC TR 11580:2007 defines a format for describing user interface objects, actions and attributes. It provides a basis for standardizing the names and properties of user interface objects, actions and attributes across multiple applications and platforms. ISO/IEC TR 11580:2007 contains guidance both on the standardization of user interface objects, actions and attributes and on the implementation of these objects, actions and attributes in any or all modalities. It is primarily intended for developers of standards, style guides and architectures involving user interface objects, actions and attributes. ISO/IEC TR 11580:2007 also provides software developers with a range of functionalities to be considered in the design of objects, actions and attributes within user interfaces."
+  },
+  {
+    "reference": "ISO/IEC 11581-1:2000",
+    "edition": "1.0",
+    "date": "2000-03-23",
+    "title": "Information technology - User system interfaces and symbols - Icon symbols and functions - Part 1: Icons - General",
+    "language": "EN",
+    "description": "ISO/IEC 11581 applies to software products providing office applications such as document production, desktop publishing, finance, and planning that present their functions via a graphical user interface. ISO/IEC 11581 applies to software products for people who are familiar with office work but who are at present not necessarily familiar with computer-based applications. ISO/IEC 11581 is meant to be used by persons involved in the design, implementation, and evaluation of icons for graphical user interfaces to computer-based office applications, and by procurers of systems that employ such interfaces. Other parts of ISO/IEC 11581 contain: _ graphics of commonly used icons, and _ descriptions of the functionality of the icons. This part of ISO/IEC 11581-1 provides a framework for the development and design of icons and their application on screens capable of displaying graphics as well as text. It contains: _ general requirements and recommendations for icons; _ global variations to the graphical representations of icons."
+  },
+  {
+    "reference": "ISO/IEC TR 11581-1:2011",
+    "edition": "1.0",
+    "date": "2011-11-23",
+    "title": "Information technology - User interface icons - Part 1: Introduction to and overview of icon standards",
+    "language": "EN",
+    "description": "ISO/IEC TR 11581-1:2011 introduces the ISO/IEC 11581 series and provides developers and other icon standards users with an overview of currently available and future anticipated icon standards. ISO/IEC TR 11581-1:2011: describes the structure of parts that will be used to encompass all present and future icon standards; introduces currently existing icon standards, whether they are parts of ISO/IEC 11581 or they have their own separate numbers"
+  },
+  {
+    "reference": "ISO/IEC 11581-2:2000",
+    "edition": "1.0",
+    "date": "2000-03-30",
+    "title": "Information technology - User system interfaces and symbols - Icon symbols and functions - Part 2: Object icons",
+    "language": "EN",
+    "description": "ISO/IEC 11581 applies to icons that are shown on a screen, that users can manipulate and interact with, and that represent data, or computer system functions. This part of ISO/IEC 11581 addresses only object icons. \"Object icons\" is a term used in ISO/IEC 11581 to describe icons that represent functions by association with an object and that can be moved and opened. Other types of icons are covered in other parts of the standard that are listed in the Foreword. Annex A describes the information to be given when submitting new object icons for inclusion in this part of ISO/IEC 11581."
+  },
+  {
+    "reference": "ISO/IEC 11581-3:2000",
+    "edition": "1.0",
+    "date": "2000-03-23",
+    "title": "Information technology - User system interfaces and symbols - Icon symbols and functions - Part 3: Pointer icons",
+    "language": "EN",
+    "description": "ISO/IEC 11581 applies to icons that are shown on a screen, that users can manipulate and interact with, and that represent data or computer system functions. This part of ISO/IEC 11581 addresses only pointer icons. Pointers are icons that are logically attached to a physical input device, and that the user manipulates to interact with other screen elements, see ISO/IEC 11581-1. This part describes user interaction with and appearance of pointer icons on the screen. It also specifies how pointer icons on a screen change appearance to give users feedback. Other types of icons are covered in other parts of the standard that are listed in the Foreword."
+  },
+  {
+    "reference": "ISO/IEC 11581-5:2004",
+    "edition": "1.0",
+    "date": "2004-05-26",
+    "title": "Information technology - User system interfaces and symbols - Icon symbols and functions - Part 5: Tool icons",
+    "language": "EN",
+    "description": "ISO/IEC 11581 defines graphical symbols for use on a screen, which users can manipulate and interact with. They are part of a graphical interface that can facilitate the user's ability to learn, understand and remember functional elements of the system, and aid in the manipulation of these elements. Their purpose is to facilitate interaction between computer-based applications (software products) and users. ISO/IEC 11581-5:2004 describes user interaction with and appearance of tool icons on the screen. These tool icons are a subset of the interactive icons that modify graphical or text elements of an application by association with real-life tool objects. These icons represent tool functions such as drawing, painting or modifying graphical elements. ISO/IEC 11581-5:2004 contains requirements and recommendations for 21 commonly used tool icons. It also specifies the relationship between tool and pointer icons."
+  },
+  {
+    "reference": "ISO/IEC 11581-6:1999",
+    "edition": "1.0",
+    "date": "1999-01-21",
+    "title": "Information technology - User system interfaces and  symbols - Icon symbols and functions - Part 6: Action icons",
+    "language": "EN",
+    "description": "ISO/IEC 11581 applies to icons that are shown on a screen, that users can manipulate and interact with, and that represent data or computer system functions. This part of ISO/IEC 11581 addresses only action icons. Action icons represent actions by association with objects that prompt the user to recall the intended actions. This part of ISO/IEC 11581 describes user interaction with and appearance of action icons on the screen. Other types of icons are covered in other parts of the standard, listed in the Foreword."
+  },
+  {
+    "reference": "ISO/IEC 11581-7:2024",
+    "edition": "1.0",
+    "date": "2024-09-19",
+    "title": "Information technology - User interface icons - Part 7: Icons for setting interaction modes",
+    "language": "EN",
+    "description": "This document provides requirements for the icons that are suitable for setting up interaction modes in all kinds of devices. It gives guidance about their purpose, their function, and how they are designed in order to be usable. This document specifies two sets of icons: a) icons that deal with global constraints that are taken into account by the product or service; b) icons that are oriented to more specific functions. Each icon is illustrated through a glyph, name, description and function."
+  },
+  {
+    "reference": "ISO/IEC 11581-10:2010",
+    "edition": "1.0",
+    "date": "2010-12-03",
+    "title": "Information technology - User interface icons - Part 10: Framework and general guidance",
+    "language": "EN",
+    "description": "ISO/IEC 11581-10:2010 recognizes that icons are more than just symbols used on computer screens. Icons are interaction objects used by computer interfaces to accomplish various purposes. Icons can be rendered in various forms, including graphics, gesture, audio, tactile/haptics, or any combination thereof. This versatility in rendition can provide greater accessibility to their underlying functionalities. ISO/IEC 11581-10:2010 provides guidance for developers and designers creating and/or using icons and provides a basis for the standardization of icons. It also provides a framework for creating future parts of ISO/IEC 11581 and for identifying icon-related information to be used in any accompanying icon registries. It is important that icons are viewed not only as individual renditions with their associated functionality, but also that the context in which they are used is considered. ISO/IEC 11581-10:2010 gives requirements and recommendations for icons as they relate to other rendered elements, to sets of icons and to consistency among these symbols."
+  },
+  {
+    "reference": "ISO/IEC 11581-40:2011",
+    "edition": "1.0",
+    "date": "2011-09-26",
+    "title": "Information technology - User interface icons - Part 40: Management of icon registration",
+    "language": "EN",
+    "description": "Icons are used on Information and Communications Technology (ICT) products to facilitate interaction with their users. Icons can provide a language-independent means of communicating information to the user. ISO/IEC 11581 recognizes that icons are more than just symbols used on computer screens. Icons are interaction objects used by computer interfaces to accomplish various purposes. Icons can be rendered in various forms, including using graphics, gesture, audio, tactile/haptics, or any combination thereof. This versatility in rendition can provide greater accessibility to their underlying functionalities. ISO/IEC 11581 provides a framework as a basis for organizing information related to the creation and use of user interface icons. ISO/IEC 11581-40:2011 defines supplementary procedural information, requirements and criteria that apply to a collection of icon standards published as a web-accessible icon database. It is based on the second paragraph of Annex ST, Procedures for the development and maintenance of standards in database format of the ISO/IEC Directives - Supplement - Procedures specific to ISO ."
+  },
+  {
+    "reference": "ISO/IEC TS 11581-41:2014",
+    "edition": "1.0",
+    "date": "2014-05-19",
+    "title": "Information technology - User interface icons - Part 41: Data structure to be used by the ISO/IEC JTC 1/SC 35 icon database",
+    "language": "EN",
+    "description": "ISO/IEC TS 11581-41:2014 provides guidance for developers and designers creating and/or using icons and provides a basis for the standardization of icons. It also provides a framework for creating future International Standards dealing with icons as parts of the ISO/IEC 11581 series and for identifying icon-related information to be used in any accompanying icon registries. It is intended to be used with ISO/IEC 11581-40 to create a registry of icons."
+  },
+  {
+    "reference": "ISO/IEC 13066-1:2011",
+    "edition": "1.0",
+    "date": "2011-05-05",
+    "title": "Information technology - Interoperability with assistive technology (AT) - Part 1: Requirements and recommendations for interoperability",
+    "language": "EN",
+    "description": "Interoperability involves the ability to use assistive technology (AT) to add to or augment existing components of information technology (IT) systems. Interoperability between AT and IT is best facilitated via the use of standardized, public interfaces for all IT components. ISO/IEC 13066-1:2011 provides a basis for designing and evaluating interoperability between IT and AT. It formalizes the layered architecture of hardware-to-hardware, hardware-to-software, and software-to-software connections that have long been implicit in the IT definitions of ISO/IEC JTC 1. It also recognizes the central role that accessibility application programming interfaces (accessibility APIs) play in aiding this interoperability. ISO/IEC 13066-1:2011 identifies a variety of APIs that are described further in other parts of ISO/IEC 13066. These APIs can be used as frameworks to support IT-AT interoperability. ISO/IEC 13066-1:2011 does not define or require specific technology, commands, APIs, or hardware interfaces. It defers to other existing standards and supports the development of new standards in these areas. It identifies a variety of common accessibility APIs that are described further in other parts of ISO/IEC 13066."
+  },
+  {
+    "reference": "ISO/IEC TR 13066-2:2016",
+    "edition": "2.0",
+    "date": "2016-01-26",
+    "title": "Information technology - Interoperability with assistive technology (AT) - Part 2: Windows accessibility application programming interface (API)",
+    "language": "EN",
+    "description": "ISO/IEC TR 13066-2:2016 specifies services provided in the Microsoft Windows platform to enable assistive technologies (AT) to interact with other software. One goal of this part of ISO/IEC 13066 is to define a set of application programming interfaces (APIs) for allowing software applications to enable accessible technologies on the Microsoft Windows platform. Another goal of this part of ISO/IEC 13066 is to facilitate extensibility and interoperability by enabling implementations by multiple vendors on multiple platforms. ISO/IEC TR 13066-2:2016 is applicable to the broad range of ergonomics and how ergonomics apply to human interaction with software systems."
+  },
+  {
+    "reference": "ISO/IEC TR 13066-3:2012",
+    "edition": "1.0",
+    "date": "2012-09-07",
+    "title": "Information technology - Interoperability with assistive technology (AT) - Part 3: IAccessible2 accessibility application programming interface (API)",
+    "language": "EN",
+    "description": "ISO/IEC TR 13066:2012 provides an overview to the structure and terminology of the IAccessible2 accessibility API. It provides: a description of the overall architecture and terminology of the API; further introductory explanations regarding the content and use of the API beyond those found in Annex A of ISO/IEC 13066-1; an overview of the main properties, including: of user interface elements, of how to get and set focus, of communication mechanisms in the API; a discussion of design considerations for the API (e.g. pointers to external sources of information on accessibility guidance related to using the API); information on extending the API (and where this is appropriate); an introduction to the programming interface of the API (including pointers to external sources of information). It provides this information as an introduction to the IAccessible2 API to assist: IT system level developers who create custom controls and/or interface to them; AT developers involved in programming \"hardware to software\" and \"software to software\" interactions."
+  },
+  {
+    "reference": "ISO/IEC TR 13066-4:2015",
+    "edition": "1.0",
+    "date": "2015-10-23",
+    "title": "Information technology - Interoperability with assistive technology (AT) - Part 4: Linux/UNIX graphical environments accessibility API",
+    "language": "EN",
+    "description": "ISO/IEC TR 13066-4:2015 provides an overview to the structure and terminology of the Linux/UNIX graphical environments accessibility API. It will provide the following: - a description of the overall architecture and terminology of the API; - further introductory explanations regarding the content and use of the API beyond those found in ISO/IEC 13066‑1:2011, Annex A; - an overview of the main properties, including - of user interface elements, - of how to get and set focus, and - of communication mechanisms in the API; - a discussion of design considerations for the API (e.g. pointers to external sources of information on accessibility guidance related to using the API); - information on extending the API (and where this is appropriate); - an introduction to the programming interface of the API (including pointers to external sources of information). It will provide this information as an introduction to the Java API to assist the following: - IT system level developers who create custom controls and/or interface to them; - AT developers involved in programming \"hardware to software\" and \"software to software\" interactions."
+  },
+  {
+    "reference": "ISO/IEC TR 13066-6:2014",
+    "edition": "1.0",
+    "date": "2014-07-14",
+    "title": "Information technology - Interoperability with Assistive Technology (AT) - Part 6: Java accessibility application programming interface (API)",
+    "language": "EN",
+    "description": "ISO/IEC TR 13066-6:2014 provides an overview to the structure and terminology of the Java accessibility application programming interface (API) It will provide: A description of the overall architecture and terminology of the API; Further introductory explanations regarding the content and use of the API beyond those found in Annex A of ISO/IEC 13066-1; An overview of the main properties, including of: user interface elements; how to get and set focus; of communication mechanisms in the API; a discussion of design considerations for the API (e.g. pointers to external sources of information on accessibility guidance related to using the API); information on extending the API (and where this is appropriate); an introduction to the programming interface of the API (including pointers to external sources of information); an introduction to the Java Access Bridge for Windows and the Java Access Bridge for GNOME. It will provide this information as an introduction to the Java API to assist: IT system level developers who create custom controls and/or interface to them; AT developers involved in programming \"hardware to software\" and \"software to software\" interactions."
+  },
+  {
+    "reference": "ISO/IEC 13251:2019",
+    "edition": "2.0",
+    "date": "2019-05-16",
+    "title": "Information technology - Collection of graphical symbols for office equipment",
+    "language": "EN",
+    "description": "This document provides a collection of graphical symbols which are used typically on office equipment to aid in the user operation of, for example, personal computers, printers, telephones and copying machines. These graphical symbols are also used in other application areas if appropriate. NOTE The graphical symbols in this document are collections of relevant graphical symbols standardized in IEC 60417 and ISO 7000."
+  },
+  {
+    "reference": "ISO/IEC 14754:1999",
+    "edition": "1.0",
+    "date": "1999-05-27",
+    "title": "Information technology - Pen-Based Interfaces - Common gestures for Text Editing with Pen-Based Systems",
+    "language": "EN",
+    "description": "This International Standard defines the basic gesture commands for text editing with pen-based systems and defines the user actions required to have the system execute these commands. The feedback to the user when a gesture command has been correctly recognized is also defined. This International Standard does not define the user actions necessary for the input of characters."
+  },
+  {
+    "reference": "ISO/IEC 14755:1997",
+    "edition": "1.0",
+    "date": "1997-08-28",
+    "title": "Information technology - Input methods to enter characters from the repertoire of ISO/IEC 10646 with a keyboard or other input device",
+    "language": "EN, FR",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 15411:1999",
+    "edition": "1.0",
+    "date": "1999-10-14",
+    "title": "Information technology - Segmented keyboard layouts",
+    "language": "EN",
+    "description": "This International Standard defines the differing requirements necessary when considering the various types of segmented keyboards. The scope of this International Standard encompasses the three-dimensional layout of segmented, traditional style keyboards classified as having: a. Adjustable alphanumeric segments; b. Fixed angle alphanumeric segments. This International Standard covers the following keyboard areas: - Alphanumeric area - Function area - Text editing area - Numeric area - Cursor control area"
+  },
+  {
+    "reference": "ISO/IEC 15412:1999",
+    "edition": "1.0",
+    "date": "1999-09-09",
+    "title": "Information technology - Portable computer keyboard layouts",
+    "language": "EN",
+    "description": "For the purposes of this International Standard, a portable computer is defined as a computer with a screen and an attached keyboard that is capable of running on battery power for extended periods of time and is relatively easy to transport from one location to another by a single individual. This International Standard gives design guidance for product designers; this International Standard indicates those requirements and recommendations contained in ISO/IEC 9995 and ISO 9241-4:1998 that are to be considered in designing portable computers keyboards. This International Standard strives to maintain consistency, as far as practical, between keyboards for portable computers and desktop computers. To accomplish this goal, this International Standard has reviewed ISO/IEC 9995 and ISO 9241-4:1998 to identify those design features of these two base standards which are to be followed, which are exempted from this International Standard and which are permitted variations. This International Standard is intended primarily to apply to full size portable keyboards (e.g. A4). It may also apply to other keyboards outside this scope. ISO 9241-4 contains a proposed alternative method for conformance by a test based on user performance and subjective rating scales. This International Standard consists of two major categories of guidelines for portable computers: 1. Layout characteristics 2. Physical (ergonomic) characteristics"
+  },
+  {
+    "reference": "ISO/IEC TR 15440:2016",
+    "edition": "4.0",
+    "date": "2016-01-19",
+    "title": "Information technology - Future keyboards and other input devices and entry methods",
+    "language": "EN",
+    "description": "ISO/IEC TR 15440:2016 (TR) covers the following: - different input requirements catering for national and international practices and support of cultural and linguistic diversity; - recognition of requirements regarding comfort of use (for any user, including children, elderly and disabled people) and improved user productivity related to inputting data; - enhancements of keyboards and related input devices and methods required for new emerging phenomena such as Internet, multimedia, virtual reality; - virtual input requirements; - labelling issues (soft [LCD] and hard, permanent and temporary labels), function symbols and icons. ISO/IEC TR 15440:2016 does not cover implications of biometric input (fingerprint-based, iris-pattern-based, face-shape-based, etc.) devices for access and security. ISO/IEC TR 15440:2016 is aimed at both the users and manufacturers and intends to present the user requirements regarding keyboards and associated devices and methods, at the time of publication of this technical report."
+  },
+  {
+    "reference": "ISO/IEC 15897:2011",
+    "edition": "2.0",
+    "date": "2011-09-13",
+    "title": "Information technology - User interfaces - Procedures for the registration of cultural elements",
+    "language": "EN",
+    "description": "lSO/IEC 15897:2011 specifies the information that can appear in a Cultural Specification and defines the procedures for registering such specifications. The Cultural Specifications can include freeform Narrative Cultural Specifications and Repertoiremaps as described in lSO/IEC 15897:2011, POSIX Locales and Charmaps conforming to ISO/IEC/IEEE 9945, and other machine-parsable specifications such as FDCC-sets, Repertoiremaps and Charmaps following the recommendations of ISO/IEC TR 14652, and Cultural Specifications formatted using SGML or XML. The registry is in printed and electronic form. lSO/IEC 15897:2011 sets out the procedures for registering cultural elements, both as narrative text and in a more formal manner, using the techniques of ISO/IEC/IEEE 9945, and other machine-processable formats such as those specified in ISO/IEC TR 14652. lSO/IEC 15897:2011 registers amongst other items Narrative Cultural Specifications and Repertoiremaps, POSIX Locales and POSIX Charmaps as defined in ISO/IEC/IEEE 9945, and other machine-parsable Cultural Specifications such as ISO/IEC TR 14652 FDCC-sets, Charmaps and Repertoiremaps, and Cultural Specifications in SGML or XML."
+  },
+  {
+    "reference": "ISO/IEC 15897:2011/COR1:2013",
+    "edition": "2.0",
+    "date": "2013-01-18",
+    "title": "Information technology - User interfaces - Procedures for the registration of cultural elements - Technical Corrigendum 1",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "ISO/IEC 17549-1:2022",
+    "edition": "1.0",
+    "date": "2022-05-13",
+    "title": "Information technology - User interface requirements and recommendations on menu navigation - Part 1: Framework",
+    "language": "EN",
+    "description": "This document provides a framework for the ISO/IEC 17549 series describing user interface guidelines on menu navigation. It specifies requirements and recommendations on how to design usable and consistent navigation through the interface component called a “menu”. This document specifies how to select and validate elements displayed on menus. This document covers design-consistent navigation inside menus. It does not include testing or organization of menus."
+  },
+  {
+    "reference": "ISO/IEC 17549-2:2020",
+    "edition": "2.0",
+    "date": "2020-02-17",
+    "title": "Information technology - User interface guidelines on menu navigation - Part 2: Navigation with 4-direction devices",
+    "language": "EN",
+    "description": "This document gives guidelines on the design of navigation methods for selection menus with the use of a 4-direction device. The guidelines are applicable to any information equipment on which the display area is associated with a 4-direction device. This document also provides recommendations for parameters for display screen settings, character sets and languages in use. This document is not applicable to safety-related uses on menu navigation."
+  },
+  {
+    "reference": "ISO/IEC 17549-3:2023",
+    "edition": "1.0",
+    "date": "2023-05-23",
+    "title": "Information technology - User interface requirements and recommendations on menu navigation - Part 3: Navigation with one-direction devices",
+    "language": "EN",
+    "description": "This document provides requirements and recommendations on the design of navigation methods for menu item selection with use on one-direction devices (using single or double-switch devices). It specifies requirements for menu navigation with one-direction devices in terms of time delay, loops and focus rendering. This document is applicable to any information technology equipment on which the display area is associated with the one-direction devices."
+  },
+  {
+    "reference": "ISO/IEC 18021:2002",
+    "edition": "1.0",
+    "date": "2002-02-21",
+    "title": "Information technology - User interfaces for mobile tools for management of database communications in a client-server model",
+    "language": "EN",
+    "description": "This International Standard defines user interface functions for management of database communication of an MBT client capable of interchanging data with an MBT server. This International Standard is applicable to MBT clients. This International Standard specifically defines the following two user interfaces. - The user interface function for obtaining user approval in advance when MBT client's database is updated via a communication link, or when data in the MBT client's database is transmitted to another database. - The user interface function for providing feedback to the user, after the MBT client's or the MBT server's database has been updated via a communication link, or data in MBT client's database has been transmitted to another database."
+  },
+  {
+    "reference": "ISO/IEC 18035:2003",
+    "edition": "1.0",
+    "date": "2003-01-30",
+    "title": "Information technology - Icon symbols and functions for controlling multimedia software applications",
+    "language": "EN",
+    "description": "ISO/IEC 18035:2002 defines a consistent set of icons and related functions that are represented by multimedia applications on a computer screen and that users interact with to control such applications. It describes controls applying to such functions as: Play, Pause, Stop, Rewind, Scan forward, Scan backward, Replay backward, Loop, Go to beginning, Go to previous, Go to next, Go to end, Set volume and Mute. Each control icon is specified with the following: Primary function Specific instance Components Graphic Multimedia control icons enable users to invoke functions that act upon a pre-selected or default objects. Functions initiated by these icons may also be available via text commands on menus. Multimedia icons provide direct access to functions by graphically representing those text commands."
+  },
+  {
+    "reference": "ISO/IEC 18036:2003",
+    "edition": "1.0",
+    "date": "2003-10-22",
+    "title": "Information technology - Icon symbols and functions for World Wide Web browser toolbars",
+    "language": "EN",
+    "description": "ISO/IEC 18036:2003 defines a consistent set of icons and related functions that are represented by World Wide Web browser applications on a computer screen and that users interact with to control such applications. The toolbar icons typically represent actions by association with objects in the real world and conventional controls on hardware, and that prompt the user to recall the intended actions. ISO/IEC 18036:2003 provides a consistent set of icons applying to such functions as: Back, Forward, Refresh, Home, Search, Print and Stop. Each icon in ISO/IEC 18036:2003 is specified with the following: Primary function; Specific instance; Components; Graphic. Web browser toolbar icons enable users to invoke functions that act upon pre-selected or default objects. Functions initiated by these icons may also be available via text commands on menus. Web browser toolbar icons provide direct access to functions by graphically representing those text commands."
+  },
+  {
+    "reference": "ISO/IEC TR 18720:2024",
+    "edition": "1.0",
+    "date": "2024-01-25",
+    "title": "Information technology - User interfaces - Use cases of serviced offices",
+    "language": "EN",
+    "description": "This document illustrates the use cases of serviced offices among the third workplaces used for flexible working hours and places."
+  },
+  {
+    "reference": "ISO/IEC TR 19764:2005",
+    "edition": "1.0",
+    "date": "2005-11-07",
+    "title": "Information technology - Guidelines, methodology and reference criteria for cultural and linguistic adaptability in information technology products",
+    "language": "EN, FR",
+    "description": "ISO/IEC TR 19764:2005 defines a methodology and a guided check-list for evaluation of cultural adaptability in software, hardware and other IT products. The check-list and guidelines are not only applicable to all IT products, but also can be expanded to meet the requirements of specific cultural environments. ISO/IEC TR 19764:2005 will assist the marketplace by providing an objective evaluation method to measure cultural and linguistic adaptability. Although local or national requirements of a legal and regulatory nature may not always be directly relevant in evaluation of products meeting cultural and linguistic adaptability, they sometimes constitute a world-wide challenge for many products or services, now including those which are IT-based. ISO/IEC TR 19764:2005 provides indications reminding that such requirements may have to be met in a national or local profile to complete cultural and linguistic requirements in some countries and hence should be considered in evaluation, as guidance to producers."
+  },
+  {
+    "reference": "ISO/IEC TR 20007:2014",
+    "edition": "1.0",
+    "date": "2014-04-28",
+    "title": "Information technology - Cultural and linguistic interoperability - Definitions and relationship between symbols, icons, animated icons, pictograms, characters and glyphs",
+    "language": "EN",
+    "description": "ISO/IEC TR 20007:2014 clearly defines each term related to ISO and IEC symbology in a single document and harmonizes difference of use and possible correspondence between different objects covering these concepts."
+  },
+  {
+    "reference": "ISO/IEC 20071-5:2022",
+    "edition": "1.0",
+    "date": "2022-05-10",
+    "title": "Information technology - User interface component accessibility - Part 5: Accessible user interfaces for accessibility settings on information devices",
+    "language": "EN",
+    "description": "This document specifies requirements and recommendations for making accessibility settings accessible and usable. It provides guidance on specific accessibility settings, saving settings and modifying settings. It specifies how to access and operate the accessibility setting mode, and how to directly activate specific accessibility features. This document applies to all operating system user interfaces on all types of information and communications technologies (ICTs) from the point where the operating system is fully functional and waiting for the user to interact with it. This document does not apply to: — storing and retrieving information from a stored user profile, including personally identifiable information; — accessibility of the closed functionality that does not support access by assistive technology; — accessibility of boot mode."
+  },
+  {
+    "reference": "ISO/IEC 20071-11:2019",
+    "edition": "1.0",
+    "date": "2019-12-16",
+    "title": "Information technology - User interface component accessibility - Part 11: Guidance on text alternatives for images",
+    "language": "EN",
+    "description": "This document gives guidance on how to create text alternatives and what information to put in text alternatives. This document applies to all static images that are used in any type of electronic document. It also applies to individual images within a slide show. This document does not apply to moving images (e.g. movies). NOTE 1 While text alternatives can be implemented via various mechanisms in various types of electronic documents, the contents of this document are not dependent on the choice of implementation mechanism or of electronic document type. NOTE 2 Guidance on making moving images accessible is contained in ISO/IEC TS 20071-21, ISO/IEC 20071-23 and ISO/IEC 20071-25."
+  },
+  {
+    "reference": "ISO/IEC TS 20071-15:2017",
+    "edition": "1.0",
+    "date": "2017-12-08",
+    "title": "Information technology - User interface component accessibility - Part 15: Guidance on scanning visual information for presentation as text in various modalities",
+    "language": "EN",
+    "description": "ISO/IEC TS 20071-15:2017 provides guidance on various aspects of the user interface of applications that scan visual information that are used directly by humans, including: - initiating the scanning application; - setting user's preferences and configuring the scanning application; - identifying the types of information currently of interest to the user; - locating visual objects of interest to the user; - creating a static image via scanning the visual object; - identifying the information content provided by the visual object; - processing scanned information and outputting the results to the user. ISO/IEC TS 20071-15:2017 provides increased accessibility by addressing the user accessibility needs of diverse users in diverse contexts. ISO/IEC TS 20071-15:2017 contains guidance that can be applied to a variety of devices, including: - specialized devices that are dedicated to scanning and processing visual information; - mobile devices (such as smartphones and tablets); - general purpose computers with camera capabilities; - office machines with scanning functions. ISO/IEC TS 20071-15:2017 contains guidance that can be applied to various types of software, including: - stand-alone scanning applications; - applications including scanning functionalities; - (scanning) applications that interoperate with other applications. ISO/IEC TS 20071-15:2017 contains guidance that can be used for outputting scanned information in various modalities, including: - audio outputs; - visual outputs; - tactile outputs; - storing information for future use within the application performing the scanning; - electronic outputs (to other applications, systems, or devices including those directly connected and those connected via the Internet). ISO/IEC TS 20071-15:2017 does not: - apply to fully automated scanning that is not under direct human control; - apply to applications that scan visual information for editing an image or just displaying it; - provide guidance on the design of specific hardware devices involved in scanning; - provide guidance on the specific objects that can be recognized or the specific software used to recognize these objects; - provide guidance on the internal functioning of software that recognizes specific types of objects. ISO/IEC TS 20071-15:2017 is intended for use by developers of applications that include user controlled scanning functionalities. It does not expect that an application includes all of these functionalities. It can be used for those functionalities that an application does provide."
+  },
+  {
+    "reference": "ISO/IEC 20071-20:2025",
+    "edition": "1.0",
+    "date": "2025-07-01",
+    "title": "Information technology - User interface component accessibility - Part 20: Developing audiovisual content",
+    "language": "EN",
+    "description": "This document provides requirements and recommendations on the development of accessible audiovisual content. It provides requirements and recommendations for a variety of different accessibility components, dealt with in further detail in additional parts of the ISO 20071 series, that meet different user accessibility needs. It also provides guidance related to translations, localizations, timing, importance and other general aspects of the creation of these accessibility components. This document does not apply to the presentation devices or transmission mechanisms used to deliver audiovisual content. These devices could include, but are not limited to, televisions, computers, wireless devices, projection equipment, DVD and home cinema equipment, video game consoles, or any similar devices which use displays for visual presentation and other forms of user interface technology. This document does not apply to transcoding files and formats for the various audiovideo outputs. This document helps to improve accessibility. This document does not establish requirements for specific industries (e.g. television broadcasting, motion pictures) nor is it intended to supersede specific international standards within their domain."
+  },
+  {
+    "reference": "ISO/IEC TS 20071-21:2015",
+    "edition": "1.0",
+    "date": "2015-11-26",
+    "title": "Information technology - User interface component accessibility - Part 21: Guidance on audio descriptions",
+    "language": "EN",
+    "description": "ISO/IEC TS 20071-21:2015 provides recommendations for describing audiovisual content in an auditory modality for use in recorded video presentations, broadcast television, cinema, live or recorded drama, museum and art gallery exhibits, heritage tours, news, and comedies, regardless of the language and technology being used to transmit and present the recorded or live audiovisual content. NOTE 1 There are many secondary users of audio description, but the primary and intended users of audio description are blind persons or persons with low vision and their friends and family. ISO/IEC TS 20071-21:2015 provides guidance on the subjective nature of creating audio description. It also provides guidance for audio description developers (script writers, voice narrators, and organizations or groups responsible for delivering audio description) in faithfully and accurately representing audiovisual content. NOTE 2 It might not always be possible to provide an equivalent experience due to limitations in the amount of time available for audio description depending on the content being described. ISO/IEC TS 20071-21:2015 applies to describing audiovisual content and does not consider the devices or transmission mechanisms used to deliver the content or the audio description. These devices include, but are not limited to, televisions, computers, wireless devices, projection equipment, DVD and home cinema equipment and other forms of user interface technology. Therefore, this part of ISO/IEC 20071 does not consider transcoding files for the various video outputs. NOTE 3 Technical matters of transmission and distribution are covered by other International Standards (e.g. MPEG standards and other technical international standards such as IEC 62731). ISO/IEC TS 20071-21:2015 provides guidance on how to approach user preferences, available styles and flexibility in approaches to audio description. It does not apply to static images contained in electronic documents (see ISO/IEC 20071−11 for guidance on text alternatives for images). It applies to auditory presentations intended to be transmitted or delivered simultaneously to the original audiovisual content. NOTE 4 Limitations experienced by broadcasters or people in synchronous environments might be reduced online or in asynchronous environments."
+  },
+  {
+    "reference": "ISO/IEC 20071-23:2018",
+    "edition": "1.0",
+    "date": "2018-09-25",
+    "title": "Information technology - User interface component accessibility - Part 23: Visual presentation of audio information (including captions and subtitles)",
+    "language": "EN",
+    "description": "This document provides guidance for producers, exhibitors, and distributors on the visual presentation of alternatives to audio information in audiovisual content, such as captions/subtitles. This document provides requirements and recommendations that are intended to support users who are not able to use the audio information, prefer to use a visual representation of audio information, or prefer both audio and visual presentations. NOTE Many users do not have a choice, for instance, when in a noisy environment (e.g. bar, restaurant, etc.). In these situations, the user does not select a visual presentation of audio information but is offered the content with captions/subtitles. This document acknowledges the various needs and preferences of viewers (end users) as well as the different approaches to visual presentation of audio information. It applies to all presentations of visual alternatives to audio information intended to be presented as captions/subtitles. This document does not apply to the presentation devices or transmission mechanisms used to deliver the content or visual presentations of audio information. These devices could include, but are not limited to: televisions, computers, wireless devices, projection equipment, DVD and home cinema equipment, video game consoles, and other forms of user interfaces technology. This document does not apply to transcoding files and formats for the various video outputs. This document gives guidance on visual presentations which are delivered in the same language as in the audio (i.e., intra-lingual captions/subtitles) and visual presentations which are translated into a different language (i.e., inter-lingual captions/subtitles). This document does not apply to the specific process of language translation. This document helps to improve accessibility. This document does not establish requirements on specific industries (e.g. television broadcasting, motion pictures) nor is it intended to supersede specific international standards within their domain."
+  },
+  {
+    "reference": "ISO/IEC TS 20071-25:2017",
+    "edition": "1.0",
+    "date": "2017-02-24",
+    "title": "Information technology - User interface component accessibility - Part 25: Guidance on the audio presentation of text in videos, including captions, subtitles and other on-screen text",
+    "language": "EN",
+    "description": "ISO/IEC TS 20071-25:2017 provides recommendations on the audio presentation of captions/subtitles and other on-screen text for use in all type of videos regardless of the language and technology being used to transmit and present the recorded or live video. ISO/IEC TS 20071-25:2017 applies to making captions/subtitles and other on-screen text accessible to users with various needs, including but not limited to people with learning and reading disabilities, people with cognitive disabilities, people who are blind or have low vision, older people, and non-native language speakers. It does not apply to captions/subtitles or other on-screen text whose content is already provided in the soundtrack in a language and a way users can access. ISO/IEC TS 20071-25:2017 provides guidance on spoken captions/subtitles as a stand-alone access service but it also provides guidance on how to integrate spoken captions/subtitles, other spoken on-screen text and audio description, if needed, in different types of videos. NOTE 1 Extensive guidance on audio description is provided in ISO/IEC/TS 20071‑21. ISO/IEC TS 20071-25:2017 does not consider the devices or transmission mechanisms used to deliver and play the content or the audio presentation of text in videos. These devices include, but are not limited to televisions, computers, wireless devices, projection equipment, DVD and home cinema equipment, cinema equipment and other forms of user interfaces technology. Therefore, this document does not consider transcoding files for the various video and audio outputs. NOTE 2 Technical matters of transmission and distribution are covered by other documents (e.g. MPEG standards and other technical standards such as IEC 62731:2013). ISO/IEC TS 20071-25:2017 acknowledges the various needs and preferences of users, as well as the different approaches to the audio presentation of text in videos. It applies to audio presentations intended to be heard simultaneously along with the original video."
+  },
+  {
+    "reference": "ISO/IEC 20071-31:2026",
+    "edition": "1.0",
+    "date": "2026-08-18",
+    "title": "Information technology - User interface component accessibility - Part 31: Accessibility of kiosks",
+    "language": "EN",
+    "description": "This document provides requirements and guidance for kiosk manufacturers, service providers and purchasers to ensure that kiosks can be used by a diverse range of users. This document specifies requirements and recommendations for designing, manufacturing, installing, and operating kiosks to ensure accessibility across diverse users and varying physical and environmental conditions. The requirements and recommendations pertain to the presentation of information, operation and interaction with users on kiosks. They are applied to hardware, software and content of the kiosks, as well as their installation environment."
+  },
+  {
+    "reference": "ISO/IEC TS 20071-40:2026",
+    "edition": "1.0",
+    "date": "2026-03-05",
+    "title": "Information technology - User interface component accessibility - Part 40: Augmentative and alternative communication (AAC)",
+    "language": "EN",
+    "description": "This document provides an introduction to and basic guidance on augmentative and alternative communication (AAC) in the information and communication technology (ICT) domain. It also provides common definitions and a framework for the development of further, more detailed guidance relating to aspects of these AACs. This document recognizes that AAC can be delivered on various ICT devices and the importance of consistency for users across devices. It applies to AAC software and not the devices on which the software is used. This document recognizes that AAC provides many users with a unique form of communication that is not necessarily based on any specific natural language."
+  },
+  {
+    "reference": "ISO/IEC TS 20071-41:2026",
+    "edition": "1.0",
+    "date": "2026-03-05",
+    "title": "Information technology - User interface component accessibility - Part 41: Design and use of pictograms, photos, and icons in augmentative and alternative communication (AAC)",
+    "language": "EN",
+    "description": "This document provides requirements and recommendations for the design and use of pictograms, photos, and icons in augmentative and alternative communication (AAC) in the information and communication technology (ICT) domain. This document recognizes that AAC can be delivered on various sized devices including computer displays, tablets, and smart phones. It applies to pictograms, photos, and icons that can be used on a range of devices. It is not specific to particular devices or the particular software used. This document focuses on the needs of those users who cannot use a natural language in written or spoken form to communicate with a peer group or the community as a whole. In facilitating communication with those other people, it also serves them."
+  },
+  {
+    "reference": "ISO/IEC 20382-1:2017",
+    "edition": "1.0",
+    "date": "2017-10-24",
+    "title": "Information technology - User interfaces - Face-to-face speech translation - Part 1: User interface",
+    "language": "EN",
+    "description": "ISO/IEC 20382-1:2017 specifies face-to-face speech translation designed to interoperate among multiple translation systems with different languages. It also specifies the speech translation features, general requirements and functionality, thus providing a framework to support a convenient speech translation service in face-to-face situations. ISO/IEC 20382-1:2017 is applicable to user interfaces for speech translation and communication protocols for setting up a translation session among users. ISO/IEC 20382-1:2017 is not applicable to defining the speech translation engine itself."
+  },
+  {
+    "reference": "ISO/IEC 20382-2:2017",
+    "edition": "1.0",
+    "date": "2017-10-24",
+    "title": "Information technology - User interface - Face-to-face speech translation - Part 2: System architecture and functional components",
+    "language": "EN",
+    "description": "ISO/IEC 20382-2:2017 specifies the functional components of face-to-face speech translation designed to interoperate among multiple translation systems with different languages. It also specifies the speech translation features, general requirements and functionality, thus providing a framework to support a convenient speech translation service in face-to-face situations. This document is applicable to speech translation devices, servers and communication protocols among speech translation servers and clients in a high-level approach. ISO/IEC 20382-2:2017 also defines various system architectures in different environments. ISO/IEC 20382-2:2017 is not applicable to defining speech recognition engines, language translation engines and speech synthesis engines."
+  },
+  {
+    "reference": "ISO/IEC 20931:2025",
+    "edition": "1.0",
+    "date": "2025-07-23",
+    "title": "Information technology - User interfaces - Icons for representing services in serviced offices",
+    "language": "EN",
+    "description": "This document provides the icons to specify the function and to indicate status of the serviced offices and their services. The icons are used as the user interfaces for searching, booking, and advertising applications for serviced offices. This document specifies basic icons that define the functions of all serviced offices, and also specifies additional and miscellaneous icons that indicate other services. The functions specified by the icons include facilities, equipment and services for fulfilling various user needs such as working style, tools, amenities, language and accessibility needs, including older persons, etc."
+  },
+  {
+    "reference": "ISO/IEC 22121-1:2026",
+    "edition": "1.0",
+    "date": "2026-06-02",
+    "title": "Information technology - Virtual keyboards user interfaces - Part 1: General guidance and requirements",
+    "language": "EN",
+    "description": "This document provides general requirements and recommendations for all forms of virtual keyboards including audio keyboards, on-screen or projected keyboards. This document does not apply to physical keyboards that use real material keys or adaptable keys, which can be customized to user needs, for example with LCD display."
+  },
+  {
+    "reference": "ISO/IEC 22121-2:2023",
+    "edition": "1.0",
+    "date": "2023-03-03",
+    "title": "Information technology - Virtual keyboards user interfaces - Part 2: On-screen keyboards with direct touch interface",
+    "language": "EN",
+    "description": "This document specifies the design and specification of on-screen keyboards (keyboards that are displayed on a screen) with direct touch interface, including those with some audio feedback. This document specifies keyboard layouts designed for on-screen keyboards with direct touch interface and ways for interaction with them. It is not applicable to virtual keyboards that are not displayed on a screen, and on-screen keyboards that do not provide a direct touchscreen interface such as on-screen keyboards relying on an accessory unit like a trackpad or a remote control for interactions with the user. It is not applicable to physical keyboards that use real or adaptable keys, which can be customized to user needs, for example, with LCD display."
+  },
+  {
+    "reference": "ISO/IEC 22121-3:2025",
+    "edition": "1.0",
+    "date": "2025-12-17",
+    "title": "Information technology - Virtual keyboards user interfaces - Part 3: Virtual keyboards interactions",
+    "language": "EN",
+    "description": "This document provides guidelines on assistive technologies and functionalities that are to be included in accessible virtual keyboards. This document underlines which kinds of interaction modes can be embedded, which kinds of assistive technologies can be easily bound to virtual keyboards, and which kinds of functionalities are to be taken into account within virtual keyboards. This document does not apply to physical keyboards that use real physical keys or adaptable keys, which can be customized to user needs, for example with LCD display."
+  },
+  {
+    "reference": "ISO/IEC 23773-1:2024",
+    "edition": "1.0",
+    "date": "2024-07-16",
+    "title": "Information technology - User interfaces for automatic simultaneous interpretation systems - Part 1: General",
+    "language": "EN",
+    "description": "This document provides the general description of real-time automatic simultaneous interpretation systems designed to interoperate among different natural languages for spontaneous speech. While traditional speech to speech machine translation addresses the functional equivalent of consecutive interpretation, this document focuses on the functional equivalent of simultaneous interpretation. This document does not cover sign language interpretation."
+  },
+  {
+    "reference": "ISO/IEC 23773-2:2024",
+    "edition": "1.0",
+    "date": "2024-07-16",
+    "title": "Information technology - User interfaces for automatic simultaneous interpretation systems - Part 2: Requirements and functional description",
+    "language": "EN",
+    "description": "This document provides user interface requirements and functional description of real-time automatic simultaneous interpretation systems designed to interoperate among different natural languages for spontaneous speech. While traditional speech to speech translation addresses the functional equivalent of consecutive interpretation, this document focuses on the functional equivalent of simultaneous interpretation. This document does not cover sign language interpretation."
+  },
+  {
+    "reference": "ISO/IEC 23773-3:2024",
+    "edition": "1.0",
+    "date": "2024-07-05",
+    "title": "Information technology - User interfaces for automatic simultaneous interpretation systems - Part 3: System architecture",
+    "language": "EN",
+    "description": "This document provides a description of a system architecture for real-time automatic simultaneous interpretation systems for spontaneous speech designed to interoperate among different natural languages. While traditional speech-to-speech translation addresses the functional equivalent of consecutive interpretation, this document focuses on the functional equivalent of simultaneous interpretation. This document does not cover sign language interpretation."
+  },
+  {
+    "reference": "ISO/IEC 23836:2020",
+    "edition": "1.0",
+    "date": "2020-09-07",
+    "title": "Information technology - User interfaces - Universal interface for human language selection",
+    "language": "EN",
+    "description": "This document describes the method for selection of a language in information and communication (ICT) devices. This document is intended to apply to the user interface design of ICT devices which have a function for setting the appropriate language environment when an end-user wants to initiate its operation."
+  },
+  {
+    "reference": "ISO/IEC 23859:2023",
+    "edition": "1.0",
+    "date": "2023-07-04",
+    "title": "Information technology - User interfaces - Requirements and recommendations on making written text easy to read and understand",
+    "language": "EN, FR",
+    "description": "This document provides requirements and recommendations on all written text so that it is easy to read and understand in any user interface, regardless of its format. This document addresses the process of creation, adaptation and evaluation of written text that is easy to read and understand. This document does not consider devices or transmission mechanisms used to deliver written text. It does not provide language-specific guidance."
+  },
+  {
+    "reference": "ISO/IEC 24216-1:2026",
+    "edition": "1.0",
+    "date": "2026-05-25",
+    "title": "Information technology - User interface requirements and guidelines on avatars - Part 1: General",
+    "language": "EN",
+    "description": "This document provides requirements and recommendations for creators, designers, producers, exhibitors and distributors of user interfaces using avatars in their systems, applications and contents. This document defines the term “avatar” and provides a categorization of avatars based on their presentation and function. This document also refers to considerations of ethical and usability aspects in the design, distribution and operation processes of avatars. This document applies to all fields of information technology that use avatars in their content, including entertainment and business applications in virtual reality, augmented reality, mixed reality, cyber-physical systems, metaverse and interverse."
+  },
+  {
+    "reference": "ISO/IEC 24661:2023",
+    "edition": "1.0",
+    "date": "2023-05-22",
+    "title": "Information technology - User interfaces - Full duplex speech interaction",
+    "language": "EN",
+    "description": "This document specifies user interfaces (UIs) designed for full duplex (FDX) speech interaction. It also specifies the FDX speech interaction model, features, functional components and requirements, thus providing a framework to support natural conversational interfaces between humans and machines. It also provides privacy considerations for applying FDX speech interaction. This document is applicable to UIs for speech interaction and communication protocols for setting up a session-oriented FDX interaction between humans and machines. This document does not define the speech interaction engines themselves or specify the details of specific engines, devices and approaches."
+  },
+  {
+    "reference": "ISO/IEC 24738:2006",
+    "edition": "1.0",
+    "date": "2006-11-28",
+    "title": "Information technology - Icon symbols and functions for multimedia link attributes",
+    "language": "EN",
+    "description": "ISO/IEC 24738:2006 defines a consistent set of icon symbols and related attributes that are presented on a computer screen and with which users interact to decide whether or not to take the associated link. These symbols represent attributes of the link and/or the destination of the link. Link attribute icon symbols enable users to decide on the suitability of following associated hyperlinks. Information provided by these icon symbols may also be made available via text. ISO/IEC 24738:2006 provides guidance on the graphics to be used by implementers of ISO 14915-2, Software ergonomics for multimedia user interfaces -- Multimedia navigation and control . The icon symbol graphics included in ISO/IEC 24738:2006 have been selected on the basis of their ability to convey the desired information to a wide audience of users. ISO/IEC 24738:2006 applies to icons that are shown on a computer screen in conjunction with a link also shown on that screen. It describes user interaction with and the appearance of link attribute icons on the screen. Other forms of icons are covered in ISO/IEC 11581, Information technology -- User system interfaces and symbols -- Icon symbols and functions ."
+  },
+  {
+    "reference": "ISO/IEC 24752-8:2018",
+    "edition": "1.0",
+    "date": "2018-04-04",
+    "title": "Information technology - User interfaces - Universal remote console - Part 8: User interface resource framework",
+    "language": "EN",
+    "description": "ISO/IEC 24752-8:2018 defines a RESTful protocol for the provision and delivery of resources that are related to user interface adaptation based on context of use. ISO/IEC 24752-8:2018 addresses requirements and recommendations for the following services: - user-context service; - task-context service; - equipment-context service; - environment-context service; - resource service; - resource-description service; - matching service (for finding appropriate resources based on specific contexts and other match criteria)."
+  },
+  {
+    "reference": "ISO/IEC 24755:2007",
+    "edition": "1.0",
+    "date": "2007-12-10",
+    "title": "Information technology - Screen icons and symbols for personal mobile communication devices",
+    "language": "EN",
+    "description": "ISO/IEC 24755:2007 defines a consistent set of screen icons and symbols, together with their related functions, that are presented by personal mobile communications devices (e.g. mobile phones and personal digital assistants). These devices have touch screens accessible by stylus pen, finger or button with personalized application. ISO/IEC 24755:2007 provides a consistent set of icon graphics for controlling these devices and for using personal information management-related applications. These icons and symbols represent typical functions and statuses by their association with conventional controls and functions on real-world objects. ISO/IEC 24755:2007 applies to all icon graphics displayed with a resolution of 32 x 32 pixels or higher. The graphic presentation can be either dynamic or fixed."
+  },
+  {
+    "reference": "ISO/IEC 24756:2009",
+    "edition": "1.0",
+    "date": "2009-03-23",
+    "title": "Information technology - Framework for specifying a common access profile (CAP) of needs and capabilities of users, systems, and their environments",
+    "language": "EN",
+    "description": "ISO/IEC 24756:2009 defines a framework for specifying a common access profile (CAP) of needs and capabilities of users, computing systems, and their environments, including access supported by assistive technologies. It provides a basis for identifying and dealing with accessibility issues in a standardized manner across multiple platforms. It can be used to evaluate the accessibility of existing systems in particular environments for particular users. Users of various systems in various environments can experience temporary or permanent accessibility difficulties. Potential users of systems need to evaluate whether the systems will be accessible to them in the intended environments in which they will be used. Where accessibility can be insufficient, either due to environmental barriers or poor design, these users can wish to resort to assistive technologies (ATs) to provide the required level of accessibility. Currently, there is no common framework for describing accessibility needs or abilities. This requires each potential user to develop their own evaluation method, and then to investigate and evaluate various systems and ATs using this method. However, due to the lack of an existing method, there might also be a lack of suitable information on the abilities of different systems and ATs, leading to inefficiency, confusion, frustration and a general lack of satisfaction by the user. ISO/IEC 24756:2009 introduces a model of accessibility as a basis for understanding access issues with the interactions between users and systems in various environments. It further describes logical operators used along CAPs to qualify and combine them. It then specifies methods to apply a CAP."
+  },
+  {
+    "reference": "ISO/IEC 24757:2008",
+    "edition": "1.0",
+    "date": "2008-10-30",
+    "title": "Information technology - Keyboard interaction model - Machine-readable keyboard description",
+    "language": "EN, FR",
+    "description": "The goal of ISO/IEC 24757:2008 is to harmonize industry practices in matters of machine-readable keyboard descriptions (PCs, PDAs, various operating systems, etc.). It further aims to facilitate the production of interoperable drivers for the user and to better assist the user by offering a more precise mapping between the physical keyboard layout and geometrical configuration, and the logical interface available to the operating system and its applications. ISO/IEC 24757:2008 provides a formal description format that can not only fully describe the international keyboards standards, but also the capabilities of keyboards on the current and future marketplace and their functioning with corresponding operating systems. It describes possible interactions between keys of a keyboard and standardizes the keyboard description so that it is machine-readable while staying relatively easy to interpret by human beings. The keyboard description format is meant to be capable of describing existing capabilities of today's keyboard hardware and its associated software, plus foreseeable extensions. It relies on international standard format ISO SGML, in the form known as ISO RELAX NG, with an easy conversion to industry standard XML. Some additional functionality is covered, such as keyboards with programmable keys and keyboards with multiple key assignments such as telephone keypads. The keyboard definition format is primarily intended to be used by the operating system, and during its boot process (e.g. in the BIOS), but can also be used for other purposes, such as reporting from the hardware of a keyboard to help the operating system configuring the keyboard driver, or to present the keyboard on screen with a user-friendly picture. The keyboard definition format is described in four sections: a keyboard identification and general features section, including make and model, serial number, country or region and language to which the keyboard applies, engraving language identification, and distinctive features, such as relief, or presence of lights on keys. the hardware geometry layout, which indicates a largely known geometry layout, such as a 102-key PC keyboard. This section also gives physical information such as size of keys, and amount of pressure needed to activate keys. the keyboard layout, which gives the actual assignment of characters to each key. key combinations which gives combinations of keys, such as those of characters affected by dead keys. A number of existing keyboard definition formats are described, together with a mapping between these description formats and the format defined in ISO/IEC 24757:2008."
+  },
+  {
+    "reference": "ISO/IEC TR 24785:2009",
+    "edition": "1.0",
+    "date": "2009-02-11",
+    "title": "Information technology - Taxonomy of cultural and linguistic adaptability user requirements",
+    "language": "EN",
+    "description": "ISO/IEC TR 24785:2009 defines a taxonomy describing the various elements of cultural and linguistic adaptability user requirements for use in a computer environment."
+  },
+  {
+    "reference": "ISO/IEC 29136:2012",
+    "edition": "1.0",
+    "date": "2012-04-19",
+    "title": "Information technology - User interfaces - Accessibility of personal computer hardware",
+    "language": "EN",
+    "description": "ISO/IEC 29136:2012 provides requirements and recommendations for the accessibility of personal computer hardware, to be used when planning, developing, designing and distributing these computers. While it does not cover the behaviour of, or requirements for, assistive technologies, it does address connectivity of assistive technologies as an integrated component of interactive systems. Some requirements or recommendations in ISO/IEC 29136:2012 require software support; however, requirements and recommendations that solely focus on software are not included in ISO/IEC 29136:2012."
+  },
+  {
+    "reference": "ISO/IEC 29138-1:2018",
+    "edition": "1.0",
+    "date": "2018-11-05",
+    "title": "Information technology - User interface accessibility - Part 1: User accessibility needs",
+    "language": "EN",
+    "description": "This document identifies a collection of user accessibility needs that diverse users have of ICT systems to make these systems accessible to them. Each user accessibility need might be required of a system by an individual. Different users can have different sets of user accessibility needs in different contexts. While this set of user accessibility needs was developed for the domain of ICT, many of the user accessibility needs in this set also apply in other domains. This document does not provide requirements or specific processes and methods for the application and evaluation of user accessibility needs. However, it could inform the development of such requirements (see 5.4). This document is not designed for certification purposes or regulatory or contractual use. The user accessibility needs in this document are intended to inform and encourage those responsible for accessibility to go beyond the minimum provisions of accessibility legislation and regulations."
+  },
+  {
+    "reference": "ISO/IEC TR 29138-2:2009",
+    "edition": "1.0",
+    "date": "2009-06-10",
+    "title": "Information technology - Accessibility considerations for people with disabilities - Part 2: Standards inventory",
+    "language": "EN",
+    "description": "ISO/IEC TR 29138-2:2009 identifies a collection of documents (which it refers to as standards even though they encompass more than traditional ISO and ISO/IEC standards) that provides guidance on meeting the needs of people with disabilities. While its primary audience is standards developers, it can also be helpful for developers of information technology products and services, policy makers, procurers and for accessibility advocates to consider. In addition to identifying user needs, ISO/IEC TR 29138-2:2009 identifies problems that people with disabilities experience with information technologies that lead to these user needs and identifies the relationship of these user needs with the accessibility factors for standards developers to consider found in ISO/IEC Guide 71: Guidelines to address the needs of older persons and people with disabilities when developing standards."
+  },
+  {
+    "reference": "ISO/IEC 29138-3:2022",
+    "edition": "1.0",
+    "date": "2022-05-13",
+    "title": "Information technology - User interface accessibility - Part 3: Requirements and recommendations on user needs mapping",
+    "language": "EN",
+    "description": "This document provides guidance on the mapping of a set of user accessibility needs with the provisions of a particular standard, technical report, or set of guidelines. It provides both basic guidance that should be used for all user accessibility needs mapping and optional guidance that may be added to the basic guidance. User accessibility needs mapping is intended to help improve accessibility for all users and, in particular, for users with special needs that can be overlooked. User accessibility needs mapping is not intended to be used to evaluate or certify a given standard or set of guidelines."
+  },
+  {
+    "reference": "ISO/IEC 29138-4:2026",
+    "edition": "1.0",
+    "date": "2026-06-26",
+    "title": "Information technology - User interface accessibility - Part 4: Applying user accessibility needs",
+    "language": "EN",
+    "description": "This document provides guidance on applying the set of user accessibility needs (UANs) to the procurement, development and evaluation of ICT products and services. This includes guidance on documenting the application of user accessibility needs. Applying user accessibility needs helps improve accessibility for all users and in particular for users with special needs that might otherwise be overlooked."
+  },
+  {
+    "reference": "ISO/IEC 30071-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-24",
+    "title": "Information technology - Development of user interface accessibility - Part 1: Code of practice for creating accessible ICT products and services",
+    "language": "EN",
+    "description": "This document takes a holistic approach to the accessibility of information and communications technology (ICT) by combining guidance on implementing the accessibility of ICT systems (ICT accessibility) both at organizational and system development levels. This document gives guidelines for building and maintaining ICT systems (including products and services) that are accessible to diverse users (including users with disabilities and older people). This document is applicable to all types of organizations. This document applies to the breadth of ICT systems and the results of convergent and emerging technologies within an organization including, but not limited to: information systems; intranet systems; websites; mobile and wearable applications; social media; and Internet of Things (IoT) systems. It gives requirements and recommendations for organizations: a) ensuring accessibility is considered in their policies or strategy by creating an organizational ICT accessibility policy; b) embedding the consideration of accessibility decisions through the entire process of developing procuring, installing, operating and maintaining ICT systems, and documenting these choices; c) justifying decisions on accessibility; d) communicating the ICT system's accessibility decisions to its users at launch, through creating and publishing its accessibility statement."
+  },
+  {
+    "reference": "ISO/IEC TR 30109:2015",
+    "edition": "1.0",
+    "date": "2015-11-04",
+    "title": "Information technology - User interfaces - Worldwide availability of personalized computer environments",
+    "language": "EN",
+    "description": "ISO/IEC TR 30109:2015 describes methods to enable access to a personal computing environment via the Internet, with a culturally and linguistically convenient and uniform personal user interface, on different types of hardware."
+  },
+  {
+    "reference": "ISO/IEC 30112:2020",
+    "edition": "1.0",
+    "date": "2020-09-23",
+    "title": "Information technology - Specification methods for cultural conventions",
+    "language": "EN",
+    "description": "This document specifies description formats and functionality for the specification of cultural conventions, description formats for character sets, and description formats for binding character names to ISO/IEC 10646, as well as a set of default values for some of these items."
+  },
+  {
+    "reference": "ISO/IEC 30113-1:2015",
+    "edition": "1.0",
+    "date": "2015-04-16",
+    "title": "Information technology - User interface - Gesture-based interfaces across devices and methods - Part 1: Framework",
+    "language": "EN",
+    "description": "ISO/IEC 30113-1:2015 defines a framework and guidelines for gesture-based interfaces across devices and methods in supporting interoperability. NOTE Some of these devices include mice, touch screens, touch pads, 3D mice, joysticks, game controllers, wired gloves, depth-aware cameras, stereo cameras, Web cameras. ISO/IEC 30113-1:2015 does not define or require specific technology for recognizing gesture of users. It focuses on the description of a gesture and its functions for utilizing ICT systems. NOTE Operation of a physical keyboard is not addressed in this part of ISO/IEC 30113."
+  },
+  {
+    "reference": "ISO/IEC 30113-5:2019",
+    "edition": "1.0",
+    "date": "2019-05-09",
+    "title": "Information technology - User interface - Gesture-based interfaces across devices and methods - Part 5: Gesture Interface Markup Language (GIML)",
+    "language": "EN",
+    "description": "This document defines GIML (Gesture Interface Markup Language). The syntax and the structure of GIML are described in this document."
+  },
+  {
+    "reference": "ISO/IEC 30113-11:2017",
+    "edition": "1.0",
+    "date": "2017-08-31",
+    "title": "Information technology - Gesture-based interfaces across devices and methods - Part 11: Single-point gestures for common system actions",
+    "language": "EN",
+    "description": "ISO/IEC 30113-11:2017 defines single-point gestures for common system actions used in information and communication technology (ICT) systems. It specifies movements for clear and classified gestures recognized by the systems and applications. The single-point gestures are performed using an input device (e.g. a mouse, a stylus, etc.) or a body part (e.g. a fingertip, a hand, etc.). These single-point gestures are intended to operate in a consistent manner regardless of the system, platform, application or device. NOTE ICT systems include, but are not limited to, digital televisions, set-top boxes, video game consoles, communication devices, Internet devices, entertainment devices and personal computers."
+  },
+  {
+    "reference": "ISO/IEC 30113-12:2019",
+    "edition": "1.0",
+    "date": "2019-11-20",
+    "title": "Information technology - User interfaces - Gesture-based interfaces across devices and methods - Part 12: Multi-point gestures for common system actions",
+    "language": "EN",
+    "description": "This document defines multi-point gestures for common system actions used in information and communication technology (ICT) systems. It specifies movements and conditions for describing multi-point gestures recognized by the systems and applications. The multi-point gestures are performed using an input device (multi-touchpad, multi-touchscreen, etc.) or body parts (fingertips, hands, etc.). These multi-point gestures are intended to operate in a consistent manner regardless of systems, platforms or applications. The gestures for common system actions denote system-level functions and common functions across applications of ICT systems. The system-level functions are executed at a system or a platform level. They include initiation, resume, restart and termination, etc. The common functions across applications are commonly executed among applications of a system or a platform. The functions include navigation of menus, opening an object, closing an object, etc. NOTE ICT systems include, but are not limited to, digital televisions, set-top boxes, video game consoles, communication devices, internet devices, entertainment devices, and personal computers (PCs)."
+  },
+  {
+    "reference": "ISO/IEC 30113-60:2020",
+    "edition": "1.0",
+    "date": "2020-10-29",
+    "title": "Information technology - Gesture-based interfaces across devices and methods - Part 60: General guidance on gestures for screen readers",
+    "language": "EN",
+    "description": "This document provides general guidance on gestures for screen readers running on various ICT devices. The document does not define or require specific technologies for recognizing the gestures. It focuses on descriptions of gestures and functions for screen readers running on ICT devices."
+  },
+  {
+    "reference": "ISO/IEC 30113-61:2020",
+    "edition": "1.0",
+    "date": "2020-12-01",
+    "title": "Information technology - Gesture-based interfaces across devices and methods - Part 61: Single-point gestures for screen readers",
+    "language": "EN",
+    "description": "This document defines single-point gestures for screen readers. It specifies movements for clear and classified single-point gestures recognized by the screen readers. It describes single-point gestures performed by a POI (point of interest). The single-point gestures are intended to operate in a consistent manner regardless of systems, platforms, applications or devices. NOTE A POI can be manipulated by using an object such as a fingertip, a stylus, etc."
+  },
+  {
+    "reference": "ISO/IEC 30113-62:2026",
+    "edition": "1.0",
+    "date": "2026-01-28",
+    "title": "Information technology - Gesture-based interfaces across devices and methods - Part 62: Multi-point gestures for screen readers",
+    "language": "EN",
+    "description": "This document defines multi-point gestures for screen readers. It specifies movements for clear and classified multi-point gestures recognized by the screen readers. It describes multi-point gestures performed by multiple point of interest (POI) for the screen readers. NOTE Multiple POI can be manipulated by using multiple objects such as fingertips, etc."
+  },
+  {
+    "reference": "ISO/IEC 30122-1:2016",
+    "edition": "1.0",
+    "date": "2016-07-29",
+    "title": "Information technology - User interfaces - Voice commands - Part 1: Framework and general guidance",
+    "language": "EN, FR",
+    "description": "ISO/IEC 30122-1:2016 defines a framework and general guidance for essential voice commands. It provides a limited number of commands which could be memorized to facilitate the use of the information/communication technology (ICT) devices including computers, personal digital assistants (PDAs), tablets, mobile devices, car navigation systems and business machines. It does not include the natural sentence recognition by using natural language processing technology."
+  },
+  {
+    "reference": "ISO/IEC 30122-2:2017",
+    "edition": "1.0",
+    "date": "2017-02-09",
+    "title": "Information technology - User interfaces - Voice commands - Part 2: Constructing and testing",
+    "language": "EN",
+    "description": "ISO 30122-2:2017 provides the technical criterions and test methods of voice commands and its speech recognition engine. The technical criterions include the phonetic requirements for spoken words or phrases that compose the voice command. The test methods verify whether the voice command or speech recognition engine satisfies the required specifications."
+  },
+  {
+    "reference": "ISO/IEC 30122-3:2017",
+    "edition": "1.0",
+    "date": "2017-02-24",
+    "title": "Information technology - User interfaces - Voice commands - Part 3: Translation and localization",
+    "language": "EN",
+    "description": "ISO/IEC 30122-3:2017 contains requirements and recommendations concerning multilingual voice commands and internationalization. ISO/IEC 30122-3:2017 specifies the linguistic requirements and recommendations for translation and localization of spoken words or phrases for voice commands. ISO/IEC 30122-3:2017 also includes how to determine the correct words or phrases for voice commands based on the various linguistic needs. ISO/IEC 30122-3:2017 does not include technical issues."
+  },
+  {
+    "reference": "ISO/IEC 30122-4:2016",
+    "edition": "1.0",
+    "date": "2016-07-29",
+    "title": "Information technology - User interfaces - Voice commands - Part 4:  Management of voice command registration",
+    "language": "EN",
+    "description": "ISO/IEC 30122-4:2016 defines supplementary procedural information, requirements and criteria that apply to a collection of voice commands published as a web-accessible voice command database. They are based on Annex SL of the IEC supplement to ISO/IEC Directives. It also defines the method for adding, changing or withdrawing voice commands in an electronic database of standard voice commands. Annex SL ISO/IEC Directives - Supplement - Procedures Specific to ISO is followed for management of voice command registration unless otherwise specified in ISO/IEC 30122-4:2016."
+  },
+  {
+    "reference": "ISO/IEC 30150-1:2022",
+    "edition": "1.0",
+    "date": "2022-06-30",
+    "title": "Information technology - Affective computing user interface (AUI) - Part 1: Model",
+    "language": "EN",
+    "description": "This document establishes a model for affective computing user interfaces (AUI). Annex B also suggests topics for AUI standardization. This document does not specify the implementation of affective computing."
+  },
+  {
+    "reference": "ISO/IEC TR 30150-2:2024",
+    "edition": "1.0",
+    "date": "2024-02-15",
+    "title": "Information technology - Affective computing user interface (AUI) - Part 2: Affective characteristics",
+    "language": "EN",
+    "description": "This document identifies the affective characteristics for affective computing user interface (AUI), including universal, cultural, individual and situational issues relating to the affective needs of users. This document also describes the selection criteria of these affective characteristics, and the methods to identify or apply them. This document focuses on developers of affective computing user interfaces who want to meet the needs of users. This document does not specify the implementation of affective computing."
+  }
+]

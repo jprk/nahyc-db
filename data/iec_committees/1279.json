@@ -1,0 +1,210 @@
+[
+  {
+    "reference": "IEC 61315:2019",
+    "edition": "3.0",
+    "date": "2019-03-29",
+    "title": "Calibration of fibre-optic power meters",
+    "language": "EN-FR",
+    "description": "IEC 61315:2019 is applicable to instruments measuring radiant power emitted from sources that are typical for the fibre-optic communications industry. These sources include laser diodes, light emitting diodes (LEDs) and fibre-type sources. Both divergent and collimated radiations are covered. This document defines the calibration of power meters to be performed by calibration laboratories or by power meter manufacturers. This third edition cancels and replaces the second edition published in 2005. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) update of terms and definitions; b) update of 5.1, including Table 1 (new type of source); c) update of Annex A; d) addition of Annex B on dB conversion. Keywords: Fibre-optic power meters"
+  },
+  {
+    "reference": "IEC 61744:2023",
+    "edition": "3.0",
+    "date": "2023-04-04",
+    "title": "Calibration of fibre optic chromatic dispersion test sets",
+    "language": "EN-FR",
+    "description": "IEC 61744:2023 provides standard procedures for the calibration of optical fibre chromatic dispersion (CD) test sets. This document is applicable to all types of CD test sets, with the exception that measurements on multimode optical fibres are excluded. The purpose of this document is to define a standard procedure for calibrating optical fibre chromatic dispersion (CD) test sets. The detailed calibration steps used vary according to the measurement technique used in the CD test set. Whilst it is acknowledged that chromatic dispersion also occurs in multimode fibre and this fibre can be measured on many CD test sets, this document will restrict discussion to single mode fibre measurements applications only. The purpose of the procedures outlined in this document is to focus manufacturers and users of CD test sets toward the reduction of measurement uncertainty in chromatic dispersion determination in optical fibres under all applicable conditions. The procedures apply to calibration laboratories and to the manufacturers or users of CD test sets for the purpose of a) calibrating CD test sets, and b) evaluating the level of performance of the instrument. Use of the procedures also allows correct evaluation of CD test set uncertainty, relative and traceable to appropriate (for example, national) standards. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updated terms and definitions; b) the use of a reference fibre standard for calibration is now allowed and at the same level as the other calibration method; c) Annex B was split into a new Annex B (on calibration uncertainty, still normative) and a new Annex C (on uncertainty at operating conditions, informative); d) removed former C.3.4 on interferometric method since this method is no longer supported in IEC 60793-1-42; e) removed Annex D and other references in text to calibration compensation to align with other calibration documents; f) removed Annex E and other references in text to use of air wavelength since it is not used in the fibre domain."
+  },
+  {
+    "reference": "IEC 61745:2017",
+    "edition": "2.0",
+    "date": "2017-07-28",
+    "title": "End-face image analysis procedure for the calibration of optical fibre geometry test sets",
+    "language": "EN-FR",
+    "description": "IEC 61745:2017 describes the calibration of test sets that perform end-face image analysis, also known as \"near-field\" or \"grey-scale\" analysis. The principles, however, can be applied to test sets of a different type. The procedures outlined are performed by calibration laboratories and by the manufacturers or users of geometry test sets, for the purpose of calibrating geometry test sets and for evaluating the uncertainties in measurements made on calibrated test sets. The calibration of fibre coating or cable measurement test sets is not covered by this document. This second edition cancels and replaces the first edition, published in 1998, and constitutes a technical revision.This edition includes the following significant technical changes with respect to the previous edition: a) removal of the limitation of single mode optical fibre geometry test sets to include multimode; b) addition of a new annex as mathematical basis. Keywords: end-face image analysis, optical fibre geometry test sets"
+  },
+  {
+    "reference": "IEC 61746-1:2009",
+    "edition": "1.0",
+    "date": "2009-12-17",
+    "title": "Calibration of optical time-domain reflectometers (OTDR) - Part 1: OTDR for single mode fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 61746-1: 2009 provides procedures for calibrating single-mode optical time domain reflectometers (OTDR). It only covers OTDR measurement errors and uncertainties. This standard does not cover correction of the OTDR response. This first edition of IEC 61746-1 cancels and replaces the second edition of IEC 61746, published in 2005. It constitutes a technical revision. The main technical changes are the adaptation of Clause 4, the suppression of Clause 10, the improvement and the addition of some definitions, the change of some calculations and the change of graphical symbology to IEC/TR 61930. Keywords: calibrating single-mode optical time domain reflectometers (OTDR)"
+  },
+  {
+    "reference": "IEC 61746-2:2010",
+    "edition": "1.0",
+    "date": "2010-06-21",
+    "title": "Calibration of optical time-domain reflectometers (OTDR) - Part 2: OTDR for multimode fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 61746-2:2010 provides procedures for calibrating multimode optical time domain reflectometers (OTDR). It covers OTDR measurement errors and uncertainties. The test of the laser(s) source modal condition is included as an optional measurement. This standard does not cover correction of the OTDR response. Keywords: calibrating multimode optical time domain reflectometers (OTDR)"
+  },
+  {
+    "reference": "IEC TR 61930:1998",
+    "edition": "1.0",
+    "date": "1998-08-25",
+    "title": "Fibre optic graphical symbology",
+    "language": "EN-FR",
+    "description": "Applies to graphical symbols used in IEC publications dealing with fibre optics. Provides uniform graphical symbols for the various fibre optic elements and devices."
+  },
+  {
+    "reference": "IEC TR 61931:1998",
+    "edition": "1.0",
+    "date": "1998-08-19",
+    "title": "Fibre optic - Terminology",
+    "language": "EN-FR",
+    "description": "Provides terminology for the various fibre optic elements, devices and systems."
+  },
+  {
+    "reference": "IEC 62129-1:2016",
+    "edition": "1.0",
+    "date": "2016-01-13",
+    "title": "Calibration of wavelength/optical frequency measurement instruments - Part 1: Optical spectrum analyzers",
+    "language": "EN-FR",
+    "description": "IEC 62129-1:2016 specifies procedures for calibrating an optical spectrum analyzer that is developed for use in fibre-optic communications and designed to measure the power distribution of an optical spectrum. It does not apply to an optical wavelength meter that measures only centre wavelengths, a Fabry-Perot interferometer or a monochromator that has no display unit. This first edition of IEC 62129-1 cancels and replaces the first edition of IEC 62129, published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - update of term and definitions; - update of calibration conditions; - calculation change of uncertainties related to wavelength temperature dependence, power linearity, power level temperature dependence; - move of Annex E to the bibliography. Keywords: calibrating an optical spectrum analyser"
+  },
+  {
+    "reference": "IEC 62129-2:2011",
+    "edition": "1.0",
+    "date": "2011-05-26",
+    "title": "Calibration of wavelength/optical frequency measurement instruments - Part 2: Michelson interferometer single wavelength meters",
+    "language": "EN-FR",
+    "description": "IEC 62129-2:2011 is applicable to instruments measuring the vacuum wavelength or optical frequency emitted from sources that are typical for the fibre-optic communications industry. These sources include Distributed Feedback (DFB) laser diodes, External Cavity lasers and single longitudinal mode fibre-type sources. This standard is part of the IEC 62129 series on the calibration of wavelength/optical frequency measurement instruments. Refer to IEC 62129 for the calibration of optical spectrum analyzers."
+  },
+  {
+    "reference": "IEC 62496-1:2008",
+    "edition": "1.0",
+    "date": "2008-12-09",
+    "title": "Optical circuit boards - Part 1: General",
+    "language": "EN-FR",
+    "description": "IEC 62496-1:2008 applies to optical circuit boards possessing all of the following general features: - transmit patterns with straight, cross, bending optical paths and input and output optical ports in plane; - optical paths consisting of optical fibres and/or optical waveguides; - controlled lengths of the optical paths, if required; - may be combined with a printed electric circuit board, the functionality of which is outside the scope of this standard; - to interconnect between optical components and the ability to mount components."
+  },
+  {
+    "reference": "IEC 62496-2:2017",
+    "edition": "1.0",
+    "date": "2017-05-24",
+    "title": "Optical circuit boards - Basic test and measurement procedures - Part 2: General guidance for definition of measurement conditions for optical characteristics of optical circuit boards",
+    "language": "EN-FR, EN",
+    "description": "IEC 62496-2:2017 specifies a method of defining the conditions for measurements of optical characteristics of optical circuit boards. The method comprises the use of code reference look-up tables to identify different critical aspects of the measurement environment. The values extracted from the tables are used to construct a measurement identification code, which, in itself, captures sufficient information about the measurement conditions, so as to ensure consistency of independently measured results within an acceptable margin. Recommended measurement conditions are specified to minimise further variation in independently measured results."
+  },
+  {
+    "reference": "IEC 62496-2-1:2011",
+    "edition": "1.0",
+    "date": "2011-07-28",
+    "title": "Optical circuit boards - Part 2-1: Measurements - Optical attenuation and isolation",
+    "language": "EN-FR",
+    "description": "IEC 62496-2-1:2011 describes the various methods to measure the optical attenuation and isolation of optical circuit boards (OCBs)."
+  },
+  {
+    "reference": "IEC 62496-2-2:2011",
+    "edition": "1.0",
+    "date": "2011-01-27",
+    "title": "Optical circuit boards - Part 2-2: Measurements - Dimensions of optical circuit boards",
+    "language": "EN-FR",
+    "description": "IEC 62496-2-2:2011 specifies the measurement procedures for dimensions related to interface information of optical circuit boards (OCB), defined in IEC 62496-4."
+  },
+  {
+    "reference": "IEC 62496-2-4:2013",
+    "edition": "1.0",
+    "date": "2013-06-18",
+    "title": "Optical circuit boards - Basic test and measurement procedures - Part 2-4: Optical transmission test for optical circuit boards without input/output fibres",
+    "language": "EN-FR",
+    "description": "IEC 62496-2-4:2013 specifies the test method to decide whether to pass or fail an optical circuit board using direct illumination by a light. The input ports are directly illuminated and the optical intensity from the output ports of the optical circuit board is monitored using an area image sensor. Excess optical losses are the calculated from total detected intensities of light from a sample to be measured and from a control sample. This method is used to illuminate uniformly the input port of the optical circuit board (OCB) with a larger area than the core area, obtain the radiance of an area image from the corresponding output port of the OCB using an area image sensor, and evaluate whether to pass or fail using the radiance obtained compared to that of a control sample. The advantage of this test method is that the alignment procedure between a launch fibre and the OCB is not necessary. Key words: test method to decide whether to pass or fail an optical circuit board, OCB, area image sensor"
+  },
+  {
+    "reference": "IEC 62496-2-5:2022",
+    "edition": "1.0",
+    "date": "2022-12-07",
+    "title": "Optical circuit boards - Basic test and measurement procedures - Part 2-5: Flexibility test for flexible opto-electric circuits",
+    "language": "EN-FR",
+    "description": "IEC 62496-2-5:2022 defines a test method for folding flexibility inspection of flexible opto-electric circuits with a flexibility tester endurance tester and presents a guideline for a step stress test method for finding the predetermined minimum mechanical folding radii below which the flexible opto-electric circuits can be damaged by intended folding distortion. Here, test samples are used instead of products for the flexibility test of their flexible opto-electric circuits, and the test samples have the same material, layer structure, processing technology and equipment as the products."
+  },
+  {
+    "reference": "IEC 62496-3:2011",
+    "edition": "1.0",
+    "date": "2011-01-12",
+    "title": "Optical circuit boards - Part 3: Performance standards - General and guidance",
+    "language": "EN-FR",
+    "description": "IEC 62496-3:2011 covers general information on optical circuit board performance standards. It defines those tests and severities which form the performance categories or general operating service environments and identifies those tests which are considered to be product-specific."
+  },
+  {
+    "reference": "IEC 62496-3-1:2009",
+    "edition": "1.0",
+    "date": "2009-08-18",
+    "title": "Optical circuit boards - Part 3-1: Performance standards - Flexible optical circuit boards using unconnectorized optical glass fibres",
+    "language": "EN-FR, EN",
+    "description": "IEC 62496-3-1:2009 defines the performance of flexible optical circuit boards (FOCBs) using unconnectorized optical glass fibres for controlled environment. This standard clarifies the requirements for quality classification of the flexible OCBs incorporating optical glass fibres."
+  },
+  {
+    "reference": "IEC 62496-4:2011",
+    "edition": "1.0",
+    "date": "2011-01-26",
+    "title": "Optical circuit boards - Part 4: Interface standards - General and guidance",
+    "language": "EN-FR",
+    "description": "IEC 62496-4:2011 covers general information on the subject of Optical Circuit Board (OCB) interfaces. It includes normative references, definitions and rules for creating and interpreting the standard drawings."
+  },
+  {
+    "reference": "IEC 62496-4-1:2019",
+    "edition": "1.0",
+    "date": "2019-02-05",
+    "title": "Optical circuit boards - Part 4-1: Interface standards - Terminated waveguide OCB assembly using single-row twelve-channel PMT connectors",
+    "language": "EN-FR",
+    "description": "IEC 62496-4-1:2019 defines the standard interface dimensions for a terminated waveguide optical circuit board (OCB) assembly (referred to simply as assembly) using single-row twelve-channel polymer waveguides for a PMT connector and a waveguide OCB that can be interconnected with a terminated MT ferrule. Keywords: interface dimensions for a terminated waveguide optical circuit board (OCB)"
+  },
+  {
+    "reference": "IEC 62496-4-3:2026",
+    "edition": "1.0",
+    "date": "2026-01-21",
+    "title": "Optical circuit boards - Part 4-3: Interface standards - Terminated waveguide OCB assembly using a single-row thirty-two-channel PMT connector intermateable with a 250 μm pitch MPO 16",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62496-4-3:2026 defines the standard interface dimensions for a terminated waveguide optical circuit board (OCB) assembly (referred to simply as \"assembly\") with a single-row thirty-two-channel polymer MT(PMT) connector, such a PMT being intermateable with the rectangular ferrule of a single-row type MPO 16 connector."
+  },
+  {
+    "reference": "IEC 62496-4-214:2020",
+    "edition": "1.0",
+    "date": "2020-05-13",
+    "title": "Optical circuit boards - Part 4-214: Interface standards - Terminated waveguide OCB assembly using a single-row thirty-two-channel symmetric PMT connector",
+    "language": "EN-FR, EN",
+    "description": "IEC 62496-4-214:2020 defines the standard interface dimensions for a terminated waveguide optical circuit board (OCB) assembly (referred to simply as \"assembly\") using single-row thirty-two-channel connectors for polymer waveguides connected with a symmetric PMT connector."
+  },
+  {
+    "reference": "IEC 62522:2024",
+    "edition": "2.0",
+    "date": "2024-06-20",
+    "title": "Calibration of tuneable laser sources",
+    "language": "EN-FR",
+    "description": "IEC 62552:2024 provides a stable and reproducible procedure to calibrate the wavelength and power output of a tuneable laser against reference instrumentation such as optical power meters and optical wavelength meters (including optical frequency meters) that have been previously traceably calibrated."
+  },
+  {
+    "reference": "IEC TS 62538:2008",
+    "edition": "1.0",
+    "date": "2008-10-08",
+    "title": "Categorization of optical devices",
+    "language": "EN",
+    "description": "IEC/TS 62538:2008(E) which is a technical specification, applies to optical devices (i.e. elements, components, assemblies, sub-assemblies or modules) of interest to TC86 and its subcommittee. It provides the definitions of the three main categories of optical devices (i.e. dynamic, active and passive) together with other related definitions. It also gives a general procedure to identify the category of any optical devices."
+  },
+  {
+    "reference": "IEC TR 62658:2013",
+    "edition": "1.0",
+    "date": "2013-07-15",
+    "title": "Roadmap of optical circuit boards and their related packaging technologies",
+    "language": "EN",
+    "description": "IEC/TR 62658:2013(E) covers the roadmap of optical circuit boards, and its related packaging technologies including optical circuit board connectors and optical modules on boards. Keywords: optical packaging technology road map, roadmap of optical circuit boards"
+  },
+  {
+    "reference": "IEC TS 62661-2-1:2013",
+    "edition": "1.0",
+    "date": "2013-08-15",
+    "title": "Optical backplanes - Product specification - Part 2-1: Optical backplane using optical fibre circuit boards and multi-core right angle optical connectors",
+    "language": "EN",
+    "description": "IEC/TS 62661-2-1:2013(E) gives guidelines for an optical backplane using optical fibre boards and multi-core right angle optical connectors with low bending loss multimode fibres (hereafter called low-loss RAO) to connect daughter boards to the optical backplane. Keywords: optical backplane, optical fibre boards, multi-core right angle optical connectors"
+  },
+  {
+    "reference": "IEC TR 62721:2012",
+    "edition": "1.0",
+    "date": "2012-01-10",
+    "title": "Reliability of devices used in fibre optic systems - General and guidance",
+    "language": "EN",
+    "description": "IEC/TR 62721:2012(E) provides information on the IEC documents concerning reliability for optical fibres, optical connectors, optical passive components, optical active components, optical amplifiers, and optical dynamic modules used for optical fibre communications."
+  }
+]

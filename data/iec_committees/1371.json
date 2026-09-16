@@ -1,0 +1,506 @@
+[
+  {
+    "reference": "IEC 60747-2:2025",
+    "edition": "4.0",
+    "date": "2025-09-29",
+    "title": "Semiconductor devices - Part 2: Discrete devices - Rectifier diodes",
+    "language": "EN",
+    "description": "IEC 60747-2:2025 specifies product specific standards for terminology, letter symbols, essential ratings and characteristics (properties), measuring and test methods, requirements for type tests, routine tests, endurance tests and marking for the following discrete semiconductor devices: - generic rectifier diodes; - avalanche rectifier diodes; - fast-switching rectifier diodes; - Schottky barrier diodes. If no ambiguity is likely to result, any of the above will be referred to as diodes. This edition includes the following significant technical changes with respect to the previous edition: a) the terms and definitions for partial thermal resistance junction-to-case have been added; b) Clauses 3, 4, 5, 6 and 7 have been amended with some deletions of information no longer in use and with some necessary additions."
+  },
+  {
+    "reference": "IEC 60747-3:2013",
+    "edition": "2.0",
+    "date": "2013-07-09",
+    "title": "Semiconductor devices - Part 3: Discrete devices: Signal, switching and regulator diodes",
+    "language": "EN-FR",
+    "description": "IEC 60747-3:2013 gives the requirements for the following devices: - signal diodes (excluding diodes designed to operate at frequencies above several hundred MHz); - switching diodes (excluding high power rectifier diodes); - voltage-regulator diodes; voltage-reference diodes; - current-regulator diodes. This edition includes the following significant technical changes with respect to the previous edition: a) All clauses were re-edited to latest IEC publication format and style with all contents from previous publication. b) All clauses have been amended by suitable additions and deletions. This publication should be read in conjunction with IEC 60747-1:2006 ."
+  },
+  {
+    "reference": "IEC 60747-4:2007",
+    "edition": "2.0",
+    "date": "2007-08-23",
+    "title": "Semiconductor devices - Discrete devices - Part 4: Microwave diodes and transistors",
+    "language": "EN-FR",
+    "description": "Provides requirements for the following categories of discrete devices: variable capacitance diodes and snap-off diodes, mixer diodes and detector diodes, avalanche diodes, gunn diodes,bipolar transistors and field-effect transistors. This second edition cancels and replaces the first edition, published in 1991, its amendments 1, 2 and 3 (1993, 1999 and 2001, respectively), and constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 60747-4:2007/AMD1:2017",
+    "edition": "2.0",
+    "date": "2017-01-30",
+    "title": "Amendment 1 - Semiconductor devices - Discrete devices - Part 4: Microwave diodes and transistors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-5-4:2022",
+    "edition": "2.0",
+    "date": "2022-04-27",
+    "title": "Semiconductor devices - Part 5-4: Optoelectronic devices - Semiconductor lasers",
+    "language": "EN",
+    "description": "IEC 60747-5-4:2022 specifies the terminology, the essential ratings and characteristics as well as the measuring methods of semiconductor lasers. This edition includes the following significant technical changes with respect to the previous edition: - References for the terms and definitions related to the lighting area, IEC 60050-845, are revised based on IEC 60050-845:2020; - Emission angle is changed to radiation angle in 3.3.2; - Definitions of rise time and fall time in 3.4.1 are revised based on the publication IEC 60050-521:2002; - Spectral linewidth is added to Table 1 in Clause 4; - Conditions for carrier-to-noise ratio of Table 1 in Clause 4 is amended. - Error in the equation for carrier-to-noise ratio in 5.2.2 is corrected; - Precaution against the equipment used for carrier-to-noise ratio measurement is added in 5.2.2; - Explanation for the measurement method of the small signal cut-off frequency in 5.3.2 of the first edition is deleted because it has been defined in the latest version of ISO 11554; - Reference document for the lifetime in 5.4 is amended; - Precaution against the measuring arrangement used for the half-intensity width and 1/e2-intensity is added in 5.5.3; - Reference tables in Annex A, Annex B and Annex C are revised by following the latest version of ISO publications."
+  },
+  {
+    "reference": "IEC 60747-5-4:2022/AMD1:2024",
+    "edition": "2.0",
+    "date": "2024-12-13",
+    "title": "Amendment 1 - Semiconductor devices - Part 5-4: Optoelectronic devices - Semiconductor lasers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-5-5:2020",
+    "edition": "2.0",
+    "date": "2020-07-20",
+    "title": "Semiconductor devices - Part 5-5: Optoelectronic devices - Photocouplers",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-5-5:2020 specifies the terminology, essential ratings, characteristics, safety tests, as well as the measuring methods for photocouplers. Note: The term \"optocoupler\" can also be used instead of \"photocoupler\". This edition includes the following significant technical changes with respect to the previous edition: a) optional data sheet basic insulation rating in accordance with IEC 60664-1:2007, 6.1.3.5; b) editorial corrections on the use of VIORM; c) editorial corrections on Figure 2: Time intervals for method b); d) addition of an alternative surge pulse VIOSM test method."
+  },
+  {
+    "reference": "IEC 60747-5-6:2021",
+    "edition": "2.0",
+    "date": "2021-07-06",
+    "title": "Semiconductor devices - Part 5-6: Optoelectronic devices - Light emitting diodes",
+    "language": "EN",
+    "description": "IEC 60747-5-6:2021 specifies the terminology, the essential ratings and characteristics, the measuring methods and the quality evaluations of light emitting diodes (LEDs) for general industrial applications such as signals, controllers, sensors, etc. LEDs for lighting applications are out of the scope of this part of IEC 60747. LEDs are classified as follows: - LED package; - LED flat illuminator; - LED numeric display and alpha-numeric display; - LED dot-matrix display; - infrared-emitting diode (IR LED); - ultraviolet-emitting diode (UV LED). LEDs with a heat spreader or having a terminal geometry that performs the function of a heat spreader are within the scope of this part of IEC 60747. An integration of LEDs and controlgears, integrated LED modules, semi-integrated LED modules, integrated LED lamps or semi-integrated LED lamps, are out of the scope of this part of IEC 60747. This edition includes the following significant technical changes with respect to the previous edition: - ultraviolet-emitting diodes (UV LED) and their related technical contents were added; - power efficiency (ηPE) as part of electrical and optical characteristics were added; - new measuring methods related to thermal resistance were added; - hydrogen sulphide corrosion test was added to quality evaluation; - some standards were added to the bibliography."
+  },
+  {
+    "reference": "IEC 60747-5-7:2016",
+    "edition": "1.0",
+    "date": "2016-02-23",
+    "title": "Semiconductor devices - Part 5-7: Optoelectronic devices - Photodiodes and phototransistors",
+    "language": "EN-FR",
+    "description": "IEC 60747-5-7:2016 specifies the terminology, the essential ratings and characteristics as well as the measuring methods of photodiodes (hereinafter referred to as \"PDs\") and phototransistors (hereinafter referred to as \"PTs\"). This standard replaces the clauses for photodiodes and phototransistors described in IEC 60747-5-1, IEC 60747-5-2 and IEC 60747-5-3, including their amendments. IEC 60747-5-1, IEC 60747-5-2 and IEC 60747-5-3, including their amendments, are replaced by the publications of IEC 60747-5-4, IEC 60747-5-5, IEC 60747-5-6 and IEC 60747-5-7 as a result of reconstruction."
+  },
+  {
+    "reference": "IEC 60747-5-8:2019",
+    "edition": "1.0",
+    "date": "2019-11-13",
+    "title": "Semiconductor devices - Part 5-8: Optoelectronic devices - Light emitting diodes - Test method of optoelectronic efficiencies of light emitting diodes",
+    "language": "EN-FR",
+    "description": "IEC 60747-5-8:2019 specifies the terminology and the measuring methods of various efficiencies of single light emitting diode (LED) chips or packages without phosphor. White LEDs for lighting applications are out of the scope of this part of IEC 60747. The efficiencies whose measuring methods are defined in this part are the power efficiency (PE), the external quantum efficiency (EQE), the voltage efficiency (VE), and the light extraction efficiency (LEE). To measure the LEE, the measurement data of the internal quantum efficiency (IQE) is used, whose measuring method is discussed in IEC 60747-5-9 and IEC 60747-5-10. The injection efficiency (IE) and the radiative efficiency (RE) are given definitions only."
+  },
+  {
+    "reference": "IEC 60747-5-9:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Semiconductor devices - Part 5-9: Optoelectronic devices - Light emitting diodes - Test method of the internal quantum efficiency based on the temperature-dependent electroluminescence",
+    "language": "EN",
+    "description": "IEC 60747-5-9:2019(E) specifies the measuring method of the internal quantum efficiency (IQE) of single light emitting diode (LED) chips or packages without phosphor. White LEDs for lighting applications are out of the scope of this document. This document utilizes the relative external quantum efficiencies (EQEs) measured at cryogenic temperatures and at an operating temperature, which is called temperature-dependent electroluminescence (TDEL). In order to identify the reference IQE of 100 %, the maximum values of the peak EQE are found by varying the environmental temperature and current."
+  },
+  {
+    "reference": "IEC 60747-5-10:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Semiconductor devices - Part 5-10: Optoelectronic devices - Light emitting diodes - Test method of the internal quantum efficiency based on the room-temperature reference point",
+    "language": "EN",
+    "description": "IEC 60747-5-10:2019(E) specifies the measuring method of the internal quantum efficiency (IQE) of single light emitting diode (LED) chips or packages without phosphor. White LEDs for lighting applications are out of the scope of this document. This document utilizes only the relative external quantum efficiency (EQE) measured at an operating room temperature. In order to identify the reference IQE, an operating current corresponding to the injection efficiency of 100 % is found and the radiative efficiency is determined by the infinitesimal change of the relative EQE at that point. The IQE as a function of current is then calculated from the relative ratio of the EQEs to the value at the reference point, which is called room-temperature reference-point method (RTRM)."
+  },
+  {
+    "reference": "IEC 60747-5-11:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Semiconductor devices - Part 5-11: Optoelectronic devices - Light emitting diodes - Test method of radiative and nonradiative currents of light emitting diodes",
+    "language": "EN",
+    "description": "IEC 60747-5-11:2019(E) specifies the measuring methods of radiative and nonradiative currents of single light emitting diode (LED) chips or packages without phosphor. White LEDs for lighting applications are out of the scope of this document. This document utilizes the internal quantum efficiency (IQE) as a function of current, whose measurement methods are discussed in other documents."
+  },
+  {
+    "reference": "IEC TR 60747-5-12:2021",
+    "edition": "1.0",
+    "date": "2021-10-13",
+    "title": "Semiconductor devices - Part 5-12: Optoelectronic devices - Light emitting diodes - Test method of LED efficiencies",
+    "language": "EN",
+    "description": "IEC TR 60747-5-12:2021(E) discusses the terminology and the measuring methods of optoelectronic efficiencies of single light emitting diode (LED) chip or package without phosphor. White LEDs for lighting applications are out of the scope of this part. This technical report provides guidance on - terminology of optoelectronic efficiencies of single LED chip or package without phosphor, such as the power efficiency (PE), the external quantum efficiency (EQE), the voltage efficiency (VE), the light extraction efficiency (LEE), the internal quantum efficiency (IQE), the injection efficiency (IE), and the radiative efficiency (RE); - test methods of optoelectronic efficiencies of the PE, the EQE, the VE, the LEE, and the IQE; - review of various IQE measurement methods reported so far in view of accuracy and practical applicability; - the measuring method of the LED IQE based on the temperature-dependent electroluminescence (TDEL); - the measuring method of the LED IQE based on the room-temperature reference-point method (RTRM); - the measuring method of the radiative and nonradiative currents of an LED; - the relationship between the IQE and the VE, which leads to introduction of a new LED efficiency, the active efficiency (AE) as AE = VE × IQE."
+  },
+  {
+    "reference": "IEC 60747-5-13:2021",
+    "edition": "1.0",
+    "date": "2021-06-15",
+    "title": "Semiconductor devices - Part 5-13: Optoelectronic devices - Hydrogen sulphide corrosion test for LED packages",
+    "language": "EN",
+    "description": "IEC 60747-5-13:2021 provides the accelerated test method to assess effects of the tarnishing of silver and silver alloys used for LED packages due to hydrogen sulphide. Particularly, this test method is intended to give information on silver and silver alloy tarnishing effects to the luminous/radiant flux maintenance of LED packages. Additionally, this test method can give information on electric performances of LED packages due to corrosion of silver and silver alloys. The object of this test is to determine the influence of atmospheres containing hydrogen sulphide on parts of LED packages made of: silver or silver alloy; silver or silver alloy protected with another layer; other metals covered with silver or silver alloy. Testing other degradations that are susceptible to affect luminous/radiant flux maintenance and/or electric performance (e.g. degradation of copper or silicone parts) is not the object of this test. This test might not be suitable as a general corrosion test, i.e. it might not predict the behaviour of flux and/or electric characteristics and connections in industrial atmospheres. This document is applicable to LED packages for lighting applications only if referenced by an IEC SC 34A document."
+  },
+  {
+    "reference": "IEC 60747-5-13:2021/AMD1:2026",
+    "edition": "1.0",
+    "date": "2026-01-20",
+    "title": "Amendment 1 - Semiconductor devices - Part 5-13: Optoelectronic devices - Hydrogen sulphide corrosion test for LED packages",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-5-14:2022",
+    "edition": "1.0",
+    "date": "2022-03-04",
+    "title": "Semiconductor devices - Part 5-14: Optoelectronic devices - Light emitting diodes - Test method of the surface temperature based on the thermoreflectance method",
+    "language": "EN",
+    "description": "IEC 60747-5-14:2022(E) specifies the measuring method of the surface temperature of single LED die or package, based on the thermoreflectance (TR) method. TR is the effect that the reflectance of light changes with the temperature of a substance. This part measures relative change in the reflectance of light from a metal film deposited nearby on the metallurgical pn junction as the relative change in the LED junction temperature. The surface temperature can be approximated as the junction temperature when the thermal resistance effect between the metal surface and the pn junction is negligibly small."
+  },
+  {
+    "reference": "IEC 60747-5-15:2022",
+    "edition": "1.0",
+    "date": "2022-01-07",
+    "title": "Semiconductor devices - Part 5-15: Optoelectronic devices - Light emitting diodes - Test method of the flat-band voltage based on the electroreflectance spectroscopy",
+    "language": "EN",
+    "description": "IEC 60747-5-15:2022(E) specifies the measuring methods of flat-band voltage of single GaN‑based light emitting diode (LED) die or package without phosphor, based on the electroreflectance (ER) spectroscopy. White LEDs for lighting applications are out of the scope of this part of IEC 60747-5."
+  },
+  {
+    "reference": "IEC 60747-5-16:2023",
+    "edition": "1.0",
+    "date": "2023-03-28",
+    "title": "Semiconductor devices - Part 5-16: Optoelectronic devices - Light emitting diodes - Test method of the flat-band voltage of GaN-based light emitting diodes based on the photocurrent spectroscopy",
+    "language": "EN",
+    "description": "IEC 60747-5-16:2023 specifies the measuring method of flat-band voltage of single GaN-based light emitting diode (LED) die or package without phosphor, based on the photocurrent (PC) spectroscopy. White LEDs for lighting applications are out of the scope of this part of IEC 60747."
+  },
+  {
+    "reference": "IEC 60747-5-18:2026",
+    "edition": "1.0",
+    "date": "2026-06-11",
+    "title": "Semiconductor devices - Part 5-18: Optoelectronic devices - Light emitting diodes - Test method of the macro photoluminescence for epitaxial wafers of micro light emitting diodes",
+    "language": "EN",
+    "description": "IEC 60747-5-18:2026 specifies the measuring methods of macro photoluminescence (PL) for red, green, and blue epitaxial wafers of micro light emitting diodes (LEDs) prior to chip fabrication processes. Wafer sizes being considered are 4 in, 6 in, and 8 in in diameter."
+  },
+  {
+    "reference": "IEC 60747-6:2025",
+    "edition": "4.0",
+    "date": "2025-09-30",
+    "title": "Semiconductor devices - Part 6: Discrete devices - Thyristors",
+    "language": "EN",
+    "description": "IEC 60747-6:2025 specifies product specific standards for terminology, letter symbols, essential ratings and characteristics (properties), measuring and test methods, requirements for type tests, routine tests, endurance tests and marking for the following discrete semiconductor devices: - reverse blocking triode thyristors; - reverse conducting (triode) thyristors; - bidirectional triode thyristors (triacs); - turn-off thyristors. If no ambiguity is likely to result, any of the above will be referred to as thyristors. This edition includes the following significant technical changes with respect to the previous edition: a) the terms and definitions for partial thermal resistance junction-to-case and voltages related to ratings and characteristics (properties) have been added; b) Clauses 3, 4, 5, 6 and 7 were amended with some deletions of information no longer in use and with some necessary additions."
+  },
+  {
+    "reference": "IEC 60747-7:2010",
+    "edition": "3.0",
+    "date": "2010-12-16",
+    "title": "Semiconductor devices - Discrete devices - Part 7: Bipolar transistors",
+    "language": "EN-FR",
+    "description": "IEC 60747-7:2010 gives the requirements applicable to the following sub-categories of bipolar transistors excluding microwave transistors. - Small signal transistors (excluding switching and microwave applications); - Linear power transistors (excluding switching, high-frequency, and microwave applications); - High-frequency power transistors for amplifier and oscillator applications; - Switching transistors for high speed switching and power switching applications; - Resistor biased transistors. The main changes with respect to previous edition are listed below. a) Clause 1 was amended by adding an item that should be included. b) Clauses 3, 4, 5, 6 and 7 were amended by adding terms, definitions, suitable additions and deletions those should be included. c) The text of the second edition was combined with that of IEC 60747-7-5. This publication is to be read in conjunction with IEC 60747-1:2006 ."
+  },
+  {
+    "reference": "IEC 60747-7:2010/AMD1:2019",
+    "edition": "3.0",
+    "date": "2019-09-23",
+    "title": "Amendment 1 - Semiconductor devices - Discrete devices - Part 7: Bipolar transistors",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-8:2010",
+    "edition": "3.0",
+    "date": "2010-12-15",
+    "title": "Semiconductor devices - Discrete devices - Part 8: Field-effect transistors",
+    "language": "EN-FR",
+    "description": "IEC 60747-8:2010 gives standards for the following categories of field-effect transistors: - type A: junction-gate type; - type B: insulated-gate depletion (normally on) type; - type C: insulated-gate enhancement (normally off) type. The main changes with respect to the previous edition are listed below. a) \"Clause 3 Classification\" was moved and added to Clause 1. b) \"Clause 4 Terminology and letter symbols\" was divided into \"Clause 3 Terms and definitions\" and \"Clause 4 Letter symbols\" was amended with additions and deletions. c) Clause 5, 6 and 7 were amended with necessary additions and deletions. This publication is to be read in conjunction with IEC 60747-1:2006 ."
+  },
+  {
+    "reference": "IEC 60747-8:2010/AMD1:2021",
+    "edition": "3.0",
+    "date": "2021-06-25",
+    "title": "Amendment 1 - Semiconductor devices - Discrete devices - Part 8: Field-effect transistors",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-9:2019",
+    "edition": "3.0",
+    "date": "2019-11-13",
+    "title": "Semiconductor devices - Part 9: Discrete devices - Insulated-gate bipolar transistors (IGBTs)",
+    "language": "EN-FR",
+    "description": "IEC 60747-9:2019 specifies product specific standards for terminology, letter symbols, essential ratings and characteristics, verification of ratings and methods of measurement for insulated-gate bipolar transistors (IGBTs). This third edition includes the following significant technical changes with respect to the previous edition: reverse-blocking IGBT and its related technical contents have been added; reverse-conducting IGBT and its related technical contents have been added; some parts of the previous edition have been amended, combined or deleted."
+  },
+  {
+    "reference": "IEC 60747-14-1:2010",
+    "edition": "2.0",
+    "date": "2010-01-21",
+    "title": "Semiconductor devices - Part 14-1: Semiconductor sensors - Generic specification for sensors",
+    "language": "EN-FR",
+    "description": "IEC 60747-14-1:2009 describes general items concerning the specifications for sensors, which are the basis for specifications given in other parts of this series for various types of sensors. Sensors described in this standard are basically made of semiconductor materials, however, the statements made in this standard are also applicable to sensors using materials other than semiconductor, for example dielectric and ferroelectric materials. The major changes with regard to the previous edition are as follows: a) Title change from \"Semiconductor sensors - General and classification\" to \"Semiconductor sensors - Generic specification for sensors\"; b) Clause 3 has been divided into three Clauses 3, 4 and 5; c) Added new terms from IEC 60747-14-5; d) Added a new Clause relating to Quality assessment procedures; e) Added a Bibliography; f) Added a new Annex for the sampling procedure."
+  },
+  {
+    "reference": "IEC 60747-14-2:2000",
+    "edition": "1.0",
+    "date": "2000-11-09",
+    "title": "Semiconductor devices - Part 14-2: Semiconductor sensors - Hall elements",
+    "language": "EN",
+    "description": "Provides standards for packaged semiconductor Hall elements which utilize the Hall effect."
+  },
+  {
+    "reference": "IEC 60747-14-3:2009",
+    "edition": "2.0",
+    "date": "2009-04-29",
+    "title": "Semiconductor devices - Part 14-3: Semiconductor sensors - Pressure sensors",
+    "language": "EN-FR",
+    "description": "IEC 60747-14-3:2009 specifies requirements for semiconductor pressure sensors measuring absolute, gauge or differential pressures. The major technical change with regard to the previous edition is the addition of a new subclause 5.9 (measuring method of linearity). This publication should be read in conjunction with IEC 60747-1:2006 ."
+  },
+  {
+    "reference": "IEC 60747-14-4:2011",
+    "edition": "1.0",
+    "date": "2011-01-27",
+    "title": "Semiconductor devices - Discrete devices - Part 14-4: Semiconductor accelerometers",
+    "language": "EN-FR",
+    "description": "IEC 60747-14-4:2011 applies to semiconductor accelerometers for all types of products. This standard applies not only to typical semiconductor accelerometers with built-in electric circuits, but also to semiconductor accelerometers accompanied by external circuits. This standard does not (or should not) violate (or interfere with) the agreement between customers and suppliers in terms of a new model or parameters for business. NOTE 1: This standard, although directed toward semiconductor accelerometers, may be applied in whole or in part to any mass produced type of accelerometer. NOTE 2: The purpose of this standard is to allow for a systematic description, which covers the subjects initiated by the advent of semiconductor accelerometers. The tasks imposed on the semiconductor accelerometers are not only common to all accelerometers but also inherent to them and not yet totally solved. The descriptions are based on latest research results. One typical example is the multi-axis accelerometer. This standard states the method of measuring acceleration as a vector quantity using multi-axis accelerometers. NOTE 3: This standard does not conflict in any way with any existing parts of either ISO 16063 or ISO 5347. This standard intends to provide the concepts and the procedures of calibration of the semiconductor multi-axis accelerometers which are used not only for the measurement of acceleration but also for the control of motion in the wide frequencies ranging from DC. This publication is to be read in conjunction with IEC 60747-1:2006 ."
+  },
+  {
+    "reference": "IEC 60747-14-5:2010",
+    "edition": "1.0",
+    "date": "2010-02-11",
+    "title": "Semiconductor devices - Part 14-5: Semiconductor sensors - PN-junction semiconductor temperature sensor",
+    "language": "EN-FR",
+    "description": "IEC 60747-14-5:2010 is applicable to semiconductor PN-junction temperature sensors and defines terms, definitions, symbols, essential ratings, characteristics and test methods that can be used to determine the characteristics of semiconductor types of PN-junction temperature sensors."
+  },
+  {
+    "reference": "IEC 60747-14-10:2019",
+    "edition": "1.0",
+    "date": "2019-11-13",
+    "title": "Semiconductor devices - Part 14-10: Semiconductor sensors - Performance evaluation methods for wearable glucose sensors",
+    "language": "EN-FR",
+    "description": "IEC 60747-14-10:2019 specifies the terms, definitions, symbols, tests, and performance evaluation methods used to determine the performance characteristics of wearable electrochemical-glucose sensors for practical use. This document is applicable to all wearable electrochemical-glucose sensors for consumers and manufacturers, without any limitations on device technology and size."
+  },
+  {
+    "reference": "IEC 60747-14-11:2021",
+    "edition": "1.0",
+    "date": "2021-03-03",
+    "title": "Semiconductor devices - Part 14-11: Semiconductor sensors - Test method of surface acoustic wave-based integrated sensors for measuring ultraviolet, illumination and temperature",
+    "language": "EN",
+    "description": "IEC 60747-14-11:2021(E) defines the terms, definitions, configuration, and test methods can be used to evaluate and determine the performance characteristics of surface acoustic wave-based semiconductor sensors integrated with ultraviolet, illuminance, and temperature sensors. The measurement methods are for DC characteristics and RF characteristics, and the measurement method for RF characteristics includes a direct mode and differential amplifier mode based on feedback oscillation. This document excludes devices dealt with by TC 49: piezoelectric, dielectric and electrostatic devices and associated materials for frequency control, selection and detection."
+  },
+  {
+    "reference": "IEC 60747-15:2024",
+    "edition": "3.0",
+    "date": "2024-10-22",
+    "title": "Semiconductor devices - Part 15: Discrete devices - Isolated power semiconductor devices",
+    "language": "EN-FR",
+    "description": "IEC 60747-15:2024 gives the requirements for isolated power semiconductor devices. These requirements are additional to those given in other parts of IEC 60747 for the corresponding non-isolated power devices and parts of IEC 60748 for ICs. This third edition includes the following significant technical changes with respect to the previous edition: a) The intelligent power semiconductor modules (IPM), which was previously excluded from the first and second edition, is now included in this document (Annex C); b) The thermal resistance is described for each switch (6.2.4); c) Added isolation test between temperature sensor and terminals, in case there is an agreement with the user (6.1.2)."
+  },
+  {
+    "reference": "IEC 60747-16-1:2001",
+    "edition": "1.0",
+    "date": "2001-11-20",
+    "title": "Semiconductor devices - Part 16-1: Microwave integrated circuits - Amplifiers",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-16-1:2001 provides the terminology, the essential ratings and characteristics, as well as the measuring methods for integrated circuit microwave power amplifiers."
+  },
+  {
+    "reference": "IEC 60747-16-1:2001/AMD1:2007",
+    "edition": "1.0",
+    "date": "2007-01-26",
+    "title": "Amendment 1 - Semiconductor devices - Part 16-1: Microwave integrated circuits - Amplifiers",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-1:2001/AMD2:2017",
+    "edition": "1.0",
+    "date": "2017-02-15",
+    "title": "Amendment 2 - Semiconductor devices - Part 16-1: Microwave integrated circuits - Amplifiers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-2:2001",
+    "edition": "1.0",
+    "date": "2001-03-22",
+    "title": "Semiconductor devices - Part 16-2: Microwave integrated circuits - Frequency prescalers",
+    "language": "EN",
+    "description": "Provides terminology and letter symbols, essential ratings and characteristics, as well as measuring methods for the integrated circuit micowave frequency prescalers."
+  },
+  {
+    "reference": "IEC 60747-16-2:2001/AMD1:2007",
+    "edition": "1.0",
+    "date": "2007-10-18",
+    "title": "Amendment 1 - Semiconductor devices - Part 16-2: Microwave integrated circuits - Frequency prescalers",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-3:2002",
+    "edition": "1.0",
+    "date": "2002-05-07",
+    "title": "Semiconductor devices - Part 16-3: Microwave integrated circuits - Frequency converters",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-16-3:2002 provides new measuring methods, terminology and letter symbols, as well as essential ratings and characteristics for integrated circuit microwave frequency converters."
+  },
+  {
+    "reference": "IEC 60747-16-3:2002/AMD1:2009",
+    "edition": "1.0",
+    "date": "2009-03-10",
+    "title": "Amendment 1 - Semiconductor devices - Part 16-3: Microwave integrated circuits - Frequency converters",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-3:2002/AMD2:2017",
+    "edition": "1.0",
+    "date": "2017-08-16",
+    "title": "Amendment 2 - Semiconductor devices - Part 16-3: Microwave integrated circuits - Frequency converters",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-4:2004",
+    "edition": "1.0",
+    "date": "2004-07-28",
+    "title": "Semiconductor devices - Part 16-4: Microwave integrated circuits - Switches",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-16-4:2004 provides new measuring methods, terminology and letter symbols, as well as essential ratings and characteristics for integrated circuit microwave switches. Switches in this standard are based on SPDT. However, this standard is applicable to the other types of switches."
+  },
+  {
+    "reference": "IEC 60747-16-4:2004/AMD1:2009",
+    "edition": "1.0",
+    "date": "2009-03-10",
+    "title": "Amendment 1 - Semiconductor devices - Part 16-4: Microwave integrated circuits - Switches",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-4:2004/AMD2:2017",
+    "edition": "1.0",
+    "date": "2017-08-16",
+    "title": "Amendment 2 - Semiconductor devices - Part 16-4: Microwave integrated circuits - Switches",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-5:2013",
+    "edition": "1.0",
+    "date": "2013-06-19",
+    "title": "Semiconductor devices - Part 16-5: Microwave integrated circuits - Oscillators",
+    "language": "EN-FR",
+    "description": "IEC 60747-16-5:2013 specifies the terminology, essential ratings and characteristics, and measuring methods of microwave integrated circuit oscillators. This standard is applicable to the fixed and voltage-controlled semiconductor microwave oscillator devices, except the oscillator modules such as synthesizers which require external controllers."
+  },
+  {
+    "reference": "IEC 60747-16-5:2013/AMD1:2020",
+    "edition": "1.0",
+    "date": "2020-07-14",
+    "title": "Amendment 1 - Semiconductor devices - Part 16-5: Microwave integrated circuits - Oscillators",
+    "language": "EN-FR, EN",
+    "description": "The contents of the corrigendum of September 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60747-16-5:2013/AMD1:2020/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-09-03",
+    "title": "Corrigendum 1 - Semiconductor devices - Part 16-5: Microwave integrated circuits - Oscillators",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-16-6:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Semiconductor devices - Part 16-6: Microwave integrated circuits - Frequency multipliers",
+    "language": "EN-FR",
+    "description": "IEC 6074716-6:2019 specifies the terminology, essential ratings and characteristics, and measuring methods of microwave integrated circuit frequency multipliers."
+  },
+  {
+    "reference": "IEC 60747-16-7:2022",
+    "edition": "1.0",
+    "date": "2022-11-29",
+    "title": "Semiconductor devices - Part 16-7: Microwave integrated circuits - Attenuators",
+    "language": "EN-FR",
+    "description": "IEC 60747-16-7:2022 specifies the terminology, essential ratings and characteristics, and measuring methods of microwave integrated circuit attenuators."
+  },
+  {
+    "reference": "IEC 60747-16-8:2022",
+    "edition": "1.0",
+    "date": "2022-11-29",
+    "title": "Semiconductor devices - Part 16-8: Microwave integrated circuits - Limiters",
+    "language": "EN-FR",
+    "description": "IEC 60747-16-8:2022 specifies the terminology, essential ratings and characteristics, and measuring methods of microwave integrated circuit limiters."
+  },
+  {
+    "reference": "IEC 60747-16-9:2024",
+    "edition": "1.0",
+    "date": "2024-10-09",
+    "title": "Semiconductor devices - Part 16-9: Microwave integrated circuits - Phase shifters",
+    "language": "EN-FR",
+    "description": "IEC 60747-16-9:2024 specifies the terminology, essential ratings, and characteristics, and measuring methods of microwave integrated circuit phase shifters."
+  },
+  {
+    "reference": "IEC 60747-16-10:2004",
+    "edition": "1.0",
+    "date": "2004-07-15",
+    "title": "Semiconductor devices - Part 16-10: Technology Approval Schedule (TAS) for monolithic microwave integrated circuits",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-16-10:2004 specifies the terms, definitions, symbols, quality system, test, assessment and verification methods and other requirements relevant to the design, manufacture and supply of monolithic microwave integrated circuits in compliance with the general requirements of the IECQ-CECC System for electronic components of assessed quality."
+  },
+  {
+    "reference": "IEC 60747-16-11:2026",
+    "edition": "1.0",
+    "date": "2026-04-09",
+    "title": "Semiconductor devices - Part 16-11: Microwave integrated circuits - Power detectors",
+    "language": "EN",
+    "description": "IEC 60747-16-11:2026 specifies the terminology, essential ratings and characteristics, and measuring methods of microwave integrated circuit power detectors."
+  },
+  {
+    "reference": "IEC 60747-17:2020",
+    "edition": "1.0",
+    "date": "2020-09-21",
+    "title": "Semiconductor devices - Part 17: Magnetic and capacitive coupler for basic and reinforced insulation",
+    "language": "EN-FR, EN",
+    "description": "IEC 60747-17:2020 specifies the terminology, essential ratings, characteristics, safety test and the measuring methods of magnetic coupler and capacitive coupler. It specifies the principles and requirements of insulation and isolation characteristics for magnetic and capacitive couplers for basic insulation and reinforced insulation. This first edition cancels and replaces IEC PAS 60747-17:2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC PAS 60747-17:2011: a) introduced lifetime safety factors for improved life time consideration, to comply with widely recognized aging mechanisms of silicone dioxide (TDDB) and thin film polymer isolation layers; b) significantly improved \"end of life testing\" paragraph and statistical life time consideration by adding detailed description on process, safety factors, methods of generating data points and respective lifetime interpolations as well as being specific on minimum amount of samples required; c) introduced concept of certification by similarity, including Annex A, giving guidance on qualification considerations and required certification process; d) alternative pulse shape allowed for surge pulse testing, to avoid issues due to surge tester availability; e) various improvements throughout the standard: definitions, for example type of coupler have been improved, introduction of surge impulse VIMP rating, usage of glass transition temperature, pre-conditioning have been redefined for improved usability and better compatibility with today’s design and functionality of couplers, available mold compounds, etc. The contents of the corrigendum of January 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60747-17:2020/COR1:2021",
+    "edition": "1.0",
+    "date": "2021-01-19",
+    "title": "Corrigendum 1 - Semiconductor devices - Part 17: Magnetic and capacitive coupler for basic and reinforced insulation",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60747-18-1:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Semiconductor devices - Part 18-1: Semiconductor bio sensors - Test method and data analysis for calibration of lens-free CMOS photonic array sensors",
+    "language": "EN",
+    "description": "IEC 60747-18-1:2019 (E) specifies the test methods and data analysis for the calibration of lens-free CMOS photonic array sensors. This document includes the test conditions of each process, configuration of lens-free CMOS photonic array sensors, statistical analysis of test data, calibration for planarization and linearity, and test reports."
+  },
+  {
+    "reference": "IEC 60747-18-2:2020",
+    "edition": "1.0",
+    "date": "2020-02-07",
+    "title": "Semiconductor devices - Part 18-2: Semiconductor bio sensors - Evaluation process of lens-free CMOS photonic array sensor package modules",
+    "language": "EN",
+    "description": "IEC 60747-18-2:2020(E) specifies the evaluation process of lens-free CMOS photonic array sensor package modules. This document includes the measurement environment of each process, statistical analysis of test data, middle layer effect under various user light, evaluation of calibrated lens-free CMOS photonic array sensor package modules, and test report."
+  },
+  {
+    "reference": "IEC 60747-18-3:2019",
+    "edition": "1.0",
+    "date": "2019-12-11",
+    "title": "Semiconductor devices - Part 18-3: Semiconductor bio sensors - Fluid flow characteristics of lens-free CMOS photonic array sensor package modules with fluidic system",
+    "language": "EN",
+    "description": "IEC 60747-18-3:2019(E) specifies the fluid flow characteristics of lens-free CMOS photonic array sensor package modules with fluidic system for bio analysis. This document includes the measurement set-up, measurement and calculation at initial state flow, criteria of the fluidic system for quality assurance, measurement and calculation at steady-state flow, and test report."
+  },
+  {
+    "reference": "IEC 60747-18-4:2023",
+    "edition": "1.0",
+    "date": "2023-03-16",
+    "title": "Semiconductor devices - Part 18-4: Semiconductor bio sensors - Evaluation method of noise characteristics of lens-free CMOS photonic array sensors",
+    "language": "EN",
+    "description": "IEC 60747-18-4:2023(E) specifies the evaluation method for noise characteristics of lens-free CMOS photonic array sensors. This document includes the measurement setup, test procedure, test items, evaluation method, and test report for noise characteristics of lens-free CMOS photonic array sensors."
+  },
+  {
+    "reference": "IEC 60747-18-5:2023",
+    "edition": "1.0",
+    "date": "2023-03-16",
+    "title": "Semiconductor devices - Part 18-5: Semiconductor bio sensors - Evaluation method for light responsivity characteristics of lens-free CMOS photonic array sensor package modules by incident angle of light",
+    "language": "EN",
+    "description": "IEC 60747-18-5:2023(E) specifies the evaluation method for light responsivity characteristics of lens-free CMOS photonic array sensor package modules by incident angle of light. This document includes the test setup, test procedure, test item, and test report for lens-free CMOS photonic array sensor package modules."
+  },
+  {
+    "reference": "IEC 60747-19-1:2019",
+    "edition": "1.0",
+    "date": "2019-11-22",
+    "title": "Semiconductor devices - Part 19-1: Smart sensors - Control scheme of smart sensors",
+    "language": "EN",
+    "description": "IEC 60747-19-1:2019(E) specifies the control scheme of a sensor which is a device or a module which achieves a sensing function, data processing function and data output function, by employing a digital processing unit and a means of bidirectional communication between the sensor and an external terminal module"
+  },
+  {
+    "reference": "IEC TS 60747-19-2:2021",
+    "edition": "1.0",
+    "date": "2021-05-21",
+    "title": "Semiconductor devices - Part 19-2: Smart sensors - Indication of specifications of sensors and power supplies to drive smart sensors for low power operation",
+    "language": "EN",
+    "description": "IEC TS 60747-19-2:2021 provides a guideline of indication of specifications of a low-power sensor being a device or a module allowing autonomous power supply operation, which contributes to the low-power design of a smart sensing unit. Here, the smart sensing unit comprises a smart sensor, a terminal module, and a power supply, which can send output data of the smart sensor to the outside. This part also provides a guideline of indication of specifications of the power supply to drive the smart sensor(s) in the smart sensing unit. Based on these, the three components of the smart sensing unit can be easily selected and combined from the point-of-view of newly designed, low-power, smart sensing units."
+  }
+]

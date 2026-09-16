@@ -1,0 +1,426 @@
+[
+  {
+    "reference": "IEC 60633:2019",
+    "edition": "3.0",
+    "date": "2019-04-25",
+    "title": "High-voltage direct current (HVDC) transmission - Vocabulary",
+    "language": "EN-FR",
+    "description": "IEC 6033:2019 defines terms for high-voltage direct current (HVDC) power transmission systems and for HVDC substations using electronic power converters for the conversion from AC to DC or vice versa. This document is applicable to HVDC substations with line commutated converters, most commonly based on three-phase bridge (double way) connections (see Figure 2) in which unidirectional electronic valves, for example semiconductor valves, are used. For the thyristor valves, only the most important definitions are included in this document. A more comprehensive list of HVDC valve terminology is given in IEC 60700-2. This edition includes the following significant technical changes with respect to the previous edition: - 40 terms and definitions have been amended and 31 new terms and definitions have been added mainly on converter units and valves, converter operating conditions, HVDC systems and substations and HVDC substation equipment; - a new Figure 13 on capacitor commutated converter configurations has been added. The contents of the corrigendum of February 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60633:2019/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-02-26",
+    "title": "Corrigendum 1 - High-voltage direct current (HVDC) transmission - Vocabulary",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60700-1:2015",
+    "edition": "2.0",
+    "date": "2015-07-28",
+    "title": "Thyristor valves for high voltage direct current (HVDC) power transmission - Part 1: Electrical testing",
+    "language": "EN-FR",
+    "description": "IEC 60700-1:2015 applies to thyristor valves with metal oxide surge arresters directly connected between the valve terminals, for use in a line commutated converter for high voltage d.c. power transmission or as part of a back-to-back link. It is restricted to electrical type and production tests. The tests specified in this standard are based on air insulated valves. For other types of valves, the test requirements and acceptance criteria can be agreed. This edition includes the following significant technical changes with respect to the previous edition. a) Definitions of terms \"redundant thyristor levels\", \"thyristor level\", \"valve section\" have been changed for clarification. b) The notes were added to test requirements of dielectric d.c. voltage tests for valve support, MVU, valve, specifying that before repeating the test with opposite polarity, the tested object may be short-circuited and earthed for several hours. The same procedure may be followed at the end of the d.c. voltage test. c) Table 1 on thyristor level faults permitted during type tests was supplemented. d) The alternative MVU dielectric test method was added. e) It was specified that production tests may include routine tests as well as sample tests. f) It was added into test requirements for periodic firing and extinction tests that a scaling factor for tests shall be applied when testing with valve sections. The contents of the corrigendum of January 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60700-1:2015/COR1:2017",
+    "edition": "2.0",
+    "date": "2017-01-25",
+    "title": "Corrigendum 1 - Thyristor valves for high voltage direct current (HVDC) power transmission - Part 1: Electrical testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60700-1:2015/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-09-15",
+    "title": "Amendment 1 - Thyristor valves for high voltage direct current (HVDC) power transmission - Part 1: Electrical testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60700-2:2016",
+    "edition": "1.0",
+    "date": "2016-06-17",
+    "title": "Thyristor valves for high voltage direct current (HVDC) power transmission - Part 2: Terminology",
+    "language": "EN-FR",
+    "description": "IEC 60700-2:2016 defines terms for thyristor valves for high-voltage direct current (HVDC) power transmission with line commutated converters most commonly based on three-phase bridge connections for the conversion from AC to DC and vice versa. The contents of the corrigendum of June 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60700-2:2016/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-06-22",
+    "title": "Corrigendum 1 - Thyristor valves for high voltage direct current (HVDC) power transmission - Part 2: Terminology",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60700-2:2016/AMD1:2021",
+    "edition": "1.0",
+    "date": "2021-08-23",
+    "title": "Amendment 1 - Thyristor valves for high voltage direct current (HVDC) power transmission - Part 2: Terminology",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60700-3:2022",
+    "edition": "1.0",
+    "date": "2022-11-29",
+    "title": "Thyristor valves for high voltage direct current (HVDC) power transmission - Part 3: Essential ratings (limiting values) and characteristics",
+    "language": "EN-FR",
+    "description": "IEC 60700-3:2022 specifies the service conditions, the definitions of essential ratings and characteristics of thyristor valves utilized in line commutated converters with three-phase bridge connections to realize the conversion from AC to DC and vice versa for high voltage direct current (HVDC) power transmission applications. It is applicable for air insulated, liquid cooled and indoor thyristor valves."
+  },
+  {
+    "reference": "IEC TR 60919-1:2020",
+    "edition": "4.0",
+    "date": "2020-04-16",
+    "title": "Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 1: Steady-state conditions",
+    "language": "EN",
+    "description": "IEC TR 60919-1:2020(E) provides general guidance on the steady-state performance requirements of high-voltage direct current (HVDC) systems. It concerns the steady-state performance of two-terminal HVDC systems utilizing 12-pulse converter units comprised of three-phase bridge (double-way) connections, but it does not cover multi­terminal HVDC transmission systems. Both terminals are assumed to use thyristor valves as the main semiconductor valves and to have power flow capability in both directions. Diode valves are not considered in this document. This edition includes the following significant technical changes with respect to the previous edition: - Figure 8 and Figure 20 have been updated, a new Figure 18 \"LCC/VSC hybrid bipolar system\" has been added; - the HVDC system control objectives have been supplemented; - additional explanations regarding the HVDC system control structure have been given; - a new subclause 13.6 on HVDC system protection has been added."
+  },
+  {
+    "reference": "IEC TR 60919-2:2008",
+    "edition": "2.0",
+    "date": "2008-11-05",
+    "title": "Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 2: Faults and switching",
+    "language": "EN-FR",
+    "description": "IEC/TR 60919-2:2008 provides guidance on the transient performance and fault protection requirements of high voltage direct current (HVDC) systems. It concerns the transient performance related to faults and switching for two-terminal HVDC systems utilizing 12-pulse converter units comprised of three-phase bridge (double way) connections but it does not cover multi-terminal HVDC transmission systems. However, certain aspects of parallel converters and parallel lines, if part of a two-terminal system, are discussed. The converters are assumed to use thyristor valves as the bridge arms, with gapless metal oxide arresters for insulation co-ordination and to have power flow capability in both directions. Diode valves are not considered in this report. This second edition cancels and replaces the first edition, published in 1991, and constitutes a technical revision. It includes the following main changes with respect to the previous edition: it concerns only line-commutated converters;isignificant changes have been made to the control system technology; some environmental constraints, for example audible noise limits, have been added; the capacitor coupled converters (CCC) and controlled series capacitor converters (CSCC) have been included."
+  },
+  {
+    "reference": "IEC TR 60919-2:2008/AMD1:2015",
+    "edition": "2.0",
+    "date": "2015-06-19",
+    "title": "Amendment 1 - Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 2: Faults and switching",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60919-2:2008/AMD2:2020",
+    "edition": "2.0",
+    "date": "2020-04-27",
+    "title": "Amendment 2 - Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 2: Faults and switching",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60919-3:2009",
+    "edition": "2.0",
+    "date": "2009-10-13",
+    "title": "Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 3: Dynamic conditions",
+    "language": "EN-FR",
+    "description": "IEC/TR 60919-3:2009 provides general guidance on the dynamic performance of high-voltage direct current (HVDC) systems. Dynamic performance is meant to include those events and phenomena whose characteristic frequencies or time domain cover the range between transient conditions and steady state. Diode valves are not considered in this specification. This report (IEC 60919-3) which covers dynamic performance, is accompanied by publications for steady-state (IEC 60919-1) and transient (IEC 60919-2) performance. All three aspects should be considered when preparing two-terminal HVDC system specifications. This report should not be used directly as a specification for a specific project, but rather to provide the basis for an appropriate specification tailored to fit actual system requirements for a particular electric power transmission scheme. This report does not intend to discriminate between the responsibility of users and manufacturers for the work specified. This second edition cancels and replaces the first edition, which was issued as a technical specification in 1999. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) this report concerns only line-commutated converters; b) significant changes have been made to the control system technology; c) some environmental constraints, for example audible noise limits, have been added; d) the capacitor coupled converters (CCC) and controlled series capacitor converters (CSCC) have been included."
+  },
+  {
+    "reference": "IEC TR 60919-3:2009/AMD1:2016",
+    "edition": "2.0",
+    "date": "2016-03-24",
+    "title": "Amendment 1 - Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 3: Dynamic conditions",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60919-3:2009/AMD2:2021",
+    "edition": "2.0",
+    "date": "2021-10-26",
+    "title": "Amendment 2 - Performance of high-voltage direct current (HVDC) systems with line-commutated converters - Part 3: Dynamic conditions",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61803:2026",
+    "edition": "3.0",
+    "date": "2026-05-26",
+    "title": "Determination of power losses in high-voltage direct current (HVDC) converter stations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61803:2026 applies to all high-voltage direct current (HVDC) converter stations with line-commutated converters (LCC) as well with voltage-sourced converters (VSC) used for power exchange (power transmission or back-to-back installation) in utility systems. For line-commutated converters (LCC), this document presumes the use of 12-pulse thyristor converters but can, with due care, also be used for 6-pulse thyristor converters. Where VSC is referred to in this document, it is assumed to be of the MMC-type or similar, with very low harmonic generation. It is important to treat other types of VSC as appropriate. In some applications, synchronous compensators, static var compensators (SVC), or static synchronous compensator (STATCOM) are connected to the AC bus of the HVDC converter station. The loss determination procedures for such equipment are not included in this document. This document presents a set of standard procedures for determining the total losses of an HVDC converter station, except for VSC valves which are covered by the IEC 62751 series. The procedures cover all parts, except as noted above, and address no-load operation and operating losses together with their methods of calculation which use, wherever possible, measured parameters. Converter station designs employing novel components or circuit configurations compared to the typical design assumed in this document, or designs equipped with unusual auxiliary circuits that can affect the losses, are assessed on their own merits. This edition includes the following significant technical changes with respect to the previous edition: a) HVDC stations with voltage-sourced converters (VSC) technology have been included; b) to facilitate the application of this document and to ensure its quality remains consistent, 5.1.8 and 5.8 have been reviewed, taking into consideration that the present thyristor production technology provides considerably less thyristor parameters dispersion comparing with the situation in 1999 when the first edition of IEC 61803 was developed; therefore, the production records of thyristors can be used for the power losses calculation; c) the calculation of the total station load losses (cases D1 and D2 in Annex C) has been corrected."
+  },
+  {
+    "reference": "IEC 61954:2021",
+    "edition": "3.0",
+    "date": "2021-10-04",
+    "title": "Static VAR compensators (SVC) - Testing of thyristor valves",
+    "language": "EN-FR",
+    "description": "IEC 61954:2021 defines type, production and optional tests on thyristor valves used in thyristor controlled reactors (TCR), thyristor switched reactors (TSR) and thyristor switched capacitors (TSC) forming part of static VAR compensators (SVC) for power system applications. The requirements of the document apply both to single valve units (one phase) and to multiple valve units (several phases). Clauses 4 to 7 detail the type tests, i.e. tests which are carried out to verify that the valve design meets the requirements specified. Clause 8 covers the production tests, i.e. tests which are carried out to verify proper manufacturing. Clauses 9 and 10 detail optional tests, i.e. tests additional to the type and production tests. This edition includes the following significant technical changes with respect to the previous edition: important clarifications were made in 4.4.1.2, 5.1.2.2, 5.1.3.2, 5.2.3.2, 6.1.2.2, 6.1.2.4, 6.1.3.2, 6.2.2.2, 6.2.2.4, 6.3.2.2 and 9.3.2. The contents of the corrigendum of June 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61954:2021/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-06-07",
+    "title": "Corrigendum 1 - Static VAR compensators (SVC) - Testing of thyristor valves",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61975:2010",
+    "edition": "1.0",
+    "date": "2010-07-29",
+    "title": "High-voltage direct current (HVDC) installations - System tests",
+    "language": "EN-FR, EN",
+    "description": "IEC 61975:2010 applies to system tests for high-voltage direct current (HVDC) installations which consist of a sending terminal and a receiving terminal, each connected to an a.c. system. The tests specified in this standard are based on bidirectional and bipolar high-voltage direct current (HVDC) installations which consist of a sending terminal and a receiving terminal, each connected to an a.c. system. The test requirements and acceptance criteria should be agreed for back-to-back installations, while multi-terminal systems and voltage sourced converters are not included in this standard. For monopolar HVDC installations, the standard applies except for bipolar tests. This standard only serves as a guideline to system tests for high-voltage direct current (HVDC) installations. The standard gives potential users guidance, regarding how to plan commissioning activities. The tests described in the guide may not be applicable to all projects, but represent a range of possible tests which should be considered. This edition cancels and replaces IEC/PAS 61975 published jointly in 2004 by IEC and CIGRÉ. It constitutes a technical revision incorporating engineering experience."
+  },
+  {
+    "reference": "IEC 61975:2010/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-09-12",
+    "title": "Amendment 1 - High-voltage direct current (HVDC) installations - System tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61975:2010/AMD2:2022",
+    "edition": "1.0",
+    "date": "2022-10-24",
+    "title": "Amendment 2 - High-voltage direct current (HVDC) installations - System tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62001-1:2021",
+    "edition": "2.0",
+    "date": "2021-07-13",
+    "title": "High-voltage direct current (HVDC) systems - Guidance to the specification and design evaluation of AC filters - Part 1: Overview",
+    "language": "EN",
+    "description": "IEC TR 62001-1:2021 deals with the specification and design evaluation of AC side harmonic performance and AC side filters for HVDC schemes. It is intended to be primarily for the use of the utilities and consultants who are responsible for issuing the specifications for new HVDC projects and evaluating designs proposed by prospective suppliers. This document provides guidance on the specifications of AC filters for high-voltage direct current (HVDC) systems with line-commutated converters and filter performance calculation. The scope of this document covers AC side filtering for the frequency range of interest in terms of harmonic distortion and audible frequency disturbances. Where the term \"HVDC converter\" or \"HVDC station\" is referred to without qualification, in this document, it is understood to refer to LCC technology. It excludes filters designed to be effective in the power line carrier (PLC) and radio interference spectra. This edition includes the following significant technical changes with respect to the previous edition: - general updating of the document to reflect changes in practice; - 10.2.4 on fuseless capacitors has been transferred to IEC TR 62001-4; - Clause 11 on future developments has been expanded; - 10.3.3 and Annex F on voltage sourced converters have been deleted as their content is covered by IEC TR 62543."
+  },
+  {
+    "reference": "IEC TS 62001-2:2026",
+    "edition": "1.0",
+    "date": "2026-05-29",
+    "title": "High-voltage direct current (HVDC) systems - Guidance to the specification and design evaluation of AC filters - Part 2: Harmonic performance aspects",
+    "language": "EN",
+    "description": "IEC TS 62001-2:2026 gives a guidance to the specification and design evaluation of AC filters of high-voltage direct current HVDC) systems, specifically on harmonic performance aspects. This document focusses on three specific areas of interest. Clause 4 discusses telephone interference related to the operation of HVDC transmission, including the derivation of appropriate harmonic limits. Clause 5 deals with all aspects of current-based harmonic performance criteria and their application. Clause 6 is concerned with field measurement and verification of compliance with specified harmonic limits. This document concentrates on passive AC filter technology and line-commutated high-voltage direct current (HVDC) converters, but much of the content is equally relevant to VSC converter technology. Where there is a distinction, this is indicated in the text. The scope of this document covers AC side filtering for the frequency range of interest in terms of harmonic distortion and audible frequency disturbances. It excludes filters specifically designed to be effective in the PLC and radio interference spectra. This edition includes the following significant technical changes with respect to IEC TR 62001‑2:2016: a) added Clause 3 on terms and definitions; b) split old Clause 3 to form new Clause 4 and Clause 5; c) extensive updating of text to reflect progress in time; d) transferred most of IEC TR 62001‑3:2016, Annex C, to Clause 6."
+  },
+  {
+    "reference": "IEC TS 62001-3:2026",
+    "edition": "1.0",
+    "date": "2026-05-29",
+    "title": "High-voltage direct current (HVDC) systems - Guidance to the specification and design evaluation of AC filters - Part 3: Modelling aspects",
+    "language": "EN",
+    "description": "IEC TS 62001-3:2026 provides in-depth consideration regarding three particularly important aspects of design, which are also mentioned elsewhere in other parts of the IEC 62001 series, which are: AC network impedance modelling, the treatment of pre‑existing harmonics in performance and rating calculations, and harmonic interaction across converters (cross-modulation). This document concentrates on passive AC filter technology and line-commutated high-voltage direct current (HVDC) converters, but much of the content is equally relevant to VSC converter technology. Where there is a distinction, this is indicated in the text. The scope of this document covers AC side filtering for the frequency range of interest in terms of harmonic distortion and audible frequency disturbances. It excludes filters specifically designed to be effective in the PLC and radio interference spectra. This edition includes the following significant technical changes with respect to IEC TR 62001‑3:2016: a) added Clause 3 on terms and definitions; b) added new Clause 4; c) rearranged Clause 5, Clause 6 and Clause 7; d) updated Bibliography."
+  },
+  {
+    "reference": "IEC TR 62001-4:2021",
+    "edition": "2.0",
+    "date": "2021-09-07",
+    "title": "High-voltage direct current (HVDC) systems - Guidance to the specification and design evaluation of AC filters - Part 4: Equipment",
+    "language": "EN",
+    "description": "IEC TR 62001:2021, which is a Technical Report, provides guidance on the basic data of AC side filters for high-voltage direct current (HVDC) systems and their components such as ratings, power losses, design issues and special applications, protection, seismic requirements, equipment design and test parameters. This document covers AC side filtering for the frequency range of interest in terms of harmonic distortion and audible frequency disturbances. It excludes filters designed to be effective in the power line carrier (PLC) and radio interference spectra. It concerns the conventional AC filter technology and LCC (line-commutated converter) HVDC but much of this applies to any filter equipment for VSC (voltage sourced converter) HVDC. This edition includes the following significant technical change with respect to the previous edition: - general updating of the document to reflect changes in practice; - Annex A deleted as its content is covered by IEC 61803."
+  },
+  {
+    "reference": "IEC TR 62001-5:2021",
+    "edition": "1.0",
+    "date": "2021-08-25",
+    "title": "High-voltage direct current (HVDC) systems - Guidance to the specification and design evaluation of AC filters - Part 5: AC side harmonics and appropriate harmonic limits for HVDC systems with voltage sourced converters (VSC)",
+    "language": "EN",
+    "description": "IEC TR 62001:2021(E), which is a Technical Report, provides guidance on the state-of-the art of VSC technology in relation to harmonics and predicted future developments, on the harmonic profile of present and predicted future VSC architectures and how they are characterised and modelled – as voltage sources, current sources, or otherwise. It also assesses the harmonic impedance of VSC and the possible impact on pre-existing background harmonics emanating from loads or generation units in the supply network and considers how VSC harmonics are assessed under current IEC standards and national regulations, and identify areas where improvements could be made, research can be needed, or other bodies consulted, for example when considering interharmonics. This document can be a reference source on the subject, which will also contain recommendations for use by those charged with modifying existing standards to adapt to VSC HVDC systems."
+  },
+  {
+    "reference": "IEC 62501:2024",
+    "edition": "2.0",
+    "date": "2024-04-10",
+    "title": "Voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) power transmission - Electrical testing",
+    "language": "EN-FR",
+    "description": "IEC 62501:2024 applies to self-commutated converter valves, for use in a three-phase bridge voltage sourced converter (VSC) for high voltage DC power transmission or as part of a back-to-back link, and to dynamic braking valves. It is restricted to electrical type and production tests. This document can be used as a guide for testing of high-voltage VSC valves used in energy storage systems (ESS). The tests specified in this document are based on air insulated valves. The test requirements and acceptance criteria can be used for guidance to specify the electrical type and production tests of other types of valves. This edition includes the following significant technical changes with respect to the previous edition: a) Conditions for use of evidence in lieu are inserted as a new Table 1; b) Test parameters for valve support DC voltage test, 7.3.2, and MVU DC voltage test, 8.4.1, updated; c) AC-DC voltage test between valve terminals, Clause 9, is restructured and alternative tests, by individual AC and DC voltage tests, added in 9.4.2; d) Partial discharge test in routine test program is removed; e) More information on valve component fault tolerance, Annex B, is added; f) Valve losses determination is added as Annex C."
+  },
+  {
+    "reference": "IEC TR 62543:2022",
+    "edition": "2.0",
+    "date": "2022-03-30",
+    "title": "High-voltage direct current (HVDC) power transmission using voltage sourced converters (VSC)",
+    "language": "EN",
+    "description": "IEC TR 62543:2022 gives general guidance on the subject of voltage sourced converters (VSC) used for transmission of power by high voltage direct current (HVDC). It describes converters that are not only voltage sourced (containing a capacitive energy storage medium and where the polarity of DC voltage remains fixed) but also self-commutated, using semiconductor devices which can both be turned on and turned off by control action. The scope includes 2‑level and 3-level converters with pulse-width modulation (PWM), along with multi-level converters, modular multi-level converters and cascaded two-level converters, but excludes 2‑level and 3-level converters operated without PWM, in square-wave output mode. HVDC power transmission using voltage sourced converters is known as \"VSC transmission\". The various types of circuit that can be used for VSC transmission are described in this document, along with their principal operational characteristics and typical applications. The overall aim is to provide a guide for purchasers to assist with the task of specifying a VSC transmission scheme. Line-commutated and current-sourced converters are specifically excluded from this document. This edition includes the following significant technical changes with respect to the previous edition: - in Clause 3, some redundant definitions which were identical to those listed in IEC 62747 have been deleted; - in 4.3.4, description and diagrams have been added for the cases of a bipole with dedicated metallic return and a rigid bipole; - in 4.4, mention is made of the bi-mode insulated gate transistor (BiGT) and injection enhanced gate transistor (IEGT) as possible alternatives to the IGBT; - in 5.6, the reference to common-mode blocking reactors has been deleted since these are very rarely used nowadays."
+  },
+  {
+    "reference": "IEC TR 62544:2011",
+    "edition": "1.0",
+    "date": "2011-08-19",
+    "title": "High-voltage direct current (HVDC) systems - Application of active filters",
+    "language": "EN",
+    "description": "IEC/TR 62544:2011(E) gives general guidance on the subject of active filters for use in high-voltage direct current (HVDC) power transmission. It describes systems where active devices are used primarily to achieve a reduction in harmonics in the d.c. or a.c. systems. This excludes the use of automatically retuned components. The various types of circuit that can be used for active filters are described in the report, along with their principal operational characteristics and typical applications. The overall aim is to provide guidance for purchasers to assist with the task of specifying active filters as part of HVDC converters. Passive filters are specifically excluded from this report."
+  },
+  {
+    "reference": "IEC TR 62544:2011/AMD1:2016",
+    "edition": "1.0",
+    "date": "2016-04-13",
+    "title": "Amendment 1 - High-voltage direct current (HVDC) systems - Application of active filters",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62544:2011/AMD2:2020",
+    "edition": "1.0",
+    "date": "2020-02-05",
+    "title": "Amendment 2 - High-voltage direct current (HVDC) systems - Application of active filters",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62747:2014",
+    "edition": "1.0",
+    "date": "2014-07-17",
+    "title": "Terminology for voltage-sourced converters (VSC) for high-voltage direct current (HVDC) systems",
+    "language": "EN-FR",
+    "description": "IEC 62747:2014 defines terms for the subject of self-commutated voltage-sourced converters used for transmission of power by high voltage direct current (HVDC). The standard is written mainly for the case of application of insulated gate bipolar transistors (IGBTs) in voltage sourced converters (VSC) but may also be used for guidance in the event that other types of semiconductor devices which can both be turned on and turned off by control action are used. Line-commutated and current-sourced converters for high-voltage direct current (HVDC) power transmission systems are specifically excluded from this standard. The contents of the corrigendum of February 2015 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62747:2014/COR1:2015",
+    "edition": "1.0",
+    "date": "2015-02-17",
+    "title": "Corrigendum 1 - Terminology for voltage-sourced converters (VSC) for high-voltage direct current (HVDC) systems",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62747:2014/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-01-24",
+    "title": "Amendment 1 - Terminology for voltage-sourced converters (VSC) for high-voltage direct current (HVDC) systems",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62751-1:2014",
+    "edition": "1.0",
+    "date": "2014-08-27",
+    "title": "Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": "IEC 62751-1:2014 sets out the general principles for calculating the power losses in the converter valves of a voltage sourced converter (VSC) for high-voltage direct current (HVDC) applications, independent of the converter topology. Several clauses in the standard can also be used for calculating the power losses in the dynamic braking valves (where used) and as guidance for calculating the power losses of the valves for a STATCOM installation."
+  },
+  {
+    "reference": "IEC 62751-1:2014/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-04-20",
+    "title": "Amendment 1 - Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62751-1:2014/AMD2:2022",
+    "edition": "1.0",
+    "date": "2022-03-16",
+    "title": "Amendment 2 - Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 1: General requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62751-2:2014",
+    "edition": "1.0",
+    "date": "2014-08-27",
+    "title": "Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 2: Modular multilevel converters",
+    "language": "EN-FR",
+    "description": "IEC 62751-2:2014 gives the detailed method to be adopted for calculating the power losses in the valves for an HVDC system based on the \"modular multi-level converter\", where each valve in the converter consists of a number of self-contained, two-terminal controllable voltage sources connected in series. It is applicable both for the cases where each modular cell uses only a single turn-off semiconductor device in each switch position, and the case where each switch position consists of a number of turn-off semiconductor devices in series (topology also referred to as \"cascaded two-level converter\"). The main formulae are given for the two-level \"half-bridge\" configuration but guidance is also given as to how to extend the results to certain other types of MMC building block configuration."
+  },
+  {
+    "reference": "IEC 62751-2:2014/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-08-23",
+    "title": "Amendment 1 - Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 2: Modular multilevel converters",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62751-2:2014/AMD2:2023",
+    "edition": "1.0",
+    "date": "2023-08-28",
+    "title": "Amendment 2 - Power losses in voltage sourced converter (VSC) valves for high-voltage direct current (HVDC) systems - Part 2: Modular multilevel converters",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62757:2015",
+    "edition": "1.0",
+    "date": "2015-07-16",
+    "title": "Fire prevention measures on converters for high-voltage direct current (HVDC) systems, static var compensators (SVC) and flexible AC transmission systems (FACTS) and their valve halls",
+    "language": "EN",
+    "description": "IEC TR 62757:2015(E), which is a technical report, deals with fire prevention measures on converters and their valve halls for high voltage direct current (HVDC) systems, static VAR compensators (SVC) and flexible AC transmission systems (FACTS). It is intended to be primarily for the use of the utilities and consultants who are responsible for issuing technical specifications for new converter valves and valve halls. It concerns fire incidents in HVDC projects using line commutated converters (LCC) or voltage sourced converter (VSC) technology and it is from these projects that most examples of fires and fire incidents are taken. This technical report also addresses converter valves and valve halls for SVC and FACTS. This technical report provides general recommendations to be considered while preparing specifications for these systems. Specific requirements for a particular project need to be clearly specified and mutually agreed upon between the supplier and the purchaser."
+  },
+  {
+    "reference": "IEC TR 62757:2015/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-07-04",
+    "title": "Amendment 1 - Fire prevention measures on converters for high-voltage direct current (HVDC) systems, static var compensators (SVC) and flexible AC transmission systems (FACTS) and their valve halls",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62823:2015",
+    "edition": "1.0",
+    "date": "2015-08-20",
+    "title": "Thyristor valves for thyristor controlled series capacitors (TCSC) - Electrical testing",
+    "language": "EN-FR",
+    "description": "IEC 62823:2015 defines routine and type tests on thyristor valves used in thyristor controlled series capacitor (TCSC) installations for a.c. power transmission. The tests specified in this standard are based on air insulated valves operating in capacitive boost mode or bypass mode."
+  },
+  {
+    "reference": "IEC 62823:2015/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-12-04",
+    "title": "Amendment 1 - Thyristor valves for thyristor controlled series capacitors (TCSC) - Electrical testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62927:2017",
+    "edition": "1.0",
+    "date": "2017-07-12",
+    "title": "Voltage sourced converter (VSC) valves for static synchronous compensator (STATCOM) - Electrical testing",
+    "language": "EN-FR, EN",
+    "description": "IEC 62927:2017 applies to self-commutated valves, for use in voltage sourced converter (VSC) for static synchronous compensator (STATCOM). It is restricted to electrical type and production tests. The tests specified in this document are based on air insulated valves. For other types of valves, the test requirements and acceptance criteria are agreed between the purchaser and the supplier. The contents of the corrigendum of December 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62927:2017/COR1:2017",
+    "edition": "1.0",
+    "date": "2017-12-07",
+    "title": "Corrigendum 1 - Voltage sourced converter (VSC) valves for static synchronous compensator (STATCOM) - Electrical testing",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62927:2017/AMD1:2023",
+    "edition": "1.0",
+    "date": "2023-05-11",
+    "title": "Amendment 1 - Voltage sourced converter (VSC) valves for static synchronous compensator (STATCOM) - Electrical testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63259:2022",
+    "edition": "1.0",
+    "date": "2022-03-24",
+    "title": "Water cooling systems for power electronics used in electrical transmission and distribution systems",
+    "language": "EN",
+    "description": "IEC TR 63259:2022(E) provides guidelines for the application of water cooling systems for power electronics used in electrical transmission and distribution systems. This document describes a kind of water cooling system, in which de-ionized water or de-ionized water mixed with other solutes is used as the heat transfer agent for the removal of heat from power electronic equipment. Water cooling system can be separated into main circuit, and control and protection system. Other cooling systems, in which de-ionized water is not the heat transfer agent, are excluded in this document. This document provides guidance and supporting information for both purchaser(s) and potential supplier(s). It can be used as the basis for drafting a procurement specification and as a guide during project implementation."
+  },
+  {
+    "reference": "IEC TR 63262:2019",
+    "edition": "1.0",
+    "date": "2019-09-13",
+    "title": "Performance of unified power flow controller (UPFC) in electric power systems",
+    "language": "EN",
+    "description": "IEC TR 63262:2019(E) provides guidelines for applying unified power flow controllers (UPFC) in power systems. It includes letter symbols, terms and definitions, principles and configurations, design rules, performance requirements for key equipment control and protection, insulation co-ordination, system performance and tests. This technical report applies to the UPFC based on modular multi-level converter (MMC) technology, as well as UPFC based on three-level converter technology."
+  },
+  {
+    "reference": "IEC TR 63368:2024",
+    "edition": "1.0",
+    "date": "2024-09-27",
+    "title": "Control and protection systems for high-voltage direct current (HVDC) power transmission systems - Off-site real-time simulation testing",
+    "language": "EN",
+    "description": "IEC TR 63368:2024 provides guidance on off-site real-time simulation tests of control and protection (C&P) systems for HVDC power transmission systems. The off-site real-time simulation tests are carried out after the testing of C&P devices and prior to on-site system tests. This document covers point-to-point, back-to-back, and multi-terminal HVDC systems of line commutated converters (LCC), voltage-sourced converters (VSC) and hybrid HVDC technologies. In order to provide practical guidance for the functional performance tests of HVDC power transmission systems, this document covers the test environment, the contents and methods of functional performance tests, and the test report."
+  },
+  {
+    "reference": "IEC TR 63500:2024",
+    "edition": "1.0",
+    "date": "2024-10-22",
+    "title": "Unified power flow controller (UPFC) installations - System tests",
+    "language": "EN",
+    "description": "IEC TR 63500:2024 provides the general information, items, conditions, and evaluation of test results for on-site system tests of unified power flow controller (UPFC) installations based on modular multi-level converter (MMC) technology. For special functions or performances that are claimed by specific projects, some extra test items not included in this document can be added according to the technical specification."
+  },
+  {
+    "reference": "IEC TR 63575:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Performance of power electronic reactive power shunt compensators in high voltage alternating current (HVAC) systems",
+    "language": "EN",
+    "description": "IEC TR 63575:2025 provides general guidelines on the performance of power electronic reactive power shunt compensators in high voltage alternating current systems. It includes terms, definitions, symbols and abbreviated terms, introduction, applications and performance."
+  }
+]

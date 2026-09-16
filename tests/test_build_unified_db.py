@@ -360,6 +360,36 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         self.assertEqual(record["nazev_autoritativni"], "T")
         self.assertEqual(record["popis_autoritativni"], "D")
 
+    def test_iec_key_used_when_no_url_or_csn_stn_eiga_match(self):
+        # doc/PLAN.md §25: IEC records store only the webstore.iec.ch
+        # homepage — same "catalog root" shape, keyed on iec.py's own
+        # designation normalization (edition-suffix/prEN-prefix strip,
+        # and "IEC/TR" -> "IEC TR" to match IEC's own catalog spelling).
+        record = {"znacka": "IEC/TR 62351-13/ - 2016.08", "odkaz_hlavni": "https://webstore.iec.ch/en/"}
+        cache = {"iec:IEC TR 62351-13": {"status": "fetched", "title": "T", "description": "D",
+                                         "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "T")
+        self.assertEqual(record["popis_autoritativni"], "D")
+
+    def test_stale_failed_entry_under_an_earlier_key_does_not_block_a_later_one(self):
+        # Regression guard (doc/PLAN.md §25, found live): every bare
+        # "IEC ..." znacka already had a stale "csn:<znacka>" entry
+        # cached from before is_iec_norm_record() existed (it used to
+        # fall through to the ČSN branch, correctly found no adoption,
+        # and cached that as "failed") — that must not prevent a LATER
+        # key (here, "iec:...") from being tried and accepted.
+        record = {"znacka": "IEC 60092-506", "odkaz_hlavni": "https://webstore.iec.ch/en/"}
+        cache = {
+            "csn:IEC 60092-506": {"status": "failed", "title": None, "description": None,
+                                  "zdroj_esbirka_url": None},
+            "iec:IEC 60092-506": {"status": "fetched", "title": "T", "description": "D",
+                                  "zdroj_esbirka_url": None},
+        }
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "T")
+        self.assertEqual(record["popis_autoritativni"], "D")
+
     def test_failed_status_does_not_attach_anything(self):
         record = {"znacka": "X", "odkaz_hlavni": "https://a"}
         cache = {"https://a": {"status": "failed", "title": None, "description": None,

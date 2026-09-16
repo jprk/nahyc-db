@@ -1,0 +1,218 @@
+[
+  {
+    "reference": "IEC 62239-1:2018",
+    "edition": "1.0",
+    "date": "2018-09-24",
+    "title": "Process management for avionics - Management plan - Part 1: Preparation and maintenance of an electronic components management plan",
+    "language": "EN-FR",
+    "description": "IEC 62239-1:2018 defines the requirements for developing an electronic components management plan (ECMP) to guarantee to customers that all of the electronic components in the equipment of the plan owner are selected and applied in controlled processes compatible with the end application and that the technical requirements detailed in Clause 4 are accomplished. In general, the plan owner of a complete electronic components management plan (ECMP) is the avionics original equipment manufacturer (OEM). This first edition cancels and replaces IEC TS 62239-1 published in 2015. This edition includes the following significant technical changes with respect to the previous edition: a) added references to SAE EIA-STD-4899, IECQ OD 3702, IECQ OD 3407-1, IEC TR 62240-2, IECQ component schemes, SAE AS6081, SAE AS6171. GEIA-STD-0005-1 GEIA STD 0008; b) replaced Annex C (which was transferred into IEC TR 62240-2) with a cross-reference table to SAE EIASTD4899 rev C clauses/ subclauses for guidance purposes only; c) added the analysis of component technical erratum d) updated Bibliography and reference documents"
+  },
+  {
+    "reference": "IEC TS 62239-2:2017",
+    "edition": "1.0",
+    "date": "2017-02-21",
+    "title": "Process management for avionics - Management plan - Part 2: Preparation and maintenance of an electronic COTS assembly management plan",
+    "language": "EN",
+    "description": "IEC TS 62239-2:2017(E) applies to the development of COTS assembly management plans for the integration and management of electronic COTS assemblies in electronic systems used in the ADHP markets where reliability is generally critical. Depending on program or product line requirements and/or the technical characteristics of the electronic COTS assemblies and in agreement with the customer, the electronic COTS assembly management plans could consider tailoring the requirements of this document. Although developed for the avionics industry, this document can be applied by other high performance and high reliability industries at their discretion."
+  },
+  {
+    "reference": "IEC TR 62240-1:2018",
+    "edition": "2.0",
+    "date": "2018-03-13",
+    "title": "Process management for avionics - Electronic components capability in operation - Part 1: Temperature uprating",
+    "language": "EN",
+    "description": "IEC TR 62240-1:2018 is a technical report, which provides information when using semiconductor devices in wider temperature ranges than those specified by the device manufacturer. The uprating solutions described herein are considered exceptions, when no reasonable alternatives are available; otherwise devices are utilized within the manufacturers’ specifications. This document describes the methods and processes for implementing this special case of thermal uprating. All of the elements of these methods and processes employ existing, commonly used best engineering practices. No new or unique engineering knowledge is needed to follow these processes, only a rigorous application of the overall approach. The terms “uprating” and “thermal uprating” are being used increasingly in avionics industry discussions and meetings, and clear definitions are included in the present IEC Technical Report. They were coined as shorthand references to a special case of methods commonly used in selecting electronic components for circuit design. This new edition cancels and replaces the first edition published in 2013 and includes a revised wording for subclause 4.1 (Introduction to selection provisions) and the associated flowchart."
+  },
+  {
+    "reference": "IEC TR 62240-2:2018",
+    "edition": "1.0",
+    "date": "2018-06-18",
+    "title": "Process management for avionics - Electronic components capability in operation - Part 2: Semiconductor microcircuit lifetime",
+    "language": "EN",
+    "description": "IEC TR 62240-2:2018(E) describes a process and a method for selecting digital semiconductor microcircuits by ensuring that their lifetime is compatible with the requirements of aerospace, defence and high performance (ADHP) applications (generally in connection with functional environments). Methods and guidelines are provided to assess the long term reliability of COTS semiconductor microcircuits in such applications; they mainly apply during the electronic design phase when selecting semiconductor microcircuits and assessing the application reliability. focuses on original equipment manufacturers (OEMs) using commercial off the shelf (COTS) semiconductor microcircuits for high performance, high reliability and long duration applications. This document supports OEMs in the preparation and maintenance of their semiconductor electronic component management plan (ECMP)."
+  },
+  {
+    "reference": "IEC 62396-1:2016",
+    "edition": "2.0",
+    "date": "2016-01-19",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 1: Accommodation of atmospheric radiation effects via single event effects within avionics electronic equipment",
+    "language": "EN",
+    "description": "IEC 62396-1:2016(E) provides guidance on atmospheric radiation effects on avionics electronics used in aircraft operating at altitudes up to 60 000 ft (18,3 km). It defines the radiation environment, the effects of that environment on electronics and provides design considerations for the accommodation of those effects within avionics systems. This International Standard helps aerospace equipment manufacturers and designers to standardise their approach to single event effects in avionics by providing guidance, leading to a standard methodology. This edition includes the following significant technical changes with respect to the previous edition: - incorporation of references to some new papers and issues which have appeared since 2011; - addition of solar flares and extreme space weather reference to a proposed future Part 6; - addition of reference to a proposed new Part 7 on incorporating atmospheric radiation effects analysis into the system design process; - addition of a reference to a proposed future Part 8 on other particles including protons, pions and muons."
+  },
+  {
+    "reference": "IEC 62396-2:2017",
+    "edition": "2.0",
+    "date": "2017-12-15",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 2: Guidelines for single event effects testing for avionics systems",
+    "language": "EN",
+    "description": "IEC 62396-2:2017(E) aims to provide guidance related to the testing of electronic components for purposes of measuring their susceptibility to single event effects (SEE) induced by neutrons generated by cosmic ray interactions in the Earth’s atmosphere (atmospheric neutrons). Since the testing can be performed in a number of different ways, using different kinds of radiation sources, it also shows how the test data can be used to estimate the SEE rate of electronic components and boards due to atmospheric neutrons at aircraft altitudes. Although developed for the avionics industry, this process can be applied by other industrial sectors."
+  },
+  {
+    "reference": "IEC 62396-3:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 3: System design optimization to accommodate the single event effects (SEE) of atmospheric radiation",
+    "language": "EN",
+    "description": "IEC 62396-3:2013(E) provides guidance and furthermore it provides necessary requirements for those involved in the design of avionic systems and equipment and the resultant effects of atmospheric radiation-induced single event effects (SEE) on those avionic systems. The outputs of the activities and objectives described in this part of IEC 62396 will become inputs to higher level certification activities and required evidences. It builds on the initial guidance on the system level approach to single event effects in IEC 62396-1:2012, considers some avionic systems and provides basic methods to accommodate SEE so that system development assurance levels are met."
+  },
+  {
+    "reference": "IEC 62396-4:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 4: Design of high voltage aircraft electronics managing potential single event effects",
+    "language": "EN",
+    "description": "IEC 62396-4:2013(E) provides guidance on atmospheric radiation effects and their management on high voltage (nominally above 200 V) avionics electronics used in aircraft operating at altitudes up to 60 000 ft (18,3 km). This part of IEC 62396 defines the effects of that environment on high voltage electronics and provides design considerations for the accommodation of those effects within avionics systems. This part of IEC 62396 provides technical data and methodology for aerospace equipment manufacturers and designers to standardise their approach to single event effects on high voltage avionics by providing guidance, leading to a standard methodology. This publication is to be read in conjunction with IEC 62396-1:2012 ."
+  },
+  {
+    "reference": "IEC 62396-5:2014",
+    "edition": "1.0",
+    "date": "2014-08-22",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 5: Assessment of thermal neutron fluxes and single event effects in avionics systems",
+    "language": "EN",
+    "description": "IEC 62396-5:2014(E) provides a more precise definition of the threat that thermal neutrons pose to avionics as a second mechanism for inducing single event upset (SEU) in microelectronics. IEC 62396-5 addresses two main items: - a detailed evaluation of the existing literature on measurements of the thermal flux inside of airliners, and - an enhanced compilation of the thermal neutron SEU cross-section in currently available SRAM devices (more than 20 different devices). The net result of the reviews of these two different sets of data will be two ratios that are considered to be very important for leading to the ultimate objective of determining how large a threat is. This new edition includes the following technical changes with respect to the previous technical specification: document upgraded to an IEC international standard, change to title, updated references and bibliography, consideration of smaller geometries, addition of recent data on neutron cross-sections, etc."
+  },
+  {
+    "reference": "IEC TR 62396-6:2017",
+    "edition": "1.0",
+    "date": "2017-07-12",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 6: Extreme space weather - Potential impact on the avionics environment and electronics",
+    "language": "EN",
+    "description": "IEC TR 62396-6:2017 is a technical report which provides information intended to improve the understanding of extreme space weather events; it details the mechanisms and conditions that produce “extreme space weather” (ESW) as a result of a large increase in the activity on the surface of the sun and it discusses the potential radiation environment based on projection of previous recorded ESW."
+  },
+  {
+    "reference": "IEC TR 62396-7:2017",
+    "edition": "1.0",
+    "date": "2017-07-12",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 7: Management of single event effects (SEE) analysis process in avionics design",
+    "language": "EN",
+    "description": "IEC TR 62396-7:2017 is a technical report which describes a process to account for the effects of atmospheric radiation on electronic equipment. Single event effects (SEE) due to atmospheric radiation are one class of possible failure mechanisms that are addressed in the safety and reliability analyses of electronic equipment and associated functions. This document focuses on electronic components, electronic equipment and associated electronic functions. System level analysis is not addressed in this document. This document is intended to describe an approach to accounting for SEE in electronic equipment design, design review, and it can provide aid in the aerospace certification process."
+  },
+  {
+    "reference": "IEC TR 62396-8:2020",
+    "edition": "1.0",
+    "date": "2020-04-28",
+    "title": "Process management for avionics - Atmospheric radiation effects - Part 8: Proton, electron, pion, muon, alpha-ray fluxes and single event effects in avionics electronic equipment - Awareness guidelines",
+    "language": "EN",
+    "description": "IEC 62396-8:2020 is intended to provide awareness and guidance with regard to the effects of small particles (that is, protons, electrons, pions and muon fluxes) and single event effects on avionics electronics used in aircraft operating at altitudes up to 60 000 feet (18 300 m). This is an emerging topic and lacks substantive supporting data. This document is intended to help aerospace or ground level electronic equipment manufacturers and designers by providing awareness guidance for this new emerging topic. Details of the radiation environment are provided together with identification of potential problems caused as a result of the atmospheric radiation received. Appropriate methods are given for quantifying single event effect (SEE) rates in electronic components."
+  },
+  {
+    "reference": "IEC TR 62500:2024",
+    "edition": "1.0",
+    "date": "2024-05-15",
+    "title": "Process management for avionics - Highly severe stress tests for operating margins identification and robustness improvement of avionics equipment - Application guidelines",
+    "language": "EN",
+    "description": "IEC TR 62500:2024 which is a Technical Report, considers the targets assigned to highly severe stress tests for operating margins research and robustness improvement of avionics equipment, their basic principles, their scope of application and their implementation process. It is primarily intended for avionics programme managers, electronic equipment project managers, designers, test managers, and dependability team. This document provides guidance which can apply to all avionics programmes and is of primary interest to the original equipment manufacturers (OEMs) in charge of designing, developing and producing equipment built for these programmes, for obtaining early equipment maturity. This document can be used in conjunction with IEC 62429, IEC 62506, or both, with regard to dependability aspects related to equipment consisting of hardware with embedded software."
+  },
+  {
+    "reference": "IEC TS 62564-1:2026",
+    "edition": "4.0",
+    "date": "2026-06-05",
+    "title": "Process management for avionics - Aerospace qualified electronic components (AQEC) - Part 1: Integrated circuits and discrete semiconductors",
+    "language": "EN",
+    "description": "IEC TS 62564-1:2026 defines the minimum requirements for integrated circuits and semiconductors which are designated as an \"aerospace qualified electronic component (AQEC)\". This edition includes the following significant technical changes with respect to the previous edition: a) addition of optional ADHP PPAP; b) revision to Annex B; addition of Annex C and Annex D; c) removal of STACK; d) general update to referenced standards throughout."
+  },
+  {
+    "reference": "IEC TS 62647-1:2012",
+    "edition": "1.0",
+    "date": "2012-08-09",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 1: Preparation for a lead-free control plan",
+    "language": "EN",
+    "description": "IEC/TS 62647-1:2012(E) defines the objectives of, and requirements for, documenting processes that assure customers and regulatory agencies that aerospace and defence electronic systems containing Pb-free solder, piece parts, and PWBs will satisfy the applicable requirements for performance, reliability, airworthiness, safety, and certifiability throughout the specified life of performance. Keywords: avionics, lead-free solder"
+  },
+  {
+    "reference": "IEC TS 62647-2:2012",
+    "edition": "1.0",
+    "date": "2012-11-29",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 2: Mitigation of deleterious effects of tin",
+    "language": "EN",
+    "description": "IEC/TS 62647-2:2012(E) establishes processes for documenting the mitigating steps taken to reduce the harmful effects of Pb-free tin in electronic systems. This Technical Specification is applicable to aerospace, defence, and high performance (ADHP) electronic applications which procure equipment that may contain Pb-free tin finishes. It may be used by other high-performance and high-reliability industries, at their discretion."
+  },
+  {
+    "reference": "IEC TS 62647-3:2014",
+    "edition": "1.0",
+    "date": "2014-02-25",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 3: Performance testing for systems containing lead-free solder and finishes",
+    "language": "EN",
+    "description": "IEC TS 62647-3:2014(E) defines for circuit card assemblies a default method for those companies that require a pre-defined approach, and a protocol for those companies that wish to develop their own test methods. The intent of this document is to aid avionics/defence suppliers in satisfying the reliability and/or performance requirements of IEC/TS 62647-1 as well as support the expectations in IEC/TS 62647-21. The default method is intended for use by electronic equipment manufacturers, repair facilities, or programs that may be unable to develop methods specific to their own products and applications. It should be used when little or no other information is available to define, conduct, and interpret results from reliability, qualification, or other tests for electronic equipment containing lead-free (Pb-free) solder. The default method is intended to be conservative, i.e., it is biased toward minimizing the risk to users of avionics electronic equipment."
+  },
+  {
+    "reference": "IEC TS 62647-4:2018",
+    "edition": "1.0",
+    "date": "2018-04-10",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 4: Ball grid array (BGA) re-balling",
+    "language": "EN",
+    "description": "IEC TS 62647-4:2018(E) defines the requirements for replacing solder balls on ball grid array (BGA) component packages in the context of an electronic components management plan (ECMP) for aerospace, defence and high reliability products. The intent of this document is to provide re-balling companies (hereinafter referred to as the re-balling provider) with the administrative and technical requirements to be incorporated within existing processes or for establishing, implementing and maintaining a new set of processes or the creation of a stand-alone re-balling process."
+  },
+  {
+    "reference": "IEC TS 62647-21:2013",
+    "edition": "1.0",
+    "date": "2013-07-26",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 21: Program management - Systems engineering guidelines for managing the transition to lead-free electronics",
+    "language": "EN",
+    "description": "IEC/TS 62647-21:2013(E) is designed to assist program management and/or systems engineering management in managing the transition to lead-free electronics to assure product reliability and performance. The basic principles delineated in this document can be used for program management and/or systems engineering management of any aerospace and/or high performance program. The annexes in the document describe tools that can be used in conjunction with this document. This document is designed to assist a program in assuring the performance, reliability, airworthiness, safety, and certifiability of product(s), in accordance with IEC/TS 62647-1."
+  },
+  {
+    "reference": "IEC TS 62647-22:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 22: Technical guidelines",
+    "language": "EN",
+    "description": "IEC/TS 62647-22:2013(E) is intended for use as technical guidance by aerospace, defence, and high performance (ADHP) electronic applications and systems suppliers, e.g., original equipment manufacturers (OEMs) and system maintenance facilities, in developing and implementing designs and processes to ensure the continued performance, quality, reliability, safety, airworthiness, configuration control, affordability, maintainability, and supportability of high performance aerospace systems both during and after the transition to Pb-free electronics. The guidelines may be used by the OEMs and maintenance facilities to implement the methodologies they use to ensure the performance, reliability, airworthiness, safety, and certifiability of their products, in accordance with IEC/TS 62647-1:2012. This document also contains lessons learned from previous experience with Pb-free aerospace electronic systems."
+  },
+  {
+    "reference": "IEC TS 62647-23:2013",
+    "edition": "1.0",
+    "date": "2013-10-07",
+    "title": "Process management for avionics - Aerospace and defence electronic systems containing lead-free solder - Part 23: Rework and repair guidance to address the implications of lead-free electronics and mixed assemblies",
+    "language": "EN",
+    "description": "IEC/TS 62647-23:2013(E) provides technical background, procurement guidance, engineering procedures, and guidelines to assist organizations reworking/repairing aerospace and high performance electronic systems, whether they were assembled or previously reworked/repaired using traditional alloys such as Sn-Pb or Pb-free alloys, or a combination of both solders and surface finishes. This document contains a review of known impacts and issues, processes for rework/repair, focused to provide the technical structure to allow the repair technician to execute the task. This document focuses on the removal and replacement of piece parts. The information contained within this document is based on the current knowledge of the industry at the time of publication."
+  },
+  {
+    "reference": "IEC 62668-1:2019",
+    "edition": "1.0",
+    "date": "2019-09-16",
+    "title": "Process management for avionics - Counterfeit prevention - Part 1: Avoiding the use of counterfeit, fraudulent and recycled electronic components",
+    "language": "EN-FR",
+    "description": "IEC 62668-1:2019 defines requirements for avoiding the use of counterfeit, recycled and fraudulent components used in the aerospace, defence and high performance (ADHP) industries. It also defines requirements for ADHP industries to maintain their intellectual property (IP) for all of their products and services. The risks associated with purchasing components outside of franchised distributor networks are considered in IEC 62668-2. Although developed for the avionics industry, this document can be applied by other high performance and high reliability industries at their discretion. This first edition cancels and replaces the third edition of IEC TS 62668-1 published in 2016. This edition includes the following significant technical changes with respect to the previous edition: a) added a reference to AS/EN/JISQ 9100 and AS/EN/JISQ 9110 which contain anti-counterfeit requirements b) added reference to USA DFAR rule 252.246.7008 and to UK Defence Standard 05-135; c) added reference to more GAO, OECD and ICC reports d) updated weblinks and other references; e) added new Annex E with figures describing how anti-counterfeit documents can be used in supply chains; f) added a reference to the new IECQ OD 3702 traceability audit; g) added new definition for re-manufactured components with a warning that these are not recommended."
+  },
+  {
+    "reference": "IEC 62668-1:2019/AMD1:2024",
+    "edition": "1.0",
+    "date": "2024-09-11",
+    "title": "Amendment 1 - Process management for avionics - Counterfeit prevention - Part 1: Avoiding the use of counterfeit, fraudulent and recycled electronic components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62668-2:2019",
+    "edition": "1.0",
+    "date": "2019-07-09",
+    "title": "Process management for avionics - Counterfeit prevention - Part 2: Managing electronic components from non-franchised sources",
+    "language": "EN-FR",
+    "description": "IEC 62668-2:2019, defines requirements for avoiding the use of counterfeit, recycled and fraudulent components when these components are not purchased from the original component manufacturer (OCM) or are purchased from outside of franchised distributor networks for use in the aerospace, defence and high performance (ADHP) industries. This practice is used, as derogation, only when there are no reasonable or practical alternatives. NOTE: Typically this document is used in conjunction with IEC 62239-1 and IEC 62668-1, enabling ADHP industries to manage and avoid the use of counterfeit, recycled and fraudulent components in their supply chains. Although developed for the ADHP industry, this document can be used by other high-performance and high-reliability industries, at their discretion. This first edition cancels and replaces the second edition of IEC TS 62668-2 published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the second edition of IEC TS 62668-2: a) updates to the risk assessment process, including reference to SAE AS6081; b) updates to the test methods, including reference to the SAE AS6171 test methods published and in development; c) updates in line with IEC 62668-1 for definitions and references to DFARS."
+  },
+  {
+    "reference": "IEC TS 62686-1:2020",
+    "edition": "3.0",
+    "date": "2020-04-20",
+    "title": "Process management for avionics - Electronic components for aerospace, defence and high performance (ADHP) applications - Part 1: General requirements for high reliability integrated circuits and discrete semiconductors",
+    "language": "EN",
+    "description": "IEC TS 62686-1:2020 defines the minimum requirements for general purpose \"off the shelf\" COTS (commercial off-the-shelf) integrated circuits and discrete semiconductors for ADHP (aerospace, defence and high performance) applications. This Technical Specification applies to all components that can be operated in ADHP applications within the manufacturers' publicly available data sheet limits in conjunction with IEC TS 62239-1. It may be used by other high performance and high reliability industries, at their discretion. This new edition includes the following significant technical changes with respect to the previous edition: - update related to obsolescence of STACK Specification S/0001 revision 14 notice 3; - addition of alternative automotive methods of compliance and revision of Annex B initially related to cross-reference to STACK Specification S/0001; - addition of an Annex C to include a requirement matrix for IEC TS 62686-1 verification."
+  },
+  {
+    "reference": "IEC TS 62686-2:2019",
+    "edition": "1.0",
+    "date": "2019-01-30",
+    "title": "Process management for avionics - Electronic components for aerospace, defence and high performance (ADHP) applications - Part 2: General requirements for passive components",
+    "language": "EN",
+    "description": "IEC TS 62686-2:2019 defines the minimum requirements for general purpose \"off-the-shelf\" COTS (commercial off-the-shelf) passive components for aerospace, defence and high performance (ADHP) applications. This document applies to all passive components that can be operated in ADHP applications within the manufacturers’ publicly available data sheet limits in conjunction with IEC TS 62239-1. This document can be used by other high performance and high reliability industries, at their discretion. ADHP application requirements are not necessarily fulfilled by this document alone. ADHP original equipment manufacturers (OEMs) could consider redesigning their products or conducting further testing to verify suitability in ADHP applications using their procedures for satisfying their electronic component management plan (ECMP) (see IEC TS 62239-1). This first edition cancels and replaces IEC PAS 62686-2 published in 2016."
+  },
+  {
+    "reference": "IEC TR 63238-1:2019",
+    "edition": "1.0",
+    "date": "2019-07-30",
+    "title": "Process management for avionics - Electronics design - Part 1: Electrical signal properties, naming conventions and interface control document (ICD)",
+    "language": "EN",
+    "description": "IEC TR 63238-1:2019 provides information and a template to create an interface control document (ICD) for any project which includes electronic assemblies, such as electronic circuit card assemblies (CCAs) or electronic devices, connected together. This document proposes electrical signal naming conventions when interfacing electronic assemblies, and an example containing seven signal naming conventions is included. This document supports original equipment manufacturers (OEMs) in the preparation and maintenance of their electronic assemblies interfaces and integration specifications to avoid misunderstanding of signals which can cause unnecessary design and/or integration errors, and testing complications."
+  }
+]

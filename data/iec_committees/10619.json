@@ -1,0 +1,130 @@
+[
+  {
+    "reference": "IEC TR 60890:2022",
+    "edition": "3.0",
+    "date": "2022-09-29",
+    "title": "A method of temperature-rise verification of low-voltage switchgear and controlgear assemblies by calculation",
+    "language": "EN-FR, EN",
+    "description": "IEC TR 60890:2022 specifies a method of air temperature-rise calculation inside enclosures for low-voltage switchgear and controlgear assemblies or similar products in accordance with their respective standard. The method is primarily applicable to enclosed assemblies or partitioned sections of assemblies without forced ventilation. This third edition cancels and replaces the second edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - alignment with IEC 61439-1:2020; - addition of individual annexes for guidance of technical explanations related to: --- effect of an uneven power distribution; --- additional temperature-rise due to solar radiation; --- effect of different enclosure materials; --- effect of different natural ventilation management; --- forced ventilation management; --- power losses calculation; --- impact of an adjacent wall can have on the assembly cooling surface(s); - maximum internal ambient temperature limit into an assembly; - validity area of the calculation extended from 3 150 A to 3 200 A; - addition of an algebraic equation to the different curves included in the document."
+  },
+  {
+    "reference": "IEC TR 61439-0:2022",
+    "edition": "3.0",
+    "date": "2022-07-22",
+    "title": "Low-voltage switchgear and controlgear assemblies- Part 0: Guidance to specifying assemblies",
+    "language": "EN-FR",
+    "description": "IEC TR 61439-0:2022 standards for low-voltage switchgear and controlgear assemblies, there are system and application details that are specified by the specifier to enable the manufacturer to produce an assembly that meets the needs and expectations of the specifier. IEC/TR 61439-0:2022, identifies from the specifier’s perspective those functions and characteristics that are defined when specifying assemblies. It provides: an explanation of the assembly characteristics and options within the IEC 61439 series; a guidance on how to select the appropriate options and define characteristics so as to meet specific application needs; and an assistance in the specification of assemblies. References within this document to the interface characteristics of an assembly and the requirements with which they will comply assume that the assembly is designed, manufactured, and verified in accordance with the relevant part of the IEC 61439 series. This third edition cancels and replaces the second edition published in 2013. It constitutes a technical revision. This third edition includes the following significant technical changes with respect to the previous edition: alignment with IEC 61439-1:2020; addition of new content in Clause 13 regarding current ratings; addition of a new subclause 12.8.1 detailing the fundamentals of the forms of internal separation; alignment of Annex B with Annex AA of 61439-2:2020; removal of the annexes detailing items subject to agreement between specifier and manufacturer for all product parts as not all of them can always be up to date"
+  },
+  {
+    "reference": "IEC 61439-1:2020",
+    "edition": "3.0",
+    "date": "2020-05-05",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 1: General rules",
+    "language": "EN-FR, ES",
+    "description": "IEC 61439-1:2020 lays down the general definitions and service conditions, construction requirements, technical characteristics and verification requirements for low-voltage switchgear and controlgear assemblies. NOTE Throughout this document, the term assembly(s) (see 3.1.1) is used for a low-voltage switchgear and controlgear assembly(s). For the purpose of determining assembly conformity, the requirements of the relevant part of the IEC 61439 series, Part 2 onwards, apply together with the cited requirements of this document. For assemblies not covered by Part 3 onward, Part 2 applies. This third edition cancels and replaces the second edition published in 2011. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) clarification that power electric converter systems, switch mode power supplies, uninterruptable power supplies and adjustable speed power drive systems are tested to their particular products standard, but when they are incorporated in assemblies the incorporation is in accordance with the IEC 61439 series of standards; b) introduction of a group rated current for circuits within a loaded assembly and the refocusing of temperature-rise verification on this new characteristic; c) addition of requirements in respect of DC; d) introduction of the concept of class I and class II assemblies regarding protection against electric shock. The contents of the corrigendum 1 of December 2021 and corrigendum 2 of September 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61439-1:2020/COR1:2021",
+    "edition": "3.0",
+    "date": "2021-12-07",
+    "title": "Corrigendum 1 - Low-voltage switchgear and controlgear assemblies - Part 1: General rules",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61439-1:2020/COR2:2023",
+    "edition": "3.0",
+    "date": "2023-09-29",
+    "title": "Corrigendum 2 - Low-voltage switchgear and controlgear assemblies - Part 1: General rules",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61439-2:2020",
+    "edition": "3.0",
+    "date": "2020-07-22",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 2: Power switchgear and controlgear assemblies",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 61439-2:2020 defines the specific requirements for the power switchgear and controlgear assembly (abbreviated \"PSC-assembly\" throughout this document see 3.1.101) as follows: - assemblies for which the rated voltage does not exceed 1 000 V AC or 1 500 V DC; - assemblies designed for a nominal frequency of the incoming supply or supplies not exceeding 1 000 Hz; NOTE 1 Frequencies above 1 kHz are considered as high frequencies, see also IEC 60664-1:2007, 5.3.3.2.5 to take into account additional constraints to insulation coordination. - assemblies intended for indoor and outdoor applications; - stationary or movable assemblies with or without enclosures; - assemblies intended for use in connection with the generation, transmission, distribution and conversion of electrical energy, and for the control of equipment consuming electrical energy and for associated data processing; - assemblies designed for use under special service conditions, for example in ships and in rail vehicles, provided that the other relevant specific requirements are complied with; NOTE 2 Supplementary requirements for assemblies in ships are covered by IEC 60092-302-2. This third edition cancels and replaces the second edition published in 2011. It constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of Annexes DD, EE and FF for assemblies for use in photovoltaic installation; b) clarification of the requirements for forms of internal separation and the addition of the requirement, when the form of separation is higher than 1, all parts within the functional unit compartment that remain live when the functional unit is switched off shall be protected to at least IPXXB; c) alignment with the structure of IEC 61439-1:2020; d) addition of temperature-rise verification for; (i) temperature-rise verification of assemblies with natural cooling and circuits rated above 1 600 A by a combination of comparison with a reference design and calculation, and; (ii) temperature-rise verification of assemblies with active cooling and rated currents up to 1 600 A; e) consideration of IP with active cooling."
+  },
+  {
+    "reference": "IEC 61439-3:2024",
+    "edition": "2.0",
+    "date": "2024-03-26",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 3: Distribution boards intended to be operated by ordinary persons (DBO)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61439-3:2024 defines the specific requirements for distribution boards intended to be operated by ordinary persons (abbreviated DBO throughout this document, see 3.1.101) as follows: - assemblies intended to be operated by ordinary persons (e.g. switching operations and replacing fuse-links), e.g. in domestic (household) applications; - assemblies containing outgoing circuits with protective devices intended to be operated by ordinary persons, complying e.g. with IEC 60898-1, the IEC 61008 series, the IEC 61009 series, IEC 62606, IEC 62423 and IEC 60269-3; - assemblies for applications where the nominal voltage to earth does not exceed 300 V AC (see Table G.1 of IEC 61439-1:2020); NOTE The voltage limits for DC applications are under consideration. - assemblies with a rated current (Inc) of the outgoing circuits not exceeding 125 A and a rated current (InA) not exceeding 250 A; - assemblies intended for use in connection with the generation, transmission, distribution and conversion of electrical energy, and for the control of equipment consuming electrical energy and for associated data processing; - enclosed, stationary assemblies; - assemblies for indoor or outdoor use. This second edition cancels and replaces the first edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with the structure of IEC 61439-1:2020; b) inclusion in the scope of more examples of the type of protection and control devices; c) deletion of type A and Type B DBOs; d) addition of a new Annex BB related to DBOs used in a prosumer’s electrical installation (PEI); e) addition of a new Annex CC related to rated current of a DBO with additional source of supply in parallel/simultaneously with another source that is connected to the DBO e.g. PV."
+  },
+  {
+    "reference": "IEC 61439-4:2023",
+    "edition": "2.0",
+    "date": "2023-10-17",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 4: Particular requirements for assemblies for construction sites (ACS)",
+    "language": "EN-FR",
+    "description": "IEC 61439-4:2023 defines the specific requirements of ACS as follows: - assemblies for which the rated voltage does not exceed 1 000 V in case of AC or 1 500 V in case of DC; - assemblies where the nominal primary voltage and the nominal secondary voltage of transformers incorporated in ACS are within the limits specified above; - assemblies intended for use on construction sites, both indoors and outdoors, i.e. temporary places of work to which the public do not generally have access and where building construction, installation, repairs, alteration or demolition of property (buildings) or civil engineering (public works) or excavation or any other similar operations are carried out; - transportable (semi-fixed) or mobile ASSEMBLIES with enclosure. This second edition of IEC 61439-4 cancels and replaces the first edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with IEC 61439-1:2020 regarding the structure and technical content, as applicable."
+  },
+  {
+    "reference": "IEC 61439-5:2023",
+    "edition": "3.0",
+    "date": "2023-05-04",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 5: Assemblies for power distribution in public networks",
+    "language": "EN-FR, ES",
+    "description": "IEC 61439-5:2023 defines the specific requirements for public electricity network distribution assemblies (PENDAs). PENDAs have the following criteria: - used for the distribution of electrical energy in three phase systems for which the rated voltage does not exceed 1 000 V AC (see Figure 101 for a typical distribution network) and DC systems not exceeding 1 500 V DC; - stationary; - open type assemblies are not covered by this document; - suitable for installation in places where only skilled persons have access for their use, however, outdoor types can be installed in situations that are accessible to ordinary persons - intended for use in energy distribution in public power grids; - indoor use: assemblies for installation inside of electric power substations; - outdoor use: assemblies containing an enclosure suitable for open air installation. This third edition cancels and replaces the second edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) omission of the requirement to conduct mechanical tests at -25 °C when enclosures are made of a metallic material; b) addition of assumed loading factors generation supplies and electric vehicle charging applications; c) additional dielectric tests when a PENDA is used in a distribution substation with separate HV and LV earths; d) further clarification of representative samples for design verification. The content of the corrigendum 1 (2025-02) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61439-5:2023/COR1:2025",
+    "edition": "3.0",
+    "date": "2025-02-18",
+    "title": "Corrigendum 1 - Low-voltage switchgear and controlgear assemblies - Part 5: Assemblies for power distribution in public networks",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61439-6:2012",
+    "edition": "1.0",
+    "date": "2012-05-23",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 6: Busbar trunking systems (busways)",
+    "language": "EN-FR, ES",
+    "description": "IEC 61439-6:2012 lays down the definitions and states the service conditions, construction requirements, technical characteristics and verification requirements for low voltage BTS (see 3.101) as follows: - BTS for which the rated voltage does not exceed 1 000 V in case of a.c. or 1 500 V in case of d.c.; - BTS intended for use in connection with the generation, transmission, distribution and conversion of electric energy, and for the control of electric energy consuming equipment; - BTS designed for use under special service conditions, for example in ships, in rail vehicles, and for domestic applications (operated by unskilled persons), provided that the relevant specific requirements are complied with; - BTS designed for electrical equipment of machines. Supplementary requirements for BTS forming part of a machine are covered by the IEC 60204 series. This first edition of IEC 61439-6 cancels and replaces the third edition of IEC 60439-2 (2000) and its Amendment 1 (2005), and constitutes a technical revision. This edition of IEC 61439-6 includes the following significant technical changes with respect to the latest edition of IEC 60439-2: - alignment on the second edition of IEC 61439-1 (2011) regarding the structure and technical content, as applicable; - introduction of new verifications, accordingly; - correction of inconsistencies in resistance, reactance and impedance measurements and calculations; - numerous editorial improvements. This publication is to be read in conjunction with IEC 61439-1:2011 ."
+  },
+  {
+    "reference": "IEC 61439-7:2022",
+    "edition": "2.0",
+    "date": "2022-07-07",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 7: Assemblies for specific applications such as marinas, camping sites, market squares, electric vehicle charging stations",
+    "language": "EN-FR, ES",
+    "description": "IEC 61439-7:2022 defines the specific requirements for assemblies for the following applications: marinas, camping sites, market squares and electric vehicle charging stations as follows: - assemblies for which the rated voltage does not exceed 1 000 V AC or 1 500 V DC; - assemblies intended for use in connection with the generation, transmission, distribution and conversion of electric energy, and for the control of electric energy consuming equipment; - assemblies operated by ordinary persons (e.g. to plug and unplug of electrical equipment); - assemblies intended to be installed and used in market squares, marinas, camping sites and other similar sites accessible to the public including temporary installations; - assemblies intended for charging stations for electric vehicles (AEVCS) for Mode 3 and Mode 4. They are designed to integrate the functionality and additional requirements for electric vehicle conductive charging systems according to IEC 61851-1:2017. This second edition cancels and replaces the first edition published in 2018. It constitutes a technical revision. This edition includes the following changes with respect to the previous technical specification: - a general editorial review and a technical revision."
+  },
+  {
+    "reference": "IEC 61439-8:2026",
+    "edition": "1.0",
+    "date": "2026-03-13",
+    "title": "Low-voltage switchgear and controlgear assemblies - Part 8: Assemblies for use in photovoltaic installations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61439-8:2026 specifies requirements for the design and verification of low voltage switchgear and controlgear assemblies for use in photovoltaic installations. PVAs have the following characteristics: - assemblies used for the combination of electrical energy in DC systems for which the input and output voltage does not exceed 1 500 V DC; - assemblies supplied from an AC network where the voltage does not exceed 1 000 V AC for auxiliary and control purposes; - stationary assemblies with an enclosure; - assemblies intended for operation by authorised persons (see IEC 61439 1:2020, 3.7.17), but can be located in an area accessible to ordinary persons (see IEC 61439 1:2020, 3.7.16); - suitable for indoor or outdoor installation. This document identifies definitions, specifies the service conditions, details the construction requirements, defines the technical characteristics, and provides verifications for PVAs. PVAs can also include control or signalling devices, or both, associated with the distribution of electrical energy. This document applies to all PVAs whether they are designed and manufactured on a one-off basis or fully standardized and manufactured in quantity. Either the manufacture or assembly, or both, can be carried out by an entity other than the original manufacturer (see IEC 61439 1:2020, 3.10.1). This document does not apply to: - individual devices, for example, circuit-breakers, fuse switches and self-contained components such as, motor starters, switch mode power supplies (SMPS), uninterruptable power supplies (UPS), basic drive modules (BDM), complete drive modules (CDM), adjustable speed power drives systems (PDS), stand-alone energy storage systems (battery and capacitor systems), other electronic equipment which comply with their relevant product standards, such as junction boxes of photovoltaic modules. This document describes their integration into a PVA or an empty enclosure used as a part of a PVA; - photovoltaic power conversion equipment (PCE) incorporating DC combination sub-systems, covered by the IEC 62109 series. Some applications, such as either explosive atmospheres or functional safety, or both, can be subject to the requirements of other standards or local installation rules in addition to those specified in the IEC 61439 series. This document does not apply to the specific types of assemblies covered by other parts of the IEC 61439 series."
+  },
+  {
+    "reference": "IEC TS 61641:2026",
+    "edition": "1.0",
+    "date": "2026-08-19",
+    "title": "Low-voltage switchgear and controlgear assemblies - Internal arc-fault protection of low-voltage switchgear and controlgear assemblies in accordance with the IEC 61439 series",
+    "language": "EN",
+    "description": "IEC TS 61641:2026 identifies methods used to verify the ability of the assembly: – to limit the risk of injury to personnel during an internal arc-fault; – to limit the damage to an acceptable level as a result of an internal arc-fault; – to improve the power availability following an internal arc-fault. This document takes into consideration: – the effects of the internal overpressure acting on covers, doors, etc.; – the thermal effects of the internal arc-fault or its roots on the enclosures and of ejected hot gases and glowing particles. – the correct function of the IAMS within the assembly; – the prevention of unintended operation of the IAMS within the assembly, for example caused by switching arcs; – the functioning behaviour of the IAMS immediately after the assembly is energized. This document describes different methods to assess the performance of an assembly or zones of an assembly in respect of arcing in air due to an internal failure: – with \"passive\" arc-fault protection (provided by mechanical construction, e.g. suitable door locks, hinges, pressure relief devices, barriers); NOTE 1 This approach corresponds to the method according to IEC TR 61641:2014. – with \"active\" arc-fault protection (with the integration of IAMS); NOTE 2 This approach corresponds to the method according to IEC TS 63107:2020. – with the use of an arc ignition protected zone (to make the ignition of an arc-fault an extremely remote possibility). NOTE 3 This approach corresponds to the method according to IEC TR 61641:2014. IAMS consist of internal arc-fault control devices (IACD), e.g. optical-based IACD's in accordance with IEC 60947-9-2 and internal arc-fault reduction devices (IARD), e.g. arc quenching devices (AQDs) in accordance with IEC 60947-9-1 and short-circuit protection devices SCPD's in accordance with IEC 60947-2 (see Figure EE.1). IAMS can be provided by a combined-type device according to IEC 60947-9-2. IEC 60364-4-42:2024 (Clause 427) provides guidance on the need for internal arc-fault protection. This document does not supersede any individual product standard. Individual devices are required to comply with their relevant standard. This document does not apply to integration of arc fault detection devices (AFDD) according to IEC 62606. Informative Annex AA gives guidance for the user (see IEC 61439-1:2020, 3.11) on internal arc-fault mitigation. Informative Annex BB gives guidance for the user (see IEC 61439-1:2020, 3.11) of assemblies with \"active\" arc-fault protection (with the integration of IAMS). Informative Annex CC gives guidance for the original manufacturer of an assembly when incorporating an integrated IAMS. This document does not consider other effects which can constitute a risk, such as emission of toxic gases, loud noises and/or intense light. Furthermore, this document does not consider conditions during maintenance work and the personal protective equipment used. This edition cancels and replaces IEC TR 61641:2014 and IEC TS 63107:2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Introduction of the term \"arcing class zone\", using the term \"arcing classes\" from the previous document IEC TR 61641:2014. b) Structured using of the terms \"zone\" and \"area\". \"Area\" is used to describe the place of installation and the accessibility of the assembly (macro-environment). \"Zone\" is used in this document to describe a defined space within the assembly (micro-environment). c) Assembly protection is classified into two levels."
+  },
+  {
+    "reference": "IEC 62208:2023",
+    "edition": "3.0",
+    "date": "2023-06-01",
+    "title": "Empty enclosures for low-voltage switchgear and controlgear assemblies - General requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 62208:2023 applies to empty enclosures, as provided by the enclosure manufacturer, prior to the incorporation of switchgear and controlgear components by the assembly manufacturer. This document specifies general definitions, classifications, characteristics and test requirements of enclosures to be used as part of switchgear and controlgear assemblies (e.g. in accordance with the product standard in the IEC 61439 series), the rated voltage of which does not exceed 1 000 V AC or 1 500 V DC, and suitable for general use for either indoor or outdoor applications. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) consideration of the modifications introduced in IEC 61439-1:2020; b) alignment of test procedures with the newest relevant standards."
+  },
+  {
+    "reference": "IEC TS 63290:2024",
+    "edition": "1.0",
+    "date": "2024-11-28",
+    "title": "Supplementary requirements for intelligent assemblies",
+    "language": "EN",
+    "description": "IEC TS 63290:2024 provides additional requirements for assemblies in accordance with the product standards of the IEC 61439 series (Part 2 onwards) that incorporate digital functions and communication, in addition to the conventional electromechanical features of assemblies to reflect what is defined within this document as intelligence. It specifies the definitions, service conditions, constructional requirements, technical characteristics and verification requirements that can be carried out in addition to the IEC 61439 series for intelligent low-voltage switchgear and controlgear assemblies."
+  }
+]

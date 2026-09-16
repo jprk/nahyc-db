@@ -1,0 +1,90 @@
+[
+  {
+    "reference": "IEC 61643-01:2024",
+    "edition": "1.0",
+    "date": "2024-12-20",
+    "title": "Low-voltage surge protective devices - Part 01: General Requirements and test methods",
+    "language": "EN-FR",
+    "description": "IEC 61643-01: 2024 contains the common requirements for all SPDs. This document is applicable to devices for surge protection against indirect and direct effects of lightning or other transient overvoltages, hereafter referred to as Surge Protective Devices (SPDs). SPDs are intended to be connected to circuits or equipment rated up to 1 000 V AC (RMS) or 1 500 V DC. Performance and safety requirements, tests and ratings are specified in this document. SPDs contain at least one nonlinear component and are intended to limit surge voltages and divert surge currents. This document, together with IEC 61643-11:— (second edition), cancels and replaces the first edition of IEC 61643-11 published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the first edition of IEC 61643-11: a) Clarification on test application either to a complete SPD, to a \"mode of protection\", or to a complete \"SPD assembly\"; b) Additional measurement of voltage protection level on \"combined modes of protection\" between live conductors and PE (see new Annex F); c) Additional duty test for T1 SPD and T2 SPD with follow current to check for increased follow current at lower impulse current amplitude (see 9.3.5.5); d) Modified and amended short circuit current test requirements to better cover up-to-date internal SPD disconnector technologies (see 9.3.6.3); e) Improved dielectric test requirements for the SPD’s main circuits and added dielectric test requirements for \"electrically separated circuits\" (see 9.3.7 and 9.3.8); f) Additional clearance requirements for \"electrically separated circuits\" (see 9.4.4); g) Additional information and details for SPDs for DC installations."
+  },
+  {
+    "reference": "IEC TR 61643-03:2024",
+    "edition": "1.0",
+    "date": "2024-07-05",
+    "title": "Low-voltage surge protective devices - Part 03: SPD Testing Guide",
+    "language": "EN",
+    "description": "IEC TR 61643-03:2024 applies to SPD testing in accordance with the IEC 61643-x1 series and for SPD coordination and system level immunity purposes. It aims to provide guidance and helpful information for correct test execution and accurate interpretation of measurement results. It is also intended to further enhance repeatability and comparability throughout different test laboratories and to establish an acceptable accuracy level for the test results obtained. The main subjects are: Test application, Test arrangement/setup, Probe application, SPD coordination testing, and System level immunity testing"
+  },
+  {
+    "reference": "IEC 61643-11:2025",
+    "edition": "2.0",
+    "date": "2025-06-18",
+    "title": "Low-voltage surge protective devices - Part 11: Surge protective devices connected to AC low-voltage power systems - Requirements and test methods",
+    "language": "EN-FR",
+    "description": "IEC 61643-11:2025 is applicable to devices for surge protection against indirect and direct effects of lightning or other transient overvoltages. These devices are intended to be connected to AC power circuits and equipment rated up to 1 000 V RMS, the preferred frequencies taken into account in this document are 50/60 Hz. Other frequencies are not excluded. Performance and safety requirements, tests and ratings are specified in this document. These devices contain at least one nonlinear component and are intended to limit surge voltages and divert surge currents. The test requirements provided by this document are based on the assumption that the SPD is connected to an AC power circuit fed by a power source providing a linear voltage-current characteristic. When the SPD is to be connected to a different kind of source or to a different frequency, careful consideration is required. This mainly applies with regard to system and fault conditions to be expected in such a system (e.g. expected short circuit current, TOV-stresses). This document can apply for railway applications, when related product standards do not exist for that area or for certain applications. Based on a risk assessment it might not be necessary to apply all requirements of this document to SPDs designed for specific power applications only, e.g. circuits with a low power capability, circuits supplied by nonlinear sources, circuits with protective separation from the utility supply. NOTE 1 More information on risk assessment is provided in IEC Guide 116. NOTE 2 Other exclusions based on national regulations are possible. This edition includes the following significant technical changes with respect to the previous edition: a) Specific requirements for SPDs for AC applications are now contained in this document, whereas the common requirements for all SPDs are now contained in IEC 61643-01; b) Clarification on test application either to a complete SPD, to a \"mode of protection\", or to a complete \"SPD assembly\"; c) Additional measurement of voltage protection level on \"combined modes of protection\" between live conductors and PE; d) Additional duty test for T1 and T2 SPDs with follow current to check variation of the follow current value at lower impulse currents; e) Modified and amended short circuit current test requirements to better cover up to date internal SPD disconnector technologies; f) Improved dielectric test requirements for the SPD's main circuits and added dielectric test requirements for \"electrically separated circuits\"; g) Additional clearance requirements for \"electrically separated circuits\". The requirements of this document supplement, modify or replace certain of the general requirements contained in IEC 61643-01 and shall be read and applied together with the latest edition of IEC 61643-01, as indicated by the undated normative reference in Clause 2 of this document."
+  },
+  {
+    "reference": "IEC 61643-12:2020",
+    "edition": "3.0",
+    "date": "2020-05-07",
+    "title": "Low-voltage surge protective devices - Part 12: Surge protective devices connected to low-voltage power systems - Selection and application principles",
+    "language": "EN-FR",
+    "description": "IEC 61643-12:2020 describes the principles for the selection, operation, location and coordination of SPDs to be connected to 50/60 Hz AC power circuits, and equipment rated up to 1 000 V RMS. These devices contain at least one non-linear component and are intended to limit surge voltages and divert surge currents. NOTE 1 Additional requirements for special applications are also applicable, If required. NOTE 2 IEC 60364 and IEC 62305-4 are also applicable. NOTE 3 This standard deal only with SPDs and not with surge protection components (SPC) integrated inside equipment. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision. NOTE The following differing practice of a less permanent nature exists in the USA: In the USA, SPDs tested to Class I tests are not required. This exception applies to the entire document. This edition includes the following significant technical changes with respect to the previous edition: a) Scope: Deleted reference to 1 500 V dc b) Added or revised some definitions c) Added new clause 4 on Need for protection d) Added new information on disconnecting devices e) Revised Characteristics of SPD f) Revised List of parameters for SPD selection g) Added new information on Measured Limiting Voltage e) Added or revised some Annexes"
+  },
+  {
+    "reference": "IEC 61643-21:2025",
+    "edition": "2.0",
+    "date": "2025-10-20",
+    "title": "Low voltage surge protective devices - Part 21: Surge protective devices connected to telecommunications and signalling networks - Requirements and test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61643-21:2025 is applicable to devices for surge protection against indirect and direct effects of lightning or other transient overvoltages. These devices are intended to be connected to telecommunications and signalling networks, and equipment rated up to 1 000 V RMS and 1 500 V DC. These telecommunications and signalling networks can also provide power on the same line, e.g. Power over Ethernet (PoE). Performance and safety requirements, tests and ratings are specified in this document. These devices contain at least one voltage-limiting component (clamping or switching) and are intended to limit surge voltages and divert surge currents. This second edition cancels and replaces the first edition published in 2000, Amendment1:2008 and Amendment 2:2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) New structure of IEC 61643-21 based on IEC 61643-01:2024; b) Several safety requirements based on IEC 61643-01:2024 have been added. This International Standard is to be used in conjunction with IEC 61643-01:2024."
+  },
+  {
+    "reference": "IEC 61643-22:2015",
+    "edition": "2.0",
+    "date": "2015-06-25",
+    "title": "Low-voltage surge protective devices - Part 22: Surge protective devices connected to telecommunications and signalling networks - Selection and application principles",
+    "language": "EN-FR",
+    "description": "IEC 61643-22:2015 describes the principles for the selection, operation, location and coordination of SPDs connected to telecommunication and signalling networks with nominal system voltages up to 1 000 V r.m.s. a.c. and 1 500 V d.c. This standard also addresses SPDs that incorporate protection for signalling lines and power lines in the same enclosure (so called multiservice SPDs). This second edition cancels and replaces the first edition published in 2004. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Update the use of multiservice SPDs (Article 8); - Comparison between SPD classification of IEC 61643-11 and IEC 61643-21 (7.3.3); - Consideration of new transmission systems as PoE (Annex F); - EMC requirements of SPDs (Annex G); - Maintenance cycles of SPDs (Annex I). Keywords: SPD, surge protective devices"
+  },
+  {
+    "reference": "IEC 61643-31:2018",
+    "edition": "1.0",
+    "date": "2018-01-10",
+    "title": "Low-voltage surge protective devices - Part 31: Requirements and test methods for SPDs for photovoltaic installations",
+    "language": "EN-FR, ES",
+    "description": "IEC 61643-31:2018 is applicable to Surge Protective Devices (SPDs), intended for surge protection against indirect and direct effects of lightning or other transient overvoltages. These devices are designed to be connected to the DC side of photovoltaic installations rated up to 1 500 V DC. These devices contain at least one non-linear component and are intended to limit surge voltages and divert surge currents. Performance characteristics, safety requirements, standard methods for testing and ratings are established. SPDs complying with this standard are exclusively dedicated to be installed on the DC side of photovoltaic generators and the DC side of inverters. SPDs for PV systems with energy storage (e.g. batteries, capacitor banks) are not covered. SPDs with separate input and output terminals that contain specific series impedance between these terminal(s) (so called two-port SPDs according to IEC 61643-11:2011) are not covered. SPDs compliant with this standard are designed to be permanently connected where connection and disconnection of fixed SPDs can only be done using a tool. This standard does not apply to portable SPDs. The contents of the corrigendum of June 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61643-31:2018/COR1:2022",
+    "edition": "1.0",
+    "date": "2022-06-03",
+    "title": "Corrigendum 1 - Low-voltage surge protective devices - Part 31: Requirements and test methods for SPDs for photovoltaic installations",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61643-32:2017",
+    "edition": "1.0",
+    "date": "2017-09-20",
+    "title": "Low-voltage surge protective devices - Part 32: Surge protective devices connected to the d.c. side of photovoltaic installations - Selection and application principles",
+    "language": "EN-FR",
+    "description": "IEC 61643-32:2017 describes the principles for selection, installation and coordination of SPDs intended for use in Photovoltaic (PV) systems up to 1 500 V DC and for the AC side of the PV system rated up to 1 000 V rms 50/60 Hz. The photovoltaic installation extends from a PV array or a set of interconnected PV-modules to include the associated cabling and protective devices and the inverter up to the connection point in the distribution board or the utility supply point. This part of IEC 61643 considers SPDs used in different locations and in different kinds of PV systems:PV systems located on the top of a building. PV systems located on the ground like free field power plants characterized by multiple earthing and a meshed earthing system. The term PV installation is used to refer to both kinds of PV systems. The term PV power plant is only used for extended free-field multi-earthed power systems located on the ground. For PV installations including batteries additional requirements may be necessary. The contents of the corrigendum of June 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61643-32:2017/COR1:2019",
+    "edition": "1.0",
+    "date": "2019-06-17",
+    "title": "Corrigendum 1 - Low-voltage surge protective devices - Part 32: Surge protective devices connected to the d.c. side of photovoltaic installations - Selection and application principles",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61643-41:2025",
+    "edition": "1.0",
+    "date": "2025-05-23",
+    "title": "Low-voltage surge protective devices - Part 41: Surge protective devices connected to DC low-voltage power systems – Requirements and test methods",
+    "language": "EN-FR",
+    "description": "IEC 61643-41:2025 is applicable to devices for surge protection against indirect and direct effects of lightning or other transient overvoltages. These devices are intended to be connected to DC power circuits and equipment rated up to 1 500 V DC. Performance and safety requirements, tests and ratings are specified in this document. These devices contain at least one nonlinear component and are intended to limit surge voltages and divert surge currents. The test requirements provided by this document are based on the assumption that the SPD is connected to a DC power circuit fed by a power source providing a linear voltage-current characteristic. When the SPD is to be connected to a different kind of source, careful consideration is required. This mainly applies with regard to system and fault conditions to be expected in such a system (e.g. expected short circuit current, TOV-stresses). This document can apply for railway applications, when related product standards do not exist for that area or for certain applications. Based on a risk assessment it might not be necessary to apply all requirements of this document to SPDs designed for specific power applications only, e.g. circuits with a low power capability, circuits supplied by nonlinear sources, circuits with protective separation from the utility supply. NOTE 1 More information on risk assessment is provided in IEC Guide 116. SPDs for PV applications are not covered by this document. NOTE 2 Such SPDs for PV applications are covered by IEC 61643-31. NOTE 3 Other exclusions based on national regulations are possible. This International Standard is to be used in conjunction with IEC 61643-01."
+  }
+]

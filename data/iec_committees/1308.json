@@ -1,0 +1,818 @@
+[
+  {
+    "reference": "IEC 60068-1:2013",
+    "edition": "7.0",
+    "date": "2013-10-07",
+    "title": "Environmental testing - Part 1: General and guidance",
+    "language": "EN-FR",
+    "description": "IEC 60068-1:2013 includes a series of methods for environmental testing along with their appropriate severities, and prescribes various atmospheric conditions for measurements and tests designed to assess the ability of specimens to perform under expected conditions of transportation, storage and all aspects of operational use. Although primarily intended for electrotechnical products, this standard is not restricted to them and may be used in other fields where desired. Other methods of environmental testing, specific to the individual types of specimen, may be included in the relevant specifications. The framework of environmental test tailoring process is given in order to assist the production of test specifications with appropriate tests and test severities. This seventh edition cancels and replaces the sixth edition, published in 1988, and constitutes a technical revision. The main changes with respect to the previous edition are listed below: - updated normative reference list; - indication of normative and informative annexes; - new informative Annex C, Environmental test tailoring."
+  },
+  {
+    "reference": "IEC 60068-2-1:2025",
+    "edition": "7.0",
+    "date": "2025-09-23",
+    "title": "Environmental testing - Part 2-1: Tests - Test A: Cold",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60068-2-1:2025 specifies temperature tests at low temperatures, generally referred to as \"cold tests\", that are applicable to non-heat-dissipating and heat-dissipating specimens, to determine the ability of components, equipment, or other articles to be used, transported or stored at low temperature. This document is applicable to energized as well as non-energized specimens that normally achieve temperature stability during the test. The specimens can be subject to test in packed condition (to simulate transportation and storage) or in unpacked condition (to simulate use). This document does not specify tests to determine the impact of temperature changes on specimens. This seventh edition cancels and replaces the sixth edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the introduction and scope; b) inclusion of new figures and symbols for clarification purposes; c) clarification of the test procedure for ascertaining high or low air velocity in the test chamber; d) clarification of the requirements for measuring points around, on or in specimens; e) reintroduction of the nomogram procedure for the correction of the conditioning temperature when testing with high air velocity (Test Ad and Test Ae); f) revision of the temperature tolerances of the test; g) revision of standardized requirements for the relevant specification and test report; h) inclusion of the advantages and disadvantages of the testing procedures."
+  },
+  {
+    "reference": "IEC 60068-2-2:2025",
+    "edition": "6.0",
+    "date": "2025-09-23",
+    "title": "Environmental testing - Part 2-2: Tests - Test B: Dry heat",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60068-2-2:2025 specifies dry heat temperature tests that are applicable to non-heat-dissipating and heat-dissipating specimens, to determine the ability of components, equipment or other articles to be used, transported or stored at high temperature. This document is applicable to energized as well as non-energized specimens that normally achieve temperature stability during the test. The specimens can be subject to test in packed condition (to simulate transportation and storage) or in unpacked condition (to simulate use). This document does not specify tests to determine the impact of temperature changes on specimens. This sixth edition cancels and replaces the fifth edition published in 2007. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the introduction and scope; b) inclusion of new figures and symbols for clarification purposes; c) clarification of the test procedure for ascertaining high or low air velocity in the test chamber; d) clarification of the requirements for measuring points around, on or in specimens; e) reintroduction of the nomogram procedure for the correction of the conditioning temperature when testing with high air velocity (Test Bd and Test Be); f) revision of the temperature tolerances of the test; g) revision of standardized requirements for the relevant specification and test report; h) inclusion of the advantages and disadvantages of the testing procedures."
+  },
+  {
+    "reference": "IEC 60068-2-5:2018",
+    "edition": "3.0",
+    "date": "2018-04-06",
+    "title": "Environmental testing - Part 2-5: Tests - Test S: Simulated solar radiation at ground level and guidance for solar radiation testing and weathering",
+    "language": "EN-FR, EN",
+    "description": "IEC 60068-2-5:2018 specifies the methods for testing equipment or components under simulated solar radiation conditions. This document is applicable to the equipment and components at the surface of the earth. This third edition cancels and replaces the second edition of published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the title of this document has been modified; - the current thermal effect test method, specified as \"Test method Sa\" has been retained and the weathering test method specified as \"Test method Sb\" has been added."
+  },
+  {
+    "reference": "IEC 60068-2-6:2007",
+    "edition": "7.0",
+    "date": "2007-12-13",
+    "title": "Environmental testing - Part 2-6: Tests - Test Fc: Vibration (sinusoidal)",
+    "language": "EN-FR, ES",
+    "description": "Gives a method of test which provides a standard procedure to determine the ability of components, equipment and other articles, hereinafter referred to as specimens, to withstand specified severities of sinusoidal vibration. If an item is to be tested in an unpackaged form, that is without its packaging, it is referred to as a test specimen. However, if the item is packaged then the item itself is referred to as a product and the item and its packaging together are referred to as a test specimen. The purpose of this test is to determine any mechanical weakness and/or degradation in the specified performance of specimens and to use this information, in conjunction with the relevant specification, to decide upon the acceptability of the specimens. In some cases, the test method may also be used to demonstrate the mechanical robustness of specimens and/or to study their dynamic behaviour. Categorization of components can also be made on the basis of a selection from within the severities quoted in the test. The major changes with regard to the previous edition concern: - Reference to the latest version of IEC 60068-2-47:Mounting - Simplification of the layout of the standard by replacing some tables with text. - Addition of the test report requirements (see Clause 13)."
+  },
+  {
+    "reference": "IEC 60068-2-7:1983",
+    "edition": "2.0",
+    "date": "1983-01-01",
+    "title": "Basic environmental testing procedures - Part 2-7: Tests - Test Ga and guidance: Acceleration, steady state",
+    "language": "EN-FR, RU",
+    "description": "IEC 60068-2-7:1983 Applies to the structural suitability and the satisfactory performance of components and equipment when subjected to forces produced by steady acceleration."
+  },
+  {
+    "reference": "IEC 60068-2-7:1983/AMD1:1986",
+    "edition": "2.0",
+    "date": "1986-06-01",
+    "title": "Amendment 1 - Basic environmental testing procedures - Part 2-7: Tests - Test Ga and guidance: Acceleration, steady state",
+    "language": "EN-FR, RU",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-10:2005",
+    "edition": "6.0",
+    "date": "2005-06-13",
+    "title": "Environmental testing - Part 2-10: Tests - Test J and guidance: Mould growth",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-10:2005 Provides a test method for determining the extent to which electrotechnical products support mould growth and how any mould growth may affect the performance and other relevant properties of the product. Since mould growth conditions include high relative humidity, the test is applicable to electrotechnical products intended for transportation, storage and use under humid conditions over a period of some days at least. The main changes with respect to the previous edition are listed below: - Two test fungi replaced by two others - Concentration of the spores defined for each test fungus - Spores suspension in mineral salt solution additionally introduced - Pre-conditioning of the specimens by damp heat storage prescribed - Supersonic aerosolization of the spores suspension as the preferred inoculation method introduced - Duration of incubation reduced from 84 days to 56 days - Extent of mould growth grade 2 split into grade 2a and grade 2b - Detailed information on methods of inoculation given in Annex B - Annex E: flow-chart deleted."
+  },
+  {
+    "reference": "IEC 60068-2-10:2005/AMD1:2018",
+    "edition": "6.0",
+    "date": "2018-04-25",
+    "title": "Amendment 1 - Environmental testing - Part 2-10: Tests - Test J and guidance: Mould growth",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-11:2021",
+    "edition": "4.0",
+    "date": "2021-03-03",
+    "title": "Environmental testing - Part 2-11: Tests - Test Ka: Salt mist",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-11:2021 specifies a test method for assessing the corrosion resistance of electrotechnical products components, equipment and materials in a salt mist environment. Its objective is to verify that the comparative quality of a metallic material, with or without corrosion protection, is maintained when exposed to salt mist. This test method is useful for evaluating the quality and the uniformity of coatings applied to protect metals against corrosion. It is particularly useful for detecting discontinuities, such as pores and other defects, in certain metallic, organic, anodic oxide and conversion coatings. This fourth edition cancels and replaces the third edition published in 1981. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the preparation of the salt solution has been modified; b) the temperature of the solution for measuring pH has been modified; c) the atomizing pressure and water temperature of the saturation tower have been added and are given in Table 1; d) test report details have been modified; e) examples of typical test apparatus have been added and are given in Annex A; f) a method for evaluating corrosivity of the apparatus has been added and is given in Annex B; g) a bibliography has been added."
+  },
+  {
+    "reference": "IEC 60068-2-13:2021",
+    "edition": "5.0",
+    "date": "2021-03-03",
+    "title": "Environmental testing - Part 2-13: Tests - Test M: Low air pressure",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-13:2021 specifies methods of test applicable to specimens which, during transportation, storage or in service, can be subjected to low air pressure. This fifth edition cancels and replaces the fourth edition, published in 1983. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with recently revised parts of IEC 60068-2; b) Clause 5: severities aligned with IEC 60721-2-3 and IEC 60721-3 (all parts); c) addition of Annex A (guidance on selecting the duration of exposure)."
+  },
+  {
+    "reference": "IEC 60068-2-14:2023",
+    "edition": "7.0",
+    "date": "2023-07-27",
+    "title": "Environmental testing - Part 2-14: Tests - Test N: Change of temperature",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-14:2023 provides tests with specified ambient temperature changes to analyse their impacts on specimens. This seventh edition cancels and replaces the sixth edition published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) updating of the figures for clarification purposes; b) updating of specimen temperature(s) and severities as well as tolerances for change of temperature tests; c) revision of standardized requirements for test reports for Tests Na and Nb."
+  },
+  {
+    "reference": "IEC 60068-2-17:2023",
+    "edition": "5.0",
+    "date": "2023-06-28",
+    "title": "Environmental testing - Part 2-17: Tests - Test Q: Sealing",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-17:2023 deals with seal tests applicable to the external and internal detection in container sealing of gross leaks and fine leaks to determine the effectiveness of seals of specimens. For further tests to verify the ability of enclosures, covers and seals to maintain components and equipment in good working order, IEC 60068‑2‑18 can be helpful. This fifth edition cancels and replaces the fourth edition published in 1994. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) \"Survey of sealing tests\" has been deleted and the relevant content moved to a new Clause 4 \"General\"; b) the Scope has been revised; c) the figures have been updated for clarification purposes; d) all non-SI units have been removed; e) the information to be given in the relevant specification has been revised."
+  },
+  {
+    "reference": "IEC 60068-2-18:2017",
+    "edition": "3.0",
+    "date": "2017-03-10",
+    "title": "Environmental testing - Part 2-18: Tests - Test R and guidance: Water",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-18:2017 provides methods of test applicable to products which, during transportation, storage or in service, can be subjected to falling water drops, impacting water, immersion or high pressure water impact. The primary purpose of water tests is to verify the ability of enclosures, covers and seals to maintain components and equipment in good working order after and, when necessary, under a standardized drop field or immersion in water. These tests are not corrosion tests and cannot be considered and used as such. Established water tests in other standards are not intended to simulate natural rainfall and their quoted intensities are too high to be adopted for that purpose. Therefore, in addition to the high-intensity severities, test R includes an artificial rain test based upon natural conditions but not taking into account high wind speeds generally associated with natural rain. Guidance is given on the applicability of the tests and the severities to be selected. This third edition cancels and replaces the second edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. addition of the new test method Rb 3."
+  },
+  {
+    "reference": "IEC 60068-2-27:2008",
+    "edition": "4.0",
+    "date": "2008-02-27",
+    "title": "Environmental testing - Part 2-27: Tests - Test Ea and guidance: Shock",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-27:2008 provides a standard procedure for determining the ability of a specimen to withstand specified severities of non-repetitive or repetitive shocks. The purpose of this test is to reveal mechanical weakness and/or degradation in specified performances, or accumulated damage or degradation caused by shocks. In conjunction with the relevant specification, this may be used in some cases to determine the structural integrity of specimens or as a means of quality control. This test is primarily intended for unpackaged specimens and for items in their transport case when the latter may be considered to be part of the specimen. If an item is to be tested unpackaged, it is referred to as a test specimen. However, if the item is packaged, then the item itself is referred to as a product and the item and its packaging together are referred to as a test specimen. When used in conjunction with IEC 60068-2-47, this standard may be used for testing packaged products. This possibility was included in the 2005 version of IEC 60068-2-47 for the first time. This standard is written in terms of prescribed pulse shapes. Guidance for the selection and application of these pulses is given in Annex A and the characteristics of the different pulse shapes are discussed in Annex B. Wherever possible, the test severity and the shape of the shock pulse applied to the specimen should be such as to reproduce the effects of the actual transport or operational environment to which the specimen will be subjected, or to satisfy the design requirements if the object of the test is to assess structural integrity (see Clauses A.2 and A.4). For the purposes of this test, the specimen is always mounted to the fixture or the table of the shock testing machine during testing. The major changes with regard to the previous edition concern: - the merging of IEC 60068-2-29 into this edition of IEC 60068-2-27; Part 2-29 will be withdrawn as soon as this edition is published; - the introduction of soft packaged specimens as defined in the IEC ad hoc working group document agreed in Stockholm:2000."
+  },
+  {
+    "reference": "IEC 60068-2-30:2025",
+    "edition": "4.0",
+    "date": "2025-08-07",
+    "title": "Environmental testing - Part 2-30: Tests - Test Db: Damp heat, cyclic (12 h + 12 h cycle)",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60068-2-30:2025 specifies a test procedure to determine the suitability of components, equipment, or other articles for use, transportation, and storage under conditions of high humidity combined with cyclic temperature changes and, in general, producing condensation on the surface of the specimen. This test method can also be used to validate the packaging of specimen for transportation and storage. This fourth edition cancels and replaces the third edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the requirements for the test chamber; b) change of the temperature tolerances of the test to limits; c) updating of the figures for clarification purposes; d) revision of the limits of the temperature and relative humidity during conditioning; e) revision of the intermediate measurements; f) revision of standardized requirements for the test report."
+  },
+  {
+    "reference": "IEC 60068-2-31:2008",
+    "edition": "2.0",
+    "date": "2008-05-21",
+    "title": "Environmental testing - Part 2-31: Tests - Test Ec: Rough handling shocks, primarily for equipment-type specimens",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-31:2008 deals with a test procedure for simulating the effects of rough handling shocks, primarily in equipment-type specimens, the effects of knocks, jolts and falls which may be received during repair work or rough handling in operational use. This procedure does not simulate the effects of impacts received during transportation as loosely constrained cargo. Where the effects of loose cargo transportation are to be assessed, test Ee: Bounce should be used. Also this procedure does not simulate the effects of shock applied to installed equipments. Where this effect is to be assessed refer to test Ea: Shock. Testing should only be specified for equipment likely to receive such rough handling, for example those of small to medium size and mass, and should only be applied to those faces and corners where there is a risk of such treatment being encountered. In general, equipment which is frequently handled and serviced (for example field equipment and unit spares) can be considered at risk, whereas equipment forming an integral part of a permanent installation would not normally be considered at risk and need not be tested. Testing may not be applicable to fragile unprotected equipment of irregular shape (for example aircraft nose radar) which, when removed from the installation would be contained in a handling frame or jig. It may however be applicable to these items of equipment when they are in their transit case or in their handling frame or jig. For equipment which stands only on one face (for example the normal base) the test is generally only applied to that face. Shock tests are performed on the specimen when fixed to the test machine. Drop and topple, free fall, repeated free fall and bounce tests are performed with the specimen free. This second edition cancels and replaces the first edition, published in 1969 and constitutes a technical revision. The major changes with regard to the previous edition concern the introduction of soft packaging tests, where appropriate. This new edition of IEC 60068-2-31 now incorporates the second edition of IEC 60068-2-32 (1975)."
+  },
+  {
+    "reference": "IEC 60068-2-38:2021",
+    "edition": "3.0",
+    "date": "2021-03-25",
+    "title": "Environmental testing - Part 2-38: Tests - Test Z/AD: Composite temperature/humidity cyclic test",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-38:2021 specifies a composite test procedure, primarily intended for component type specimens, to determine, in an accelerated manner, the resistance of specimens to the deteriorative effects of high temperature/humidity and cold conditions. This test standard does not apply to specimens that are energized during the complete test. Specimens can be energized during the constant phases of the tests. Measurements on energized specimens are typically carried out during constant phases of the test unless specified otherwise. This third edition cancels and replaces the second edition, published in 2009. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the figures have been updated; - changes to the wording has been made for clarification purposes."
+  },
+  {
+    "reference": "IEC 60068-2-39:2015",
+    "edition": "2.0",
+    "date": "2015-09-16",
+    "title": "Environmental testing - Part 2-39: Tests - Tests and guidance: Combined temperature or temperature and humidity with low air pressure tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-39:2015 provides a description of test methods and guidance for testing of equipment or components under combined temperature or temperature and humidity with low air pressure tests. This second edition cancels and replaces the first edition published in 1976 and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) preferred severities of the IEC 60068 series; b) combined temperature, humidity and low air pressure."
+  },
+  {
+    "reference": "IEC 60068-2-45:1980",
+    "edition": "1.0",
+    "date": "1980-01-01",
+    "title": "Basic environmental testing procedures - Part 2-45: Tests - Test XA and guidance: Immersion in cleaning solvents",
+    "language": "EN-FR, ES, RU",
+    "description": "Applies to electronic components and other parts mounted on printed circuit boards which may be subjected to cleaning operations. Also gives information on test solvents and test temperatures. The contents of the corrigendum of September 1981 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60068-2-45:1980/COR1:1981",
+    "edition": "1.0",
+    "date": "1981-09-01",
+    "title": "Corrigendum 1 - Environmental testing. Part 2: Tests. Test XA and guidance: Immersion in cleaning solvents",
+    "language": "EN-FR",
+    "description": "solvents Applies to electronic components and other parts mounted on printed circuit boards which may be subjected to cleaning operations. Also gives information on test solvents and test temperatures."
+  },
+  {
+    "reference": "IEC 60068-2-45:1980/AMD1:1993",
+    "edition": "1.0",
+    "date": "1993-02-15",
+    "title": "Amendment 1 - Basic environmental testing procedures - Part 2-45: Tests - Test XA and guidance: Immersion in cleaning solvents",
+    "language": "EN-FR, ES, RU",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-47:2005",
+    "edition": "3.0",
+    "date": "2005-04-13",
+    "title": "Environmental testing - Part 2-47: Test - Mounting of specimens for vibration, impact and similar dynamic tests",
+    "language": "EN-FR, ES",
+    "description": "Provides methods for mounting products, whether packaged or unpackaged, as well as mounting requirements for equipment and other articles, for the series of dynamic tests in IEC 60068-2, that is impact (Test E), vibration (Test F) and acceleration, steady-state (Test G). When they are fastened to the test apparatus and subjected to these tests, whether packaged or unpackaged, they are referred to as specimens. The major technical changes with regard to the second edition are related to specific guidance on the testing of packaged products."
+  },
+  {
+    "reference": "IEC 60068-2-52:2017",
+    "edition": "3.0",
+    "date": "2017-11-07",
+    "title": "Environmental testing - Part 2-52: Tests - Test Kb: Salt mist, cyclic (sodium chloride solution)",
+    "language": "EN-FR, EN",
+    "description": "IEC 60068-2-52:2017 specifies the application of the cyclic salt mist test to components or equipment designed to withstand a salt-laden atmosphere as salt can degrade the performance of parts manufactured using metallic and/or non-metallic materials. This third edition cancels and replaces the second edition published in 1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the entire content has been harmonized with ISO 9227 as far as possible; - an introduction has been added; - the scope has been simplified; - normative references have been updated; - the general description of the test has been changed; - a dry chamber has been added to the test apparatus; - severities have been changed to test methods; - test methods 7 and 8 have been added; - information on the test report has been added; - Figure 1 has been changed to Table 1; - a typical test apparatus example has been added in a new Annex A; - a description of each test method has been added in a new Annex B; - bibliographical references have been added. This bilingual version (2019-07) corresponds to the monolingual English version, published in 2017-11. The French version of this standard has not been voted upon."
+  },
+  {
+    "reference": "IEC 60068-2-53:2010",
+    "edition": "2.0",
+    "date": "2010-04-21",
+    "title": "Environmental testing - Part 2-53: Tests and guidance - Combined climatic (temperature/humidity) and dynamic (vibration/shock) tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-53:2010 provides a description of test methods and guidance for testing equipment or components under combined climatic and dynamic conditions. The purpose of combined testing is to investigate to what extent the equipment or components are affected by combined climatic and dynamic tests. This second edition cancels and replaces the first edition of IEC 60068-2-50, published in 1983, the first edition of IEC 60068-2-51, published in 1983 and the first edition of 60068-2-53, published in 1984 and constitutes a technical revision. The main changes with respect to the previous editions of all three standards cited above is to update and group tests. In this way it allows for the possibility to use different kinds of vibration excitation: - sine, random or mixed mode; - or shocks, with different tests for climatic conditions; - cold, dry heat, change of temperature or constant and cyclic damp heat."
+  },
+  {
+    "reference": "IEC 60068-2-55:2013",
+    "edition": "2.0",
+    "date": "2013-02-06",
+    "title": "Environmental testing - Part 2-55: Tests - Test Ee and guidance - Loose cargo testing including bounce",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-55:2013 provides a standard procedure for determining the ability of a specimen to withstand specified severities of bounce, e. g. when transported as loose cargo on wheeled vehicles. This second edition cancels and replaces the first edition, published in 1987, and constitutes a technical revision. The main changes with respect to the previous edition are listed below: This new edition allows for loose cargo testing in a more general sense. The test is no longer aligned with a special testing machine but allows for use of any suitable equipment such as electrodynamic or servo-hydraulic shaker tables. Moreover, sinusoidal and random vibration can be used. The previous rotation table motions are included in Annex A as historical methods. This publication is to be read in conjunction with IEC 60068-1:1988 ."
+  },
+  {
+    "reference": "IEC 60068-2-57:2013",
+    "edition": "3.0",
+    "date": "2013-04-25",
+    "title": "Environmental testing - Part 2-57: Tests - Test Ff: Vibration - Time-history and sine-beat method",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-57:2013 provides a standard procedure for determining, by the time-history and sine-beat methods, the ability of a specimen to withstand specified severities of transient vibration. This third edition cancels and replaces the second edition, published in 1999. It also replaces IEC 60068-2-59:1990, which will be withdrawn. This edition includes only minor technical changes with respect to the previous edition: - editorially combines IEC 60068-2-57 and IEC 60068-2-59; - the title has been modified to include a sine beat method. This publication is to be read in conjunction with IEC 60068-1:1988 ."
+  },
+  {
+    "reference": "IEC 60068-2-60:2015",
+    "edition": "3.0",
+    "date": "2015-06-18",
+    "title": "Environmental testing - Part 2-60: Tests - Test Ke: Flowing mixed gas corrosion test",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-60:2015 determines the corrosive influence of operating and storage indoor environments on electrotechnical products components, equipment and materials, particularly contacts and connections, considered separately, integrated into a subassembly or assembled as a complete equipment. This third edition cancels and replaces the second edition, published in 1995, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - updated IEC format; - updated normative references list; - addition of information of the working volume; - revision of the test procedure; - revision of the figures in Annex B."
+  },
+  {
+    "reference": "IEC 60068-2-64:2008",
+    "edition": "2.0",
+    "date": "2008-04-29",
+    "title": "Environmental testing - Part 2-64: Tests - Test Fh: Vibration, broadband random and guidance",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-64:2008 demonstrates the adequacy of specimens to resist dynamic loads without unacceptable degradation of its functional and/or structural integrity when subjected to the specified random vibration test requirements. Broadband random vibration may be used to identify accumulated stress effects and the resulting mechanical weakness and degradation in the specified performance. This information, in conjunction with the relevant specification, may be used to assess the acceptability of specimens. This standard is applicable to specimens which may be subjected to vibration of a stochastic nature resulting from transportation or operational environments, for example in aircraft, space vehicles and land vehicles. It is primarily intended for unpackaged specimens, and for items in their transportation container when the latter may be considered as part of the specimen itself. However, if the item is packaged, then the item itself is referred to as a product and the item and its packaging together are referred to as a test specimen. This standard may be used in conjunction with IEC 60068-2-47:2005, for testing packaged products. If the specimens are subjected to vibration of a combination of random and deterministic nature resulting from transportation or real life environments, for example in aircraft, space vehicles and for items in their transportation container, testing with pure random may not be sufficient. See IEC 60068-3-8:2003 for estimating the dynamic vibration environment of the specimen and based on that, selecting the appropriate test method. The major changes with regard to the previous edition concern the removal of Method 1 and Method 2, replaced by a single method, and replacement of Annex A with suggested test spectra and removal of Annex C. Also included in this revision is the testing of soft packed specimens."
+  },
+  {
+    "reference": "IEC 60068-2-64:2008/AMD1:2019",
+    "edition": "2.0",
+    "date": "2019-10-09",
+    "title": "Amendment 1 - Environmental testing - Part 2-64: Tests - Test Fh: Vibration, broadband random and guidance",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-65:2013",
+    "edition": "2.0",
+    "date": "2013-02-06",
+    "title": "Environmental testing - Part 2-65: Tests - Test Fg: Vibration - Acoustically induced method",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-65:2013 provides standard procedures and guidance for conducting acoustic tests in order to determine the ability of a specimen to withstand vibration caused by a specified sound-pressure level environment to which it is, or is liable to be, subjected. This second edition cancels and replaces the second edition, published in 1993, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - minor technical and editorial changes were made throughout the document as originally requested by the DE National Committee; - following comments at the CD stage, particularly from the UK National Committee, significant technical and editorial additions were made to the standard for acoustic testing employing the progressive wave tube technique."
+  },
+  {
+    "reference": "IEC 60068-2-66:1994",
+    "edition": "1.0",
+    "date": "1994-06-22",
+    "title": "Environmental testing - Part 2: Test methods - Test Cx: Damp heat, steady state (unsaturated pressurized vapour)",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-66:1994 Provides a standard test procedure for the prupose of evaluating, in an accelerated manner, the resistance of small electrotechnical products, primarily non-hermetically sealed components, to the deteriorative effect of damp heat. The test is not intended to evaluate external effects, such as corrosion and deformation."
+  },
+  {
+    "reference": "IEC 60068-2-67:1995",
+    "edition": "1.0",
+    "date": "1995-12-13",
+    "title": "Environmental testing - Part 2-67: Tests - Test Cy: Damp heat, steady state, accelerated test primarily intended for components",
+    "language": "EN-FR, ES, RU",
+    "description": "IEC 60068-2-67:1995 Provides a standard test procedure for the purpose of evaluating, in an accelerated manner, the resistance of small electrotechnical products, primarily non-hermetically sealed components, to the deteriorative effect of damp heat. The test is not intended to evaluate external effects such as corrosion and deformation."
+  },
+  {
+    "reference": "IEC 60068-2-67:1995/AMD1:2019",
+    "edition": "1.0",
+    "date": "2019-07-02",
+    "title": "Amendment 1 - Environmental testing - Part 2-67: Tests - Test Cy: Damp heat, steady state, accelerated test primarily intended for components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-68:1994",
+    "edition": "1.0",
+    "date": "1994-08-17",
+    "title": "Environmental testing - Part 2-68: Tests - Test L: Dust and sand",
+    "language": "EN-FR, ES, RU",
+    "description": "Specifies test methods to determine the effects of dust and sand suspended in air, on electechnical products."
+  },
+  {
+    "reference": "IEC 60068-2-70:1995",
+    "edition": "1.0",
+    "date": "1995-12-22",
+    "title": "Environmental testing - Part 2-70: Tests - Test Xb: Abrasion of markings and letterings caused by rubbing of fingers and hands",
+    "language": "EN-FR, ES, RU",
+    "description": "IEC 60068-2-70:1995 Is intended to provide a standard method to determine the resistance of markings and letterings on flat or curved surfaces against abrasion as it may occur by manually operating actuators and keyboards. The method is also suitable to test the resistance against fluid contamination as it may occur under normal use."
+  },
+  {
+    "reference": "IEC 60068-2-74:1999",
+    "edition": "1.0",
+    "date": "1999-06-30",
+    "title": "Environmental testing - Part 2: Tests - Test Xc: Fluid contamination",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-74:1999 Gives a method of test which provides a standard procedure to determine the ability of components, equipments or their constituent materials to withstand accidental contact with fluids, without being unacceptably affected. The fluids listed are representative of those commonly encountered in operational applications. It is not intended that a specimen should be exposed to all, or even any of them. Nor is the list intended to be complete; fluids not listed and for which a test is appropriate should be included in the relevant specification. Guidance is given in Annex A on the choice of test fluids, specimens and severities. These tests are not intended to demonstrate the suitability of components or equipments to perform in continuous contact with a fluid, e.g. an immersed fuel pump. Nor are they a test to demonstrate immunity from electrolytic corrosion."
+  },
+  {
+    "reference": "IEC 60068-2-74:1999/AMD1:2018",
+    "edition": "1.0",
+    "date": "2018-04-25",
+    "title": "Amendment 1 - Environmental testing - Part 2-74: Tests - Test Xc: Fluid contamination",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-75:2014",
+    "edition": "2.0",
+    "date": "2014-09-03",
+    "title": "Environmental testing - Part 2-75: Tests - Test Eh: Hammer tests",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-75:2014 provides three standardized and coordinated test methods for determining the ability of a specimen to withstand specified severities of impact. It is used, in particular, to demonstrate an acceptable level of robustness when assessing the safety of a product and is primarily intended for the testing of electrotechnical items. It consists of the application to the specimen of a prescribed number of impacts defined by their impact energy and applied in the prescribed directions. This part of IEC 60068 covers energy levels ranging from 0,14 J (joules) to 50 J (joules). This second edition cancels and replaces the first edition, published in 1997, and constitutes a technical revision. This edition includes the following significant technical change with respect to the previous edition: - reconsideration of some values in Tables 1 and 2. Although some values are no longer recommended, they have been retained as alternatives for historical consistency purposes."
+  },
+  {
+    "reference": "IEC 60068-2-75:2014/AMD1:2025",
+    "edition": "2.0",
+    "date": "2025-10-21",
+    "title": "Amendment 1 - Environmental testing - Part 2-75: Tests - Test Eh: Hammer tests",
+    "language": "EN-FR, EN, FR",
+    "description": "CORRECTED VERSION 2025-12 The content of the corrigendum 1 of amendment 1 (2025-12) applies only to the French version."
+  },
+  {
+    "reference": "IEC 60068-2-75:2014/AMD1:2025/COR1:2025",
+    "edition": "2.0",
+    "date": "2025-12-05",
+    "title": "Corrigendum 1 - Amendment 1 - Environmental testing - Part 2-75: Tests - Test Eh: Hammer tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-2-78:2025",
+    "edition": "3.0",
+    "date": "2025-08-06",
+    "title": "Environmental testing - Part 2-78: Tests - Test Cab: Damp heat, steady state",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60068-2-78:2025 establishes a test method for determining the ability of components or equipment to withstand transportation, storage and use under conditions of high humidity. The object of this document is to investigate the effect of high humidity at constant temperature without condensation on a specimen over a specified period. It is applicable to small equipment or components as well as large equipment and can be applied to both heat-dissipating and non-heat-dissipating specimens. This third edition cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) revision of the requirements for the test chamber; b) revision of the severities and including the dew point temperatures; c) change of the temperature tolerances of the test to limits; d) inclusion of a specified preconditioning procedure; e) inclusion of a new figure for clarification purposes; f) revision of standardized requirements for the test report."
+  },
+  {
+    "reference": "IEC 60068-2-80:2005",
+    "edition": "1.0",
+    "date": "2005-05-12",
+    "title": "Environmental testing - Part 2-80: Tests - Test Fi: Vibration - Mixed mode",
+    "language": "EN-FR, ES",
+    "description": "IEC 60068-2-80:2005 Intended for general application for testing specimens when simulation is required of vibration excitation of a complex and mixed nature. The purpose of the test is to demonstrate the adequacy of the specimen to resist the specified mixed mode excitation without unacceptable degradation of its functional and/or structural performance. It is particularly useful for tailoring mixed mode environments where measured data are available for the real life environment. The test also helps reveal the accumulated effects of stress induced by random vibration, mixed with sine and/or random, and the resulting mechanical weakness and degradation in specified performances, and to use this information, in conjunction with the relevant specification, to assess the acceptability of specimens. In some cases, this standard may also be used to demonstrate the mechanical robustness of specimens. This standard is applicable to specimens which may be subjected to vibration of a random and/or a combination of random and deterministic nature resulting from transportation or real life environments, for example in aircraft, space vehicles and for items in their transportation container when the latter may be considered as part of the specimen itself. Although primarily intended for electrotechnical specimens, this standard is not restricted to such specimens and may be used in other fields where desired."
+  },
+  {
+    "reference": "IEC 60068-2-81:2003",
+    "edition": "1.0",
+    "date": "2003-07-08",
+    "title": "Environmental testing - Part 2-81: Tests - Test Ei: Shock - Shock response spectrum synthesis",
+    "language": "EN-FR, ES",
+    "description": "Specifies tests using a synthesized shock response spectrum (SRS). It is intended for general application to specimens when simulation of transient excitation of a complex nature is required."
+  },
+  {
+    "reference": "IEC 60068-2-85:2019",
+    "edition": "1.0",
+    "date": "2019-06-20",
+    "title": "Environmental testing - Part 2-85: Tests - Test Fj: Vibration - Long time history replication",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-85:2019 demonstrates the adequacy of specimens to resist dynamic loads without unacceptable degradation of its functional and/or structural integrity when subjected to the specified vibration test requirements as defined by a time history (long time history replication). These can either be recorded in measurement exercises or generated artificially. In both cases, this method allows for generating a test tailored to very specific applications."
+  },
+  {
+    "reference": "IEC 60068-2-86:2024",
+    "edition": "1.0",
+    "date": "2024-02-15",
+    "title": "Environmental testing - Part 2-86: Tests -Test Fx: Vibration - Multi-exciter and multi-axis method",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-86:2024 provides a test procedure for use with multi-exciter and multi-axis vibration test systems. The vibration test is intended for general application to components, equipment, and other products, hereinafter referred to as \"specimens\", subjected to dynamic environments that could arise during an equipment life cycle. Although this document is mainly intended for vibration testing, the procedure is also applied to certain types of shock and transient tests."
+  },
+  {
+    "reference": "IEC 60068-2-87:2024",
+    "edition": "1.0",
+    "date": "2024-10-15",
+    "title": "Environmental testing – Part 2-87: Tests – UV-C exposure of materials and components to simulate ultraviolet germicidal Irradiation or other applications",
+    "language": "EN-FR",
+    "description": "IEC 60068-2-87:2024 describes exposures of materials and components to UV-C radiation during ultraviolet germicidal irradiation (UVGI) treatments or other processes that require UV‑C exposure and test procedures to simulate those environments. Severities representing various frequencies and intensities of UV-C exposures are described. Test conditions are described and limited to devices that utilize low pressure mercury lamps which emit most of their radiation at a single spectral line at 254 nm."
+  },
+  {
+    "reference": "IEC 60068-3-1:2023",
+    "edition": "3.0",
+    "date": "2023-06-29",
+    "title": "Environmental testing - Part 3-1: Supporting documentation and guidance - Cold and dry heat tests",
+    "language": "EN-FR",
+    "description": "IEC 60068-3-1:2023 provides guidance regarding the performance of cold and dry heat tests. This third edition cancels and replaces the second edition published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) information relating to specimen temperatures has been revised; b) information relating to tests of multiple specimens has been revised; c) the effect of air density has been added; d) a recommendation for corrective actions regarding IR radiation has been added; e) the requirements for the mounting and supports of the specimen have been revised."
+  },
+  {
+    "reference": "IEC 60068-3-3:2019",
+    "edition": "2.0",
+    "date": "2019-08-23",
+    "title": "Environmental testing - Part 3-3: Supporting documentation and guidance - Seismic test methods for equipment",
+    "language": "EN-FR",
+    "description": "IEC 60068-3-3:2019 applies primarily to electro-technical equipment but its application can be extended to other equipment and to components. In addition, if some type of analysis is always performed when making a seismic qualification, for example for the choice of the representative sample to be tested or for the extension of the seismic qualification from the tested specimen to similar specimens, the verification of the performance of an equipment by analysis or by a combination of testing and analysis can be acceptable but is outside the scope of this document, which is restricted to verification based entirely upon data from dynamic testing. This second edition cancels and replaces the first edition published in 1991. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - the main aim of this revision is to connect the testing level to the seismic activity level of the zone where the equipment could be installed; - a standard shape for the required response spectrum is also given for the general seismic class for which the seismic environment is either not known or is imprecisely known; - Clauses 11 to 15 were renumbered and some adjustments were made as their content is very general and the requirements can be applied both to the general seismic class and to the specific seismic class; - the word “envelope” is replaced with “dominance” and “to envelop” with “to dominate” in order to provide a more precise meaning from a mathematical point of view. The contents of the corrigendum of September 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60068-3-3:2019/COR1:2021",
+    "edition": "2.0",
+    "date": "2021-09-29",
+    "title": "Corrigendum 1 - Environmental testing - Part 3-3: Supporting documentation and guidance - Seismic test methods for equipment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60068-3-4:2023",
+    "edition": "2.0",
+    "date": "2023-06-29",
+    "title": "Environmental testing - Part 3-4: Supporting documentation and guidance - Damp heat tests",
+    "language": "EN-FR",
+    "description": "IEC 60068-3-4:2023 provides the necessary information and the basic principles of the effect of humidity in the context of environmental testing to assist in preparing relevant specifications, such as standards for components or equipment. Furthermore, information is provided on operating climatic test chambers. This second edition cancels and replaces the first edition published in 2001. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the requirements for distilled and deionized water have been revised; b) recommendations for the cleaning procedure of test chambers have been included; c) humidification systems (ultrasonic humidifiers and atomizers) have been added; d) the description of water penetration mechanisms has been refined."
+  },
+  {
+    "reference": "IEC 60068-3-6:2018",
+    "edition": "2.0",
+    "date": "2018-01-23",
+    "title": "Environmental testing - Part 3-6: Supporting documentation and guidance - Confirmation of the performance of temperature/ humidity chambers",
+    "language": "EN-FR, EN",
+    "description": "IEC 60068-3-6:2018 provides a uniform and reproducible method of confirming that temperature and humidity test chambers, without specimens, conform to the requirements specified in climatic test procedures of IEC 60068-2 (all parts). This document is intended for users when conducting regular chamber performance monitoring. This second edition cancels and replaces the first edition published in 2001. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Confirmation procedures are clarified. The French version of this standard has not been voted upon."
+  },
+  {
+    "reference": "IEC 60068-3-7:2020",
+    "edition": "2.0",
+    "date": "2020-07-07",
+    "title": "Environmental testing - Part 3-7: Supporting documentation and guidance - Measurements in temperature chambers for tests A (Cold) and B (Dry heat) (with load)",
+    "language": "EN-FR",
+    "description": "IEC 60068-3-7:2020 specifies a uniform and reproducible method of confirming that temperature test chambers conform to the requirements specified in the climatic test procedures of IEC 60068-2-1 and IEC 60068-2-2, when loaded with either heat-dissipating or non heat-dissipating specimens under conditions which take into account air circulation inside the working space of the chamber. This document is intended primarily for users when conducting regular chamber performance monitoring. This second edition cancels and replaces the first edition published in 2001. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - verbal forms have, in many parts, been changed to express requirements instead of recommendations ('shall' instead of 'should'); - Table 1 has been updated."
+  },
+  {
+    "reference": "IEC 60068-3-8:2003",
+    "edition": "1.0",
+    "date": "2003-08-28",
+    "title": "Environmental testing - Part 3-8: Supporting documentation and guidance - Selecting amongst vibration tests",
+    "language": "EN-FR, ES",
+    "description": "Provides guidance for selecting amongst the IEC 60068-2 stationary vibration test methods Fc sinusoidal, Fh random and F(x) Mixed mode vibration. The different steady-state test methods and their aims are briefly described in Clause 4. Transient test methods are not included. For vibration testing, the environmental conditions, especially the dynamic conditions for the specimen, should be known. This standard helps to collect information about the environmental conditions (Clause 5), to estimate or measure the dynamic conditions (Clause 6) and gives examples to enable decisions to be made on the most applicable environmental vibration test method. Starting from the condition, the method of selecting the appropriate test is given. Since real life vibration conditions are dominated by vibration of a random nature, random testing should be the commonly used method, see Table 1, Clause 7. The methods included hereafter may be used to examine the vibration response of a specimen under test before, during and after vibration testing. The selection for the appropriate excitation method is described in Clause 8 and tabulated in Table 2. In this standard specification, writers will find information concerning vibration test methods and guidance for their selection. For guidance on test parameters, or severities of one of the test methods, reference should be made to the normative references."
+  },
+  {
+    "reference": "IEC 60068-3-11:2007",
+    "edition": "1.0",
+    "date": "2007-05-15",
+    "title": "Environmental testing - Part 3-11: Supporting documentation and guidance - Calculation of uncertainty of conditions in climatic test chambers",
+    "language": "EN-FR, ES",
+    "description": "Demonstrates how to estimate the uncertainty of steady-state temperature and humidity conditions in temperature and humidity chambers. Since this is inextricably linked to the methods of measurement, these are also described. This standard is equally applicable to all environmental enclosures, including rooms or laboratories. The methods used apply both to temperature chambers and combined temperature and humidity chambers. This standard is meant to help everyone using climatic test chambers. Those already familiar with uncertainty of measurement will find it useful for guidance on typical sources of uncertainty and how they should be quantified and combined. It is also intended to assist the first-time or occasional user who has little or no knowledge of the subject. To discuss uncertainty, it is important first to understand what is being measured or characterized. The calibration or characterization of the performance of a chamber is concerned with the humidity and temperature of the air in the chamber, as experienced by the item under test, at a given set point. This should not be confused with characterizing or calibrating the chamber sensor, which is a separate matter."
+  },
+  {
+    "reference": "IEC 60068-3-14:2025",
+    "edition": "1.0",
+    "date": "2025-07-18",
+    "title": "Environmental testing – Part 3-14: Supporting documentation and guidance – Developing a climatic sequential test",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60068-3-14:2025 describes a generic process for developing a climatic sequential test programme by sequencing test methods selected from the IEC 60068-2 series. This generic process comprises a systematic approach to the development of a sequential environmental test programme. A climatic sequential test is applicable to electrical, electromechanical or electronic equipment and devices, as well as their subassemblies, constituent parts and components. It can be customized according to specific product requirements and applications. The process is designed for use by product designers, manufacturers and users. The process is particularly relevant to electrical products which include components or materials that have the potential to degrade, as a consequence of environmental exposures."
+  },
+  {
+    "reference": "IEC 60068-5-2:1990",
+    "edition": "1.0",
+    "date": "1990-12-01",
+    "title": "Environmental testing - Part 5-2: Guide to drafting of test methods - Terms and definitions",
+    "language": "EN-FR, ES, RU",
+    "description": "Defines terms used in the environmental testing of electrotechnical products such as components, sub-assemblies, assemblies and equipments. The environmental conditions include shock and vibration, climatic (temperature, humidity and air pressure), sealing (against ingress of solids, liquids and gases or to maintain a pressure difference), soldering heat (including thermal shock from soldering)."
+  },
+  {
+    "reference": "IEC 60721-1:1990",
+    "edition": "2.0",
+    "date": "1990-12-31",
+    "title": "Classification of environmental conditions - Part 1: Environmental parameters and their severities",
+    "language": "EN-FR",
+    "description": "Defines environmental parameters and a limited number of their severities within the range of conditions met by electrotechnical products when being transported, stored, installed and used."
+  },
+  {
+    "reference": "IEC 60721-1:1990/AMD1:1992",
+    "edition": "2.0",
+    "date": "1992-12-15",
+    "title": "Amendment 1 - Classification of environmental conditions - Part 1: Environmental parameters and their severities",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-1:1990/AMD2:1995",
+    "edition": "2.0",
+    "date": "1995-04-28",
+    "title": "Amendment 2 - Classification of environmental conditions - Part 1: Environmental parameters and their severities",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-2-1:2013",
+    "edition": "2.0",
+    "date": "2013-06-25",
+    "title": "Classification of environmental conditions - Part 2-1: Environmental conditions appearing in nature - Temperature and humidity",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-1:2013 presents classifications of open-air climates in terms of temperature and humidity. It is intended to be used as part of the background material when selecting appropriate temperature and humidity severities for product testing and application. This second edition cancels and replaces the first edition, published in 1982, and constitutes a technical revision. The main changes with respect to the previous edition are in the definitions of climate types."
+  },
+  {
+    "reference": "IEC 60721-2-2:2024",
+    "edition": "3.0",
+    "date": "2024-10-25",
+    "title": "Classification of environmental conditions - Part 2-2: Environmental conditions appearing in nature - Precipitation and wind",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-2:2024 presents fundamental properties, quantities for characterization, and a classification of environmental conditions dependent on precipitation and wind relevant to electrotechnical products. This third edition cancels and replaces the second edition published in 2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) the layout of the information provided has been re-organized; b) the information provided has been extensively enhanced and revised; c) new information on wind severities has been included."
+  },
+  {
+    "reference": "IEC 60721-2-3:2013",
+    "edition": "2.0",
+    "date": "2013-06-19",
+    "title": "Classification of environmental conditions - Part 2-3: Environmental conditions appearing in nature - Air pressure",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-3:2013 presents a selection of different values of air pressure appearing in nature. It is intended to be used as part of the background material when selecting appropriate severities of air pressure for product applications, which products are liable to be exposed during storage, transportation and use. This second edition cancels and replaces the first edition, published in 1987, and constitutes a technical revision. The main changes with regard to the previous edition are as follows: - removal of figures for decreasing cooling efficiency for altitude; - simplification of Table 1; - additional formula for calculating air pressure from altitude."
+  },
+  {
+    "reference": "IEC 60721-2-4:2018",
+    "edition": "2.0",
+    "date": "2018-06-22",
+    "title": "Classification of environmental conditions - Part 2-4: Environmental conditions appearing in nature - Solar radiation and temperature",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-4:2018 presents a broad division into types of solar radiation areas. It is intended to be used as part of the background material when selecting appropriate severities of solar radiation for product applications. All types of geographical areas are covered, except areas with altitudes above 5 000 m. This second edition cancels and replaces the first edition published in 1987 and Amendment 1:1988. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Figures updated including the addition of global irradiation information - Format updated."
+  },
+  {
+    "reference": "IEC 60721-2-5:1991",
+    "edition": "1.0",
+    "date": "1991-07-18",
+    "title": "Classification of environmental conditions - Part 2: Environmental conditions appearing in nature - Section 5: Dust, sand, salt mist",
+    "language": "EN-FR",
+    "description": "Presents characteristics of dust, sand and salt mist appearing in nature, and describes the influences from these environmental factors to which products are liable to be exposed during storage, transportation and use."
+  },
+  {
+    "reference": "IEC 60721-2-6:2022",
+    "edition": "2.0",
+    "date": "2022-12-15",
+    "title": "Classification of environmental conditions - Part 2-6: Environmental conditions appearing in nature - Earthquake vibration and shock",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-6:2022 deals with environmental conditions appearing in nature related to earthquake vibrations and shocks. Its object is to define some fundamental properties and quantities for characterization of earthquakes as background material for the severities to which products are liable to be exposed during storage and use. The accelerations given are for ground surface conditions only. Conditions related to structures are referred to but restricted to general case descriptions. This second edition cancels and replaces the first edition published in 1990. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the main aim of this revision is to classify in a limited number of classes the seismic activity level of the zone where the equipment could be installed; the correlation between intensity scales, magnitude scales and peak ground acceleration is deleted due to the scientific uncertainty to define such a correlation in a rigorous way; updated scales are given both for intensity and for magnitude; the earthquake zone map, which was not usable in practice, is replaced by an annex giving information about how to retrieve consistent peak ground acceleration distribution all over the world; with regard to identification of the peak ground seismic acceleration of the zone, where the equipment could be installed, the user is made aware that national standards and laws can apply. The contents of the corrigendum of October 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60721-2-6:2022/COR1:2023",
+    "edition": "2.0",
+    "date": "2023-10-16",
+    "title": "Corrigendum 1 - Classification of environmental conditions - Part 2-6: Environmental conditions appearing in nature - Earthquake vibration and shock",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-2-7:2018",
+    "edition": "2.0",
+    "date": "2018-03-19",
+    "title": "Classification of environmental conditions - Part 2-7: Environmental conditions appearing in nature - Fauna and flora",
+    "language": "EN-FR, EN",
+    "description": "IEC 60721-2-7:2018 addresses the occurrence of fauna and flora, including its main effects on electrotechnical products. Exposure and damage from the effects of fauna and flora can occur at almost any time in a product's life cycle. Moreover, there are many agents of attack with various actions. This second edition cancels and replaces the first edition published in 1987. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - This edition has been entirely rewritten. This bilingual version (2018-11) corresponds to the monolingual English version, published in 2018-03. The French version of this standard has not been voted upon."
+  },
+  {
+    "reference": "IEC 60721-2-9:2014",
+    "edition": "1.0",
+    "date": "2014-03-06",
+    "title": "Classification of environmental conditions - Part 2-9: Environmental conditions appearing in nature - Measured shock and vibration data - Storage, transportation and in-use",
+    "language": "EN-FR",
+    "description": "IEC 60721-2-9:2014 is intended to be used to define the strategy for arriving at an environmental description from measured data when related to a product's life cycle. Its object is to define fundamental properties and quantities for characterization of storage, transportation and in-use shock and vibration data as background material for the severities to which products are liable to be exposed during those phases of their lifecycle."
+  },
+  {
+    "reference": "IEC 60721-3-0:2020",
+    "edition": "2.0",
+    "date": "2020-05-07",
+    "title": "Classification of environmental conditions - Part 3-0: Classification of groups of environmental parameters and their severities - Introduction",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-0:2020 provides guidance on the use of all parts of IEC 60721-3. It contains background information including information on the application and limitation of the classes given in various parts of IEC 60721-3 which can be used in the design, limitation of conditions and protection of equipment. This second edition cancels and replaces the first edition published in 1984 and Amendment 1:1987. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) This edition has been extensively simplified to only provide necessary information with regard to the process given in the other parts of IEC 60721-3 and information on class severity has been updated."
+  },
+  {
+    "reference": "IEC 60721-3-1:2018",
+    "edition": "3.0",
+    "date": "2018-02-23",
+    "title": "Classification of environmental conditions - Part 3-1: Classification of groups of environmental parameters and their severities - Storage",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-1:2018 classifies the groups of environmental parameters and their severities to which products together with their packaging, if any, are subjected when stored. The environmental conditions specified in this document are limited to those which can directly affect the products or their ultimate performance. Only environmental conditions as such are considered. No special description of the effects of these conditions on the products is given. Environmental conditions directly related to fire or explosions are not included. Conditions of stationary use, portable and non-stationary use, use in vehicles and ships, and conditions of transportation are given in other subparts of the IEC 60721-3 series. This third edition cancels and replaces the second edition, published in 1997, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. Clause 3: reworded and simplified. b. Clause 4: reworded and simplified. c. Clause 5: Annex C has been incorporated in Clause 5. d. 5.2: all existing climate classes have been replaced by completely new classes. The new classes are divided into 3 groups. The reason for the new classes is the latest revision of IEC 60721-2-1 which incorporated new climate types. e. 5.3: new classes for solar radiation and snow load. f. 5.6: all existing classes for mechanically active substances have been replaced by completely new classes. g. 5.7: all existing classes for mechanical conditions have been replaced by completely new classes. h. Table 1: new climatic classes with new severities. i. Table 2: new classes for solar radiation and snow load. j. Table 5 new mechanically active substances classes. k. Table 6: new mechanical conditions classes. The content of the corrigendum 1 (2024-10) has been included in this copy."
+  },
+  {
+    "reference": "IEC 60721-3-1:2018/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-10-11",
+    "title": "Corrigendum 1 - Classification of environmental conditions - Part 3-1: Classification of groups of environmental parameters and their severities - Storage",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-2:2018",
+    "edition": "3.0",
+    "date": "2018-02-23",
+    "title": "Classification of environmental conditions - Part 3-2: Classification of groups of environmental parameters and their severities - Transportation and handling",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-2:2018 classifies the groups of environmental parameters and their severities to which a product is subjected while being transported and handled. The most commonly used methods of transportation and handling have been taken into account, including the following: - road transport: cars, trucks; - rail transport: trains, trams; - water transport, inland and maritime: ships; - air transport: aircraft, jet, propeller, helicopter; - handling equipment: cranes, transport lifts, cableways, persons; - conveyors; - hand trollies. This third edition cancels and replaces the second edition, published in 1997, and constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a. Clause 1: reworded and added handling. b. Clause 2: updated normative references. c. Clause 3: updated definitions. d. Clause 4: reworded and simplified. e. Clause 5: revised and updated. Several classes have been replaced by completely new classes based on the use of new information obtained from referenced Technical Reports. f. Table 1 through Table 5: updated. g. Table 6 added. h. Old annexes A to C removed except Clause A.3 that is incorporated in Clause 5. i. New Annex A. The contents of the corrigenda of November 2018, June 2022 and May 2024 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60721-3-2:2018/COR1:2018",
+    "edition": "3.0",
+    "date": "2018-11-27",
+    "title": "Corrigendum 1 - Classification of environmental conditions - Part 3-2: Classification of groups of environmental parameters and their severities - Transportation and handling",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-2:2018/COR2:2022",
+    "edition": "3.0",
+    "date": "2022-06-08",
+    "title": "Corrigendum 2 - Classification of environmental conditions - Part 3-2: Classification of groups of environmental parameters and their severities - Transportation and handling",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-2:2018/COR3:2024",
+    "edition": "3.0",
+    "date": "2024-05-30",
+    "title": "Corrigendum 3 - Classification of environmental conditions - Part 3-2: Classification of groups of environmental parameters and their severities - Transportation and handling",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-3:2019",
+    "edition": "3.0",
+    "date": "2019-05-22",
+    "title": "Classification of environmental conditions - Part 3-3: Classification of groups of environmental parameters and their severities - Stationary use at weatherprotected locations",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-3:2019 classifies groups of environmental parameters and their severities to which products are subjected when installed for stationary use at weatherprotected locations. This third edition cancels and replaces the second edition published in 1994, Amendment 1: 1995 and Amendment 2:1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 3: definitions aligned with IEC 60721-3-1. b) Clause 4: aligned with IEC 60721-3-1. c) Clause 5: Clause A.3 has been incorporated into Clause 5. d) Subclause 5.2: all existing climate classes have been replaced by completely new classes. The new classes are divided into two groups. The reason for the new classes is the latest revision of IEC 60721-2-1 which incorporates new climate types. e) Subclause 5.3: addition of a new class for low air pressure. f) Defined values of chemically active substances are now by reference to ISO 9223. g) Subclause 5.6: all existing classes for mechanically active substances have been replaced by completely new classes, in alignment with IEC 60721-3-1. h) Subclause 5.7: all existing classes for mechanical conditions have been replaced by completely new classes, in alignment with IEC 60721-3-1. i) Table 1: new climatic classes with new severities. j) Table 2: new class for low air pressure. k) Table 4: new mechanically active substances classes. l) Table 5: new mechanical conditions classes. m) Annex A: revised and includes a clean climatogram. n) Annex B: revised and includes the definition of seismic environment. o) All classes regarding fire, all combined classes, all chemically active substances classes, Clause A.2, Annexes C, D and E have been removed."
+  },
+  {
+    "reference": "IEC 60721-3-3:2019/AMD1:2026",
+    "edition": "3.0",
+    "date": "2026-09-15",
+    "title": "Amendment 1 - Classification of environmental conditions - Part 3-3: Classification of groups of environmental parameters and their severities - Stationary use at weatherprotected locations",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-4:2019",
+    "edition": "3.0",
+    "date": "2019-05-22",
+    "title": "Classification of environmental conditions - Part 3-4: Classification of groups of environmental parameters and their severities - Stationary use at non-weatherprotected locations",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-4:2019 classifies groups of environmental parameters and their severities to which products are subjected when installed for stationary use at non-weatherprotected locations. Weatherprotected locations where products can be mounted for stationary use permanently or temporarily are addressed in IEC 60721-3-3. This third edition cancels and replaces the second edition published in 1995 and Amendment 1:1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 1: reworded. b) Clause 2: normative references have been updated. c) Clause 3: definitions have been updated. d) Clause 4: reworded and simplified. e) Clause 5: revised and updated. Several classes have been replaced by completely new classes based on the use of new information obtained from referenced technical reports. f) Defined values of chemically active substances are now by reference to ISO 9223. g) Tables 1 through 5: updated. The contents of the corrigendum of July 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60721-3-4:2019/COR1:2023",
+    "edition": "3.0",
+    "date": "2023-07-24",
+    "title": "Corrigendum 1 - Classification of environmental conditions - Part 3-4: Classification of groups of environmental parameters and their severities - Stationary use at non-weatherprotected locations",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60721-3-5:2026",
+    "edition": "3.0",
+    "date": "2026-01-14",
+    "title": "Classification of environmental conditions - Part 3-5: Classification of groups of environmental parameters and their severities - Ground vehicle installations",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60721-3-5:2026 classifies the groups of environmental parameters and their severities to which a product, not forming part of the vehicle, is subjected when installed on or in a ground vehicle. Such products are for example radios, communication systems, fare meters, flow meters for liquids transported by the vehicle, for example milk, petroleum products, etc. Vehicles where products can be permanently or temporarily installed include - road vehicles: passenger cars, commercial vehicles, special vehicles, towing vehicles, trailers, mopeds, motorcycles, - rail vehicles: trains, trams, - tracked vehicles: excavators, cranes, rubber tracked vehicles, - overland vehicles: four-wheel drive cars, tractors, snow scooters, - handling and storage vehicles: fork-lift trucks (manual and robot), luggage transporters, and - self-propelled machinery: diggers, harvesters. This third edition cancels and replaces the second edition, published in 1997. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) most classes have been replaced by completely new classes based on the use of additional information obtained from referenced Technical Reports; b) Table 1 through to Table 7 have been reviewed and updated; c) the content of Annex A and Annex B has either been incorporated into the main body of the document or deleted."
+  },
+  {
+    "reference": "IEC 60721-3-6:2025",
+    "edition": "2.0",
+    "date": "2025-07-02",
+    "title": "Classification of environmental conditions - Part 3-6: Classification of groups of environmental parameters and their severities - Ship environments",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60721-3-6:2025 classifies the groups of environmental parameters and their severities to which a product is subjected when installed aboard a ship. Ships where electrotechnical products may be permanently or temporarily installed include - ships propelled by mechanical means, including mobile offshore units, and - ships not propelled by mechanical means, including sailing boats and life rafts. The classes defined apply to all sizes of ship from pleasure craft to trawlers, ferry boats, icebreakers, cargo ships including tankers. The areas in which ships normally navigate are - inland waterways (canals, rivers, lakes etc.), - coastal waters, and - oceans. Areas where ships navigate in ice are also included. This second edition cancels and replaces the first edition, published in 1987, and constitutes a technical revision. This edition includes the following significant changes with respect to the previous edition: a) most classes have been replaced by completely new classes based on the use of new information obtained from referenced Technical Reports; b) Table 1 through to Table 5 have been updated; c) the content of Annex A and Annex B has either been incorporated into main body text or deleted."
+  },
+  {
+    "reference": "IEC 60721-3-7:2026",
+    "edition": "3.0",
+    "date": "2026-02-06",
+    "title": "Classification of environmental conditions - Part 3-7: Classification of groups of environmental parameters and their severities - Portable and non-stationary use",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 60721-3-7:2026 classifies the groups of environmental parameters and their severities to which products are subject to during portable and non-stationary use. This includes periods of transfer, down time, maintenance and repair. The environmental conditions encompassed by these groups include the environmental conditions occurring - at locations where the product can be placed or used temporarily, and - during the transfer of products between different locations. This third edition cancels and replaces the second edition published in 1995 and Amendment 1:1996. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) most classes have been replaced by completely new classes based on the use of new information obtained from referenced Technical Reports; b) Table 1 through to Table 5 have been updated; c) the content of the five informative annexes has either been incorporated into the main body of the document or deleted."
+  },
+  {
+    "reference": "IEC 60721-3-9:2024",
+    "edition": "2.0",
+    "date": "2024-04-11",
+    "title": "Classification of environmental conditions - Part 3-9: Classification of groups of environmental parameters and their severities - Microclimates inside products",
+    "language": "EN-FR",
+    "description": "IEC 60721-3-9:2024 classifies groups of microclimatic conditions, to which components (basic parts, assemblies, built-in units) can be subjected inside products, which are used under the climatic conditions as classified in IEC 60721-3-3 and IEC 60721-3-4. This second edition cancels and replaces the first edition published in 1993, Amendment 1:1994 and Corrigendum 1:1995. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Clause 2 has been updated; b) Clause 4 has been re-edited and simplified; c) Annex A has been revised and updated; d) a new Annex B has been added and gives the origin of the constitutional diagram for humid air, which is the basis of drawing the climatogram for a microclimate."
+  },
+  {
+    "reference": "IEC TR 60721-4-0:2002",
+    "edition": "1.0",
+    "date": "2002-08-16",
+    "title": "Classification of environmental conditions - Part 4-0: Guidance for the correlation and transformation of the environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Introduction",
+    "language": "EN-FR",
+    "description": "A technical report dealing with the correlation and transformation of the conditions given in IEC 60721-3 to the environmental tests defined in IEC 60068-2. It is an introduction to the series of publications IEC 60721-4 which aims at providing the specification writer with guidance together with a set of easy-to-use tables to help correlate and transform these conditions. The purpose of this technical report is to recommend the environmental tests which may be chosen to demonstrate the capability of a product to function or survive satisfactorily as specified in the relevant specification when subjected to the climatic and dynamic conditions given by IEC 60721-3. These test severities, including their suggested duration, are not intended to demonstrate the reliability of the product, guidance for which should be sought from the publications concerning the field of availability, reliability, maintainability and maintenance support. Whilst it may not be possible to recommend severities for all types of product, locations and applications, it is possible to suggest tests which are adequate for the majority. Guidance information has been included with the suggested tests which describes how the severities have been chosen. The rationale contained in this guidance may also be used to help modify test severities when the conditions found in IEC 60721-3 do not adequately describe a particular environment or application."
+  },
+  {
+    "reference": "IEC TS 60721-4-3:2023",
+    "edition": "1.0",
+    "date": "2023-07-27",
+    "title": "Classification of environmental conditions - Part 4-3: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Stationary use at weatherprotected locations",
+    "language": "EN",
+    "description": "IEC TS 60721-4-3:2023 This part of IEC 60721 deals with the correlation and transformation of the conditions given in IEC 60721-3-3 to the environmental test procedures defined in IEC 60068-2. This document provides test procedures and test severities for electrotechnical equipment operated at stationary weatherprotected locations for the product classes set out in IEC 60721-3-3. This first edition cancels and replaces IEC TR 60721-4-3:2001 and IEC TR 60721-4-3:2001/AMD1:2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TR 60721-4-3:2001 and IEC TR 60721-4-3:2001/AMD1:2003: a) the document has been totally reworked; b) all figures have been removed, except in Annex A; c) severities have been aligned with those of IEC 60721-3-3:2019."
+  },
+  {
+    "reference": "IEC TR 60721-4-5:2001",
+    "edition": "1.0",
+    "date": "2001-03-30",
+    "title": "Classification of environmental conditions - Part 4-5: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Ground vehicle installations",
+    "language": "EN-FR",
+    "description": "IEC TR 60721-4-5:2001 Deals with the correlation and transformation of the conditions given in IEC 60721-3-5 to the environmental tests defined in IEC 60068-2. An environment may consist of a number of environmental conditions such as dynamic, climatic and biological and other effects due to chemically and mechanically active substances. In this report, only dynamic and climatic conditions have been considered. The purpose of this technical report is to provide the specification writer with guidance together with a set of easy-to-use tables which correlate and transform these conditions."
+  },
+  {
+    "reference": "IEC TR 60721-4-5:2001/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-05-22",
+    "title": "Amendment 1 - Classification of environmental conditions - Part 4-5: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Ground vehicle installations",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60721-4-6:2001",
+    "edition": "1.0",
+    "date": "2001-03-30",
+    "title": "Classification of environmental conditions - Part 4-6: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Ship environment",
+    "language": "EN-FR",
+    "description": "IEC TR 60721-4-6:2001 Deals with the correlation and transformation of the conditions given in IEC 60721-3-6 to the environmental tests defined in IEC 60068-2. An environment may consist of a number of environmental conditions such as dynamic, climatic and biological and other effects due to chemically and mechanically active substances. In this report, only dynamic and climatic conditions have been considered. The purpose of this technical report is to provide the specification writer with guidance together with a set of easy-to-use tables which correlate and transform these conditions."
+  },
+  {
+    "reference": "IEC TR 60721-4-6:2001/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-05-22",
+    "title": "Amendment 1 - Classification of environmental conditions - Part 4-6: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Ship environment",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60721-4-7:2001",
+    "edition": "1.0",
+    "date": "2001-03-30",
+    "title": "Classification of environment conditions - Part 4-7: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Portable and non-stationary use",
+    "language": "EN-FR",
+    "description": "IEC TR 60721-4-7:2001 Deals with the correlation and transformation of the conditions given in IEC 60721-3-7 to the environmental tests defined in IEC 60068-2. An environment may consist of a number of environmental conditions such as dynamic, climatic and biological and other effects due to chemically and mechanically active substances. In this report, only dynamic and climatic conditions have been considered. The purpose of this technical report is to provide the specification writer with guidance together with a set of easy-to-use tables which correlate and transform these conditions."
+  },
+  {
+    "reference": "IEC TR 60721-4-7:2001/AMD1:2003",
+    "edition": "1.0",
+    "date": "2003-05-20",
+    "title": "Amendment 1 - Classification of environment conditions - Part 4-7: Guidance for the correlation and transformation of environmental condition classes of IEC 60721-3 to the environmental tests of IEC 60068 - Portable and non-stationary use",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 62130:2012",
+    "edition": "1.0",
+    "date": "2012-09-18",
+    "title": "Climatic field data including validation",
+    "language": "EN",
+    "description": "IEC/TR 62130:2012(E), which is a technical report, provides traceable recommendations from validated field data for updating IEC 60721-2-1."
+  },
+  {
+    "reference": "IEC TR 62131-1:2011",
+    "edition": "1.0",
+    "date": "2011-02-24",
+    "title": "Environmental conditions - Vibration and shock of electrotechnical equipment - Part 1: Process for validation of dynamic data",
+    "language": "EN",
+    "description": "IEC/TR 62131-1:2011(E) reviews the essentially empirical data validation procedure adopted to establish confidence in the data utilized by the other Parts of IEC/TR 62131. The adoption of a validation procedure was necessary, due the lack of fully validated data sets. This technical report is intended to be generic in nature and is normally expected to be adopted as far as is practical within the circumstances of any particular data item."
+  },
+  {
+    "reference": "IEC TR 62131-2:2011",
+    "edition": "1.0",
+    "date": "2011-02-24",
+    "title": "Environmental conditions - Vibration and shock of electrotechnical equipment - Part 2: Equipment transported in fixed wing jet aircraft",
+    "language": "EN",
+    "description": "IEC/TR 62131-2:2011(E) reviews the available dynamic data relating to electrotechnical equipment transported in fixed wing jet transport aircraft. The intent is that from all the available data an environmental description will be generated and compared to that set out in IEC 60721."
+  },
+  {
+    "reference": "IEC TR 62131-3:2011",
+    "edition": "1.0",
+    "date": "2011-02-24",
+    "title": "Environmental conditions - Vibration and shock of electrotechnical equipment - Part 3: Equipment transported in rail vehicles",
+    "language": "EN",
+    "description": "IEC/TR 62131-3:2011(E) reviews the available dynamic data relating to electrotechnical equipment transported by rail vehicles. The intent is that from all the available data an environmental description will be generated and compared to that set out in IEC 60721. For each of the sources identified the quality of the data is reviewed and checked for self consistency. The process used to undertake this check of data quality and that used to intrinsically categorize the various data sources is set out in IEC/TR 62131-1."
+  },
+  {
+    "reference": "IEC TR 62131-4:2011",
+    "edition": "1.0",
+    "date": "2011-02-24",
+    "title": "Environmental conditions - Vibration and shock of electrotechnical equipment - Part 4: Equipment transported in road vehicles",
+    "language": "EN",
+    "description": "IEC/TR 62131-4:2011(E) reviews the available dynamic data relating to electrotechnical equipment transported by road vehicles. The intent is that from all the available data an environmental description will be generated and compared to that set out in IEC 60721. For each of the sources identified the quality of the data is reviewed and checked for self consistency. The process used to undertake this check of data quality and that used to intrinsically categorize the various data sources is set out in IEC/TR 62131-1."
+  },
+  {
+    "reference": "IEC TR 62131-5:2015",
+    "edition": "1.0",
+    "date": "2015-08-05",
+    "title": "Environmental conditions - Vibration and shock of electotechnical equipment - Part 5: Equipment during storage and handling",
+    "language": "EN",
+    "description": "IEC TR 62131-5:2015(E) reviews the available dynamic data relating to the handling of electrotechnical equipment. The intention is that from all the available data an environmental description will be generated and compared to that set out in the IEC 60721 series."
+  },
+  {
+    "reference": "IEC TR 62131-6:2017",
+    "edition": "1.0",
+    "date": "2017-09-20",
+    "title": "Environmental conditions - Vibration and shock of electrotechnical equipment - Part 6: Transportation by propeller aircraft",
+    "language": "EN",
+    "description": "IEC TR 62131-6:2017(E) reviews the available dynamic data relating to the transportation of electrotechnical equipment. The intent is that from all the available data an environmental description will be generated and compared to that set out in IEC 60721 (all parts)."
+  },
+  {
+    "reference": "IEC TR 62131-7:2020",
+    "edition": "1.0",
+    "date": "2020-04-28",
+    "title": "Environmental conditions – Vibration and shock of electrotechnical equipment - Part 7: Transportation by rotary wing aircraft",
+    "language": "EN",
+    "description": "IEC 62131-7:2020(E), reviews the available dynamic data relating to the transportation of electrotechnical equipment by rotorcraft (helicopters). The intent is that from all the available data an environmental description will be generated and compared to that set out in IEC 60721 (all parts)."
+  },
+  {
+    "reference": "IEC TR 62131-8:2022",
+    "edition": "1.0",
+    "date": "2022-07-20",
+    "title": "Environmental conditions – Vibration and shock of electrotechnical equipment - Part 8: Transportation by ship",
+    "language": "EN",
+    "description": "IEC TR 62131-8:2022 reviews available dynamic data relating to the transportation of electrotechnical equipment by marine craft such as ships and boats either at sea or during riverine use. In this instance, there is a clear similarity between dynamic data relating to the transportation of electrotechnical equipment and that of electrotechnical equipment installed on maritime platforms."
+  },
+  {
+    "reference": "IEC TR 63141:2020",
+    "edition": "1.0",
+    "date": "2020-04-09",
+    "title": "Damp heat, steady state (unsaturated pressurized vapour with air)",
+    "language": "EN",
+    "description": "IEC TR 63141:2020(E) describes a new test method to control the volume of air injected into a conventional HAST chamber filled with water vapour. This document provides an overview of the conventional HAST chamber, an overview of the air-HAST equipment where air is incorporated into the HAST chamber, an example of an air-HAST test apparatus, and application examples of air-HAST."
+  }
+]

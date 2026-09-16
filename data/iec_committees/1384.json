@@ -1,0 +1,650 @@
+[
+  {
+    "reference": "IEC TR 60725:2012",
+    "edition": "3.0",
+    "date": "2012-06-27",
+    "title": "Consideration of reference impedances and public supply network impedances for use in determining the disturbance characteristics of electrical equipment having a rated current ≤75 A per phase",
+    "language": "EN-FR",
+    "description": "IEC;TR 60725:2012, which is a technical report, records the information that was available and the factors that were taken into account in arriving at the reference impedances that were incorporated in IEC 60555 and which are now incorporated in some parts of IEC 61000-3. In addition, information is given on the impedances of public supply networks associated with service current capacities =100 A per phase. The third edition includes brings two mainly significant technical changes with respect to the previous edition: - a new survey and other data from countries with public supply networks operating at 60 Hz have been included; and - recommendations that were applicable to 50 Hz systems are now mirrored by new recommendations that are relevant to 60 Hz systems."
+  },
+  {
+    "reference": "IEC TR 61000-1-4:2022",
+    "edition": "2.0",
+    "date": "2022-06-07",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-4: General - Historical rationale for the limitation of power-frequency conducted harmonic current emissions from equipment, in the frequency range up to 2 kHz",
+    "language": "EN",
+    "description": "IEC TR 61000-1-4:2022 which is a technical report, reviews the sources and effects of power frequency conducted harmonic current emissions in the frequency range up to 2 kHz on the public electricity supply, and gives an account of the reasoning and calculations leading to the existing emission limits for equipment in the editions of IEC 61000-3-2, up to and including the fifth edition (2018) with Amendment 1 (2020), and in the second edition of IEC 61000-3-12. The history is traced from the first supra-national standard on low-frequency conducted emissions into the public electricity supply, EN 50006:1975 and its evolution through IEC (60)555-2 to IEC 61000-3-2, IEC TR 61000-3-4 and IEC 61000-3-12. To give a full picture of the history, that of the standard for the measuring instrument IEC 61000-4-7 is mentioned as well. NOTE All IEC standards were renumbered starting from 60000 from 1998-01-01. To indicate the references of standards withdrawn before, or not reprinted after, that date, the “60x” prefix is here enclosed in parentheses. Hence “IEC (60)555-2”. Some concepts in this document apply to all low voltage AC systems, but the numerical values apply specifically to the European 230 V;400 V 50 Hz system. This second edition cancels and replaces the first edition published in 2005. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - relation between compatibility levels, emission limits and immunity requirements clarified; - sharing of emission levels between LV, MV and HV clarified; - new historical information added."
+  },
+  {
+    "reference": "IEC TR 61000-1-7:2016",
+    "edition": "1.0",
+    "date": "2016-02-17",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-7: General - Power factor in single-phase systems under non-sinusoidal conditions",
+    "language": "EN",
+    "description": "IEC TR 61000-1-7:2016(E) provides definitions of various electrical power quantities and the relationship between them under non-sinusoidal conditions, in order to give clear information on both components in the power factor: - the fundamental power factor, which is due to the phase difference between the voltage and current at the fundamental frequency, and - the non-fundamental power factor, which is related to the distortion of the voltage and/or current. This Technical Report is applicable only to single-phase systems."
+  },
+  {
+    "reference": "IEC TR 61000-1-8:2019",
+    "edition": "1.0",
+    "date": "2019-01-16",
+    "title": "Electromagnetic compatibility - Part 1-8: Phase angles of harmonic current emissions and voltages in the public supply networks - Future expectations",
+    "language": "EN",
+    "description": "IEC TR 61000-1-8:2019, which is a technical report, provides information about the current conditions, and project future developments, of prevailing phase angles, predominantly for the 3rd and 5th harmonic currents, on public supply networks. This objective is accomplished by monitoring a number of networks, and efforts to forecast the effects of changes in technologies. This document presents information to guide the discussion about the effectiveness of potential mitigation techniques and the generalisation of effects of the prevailing angle positions of selected current harmonics. This document mainly deals with the phase angles of the 3rd and 5th harmonic currents, but also contains information about other harmonics. Keywords: 3rd and 5th harmonic currents, phase angles"
+  },
+  {
+    "reference": "IEC TR 61000-1-9:2024",
+    "edition": "1.0",
+    "date": "2024-03-11",
+    "title": "Electromagnetic compatibility (EMC) - Part 1-9: General - Evaluation of uncertainty for the measurement of harmonic current emissions",
+    "language": "EN",
+    "description": "IEC TR 61000-1-9:2024 which is a Technical Report, provides examples for the evaluation of measurement uncertainty of harmonic emission tests performed using IEC 61000-3-2 and IEC 61000-3-12, and their application to the relevant conformity decisions. It also contains practical formulae to enable calculations in accordance with ISO/IEC Guide 98-3 (GUM)."
+  },
+  {
+    "reference": "IEC TR 61000-1-9:2024/AMD1:2026",
+    "edition": "1.0",
+    "date": "2026-07-30",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 1-9: General - Evaluation of uncertainty for the measurement of harmonic current emissions",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-2-1:1990",
+    "edition": "1.0",
+    "date": "1990-05-31",
+    "title": "Electromagnetic compatibility (EMC) - Part 2: Environment - Section 1: Description of the environment - Electromagnetic environment for low-frequency conducted disturbances and signalling in public power supply systems",
+    "language": "EN-FR, ES",
+    "description": "Has the status of a technical report, and gives information on the various types of disturbances that can be expected on public power supply systems. The following disturbance phenomena are considered: - harmonics - inter-harmonics - voltage fluctuations - voltage dips and short supply interruptions - voltage unbalance - mains signalling - power frequency variation - d.c. components."
+  },
+  {
+    "reference": "IEC 61000-2-2:2002",
+    "edition": "2.0",
+    "date": "2002-03-28",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-2: Environment - Compatibility levels for low-frequency conducted disturbances and signalling in public low-voltage power supply systems",
+    "language": "EN-FR, ES",
+    "description": "This standard is concerned with conducted disturbances in the frequency range from 0 kHz to 9 kHz, with an extension up to 148,5 kHz specifically for mains signalling systems. It gives compatibility levels for public low voltage a.c. distribution systems having a nominal voltage up to 420 V, single-phase or 690 V, three-phase and a nominal frequency of 50 Hz or 60 Hz. Compatibility levels are specified for electromagnetic disturbances of the types which can be expected in public low voltage power supply systems, for guidance in: - the limits to be set for disturbance emission into public power supply systems; - the immunity limits to be set by product committees and others for the equipment exposed to the conducted disturbances present in public power supply systems."
+  },
+  {
+    "reference": "IEC 61000-2-2:2002/AMD1:2017",
+    "edition": "2.0",
+    "date": "2017-06-27",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 2-2: Environment - Compatibility levels for low-frequency conducted disturbances and signalling in public low-voltage power supply systems",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-2-2:2002/AMD2:2018",
+    "edition": "2.0",
+    "date": "2018-05-09",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Environment - Compatibility levels for low-frequency conducted disturbances and signalling in public low-voltage power supply systems",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-2-4:2024",
+    "edition": "3.0",
+    "date": "2024-07-25",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-4: Environment - Compatibility levels in power distribution systems in industrial locations for low-frequency conducted disturbances",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-2-4:2024 is related to conducted disturbances in the frequency range from 0 kHz to 150 kHz. It gives compatibility levels in differential mode (L-L and L-N) for industrial locations, with a nominal voltage up to 35 kV and a nominal frequency of 50 Hz or 60 Hz. NOTE 1 Industrial locations are defined in 3.1.8. Power distribution systems on ships, aircraft, offshore platforms and railways are not included. NOTE 2 See also Annex E. The compatibility levels specified in this document apply at the in-plant point of coupling (IPC). The level of the low-frequency disturbances at the terminals of equipment receiving its supply from the IPC is generally assumed to be similar to the disturbance level at the IPC itself. However, in some situations this is not the case, particularly when a long feeder is dedicated to the supply of a particular load, or when a disturbance is generated or amplified within the installation of which the equipment forms a part. Compatibility levels are specified for the types of low-frequency electromagnetic disturbances expected at any in-plant point of coupling (IPC) within industrial locations, for guidance in the definition of: a) limits for disturbance emissions in industrial power distribution systems (including the planning levels defined in 3.1.5); NOTE 3 A very wide range of conditions is possible in the electromagnetic environments of industrial networks. These are approximated in this document by the three classes described in Clause 4. However, it is the responsibility of the operator of such a network to take account of the particular electromagnetic and economic conditions, including equipment characteristics, in setting the above-mentioned limits. b) immunity levels for the equipment within these systems. The disturbance phenomena considered are: - voltage deviations; - voltage dips and short interruptions; - voltage imbalance; - power-frequency variations; - harmonics up to order 40; - interharmonics up to the 40th harmonic; - voltage components above the 40th harmonic up to 150 kHz; - DC component; - transient overvoltages. The compatibility levels are given for different classes of environment determined by the characteristics of the supply network and loads. NOTE 4 Compatibility levels at the point of common coupling (PCC) on public networks are specified in IEC 61000‑2‑2 for low-voltage networks and IEC 61000‑2‑12 for medium-voltage networks. IEC TR 61000‑3‑6 and IEC TR 61000‑3‑7 describe the approach of power distribution system operators to the limitation of emissions from installations and large loads. This third edition cancels and replaces the second edition published in 2002. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) introduction of new classes 2a, 2b and 2L (former class 2); b) modification of existing compatibility levels for class 3; c) addition of compatibility levels in the frequency range 2 kHz to 150 kHz; d) addition of compatibility levels using a new quantity: partial weighted harmonic distortion (PWHD)."
+  },
+  {
+    "reference": "IEC TR 61000-2-6:1995",
+    "edition": "1.0",
+    "date": "1995-09-29",
+    "title": "Electromagnetic compatibility (EMC) - Part 2: Environment - Section 6: Assessment of the emission levels in the power supply of industrial plants as regards low-frequency conducted disturbances",
+    "language": "EN-FR",
+    "description": "This publication has the status of a Technical Report - type 3."
+  },
+  {
+    "reference": "IEC TR 61000-2-7:1998",
+    "edition": "1.0",
+    "date": "1998-01-16",
+    "title": "Electromagnetic compatibility (EMC) - Part 2: Environment - Section 7: Low frequency magnetic fields in various environments",
+    "language": "EN-FR, ES",
+    "description": "Interest in magnetic fields has been stimulated in recent years by concern over the physiological effects they may have on humans and animals and the deleterious effects they have on the performance of some electrical equipment, particularly video display units. Investigations have yielded results which are presented in this report as reference values."
+  },
+  {
+    "reference": "IEC TR 61000-2-8:2002",
+    "edition": "1.0",
+    "date": "2002-11-22",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-8: Environment - Voltage dips and short interruptions on public electric power supply systems with statistical measurement results",
+    "language": "EN-FR, ES",
+    "description": "IEC TR 61000-2-8:2002, which is a technical report, describes the electromagnetic disturbance phenomena of voltage dips and short interruptions in terms of their sources, effects, remedial measures, methods of measurement, and measurement results (in so far as these are available). They are discussed primarily as phenomena observed on the networks of public electricity supply systems and having an effect on electrical equipment receiving its energy supply from those systems."
+  },
+  {
+    "reference": "IEC 61000-2-12:2003",
+    "edition": "1.0",
+    "date": "2003-04-24",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-12: Environment - Compatibility levels for low-frequency conducted disturbances and signalling in public medium-voltage power supply systems",
+    "language": "EN-FR, ES",
+    "description": "This part of IEC 61000 is concerned with conducted disturbances in the frequency range from 0 kHz to 9 kHz, with an extension up to 148,5 kHz specifically for mains signalling systems. Compatibility levels are specified for electromagnetic disturbances of the types which can be expected in public medium voltage power supply systems, for guidance in: a) the limits to be set for disturbance emission into public power supply systems (including the planning levels defined in 3.1.5); b) the immunity limits to be set by product committees and others for the equipment exposed to the conducted disturbances present in public power supply systems. The disturbance phenomena considered are: voltage fluctuations and flicker, harmonics up to and including order 50, inter-harmonics up to the 50th harmonic, voltage distortions at higher frequencies (above 50th harmonic), voltage dips and short supply interruptions, voltage unbalance, transient overvoltages, power frequency variation, d.c. components, mains signalling. The medium-voltage systems covered by this standard are public distribution systems supplying either: a) private installations in which equipment is connected directly or through transformers, or b) substations feeding public low-voltage distribution systems."
+  },
+  {
+    "reference": "IEC TR 61000-2-14:2006",
+    "edition": "1.0",
+    "date": "2006-12-13",
+    "title": "Electromagnetic compatibility (EMC) - Part 2-14: Environment - Overvoltages on public electricity distribution networks",
+    "language": "EN-FR, EN",
+    "description": "IEC TR 61000-2-14:2006 Describes the electromagnetic environment with respect to the voltages in excess of normal that are found on electricity supply networks operating at low and medium nominal voltages and that can be impressed on equipment connected to those networks, without considering further effects (e.g. amplification or attenuation) within an installation. Since these overvoltages have the potential to hinder the functioning of electrical and electronic equipment, they fall within the definition of electromagnetic disturbance in the field of EMC. Various categories of overvoltage are described, based on relative magnitude, duration and energy content. This Technical Report describes the phenomena of overvoltages, it does not specify compatibility levels and does not directly specify emission and immunity levels. The report describes the various phenomena and processes that cause overvoltages, including the transfer into the networks concerned of overvoltages that originate in or traverse other networks and installations, including higher voltage networks and the installations of electricity users. The effects of overvoltages on equipment are outlined. Some case studies of overvoltage events are presented. Recommendations are made regarding the general technical approach to mitigating the risk of equipment being hindered from operating as intended by the effects of overvoltages. (It is not the function of IEC publications to assign responsibility for mitigating measures to any of the parties involved.) The purpose of this report is to ensure that this important category of electromagnetic disturbance is included in the description of the environment in Part 2 of IEC 61000. For that purpose, only a brief description is provided of the various overvoltages and their causes and effects. A much more detailed treatment can be found in IEC 62066. A UIE publication - Guide to quality of electrical supply for industrial installations, Part VI: Transient and temporary overvoltages and currents - has a similar content. Measurement methods are specified in IEC 61000-4-30."
+  },
+  {
+    "reference": "IEC TR 61000-2-15:2023",
+    "edition": "1.0",
+    "date": "2023-02-24",
+    "title": "Electromagnetic compatibility - Part 2-15: Description of the characteristics of networks with high penetration of power electronic converters",
+    "language": "EN",
+    "description": "IEC TR 61000-2-15: 2023 which is a Technical Report, addresses in particular the following main phenomena, which affect the power quality in modern distribution systems with high penetration of power electronics converters. As some aspects of the subject have already been addressed in the past, considering the evolution of the LV and MV networks, this document focuses on the following aspects: resonances in the network, modelling and on-site validation; supraharmonics and measurements issues; impact of increased number of power electronic converters; stability and instability issues for the equipment to be connected The target phenomena and conditions of this document are the following: frequency: ≤ 2 kHz, 2 kHz to 9 kHz, ≥ 9 kHz; voltage levels: LV, MV; harmonic sources: all types of converters (EV battery chargers, appliances, etc.…). Some of these frequency ranges have already been standardized in some countries (Japan, Germany, Switzerland, etc.), but the resulting phenomena developed will benefit being described in more details, with a focus on the interaction between the converters and the electrical networks. The case of the presence of a large number of converters is also at stake. Some complex phenomena can also arise when the full system is not stable anymore. NOTE Whereas it is expected that the models and derived calculations form this document can be applied to the Americas electrical systems its formal validation studies are still pending."
+  },
+  {
+    "reference": "IEC 61000-3-2:2018",
+    "edition": "5.0",
+    "date": "2018-01-26",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-2: Limits - Limits for harmonic current emissions (equipment input current ≤16 A per phase)",
+    "language": "EN-FR",
+    "description": "IEC 61000-3-2:2018 deals with the limitation of harmonic currents injected into the public supply system. It specifies limits of harmonic components of the input current which can be produced by equipment tested under specified conditions. It is applicable to electrical and electronic equipment having a rated input current up to and including 16 A per phase, and intended to be connected to public low-voltage distribution systems. Arc welding equipment which is not professional equipment, with a rated input current up to and including 16 A per phase, is included in this document. Arc welding equipment intended for professional use, as specified in IEC 60974-1, is excluded from this document and can be subject to installation restrictions as indicated in IEC 61000-3-12. The tests according to this document are type tests. For systems with nominal voltages less than but not equal to 220 V (line-to-neutral), the limits have not yet been considered. This fifth edition cancels and replaces the fourth edition published in 2014. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) an update of the emission limits for lighting equipment with a rated power = 25 W to take into account new types of lighting equipment; b) the addition of a threshold of 5 W under which no emission limits apply to all lighting equipment; c) the modification of the requirements applying to the dimmers when operating non-incandescent lamps; d) the addition of test conditions for digital load side transmission control devices; e) the removal of the use of reference lamps and reference ballasts for the tests of lighting equipment; f) the simplification and clarification of the terminology used for lighting equipment; g) the classification of professional luminaires for stage lighting and studios under Class A; h) a clarification about the classification of emergency lighting equipment; i) a clarification for lighting equipment including one control module with an active input power = 2 W; j) an update of the test conditions for television receivers; k) an update of the test conditions for induction hobs, taking also into account the other types of cooking appliances; l) for consistency with IEC 61000-3-12, a change of the scope of IEC 61000-3-2 from equipment with an input current = 16 A to equipment with a rated input current = 16 A."
+  },
+  {
+    "reference": "IEC 61000-3-2:2018/AMD1:2020",
+    "edition": "5.0",
+    "date": "2020-07-14",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 3-2: Limits - Limits for harmonic current emissions (equipment input current ≤16 A per phase)",
+    "language": "EN-FR, EN",
+    "description": "The contents of the Interpretation sheet of August 2021, applying to the English version only, have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-3-2:2018/AMD1:2020/ISH1:2021",
+    "edition": "5.0",
+    "date": "2021-08-27",
+    "title": "Interpretation Sheet 1 - Amendment 1 - Electromagnetic compatibility (EMC) - Part 3-2: Limits - Limits for harmonic current emissions (equipment input current ≤16 A per phase)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-3-2:2018/AMD2:2024",
+    "edition": "5.0",
+    "date": "2024-03-04",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 3-2: Limits - Limits for harmonic current emissions (equipment input current ≤ 16 A per phase)",
+    "language": "EN-FR",
+    "description": "The contents of the Interpretation sheet 1 (2025-04), applying to the English version only, have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-3-2:2018/AMD2:2024/ISH1:2025",
+    "edition": "5.0",
+    "date": "2025-04-03",
+    "title": "Interpretation Sheet 1 - Amendment 2 - Electromagnetic compatibility (EMC) - Part 3-2: Limits - Limits for harmonic current emissions (equipment input current ≤ 16 A per phase)",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-3-3:2013",
+    "edition": "3.0",
+    "date": "2013-05-14",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-3: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems, for equipment with rated current ≤16 A per phase and not subject to conditional connection",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-3-3:2013 is concerned with the limitation of voltage fluctuations and flicker impressed on the public low-voltage system. It specifies limits of voltage changes which may be produced by an equipment tested under specified conditions and gives guidance on methods of assessment. It is applicable to electrical and electronic equipment having an input current equal to or less than 16 A per phase, intended to be connected to public low-voltage distribution systems of between 220 V and 250 V line to neutral at 50 Hz, and not subject to conditional connection. IEC 61000-3-3 has the status of a product family standard within the IEC 61000 series. This third edition cancels and replaces the second edition published in 2008. This edition constitutes a technical revision which takes account of the changes made in IEC 61000-4-15:2010."
+  },
+  {
+    "reference": "IEC 61000-3-3:2013/AMD1:2017",
+    "edition": "3.0",
+    "date": "2017-05-18",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 3-3: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems, for equipment with rated current ≤ 16 A per phase and not subject to conditional connection",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-3-3:2013/AMD2:2021",
+    "edition": "3.0",
+    "date": "2021-03-25",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 3-3: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems, for equipment with rated current ≤16 A per phase and not subject to conditional connection",
+    "language": "EN-FR, EN, ES",
+    "description": "The contents of the corrigendum 1 (2022-01) and the Interpretation sheet 1 (2025-04) (applying to the English version only), have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-3-3:2013/AMD2:2021/ISH1:2025",
+    "edition": "3.0",
+    "date": "2025-04-03",
+    "title": "Interpretation Sheet 1 - Amendment 2 - Electromagnetic compatibility (EMC) - Part 3-3: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems, for equipment with rated current ≤16 A per phase and not subject to conditional connection",
+    "language": "EN",
+    "description": "The contents of the corrigendum 1 (2022-01) and the Interpretation sheet 1 (2025-04) (applying to the English version only), have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-3-3:2013/AMD2:2021/COR1:2022",
+    "edition": "3.0",
+    "date": "2022-01-10",
+    "title": "Corrigendum 1 - Amendment 2 - Electromagnetic compatibility (EMC) - Part 3-3: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems, for equipment with rated current ≤16 A per phase and not subject to conditional connection",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61000-3-4:1998",
+    "edition": "1.0",
+    "date": "1998-10-30",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-4: Limits - Limitation of emission of harmonic currents in low-voltage power supply systems for equipment with rated current greater than 16 A",
+    "language": "EN-FR, ES",
+    "description": "The recommendations of this technical report are applicable to electrical and electronic equipment with a rated input current exceeding 16 A per phase and intended to be connected to public low-voltage a.c. distribution systems of the following types: - nominal voltage up to 240 V, single-phase, two or three wires; - nominal voltage up to 600 V, three-phase, three or four wires; - nominal frequency 50 Hz or 60 Hz. These recommendations specify the information required to enable a supply authority to assess equipment regarding harmonic disturbance and to decide wether or not the equipment is acceptable for connection with regard to the harmonic distortion aspect. This document is not to be regarded as an International Standard."
+  },
+  {
+    "reference": "IEC TS 61000-3-5:2009",
+    "edition": "2.0",
+    "date": "2009-07-08",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-5: Limits - Limitation of voltage fluctuations and flicker in low-voltage power supply systems for equipment with rated current greater than 75 A",
+    "language": "EN-FR",
+    "description": "IEC/TS 61000-3-5:2009 deals with emission of disturbances due to voltage fluctuations and flicker. The recommendations in this Technical Specification are applicable to electrical and electronic equipment that has a rated input current exceeding 75 A per phase and is intended to be connected to a public low-voltage a.c. distribution system. Recommendations that specify information enabling a supply authority, manufacturer, or consumer to assess equipment are given in Annex A. This second edition cancels and replaces IEC 61000-3-5, published as Technical Report type 2 in 1994 and constitutes a technical revision. It includes the following significant technical changes with respect to the previous edition: the whole document and the title have been modified to eliminate any conflict with the published IEC 61000-3-11. The contents of the corrigenda of September 2009 and May 2010 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 61000-3-5:2009/COR1:2009",
+    "edition": "2.0",
+    "date": "2009-09-23",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 3-5: Limits - Limitation of voltage fluctuations and flicker in low-voltage power supply systems for equipment with rated current greater than 75 A",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 61000-3-5:2009/COR2:2010",
+    "edition": "2.0",
+    "date": "2010-05-19",
+    "title": "Corridendum 2 - Electromagnetic compatibility (EMC) - Part 3-5: Limits - Limitation of voltage fluctuations and flicker in low-voltage power supply systems for equipment with rated current greater than 75 A",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-3-6:2008",
+    "edition": "2.0",
+    "date": "2008-02-22",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-6: Limits - Assessment of emission limits for the connection of distorting installations to MV, HV and EHV power systems",
+    "language": "EN",
+    "description": "This Technical Report, which is informative in its nature, provides guidance on principles which can be used as the basis for determining the requirements for the connection of distorting installations to MV, HV and EHV public power systems (LV installations are covered in other IEC documents). For the purposes of this report, a distorting installation means an installation (which may be a load or a generator) that produces harmonics and/or interharmonics. The primary objective is to provide guidance to system operators or owners on engineering practices, which will facilitate the provision of adequate service quality for all connected customers. In addressing installations, this document is not intended to replace equipment standards for emission limits. The report addresses the allocation of the capacity of the system to absorb disturbances. It does not address how to mitigate disturbances, nor does it address how the capacity of the system can be increased. Since the guidelines outlined in this report are necessarily based on certain simplifying assumptions, there is no guarantee that this approach will always provide the optimum solution for all harmonic situations. The recommended approach should be used with flexibility and judgment as far as engineering is concerned, when applying the given assessment procedures in full or in part. The system operator or owner is responsible for specifying requirements for the connection of distorting installations to the system. The distorting installation is to be understood as the customer's complete installation (i.e. including distorting and non-distorting parts). Problems related to harmonics fall into two basic categories: / - Harmonic currents that are injected into the supply system by converters and harmonic sources, giving rise to harmonic voltages in the system. Both harmonic currents and resulting voltages can be considered as conducted phenomena. - Harmonic currents that induce interference into communication systems. This phenomenon is more pronounced at higher order harmonic frequencies because of increased coupling between the circuits and because of the higher sensitivity of the communication circuits in the audible range. This report gives guidance for the co-ordination of the harmonic voltages between different voltage levels in order to meet the compatibility levels at the point of utilisation. The recommendations in this report do not address harmonic interference phenomena in communication circuits (i.e. only the first of the above categories is addressed). This second edition cancels and replaces the first edition published in 1996 and constitutes a technical revision. This edition is significantly more streamlined than first edition, and it reflects the experiences gained in the application of the first edition. As part of this streamlining process, this second edition of IEC/TR 61000-3-6 does not address communications circuit interference. Clause 9 on this (section 10) was removed, as this did not suitably address emission limits for telephone interference. The scope has been adjusted to point out that IEC/TR 61000-3-6 does not address communications circuit interference. This edition has also been harmonised with IEC/TR 61000-3-7 and IEC/TR 61000-3-13. This Technical Report has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC TR 61000-3-7:2008",
+    "edition": "2.0",
+    "date": "2008-02-22",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-7: Limits - Assessment of emission limits for the connection of fluctuating installations to MV, HV and EHV power systems",
+    "language": "EN",
+    "description": "This part of IEC 61000 provides guidance on principles which can be used as the basis for determining the requirements for the connection of fluctuating installations to MV, HV and EHV public power systems (LV installations are covered in other IEC documents). For the purposes of this report, a fluctuating installation means an installation (which may be a load or a generator) that produces voltage flicker and / or rapid voltage changes. The primary objective is to provide guidance to system operators or owners on engineering practices which will facilitate the provision of adequate service quality for all connected customers. In addressing installations, this document is not intended to replace equipment standards for emission limits. This report addresses the allocation of the capacity of the system to absorb disturbances. It does not address how to mitigate disturbances, nor does it address how the capacity of the system can be increased. Since the guidelines outlined in this report are necessarily based on certain simplifying assumptions, there is no guarantee that this approach will always provide the optimum solution for all flicker situations. The recommended approach should be used with flexibility and engineering judgment as far as engineering is concerned, when applying the given assessment procedures in full or in part. The system operator or owner is responsible for specifying requirements for the connection of fluctuating installations to the system. The fluctuating installation is to be understood as the customer's complete installation (i.e. including fluctuating and non fluctuating parts). Problems related to voltage fluctuations fall into two basic categories: - Flicker effect from light sources as a result of voltage fluctuations; - Rapid voltage changes even within the normal operational voltage tolerances are considered as a disturbing phenomenon. The report gives guidance for the coordination of the flicker emissions between different voltage levels in order to meet the compatibility levels at the point of utilisation. This report primarily focuses on controlling or limiting flicker, but a clause is included to address the limitation of rapid voltage changes. This second edition cancels and replaces the first edition published in 1996 and constitutes a technical revision. This new edition is significantly more streamlined than the original technical report (Edition 1), and reflects the experiences gained in the application of the first edition. This technical report has also been harmonised with IEC/TR 61000-3-6 and IEC/TR 61000-3-13. This Technical Report has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC 61000-3-8:1997",
+    "edition": "1.0",
+    "date": "1997-09-26",
+    "title": "Electromagnetic compatibility (EMC) - Part 3: Limits - Section 8: Signalling on low-voltage electrical installations - Emission levels, frequency bands and electromagnetic disturbance levels",
+    "language": "EN-FR",
+    "description": "Applies to electrical equipment using signals in the frequency range from 3 kHz up to 525 kHz to transmit information on low-voltage electrical installations, either on the public supply system or within customers' premises. Specifies frequency bands allocated to different applications (where appropriate), limits for the terminal output voltage in the operating band and limits for conducted and radiated disturbance. It also gives the methods of measurement. Specifies disturbance limits in the frequency range from 3 kHz up to 400 GHz."
+  },
+  {
+    "reference": "IEC 61000-3-11:2017",
+    "edition": "2.0",
+    "date": "2017-04-21",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-11: Limits - Limitation of voltage changes, voltage fluctuations and flicker in public low-voltage supply systems - Equipment with rated current ≤ 75 A and subject to conditional connection",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-3-11:2017 is concerned with the emission of voltage changes, voltage fluctuations and flicker produced by equipment and impressed on the public low-voltage supply system. It specifies the limits of voltage changes produced by equipment tested under specified conditions. This edition includes the following significant technical changes with respect to the previous edition: a) addition of a new Annex A which explains the limitations and effectiveness of IEC 61000-3-11 regarding the connection of multiple items of similar equipment at the same location in the supply network."
+  },
+  {
+    "reference": "IEC 61000-3-12:2011",
+    "edition": "2.0",
+    "date": "2011-05-12",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-12: Limits - Limits for harmonic currents produced by equipment connected to public low-voltage systems with input current >16 A and ≤ 75 A per phase",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-3-12:2011 deals with the limitation of harmonic currents injected into the public supply system. The limits given in this International Standard are applicable to electrical and electronic equipment with a rated input current exceeding 16 A and up to and including 75 A per phase, intended to be connected to public low-voltage a.c. distribution systems of the following types: - nominal voltage up to 240 V, single-phase, two or three wires; - nominal voltage up to 690 V, three-phase, three or four wires; - nominal frequency 50 Hz or 60 Hz. Other distribution systems are excluded. The limits given in this edition apply to equipment when connected to 230/400 V, 50 Hz systems. This standard applies to equipment intended to be connected to low-voltage systems interfacing with the public supply at the low-voltage level. It does not apply to equipment intended to be connected only to private low-voltage systems interfacing with the public supply only at the medium- or high-voltage level. This standard defines: a) requirements and emission limits for equipment; b) methods for type tests and simulations. Tests according to this International Standard are type tests of complete pieces of equipment. Conformity with this standard can also be determined by validated simulations. This second edition cancels and replaces the first edition published in 2004 and constitutes a technical revision. The significant technical changes with respect to the previous edition are: - the replacement of the reference fundamental current I1 by the reference current Iref for the calculation of emission limits; - a new added table of current emission limits (Table 5); - a new added annex (Annex A) to define test conditions for some types of equipment; - Deletion of the former Annexes B (Approximate interpolation formulas) and D (Information on the PWHD factor)."
+  },
+  {
+    "reference": "IEC 61000-3-12:2011/ISH1:2012",
+    "edition": "2.0",
+    "date": "2012-09-18",
+    "title": "Interpretation sheet 1 - Electromagnetic compatibility (EMC) - Part 3-12: Limits - Limits for harmonic currents produced by equipment connected to public low-voltage systems with input current >16 A and ≤ 75 A per phase",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-3-12:2011/AMD1:2021",
+    "edition": "2.0",
+    "date": "2021-06-04",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 3-12: Limits - Limits for harmonic currents produced by equipment connected to public low-voltage systems with input current >16 A and ≤ 75 A per phase",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-3-13:2008",
+    "edition": "1.0",
+    "date": "2008-02-22",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-13: Limits - Assessment of emission limits for the connection of unbalanced installations to MV, HV and EHV power systems",
+    "language": "EN",
+    "description": "This part of IEC 61000 provides guidance on principles which can be used as the basis for determining the requirements for the connection of unbalanced installations (i.e. three-phase installations causing voltage unbalance) to MV, HV and EHV public power systems (LV installations are covered in other IEC documents). For the purposes of this report, an unbalanced installation means a three-phase installation (which may be a load or a generator) that produces voltage unbalance on the system. The connection of single-phase installations is not specifically addressed, as the connection of such installations is under the control of the system operator or owner. The general principles however may be adapted when considering the connection of single-phase installations. The primary objective is to provide guidance to system operators or owners on engineering practices, which will facilitate the provision of adequate service quality for all connected customers. In addressing installations, this document is not intended to replace equipment standards for emission limits. The report addresses the allocation of the capacity of the system to absorb disturbances. It does not address how to mitigate disturbances, nor does it address how the capacity of the system can be increased. Since the guidelines outlined in this report are necessarily based on certain simplifying assumptions, there is no guarantee that this approach will always provide the optimum solution for all unbalanced load situations. The recommended approach should be used with flexibility and judgment as far as engineering is concerned, when applying the given assessment procedures in full or in part. The system operator or owner is responsible for specifying requirements for the connection of installations which may cause unbalance on the system. The disturbing installation is to be understood as the complete customer's installation (i.e. including balanced and unbalanced parts). Problems related to unbalance fall into two basic categories. - Unbalanced installations that draw negative-sequence currents which produce negative-sequence voltages on the supply system. Examples of such installations include arc furnaces and traction loads (typically connected to the public network at HV), and three phase installations where the individual loads are not balanced (typically connected at MV and LV). Negative-sequence voltage superimposed onto the terminal voltage of rotating machines can produce additional heat losses. Negative-sequence voltage can also cause non-characteristic harmonics (typically positive-sequence 3rd harmonic) to be produced by power converters. - Unbalanced installations connected line-to-neutral can also draw zero-sequence currents which can be transferred or not into the supply system depending on the type of connection of the coupling transformer. The flow of zero-sequence currents in a grounded neutral system causes zero-sequence unbalance affecting line-to-neutral voltages. This is not normally controlled by setting emission limits, but rather by system design and maintenance. Ungrounded-neutral systems and phase-to-phase connected installations are not, however, affected by this kind of voltage unbalance. This report gives guidance only for the coordination of the negative-sequence type of voltage unbalance between different voltage levels in order to meet the compatibility levels at the point of utilisation. No compatibility levels are defined for zero-sequence type of voltage unbalance as this is often considered as being less relevant to the coordination of unbalance levels compared to the first type of voltage unbalance. However, for situations where a non-zero impedance exists between neutral and earth with the system still being effectively grounded (i.e., where the ratio between zero-sequence, X0 and positive sequence reactance X1 is 0 < X0/X1 = 3), this type of voltage unbalance can be of concern especially when the type of connection of the coupling transformer allows zero-sequence path to flow from MV to LV and vice-versa. This Technical Report has the status of a basic EMC publication in accordance with IEC Guide 107. The contents of the corrigendum of April 2010 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 61000-3-13:2008/COR1:2010",
+    "edition": "1.0",
+    "date": "2010-04-22",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 3-13: Limits - Assessment of emission limits for the connection of unbalanced installations to MV, HV and EHV power systems",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-3-14:2011",
+    "edition": "1.0",
+    "date": "2011-10-20",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-14: Assessment of emission limits for harmonics, interharmonics, voltage fluctuations and unbalance for the connection of disturbing installations to LV power systems",
+    "language": "EN-FR, EN",
+    "description": "IEC TR 61000-3-14:2011 is a Technical Report which provides guidance on principles that can be used as the basis for determining the requirements for the connection of disturbing installations to low voltage (LV) public power systems. For the purposes of this part of IEC 61000, a disturbing installation means an installation (which may be a load or a generator) that produces disturbances: harmonics and/or interharmonics, voltage flicker and/or rapid voltage changes, and/or voltage unbalance. The primary objective is to provide guidance to system operators or owners for engineering practices, which will facilitate the provision of adequate service quality for all connected customer installations. In addressing installations, this report is not intended to replace equipment standards for emission limits. This report addresses the allocation of the capacity of the system to absorb disturbances. It does not address how to mitigate disturbances, nor does it address how the capacity of the system can be increased."
+  },
+  {
+    "reference": "IEC TR 61000-3-15:2011",
+    "edition": "1.0",
+    "date": "2011-09-13",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-15: Limits - Assessment of low frequency electromagnetic immunity and emission requirements for dispersed generation systems in LV network",
+    "language": "EN",
+    "description": "IEC/TR 61000-3-15:2011(E) is concerned with the critical assessment of existing and emerging national and international standards for single and multi-phase dispersed generation systems up to 75 A per phase, particularly converters connected to the public supply low voltage network. This Technical Report intends to serve as a starting point and to ultimately pave the way for the definition of appropriate EMC requirements and test conditions. This Technical Report is limited to EMC issues (immunity and emission) up to 9 kHz and does not include other aspects of connection of generators to the grid. This Technical Report focuses on emission caused by distributed generation (mainly harmonics and inter-harmonics, DC emissions flicker, rapid voltage changes and fluctuations), as well as immunity aspects to normally occurring events in the public supply network (voltage dips and short interruptions, frequency variations, harmonics and interharmonics). Every effort has been made to utilize already existing emission and immunity standards, including the test set-up and existing test equipment in use."
+  },
+  {
+    "reference": "IEC TS 61000-3-16:2023",
+    "edition": "1.0",
+    "date": "2023-11-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-16: Limits - Limits for harmonic currents produced by the inverter of inverter-type electrical energy-supplying equipment, with a reference current less than or equal to 75 A per phase, connected to public low-voltage systems",
+    "language": "EN",
+    "description": "IEC TS 61300-3-16:2023 which is a technical specification, deals with the limits for harmonic (including grouped interharmonic) currents produced by the inverter of inverter-type electrical energy-supplying equipment (ESE) as defined in 3.2, but which does not include energy storage. The limits given in this document are applicable to inverters with a reference current as defined in 3.3 (see also 5.2.3) less than or equal to 75 A per phase, intended to be connected to public low-voltage AC distribution systems of the following types: - single-phase, two or three wires; nominal voltage up to 240 V - three-phase, three or four wires; nominal voltage up to 690 V - nominal frequency of 50 Hz or 60 Hz. This document specifies: a) requirements and emission limits for equipment; b) methods for type tests and simulations. Tests in accordance with this document are type tests of complete pieces of equipment. Equipment which mainly absorbs energy but which is capable of supplying energy to the public supply as a secondary function is out of the scope of this document. EXAMPLE An elevator motor drive returning energy during braking. This document provides limits and testing procedures for equipment in the range up to harmonic order 40 (h40), i.e. 2 000 Hz or 2 400 Hz depending on line frequency. NOTE 1 It is possible that limits for frequencies in the range from 2 kHz to 9 kHz will be added in a future edition of this document. NOTE 2 It is possible that limits and procedures for storage systems will be added in a future edition of this document."
+  },
+  {
+    "reference": "IEC TR 61000-3-18:2024",
+    "edition": "1.0",
+    "date": "2024-02-06",
+    "title": "Electromagnetic compatibility (EMC) - Part 3-18: Limits - Assessment of network characteristics for the application of harmonic emission limits - Equipment connected to LV distribution systems not covered by IEC 61000-3-2 and IEC 61000-3-12",
+    "language": "EN",
+    "description": "IEC TR 61000-3-18:2024 which is a technical report, reports on the development of a methodology for adapting IEC equipment emission limits from IEC 61000-3-2 and IEC 61000-3-12 for use in regions not covered by these documents. It identifies gaps in the existing equipment emission limit standards concerning their international applicability and identifies public power system characteristics important for the evaluation of harmonic voltage performance. The purpose of adapting the above-mentioned IEC equipment harmonic emission standards in a particular region is to maintain similar electromagnetic compatibility (EMC) of equipment up to 75 A per phase in the public power systems in those regions. NOTE The boundaries between the various voltage levels differ amongst different countries (see IEC 60050‑601:1985, 601-01-28). This document uses the following terms when referring to 50 Hz and 60 Hz system voltages: - low voltage (LV) refers to Un ≤ 1 kV; - medium voltage (MV) refers to 1 kV < Un ≤ 35 kV; - high voltage (HV) refers to 35 kV < Un ≤ 230 kV. EMC requirements can have economic and societal impacts; these have not been considered in the development of this document. The consideration of these factors generally occurs in the technical committees working on development and maintenance of emission limit standards."
+  },
+  {
+    "reference": "IEC 61000-4-7:2002",
+    "edition": "2.0",
+    "date": "2002-08-08",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-7: Testing and measurement techniques - General guide on harmonics and interharmonics measurements and instrumentation, for power supply systems and equipment connected thereto",
+    "language": "EN-FR, EN, FR, ES",
+    "description": "Applies to instrumentation intended for measuring spectral components in the frequency range up to 9 kHz which are superimposed on the fundamental of the power supply systems at 50 Hz and 60 Hz. For practical considerations, this standard distinguishes between harmonics, interharmonics and other components above the harmonic frequency range, up to 9 kHz. Defines the measurement instrumentation intended for testing individual items of equipment in accordance with emission limits given in certain standards (for example, harmonic current limits as given in IEC 61000-3-2) as well as for the measurement of harmonic currents and voltages in actual supply systems. The contents of the corrigendum of July 2004 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-4-7:2002/COR1:2004",
+    "edition": "2.0",
+    "date": "2004-07-21",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 4-7: Testing and measurement techniques - General guide on harmonics and interharmonics measurements and instrumentation, for power supply systems and equipment connected thereto",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-7:2002/AMD1:2008",
+    "edition": "2.0",
+    "date": "2008-06-11",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-7: Testing and measurement techniques - General guide on harmonics and interharmonics measurements and instrumentation, for power supply systems and equipment connected thereto",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-8:2009",
+    "edition": "2.0",
+    "date": "2009-09-03",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-8: Testing and measurement techniques - Power frequency magnetic field immunity test",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-4-8:2009 relates to the immunity requirements of equipment, only under operational conditions, to magnetic disturbances at power frequencies 50 Hz and 60 Hz related to: - residential and commercial locations; - industrial installations and power plants; - medium voltage and high voltage sub-stations. The applicability of IEC 61000-4-8:2009 to equipment installed in different locations is determined by the presence of the phenomenon, as specified in Clause 4. This standard does not consider disturbances due to capacitive or inductive coupling in cables or other parts of the field installation. Other IEC standards dealing with conducted disturbances cover these aspects. The object of IEC 61000-4-8:2009 is to establish a common and reproducible basis for evaluating the performance of electrical and electronic equipment for household, commercial and industrial applications when subjected to magnetic fields at power frequency (continuous and short duration field). IEC 61000-4-8:2009 defines: - recommended test levels; - test equipment; - test set-up; - test procedure. This second edition cancels and replaces the first edition published in 1993 and its Amendment 1 (2000). It forms a technical revision. This edition includes the following significant technical changes with respect to the previous edition: the scope is extended in order to cover 60 Hz. Characteristics, performance and verification of the test generator and related inductive coils are revised. Modifications are also introduced in the test set-up (GRP) and test procedure. IEC 61000-4-8:2009 has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC 61000-4-11:2020",
+    "edition": "3.0",
+    "date": "2020-01-28",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-11: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with input current up to 16 A per phase",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-4-11:2020 defines the immunity test methods and range of preferred test levels for electrical and electronic equipment connected to low-voltage power supply networks for voltage dips, short interruptions, and voltage variations. This document applies to electrical and electronic equipment having a rated input current not exceeding 16 A per phase, for connection to 50 Hz or 60 Hz AC networks. It does not apply to electrical and electronic equipment for connection to 400 Hz AC networks. Tests for these networks will be covered by future IEC documents. The object of this document is to establish a common reference for evaluating the immunity of electrical and electronic equipment when subjected to voltage dips, short interruptions and voltage variations. NOTE 1 Voltage fluctuation immunity tests are covered by IEC 61000-4-14. The test method documented in this document describes a consistent method to assess the immunity of equipment or a system against a defined phenomenon. NOTE 2 As described in IEC Guide 107, this is a basic EMC publication for use by product committees of the IEC. As also stated in Guide 107, the IEC product committees are responsible for determining whether this immunity test standard should be applied or not, and, if applied, they are responsible for defining the appropriate test levels. Technical committee 77 and its sub-committees are prepared to co-operate with product committees in the evaluation of the value of particular immunity tests for their products. This third edition cancels and replaces the second edition published in 2004 and Amendment 1:2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - rise time and fall time of transients are now defined terms in Clause 3; - the origin of voltage dips and short interruptions is now stated in Clause 4. The contents of the corrigendum of May 2020 and October 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-4-11:2020/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-05-28",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 4-11: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with input current up to 16 A per phase",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-11:2020/COR2:2022",
+    "edition": "3.0",
+    "date": "2022-10-13",
+    "title": "Corrigendum 2 - Electromagnetic compatibility (EMC) - Part 4-11: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with input current up to 16 A per phase",
+    "language": "EN-FR",
+    "description": "I"
+  },
+  {
+    "reference": "IEC 61000-4-13:2002",
+    "edition": "1.0",
+    "date": "2002-03-27",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-13: Testing and measurement techniques - Harmonics and interharmonics including mains signalling at a.c. power port, low frequency immunity tests",
+    "language": "EN-FR, ES",
+    "description": "Defines the immunity test methods and range of recommended basic test levels for electrical and electronic equipment with rated current up to 16 A per phase at disturbance frequencies up to and including 2 kHz (for 50 Hz mains) and 2,4 kHz (for 60 Hz mains) for harmonics and interharmonics on low voltage power networks. Establishes a common reference for evaluating the functional immunity of electrical and electronic equipment when subjected to harmonics and inter-harmonics and mains signalling frequencies. The test method documented in this part of IEC 61000 describes a consistent method to assess the immunity of an equipment or system against a defined phenomenon."
+  },
+  {
+    "reference": "IEC 61000-4-13:2002/AMD1:2009",
+    "edition": "1.0",
+    "date": "2009-05-13",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-13: Testing and measurement techniques - Harmonics and interharmonics including mains signalling at a.c. power port, low frequency immunity tests",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-13:2002/AMD2:2015",
+    "edition": "1.0",
+    "date": "2015-12-14",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-13: Testing and measurement techniques - Harmonics and interharmonics including mains signalling at a.c. power port, low frequency immunity test",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-14:1999",
+    "edition": "1.0",
+    "date": "1999-02-23",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-14: Testing and measurement techniques - Voltage fluctuation immunity test",
+    "language": "EN-FR, ES",
+    "description": "Applies to electrical and/or electronic equipment that have a rated input current up to 16 A per phase. Aims to establish a reference for evaluating the immunity of electric and/or electronic equipment when subjected to positive and negative low amplitude voltage fluctuations. Only conducted phenomena are considered, including immunity tests for equipment connected to public and industrial power supply networks. Has the status of a Basic EMC publication."
+  },
+  {
+    "reference": "IEC 61000-4-14:1999/AMD1:2001",
+    "edition": "1.0",
+    "date": "2001-07-11",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-14: Testing and measurement techniques - Voltage fluctuation immunity test",
+    "language": "EN-FR, ES",
+    "description": "Subclause 8.1 (Climatic conditions) and clause 9 (Evaluation of test results) have been amended. Contains a new clause 10 (Test report)."
+  },
+  {
+    "reference": "IEC 61000-4-14:1999/AMD2:2009",
+    "edition": "1.0",
+    "date": "2009-05-13",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-14: Testing and measurement techniques - Voltage fluctuation immunity test for equipment with input current not exceeding 16 A per phase",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-15:2010",
+    "edition": "2.0",
+    "date": "2010-08-24",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-15: Testing and measurement techniques - Flickermeter - Functional and design specifications",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-4-15:2010 gives a functional and design specification for flicker measuring apparatus intended to indicate the correct flicker perception level for all practical voltage fluctuation waveforms. Information is presented to enable such an instrument to be constructed. A method is given for the evaluation of flicker severity on the basis of the output of flickermeters complying with this standard. The flickermeter specifications in this part of IEC 61000 relate only to measurements of 120 V and 230 V, 50 Hz and 60 Hz inputs. Characteristics of some incandescent lamps for other voltages are sufficiently similar to the values in Table 1 and Table 2, that the use of a correction factor can be applied for those other voltages. Some of these correction factors are provided in the Annex B. Detailed specifications for voltages and frequencies other than those given above, remain under consideration. The object of this part of IEC 61000 is to provide basic information for the design and the instrumentation of an analogue or digital flicker measuring apparatus. It does not give tolerance limit values of flicker severity. This second edition cancels and replaces the first edition published in 1997 and its Amendment 1 (2003) and constitutes a technical revision. This new edition, in particular, adds or clarifies the definition of several directly measured parameters, so that diverging interpretations are avoided. It has the status of a basic EMC publication in accordance with IEC Guide 107. The contents of the corrigendum of March 2012 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-4-15:2010/ISH1:2017",
+    "edition": "2.0",
+    "date": "2017-08-23",
+    "title": "Interpretation Sheet 1 - Electromagnetic compatibility (EMC) - Part 4-15: Testing and measurement techniques - Flickermeter - Functional and design specifications",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-15:2010/COR1:2012",
+    "edition": "2.0",
+    "date": "2012-03-05",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 4-15: Testing and measurement techniques - Flickermeter - Functional and design specifications",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-16:2015",
+    "edition": "2.0",
+    "date": "2015-12-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-16: Testing and measurement techniques - Test for immunity to conducted, common mode disturbances in the frequency range 0 Hz to 150 kHz",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-4-16:2015 relates to the immunity requirements and test methods for electrical and electronic equipment to conducted, common mode disturbances in the range d.c. to 150 kHz. The object of this standard is to establish a common and reproducible basis for testing electrical and electronic equipment with the application of common mode disturbances to power supply, control, signal and communication ports. It has the status of a basic EMC publication in accordance with IEC Guide 107. This second edition cancels and replaces the first edition published in 1998, Amendment 1:2001 and Amendment 2:2009. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 61000-4-17:1999",
+    "edition": "1.0",
+    "date": "1999-06-09",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-17: Testing and measurement techniques - Ripple on d.c. input power port immunity test",
+    "language": "EN-FR, ES",
+    "description": "Defines test methods for immunity to ripple at the d.c. input power port of electrical or electronic equipment. Applies to low-voltage d.c. power ports of equipment supplied by external rectifier systems, or batteries which are being charged. This standard defines - test voltage waveform; - range of test levels; - test generator; - test set-up; - test procedure."
+  },
+  {
+    "reference": "IEC 61000-4-17:1999/AMD1:2001",
+    "edition": "1.0",
+    "date": "2001-07-11",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-17: Testing and measurement techniques - Ripple on d.c. input power port immunity test",
+    "language": "EN-FR, ES",
+    "description": "Subclause 8.1.1 (Climatic conditions) and clause 9 (Evaluation of test results) have been amended. Contains a new clause 10 (Test report)."
+  },
+  {
+    "reference": "IEC 61000-4-17:1999/AMD2:2008",
+    "edition": "1.0",
+    "date": "2008-11-27",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-17: Testing and measurement techniques - Ripple on d.c. input power port immunity test",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-19:2014",
+    "edition": "1.0",
+    "date": "2014-05-07",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-19: Testing and measurement techniques - Test for immunity to conducted, differential mode disturbances and signalling in the frequency range 2 kHz to 150 kHz at a.c. power ports",
+    "language": "EN-FR, ES",
+    "description": "IEC 61000-4-19:2014 relates to the immunity requirements and test methods for electrical and electronic equipment to conducted, differential mode disturbances and signalling in the range 2 kHz up to 150 kHz at a.c. power ports. The object of this standard is to establish a common and reproducible basis for testing electrical and electronic equipment with the application of differential mode disturbances and signalling to a.c. power ports. This standard defines: - test waveforms; - range of test levels; - test equipment; - test setup; - test procedures; - and verification procedures. These tests are intended to demonstrate the immunity of electrical and electronic equipment operating at a mains supply voltage up to 280 V (from phase to neutral or phase to earth, if no neutral is used) and a frequency of 50 Hz or 60 Hz when subjected to conducted, differential mode disturbances such as those originating from power electronics and power line communication systems. The immunity to harmonics and interharmonics, including mains signalling, on a.c. power ports up to 2 kHz in differential mode is covered by IEC 61000-4-13. Emissions in the frequency range 2 kHz to 150 kHz often have both differential mode and common mode components. This standard provides immunity tests only for differential mode disturbances and signalling. It is recommended to perform common mode tests as well, which are covered by IEC 61000-4-16. Key words: electromagnetic compatibility, EMC"
+  },
+  {
+    "reference": "IEC 61000-4-27:2000",
+    "edition": "1.0",
+    "date": "2000-08-30",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-27: Testing and measurement techniques - Unbalance, immunity test",
+    "language": "EN-FR, ES",
+    "description": "Considers immunity tests for electric and/or electronic equipment (apparatus and system) in its electromagnetic environment. Only conducted phenomena are considered, including immunity tests for equipment connected to public and industrial networks. Establishes a reference for evaluating the immunity of electrical and electronic equipment when subjected to unbalanced power supply voltage. Applies to 50 Hz/60 Hz three-phase powered electrical and/or electronic equipment with rated line current up to 16 A per phase."
+  },
+  {
+    "reference": "IEC 61000-4-27:2000/AMD1:2009",
+    "edition": "1.0",
+    "date": "2009-02-05",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-27: Testing and measurement techniques - Unbalance, immunity test for equipment with input current not exceeding 16 A per phase",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-27:2000/AMD2:2025",
+    "edition": "1.0",
+    "date": "2025-09-16",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-27: Testing and measurement techniques – Unbalance, immunity test for equipment with input current not exceeding 16 A per phase",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-28:1999",
+    "edition": "1.0",
+    "date": "1999-11-25",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-28: Testing and measurement techniques - Variation of power frequency, immunity test",
+    "language": "EN-FR, ES",
+    "description": "Establishes a reference for evaluating the immunity of electric and electronic equipment when subjected to variations of the power frequency. Only conducted phenomena are considered, including immunity tests for equipment connected to public and industrial networks."
+  },
+  {
+    "reference": "IEC 61000-4-28:1999/AMD1:2001",
+    "edition": "1.0",
+    "date": "2001-07-11",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-28: Testing and measurement techniques - Variation of power frequency, immunity test",
+    "language": "EN-FR, ES",
+    "description": "Subclause 8.1 (Climatic conditions) and clause 9 (Evaluation of test results) have been amended. Contains a new clause 10 (Test report)."
+  },
+  {
+    "reference": "IEC 61000-4-28:1999/AMD2:2009",
+    "edition": "1.0",
+    "date": "2009-02-05",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-28: Testing and measurement techniques - Variation of power frequency, immunity test for equipment with input current not exceeding 16 A per phase",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-29:2026",
+    "edition": "2.0",
+    "date": "2026-07-30",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-29: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations on d.c. input power port immunity tests",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 61000-4-29:2026 defines test methods for immunity to voltage dips, short interruptions and voltage variations at the DC input power port of electrical or electronic equipment. This document is applicable to equipment and systems whose DC input power ports are intended to be connected to low voltage DC networks external to the equipment and systems. The object of this document is to establish a common and reproducible basis for testing electrical and electronic equipment when subjected to voltage dips, short interruptions or voltage variations on DC input power ports. This document defines: - the range of test levels; - the test generator; - the test set-up; - the test procedure. The test described hereinafter applies to electrical and electronic equipment and systems. It also applies to modules or subsystems whenever the equipment under test’s (EUT) rated power is greater than the test generator capacity specified in Clause 6. The ripple at the DC input power port is not included in the scope of this document. It is covered by IEC 61000‑4‑17. This document does not specify the tests to be applied to particular apparatus or systems. Its main aim is to give a general basic reference to IEC product committees. These product committees (or users and manufacturers of equipment) remain responsible for the appropriate choice of the tests and the severity level to be applied to their equipment. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Increase of the output voltage of the test generator to take into account new DC networks voltages; b) provision of tolerances for the duration of the voltage changes; c) limitation of the current when applying short interruptions in low impedance condition; d) general technical clarifications for the specifications of the test generator and their verification; e) clarifications regarding the loads used to verify the switching characteristics and the peak inrush current drive capability of the test generator; f) clarifications regarding the evaluation of test results and test reports; g) description of the DC environment."
+  },
+  {
+    "reference": "IEC 61000-4-30:2025",
+    "edition": "4.0",
+    "date": "2025-10-24",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-30: Testing and measurement techniques - Power quality measurement methods",
+    "language": "EN-FR, EN, FR",
+    "description": "CORRECTED VERSION 2026-07 IEC 61000-4-30:2025 defines the methods for measurement and interpretation of results for power quality parameters in AC power supply systems with a declared fundamental frequency of 50 Hz or 60 Hz. Measurement methods are described for each relevant parameter in terms that give reliable and repeatable results, regardless of the method’s implementation. This document addresses measurement methods for in-situ measurements. This document covers two classes of measurement methods (Class A and Class S). The classes of measurement are specified in Clause 4. NOTE 1 In this document, “A” stands for “advanced” and “S” stands for “surveys”. Measurement of parameters covered by this document is limited to conducted phenomena in power systems. The power quality parameters considered in this document are power frequency, magnitude of the supply voltage, flicker, supply voltage dips and swells, voltage interruptions, transient voltages, supply voltage unbalance, voltage harmonics and interharmonics, rapid voltage changes, mains communicating system (MCS) voltages, magnitude of current, harmonic currents, interharmonic currents and current unbalance. Emissions in the 2 kHz to 150 kHz range are considered in Annex C and Annex D. Depending on the purpose of the measurement, all or a subset of the phenomena on this list can be measured. NOTE 2 Test methods for verifying compliance with this document can be found in IEC 62586-2. NOTE 3 The effects of transducers inserted between the power system and the instrument are acknowledged but not addressed in detail in this document. Guidance about effects of transducers can be found IEC TR 61869-103. This fourth edition cancels and replaces the third edition published in 2015. This edition constitutes a technical revision.This edition includes the following significant technical changes with respect to the previous edition: a) IEC 61000-4-30:2015/AMD1:2021 and IEC 61000-4-30:2015/COR1:2016 were included. b) The measurement method for rapid voltage changes (RVC) has been corrected and extended. c) The measurement method for voltage events has been updated and extended. d) Annex C was divided into 2 parts: 1) Annex C: The measurement method from IEC 61000-4-7:2002 and IEC 61000‑4‑7:2002/AMD1:2008, Annex B for conducted emissions in the 2 kHz to 9 kHz range has been separate 2) Annex D: A new measurement method for conducted emissions in the 9 kHz to 150 kHz range has been added. e) Annex D (underdeviation and overdeviation parameters) was removed. f) Annex E (Class B) was removed. The content of the corrigendum 1 (2026-07) has been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-4-30:2025/COR1:2026",
+    "edition": "4.0",
+    "date": "2026-07-17",
+    "title": "Corrigendum 1 - Electromagnetic compatibility (EMC) - Part 4-30: Testing and measurement techniques - Power quality measurement methods",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-34:2005",
+    "edition": "1.0",
+    "date": "2005-10-17",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-34: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with input current more than 16 A per phase",
+    "language": "EN-FR, ES",
+    "description": "This part of IEC 61000 defines the immunity test methods and range of preferred test levels for electrical and electronic equipment connected to low-voltage power supply networks for voltage dips, short interruptions, and voltage variations. This standard applies to electrical and electronic equipment having a rated input current exceeding 16 A per phase. It covers equipment installed in residential areas as well as industrial machinery, specifically voltage dips and short interruptions for equipment connected to either 50 Hz or 60 Hz a.c. networks, including 1-phase and 3-phase mains. The object of this standard is to establish a common reference for evaluating the immunity of electrical and electronic equipment when subjected to voltage dips, short interruptions and voltage variations. The test method documented in this part of IEC 61000 describes a consistent method to assess the immunity of equipment or a system against a defined phenomenon. It has the status of a Basic EMC Publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC 61000-4-34:2005/AMD1:2009",
+    "edition": "1.0",
+    "date": "2009-05-13",
+    "title": "Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-34: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with mains current more than 16 A per phase",
+    "language": "EN-FR",
+    "description": "The contents of the corrigendum of October 2009 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61000-4-34:2005/AMD1:2009/COR1:2009",
+    "edition": "1.0",
+    "date": "2009-10-30",
+    "title": "Corrigendum 1 - Amendment 1 - Electromagnetic compatibility (EMC) - Part 4-34: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with mains current more than 16 A per phase",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61000-4-34:2005/AMD2:2025",
+    "edition": "1.0",
+    "date": "2025-08-07",
+    "title": "Amendment 2 - Electromagnetic compatibility (EMC) - Part 4-34: Testing and measurement techniques - Voltage dips, short interruptions and voltage variations immunity tests for equipment with mains current more than 16 A per phase",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 61000-4-37:2016",
+    "edition": "1.0",
+    "date": "2016-01-07",
+    "title": "Electromagnetic compatibility (EMC) - Calibration and verification protocol for harmonic emission compliance test systems",
+    "language": "EN",
+    "description": "IEC TR 61000-4-37:2016 outlines a typical test procedure for harmonic analysis in systems comprising tests apparatus designed to comply with IEC 61000-4-7, and products designed to comply with IEC 61000-3-2 and/or IEC 61000-3-12. The test procedure is intended to provide a systematic guidance suitable for use by manufacturers, end users, independent test laboratories and other bodies, for the purpose of determining the applicable compliance status within a wide range of harmonic current emissions. It is not intended as a replacement for type testing of harmonic analyzers, nor does it check all of the parameters specified in IEC 61000-4-7, IEC 61000-3-2, and IEC 61000-3-12. This publication contains attached files in the form of an xls document and a user guide. These files are intended to be used as a complement and do not form an integral part of the standard."
+  },
+  {
+    "reference": "IEC TR 61000-4-38:2015",
+    "edition": "1.0",
+    "date": "2015-08-24",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-38: Testing and measurement techniques - Test, verification and calibration protocol for voltage fluctuation and flicker compliance test systems",
+    "language": "EN",
+    "description": "IEC TR 61000-4-38:2015(E) defines a test protocol for flicker test systems designed to perform compliance tests in accordance with IEC 61000-3-3 and IEC 61000-3-11. It is intended to provide test system manufacturers and testing laboratories with systematic methods to determine if the flicker test system meets the IEC design specifications for a wide range of voltage fluctuations and fluctuation frequencies, as specified in IEC 61000-4-15:2010, Table 5, that have been observed in product testing. It has the status of a basic EMC publication in accordance with IEC Guide 107."
+  },
+  {
+    "reference": "IEC TR 61000-4-40:2020",
+    "edition": "1.0",
+    "date": "2020-03-11",
+    "title": "Electromagnetic compatibility (EMC) - Part 4-40: Testing and measurement techniques - Digital methods for the measurement of power quantities of modulated or distorted signals",
+    "language": "EN",
+    "description": "IEC TR 61000-4-40:2020 which is a Technical Report, deals with the assessment of electrical power quantities (RMS voltage, RMS current and active power). It explains and compares two digital algorithms suitable for power quantity measurements in fluctuating or non-periodic loads. The examples are from 50 Hz or 60 Hz power systems. This document does not attempt to cover all possible digital implementations of the algorithms used for power quantity assessment in fluctuating loads, for example in the context of the EMC assessment described in several IEC documents. Rather, it compares averaging with one of the filtering algorithms. This document aims to highlight some examples of applications that illustrate how the presented algorithms work. Further, guidance is given for quantifying the accuracy of each approach."
+  }
+]

@@ -10,6 +10,7 @@ sys.path.insert(0, str(BASE_DIR))
 sys.path.insert(0, str(REPO_ROOT / "src"))
 from norm_title import designation_core  # noqa: E402
 from sites.eiga import normalize_designation as eiga_designation  # noqa: E402
+from sites.iec import normalize_designation as iec_designation  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 
@@ -314,6 +315,15 @@ def record_url(item):
     return ""
 
 
+def _fetched_cache_entry(cache, key):
+    """The cache entry at `key`, but only if it's actually
+    `status == "fetched"` — a `"failed"` (or missing) entry returns
+    None, so a caller trying several candidate keys in priority order
+    can tell "nothing here yet, try the next key" apart from "found it"."""
+    entry = cache.get(key)
+    return entry if entry and entry.get("status") == "fetched" else None
+
+
 def apply_authoritative_metadata(record, cache):
     """Attaches nazev_autoritativni/popis_autoritativni/
     zdroj_autoritativni_url from the site-metadata cache when a
@@ -337,16 +347,26 @@ def apply_authoritative_metadata(record, cache):
     original raw value is kept under `jurisdikce_puvodni` for audit."""
     znacka = (record.get("znacka") or "").strip()
     url = record_url(record)
-    entry = cache.get(url) if url else None
+    # Only a genuinely `status == "fetched"` entry is ever accepted — a
+    # STALE, FAILED entry under an earlier-tried key must never block
+    # trying the next one. Real bug found live (doc/PLAN.md §25): every
+    # bare "IEC ..." znacka already had a `csn:<znacka>` entry cached
+    # from before `is_iec_norm_record()` existed (it used to fall
+    # through to the ČSN branch, which correctly found no adoption and
+    # cached that as `"failed"`) — with a bare `entry is None` check,
+    # that stale failed entry was found FIRST and silently prevented the
+    # new `iec:` key from ever being tried, even though it held the real
+    # data.
+    entry = _fetched_cache_entry(cache, url) if url else None
     if entry is None and znacka:
-        entry = cache.get(f"csn:{znacka}")
+        entry = _fetched_cache_entry(cache, f"csn:{znacka}")
     if entry is None and znacka:
         # doc/PLAN.md §17, 2026-09-16: Slovak standards are keyed by the
         # designation with its edition suffix stripped — all 101 of them
         # store the same catalog root as their URL, so there is nothing
         # per-document to key on (the same reason the ČSN branch above
         # uses "csn:<znacka>").
-        entry = cache.get(f"stn:{designation_core(znacka)}")
+        entry = _fetched_cache_entry(cache, f"stn:{designation_core(znacka)}")
     if entry is None and znacka:
         # doc/PLAN.md §24, 2026-09-17: EIGA publications, same "catalog
         # root, not a per-document URL" shape as the STN branch above —
@@ -354,8 +374,15 @@ def apply_authoritative_metadata(record, cache):
         # convention, not designation_core()'s ČSN/STN-oriented one).
         code = eiga_designation(znacka)
         if code:
-            entry = cache.get(f"eiga:{code}")
-    if entry is None or entry.get("status") != "fetched":
+            entry = _fetched_cache_entry(cache, f"eiga:{code}")
+    if entry is None and znacka:
+        # doc/PLAN.md §25, 2026-09-17: IEC publications — same
+        # "catalog root, not a per-document URL" shape, keyed on
+        # iec.py's own designation normalization.
+        code = iec_designation(znacka)
+        if code:
+            entry = _fetched_cache_entry(cache, f"iec:{code}")
+    if entry is None:
         return
     if entry.get("title"):
         record["nazev_autoritativni"] = entry["title"]

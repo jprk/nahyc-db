@@ -1,0 +1,666 @@
+[
+  {
+    "reference": "IEC 60748-1:2002",
+    "edition": "2.0",
+    "date": "2002-05-08",
+    "title": "Semiconductor devices  - Integrated circuits - Part 1: General",
+    "language": "EN-FR",
+    "description": "Constitutes the general part of IEC 60748. Together with the relevant material of IEC 60747-1, it gives general information on integrated circuits."
+  },
+  {
+    "reference": "IEC 60748-2:1997",
+    "edition": "2.0",
+    "date": "1997-12-22",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits",
+    "language": "EN-FR",
+    "description": "This publication gives standards for the following categories or sub-categories of devices: -Combinatorial and sequential digital circuits; -Integrated circuit memories; -Integrated circuit microprocessors; -Charge-transfer devices. Should be used together with IEC 60747-1 and 60748-1."
+  },
+  {
+    "reference": "IEC 60748-2-1:1991",
+    "edition": "1.0",
+    "date": "1991-10-01",
+    "title": "Semiconductor devices - Integrated circuits - Part 2-1: Digital integrated circuits - Blank detail specification for bipolar monolithic digital integrated circuit gates (excluding uncommitted logic arrays)",
+    "language": "EN-FR, RU",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-2:1992",
+    "edition": "1.0",
+    "date": "1992-02-29",
+    "title": "Semiconductor devices. Integrated circuits - Part 2: Digital integrated circuits - Section two: Family specification for HCMOS digital integrated circuits, series 54/74 HC, 54/74 HCT, 54/74 HCU",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-2:1992/AMD1:1994",
+    "edition": "1.0",
+    "date": "1994-06-07",
+    "title": "Amendment 1 - Semiconductor devices. Integrated circuits - Part 2: Digital integrated circuits - Section two: Family specification for HCMOS digital integrated circuits, series 54/74 HC, 54/74 HCT, 54/74 HCU",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-3:1992",
+    "edition": "1.0",
+    "date": "1992-02-20",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section three: Blank detail specification for HCMOS digital integrated circuits (series 54/74 HC, 54/74 HCT, 54/74 HCU)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-4:1992",
+    "edition": "1.0",
+    "date": "1992-01-30",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section four: Family specification for complementary MOS digital integrated circuits, series 4000 B and 4000 UB",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-5:1992",
+    "edition": "1.0",
+    "date": "1992-01-31",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section five: Blank detail specification for complementary MOS digital integrated circuits (series 4000 B and 4000 UB)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-6:1991",
+    "edition": "1.0",
+    "date": "1991-11-15",
+    "title": "Semiconductor devices. Integrated circuits - Part 2: Digital integrated circuits - Section Six: Blank detail specification for microprocessor integrated circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-7:1992",
+    "edition": "1.0",
+    "date": "1992-10-23",
+    "title": "Semiconductor devices. Integrated circuits - Part 2: Digital integrated circuits - Section seven: Blank detail specification for integrated circuit fusible-link programmable bipolar read-only memories",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-8:1993",
+    "edition": "1.0",
+    "date": "1993-07-29",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section Eight: Blank detail specification for integrated circuit static read/write memories",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-9:1994",
+    "edition": "1.0",
+    "date": "1994-12-21",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section 9: Blank detail specification for MOS ultraviolet light erasable electrically programmable read-only memories",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-10:1994",
+    "edition": "1.0",
+    "date": "1994-12-21",
+    "title": "Semiconductor devices - Integrated circuits - Part 2: Digital integrated circuits - Section 10: Blank detail specification for integrated circuit dynamic read/write memories",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-11:1999",
+    "edition": "1.0",
+    "date": "1999-04-12",
+    "title": "Semiconductor devices - Integrated circuits - Part 2-11: Digital integrated circuits - Blank detail specification for single supply integrated circuit, electrically erasable, and programmable read-only memory",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-12:2001",
+    "edition": "1.0",
+    "date": "2001-01-30",
+    "title": "Semiconductor devices - Integrated circuits - part2-12: Digital integrated circuits - Blank detail specification for programmable logic devices (PLDs)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-2-20:2008",
+    "edition": "2.0",
+    "date": "2008-02-27",
+    "title": "Semiconductor devices - Integrated circuits - Part 2-20: Digital integrated circuits - Family specification - Low voltage integrated circuits",
+    "language": "EN-FR",
+    "description": "IEC 60748-2-20:2008 aims at giving DC interface specifications for various sets of values, where each comprises the nominal value of power supply voltage, its tolerance, and the worst-case limit values of the input and output voltages for low voltage integrated circuits. This second edition cancels and replaces the first edition published in 2000. This edition constitutes a technical revision. This edition includes the following significant changes with respect to the previous edition: - Expansion of power supply voltages down to nominal 1,0 V - Addition of Schmitt-trigger input specification."
+  },
+  {
+    "reference": "IEC 60748-3:1986",
+    "edition": "1.0",
+    "date": "1986-01-01",
+    "title": "Semiconductor devices - Integrated circuits - Part 3: Analogue integrated circuits",
+    "language": "EN-FR, RU",
+    "description": "Gives standards on the following sub-categories of analogue integrated circuits: -operational amplifiers (having two inputs and one output); -audio-amplifiers, video-amplifiers and multichannel amplifiers for telecommunications; -R.F. and I.F. amplifiers; -voltage and current regulators; -analogue signal switching circuits. Should be used with IEC 60747-1 and 60748-1."
+  },
+  {
+    "reference": "IEC 60748-3:1986/AMD1:1991",
+    "edition": "1.0",
+    "date": "1991-11-15",
+    "title": "Amendment 1 - Semiconductor devices. Integrated circuits. Part 3: Analogue integrated circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-3:1986/AMD2:1994",
+    "edition": "1.0",
+    "date": "1994-02-08",
+    "title": "Amendment 2 - Semiconductor devices. Integrated circuits. Part 3: Analogue integrated circuits",
+    "language": "EN-FR",
+    "description": "The contents of the corrigendum of June 1996 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60748-3:1986/AMD2:1994/COR1:1996",
+    "edition": "1.0",
+    "date": "1996-06-11",
+    "title": "Corrigendum 1 to Amendment 2 - Semiconductor devices. Integrated circuits. Part 3: Analogue integrated circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-3-1:1991",
+    "edition": "1.0",
+    "date": "1991-08-02",
+    "title": "Semiconductor devices. Integrated circuits - Part 3: Analogue integrated circuits - Section one: Blank detail specification for monolithic integrated operational amplifiers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-4:1997",
+    "edition": "2.0",
+    "date": "1997-04-23",
+    "title": "Semiconductor devices - Integrated circuits - Part 4: Interface integrated circuits",
+    "language": "EN-FR",
+    "description": "Gives requirements for the following categories of interface integrated circuits:line circuits (transmitters and receivers), sense amplifiers, peripheral drivers (including memory drivers) and level shifters, voltage comparators, linear and non-linear analogue-to digital and digital-to-analogue converters, control circuits for switch-mode power supplies, companding PCM coder-decoders (CODEC), digital interface integrated circuits (UBF), integrated service digital network (ISDN)."
+  },
+  {
+    "reference": "IEC 60748-4-1:1993",
+    "edition": "1.0",
+    "date": "1993-11-11",
+    "title": "Semiconductor devices - Integrated circuits - Part 4: Interface integrated circuits - Section 1: Blank detail specification for linear digital-to-analogue converters (DAC)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-4-2:1993",
+    "edition": "1.0",
+    "date": "1993-11-11",
+    "title": "Semiconductor devices - Integrated circuits - Part 4: Interface integrated circuits - Section 2: Blank detail specification for linear analogue-to-digital converters (ADC)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-4-3:2006",
+    "edition": "1.0",
+    "date": "2006-08-29",
+    "title": "Semiconductor devices - Integrated circuits - Part 4-3: Interface integrated circuits - Dynamic criteria for analogue-digital converters (ADC)",
+    "language": "EN",
+    "description": "Specifies a set of measuring methods and requirements for testing ADCs under dynamic conditions, together with associated terminology and characteristics"
+  },
+  {
+    "reference": "IEC 60748-5:1997",
+    "edition": "1.0",
+    "date": "1997-05-30",
+    "title": "Semiconductor devices - Integrated circuits - Part 5: Semicustom integrated circuits",
+    "language": "EN-FR",
+    "description": "Specifies standards on the subcategories of semicustom integrated circuits. Provides basic information on terminology and graphical symbols, essential ratings and characteristics, functional specifications, measuring methods, acceptance and reliability."
+  },
+  {
+    "reference": "IEC 60748-11:1990",
+    "edition": "1.0",
+    "date": "1990-12-20",
+    "title": "Semiconductor devices - Integrated circuits - Part 11: Sectional specification for semiconductor integrated circuits excluding hybrid circuits",
+    "language": "EN-FR",
+    "description": "Applies to encapsulated semiconductor integrated circuits, including multichip integrated circuits, but excluding hybrid circuits. Gives details of the Quality Assessment Procedures, the inspection requirements, screening sequences, sampling requirements, test and measurement procedures required for the assessment of semiconductor integrated circuits, including digital, analogue and interface circuits."
+  },
+  {
+    "reference": "IEC 60748-11:1990/AMD1:1995",
+    "edition": "1.0",
+    "date": "1995-06-06",
+    "title": "Amendment 1 - Semiconductor devices - Integrated circuits - Part 11: Sectional specification for semiconductor integrated circuits excluding hybrid circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-11:1990/AMD2:1999",
+    "edition": "1.0",
+    "date": "1999-04-16",
+    "title": "Amendment 2 - Semiconductor devices - Integrated circuits - Part 11: Sectional specification for semiconductor integrated circuits excluding hybrid circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-11-1:1992",
+    "edition": "1.0",
+    "date": "1992-04-01",
+    "title": "Semiconductor devices - Integrated circuits - Part 11-1: Internal visual examination for semiconductor integrated circuits excluding hybrid circuits",
+    "language": "EN-FR, RU",
+    "description": "The purpose of these tests is to check the internal materials, construction and workmanship of integrated circuits for compliance with the requirements of the applicable specification."
+  },
+  {
+    "reference": "IEC 60748-20:1988",
+    "edition": "1.0",
+    "date": "1988-06-30",
+    "title": "Semiconductor devices. Integrated circuits. Part 20: Generic specification for film integrated circuits and hybrid film integrated circuits",
+    "language": "EN-FR",
+    "description": "Applies to film integrated circuits and to hybrid film integrated circuits both passive and active. Applies also to partly-completed F and HFICs supplied to customers for subsequent processing as well as to chip carrier circuits having more than one chip, provided that they have been interconnected by film interconnection techniques. This specification defines the quality assessment procedures and the methods for electrical, climatic, mechanical and endurance tests. It outlines the requirements which shall be applied to the release of circuits using either qualification approval procedures or capability approval procedures."
+  },
+  {
+    "reference": "IEC 60748-20:1988/AMD1:1995",
+    "edition": "1.0",
+    "date": "1995-09-22",
+    "title": "Amendment 1 - Semiconductor devices. Integrated circuits. Part 20: Generic specification for film integrated circuits and hybrid film integrated circuits",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-20-1:1994",
+    "edition": "1.0",
+    "date": "1994-03-01",
+    "title": "Semiconductor devices - Integrated circuits - Part 20: Generic specification for film integrated circuits and hybrid film integrated circuits - Section 1: Requirements for internal visual examination",
+    "language": "EN-FR",
+    "description": "The purpose of these examinations is to check the internal materials, construction and workmanship of film and hybrid integrated circuits (F and HFICs). These examinations will normally be used prior to tapping or encapsulation to detect and eliminate the F and HFICs with internal defects that could lead to device failure in normal application. Other acceptance criteria may be agreed upon with the purchaser or supplier, respectively."
+  },
+  {
+    "reference": "IEC 60748-21:1997",
+    "edition": "2.0",
+    "date": "1997-04-10",
+    "title": "Semiconductor devices - Integrated circuits - Part 21: Sectional specification for film integrated circuits and hybrid film integrated circuits on the basis of qualification approval procedures",
+    "language": "EN-FR",
+    "description": "Applies to film and hybrid film integrated circuits, manufactured as catalogue or as custom-built products whose quality is assessed on the basis of Qualification Approval. Presents preferred values for rating and characteristics, selects from the generic specification the appropriate tests and measuring methods and gives general performance requirements to be used in detail specifications for film and hybrid film integrated circuits."
+  },
+  {
+    "reference": "IEC 60748-21-1:1997",
+    "edition": "2.0",
+    "date": "1997-04-10",
+    "title": "Semiconductor devices - Integrated circuits - Part 21-1: Blank detail specification for film integrated circuits and hybrid film integrated circuits on the basis of qualification approva lprocedures",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-22:1997",
+    "edition": "2.0",
+    "date": "1997-04-10",
+    "title": "Semiconductor devices - Integrated circuits - Part 22: Sectional specification for film integrated circuits and hybrid film integrated circuits on the basis of the capability approval procedures",
+    "language": "EN-FR",
+    "description": "Applies to film and hybrid film integrated circuits (F and HICs), manufactured as catalogue or as custom-built circuits whose quality is assessed on the basis of the capability approval procedure. Presents preferred values for ratings and characteristics, selects from the generic specification the appropriate tests and measuring methods and gives general performance requirements to be used in detail specifications for film and hybrid film integrated circuits."
+  },
+  {
+    "reference": "IEC 60748-22-1:1997",
+    "edition": "2.0",
+    "date": "1997-04-10",
+    "title": "Semiconductor devices - Integrated circuits - Part 22-1: Blank detail specification for film integrated circuits and hybrid film integrated circuits on the basis of the capability approval procedures",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60748-23-1:2002",
+    "edition": "1.0",
+    "date": "2002-05-15",
+    "title": "Semiconductor devices - Integrated circuits - Part 23-1: Hybrid integrated circuits and film structures - Manufacturing line certification - Generic specification",
+    "language": "EN",
+    "description": "Applies to high quality hybrid integrated circuits (with films) incorporating special customer quality and reliability requirements. Hybrid integrated circuits may be fully or partly completed. Partly completed devices are those that may be supplied to customers for further processing."
+  },
+  {
+    "reference": "IEC 60748-23-2:2002",
+    "edition": "1.0",
+    "date": "2002-05-23",
+    "title": "Semiconductor devices - Integrated circuits - Part 23-2: Hybrid integrated circuits and film structures - Manufacturing line certification - Internal visual inspection and special tests",
+    "language": "EN",
+    "description": "Applies to high quality approval systems for hybrid integrated circuits and film structures. The purpose of the tests is to perform visual inspections on the internal materials, construction and workmanship of hybrid, multichip and multichip module microcircuits and passive elements used for microelectronic applications including r.f./microwave. These tests will normally be used on microelectronic devices prior to capping or encapsulation to detect and eliminate devices with internal non-conformances that could lead to device failure in normal application. They may also be employed on a sampling basis to determine the effectiveness of the manufacturers' quality control and handling procedures."
+  },
+  {
+    "reference": "IEC 60748-23-3:2002",
+    "edition": "1.0",
+    "date": "2002-05-17",
+    "title": "Semiconductor devices - Integrated circuits - Part 23-3: Hybrid integrated circuits and film structures - Manufacturing line certification - Manufacturers' self-audit checklist and report",
+    "language": "EN",
+    "description": "Applies to a high quality approval system for hybrid integrated circuits and film structures.This checklist is intended for the use of a hybrid microcircuit manufacturer's internal assessment team. It will provide the hybrid manufacturer and the National Supervising Inspectorate with ongoing information on process control demonstrating compliance with IEC 60748-23-1."
+  },
+  {
+    "reference": "IEC 60748-23-4:2002",
+    "edition": "1.0",
+    "date": "2002-05-17",
+    "title": "Semiconductor devices - Integrated circuits - Part 23-4: Hybrid integrated circuits and film structures - Manufacturing line certification - Blank detail specification",
+    "language": "EN",
+    "description": "Serves as a Blank Detail Specification for a high quality approval system and contains requirements for style and layout and minimum content of detail specifications. These requirements are applicable when the detail specification is published."
+  },
+  {
+    "reference": "IEC 60748-23-5:2003",
+    "edition": "1.0",
+    "date": "2003-10-03",
+    "title": "Semiconductor devices - Integrated circuits, Part 23-5: Hybrid integrated circuits and film structures - Manufacturing line certification - Procedure for qualification approval",
+    "language": "EN",
+    "description": "Applies to high quality hybrids (with films) incorporating special customer quality and reliability requirements whose quality is assessed on the basis of Qualification Approval. NOTE: Hybrid integrated circuits may be fully or part completed."
+  },
+  {
+    "reference": "IEC 61739:1996",
+    "edition": "1.0",
+    "date": "1996-10-30",
+    "title": "Integrated circuits - Part 1: Procedures for manufacturing line approval and quality management",
+    "language": "EN-FR",
+    "description": "Establishes the general requirements for delivery of qualified products through manufacturing line approval under the IECQ system and for registration in the Qualified Manufacturer List (QML). Also describes procedures and requirements for approval, qualification and registration of manufacturing line, for maintenance of the QML, for audits and for the automatic qualification of products from the approved manufacturing line."
+  },
+  {
+    "reference": "IEC 61943:1999",
+    "edition": "1.0",
+    "date": "1999-03-19",
+    "title": "Integrated circuits - Manufacturing line approval application guideline",
+    "language": "EN-FR",
+    "description": "Defines how to apply the principles and requirements given in IEC 61739 to monolithic integrated circuits. The standard is applicable to those manufacturers of integrated circuits (ICs) who apply for manufacturing line approval. The objective is to establish consistency in the requirements used by manufacturers and auditors for techniques related to integrated circuit manufacturing. Each manufacturer may use his own methods for satisfying the requirements of this standard, provided that the required level of control in the manufacturing line is reached."
+  },
+  {
+    "reference": "IEC TS 61944:2000",
+    "edition": "1.0",
+    "date": "2000-01-31",
+    "title": "Integrated circuits - Manufacturing line approval - Demonstration vehicles",
+    "language": "EN-FR",
+    "description": "Establishes the characteristics of standard evaluation components (SEC) used for verifying capability and reliability."
+  },
+  {
+    "reference": "IEC TS 61945:2000",
+    "edition": "1.0",
+    "date": "2000-03-10",
+    "title": "Interated circuits - Manufacturing line approval - Methodology for technology and failure analysis",
+    "language": "EN-FR",
+    "description": "Gives the methodology for technology and failure analysis in manufacturing integrated circuits. Technology analysis is used to determine the way a component is built by observing it using adequate resolution, which increases progressively with the level of analysis."
+  },
+  {
+    "reference": "IEC 61964:1999",
+    "edition": "1.0",
+    "date": "1999-04-30",
+    "title": "Integrated circuits - Memory devices pin configurations",
+    "language": "EN-FR",
+    "description": "Applies to pinout package configurations of solid state integrated circuit memory devices. The purpose of this standard is to establish a registration procedure for such configurations."
+  },
+  {
+    "reference": "IEC 61967-1:2018",
+    "edition": "2.0",
+    "date": "2018-12-12",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions - Part 1: General conditions and definitions",
+    "language": "EN-FR",
+    "description": "IEC 61967-1:2018 provides general information and definitions on the measurement of conducted and radiated electromagnetic disturbances from integrated circuits. It also provides a description of measurement conditions, test equipment and set-up as well as the test procedures and content of the test reports. Test method comparison tables are include in Annex A to assist in selecting the appropriate measurement method(s). The object of this document is to describe general conditions in order to establish a uniform testing environment and to obtain a quantitative measure of RF disturbances from integrated circuits (IC). Critical parameters that are expected to influence the test results are described. Deviations from this document are noted explicitly in the individual test report. The measurement results can be used for comparison or other purposes. Measurement of the voltage and current of conducted RF emissions or radiated RF disturbances, coming from an integrated circuit under controlled conditions, yields information about the potential for RF disturbances in an application of the integrated circuit. The applicable frequency range is described in each part of IEC 61967. This edition includes the following significant technical changes with respect to the previous edition: - the frequency range of 150 kHz to 1 GHz has been deleted from the title; - the frequency step above 1 GHz has been added to Table 1, Table 2 and to 5.4; - Table A.1 has been divided into two tables, and IEC 61967-8 has been added to Table A.2 of Annex A; - the general test board description has been moved to Annex D."
+  },
+  {
+    "reference": "IEC TR 61967-1-1:2015",
+    "edition": "2.0",
+    "date": "2015-08-28",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions - Part 1-1: General conditions and definitions - Near-field scan data exchange format",
+    "language": "EN",
+    "description": "IEC TR 61967-1-1:2015(E) provides guidance for exchanging data generated by near-field scan measurements. The described exchange format could also be used for near-field scan data generated by simulation or computation software. It should be noted that, although it has been developed for near-field scan, its use is not restricted to this application. The exchange format can be applied to emission and immunity near-field scan data in the frequency and time domains. The scope of this technical report includes neither the methods used for the measurements or simulations, nor the software and algorithms used for generating the exchange file or for processing or viewing the data contained therein. This edition includes the following significant changes with respect to the previous edition: - Addition of: 3D objects; Binary data files; Piece-wise linear time domain and frequency domain data; Vectors permitting rotation and offset of measurement and DUT reference planes; Transducer gain and probe factor can be complex; New keywords: Object3d, Mapobj, Maxhold, Datafileformat, Vx, Vy, Vz, Target, Software, Data_source. - Updating of: Probe factor and corresponding keywords. - Modification of: Keywords: Average."
+  },
+  {
+    "reference": "IEC 61967-2:2005",
+    "edition": "1.0",
+    "date": "2005-09-29",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions, 150 kHz to 1 GHz - Part 2: Measurement of radiated emissions - TEM cell and wideband TEM cell method",
+    "language": "EN-FR",
+    "description": "This test procedure defines a method for measuring the electromagnetic radiation from an integrated circuit (IC). The IC being evaluated is mounted on an IC test printed circuit board (PCB) that is clamped to a mating port (referred to as a wall port) cut in the top or bottom of a transverse electromagnetic (TEM) or wideband gigahertz TEM (GTEM) cell. The test board is not inside the cell, as in the conventional usage, but becomes a part of the cell wall. This method is applicable to any TEM or GTEM cell modified to incorporate the wall port; however, the measured radio frequency (RF) voltage will be affected by many factors. The primary factor affecting the measured RF voltage is the septum to IC test board (cell wall) spacing. This procedure was developed using a 1 GHz TEM cell with a septum to floor spacing of 45 mm and a GTEM cell with average septum to floor spacing of 45 mm over the port area. Other cells may not produce identical spectral output but may be used for comparative measurements, subject to their frequency and sensitivity limitations. A conversion factor may allow comparisons between data measured on TEM or GTEM cells with different septum to floor spacing. The IC test board controls the geometry and orientation of the operating IC relative to the cell and eliminates any connecting leads within the cell (these are on the backside of the board, which is outside the cell). For the TEM cell, one of the 50 ports is terminated with a 50 load. The other 50 port for a TEM cell, or the single 50 port for a GTEM cell, is connected to the input of a spectrum analyser or receiver that measures the RF emissions emanating from the integrated circuit and impressed onto the septum of the cell."
+  },
+  {
+    "reference": "IEC TS 61967-3:2014",
+    "edition": "2.0",
+    "date": "2014-08-25",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions - Part 3: Measurement of radiated emissions - Surface scan method",
+    "language": "EN-FR",
+    "description": "IEC TS 61967-3:2014 provides a test procedure which defines an evaluation method for the near electric, magnetic or electromagnetic field components at or near the surface of an integrated circuit (IC). This diagnostic procedure is intended for IC architectural analysis such as floor planning and power distribution optimization. This test procedure is applicable to measurements on an IC mounted on any circuit board that is accessible to the scanning probe. In some cases it is useful to scan not only the IC but also its environment. For comparison of surface scan emissions between different ICs, the standardized test board defined in IEC 61967-1 should be used. This measurement method provides a mapping of the electric or magnetic near-field emissions over the IC. The resolution of the measurement is determined by the capability of the measurement probe and the precision of the probe-positioning system. This method is intended for use up to 6 GHz. Extending the upper limit of frequency is possible with existing probe technology but is beyond the scope of this specification. Measurements may be carried out in the frequency domain or in the time domain. This edition includes the following significant technical changes with respect to the previous edition: a) Removal of: Clause 9.4 Data analysis and Annex D Analysing the data from near-field surface scanning; b) Addition of: Introduction, Clause 9.4 Measurement data, Clause 9.5 Post-processing, Clause 9.6 Data exchange and Annex D Coordinate systems; c) Expansion of: Clause 8.4 Test technique and Annex A Calibration of near-field probes."
+  },
+  {
+    "reference": "IEC 61967-4:2021",
+    "edition": "2.0",
+    "date": "2021-03-16",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions - Part 4: Measurement of conducted emissions - 1 ohm/150 ohm direct coupling method",
+    "language": "EN-FR",
+    "description": "IEC 61967-4:2021 specifies a method to measure the conducted electromagnetic emission (EME) of integrated circuits by direct radio frequency (RF) current measurement with a 1 Ω resistive probe and RF voltage measurement using a 150 Ω coupling network. These methods ensure a high degree of reproducibility and correlation of EME measurement results. This edition includes the following significant technical changes with respect to the previous edition: - frequency range of 150 kHz to 1 GHz has been deleted from the title; - recommended frequency range for 1 Ω method has been reduced to 30 MHz; - Annex G with recommendations and guidelines for frequency range extension beyond 1 GHz has been added."
+  },
+  {
+    "reference": "IEC TR 61967-4-1:2005",
+    "edition": "1.0",
+    "date": "2005-02-07",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions, 150 kHz to 1 GHz - Part 4-1: Measurement of conducted emissions - 1 Ω/150 Ω direct coupling method - Application guidance to IEC 61967-4",
+    "language": "EN",
+    "description": "Serves as an application guidance and relates to IEC 61967-4. The division of IC types into -> IC function modules and the software modules for -> cores with CPU can be used for Parts 3, 5 and 6 of IEC 61967. Gives advice for performing test methods described in IEC 61967-4 by classifying types of integrated circuits (ICs) and providing hints for test applications related to the IC type classification. To obtain comparable results of IC emission measurements using IEC 61967-4, definitions are given which are in addition to the general conditions specified in IEC 61967-1 and IEC 61967-4. These definitions concern IC related operating modes, pins and ports to be tested, test set-ups according IEC 61967-4, including description of load circuits and RF path, and IC related emission limits (or limit classes). Parts of the guidance provided by this technical report may be applicable to other parts of IEC 61967."
+  },
+  {
+    "reference": "IEC 61967-6:2002",
+    "edition": "1.0",
+    "date": "2002-06-25",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions, 150 kHz to 1 GHz - Part 6: Measurement of conducted emissions - Magnetic probe method",
+    "language": "EN-FR",
+    "description": "Specifies a method for evaluating RF currents on the pins of an integrated circuit (IC) by means of non-contact current measurement using a miniature magnetic probe. This method is capable of measuring the RF currents generated by the IC over a frequency range of 0,15 MHz to 1 000 MHz. The contents of the corrigendum of August 2010 have been included in this copy."
+  },
+  {
+    "reference": "IEC 61967-6:2002/COR1:2010",
+    "edition": "1.0",
+    "date": "2010-08-30",
+    "title": "Corrigendum 1 - Integrated circuits - Measurement of electromagnetic emissions, 150 kHz to 1 GHz - Part 6: Measurement of conducted emissions - Magnetic probe method",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61967-6:2002/AMD1:2008",
+    "edition": "1.0",
+    "date": "2008-03-12",
+    "title": "Amendment 1 - Integrated circuits - Measurement of electromagnetic emissions, 150 kHz to 1 GHz - Part 6: Measurement of conducted emissions - Magnetic probe method",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 61967-8:2023",
+    "edition": "2.0",
+    "date": "2023-05-03",
+    "title": "Integrated circuits - Measurement of electromagnetic emissions - Part 8: Measurement of radiated emissions - IC stripline method",
+    "language": "EN-FR",
+    "description": "IEC 61967-8:2023 defines a method for measuring the electromagnetic radiated emission from an integrated circuit (IC) using an IC stripline. The IC being evaluated is mounted on an EMC test board (PCB) between the active conductor and the ground plane of the IC stripline arrangement. This edition includes the following significant technical changes with respect to the previous edition: a) frequency range of 150 kHz to 3 GHz was deleted from the scope; b) extension of upper usable frequency to 6 GHz or higher as long as the defined requirements are fulfilled."
+  },
+  {
+    "reference": "IEC 62132-1:2015",
+    "edition": "2.0",
+    "date": "2015-10-29",
+    "title": "Integrated circuits - Measurement of electromagnetic immunity - Part 1: General conditions and definitions",
+    "language": "EN-FR",
+    "description": "IEC 62132-1:2015 provides general information and definitions about measurement of electromagnetic immunity of integrated circuits (ICs) to conducted and radiated disturbances. It also defines general test conditions, test equipment and setup, as well as the test procedures and content of the test reports for all parts of the IEC 62132 series. Test method comparison tables are included in Annex A to assist in selecting the appropriate measurement method(s). This edition includes the following significant technical changes with respect to the previous edition: a) frequency range of 150 kHz to 1 GHz has been deleted from the title; b) frequency step above 1 GHz has been added in Table 2 in 7.4.1; c) IC performance classes in 8.3 have been modified; d) Table A.1 was divided into two tables, and references to IEC 62132-8 and IEC 62132-9 have been added in the new Table A.2 in Annex A."
+  },
+  {
+    "reference": "IEC 62132-2:2010",
+    "edition": "1.0",
+    "date": "2010-03-30",
+    "title": "Integrated circuits - Measurement of electromagnetic immunity - Part 2: Measurement of radiated immunity - TEM cell and wideband TEM cell method",
+    "language": "EN-FR",
+    "description": "IEC 62132-2:2010 specifies a method for measuring the immunity of an integrated circuit (IC) to radio frequency (RF) radiated electromagnetic disturbances. The frequency range of this method is from 150 kHz to 1 GHz, or as limited by the characteristics of the TEM cell."
+  },
+  {
+    "reference": "IEC 62132-4:2006",
+    "edition": "1.0",
+    "date": "2006-02-21",
+    "title": "Integrated circuits - Measurement of electromagnetic immunity 150 kHz to 1 GHz - Part 4: Direct RF power injection method",
+    "language": "EN-FR",
+    "description": "Describes a method to measure the immunity of integrated circuits (IC) in the presence of conducted RF disturbances, e.g. resulting from radiated RF disturbances. This method guarantees a high degree of repeatability and correlation of immunity measurements. This standard establishes a common base for the evaluation of semiconductor devices used in equipment functioning in an environment subject to unwanted radio frequency electromagnetic waves."
+  },
+  {
+    "reference": "IEC 62132-8:2026",
+    "edition": "2.0",
+    "date": "2026-02-12",
+    "title": "Integrated circuits - Measurement of electromagnetic immunity - Part 8: Measurement of radiated immunity - IC stripline method",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62132-8:2026 specifies a method for measuring the immunity of an integrated circuit (IC) to radio frequency (RF) radiated electromagnetic disturbances using an IC stripline. This edition includes the following significant technical changes with respect to the previous edition: a) frequency range of 150 kHz to 3 GHz was deleted from the scope; b) extension of upper usable frequency to 6 GHz or higher as long as the defined requirements are fulfilled. This part of IEC 62132 is to be read in conjunction with IEC 62132-1."
+  },
+  {
+    "reference": "IEC TS 62132-9:2014",
+    "edition": "1.0",
+    "date": "2014-08-21",
+    "title": "Integrated circuits - Measurement of electromagnetic immunity - Part 9: Measurement of radiated immunity - Surface scan method",
+    "language": "EN-FR",
+    "description": "IEC TS 62132-9:2014 provides a test procedure, which defines a method for evaluating the effect of near electric, magnetic or electromagnetic field components on an integrated circuit (IC). This diagnostic procedure is intended for IC architectural analysis such as floor planning and power distribution optimization. This test procedure is applicable to testing an IC mounted on any circuit board that is accessible to the scanning probe. In some cases it is useful to scan not only the IC but also its environment. For comparison of surface scan immunity between different ICs, the standardized test board defined in IEC 62132-1 should be used. This measurement method provides a mapping of the sensitivity (immunity) to electric- or magnetic-near-field disturbance over the IC. The resolution of the test is determined by the capability of the test probe and the precision of the Probe-positioning system. This method is intended for use up to 6 GHz. Extending the upper limit of frequency is possible with existing probe technology but is beyond the scope of this specification. The tests described in this document are carried out in the frequency domain using continuous wave (CW), amplitude modulated (AM) or pulse modulated (PM) signals."
+  },
+  {
+    "reference": "IEC TS 62215-2:2007",
+    "edition": "1.0",
+    "date": "2007-09-10",
+    "title": "Integrated circuits - Measurement of impulse immunity - Part 2: Synchronous transient injection method",
+    "language": "EN",
+    "description": "Contains general information and definitions on the test method to evaluate the immunity of integrated circuits (ICs) against fast conducted synchronous transient disturbances.The objective is to describe general conditions to obtain a quantitative measure of immunity of ICs establishing a uniform testing environment. Critical parameters that are expected to influence the test results are described. Deviations from this specification should be explicitly noted in the individual test report. This synchronous transient immunity measurement method uses short impulses with fast rise times of different amplitude, duration and polarity in a conductive mode to the IC. In this method, the applied impulse has to be synchronized with the activity of the IC to make sure that controlled and reproducible conditions can be assured"
+  },
+  {
+    "reference": "IEC 62215-3:2013",
+    "edition": "1.0",
+    "date": "2013-07-17",
+    "title": "Integrated circuits - Measurement of impulse immunity - Part 3: Non-synchronous transient injection method",
+    "language": "EN-FR",
+    "description": "IEC 62215-3:2013 specifies a method for measuring the immunity of an integrated circuit (IC) to standardized conducted electrical transient disturbances. The disturbances, not necessarily synchronized to the operation of the device under test (DUT), are applied to the IC pins via coupling networks. This method enables understanding and classification of interaction between conducted transient disturbances and performance degradation induced in ICs regardless of transients within or beyond the specified operating voltage range."
+  },
+  {
+    "reference": "IEC 62228-1:2018",
+    "edition": "1.0",
+    "date": "2018-01-09",
+    "title": "Integrated circuits - EMC evaluation of transceivers - Part 1: General conditions and definitions",
+    "language": "EN-FR, EN",
+    "description": "IEC 62228-1:2018 provides general information and definitions for electromagnetic compatibility (EMC) evaluation of integrated circuits (IC) with transceivers for wired network applications under network condition. It defines general test conditions, general test setups and test and measurement methods are applied to all parts of IEC 62228."
+  },
+  {
+    "reference": "IEC 62228-2:2016",
+    "edition": "1.0",
+    "date": "2016-11-18",
+    "title": "Integrated circuits - EMC evaluation of transceivers - Part 2: LIN transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62228-2:2016 specifies test and measurement methods for EMC evaluation of LIN transceiver ICs under network condition. It defines test configurations, test conditions, test signals, failure criteria, test procedures, test setups and test boards. It is applicable for standard LIN transceiver ICs and ICs with embedded LIN transceiver and covers: - the emission of RF disturbances, - the immunity against RF disturbances, - the immunity against impulses and - the immunity against electrostatic discharges (ESD)."
+  },
+  {
+    "reference": "IEC 62228-3:2019",
+    "edition": "1.0",
+    "date": "2019-03-11",
+    "title": "Integrated circuits - EMC evaluation of transceivers - Part 3: CAN transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62228-3:2019 specifies test and measurement methods for EMC evaluation of CAN transceiver ICs under network condition. It defines test configurations, test conditions, test signals, failure criteria, test procedures, test setups and test boards. It is applicable for CAN standard transceivers, CAN transceivers with partial networking functionality and CAN transceivers with flexible data rate capability and covers - the emission of RF disturbances, - the immunity against RF disturbances, - the immunity against impulses, and - the immunity against electrostatic discharges (ESD). This first edition cancels and replaces the first edition of IEC TS 62228 published in 2007 and constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 62228: a) introduction of CAN transceivers with partial networking functionality and CAN transceivers with flexible data rate capability and addition of operation modes and test descriptions in the respective subclauses of the document; b) introduction of minimal communication network with two CAN transceivers; c) update of the test requirements and targets in Annex C; d) addition of Annex D for common mode choke characterization. The contents of the corrigendum of June 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62228-3:2019/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-06-27",
+    "title": "Corrigendum 1 - Integrated circuits - EMC evaluation of transceivers - Part 3: CAN transceivers",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62228-5:2021",
+    "edition": "1.0",
+    "date": "2021-04-26",
+    "title": "Integrated circuits - EMC evaluation of transceivers - Part 5: Ethernet transceivers",
+    "language": "EN-FR, EN",
+    "description": "IEC 62228-5:2021 specifies test and measurement methods for EMC evaluation of Ethernet transceiver ICs under network condition. It defines test configurations, test conditions, test signals, failure criteria, test procedures, test setups and test boards. It is applicable for transceiver of the Ethernet systems 100BASE-T1 according to ISO/IEC/IEEE 8802-3/AMD1; 100BASE-TX according to ISO/IEC/IEEE 8802-3; 1000BASE-T1 according to ISO/IEC/IEEE 8802-3/AMD4 and covers the emission of RF disturbances; the immunity against RF disturbances; the immunity against impulses; the immunity against electrostatic discharges (ESD)."
+  },
+  {
+    "reference": "IEC 62228-6:2022",
+    "edition": "1.0",
+    "date": "2022-11-08",
+    "title": "Integrated circuit - EMC evaluation of transceivers - Part 6: PSI5 transceivers",
+    "language": "EN-FR",
+    "description": "IEC 62228-6:2022 specifies test and measurement methods for EMC evaluation of peripheral sensor interface 5 (PSI5) transceiver integrated circuits (ICs) under network condition. It defines test configurations, test conditions, test signals, failure criteria, test procedures, test setups and test boards. It is applicable for PSI5 satellite ICs (e.g. sensors) and ICs with embedded PSI5 transceivers (e.g. PSI5 electronic control unit IC). The document covers the emission of RF disturbances, the immunity against RF disturbances, the immunity against impulses, and the immunity against electrostatic discharges (ESD)."
+  },
+  {
+    "reference": "IEC 62228-7:2026",
+    "edition": "2.0",
+    "date": "2026-07-13",
+    "title": "Integrated circuits - EMC evaluation of transceivers - Part 7: CXPI transceivers",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62228-7:2026 specifies test and measurement methods for the EMC evaluation of CXPI transceiver ICs under network condition. It defines test configurations, test conditions, test signals, failure criteria, test procedures, test setups and test boards. This specification is applicable for standard CXPI transceiver ICs and ICs with embedded CXPI transceiver and covers: - the emission of RF disturbances; - the immunity against RF disturbances; - the immunity against impulses; - the immunity against electrostatic discharges (ESD). This edition includes the following significant technical changes with respect to the previous edition: a) change transceiver terms and definitions from master to commander and slave to responder in 3.1.5 and 3.1.6. b) change test configuration for embedded transceiver in 5.3.1 and add on Figure A.4 accordingly. c) change the definition of TX2 test signal for Type-B transceiver in 5.4.2. d) add examples for test limits in Annex C."
+  },
+  {
+    "reference": "IEC TS 62404:2007",
+    "edition": "1.0",
+    "date": "2007-02-20",
+    "title": "Logic digital integrated circuits - Specification for I/O interface model for integrated circuit (IMIC version 1.3)",
+    "language": "EN",
+    "description": "Standardize the electrical modeling of input signals, output signals, power supply and ground terminals of integrated circuits, in order to provide for analysis of electrical characteristics of equipment"
+  },
+  {
+    "reference": "IEC 62433-1:2019",
+    "edition": "1.0",
+    "date": "2019-03-08",
+    "title": "EMC IC modelling - Part 1: General modelling framework",
+    "language": "EN-FR, EN",
+    "description": "IEC 62433-1:2019 specifies the framework and methodology for EMC IC macro-modelling. Terms that are commonly used in IEC 62433 (all parts), different modelling approaches, requirements and data-exchange format for each model category that is standardized in this series are defined in this document. IEC 62433-1 cancels and replaces IEC TS 62433-1 published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 62433 1:2011: Incorporation of a data exchange format for an integrated circuit’s model representation. The contents of the corrigendum of July 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62433-1:2019/COR1:2020",
+    "edition": "1.0",
+    "date": "2020-07-10",
+    "title": "Corrigendum 1 - EMC IC modelling - Part 1: General modelling framework",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62433-2:2017",
+    "edition": "2.0",
+    "date": "2017-01-27",
+    "title": "EMC IC modelling - Part 2: Models of integrated circuits for EMI behavioural simulation - Conducted emissions modelling (ICEM-CE)",
+    "language": "EN-FR",
+    "description": "IEC 62433-2:2017 specifies macro-models for an Integrated Circuit (IC) to simulate conducted electromagnetic emissions on a printed circuit board. The model is commonly called Integrated Circuit Emission Model - Conducted Emission (ICEM-CE). The ICEM-CE macro-model can also be used for modelling an IC-die, a functional block and an Intellectual Property (IP) block. The ICEM-CE macro-model can be used to model both digital and analogue ICs. This edition includes the following significant technical changes with respect to the previous edition: Incorporation of an XML based exchange format for model representation."
+  },
+  {
+    "reference": "IEC TR 62433-2-1:2010",
+    "edition": "1.0",
+    "date": "2010-10-05",
+    "title": "EMC IC modelling - Part 2-1: Theory of black box modelling for conducted emission",
+    "language": "EN-FR",
+    "description": "IEC/TR 62433-2-1:2010 covers black box modelling which has the potential to make the modelling of conducted emission very simple, very fast, and can provide complete protection of proprietary information of IC vendors. This technical report is intended to provide the theoretical background on black box modelling for IC conducted emission."
+  },
+  {
+    "reference": "IEC 62433-3:2017",
+    "edition": "1.0",
+    "date": "2017-01-27",
+    "title": "EMC IC modelling - Part 3: Models of integrated circuits for EMI behavioural simulation - Radiated emissions modelling (ICEM-RE)",
+    "language": "EN-FR",
+    "description": "IEC 62433-3:2017 provides a method for deriving a macro-model to allow the simulation of the radiated emission levels of an Integrated Circuit (IC). This model is commonly called Integrated Circuit Emission Model - Radiated Emission, ICEM-RE. The model is intended to be used for modelling a complete IC, with or without its associated package, a functional block and an Intellectual Property (IP) block of both analogue and digital ICs (input/output pins, digital core and supply), when measured or simulated data cannot be directly imported into simulation tools."
+  },
+  {
+    "reference": "IEC 62433-4:2016",
+    "edition": "1.0",
+    "date": "2016-05-25",
+    "title": "EMC IC modelling - Part 4: Models of integrated circuits for RF immunity behavioural simulation - Conducted immunity modelling (ICIM-CI)",
+    "language": "EN-FR",
+    "description": "IEC 62433-4:2016 specifies a flow for deriving a macro-model to allow the simulation of the conducted immunity levels of an integrated circuit (IC). This model is commonly called Integrated Circuit Immunity Model - Conducted Immunity, ICIM-CI. It is intended to be used for predicting the levels of immunity to conducted RF disturbances applied on IC pins. In order to evaluate the immunity threshold of an electronic device, this macro-model will be inserted in an electrical circuit simulation tool. This macro-model can be used to model both analogue and digital ICs (input/output, digital core and supply). This macro-model does not take into account the non-linear effects of the IC. The added value of ICIM-CI is that it could also be used for immunity prediction at board and system level through simulations. This part of IEC 62433 has two main parts: - the electrical description of ICIM-CI macro-model elements; - a universal data exchange format called CIML based on XML. This format allows ICIM-CI to be encoded in a more useable and generic form for immunity simulation."
+  },
+  {
+    "reference": "IEC TR 62433-4-1:2025",
+    "edition": "1.0",
+    "date": "2025-08-26",
+    "title": "EMC IC modelling - Part 4-1: Use of ICIM-CI model to predict the IC conducted immunity in a PCB",
+    "language": "EN",
+    "description": "IEC TR 62433-4-1:2025 provides an overview of good practices to extract an ICIM-CI model from measurements and to build a numerical model of the PCB in which the ICIM-CI model is used to predict RF immunity of an IC in its application PCB. This document also discusses factors which can be considered to obtain proper results in an ICIM-CI model extraction and use of the actual model at the PCB level."
+  },
+  {
+    "reference": "IEC 62433-6:2020",
+    "edition": "1.0",
+    "date": "2020-09-22",
+    "title": "EMC IC modelling - Part 6: Models of integrated circuits for pulse immunity behavioural simulation - Conducted pulse immunity modelling (ICIM-CPI)",
+    "language": "EN-FR",
+    "description": "IEC 62433-6:2020 describes the extraction flow for deriving an immunity macro-model of an Integrated Circuit (IC) against conducted Electrostatic Discharge (ESD) according to IEC 61000-4-2 and Electrical Fast Transients (EFT) according to IEC 61000-4-4. The model addresses physical damages due to overvoltage, thermal damage and other failure modes. Functional failures can also be addressed. This model allows the immunity simulation of the IC in an application. This model is commonly called \"Integrated Circuit Immunity Model Conducted Pulse Immunity\", ICIM-CPI. This document provides: - the description of ICIM-CPI macro-model elements representing electrical, thermal or logical behaviour of the IC. - a universal data exchange format based on XML."
+  },
+  {
+    "reference": "IEC 63011-1:2018",
+    "edition": "1.0",
+    "date": "2018-11-28",
+    "title": "Integrated circuits - Three dimensional integrated circuits - Part 1: Terminology",
+    "language": "EN-FR",
+    "description": "IEC 63011-1:2018 provides definitions pertaining to multichip integrated circuits, as vertically stacked dies using through-silicon vias (TSVs) or micro bumps. Terms and definitions related to the fabrication and test of the multichip integrated circuits are also provided."
+  },
+  {
+    "reference": "IEC 63011-2:2018",
+    "edition": "1.0",
+    "date": "2018-11-28",
+    "title": "Integrated circuits - Three dimensional integrated circuits - Part 2: Alignment of stacked dies having fine pitch interconnect",
+    "language": "EN-FR",
+    "description": "IEC 63011-2:2018 provides specifications of initial alignment and alignment maintenance between multiple stacked integrated circuits during the die bonding process. These specifications define the alignment keys and operating procedures of the keys. These specifications apply only if electrical coupling method of die-to-die alignment is used in the die stacking."
+  },
+  {
+    "reference": "IEC 63011-3:2018",
+    "edition": "1.0",
+    "date": "2018-11-28",
+    "title": "Integrated circuits - Three dimensional integrated circuits - Part 3: Model and measurement conditions of through-silicon via",
+    "language": "EN-FR",
+    "description": "IEC 63011-3:2018 specifies a reference model of through-silicon via (TSV) electrical characteristics required for an interface design in three dimensional integrated circuit (3-D IC) to transmit and receive digital data and measurement conditions for resistance and capacitance to specify TSV characteristics in 3-D IC. Power devices, RF devices and micro-electromechanical systems (MEMS) are not in the scope of this document."
+  }
+]

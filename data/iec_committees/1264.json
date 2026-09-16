@@ -1,0 +1,234 @@
+[
+  {
+    "reference": "IEC 60601-2-22:2019",
+    "edition": "4.0",
+    "date": "2019-11-20",
+    "title": "Medical electrical equipment - Part 2-22: Particular requirements for basic safety and essential performance of surgical, cosmetic, therapeutic and diagnostic laser equipment",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-22:2019 applies to the Basic Safety and Essential Performance of laser equipment for surgical, therapeutic, medical diagnostic, cosmetic or veterinary applications, intended for use on humans or animals, classified as Laser Product of Class 1C where the Enclosed Laser is of Class 3B or 4, or Class 3B, or Class 4. Medical Electrical Equipment or Medical Electrical Systems which incorporate lasers as sources of energy being transferred to the Patient or animal and where the lasers are specified as above, are referred to as “laser equipment” in this document. Laser Products for these applications classified as a Class 1, Class 1M, Class 2, Class 2M or Class 3R Laser Product, are covered by IEC 60825-1:2014 and by the general standard. If a clause or subclause is specifically intended to be applicable to ME Equipment only, or to ME Systems only, the title and content of that clause or subclause will say so. If that is not the case, the clause or subclause applies to ME Equipment and to ME Systems, as relevant. Hazards inherent in the intended physiological function of laser equipment within the scope of this document are not covered by specific requirements in this document except in 7.2.13, Physiological effects, of the general standard. If the laser equipment is Class 1C according to IEC 60825-1:2014 and is used as a laser appliance in a household, it is covered by IEC 60335-2-113:2016. This fourth edition cancels and replaces the third edition published in 2007 and Amendment 1:2012. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) it takes account of IEC 60601-1:2005/AMD1:2012 and IEC 60825-1:2014, which have been published since publication of the third edition; b) it addresses technical and safety issues which have arisen since publication of the third edition; c) the scope of this fourth edition differs from the scope of the third edition. It now includes Class 1C laser equipment, as defined in IEC 60825-1:2014, when the Enclosed Laser is Class 3B or 4; d) LED (light emitting diode) products are now excluded from this document as medical LED products may be covered by IEC 60601-2-57."
+  },
+  {
+    "reference": "IEC 60601-2-22:2019/AMD1:2026",
+    "edition": "4.0",
+    "date": "2026-04-24",
+    "title": "Amendment 1 - Medical electrical equipment - Part 2-22: Particular requirements for basic safety and essential performance of surgical, cosmetic, therapeutic and diagnostic laser equipment",
+    "language": "EN-FR, EN, FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60601-2-57:2023",
+    "edition": "2.0",
+    "date": "2023-07-27",
+    "title": "Medical electrical equipment - Part 2-57: Particular requirements for the basic safety and essential performance of non-laser light source equipment intended for therapeutic, diagnostic, monitoring, cosmetic and aesthetic use",
+    "language": "EN-FR",
+    "description": "IEC 60601-2-57:2023 applies to basic safety and essential performance of equipment incorporating one or more sources of optical radiation in the wavelength range 200 nm to 3 000 nm, with the exception of laser radiation, and intended to create photobiological effects in humans for therapeutic, diagnostic, monitoring, and cosmetic or aesthetic applications; hereafter referred to as light source equipment (ls equipment)."
+  },
+  {
+    "reference": "IEC 60825-1:2014",
+    "edition": "3.0",
+    "date": "2014-05-15",
+    "title": "Safety of laser products - Part 1: Equipment classification and requirements",
+    "language": "EN-FR, ES",
+    "description": "IEC 60825-1:2014 is applicable to safety of laser products emitting laser radiation in the wavelength range 180 nm to 1 mm. A laser product may consist of a single laser with or without a separate power supply or may incorporate one or more lasers in a complex optical, electrical, or mechanical system. Typically, laser products are used for demonstration of physical and optical phenomena, materials processing, data reading and storage, transmission and display of information, etc. Such systems have found use in industry, business, entertainment, research, education, medicine and consumer products. Laser products that are sold to other manufacturers for use as components of any system for subsequent sale are not subject to IEC 60825-1, since the final product will itself be subject to this standard. Laser products that are sold by or for manufacturers of end products for use as repair parts for the end products are also not subject to IEC 60825-1. However, if the laser system within the laser product is operable when removed from the end product, the requirements of this Part 1 apply to the removable laser system. The objectives of this part of IEC 60825 are: - to introduce a system of classification of lasers and laser products emitting radiation in the wavelength range 180 nm to 1 mm according to their degree of optical radiation hazard in order to aid hazard evaluation and to aid the determination of user control measures; - to establish requirements for the manufacturer to supply information so that proper precautions can be adopted; - to ensure, through labels and instructions, adequate warning to individuals of hazards associated with accessible radiation from laser products; and - to reduce the possibility of injury by minimizing unnecessary accessible radiation and to give improved control of the laser radiation hazards through protective features. This edition includes the following significant technical changes with respect to the previous edition: - a new class, Class 1C, was introduced; - the measurement condition 2 (\"eye loupe\" condition) was removed; - a classification of the emission of laser products below a certain radiance level that are intended to be used as replacement for conventional light sources can, as an option, be based on the IEC 62471 series; - and the accessible emission limits (AELs) for Class 1, 1M, 2, 2M and 3R of pulsed sources, particularly of pulsed extended sources, were updated to reflect the latest revision of the ICNIRP guidelines on exposure limits (accepted for publication in Health Physics Journal 2013, see also www.icnirp.org). The contents of the Interpretation sheet 1 and 2 of December 2017 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60825-1:2014/ISH1:2017",
+    "edition": "3.0",
+    "date": "2017-12-19",
+    "title": "Interpretation sheet 1 - Safety of laser products - Part 1: Equipment classification and requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60825-1:2014/ISH2:2017",
+    "edition": "3.0",
+    "date": "2017-12-19",
+    "title": "Interpretation sheet 2 - Safety of laser products - Part 1: Equipment classification and requirements",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60825-2:2021",
+    "edition": "4.0",
+    "date": "2021-03-16",
+    "title": "Safety of laser products - Part 2: Safety of optical fibre communication systems (OFCSs)",
+    "language": "EN-FR",
+    "description": "IEC 60825-2:2021 provides requirements and specific guidance for the safe operation and maintenance of optical fibre communication systems (OFCSs). In these systems, optical power is possibly accessible outside the confines of the transmitting equipment and/or at great distance from the optical source. This document requires the assessment of hazard level at each accessible location of the OFCS as a replacement for product classification according to IEC 60825-1. It applies to the installed OFCS as an engineered, end-to-end assembly for the generation, transfer and receipt of optical radiation arising from lasers, light-emitting diodes (LEDs) or optical amplifiers, in which the transference is by means of optical fibre for communication and/or control purposes. Individual components and subassemblies that fall under the definition of a laser product are subject to the applicable subclause(s) of IEC 60825-1. This document is applicable to individual components and subassemblies intended to be installed within OFCSs. This document does not apply to optical fibre systems primarily designed to transmit optical power for applications such as material processing or medical treatment. In addition to the hazards resulting from laser radiation, OFCSs possibly give rise to other hazards, such as fire. This document does not address safety issues associated with explosion or fire with respect to OFCSs deployed in explosive atmospheres. This fourth edition cancels and replaces the third edition published in 2004, Amendment 1:2006 and Amendment 2:2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) Recommendations for individual components and subassemblies have been clarified; see Clause 1, paragraph 3. b) C7 has been revised in accordance with IEC 60825-1:2014, but with an additional limitation related to the skin MPE; see 4.7.2. c) Condition 2 has been changed, and a detailed description of the measurement and determination method for hazard level has been added; see 4.7.1 and 4.7.2. d) Annex B has been moved into 4.9. Annex F has been moved forward as Annex B. e) Clause D.4 Hazard level evaluation examples – Additional examples have been added. f) Clause D.5 Fault analysis – Explanation and guidance has been simplified. The contents of the corrigendum of June 2021 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60825-2:2021/COR1:2021",
+    "edition": "4.0",
+    "date": "2021-06-23",
+    "title": "Corrigendum 1 - Safety of laser products - Part 2: Safety of optical fibre communication systems (OFCSs)",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60825-3:2022",
+    "edition": "3.0",
+    "date": "2022-07-13",
+    "title": "Safety of laser products - Part 3: Guidance for laser displays and shows",
+    "language": "EN",
+    "description": "IEC TR 60825-3:2022 gives guidance on the planning and design, set-up and conduct of laser displays and shows that make use of high power lasers emitting output between 380 nm and 780 nm. This document is a code of practice for the design, installation, operation and evaluation of the safety of laser light shows and displays, and the equipment employed in their production. This document is also intended for persons who modify laser display installations or equipment. The laser power needed to produce visually effective theatrical or artistic displays in large spaces such as theatres, arenas, or architectural sites is great enough to pose a severe accidental exposure hazard, even when personal exposure is very brief. For this reason, IEC TR 60825-14 states that only laser products that are Class 1, Class 2 or visible-beam Class 3R should be used for demonstration, display or entertainment purposes in unsupervised areas. Only under carefully controlled conditions and under the control of a trained experienced operator can laser products of higher classes be used for visual entertainment. This document expands upon the principles considered in IEC TR 60825-14, providing specific technical guidance appropriate for the safe use of laser products used for the purposes of visual entertainment."
+  },
+  {
+    "reference": "IEC 60825-4:2022",
+    "edition": "3.0",
+    "date": "2022-07-22",
+    "title": "Safety of laser products - Part 4: Laser guards",
+    "language": "EN-FR",
+    "description": "IEC 60825-4:2022 deals with basic issues concerning laser guards, including human access, interlocking and labelling, and gives general guidance on the design of protective housings and enclosures for high-power lasers. Laser guards may also comply with standards for laser protective eyewear, but such compliance is not necessarily sufficient to satisfy the requirements of this document. This part of IEC 60825 specifies the requirements for laser guards, permanent and temporary (for example for service), that enclose the process zone of a laser processing machine, and specifications for proprietary laser guards. This document applies to all component parts of a guard including clear (visibly transmitting) screens and viewing windows, panels, laser curtains and walls. In addition, this document indicates - how to assess and specify the protective properties of a laser guard, and - how to select a laser guard."
+  },
+  {
+    "reference": "IEC TR 60825-5:2019",
+    "edition": "3.0",
+    "date": "2019-11-14",
+    "title": "Safety of laser products - Part 5: Manufacturer's checklist for IEC 60825-1",
+    "language": "EN",
+    "description": "IEC TR 60825-5:2019 is applicable to laser products as described in IEC 60825-1:2014. The checklist is intended for use by manufacturers of laser products and their agents to establish that each new or modified design complies with the requirements of IEC 60825-1:2014. The checklist is used in conjunction with IEC 60825-1, as relevant clauses and subclauses in IEC 60825-1 are referred to in the text. The layout of the checklist is intended only as a guide. Manufacturers and examiners are encouraged to produce their own document, omitting questions and clauses that are not relevant to the types of product under examination, but noting in the appropriate positions the numbers of such clauses stating, for example: \"Subclause 9.11.1: Question omitted – not applicable\". The manufacturer is responsible for ensuring that the examiner is a person competent in the inspection and classification of laser products. This third edition cancels and replaces the second edition of IEC TR 60825-5 published in 2003. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a new class, Class 1C, was introduced; the measurement condition 2 (\"eye loupe\" condition) was removed; for compliance with non-beam hazards (8.14.1) according to relevant product safety standards, a reference was made to corresponding product reports. This document is to be used in conjunction with IEC 60825-1:2014."
+  },
+  {
+    "reference": "IEC TR 60825-8:2022",
+    "edition": "3.0",
+    "date": "2022-09-14",
+    "title": "Safety of laser products - Part 8: Guidelines for the safe use of lasers on humans",
+    "language": "EN",
+    "description": "IEC 60825:2022, which is a Technical Report, serves as a guide to the employer, the responsible person, the laser safety officer, the laser user and other persons involved, on the safe use of lasers and laser equipment classified as laser class 1C, 3B or 4 in interventional applications of laser beams on humans, excluding use of consumer products. This document explains the control measures recommended for the safety of the laser user, patients, clients, staff, maintenance personnel and others. Engineering controls which form part of the laser equipment or the installation are also briefly described to provide an understanding of the general principles of protection."
+  },
+  {
+    "reference": "IEC 60825-12:2022",
+    "edition": "3.0",
+    "date": "2022-12-20",
+    "title": "Safety of laser products - Part 12: Safety of free space optical communication systems used for transmission of information",
+    "language": "EN-FR",
+    "description": "CORRECTED VERSION 2026-01 IEC 60825-12:2022 This part is applicable to products that emit laser radiation for the purpose of free space optical data transmission. This document does not apply to laser products designed for the purposes of transmitting optical power for applications such as material processing or medical treatment. This document also does not apply to the use of laser products in explosive atmospheres (see IEC 60079-0). Light-emitting diodes employed by free space optical communication systems, used for the purpose of free space optical data transmission, do not fall into the scope of this document. The contents of the corrigenda 1 (2024-07) and 2 (2026-01) have been included in this copy."
+  },
+  {
+    "reference": "IEC 60825-12:2022/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-07-31",
+    "title": "Corrigendum 1 - Safety of laser products - Part 12: Safety of free space optical communication systems used for transmission of information",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60825-12:2022/COR2:2026",
+    "edition": "3.0",
+    "date": "2026-01-08",
+    "title": "Corrigendum 2 - Safety of laser products - Part 12: Safety of free space optical communication systems used for transmission of information",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 60825-13:2026",
+    "edition": "1.0",
+    "date": "2026-02-03",
+    "title": "Safety of laser products - Part 13: Measurements for classification of laser products",
+    "language": "EN",
+    "description": "IEC TS 60825-13:2026 provides manufacturers, test houses, safety personnel, and others with practical guidance on methods to perform radiometric measurements or analyses to establish the emission level of laser energy or power in accordance with IEC 60825-1:2014. The measurement procedures described in this document are guidance for classification of laser products in accordance with IEC 60825‑1:2014. It is possible that other procedures are better or more appropriate. Information is provided for calculating accessible emission limits (AELs) and maximum permissible exposures (MPEs), since some parameters used in calculating the limits are dependent upon other measured quantities. This document applies to lasers, including extended sources and laser arrays. The procedures described in this document for extended source viewing conditions can yield more conservative results than when using more rigorous methods. NOTE Work continues on more complex source evaluations and will be provided as international agreement on the methods is reached. This first edition cancels and replaces the second edition of IEC TR 60825-13 published in 2011. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TR 60825-13:2011: a) minor changes and additions have been made in the definitions; b) classification flow has been updated; c) apparent source sections have been clarified; d) scanning has been updated; e) more examples and useful conversions have been added to the annexes."
+  },
+  {
+    "reference": "IEC TR 60825-14:2022",
+    "edition": "2.0",
+    "date": "2022-03-25",
+    "title": "Safety of laser products - Part 14: A user's guide",
+    "language": "EN",
+    "description": "IEC TR 60825-14:2022 This second edition cancels and replaces the first edition published in 2004. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: incorporates changes made in IEC 60825-1:2014; adds information to users of laser equipment on administrative controls to ensure safety in the workplace, including the training and appointment of people to specific laser safety management roles; updates an approach to risk assessment; includes updated guidance on the management of incidents and accidents; includes updated guidance on medical surveillance for laser workers; includes revised examples of calculations. This document is intended to help laser users and their employers to understand the general principles of safety management, to identify the hazards that can be present, to assess the risks of harm that can arise, and to set up and maintain appropriate control measures. Although the guidance given in this document is aimed principally at organizations (whether private, corporate or public), where systems of safety management would be expected to be in place, it can be applied by anyone using lasers. Laser control measures vary widely. They depend on the type of laser equipment in use, the task or process being performed, the environment in which the equipment is used and the personnel who are at risk of harm. Specific requirements for certain laser applications are given in other documents in the IEC 60825 series."
+  },
+  {
+    "reference": "IEC TR 60825-17:2015",
+    "edition": "2.0",
+    "date": "2015-10-09",
+    "title": "Safety of laser products - Part 17: Safety aspects for use of passive optical components and optical cables in high power optical fibre communication systems",
+    "language": "EN",
+    "description": "IEC TR 60825-17:2015(E) recommends safety measures to protect against effects caused exclusively by thermal, opto-mechanical and related effects in passive optical components and optical cables used in high power optical fibre communication systems. It does not apply to the use of high power optical systems in explosive atmospheres or the use of optical fibres in material processing machines. Throughout this part of IEC 60825, a reference to laser is taken to include light-emitting diodes (LEDs) and optical amplifiers. This second edition cancels and replaces the first edition published in 2010. This edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC TS 60825-19:2024",
+    "edition": "1.0",
+    "date": "2024-03-06",
+    "title": "Safety of laser products - Part 19: Moving platform laser products",
+    "language": "EN",
+    "description": "IEC TS 60825-19:2024 specifies the velocity-dependent closest points of human access (VCPHA) for the classification of moving platform laser products when considering the movement of the platform with respect to a stationary frame of reference. This presupposes that the inherent kinetic hazard of the moving platform creates a zone in which persons would not be reasonably expected to be located. Additionally, it takes neighbouring moving platforms into account by defining stationary and moving apertures. This document is applicable to all laser products whose laser apertures are on a moving platform. Laser products are sometimes used on moving platforms. Currently the standard IEC 60825-1:2014 considers only a stationary aperture; it does not address the situations where the emitting aperture is mounted on a platform, such as a vehicle, that can be in motion. Failure to consider the effects of the motion of the platform can result in overly restrictive assessment of the hazard. Although accounting for a platform’s movement during the assessment of a laser product’s classification can lead to less restrictive measurement conditions, it is important not to overlook that there can be apertures, even on other moving platforms, moving at a relative speed of zero or close to zero with respect to the moving platform laser product being classified."
+  },
+  {
+    "reference": "IEC TS 60825-20:2025",
+    "edition": "1.0",
+    "date": "2025-09-23",
+    "title": "Safety of laser products - Part 20: Safety requirements for products intentionally exposing face or eyes to laser radiation",
+    "language": "EN",
+    "description": "IEC TS 60825-20:2025 provides radiation safety requirements (normative) and guidelines (informative) for the consideration of faults for Class 1 laser devices with laser radiation directed towards the eyes or face. Requirements for the safety of the nominal emission are not in the scope of this document. Examples: − devices with laser light facial or ocular recognition; − virtual reality headsets or glasses; − devices with gesture tracking via eye or facial movements; − driver surveillance cameras; − full body scanners (including eyes, face, and body). Products exempted from this document include: − medical and ophthalmic devices; − automotive (lidars), lamps; − laser applications where the laser is used in a professional (non-consumer) setting and is intended for direct or long-time exposure of the eyes or face. This document provides normative requirements and informative guidelines for: − radiation safety analysis; − production-line testing; − hazard analysis for laser radiation emissions (using a modified safety-focused FMEA approach) NOTE all subsequent references to FMEA in this document refers to this safety-focused FMEA approach. − examples of typical failure modes and mitigation techniques"
+  },
+  {
+    "reference": "IEC 62471:2006",
+    "edition": "1.0",
+    "date": "2006-07-26",
+    "title": "Photobiological safety of lamps and lamp systems",
+    "language": "EN-FR, ES",
+    "description": "Gives guidance for evaluating the photobiological safety of lamps and lamp systems including luminaires. Specifically it specifies the exposure limits, reference measurement technique and classification scheme for the evaluation and control of photobiological hazards from all electrically powered incoherent broadband sources of optical radiation, including LEDs but excluding lasers, in the wavelength range from 200 nm through 3000 nm. This standard was prepared as Standard CIE S 009:2002 by the International Commission on Illumination."
+  },
+  {
+    "reference": "IEC TR 62471-3:2015",
+    "edition": "1.0",
+    "date": "2015-01-20",
+    "title": "Photobiological safety of lamps and lamp systems - Part 3: Guidelines for the safe use of intense pulsed light source equipment on humans",
+    "language": "EN",
+    "description": "IEC TR 62471-3:2015(E) which is a technical report, provides guidelines for the safe use of intense pulsed light (IPL) source equipment in professional premises. It describes possible adverse incidents that may occur in respect of the use of IPL devices and recommends measures to avoid them. IEC TR 62471-3:2015 sets out the control measures recommended for the safety of recipients of IPL treatment, staff, service, maintenance personnel and others. Engineering controls which form part of the IPL equipment or the installation are also briefly described to provide an understanding of the general principles of protection."
+  },
+  {
+    "reference": "IEC TR 62471-4:2022",
+    "edition": "1.0",
+    "date": "2022-09-22",
+    "title": "Photobiological safety of lamps and lamp systems - Part 4: Measuring methods",
+    "language": "EN",
+    "description": "IEC 62471-4:2022, which is a Technical Report, provides manufacturers, test houses, safety personnel and others with practical guidance on methods to perform radiometric and spectroradiometric measurements to determine the level of accessible optical radiation emitted by lamps and lamp systems in accordance with IEC 62471."
+  },
+  {
+    "reference": "IEC 62471-5:2015",
+    "edition": "1.0",
+    "date": "2015-06-09",
+    "title": "Photobiological safety of lamps and lamp systems - Part 5: Image projectors",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62471-5:2015 provides a risk group classification system for image projectors, and measurement conditions for optical radiation emitted by image projectors. It includes manufacturing requirements that may be required as a result of an image projector system being assigned to a particular risk group. Therefore, this part of IEC 62471 provides safety requirements for lamp systems that are intended to produce projected visible optical radiation, such as theatre projectors, data projectors and home-use projectors. The assigned risk group of a projector product also may be used by projector manufacturers to assist with any risk assessments, e.g. for occupational exposure in workplaces. National requirements may exist for the assessment of products or occupational exposure."
+  },
+  {
+    "reference": "IEC 62471-6:2022",
+    "edition": "1.0",
+    "date": "2022-10-11",
+    "title": "Photobiological safety of lamps and lamp systems - Part 6: Ultraviolet lamp products",
+    "language": "EN-FR",
+    "description": "IEC 62471-6:2022 IEC 62471:2006/CIE S009:2002. IEC 62471 covers light emitting diodes (LEDs), incandescent, low- and high- pressure gas-discharge, arc and other lamps. It also covers lamps which are designed primarily to emit ultraviolet radiant energy, such as ultraviolet sources intended to excite fluorescence of irradiated materials, for insect light traps, for scientific studies, mineral identification, for non-destructive testing, germicidal irradiation, and other purposes. This part of IEC 62471 provides the optical radiation safety requirements for ultraviolet lamp products, including UV LED lamp products. This document provides requirements for: optical radiation safety assessment and ultraviolet-product risk groups; user information for safety measures; appropriate labelling of ultraviolet lamp products. This document addresses those lamps and lamp products where the ultraviolet emission serves the primary purpose of the product and where more than half of the radiant power emitted between 180 nm and 3 000 nm is in the spectral region 180 nm to 400 nm. If more than half of the optical radiation emitted between 180 nm and 3 000 nm is outside of the spectral region 180 nm to 400 nm, then the base standard IEC 62471 should be used. This document covers medical diagnostic and cosmetic devices/products that emit primarily UV radiation."
+  },
+  {
+    "reference": "ISO 11553-1:2020",
+    "edition": "2.0",
+    "date": "2020-04-02",
+    "title": "Safety of machinery - Laser processing machines - Part 1: Laser safety requirements",
+    "language": "EN",
+    "description": "This document describes laser radiation hazards arising in laser processing machines, as defined in 3.7. It also specifies the safety requirements relating to laser radiation hazards, as well as the information to be supplied by the manufacturers of such equipment (in addition to that prescribed by IEC 60825). Requirements dealing with noise as a hazard from laser processing machines are included in ISO 11553‑3:2013. This document is applicable to machines using laser radiation to process materials. It is not applicable to laser products, or equipment containing such products, which are manufactured solely and expressly for the following applications: - photolithography; - stereolithography; - holography; - medical applications (per IEC 60601-2-22); - data storage."
+  },
+  {
+    "reference": "ISO 11553-2:2007",
+    "edition": "1.0",
+    "date": "2007-03-01",
+    "title": "Safety of machinery -- Laser processing machines -- Part 2: Safety requirements for hand-held laser processing devices",
+    "language": "EN, FR",
+    "description": "ISO 11553-2:2007 specifies the requirements for laser processing devices, as defined in ISO 11553-1, which are hand-held or hand-operated. The purpose of ISO 11553-2:2007 is to draw attention to the particular hazards related to the use of hand-held laser and hand-operated laser processing devices and to prevent personal injury. This includes both the areas of hazard analysis and risk assessment as well as protective measures."
+  },
+  {
+    "reference": "ISO 11553-3:2013",
+    "edition": "1.0",
+    "date": "2013-03-07",
+    "title": "Safety of machinery -- Laser processing machines -- Part 3: Noise reduction and noise measurement methods for laser processing machines and hand-held processing devices and associated auxiliary equipment (accuracy grade 2)",
+    "language": "EN, FR",
+    "description": "ISO/IEC 11553-3:2013 describes the requirements to deal with noise hazards and specifies all the information necessary to carry out efficiently and under standardized conditions the determination, declaration and verification of airborne noise emission from laser processing machines and hand-held laser processing devices within the scope of ISO/IEC 11553-1 and ISO/IEC 11553-2. It specifies the safety requirements relating to noise hazards. It specifies noise measurement methods, installation and operating conditions to be used for the test, together with the information to be supplied by manufacturers of such equipment. ISO/IEC 11553-3:2013 applies to those laser processing machines and hand-held laser processing devices included in the scope of ISO/IEC 11553-1 and ISO/IEC 11553-2. Noise emission characteristics include emission sound pressure levels at work stations and the sound power level. Declared noise emission values permit comparison of laser processing machines and hand-held laser processing devices on the market. The use of this noise test code (see Annex A) ensures the reproducibility of the determination of the characteristic noise emission values within specific limits. These limits are determined by the accuracy grade of the noise emission measuring method used. Noise emission measurements specified by ISO/IEC 11553-3:2013 meet the requirements of an engineering method (accuracy grade 2)."
+  },
+  {
+    "reference": "ISO 19818-1:2021",
+    "edition": "1.0",
+    "date": "2021-06-17",
+    "title": "Eye and face protection - Protection against laser radiation - Part 1: Requirements and test methods",
+    "language": "EN, FR",
+    "description": "This document is applicable to protectors intended to provide protection against accidental exposure to laser radiation within the wavelength range 180 nm to 1 mm. It specifies the requirements, test methods and marking. Protectors intended for adjustment work on lasers are included in the scope of this document and are marked in the same way as other protectors, but selection of appropriate eyewear for a specific application is a choice of the user. Laser protective filters used as viewing windows in laser equipment machinery or incorporated into optical instruments such as operating microscopes and loupes that may be used for deliberate viewing of laser radiation as part of their function are outside the scope of this document. Laser radiation in the wavelength range below 180 nm is absorbed in air, therefore eye and face protection should not be required. This document is applicable to devices intended for patient protection during medical laser procedures except for treatment in the periorbital area. Guidance on eye protectors for patients (including those used for periorbital treatment) is given in ISO/TR 22463."
+  }
+]

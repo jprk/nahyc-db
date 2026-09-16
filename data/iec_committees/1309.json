@@ -1,0 +1,266 @@
+[
+  {
+    "reference": "IEC 62282-2-100:2020",
+    "edition": "1.0",
+    "date": "2020-05-07",
+    "title": "Fuel cell technologies - Part 2-100: Fuel cell modules - Safety",
+    "language": "EN-FR",
+    "description": "IEC 62282-2-100:2020 provides safety related requirements for construction, operation under normal and abnormal conditions and the testing of fuel cell modules. This document deals with conditions that can yield hazards to persons and cause damage outside the fuel cell modules. Protection against damage inside the fuel cell modules is not addressed in this document, provided it does not lead to hazards outside the module. These requirements can be superseded by other standards for equipment containing fuel cell modules as required for particular applications. This first edition cancels and replaces IEC 62282-2, published in 2012. This edition includes the following significant technical changes with respect to IEC 62282­2:2012: • update of definitions, in particular fuel cell module for normal operation; • leakage values under normal and abnormal operation have been addressed; • a delayed ignition test has been included; • protective measures to limit gas leakage have been included; • the requirements for insulation between live parts and SELV have been updated; • the general safety strategy has been modified to reflect the needs for different application standards; the modifications are in line with similar modifications made to IEC 62282­-3-­100; • the electrical components clause has been modified to reflect the needs for different application standards; the modifications are in line with similar modifications made to IEC 62282-3-100; • protective earthing as part of the module or bonding as a measure within the installation has been introduced; • a dielectric strength test has been completely updated by referring to IEC 62744-1 for voltages up to 1 000 V AC/1 500 V DC; • a new “pressure drop method” leakage test method has been included; • a new Annex addressing significant hazards, hazardous situations and events dealt with in this document, and linked to 4.1 (General safety strategy) has been added. The contents of the corrigendum of November 2023 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62282-2-100:2020/COR1:2023",
+    "edition": "1.0",
+    "date": "2023-11-15",
+    "title": "Corrigendum 1 - Fuel cell technologies - Part 2-100: Fuel cell modules - Safety",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62282-3-100:2019",
+    "edition": "2.0",
+    "date": "2019-02-12",
+    "title": "Fuel cell technologies - Part 3-100: Stationary fuel cell power systems - Safety",
+    "language": "EN-FR",
+    "description": "IEC 62282-3-100:2019 applies to stationary packaged, self-contained fuel cell power systems or fuel cell power systems comprised of factory matched packages of integrated systems which generate electricity through electrochemical reactions. This document is applicable to stationary fuel cell power systems intended for indoor and outdoor commercial, industrial and residential use in non-hazardous areas. This second edition cancels and replaces the first edition published in 2012. This edition includes the following significant technical changes with respect to the previous edition: a) recognition that fuel carrying components qualified to leakage standards (soundness) need not be considered as potential flammable leak sources; b) new annex for small power systems; and c) clarifications for numerous requirements and tests"
+  },
+  {
+    "reference": "IEC 62282-3-200:2025",
+    "edition": "3.0",
+    "date": "2025-09-25",
+    "title": "Fuel cell technologies - Part 3-200: Stationary fuel cell power systems - Performance test methods",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62282-3-200:2025 covers operational and environmental aspects of the stationary fuel cell power systems performance. The test methods apply as follows: - power output under specified operating and transient conditions; - electrical and heat recovery efficiency under specified operating conditions; - environmental characteristics, for example, exhaust gas emissions, noise, under specified operating and transient conditions. This document applies to all kinds of stationary fuel cell technologies, such as: - alkaline fuel cells (AFC); - phosphoric acid fuel cells (PAFC); - polymer electrolyte fuel cells (PEFC); - molten carbonate fuel cells (MCFC); - solid oxide fuel cells (SOFC). This third edition cancels and replaces the second edition published in 2015. This edition includes the following significant technical changes with respect to the previous edition: - revision of the Introduction, Scope and Clause 3; - revision of the symbols in Table 1; - revision of Figure 2 (symbol diagram); - revision of measurement methods (8.3); - revision of the efficiency test (10.2); - revision of the electric power and thermal power response characteristics test (10.3); - revision of the start-up and shutdown characteristics test (10.4); - revision of Annex C."
+  },
+  {
+    "reference": "IEC 62282-3-201:2025",
+    "edition": "3.0",
+    "date": "2025-09-25",
+    "title": "Fuel cell technologies - Part 3-201: Stationary fuel cell power systems - Performance test methods for small fuel cell power systems",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62282-3-201:2025 provides test methods for the electrical, thermal, and environmental performance of small stationary fuel cell power systems that meet the following criteria: - output: rated electric power output of less than 10 kW; - output mode: grid-connected/independent operation or stand-alone operation with single-phase AC output or 3-phase AC output not exceeding 1 000 V, or DC output not exceeding 1 500 V; - operating pressure: maximum allowable working pressure of 0,1 MPa (gauge) for the fuel and oxidant passages; - fuel: gaseous fuel (natural gas, liquefied petroleum gas, propane, butane, hydrogen, etc.) or liquid fuel (kerosene, methanol, etc.); - oxidant: air. This document describes type tests and their test methods only. No routine tests are required or identified, and no performance targets are set in this document. This document provides test methods to be carried out under laboratory conditions. This document covers fuel cell power systems whose primary purpose is the production of electric power and whose secondary purpose can be the utilization of heat. Accordingly, fuel cell power systems for which the use of heat is primary, and the use of electric power is secondary are outside the scope of this document. This third edition cancels and replaces the second edition published in 2017 and Amendment 1:2022. This edition includes the following significant technical changes with respect to the previous edition: - revision of Introduction; - revision of terms and definitions; - revision of Table 1; - revision of Figure 1, Figure 2, Figure 3 and Figure 4; - revision of measurement instruments (10.2); - revision of minimum required measurement systematic uncertainty (10.4); - revision of test conditions (Clause 11); - revision of operating process (Clause 12); - revision of fuel consumption test (14.2); - revision of heat recovery test (14.4); - revision of Figure 13 and Figure 14; - revision of calculation of results (14.14.4); - revision of Annex A and Annex B."
+  },
+  {
+    "reference": "IEC 62282-3-202:2025",
+    "edition": "1.0",
+    "date": "2025-03-27",
+    "title": "Fuel cell technologies - Part 3-202: Stationary fuel cell power systems - Performance test methods for small fuel cell power systems for multiple units operation",
+    "language": "EN-FR",
+    "description": "IEC 62282-3-202:2025 provides performance test methods specialized for the thermal and electrical characteristics of an energy management system to effectively share the heat and power of networked small stationary fuel cell power systems. These test methods are applied for each small stationary fuel cell power system. This document covers small stationary fuel cell power systems which can be complemented with a supplementary heat generator or a thermal storage system, or both, such as: - output: rated electric power output of less than 10 kW for each system; - output mode: grid-connected or independent operation or stand-alone operation with alternating current (AC) output not exceeding 240 V or direct current (DC) output; - operating pressure: maximum allowable working pressure of less than 0,1 MPa (G) for the fuel and oxidant passages; - fuel: gaseous fuel (natural gas, liquefied petroleum gas, propane, butane, hydrogen) or liquid fuel (kerosene, methanol); oxidant: air. This document does not apply to small stationary fuel cell power systems with electricity storage other than (small scale) back-up power for safety, monitoring and control."
+  },
+  {
+    "reference": "IEC 62282-3-300:2012",
+    "edition": "1.0",
+    "date": "2012-06-14",
+    "title": "Fuel cell technologies - Part 3-300: Stationary fuel cell power systems - Installation",
+    "language": "EN-FR, ES",
+    "description": "IEC 62282-3-300:2012 provides minimum safety requirements for the installation of indoor and outdoor stationary fuel cell power systems in compliance with IEC 62282-3-100 and applies to the installation of the following systems: - intended for electrical connection to mains directly or with a readily accessible, manually operable switch or circuit-breaker; - intended for a stand-alone power distribution system; - intended to provide AC or DC power; - with or without the ability to recover useful heat."
+  },
+  {
+    "reference": "IEC 62282-3-400:2016",
+    "edition": "1.0",
+    "date": "2016-11-16",
+    "title": "Fuel cell technologies - Part 3-400: Stationary fuel cell power systems - Small stationary fuel cell power system with combined heat and power output",
+    "language": "EN-FR",
+    "description": "IEC 62282-3-400:2016 applies to small stationary fuel cell power systems serving as a heating appliance providing both electric power and useful heat with or without a supplementary heat generator providing peak load function. This standard applies to fuel cell power systems that are intended to be permanently connected to the electrical system of the customer (end user). Direct connection to the mains (parallel operation) is also within the scope of this standard. This standard is limited to gas and liquid fuelled fuel cell CHP appliances that have a heat input based on lower heating value of less than or equal to 70 kW. This standard specifies the requirements for construction, safety, installation, fitness for purpose, rational use of energy, marking, and performance measurement of these appliances. This standard also provides regional and country specific requirements to facilitate the worldwide application of this IEC standard."
+  },
+  {
+    "reference": "IEC 62282-4-101:2022",
+    "edition": "2.0",
+    "date": "2022-08-11",
+    "title": "Fuel cell technologies - Part 4-101: Fuel cell power systems for electrically powered industrial trucks - Safety",
+    "language": "EN-FR",
+    "description": "IEC 62282-4-101:2022 deals with safety of fuel cell power systems for propulsion other than road vehicles and auxiliary power units (APU). This part of IEC 62282 covers safety requirements for fuel cell power systems intended to be used in electrically powered industrial trucks as defined in ISO 5053-1.except for: rough-terrain trucks; non-stacking low-lift straddle carriers; stacking high-lift straddle carriers; rough-terrain variable-reach trucks; slewing rough-terrain variable-reach trucks; variable-reach container handlers; pedestrian propelled trucks. This document applies to gaseous hydrogen-fueled fuel cell power systems and direct methanol fuel cell power systems for electrically powered industrial trucks. This document applies to DC type fuel cell power systems, with a rated output voltage not exceeding 150 V DC for indoor and outdoor use.This second edition cancels and replaces the first edition published in 2014.This edition includes the following significant technical changes with respect to the previous edition: - revision of the title of this document; - revision of reference standards; - addition of new subclauses (4.3, 4.14.5, 4.15.3, 4.15.4, 4.16, 5.6, and 5.23); - previous 4.15 was revised as “4.16 Risk assessment and risk reduction”; - revision of 4.6 3), access to the manual shutoff valve; - revision of requirements for battery terminals that are threaded (4.14.10.1); - revision of requirements for double layer capacitors (4.14.10.2); - revision of external leakage test (5.5) and ultimate strength test (5.7); - revision of temperature limits on capacitors depending on the temperature rating of the material (Table 3); - revision of markings that are not relevant (Clause 7); - added “Significant hazards, hazardous situations and events dealt with in this document” as a new informative annex"
+  },
+  {
+    "reference": "IEC 62282-4-102:2022",
+    "edition": "2.0",
+    "date": "2022-12-20",
+    "title": "Fuel cell technologies - Part 4-102: Fuel cell power systems for electrically powered industrial trucks - Performance test methods",
+    "language": "EN-FR",
+    "description": "IEC 62282-4-102:2022 specifies the performance test methods of fuel cell power systems for propulsion and auxiliary power units (APU). This document covers fuel cell power systems for propulsion other than those for road vehicles. This document applies to gaseous hydrogen-fuelled fuel cell power systems and direct methanol fuel cell power systems for electrically powered industrial trucks. The following fuels are considered within the scope of this document: - gaseous hydrogen, and - methanol. This document covers the fuel cell power system as defined in 3.7 and Figure 1. This document applies to DC type fuel cell power systems, with a rated output voltage not exceeding DC 150 V for indoor and outdoor use. This document covers fuel cell power systems whose fuel source container is permanently attached to either the industrial truck or the fuel cell power system. This second edition cancels and replaces the first edition published in 2017. This edition includes the following significant technical changes with respect to the previous edition: a. alignment of the Scope with the second edition of IEC 62282-4-101:2022; b. deletion of terms and definitions (previous entries 3.5, 3.10, and 3.15); c. addition of new terms in Clause 3: \"delivered power\" (3.13) and \"regenerated power\" (3.14); d. revision of symbols and their meanings in alignment with those of IEC 62282-3-201; e. replacement of \"reference conditions\" with \"standard conditions\" as seen in Clause 5; f. revision of the test method for the accessory load voltage spike test (13.3.2); g. addition of clarifications in Clause 14 (Power stability under operation); h. addition of a checklist for performance criteria dealt with in this document (Annex C)."
+  },
+  {
+    "reference": "IEC 62282-4-202:2023",
+    "edition": "1.0",
+    "date": "2023-10-17",
+    "title": "Fuel cell technologies - Part 4-202: Fuel cell power systems for propulsion and auxiliary power units - Unmanned aircrafts - Performance test methods",
+    "language": "EN-FR",
+    "description": "IEC 62282-4-202:2023 covers performance test methods of fuel cell power systems intended to be used to power unmanned aircrafts, including general requirements, start-up, shutdown, power output, continuous running time, electric efficiency, data transmission, warning and monitoring, environmental compatibility, etc. The scope of this document is limited to electrically powered unmanned aircrafts with a maximum take-off mass not exceeding 150 kg (i.e. level 5 or lower unmanned aircrafts (UAs)). This document applies to fuel cell power systems with a rated output voltage not exceeding 220 V DC for outdoor use. This document applies only to compressed gaseous hydrogen-fuelled fuel cell power systems."
+  },
+  {
+    "reference": "IEC 62282-4-600:2022",
+    "edition": "1.0",
+    "date": "2022-08-12",
+    "title": "Fuel cell technologies - Part 4-600: Fuel cell power systems for propulsion other than road vehicles and auxiliary power units (APU) - Fuel cell/battery hybrid systems performance test methods for excavators",
+    "language": "EN-FR",
+    "description": "IEC 62282-4-600:2022 covers the requirements for the performance test methods of fuel cell/battery hybrid systems intended to be used for electrically powered applications for excavators. For this purpose, this document covers electrical performance and vibration tests for the fuel cell/battery hybrid system. This document also covers performance test methods which focus on vibration and other characteristics for balance of plant (BOP) installed in heavy-duty applications with fuel cell/battery hybrid system. This document applies to both gaseous hydrogen-fuelled fuel cell power, liquid hydrogen-fuelled fuel cell power, direct methanol fuel cell power and battery hybrid power pack systems."
+  },
+  {
+    "reference": "IEC 62282-5-100:2018",
+    "edition": "1.0",
+    "date": "2018-04-12",
+    "title": "Fuel cell technologies - Part 5-100: Portable fuel cell power systems - Safety",
+    "language": "EN-FR",
+    "description": "IEC 62282-5-100:2018 covers construction, marking and test requirements for portable fuel cell power systems. These fuel cell systems are movable and not fastened or otherwise secured to a specific location. The purpose of the portable fuel cell power system is to produce electrical power. This document applies to AC and DC type portable fuel cell power systems, with a rated output voltage not exceeding 600 V AC, or 850 V DC for indoor and outdoor use."
+  },
+  {
+    "reference": "IEC 62282-6-100:2010",
+    "edition": "1.0",
+    "date": "2010-03-03",
+    "title": "Fuel cell technologies - Part 6-100: Micro fuel cell power systems - Safety",
+    "language": "EN-FR, EN",
+    "description": "IEC 62282-6-100:2010 covers micro fuel cell power systems, micro fuel cell power units and fuel cartridges that are wearable or easily carried by hand, providing d.c. outputs that do not exceed 60 V d.c. and power outputs that do not exceed 240 VA. Establishes requirements for all micro fuel cell power systems, micro fuel cell power units and fuel cartridges to ensure a reasonable degree of safety for normal use, reasonably foreseeable misuse, and consumer transportation of such items. The attention of National Committees is drawn to the fact that equipment manufacturers and testing organizations may need a transitional period following publication of a new, amended or revised IEC publication or one that replaces an existing Publicly Available Specification (PAS) in which to make products in accordance with the new requirements and to equip themselves for conducting new or revised tests. It is the recommendation of the committee that the content of this publication be adopted for implementation nationally not earlier than 12 months from the date of publication. In the meantime, IEC/PAS 62282-6-1 can still be ordered by contacting the local IEC member National Committee or the IEC Central Office. The contents of the corrigendum of December 2011 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62282-6-100:2010/COR1:2011",
+    "edition": "1.0",
+    "date": "2011-12-16",
+    "title": "Corrigendum 1 - Fuel cell technologies - Part 6-100: Micro fuel cell power systems - Safety",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62282-6-100:2010/AMD1:2012",
+    "edition": "1.0",
+    "date": "2012-10-12",
+    "title": "Amendment 1 - Fuel cell technologies - Part 6-100: Micro fuel cell power systems - Safety",
+    "language": "EN-FR, EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62282-6-101:2024",
+    "edition": "1.0",
+    "date": "2024-02-16",
+    "title": "Fuel cell technologies - Part 6-101: Micro fuel cell power systems - Safety - General requirements",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-101:2024 covers micro fuel cell power systems and fuel cartridges that are wearable or easily carried by hand, providing direct current outputs that do not exceed 60 V DC and power outputs that do not exceed 240 VA. Portable fuel cell power systems that provide output levels that exceed these electrical limits are covered by IEC 62282-5-100. This document covers micro fuel cell power systems and fuel cartridges. This document establishes the requirements for micro fuel cell power systems and fuel cartridges to ensure a reasonable degree of safety for normal use, reasonably foreseeable misuse, and cargo and consumer transportation and storage of such items. . Fuel cartridges refilled by the manufacturer or by trained technicians are covered by this document. The fuel cartridges covered by this document are not intended to be refilled by the consumer. This first edition, together with the other parts of the IEC 62282-6-1XX series, cancels and replaces IEC 62282-6-100:2010 and IEC 62282-6-100:2010/AMD1:2012. This edition includes the following significant technical changes with respect to IEC 62282‑6‑100:2010 and IEC 62282-6-100:2010/AMD1:2012: a) A new structure has been set up: IEC 62282-6-101 covers the general safety requirements common to all fuel types whereas IEC 62282-6-102 and subsequent parts of the IEC 62282‑6-1XX series cover particular requirements for specific fuel types based on the requirements given in IEC 62282-6-101."
+  },
+  {
+    "reference": "IEC 62282-6-106:2024",
+    "edition": "1.0",
+    "date": "2024-02-16",
+    "title": "Fuel cell technologies - Part 6-106: Micro fuel cell power systems - Safety - Indirect Class 8 (corrosive) compounds",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-106:2024 covers micro fuel cell power systems, micro fuel cell power units and fuel cartridges using hydrogen produced from UN Class 8 (corrosive) borohydride formulations as fuel. These systems and units use proton exchange membrane (PEM) fuel cell technologies. The designs include fuel processing subsystems to derive hydrogen gas from the corrosive fuel formulation. This first edition, together with the other parts of the IEC 62282-6-1XX series, cancels and replaces IEC 62282-6-100:2010 and IEC 62282-6-100:2010/AMD1:2012.This edition includes the following significant technical changes with respect to IEC 62282‑6‑100:2010 and IEC 62282-6-100:2010/AMD1:2012: a) A new structure has been set up: IEC 62282-6-101 covers the general safety requirements common to all fuel types whereas IEC 62282-6-102 and subsequent parts of the IEC 62282-6-1XX series cover particular requirements for individual fuel types."
+  },
+  {
+    "reference": "IEC 62282-6-107:2024",
+    "edition": "1.0",
+    "date": "2024-04-05",
+    "title": "Fuel cell technologies - Part 6-107: Micro fuel cell power systems - Safety - Indirect water-reactive (Division 4.3) compounds",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-107:2024 covers micro fuel cell power systems, micro fuel cell power units and fuel cartridges using hydrogen produced from water-reactive (UN Division 4.3) compounds as fuel. These systems and units use proton exchange membrane (PEM) fuel cell technologies. The designs can include fuel processing subsystems to derive hydrogen gas from the water-reactive fuel formulation. This document only applies to water-reactive (UN Division 4.3) solid compounds which solely evolve hydrogen gas upon contact with water (or non-hazardous aqueous solutions). This document does not apply to compounds with a subsidiary hazard risk, or which are not permitted to be transported by air according to the International Civil Aviation Organization (ICAO) Technical Instructions."
+  },
+  {
+    "reference": "IEC 62282-6-200:2016",
+    "edition": "3.0",
+    "date": "2016-09-22",
+    "title": "Fuel cell technologies - Part 6-200: Micro fuel cell power systems - Performance test methods",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-200:2016 specifies test methods for the performance evaluation of micro fuel cell power systems for laptop computers, mobile phones, personal digital assistants (PDAs), cordless home appliances, TV broadcast cameras, autonomous robots, etc. This new edition includes the following significant technical changes with respect to the previous edition: - deletion of 5.3 (Fuel consumption test) as it was impractical to measure the actual consumption rate of some kinds of fuels; - addition and modification of some terms and definitions."
+  },
+  {
+    "reference": "IEC 62282-6-300:2012",
+    "edition": "2.0",
+    "date": "2012-12-13",
+    "title": "Fuel cell technologies - Part 6-300: Micro fuel cell power systems - Fuel cartridge interchangeability",
+    "language": "EN-FR, ES",
+    "description": "IEC 62282-6-300:2012 covers interchangeability of micro fuel cell (MFC) fuel cartridges to provide the cartridge compatibility for a variety of MFC power units while maintaining the safety and performance of MFC power systems. For this purpose, the standard covers fuel cartridges and their connector designs. Fuel type, fuel concentration and fuel quality are also covered. This standard also provides for the means to avoid the miss-connection of an improper fuel cartridge. Test methods for verifying the compliance with the interchangeability requirements for fuel and fuel cartridges are also provided in this standard. The main changes with respect to the previous edition are listed below: - updates to Type A to D interchangeable connectors, addition of Type E; - updates of the procedures, criteria and figures of the type tests for interchangeable connectors to ensure accurate and consistent results."
+  },
+  {
+    "reference": "IEC 62282-6-400:2019",
+    "edition": "1.0",
+    "date": "2019-05-22",
+    "title": "Fuel cell technologies - Part 6-400: Micro fuel cell power systems - Power and data interchangeability",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-400:2019 covers the interchangeability of power and data between micro fuel cell power systems and electronic devices to provide the micro fuel cell power system compatibility for a variety of electronic devices while maintaining the safety and performance of the micro fuel cell system. For that purpose, this document covers power interfaces and their connector configuration. The power management circuitry and power sharing methodology are also provided. This document also covers the data communication protocol and its data specification. Operation modes and alert conditions are also provided for the means to comply with the power control requirements of the electronic device."
+  },
+  {
+    "reference": "IEC 62282-6-401:2025",
+    "edition": "1.0",
+    "date": "2025-04-08",
+    "title": "Fuel cell technologies - Part 6-401: Micro fuel cell power systems - Power and data interchangeability - Performance test methods for laptop computer",
+    "language": "EN-FR",
+    "description": "IEC 62282-6-401:2025 covers the requirements for the performance test methods of a micro fuel cell/battery power system, consisting of a fuel cell system with secondary battery for laptop computers. For this purpose, this document covers electrical performance tests for the fuel cell/battery hybrid system. This document also covers performance test methods which focus on the power and data interchangeability of the micro fuel cell power system and laptop computer and other characteristics for balance of plant (BOP) installed for laptop computer applications with a fuel cell/battery hybrid system. This document applies to gaseous hydrogen-fuelled fuel cell power, liquid hydrogen-fuelled fuel cell power, direct methanol fuel cell power, and battery hybrid power pack systems. The following fuels are considered within the scope of this document: - gaseous hydrogen; - liquid hydrogen compounds; - methanol."
+  },
+  {
+    "reference": "IEC TS 62282-7-1:2025",
+    "edition": "3.0",
+    "date": "2025-10-16",
+    "title": "Fuel cell technologies - Part 7-1: Test methods - Single cell performance tests for polymer electrolyte fuel cells (PEFC)",
+    "language": "EN",
+    "description": "IEC TS 62282-7-1:2025 covers cell assemblies, test station setup, measuring instruments and measuring methods, performance test methods, and test reports for PEFC single cells. This document is used for evaluating: a) the performance and durability of membrane electrode assemblies (MEAs) for PEFCs in a single cell configuration; b) materials or structures of PEFCs in a single cell configuration; or, c) the influence of impurities in fuel and/or in air on the fuel cell performance and durability. This document is for proton exchange membrane fuel cells (PEMFC) basically having flow field configurations and using hydrogen or hydrogen containing gas as fuel. It excludes from the scope fuel cells based on anion exchange membranes, bipolar membranes, and phosphoric acid doped polybenzimidazole membranes."
+  },
+  {
+    "reference": "IEC 62282-7-2:2025",
+    "edition": "2.0",
+    "date": "2025-03-07",
+    "title": "Fuel cell technologies - Part 7-2: Test methods - Single cell and stack performance tests for solid oxide fuel cells (SOFCs)",
+    "language": "EN-FR",
+    "description": "IEC 62282-7-2:2025 applies to SOFC cell/stack assembly units, testing systems, instruments and measuring methods, and specifies test methods to test the performance of SOFC cells and stacks. This document is not applicable to small button cells that are designed for SOFC material testing and provide no practical means of fuel utilization measurement. This document is used based on the recommendation of the entity that provides the cell performance specification or for acquiring data on a cell or stack in order to estimate the performance of a system based on it. Users of this document can selectively execute test items suitable for their purposes from those described in this document."
+  },
+  {
+    "reference": "IEC TR 62282-7-3:2025",
+    "edition": "1.0",
+    "date": "2025-03-11",
+    "title": "Fuel cell technologies - Part 7-3: Test methods - Status of accelerated tests for fuel cell stacks and components and perspectives for standardization",
+    "language": "EN",
+    "description": "IEC TR 62282-7-3:2025 is a generic assessment of the feasibility of standardizing accelerated test procedures (both proton exchange membrane (PEM) and oxide ion-conducting solid oxide cell (SOC) technologies) for fuel cell stacks that have been engineered for a specific system application. This document comprises a review of literature and projects, a discussion of the main physical phenomena of interest in accelerated testing campaigns (focusing on the cell and stack levels, not looking at the system as a black box), a compendium of measurement techniques that are applicable, and it suggests a macroscopic approach to the formulation of a representative accelerated testing campaign."
+  },
+  {
+    "reference": "IEC 62282-8-101:2020",
+    "edition": "1.0",
+    "date": "2020-02-18",
+    "title": "Fuel cell technologies - Part 8-101: Energy storage systems using fuel cell modules in reverse mode - Test procedures for the performance of solid oxide single cells and stacks, including reversible operation",
+    "language": "EN-FR",
+    "description": "IEC 62282-8-101:2020 addresses solid oxide cell (SOC) and stack assembly unit(s). It provides for testing systems, instruments and measuring methods to test the performance of SOC cell/stack assembly units for energy storage purposes. It assesses performance in fuel cell mode, in electrolysis mode and/or in reversible operation. This document is intended for data exchanges in commercial transactions between cell/stack manufacturers and system developers or for acquiring data on a cell or stack in order to estimate the performance of a system based on it. Users of this document may selectively execute test items suitable for their purposes from those described in this document. Users can also substitute selected test methods of this document with equivalent test methods of IEC TS 62282-7-2 for SOC operation in fuel cell mode only."
+  },
+  {
+    "reference": "IEC 62282-8-102:2019",
+    "edition": "1.0",
+    "date": "2019-12-13",
+    "title": "Fuel cell technologies - Part 8-102: Energy storage systems using fuel cell modules in reverse mode - Test procedures for the performance of single cells and stacks with proton exchange membrane, including reversible operation",
+    "language": "EN-FR",
+    "description": "IEC 62282-8-102:2019 deals with PEM cell/stack assembly units, testing systems, instruments and measuring methods, and test methods to test the performance of PEM cells and stacks in fuel cell mode, electrolysis and/or reversible mode."
+  },
+  {
+    "reference": "IEC 62282-8-201:2024",
+    "edition": "2.0",
+    "date": "2024-07-10",
+    "title": "Fuel cell technologies - Part 8-201: Energy storage systems using fuel cell modules in reverse mode - Test procedures for the performance of power-to-power systems",
+    "language": "EN-FR",
+    "description": "IEC 62282-8-201:2024 defines the evaluation methods of typical performances for electric energy storage systems using hydrogen. It is applicable to the systems that use electrochemical reaction devices for both power charge and discharge. This document applies to systems that are designed and used for service and operation in stationary locations (indoor and outdoor). It specifies performance evaluation methods for electric energy storage systems using hydrogen that employ electrochemical reactions both for water and steam electrolysis and electric power generation. This document is intended for power-to-power systems which typically employ a set of electrolyser and fuel cell, or a reversible cell for devices of electric charge and discharge. This second edition cancels and replaces the first edition published in 2020. This edition includes the following significant technical changes with respect to the previous edition: a) consideration of systems connected to hydrogen supply infrastructure (hydrogen grids, vessels, caverns or pipelines); b) hydrogen input and output rate is added in the system parameters (5.10); c) electric energy storage capacity test is revised (6.2); d) roundtrip electrical efficiency test is revised (6.5); e) hydrogen input and output rate test is added (6.6.6)."
+  },
+  {
+    "reference": "IEC 62282-8-301:2023",
+    "edition": "1.0",
+    "date": "2023-05-23",
+    "title": "Fuel cell technologies - Part 8-301: Energy storage systems using fuel cell modules in reverse mode - Power-to-methane energy systems based on solid oxide cells including reversible operation - Performance test methods",
+    "language": "EN-FR",
+    "description": "IEC 62282-8-301:2023 specifies performance test methods of power-to-methane systems based on solid oxide cells (SOCs). Water, CO2, and electricity are supplied to the system to produce methane and oxygen. This document is not intended to be applied to solid oxide fuel cell (SOFC) cell/stack assembly units for power generation purposes only, since these are covered in IEC 62282-7-2. In addition, the test methods for SOC cell/stack assembly units including reversible operation (without any methanation reactor) are already described in IEC 62282-8-101. This document is intended to be used for data exchanges in commercial transactions between the system manufacturers and customers. Users of this document can selectively execute test items suitable for their purposes from those described in this document."
+  },
+  {
+    "reference": "IEC TS 62282-9-101:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Fuel cell technologies - Part 9-101: Evaluation methodology for the environmental performance of fuel cell power systems based on life cycle thinking - Streamlined life-cycle considered environmental performance characterization of stationary fuel cell combined heat and power systems for residential applications",
+    "language": "EN",
+    "description": "IEC TS 62282-9-101:2020 provides a streamlined methodology to assess major environmental impacts of stationary fuel cell power systems for residential applications. The fuel cell power systems can be complemented with a supplementary heat generator and/or a thermal storage system such as a hot water tank. The analysis can include the import of electricity from the grid or the export to the grid. The analysed systems are intended to meet the electricity and heat demand of a given household. This document provides a set of specific rules, requirements and guidelines based on life cycle thinking for the description of relevant environmental impacts of fuel cell power systems that can be complemented with a supplementary heat generator or a thermal storage system. This document also provides guidance on how to communicate these environmental impacts to consumers."
+  },
+  {
+    "reference": "IEC TS 62282-9-102:2021",
+    "edition": "1.0",
+    "date": "2021-01-14",
+    "title": "Fuel cell technologies - Part 9-102: Evaluation methodology for the environmental performance of fuel cell power systems based on life cycle thinking - Product category rules for environmental product declarations of stationary fuel cell power systems and alternative systems for residential applications",
+    "language": "EN",
+    "description": "IEC TS 62282-9-102:2021 provides a set of specific rules, requirements and guidelines (i.e. so-called product category rules (PCR) according to ISO 14025 and thus in line with ISO 14040 and ISO 14044) for characterizing the environmental performance of stationary fuel cell combined heat and power (CHP) systems, and alternative systems for residential applications based on life cycle thinking primarily for communication to consumers. This document covers stationary fuel cell CHP systems and alternative heat (and power) systems for residential applications that primarily serve heating purposes. The systems can be complemented with a hot water storage tank and one or more additional heat generators. The systems are connected to the electricity grid. The environmental performance is characterized in an EPD for each individual heat-related device or CHP generator separately. This document also describes how the environmental performance of a given combination of heat-related devices (including CHP generators) is characterized based on the environmental performance of its individual components. The domestic heat distribution system, district heating, or local infrastructures for fuel supply or for fuel storage are not considered"
+  },
+  {
+    "reference": "IEC 63341-3:2025",
+    "edition": "1.0",
+    "date": "2025-11-21",
+    "title": "Railway applications - Hydrogen and fuel cell systems for rolling stock - Part 3: Performance test methods for fuel cell power system",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 63341-3:2025 specifies the performance evaluation methodologies for fuel cell power systems that are designed for utilisation in electrically propelled rolling stock. The scope of this document concerns itself exclusively with electrically powered rolling stock. Internal combustion engines utilising hydrogen are not encompassed within the scope of this document. This document is applicable to hydrogen fuel cell power systems for electrically propelled rolling stock. This document does not apply to reformer-equipped fuel cell power systems. This document does not cover the hydrogen fuel systems that are permanently or separately attached to either the rolling stock or the fuel cell power system. These systems are addressed in IEC 63341-2. The fundamental system overview, incorporating the interrelationships between the primary functions and the connections to the external system, is delineated in IEC 63341-1:2025, Figure 4. The relevant standards are comprehensively delineated in IEC 63341-1. The performance targets for fuel cell power systems are agreed upon between the user and the manufacturer"
+  }
+]

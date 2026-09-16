@@ -1,0 +1,130 @@
+[
+  {
+    "reference": "IEC 62305-1:2024",
+    "edition": "3.0",
+    "date": "2024-09-12",
+    "title": "Protection against lightning - Part 1: General principles",
+    "language": "EN-FR, ES",
+    "description": "IEC 62305-1:2024 provides general principles for the protection of structures against lightning, including their installations and contents, as well as persons. The following cases are outside the scope of this document: - railway systems; - vehicles, ships, aircraft, offshore installations; - underground high-pressure pipelines; - pipe, power and telecommunication lines separated from the structure; - nuclear power plants. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) reference to the IEC 62561 series is made in Annex D to provide a link to relevant lightning protection system components according to the IEC 62561 series; b) risk management introduces the concept of types of loss with public relevance; c) the concept of frequency of damage that can impair the availability of the internal systems within the structure has been introduced; d) surge currents due to lightning flashes have been more accurately specified for SPD dimensioning in low-voltage power systems and in telecommunication systems."
+  },
+  {
+    "reference": "IEC 62305-2:2024",
+    "edition": "3.0",
+    "date": "2024-09-12",
+    "title": "Protection against lightning - Part 2: Risk management",
+    "language": "EN-FR, ES",
+    "description": "IEC 62305-2:2024 is applicable to the risk management of a structure due to lightning flashes to earth. Its purpose is to provide a procedure for the evaluation of such a risk. Once an upper tolerable limit for the risk has been selected, this procedure provides a means for the selection of appropriate protection measures to be adopted to reduce the risk to or below the tolerable limit. This third edition cancels and replaces the second edition, published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) The concept of a single risk, to combine loss of human life and loss due to fire, has been introduced. b) The concept of frequency of damage that can impair the availability of the internal systems within the structure has been introduced. c) The lightning ground strike-point density NSG has been introduced replacing the lightning flash density NG in the evaluation of expected average annual number of dangerous events. d) Reduction of a few risk components can be achieved by the use of preventive temporary measures activated by means of a thunderstorm warning system (TWS) compliant with IEC 62793. The risk of direct strike to people in open areas has been introduced, considering the reduction of that risk using a TWS. The content of the corrigendum 1 (2024-10) has been included in this copy."
+  },
+  {
+    "reference": "IEC 62305-2:2024/COR1:2024",
+    "edition": "3.0",
+    "date": "2024-10-17",
+    "title": "Corrigendum 1 - Protection against lightning - Part 2: Risk management",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62305-3:2024",
+    "edition": "3.0",
+    "date": "2024-09-12",
+    "title": "Protection against lightning - Part 3: Physical damage to structures and life hazard",
+    "language": "EN-FR, ES",
+    "description": "IEC 62305-3:2024 provides the requirements for protection of a structure against physical damage by means of a lightning protection system (LPS), and for protection against injury to human beings due to touch and step voltages in the vicinity of an LPS (see IEC 62305-1). This document is applicable to the: a) design, installation, inspection and maintenance of an LPS for structures without limitation of their height, b) establishment of measures for protection against injury to human beings primarily due to touch and step voltages. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Minimum thicknesses of metal sheets or metal pipes are given in Table 4 for air-termination systems where it is necessary to prevent hot-spot problems. Maximum temperature rises ΔT (K) and time duration t50 (s) for different thicknesses and long strokes are also given. b) Cross-reference to the IEC 62561 series is made for the use of reliable, stable, safe and appropriate LPS components. c) The application of two methods – general and simplified – for separation distance calculation is clarified. d) Some changes to the requirements for continuity of steel reinforcement are made. e) Annex C is revised to address comments from IEC subcommittee 31J. f) Revision of positioning of air-termination conductors are modified according to the three accepted methods. A more precise description of the methods for positioning of the air-termination systems are made according to the complexity of structures to be protected. The main text has been simplified, Annex A has been deleted and all detailed information has been moved to Annex D. g) Information on the protection of green roofs is introduced in Annex D. h) Information on the protection of protruding parts on facades of tall buildings is introduced in Annex D. i) a new definition of “electrically insulated LPS” has been introduced to distinguish it from an LPS both electrically and physically isolated from the structure, with a slight modification of the other LPS definitions."
+  },
+  {
+    "reference": "IEC 62305-4:2024",
+    "edition": "3.0",
+    "date": "2024-09-12",
+    "title": "Protection against lightning - Part 4: Electrical and electronic systems within structures",
+    "language": "EN-FR, ES",
+    "description": "IEC 62305-4:2024 provides requirements for the design, installation, inspection, maintenance, and testing of surge protection measures (SPM) for electrical and electronic systems to reduce the risk of permanent failures due to lightning electromagnetic impulse (LEMP) within a structure. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition of new informative Annex E and Annex F on the determination of current sharing using modelling and current sharing in PV installations respectively; b) addition of a new informative Annex G on methods of testing of system level behaviour; c) addition of a new informative Annex H on induced voltages in SPD-protected installations."
+  },
+  {
+    "reference": "IEC 62561-1:2023",
+    "edition": "3.0",
+    "date": "2023-03-30",
+    "title": "Lightning protection system components (LPSC) - Part 1: Requirements for connection components",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-1:2023 specifies the requirements and tests for metallic connection components that form part of a lightning protection system (LPS). Typically, these can be connectors, clamps, bonding and bridging components, expansion pieces and test joints. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) definitions of connection types mentioned in the scope have been added; b) location classification has been expanded in detail; c) the document has been updated in line with the new edition of ISO 22479:2019 on humid sulphurous atmosphere treatment; d) a new normative Annex E for reduced test procedures has been introduced."
+  },
+  {
+    "reference": "IEC 62561-2:2025",
+    "edition": "3.0",
+    "date": "2025-09-30",
+    "title": "Lightning protection system components (LPSC) - Part 2: Requirements for conductors and earth electrodes",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62561-2:2025 specifies the requirements and tests for - metallic conductors (other than \"natural\" conductors) that form part of the air-termination and down-conductor systems, and - metallic earth electrodes that form part of the earth-termination system. This third edition cancels and replaces the second edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) definitions of new conductor types mentioned in this document have been added; b) the document has been updated in line with IEC 60068-2-52:2017 on salt mist treatment; c) the document has been updated in line with ISO 22479:2019 on humid sulphurous atmosphere treatment; d) a new normative Annex H for material, configuration and cross-sectional area test has been introduced; e) a new normative Annex I for applicability of previous tests has been introduced. f) equipotential earth grid has been introduced."
+  },
+  {
+    "reference": "IEC 62561-3:2023",
+    "edition": "3.0",
+    "date": "2023-07-05",
+    "title": "Lightning protection system components (LPSC) - Part 3: Requirements for isolating spark gaps (ISGs)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-3:2023 specifies the requirements and tests for isolating spark gaps (ISGs) for lightning protection systems. ISGs can be used to indirectly bond a lightning protection system to other nearby metalwork where a direct bond is not permissible for functional reasons. This third edition cancels and replaces the second edition, published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition. a) alignment with the latest edition of ISO 22479 relating to humid sulphurous atmosphere treatment; b) addition of a new normative Annex D for the applicability of previous tests."
+  },
+  {
+    "reference": "IEC 62561-4:2023",
+    "edition": "3.0",
+    "date": "2023-10-13",
+    "title": "Lightning protection system components (LPSC) - Part 4: Requirements for conductor fasteners",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-4:2023 deals with the requirements and tests for metallic and non-metallic conductor fasteners that are used to retain and support the air-termination, down-conductor and earth-termination systems. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) alignment with the latest edition of ISO IEC 60068-2-52:2017 relating to salt mist atmosphere treatment; b) alignment with the new edition of ISO 22479:2019 relating to humid sulphurous atmosphere treatment; c) new normative annex for the applicability of previous tests."
+  },
+  {
+    "reference": "IEC 62561-5:2023",
+    "edition": "3.0",
+    "date": "2023-12-05",
+    "title": "Lightning protection system components (LPSC) - Part 5: Requirements for earth electrode inspection housings and earth electrode seals",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-5:2023 specifies the requirements and tests for earth electrode inspection housings (earth housings) installed in the earth and for earth electrode seals. Lightning protection system components (LPSC) can also be suitable for use in hazardous atmospheres. For this reason, there are additional requirements when installing the components under such conditions. This third edition cancels and replaces the second edition published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) A classification of earth electrode seals has been added."
+  },
+  {
+    "reference": "IEC 62561-6:2023",
+    "edition": "3.0",
+    "date": "2023-05-15",
+    "title": "Lightning protection system components (LPSC) - Part 6: Requirements for lightning strike counters (LSCs)",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-6:2023 specifies the requirements and tests for devices intended to count the number of lightning strikes based on the current flowing in a conductor. This conductor can be part of a lightning protection system (LPS) or connected to an SPD installation or other conductors, which are not intended to conduct a significant portion of lightning currents. This third edition cancels and replaces the second edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) a new classification according to the internal circuit of LSCs has been added; b) the tests flowchart in Annex C has been updated to reflect this new classification; c) the applicability of previous tests has been added (Annex D)."
+  },
+  {
+    "reference": "IEC 62561-7:2024",
+    "edition": "3.0",
+    "date": "2024-02-22",
+    "title": "Lightning protection system components (LPSC) - Part 7: Requirements for earthing enhancing compounds",
+    "language": "EN-FR, ES",
+    "description": "IEC 62561-7:2024 specifies the requirements and tests for earthing enhancing compounds producing low resistance of an earth termination system. This third edition cancels and replaces the second edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Figure A.1 has been replaced with a simpler one that clearly shows the high and low corrosion load limits of the earth enhancing compounds without the need for special knowledge; b) pH measurement has been introduced."
+  },
+  {
+    "reference": "IEC 62561-8:2026",
+    "edition": "1.0",
+    "date": "2026-06-15",
+    "title": "Lightning protection system components (LPSC) - Part 8: Requirements for components for electrically insulated LPS",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62561-8:2026 specifies the requirements and tests for components used for electrically insulated LPS. These components, which can reduce the separation distance, are as follows: - insulating stand-offs, used in conjunction with an air-termination system and down-conductors with the aim of maintaining the proper separation distance; - insulating down‑conductors, including their specific fasteners. Testing of insulating stand-offs and insulating down-conductor components for an explosive atmosphere is not covered by this document. This first edition cancels and replaces IEC TS 62561-8 published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TC 62561-8:2018: a) title and scope of the standard has been adjusted; b) the document has been updated in line with IEC 60068-2-52:2017 on salt mist treatment; c) the document has been updated in line with ISO 22479:2019 on humid sulphureous atmosphere treatment; d) two different possible example configurations for pull out tests have been introduced; e) additional information on pollution has been included; f) an alternate test arrangement for high voltage impulse test has been included; g) a new normative Annex H for applicability of previous tests has been introduced; h) pass criteria for high voltage impulse testing updated; i) explanation on high voltage impulse testing with negative polarity has been added."
+  },
+  {
+    "reference": "IEC TR 62713:2013",
+    "edition": "1.0",
+    "date": "2013-04-15",
+    "title": "Safety procedures for reduction of risk outside a structure",
+    "language": "EN-FR, RU",
+    "description": "IEC/TR 62713:2013 introduces lightning to the layman, noting the right action in the presence of thunderstorms, as well as protective measures against lightning. It also contributes to the prevention of lightning injuries and damages. It should be noted that so far there are no means to avoid lightning. However, by following some elementary rules, people can be protected against its deleterious effects."
+  },
+  {
+    "reference": "IEC 62793:2020",
+    "edition": "2.0",
+    "date": "2020-09-21",
+    "title": "Thunderstorm warning systems - Protection against lightning",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62793:2020 describes the characteristics of thunderstorm warning systems (TWSs) in order to implement lightning hazard preventive measures. Single sensors and/or a network of sensors (e.g. lightning location system) can be used as a TWS. This second edition cancels and replaces the first edition, published in 2016. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - portable devices are no longer covered by this standard; - in Clause 5, classes of TWS have been deleted; - in Clause 6, updated figures and more detailed text are provided to better illustrate the alarm timeline; - in Clause 9, the text has been summarized and refers now to the application guide given in Annex F; - annexes have been reorganized; - Annex E is normative."
+  },
+  {
+    "reference": "IEC 62858:2019",
+    "edition": "2.0",
+    "date": "2019-10-09",
+    "title": "Lightning density based on lightning location systems - General principles",
+    "language": "EN-FR",
+    "description": "IEC 62858:2019 introduces and discusses all necessary measures to make reliable and homogeneous the values of ground flash density, NG and ground strike point density, NSG, obtained from lightning location systems (LLSs) in various countries. Only parameters that are relevant to risk assessment are considered. This second edition cancels and replaces the first edition published in 2015. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - Two informative annexes are introduced dealing with the determination of lightning density for risk calculation (Annex A) and ground strike point calculation methods (Annex B)."
+  }
+]

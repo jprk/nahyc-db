@@ -1,0 +1,98 @@
+[
+  {
+    "reference": "IEC 60664-1:2020",
+    "edition": "3.0",
+    "date": "2020-05-26",
+    "title": "Insulation coordination for equipment within low-voltage supply systems - Part 1: Principles, requirements and tests",
+    "language": "EN-FR, ES",
+    "description": "IEC 60664-1:2020 deals with insulation coordination for equipment having a rated voltage up to AC 1 000 V or DC 1 500 V connected to low-voltage supply systems. This document applies to frequencies up to 30 kHz. It applies to equipment for use up to 2 000 m above sea level and provides guidance for use at higher altitudes. It provides requirements for technical committees to determine clearances, creepage distances and criteria for solid insulation. It includes methods of electrical testing with respect to insulation coordination. The minimum clearances specified in this document do not apply where ionized gases are present. Special requirements for such situations can be specified at the discretion of the relevant technical committee. This document does not deal with distances: – through liquid insulation; – through gases other than air; – through compressed air. This edition includes the following significant technical changes with respect to the previous edition: - update of the Scope, Clauses 2 and 3, - addition of 1 500 V DC into tables, - new structure for Clauses 4 and 5, - addition of Annex G with a flowchart for clearances, - addition of Annex H with a flowchart for creepage distances, - update of distances altitude correction in a new Table F.10. It has the status of a basic safety publication in accordance with IEC Guide 104. The contents of the corrigendum of October 2020 have been included in this copy."
+  },
+  {
+    "reference": "IEC 60664-1:2020/COR1:2020",
+    "edition": "3.0",
+    "date": "2020-10-27",
+    "title": "Corrigendum 1 - Insulation coordination for equipment within low-voltage supply systems - Part 1: Principles, requirements and tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60664-1:2020/AMD1:2025",
+    "edition": "3.0",
+    "date": "2025-05-06",
+    "title": "Amendment 1 - Insulation coordination for equipment within low-voltage supply systems - Part 1: Principles, requirements and tests",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60664-2-1:2011",
+    "edition": "2.0",
+    "date": "2011-01-31",
+    "title": "Insulation coordination for equipment within low-voltage systems - Part 2-1: Application guide - Explanation of the application of the IEC 60664 series, dimensioning examples and dielectric testing",
+    "language": "EN-FR",
+    "description": "IEC/TR 60664-2-1:2011, which is a technical report, serves as an application guide for technical committees and manufacturers specifying dimensioning requirements for products in accordance with the IEC 60664 series. The significant items for consideration are as follows: a) nominal system voltage(s) or rated insulation voltage(s); b) overvoltage category of the products (OV cat.); c) any type of overvoltages; d) frequency of the voltage; e) characteristics of the solid insulating material; f) pollution degree and humidity levels. The main changes with respect to the previous edition are listed below: - the previous edition was only an application guide for IEC 60664-1. This second edition takes into account not only IEC 60664-1 but also the other parts IEC 60664-3, IEC 60664-4, and IEC 60664-5 and their interrelation; - principles of the IEC 60664 series for insulation dimensioning of LV equipment are explained and examples of practical application are provided together with some background information; - Annex A provides an overview of clauses of IEC 60664-1 requiring decisions by technical committees, or specification of options, or requiring activities of the manufacturer; - Annex B provides an overview of such clauses of IEC 60664-4; - Annex C provides an overview of such clauses of IEC 60664-5; - Annex D amends the tables of Annex F of IEC 60664-1:2007 with rated impulse voltages for voltages line to neutral derived from nominal d.c. voltages up to and including 1 500 V. The contents of the corrigendum of October 2011 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 60664-2-1:2011/COR1:2011",
+    "edition": "2.0",
+    "date": "2011-10-24",
+    "title": "Corrigendum 1 - Insulation coordination for equipment within low-voltage systems - Part 2-1: Application guide - Explanation of the application of the IEC 60664 series, dimensioning examples and dielectric testing",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 60664-2-2:2002",
+    "edition": "1.0",
+    "date": "2002-01-22",
+    "title": "Insulation coordination for equipment within low-voltage systems - Part 2-2: Interface considerations - Application guide",
+    "language": "EN",
+    "description": "IEC TR 60664-2-2:2002(E) Provides an overview of the different kinds of surge overvoltages that can occur on low-voltage installations and equipment. In particular: - the magnitude and duration of typical surges as well as their frequency of occurrence; - information on overvoltages resulting from interaction between power and communication systems; - guidelines when considering interface issues in relation to insulation coordination; - guidelines concerning surge protection means on the basis of availability and risk considerations, including interaction within the system; - highlights temporary overvoltages and other factors that have to be taken into account for insulation coordination, primarily related to protective control using surge protective devices."
+  },
+  {
+    "reference": "IEC 60664-3:2016",
+    "edition": "3.0",
+    "date": "2016-11-04",
+    "title": "Insulation coordination for equipment within low-voltage systems - Part 3: Use of coating, potting or moulding for protection against pollution",
+    "language": "EN-FR, ES",
+    "description": "IEC 60664-3:2016 applies to assemblies protected against pollution by the use of coating, potting or moulding, thus allowing a reduction of clearance and creepage distances as described in IEC 60664-1. This document describes the requirements and test procedures for two methods of protection: - type 1 protection improves the microenvironment of the parts under the protection; - type 2 protection is considered to be similar to solid insulation. This edition includes the following significant technical changes with respect to the previous edition: a) information added concerning interpolation; b) provided scratch test is only for type 2 protection; c) renumbered the scratch test to follow the visual examination test, since it makes more sense there; d) separated the tables under what is now called Annex A, to make them clearer."
+  },
+  {
+    "reference": "IEC 60664-4:2005",
+    "edition": "2.0",
+    "date": "2005-09-15",
+    "title": "Insulation coordination for equipment within low-voltage systems - Part 4: Consideration of high-frequency voltage stress",
+    "language": "EN-FR, ES",
+    "description": "IEC 60664-4:2005 Deals with basic, supplementary and reinforced insulation subjected to high-frequency voltage stress within low-voltage equipment. The dimensioning values directly apply for basic insulation; for reinforced insulation additional requirements apply according to Part 1. It is applicable for the dimensioning of clearances, creepage distances and solid insulation stressed by any type of periodic voltages with a fundamental frequency above 30 kHz and up to 10 MHz. This part of IEC 60664 can only be used together with IEC 60664-1 or with IEC 60664-5 (in this standard called Part 1 or Part 5). By using Part 1 or Part 5 together with this part the frequency limit of Part 1 or Part 5 is extended to frequencies higher than 30 kHz. This part also applies to Part 3 for frequencies greater than 30 kHz and protection of type 1. For type 2 protection this question is under consideration. Applies to equipment for use up to 2 000 m above sea level having a rated voltage up to a.c. 1 000 V. Specifies the requirements for clearances, creepage distances and solid insulation for equipment based upon their performance criteria. lt includes methods of electric testing with respect to insulation coordination. The minimum clearances specified in this part do not apply where ionized gases occur. Special requirements for such situations may be specified at the discretion of the relevant technical committee. This part does not deal with distances - through liquid insulation, - through gases other than air, - through compressed air. The object of this standard is to guide technical committees responsible for different equipment in order to rationalise their requirements so that insulation coordination is achieved when specifying clearances in air, creepage distances and solid insulation for equipment. The major changes made during the revision of IEC 60664-4 were the following: - inclusion of more recent information about the withstand characteristics of insulation at high-frequency voltage stress (see Annexes A, B and C); - inclusion of requirements for the dimensioning of clearances at high-frequency voltage stress (see Clause 4); - inclusion of requirements for the dimensioning of creepage distances at high-frequency voltage stress (see Clause 5); - inclusion of requirements for the dimensioning of solid insulation at high-frequency voltage stress (see Clause 6); - inclusion of diagrams to provide guidance on dimensioning with respect to high-frequency voltage stress (see Annex F); specification of tests with respect to high-frequency voltage stress (see Clause 7); - inclusion of test circuits for high-frequency voltage withstand testing and partial discharge testing (see Annex D.1 and D.2.1); - inclusion of design criteria for partial discharge test circuits at high-frequency voltage (see Annex D.2.2); - inclusion of criteria for dealing with non sinusoidal voltage stress (see Clause 8 and Annex E)."
+  },
+  {
+    "reference": "IEC TS 62993:2017",
+    "edition": "1.0",
+    "date": "2017-07-12",
+    "title": "Guidance for determination of clearances, creepage distances and requirements for solid insulation for equipment with a rated voltage above 1 000 V AC and 1 500 V DC, and up to 2 000 V AC and 3 000 V DC",
+    "language": "EN",
+    "description": "IEC TS 62993:2017 gives guidance to technical committees which deal with equipment having a rated voltage of more than 1 000 V AC and up to 2 000 V AC, or a rated voltage of more than 1 500 V DC and up to 3 000 V DC. Rated voltages up to 1 000 V AC and 1 500 V DC, as well as higher or lower internal voltages, are covered by IEC 60664-1. This document applies to equipment for use up to 2 000 m above sea level, and provides guidance for use at higher altitudes. This document gives guidance for clearances, creepage distances and solid insulation for equipment to achieve safety. It includes methods of electric testing. The contents of the corrigendum of June 2018 have been included in this copy."
+  },
+  {
+    "reference": "IEC TS 62993:2017/COR1:2018",
+    "edition": "1.0",
+    "date": "2018-06-13",
+    "title": "Corrigendum 1 - Guidance for determination of clearances, creepage distances and requirements for solid insulation for equipment with a rated voltage above 1 000 V AC and 1 500 V DC, and up to 2 000 V AC and 3 000 V DC",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC TR 63040:2016",
+    "edition": "1.0",
+    "date": "2016-09-26",
+    "title": "Guidance on clearances and creepage distances in particular for distances equal to or less than 2 mm - Test results of research on influencing parameters",
+    "language": "EN",
+    "description": "IEC TR 63040:2016(E) describes test results of research on dimensioning of clearances and creepage distances, for spacing equal to or less than 2 mm for printed wiring material and other equivalent arrangements of insulation, where the clearance and the creepage distance follows the same path along the surface of solid insulation. The information contained in this document is the result of research only and cannot be used for dimensioning the clearances and creepage distances for equipment within low-voltage systems, where IEC 60664-1 applies. However distances can be taken into account for functional reasons. This document provides results of research related to the following criteria: 1) clearances independent from the micro-environment; 2) creepage distances for pollution degree 1, 2 and 3 which extends the use of smaller distances to products having design features similar to printed circuit boards; 3) creepage distances to avoid flashover of the insulating surface; 4) information on minimum creepage distances to maintain minimum insulation resistance. A test method for the evaluation of the relevant water adsorption group for the surface of any insulating material which has not yet been classified is described. The contents of the corrigendum of January 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC TR 63040:2016/COR1:2019",
+    "edition": "1.0",
+    "date": "2019-01-16",
+    "title": "Corrigendum 1 - Guidance on clearances and creepage distances in particular for distances equal to or less than 2 mm - Test results of research on influencing parameters",
+    "language": "EN",
+    "description": null
+  }
+]

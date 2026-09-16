@@ -1,0 +1,194 @@
+[
+  {
+    "reference": "IEC 60038:2009",
+    "edition": "7.0",
+    "date": "2009-06-17",
+    "title": "IEC standard voltages",
+    "language": "EN-FR, ES",
+    "description": "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: - the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1; - the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex; - the addition of the value of 30 kV to Table 3; - the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108"
+  },
+  {
+    "reference": "IEC 60038:2009/AMD1:2021",
+    "edition": "7.0",
+    "date": "2021-12-15",
+    "title": "Amendment 1 - IEC standard voltages",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 60059:1999",
+    "edition": "2.0",
+    "date": "1999-06-24",
+    "title": "IEC standard current ratings",
+    "language": "EN-FR, ES",
+    "description": "IEC 60059:1999 standard specifies standard current ratings for electrical devices, apparatus, instruments. This standard does not apply to current ratings of components and parts used within electrical devices or items of equipment. It has the status of a horizontal standard in accordance with IEC Guide 108 ."
+  },
+  {
+    "reference": "IEC 60059:1999/AMD1:2009",
+    "edition": "2.0",
+    "date": "2009-06-16",
+    "title": "Amendment 1 - IEC standard current ratings",
+    "language": "EN-FR, ES",
+    "description": null
+  },
+  {
+    "reference": "IEC 60196:2009",
+    "edition": "2.0",
+    "date": "2009-06-17",
+    "title": "IEC standard frequencies",
+    "language": "EN-FR, ES",
+    "description": "IEC 60196:2009 specifies the standard frequencies. The standard frequencies are the frequencies to be adopted for single-phase and three-phase a.c. systems, for installations in ships, for a.c. traction systems, for tools and for aircraft. This standardization is limited to frequencies up to 10 000 Hz. This second edition cancels and replaces the first edition published in 1965. It constitutes a technical revision. The main change is the removal of the standard frequencies for the rayon industry. It has the status of a horizontal standard in accordance with IEC Guide 108 ."
+  },
+  {
+    "reference": "IEC 62559-2:2015",
+    "edition": "1.0",
+    "date": "2015-04-30",
+    "title": "Use case methodology - Part 2: Definition of the templates for use cases, actor list and requirements list",
+    "language": "EN-FR",
+    "description": "IEC 62559-2:2015 defines the structure of a use case template, template lists for actors and requirements, as well as their relation to each other. In this document, a standardized template for the description of use cases is defined for various purposes like the use in standardization organizations for standards development or within development projects for system development. This document was developed for general application in various domains and systems. The energy system/smart grid is used as example in this document as it was one of the first usage areas for this use case template, but this general template can be applied in other usage areas different from energy systems as well (e.g. smart home or electro-mobility). The motivation, background information on use cases, recommendations for the handling of use cases and the processes for the description of use cases inside standardization and in relation to a central use case repository is described in IEC 62559-1. This first edition cancels and replaces IEC PAS 62559:2008 which had been published together with EPRI. Main content of the former PAS will be transferred to the new IEC 62559-4."
+  },
+  {
+    "reference": "IEC TS 62749:2026",
+    "edition": "3.0",
+    "date": "2026-03-30",
+    "title": "Assessment of power quality - Characteristics of electricity supplied by public networks",
+    "language": "EN",
+    "description": "IEC TS 62749:2026 specifies the expected characteristics of electricity at the point of supply of public low, medium and high voltage, 50 Hz or 60 Hz, networks, as well as power quality assessment methods. This document does not apply for systems operated above 230 kV. The boundaries between the various voltage levels can be different for different countries or regions. In the context of this document, the following terms for system voltage are used: - low voltage (LV) refers to UN ≤ 1 kV; - medium voltage (MV) refers to 1 kV < UN ≤ 35 kV; - high voltage (HV) refers to 35 kV < UN ≤ 230 kV. Because of existing network structures, in some countries or regions, the boundary between medium and high voltage can be different. While power quality is related to EMC in a number of ways, especially because compliance with power quality requirements depends on the control of cumulative effect of electromagnetic emission from all or multiple equipment and installations, this document is not an EMC publication (see also Annex E). This third edition cancels and replaces the second edition published in 2020. This edition includes the following significant technical changes with respect to the previous edition: - clarification that harmonic orders recommended in this document are up to 40th; - 4.6 is modified accordingly; - iteration that this document does not apply for systems operated above 230 kV; - deletion of Annex C; - improvement of 4.10; - update of profiles and addition of new profiles; - modifications to align with EN 50160:2022 and EN 50160:2022/AMD1:2025."
+  },
+  {
+    "reference": "IEC TS 62786-1:2023",
+    "edition": "1.0",
+    "date": "2023-11-28",
+    "title": "Distributed energy resources connection with the grid - Part 1: General requirements",
+    "language": "EN",
+    "description": "IEC TS 62786-1:2023, which is a Technical Specification, provides principles and general technical requirements for distributed energy resources (DER) connected to an electric power network (in the following: the \"network\"). It applies to the planning, design, operation and connection of DER to networks. It includes general requirements, connection scheme, choice of switchgear, normal operating range, immunity to disturbances, active power response to frequency deviations, reactive power response to voltage changes, EMC and power quality, interface protection, connection and start to generate electrical power, active power management, monitoring, control and communication, and conformance tests. It is supplemented by additional parts of IEC 62786 series, covering specific aspects. This document specifies interface and interoperability requirements for connection of DER to a network operating at a nominal frequency of 50 Hz or 60 Hz. These requirements are intended for application at the point of connection (POC) of the DER to the grid. In some situations, the requirements can be the applied at the AC terminals of the generator. Additional parts of IEC 62786 provide more specific requirements. DER include distributed generation and electrical energy storage in the form of synchronous generators, asynchronous generators, power converters, etc., connected to the medium voltage (MV) or low voltage (LV) network."
+  },
+  {
+    "reference": "IEC TS 62786-2:2026",
+    "edition": "1.0",
+    "date": "2026-01-26",
+    "title": "Distributed energy resources connection with the grid - Part 2: Additional requirements for PV generation systems",
+    "language": "EN",
+    "description": "IEC TS 62786-2:2026 supplements IEC TS 62786-1, and specifies requirements for the connection of the solar photovoltaic energy system or photovoltaic generating system (PV system) with an electric power network, or the network. This document covers all sizes of PV systems connected to low voltage or medium voltage power networks and gives typical requirements for various sizes of PV systems. In this document, requirements for grid-connected PV systems are applied to those categorized as grid tied, grid tied with storage and grid tied with storage and back up. Mini-grid and Micro-grid are out of scope. Those types of PV systems with possible elements are described in 4.3. This document specifies the following technical requirements for the PV system: - reference points of requirements, - elements and configuration, - basic operation, - protection and fault ride through function, - power control and grid support function, - electromagnetic compatibility for low frequency conducted disturbances, - information exchange for remote monitoring, control, and configuration."
+  },
+  {
+    "reference": "IEC TS 62786-3:2023",
+    "edition": "1.0",
+    "date": "2023-11-28",
+    "title": "Distributed energy resources connection with the grid - Part 3: Additional requirements for stationary battery energy storage system",
+    "language": "EN",
+    "description": "IEC TS 62786-3:2023, which is a Technical Specification, provides principles and technical requirements for interconnection of distributed Battery Energy Storage System (BESS) to the distribution network. It applies to the design, operation and testing of BESS interconnected to distribution networks. It includes the additional requirements for BESS, such as connection scheme, choice of switchgear, normal operating range, immunity to disturbance, active power response to frequency deviation, reactive power response to voltage variations and voltage changes, EMC and power quality, interface protection, connection and start to generate electric power, active power management, monitoring, control and communication, and grid-connected tests. The stationary BESSs considered within the scope of this document include electrical forms such as lead-acid, lithium-ion, liquid flow and sodium-sulfur batteries, interconnected to medium voltage (MV) or low voltage (LV) distribution networks via bidirectional DC to AC power converters. This document will specify active and reactive power response and grid-connected testing for distributed BESS, as a supplement for IEC TS 62786-1:2023. This document specifies interface requirements for connection of distributed BESS with the distribution network operating at a nominal frequency of 50 Hz or 60 Hz."
+  },
+  {
+    "reference": "IEC TS 62786-41:2023",
+    "edition": "1.0",
+    "date": "2023-07-17",
+    "title": "Distributed energy resources connection with the grid - Part 41: Requirements for frequency measurement used to control distributed energy resources (DER) and loads",
+    "language": "EN",
+    "description": "IEC TS 62786-41:2023 (E), which is a Technical Specification, defines minimum requirements for frequency and rate of change of frequency measurements used to control distributed energy resources (DER) and loads connected to electrical power networks. This document specifies the characteristics of frequency and rate of change of frequency measurements to evaluate their performances. It describes the main use cases of frequency and rate of change of frequency measurements, with associated level of performances. It describes the principle of functional tests to evaluate the specified characteristics and defines the influencing factors that affect these performances, under steady state or dynamic conditions. This document defines the functional requirements applicable to frequency and rate of change of frequency measurements which can be inside or outside the DER or loads. In the case of DER, this document provides requirements additional to those which are defined in the other parts of IEC 62786 or standards produced by the relevant IEC technical committees (e.g. TC 82 for photovoltaic systems, TC 88 for wind systems, TC 120 for electrical energy storage systems (EES)). This document is applicable to DER and loads regardless of the voltage level of the point of connection to the grid. This document does not specify hardware, software or a method for frequency or rate of change of frequency measurement. It does not specify tests linked to environmental conditions associated with hardware devices (climatic, electromagnetic disturbances above 3 kHz, mechanical stress, etc.). Frequency and rate of change of frequency measurements associated with time stamping are not in the scope of this document. These measurements are already covered by IEC 60255 118 1. Frequency and rate of change of frequency measurements associated with protection functions or protection relays are not in the scope of this document. These requirements are already covered by IEC 60255-181."
+  },
+  {
+    "reference": "IEC TS 62786-42:2026",
+    "edition": "1.0",
+    "date": "2026-01-30",
+    "title": "Distributed energy resources connection with the grid - Part 42: Technical requirements for voltage measurement used to control DER and loads",
+    "language": "EN",
+    "description": "IEC TS 62786-42:2026 defines minimum requirements for AC voltage measurement used to control distributed energy resources (DER) and loads connected to distribution networks. This document specifies the characteristics of voltage magnitude measurement to evaluate their performances (including voltage and frequency measuring range, accuracy, voltage and frequency operating range, resolution, etc). This document describes the main use cases of voltage measurement, with associated level of performances. This document describes the principle of functional tests to evaluate the specified characteristics and defines the influencing factors that affect these performances, under steady state or dynamic conditions. This document defines the functional requirements applicable to voltage measurement which can be embedded inside DER or loads controller or performed as an external control system. In the case of DER, this document is a subpart of requirements which are defined in the other parts of the IEC 62786 series. This document is applicable to DER and loads regardless of voltage level at the point of connection to the distribution grid. This document does not specify hardware, software or a method for voltage measurement. It does not specify tests linked to environmental conditions associated to hardware devices (climatic, mechanical stress, electromagnetic compatibility test, etc)."
+  },
+  {
+    "reference": "IEC TR 62786-100:2026",
+    "edition": "1.0",
+    "date": "2026-02-18",
+    "title": "Distributed energy resources connection with the grid - Part 100: Generating plants and units grid connection standard mapping",
+    "language": "EN",
+    "description": "IEC TR 62786-100:2026 gives guidance for the drafting of IEC publications which relate, wholly or partly, to connection of distributed energy resources (DER) with the grid. Technical committees relevant to the connection of DER with grid are advised to follow the guidance given in this document when they prepare new publications and clauses relevant to the connection of DER with the grid, as well as when they revise existing publications so that consistent and harmonized standards can be delivered. Annex A, Annex B, Annex C, and Annex D list documents relevant to grid connection of DER in order to ensure that other IEC publications are consistent with these documents and to avoid overlapping each other. Table E.1 lists national and regional standards and regulations relevant to connecting DER with the grid."
+  },
+  {
+    "reference": "IEC TR 62786-102:2025",
+    "edition": "1.0",
+    "date": "2025-07-22",
+    "title": "Distributed energy resources connection with the grid - Part 102: CAES connection to the grid",
+    "language": "EN",
+    "description": "IEC TR 62786-102:2025 provides principles and technical needs for the interconnection of the compressed air energy storage (CAES) system to the distribution network. It is suitable for the planning, design, operation and testing of CAES system interconnection to distribution networks. It includes the additional needs for the CAES system, such as connection scheme, grid-connected process and needs, response characteristics of active power to frequency, response characteristics of active power to current, response characteristics of active power to injecting mass flow, response characteristics of active power to pressure, selection of the point of connection (POC), electromagnetic compatibility (EMC) and power quality, communication and automation, monitoring and protection, immunity to disturbances, grid-connected testing needs, etc. This document will report response of active power to frequency, response of active power to current, response of active power to injecting mass flow, response of active power to pressure, response of reactive power to voltage, and grid-connected testing for distributed CAES system, as a supplement for IEC TS 62786-1:2023. This document reports the interface needs for connecting CAES system to distribution network operating at a nominal frequency of 50 Hz or 60 Hz."
+  },
+  {
+    "reference": "IEC 62934:2021",
+    "edition": "1.0",
+    "date": "2021-04-26",
+    "title": "Grid integration of renewable energy generation - Terms and definitions",
+    "language": "EN-FR",
+    "description": "IEC 62934:2021 provides terms and definitions in the subject area of grid integration of renewable energy generation. The technical issues of grid integration mainly focus on the issues caused by renewable energy generation with variable sources and/or converter based technology, such as wind power and photovoltaic power generation. Some renewable energy generations such as hydro power and biomass power with a relatively continuously available primary energy source and a rotating generator are conventional sources of generation, and are therefore not covered in this document. The intention of this document is to answer the question \"what do the words mean\" and not \"under what conditions do the terms apply\"."
+  },
+  {
+    "reference": "IEC TS 63060:2019",
+    "edition": "1.0",
+    "date": "2019-02-15",
+    "title": "Electric energy supply networks - General aspects and methods for the maintenance of installations and equipment",
+    "language": "EN",
+    "description": "IEC TS 63060:2019(E) provides guidance to develop maintenance requirements of installations and equipment in electric power networks. It is primarily meant for the operators of electric power networks, particularly those of public power supplies, including High-Voltage DC transmission (HVDC). This scope does not include: – railway networks, – installations of end consumer networks, – installations for electric power generation. Crises handling, e.g. in emergency situations, is not within the scope of this document."
+  },
+  {
+    "reference": "IEC TS 63222-1:2026",
+    "edition": "2.0",
+    "date": "2026-03-26",
+    "title": "Power quality management - Part 1: General guidelines",
+    "language": "EN",
+    "description": "IEC TS 63222-1:2026 is intended to provide provisions associated to the main use cases regarding recognized engineering practices applicable to power quality management in public electric power supply networks. It summarizes the operation in power quality management and investigates the current standards, for requirement of power quality assessment work, as well as to promote the development of power quality management best practices. The power quality management domain groups use cases and associated power quality requirement common to network management, including customer support network operation, network and extension planning. This document captures possible \"common and repeated usage\" of power quality management under the format of \"use case\". Use case implementations are given for information purpose only. This document derives the common requirement as provisions by further standardization activities, in terms of actors interacting with the given system. The interface requirement is considered for later standardization activities. The relationship of the stakeholders in power quality management, such as network operator, network user, etc, are discussed in the document. This second edition cancels and replaces the first edition published in 2022. This edition includes the following significant technical changes with respect to the previous edition: - this document completes the use cases planned in IEC 63222-1:2022: four business use cases and three system use cases are added; - this document makes adjustments to the wording of certain phrases and technical details in IEC 63222-1:2022."
+  },
+  {
+    "reference": "IEC TS 63222-2:2023",
+    "edition": "1.0",
+    "date": "2023-10-06",
+    "title": "Power quality management - Part 2: Power quality monitoring system",
+    "language": "EN",
+    "description": "IEC TS 63222-2:2023 defines technical requirements for designing a power quality monitoring system for public power supply networks. It is applicable for LV, MV and HV public power supply networks. The design procedure of a power quality monitoring system (PQMS) generally includes the following four steps: • Step 1: purpose and application analysis: Analyse power quality monitoring (PQM) demand and define the purpose of PQM. • Step 2: preliminary study: Collect background information such as network configuration, the parameters of instrument transformers, e.g. the output levels and performance capabilities, attributes of loads or distributed generations (DG), communication conditions, budgets, and other restrictive conditions, and select the parameters to be monitored and monitoring sites according to corresponding principles. • Step 3: system structure design: Design the overall structure of the monitoring system according to the monitoring purpose based on the analysis of the advantages and disadvantages of various system structures. • Step 4: detailed design of functional modules: Design the function modules of data collection, communication, data storage, data processing and analysis in detail according to the functional requirements. This document defines the main purposes of PQM and gives recommendations for preliminary study, such as how to select monitoring sites and monitoring parameters and whether the instrument transformer is suitable for monitoring. This document also classifies the PQMS structure and specifies the functional requirements of the modules such as data collection, communication, data storage, data processing and analysis."
+  },
+  {
+    "reference": "IEC TS 63222-3:2024",
+    "edition": "1.0",
+    "date": "2024-05-24",
+    "title": "Power quality management - Part 3: User characteristics modelling",
+    "language": "EN",
+    "description": "IEC TS 63222-3:2024 is intended to provide provisions regarding recognized engineering practices applicable to assess the user’s characteristics in power quality predicted assessment. It summarizes the best practice in non-linear, unbalanced, impact and fluctuating loads or generations modelling for power quality disturbance anticipation in public power systems at the planning stage. This document focuses on frequency-domain modelling for AC power quality analysis in electric power networks, typically in the range up to the 50th harmonic (2,5 kHz in 50 Hz systems or 3 kHz in 60 Hz systems). Unbalance is analyzed in three-phase systems and only negative sequence component is considered. The approach and modelling guidelines provided are valid on the representation of user installations connected to power systems acting as sources of disturbance. Modelling of the network elements is out of the scope of the document. These guidelines will be valuable in the definition of power quality performance specifications for user equipment. They will also assist users when modelling their installation to assess or demonstrate compliance with the emission limits provided by the system owner/operator and to investigate and specify mitigation measures."
+  },
+  {
+    "reference": "IEC TS 63222-4:2026",
+    "edition": "1.0",
+    "date": "2026-04-14",
+    "title": "Power quality management - Part 4: Harmonic analysis on public electric power network",
+    "language": "EN",
+    "description": "IEC TS 63222‑4:2026 specifies the requirements of the models, methods and procedures for harmonic analysis on the public electric power network. This document is applicable to harmonic analysis up to 40th harmonic at high, medium and low voltage of the public electric power network with nominal frequency of 50 Hz or 60 Hz."
+  },
+  {
+    "reference": "IEC TR 63222-100:2023",
+    "edition": "1.0",
+    "date": "2023-08-30",
+    "title": "Power quality management - Part 100: Impact of power quality issues on electrical equipment and power system",
+    "language": "EN",
+    "description": "IEC TR 63222-100:2023, which is a Technical Report, collects relevant information on power quality impacts from, e.g., CIGRE reports, case studies, research findings, etc., in order to uncover the mechanisms of how electrical equipment/installations/system are impacted by power quality disturbances, as well as to fully understand the guidelines for power quality management. The contents of this document aim to help network operators, network users and equipment suppliers make rational investments and actively cooperate to manage power quality and keep it consistent with relevant EMC standards."
+  },
+  {
+    "reference": "IEC TR 63222-101:2025",
+    "edition": "1.0",
+    "date": "2025-07-30",
+    "title": "Power quality management - Part 101: Power quality data application",
+    "language": "EN",
+    "description": "IEC TR 63222-101:2025 aims to provide guidelines for power quality data applications on different aspects in public power supply systems at voltage ranges from LV, MV and HV with 50 Hz or 60 Hz rated frequency. It intends to provide a methodology for mining hidden knowledge and support power quality management based on PQ data analytics. Its primary goal is to serve different aspects of power system to promote the system maintaining its normal state and improve efficiency. It can also help avoid unexpected system events, equipment malfunction/maloperation, and production process interruption. The various methodologies and methods mentioned in this document are optional."
+  },
+  {
+    "reference": "IEC TR 63282:2024",
+    "edition": "2.0",
+    "date": "2024-08-07",
+    "title": "LVDC systems - Assessment of standard voltages and power quality requirements",
+    "language": "EN",
+    "description": "IEC TR 63282:2024, which is a technical report, collects information and report experience for the standardization of voltage levels and related aspects (power quality, EMC, measurement, etc.) for LVDC systems (systems with nominal voltage up to and including 1 500 V DC). Rationale for the proposed voltage values is given. Variation of parameters for the voltage (power quality) for their boundaries are defined. Nevertheless, some of the technical items are not exhaustively explained in this document and some gaps are identified for future work. Attention is paid to the definition of DC voltage. Systems in which a unipolar voltage is interrupted periodically for certain purposes, e.g. pulse voltage, are not considered. Traction systems are excluded from this document. This document gives technical inputs to TCs in charge of the standardization of different issues and coordinated by SyC LVDC. This second edition cancels and replaces the first edition published in 2020. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) Optimized terms and definitions in Clause 3: DC system nominal voltage is modified. Oscillation is added. Active distribution system, passive distribution system are deleted. b) Modified the definition of voltage bands: In Clause 5, the definition of voltage limits in voltage bands is added, from U1 to U6. The definition of voltage bands, from B4 to B7, is modified. c) Distinguished the difference between oscillation and power quality phenomenon: In Clause 3, the definition of oscillation is added based on IEV 103-05-04. In 6.3, relationship between oscillation and power quality is clarified. Annex B gives a LDC oscillation typical example which has really happened in a MV&LVDC system in China. d) Modified the recommended voltage for distribution DC network: The factors considered in voltage values definition is clarified. And the voltage is divided in two domains, distribution domain and installation domain. The voltage recommendation in LVDC is listed corresponding to voltage bands. e) Modified the voltage immunity level assessment: It is mentioned in 7.2 that the assessment of voltage immunity levels of mass LVDC power electronic devices need to be further discussed, ripple as an example is introduced. f) Added DC power quality measurement methods: In 7.3, DC power quality measurement methods is introduced based on AC methodologies. And some additional DC power quality indices are recommended to assess the DC system. DC electric power and power quality measurement methods are introduced in 7.4, defining the electric value integration time and frequency ranges. Typical electric power and power quality computation methods are modified in Annex D. g) Added an annex on MVDC system: A use case of a typical MV&LVDC distribution system is added in Annex F, to support developments of TS of 8A and 8B on DC microgrids. h) Added an annex on CurrentOS voltage level: The voltage level applied in CurrentOS is introduced in Annex L to give more information on the LVDC voltage level recommendation."
+  },
+  {
+    "reference": "IEC TR 63282-102:2025",
+    "edition": "1.0",
+    "date": "2025-11-26",
+    "title": "LVDC systems - Part 102: Low-voltage DC electric island power supply systems",
+    "language": "EN",
+    "description": "IEC TR 63282-102:2025 assesses the existing technical requirements (by TC 64, TC 82, SyC LVDC) and close any gaps related to electric island LVDC power supply systems in rural or remote areas without electricity up to a maximum of 1 500 V only. Additionally, it covers the case of LVDC auxiliary power supply systems for ships. Specific technical items for electric island LVDC systems are explained in this document. Rationale for the proposed voltage level, topology, power quality, etc. are given. This document gives inputs to several TCs in charge of the standardization of different issues and coordinated by SyC LVDC."
+  }
+]

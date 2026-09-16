@@ -1,0 +1,394 @@
+[
+  {
+    "reference": "IEC 60381-1:1982",
+    "edition": "2.0",
+    "date": "1982-01-01",
+    "title": "Analogue signals for process control systems. Part 1: Direct current signals",
+    "language": "EN-FR",
+    "description": "Applicable to analogue direct current signals used in industrial-process measurement and control systems to transmit information between elements of systems. Does not apply to signals used entirely within an element."
+  },
+  {
+    "reference": "IEC 60381-2:1978",
+    "edition": "1.0",
+    "date": "1978-01-01",
+    "title": "Analogue signals for process control systems. Part 2: Direct voltage signals",
+    "language": "EN-FR, RU",
+    "description": "Applicable to analogue direct voltage signals used in industrial process measurement and control systems. lt specifies ranges of analogue direct voltage signals and the signal common; it also deals with ripple content. The analogue direct voltage signal, unlike the analogue direct current signal specified in IEC 60381-1, is not intended for transmission over long distances. This standard does not apply to signals used entirely within an element."
+  },
+  {
+    "reference": "IEC 60382:1991",
+    "edition": "2.0",
+    "date": "1991-11-01",
+    "title": "Analogue pneumatic signal for process control systems",
+    "language": "EN-FR",
+    "description": "Applies to analogue pneumatic signals used in process control systems to transmit information between the elements of systems and gives definitions, units and the recommended value of the range of the analogue pneumatic signal."
+  },
+  {
+    "reference": "IEC 60946:1988",
+    "edition": "1.0",
+    "date": "1988-09-30",
+    "title": "Binary direct voltage signals for process measurement and control systems",
+    "language": "EN-FR",
+    "description": "Applies to non-multiplexed two wire binary direct voltage signals of nominal 24 V level that are used in industrial-process measurement and control systems to transmit information between elements of systems."
+  },
+  {
+    "reference": "IEC 61010-2-201:2024",
+    "edition": "3.0",
+    "date": "2024-10-24",
+    "title": "Safety requirements for electrical equipment for measurement, control, and laboratory use - Part 2-201: Particular requirements for control equipment",
+    "language": "EN-FR",
+    "description": "IEC 61010-2-201:2024 supplements or modifies the corresponding clauses in IEC 61010-1 so as to convert that publication into the IEC standard: Particular requirements for control equipment. This document is to be used in conjunction with IEC 61010-1:2010, and IEC 61010 1:2010/AMD1:2016. Where a particular subclause of IEC 61010-1 is not mentioned in this document, that subclause applies as far as is reasonable. Where this document states \"addition\", \"modification\", \"replacement\", or \"deletion\", the relevant requirement, test specification or note in IEC 61010 1 should be adapted accordingly. This edition includes the following significant technical changes with respect to the previous edition: a) 1.1.1: the related equipment included in the Scope has been clarified; b) 4.3.2.101: the optical fibre module has been deleted; c) 5.4.3: equipment installation has been clarified; d) 6.7.1.1: revision of the figure representing insulation between separate circuits has been included; e) 6.7.101: the subclause relating to insulation for FIELD WIRING TERMINALS of OVERVOLTAGE CATEGORY ll with a nominal voltage up to 1 000 V has been deleted; f) 6.7.1.101: a new subclause relating to insulation for SELV/PELV CIRCUITS has been included; g) 6.8.3: specification of voltage tester has been added; h) 6.9.3: an additional exception relating to colour coding has been included; i) 6.9.101: a new subclause relating to wiring for secondary circuits e.g. SELV/PELV has been included; j) 8.2.2.101: additional requirements for glass displays have been included; k) 8.3: the subclause relating to the drop test has been removed; l) 9.3.2: additional requirements for material of connectors and insulating material have been included; m) The particular requirements for non-metallic material have been clarified; n) Clause 11: the particular requirements for protection against HAZARDS from fluid and solid foreign objects have been removed; o) 12.4: an additional subclause relating to microwave radiation has been included; p) 14.102: the description of switching devices has been clarified;"
+  },
+  {
+    "reference": "IEC 61010-2-202:2020",
+    "edition": "2.0",
+    "date": "2020-11-05",
+    "title": "Safety requirements for electrical equipment for measurement, control and laboratory use - Part 2-202: Particular requirements for electrically operated valve actuators",
+    "language": "EN-FR",
+    "description": "IEC 61010-2-202:2020 constitutes Part 2-202 of a planned series of standards on industrial-process measurement, control and automation equipment. Safety terms of general use are defined in IEC 61010-1. More specific terms are defined in each part. This part incorporates the safety related requirements of electrically operated valve ACTUATORs and SOLENOIDs. This document does not cover functional safety aspects of electrically operated ACTUATORs and SOLENOIDs."
+  },
+  {
+    "reference": "IEC TS 61081:1991",
+    "edition": "1.0",
+    "date": "1991-07-19",
+    "title": "Pneumatic instruments driven by associated process gas - Safe installation and operating procedures - Guidelines",
+    "language": "EN-FR",
+    "description": "Provides guidelines for safe installation, operating and maintenance procedures for pneumatic instruments driven by associated process gas. Has the status of a Type 1 Technical Report."
+  },
+  {
+    "reference": "IEC 61506:1997",
+    "edition": "1.0",
+    "date": "1997-02-28",
+    "title": "Industrial-process measurement and control - Documentation ofapplication software",
+    "language": "EN-FR",
+    "description": "Defines the requirements for the documentation of software in industrial process measurement and control systems."
+  },
+  {
+    "reference": "IEC 62419:2008",
+    "edition": "1.0",
+    "date": "2008-11-05",
+    "title": "Control technology - Rules for the designation of measuring instruments",
+    "language": "EN-FR, EN",
+    "description": "IEC 62419:2008 is applicable to measurement technology. It defines rules for the unambiguous designation of different types of measuring instruments and of measuring instrument features with the intention of enabling unambiguous technical communication over language boundaries. This standard cancels and replaces IEC/PAS 62419 published in 2005. This first edition constitutes a technical revision."
+  },
+  {
+    "reference": "IEC 62424:2016",
+    "edition": "2.0",
+    "date": "2016-07-15",
+    "title": "Representation of process control engineering - Requests in P&I diagrams and data exchange between P&ID tools and PCE-CAE tools",
+    "language": "EN-FR",
+    "description": "IEC 62424:2016 specifies how process control engineering requests are represented in a P&ID for automatic transferring data between P&ID and PCE tool and to avoid misinterpretation of graphical P&ID symbols for PCE. It also defines the exchange of process control engineering request relevant data between a process control engineering tool and a P&ID tool by means of a data transfer language (called CAEX). These provisions apply to the export/import applications of such tools. This second edition cancels and replaces the first edition published in 2008. This edition constitutes a technical revision. It is a compatible extension of the first edition. The main changes and extensions are: - updated definitions and new definitions; - identification replaced with reference designation; - updated PCE categories and process functions; - CAEX version 3.0, introduction of: native multiple role support; - nested interfaces; - life cycle meta information; - a separate Attribute library; - updated examples; - updated electronic data model of the PCE request: new normative attribute library for basic PCE request attributes; - new informative extended attribute library for further PCE request attributes; - new informative electronic data model for the PCE request."
+  },
+  {
+    "reference": "IEC TS 62443-1-1:2009",
+    "edition": "1.0",
+    "date": "2009-07-30",
+    "title": "Industrial communication networks - Network and system security - Part 1-1: Terminology, concepts and models",
+    "language": "EN",
+    "description": "IEC/TS 62443-1-1:2009(E) is a technical specification which defines the terminology, concepts and models for Industrial Automation and Control Systems (IACS) security. It establishes the basis for the remaining standards in the IEC 62443 series."
+  },
+  {
+    "reference": "IEC TS 62443-1-5:2023",
+    "edition": "1.0",
+    "date": "2023-09-15",
+    "title": "Security for industrial automation and control systems - Part 1-5: Scheme for IEC 62443 security profiles",
+    "language": "EN",
+    "description": "IEC TS 62443-1-5:2023 specifies a scheme for defining (selecting, writing, drafting, creating) IEC 62443 security profiles. This scheme and its specified requirements apply to IEC 62443 security profiles which are planned to be published as part of the upcoming IEC 62443 dedicated security profiles sub-series. IEC 62443 security profiles can support interested parties (e.g. during conformity assessment activities) to achieve comparability of assessed IEC 62443 requirements."
+  },
+  {
+    "reference": "IEC PAS 62443-1-6:2025",
+    "edition": "1.0",
+    "date": "2025-12-19",
+    "title": "Security for industrial automation and control systems - Part 1-6: Application of the 62443 series to the Industrial Internet of Things (IIoT)",
+    "language": "EN",
+    "description": "IEC PAS 62443-1-6:2025 introduces new communication channels, a new organization of functions, and new cybersecurity concerns. Asset owners are looking for more guidance in how to deal with all these changes. The IEC 62443 series, Security for industrial automation and control systems, can be applied to this new technology, but many asset owners look at the scope of the series and wonder where to start. This part of IEC 62443 seeks to give guidance to asset owners and their service providers on how the IEC 62443 series can be used to address IIoT. The document points to requirements in the different parts of the IEC 62443 series that might be helpful to the asset owner as they both consider implementing IIoT in their automation solutions as well as dealing with existing IIoT. Product suppliers and service providers can find this document useful as well. NOTE The drafting committee for IEC 62443 is currently engaged in revision of parts of the standard to recognize emerging technologies, such as IIoT, and this document is part of that on-going effort. NOTE In accordance with ISO/IEC Directives, Part 1, IEC PASs are automatically withdrawn after 4 years."
+  },
+  {
+    "reference": "IEC 62443-2-1:2024",
+    "edition": "2.0",
+    "date": "2024-08-07",
+    "title": "Security for industrial automation and control systems - Part 2-1: Security program requirements for IACS asset owners",
+    "language": "EN-FR",
+    "description": "IEC 62443-2-1:2024 specifies asset owner security program (SP) policy and procedure requirements for an industrial automation and control system (IACS) in operation. This document uses the broad definition and scope of what constitutes an IACS as described in IEC TS 62443‑1‑1. In the context of this document, asset owner also includes the operator of the IACS. This document recognizes that the lifespan of an IACS can exceed twenty years, and that many legacy systems contain hardware and software that are no longer supported. Therefore, the SP for most legacy systems addresses only a subset of the requirements defined in this document. For example, if IACS or component software is no longer supported, security patching requirements cannot be met. Similarly, backup software for many older systems is not available for all components of the IACS. This document does not specify that an IACS has these technical requirements. This document states that the asset owner needs to have policies and procedures around these types of requirements. In the case where an asset owner has legacy systems that do not have the native technical capabilities, compensating security measures can be part of the policies and procedures specified in this document. This edition includes the following significant technical changes with respect to the previous edition: a) revised requirement structure into SP elements (SPEs), b) revised requirements to eliminate duplication of an information security management system (ISMS), and c) defined a maturity model for evaluating requirements."
+  },
+  {
+    "reference": "IEC PAS 62443-2-2:2025",
+    "edition": "1.0",
+    "date": "2025-03-11",
+    "title": "Security for industrial automation and control systems – Part 2-2: IACS security protection scheme",
+    "language": "EN",
+    "description": "IEC PAS 62443-2-2: 2025 provides guidance on the development, validation, operation, and maintenance of a set of technical, physical, and process security measures called Security Protection Scheme (SPS). The document’s goal is to provide the asset owner implementing an IACS Security Program (SP) with mechanisms and procedures to ensure that the design, implementation and operation of an SPS manage the risks resulting from cyberthreats to each of the IACS included in its operating facility. The document is based on contents specified in other documents of the IEC 62443 series and explains how these contents can be used to support the development of technical, physical, and process security measures addressing the risks to the IACS during the operation phase."
+  },
+  {
+    "reference": "IEC TR 62443-2-3:2015",
+    "edition": "1.0",
+    "date": "2015-06-30",
+    "title": "Security for industrial automation and control systems - Part 2-3: Patch management in the IACS environment",
+    "language": "EN",
+    "description": "IEC TR 62443-2-3:2015(E) describes requirements for asset owners and industrial automation and control system (IACS) product suppliers that have established and are now maintaining an IACS patch management program. This Technical Report recommends a defined format for the distribution of information about security patches from asset owners to IACS product suppliers, a definition of some of the activities associated with the development of the patch information by IACS product suppliers and deployment and installation of the patches by asset owners. The exchange format and activities are defined for use in security related patches; however, it may also be applicable for non-security related patches or updates."
+  },
+  {
+    "reference": "IEC 62443-2-4:2023",
+    "edition": "2.0",
+    "date": "2023-12-15",
+    "title": "Security for industrial automation and control systems - Part 2-4: Security program requirements for IACS service providers",
+    "language": "EN-FR",
+    "description": "IEC 62443-2:2023 specifies a comprehensive set of requirements for security-related processes that IACS service providers can offer to the asset owner during integration and maintenance activities of an Automation Solution. Because not all requirements apply to all industry groups and organizations, Subclause 4.1.4 provides for the development of \"profiles\" that allow for the subsetting of these requirements. Profiles are used to adapt this document to specific environments, including environments not based on an IACS. NOTE 1 The term \"Automation Solution\" is used as a proper noun (and therefore capitalized) in this document to prevent confusion with other uses of this term. Collectively, the security processes offered by an IACS service provider are referred to as its Security Program (SP) for IACS asset owners. In a related specification, IEC 62443-2-1 describes requirements for the Security Management System of the asset owner. NOTE 2 In general, these security capabilities are policy, procedure, practice and personnel related. Figure 1 illustrates the integration and maintenance security processes of the asset owner, service provider(s), and product supplier(s) of an IACS and their relationships to each other and to the Automation Solution. Some of the requirements of this document relating to the safety program are associated with security requirements described in IEC 62443-3-3 and IEC 62443-4-2. NOTE 3 The IACS is a combination of the Automation Solution and the organizational measures necessary for its design, deployment, operation, and maintenance. NOTE 4 Maintenance of legacy system with insufficient security technical capabilities, implementation of policies, processes and procedures can be addressed through risk mitigation."
+  },
+  {
+    "reference": "IEC TR 62443-3-1:2009",
+    "edition": "1.0",
+    "date": "2009-07-30",
+    "title": "Industrial communication networks - Network and system security - Part 3-1: Security technologies for industrial automation and control systems",
+    "language": "EN",
+    "description": "IEC/TR 62443-3-1:2009(E) provides a current assessment of various cybersecurity tools, mitigation counter-measures, and technologies that may effectively apply to the modern electronically based IACSs regulating and monitoring numerous industries and critical infrastructures. It describes several categories of control system-centric cybersecurity technologies, the types of products available in those categories, the pros and cons of using those products in the automated IACS environments, relative to the expected threats and known cyber vulnerabilities, and, most important, the preliminary recommendations and guidance for using these cybersecurity technology products and/or countermeasures."
+  },
+  {
+    "reference": "IEC 62443-3-2:2020",
+    "edition": "1.0",
+    "date": "2020-06-24",
+    "title": "Security for industrial automation and control systems - Part 3-2: Security risk assessment for system design",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62443-3-2:2020 establishes requirements for: • defining a system under consideration (SUC) for an industrial automation and control system (IACS); • partitioning the SUC into zones and conduits; • assessing risk for each zone and conduit; • establishing the target security level (SL-T) for each zone and conduit; and • documenting the security requirements."
+  },
+  {
+    "reference": "IEC 62443-3-3:2013",
+    "edition": "1.0",
+    "date": "2013-08-07",
+    "title": "Industrial communication networks - Network and system security - Part 3-3: System security requirements and security levels",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62443-3-3:2013 provides detailed technical control system requirements (SRs) associated with the seven foundational requirements (FRs) described in IEC 62443-1-1 including defining the requirements for control system capability security levels, SL-C(control system). These requirements would be used by various members of the industrial automation and control system (IACS) community along with the defined zones and conduits for the system under consideration (SuC) while developing the appropriate control system target SL, SL-T(control system), for a specific asset. The contents of the corrigendum of April 2014 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62443-3-3:2013/COR1:2014",
+    "edition": "1.0",
+    "date": "2014-04-24",
+    "title": "Corrigendum 1 - Industrial communication networks - Network and system security -  Part 3-3: System security requirements and security levels",
+    "language": "EN",
+    "description": null
+  },
+  {
+    "reference": "IEC 62443-4-1:2018",
+    "edition": "1.0",
+    "date": "2018-01-15",
+    "title": "Security for industrial automation and control systems - Part 4-1: Secure product development lifecycle requirements",
+    "language": "EN-FR, EN, ES",
+    "description": "IEC 62443-4:2018 specifies the process requirements for the secure development of products used in industrial automation and control systems. This specification is part of a series of standards that addresses the issue of security for industrial automation and control systems (IACS). IEC 62443-4 defines secure development life-cycle (SDL) requirements related to cyber security for products intended for use in the industrial automation and control systems environment and provides guidance on how to meet the requirements described for each element. The life-cycle description includes security requirements definition, secure design, secure implementation (including coding guidelines), verification and validation, defect management, patch management and product end-of-life. These requirements can be applied to new or existing processes for developing, maintaining and retiring hardware, software or firmware. Note that these requirements only apply to the developer and maintainer of the product, and are not applicable to the integrator or the user of the product. A summary list of the requirements is provided in Annex B."
+  },
+  {
+    "reference": "IEC 62443-4-2:2019",
+    "edition": "1.0",
+    "date": "2019-02-27",
+    "title": "Security for industrial automation and control systems - Part 4-2: Technical security requirements for IACS components",
+    "language": "EN-FR, ES",
+    "description": "IEC 62443-4-2:2019 provides detailed technical control system component requirements (CRs) associated with the seven foundational requirements (FRs) described in IEC TS 62443-1-1 including defining the requirements for control system capability security levels and their components, SL-C(component). As defined in IEC TS 62443-1-1 there are a total of seven foundational requirements (FRs): a) identification and authentication control (IAC), b) use control (UC), c) system integrity (SI), d) data confidentiality (DC), e) restricted data flow (RDF), f) timely response to events (TRE), and g) resource availability (RA). These seven FRs are the foundation for defining control system security capability levels. Defining security capability levels for the control system component is the goal and objective of this document as opposed to SL-T or achieved SLs (SL-A), which are out of scope. The contents of the corrigendum of August 2022 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62443-4-2:2019/COR1:2022",
+    "edition": "1.0",
+    "date": "2022-08-30",
+    "title": "Corrigendum 1 - Security for industrial automation and control systems - Part 4-2: Technical security requirements for IACS components",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62443-6-1:2024",
+    "edition": "1.0",
+    "date": "2024-03-12",
+    "title": "Security for industrial automation and control systems - Part 6-1: Security evaluation methodology for IEC 62443-2-4",
+    "language": "EN",
+    "description": "IEC TS 62443-6-1:2024 specifies the evaluation methodology to support interested parties (e.g. during conformity assessment activities) to achieve repeatable and reproducible evaluation results against IEC 62443-2-4 requirements. This document is intended for first-party, second-party or third-party conformity assessment activity, for example by product suppliers, service providers, asset owners and conformity assessment bodies. NOTE 1 62443-2-4 specifies requirements for security capabilities of an IACS service provider. These security capabilities can be offered as a security program during integration and maintenance of an automation solution. NOTE 2 The term “conformity assessment” and the terms first-party conformity assessment activity, second-party conformity assessment activity and third-party conformity assessment activity are defined in ISO/IEC 17000."
+  },
+  {
+    "reference": "IEC TS 62443-6-2:2025",
+    "edition": "1.0",
+    "date": "2025-01-21",
+    "title": "Security for industrial automation and control systems - Part 6-2: Security evaluation methodology for IEC 62443-4-2",
+    "language": "EN",
+    "description": "IEC TS 62443-6-2:2025 specifies the evaluation methodology to support achieving repeatable and reproducible evaluation results for IACS components under evaluation against IEC 62443-4-2 requirements. This document does not specify the definition of a complete certification scheme or certification program. This document does not specify the process evaluations of the secure development lifecycle according to IEC 62443‑4‑1. The existing secure development lifecycle according to IEC 62443‑4‑1 is a prerequisite in this evaluation methodology. This document does not specify particular tools, e.g. for the use in vulnerability or penetration testing. This document does not focus on lACS components which were not developed according to the lifecycle process of IEC 62443‑4‑1."
+  },
+  {
+    "reference": "IEC 62708:2015",
+    "edition": "1.0",
+    "date": "2015-02-25",
+    "title": "Documents kinds for electrical and instrumentation projects in the process industry",
+    "language": "EN-FR",
+    "description": "IEC 62708:2015 defines specific documents and their basic content required for electrical and instrumentation projects in the process industry. It specifies the document kind name and the mandatory content of the document kind."
+  },
+  {
+    "reference": "IEC 62832-1:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Industrial-process measurement, control and automation - Digital factory framework - Part 1: General principles",
+    "language": "EN-FR",
+    "description": "IEC 62832-1:2020 defines the general principles of the Digital Factory framework (DF framework), which is a set of model elements (DF reference model) and rules for modelling production systems. This DF framework defines: • a model of production system assets; • a model of relationships between different production system assets; • the flow of information about production system assets. The DF framework does not cover representation of building construction, input resources (such as raw production material, assembly parts), consumables, work pieces in process, nor end products. It applies to the three types of production processes (continuous control, batch control, and discrete control) in any industrial sector (for example aeronautic industries, automotive, chemicals, wood)."
+  },
+  {
+    "reference": "IEC 62832-2:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Industrial-process measurement, control and automation - Digital factory framework - Part 2: Model elements",
+    "language": "EN-FR",
+    "description": "IEC 62832-2:2020 specifies detailed requirements for model elements of the Digital Factory framework. It defines the nature of the information provided by the model elements, but not the format of this information."
+  },
+  {
+    "reference": "IEC 62832-3:2020",
+    "edition": "1.0",
+    "date": "2020-10-27",
+    "title": "Industrial-process measurement, control and automation - Digital factory framework - Part 3: Application of Digital Factory for life cycle management of production systems",
+    "language": "EN-FR",
+    "description": "IEC 62832-3:2020 specifies rules of the Digital Factory framework for managing information of a production system throughout its life cycle. It also defines how the information will be added, deleted or changed in the Digital Factory by the various activities during the life cycle of the production system."
+  },
+  {
+    "reference": "IEC TR 62837:2013",
+    "edition": "1.0",
+    "date": "2013-09-25",
+    "title": "Energy efficiency through automation systems",
+    "language": "EN",
+    "description": "IEC/TR 62837:2013(E) provides to the technical committees a framework for the development and adaptation of documents in order to improve energy efficiency in manufacturing, process control and industrial facility management."
+  },
+  {
+    "reference": "IEC TS 62872-1:2019",
+    "edition": "1.0",
+    "date": "2019-06-26",
+    "title": "Industrial-process measurement, control and automation - Part 1: System interface between industrial facilities and the smart grid",
+    "language": "EN",
+    "description": "IEC 62872-1:2019(E) defines the interface, in terms of information flow, between industrial facilities and the “smart grid”. It identifies, profiles and extends where required, the standards needed to allow the exchange of the information needed to support the planning, management and control of electric energy flow between the industrial facility and the smart grid. The scope of this document specifically excludes the protocols needed for the direct control of energy resources within a facility where the control and ultimate liability for such control is delegated by the industrial facility to the external entity (e.g. distributed energy resource (DER) control by the electrical grid operator)."
+  },
+  {
+    "reference": "IEC 62872-2:2022",
+    "edition": "1.0",
+    "date": "2022-02-08",
+    "title": "Industrial-process measurement, control and automation - Part 2: Internet of Things (IoT) - Application framework for industrial facility demand response energy management",
+    "language": "EN-FR",
+    "description": "IEC 62872-2:2022 presents an IoT application framework for industrial facility demand response energy management (FDREM) for the smart grid, enabling efficient information exchange between industrial facilities using IoT related communication technologies. This document specifies: - an overview of the price-based demand response program that serves as basic knowledge backbone of the IoT application framework; - a IoT-based energy management framework which describes involved functional components, as well as their relationships; - detailed information exchange flows that are indispensable between functional components; - existing IoT protocols that need to be identified for each protocol layer to support this kind of information exchange; - communication requirements that guarantee reliable data exchange services for the application framework."
+  },
+  {
+    "reference": "IEC 62881:2018",
+    "edition": "1.0",
+    "date": "2018-10-10",
+    "title": "Cause and effect matrix",
+    "language": "EN-FR",
+    "description": "IEC 62881:2018 addresses the setting and implementation of C&E matrices for a consistent use in engineering activities. It aims to describe a simple format used to support a consistent exchange of information between different engineering disciplines involved in project or maintenance activities. The document defines the minimum requirements of the C&E matrix content, which is derived from existing design documents, for example P&ID or verbal descriptions. The transfer of the relations defined in C&E matrices into a functional or source code for the application programming of PLC/DCS is out of the scope of this document. In addition, this document does not cover the implementation of complex and/or sequential logics at a dedicated automation platform, which will require additional stipulations to be done/ followed. It is understood, that C&E matrices in fact can be used to document the fault reactions of the plant equipment and therefore can be used as reference point for the necessary safety verifications to be applied. C&E matrices as defined in this document do not have the same scope as Fishbone or Ishikawa diagrams, which are often named in the literature as cause and effect diagrams. The contents of the interpretation sheet of April 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62881:2018/COR1:2019",
+    "edition": "1.0",
+    "date": "2019-04-23",
+    "title": "Corrigendum 1 - Cause and effect matrix",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC 62890:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Industrial-process measurement, control and automation - Life-cycle-management for systems and components",
+    "language": "EN-FR, EN",
+    "description": "IEC 62890:2020 establishes basic principles for Life-Cycle-Management of systems and components used for industrial-process measurement, control and automation. These principles are applicable to various industrial sectors. This standard provides definitions and reference models related to the life-cycle of a product type and the life time of a product instance, It defines a consistent set of generic reference models and terms. The key models defined are: – Life-Cycle-Model; – structure model; – compatibility model. This document also describes the application of these models for Life-Cycle-Management strategies. The content is used for technical aspects concerning the design, planning, development and maintenance of automation systems and components and the operation of the plant. The definitions of generic models and terms regarding Life-Cycle-Management are indispensable for a common understanding and application by all partners in the value chain such as plant user, product and system producer, service provider, and component supplier. The models and strategies described in this standard are also applicable for related management systems, i.e. MES and ERP"
+  },
+  {
+    "reference": "IEC TR 63069:2019",
+    "edition": "1.0",
+    "date": "2019-05-20",
+    "title": "Industrial-process measurement, control and automation - Framework for functional safety and security",
+    "language": "EN",
+    "description": "IEC TR 63069:2019 (E) explains and provides guidance on the common application of IEC 61508 (all parts) and IEC 62443 (all parts) in the area of industrial-process measurement, control and automation. This document can apply to other industrial sectors where IEC 61508 (all parts) and IEC 62443 (all parts) are applied."
+  },
+  {
+    "reference": "IEC TS 63164-1:2020",
+    "edition": "1.0",
+    "date": "2020-02-07",
+    "title": "Reliability of industrial automation devices and systems - Part 1: Assurance of automation devices reliability data and specification of their source",
+    "language": "EN",
+    "description": "IEC 63164-1:2020(E) provides guidance on the assurance of reliability data of automation devices. If the source of this data is calculation, guidance is given on how to specify the methods used for this calculation. If the source is from observation of devices in the field, guidance is given on how to describe these observations and their evaluations. If the source is the outcome of laboratory tests, guidance is given on how to specify these tests and the conditions under which they have been carried out. This document defines the form to present the data. The components considered in this document are assumed not to need any break-in phase before full range usage. When devices are used for functional safety application, the requirements of IEC 61508 (all parts) and related standards are considered."
+  },
+  {
+    "reference": "IEC TR 63164-2:2020",
+    "edition": "1.0",
+    "date": "2020-07-22",
+    "title": "Reliability of industrial automation devices and systems - Part 2: System reliability",
+    "language": "EN",
+    "description": "IEC TR 63164-2:2020 provides guidance on the calculation of reliability data of automation systems which can be simplified as series, parallel or mixed structure based on reliability data of single devices and/or sub-systems, and on the form to present the data. NOTE This procedure is only targeted to the reliability of automation systems, but not systems that embed automation systems, e.g. process plant. Reliability is included in dependability, and this document is mainly focused on random hardware failures that affect reliability. Dependability is used as a collective term for the time-related quality characteristics of an item and additionally includes availability, recoverability, maintainability, maintenance support performance, and, in some cases, other characteristics such as durability, safety and security, which are all not in the scope of this Technical Report."
+  },
+  {
+    "reference": "IEC 63278-1:2023",
+    "edition": "1.0",
+    "date": "2023-12-14",
+    "title": "Asset Administration Shell for industrial applications - Part 1: Asset Administration Shell structure",
+    "language": "EN-FR",
+    "description": "IEC 63278-1:2023 defines the structure of a standardized digital representation of an asset, called Asset Administration Shell (AAS). The Asset Administration Shell gives uniform access to information and services. The purpose of the Asset Administration Shell is to enable two or more software applications to exchange information and to mutually use the information that has been exchanged in a trusted and secure way. This document focuses on Asset Administration Shells representing assets of manufacturing enterprises including products produced by those enterprises and the full hierarchy of industrial equipment. It defines the related structures, information, and services. The Asset Administration Shell applies to: any type of industrial process (discrete manufacturing, continuous process, batch process, hybrid production); any industrial sector applying industrial-process measurement, control and automation; the entire life cycle of assets from idea to end of life treatment; assets which are physical, digital, or intangible entities."
+  },
+  {
+    "reference": "IEC TR 63283-1:2022",
+    "edition": "1.0",
+    "date": "2022-03-09",
+    "title": "Industrial-process measurement, control and automation - Smart manufacturing - Part 1: Terms and definitions",
+    "language": "EN",
+    "description": "IEC TR 63283-1:2022(E) is to compile a comprehensive collection of base terminology with compatible terms that can become relevant within the scope of Smart Manufacturing. Most of these terms refer to existing definitions in the domain of industrial-process measurement, control and automation and its various subdomains. When multiple similar definitions exist for the exact same term in different standards, this document contains only the preferred definition in the context of Smart Manufacturing. Whenever the existing definitions are not compatible with other terms in this document or when the definition does not fit into the broader scope of Smart Manufacturing, new or modified definitions are given."
+  },
+  {
+    "reference": "IEC TS 63283-2:2025",
+    "edition": "1.0",
+    "date": "2025-12-23",
+    "title": "Industrial-process measurement, control and automation - Smart manufacturing - Part 2: Use cases",
+    "language": "EN",
+    "description": "IEC TS 63283-2: 2025 has the goal of analyzing the impact of smart manufacturing on the daily operation of an industrial facility. It focusses on the perspective of automation and control of the production system, but also on the supporting processes of ordering, supply chain management, design, engineering and commissioning, operational technology, life cycle management, maintenance management, and resource management. These recommendations are accomplished on the basis of several carefully selected use cases that are familiar to manufacturing industry. Therefore, each use case is described, followed by an analysis of the possible influence of smart manufacturing and the assessment of the impact on existing and future standardization. This first edition cancels and replaces the first edition of IEC TR 63283-2 published in 2022. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) additional use cases (Clause 6); b) clustering of the requirements for standardization (Clause 7); c) consolidation of the use cases contributing to the cluster “Computing infrastructure” (Clause 8 and Annex D); d) consolidation of the business context of the use cases (Annex C)."
+  },
+  {
+    "reference": "IEC TR 63283-3:2022",
+    "edition": "1.0",
+    "date": "2022-03-09",
+    "title": "Industrial-process measurement, control and automation - Smart manufacturing - Part 3: Challenges for cybersecurity",
+    "language": "EN",
+    "description": "IEC TR 63283-3:2022(E) identifies challenges which apply to the engineering of a smart manufacturing facility related to cybersecurity."
+  },
+  {
+    "reference": "IEC TR 63283-5:2024",
+    "edition": "1.0",
+    "date": "2024-11-20",
+    "title": "Industrial-process measurement, control and automation – Smart manufacturing – Part 5: Market and innovation trends analysis",
+    "language": "EN",
+    "description": "IEC TR 63283-5:2024 describes the market and innovation trend analysis affecting smart manufacturing (SM). The market and innovation trends will influence the evolution of smart manufacturing and it will be important to have good insights on these trends. Specific aspects of the market trends are the evolution of the business cases that is assumed to highlight new supplier chain models, new revenue streams, new customer services, and/or new customer segments. The document will address the following topics: • Market watch: Identify the important, likely, and/or disruptive market trends (e.g. mass customization) from an end-to-end perspective, which impact smart manufacturing topics/aspects. This includes the end-user, producers, supply chain, regulators, etc. • Business model watch: Identify the new business model trends from an end-to-end perspective, which impact smart manufacturing. • Technological watch: Identify the important, likely, and/or disruptive innovations (AI chipsets, 6G, quantum computing, etc.) describing the impacted smart manufacturing topics/aspects; this topic will focus on those technologies that are still under development but is assumed to influence (or is assumed to be influenced by) smart manufacturing. There are many more new trends which are used in SM. In this document, only some frequently discussed trends are presented. Some technologies are considered to have priority according to their maturity. This work will focus on how they can be used in SM."
+  },
+  {
+    "reference": "IEC TR 63319:2025",
+    "edition": "1.0",
+    "date": "2025-06-06",
+    "title": "A meta-modelling analysis approach to smart manufacturing reference models",
+    "language": "EN",
+    "description": "CORRECTED VERSION 2025-06 IEC TR 63319:2025 uses a meta-modelling approach to identify commonalities among ten smart manufacturing reference models. Each reference model is placed into the context of the meta-model to facilitate analysis of both common and distinct features. Major smart manufacturing reference model topics are identified, and the reference models compared within each topic. As part of the meta-modelling approach development, a collection of models differing in extent of abstraction characterizes the evolution of a particular smart manufacturing system from the meta-model through a unifying smart manufacturing reference model and successively less abstract domain models to a model for system implementation. This document presents a range of issues and challenges for further work to specify a high-level smart manufacturing reference model that unifies the concepts and practices identified using the meta-model approach analysis of the smart manufacturing reference models. It is published as a dual logo standard."
+  },
+  {
+    "reference": "IEC 63339:2024",
+    "edition": "1.0",
+    "date": "2024-10-10",
+    "title": "Unified reference model for smart manufacturing",
+    "language": "EN-FR",
+    "description": "IEC 63339:2024 specifies the unified reference model for smart manufacturing (URMSM) using a terminology and structure, and establishes criteria for creating reference models, as specializations, that support smart manufacturing. The terminology and structure comprise a set of common modelling elements, their associations, and conformance criteria. These common modelling elements address aspects and perspectives of products and production and their lifecycle considerations. The URMSM enables an approach for creating multiple models based upon a reference model that is sufficient for understanding significant relationships among entities involved in smart manufacturing (SM) and for the development of standards and other specifications. The URMSM specifications in this document accommodate consistent, coherent, compatible specializations for relevant aspects of manufacturing systems consisting of equipment, products, and services within the domain of manufacturing. Provisions of this document are applicable for a new smart manufacturing reference model (SMRM) or elaboration of existing SMRM capabilities, for example, improving capabilities for analysis of opportunities and synthesis of technological advances, and improving interoperability of new and existing systems. This document is not intended to prescribe interoperability considerations or data schemas of models. Standardization of content relative to models will be the subject of other standards and texts specific to those model domains."
+  },
+  {
+    "reference": "IEC 63376:2023",
+    "edition": "1.0",
+    "date": "2023-08-16",
+    "title": "Industrial facility energy management system (FEMS) - Functions and information flows",
+    "language": "EN-FR",
+    "description": "IEC 63376:2023 specifies the functions and the information flows of industrial Facility Energy Management System (FEMS). Generic functions are defined for the FEMS, to enable upgrading traditional Energy Management System (EMS) from visualization of the status of energy consumption to automation of energy management defining a closer relation with other management and control systems. A generic method to classify the FEMS functions will be explained. The information exchange between the FEMS and other systems such as Manufacturing Operations Management (MOM), Manufacturing Execution System (MES) and Enterprise Resource Planning (ERP) will be outlined."
+  },
+  {
+    "reference": "IEC PAS 63441:2022",
+    "edition": "1.0",
+    "date": "2022-10-18",
+    "title": "Functional architecture of industrial internet system for industrial automation applications",
+    "language": "EN",
+    "description": "IEC PAS 63441:2022 defines the functional architecture and functional model of the Industrial Internet System for industrial applications. It presents the models, structures, activities, and interaction contents between layers of the end, edge, and cloud: infrastructure as a service (IaaS), platform as a service (PaaS), and software as service (SaaS), respectively."
+  },
+  {
+    "reference": "ISO 20140-5:2024",
+    "edition": "2.0",
+    "date": "2024-09-17",
+    "title": "Automation systems and integration - Evaluating energy efficiency and other factors of manufacturing systems that influence the environment - Part 5: Environmental performance evaluation data",
+    "language": "EN",
+    "description": "This document defines a set of environmental performance evaluation (EPE) data classes, including their properties. It is applicable to entire manufacturing facilities or to parts of a manufacturing facility. This document applies to manufacturing systems including discrete, batch and continuous control, which are defined in IEC 62264-1. The following are outside the scope of this document: - syntax of EPE data and data models; - protocols to exchange EPE data; - functions that can be enabled by the use of EPE data; - product life cycle assessment; - EPE data that are specific to a particular industry sector, manufacturer or machinery; - acquisition of EPE data."
+  }
+]

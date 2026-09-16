@@ -1,0 +1,162 @@
+[
+  {
+    "reference": "IEC 62933-1:2024",
+    "edition": "2.0",
+    "date": "2024-05-15",
+    "title": "Electrical energy storage (EES) systems - Part 1: Vocabulary",
+    "language": "EN-FR, ES",
+    "description": "IEC 62933-1:2024 defines terms applicable to electrical energy storage (EES) systems including terms necessary for the definition of unit parameters, test methods, planning, installation, operation, environmental and safety issues. This terminology document is applicable to grid-connected systems able to extract electrical energy from an electric power system, store energy internally, and provide electrical energy to an electric power system. The step for charging and discharging an EES system can comprise an energy conversion. This second edition cancels and replaces the first edition published in 2018. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: a) addition (with revision) of the entries developed during the edition 1 stability period and, therefore, included only in other IEC 62933 parts; b) addition of the entries developed during the edition 1 stability period and published in this document for the first time; c) complete revision of the entries already present in edition 1."
+  },
+  {
+    "reference": "IEC 62933-2-1:2017",
+    "edition": "1.0",
+    "date": "2017-12-13",
+    "title": "Electrical energy storage (EES) systems - Part 2-1: Unit parameters and testing methods - General specification",
+    "language": "EN-FR, ES",
+    "description": "IEC 62933-2-1:2017 focuses on unit parameters and testing methods of EES systems. The energy storage devices and technologies are outside the scope of this document. This document deals with EES system performance defining: unit parameters, testing methods. The contents of the corrigendum of January 2019 have been included in this copy."
+  },
+  {
+    "reference": "IEC 62933-2-1:2017/COR1:2019",
+    "edition": "1.0",
+    "date": "2019-01-08",
+    "title": "Corrigendum 1 - Electrical energy storage (EES) systems - Part 2-1: Unit parameters and testing methods - General specification",
+    "language": "EN-FR",
+    "description": null
+  },
+  {
+    "reference": "IEC TS 62933-2-2:2022",
+    "edition": "1.0",
+    "date": "2022-04-26",
+    "title": "Electrical energy storage (EES) systems - Part 2-2: Unit parameters and testing methods - Application and performance testing",
+    "language": "EN",
+    "description": "IEC TS 62933-2-2:2022(E) defines testing methods and duty cycles to validate the EES system’s technical specification for the manufacturers, designers, operators, utilities and owners of the EES systems which evaluate the performance of the EES systems for various applications. The following items are covered in this document. The energy storage devices and technologies are outside the scope of this document: application; performance testing methods; duty cycles for specific application."
+  },
+  {
+    "reference": "IEC TS 62933-2-3:2025",
+    "edition": "1.0",
+    "date": "2025-05-15",
+    "title": "Electric Energy Storage (EES) Systems - Part 2-3: Unit parameters and testing methods - Performance assessment test during site operation",
+    "language": "EN",
+    "description": "IEC TS 62933-2-3:2025 specifies the unit parameters and testing methods that validate and assess the performance of EES systems after commissioning."
+  },
+  {
+    "reference": "IEC TR 62933-2-200:2021",
+    "edition": "1.0",
+    "date": "2021-09-03",
+    "title": "Electrical energy storage (EES) systems - Part 2-200: Unit parameters and testing methods - Case study of electrical energy storage (EES) systems located in EV charging station with PV",
+    "language": "EN",
+    "description": "IEC TR 62933-2-200:2021(E) presents a case study of electrical energy storage (EES) systems located in electric vehicle (EV) charging stations with photovoltaic (PV) power generation (PV-EES-EV charging stations) with a voltage level of 20 kV and below. EES systems are highlighted in this document because they are a desired option to make the charging stations (especially the high-power fast charging stations) grid-friendly, improve the self-consumption of clean energy generation, and increase the revenue of stations. In this application, EES systems show excellent performance by running in a variety of available operating modes, such as peak shaving, power smoothing, load tracing, time-of-use (TOU) price arbitrage, and ancillary services. The general duty cycle is recommended based on the summary of the operation characteristics of the EES systems."
+  },
+  {
+    "reference": "IEC TR 62933-2-201:2024",
+    "edition": "1.0",
+    "date": "2024-09-03",
+    "title": "Electrical energy storage (EES) systems – Part 2-201: Unit parameters and testing methods – Review of testing for battery energy storage systems (BESS) for the purpose of implementing repurpose and reuse batteries",
+    "language": "EN",
+    "description": "IEC TR 62933-2-201:2024 focuses on the necessity of using repurpose and reuse batteries in BESS. This document also illustrates, through case studies from various countries, how repurpose and reuse batteries are regulated as per legislation. Furthermore, business examples of BESS using repurpose and reuse batteries are investigated and issues derived in terms of both the design, manufacturing, testing, operation, and maintenance of BESS, considering the anticipated future deployment of BESS"
+  },
+  {
+    "reference": "IEC 62933-3-1:2025",
+    "edition": "1.0",
+    "date": "2025-11-20",
+    "title": "Electrical energy storage (EES) systems - Part 3-1: Planning and performance assessment of electrical energy storage systems - General specification",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62933-3-1:2025 is applicable to EES systems designed for grid-connected indoor or outdoor installation and operation. This document considers: necessary functions and capabilities of EES systems; sizing and design of EES system; operation of EES system; test items and performance assessment methods for EES systems; requirements for monitoring and acquisition of EES system operating parameters; exchange of system information and control capabilities required; maintenance of EES system. Stakeholders of this document comprise personnel involved with EES systems, which include: - planners of electric power systems and EES systems; - owners of EES systems; - operators of electric power systems and EES systems; - constructors; - suppliers of EES systems and its equipment; - aggregators. Use-case-specific technical documentation, including planning and installation specific tasks such as system design, monitoring, measurement, tests, operation and maintenance, are very important and can be found throughout this document."
+  },
+  {
+    "reference": "IEC TS 62933-3-2:2023",
+    "edition": "1.0",
+    "date": "2023-01-06",
+    "title": "Electrical energy storage (EES) systems - Part 3-2: Planning and performance assessment of electrical energy storage systems - Additional requirements for power intensive and renewable energy sources integration related applications",
+    "language": "EN",
+    "description": "IEC TS 62933-3-2:2023 provides the requirements for power intensive and renewable energy sources integration related applications of EES systems, including grid integration, performance indicators, sizing and planning, operation and control, monitoring and maintenance. The power intensive applications of EES systems are usually used to improve the dynamic performance of the grid by discharging or charging based on corresponding control strategies. The renewable energy sources integration related applications of EES systems are usually used to mitigate short-term fluctuation and/or to keep long-term stability. This document includes the following applications of EES systems: – frequency regulation/support; – grid voltage support (Q(U)) (“volt/var support”); – voltage sag mitigation; – renewable energy sources integration related applications; – power oscillation damping (POD)."
+  },
+  {
+    "reference": "IEC TS 62933-3-3:2022",
+    "edition": "1.0",
+    "date": "2022-11-04",
+    "title": "Electrical energy storage (EES) systems - Part 3-3: Planning and performance assessment of electrical energy storage systems - Additional requirements for energy intensive and backup power applications",
+    "language": "EN",
+    "description": "IEC TS 62933-3-3:2022 provides requirements, guidelines and references when EES systems are designed, controlled and operated for energy intensive, islanded grid and backup power supply applications. In energy intensive applications, the EES system provides long charge and discharge phases at variable powers to the supported grid or user equipment. In islanded operation, the EES system provides energy to the islanded grid and coordinates other power generation systems in the islanded grid. In backup power supply and emergency support, the EES system provides energy to the internal grid or a set of emergency loads when the main grid power supply is not available."
+  },
+  {
+    "reference": "IEC TR 62933-3-200:2025",
+    "edition": "1.0",
+    "date": "2025-05-21",
+    "title": "Electrical energy storage (EES) systems – Part 3-200: Planning and performance assessment of electrical energy storage systems<em> – </em>Design principles of electrochemical based EES systems",
+    "language": "EN",
+    "description": "IEC TR 62933-3-200:2025 presents an overview and design cases of electrochemical based EES systems in power generation side, transmission and distribution side, and customer side. Furthermore, design principles for electrochemical based EES systems such as sizing and selection of subsystem, integration scheme, site and layout, and system safety measures are provided. Furthermore, design principles for electrochemical based EES systems such as sizing and selection of subsystem, integration scheme, site and layout, and system safety measures are provided."
+  },
+  {
+    "reference": "IEC TS 62933-4-1:2017",
+    "edition": "1.0",
+    "date": "2017-07-26",
+    "title": "Electrical energy storage (EES) systems - Part 4-1: Guidance on environmental issues - General specification",
+    "language": "EN",
+    "description": "IEC TS 62933-4-1:2017(E) describes environmental issues associated with electrical energy storage systems (EES systems), and presents guidelines to address the environmental impacts to and from EES systems including the impacts to humans due to chronic exposure associated with the mentioned environmental impacts."
+  },
+  {
+    "reference": "IEC 62933-4-2:2025",
+    "edition": "1.0",
+    "date": "2025-02-28",
+    "title": "Electric energy storage (EES) systems – Part 4-2: Guidance on environmental issues – Assessment of the environmental impact of battery failure in an electrochemical based storage system",
+    "language": "EN-FR",
+    "description": "IEC 62933-4-2:2025 defines the requirements for evaluating and reporting the negative impact on the environment caused by the failure of a cell, flow cell, battery or flow battery in the accumulation subsystem of a battery energy storage system (BESS). The batteries within this scope used in a BESS are classified according to the type of their electrolyte. These electrolyte types are aqueous, non-aqueous or solid. The environmental impacts directly caused by the failure of other components of the BESS are not within the scope of this document."
+  },
+  {
+    "reference": "IEC 62933-4-4:2023",
+    "edition": "1.0",
+    "date": "2023-11-08",
+    "title": "Electrical energy storage (EES) systems - Part 4-4: Environmental requirements for battery-based energy storage systems (BESS) with reused batteries",
+    "language": "EN-FR",
+    "description": "IEC 62933-4-4:2023 describes environmental issues when reused batteries are considered for a BESS. It provides details and requirements for identifying and preventing environmental issues in each life cycle stage, i.e., from the design to the disassembly of such reused batteries in a BESS."
+  },
+  {
+    "reference": "IEC TR 62933-4-200:2024",
+    "edition": "1.0",
+    "date": "2024-04-18",
+    "title": "Electrical Energy Storage (EES) Systems - Part 4-200: Guidance on environmental issues - Greenhouse gas (GHG) emissions assessment by electrical energy storage (EES) systems",
+    "language": "EN",
+    "description": "IEC TR 62933-4-200:2024 describes aspects on reduction of greenhouse gas (GHG) emissions associated with electrical energy storage systems (EES systems), and presents current practices, research activities and related researches in each country. This document is intended to be used by those involved in design, development and use of EES systems, the grids and the renewable energy sources in the grids, where various applications, including but not limited to long term ones (peak shaving, load levelling, backup power, etc.) and short term ones (frequency regulation, renewable energy stabilization, etc.), are considered."
+  },
+  {
+    "reference": "IEC 62933-5-1:2024",
+    "edition": "1.0",
+    "date": "2024-07-30",
+    "title": "Electrical energy storage (EES) systems - Part 5-1: Safety considerations for grid-integrated EES systems - General specification",
+    "language": "EN-FR, ES",
+    "description": "IEC 62933-5-1:2024 specifies safety considerations (e.g. hazards identification, risk assessment, risk mitigation) applicable to EES systems integrated with the electrical grid. This document provides criteria to enable the safe application and use of electrical energy storage systems of any type or size intended for grid-integrated applications. This document can be applied to all EESS technologies, but for requirements specific to electrochemical EES systems, reference is also made to IEC 62933-5-2. This first edition cancels and replaces the first edition of IEC TS 62933-5-1 published in 2017. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to IEC TS 62933‑5‑1:2017: a) Revising “should” statements to “shall” statements for all requirements and move some “should” statements clauses to Annex B for informative purposes. b) Update standard references (normative). c) Update definitions and add or remove definitions where necessary. d) Revise criteria in Clause 6 and Clause 7 to be actionable and add standard references where necessary. e) Revise Clause 8 for more thorough test method and criteria, add tests where necessary. f) Add markings and instruction criteria. g) Revise Annex A to add technology safety information on gravitational and thermal EESS. h) Add Annex B and Annex C for safety considerations for EESS and test method for mechanical EESS. i) Add informative list of standards and update bibliography."
+  },
+  {
+    "reference": "IEC 62933-5-2:2025",
+    "edition": "2.0",
+    "date": "2025-12-09",
+    "title": "Electrical energy storage (EES) systems - Part 5-2: Safety requirements for grid-integrated EES systems - Electrochemical-based systems",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62933-5-2:2025 primarily describes safety aspects for people and, where appropriate, safety matters related to the surroundings and living beings for grid-connected energy storage systems where an electrochemical storage subsystem is used. This document is applicable to the entire life cycle of BESS (from design to end of service life management). This document provides further safety provisions that arise due to the use of an electrochemical storage subsystem (e.g. battery system) in EES systems that are beyond the general safety considerations described in IEC 62933-5-1. This document specifies the safety requirements of an \"electrochemical\" energy storage system as a \"system\" to reduce the risk of harm or damage caused by the hazards of an electrochemical energy storage system due to interactions between the subsystems as presently understood."
+  },
+  {
+    "reference": "IEC 62933-5-3:2023",
+    "edition": "1.0",
+    "date": "2023-10-10",
+    "title": "Electrical energy storage (EES) systems - Part 5-3: Safety requirements for grid-integrated EES systems – Performing unplanned modification of electrochemical based system",
+    "language": "EN-FR",
+    "description": "IEC 62933-5-3:2023 applies to those instances when a BESS undergoes unplanned modifications. Such modifications can involve one or more of the following: - changes in energy storage capacity; - changes of chemistries, design and manufacturer of the accumulation subsystem; - changes of a subsystem component using non-OEM parts, - changes to the mode of operation, - changes of the installation site, or - changes in an accumulation subsystem due to an installation of reused or repurposed batteries. Any such modification can impair the original state of safety of the BESS. This document complements IEC 62933-5-2, which relates to the overall safety aspects of a BESS. The requirements covered by this document are applied in addition to the requirements in IEC 62933-5-2 in accordance with each situation."
+  },
+  {
+    "reference": "IEC 62933-5-4:2026",
+    "edition": "1.0",
+    "date": "2026-05-11",
+    "title": "Electrical energy storage (ESS) systems - Part 5-4: Safety test methods and procedures for grid integrated EES systems - Lithium ion battery-based systems",
+    "language": "EN",
+    "description": "IEC 62933-5-4:2026 primarily describes the safety test methods and procedures for grid-connected energy storage systems where a lithium ion battery-based subsystem is used. This document provides test methods and procedures to validate safety issues specifically related to the use of a lithium-ion battery-based subsystem, primarily based on IEC 62933-5-1, which establishes criteria for ensuring the safe applications and use of electrical energy storage systems of any type or size, and IEC 62933-5-2, which further specifies safety provisions arising from the use of an electrochemical storage subsystems in EES systems. All test methods and procedures are based on the requirements of IEC 62933-5-2 Ed 2.0. This standard includes only the test methods specifically related to lithium ion battery-based BESS and is based on by actual tests. The scope of this document is limited to some representative actual test method and procedure for lithium-ion battery-based BESS, but does not include all tests method and procedure."
+  },
+  {
+    "reference": "IEC 62933-4-3:2025",
+    "edition": "1.0",
+    "date": "2025-10-20",
+    "title": "Electrical energy storage (EES) systems - Part 4-3: Protection requirements of battery-based energy storage systems (BESS) according to environmental conditions",
+    "language": "EN-FR, EN, FR",
+    "description": "IEC 62933-4-3:2025 applies to the effects of the environmental conditions on Battery Energy Storage Systems (BESS). This document addresses these effects and identifies causes, chain of events and final effects on the BESS. Based on those effects, preventative or mitigating measures are described. Typical environmental effects on the BESS include, but are not limited to, the effects of lightning, seismic activities, water, air, flora, fauna, and humans. The described measures focus as a guideline on the entire BESS including all power and communication connections and its Point of Connections (POCs). The scope of this document is limited to BESS specific requirements and operating conditions. Specific design or safety requirements of individual BESS subsystems are excluded from this document."
+  }
+]

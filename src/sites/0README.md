@@ -103,6 +103,7 @@ konkrétní stránka/služba skutečně vrací.
   zkusí `pdfplumber` na první stránku — nejistý pokus (mnoho PDF má na
   první straně jen titulní list), nikdy nevyhazuje. Pokryto testy v
   `tests/test_sites_eiga.py`.
+* `iec.py` - **doc/PLAN.md §25 (2026-09-17)**: na rozdíl od KAŽDÉHO jiného modulu v tomto adresáři nedělá ŽÁDNÝ živý požadavek — jen čte lokální index (`data/iec_publications_index.json`), který postavil `src/tools/harvest_iec_publications.py` (přehled tam). Důvod: `www.iec.ch` je potřeba k rozřešení označení na konkrétní výbor (IEC značky samy nenesou informaci o vydávajícím výboru), ale je za AWS WAF Bot Control „challenge" akcí, kterou obyčejný `requests` klient nemůže projít — jen headless prohlížeč, moc těžké na spouštění při každém běhu `fetch_authoritative_metadata.py` kvůli hrstce záznamů. `normalize_designation()` odpovídá `harvest_iec_publications.py`'s vlastní `reference_base()` na straně korpusu: odřízne Sinay's edice příponu (`"IEC 60092-506/ - 2003.06"` → `"IEC 60092-506"`), předponu `"prEN "` (korpusovo vlastní označení „koncept evropské adopce IEC dokumentu", ne součást identity IEC dokumentu samotného), a — nalezeno až párováním proti reálným sklizeným klíčům — lomítkem spojený typ dokumentu (`"IEC/TR"`/`"IEC/TS"`/`"IEC/PAS"`) na mezerou oddělený tvar, jaký používá katalog IEC samotný (`"IEC TR 62351-13:2016"`). Designace bez shody v indexu (koncept ještě nepublikovaný, nebo skutečně jiný typ dokumentu) správně vrací `None`, nikdy neuhaduje. Pokryto testy v `tests/test_sites_iec.py`.
 * `esbirka.py` - **NENÍ zdroj obsahu** — `e-sbirka.gov.cz` je skutečný
   oficiální zdroj českého práva (na rozdíl od `zakonyprolidi.cz`), ale jeho
   vlastní frontend je needostupný Angular SPA (`<esel-app>` prázdná
@@ -129,4 +130,5 @@ Pokryto testy v `tests/test_sites_eurlex.py`, `tests/test_sites_
 zakonyprolidi.py`, `tests/test_sites_slovlex.py`,
 `tests/test_sites_esbirka.py`, `tests/test_sites_normoff.py`,
 `tests/test_sites_eiga.py` (mockované HTTP/SPARQL/CSV, žádná reálná
-síťová volání).
+síťová volání) a `tests/test_sites_iec.py` (`iec.py` samo o sobě žádnou
+síť nepoužívá — čistě lokální slovník místo mocku).
