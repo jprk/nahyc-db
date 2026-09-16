@@ -26,7 +26,8 @@
                 <span class="brand-text">H2 Regulatory <span class="brand-highlight">DB</span></span>
             </div>
             <div class="nav-links" style="align-items: center;">
-                <a href="#" class="nav-link active">Databáze</a>
+                <a href="{{ url_for('index') }}" class="nav-link{% if request.endpoint == 'index' %} active{% endif %}">Databáze</a>
+                <a href="{{ url_for('process_overview') }}" class="nav-link{% if request.endpoint in ('process_overview', 'process_detail') %} active{% endif %}">Procesy</a>
                 <a href="https://www.cistadoprava.cz/nahyc-m/" class="nav-link">O Projektu</a>
                 <img src="{{ url_for('static', filename='logos/tacr.png') }}" alt="TAČR logo" width="48" height="48">
             </div>

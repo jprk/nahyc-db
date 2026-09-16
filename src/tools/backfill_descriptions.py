@@ -1,4 +1,35 @@
-"""One-time backfill of the two description tiers onto the live database
+"""SUPERSEDED — doc/PLAN.md §22, 2026-09-17. Do not use for new work; kept
+only for its dry-run reporting shape and as a historical record of how
+the live database was originally backfilled. This script writes straight
+to the live database and, unlike every other stage of the pipeline,
+never updates `data/database_merged_deduplicated.json` — so a bare
+`init_db.py` re-run (without first re-running `build_unified_db.py`)
+silently loses everything it applied. That is exactly the "silently
+discarded on next rebuild" failure §17.1 warned about for
+`enrich_annotations.py`, and this script turned out to have the same
+flaw; it actually happened once, caught and fixed via a full pipeline
+rebuild (doc/PLAN.md §20).
+
+`src/tools/build_unified_db.py`'s `apply_authoritative_metadata()` and
+`apply_synthesized_summary()` already do this exact job — same cache
+files, same `stn:<designation>`/`<designation>` keys, same target
+fields — but correctly, through the JSON pipeline: every full rebuild
+(`build_unified_db.py` → `deduplicate_db.py` → `init_db.py` →
+`load_document_relations.py` → `load_process_layer.py`) re-applies both
+caches into a fresh `database_merged_deduplicated.json`, and
+`init_db.py`'s own `detect_data_quality_issues()` then computes
+`needs_review`/`review_reason` from the *resolved* description, so the
+"chybí popis/anotace dokumentu" reason clears itself automatically —
+no separate reason-stripping step needed. For any future annotation-
+fetch round (the remaining `iso.org`/`dvgw.de`/`webstore.iec.ch`/
+`eiga.eu`/`bveg.de` domains from doc/PLAN.md §17.2/§17.7), add the
+result to `data/site_metadata_cache.json` or
+`data/synthesized_summaries.json` as usual, then run the full pipeline
+rebuild above — not this script.
+
+--- Original docstring, for context ---
+
+One-time backfill of the two description tiers onto the live database
 — doc/PLAN.md §17, 2026-09-17.
 
 Applies what the fetch/translate/synthesize chain produced, keeping the

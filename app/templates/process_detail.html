@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="doc-detail">
+
+    <a href="{{ url_for('process_overview') }}" class="back-link"><i class="ph ph-arrow-left"></i> Zpět na procesy</a>
+
+    <header class="doc-header">
+        <p class="doc-designation">{{ node.id }}{% if node.chapter_ref %} <span class="meta-tag">§{{ node.chapter_ref }}</span>{% endif %}</p>
+        <h1 class="doc-heading">{{ node.name }}</h1>
+        <div class="doc-tags">
+            <span class="type-tag">{{ node.process_class_name }}</span>
+        </div>
+    </header>
+
+    <div class="doc-panels">
+
+        {% if description %}
+        <section class="doc-panel">
+            <h2>Účel a role procesu</h2>
+            {% if description.purpose %}<p>{{ description.purpose }}</p>{% endif %}
+            <dl class="doc-meta">
+                {% if description.role_in_phase %}
+                <dt>Role v předrealizační fázi</dt><dd>{{ description.role_in_phase }}</dd>
+                {% endif %}
+                {% if description.trigger_condition %}
+                <dt>Spouštěcí podmínka</dt><dd>{{ description.trigger_condition }}</dd>
+                {% endif %}
+                {% if description.key_decision_point %}
+                <dt>Klíčový rozhodovací bod</dt><dd>{{ description.key_decision_point }}</dd>
+                {% endif %}
+            </dl>
+        </section>
+        {% endif %}
+
+        {% if branches %}
+        <section class="doc-panel">
+            <h2>Průběh procesu <span class="badge">{{ branches|length }} {{ 'větev' if branches|length == 1 else 'větve' }}</span></h2>
+            {% for b in branches %}
+            <div class="document-row branch-row">
+                <div class="row-visible">
+                    <div class="td col-title">
+                        <div class="doc-title">
+                            {% if b.branch_name %}
+                            {% if b.branch_code and b.branch_code not in ('MAIN', 'X') %}<span class="meta-tag">{{ b.branch_code }}</span>{% endif %}
+                            {{ b.branch_name }}
+                            {% else %}
+                            Hlavní postup
+                            {% endif %}
+                        </div>
+                        {% if b.activation_condition %}<p class="source-text">{{ b.activation_condition }}</p>{% endif %}
+                    </div>
+                    <div class="td col-action"><i class="ph ph-caret-down expand-icon"></i></div>
+                </div>
+                <div class="row-details">
+                    {% if b.description %}<p style="padding: 0.5rem 1.25rem 0;">{{ b.description }}</p>{% endif %}
+                    {% if b.steps %}
+                    <ol class="branch-steps">
+                        {% for s in b.steps %}
+                        <li>
+                            <span class="step-number">{{ s.step_number }}</span>
+                            <span>{% if s.title %}<strong>{{ s.title }}</strong> — {% endif %}{{ s.description }}</span>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if inputs %}
+        <section class="doc-panel">
+            <h2>Vstupy procesu <span class="badge">{{ inputs|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for i in inputs %}
+                <li>{% if i.is_specific_to_hydrogen %}<span class="relation-type">H2 specifické</span>{% endif %} {{ i.description }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if outputs %}
+        <section class="doc-panel">
+            <h2>Výstupy a ukončení procesu <span class="badge">{{ outputs|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for o in outputs %}
+                <li>
+                    {% if o.is_project_blocking %}<span class="relation-type">blokující</span>{% endif %}
+                    <span><strong>{{ o.document_name }}</strong>{% if o.description and o.description != o.document_name %} — {{ o.description }}{% endif %}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if subjects %}
+        <section class="doc-panel">
+            <h2>Zapojené subjekty <span class="badge">{{ subjects|length }}</span></h2>
+            <table class="doc-table">
+                <thead><tr><th>Subjekt</th><th>Role v procesu</th></tr></thead>
+                <tbody>
+                    {% for s in subjects %}
+                    <tr>
+                        <td>{{ s.name }}{% if s.is_deciding_authority %} <span class="meta-tag">rozhoduje</span>{% endif %}</td>
+                        <td>{{ s.process_role if s.process_role else '—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
+        {% if problems %}
+        <section class="doc-panel">
+            <h2>Typické interpretační nebo procesní problémy <span class="badge">{{ problems|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for p in problems %}
+                <li>{% if p.problem_title %}<strong>{{ p.problem_title }}</strong> — {% endif %}{{ p.description }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if variability %}
+        <section class="doc-panel">
+            <h2>Variabilita podle typu instalace</h2>
+            <table class="doc-table">
+                <thead><tr><th>Oblast</th><th>Intenzita</th><th>Specifika</th></tr></thead>
+                <tbody>
+                    {% for v in variability %}
+                    <tr>
+                        <td>{{ v.installation_type_name }}</td>
+                        <td>{{ v.intensity_label }}</td>
+                        <td>{{ v.specifics if v.specifics else '—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
+        {% if edges %}
+        <section class="doc-panel">
+            <h2>Vazby na další uzly procesní sítě <span class="badge">{{ edges|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for e in edges %}
+                <li>
+                    <span class="relation-type">{{ e.character if e.character else e.direction|lower }}</span>
+                    {{ '↔' if e.direction == 'BIDIRECTIONAL' else ('← ' if e.edge_direction == 'to' else '→ ') }}
+                    <a href="{{ url_for('process_detail', node_id=e.other_node_id) }}">{{ e.other_node_id }}</a>
+                    {% if e.description %}<span class="source-text">— {{ e.description }}</span>{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if documents %}
+        <section class="doc-panel">
+            <h2>Podkladové dokumenty <span class="badge">{{ documents|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for d in documents %}
+                <li>
+                    <span class="relation-type">{{ 'právní opora' if d.link_type == 'LEGAL_BASIS' else 'pramen' }}</span>
+                    <a href="{{ url_for('document_detail', slug=d.slug) }}">
+                        {%- if d.identifier %}{{ d.identifier }} — {% endif -%}
+                        {{ d.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

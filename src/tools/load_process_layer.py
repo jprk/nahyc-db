@@ -54,6 +54,32 @@ def reset_layer_b_tables(cursor):
     cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
 
 
+def reset_bibliography_documents(cursor):
+    """doc/PLAN.md §20/§22, 2026-09-17: the `Bibliografický pramen`
+    `Document` rows `load_bibliography()` creates are 100% synthetic —
+    sourced only from the docx bibliography, never from
+    `database_merged_deduplicated.json` — so, unlike every other
+    `Document` row, re-deriving them fresh on every run is always
+    correct and lossless. Without this, running this script twice in a
+    row (without an intervening `init_db.py`, which happens to clear
+    them as a side effect of re-TRUNCATing `Document`) duplicate-inserts
+    them and collides on the content-derived slug. Confirmed live
+    (`information_schema.KEY_COLUMN_USAGE`) that nothing else references
+    these rows — `node_document` is already cleared by
+    `reset_layer_b_tables()` above, called first."""
+    cursor.execute("SELECT id FROM DocumentType WHERE name = %s", (BIBLIOGRAPHY_DOCUMENT_TYPE,))
+    row = cursor.fetchone()
+    if row is None:
+        return  # nothing created yet (e.g. a brand-new database)
+    type_id = row[0]
+    cursor.execute('''
+        DELETE dv FROM DocumentVersion dv
+        JOIN Document d ON d.id = dv.document_id
+        WHERE d.type_id = %s
+    ''', (type_id,))
+    cursor.execute("DELETE FROM Document WHERE type_id = %s", (type_id,))
+
+
 # ---------------------------------------------------------------------
 # Citation <-> Document.identifier matching (pure, unit-tested)
 # ---------------------------------------------------------------------
@@ -222,9 +248,19 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
     `Document.slug` too. `init_db.py` assigns slugs over its own import
     only, and this script runs after it, so without this pass these
     bibliography entries would be the one slice of the corpus with no
-    permanent URL — invisible to `/dokument/<slug>`."""
+    permanent URL — invisible to `/dokument/<slug>`.
+
+    Returns `{ref_id: document_id}` for every entry that resolved to a
+    Document (matched or newly created) — doc/PLAN.md Step 1 (2026-09-17):
+    `load_node_bibliography_links` needs this to turn a node's "[N]"
+    citations into `link_type='SOURCE'` `node_document` rows. An entry
+    that went to the review queue (unmatched citation) has no id here —
+    `load_node_bibliography_links` reports that as its own, separate
+    review item rather than silently skipping the link."""
+    document_id_by_ref_id = {}
     new_document_ids = []
     for entry in bibliography:
+        ref_id = entry["ref_id"]
         text = entry["text"]
         citations_in_entry = extract_citations(text)
         matched_identifier = None
@@ -233,10 +269,11 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
             if matched_identifier:
                 break
         if matched_identifier:
+            document_id_by_ref_id[ref_id] = doc_id_by_identifier[matched_identifier]
             continue
         if citations_in_entry:
             review_items.append({"kind": "unmatched_bibliography_citation",
-                                  "ref_id": entry["ref_id"], "text": text})
+                                  "ref_id": ref_id, "text": text})
             continue
         type_id = get_or_create(cursor, "DocumentType", {"name": BIBLIOGRAPHY_DOCUMENT_TYPE})
         cursor.execute("""
@@ -244,6 +281,7 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
             VALUES (%s, %s, NULL)
         """, (text[:1000], type_id))
         document_id = cursor.lastrowid
+        document_id_by_ref_id[ref_id] = document_id
         new_document_ids.append((document_id, text[:1000]))
         # Same invariant Step 2 established for every Document: exactly
         # one current version, even with no real version history.
@@ -260,6 +298,94 @@ def load_bibliography(cursor, bibliography, by_digits, by_text, doc_id_by_identi
         for doc_id, slug in assign_slugs((i, None, t) for i, t in new_document_ids).items():
             cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
 
+    return document_id_by_ref_id
+
+
+def load_node_bibliography_links(cursor, node_id, ref_ids, document_id_by_ref_id, review_items):
+    """Links `node_id` to the bibliography entries its own prose cites
+    via "[N]" markers, as `link_type='SOURCE'` — distinct from the
+    `LEGAL_BASIS` links `load_node_document_links` creates from the
+    "Právní a regulatorní opora"/node→document-mapping citations. Must
+    run AFTER `load_bibliography`, whose `ref_id -> Document.id` map
+    this depends on; a ref_id with no entry there (its bibliography
+    citation itself went unmatched) is reported here rather than
+    silently dropped."""
+    for ref_id in ref_ids:
+        document_id = document_id_by_ref_id.get(ref_id)
+        if document_id is None:
+            review_items.append({"kind": "unresolved_node_bibliography_ref",
+                                  "node_id": node_id, "ref_id": ref_id})
+            continue
+        try:
+            cursor.execute("""
+                INSERT INTO node_document (node_id, document_id, link_type, is_primary_basis)
+                VALUES (%s, %s, 'SOURCE', FALSE)
+            """, (node_id, document_id))
+        except pymysql.err.IntegrityError:
+            pass  # already linked (uq_ndoc: node_id, document_id, link_type)
+
+
+def load_node_edges(cursor, node_id, edges, review_items):
+    """Fills the still-`NULL` `description` of an EXISTING `node_edge`
+    row — the 15-row static seed in `Konsolidace-DB-schema.sql` already
+    encodes `direction`/`character`, this only adds the docx's own prose
+    for that edge. A `BIDIRECTIONAL` seed row is described from BOTH
+    nodes' sections in the docx (e.g. U2→U5 and U5→U2), so a second call
+    appends rather than overwrites, unless the text is a near-duplicate
+    already present. A docx edge with NO matching seed row in either
+    direction (e.g. U1→U5, present in the docx but not the static seed)
+    is a real discrepancy — flagged for human reconciliation, never
+    silently inserted with a guessed `direction`/`character`."""
+    for edge in edges:
+        to_node_id = edge["to_node_id"]
+        description = edge["description"]
+        cursor.execute("""
+            SELECT id, description FROM node_edge
+            WHERE (from_node_id=%s AND to_node_id=%s)
+               OR (from_node_id=%s AND to_node_id=%s AND direction='BIDIRECTIONAL')
+        """, (node_id, to_node_id, to_node_id, node_id))
+        row = cursor.fetchone()
+        if row is None:
+            review_items.append({"kind": "unmatched_node_edge", "from_node_id": node_id,
+                                  "to_node_id": to_node_id, "description": description})
+            continue
+        edge_id, existing = row
+        if existing and description in existing:
+            continue
+        merged = description if not existing else f"{existing} {description}"
+        cursor.execute("UPDATE node_edge SET description=%s WHERE id=%s", (merged, edge_id))
+
+
+def load_node_variability(cursor, node_id, variability, review_items):
+    """Fills the still-`NULL` `specifics` of an EXISTING `node_variability`
+    row — the 28-row 4×7 seed already covers every node × installation
+    type pair (confirmed: `parse_v02_processes.py` extracts exactly 28
+    docx rows too), so every call here is expected to match; a miss goes
+    to the review queue rather than being silently dropped, since it
+    would mean the docx and the static seed have actually diverged.
+
+    Existence is checked with a `SELECT` before the `UPDATE`, not via the
+    `UPDATE`'s own affected-rows count: MariaDB's default client reports
+    *changed* rows, not *matched* rows, so on a second run — where
+    `specifics` is already set to the same value — every row would
+    otherwise look unmatched even though it plainly isn't (doc/PLAN.md
+    §22, found by re-running this script twice in a row)."""
+    for item in variability:
+        code = item["installation_type_code"]
+        specifics = item["specifics"]
+        cursor.execute("""
+            SELECT nv.id FROM node_variability nv
+            JOIN installation_type it ON it.id = nv.installation_type_id
+            WHERE nv.node_id = %s AND it.code = %s
+        """, (node_id, code))
+        row = cursor.fetchone()
+        if row is None:
+            review_items.append({"kind": "unmatched_node_variability", "node_id": node_id,
+                                  "installation_type_code": code})
+            continue
+        cursor.execute("UPDATE node_variability SET specifics = %s WHERE id = %s",
+                       (specifics, row[0]))
+
 
 def main():
     parsed = load_parsed_data()
@@ -267,6 +393,7 @@ def main():
     cursor = conn.cursor()
 
     reset_layer_b_tables(cursor)
+    reset_bibliography_documents(cursor)
     conn.commit()
 
     doc_id_by_identifier = fetch_document_identifier_map(cursor)
@@ -286,8 +413,18 @@ def main():
         load_node_document_links(cursor, node_id, citations, by_digits, by_text,
                                   doc_id_by_identifier, review_items)
 
-    load_bibliography(cursor, parsed["bibliography"], by_digits, by_text,
-                       doc_id_by_identifier, review_items)
+        load_node_edges(cursor, node_id, node.get("edges", []), review_items)
+        load_node_variability(cursor, node_id, node.get("variability", []), review_items)
+
+    document_id_by_ref_id = load_bibliography(cursor, parsed["bibliography"], by_digits, by_text,
+                                              doc_id_by_identifier, review_items)
+
+    # Second pass: SOURCE links depend on load_bibliography's ref_id ->
+    # Document.id map, which only exists once every bibliography entry
+    # has been matched or created above.
+    for node_id, node in parsed["nodes"].items():
+        load_node_bibliography_links(cursor, node_id, node.get("bibliography_refs", []),
+                                     document_id_by_ref_id, review_items)
 
     conn.commit()
 

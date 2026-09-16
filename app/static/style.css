@@ -938,3 +938,80 @@ main {
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
+
+/* doc/PLAN.md §20, 2026-09-17: /procesy's node cards — same responsive
+   column behaviour as .filters-grid, kept as its own class since a
+   "filters" name would be a misnomer here. .doc-panel already gives the
+   card look; this just makes it behave as a clickable link to one. */
+.process-nodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.process-node-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.process-node-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.process-node-card h2 {
+    text-transform: none;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    letter-spacing: normal;
+    color: var(--text-primary);
+    margin: 0.3rem 0 0.4rem;
+}
+
+/* doc/PLAN.md §20: table wrapper so the variability matrix (7 rows ×
+   4 columns) scrolls horizontally at phone width instead of squeezing
+   .doc-table's columns unreadably narrow — same overflow-container
+   pattern the artifact/responsive convention uses for wide tables. */
+.doc-table-wrap {
+    overflow-x: auto;
+}
+
+/* doc/PLAN.md §20: same accordion look as .document-row (base.html's
+   toggle JS targets that class name generically), reused for a node's
+   branches on /proces/<id> — a branch has its own steps to expand into,
+   the same relationship a document-row has to its .row-details. */
+.branch-row .row-visible {
+    padding: 1rem 1.25rem;
+}
+
+.branch-row .row-details {
+    padding: 0 1.25rem;
+}
+
+.branch-steps {
+    list-style: none;
+    padding: 1rem 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.branch-steps li {
+    display: flex;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

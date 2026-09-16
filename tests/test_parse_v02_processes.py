@@ -8,7 +8,8 @@ from parse_v02_processes import (
     parse_node_heading, looks_like_list_intro_or_wrapup, extract_list_items,
     split_branch_heading, is_krok_heading, is_cross_cutting_heading,
     split_problem_text, parse_subject_cell, parse_bibliography_line,
-    extract_citations,
+    extract_citations, extract_bracket_refs, parse_edge_target,
+    map_installation_type,
 )
 
 
@@ -142,6 +143,64 @@ class ExtractCitationsTestCase(unittest.TestCase):
 
     def test_no_citation_gives_empty_list(self):
         self.assertEqual(extract_citations("Obyčejná věta bez odkazu na předpis."), [])
+
+    def test_second_act_in_coordinated_eu_phrase(self):
+        # doc/PLAN.md Step 1 (2026-09-17): U4 cites "nařízení EU
+        # č. 1907/2006 (REACH) a č. 1272/2008 (CLP)" — the second act has
+        # no "EU"/"ES" prefix of its own, only the trailing "(CLP)".
+        found = extract_citations("nařízení EU č. 1907/2006 (REACH) a č. 1272/2008 (CLP)")
+        self.assertIn("1907/2006", found)
+        self.assertIn("1272/2008", found)
+
+    def test_bare_en_standard_citation(self):
+        found = extract_citations("EN 17124:2022 — jakost vodíku jako paliva")
+        self.assertIn("EN 17124", found)
+
+    def test_bare_en_pattern_does_not_swallow_csn_prefix(self):
+        # "ČSN EN 1514-1" must still be captured whole by the ČSN
+        # pattern, and must NOT also yield a spurious bare "EN 1514".
+        found = extract_citations("viz ČSN EN 1514-1, technické provedení přírub")
+        self.assertIn("ČSN EN 1514-1", found)
+        self.assertNotIn("EN 1514", found)
+
+    def test_bare_en_pattern_does_not_swallow_stn_prefix(self):
+        found = extract_citations("viz STN EN 17124, špecifikácia výrobku")
+        self.assertNotIn("EN 17124", found)
+
+
+class ExtractBracketRefsTestCase(unittest.TestCase):
+    def test_finds_every_ref_in_prose(self):
+        text = ("Klíčovým podkladem jsou instrukce HYTEP [6], aktualizace oprávnění [7] "
+                 "a případová studie [8].")
+        self.assertEqual(extract_bracket_refs(text), [6, 7, 8])
+
+    def test_no_refs_gives_empty_list(self):
+        self.assertEqual(extract_bracket_refs("Žádný odkaz na literaturu zde není."), [])
+
+
+class ParseEdgeTargetTestCase(unittest.TestCase):
+    def test_extracts_node_code_from_arrow_cell(self):
+        self.assertEqual(parse_edge_target("→ U2 (Environmentální režim)"), "U2")
+
+    def test_no_node_code_returns_none(self):
+        self.assertIsNone(parse_edge_target("Vazba"))
+
+
+class MapInstallationTypeTestCase(unittest.TestCase):
+    def test_electrolysis(self):
+        self.assertEqual(map_installation_type("Elektrolýza"), "ELEKTROLYZA")
+
+    def test_storage_and_transport(self):
+        self.assertEqual(map_installation_type("Skladování a přeprava"), "SKLADOVANI")
+
+    def test_refuelling_station(self):
+        self.assertEqual(map_installation_type("VČS (čerpací stanice)"), "VCS")
+
+    def test_vehicles(self):
+        self.assertEqual(map_installation_type("Vodíková vozidla"), "VOZIDLA")
+
+    def test_unknown_text_returns_none(self):
+        self.assertIsNone(map_installation_type("Něco úplně jiného"))
 
 
 if __name__ == "__main__":

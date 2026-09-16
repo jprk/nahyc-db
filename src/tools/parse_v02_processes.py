@@ -163,10 +163,74 @@ _CITATION_PATTERNS = [
     re.compile(r"(?:zákon|vyhlášk[ay]|nařízení vlády)\s+č\.\s*(\d+/\d{4})\s*Sb\.", re.IGNORECASE),
     re.compile(r"\(\s*(?:ES|EU|EÚ)\s*\)\s*(?:č\.\s*)?(\d+/\d{4})"),
     re.compile(r"\b(?:ES|EU|EÚ)\s+č\.\s*(\d+/\d{4})\b"),
+    # Second act in a coordinated phrase — "nařízení EU č. 1907/2006
+    # (REACH) a č. 1272/2008 (CLP)" — the first act is already caught by
+    # the "EU č." pattern above; this catches the second, which has no
+    # EU/ES/EÚ prefix of its own, only the trailing "(ABBR)" that marks
+    # it as the same kind of citation rather than a Czech "č. NNN/YYYY
+    # Sb." law (which never has a parenthesized abbreviation like this).
+    re.compile(r"\bč\.\s*(\d+/\d{4})\s*\([A-ZÁ-Ž]+\)"),
     re.compile(r"(\d{4}/\d+/(?:ES|EU|EÚ))"),
     re.compile(r"(ČSN(?:\s+EN)?(?:\s+ISO)?\s+[\d\s]+(?:-\d+)?)(?::\d{4})?"),
     re.compile(r"\b(EN\s+ISO\s+\d+)\b"),
+    # Bare "EN NNNNN" (no ČSN/STN national-adoption prefix) — U7 cites
+    # "EN 17124:2022"/"EN 17127:2020" directly. The negative lookbehind
+    # avoids re-matching the "EN 1514" tail already captured whole by the
+    # ČSN pattern above when a citation reads "ČSN EN 1514-1". Deliberately
+    # does NOT try to disambiguate against "STN EN NNNNN" or "ČSN EN
+    # NNNNN" the way "EN ISO 17268" is deliberately left unmatched
+    # (doc/PLAN.md:1168) — match_citation()'s exact-text lookup already
+    # keeps this safe: a bare "EN NNNNN" only resolves if the corpus has
+    # a Document whose identifier is that exact bare form.
+    re.compile(r"(?<!ČSN )(?<!STN )\b(EN\s+\d{4,5})(?::\d{4})?\b"),
 ]
+
+
+_BRACKET_REF_RE = re.compile(r"\[(\d+)\]")
+
+
+def extract_bracket_refs(text):
+    """Bibliography ref numbers cited inline as "[6]", "[9]" within node
+    prose (legal-basis paragraphs, mainly) — distinct from
+    `parse_bibliography_line`, which parses the "[N] ..." list itself.
+    Feeds `link_type='SOURCE'` `node_document` links in
+    `load_process_layer.py`, separate from the `LEGAL_BASIS` links
+    `extract_citations` feeds."""
+    return [int(n) for n in _BRACKET_REF_RE.findall(text)]
+
+
+_EDGE_TARGET_RE = re.compile(r"\bU\d\b")
+
+
+def parse_edge_target(text):
+    """"→ U2 (Environmentální režim)" -> "U2". Returns None (never
+    guesses) if no node code is found in the cell."""
+    m = _EDGE_TARGET_RE.search(text)
+    return m.group(0) if m else None
+
+
+# Keyword match against the docx "Oblast" column of the per-node
+# "Variabilita procesu podle typu vodíkové instalace" table — confirmed
+# against all 4 actual cell values ("Elektrolýza", "Skladování a
+# přeprava", "VČS (čerpací stanice)", "Vodíková vozidla") before relying
+# on substring matching here; matches `installation_type.code` in
+# `Konsolidace-DB-schema.sql`.
+_INSTALLATION_TYPE_KEYWORDS = [
+    ("ELEKTROLYZA", "elektrolý"),
+    ("SKLADOVANI", "sklad"),
+    ("VCS", "čerpací"),
+    ("VOZIDLA", "vozidl"),
+]
+
+
+def map_installation_type(oblast_text):
+    """"VČS (čerpací stanice)" -> "VCS", etc. Returns None (never
+    guesses) if the cell text doesn't contain any known keyword."""
+    lowered = oblast_text.strip().lower()
+    for code, keyword in _INSTALLATION_TYPE_KEYWORDS:
+        if keyword in lowered:
+            return code
+    return None
 
 
 def extract_citations(text):
@@ -444,6 +508,32 @@ def parse_docx(docx_path):
         branches = parse_node_flow(sections.get(_SECTION_FLOW, []))
         outputs = parse_node_outputs(sections.get(_SECTION_OUTPUTS, []), output_summary)
 
+        edges_table = next((o for k, o in sections.get(_SECTION_EDGES, []) if k == "tbl"), None)
+        edges = []
+        if edges_table is not None:
+            for row in _table_rows(edges_table):
+                vazba_cell, charakter_cell = (row + ["", ""])[:2]
+                to_node_id = parse_edge_target(vazba_cell)
+                if to_node_id and charakter_cell:
+                    edges.append({"to_node_id": to_node_id, "description": charakter_cell})
+
+        variability_table = next(
+            (o for k, o in sections.get(_SECTION_VARIABILITY, []) if k == "tbl"), None)
+        variability = []
+        if variability_table is not None:
+            for row in _table_rows(variability_table):
+                oblast_cell, specifics_cell, _intensity_cell = (row + ["", "", ""])[:3]
+                installation_type_code = map_installation_type(oblast_cell)
+                if installation_type_code and specifics_cell:
+                    variability.append({"installation_type_code": installation_type_code,
+                                        "specifics": specifics_cell})
+
+        # Every "[N]" bracket ref cited anywhere in this node's own prose
+        # (mainly "Právní a regulatorní opora", but never assumed to be
+        # confined to it) — feeds SOURCE-type node_document links.
+        node_text = " ".join(o.text for k, o in node_elements if k == "p" and o.text.strip())
+        bibliography_refs = sorted(set(extract_bracket_refs(node_text)))
+
         nodes[node_id] = {
             "description": description,
             "inputs": [{"seq_no": i + 1, "description": d, "is_specific_to_hydrogen": False}
@@ -454,6 +544,9 @@ def parse_docx(docx_path):
             "problems": [dict(zip(("title", "description"), split_problem_text(p)), seq_no=i + 1)
                           for i, p in enumerate(problems)],
             "legal_basis_citations": sorted(set(legal_citations)),
+            "edges": edges,
+            "variability": variability,
+            "bibliography_refs": bibliography_refs,
         }
 
     # --- node -> document mapping table ---
@@ -493,9 +586,14 @@ def main():
     n_outputs = sum(len(n["outputs"]) for n in result["nodes"].values())
     n_subjects = sum(len(n["subjects"]) for n in result["nodes"].values())
     n_problems = sum(len(n["problems"]) for n in result["nodes"].values())
+    n_edges = sum(len(n["edges"]) for n in result["nodes"].values())
+    n_variability = sum(len(n["variability"]) for n in result["nodes"].values())
+    n_biblio_refs = sum(len(n["bibliography_refs"]) for n in result["nodes"].values())
     print(f"Parsed {len(result['nodes'])} nodes: {n_branches} branches, {n_steps} steps, "
           f"{n_inputs} inputs, {n_outputs} outputs, {n_subjects} subject-links, "
-          f"{n_problems} problems, {len(result['bibliography'])} bibliography entries.")
+          f"{n_problems} problems, {len(result['bibliography'])} bibliography entries, "
+          f"{n_edges} edge descriptions, {n_variability} variability specifics, "
+          f"{n_biblio_refs} node-level bibliography refs.")
     print(f"Wrote {OUTPUT_PATH.relative_to(REPO_ROOT)}")
 
 

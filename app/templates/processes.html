@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Předrealizační procesy <br> pro <span class="text-gradient">vodíkové instalace</span></h1>
+        <p class="hero-subtitle">Sedm procesních uzlů (U1–U7) popisujících předrealizační fázi vodíkových instalací
+            — od územní kompatibility záměru po certifikaci podle RFNBO — s jejich vzájemnými vazbami, zapojenými
+            subjekty a právní oporou.</p>
+    </div>
+</section>
+
+<section class="results-section">
+    <div class="results-header">
+        <h2 class="results-title">Procesní uzly <span class="badge">{{ nodes|length }}</span></h2>
+    </div>
+
+    <div class="process-nodes-grid">
+        {% for node in nodes %}
+        <a href="{{ url_for('process_detail', node_id=node.id) }}" class="doc-panel process-node-card">
+            <p class="doc-designation">{{ node.id }}{% if node.chapter_ref %} <span class="meta-tag">§{{ node.chapter_ref }}</span>{% endif %}</p>
+            <h2>{{ node.name }}</h2>
+            <p class="source-text">{{ node.process_class_name }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="doc-panels" style="margin-top: 1.5rem;">
+
+    <section class="doc-panel">
+        <h2>Variabilita procesu podle typu instalace</h2>
+        <div class="doc-table-wrap">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Uzel</th>
+                        {% for it in installation_types %}<th>{{ it.name }}</th>{% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for node in nodes %}
+                    <tr>
+                        <td><a href="{{ url_for('process_detail', node_id=node.id) }}">{{ node.id }}</a></td>
+                        {% for it in installation_types %}
+                        {% set cell = variability_matrix.get(node.id, {}).get(it.code) %}
+                        <td{% if cell and cell.specifics %} title="{{ cell.specifics }}"{% endif %}>
+                            {{ cell.intensity_label if cell else '—' }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="doc-panel">
+        <h2>Vazby mezi uzly <span class="badge">{{ edges|length }}</span></h2>
+        <ul class="doc-relations">
+            {% for e in edges %}
+            <li>
+                <span class="relation-type">{{ e.character if e.character else e.direction|lower }}</span>
+                <a href="{{ url_for('process_detail', node_id=e.from_node_id) }}">{{ e.from_node_id }}</a>
+                {{ '↔' if e.direction == 'BIDIRECTIONAL' else '→' }}
+                <a href="{{ url_for('process_detail', node_id=e.to_node_id) }}">{{ e.to_node_id }}</a>
+                {% if e.description %}<span class="source-text">— {{ e.description }}</span>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+</div>
+
+{% endblock %}

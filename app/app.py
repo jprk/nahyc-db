@@ -451,8 +451,20 @@ def fetch_document_detail(db, slug):
         ''', (document['id'], document['id']))
         relations = cur.fetchall()
 
+        # doc/PLAN.md §20, 2026-09-17: the reciprocal of node_document —
+        # which V02 process nodes cite this document, and how (LEGAL_BASIS
+        # vs SOURCE). This is what demonstrates layer C actually works
+        # both ways: /proces/<id> links to its documents, this links back.
+        cur.execute('''
+            SELECT pn.id AS node_id, pn.name AS node_name, nd.link_type
+            FROM node_document nd JOIN process_node pn ON pn.id = nd.node_id
+            WHERE nd.document_id = %s ORDER BY pn.id, nd.link_type
+        ''', (document['id'],))
+        process_nodes = cur.fetchall()
+
     return {"document": document, "keywords": keywords,
-            "versions": versions, "relations": relations}
+            "versions": versions, "relations": relations,
+            "process_nodes": process_nodes}
 
 
 @app.route('/dokument/<slug>')
@@ -467,6 +479,169 @@ def document_detail(slug):
     if detail is None:
         abort(404)
     return render_template('document.html', **detail)
+
+
+def fetch_process_overview(db):
+    """Everything `/procesy` shows: the 7 process nodes, the 4×7
+    `node_variability` matrix (installation type × node), and the
+    `node_edge` graph — doc/PLAN.md §16/§20's layer-C gap: this data has
+    existed since Step 3a but was never referenced by `app/app.py` at
+    all before now."""
+    with db.cursor() as cur:
+        cur.execute('''
+            SELECT pn.id, pn.name, pn.chapter_ref, pc.name AS process_class_name
+            FROM process_node pn
+            JOIN process_class pc ON pc.id = pn.process_class_id
+            ORDER BY pn.id
+        ''')
+        nodes = cur.fetchall()
+
+        cur.execute('SELECT code, name FROM installation_type ORDER BY id')
+        installation_types = cur.fetchall()
+
+        cur.execute('''
+            SELECT nv.node_id, it.code AS installation_type_code,
+                   il.label AS intensity_label, nv.specifics
+            FROM node_variability nv
+            JOIN installation_type it ON it.id = nv.installation_type_id
+            JOIN intensity_level il ON il.code = nv.intensity_code
+        ''')
+        variability_matrix = {}
+        for row in cur.fetchall():
+            variability_matrix.setdefault(row['node_id'], {})[row['installation_type_code']] = row
+
+        cur.execute('''
+            SELECT from_node_id, to_node_id, direction, `character`, description
+            FROM node_edge ORDER BY from_node_id, to_node_id
+        ''')
+        edges = cur.fetchall()
+
+    return {"nodes": nodes, "installation_types": installation_types,
+            "variability_matrix": variability_matrix, "edges": edges}
+
+
+def fetch_node_detail(db, node_id):
+    """Everything `/proces/<node_id>` shows, or None when no node carries
+    that id. Mirrors `fetch_document_detail()`'s shape: one function, one
+    cursor, sequential queries, a plain dict `render_template` splats."""
+    with db.cursor() as cur:
+        cur.execute('''
+            SELECT pn.id, pn.name, pn.chapter_ref, pc.name AS process_class_name
+            FROM process_node pn
+            JOIN process_class pc ON pc.id = pn.process_class_id
+            WHERE pn.id = %s
+        ''', (node_id,))
+        node = cur.fetchone()
+        if node is None:
+            return None
+
+        cur.execute('''
+            SELECT purpose, role_in_phase, trigger_condition, key_decision_point,
+                   v01_link_description
+            FROM node_description WHERE node_id = %s
+        ''', (node_id,))
+        description = cur.fetchone()
+
+        cur.execute('''
+            SELECT id, branch_code, branch_name, activation_condition, description,
+                   output_document, is_default
+            FROM node_branch WHERE node_id = %s ORDER BY is_default DESC, branch_code
+        ''', (node_id,))
+        branches = cur.fetchall()
+        branch_ids = [b['id'] for b in branches]
+        steps_by_branch = {}
+        if branch_ids:
+            placeholders = ','.join(['%s'] * len(branch_ids))
+            cur.execute(f'''
+                SELECT branch_id, step_number, title, description
+                FROM branch_step WHERE branch_id IN ({placeholders})
+                ORDER BY branch_id, step_number
+            ''', branch_ids)
+            for row in cur.fetchall():
+                steps_by_branch.setdefault(row['branch_id'], []).append(row)
+        for branch in branches:
+            branch['steps'] = steps_by_branch.get(branch['id'], [])
+
+        cur.execute('''
+            SELECT seq_no, description, is_specific_to_hydrogen
+            FROM node_input WHERE node_id = %s ORDER BY seq_no
+        ''', (node_id,))
+        inputs = cur.fetchall()
+
+        cur.execute('''
+            SELECT document_name, description, enables_next_node, is_project_blocking
+            FROM node_output WHERE node_id = %s ORDER BY id
+        ''', (node_id,))
+        outputs = cur.fetchall()
+
+        cur.execute('''
+            SELECT s.name, s.abbreviation, ns.process_role, ns.is_deciding_authority
+            FROM node_subject ns JOIN subject s ON s.id = ns.subject_id
+            WHERE ns.node_id = %s ORDER BY s.name
+        ''', (node_id,))
+        subjects = cur.fetchall()
+
+        cur.execute('''
+            SELECT seq_no, problem_title, description
+            FROM node_problem WHERE node_id = %s ORDER BY seq_no
+        ''', (node_id,))
+        problems = cur.fetchall()
+
+        # Both directions in one pass, same shape as fetch_document_detail()'s
+        # relations query — `edge_direction` tells the template whether
+        # this node is the edge's `from` or `to` end, so a DIRECT edge
+        # reads correctly from either side.
+        cur.execute('''
+            SELECT to_node_id AS other_node_id, direction, `character`, description,
+                   'from' AS edge_direction
+            FROM node_edge WHERE from_node_id = %s
+            UNION ALL
+            SELECT from_node_id AS other_node_id, direction, `character`, description,
+                   'to' AS edge_direction
+            FROM node_edge WHERE to_node_id = %s
+        ''', (node_id, node_id))
+        edges = cur.fetchall()
+
+        cur.execute('''
+            SELECT it.name AS installation_type_name, il.label AS intensity_label,
+                   nv.specifics
+            FROM node_variability nv
+            JOIN installation_type it ON it.id = nv.installation_type_id
+            JOIN intensity_level il ON il.code = nv.intensity_code
+            WHERE nv.node_id = %s ORDER BY it.id
+        ''', (node_id,))
+        variability = cur.fetchall()
+
+        cur.execute('''
+            SELECT nd.link_type, d.slug, d.identifier, d.title
+            FROM node_document nd JOIN Document d ON d.id = nd.document_id
+            WHERE nd.node_id = %s ORDER BY nd.link_type, d.title
+        ''', (node_id,))
+        documents = cur.fetchall()
+
+    return {"node": node, "description": description, "branches": branches,
+            "inputs": inputs, "outputs": outputs, "subjects": subjects,
+            "problems": problems, "edges": edges, "variability": variability,
+            "documents": documents}
+
+
+@app.route('/procesy')
+def process_overview():
+    """doc/PLAN.md §16/§20, 2026-09-17: browses the V02 process model
+    (7 nodes, the installation-type variability matrix, the node→node
+    graph) — the view does not compute a compliance pathway, it only
+    surfaces the model layer D was meant to classify against (0 rows,
+    postponed)."""
+    overview = fetch_process_overview(get_db())
+    return render_template('processes.html', **overview)
+
+
+@app.route('/proces/<node_id>')
+def process_detail(node_id):
+    detail = fetch_node_detail(get_db(), node_id)
+    if detail is None:
+        abort(404)
+    return render_template('process_detail.html', **detail)
 
 
 @app.route('/fulltext/<int:doc_id>')

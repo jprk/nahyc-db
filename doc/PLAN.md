@@ -3607,12 +3607,26 @@ undocumented account, and `.env` alone could never fully provision a
 fresh environment.
 
 **User decision, immediately following**: the app account should never
-need that privilege in the first place — see §20 for the redesign
-(`provision_db.py` now uses a separate admin identity, supplied only for
-this one bootstrap, to create both the database and the app's own
-narrowly-scoped user). Also noted along the way: `provision_db.py` shells
-out to the `mariadb` CLI client (present on this machine, but a system
-package, not a Python dependency `requirements.txt` can express).
+need that privilege in the first place. `provision_db.py` was rewritten
+to use a separate admin identity, supplied only for this one bootstrap
+(`--admin-user`/`--admin-password`, `DB_ADMIN_USER`/`DB_ADMIN_PASSWORD`,
+or an interactive prompt — never `.env`), to create both the database
+and the app's own narrowly-scoped user, which then applies the schema
+itself. Also noted along the way: `provision_db.py` shells out to the
+`mariadb` CLI client (present on this machine, but a system package, not
+a Python dependency `requirements.txt` can express).
+
+**2026-09-17 follow-up — live-verified, not just reasoned about.** Added
+`--env-file` (provision a second, disposable database/user pair without
+touching the real `.env` — e.g. `.env.test` → `h2regdocs_test`) and
+`--schema-only` (the database/user already exist — created ahead of time
+by someone with admin access — so skip the bootstrap entirely and just
+clear + reapply the schema using the already-created app account alone,
+no admin credentials needed at any point). Run for real against a live
+MariaDB instance: `h2regdocs_test` was created by hand with its own
+scoped account, then `provision_db.py --env-file .env.test --schema-only`
+applied all 34 tables cleanly; run a second time, it dropped all 34 and
+reapplied them identically. This closes the gap described below.
 
 **`PROJECT.md` refresh** — corrected every stale claim found: the
 architecture section still described SQLite (`db/regulatory_documents.db`,
@@ -3633,12 +3647,260 @@ spreadsheets is a separate, longer, and — per §1's own recorded lesson —
 not-safe-to-re-run-casually process, pointed at `doc/PLAN.md` rather than
 duplicated in PROJECT.md.
 
-**What remains genuinely unverified**: whether `provision_db.py` and the
-full install actually succeed end to end against a brand-new, empty
-MariaDB instance. The account available in this environment cannot create
-one (see above), so this was verified as far as it is possible to verify
-without a more privileged account or a second machine — every Python-side
-step (install, imports, the app running, the full test suite) was
-exercised for real; the SQL-provisioning step was read and reasoned about,
-not executed against a scratch target. Flagged here rather than silently
-assumed correct.
+**What was left unverified at the time of writing, now closed**: whether
+`provision_db.py` and the full install actually succeed end to end
+against a brand-new, empty MariaDB instance. The account available in
+this environment cannot itself create one — no passwordless sudo,
+`root@localhost` access denied — so this originally could only be
+verified as far as possible without a more privileged account: every
+Python-side step (install, imports, the app running, the full test
+suite) was exercised for real, but the SQL-provisioning step was only
+read and reasoned about. The 2026-09-17 follow-up above closes that gap:
+the user provisioned a scratch database/account by hand, and the
+`--schema-only` path was run against it for real, twice.
+
+## 20. Parser pass — filling `node_edge`/`node_variability`/`node_document.SOURCE` (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue with Phase 2 of the demo/handover plan
+(§16's context), then Phase 3 — the process view needs this data to not
+look sparse. All changes are in `src/tools/parse_v02_processes.py` and
+`src/tools/load_process_layer.py`.
+
+**Citations.** `_CITATION_PATTERNS` gained two entries: a bare
+`EN\s+\d{4,5}` pattern (U7 cites `EN 17124:2022`/`EN 17127:2020` with no
+`ČSN`/`STN` prefix — a negative lookbehind keeps it from also
+re-matching the tail of an already-whole `ČSN EN NNNN-N` citation
+elsewhere), and a second-coordinated-act pattern
+(`č.\s*NNNN/YYYY\s*\(ABBR\)`) for phrases like U4's *"nařízení EU
+č. 1907/2006 (REACH) a č. 1272/2008 (CLP)"*, where only the first act
+carries its own `EU`/`ES` prefix. Live result:
+`node_document.LEGAL_BASIS` rose from the baseline 35 to **38** (CLP,
+`EN 17127`, one more from the node→document mapping table). `EN 17124`
+stayed correctly unmatched — the corpus has `ČSN EN 17124` and
+`STN EN 17124/ - 2022.06` but no bare `EN 17124` identifier, so exact-text
+matching refuses to guess between them, the same principle already
+applied to `EN ISO 17268` (doc/PLAN.md:1168).
+
+**Edges and variability.** Both `node_edge` (15 rows) and
+`node_variability` (28 rows) are already seeded by static `INSERT`s in
+`Konsolidace-DB-schema.sql` — `direction`/`character`/`intensity_code`
+came from `Konsolidace-DB-popis.md` §4.10/§6, not the docx. What was
+missing was the prose: `description`/`specifics`, both `NULL` in every
+row. The parser now extracts each node's own "Vazby na další uzly
+procesní sítě" (2-col table: target node, character-and-description
+text) and "Variabilita procesu podle typu vodíkové instalace" (3-col:
+installation-type label, specifics prose, intensity) sections;
+`load_process_layer.py` **`UPDATE`s** the existing seeded rows rather
+than inserting new ones — matching an edge against a seed row considers
+both directions when the seed says `BIDIRECTIONAL`, but never guesses
+past that.
+
+That surfaced a real, substantive disagreement between the source docx
+and the static seed: of 33 node→node edge mentions across all 7 nodes'
+own sections, only **19 matched** an existing seeded row's exact
+(from, to[, BIDIRECTIONAL]) shape; the other **14** — including the
+already-known missing `U1↔U5` pair, but also several where the seed's
+`DIRECT` direction runs opposite to how a node's own section describes
+the relationship (e.g. seed has `U6→U2`, docx's U2 section describes it
+from U2's perspective) — went to `data/process_layer_review_queue.json`
+as `unmatched_node_edge`, for a human to decide whether the seed's
+direction/character needs correcting rather than the code silently
+picking one. `node_variability` had no such ambiguity: all 28 docx rows
+matched their seeded (node, installation_type) row directly (the map
+`installation_type.code -> docx "Oblast" label` was confirmed against
+all 4 real values first). Live result: `node_edge.description` populated
+for 14/15 rows (the 15th, `U3→U4`, is only ever described from `U4`'s
+side in the docx, which doesn't match the seed's `U3→U4` direction — it
+now correctly shows up as `unmatched_node_edge` too, not silently
+picked one way);`node_variability.specifics` populated for all 28/28.
+
+**`[N]` bibliography refs, node-scoped.** V02's legal-basis prose cites
+bibliography entries inline (e.g. U4's *"...živnostenského oprávnění
+[6]..."*), not just in the "Seznam použité literatury" list itself —
+previously invisible to the loader entirely. `extract_bracket_refs()`
+sweeps each node's full prose (not just the legal-basis section — never
+assumed confined to it) for `[N]` markers; `load_bibliography()` now
+returns a `{ref_id: Document.id}` map (built while it resolves/creates
+each entry, which it always did — just never returned before), and a
+new `load_node_bibliography_links()` uses it to insert
+`node_document` rows with `link_type='SOURCE'`, run in a second pass
+after `load_bibliography` (needs its map). Live result: **33** `SOURCE`
+rows created (previously 0), giving the 22 `Bibliografický pramen`
+`Document` rows real node-level context — a citation like U4's HYTEP
+`[6]`-`[10]` references now resolve to actual linked documents.
+
+**A pre-existing gap found while testing, unrelated to this step but
+blocking it**: `load_process_layer.py`'s `RESET_ORDER` truncates layer
+B/C tables on every run, but never `Document`/`DocumentVersion` — so
+`load_bibliography()`'s "create a new Document for genuinely new
+material" branch duplicate-inserts on a second run, colliding on the
+content-derived slug. Not fixed here (out of this step's scope — the
+documented, correct fix is to run the full pipeline, `init_db.py`
+included, before re-running this script, which re-TRUNCATEs `Document`
+first); worth a real fix later so this script tolerates being re-run on
+its own.
+
+**Also found and fixed**: testing this required a full pipeline rebuild
+(`build_unified_db.py` → `deduplicate_db.py` → `init_db.py` →
+`load_document_relations.py` → `load_process_layer.py`, skipping
+`fetch_authoritative_metadata.py` since `site_metadata_cache.json`
+already held everything needed, no new network fetches required) — an
+earlier, isolated `init_db.py` run (before realizing this) had briefly
+regressed the live database's `needs_review` count back from 374 to 450,
+because §17's fetched/synthesized descriptions were applied to the live
+database directly by `backfill_descriptions.py`, never written back
+into `database_merged_deduplicated.json` — so a bare `init_db.py`
+re-import (without first re-running `build_unified_db.py`, which
+reapplies both caches) silently loses them. The full rebuild restored
+`needs_review` to 375 (previously 374 — one record's boundary shifted,
+not a regression) and correctly re-baked both tiers into the JSON. This
+is the same "silently discarded on next rebuild" failure mode §17.1
+flagged for `enrich_annotations.py`, now also true of
+`backfill_descriptions.py`'s direct-DB-write path — worth fixing
+properly (e.g. writing the two caches' effect back into
+`database_merged_deduplicated.json` too, not just the live DB) before
+`init_db.py` is ever run again without a preceding full rebuild.
+
+Test suite: 38 tests in `test_parse_v02_processes.py` (was 24), covering
+`extract_bracket_refs`, `parse_edge_target`, `map_installation_type`, and
+the two new citation patterns; `load_process_layer.py`'s new
+`load_node_edges`/`load_node_variability`/`load_node_bibliography_links`
+are orchestration (DB cursor calls), verified live rather than
+unit-tested — same division the module's docstring already establishes
+for its other loader functions. Full suite: 644 tests, all passing
+(including `test_search.py`, which needs the live DB and now has one).
+One test-isolation bug found and fixed along the way: the new
+`--env-file` test in `test_provision_db.py` called
+`load_dotenv(..., override=True)`, which leaked its fake `DB_HOST=
+testhost` etc. into the shared `unittest discover` process and broke
+`test_search.py` when run as part of the full suite (passed in
+isolation, failed with 500s in the full run) — fixed by wrapping that
+one test in `mock.patch.dict(os.environ)` to restore the real values
+afterward.
+
+## 21. The process view — `/procesy` and `/proces/<node_id>` (NEW, 2026-09-17, user-directed)
+
+**User direction:** Phase 3 of the demo/handover plan (§16's context) —
+the layer-C "process view has never been referenced by `app/app.py`"
+gap, chosen as the strongest remaining demo story, done right after §20
+so it would have real edge/variability/SOURCE data to show rather than
+the bare 15/28/0-row state.
+
+Two new routes in `app/app.py`, `fetch_process_overview()` and
+`fetch_node_detail()`, copying `fetch_document_detail()`'s shape exactly
+(one function, one cursor, sequential queries, a plain dict
+`render_template` splats):
+
+- `GET /procesy` — all 7 nodes, the 4×7 variability matrix
+  (`intensity_level.label` renders directly, no extra formatting logic
+  needed — it's already `"●●● klíčový"` etc. in the seed), and the
+  `node_edge` graph as a plain list (no diagramming library — the CSP
+  only allows scripts from a fixed cdnjs/jsdelivr/tailwind/jquery
+  allow-list, and a text list was judged clearer than a forced diagram
+  for 15 edges anyway).
+- `GET /proces/<node_id>` — node, description (purpose/role/trigger/
+  key-decision-point), branches with steps, inputs, outputs, subjects,
+  problems, both-direction edges, this node's row of the variability
+  matrix, and its linked documents split by `link_type`
+  (`LEGAL_BASIS`/`SOURCE`, phrased differently: "právní opora"/"pramen").
+- Reciprocal **"Procesní uzly"** panel added to `fetch_document_detail()`/
+  `document.html` — the same `node_document` table read from the other
+  side, so a document page links back to every node that cites it. This
+  is the actual demonstration that layer C works both ways: verified
+  live by opening a HYTEP source document (`SOURCE`, 3 nodes) and a
+  `283/2021 Sb.` legal-basis document (`LEGAL_BASIS`, 2 nodes) — both
+  showed the correct reciprocal node list.
+- "Procesy" tab in `base.html` (previously `href="#"`), both tabs now
+  correctly highlight `active` via `request.endpoint`.
+
+**Reused, not reinvented**, exactly as planned: `.doc-panel`/`.doc-meta`/
+`.doc-table`/`.doc-relations`/`.relation-type`/`.meta-tag`/`.badge`/
+`.doc-designation`, and — for a node's branches — the identical
+`.document-row`/`.row-visible`/`.row-details`/`.expand-icon` accordion
+markup `index.html` already uses, so `base.html`'s existing toggle JS
+(which targets `.document-row` generically, not scoped to the catalogue
+page) works on `/proces/<id>` with no JS changes at all. Small,
+genuinely new CSS only for what had no existing equivalent: a responsive
+node-card grid (`.process-nodes-grid`, the same `repeat(auto-fit,
+minmax(...))` pattern `.filters-grid` already uses, kept as its own
+class since "filters" would be a misnomer here), a horizontal-scroll
+wrapper for the 7×4 matrix table at phone width, and a numbered
+step-list style for branch steps.
+
+Two judgement calls resolved as the plan flagged: `node_description
+.v01_link_description` (e.g. U1's *"Databáze umožňuje filtrovat, které
+právní předpisy... jsou relevantní pro konkrétní typ instalace"*) is
+**not rendered at all** — it describes a filter-by-installation-type
+capability this app doesn't have, and rendering it verbatim on the page
+itself would read as a live promise, not V01's own design note it
+actually is. U1/U3's `node_output.document_name` (a full sentence, not a
+short title) is rendered as prose in a `<ul>`, not force-fit into a
+table cell — the same markup now serves both the branched nodes' short
+document names and the two linear nodes' paragraph-length ones without
+a special case.
+
+Verified live end to end: all 7 `/proces/<id>` pages return 200, a
+missing node id (`/proces/U9`) returns 404, `/procesy` renders all 7
+cards, the 4×7 matrix, and 15 edges. Full suite: 644 tests, all still
+passing.
+
+## 22. Two rerun-safety bugs, found and fixed (NEW, 2026-09-17, user-directed)
+
+**User direction:** having committed §20/§21's Phase 2/3 work, fix the
+two correctness bugs §20 found but deliberately left unpatched.
+
+**Fix 1 — `load_process_layer.py` Document duplication on a lone
+re-run.** The 22 `Bibliografický pramen` `Document` rows
+`load_bibliography()` creates are 100% synthetic (sourced only from the
+docx bibliography, never from `database_merged_deduplicated.json`), so
+re-deriving them fresh on every run is always correct — but
+`RESET_ORDER` never cleared `Document`/`DocumentVersion`, so a second
+run duplicate-inserted them and collided on the content-derived slug.
+Added `reset_bibliography_documents()`, run right after
+`reset_layer_b_tables()` (which already clears `node_document`, so no
+FK conflict) — deletes `DocumentVersion` then `Document` rows whose type
+is `Bibliografický pramen`. Confirmed live via
+`information_schema.KEY_COLUMN_USAGE` first that no other table
+(`node_activation_rule`, `scenario_document`, `DocumentKeyword`,
+`document_relation`) references any of these 22 rows.
+
+**A second bug surfaced while verifying the first**: running
+`load_process_layer.py` twice in a row (the exact rerun-safety test Fix
+1 needed) produced 46 review items instead of 18 — 28 spurious
+`unmatched_node_variability` entries. Cause: `load_node_variability()`
+used the `UPDATE`'s own `cursor.rowcount` to detect a match, but
+MariaDB's default client reports *changed* rows, not *matched* rows —
+on the second run `specifics` was already set to the identical value, so
+every row looked unmatched even though all 28 plainly were. Fixed by
+`SELECT`-then-`UPDATE` (existence checked separately from the write),
+the same pattern `load_node_edges()` already used for its own
+match-then-merge logic. Verified: two runs back-to-back now both report
+18 review items, and `Bibliografický pramen`/`node_document`
+`LEGAL_BASIS`/`SOURCE`/`node_edge`-with-description/
+`node_variability`-with-specifics counts (22/38/33/14/28) are stable
+across both.
+
+**Fix 2 — `backfill_descriptions.py` retired, not patched.** Confirmed
+by reading both side by side: `build_unified_db.py`'s
+`apply_authoritative_metadata()`/`apply_synthesized_summary()` already
+do the exact same job — same cache files
+(`data/site_metadata_cache.json`, `data/synthesized_summaries.json`),
+same `stn:<designation>`/`<designation>` keys, same target fields — but
+correctly, through the JSON pipeline, on every full rebuild; and
+`init_db.py`'s `detect_data_quality_issues()` already computes
+`needs_review`/`review_reason` from the *resolved* description, so the
+"chybí popis/anotace dokumentu" reason clears itself with no separate
+reason-stripping step needed. `backfill_descriptions.py` was therefore
+fully redundant, not merely close — marked SUPERSEDED in its own
+docstring and in `src/tools/0README.md` (kept, not deleted, as a
+historical record and for its dry-run reporting shape); any future
+annotation-fetch round should end with the full pipeline rebuild
+instead.
+
+**Verification**: a complete pipeline rebuild
+(`build_unified_db.py` → `deduplicate_db.py` → `link_document_versions.py`
+→ `link_document_relations_auto.py` → `init_db.py` →
+`load_document_relations.py` → `load_process_layer.py`) with both fixes
+applied reproduced exactly `needs_review` 375/1215 — the same figure §20
+recorded, confirming no regression. Full suite: 644 tests, all passing.
+App smoke-check: `/`, `/procesy`, `/proces/U4` all 200, `/proces/U9` 404.

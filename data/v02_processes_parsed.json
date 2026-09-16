@@ -122,6 +122,48 @@
       ],
       "legal_basis_citations": [
         "283/2021"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U2",
+          "description": "Paralelní nebo sekvenční — stanoviska k EIA mohou být podmínkou územního rozhodnutí"
+        },
+        {
+          "to_node_id": "U3",
+          "description": "Sekvenční — územní rozhodnutí podmiňuje stavební řízení"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Zpětná vazba — bezpečnostní požadavky (ochranná pásma) mohou ovlivnit přípustnost v území"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Paralelní — dostupnost sítí ovlivňuje volbu lokality"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Klíčová otázka: je elektrolyzér energetická, průmyslová, nebo chemická stavba? Odpověď určuje funkční zařazení v územním plánu. U větších kapacit nutno řešit ochranná pásma a bezpečnostní vzdálenosti již v územní fázi."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Dominuje posouzení bezpečnostních vzdáleností vůči okolní zástavbě (zejména u vysokotlakých zásobníků a kryogenních skladů). Lokality v blízkosti obytné zástavby mohou být vyloučeny."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Kombinace výrobní a distribuční funkce komplikuje funkční zařazení. Umístění v urbanizovaném prostředí vyžaduje řešení dopravní zátěže, bezpečnostních vzdáleností a souběhu s existující infrastrukturou."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U1 se typicky neuplatňuje samostatně — vozidla nevyžadují územní rozhodnutí. Relevantní pouze pokud je součástí záměru výstavba servisní nebo plnicí infrastruktury."
+        }
+      ],
+      "bibliography_refs": [
+        1,
+        2,
+        5,
+        8
       ]
     },
     "U2": {
@@ -362,6 +404,52 @@
         "254/2001",
         "541/2020",
         "76/2002"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U1",
+          "description": "Sekvenční nebo paralelní — funkční klasifikace z U1 ovlivňuje, do které kategorie EIA/IPPC záměr spadá"
+        },
+        {
+          "to_node_id": "U3",
+          "description": "Sekvenční — závazné stanovisko EIA nebo integrované povolení je podmínkou stavebního řízení"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Vzájemná — bezpečnostní klasifikace (množství nebezpečných látek) ovlivňuje kategorizaci EIA; výsledky EIA mohou stanovit bezpečnostní podmínky"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Vstupní — dostupnost vodních zdrojů a kapacita odvodnění ovlivňují vodní režim projektu"
+        },
+        {
+          "to_node_id": "U7",
+          "description": "Nepřímá — environmentální podmínky provozu mohou ovlivnit dosažitelnost certifikace RFNBO"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Dominantní otázka: spadá výroba vodíku elektrolýzou pod kategorie EIA (chemická výroba? energetická stavba?) a/nebo IPPC (výroba anorganických chemikálií)? Spotřeba demineralizované vody vytváří dodatečný vodoprávní režim. U větších kapacit (řádově MW) roste pravděpodobnost zjišťovacího řízení nebo plné EIA. Kumulativní vlivy s existujícími provozy v průmyslových areálech komplikují posouzení."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Rozhodující je objem skladovaného vodíku a klasifikace jako nebezpečné látky (H220, H280). U velkoobjemových zásobníků může být překročen práh pro EIA i pro směrnici Seveso (viz U5). Přeprava podléhá ADR, ale proces U2 se vztahuje primárně na stacionární skladovací zařízení. Ochrana podzemních vod je relevantní u podzemních zásobníků."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Vodíková čerpací stanice kombinuje prvky skladování a distribuce. V urbanizovaném prostředí jsou relevantní vlivy na ovzduší (emise z komprese), hluk a dopravní zátěž. Ochrana podzemních vod a půdy je standardním požadavkem jako u konvenčních čerpacích stanic. U integrovaných stanic s on-site elektrolýzou se kumulují environmentální požadavky obou typů instalací."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U2 se na vozidla jako taková nevztahuje — ta procházejí typovým schválením (U4). Environmentální režim je relevantní pouze pokud je součástí záměru výstavba plnicí infrastruktury nebo servisního zázemí, které pak spadá pod příslušný typ instalace výše."
+        }
+      ],
+      "bibliography_refs": [
+        6,
+        8,
+        15,
+        16
       ]
     },
     "U3": {
@@ -521,6 +609,48 @@
       ],
       "legal_basis_citations": [
         "283/2021"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U1",
+          "description": "Sekvenční — územní rozhodnutí je podmínkou stavebního řízení (nebo sloučení do společného povolení)"
+        },
+        {
+          "to_node_id": "U2",
+          "description": "Sekvenční — závazné stanovisko EIA nebo integrované povolení je podmínkou stavebního řízení"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Iterativní — bezpečnostní požadavky (PZH, požární ochrana, tlaková zařízení) mohou vyžadovat úpravu projektové dokumentace; stavební povolení současně stanovuje bezpečnostní podmínky provozu"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Vstupní — stanoviska správců sítí k připojení jsou přílohou žádosti o stavební povolení"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Projektová dokumentace musí řešit specifika, která nemají přímou analogii v běžných průmyslových stavbách: ATEX klasifikaci výrobních prostor, systémy detekce úniků vodíku, bezpečnostní vzdálenosti od okolních staveb, napojení na zdroj demineralizované vody a elektrickou síť o velkém příkonu. Požárně bezpečnostní řešení je složitější než u konvenčních energetických staveb."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Dominuje řešení tlakových nádob a kryogenních zásobníků z hlediska stavebních konstrukcí, základů a bezpečnostních vzdáleností. U vysokotlakých zásobníků (350–700 bar) jsou požadavky na stavební konstrukce výrazně přísnější. Projektová dokumentace musí prokázat odolnost stavby vůči případné explozi (blast resistance)."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Kombinace požadavků na stavbu čerpací stanice (dopravní řešení, zákaznický prostor) s požadavky na vysokotlaké vodíkové technologie. V urbanizovaném prostředí jsou klíčové bezpečnostní vzdálenosti od okolní zástavby a veřejných komunikací. U integrovaných stanic s on-site elektrolýzou se nároky na projektovou dokumentaci kumulují."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U3 se na vozidla nevztahuje (ta podléhají typovému schválení). Relevantní pouze pro stavby servisních nebo plnicích zařízení, kde se uplatňuje režim příslušného typu instalace."
+        }
+      ],
+      "bibliography_refs": [
+        6,
+        8,
+        11,
+        20
       ]
     },
     "U4": {
@@ -780,11 +910,59 @@
         }
       ],
       "legal_basis_citations": [
+        "1272/2008",
         "1907/2006",
         "311/2006",
         "350/2011",
         "455/1991",
         "458/2000"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U1",
+          "description": "Nepřímá — funkční klasifikace v územním plánu může předurčit provozní režim"
+        },
+        {
+          "to_node_id": "U3",
+          "description": "Sekvenční — technická způsobilost provozovny se prokazuje na základě stavebního projektu"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Vzájemná — bezpečnostní klasifikace ovlivňuje typ požadovaného oprávnění; licence ERÚ může vyžadovat prokázání bezpečnostních opatření"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Vstupní — smlouvy o připojení k sítím mohou být podmínkou licence ERÚ"
+        },
+        {
+          "to_node_id": "U7",
+          "description": "Sekvenční — typ oprávnění determinuje, zda je certifikace RFNBO relevantní a dosažitelná"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Klíčová rozhodovací bifurkace: vodík pro vlastní spotřebu (jednodušší režim — živnost) vs. vodík pro prodej (licence ERÚ nebo koncese). Novela energetického zákona č. 469/2023 Sb. (účinná od 1. 1. 2024) explicitně zahrnula vodík, čímž zjednoznačnila právní status. U elektrolyzérů napojených na obnovitelné zdroje je navíc relevantní certifikace RFNBO (U7), která přidává další vrstvu požadavků."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Oprávnění závisí na tom, zda je skladování součástí výrobního procesu (pokryto licencí výrobce) nebo samostatnou činností (vyžaduje vlastní licenci). U přepravy vodíku se uplatňují předpisy ADR a případně koncese na přepravu nebezpečných věcí. Skladování nad prahové hodnoty aktivuje chemický zákon."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Nejvyšší regulatorní zátěž — vyžaduje koncesi na distribuci pohonných hmot (včetně kauce 20 mil. Kč), splnění standardů EN 17124:2022 a EN 17127:2020, a případně i licenci ERÚ, pokud stanice vyrábí vodík on-site. Kombinace více oprávnění vytváří administrativně nejnáročnější variantu."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U4 se na provoz vozidel neuplatňuje (ta podléhají typovému schválení a registraci). Provozovatel vozidlového parku nepotřebuje energetickou licenci ani koncesi na pohonné hmoty. Relevantní pouze pokud provozovatel současně provozuje vlastní plnicí infrastrukturu."
+        }
+      ],
+      "bibliography_refs": [
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     },
     "U5": {
@@ -1034,7 +1212,56 @@
         "246/2001",
         "250/2021",
         "406/2004",
+        "EN 17124",
+        "EN 17127",
         "ČSN 73 0804"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U1",
+          "description": "Zpětná — bezpečnostní vzdálenosti mohou vyloučit lokality nebo omezit přípustné kapacity v území"
+        },
+        {
+          "to_node_id": "U2",
+          "description": "Vzájemná — množství nebezpečných látek ovlivňuje kategorizaci EIA; environmentální podmínky mohou stanovit bezpečnostní omezení"
+        },
+        {
+          "to_node_id": "U3",
+          "description": "Iterativní — bezpečnostní požadavky se promítají do projektové dokumentace; PBŘ je součástí žádosti o stavební povolení"
+        },
+        {
+          "to_node_id": "U4",
+          "description": "Vstupní — typ provozního režimu ovlivňuje rozsah bezpečnostních požadavků"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Výstupní — bezpečnostní požadavky na připojení (ochranná pásma, odpojovací prvky, havarijní systémy)"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Výroba vodíku vytváří prostředí s nebezpečím výbuchu přímo ve výrobním procesu. ATEX klasifikace výrobních prostor je obligatorní. U větších kapacit může být překročen práh PZH (skupina A nebo B). Specifickým rizikem je únik vodíku při elektrolýze za zvýšeného tlaku (PEM elektrolyzéry). Systémy detekce vodíku a havarijní ventilace jsou standardním požadavkem."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Dominuje režim vyhrazených technických zařízení — vysokotlaké zásobníky (200–700 bar) a kryogenní nádoby (–253 °C) spadají do nejvyšších tříd tlakových zařízení. Bezpečnostní vzdálenosti od okolní zástavby jsou u skladování rozhodujícím faktorem přípustnosti lokality. U velkoobjemových skladů je pravděpodobné překročení prahu PZH. Přeprava podléhá dohodě ADR o přepravě nebezpečných věcí."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Kombinace vysokého tlaku (plnění při 350/700 bar), veřejného přístupu a urbanizovaného prostředí vytváří nejkomplexnější bezpečnostní požadavky. Požárně bezpečnostní řešení musí zohlednit přítomnost veřejnosti. Systémy detekce a nouzového odstavení musí reagovat automaticky (10 % DMV — alarm; 20 % DMV — odstavení). Ochrana před výbuchem v prostoru kompresoru (ATEX zóna 2, skupina IIC)."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Bezpečnostní režim vozidel je řešen typovým schválením (technická homologace) v rámci U4, nikoli procesem U5. Relevantní je pouze bezpečnost palubních tlakových zásobníků a palivového systému, které podléhají schválení podle předpisů EHK OSN. Provozovatel vozidel nemá povinnosti v rámci PZH ani požární prevence nad rámec obecných povinností."
+        }
+      ],
+      "bibliography_refs": [
+        8,
+        11,
+        13,
+        20,
+        21
       ]
     },
     "U6": {
@@ -1313,6 +1540,57 @@
         "254/2001",
         "274/2001",
         "458/2000"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U1",
+          "description": "Vzájemná — dostupnost infrastruktury ovlivňuje volbu lokality; územní rozhodnutí stanovuje podmínky napojení"
+        },
+        {
+          "to_node_id": "U2",
+          "description": "Výstupní — vodní režim (odběr, vypouštění) je vstupem pro environmentální posouzení"
+        },
+        {
+          "to_node_id": "U3",
+          "description": "Výstupní — stanoviska správců sítí jsou přílohou žádosti o stavební povolení"
+        },
+        {
+          "to_node_id": "U4",
+          "description": "Vstupní — typ licence (ERÚ) může podmiňovat podmínky připojení k soustavě"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Vstupní — bezpečnostní požadavky ovlivňují technické řešení přípojek (ochranná pásma, odpojovací prvky)"
+        },
+        {
+          "to_node_id": "U7",
+          "description": "Výstupní — zdroj elektřiny (obnovitelný vs. síťový) přímo determinuje dosažitelnost certifikace RFNBO"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Dominantní požadavek na elektrický příkon — elektrolyzér o kapacitě 10 MW spotřebovává přibližně 500–550 kWh na 10 kg vodíku, což odpovídá velkému průmyslovému odběru. Připojení k distribuční soustavě na úrovni VN (22 kV) nebo VVN (110 kV) vyžaduje posílení sítě v řádu měsíců až let. Současně je nutné zajistit zdroj demineralizované vody (cca 9–10 l na 1 kg vodíku plus ztráty úpravou). Pokud je cílem certifikace RFNBO (U7), musí být prokázán původ elektřiny z obnovitelných zdrojů."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Elektrický příkon je výrazně nižší než u elektrolýzy (kompresory, chlazení, řídící systémy). Dominuje požadavek na dopravní napojení — skladovací areál musí umožnit příjezd a manipulaci cisternových vozidel ADR. U potrubní přepravy je klíčové povolení tras a věcná břemena. U podzemních zásobníků může být relevantní připojení k plynárenské soustavě."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Kombinace požadavků: elektrický příkon pro kompresi (350/700 bar), zdroj vody (pokud je součástí on-site elektrolýza), dopravní napojení pro zásobovací vozidla i zákaznický provoz. V urbanizovaném prostředí je dostupnost infrastruktury typicky dobrá, ale kapacitní omezení (zejména elektřina pro kompresi) mohou být limitující."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U6 se na vozidla nevztahuje — ta využívají existující plnicí infrastrukturu (VČS). Relevantní pouze pokud je součástí projektu výstavba vlastní plnicí infrastruktury, kde se uplatňuje režim VČS nebo elektrolýzy."
+        }
+      ],
+      "bibliography_refs": [
+        1,
+        2,
+        3,
+        8,
+        15
       ]
     },
     "U7": {
@@ -1572,7 +1850,53 @@
         "2023/2413",
         "268/2009",
         "311/2006",
+        "EN 17124",
+        "EN 17127",
         "EN ISO 17268"
+      ],
+      "edges": [
+        {
+          "to_node_id": "U4",
+          "description": "Sekvenční — typ oprávnění determinuje, zda je certifikace relevantní (vlastní spotřeba vs. tržní prodej)"
+        },
+        {
+          "to_node_id": "U6",
+          "description": "Klíčová — zdroj elektřiny (obnovitelný vs. síťový mix) přímo determinuje dosažitelnost RFNBO certifikace"
+        },
+        {
+          "to_node_id": "U2",
+          "description": "Nepřímá — environmentální podmínky provozu mohou ovlivnit uhlíkovou stopu v životním cyklu"
+        },
+        {
+          "to_node_id": "U5",
+          "description": "Nepřímá — provozní omezení z bezpečnostních důvodů mohou ovlivnit utilizaci elektrolyzéru a tím ekonomiku RFNBO certifikace"
+        }
+      ],
+      "variability": [
+        {
+          "installation_type_code": "ELEKTROLYZA",
+          "specifics": "Centrální oblast pro proces U7. Certifikace RFNBO je relevantní primárně pro elektrolýzu z obnovitelných zdrojů — jde o hlavní cestu k „zelenému vodíku\". Kritéria adicionality, časové a geografické korelace se vztahují přímo na vztah elektrolyzér–obnovitelný zdroj. Kvalitativní certifikace (EN 17124:2022) je nutná, pokud je vodík určen jako palivo. U elektrolýzy z neobnovitelné elektřiny může být vodík certifikován jako nízkouhlíkový, pokud splní emisní práh."
+        },
+        {
+          "installation_type_code": "SKLADOVANI",
+          "specifics": "Proces U7 se na skladování a přepravu neuplatňuje přímo — certifikace se váže k výrobnímu procesu, nikoli ke skladování. Skladovatel/přepravce však musí zajistit, aby manipulace s vodíkem neovlivnila jeho kvalitativní parametry (kontaminace, příměsi). Řetěz custody-of-evidence musí být zachován od výroby po dodání."
+        },
+        {
+          "installation_type_code": "VCS",
+          "specifics": "Kvalitativní certifikace (EN 17124:2022) je povinná pro vodík dodávaný jako palivo na čerpacích stanicích. Čerpací stanice musí splňovat požadavky EN 17127:2020 na interoperabilitu. Pokud stanice deklaruje „zelený\" nebo RFNBO vodík, musí být certifikace prokazatelně přenositelná od výrobce přes celý dodavatelský řetězec."
+        },
+        {
+          "installation_type_code": "VOZIDLA",
+          "specifics": "Proces U7 se na vozidla nevztahuje přímo. Vozidla podléhají typovému schválení (U4). Nepřímo jsou ovlivněna kvalitou vodíku na čerpacích stanicích — pokud vodík nesplňuje EN 17124:2022, může dojít k poškození palivových článků."
+        }
+      ],
+      "bibliography_refs": [
+        1,
+        9,
+        10,
+        11,
+        17,
+        21
       ]
     }
   },
@@ -1593,7 +1917,9 @@
       "250/2021"
     ],
     "U6": [],
-    "U7": []
+    "U7": [
+      "EN 17124"
+    ]
   },
   "bibliography": [
     {

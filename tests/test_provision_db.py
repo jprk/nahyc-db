@@ -1,6 +1,7 @@
 import os
 import sys
 import unittest
+from unittest import mock
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src", "tools"))
 
@@ -145,6 +146,18 @@ class LoadAppConfigTestCase(unittest.TestCase):
             "DB_HOST=testhost\nDB_PORT=3307\nDB_NAME=h2regdocs_test\n"
             "DB_USER=h2regdocs_test\nDB_PASSWORD=test-pw\n")
         self.addCleanup(self.env_path.unlink)
+        # load_app_config() calls load_dotenv(..., override=True) so a
+        # real --env-file invocation always wins over whatever a prior
+        # .env load already put in os.environ (needed so
+        # `--env-file .env.test` can't silently keep stale real-.env
+        # values within the same process) — but that means calling it
+        # here would otherwise leak DB_* into every other test sharing
+        # this unittest process (e.g. test_search.py, which then tries to
+        # connect to this test's fake "testhost"). Snapshot and restore
+        # the whole environment around this one test.
+        self._env_patcher = mock.patch.dict(os.environ, clear=False)
+        self._env_patcher.start()
+        self.addCleanup(self._env_patcher.stop)
 
     def test_reads_the_given_env_file_not_the_real_env(self):
         config = load_app_config(self.env_path.name)

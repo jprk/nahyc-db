@@ -145,6 +145,20 @@
         </section>
         {% endif %}
 
+        {% if process_nodes %}
+        <section class="doc-panel">
+            <h2>Procesní uzly <span class="badge">{{ process_nodes|length }}</span></h2>
+            <ul class="doc-relations">
+                {% for pn in process_nodes %}
+                <li>
+                    <span class="relation-type">{{ 'právní opora pro' if pn.link_type == 'LEGAL_BASIS' else 'pramen pro' }}</span>
+                    <a href="{{ url_for('process_detail', node_id=pn.node_id) }}">{{ pn.node_id }} — {{ pn.node_name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
     </div>
 </section>
 
