@@ -349,6 +349,17 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         apply_authoritative_metadata(record, cache)
         self.assertEqual(record["nazev_autoritativni"], "T")
 
+    def test_eiga_key_used_when_no_url_or_csn_stn_match(self):
+        # doc/PLAN.md §24: EIGA records store only the eiga.eu homepage,
+        # never a per-document URL — same "catalog root" shape as STN,
+        # keyed on eiga.py's own designation normalization.
+        record = {"znacka": "EIGA DOC 246", "odkaz_hlavni": "https://www.eiga.eu/"}
+        cache = {"eiga:246": {"status": "fetched", "title": "T", "description": "D",
+                              "zdroj_esbirka_url": None}}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "T")
+        self.assertEqual(record["popis_autoritativni"], "D")
+
     def test_failed_status_does_not_attach_anything(self):
         record = {"znacka": "X", "odkaz_hlavni": "https://a"}
         cache = {"https://a": {"status": "failed", "title": None, "description": None,

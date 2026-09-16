@@ -7,7 +7,9 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 
 sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(REPO_ROOT / "src"))
 from norm_title import designation_core  # noqa: E402
+from sites.eiga import normalize_designation as eiga_designation  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 
@@ -345,6 +347,14 @@ def apply_authoritative_metadata(record, cache):
         # per-document to key on (the same reason the ČSN branch above
         # uses "csn:<znacka>").
         entry = cache.get(f"stn:{designation_core(znacka)}")
+    if entry is None and znacka:
+        # doc/PLAN.md §24, 2026-09-17: EIGA publications, same "catalog
+        # root, not a per-document URL" shape as the STN branch above —
+        # keyed on eiga.py's own designation normalization (its numbering
+        # convention, not designation_core()'s ČSN/STN-oriented one).
+        code = eiga_designation(znacka)
+        if code:
+            entry = cache.get(f"eiga:{code}")
     if entry is None or entry.get("status") != "fetched":
         return
     if entry.get("title"):

@@ -4,7 +4,31 @@ import unittest
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src", "tools"))
 
-from language import CONFIDENCE_THRESHOLD, detect_language, normalize_raw_language
+from language import (CONFIDENCE_THRESHOLD, detect_language, normalize_raw_language,
+                      resolve_domain_language_override)
+
+
+class ResolveDomainLanguageOverrideTestCase(unittest.TestCase):
+    """doc/PLAN.md §23, 2026-09-17: e-sbirka.gov.cz is the Czech
+    Republic's own legal-register portal and structurally can only ever
+    host Czech legislation — langdetect confusing a short Czech legal
+    title for Slovak (2 real cases found in the live corpus) must not
+    survive this override."""
+
+    def test_e_sbirka_url_forces_cs(self):
+        self.assertEqual(
+            resolve_domain_language_override("https://e-sbirka.gov.cz/sb/2002/76"), "CS")
+
+    def test_case_insensitive(self):
+        self.assertEqual(
+            resolve_domain_language_override("HTTPS://E-SBIRKA.GOV.CZ/sb/2010/133"), "CS")
+
+    def test_unrelated_url_returns_none(self):
+        self.assertIsNone(resolve_domain_language_override("https://www.zakonyprolidi.cz/cs/2021-283"))
+
+    def test_blank_or_none_returns_none(self):
+        self.assertIsNone(resolve_domain_language_override(""))
+        self.assertIsNone(resolve_domain_language_override(None))
 
 
 class NormalizeRawLanguageTestCase(unittest.TestCase):

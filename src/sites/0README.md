@@ -80,6 +80,29 @@ konkrétní stránka/služba skutečně vrací.
   něco jiného). Ověřeno na reálném vzorku: 13 z 20 záznamů má skutečný text předmětu,
   medián 875 znaků — srovnatelné s autentickými anotacemi, které už v korpusu jsou.
   Pokryto testy v `tests/test_sites_normoff.py`.
+* `eiga.py` - **2026-09-17 (doc/PLAN.md §24)**: publikace EIGA (European
+  Industrial Gases Association, `eiga.eu`) — stejný tvar úlohy jako
+  `normoff.py`: korpus ukládá jen společnou domovskou stránku, ne odkaz
+  na konkrétní publikaci, takže `resolve()` opět předchází `extract()`u.
+  Na rozdíl od `normoff.py` ale NEEXISTUJE samostatná detailní stránka —
+  výsledek hledání (`GET /publications/?_sf_s=<číslice>`) už sám nese
+  „READ MORE" text přímo v syrovém HTML (skrytý jen `display:none`, ne
+  JS-vykreslený). Cesta k funkčnímu dotazu stála za to zaznamenat: stránka
+  sama inzeruje pole `_sf_search[]`/`_sft_ct_doc_cats[]` (výchozí
+  pojmenování pluginu Search & Filter Pro) a i svůj vlastní AJAX endpoint
+  (`?sfid=1550&sf_action=get_data&sf_data=results`) — oba vrátily HTTP 200
+  a oba tiše ignorovaly dotaz a vrátily nefiltrovaný výchozí výpis; funkční
+  parametr `_sf_s=<číslice>` na `/publications/` přímo dodal až uživatel,
+  ne rozbor formulářového markupu stránky. Web navíc pod třemi číslicemi
+  (vlastní dokumentované minimum) nebo pro číslo bez aktuální shody vrací
+  místo prázdného výsledku fuzzy fulltextové zásahy (ověřeno živě: dotaz
+  „100" vrátil 10 nesouvisejících dokumentů) — `extract()` proto nikdy
+  nedůvěřuje „prvnímu výsledku", ale ověřuje vlastní číslo KAŽDÉHO
+  výsledku (z jeho titulku) proti číslicím vloženým do URL. Když výpis
+  nemá vlastní shrnutí, záložní krok stáhne PDF (`a.list-download`) a
+  zkusí `pdfplumber` na první stránku — nejistý pokus (mnoho PDF má na
+  první straně jen titulní list), nikdy nevyhazuje. Pokryto testy v
+  `tests/test_sites_eiga.py`.
 * `esbirka.py` - **NENÍ zdroj obsahu** — `e-sbirka.gov.cz` je skutečný
   oficiální zdroj českého práva (na rozdíl od `zakonyprolidi.cz`), ale jeho
   vlastní frontend je needostupný Angular SPA (`<esel-app>` prázdná
@@ -104,5 +127,6 @@ konkrétní stránka/služba skutečně vrací.
 
 Pokryto testy v `tests/test_sites_eurlex.py`, `tests/test_sites_
 zakonyprolidi.py`, `tests/test_sites_slovlex.py`,
-`tests/test_sites_esbirka.py`, `tests/test_sites_normoff.py` (mockované
-HTTP/SPARQL/CSV, žádná reálná síťová volání).
+`tests/test_sites_esbirka.py`, `tests/test_sites_normoff.py`,
+`tests/test_sites_eiga.py` (mockované HTTP/SPARQL/CSV, žádná reálná
+síťová volání).

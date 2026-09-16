@@ -21,7 +21,7 @@ import pymysql
 from dotenv import load_dotenv
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from language import detect_language, normalize_raw_language
+from language import detect_language, normalize_raw_language, resolve_domain_language_override
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 load_dotenv(REPO_ROOT / ".env")
@@ -54,14 +54,29 @@ def main():
 
     conn = get_connection()
     cur = conn.cursor()
-    cur.execute("SELECT id, title, description, language, needs_review, review_reason FROM Document")
+    cur.execute("SELECT id, title, description, language, url, needs_review, review_reason FROM Document")
     documents = cur.fetchall()
 
     updates = []  # (id, new_language, needs_review, review_reason)
-    stats = {"normalized": 0, "already_normalized": 0,
+    stats = {"domain_override": 0, "normalized": 0, "already_normalized": 0,
              "detected_confident": 0, "detected_flagged": 0}
 
     for doc in documents:
+        # doc/PLAN.md §23, 2026-09-17: checked first and unconditionally
+        # — a domain override must be able to CORRECT an already
+        # "valid-looking" but wrong stored value (e.g. a confidently
+        # wrong SK detection for an e-sbirka.gov.cz record), which the
+        # normalize_raw_language() short-circuit below would otherwise
+        # never revisit.
+        override = resolve_domain_language_override(doc["url"])
+        if override:
+            if override == doc["language"]:
+                stats["already_normalized"] += 1
+            else:
+                stats["domain_override"] += 1
+                updates.append((doc["id"], override, doc["needs_review"], doc["review_reason"]))
+            continue
+
         normalized = normalize_raw_language(doc["language"])
         if normalized:
             if normalized == doc["language"]:
@@ -82,6 +97,7 @@ def main():
             updates.append((doc["id"], code, True, new_reason))
 
     print(f"{len(documents)} documents total")
+    print(f"  corrected by domain override (e.g. e-sbirka.gov.cz -> CS): {stats['domain_override']}")
     print(f"  raw value normalized to EN/CS/SK/DE spelling: {stats['normalized']}")
     print(f"  already in normalized form (no-op): {stats['already_normalized']}")
     print(f"  detected with high confidence: {stats['detected_confident']}")

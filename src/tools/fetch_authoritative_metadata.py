@@ -53,6 +53,16 @@ those — the URL itself doesn't identify which document it's for).
     `link_document_relations_auto.py` mechanism then links the two
     automatically, with no changes needed there.
 
+**Slovak/EIGA norm records** (doc/PLAN.md §17/§24, added later than the
+rest of this docstring): `is_stn_norm_record()`/`src/sites/normoff.py`
+looks up an `STN`/`TNI`-prefixed `znacka` against the ÚNMS SR registry;
+`is_eiga_norm_record()`/`src/sites/eiga.py` looks up an EIGA-hosted
+record (keyed on URL domain, not designation prefix — EIGA designations
+don't share one) against eiga.eu's own publications search. Both are
+"catalog root, not a per-document URL" cases, so both key their cache
+entry on the designation (`stn:<designation>`/`eiga:<designation>`), not
+a URL.
+
 Idempotent (same convention as `fetch_fulltext.py`): writes to
 `data/site_metadata_cache.json`, keyed by URL (or `csn:<znacka>` for ČSN
 lookups, which have no per-document URL of their own to key on), skipping
@@ -78,7 +88,7 @@ REPO_ROOT = BASE_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(BASE_DIR))
 
-from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff  # noqa: E402
+from sites import eurlex, zakonyprolidi, slovlex, esbirka, normoff, eiga  # noqa: E402
 from norm_title import designation_core  # noqa: E402
 from check_csn_validity import (  # noqa: E402
     search as csn_search,
@@ -161,6 +171,19 @@ def is_stn_norm_record(item):
     if (item.get("typ_dokumentu") or "").strip() != "Norma":
         return False
     return bool(_STN_PREFIX_RE.match((item.get("znacka") or "").strip()))
+
+
+def is_eiga_norm_record(item):
+    """doc/PLAN.md §24, 2026-09-17: an EIGA (European Industrial Gases
+    Association) publication, looked up against eiga.eu's own
+    publications search (`src/sites/eiga.py`). Unlike STN/ČSN, these
+    designations don't share one clean prefix — "EIGA DOC 246", "IGC Doc
+    15/06/E", "TB 42", "Doc 119/04" all appear in the corpus — so this is
+    keyed on the record's own URL domain instead, reliably `eiga.eu` for
+    all of them (confirmed live against the corpus)."""
+    if (item.get("typ_dokumentu") or "").strip() != "Norma":
+        return False
+    return "eiga.eu" in record_url(item)
 
 
 def is_bare_international_znacka(znacka):
@@ -303,6 +326,9 @@ def main():
     stn_session = requests.Session()
     stn_session.headers.update({"User-Agent": normoff.USER_AGENT})
 
+    eiga_session = requests.Session()
+    eiga_session.headers.update({"User-Agent": eiga.USER_AGENT})
+
     processed = 0
     for item in raw_data:
         if args.limit is not None and processed >= args.limit:
@@ -371,6 +397,33 @@ def main():
                 "status": "fetched" if result else "failed",
                 "withdrawn_edition": (result or {}).get("withdrawn"),
                 "catalogue_number": (result or {}).get("catalogue_number"),
+            }
+            processed += 1
+            time.sleep(SLEEP_SECONDS)
+            continue
+
+        if is_eiga_norm_record(item):
+            if args.only_missing_description and (item.get("anotace_poznamka") or "").strip():
+                continue
+            designation = eiga.normalize_designation(znacka)
+            if not designation:
+                continue
+            key = f"eiga:{designation}"
+            if key in processed_keys:
+                continue
+            if key in cache and not args.force:
+                continue
+            processed_keys.add(key)
+            print(f"[eiga] {znacka} -> {designation}")
+            result = eiga.fetch_by_designation(znacka, session=eiga_session)
+            cache[key] = {
+                "title": (result or {}).get("title"),
+                "description": (result or {}).get("description"),
+                "domain": "eiga.eu",
+                "znacka": designation,
+                "zdroj_esbirka_url": None,
+                "zdroj_autoritativni_url": (result or {}).get("url"),
+                "status": "fetched" if result else "failed",
             }
             processed += 1
             time.sleep(SLEEP_SECONDS)

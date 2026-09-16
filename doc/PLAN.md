@@ -3904,3 +3904,130 @@ instead.
 applied reproduced exactly `needs_review` 375/1215 — the same figure §20
 recorded, confirming no regression. Full suite: 644 tests, all passing.
 App smoke-check: `/`, `/procesy`, `/proces/U4` all 200, `/proces/U9` 404.
+
+## 23. Domain-based language override — e-sbirka.gov.cz can't host Slovak (NEW, 2026-09-17, user-directed)
+
+**User direction, raised mid-session**: Czech national laws were showing
+up with `language='SK'` — langdetect confusing a short Czech legal title
+for Slovak (the two languages are close enough that this happens; the
+existing `CONFIDENCE_THRESHOLD` guard didn't catch it because the wrong
+guess was itself confident, not borderline). Live-confirmed: 2 of 32
+`e-sbirka.gov.cz`-hosted `Document` rows had `language='SK'` (ids 69, 78
+— `76/2002 Sb.` and `133/2010 Sb.`), both with `needs_review=0` — a
+confidently wrong guess, not a flagged uncertain one.
+
+`e-sbirka.gov.cz` is the Czech Republic's own official legal-register
+portal (Sbírka zákonů) — it structurally can only ever publish Czech
+legislation, so this is a known fact about the source system, not
+something to detect at all. Added
+`resolve_domain_language_override(url)` to `src/tools/language.py`
+(`DOMAIN_LANGUAGE_OVERRIDES`, currently just the one entry) — checked
+**before** both `normalize_raw_language()` and `detect_language()` in
+both call sites (`init_db.py`'s per-import resolution and
+`backfill_language.py`'s one-time DB backfill), since the domain fact
+must be able to override even an already-stored, confidently-wrong
+value — the existing `normalize_raw_language()`-first short-circuit in
+`backfill_language.py` would otherwise never revisit an already
+CS/SK/EN/DE-shaped value.
+
+Applied live via `backfill_language.py --apply`: 2 corrected by the
+domain override (ids 69, 78, now `CS`), plus 22 unrelated
+`Bibliografický pramen` rows (§20's synthetic bibliography Documents,
+which `load_bibliography()` never set a `language` for at all) picked up
+a real detected language as a side effect of the same run — legitimate,
+in scope for what this script already does, not a side effect worth
+guarding against.
+
+4 new tests in `tests/test_language.py`
+(`ResolveDomainLanguageOverrideTestCase`). Full suite: 648 tests, all
+passing.
+
+## 24. Phase 1 continued — `eiga.eu` (NEW, 2026-09-17, user-directed)
+
+**User direction:** continue Phase 1 (§17.2/§17.7's remaining domains:
+`iso.org` 73, `dvgw.de` 42, `webstore.iec.ch` 17, `eiga.eu` 16,
+`bveg.de` 14). Investigated feasibility live for each before picking one
+— `iso.org` (highest count) confirmed **blocked**, a real per-document
+URL already stored for 6 corpus records returns HTTP 403 to a plain
+fetch, matching §17.7's existing note. `eiga.eu` chosen as most
+tractable; `dvgw.de`/`webstore.iec.ch`/`bveg.de` deferred — see the plan
+file `linear-squishing-sky.md`'s "Deferred" section for what was found
+and why (short version: `dvgw.de`'s real catalog is a separate,
+apparently JS-rendered portal; `webstore.iec.ch` uses numeric publication
+IDs with no visible designation-search endpoint; `bveg.de` records have
+no designation/`znacka` at all to search by).
+
+**Getting to a working query took two dead ends first, worth recording**:
+the site's own `<form>` markup for its "Search & Filter Pro" listing
+advertises `_sf_search[]`/`_sft_ct_doc_cats[]` fields, and even its own
+documented AJAX endpoint (`?sfid=1550&sf_action=get_data&sf_data=results`)
+— both returned HTTP 200, both silently ignored the query and returned
+the unfiltered default listing. An initial WebFetch-summarized read of
+the page had suggested a working search was already confirmed; it
+wasn't — real `curl`/`requests` testing showed otherwise, a correction
+made explicitly to the user rather than building further on the
+unverified premise. The user, doing their own research in parallel,
+supplied the parameter that actually works:
+`GET /publications/?_sf_s=<digits>`.
+
+**New `src/sites/eiga.py`**, same shape as `normoff.py` (corpus stores
+only the `eiga.eu` homepage, never a per-document URL, so `resolve()`
+precedes `extract()`) but with a twist `normoff.py` doesn't need: there
+is no separate detail page — the search listing itself already carries
+the scope text, in a "READ MORE" `<div>` present in the raw HTML (hidden
+via inline `display:none`, not JS-rendered). `normalize_designation()`
+strips the corpus's `EIGA`/`IGC` label words and takes the first digit
+run (`"EIGA IGC Doc 100/20"` -> `"100"`), matching the site's own
+numbering. The site's search is minimum-3-digits and, below that or for
+a number with no current document, returns fuzzy full-text hits instead
+of nothing (live-confirmed: querying `"100"` returned 10 unrelated
+documents, `"121"` — a corpus designation with no current match —
+returned 2 unrelated ones) — trusting "the first result" would
+therefore silently attach the wrong document's description to the wrong
+record. `extract()` guards against this by re-verifying the winning
+result's OWN leading number (parsed from its title) against the query
+digits embedded in its own URL, never trusting proximity or ranking.
+Falls back to a `pdfplumber`-extracted PDF first-page lead when a
+listing entry has no visible summary (rare in practice). 14 tests in
+`tests/test_sites_eiga.py`, all against real HTML captured from the live
+site (no network in the suite).
+
+**A live-testing wrinkle, resolved, not a lasting problem**: eiga.eu
+sits behind a Sucuri WAF that started intermittently returning HTTP 403
+partway through manual testing — flipping between 200 and 403 for the
+identical request seconds apart, not consistently tied to `curl` vs
+`requests`. Flagged to the user as a real operational risk before
+running the actual batch fetch; by the time of the real run (fewer,
+better-paced requests, mixed in with the orchestrator's existing
+per-request `SLEEP_SECONDS` delay from other domains' lookups ahead of
+it in corpus order) it completed cleanly, 16/16, no blocking.
+
+**A real integration gap found and fixed while verifying the live
+run**: the fetch side (`fetch_authoritative_metadata.py`'s new
+`is_eiga_norm_record()` branch, `eiga:<designation>` cache key) was
+wired up correctly, but `build_unified_db.py`'s
+`apply_authoritative_metadata()` — the function that actually reapplies
+`site_metadata_cache.json` into a rebuilt `database_merged_deduplicated
+.json` — only knew to check a record's URL, then `csn:<znacka>`, then
+`stn:<designation_core(znacka)>`; it had never been taught about
+`eiga:<designation>` keys at all. The cache had the right data; nothing
+applied it. Exactly the class of gap this session's own §20 already
+flagged once (fetch wired, apply not) — caught here by re-running the
+full pipeline and checking a specific record by hand rather than trusting
+`build_unified_db.py`'s summary counts alone. Fixed by adding the
+`eiga:` lookup branch (keyed on `eiga.py`'s own `normalize_designation()`,
+not `designation_core()` — a different numbering convention). New test:
+`ApplyAuthoritativeMetadataTestCase.test_eiga_key_used_when_no_url_or_csn_stn_match`.
+
+**Result**: 16 EIGA designations looked up, 11 resolved with real scope
+text (5 correctly refused — genuinely too-short codes or a designation
+with no current match, e.g. `"EIGA 121/14"`, not guessed at). All 11
+translated to Czech (`translate_annotations.py`, along with 4 leftover
+untranslated STN entries from an earlier round), spot-checked by hand
+against the live site before trusting the batch. Full pipeline rebuild:
+`needs_review` 375 → 366/1215, 14 `EIGA`-identifier `Document` rows now
+carry a real description (more than 11 distinct designations — several
+are cited by more than one raw record across sources). Full suite: 663
+tests, all passing. App smoke-checked live: `/`, `/procesy`,
+`/proces/U4` all 200, and `EIGA DOC 246` now shows its real description
+in a live search.

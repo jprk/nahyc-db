@@ -6,7 +6,7 @@ import re
 import pymysql
 from dotenv import load_dotenv
 
-from language import detect_language, normalize_raw_language
+from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
@@ -434,9 +434,15 @@ def import_json_data(db_conn):
         # language is detected from title/description — see that module
         # for why title takes priority over description (many records'
         # description is scope/abstract text in a different language than
-        # the document itself).
-        language = normalize_raw_language(item.get("jazyk", ""))
+        # the document itself). doc/PLAN.md §23, 2026-09-17: checked
+        # first, a domain-based override (e.g. e-sbirka.gov.cz -> CS)
+        # wins over both — a known structural fact about the source
+        # system, not a guess.
+        language = resolve_domain_language_override(url)
         language_confident = language is not None
+        if language is None:
+            language = normalize_raw_language(item.get("jazyk", ""))
+            language_confident = language is not None
         if language is None:
             language, language_confident = detect_language(title, description)
 

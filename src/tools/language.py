@@ -27,6 +27,39 @@ RAW_LANGUAGE_MAP = {
 
 CONFIDENCE_THRESHOLD = 0.85
 
+# doc/PLAN.md §23, 2026-09-17 (user-directed): some source systems can
+# structurally only ever host documents in one language, regardless of
+# what a raw `jazyk` value says or what langdetect guesses from
+# title/description text — Czech and Slovak in particular are close
+# enough that langdetect regularly misreads a short Czech legal title as
+# Slovak. Checked BEFORE normalize_raw_language()/detect_language(): the
+# domain fact is not a guess, it overrides even a wrong raw `jazyk` value
+# or a confident-but-mistaken detection. Substring match against the
+# document's own URL, not `zdroj_dat` — a record can be *about* a source
+# without being hosted there.
+DOMAIN_LANGUAGE_OVERRIDES = (
+    # e-sbirka.gov.cz is the Czech Republic's own official legal-register
+    # portal (Sbírka zákonů) — it publishes Czech legislation only; no
+    # Slovak-language act has ever appeared there. Confirmed 2026-09-17:
+    # 2 of 32 e-sbirka-hosted records in the live corpus were wrongly
+    # detected as SK before this override existed.
+    ("e-sbirka.gov.cz", "CS"),
+)
+
+
+def resolve_domain_language_override(url):
+    """(code) for a handful of source domains that structurally can only
+    ever host one language, or None for any other URL (the overwhelming
+    majority) — see DOMAIN_LANGUAGE_OVERRIDES above for why this takes
+    priority over both normalize_raw_language() and detect_language()."""
+    value = (url or "").strip().lower()
+    if not value:
+        return None
+    for domain, code in DOMAIN_LANGUAGE_OVERRIDES:
+        if domain in value:
+            return code
+    return None
+
 
 def normalize_raw_language(raw):
     """Maps a raw `jazyk` source value to one of EN/CS/SK/DE, or None if
