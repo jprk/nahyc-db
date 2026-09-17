@@ -4502,3 +4502,130 @@ layer alone, so the LLM path was never reached for any of them in that
 run — this second layer is insurance for a future run's not-yet-seen
 false-positive vocabulary, not a correction to §28's already-verified
 13-record result.
+
+## 30. Corpus expansion, continued — Czech national law (NEW, 2026-09-17, user-directed)
+
+**User instruction:** continue Phase 1 with the item deferred at the
+end of §28 — Czech national law discovery, previously blocked on two
+real walls: e-Sbírka's own SPARQL graph "doesn't reliably carry a
+scrapeable back-link to its owning act" (§28's own words, quoting
+`screen_esbirka.py`'s docstring) and `zakonyprolidi.cz`'s search being
+Cloudflare-blocked. A live re-investigation this round found both walls
+were narrower than they looked.
+
+### 30.1 The technical unlock: a reverse SPARQL hop resolves fragment → act
+
+`screen_esbirka.py`'s full-text hits are `právní-akt-fragment`/
+`-binární-soubor`/`-metadata` nodes. Querying a hit's own (forward)
+properties really does dead-end, exactly as documented — but a live
+query in the OTHER direction doesn't: `SELECT ?s WHERE { ?s
+<.../pojem/obsahuje-fragment> <fragment-uri> . }` returns a node whose
+OWN URI already has the shape `.../eli/cz/sb/{year}/{number}/{date}/
+dokument/...` — year and number sitting directly in the URI path, no
+further vocabulary knowledge needed. A `právní-akt-binární-soubor` hit
+needs one extra hop first (`.../pojem/má-binární-soubor` to its owning
+fragment) then the same reverse-fragment hop. Verified against several
+real hits from the existing 100-candidate file, including a genuinely
+new relevant one (a "binární-soubor" node → its fragment → an
+`eli/cz/sb/2015/294/...` URI). A `právní-akt-metadata` node has no such
+link at all (confirmed empirically: neither a forward nor reverse query
+found anything) and stays permanently unresolved by this method — a
+real, disclosed residual, not silently worked around.
+
+`src/tools/add_esbirka_hydrogen_acts.py`'s `resolve_znacka_for_uri()`
+implements exactly this: one hop for a fragment node, two for a binary-
+soubor node, `None` (never guessed) for metadata or an orphaned node the
+reverse query comes back empty for.
+
+### 30.2 A second, independent false positive: "vodítko" isn't "vodík"
+
+Live-checking the existing 100-candidate file's snippets by hand found
+~9 hits were "vodítko"/"vodítka"/"vodítek" (elevator/lift guide rails)
+or "vodicí" (guide-, as in "vodicí lano") — words sharing `screen_esbirka
+.py`'s old 4-character `"vodí*"` wildcard prefix with "vodík" but
+meaning something else entirely. Fixed at the source: `HYDROGEN_KEYWORDS
+= ["vodík*"]` (one more character; still covers every inflected form —
+vodík/vodíku/vodíkem/vodíková/vodíkový/vodíkových/vodíkovým/vodíky all
+share "vodík" as their first 5 characters, while the 5th letter alone
+already excludes the guide-rail words). The EXISTING candidates file was
+collected under the old keyword and still carries that noise (fixing
+the constant doesn't retroactively clean a file `screen_esbirka.py`
+only ever appends to), so `add_esbirka_hydrogen_acts.py` re-checks
+defensively with a fixed `\bvodík` regex (`is_actual_hydrogen_mention`)
+before doing anything else with a candidate — cheaper than a SPARQL
+round-trip, so this check runs first.
+
+### 30.3 Off-topic classification works on the matched snippet, not the document title — the reverse of §28/§29
+
+For EU acts, an off-topic TITLE was itself the signal ("...Hydrogen
+Peroxide Biocidal Product..."). Here, the matched snippet is typically
+one paragraph or table cell buried inside a much longer, topically
+unrelated act — a 1930s customs-tariff schedule, a decree implementing
+road-traffic rules — so the document's own title usually says nothing
+about hydrogen at all, on-topic or off, while the matched fragment
+always does. Classification therefore runs on the snippet
+(`data/fulltext_screening_candidates.json`'s own `snippet` field,
+HTML-stripped — many hits are literal `<table>` markup from old tariff
+schedules), never the act's title.
+
+Manually classifying all 100 pre-existing candidates found: 26 unique
+acts total, of which 24 were customs-tariff schedules or 1920s-1950s
+bilateral trade/rail treaties (list "vodík" only as one commodity among
+many in a tariff table) or old hydrogen-peroxide transport/biocide rules
+("peroxyd(u)/superoxyd(u) vodíku" — pre-1957-orthographic-reform
+spelling), and exactly 2 were genuinely on-topic: traffic-sign 409
+"Čerpací stanice vodíku" (hydrogen filling station) in `294/2015 Sb.`'s
+annex 7, and its `205/2025 Sb.` amendment updating the same sign.
+
+Same two-layer architecture as §29's EU version — a deterministic
+pattern deny-list (`OFF_TOPIC_SNIPPET_PATTERNS`: celní sazebník/sazby,
+old bilateral trade treaties, "peroxyd(u)/superoxyd(u) vodíku") first,
+then an LLM backstop (`classify_relevance_with_llm`/`assess_relevance`,
+own client/prompt, same `HIGH_OFF_TOPIC_THRESHOLD`/
+`LOW_ON_TOPIC_THRESHOLD`/needs-review-band contract) for whatever the
+patterns don't catch. A live full-batch run: the pattern layer caught
+most of the peroxide/customs vocabulary directly; the LLM correctly
+scored one genuinely ambiguous case ("stlačený kyslík...vodíku" — a
+compressed-gas purity threshold, arguably industrial-gas safety rather
+than hydrogen energy specifically) into the needs-review band rather
+than guessing either way — the same kind of judgment call the design is
+built to defer to a human on.
+
+### 30.4 The rest of the pipeline
+
+`typ_dokumentu` reuses `build_unified_db.py:classify_law_document_typ()`
+rather than reinventing it — but that function's "Vyhláška"/"Nařízení
+vlády" patterns are anchored at the string's start (`^\s*vyhlá...`),
+and zakonyprolidi.cz's og:title is "294/2015 Sb. Vyhláška, kterou..." —
+title-first, `znacka`-prefixed. Passed raw, every Vyhláška/Nařízení-
+vlády record would misclassify as `""` (unclear). Fixed with
+`strip_leading_znacka()`, stripping that prefix before classifying —
+found and fixed BEFORE it could silently corrupt a downstream
+classifier the new source was never written for, same discipline as
+§28's title-refetch requirement. `odkaz_hlavni` is the direct
+zakonyprolidi.cz per-document URL (`.../cs/{year}-{number}`) — the
+SEARCH endpoint is Cloudflare-blocked (§28's own finding), but a direct
+document URL, per `src/sites/zakonyprolidi.py`'s own docstring, is not
+and was never re-tested as blocked; confirmed again live this round.
+`gestor` is left `[]` — no institution lookup available from either
+e-Sbírka's LOD graph or zakonyprolidi.cz for a freshly-discovered act.
+
+27 new unit tests (`tests/test_add_esbirka_hydrogen_acts.py`), all
+network/API calls mocked. Full pipeline rebuild:
+`database_merged_raw.json` 2293 → 2295 (exactly +2, matching the two
+live-verified records), live `Total Documents` 1228 → 1230. Full test
+suite (762 tests) and the live-database `test_search.py` integration
+test both green afterward. Both new records' `odkaz_hlavni` URLs
+confirmed HTTP 200 live.
+
+### 30.5 What's still not covered, left as a disclosed residual
+
+`právní-akt-metadata` hits (1 in the existing batch) and the small
+number of fragment/binary-soubor hits whose reverse query comes back
+empty (2 in this batch) stay in `data/esbirka_unresolved_not_imported
+.json` — genuinely unresolvable by this method, not pursued further
+this round (a small, bounded residual, same "diminishing returns"
+judgment as §27's IEC/DVGW stopping point). e-Sbírka's own registered
+REST API (an institutional Ministry-of-Interior data-box registration)
+remains the eventual, more complete path if ever obtained — unchanged
+from §28's assessment.

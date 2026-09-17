@@ -1,0 +1,24 @@
+[
+  {
+    "matched_keyword": "vodí*",
+    "note": "unresolved — could not automatically determine which law this fragment belongs to, see module docstring",
+    "screened_at": "2026-09-09T17:42:38",
+    "snippet": "97 (4) Stlačený kyslík smí obsahovati nanejvíce 4 objemová procenta vodíku a stlačený vodík nanejvíce 2 objemová procenta kyslíku. Stupeň přimíšení musí býti při plnění nádob přezkoušen. Výsledek rozboru musí býti na požádání předložen.",
+    "uri": "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/75933",
+    "znacka": "105/1933 Sb.",
+    "detection_method": "llm",
+    "llm_score": 70,
+    "llm_reasoning": "The mention of hydrogen here relates to gas composition regulations rather than its use as an energy carrier."
+  },
+  {
+    "matched_keyword": "vodí*",
+    "note": "unresolved — could not automatically determine which law this fragment belongs to, see module docstring",
+    "screened_at": "2026-09-09T17:43:37",
+    "snippet": "<var>c)</var> kotlové vozy s vodíkem (číslice 4), propanem nebo butanem (číslice 6) musí míti na obou stranách nálepky podle vzorce 4.",
+    "uri": "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/173675",
+    "znacka": "1/1946 Sb.",
+    "detection_method": "llm",
+    "llm_score": 30,
+    "llm_reasoning": "The mention of hydrogen is in the context of labeling for vehicles, suggesting a connection to hydrogen as an energy carrier, but it is not explicitly focused on hydrogen technology."
+  }
+]

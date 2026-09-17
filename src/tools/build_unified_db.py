@@ -834,7 +834,28 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered EU Hydrogen Acts data: {e}")
 
-    # 9. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 9. Discovered CZ Hydrogen Acts — doc/PLAN.md §30, 2026-09-17,
+    # continuation of §28/§29's corpus expansion for Czech national law.
+    # `src/tools/add_esbirka_hydrogen_acts.py` builds this file: e-Sbírka
+    # LOD SPARQL full-text hits (`screen_esbirka.py`), each resolved to
+    # its owning act via a reverse-SPARQL hop (a fragment/binary-soubor
+    # node doesn't carry a forward link to its act, but something DOES
+    # point back to it, and that node's own URI already encodes year/
+    # number), filtered for an actual "vodík" word match (not the
+    # "vodítko"/"vodicí" word-stem collision) and for topical relevance
+    # (judged on the matched snippet, not the act's own title, which
+    # usually says nothing about hydrogen at all), each re-verified LIVE
+    # at zakonyprolidi.cz right before being written. Already in final
+    # record shape, so this block just appends it as-is.
+    file_discovered_cz_hydrogen_acts = base_dir / "discovered_cz_hydrogen_acts.json"
+    try:
+        data_discovered_cz_hydrogen_acts = load_json(file_discovered_cz_hydrogen_acts)
+        unified_db.extend(data_discovered_cz_hydrogen_acts)
+        print(f"Loaded {len(data_discovered_cz_hydrogen_acts)} records from Discovered CZ Hydrogen Acts.")
+    except Exception as e:
+        print(f"Error loading Discovered CZ Hydrogen Acts data: {e}")
+
+    # 10. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json

@@ -52,7 +52,20 @@ USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-screening-tool/1.0; +research
 # Virtuoso's bif:contains needs >=4 leading characters before a wildcard —
 # one wildcarded stem catches "vodík"/"vodíku"/"vodíková"/"vodíkových"/...
 # in a single query instead of enumerating every inflected form.
-HYDROGEN_KEYWORDS = ["vodí*"]
+#
+# doc/PLAN.md §30, 2026-09-17, user-directed: was "vodí*" (4 chars) — a
+# live batch found this ALSO matches "vodítko"/"vodítka"/"vodítek"
+# (elevator/lift guide rails, an entirely unrelated word that happens to
+# share the same 4-letter prefix) and "vodicí" (guide-, as in "vodicí
+# lano"), neither of which has anything to do with hydrogen. "vodík*" (5
+# chars) still covers every needed inflected form — vodík, vodíku,
+# vodíkem, vodíková, vodíkový, vodíkových, vodíkovým, vodíky all share
+# "vodík" as their first 5 characters — while the 5th letter alone (k vs.
+# t/c) already excludes the guide-rail words. `add_esbirka_hydrogen_acts
+# .py` additionally re-checks this defensively against a fixed \bvodík
+# regex, since the pre-existing candidates file was collected under the
+# old, looser keyword and still carries that noise.
+HYDROGEN_KEYWORDS = ["vodík*"]
 RESULT_LIMIT = 100
 
 _SEARCH_QUERY_TEMPLATE = """
