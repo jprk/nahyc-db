@@ -34,8 +34,17 @@ SPARQL_ENDPOINT = "http://publications.europa.eu/webapi/rdf/sparql"
 SLEEP_SECONDS = 2
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-screening-tool/1.0; +research use, low-volume)"
 
-HYDROGEN_KEYWORDS = ["hydrogen"]
-RESULT_LIMIT = 200
+# doc/PLAN.md §28, 2026-09-17: "RFNBO" (Renewable Fuels of Non-Biological
+# Origin) added alongside "hydrogen" — the defined EU regulatory term for
+# renewable/green hydrogen, appears in titles "hydrogen" itself doesn't
+# (e.g. delegated acts under RED II/III) — deliberately NOT a broader net
+# of loosely-related terms, to keep false positives down.
+HYDROGEN_KEYWORDS = ["hydrogen", "RFNBO"]
+# Was 200; a live run returned 199 — one query away from silent
+# truncation. Raised, not paginated: at this scale a single generous
+# LIMIT is simpler than OFFSET-based paging and the result count is
+# checked against it below so truncation is visible, not silent.
+RESULT_LIMIT = 1000
 
 _QUERY_TEMPLATE = """
 PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
@@ -156,6 +165,9 @@ def main():
             time.sleep(SLEEP_SECONDS)
         print(f"=== querying Cellar for title containing {keyword!r} ===")
         bindings = run_sparql(session, build_query(keyword))
+        if len(bindings) >= RESULT_LIMIT:
+            print(f"  WARNING: {len(bindings)} matches == RESULT_LIMIT — results are likely "
+                  f"TRUNCATED, raise RESULT_LIMIT further before trusting this run")
         new_candidates = find_new_candidates(bindings, known_digits, keyword)
         print(f"  {len(bindings)} matches, {len(new_candidates)} not already in the corpus")
         all_new.extend(new_candidates)

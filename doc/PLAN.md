@@ -4282,3 +4282,223 @@ check them specifically.
 Corpus-wide state at the end of Phase 1's active work this session:
 `needs_review` 450 → 333/1215 (over the whole Phase 1 arc:
 `normoff.gov.sk`, `eiga.eu`, `iec.ch`, `dvgw.de` combined).
+
+## 28. Corpus expansion: harvest new, URL-verified hydrogen documents — Phase A, EU legislation (NEW, 2026-09-17, user-directed)
+
+**User feedback:** the database was reported incomplete — missing
+national laws, directives, and lower-level guidance/methodologies, no
+concrete title given. Separately, a colleague ran an AI model and got
+"a lot of documents" not in our list; the user is rightly skeptical of
+hallucination there (no list was available to cross-check). The
+non-negotiable constraint for all of this work: **every document added
+must be independently verifiable at a real, visitable URL** — never
+guessed, never asserted on an LLM's say-so. Scoped to **EU legislation
+first** this round (Czech national law and lower-level guidance/
+methodologies deferred — see below for why).
+
+### 28.1 What already existed
+
+`src/tools/screen_eurlex.py` already screened the EUR-Lex Cellar SPARQL
+endpoint for "hydrogen" in `cdm:expression_title`, diffed against every
+`znacka` already in the corpus, and wrote new hits to
+`data/fulltext_screening_candidates.json["EUR-Lex"]` — but never
+auto-inserted them. A 2026-09-09 run had left 199 real, unconverted
+candidates sitting there.
+
+### 28.2 Hardening the screen before trusting it further
+
+`RESULT_LIMIT = 200` had returned 199 rows — one query away from silent
+truncation. Raised to 1000 (simpler than OFFSET paging at this scale)
+with a runtime warning if the limit is ever hit again. Added `"RFNBO"`
+(the defined EU regulatory term for renewable hydrogen) alongside
+`"hydrogen"` — deliberately not a broader net of loosely-related terms.
+A live re-run found the true total was 303 (0 from "RFNBO", a harmless
+no-op) — confirming the old limit really had been truncating.
+
+### 28.3 `src/tools/add_eurlex_hydrogen_acts.py` — verify live, then write real Document rows
+
+New script, one candidate at a time:
+1. Classify by CELEX type letter — only binding act types (Regulation/
+   Directive/Decision, R/L/D) auto-convert; everything else (Recommen-
+   dations, and non-standard-shape ids like OJ "C" series notices or
+   preparatory-act ids) is logged to
+   `data/eurlex_administrative_not_imported.json`, not silently
+   dropped.
+2. Re-diff against the **current** `database_merged_raw.json` (not the
+   stale screening snapshot — the corpus had grown since normoff/eiga/
+   iec/dvgw work all landed).
+3. Re-fetch the title **live** via `src/sites/eurlex.py:extract()` —
+   never trust the screening snapshot's title; a CELEX that no longer
+   resolves is skipped and logged.
+4. **Filter off-topic chemistry/administrative false positives** (added
+   after the first full run — see 28.4 below).
+
+Idempotent via its own output file (`znacka`-based diffing, no side-
+channel bookkeeping field). 14 unit tests (`tests/test_add_eurlex_
+hydrogen_acts.py`) cover the CELEX classification, znacka construction,
+and record shape with real fixture data.
+
+### 28.4 A real problem found on the first full run: "hydrogen" the word vs. hydrogen the energy carrier
+
+The first full batch run (before the filter in 28.3.4 existed) added
+**51** binding-type acts. Manual inspection of all 51 titles found only
+**13** were genuinely about hydrogen as an energy carrier — the other
+**38** were EU acts about entirely different things that happen to name
+a compound containing the word "hydrogen": "hydrogen peroxide" biocide
+authorisations (regulation 528/2012 — several different named product
+families, renewals, refusals, administrative amendments), "potassium/
+sodium hydrogen carbonate" (bicarbonate) pesticide active-substance
+approvals and MRLs (regulations 1107/2009 and 396/2005), "hydrogen
+cyanide" biocide approvals/derogations, a "silver-sodium-zirconium
+hydrogen phosphate" biocide non-approval, a 2006 Commission cartel
+decision about the hydrogen peroxide/perborate market, a 1975 customs
+notice on "sodium hydrogen glutamate", and a 1981 customs ruling on a
+gas chromatograph with a "hydrogen generator" accessory. None of this
+is transportation- or energy-related hydrogen regulation, and none of
+it belongs in this database.
+
+Fixed by adding `OFF_TOPIC_TITLE_PATTERNS`/`is_off_topic()`: a deny-list
+of the exact chemistry/administrative vocabulary found in that batch
+("peroxid"/"peroxide", "biocid", "kyanovodík"/"hydrogen cyanide",
+"hydrogenuhličitan"/"hydrogen carbonate"/"bicarbonate",
+"hydrogenfosforečnan"/"hydrogen phosphate", "hydrogen glutamate",
+customs-duty/tariff phrasing), checked against the freshly re-fetched
+live title (not the stale snapshot). Verified against the same batch:
+all 38 false positives now correctly excluded, all 13 genuine hydrogen-
+energy acts (the Fuel Cells and Hydrogen 2 Joint Undertaking and its
+predecessor/amendments, hydrogen-vehicle type-approval regulations and
+their implementing/amending acts, alternative-fuels-infrastructure
+delegated acts covering hydrogen refuelling, and the hydrogen-market
+support mechanism's exclusion of Russian/Belarusian supply) still pass.
+Excluded candidates are logged to `data/eurlex_off_topic_not_imported.
+json`, not silently discarded. 8 new unit tests cover this classifier
+against real titles from both sides of the split.
+
+Re-running the full batch cleanly (300 candidates) with the filter in
+place: **13 added**, 239 non-binding type, 4 already in corpus, 38
+off-topic, 6 no longer resolvable live via Cellar (superseded/
+consolidated CELEX ids). All 13 spot-checked: every `odkaz_hlavni` URL
+returns HTTP 200 live.
+
+### 28.5 Wiring in and rebuilding
+
+`data/discovered_eu_hydrogen_acts.json` wired into
+`build_unified_db.py` as an 8th source (`load_json()` +
+`unified_db.extend()`, same pattern as `eu_transposition_targets.json`).
+Full pipeline rebuild (`build_unified_db.py` → `deduplicate_db.py` →
+`link_document_versions.py` → `link_document_relations_auto.py` →
+`init_db.py` → `load_document_relations.py` → `load_process_layer.py`):
+`database_merged_raw.json` grew from 2280 to 2293 records (exactly +13,
+the expected type-filtered, off-topic-filtered, live-reverified count),
+`Total Documents` in the live database now 1228. Full test suite (724
+tests) and the live-database `test_search.py` integration test both
+green afterward.
+
+### 28.6 Deferred to a later round
+
+Per direction: **Czech national law** — `screen_esbirka.py`'s e-Sbírka
+SPARQL graph can't resolve a hit back to its owning act (its 100 real
+candidates are mostly noise — a 1920s tariff schedule mentioning
+"vodík technický" as a chemical term, unrelated fragments); and
+`zakonyprolidi.cz`'s search is behind a Cloudflare "Just a moment..."
+challenge that even headless Chromium (already cleared the AWS WAF
+challenge for `iec.ch`, §25) could not pass on a live test. Two real
+paths forward, neither resolved yet: register for e-Sbírka's official
+REST API (an institutional step only the user can take), or find a
+different public Czech legislative source not yet checked. **Lower-
+level guidance/methodologies** (HYTEP, EHTA, MPO, ERÚ, ÚNMZ, ...) — no
+single registry by nature; needs the same per-institution feasibility
+investigation as the `dvgw.de`/`eiga.eu` work (§24/§26), one institution
+at a time. Both treated as their own follow-up phase, not attempted
+this round.
+
+## 29. Off-topic filter, second layer — a probabilistic/LLM backstop for whatever the pattern deny-list doesn't already know (NEW, 2026-09-17, user-directed)
+
+**User's question, after seeing §28.4's `OFF_TOPIC_TITLE_PATTERNS`:**
+what happens when a new off-topic EU act appears that this exact
+deny-list wasn't written for? Requested a second, probabilistic layer
+scoring title relevance, with three outcomes — (a) pattern match or (b)
+high off-topic score both excluded, (c) low-confidence/uncertain scores
+routed to a review queue instead of guessed at either way — and asked
+for an LLM-based option specifically, with everything logged.
+
+### 29.1 Design
+
+`assess_relevance(title, matched_keyword, celex)` in
+`src/tools/add_eurlex_hydrogen_acts.py` now runs two layers in order:
+
+1. **Pattern deny-list first** (`is_off_topic()`, unchanged from §28) —
+   free, deterministic, and already validated against the real batch
+   that motivated it. A match short-circuits: the LLM is never called
+   for a title the pattern list already recognizes.
+2. **LLM backstop** (`classify_relevance_with_llm()`) for whatever
+   survives step 1 — the same `gpt-4o-mini`/`response_format=json_object`/
+   `temperature=0.0` call shape `deduplicate_db.py`'s
+   `deduplicate_cluster_with_llm()` already uses elsewhere in this
+   pipeline, same `MAX_LLM_ATTEMPTS`/retry-with-backoff discipline. Asks
+   for `{"off_topic_probability": 0-100, "reasoning": "..."}` given the
+   title, matched keyword, and CELEX id — framed as "this already passed
+   the binding-act-type and keyword filters; judge ONLY whether it's
+   genuinely about hydrogen as an energy carrier, or a chemical/
+   administrative false positive like §28.4's".
+
+Two thresholds convert the score to a verdict, not one — so an
+uncertain score is never silently resolved either way:
+`HIGH_OFF_TOPIC_THRESHOLD=75` (score ≥ this → excluded, same handling
+as a pattern hit), `LOW_ON_TOPIC_THRESHOLD=25` (score ≤ this → proceeds
+to import), anything in between → `data/eurlex_relevance_review_queue
+.json`. **A failed/unreachable LLM call is treated identically to an
+uncertain score** — `classify_relevance_with_llm()` returns `None` on
+exhausted retries, and `assess_relevance()` maps that to the same
+`"needs_review"` verdict, never defaulting to on-topic (which would
+silently readmit exactly the false-positive pattern this whole feature
+exists to catch) or off-topic (which would silently discard a possibly
+genuine record — the same "never guess" principle as the rest of this
+script).
+
+### 29.2 The OpenAI client — deliberately NOT `deduplicate_db.py`'s pattern
+
+`deduplicate_db.py` calls `exit(1)` if `.openapi_key` is missing,
+because it's only ever run interactively. This script runs as part of
+an unattended batch (doc/PLAN.md §28.3), so
+`add_eurlex_hydrogen_acts.py` loads its own client the same way but
+degrades instead of crashing: `client = None` on a missing key file,
+and every LLM-stage candidate then resolves to `"needs_review"` (never
+silently to on-topic or off-topic) rather than the whole run aborting.
+
+### 29.3 Logging — all three outcomes, never silently dropped
+
+- `data/eurlex_off_topic_not_imported.json` (already existed, §28) now
+  carries a `detection_method` field (`"pattern"` or `"llm"`) plus
+  `llm_score`/`llm_reasoning` when applicable, so a pattern-caught and
+  an LLM-caught exclusion are distinguishable after the fact.
+- `data/eurlex_relevance_review_queue.json` (NEW): candidates the LLM
+  scored in the uncertain middle band, or that it could not classify at
+  all (client unavailable, every retry failed) — same shape as the
+  off-topic log, `detection_method="llm"` or `"llm_unavailable"`.
+
+### 29.4 Tests and verification
+
+11 new unit tests in `tests/test_add_eurlex_hydrogen_acts.py`
+(`ClassifyRelevanceWithLlmTestCase`, `AssessRelevanceTestCase`): the
+OpenAI client mocked the same way `test_deduplicate_db.py` already
+mocks `deduplicate_db.client` — no real API call in the test suite.
+Cover: unconfigured client → `None`; a valid response parsed; an
+invalid score and an API exception each retried up to
+`MAX_LLM_ATTEMPTS` before giving up; a pattern hit short-circuits
+without ever calling the injected LLM; high/low/middle scores map to
+the three verdicts; an unavailable LLM maps to `"needs_review"`, not a
+guess; and the threshold boundaries themselves resolve to a decided
+verdict, not `"needs_review"`. Live smoke-tested against the real API
+(not part of the automated suite) with one synthetic off-topic title
+outside the pattern list's vocabulary (a hypothetical "hydrogel-based
+crop pesticide" act) and one genuine hydrogen-refuelling-infrastructure
+title — scored 90 and 0 respectively, both landing on the correct side
+of the thresholds. Full test suite (735 tests) stays green.
+
+Re-running the full §28 batch was not necessary: all 38 off-topic
+candidates in that specific batch were already caught by the pattern
+layer alone, so the LLM path was never reached for any of them in that
+run — this second layer is insurance for a future run's not-yet-seen
+false-positive vocabulary, not a correction to §28's already-verified
+13-record result.

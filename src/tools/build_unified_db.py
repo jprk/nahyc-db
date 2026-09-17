@@ -814,7 +814,27 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading EU Transposition Targets data: {e}")
 
-    # 7. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 8. Discovered EU Hydrogen Acts — doc/PLAN.md §28, 2026-09-17,
+    # user-directed corpus expansion (feedback: the database was missing
+    # documents; wary of hallucination from an ungrounded AI-model
+    # cross-check). `src/tools/add_eurlex_hydrogen_acts.py` builds this
+    # file: EUR-Lex Cellar SPARQL keyword hits (`screen_eurlex.py`),
+    # filtered to binding act types only (Regulation/Directive/Decision —
+    # administrative ephemera like calls-for-proposals logged separately,
+    # never imported), each re-verified LIVE against Cellar right before
+    # being written — title, gestor, and the fact that the CELEX still
+    # resolves at all. Already in final record shape (same convention as
+    # V02 Bibliography/EU Transposition Targets above), so this block
+    # just appends it as-is.
+    file_discovered_eu_hydrogen_acts = base_dir / "discovered_eu_hydrogen_acts.json"
+    try:
+        data_discovered_eu_hydrogen_acts = load_json(file_discovered_eu_hydrogen_acts)
+        unified_db.extend(data_discovered_eu_hydrogen_acts)
+        print(f"Loaded {len(data_discovered_eu_hydrogen_acts)} records from Discovered EU Hydrogen Acts.")
+    except Exception as e:
+        print(f"Error loading Discovered EU Hydrogen Acts data: {e}")
+
+    # 9. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json
