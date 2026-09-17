@@ -4629,3 +4629,133 @@ judgment as §27's IEC/DVGW stopping point). e-Sbírka's own registered
 REST API (an institutional Ministry-of-Interior data-box registration)
 remains the eventual, more complete path if ever obtained — unchanged
 from §28's assessment.
+
+## 31. Corpus expansion, continued — lower-level guidance/methodologies (NEW, 2026-09-17, user-directed)
+
+**User instruction:** continue Phase 1 with the last item deferred at
+§28.6 — lower-level guidance/methodologies (HYTEP, EHTA, MPO, ERÚ,
+ÚNMZ), explicitly noted there as "no single registry by nature; would
+need the same per-institution feasibility investigation as the
+`dvgw.de`/`eiga.eu` work, one institution at a time."
+
+### 31.1 Five parallel feasibility investigations
+
+Ran one investigation per institution (same discipline as §24-§27:
+live accessibility check, look for a structured document listing vs.
+just news/blog content, estimate a realistic yield, recommend build-or-
+not) before writing any code:
+
+- **EHTA**: never actually identified as an organization in this
+  session before now — turned out to be "Education in Hydrogen
+  Technologies Area", a one-off 2023 teacher-training course delivered
+  via CHEMINVEST, not a Czech hydrogen body at all. Zero documents of
+  any kind. Dropped from the list entirely.
+- **ERÚ** (Energetický regulační úřad): site fully scrapable (Drupal,
+  working search), but a live search for "vodík" returns zero results,
+  and the two structurally relevant pages ("Metodiky regulace",
+  "Výkladová stanoviska a důležitá sdělení") don't mention hydrogen at
+  all. ERÚ hasn't published any hydrogen-specific regulatory content
+  yet — plausible future source once national hydrogen-network
+  methodologies exist, not pursued now.
+- **ÚNMZ**: site fully scrapable (WordPress, working RSS search), but a
+  site-wide search for "vodík" returns only 6 hits — two workshop news
+  articles, a generic bulletin category page, two unrelated metrology
+  pages. No dedicated hydrogen guidance document exists outside the ČSN
+  norm catalog already covered elsewhere in this pipeline. Not pursued.
+- **MPO** (Ministerstvo průmyslu a obchodu): exactly 2 real documents —
+  the 2021 national hydrogen strategy and its 2024 update — both
+  live-verified (HTTP 200 after a `www.`→bare-domain redirect). Too
+  small a yield to justify a scraper; added by hand instead (§31.2).
+- **HYTEP** (Česká vodíková technologická platforma): a Joomla site,
+  fully scrapable, no WAF. Two structured listing pages
+  (`/o-vodiku/klicove-dokumenty`, `/o-vodiku/publikace-hytep`) hold ~21
+  real documents with human-written titles, zero pagination. Worth a
+  small fetcher (§31.3).
+
+### 31.2 MPO — hand-curated (2 records)
+
+`data/mpo_hydrogen_strategy_documents.json`, same convention as
+`eu_transposition_targets.json`: `zdroj_dat="MPO_Hydrogen_Strategy"`,
+`typ_dokumentu="Strategický dokument"` (a NEW type — Czech
+national/EU hydrogen strategy documents aren't a Zákon/Vyhláška/EU-act;
+`DocumentType` rows are get-or-create in `init_db.py`, not a fixed
+enum, so introducing a new type name needs no schema change),
+`gestor=["Ministerstvo průmyslu a obchodu"]`, `znacka=""` (a strategy
+document has no formal legal reference number to cite it by). The 2021
+record's annotation cross-references the 2024 update explicitly
+("zůstává jako historická/výchozí verze, ne jako aktuálně platný
+text").
+
+### 31.3 HYTEP — `src/tools/add_hytep_hydrogen_docs.py`
+
+**No off-topic relevance filter needed here** — the first source this
+session that doesn't need one. §29/§30's EU/CZ sources both screen a
+full-text keyword search that inevitably surfaces incidental, unrelated
+matches. HYTEP's two listing pages are themselves a hydrogen-industry
+association's own curated "key documents"/"our publications" pages —
+by construction, everything on them is already about hydrogen. What
+this script verifies instead: existence (does the link still resolve,
+live, right now) and uniqueness (a new URL, not already in the corpus)
+— same "real, independently confirmed URL" discipline as every other
+source added this session, just without a topical-relevance question
+to answer.
+
+**Extraction detail found live**: each document on HYTEP's listing
+pages has TWO `<a>` tags sharing the same `href` — a generic "zobrazit
+[.pdf]" button (useless as a title) and a second one carrying
+`data-link-type="url"`, whose link text is the real, human-written
+document title. `extract_document_links()` selects only the second.
+
+**Two documents deliberately skipped at the source, not deduplicated
+after the fact**: HYTEP's listing also mirrors "Vodíková strategie
+České republiky (2021)" and its 2024 update — the exact two documents
+§31.2 already added from MPO, the actual approving ministry.
+`SKIP_URL_FRAGMENTS` excludes these HYTEP-hosted mirrors by a
+distinctive filename fragment, preferring the authoritative host over
+a third-party copy — the same choice already made elsewhere in this
+pipeline (`eur-lex.europa.eu` over a mirror, `e-sbirka.gov.cz` as the
+recorded authoritative reference). Verified this was the right call,
+not just a theoretical precaution: `deduplicate_db.py`'s existing
+semantic-similarity dedup DID independently catch and correctly merge
+a genuine near-duplicate pair this run — two differently-worded titles
+for the same "Politický/Politicko-strategický... rámec EU..." document,
+hosted on hytep.cz and cistadoprava.cz respectively — confirming that
+safety net still works, while the two known MPO mirrors never had to
+rely on it.
+
+**`typ_dokumentu`** uses a new, source-specific classifier
+(`classify_hytep_document_typ()`) — `build_unified_db.py:
+classify_law_document_typ()` only recognizes Zákon/Vyhláška/EU-act
+vocabulary, none of which this non-binding guidance/strategy material
+uses. Three buckets (Strategický dokument/Metodika/Studie), "" when
+genuinely unclear — same "never force-guess" discipline as the
+function it's modeled after.
+
+Live run: 19 new records added (2 skipped as MPO-authoritative
+duplicates, 0 unresolvable). 5 spot-checked URLs confirmed HTTP 200
+live.
+
+### 31.4 Wiring, rebuild, verification
+
+Both new sources wired into `build_unified_db.py` (10th and 11th
+source blocks, same `load_json()` + `unified_db.extend()` pattern).
+Full pipeline rebuild: `database_merged_raw.json` 2295 → 2316 (+21,
+matching the 2 MPO + 19 HYTEP records exactly);
+`deduplicate_db.py`'s semantic pass correctly merged the one genuine
+near-duplicate pair described above (2 records → 1) while correctly
+keeping a main-document/annex pair separate ("Aktualizace Národního
+akčního plánu čisté mobility" vs. its "Příloha"); live `Total
+Documents` 1230 → 1250. 19 new unit tests
+(`tests/test_add_hytep_hydrogen_docs.py`), full suite (781 tests) and
+the live-database `test_search.py` integration test both green
+afterward.
+
+### 31.5 Where this leaves the "lower-level guidance/methodologies" item
+
+Closed for now: HYTEP and MPO covered (23 real documents added across
+both), EHTA correctly identified as not a document source at all, ERÚ
+and ÚNMZ confirmed to currently have nothing hydrogen-specific to add
+(both worth a periodic recheck later, not pursued further this round).
+Combined with §28-§30, this closes every item on §28.6's original
+deferred list except Czech national law's own residual gaps (§30.5)
+and any future ERÚ/ÚNMZ publication.

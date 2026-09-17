@@ -855,7 +855,39 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered CZ Hydrogen Acts data: {e}")
 
-    # 10. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 10. MPO Hydrogen Strategy Documents — doc/PLAN.md §31, 2026-09-17,
+    # user-directed: the "lower-level guidance/methodologies" leg deferred
+    # at §28.6. A live investigation found MPO (Ministerstvo průmyslu a
+    # obchodu) publishes exactly 2 hydrogen-specific documents (the 2021
+    # national hydrogen strategy and its 2024 update) — too small a yield
+    # to justify a scraper, hand-verified instead, same convention as
+    # `eu_transposition_targets.json`/`v02_bibliography_documents.json`.
+    file_mpo_hydrogen_strategy = base_dir / "mpo_hydrogen_strategy_documents.json"
+    try:
+        data_mpo_hydrogen_strategy = load_json(file_mpo_hydrogen_strategy)
+        unified_db.extend(data_mpo_hydrogen_strategy)
+        print(f"Loaded {len(data_mpo_hydrogen_strategy)} records from MPO Hydrogen Strategy Documents.")
+    except Exception as e:
+        print(f"Error loading MPO Hydrogen Strategy Documents data: {e}")
+
+    # 11. Discovered HYTEP Hydrogen Docs — doc/PLAN.md §31, 2026-09-17,
+    # same leg as above. `src/tools/add_hytep_hydrogen_docs.py` fetches
+    # HYTEP's (Česká vodíková technologická platforma) own two curated
+    # document-listing pages — by construction already hydrogen-specific,
+    # so unlike the EU/CZ full-text-search sources above, no off-topic
+    # relevance filter is needed here, just live-URL verification and
+    # uniqueness. Two mirrors of the MPO strategy documents above are
+    # skipped at the source (see that script's docstring) rather than
+    # relying on deduplicate_db.py to merge them after the fact.
+    file_discovered_hytep_hydrogen_docs = base_dir / "discovered_hytep_hydrogen_docs.json"
+    try:
+        data_discovered_hytep_hydrogen_docs = load_json(file_discovered_hytep_hydrogen_docs)
+        unified_db.extend(data_discovered_hytep_hydrogen_docs)
+        print(f"Loaded {len(data_discovered_hytep_hydrogen_docs)} records from Discovered HYTEP Hydrogen Docs.")
+    except Exception as e:
+        print(f"Error loading Discovered HYTEP Hydrogen Docs data: {e}")
+
+    # 12. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json
