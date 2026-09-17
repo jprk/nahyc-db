@@ -4759,3 +4759,58 @@ and ÚNMZ confirmed to currently have nothing hydrogen-specific to add
 Combined with §28-§30, this closes every item on §28.6's original
 deferred list except Czech national law's own residual gaps (§30.5)
 and any future ERÚ/ÚNMZ publication.
+
+## 32. ERÚ/ÚNMZ revisited, confirmed empty on stronger evidence — Phase 1 stopped here (NEW, 2026-09-17, user-directed)
+
+**User instruction:** revisit ERÚ and ÚNMZ specifically (§31.1's two
+"currently nothing, worth a periodic recheck" findings), then stop
+Phase 1 and document.
+
+§31.1's original pass for both was real but shallow — ERÚ's check
+mistook its sitemap *index* (5 entries) for the whole sitemap, and
+ÚNMZ's check relied on a title/search-index match rather than the
+actual bulletin body text. This round redid both properly:
+
+- **ERÚ**: fetched all 5 real sub-sitemaps (9,551 URLs total, not 5)
+  and grepped every URL slug for hydrogen/decarbonized-gas vocabulary —
+  zero matches. Re-confirmed the site search endpoint itself works
+  (verified against unrelated terms like "plyn"/"elektřina", which
+  return real results) before trusting its empty result for 10 term
+  variants ("vodík", "vodíková síť", "RFNBO", "vstřikování vodíku",
+  "H2", ...). Hand-content-checked the three most plausible candidate
+  pages directly (the electricity/gas infrastructure-project evaluation
+  methodology, the pending gas-network connection decree revision
+  replacing 62/2011, the connection network codes page) — all real,
+  live, none mention hydrogen anywhere in the page text.
+- **ÚNMZ**: used the site's live WordPress REST search API with 6+
+  term variants, AND — the real gap in the first pass — downloaded and
+  full-text-searched the actual Věstník (official bulletin) PDF
+  archive, 7 real issues spanning December 2025 through April 2026 (the
+  most recent available), rather than trusting a title-index search.
+  Found exactly one near-miss, worth recording as its own small finding:
+  "uhlovodíků" (hydrocarbons) contains "vodík" as a literal substring on
+  a stale 2019 archive page — the SAME class of word-stem false
+  positive as e-Sbírka's "vodítko" collision (§30.2), confirming that
+  failure mode isn't specific to one site's search implementation. No
+  genuine hydrogen mention exists in any of the 7 recent bulletin
+  issues, and the pressure-vessel/TPM/metrology pages that surface in
+  search do so via fuzzy tag-relevance scoring, not actual body-text
+  content.
+
+**Conclusion: both "nothing yet" findings hold up, now on much firmer
+evidence** — a genuinely empty result set across the full site, not an
+artifact of not having looked hard enough. No corpus or pipeline change
+from this round; nothing to commit.
+
+**Decision: Phase 1 stops here.** Combined with §27's original stopping
+point and §28-§31's corpus-expansion arc, every institution/domain this
+phase identified as worth investigating has now been checked, at
+increasing depth where a first pass looked incomplete, and each landed
+in one of three states: added (EUR-Lex, e-Sbírka, HYTEP, MPO — §28-§31),
+structurally/currently empty but worth a future recheck if the
+underlying regulatory landscape changes (ERÚ, ÚNMZ — this section;
+Czech national law's `právní-akt-metadata`/orphan-node residual — §30.5),
+or genuinely inapplicable (EHTA, IEC/csagroup.org/sae.org access
+friction — §27/§31.1). Corpus-wide state at the end of this session's
+full Phase 1 + corpus-expansion arc: `database_merged_raw.json` at 2316
+records, live `Total Documents` at 1250.
