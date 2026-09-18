@@ -7,7 +7,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
 from sites.eurlex import (celex_candidates_from_designation, celex_from_url,
                           eli_candidates_from_designation, extract,
-                          fetch_responsible_gestor, resource_uris_from_text)
+                          fetch_responsible_gestor, resolve_eu_act_by_designation,
+                          resource_uris_from_text)
 
 
 def _fake_session(bindings):
@@ -241,6 +242,31 @@ class EliCandidatesFromDesignationTestCase(unittest.TestCase):
     def test_unknown_type_or_no_digits_yields_nothing(self):
         self.assertEqual(eli_candidates_from_designation("(EU) 2018/546", "Zákon"), [])
         self.assertEqual(eli_candidates_from_designation("ADR 2025", "Rozhodnutí EU"), [])
+
+class ResolveEuActByDesignationTestCase(unittest.TestCase):
+    """doc/PLAN.md §38, 2026-09-18: resolving a national law's own free-
+    text EU-transposition citation (not a stored corpus URL) against
+    Cellar, by ELI."""
+
+    def test_resolves_via_first_matching_eli_candidate(self):
+        session = _fake_session([_binding("CES", "Směrnice 2011/92/EU")])
+        got = resolve_eu_act_by_designation(
+            "Směrnice Evropského parlamentu a Rady 2011/92/EU ze dne 13. prosince 2011",
+            "Směrnice EU", session=session)
+        self.assertEqual(got, {"title": "Směrnice 2011/92/EU",
+                                "url": "https://eur-lex.europa.eu/eli/dir/2011/92/oj"})
+
+    def test_no_bindings_at_all_returns_none(self):
+        session = _fake_session([])
+        got = resolve_eu_act_by_designation("2011/92", "Směrnice EU", session=session)
+        self.assertIsNone(got)
+
+    def test_unknown_type_returns_none_without_querying(self):
+        session = _fake_session([_binding("CES", "Should never be returned")])
+        got = resolve_eu_act_by_designation("2011/92", "Zákon", session=session)
+        self.assertIsNone(got)
+        session.get.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

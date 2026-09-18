@@ -6,7 +6,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 
 from build_unified_db import (
     extract_znacka_from_title, resolve_prokop_jurisdikce,
-    record_url, apply_authoritative_metadata, synthesize_csn_adoption_records,
+    record_url, apply_authoritative_metadata, apply_eu_transposition,
+    synthesize_csn_adoption_records,
     classify_law_document_typ, split_sinay_zakony_row,
 )
 
@@ -310,6 +311,42 @@ class RecordUrlTestCase(unittest.TestCase):
 
     def test_no_url_is_empty_string(self):
         self.assertEqual(record_url({}), "")
+
+
+class ApplyEuTranspositionTestCase(unittest.TestCase):
+    """doc/PLAN.md §38, 2026-09-18: the build_unified_db.py-side half of
+    the EU-transposition nazev_eu/odkaz_eu overlay."""
+
+    def test_fetched_entry_fills_the_gap(self):
+        record = {"odkaz_hlavni": "https://www.zakonyprolidi.cz/cs/2001-100",
+                  "nazev_eu": "", "odkaz_eu": ""}
+        cache = {"https://www.zakonyprolidi.cz/cs/2001-100": {
+            "status": "fetched", "nazev_eu": "Směrnice 2001/42/ES...",
+            "odkaz_eu": "https://eur-lex.europa.eu/eli/dir/2001/42/oj"}}
+        apply_eu_transposition(record, cache)
+        self.assertEqual(record["nazev_eu"], "Směrnice 2001/42/ES...")
+        self.assertEqual(record["odkaz_eu"], "https://eur-lex.europa.eu/eli/dir/2001/42/oj")
+
+    def test_never_overwrites_an_existing_value(self):
+        record = {"odkaz_hlavni": "https://www.zakonyprolidi.cz/cs/2001-100",
+                  "nazev_eu": "Already there", "odkaz_eu": "https://already-there"}
+        cache = {"https://www.zakonyprolidi.cz/cs/2001-100": {
+            "status": "fetched", "nazev_eu": "Would overwrite", "odkaz_eu": "https://would-overwrite"}}
+        apply_eu_transposition(record, cache)
+        self.assertEqual(record["nazev_eu"], "Already there")
+        self.assertEqual(record["odkaz_eu"], "https://already-there")
+
+    def test_no_transposition_status_leaves_fields_blank(self):
+        record = {"odkaz_hlavni": "https://www.slov-lex.sk/x", "nazev_eu": "", "odkaz_eu": ""}
+        cache = {"https://www.slov-lex.sk/x": {"status": "no_transposition"}}
+        apply_eu_transposition(record, cache)
+        self.assertEqual(record["nazev_eu"], "")
+        self.assertEqual(record["odkaz_eu"], "")
+
+    def test_url_not_in_cache_is_a_no_op(self):
+        record = {"odkaz_hlavni": "https://www.zakonyprolidi.cz/cs/9999-1", "nazev_eu": "", "odkaz_eu": ""}
+        apply_eu_transposition(record, {})
+        self.assertEqual(record["nazev_eu"], "")
 
 
 class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):

@@ -14,6 +14,7 @@ from sites.iec import normalize_designation as iec_designation  # noqa: E402
 from sites.dvgw import normalize_designation as dvgw_designation  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
+EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -283,6 +284,34 @@ def load_synthesized_summaries():
     if SYNTHESIZED_SUMMARIES_PATH.exists():
         return load_json(SYNTHESIZED_SUMMARIES_PATH)
     return {}
+
+
+def load_eu_transposition_cache():
+    """doc/PLAN.md §38, 2026-09-18: reads data/eu_transposition_cache.json
+    (built by src/tools/populate_eu_transposition.py) — empty dict if it
+    doesn't exist yet."""
+    if EU_TRANSPOSITION_CACHE_PATH.exists():
+        return load_json(EU_TRANSPOSITION_CACHE_PATH)
+    return {}
+
+
+def apply_eu_transposition(record, cache):
+    """Attaches nazev_eu/odkaz_eu from the EU-transposition cache when a
+    successfully-fetched entry exists for this record's own
+    `odkaz_hlavni` URL — mutates `record` in place. Deliberately never
+    overwrites a nazev_eu/odkaz_eu the record already carries (whatever
+    source populated it originally is trusted as-is); only ever fills
+    the gap for a record that had neither field. A `no_transposition` or
+    `unresolved` cache entry is a legitimate, verified "nothing to add
+    here" outcome, not applied as a title/URL."""
+    if (record.get("nazev_eu") or "").strip() or (record.get("odkaz_eu") or "").strip():
+        return
+    url = (record.get("odkaz_hlavni") or "").strip()
+    entry = cache.get(url) if url else None
+    if not entry or entry.get("status") != "fetched":
+        return
+    record["nazev_eu"] = entry.get("nazev_eu", "")
+    record["odkaz_eu"] = entry.get("odkaz_eu", "")
 
 
 def apply_synthesized_summary(record, summaries):
@@ -947,6 +976,18 @@ def build_unified_db():
     if synthesized_count:
         print(f"Added {synthesized_count} new ČSN-adoption record(s) confirmed by "
               f"agentura-cas.cz with no prior record of their own (doc/PLAN.md §9).")
+
+    eu_transposition_cache = load_eu_transposition_cache()
+    eu_transposition_count = 0
+    for record in unified_db:
+        before = (record.get("nazev_eu") or "").strip()
+        apply_eu_transposition(record, eu_transposition_cache)
+        if not before and (record.get("nazev_eu") or "").strip():
+            eu_transposition_count += 1
+    if eu_transposition_count:
+        print(f"Applied EU-transposition nazev_eu/odkaz_eu to {eu_transposition_count} "
+              f"national-law record(s) from {EU_TRANSPOSITION_CACHE_PATH.relative_to(REPO_ROOT)} "
+              f"(doc/PLAN.md §38).")
 
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:

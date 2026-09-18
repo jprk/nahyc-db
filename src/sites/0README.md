@@ -39,6 +39,22 @@ konkrétní stránka/služba skutečně vrací.
   nedá žádnou shodu, `celex_candidates_from_designation()` zkusí
   sestavit kandidátní CELEX přímo z `identifier`/titulku (obě možná
   pořadí roku a čísla, nikdy neuhádne jen jedno).
+  **2026-09-18 (doc/PLAN.md §38, uživatelské zadání — doplnění
+  `nazev_eu`/`odkaz_eu`)**: `resolve_eu_act_by_designation(text,
+  type_name, session=None)`, nová funkce pro volný citační text (poznámka
+  pod čarou/příloha národního zákona), ne uloženou URL záznamu — zkouší
+  ELI kandidáty (`eli_candidates_from_designation()`) a při neúspěchu
+  CELEX kandidáty (živě nalezeno: starší Rozhodnutí typu 2002/159/ES
+  nemají v Cellaru `owl:sameAs` záznam pod svým ELI zdrojem vůbec, jen
+  pod CELEX). `_YEAR_NUMBER_RE` rozšířeno na jednociferné pořadové číslo
+  (`\d{1,4}`) — živě nalezeno, že dřívější `\d{2,4}` tiše selhávalo na
+  reálné Směrnici 2006/7/ES (o vodách ke koupání). Volající
+  (`src/tools/populate_eu_transposition.py`) MUSÍ ověřit datum
+  vráceného titulku proti datu v citaci předtím, než náhradní typ
+  přijme — různé typy aktů EU mají nezávislé číslování v rámci roku,
+  takže stejná dvojice rok/číslo může patřit dvěma zcela odlišným
+  aktům (živě nalezeno u "2011/92": směrnice EIA i nesouvisející
+  nařízení o sýru).
 * `zakonyprolidi.py` - Autoritativní název + popis českého zákona ze
   `zakonyprolidi.cz` (soukromý, ale spolehlivý zrcadlový portál — viz
   `esbirka.py` níže, proč ne přímo oficiální zdroj). Parsuje `<meta

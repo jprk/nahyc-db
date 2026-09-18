@@ -157,7 +157,11 @@ _ELI_TYPE_BY_DOCUMENT_TYPE = {
     "Rozhodnutí EU": "dec",
 }
 
-_YEAR_NUMBER_RE = re.compile(r"(\d{2,4})\s*/\s*(\d{2,4})")
+# The sequence number side allows a single digit ("Directive 2006/7/EC",
+# the real Bathing Water Directive) — found live, doc/PLAN.md §38: a
+# `{2,4}` minimum on both sides silently failed to match this and any
+# other single-digit-numbered act at all.
+_YEAR_NUMBER_RE = re.compile(r"(\d{2,4})\s*/\s*(\d{1,4})")
 
 
 def _plausible_year(n):
@@ -219,6 +223,61 @@ def resource_uri_from_url(url):
     `url` (a stored `Document.url` normally carries just one), or None."""
     uris = resource_uris_from_text(url)
     return uris[0] if uris else None
+
+
+_ELI_SAMEAS_TITLE_QUERY_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?title ?lang WHERE {{
+  ?work owl:sameAs <{resource_uri}> .
+  ?expr cdm:expression_belongs_to_work ?work .
+  ?expr cdm:expression_uses_language ?langres .
+  ?expr cdm:expression_title ?title .
+  BIND(STRAFTER(STR(?langres), "/language/") AS ?lang)
+  FILTER(?lang IN ("CES", "ENG"))
+}}
+"""
+
+
+def _title_from_resource_uri(session, resource_uri):
+    bindings = _run_sparql(session, _ELI_SAMEAS_TITLE_QUERY_TEMPLATE.format(resource_uri=resource_uri))
+    by_lang = {b["lang"]["value"]: b["title"]["value"] for b in bindings if "lang" in b and "title" in b}
+    return by_lang.get("CES") or by_lang.get("ENG")
+
+
+def resolve_eu_act_by_designation(text, type_name, session=None):
+    """doc/PLAN.md §38, 2026-09-18: resolves a verified title + public
+    eur-lex.europa.eu URL for an EU act known only from free citation text
+    (a national law's own EU-transposition footnote/annex — e.g. "Směrnice
+    Evropského parlamentu a Rady 2011/92/EU ze dne 13. prosince 2011 o
+    posuzování ..."), not a stored corpus URL. Tries every candidate
+    `eli_candidates_from_designation()` returns (both digit orderings —
+    pre-2015 regulations are cited "č./No NNN/YYYY" while directives and
+    post-2015 acts use "YYYY/NNNN") against Cellar via `owl:sameAs`,
+    returning the first that resolves to a real title. None if nothing
+    resolves — never guessed, never falls back to constructing a URL
+    that was never actually confirmed to exist.
+
+    Falls back to CELEX candidates (`celex_candidates_from_designation()`)
+    when no ELI candidate resolves: found live, doc/PLAN.md §38 — several
+    older Decisions (e.g. 2002/159/EC) have no `owl:sameAs` record at all
+    under their ELI resource URI in Cellar, only under their CELEX one."""
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+    for resource_uri in eli_candidates_from_designation(text, type_name):
+        title = _title_from_resource_uri(session, resource_uri)
+        if title:
+            public_url = resource_uri.replace(
+                "http://publications.europa.eu/resource/eli/",
+                "https://eur-lex.europa.eu/eli/")
+            return {"title": title, "url": public_url}
+    for resource_uri in celex_candidates_from_designation(text, type_name):
+        title = _title_from_resource_uri(session, resource_uri)
+        if title:
+            celex = resource_uri.rsplit("/", 1)[-1]
+            public_url = f"https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:{celex}"
+            return {"title": title, "url": public_url}
+    return None
 
 
 _GESTOR_QUERY_TEMPLATE = """

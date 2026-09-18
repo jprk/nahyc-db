@@ -5250,3 +5250,147 @@ U5/U7 (spot-checked against real identifiers/titles) is still correct
 ordering, not by any explicit id-preservation design. Worth a
 `load_process_layer.py` re-run at the next natural opportunity to
 re-ground this on solid footing rather than favorable ordering.
+
+## 38. Populating `nazev_eu`/`odkaz_eu` for national laws (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Populate nazev_eu/odkaz_eu for the national laws
+missing it." 56 of 59 Zákon/Vyhláška/Nařízení-vlády records had neither
+field. Given the stated bar for this whole session (every citation
+independently verifiable, never guessed), this needed a structural,
+non-guessing signal for "which EU act(s) does this national law
+transpose", not keyword search.
+
+### 38.1 The two conventions found
+
+- **Czech law** (Legislativní pravidla vlády, čl. 55a): footnote **"1)"**
+  specifically — never "1a)", "2)", ... — is reserved for the law's own
+  EU-harmonization declaration; that footnote's text lists the exact
+  transposed acts. Confirmed live against `zakonyprolidi.cz/cs/2001-100`
+  (Act 100/2001 Sb., the EIA Act): its footnote "1)" (HTML anchor `<i
+  id="pozn1">`, distinct from `pozn1a`/`pozn1b`/`pozn10`/...) lists all 3
+  directives it transposes; adjacent footnotes ("1b)", "2)", "4b)", ...)
+  cite other CZECH laws, confirming "1)" specifically — not "any early
+  footnote" — carries this role. Fetched by plain HTTP GET, same as
+  `src/sites/zakonyprolidi.py`.
+- **Slovak law**: no footnote convention — instead a closing paragraph
+  cross-references an annex by number ("Týmto zákonom sa preberajú
+  právne záväzné akty Európskej únie uvedené v prílohe č. N"), and that
+  annex is headed "ZOZNAM PREBERANÝCH PRÁVNE ZÁVÄZNÝCH AKTOV EURÓPSKEJ
+  ÚNIE" followed by the numbered list. Confirmed live against
+  `slov-lex.sk/pravne-predpisy/SK/ZZ/2006/24/` (Act 24/2006 Z.z.).
+  `slov-lex.sk` serves only a bare Angular-SPA shell over plain HTTP —
+  confirmed live: a plain fetch's embedded JSON-LD block carries only
+  `name`/`legislationIdentifier`/`inLanguage`, no footnote/annex content
+  at all — so this needs Playwright/headless Chromium to render the
+  full text, same WAF/JS-rendering precedent as `add_missing_iso_
+  parents.py`'s `iso.org` fetch (§37).
+
+Every citation found is independently re-verified against EUR-Lex
+Cellar (`sites.eurlex.resolve_eu_act_by_designation()`, new) before
+being trusted — an act that doesn't resolve there is logged and
+skipped, never guessed into a URL that was never confirmed to exist. A
+law with no footnote-1/annex cross-reference at all is recorded as
+`status: "no_transposition"` — a legitimate, common outcome (not every
+national law transposes EU law), not an extraction failure.
+
+### 38.2 Two collision/coverage bugs found and fixed live in `src/sites/eurlex.py`
+
+- `_YEAR_NUMBER_RE` required 2+ digits on the sequence-number side,
+  silently failing on real single-digit-numbered acts (Directive
+  2006/7/EC, the Bathing Water Directive) — widened to `\d{1,4}`.
+- `resolve_eu_act_by_designation()` (new) tried only ELI-based
+  `owl:sameAs` candidates; several older Decisions (e.g. 2002/159/EC)
+  have no `owl:sameAs` record under their ELI resource URI in Cellar at
+  all, only under their CELEX one — added a CELEX-candidate fallback
+  (`celex_candidates_from_designation()`, reused unchanged).
+
+### 38.3 A real cross-type digit-pair collision, and the date-match safety gate
+
+Found live: "2011/92" is BOTH Directive 2011/92/EU (EIA) and — read as
+"No 92/2011" — an unrelated Commission Regulation on cheese PDO
+amendments; different EU-act types are numbered independently within
+the same year, so trying a fallback act-type blindly on a primary-type
+resolution failure can silently accept a WRONG act that just happens to
+share the digit pair. `src/tools/populate_eu_transposition.py`'s
+`resolve_citations()` therefore only accepts a resolved act — primary
+type or fallback — when its own "ze dne ..." date matches the
+citation's own stated date (`extract_date_signal()`/
+`title_matches_date()`, with a Slovak→Czech month-name translation
+table since the citation can be Slovak but the resolved title never
+is). This same fallback path is legitimately needed, not just a risk:
+Regulation (EU) 2021/1187's own title literally starts with "Směrnice"
+in Czech, yet only resolves under `eli/reg/...`, not `eli/dir/...` — the
+date check is what makes trying the fallback safe.
+
+### 38.4 Extraction edge cases found and fixed against real pages
+
+- **Two-digit years, both orderings**: pre-2000 acts are cited "YY/NNN"
+  (`89/656/EHS`) or, for some EP+Council co-decisions numbered like
+  pre-2015 regulations, "NNNN/YY" (`č. 2119/98/ES`) — both expanded to
+  4-digit years (`expand_two_digit_year()`), carefully NOT touching an
+  already-4-digit-year "YYYY/NN" designation (`2001/42/ES`) — an earlier
+  version of this fix did exactly that and broke a previously-working
+  citation; caught by re-running the full 56-record batch, not just the
+  two fixture laws, and now covered by a regression test.
+- **Citations glued together in one footnote line**: several CZ
+  footnotes pack two directives into one `<br/>`-separated line (e.g.
+  zakonyprolidi.cz/cs/2006-309's labour-law footnote) — split further on
+  a capitalized act-type keyword starting a fresh sentence (never a
+  lowercase mid-sentence back-reference to "the aforementioned
+  směrnice").
+- **Own designation not first in the sentence**: one citation's own
+  designation appears in a bare trailing parenthetical
+  ("... (89/656/EHS)."), preceded by an earlier cross-reference to a
+  DIFFERENT act ("... ve smyslu čl. 16 odst. 1 směrnice 89/391/EHS)
+  (89/656/EHS)."); the "first digit pair in the text" heuristic
+  correctly used everywhere else picks up the wrong (earlier-cited)
+  act here, so a bare-trailing-parenthetical shape is checked first and
+  preferred when present.
+
+### 38.5 One residual requiring human judgment, resolved manually
+
+zakonyprolidi.cz's own footnote "1)" for Act 406/2004 Sb. cites
+"Směrnice ... 1999/92/ES ze dne 16. prosince **1991**" — the date-match
+safety gate correctly rejected this (Directive 1999/92/EC's real
+Cellar-confirmed date is 16 December **1999**, not 1991), surfacing it
+instead of silently guessing. Manually verified: near-identical title
+wording ("patnáctá dílčí/samostatná směrnice ve smyslu čl. 16 odst. 1
+směrnice Rady 89/391/EHS") confirms this is the source's own typo, not
+a different act. Applied by hand into `data/eu_transposition_cache.json`
+with a `manual_review_note` field recording the discrepancy — the only
+entry in the cache not produced by the automated pipeline.
+
+Two remaining unresolved items are correctly NOT EU acts at all (two
+RIC/RIV international rail conventions cited alongside directives in
+Act 426/2021 Sb.'s footnote; a ČSN standard reference in Act 294/2015
+Sb.'s) — left unresolved, not forced.
+
+### 38.6 New files, wiring, and results
+
+`src/tools/populate_eu_transposition.py` (new) — the extraction/
+verification/caching tool; `data/eu_transposition_cache.json` (new,
+git-tracked) — 34 `fetched`, 20 `no_transposition`, 2 `unresolved`, 0
+`fetch_failed`. `build_unified_db.py`'s new `apply_eu_transposition()`
+applies it every rebuild (same "persistent cache, never a downstream
+patch" discipline as `apply_authoritative_metadata()`) — never
+overwrites a `nazev_eu`/`odkaz_eu` a record already carries. 33 unit
+tests (`tests/test_populate_eu_transposition.py`) plus 3 new
+`test_sites_eurlex.py` cases and 4 new `test_build_unified_db.py`
+cases, all against real fixture HTML/structures, no live network calls.
+
+Full pipeline re-run: `database_merged_raw.json` unchanged record count
+(2420), `apply_eu_transposition` applied to 45 raw records (more than
+34 cached URLs — several raw source rows share one cached URL before
+dedup); `database_merged_deduplicated.json` — law records with
+`nazev_eu`/`odkaz_eu` populated: 3 → 37 (22 of the original 56 remain
+correctly blank: `no_transposition`/genuinely-not-an-EU-act cases).
+`link_document_relations_auto.py`: **R1.3 (`IMPLEMENTS`) 21 edges** (up
+from the pre-existing baseline), plus 160 newly-identified candidates
+whose cited EU act isn't its own Document record in the corpus yet
+(`data/eu_transposition_missing_targets.json`) — importing those, the
+same shape of follow-on as §37's ISO-parent import, is a natural next
+step but out of this task's scope and not done here.
+`load_document_relations.py` loaded 176/180 relations, 0 unmatched.
+Live DB re-verified directly: 21 `IMPLEMENTS` rows, 0 orphaned
+`node_document` rows (same fragility as §37.4, still stable). Full test
+suite (862 tests) green.
