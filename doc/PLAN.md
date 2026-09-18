@@ -5566,3 +5566,39 @@ transposes), 0 orphaned `node_document` rows. 19 new unit tests across
 `test_link_document_relations_auto.py`, and `test_populate_eu_
 transposition.py`'s further regression coverage for §39.1/§39.2. Full
 test suite (892 tests) green.
+
+## 40. Gestor backfill for the 92 newly-imported EU-act records (NEW, 2026-09-18, user-directed)
+
+**User instruction:** after suggesting it as the natural next step
+(§39's 92 new EU-act records were left with `gestor=[]`), backfill
+their responsible DG/institution the same way §16 already did for
+every other EU-type record — `src/tools/backfill_eu_gestor.py`, no
+script changes needed, since it already queries every `Nařízení EU`/
+`Směrnice EU`/`Rozhodnutí EU` record in the live DB, not just ones a
+particular import added.
+
+Dry run then `--apply`: 149 EU-type documents total, **107 resolved**
+(the 92 new imports plus a handful of pre-existing gaps), 42 already
+correct/unchanged, **0 unresolved** this run. `data/eu_gestor_cache.json`
+updated (148 entries) — `init_db.py` reads this directly, so the result
+survives a future rebuild without needing `build_unified_db.py`/
+`deduplicate_db.py` re-run. One residual confirmed unchanged from
+before this work (not newly introduced): `(EU) 2023/1234` — Cellar has
+no `owl:sameAs`/CELEX record for this act at all (`db id=87`, was
+`id=105` before this session's rebuilds renumbered it), already
+documented in §16/`src/tools/0README.md`.
+
+**User's explicit note, recorded here rather than only said in passing**:
+this is the Nth time this session a newly-added batch of records has
+needed its own follow-up backfill pass run BY HAND (gestor, language,
+slug, standards-body, descriptions, ČSN validity — see `src/tools/
+0README.md`'s `backfill_*.py` entries) — every one of them is a real,
+necessary, idempotent script, but none of them run themselves. **Once
+an automated database update mechanism exists (a scheduled/triggered
+pipeline re-run, not a human invoking each script after each
+addition), it needs to invoke every one of these backfills itself, not
+just re-run `build_unified_db.py`/`deduplicate_db.py`/`init_db.py`** —
+this is a known, deliberately-deferred gap, not an oversight: the
+project so far has been built incrementally by hand, one verified step
+at a time, and building the automation itself is separate, future
+work.
