@@ -4814,3 +4814,143 @@ or genuinely inapplicable (EHTA, IEC/csagroup.org/sae.org access
 friction — §27/§31.1). Corpus-wide state at the end of this session's
 full Phase 1 + corpus-expansion arc: `database_merged_raw.json` at 2316
 records, live `Total Documents` at 1250.
+
+## 33. Phase 2 begins — review-queue triage, and a human decision made permanent (NEW, 2026-09-17, user-directed)
+
+**User instruction:** with Phase 1 (corpus discovery) closed, "Phase 2"
+was ambiguous — asked directly rather than guessed (Slovak law
+discovery was one candidate, explicitly postponed by the user) — and
+resolved to: work through the review queues Phase 1 left behind,
+checking first whether the user needs to be involved at all.
+
+### 33.1 Inventory
+
+Surveyed every `*review*`/`*queue*`/`*unresolved*`/`*not_imported*`
+file in `data/`. Most turned out to need no action: several are
+by-design informational logs (off-topic/administrative exclusions,
+already correctly excluded), several were already empty. Genuine
+content requiring a decision: `esbirka_relevance_review_queue.json`
+(2 items — old 1930s/40s railway/industrial-gas safety rules mentioning
+hydrogen as a transported gas, LLM-uncertain whether "hydrogen as an
+energy carrier" applies). Structural, non-content residuals, reported
+but not yet acted on: `incomplete_records_review_queue.json` (346, the
+app's ordinary three-tier `needs_review` flagging — not a queue to
+clear by hand), `dvgw_unresolved_review_queue.json` (32) and
+`orphan_amendment_review_queue.json` (10, external data-collection
+gaps already accepted when found), `process_layer_review_queue.json`
+(18 — see §34).
+
+### 33.2 The 2-item e-Sbírka relevance queue: excluded, permanently
+
+User decision: exclude both `105/1933 Sb.` (compressed-oxygen purity
+rule mentioning hydrogen contamination) and `1/1946 Sb.` (railway tank-
+wagon hazard-labelling for hydrogen as cargo) — neither is about
+hydrogen as an energy carrier.
+
+**Found a real gap while applying this**: nothing in
+`add_esbirka_hydrogen_acts.py` would have stopped a future re-run from
+silently overturning this decision — the LLM score that put these two
+in the review queue isn't deterministic, so a re-run could re-score
+either candidate differently (back to the queue, or worse, straight to
+"on_topic" and auto-added), contradicting a settled human call. Fixed
+properly, not just by editing the queue file: `data/
+esbirka_human_excluded.json` (new) lists znacky a human has explicitly
+excluded; `add_esbirka_hydrogen_acts.py`'s `main()` checks it (checked
+by znacka, via the same `normalize_for_diff()` used for the corpus-
+membership check) BEFORE relevance classification even runs — so a
+decided candidate can never reach the LLM again. 1 new integration
+test (`MainHumanExclusionTestCase`, all paths/network mocked) asserts
+exactly this: the excluded znacka is skipped without ever calling the
+injected LLM mock, even though that mock is rigged to return a
+confident "on_topic" score if it WERE called.
+
+Live-verified: re-ran the full script against the real 100-candidate
+file — 0 new records, review queue stays empty, both excluded znacky
+correctly skipped across all 22 of their duplicate fragment hits, no
+LLM calls spent on them. No pipeline rebuild needed (the discovered-
+records output didn't change). Full test suite (782 tests) green.
+
+## 34. Process-layer edge review — 14 `unmatched_node_edge` items walked one at a time (NEW, 2026-09-17, user-directed)
+
+**User instruction:** present `process_layer_review_queue.json`'s 14
+`unmatched_node_edge` items one at a time (§33.1's structural-residual
+report flagged these as a real domain-modeling question, distinct from
+the DVGW/orphan-amendment data-collection gaps). Each item is a
+V02-source-document sentence describing a relationship between two of
+the 7 process nodes (`process_node` U1-U7, `doc/konsolidace/
+Konsolidace-DB-schema.sql`'s 15-row static `node_edge` seed) that
+`load_process_layer.py`'s exact from/to-plus-direction match couldn't
+find a corresponding seed row for.
+
+### 34.1 A pattern found immediately, then a real bug found mid-review
+
+Cross-referencing all 14 against the 15 existing edges before
+presenting any of them: **10 of the 14 connect a node pair that
+already HAS an edge**, just in the reverse `from`/`to` direction; only
+4 connect pairs with no existing edge at all (and two of those four,
+U1↔U5, turned out to be the same pair in both directions).
+
+**Working through them one at a time surfaced something the pattern-
+matching alone had missed**: several items' `from_node_id`/`to_node_id`
+labels don't track the sentence's actual causal direction at all —
+they track *which node's chapter of the source document the sentence
+appears in*. Item 6, raw-labelled U4→U1, reads causally as U1→U4
+("funkční klasifikace v územním plánu může předurčit provozní režim" —
+the zoning classification predetermines the operating regime, not the
+reverse); item 7, raw-labelled U4→U3, reads causally as U3→U4; item 8,
+raw-labelled U4→U6 in the review queue, and item 14, raw-labelled
+U7→U5, showed the same pattern. Caught and corrected live during the
+walkthrough (flagged to the user explicitly each time, since it means
+neither of us could trust the queue's own from/to fields without
+reading the sentence). **This also revealed an existing seed edge
+(U6→U4, id 12) has the same property** — its own description content
+reads causally as U4-influences-U6 despite being stored as U6→U4 — left
+as-is (pre-dating this review, not something to silently rewrite), but
+it directly shaped the resolution of item 8 (§34.2).
+
+### 34.2 Resolutions (all applied live to the running `h2regdocs` database AND to `Konsolidace-DB-schema.sql`'s seed, kept in lockstep)
+
+| # | Raw label | Resolution |
+|---|---|---|
+| 1 | U1→U5 | Discarded — narrative only |
+| 9 | U5→U1 | **New edge**, DIRECT/"zpětná" (id 16) — user supplied a fuller Czech explanation of the mechanism (safety constraints in U5 can exclude a site or cap capacity in U1), used verbatim as the description |
+| 2 | U2→U6 | Folded into existing U6→U2 edge (id 6) — same relationship, complementary detail (water-source availability/drainage capacity vs. actual withdrawal/discharge volumes) |
+| 3 | U3→U1 | Folded into existing U1→U3 edge (id 2) — added the "or merged into a joint procedure (společné povolení)" nuance |
+| 4 | U3→U2 | Discarded — word-for-word duplicate of existing U2→U3 edge |
+| 5 | U3→U6 | Discarded — same fact as existing U6→U3 edge, negligible new wording |
+| 6 | U4→U1 | **Direction corrected to U1→U4** (see §34.1) — **new edge**, DIRECT/"nepřímá" (id 17), genuinely new pair |
+| 7 | U4→U3 | **Direction corrected to U3→U4** — filled in the existing U3→U4 edge's previously-`NULL` description (id 10) |
+| 8 | U4→U6 | Real bidirectional relationship, not a mislabel: existing U6→U4 edge already described U4-influences-U6 (licence type conditions connection terms) despite its own from/to storage; this item described the genuine reverse (connection agreements are a precondition for the ERÚ licence, "ledaže jde o samostatný (ostrovní) provoz"). **Existing edge (id 12) upgraded DIRECT/"nepřímá" → BIDIRECTIONAL/"vzájemná"**, same pattern already used for U1-U2/U1-U6/U2-U5/U3-U5/U4-U5, merged description holds both directions' text |
+| 10 | U6→U5 | Discarded — subset of existing U5→U6 edge (which already includes "havarijní systémy", absent here) |
+| 11 | U7→U4 | Folded into existing U4→U7 edge (id 13) — added the "(vlastní spotřeba vs. tržní prodej)" distinction |
+| 12 | U7→U6 | Discarded — essentially identical to existing U6→U7 edge |
+| 13 | U7→U2 | Folded into existing U2→U7 edge (id 7) — added the actual mechanism (life-cycle carbon footprint, which RFNBO's GHG-savings criteria are based on) behind the existing generic claim |
+| 14 | U7→U5 | **Direction corrected to U5→U7** (see §34.1) — **new edge**, DIRECT/"nepřímá" (id 18), genuinely new pair |
+
+Net: `node_edge` grew from 15 to 18 rows (3 genuinely new pairs: U5↔U1,
+U1→U4, U5→U7), one existing edge (U6-U4) upgraded from DIRECT to
+BIDIRECTIONAL, five existing edges gained a merged-in nuance, four
+review-queue items were pure duplicates and discarded. Every change was
+applied directly to the live `h2regdocs` database (via a one-off
+`pymysql` connection, matching `.env` credentials) AND mirrored into
+`Konsolidace-DB-schema.sql`'s seed `INSERT` block with an explanatory
+comment, so a future from-scratch `provision_db.py` run reproduces the
+same state. Verified live: `GET /procesy` on the running dev server
+still returns `200` after all 18 changes. Full test suite (782 tests)
+green throughout (no test asserts against `node_edge` row count/content
+directly — this table isn't unit-tested, only the pure `load_node_edges
+()`/matching logic is).
+
+### 34.3 What's left in `process_layer_review_queue.json`
+
+All 14 `unmatched_node_edge` items are resolved; 4 items of a different
+kind remain (`unmatched_node_citation` ×3, `unmatched_bibliography_
+citation` ×1) — the V02 source cites bare EU-level standard designations
+("EN 17124", "EN ISO 17268") that only exist in the corpus under a
+national prefix ("ČSN EN 17124"/"STN EN 17124", both present for both
+standards). `load_process_layer.py`'s `match_citation()` does exact-
+text matching by design (unit-tested that way) — fixing this raises its
+own small question flagged to the user but not yet resolved: when a
+bare citation matches both a ČSN and an STN adoption, does the process
+node link to one jurisdiction, both, or something else. Not pursued
+further this round pending that answer.

@@ -1,68 +1,8 @@
 [
   {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U1",
-    "to_node_id": "U5",
-    "description": "Zpětná vazba — bezpečnostní požadavky (ochranná pásma) mohou ovlivnit přípustnost v území"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U2",
-    "to_node_id": "U6",
-    "description": "Vstupní — dostupnost vodních zdrojů a kapacita odvodnění ovlivňují vodní režim projektu"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U3",
-    "to_node_id": "U1",
-    "description": "Sekvenční — územní rozhodnutí je podmínkou stavebního řízení (nebo sloučení do společného povolení)"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U3",
-    "to_node_id": "U2",
-    "description": "Sekvenční — závazné stanovisko EIA nebo integrované povolení je podmínkou stavebního řízení"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U3",
-    "to_node_id": "U6",
-    "description": "Vstupní — stanoviska správců sítí k připojení jsou přílohou žádosti o stavební povolení"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U4",
-    "to_node_id": "U1",
-    "description": "Nepřímá — funkční klasifikace v územním plánu může předurčit provozní režim"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U4",
-    "to_node_id": "U3",
-    "description": "Sekvenční — technická způsobilost provozovny se prokazuje na základě stavebního projektu"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U4",
-    "to_node_id": "U6",
-    "description": "Vstupní — smlouvy o připojení k sítím mohou být podmínkou licence ERÚ"
-  },
-  {
     "kind": "unmatched_node_citation",
     "node_id": "U5",
     "citation": "EN 17124"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U5",
-    "to_node_id": "U1",
-    "description": "Zpětná — bezpečnostní vzdálenosti mohou vyloučit lokality nebo omezit přípustné kapacity v území"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U6",
-    "to_node_id": "U5",
-    "description": "Vstupní — bezpečnostní požadavky ovlivňují technické řešení přípojek (ochranná pásma, odpojovací prvky)"
   },
   {
     "kind": "unmatched_node_citation",
@@ -73,30 +13,6 @@
     "kind": "unmatched_node_citation",
     "node_id": "U7",
     "citation": "EN ISO 17268"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U7",
-    "to_node_id": "U4",
-    "description": "Sekvenční — typ oprávnění determinuje, zda je certifikace relevantní (vlastní spotřeba vs. tržní prodej)"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U7",
-    "to_node_id": "U6",
-    "description": "Klíčová — zdroj elektřiny (obnovitelný vs. síťový mix) přímo determinuje dosažitelnost RFNBO certifikace"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U7",
-    "to_node_id": "U2",
-    "description": "Nepřímá — environmentální podmínky provozu mohou ovlivnit uhlíkovou stopu v životním cyklu"
-  },
-  {
-    "kind": "unmatched_node_edge",
-    "from_node_id": "U7",
-    "to_node_id": "U5",
-    "description": "Nepřímá — provozní omezení z bezpečnostních důvodů mohou ovlivnit utilizaci elektrolyzéru a tím ekonomiku RFNBO certifikace"
   },
   {
     "kind": "unmatched_bibliography_citation",

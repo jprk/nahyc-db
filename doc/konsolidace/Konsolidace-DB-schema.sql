@@ -583,10 +583,26 @@ INSERT INTO node_edge (from_node_id, to_node_id, direction, `character`) VALUES
   ('U6','U3','DIRECT',       'nepřímá'),
   ('U3','U4','DIRECT',       'sekvenční'),
   ('U4','U5','BIDIRECTIONAL','vzájemná'),
-  ('U6','U4','DIRECT',       'nepřímá'),
+  -- doc/PLAN.md §34, 2026-09-17, uživatelské zadání (review process_layer_review_queue.json):
+  -- povýšeno z DIRECT/'nepřímá' na BIDIRECTIONAL/'vzájemná' — typ licence (ERÚ)
+  -- podmiňuje podmínky připojení K SOUSTAVĚ (U4→U6), ALE smlouvy o připojení
+  -- jsou zase podmínkou licence ERÚ (U6→U4, s výjimkou ostrovního provozu) —
+  -- oba směry jsou reálné, ne duplicitní popis téhož vztahu.
+  ('U6','U4','BIDIRECTIONAL','vzájemná'),
   ('U4','U7','DIRECT',       'sekvenční'),
   ('U5','U6','DIRECT',       'sekvenční'),
-  ('U6','U7','DIRECT',       'sekvenční');
+  ('U6','U7','DIRECT',       'sekvenční'),
+  -- doc/PLAN.md §34, 2026-09-17, uživatelské zadání (review process_layer_review_queue.json):
+  -- bezpečnostní požadavky definované v U5 mohou vyloučit lokalitu nebo omezit
+  -- kapacitu v U1 — zpětná vazba, ne sekvenční vztah; opačný směr (U1→U5) byl
+  -- záměrně zamítnut jako duplicitní popis TÉHOŽ vztahu z druhé strany.
+  ('U5','U1','DIRECT',       'zpětná'),
+  -- funkční klasifikace v územním plánu (U1) může předurčit provozní/licenční
+  -- režim dosažitelný v U4 — nový pár, dosud nezachycený v žádném směru.
+  ('U1','U4','DIRECT',       'nepřímá'),
+  -- provozní omezení z bezpečnostních důvodů (U5) mohou ovlivnit utilizaci
+  -- elektrolyzéru a tím ekonomiku RFNBO certifikace (U7) — nový pár.
+  ('U5','U7','DIRECT',       'nepřímá');
 
 -- Matice variability 4×7 (intenzity dle V02-DB-popis §6; specifika doplnit z dokumentu V02)
 INSERT INTO node_variability (node_id, installation_type_id, intensity_code)

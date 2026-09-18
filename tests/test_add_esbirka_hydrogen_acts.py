@@ -1,5 +1,7 @@
+import json
 import pathlib
 import sys
+import tempfile
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -192,6 +194,73 @@ class BuildDocumentRecordTestCase(unittest.TestCase):
         self.assertEqual(record["gestor"], [])
         self.assertEqual(record["jazyk"], "")
         self.assertIn("Čerpací stanice vodíku", record["anotace_poznamka"])
+
+
+class MainHumanExclusionTestCase(unittest.TestCase):
+    """doc/PLAN.md §33: a human's review-queue decision must survive a
+    future re-run even though the LLM score that originally produced
+    that queue entry is not deterministic — end-to-end through main()
+    with every path constant redirected into a temp directory and the
+    network-touching pieces mocked."""
+
+    def _write_json(self, path, data):
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+
+    def test_excluded_znacka_is_never_reclassified_or_readded(self):
+        # Under add_esbirka.REPO_ROOT, not the system temp dir — main()
+        # prints paths via .relative_to(REPO_ROOT), which raises for a
+        # path outside it.
+        with tempfile.TemporaryDirectory(dir=add_esbirka.REPO_ROOT) as tmp:
+            tmp = pathlib.Path(tmp)
+            candidates_path = tmp / "candidates.json"
+            raw_db_path = tmp / "raw.json"
+            output_path = tmp / "discovered.json"
+            off_topic_path = tmp / "off_topic.json"
+            review_queue_path = tmp / "review_queue.json"
+            unresolved_path = tmp / "unresolved.json"
+            human_excluded_path = tmp / "human_excluded.json"
+
+            self._write_json(candidates_path, {"e-Sbirka": [
+                {"uri": "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/173675",
+                 "snippet": "kotlové vozy s vodíkem musí míti nálepky", "matched_keyword": "vodík*"},
+            ]})
+            self._write_json(raw_db_path, [])
+            self._write_json(output_path, [])
+            self._write_json(off_topic_path, [])
+            self._write_json(review_queue_path, [])
+            self._write_json(unresolved_path, [])
+            self._write_json(human_excluded_path, [
+                {"znacka": "1/1946 Sb.", "reason": "test exclusion", "decided_at": "2026-09-17"},
+            ])
+
+            # If the exclusion check didn't run first, this LLM mock
+            # would score it as confidently on_topic (0) and it would
+            # get added — the test only passes if the human-excluded
+            # check short-circuits before this is ever consulted.
+            fake_llm = MagicMock(return_value={"off_topic_probability": 0, "reasoning": "would be added"})
+
+            with patch.object(add_esbirka, "CANDIDATES_PATH", candidates_path), \
+                 patch.object(add_esbirka, "RAW_DB_PATH", raw_db_path), \
+                 patch.object(add_esbirka, "OUTPUT_PATH", output_path), \
+                 patch.object(add_esbirka, "OFF_TOPIC_PATH", off_topic_path), \
+                 patch.object(add_esbirka, "REVIEW_QUEUE_PATH", review_queue_path), \
+                 patch.object(add_esbirka, "UNRESOLVED_PATH", unresolved_path), \
+                 patch.object(add_esbirka, "HUMAN_EXCLUDED_PATH", human_excluded_path), \
+                 patch.object(add_esbirka, "resolve_znacka_for_uri", return_value=("1946", "1")), \
+                 patch.object(add_esbirka, "classify_relevance_with_llm", fake_llm), \
+                 patch.object(add_esbirka, "zakonyprolidi_extract"), \
+                 patch.object(add_esbirka.time, "sleep"), \
+                 patch.object(sys, "argv", ["add_esbirka_hydrogen_acts.py"]):
+                add_esbirka.main()
+
+            with open(output_path, "r", encoding="utf-8") as f:
+                self.assertEqual(json.load(f), [])
+            with open(review_queue_path, "r", encoding="utf-8") as f:
+                self.assertEqual(json.load(f), [])
+            with open(off_topic_path, "r", encoding="utf-8") as f:
+                self.assertEqual(json.load(f), [])
+            fake_llm.assert_not_called()
 
 
 if __name__ == "__main__":

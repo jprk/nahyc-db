@@ -55,6 +55,16 @@ three outcomes — high score excluded, low score proceeds, the uncertain
 middle band (or an unreachable LLM) queued for human review, never
 guessed at either way. Every outcome is logged, never silently dropped.
 
+**A human's review-queue decision is permanent** (doc/PLAN.md §33,
+2026-09-17): `data/esbirka_human_excluded.json` lists znacky a human has
+already looked at and excluded (e.g. two 1930s/1940s railway/industrial-
+gas safety rules that mention hydrogen only as a transported/handled
+gas, not as an energy carrier). Checked by znacka, BEFORE relevance
+classification even runs — an LLM score isn't deterministic across
+runs, so without this a later re-run could reclassify an already-
+decided candidate differently (back into the review queue, or worse,
+straight to "on_topic"), silently overriding a settled human call.
+
 Usage:
     .venv/bin/python src/tools/add_esbirka_hydrogen_acts.py [--limit N]
 
@@ -65,7 +75,8 @@ pattern-/LLM-caught off-topic acts), `data/esbirka_relevance_review_queue
 .json` (LLM unsure/unavailable), and `data/esbirka_unresolved_not_imported
 .json` (a fragment/binary-soubor node the reverse SPARQL hop couldn't
 map to any act, or a právní-akt-metadata node, or a znacka that no
-longer resolves live at zakonyprolidi.cz).
+longer resolves live at zakonyprolidi.cz). Reads (never writes)
+`data/esbirka_human_excluded.json`.
 """
 import argparse
 import json
@@ -92,6 +103,14 @@ OUTPUT_PATH = REPO_ROOT / "data" / "discovered_cz_hydrogen_acts.json"
 OFF_TOPIC_PATH = REPO_ROOT / "data" / "esbirka_off_topic_not_imported.json"
 REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "esbirka_relevance_review_queue.json"
 UNRESOLVED_PATH = REPO_ROOT / "data" / "esbirka_unresolved_not_imported.json"
+# doc/PLAN.md §33, 2026-09-17, user-directed: a human decision on a
+# review-queue candidate (include/exclude) must be PERMANENT — an LLM
+# score is not deterministic across runs, so without this file a later
+# re-run could re-classify an already-decided znacka differently (back
+# into the review queue, or worse, straight to "on_topic"), silently
+# overriding a settled human call. Checked by znacka, before relevance
+# classification even runs — see main().
+HUMAN_EXCLUDED_PATH = REPO_ROOT / "data" / "esbirka_human_excluded.json"
 
 SPARQL_ENDPOINT = "https://opendata.eselpoint.gov.cz/sparql"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-screening-tool/1.0; +research use, low-volume)"
@@ -384,6 +403,8 @@ def main():
 
     already_added = load_json(OUTPUT_PATH)
     already_added_digits = {normalize_for_diff(r["znacka"]) for r in already_added if r.get("znacka")}
+    human_excluded_digits = {normalize_for_diff(r["znacka"]) for r in load_json(HUMAN_EXCLUDED_PATH)
+                              if r.get("znacka")}
     off_topic = load_json(OFF_TOPIC_PATH)
     off_topic_uris = {r["uri"] for r in off_topic}
     review_queue = load_json(REVIEW_QUEUE_PATH)
@@ -396,7 +417,7 @@ def main():
 
     added = []
     skipped_word_stem = skipped_node_unresolved = skipped_known = skipped_duplicate_in_run = 0
-    skipped_off_topic = skipped_needs_review = skipped_title_unresolved = 0
+    skipped_off_topic = skipped_needs_review = skipped_title_unresolved = skipped_human_excluded = 0
     processed = 0
 
     # Duplicate hits of the SAME act are common (a widely-cited act's
@@ -435,6 +456,14 @@ def main():
 
         if normalize_for_diff(znacka) in known_digits or normalize_for_diff(znacka) in already_added_digits:
             skipped_known += 1
+            continue
+
+        # A settled human decision (see HUMAN_EXCLUDED_PATH above) wins
+        # over any fresh classification — checked before relevance
+        # scoring even runs, so a non-deterministic LLM re-score can
+        # never quietly overturn it.
+        if normalize_for_diff(znacka) in human_excluded_digits:
+            skipped_human_excluded += 1
             continue
 
         if znacka in verdict_cache:
@@ -502,6 +531,7 @@ def main():
           f"({skipped_word_stem} word-stem mismatch (\"vodítko\"/\"vodicí\"), "
           f"{skipped_node_unresolved} node unresolvable via SPARQL, "
           f"{skipped_known} already in corpus, "
+          f"{skipped_human_excluded} permanently excluded by a human decision, "
           f"{skipped_duplicate_in_run} duplicate of an act already classified this run, "
           f"{skipped_off_topic} off-topic (pattern or LLM), "
           f"{skipped_needs_review} needs human review, "
