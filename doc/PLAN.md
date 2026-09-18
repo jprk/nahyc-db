@@ -5038,3 +5038,88 @@ the exact `meta-tag`/`ph-globe-hemisphere-east` styling
 live on the running dev server: `/proces/U5` and `/proces/U7` both show
 their EN 17124/EN ISO 17268 entries twice, correctly tagged CZ and SK
 and positioned adjacently. Full test suite (793 tests) green throughout.
+
+## 36. Requirements cross-check, and a real duplicate-record bug found and fixed at the root (NEW, 2026-09-18, user-directed)
+
+**User instruction:** cross-check the current database against the
+project's own declared deliverable text (`PROJECT.md`'s Czech summary
+paragraph). Delegated to the `requirements-check` agent for a fresh
+audit against `doc/REQUIREMENTS.md` (superseding the stale 2026-09-16
+report), plus direct checks of claims that checklist doesn't fully
+cover: no scheduler/cron/CI exists anywhere in the repo (confirmed
+live — "průběžně aktualizována" is not yet true, every update including
+this whole session has been human-triggered); the production URL
+`doc/konsolidace/Konsolidace-DB-popis.md` itself cites
+(`https://nahyc.fel.zcu.cz/h2db/`) currently returns HTTP 404 (bare
+domain is up, that path isn't); the paid-third-party-access UI
+(`document.html`'s `restricted_fulltext` handling) is correctly
+implemented. Full audit: `doc/requirements_check_report.md`.
+
+### 36.1 The single most important finding: a live, exact duplicate `Document` row
+
+The audit found `Document.id` 117 and 122 — 100% identical across
+every column (title, jurisdikce=SK, url, timestamps, even
+`review_reason`) — both with `identifier IS NULL`, so R1.1's `UNIQUE
+KEY` constraint never saw them. **Root-caused, not just live-patched**:
+traced through `database_merged_raw.json` to two DIFFERENT Sinay_Zakony
+source rows — Czech law `262/2006 Sb.` (zákoník práce) and Czech law
+`309/2006 Sb.` (BOZP conditions) — that BOTH cite the same Slovak law
+(`124/2006 Z.z.`) as their own "SK equivalent" in the original
+spreadsheet. `split_sinay_zakony_row()` (§15) correctly split out a
+standalone SK record from EACH parent row independently, producing two
+real `Document` candidates for the exact same underlying Slovak law —
+both with a blank `znacka` (a genuine, expected property of this split
+path, not a defect) and cosmetically different raw title text (one
+names "(Príloha 1)", an annex reference), which never crossed
+`build_clusters()`'s 0.85 semantic-similarity threshold. Both DID
+independently resolve the identical, live-verified
+`zdroj_autoritativni_url` (`apply_authoritative_metadata()`) — a
+signal `deduplicate_db.py` never checked at all.
+
+### 36.2 Fix: a second deterministic clustering signal, `core_authoritative_url()`
+
+Added alongside the existing znacka-core deterministic pass in
+`build_clusters()`: records sharing the same non-empty
+`zdroj_autoritativni_url` are unioned regardless of znacka/title
+dissimilarity — same island-level jurisdikce-conflict veto as the
+znacka pass (verified live: an international "ISO 19880-1" record and
+its Czech "ČSN EN ISO 19880-1"/"ČSN ISO 19880-1" adoption legitimately
+share a `csnonline.agentura-cas.cz` URL too, since the ČSN registry
+page for a national standard also names its international parent — the
+jurisdikce veto correctly keeps these separate, exactly the R1.4
+`ADOPTS` relationship, not a merge). Deliberately NOT falling back to
+the unverified `odkaz_hlavni` — only the independently-verified
+`zdroj_autoritativni_url` is trusted this strongly, consistent with
+§9's already-established principle that this field outranks raw
+scraped title/znacka text. `is_pure_url_cluster()` mirrors
+`is_pure_znacka_cluster()` so this class of cluster also skips the LLM
+merge path (no identity judgment left to make); `match_type_for_group()`
+updated so an audit-log entry correctly says "deterministic" instead of
+"semantic" for one. Found and fixed a related crash risk while doing
+this: `programmatic_merge()`'s znacka-picking (`znackas[0]`) would
+`IndexError` on a cluster where NO member has any znacka at all —
+exactly this bug's shape — now defaults to `""`.
+
+10 new unit tests (`IsPureUrlClusterTestCase`, a `programmatic_merge`
+crash-regression test, a `match_type_for_group` case, and 3
+`build_clusters` cases including the live bug's exact shape and the
+ISO/national jurisdikce-veto case) — full suite now 803 tests, green.
+
+### 36.3 Verification
+
+Re-ran `deduplicate_db.py` against the current, larger corpus: the two
+124/2006 records collapsed into exactly one in a freshly-regenerated
+`database_merged_deduplicated.json`, and the ISO 19880-1 case confirmed
+the safety net holds (international record stayed separate from its 5
+raw CZ-jurisdiction citation variants, which themselves correctly
+collapsed into one). Live database fixed directly (deleted the
+redundant `Document`/`DocumentVersion` row after confirming no other
+table — `node_document`, `document_relation`, `DocumentKeyword` —
+referenced it): 1272 → 1271. Full pipeline rebuild (`init_db.py` etc.)
+deliberately NOT re-run this round — it would require also re-running
+`load_process_layer.py` to avoid orphaning `node_document` rows
+(`ON DELETE RESTRICT`), which would re-surface several of §34's
+already-resolved mislabeled edges as "unmatched" again (same caution as
+§35.2). The regenerated JSON pipeline file and the live database are
+both individually correct for this fix; a full resync is a separate,
+not-yet-requested step.

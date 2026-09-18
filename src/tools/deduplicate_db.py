@@ -146,6 +146,31 @@ def core_znacka(znacka):
         zn = zn[len("čsn "):]
     return zn
 
+
+def core_authoritative_url(item):
+    """The independently-verified authoritative URL
+    (`apply_authoritative_metadata()`'s `zdroj_autoritativni_url`,
+    doc/PLAN.md §8/§9) — two records sharing this exact URL are the same
+    real document regardless of how differently their raw title text
+    reads. doc/PLAN.md §36, 2026-09-18, found live: two
+    `split_sinay_zakony_row()` records for the same Slovak law
+    (124/2006 Z.z.), cited as the "SK equivalent" of two DIFFERENT
+    Czech laws, both got a blank `znacka` (real for that split path) and
+    never crossed `build_clusters()`'s semantic-similarity threshold
+    (one raw title named "Príloha 1", the other didn't) — so they were
+    never merged at all, despite carrying the identical, independently-
+    verified `zdroj_autoritativni_url`.
+
+    Deliberately NOT falling back to `odkaz_hlavni` when
+    `zdroj_autoritativni_url` is blank — an unverified `odkaz_hlavni`
+    can legitimately be shared across genuinely different bulk-sourced
+    records (e.g. a shared catalog/listing page before a per-document
+    URL was resolved); `zdroj_autoritativni_url` is only ever set once a
+    live fetch has independently confirmed it names ONE specific
+    document, making it as strong an identity signal as `znacka`."""
+    return (item.get("zdroj_autoritativni_url") or "").strip()
+
+
 def validate_merge(cluster_records, merged_records):
     """Rejects a merge that (a) invents a znacka not present in the input
     cluster, or (b) still leaves two output records sharing the same
@@ -273,6 +298,23 @@ def is_pure_znacka_cluster(records):
     known_jurisdikce = {r.get("jurisdikce", "") for r in records if _jurisdikce_known(r.get("jurisdikce", ""))}
     return len(known_jurisdikce) <= 1
 
+
+def is_pure_url_cluster(records):
+    """doc/PLAN.md §36, 2026-09-18: the `core_authoritative_url()`
+    counterpart to `is_pure_znacka_cluster()` above, for a cluster whose
+    members share no znacka at all (a real, not-hypothetical case — see
+    that function's docstring) but do share the same independently-
+    verified `zdroj_autoritativni_url` — just as certainly the same
+    document, so equally safe to merge with `programmatic_merge()`
+    rather than spending an LLM call/risking a probabilistic miss on
+    dissimilar raw title text. Same jurisdikce-conflict guard as the
+    znacka version."""
+    urls = [core_authoritative_url(r) for r in records]
+    if not (all(urls) and len(set(urls)) == 1):
+        return False
+    known_jurisdikce = {r.get("jurisdikce", "") for r in records if _jurisdikce_known(r.get("jurisdikce", ""))}
+    return len(known_jurisdikce) <= 1
+
 def programmatic_merge(cluster_records):
     """Deterministic merge for a pure znacka cluster (see
     is_pure_znacka_cluster): start from the most complete title, union
@@ -319,10 +361,13 @@ def programmatic_merge(cluster_records):
 
     # Prefer a "ČSN"-prefixed znacka (the more formal/complete citation) if
     # any member has one, else whatever's there — all members share the
-    # same core already, this is purely cosmetic.
+    # same core already, this is purely cosmetic. A pure URL cluster
+    # (doc/PLAN.md §36) can have NO member with any znacka at all — never
+    # index into an empty list for that case, leave it blank same as the
+    # source data.
     znackas = [r.get("znacka", "").strip() for r in cluster_records if r.get("znacka", "").strip()]
     csn_variant = next((z for z in znackas if z.lower().startswith("čsn ")), None)
-    merged["znacka"] = csn_variant or znackas[0]
+    merged["znacka"] = csn_variant or (znackas[0] if znackas else "")
 
     merged.pop("_search_text", None)
     merged.pop("_embedding", None)
@@ -330,13 +375,18 @@ def programmatic_merge(cluster_records):
 
 def match_type_for_group(records):
     """Whether a cluster's members were joined by an exact znacka match
-    (deterministic) or only by title-embedding similarity (semantic)."""
+    or shared authoritative URL (both deterministic, doc/PLAN.md §36) or
+    only by title-embedding similarity (semantic)."""
     znacka_counts = {}
+    url_counts = {}
     for r in records:
         zn = core_znacka(r.get("znacka", ""))
         if zn:
             znacka_counts[zn] = znacka_counts.get(zn, 0) + 1
-    if any(count > 1 for count in znacka_counts.values()):
+        url = core_authoritative_url(r)
+        if url:
+            url_counts[url] = url_counts.get(url, 0) + 1
+    if any(count > 1 for count in znacka_counts.values()) or any(count > 1 for count in url_counts.values()):
         return "deterministic"
     if len(records) > 1:
         return "semantic"
@@ -427,6 +477,24 @@ def build_clusters(valid_data, similarity_threshold=0.85):
         if not core:
             continue
         bucket = core_to_indices.setdefault(core, [])
+        for j in bucket:
+            if try_union(i, j):
+                break
+        bucket.append(i)
+
+    # Second deterministic pass, doc/PLAN.md §36, 2026-09-18: records
+    # with NO znacka at all (a real case — split_sinay_zakony_row()'s
+    # SK-equivalent records never get one) but sharing the same
+    # independently-verified authoritative URL are still, just as
+    # certainly, the same document — see core_authoritative_url()'s own
+    # docstring for the live bug this closes. Same shared-bucket/
+    # island-conflict-checked union as the znacka pass above.
+    url_of = [core_authoritative_url(item) for item in valid_data]
+    url_to_indices = {}
+    for i, url in enumerate(url_of):
+        if not url:
+            continue
+        bucket = url_to_indices.setdefault(url, [])
         for j in bucket:
             if try_union(i, j):
                 break
@@ -669,11 +737,13 @@ def main():
                 "cluster_id": idx, "records": cluster_summary, "match_type": match_type,
                 "action": "kept_separate", "timestamp": datetime.datetime.now().isoformat()
             })
-        elif is_pure_znacka_cluster(clean_cluster):
-            # Každý záznam ve shluku má stejnou (jádrovou) značku — jde
-            # nepochybně o týž dokument, žádné rozhodování o identitě není
-            # potřeba, sloučíme deterministicky bez volání LLM.
-            logging.info(f"--- Shluk {idx+1} ({len(clean_cluster)} prvků, match_type={match_type}) — programové sloučení (čistá shoda značky) ---")
+        elif is_pure_znacka_cluster(clean_cluster) or is_pure_url_cluster(clean_cluster):
+            # Každý záznam ve shluku má stejnou (jádrovou) značku, NEBO
+            # (doc/PLAN.md §36) stejnou ověřenou autoritativní URL i bez
+            # jakékoli značky — jde nepochybně o týž dokument, žádné
+            # rozhodování o identitě není potřeba, sloučíme deterministicky
+            # bez volání LLM.
+            logging.info(f"--- Shluk {idx+1} ({len(clean_cluster)} prvků, match_type={match_type}) — programové sloučení (čistá shoda značky nebo URL) ---")
             final_dataset.append(programmatic_merge(clean_cluster))
             audit_log.append({
                 "cluster_id": idx, "records": cluster_summary, "match_type": match_type,

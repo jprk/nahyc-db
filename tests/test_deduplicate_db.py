@@ -191,6 +191,34 @@ class IsPureZnackaClusterTestCase(unittest.TestCase):
         self.assertTrue(dedup.is_pure_znacka_cluster(records))
 
 
+class IsPureUrlClusterTestCase(unittest.TestCase):
+    """doc/PLAN.md §36, 2026-09-18: the core_authoritative_url()
+    counterpart to IsPureZnackaClusterTestCase above."""
+
+    def test_true_when_all_share_the_same_authoritative_url_and_no_znacka(self):
+        records = [make_record(znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"),
+                   make_record(znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/")]
+        self.assertTrue(dedup.is_pure_url_cluster(records))
+
+    def test_false_when_any_record_has_no_authoritative_url(self):
+        records = [make_record(zdroj_autoritativni_url="https://x/1"), make_record(zdroj_autoritativni_url="")]
+        self.assertFalse(dedup.is_pure_url_cluster(records))
+
+    def test_false_when_urls_differ(self):
+        records = [make_record(zdroj_autoritativni_url="https://x/1"), make_record(zdroj_autoritativni_url="https://x/2")]
+        self.assertFalse(dedup.is_pure_url_cluster(records))
+
+    def test_false_when_known_jurisdictions_conflict_despite_same_url(self):
+        records = [make_record(zdroj_autoritativni_url="https://x/1", jurisdikce="CZ"),
+                   make_record(zdroj_autoritativni_url="https://x/1", jurisdikce="SK")]
+        self.assertFalse(dedup.is_pure_url_cluster(records))
+
+    def test_true_when_one_side_has_unknown_jurisdiction(self):
+        records = [make_record(zdroj_autoritativni_url="https://x/1", jurisdikce="SK"),
+                   make_record(zdroj_autoritativni_url="https://x/1", jurisdikce="")]
+        self.assertTrue(dedup.is_pure_url_cluster(records))
+
+
 class ProgrammaticMergeTestCase(unittest.TestCase):
     def test_picks_longest_title_and_unions_list_fields(self):
         records = [
@@ -224,6 +252,21 @@ class ProgrammaticMergeTestCase(unittest.TestCase):
         merged = dedup.programmatic_merge(records)
         self.assertNotIn("_search_text", merged)
         self.assertNotIn("_embedding", merged)
+
+    def test_pure_url_cluster_with_no_znacka_anywhere_does_not_crash(self):
+        # doc/PLAN.md §36, 2026-09-18: real live bug — build_znacka()'s
+        # "znackas[0]" indexed into an empty list and raised IndexError
+        # for exactly this shape (two split_sinay_zakony_row() records
+        # for the same law, neither with a znacka, merged via shared
+        # zdroj_autoritativni_url instead).
+        records = [
+            make_record(nazev_cz="zákon 124/2006 Z.z. o bezpečnosti a ochrane zdravia (Príloha 1)",
+                        znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"),
+            make_record(nazev_cz="Zákon č. 124/2006o bezpečnosti a ochrane zdravia",
+                        znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"),
+        ]
+        merged = dedup.programmatic_merge(records)
+        self.assertEqual(merged["znacka"], "")
 
     def test_backfills_authoritative_overlay_fields_from_any_member(self):
         # doc/PLAN.md §9, 2026-09-13: real bug found live — a cluster's
@@ -260,6 +303,14 @@ class MatchTypeForGroupTestCase(unittest.TestCase):
         records = [make_record(znacka=""), make_record(znacka="")]
         self.assertEqual(dedup.match_type_for_group(records), "semantic")
 
+    def test_deterministic_when_shared_authoritative_url_repeats_despite_no_znacka(self):
+        # doc/PLAN.md §36, 2026-09-18: a URL-based merge is exactly as
+        # certain as a znacka-based one -- must not be mislabeled
+        # "semantic" in the audit log just because znacka is blank.
+        records = [make_record(znacka="", zdroj_autoritativni_url="https://x/1"),
+                   make_record(znacka="", zdroj_autoritativni_url="https://x/1")]
+        self.assertEqual(dedup.match_type_for_group(records), "deterministic")
+
     def test_none_for_a_singleton(self):
         self.assertEqual(dedup.match_type_for_group([make_record()]), "none")
 
@@ -284,6 +335,42 @@ class BuildClustersTestCase(unittest.TestCase):
         ]
         clusters = dedup.build_clusters(data)
         self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1})})
+
+    def test_same_authoritative_url_unions_despite_no_znacka_and_dissimilar_titles(self):
+        # doc/PLAN.md §36, 2026-09-18: the exact live bug — two
+        # split_sinay_zakony_row() records for the SAME Slovak law
+        # (124/2006 Z.z.), cited as the "SK equivalent" of two different
+        # Czech laws, both got a blank znacka and dissimilar raw title
+        # text (one names "Príloha 1") that never crossed the semantic
+        # similarity threshold — but share the same independently-
+        # verified zdroj_autoritativni_url, which alone must be enough
+        # to merge them, same as a shared znacka would.
+        data = [
+            make_record(znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/",
+                        _embedding=self.IDENTICAL_A),
+            make_record(znacka="", zdroj_autoritativni_url="https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/",
+                        _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0, 1})})
+
+    def test_different_authoritative_url_does_not_union_on_its_own(self):
+        data = [
+            make_record(znacka="", zdroj_autoritativni_url="https://x/1", _embedding=self.IDENTICAL_A),
+            make_record(znacka="", zdroj_autoritativni_url="https://x/2", _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0}), frozenset({1})})
+
+    def test_jurisdikce_conflict_vetoes_shared_authoritative_url_too(self):
+        data = [
+            make_record(znacka="", zdroj_autoritativni_url="https://x/1", jurisdikce="CZ",
+                        _embedding=self.IDENTICAL_A),
+            make_record(znacka="", zdroj_autoritativni_url="https://x/1", jurisdikce="SK",
+                        _embedding=self.ORTHOGONAL),
+        ]
+        clusters = dedup.build_clusters(data)
+        self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0}), frozenset({1})})
 
     def test_different_znacka_vetoes_even_identical_embeddings(self):
         data = [
