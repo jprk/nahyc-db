@@ -12,9 +12,11 @@ from norm_title import designation_core  # noqa: E402
 from sites.eiga import normalize_designation as eiga_designation  # noqa: E402
 from sites.iec import normalize_designation as iec_designation  # noqa: E402
 from sites.dvgw import normalize_designation as dvgw_designation  # noqa: E402
+from standards_body import resolve_norma_jurisdikce  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
+MANUAL_CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -312,6 +314,128 @@ def apply_eu_transposition(record, cache):
         return
     record["nazev_eu"] = entry.get("nazev_eu", "")
     record["odkaz_eu"] = entry.get("odkaz_eu", "")
+
+
+# doc/PLAN.md §41, 2026-09-18 (doc/TODO.md's own audit — "152 documents
+# (12%) have no jurisdiction assigned at all"): safe, mechanical rules
+# for the bulk of the gap, applied in `apply_missing_jurisdikce()` below.
+_EU_ACT_TYPES = ("Nařízení EU", "Směrnice EU", "Rozhodnutí EU")
+
+# Every record whose `odkaz_hlavni` is a zakonyprolidi.cz page is, by
+# construction, Czech legislation — that domain publishes nothing else
+# (see `src/sites/zakonyprolidi.py`) — confirmed against the real
+# records this closes: every one is already `znacka`-shaped "NNN/YYYY
+# Sb." (the Czech Collection of Laws).
+_ZAKONYPROLIDI_DOMAIN = "zakonyprolidi.cz"
+
+# International treaties administered by UNECE, not any one country's law
+# — checked against the real corpus records this closes (their own
+# `nazev_cz`/`znacka` name the agreement itself, e.g. "ADR 2025", "RID -
+# Příloha C").
+_INTERNATIONAL_TREATY_PREFIXES = ("ADR", "RID")
+
+# Individually read and verified against the real record's own title
+# (2026-09-18) — none resolves via `resolve_norma_jurisdikce()` because
+# its issuing body isn't (yet) in `standards_body.STANDARDS_BODY_MAP`,
+# but the jurisdikce itself (a coarser fact than "which exact body") is
+# independently clear: "TPP" is a Slovak gas-industry technical rule
+# (the record's own title, "Plynovody a prípojky s vysokým tlakom", is
+# Slovak); "SEP" is the German steel industry's Stahl-Eisen-Prüfblätter
+# series; "A-A-" is the US federal Commercial Item Description numbering
+# scheme; "PAS" (a BSI-trademarked product line) and the four
+# German-only-titled records (three "MB" Merkblätter, a PTB-Mitteilungen
+# volume, an AGBF fire-service guideline) are each read individually,
+# not inferred from a reusable prefix rule — keyed on the exact `znacka`
+# so a future, different record that happens to start with the same
+# token is never silently swept in.
+_VERIFIED_NORMA_JURISDIKCE_BY_ZNACKA = {
+    "TPP 702 10/ - 2020.01": "SK",
+    "SEP 1970": "DE",
+    "A-A-59874": "US",
+    "PAS 4444": "UK",
+    "MB 12": "DE",
+    "MB DRGA 514": "DE",
+    "MB FZMO 766": "DE",
+    "Mitteilung 2008 Band 1": "DE",
+    "AGBF- Leitfaden – Wasserstoff und dessen Gefahren": "DE",
+}
+
+
+def _is_missing_jurisdikce(value):
+    value = (value or "").strip()
+    return not value or value == "neurčeno"
+
+
+def apply_missing_jurisdikce(record):
+    """Fills in `jurisdikce` when it's blank/"neurčeno" — mutates
+    `record` in place, never overwrites an already-meaningful value.
+    Tries, in order: the record's own `typ_dokumentu` (an EU-act type IS
+    "EU", trivially); for a `Norma`, its issuing body (`standards_body.
+    resolve_norma_jurisdikce()`, itself never guessing); the individually
+    hand-verified exceptions above; the record's own URL domain
+    (zakonyprolidi.cz is Czech-only); a known international-treaty
+    prefix. Leaves the record untouched (still "neurčeno"/blank) rather
+    than guessing when none of these apply."""
+    if not _is_missing_jurisdikce(record.get("jurisdikce")):
+        return
+    typ = (record.get("typ_dokumentu") or "").strip()
+    if typ in _EU_ACT_TYPES:
+        record["jurisdikce"] = "EU"
+        return
+    znacka = (record.get("znacka") or "").strip()
+    if typ == "Norma":
+        jurisdikce = resolve_norma_jurisdikce(znacka)
+        if jurisdikce:
+            record["jurisdikce"] = jurisdikce
+            return
+        if znacka in _VERIFIED_NORMA_JURISDIKCE_BY_ZNACKA:
+            record["jurisdikce"] = _VERIFIED_NORMA_JURISDIKCE_BY_ZNACKA[znacka]
+            return
+    if _ZAKONYPROLIDI_DOMAIN in record_url(record):
+        record["jurisdikce"] = "CZ"
+        return
+    # RID's own `znacka` is blank in this corpus — only its `nazev_cz`
+    # ("RID - Příloha C – Řád pro mezinárodní železniční přepravu ...")
+    # names the treaty, so both fields are checked.
+    for text in (znacka, record.get("nazev_cz") or ""):
+        first_token = text.split()[0] if text.split() else ""
+        if first_token in _INTERNATIONAL_TREATY_PREFIXES:
+            record["jurisdikce"] = "mezinárodní"
+            return
+
+
+def load_manual_corrections():
+    """doc/PLAN.md §42, 2026-09-18: reads data/manual_corrections.json
+    (written by the admin app when a second editor confirms a
+    `ReviewItem` — see `app/admin.py`) — empty dict if it doesn't exist
+    yet."""
+    if MANUAL_CORRECTIONS_PATH.exists():
+        return load_json(MANUAL_CORRECTIONS_PATH)
+    return {}
+
+
+def apply_manual_corrections(record, corrections):
+    """Applies an editor-confirmed correction — mutates `record` in
+    place. Keyed by this record's own `znacka` (== `Document.identifier`
+    once resolved by `init_db.py`) — the SAME matching key `backfill_
+    puvodce.py`'s `match_records()` already uses to pair a live
+    `Document` row back to its JSON source record (doc/PLAN.md §42's
+    admin app captures `Document.identifier` at confirm time, which is
+    this same value). Unlike every other `apply_*()` overlay in this
+    file, this one DELIBERATELY overwrites whatever value the record
+    already has — a confirmed correction exists specifically to replace
+    a wrong value, not to fill a gap default. A record with no `znacka`
+    at all (the same handful of edge cases `backfill_puvodce.py` needs a
+    title-prefix fallback for) simply can't be matched here yet — no
+    correction is silently guessed for it."""
+    znacka = (record.get("znacka") or "").strip()
+    if not znacka:
+        return
+    entry = corrections.get(znacka)
+    if not entry:
+        return
+    for field, value in entry.get("changes", {}).items():
+        record[field] = value
 
 
 def apply_synthesized_summary(record, summaries):
@@ -1011,6 +1135,27 @@ def build_unified_db():
         print(f"Applied EU-transposition nazev_eu/odkaz_eu to {eu_transposition_count} "
               f"national-law record(s) from {EU_TRANSPOSITION_CACHE_PATH.relative_to(REPO_ROOT)} "
               f"(doc/PLAN.md §38).")
+
+    jurisdikce_backfill_count = 0
+    for record in unified_db:
+        before = record.get("jurisdikce")
+        apply_missing_jurisdikce(record)
+        if _is_missing_jurisdikce(before) and not _is_missing_jurisdikce(record.get("jurisdikce")):
+            jurisdikce_backfill_count += 1
+    if jurisdikce_backfill_count:
+        print(f"Backfilled jurisdikce for {jurisdikce_backfill_count} record(s) with no prior "
+              f"jurisdikce (doc/PLAN.md §41).")
+
+    manual_corrections = load_manual_corrections()
+    manual_correction_count = 0
+    for record in unified_db:
+        before = dict(record)
+        apply_manual_corrections(record, manual_corrections)
+        if record != before:
+            manual_correction_count += 1
+    if manual_correction_count:
+        print(f"Applied {manual_correction_count} editor-confirmed correction(s) from "
+              f"{MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)} (doc/PLAN.md §42).")
 
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:

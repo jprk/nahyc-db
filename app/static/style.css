@@ -1015,3 +1015,102 @@ main {
     align-items: center;
     justify-content: center;
 }
+
+/* Admin blueprint (doc/PLAN.md §42, 2026-09-18) — editor login, review
+   workflow, audit log. Reuses the existing glass/card language rather
+   than introducing a second visual style. */
+.admin-card {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 480px;
+    margin: 3rem auto;
+}
+
+.admin-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.admin-form-group label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.admin-form-group input[type="text"],
+.admin-form-group input[type="password"],
+.admin-form-group textarea {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.flash-messages {
+    max-width: 960px;
+    margin: 1.5rem auto 0;
+}
+
+.flash {
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.flash-error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.flash-success {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.admin-table th, .admin-table td {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-glass);
+    vertical-align: top;
+}
+
+.admin-table th {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.diff-old {
+    color: var(--danger);
+    text-decoration: line-through;
+}
+
+.diff-new {
+    color: var(--success);
+    font-weight: 600;
+}

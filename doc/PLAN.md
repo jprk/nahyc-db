@@ -5602,3 +5602,315 @@ this is a known, deliberately-deferred gap, not an oversight: the
 project so far has been built incrementally by hand, one verified step
 at a time, and building the automation itself is separate, future
 work.
+
+## 41. Closing the jurisdikce gap (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Start with #1 (jurisdiction gap)" — doc/TODO.md's
+own audit had flagged "152 documents (12%) have no jurisdiction assigned
+at all" as a cheap, worthwhile data-completion task, distinct from the
+two link-coverage gaps §37/§39 already closed.
+
+### 41.1 Three safe, mechanical rules cover the bulk
+
+Live audit found 128 records (the figure had already dropped from 152 via
+this session's other work) missing `jurisdikce`, split into clean,
+independently-verifiable groups:
+
+- **26 EU-act records** (`Nařízení EU`/`Směrnice EU`/`Rozhodnutí EU`)
+  whose own `typ_dokumentu` already says what they are — trivially
+  `jurisdikce = "EU"`.
+- **~70 `Norma` records** with an already-resolved issuing body (from
+  `standards_body.py`'s `STANDARDS_BODY_MAP`, built in §16) — the same
+  "national institute publishes it, so that's its jurisdikce" reading
+  already used for ČSN/STN, generalized: added `_JURISDIKCE_BY_BODY`
+  (every institution value in the map → its country, or "mezinárodní"
+  for a body whose own standing is international rather than any one
+  country's — ISO, IEC, IMO/IGF, OIML, and DNV, whose Recommended
+  Practice documents are used worldwide despite its Norwegian
+  registration, the same reading already applied to ISO/IEC's own
+  Swiss/US registered offices) and `resolve_norma_jurisdikce()` in
+  `standards_body.py`, reusing `resolve_standards_body()` — never a
+  separate guess. A new test
+  (`test_every_body_in_the_map_has_a_jurisdikce_entry`) forces the two
+  maps to stay in sync: a body added to `STANDARDS_BODY_MAP` with no
+  matching jurisdikce silently returns `None`, never guessed.
+- **12 Haltuf/Sinay law records**, all with a `zakonyprolidi.cz` URL —
+  that domain publishes nothing but Czech legislation (`src/sites/
+  zakonyprolidi.py`) — trivially `jurisdikce = "CZ"`, confirmed against
+  every one of the 12 already being `znacka`-shaped "NNN/YYYY Sb.".
+- **3 ADR/RID records** — UNECE-administered international treaties,
+  `jurisdikce = "mezinárodní"`, matched on the leading token of
+  `znacka` OR `nazev_cz` (RID's own `znacka` is blank in this corpus;
+  only its title names the treaty).
+
+All four rules live in one new `apply_missing_jurisdikce()` in
+`build_unified_db.py`, applied once near the end of `main()` — never
+overwrites an already-meaningful value (`neurčeno` counts as missing,
+same as blank).
+
+### 41.2 A small, individually-verified residual
+
+17 `Norma` records had no resolvable issuing body at all. Read each one
+individually (same discipline `STANDARDS_BODY_MAP`'s own construction
+already used for its ~20 deliberately-unmapped tokens): 9 were
+genuinely unclear and left untouched (`AR 214`, `H2.22:2022`, `Part 1`/
+`Part 2`, `Band 27`, 3 blank-`znacka` rows including one that's actually
+a Slovak-language parsing artifact, not a real standard). 8 resolved
+with real, verified confidence even though their issuing body isn't
+(yet) in `STANDARDS_BODY_MAP`: "TPP" is a Slovak gas-industry technical
+rule (confirmed by the record's own Slovak-language title) → SK; "SEP"
+is the German steel industry's Stahl-Eisen-Prüfblätter series → DE;
+"A-A-" is the US federal Commercial Item Description numbering scheme →
+US; "PAS" (a BSI-trademarked product line) → UK; three "MB" German
+Merkblätter, a PTB-Mitteilungen volume, and an AGBF fire-service
+guideline → DE (German-only titles, individually read, not a reusable
+prefix rule). Kept as a small, exact-`znacka`-keyed table
+(`_VERIFIED_NORMA_JURISDIKCE_BY_ZNACKA`), not a generalized prefix rule,
+so a future different record starting with the same token is never
+silently swept in.
+
+### 41.3 A real dedup-merge bug found and fixed along the way
+
+Rebuilding to verify: 128 → 9 missing, not the expected 8 — one
+`Nařízení EU` record (`(EU) 1300/2014`) still blank. Root cause: two raw
+rows share this exact `znacka` (one with `typ_dokumentu`/`jurisdikce`
+both blank, one with both correctly resolved), and
+`deduplicate_db.py`'s `programmatic_merge()` starts from the longest-
+titled member ("best") and backfills a fixed list of fields from any
+member when "best" doesn't have one — **`jurisdikce` was missing from
+that list**, despite the list's own comment (added in §9) literally
+naming "jurisdikce" as one of the fixes it exists to protect. Added
+`"jurisdikce"` to the tuple; regression test
+`test_backfills_jurisdikce_from_any_member` reproduces the exact live
+shape. This is a general fix — any future field silently dropped this
+way would show the identical symptom.
+
+### 41.4 Result
+
+Full pipeline rebuilt: `database_merged_deduplicated.json` records
+missing jurisdikce 128 → **8** (all confirmed genuinely unresolvable,
+not newly broken). Live DB re-verified directly: 8 remaining, 0
+orphaned `node_document` rows. `needs_review` count also dropped
+(447 → 340) as a side effect — several of `detect_data_quality_issues()`'s
+own flagged reasons were tied to these same records. 9 new unit tests
+across `test_standards_body.py`, `test_build_unified_db.py`, and
+`test_deduplicate_db.py`. Full test suite (906 tests) green.
+
+## 42. Editor accounts, a staged two-editor review workflow, and an audit log (NEW, 2026-09-18, user-directed, branch `edit_review`)
+
+**User instructions, in sequence:** "Can we in between try to plan some
+changes required to logging and user accounts?" → clarified via
+`AskUserQuestion` (accounts driven by admin/editor access needs, logging
+scoped to an audit trail of data changes, sketch-level design first) →
+design sketch discussed and refined interactively (single `editor` role
+but a two-person confirm rule; a proposed correction stays staged, never
+touching the live `Document` row, until a *different* editor confirms
+it; the audit log is visible to any logged-in editor) → "Make that an
+implementation /plan" (entered plan mode, researched the codebase via
+one Explore agent, wrote and got approval for the plan now at
+`/home/laborator/.claude/plans/typed-floating-sketch.md`) → "Proceed in
+auto mode and implement all changes in a new branch called
+`edit_review`".
+
+The app (`app/app.py`) was, until this point, 100% read-only — no
+`SECRET_KEY`, no `flask.session` usage, no user table at all. The only
+way to fix a `needs_review`-flagged record was to edit the source
+spreadsheet/JSON and re-run the whole pipeline by hand.
+
+### 42.1 Schema
+
+Appended to `doc/konsolidace/Konsolidace-DB-schema.sql` as a new
+"VRSTVA E" section (the file's own established append-only, dated-
+comment-block convention — same one `slug`/`needs_review` were each
+added under): `User` (username/password_hash/is_active — no
+self-registration, ever; provisioned by hand via `create_editor_user.py`),
+`ReviewItem` (one row per propose→decide cycle:
+`proposed_changes_json`, `status` `needs_review`→`proposed`→
+`confirmed`|`rejected`, `proposed_by_user_id`/`confirmed_by_user_id`),
+and `AuditLog` (one row per confirmed write, full before/after `Document`
+row as JSON, `review_item_id` linking back to who proposed vs who
+confirmed). The two-different-editors rule is enforced TWICE — in the
+app, and as a MariaDB `CHECK` constraint
+(`chk_ri_distinct_reviewers`) — verified live against `.env.test`: a
+same-user confirm attempt raises MariaDB error 4025, a different-user
+one succeeds.
+
+### 42.2 Pipeline survival
+
+A confirmed correction updates the live `Document` row immediately
+(public visibility right away — not staged behind a future rebuild) AND
+appends to a new `data/manual_corrections.json`, applied by a new
+`apply_manual_corrections()` in `build_unified_db.py` (same call-site
+pattern as `apply_eu_transposition()`/`apply_missing_jurisdikce()`) —
+without this, the next `init_db.py` rebuild (which fully `TRUNCATE`s and
+re-`INSERT`s `Document`, recomputing `needs_review`/`review_reason` from
+scratch via `detect_data_quality_issues()`) would silently erase the
+fix, the exact trap this project's own established discipline exists to
+avoid. Keyed by `znacka`/`identifier` — the same matching key
+`backfill_puvodce.py` already uses to pair a live row back to its JSON
+source record — and, unlike every other `apply_*()` overlay in that
+file, DELIBERATELY overwrites an existing value: a confirmed correction
+exists specifically to replace something wrong, not to fill a gap.
+
+### 42.3 Auth
+
+Hand-rolled `flask.session` + `werkzeug.security` password hashing, not
+a new auth library — matches this codebase's existing minimalism (raw
+`pymysql`, no ORM, no config framework). `SECRET_KEY` added to
+`.env`/`.env.example`/`.env.test` (new — none of them had it).
+
+### 42.4 A real dual-execution-mode import bug, found and fixed before it shipped
+
+`app/app.py` runs two different ways — a directly-executed script
+(`.venv/bin/python app/app.py`, the dev server) and a package import
+(`wsgi.py`'s `from app.app import app`) — which put different
+directories on `sys.path`. A first attempt at wiring the new
+`app/admin.py` blueprint had it `from app.app import get_db` (importing
+the sibling module) — works under one execution mode, silently breaks
+under the other. Fixed two ways at once: `admin.py` carries its OWN copy
+of the tiny `get_db()` helper (`flask.g`/`os.environ` are true global
+proxies regardless of which "copy" of a module defines the function
+referencing them, so duplicating 8 lines is safer than fighting Python's
+import system over it), and `app.py` registers the blueprint via an
+explicit `sys.path.insert(0, str(Path(__file__).resolve().parent))`
+before a bare `from admin import admin_bp` — the same sibling-import
+convention `src/tools/*.py` already uses for its own cross-module
+imports. Verified directly under BOTH execution modes before moving on.
+
+### 42.5 Review workflow (`app/admin.py`)
+
+`/admin/login`, `/admin/logout`, `/admin/review` (every `needs_review`
+`Document`, lazily paired with its currently open `ReviewItem` if one
+exists — no bulk pre-creation of ~340 `ReviewItem` rows up front),
+`/admin/review/<document_id>/edit` (propose — editable fields are named
+after the JSON PIPELINE's own vocabulary, `znacka`/`nazev_cz`/
+`anotace_poznamka`, not the live `identifier`/`title`/`description`
+column names, since that's what `proposed_changes_json`/`data/
+manual_corrections.json` actually speak), `/admin/review/<id>/confirm`
+(confirm or reject — a same-user confirm attempt is rejected with 403
+before the database even gets a chance to enforce its own `CHECK`),
+`/admin/audit-log`. On confirm, `needs_review`/`review_reason` are
+RECOMPUTED from the post-correction values using `init_db.py`'s own
+`is_garbled_znacka`/`is_fragment_title` directly (`recompute_
+needs_review()`) — the identical rule that flagged the record in the
+first place, so a partial fix (one of several reasons corrected) still
+correctly leaves the record flagged for whatever's left.
+
+### 42.6 Templates
+
+New `app/templates/admin/` (`login.html`, `review_list.html`,
+`review_edit.html`, `review_confirm.html`, `audit_log.html`), all
+`{% extends 'base.html' %}`, reusing the existing glass/card visual
+language via a modest set of new shared CSS classes in `style.css`
+(`admin-card`, `admin-form-group`, `admin-table`, `flash*`,
+`diff-old`/`diff-new`) — no new frontend framework or build step.
+`base.html` gained a `get_flashed_messages()` block (unused anywhere
+else in the app until now) and an "Editor" nav link.
+
+### 42.7 Two more real bugs, found while testing the testing
+
+Writing `tests/test_admin.py` (a live-DB integration test against
+`.env.test`, never production — `os.environ` saved/restored around the
+whole class, every write additionally guarded by a hard `assert
+DB_NAME == "h2regdocs_test"`) surfaced two bugs in the TEST itself, not
+the app:
+- **MariaDB REPEATABLE READ snapshot staleness**: the test's own
+  verification connection, having already run one `SELECT`, kept
+  reading a pre-write snapshot and reported a confirmed change as
+  missing — the app's write had genuinely landed (confirmed by a
+  separate, fresh connection) but the test's connection needed
+  `autocommit(True)` to see it.
+- **Non-idempotent fixtures**: `setUpClass` originally reused an
+  existing `Document`/`User` row if one was already there from a prior
+  run — safe-looking, but a leftover already-`confirmed` `ReviewItem`
+  from that prior run made a second run fail even though the app was
+  behaving correctly. Fixed by always deleting then recreating its own
+  named fixtures (`alice`/`bob`, a fixed test-document title) at the
+  start of every run, rather than conditionally reusing whatever state
+  happened to already be there.
+
+Verified stable across repeated `unittest discover` runs (911→914 tests
+depending on point in this work), with no `.env.test` environment
+leakage into any other test in the same process.
+
+### 42.8 Final verification
+
+Full test suite (914 tests) green. Schema verified live against
+`.env.test` (§42.1). The login→propose→confirm→audit-log path is
+verified live end to end by `test_admin.py`'s integration test against
+`.env.test` — a stronger, repeatable substitute for a one-off manual
+browser click-through, so no separate manual walkthrough was done.
+
+Pipeline survival (§42.2) verified directly rather than assumed: wrote
+a real `data/manual_corrections.json` entry against an actual corpus
+record (`266/1994 Sb.`), ran `build_unified_db.py`, confirmed the
+correction landed in `database_merged_raw.json`, then removed the
+overlay and re-ran to restore the original. **This surfaced a genuine
+side effect, caught and fixed immediately, not swept under the rug**:
+temporarily changing that record's `nazev_cz` broke `build_unified_db.
+py`'s OWN "restore previous run's annotations" mechanism for that same
+record for one hop (it's keyed on `zdroj_dat`+`nazev_cz`, and the
+temporary title didn't match going forward), silently dropping its
+`anotace_poznamka`. Caught by diffing the resulting file against the
+last commit (`git diff --stat` showed exactly one changed record, not
+zero) rather than assuming the revert was clean — recovered the exact
+original value from `git show HEAD:...` and patched it back by hand;
+`git diff` afterward showed the file byte-identical to the last commit.
+Lesson for next time: verify a JSON-pipeline overlay's effects against a
+scratch copy of the corpus file, not the live one, even when planning to
+revert immediately afterward — a "harmless" revert can still have a
+narrow side effect through an unrelated mechanism that shares the same
+keying.
+
+Full pipeline (`build_unified_db.py` → `deduplicate_db.py` →
+`init_db.py`) was deliberately NOT re-run against production
+`h2regdocs` as part of this verification — `apply_manual_corrections()`
+and `recompute_needs_review()` are each independently unit-tested, the
+JSON-level application is now directly verified as above, and
+`test_admin.py` independently verifies the live-DB write path; a full
+production rebuild carries real risk (as just demonstrated) for
+marginal additional coverage, so it's left for whenever this feature's
+first real correction actually gets confirmed through the app.
+
+## 43. Dedicated user-provisioning scripts, `name`/`email` on `User` (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Write a small script to `src/db/dbuser_add.py`
+which creates a new user in the database with the given login, name,
+and a password. Write another script `src/db/user_passwd.py` that
+updates a password for a given user login." — clarified via
+`AskUserQuestion` that "user" means an `app/admin.py` editor account
+(the `User` table §42 just added), not a MariaDB server-level account;
+followed by two more instructions mid-turn: rename the second script to
+`src/db/dbuser_passwd.py`, and add a required, unique `email` column,
+captured at account creation.
+
+Given the heavy overlap with `src/tools/create_editor_user.py` (§42) —
+same purpose, same `[--apply]` discipline, but a cleaner split (add vs.
+change-password as two scripts) and now also `name`/`email` — that
+script is REMOVED rather than kept alongside a newer, more complete
+replacement; nothing else referenced it. `User` gained `name VARCHAR(200)
+NOT NULL` and `email VARCHAR(255) NOT NULL UNIQUE` (edited directly into
+§42's own `CREATE TABLE`, not a separate `ALTER TABLE` — that table was
+itself only just added on this same unmerged branch, never deployed, so
+there's no real migration history to preserve by layering on top of it
+instead).
+
+`dbuser_add.py <login> <name> <email>` rejects an obviously-malformed
+email (a loose sanity regex, not a full RFC 5322 validator — deliberately
+permissive, since a validator strict enough to reject typos would also
+reject plenty of real addresses) and a login/email that already exists
+(both `UNIQUE`) before ever prompting for a password. `dbuser_passwd.py
+<login>` requires the account to already exist and asks for the new
+password twice (rejects on mismatch) — deliberately narrower than
+`dbuser_add.py`, never silently creates an account.
+
+`app/admin.py`'s `login()` now also loads `name` into the session, and
+`review_list.html`/`review_confirm.html`/`audit_log.html` show
+"name (username)" wherever only the login handle was shown before —
+the point of asking for a name at all. Live-verified end to end against
+`.env.test`: created an account, confirmed the invalid-email and
+duplicate-login/email rejections, changed its password, confirmed the
+new hash verifies and the old one doesn't, then removed the test
+account. `tests/test_admin.py`'s fixtures updated for the two new
+`NOT NULL` columns. Full test suite (914 tests) green, stable across
+repeated runs.

@@ -247,6 +247,21 @@ class ProgrammaticMergeTestCase(unittest.TestCase):
         merged = dedup.programmatic_merge(records)
         self.assertEqual(merged["platnost"], "od 1.1.2020")
 
+    def test_backfills_jurisdikce_from_any_member(self):
+        # doc/PLAN.md §41, 2026-09-18: real bug found live — "best" (the
+        # longest nazev_cz) had a blank jurisdikce while a shorter-titled
+        # sibling raw row for the exact same znacka had already been
+        # correctly backfilled to "EU"; the merge silently dropped it
+        # because "jurisdikce" was missing from the backfill field tuple.
+        records = [
+            make_record(nazev_cz="(EU) 1300/2014 - TSI PRM - " * 2, znacka="(EU) 1300/2014",
+                        typ_dokumentu="", jurisdikce=""),
+            make_record(nazev_cz="(EU) 1300/2014", znacka="(EU) 1300/2014",
+                        typ_dokumentu="Nařízení EU", jurisdikce="EU"),
+        ]
+        merged = dedup.programmatic_merge(records)
+        self.assertEqual(merged["jurisdikce"], "EU")
+
     def test_drops_internal_clustering_keys(self):
         records = [make_record(znacka="X", _search_text="x", _embedding=[0.1])]
         merged = dedup.programmatic_merge(records)

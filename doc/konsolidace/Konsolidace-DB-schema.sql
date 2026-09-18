@@ -511,6 +511,83 @@ CREATE TABLE scenario_document (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
 -- ────────────────────────────────────────────────────────────
+-- VRSTVA E — editorské účty, dvouosobní schvalovací proces oprav
+-- `needs_review` položek a auditní log (doc/PLAN.md §42, 2026-09-18,
+-- uživatelské zadání)
+-- ────────────────────────────────────────────────────────────
+
+-- Malá, ručně zakládaná skupina důvěryhodných editorů (žádná
+-- samoregistrace, žádný reset hesla e-mailem — provisioning přes
+-- `src/db/dbuser_add.py`/`src/db/dbuser_passwd.py`) — jediná role
+-- `editor`, rozlišení "kdo smí co" řeší až `ReviewItem`'s vlastní
+-- pravidlo níže (navrhovatel ≠ schvalovatel), ne sloupec role. `name`
+-- (doc/PLAN.md §43, 2026-09-18, uživatelské zadání) je čitelné jméno
+-- osoby — `username` je jen přihlašovací login, oboje se zadává zvlášť
+-- při založení účtu. `email` (uživatelské zadání, 2026-09-18) — kontaktní
+-- adresa, povinná a jedinečná stejně jako `username`, zadává se rovněž
+-- při založení účtu (`dbuser_add.py`) a beze změny zůstává, dokud ji
+-- nikdo ručně needituje přímo v databázi — žádný skript na její změnu
+-- zatím není potřeba.
+CREATE TABLE User (
+  id             INT AUTO_INCREMENT PRIMARY KEY,
+  username       VARCHAR(100) NOT NULL UNIQUE,
+  name           VARCHAR(200) NOT NULL,
+  email          VARCHAR(255) NOT NULL UNIQUE,
+  password_hash  VARCHAR(255) NOT NULL,
+  is_active      TINYINT(1)   NOT NULL DEFAULT 1,
+  created_at     TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
+-- Jeden řádek = jeden cyklus návrh→rozhodnutí pro jeden `Document`.
+-- Návrh (`proposed_changes_json`, {"pole": "nová hodnota", ...} — nikdy
+-- jen jedno pole, aby šlo opravit víc věcí najednou) NEMĚNÍ `Document`
+-- hned při vytvoření — teprve druhý, JINÝ editor rozhodne (potvrdí →
+-- `apply_manual_corrections()`/live UPDATE, nebo zamítne). Zamítnutí
+-- nemaže historii, zakládá nový cyklus (`needs_review` znovu), takže
+-- celý sled pokusů zůstává viditelný v `AuditLog`. Vynuceno na dvou
+-- úrovních zároveň (aplikace i CHECK) — druhý editor musí být SKUTEČNĚ
+-- jiná osoba, ne jen jiné kliknutí téhož účtu.
+CREATE TABLE ReviewItem (
+  id                     INT AUTO_INCREMENT PRIMARY KEY,
+  document_id            INT NOT NULL,
+  review_reason          VARCHAR(500),
+  status                 ENUM('needs_review','proposed','confirmed','rejected') NOT NULL DEFAULT 'needs_review',
+  proposed_changes_json  TEXT,
+  proposed_by_user_id    INT,
+  proposed_at            TIMESTAMP NULL,
+  confirmed_by_user_id   INT,
+  confirmed_at           TIMESTAMP NULL,
+  rejection_note         VARCHAR(500),
+  created_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_ri_document  FOREIGN KEY (document_id)          REFERENCES Document(id) ON DELETE CASCADE,
+  CONSTRAINT fk_ri_proposer  FOREIGN KEY (proposed_by_user_id)  REFERENCES User(id),
+  CONSTRAINT fk_ri_confirmer FOREIGN KEY (confirmed_by_user_id) REFERENCES User(id),
+  CONSTRAINT chk_ri_distinct_reviewers
+    CHECK (confirmed_by_user_id IS NULL OR confirmed_by_user_id != proposed_by_user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
+-- Obecný auditní log (jedna tabulka pro všechny editovatelné entity, ne
+-- jedna tabulka na entitu) — celý řádek před/po jako JSON, ne
+-- sloupec-po-sloupci diff (jednoduší pro nízko-provozní interní nástroj,
+-- kde přesnost na úrovni pole není potřeba). `review_item_id` (volitelné)
+-- dohledá, KDO navrhl a KDO potvrdil/zamítl tu samou změnu —
+-- `changed_by_user_id` sám o sobě nese jen toho, kdo provedl zápis
+-- (schvalovatel), ne autora návrhu.
+CREATE TABLE AuditLog (
+  id                  INT AUTO_INCREMENT PRIMARY KEY,
+  table_name          VARCHAR(100) NOT NULL,
+  record_id           INT NOT NULL,
+  action              VARCHAR(20)  NOT NULL,
+  old_value_json      TEXT,
+  new_value_json      TEXT,
+  changed_by_user_id  INT NOT NULL,
+  review_item_id      INT,
+  changed_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_al_user        FOREIGN KEY (changed_by_user_id) REFERENCES User(id),
+  CONSTRAINT fk_al_review_item FOREIGN KEY (review_item_id)     REFERENCES ReviewItem(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
+-- ────────────────────────────────────────────────────────────
 -- REFERENČNÍ DATA — číselníky
 -- ────────────────────────────────────────────────────────────
 

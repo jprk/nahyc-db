@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card" style="max-width: 720px;">
+    <h2 style="margin-bottom: 0.5rem;"><i class="ph ph-pencil-simple"></i> Navrhnout opravu</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Důvod revize: {{ document.review_reason or '—' }}</p>
+
+    <form method="POST" action="{{ url_for('admin.propose', document_id=document.id) }}">
+        {% for field, (live_column, label) in fields.items() %}
+        <div class="admin-form-group">
+            <label for="{{ field }}">{{ label }} ({{ field }})</label>
+            {% if field == 'anotace_poznamka' %}
+            <textarea id="{{ field }}" name="{{ field }}" rows="4">{{ document[live_column] or '' }}</textarea>
+            {% else %}
+            <input type="text" id="{{ field }}" name="{{ field }}" value="{{ document[live_column] or '' }}">
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn-primary">Uložit návrh</button>
+        <a href="{{ url_for('admin.review_list') }}" class="btn-secondary">Zpět</a>
+    </form>
+</div>
+{% endblock %}

@@ -5,6 +5,7 @@ import json
 import os
 import pathlib
 import subprocess
+import sys
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
@@ -16,6 +17,23 @@ app = Flask(__name__)
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
 load_dotenv(REPO_ROOT / ".env")
+
+# doc/PLAN.md §42, 2026-09-18: signs the editor-login session cookie
+# (app/admin.py) — every other route in this file is read-only and
+# never touches `session`, so this was never needed before.
+app.secret_key = os.environ["SECRET_KEY"]
+
+# This file itself runs two different ways — a directly-executed script
+# (`.venv/bin/python app/app.py`) or a package import (`wsgi.py`'s
+# `from app.app import app`) — which put different directories on
+# `sys.path`. Explicitly ensuring this file's own directory is on
+# `sys.path` before a bare sibling import makes `admin.py` resolve
+# identically either way (same convention `src/tools/*.py` already uses
+# for its own sibling imports).
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from admin import admin_bp  # noqa: E402
+
+app.register_blueprint(admin_bp, url_prefix="/admin")
 
 
 def get_git_version():

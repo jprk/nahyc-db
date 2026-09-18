@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="results-section">
+    <div class="results-header">
+        <h2 class="results-title">Položky k revizi <span class="badge">{{ items|length }}</span></h2>
+        <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('name') }})</a>
+    </div>
+
+    <div class="table-glass-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Dokument</th>
+                    <th>Důvod revize</th>
+                    <th>Stav</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>
+                        {% if item.slug %}<a href="{{ url_for('document_detail', slug=item.slug) }}">{{ item.identifier or item.title }}</a>
+                        {% else %}{{ item.identifier or item.title }}{% endif %}
+                    </td>
+                    <td>{{ item.review_reason or '—' }}</td>
+                    <td>
+                        {% if item.review_status == 'proposed' %}
+                            Navrženo editorem {{ item.proposed_by_name }} ({{ item.proposed_by_username }})
+                        {% else %}
+                            Čeká na návrh opravy
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if item.review_status == 'proposed' %}
+                            {% if item.proposed_by_user_id == session.get('user_id') %}
+                                <span style="color: var(--text-muted);">Čeká na jiného editora</span>
+                            {% else %}
+                                <a href="{{ url_for('admin.confirm', review_item_id=item.review_item_id) }}" class="btn-secondary">Posoudit</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{{ url_for('admin.propose', document_id=item.document_id) }}" class="btn-secondary">Navrhnout opravu</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4">Žádné položky nečekají na revizi.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+<p style="margin-top: 1.5rem;"><a href="{{ url_for('admin.audit_log') }}" class="btn-secondary"><i class="ph ph-clock-counter-clockwise"></i> Auditní log</a></p>
+{% endblock %}

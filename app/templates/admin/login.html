@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card">
+    <h2 style="margin-bottom: 1.5rem;"><i class="ph ph-lock-key"></i> Přihlášení editora</h2>
+    <form method="POST" action="{{ url_for('admin.login') }}">
+        <div class="admin-form-group">
+            <label for="username">Uživatelské jméno</label>
+            <input type="text" id="username" name="username" required autofocus>
+        </div>
+        <div class="admin-form-group">
+            <label for="password">Heslo</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%;">Přihlásit se</button>
+    </form>
+</div>
+{% endblock %}

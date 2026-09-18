@@ -4,7 +4,8 @@ import unittest
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src", "tools"))
 
-from standards_body import STANDARDS_BODY_MAP, resolve_standards_body
+from standards_body import (STANDARDS_BODY_MAP, resolve_standards_body,
+                            _JURISDIKCE_BY_BODY, resolve_norma_jurisdikce)
 
 
 class ResolveStandardsBodyTestCase(unittest.TestCase):
@@ -83,6 +84,36 @@ class ResolveStandardsBodyTestCase(unittest.TestCase):
     def test_map_has_no_blank_values(self):
         for token, body in STANDARDS_BODY_MAP.items():
             self.assertTrue(body and body.strip(), token)
+
+
+class ResolveNormaJurisdikceTestCase(unittest.TestCase):
+    """doc/PLAN.md §41, 2026-09-18: jurisdikce derived from the same
+    issuing-body resolution above — never a separate guess."""
+
+    def test_every_body_in_the_map_has_a_jurisdikce_entry(self):
+        # Regression guard: a body added to STANDARDS_BODY_MAP with no
+        # matching jurisdikce here would silently return None for every
+        # record using it -- this test forces the two to be kept in sync.
+        for body in set(STANDARDS_BODY_MAP.values()):
+            self.assertIn(body, _JURISDIKCE_BY_BODY, body)
+
+    def test_national_institute_gives_its_own_country(self):
+        self.assertEqual(resolve_norma_jurisdikce("STN EN 12345"), "SK")
+        self.assertEqual(resolve_norma_jurisdikce("ČSN ISO 14687"), "CZ")
+        self.assertEqual(resolve_norma_jurisdikce("SAE J2601"), "US")
+
+    def test_genuinely_international_body_is_mezinarodni(self):
+        self.assertEqual(resolve_norma_jurisdikce("ISO 22734"), "mezinárodní")
+        self.assertEqual(resolve_norma_jurisdikce("IMO IGF Code"), "mezinárodní")
+        self.assertEqual(resolve_norma_jurisdikce("DNV/RP"), "mezinárodní")
+
+    def test_european_body_is_eu(self):
+        self.assertEqual(resolve_norma_jurisdikce("EN 17127"), "EU")
+        self.assertEqual(resolve_norma_jurisdikce("EIGA Doc 15/06"), "EU")
+
+    def test_unrecognized_designation_returns_none(self):
+        self.assertIsNone(resolve_norma_jurisdikce("TPP 702 10"))
+        self.assertIsNone(resolve_norma_jurisdikce(None))
 
 
 if __name__ == "__main__":
