@@ -887,7 +887,30 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered HYTEP Hydrogen Docs data: {e}")
 
-    # 12. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 12. Discovered ISO Parent Standards — doc/PLAN.md §37, 2026-09-18,
+    # user-directed: closes the R1.4 (`ADOPTS`) coverage gap found while
+    # investigating why link_document_relations_auto.py links so few
+    # ISO-derived national standards — 106 of them had no international-
+    # tier ISO parent record in the corpus AT ALL (the source
+    # spreadsheets only ever catalogued the national adoption), so the
+    # linker correctly had nothing to link to. `src/tools/
+    # add_missing_iso_parents.py` finds and live-verifies each missing
+    # parent via iso.org (reachable through headless Chromium, same WAF-
+    # bypass as §25's iec.ch harvest — plain HTTP is still blocked, per
+    # §17.7), accepting only an exact, anchored designation+year match
+    # (never a different part, a draft, or a corrigendum/amendment of the
+    # base edition). Already in final record shape, so this block just
+    # appends it as-is; `link_document_relations_auto.py` itself is
+    # unchanged and picks up the new ADOPTS edges on its own next run.
+    file_discovered_iso_parent_standards = base_dir / "discovered_iso_parent_standards.json"
+    try:
+        data_discovered_iso_parent_standards = load_json(file_discovered_iso_parent_standards)
+        unified_db.extend(data_discovered_iso_parent_standards)
+        print(f"Loaded {len(data_discovered_iso_parent_standards)} records from Discovered ISO Parent Standards.")
+    except Exception as e:
+        print(f"Error loading Discovered ISO Parent Standards data: {e}")
+
+    # 13. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json

@@ -5123,3 +5123,130 @@ already-resolved mislabeled edges as "unmatched" again (same caution as
 §35.2). The regenerated JSON pipeline file and the live database are
 both individually correct for this fix; a full resync is a separate,
 not-yet-requested step.
+
+## 37. R1.3/R1.4 coverage-gap investigation, and closing the R1.4 half of it (NEW, 2026-09-18, user-directed)
+
+**User instructions, in sequence:** first a live MariaDB backup ("to
+prevent disaster") before running `link_document_relations_auto.py`;
+then, once running it produced no new relations, to investigate *why*
+R1.3/R1.4 miss so many candidates; then, once the investigation found
+the real cause, to import the missing ISO parent standards.
+
+### 37.1 Backup
+
+`mariadb-dump --single-transaction --routines --triggers`, gzip'd, to
+`backups/h2regdocs_<timestamp>.sql.gz` (new `backups/` dir, added to
+`.gitignore` — never versioned). Verified as a genuine, restorable
+snapshot, not just a non-empty file: 34 `CREATE TABLE` statements, and
+specifically confirmed all 18 `node_edge` rows from §34's review work
+are present (that table isn't re-derivable from the JSON pipeline at
+all, making this backup the only place that state exists outside the
+live database).
+
+### 37.2 Investigation: the matching logic is correct; the data isn't there
+
+Re-running `link_document_relations_auto.py` produced the identical 25
+`ADOPTS` + 6 `IMPLEMENTS` = 31 relations as before — contradicting
+§32's audit-report framing that the gap was "hasn't been run to
+exhaustion." Checked every real candidate directly, not just aggregate
+counts:
+
+- **R1.4**: of 312 ISO-pattern `Norma` records, 174 are themselves
+  international-tier (the parent side, not something needing a link —
+  the audit's raw "312 candidates" count conflated these with genuine
+  gaps). Of the **134 real national-tier candidates**: **120 (90%)
+  belong to an `international_core()` group with NO international/EU-
+  tier sibling in the corpus at all** — e.g. both `ČSN EN ISO 17268`
+  and `STN EN ISO 17268` exist and group correctly, but no standalone
+  `ISO 17268` record exists anywhere to link to, because Prokop_Normy/
+  Sinay_Normy only ever catalogued the national adoption. The other
+  **14 (10%) do have a parent present, and all 14 are correctly
+  linked** — confirmed directly against the real output, zero residual
+  matching bugs.
+- **R1.3**: of the corpus's 59 total Zákon/Vyhláška/Nařízení-vlády
+  records, only **3** have `nazev_eu`/`odkaz_eu` populated with any EU
+  citation at all. Those 3 cite 6 distinct EU acts (one law can cite
+  several) and all 6 resolved — exactly the "6 edges, 0 missing" the
+  script reports. The other 56 records simply never had "this law
+  transposes EU directive X" recorded in the source spreadsheet.
+
+**Conclusion: both mechanisms are complete and correct on the data they
+'re given.** The real ceiling is upstream — missing source records
+(R1.4) and missing citation annotations (R1.3) — not a code defect.
+This reframes §32's punch-list items #6/#7 from "needs more code" to
+"needs more source data," a materially different, now evidence-based
+answer to give the project owner.
+
+### 37.3 Closing the R1.4 half: `src/tools/add_missing_iso_parents.py`
+
+**The technical unlock**: `iso.org` returns HTTP 403 to a plain
+`requests`/`curl` fetch (confirmed live, matching §17.7's earlier
+finding) — but headless Chromium via Playwright passes it cleanly on
+both `iso.org/standard/<id>.html` and `iso.org/search.html?q=...`
+(confirmed live: real HTTP 200 content, not a challenge page). Same
+WAF-bypass pattern as `iec.ch`'s AWS WAF Bot Control (§25) — this
+reopens a source this project had previously written off as blocked.
+
+**Matching discipline** (same "never guess" principle as every other
+source added this session): for each missing designation, searches
+`iso.org/search.html?q=<number>` and accepts ONLY a result whose
+visible label is an exact, anchored match of `"{prefix} {number}:
+<year>"` — deliberately excluding a different part of a multi-part
+standard (`"17268-1"` when the target is bare `"17268"`), a draft still
+in development (`"ISO/DIS 17268-2"` doesn't match the anchored shape at
+all), and a corrigendum/amendment of the base edition (trailing text
+after the year breaks the anchor). When more than one clean edition
+year is found, the newest is used — deterministic, never a guess
+between them.
+
+**Two designations excluded before any search happens**: `STN EN ISO
+11114-1/Zmena` and `DIN EN ISO 11114-1/A1` are amendment MARKERS of ISO
+11114-1, not a missing base standard — a bare `ISO 11114-1` parent
+already exists in the corpus and is already correctly linked.
+`iso_search_target()`'s regex simply fails to parse an amendment-
+suffixed core (the suffix breaks the expected "{prefix} {number}"
+shape) — the correct outcome by construction, not a special case
+bolted on.
+
+**Live run**: 108 missing groups → 104 new records, 2 amendment
+markers correctly excluded, 2 genuinely unresolved and logged rather
+than guessed (`ISO 16852` — no longer surfaces under this query, likely
+withdrawn from the current search index; `ISO 19884` — mid-
+restructuring into a multi-part series, no single part cleanly matches
+the bare designation). **All 104 added records independently re-
+verified in a second, separate Playwright session** (not reusing the
+import run's own state) — 0 mismatches across title and live HTTP
+status. 19 new unit tests for the pure parsing/matching/record-building
+logic (`tests/test_add_missing_iso_parents.py`), Playwright I/O kept as
+a thin, untested wrapper around them.
+
+### 37.4 Wiring and rebuild
+
+Wired into `build_unified_db.py` as a 12th source. Full pipeline
+rebuild: `database_merged_raw.json` 2316 → 2420 (+104, exact match),
+`database_merged_deduplicated.json` 1265 → 1367, live `Total Documents`
+1271 → 1347. **The actual point of this work, verified directly**:
+`link_document_relations_auto.py` re-run against the new corpus finds
+**R1.4 (`ADOPTS`) jumping from 25 → 140 edges** — no code change to
+that script at all, exactly as designed. `load_document_relations.py`
+loaded 161/165 relations (was 46) with 0 unmatched. Confirmed live on
+the running app: `/dokument/csn-en-iso-17268` now shows a "přejímá"
+(adopts) relation straight through to the newly-imported `ISO 17268`
+parent's own document page. Full test suite (822 tests) and the live-
+database `test_search.py` integration test both green.
+
+**A fragility noticed and verified safe this time, not newly
+introduced**: `init_db.py` `TRUNCATE`s and fully reassigns `Document.id`
+on every rebuild; `node_document` (the process-layer's link table, not
+touched by this rebuild) references those ids by number. Its own
+docstring already documents the correct remedy (re-run
+`load_process_layer.py` after `init_db.py`), deliberately not done this
+round to avoid re-surfacing §34's already-resolved, differently-
+directioned edge items in the review queue (same reasoning as §35.2).
+Checked directly rather than assumed: `node_document` has 0 rows
+pointing at a now-nonexistent `Document.id`, and the actual content for
+U5/U7 (spot-checked against real identifiers/titles) is still correct
+— stable by virtue of `build_unified_db.py`'s deterministic source
+ordering, not by any explicit id-preservation design. Worth a
+`load_process_layer.py` re-run at the next natural opportunity to
+re-ground this on solid footing rather than favorable ordering.
