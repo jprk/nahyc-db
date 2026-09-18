@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Regulačních Dokumentů H2</title>
+    <title>Katalog regulativních dokumentů H2</title>
     <!-- Modern Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
             <div class="nav-links" style="align-items: center;">
                 <a href="{{ url_for('index') }}" class="nav-link{% if request.endpoint == 'index' %} active{% endif %}">Databáze</a>
                 <a href="{{ url_for('process_overview') }}" class="nav-link{% if request.endpoint in ('process_overview', 'process_detail') %} active{% endif %}">Procesy</a>
-                <a href="https://www.cistadoprava.cz/nahyc-m/" class="nav-link">O Projektu</a>
+                <a href="https://www.cistadoprava.cz/nahyc-m/" class="nav-link">O projektu</a>
                 <img src="{{ url_for('static', filename='logos/tacr.png') }}" alt="TAČR logo" width="48" height="48">
             </div>
         </div>
@@ -41,8 +41,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <p>&copy; 2026 RICE FEL ZČU and partners.
-                <br />Created with the support of the Technology Agency of the Czech
-                Republic under grant agreement No. TN02000007.
+                <br />Created with the support of the Technology Agency of the Czech Republic under grant agreement No. TN02000007.
             </p>
             {%- if db_last_updated or git_version %}
             <p class="footer-meta">{%- if db_last_updated %}Databáze aktualizována: {{ db_last_updated.strftime('%Y-%m-%d %H:%M') }}{%- endif -%}
