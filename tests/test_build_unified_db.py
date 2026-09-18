@@ -9,6 +9,7 @@ from build_unified_db import (
     record_url, apply_authoritative_metadata, apply_eu_transposition,
     synthesize_csn_adoption_records,
     classify_law_document_typ, split_sinay_zakony_row,
+    apply_missing_jurisdikce, _is_missing_jurisdikce,
 )
 
 
@@ -311,6 +312,53 @@ class RecordUrlTestCase(unittest.TestCase):
 
     def test_no_url_is_empty_string(self):
         self.assertEqual(record_url({}), "")
+
+
+class ApplyMissingJurisdikceTestCase(unittest.TestCase):
+    """doc/PLAN.md §41, 2026-09-18: safe, mechanical jurisdikce backfill
+    for the ~152-document gap doc/TODO.md's own audit flagged."""
+
+    def test_eu_act_type_is_trivially_eu(self):
+        record = {"typ_dokumentu": "Nařízení EU", "jurisdikce": "", "znacka": "(EU) 2022/869"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "EU")
+
+    def test_neurceno_is_treated_as_missing_too(self):
+        record = {"typ_dokumentu": "Směrnice EU", "jurisdikce": "neurčeno", "znacka": "2001/42/ES"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "EU")
+
+    def test_norm_resolves_via_its_own_issuing_body(self):
+        record = {"typ_dokumentu": "Norma", "jurisdikce": "", "znacka": "SAE J2601"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "US")
+
+    def test_norm_with_no_resolvable_body_falls_to_verified_exception_table(self):
+        record = {"typ_dokumentu": "Norma", "jurisdikce": "", "znacka": "PAS 4444"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "UK")
+
+    def test_zakonyprolidi_url_is_czech(self):
+        record = {"typ_dokumentu": "Zákon", "jurisdikce": "", "znacka": "266/1994 Sb.",
+                  "odkaz_hlavni": "https://www.zakonyprolidi.cz/cs/1994-266"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "CZ")
+
+    def test_international_treaty_prefix_from_nazev_cz(self):
+        record = {"typ_dokumentu": "", "jurisdikce": "", "znacka": "",
+                  "nazev_cz": "RID - Příloha C – Řád pro mezinárodní železniční přepravu"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "mezinárodní")
+
+    def test_already_set_jurisdikce_is_never_overwritten(self):
+        record = {"typ_dokumentu": "Norma", "jurisdikce": "SK", "znacka": "SAE J2601"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "SK")
+
+    def test_genuinely_unresolvable_stays_untouched(self):
+        record = {"typ_dokumentu": "Norma", "jurisdikce": "", "znacka": "Part 1"}
+        apply_missing_jurisdikce(record)
+        self.assertEqual(record["jurisdikce"], "")
 
 
 class ApplyEuTranspositionTestCase(unittest.TestCase):

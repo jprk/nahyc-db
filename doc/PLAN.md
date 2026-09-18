@@ -5602,3 +5602,96 @@ this is a known, deliberately-deferred gap, not an oversight: the
 project so far has been built incrementally by hand, one verified step
 at a time, and building the automation itself is separate, future
 work.
+
+## 41. Closing the jurisdikce gap (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Start with #1 (jurisdiction gap)" — doc/TODO.md's
+own audit had flagged "152 documents (12%) have no jurisdiction assigned
+at all" as a cheap, worthwhile data-completion task, distinct from the
+two link-coverage gaps §37/§39 already closed.
+
+### 41.1 Three safe, mechanical rules cover the bulk
+
+Live audit found 128 records (the figure had already dropped from 152 via
+this session's other work) missing `jurisdikce`, split into clean,
+independently-verifiable groups:
+
+- **26 EU-act records** (`Nařízení EU`/`Směrnice EU`/`Rozhodnutí EU`)
+  whose own `typ_dokumentu` already says what they are — trivially
+  `jurisdikce = "EU"`.
+- **~70 `Norma` records** with an already-resolved issuing body (from
+  `standards_body.py`'s `STANDARDS_BODY_MAP`, built in §16) — the same
+  "national institute publishes it, so that's its jurisdikce" reading
+  already used for ČSN/STN, generalized: added `_JURISDIKCE_BY_BODY`
+  (every institution value in the map → its country, or "mezinárodní"
+  for a body whose own standing is international rather than any one
+  country's — ISO, IEC, IMO/IGF, OIML, and DNV, whose Recommended
+  Practice documents are used worldwide despite its Norwegian
+  registration, the same reading already applied to ISO/IEC's own
+  Swiss/US registered offices) and `resolve_norma_jurisdikce()` in
+  `standards_body.py`, reusing `resolve_standards_body()` — never a
+  separate guess. A new test
+  (`test_every_body_in_the_map_has_a_jurisdikce_entry`) forces the two
+  maps to stay in sync: a body added to `STANDARDS_BODY_MAP` with no
+  matching jurisdikce silently returns `None`, never guessed.
+- **12 Haltuf/Sinay law records**, all with a `zakonyprolidi.cz` URL —
+  that domain publishes nothing but Czech legislation (`src/sites/
+  zakonyprolidi.py`) — trivially `jurisdikce = "CZ"`, confirmed against
+  every one of the 12 already being `znacka`-shaped "NNN/YYYY Sb.".
+- **3 ADR/RID records** — UNECE-administered international treaties,
+  `jurisdikce = "mezinárodní"`, matched on the leading token of
+  `znacka` OR `nazev_cz` (RID's own `znacka` is blank in this corpus;
+  only its title names the treaty).
+
+All four rules live in one new `apply_missing_jurisdikce()` in
+`build_unified_db.py`, applied once near the end of `main()` — never
+overwrites an already-meaningful value (`neurčeno` counts as missing,
+same as blank).
+
+### 41.2 A small, individually-verified residual
+
+17 `Norma` records had no resolvable issuing body at all. Read each one
+individually (same discipline `STANDARDS_BODY_MAP`'s own construction
+already used for its ~20 deliberately-unmapped tokens): 9 were
+genuinely unclear and left untouched (`AR 214`, `H2.22:2022`, `Part 1`/
+`Part 2`, `Band 27`, 3 blank-`znacka` rows including one that's actually
+a Slovak-language parsing artifact, not a real standard). 8 resolved
+with real, verified confidence even though their issuing body isn't
+(yet) in `STANDARDS_BODY_MAP`: "TPP" is a Slovak gas-industry technical
+rule (confirmed by the record's own Slovak-language title) → SK; "SEP"
+is the German steel industry's Stahl-Eisen-Prüfblätter series → DE;
+"A-A-" is the US federal Commercial Item Description numbering scheme →
+US; "PAS" (a BSI-trademarked product line) → UK; three "MB" German
+Merkblätter, a PTB-Mitteilungen volume, and an AGBF fire-service
+guideline → DE (German-only titles, individually read, not a reusable
+prefix rule). Kept as a small, exact-`znacka`-keyed table
+(`_VERIFIED_NORMA_JURISDIKCE_BY_ZNACKA`), not a generalized prefix rule,
+so a future different record starting with the same token is never
+silently swept in.
+
+### 41.3 A real dedup-merge bug found and fixed along the way
+
+Rebuilding to verify: 128 → 9 missing, not the expected 8 — one
+`Nařízení EU` record (`(EU) 1300/2014`) still blank. Root cause: two raw
+rows share this exact `znacka` (one with `typ_dokumentu`/`jurisdikce`
+both blank, one with both correctly resolved), and
+`deduplicate_db.py`'s `programmatic_merge()` starts from the longest-
+titled member ("best") and backfills a fixed list of fields from any
+member when "best" doesn't have one — **`jurisdikce` was missing from
+that list**, despite the list's own comment (added in §9) literally
+naming "jurisdikce" as one of the fixes it exists to protect. Added
+`"jurisdikce"` to the tuple; regression test
+`test_backfills_jurisdikce_from_any_member` reproduces the exact live
+shape. This is a general fix — any future field silently dropped this
+way would show the identical symptom.
+
+### 41.4 Result
+
+Full pipeline rebuilt: `database_merged_deduplicated.json` records
+missing jurisdikce 128 → **8** (all confirmed genuinely unresolvable,
+not newly broken). Live DB re-verified directly: 8 remaining, 0
+orphaned `node_document` rows. `needs_review` count also dropped
+(447 → 340) as a side effect — several of `detect_data_quality_issues()`'s
+own flagged reasons were tied to these same records. 9 new unit tests
+across `test_standards_body.py`, `test_build_unified_db.py`, and
+`test_deduplicate_db.py`. Full test suite (906 tests) green.

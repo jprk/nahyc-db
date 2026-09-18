@@ -163,3 +163,72 @@ def resolve_standards_body(identifier):
         prefix = m.group(0)
         return STANDARDS_BODY_MAP.get(prefix) or _LOWERCASE_MAP.get(prefix.lower())
     return None
+
+
+# doc/PLAN.md §41, 2026-09-18: `Document.jurisdikce` for a `Norma` record
+# whose issuing body is already known (via `resolve_standards_body()`
+# above) — the same "national institute publishes it, so that's its
+# jurisdikce" reading `resolve_prokop_jurisdikce()`/`parse_sinay_norms.
+# classify_jurisdikce()` already apply elsewhere, generalized to every
+# body this module knows. "mezinárodní" for a body whose own standing is
+# international rather than any one country's (ISO, IEC, IMO/IGF, OIML,
+# DNV — a classification society whose Recommended Practice documents
+# are used worldwide, the same reading applied to ISO/IEC themselves
+# despite their Swiss/US registered offices). Every value below is
+# checked against `STANDARDS_BODY_MAP`'s own values by
+# `tests/test_standards_body.py` — a body added there with no jurisdikce
+# entry here returns `None`, never a silent guess.
+_JURISDIKCE_BY_BODY = {
+    _SLOVAK: "SK",
+    _CZECH: "CZ",
+    "Deutsches Institut für Normung (DIN)": "DE",
+    "British Standards Institution (BSI)": "UK",
+    "Association française de normalisation (AFNOR)": "FR",
+    _ISO: "mezinárodní",
+    _IEC: "mezinárodní",
+    _CEN: "EU",
+    "International Organization of Legal Metrology (OIML)": "mezinárodní",
+    _IMO: "mezinárodní",
+    "Evropský výbor pro vypracování norem v oblasti vnitrozemské plavby (CESNI)": "mezinárodní",
+    _DVGW: "DE",
+    "Verein Deutscher Ingenieure (VDI)": "DE",
+    "VDE Verband der Elektrotechnik Elektronik Informationstechnik (VDE)": "DE",
+    "Verband der Automobilindustrie (VDA)": "DE",
+    "Physikalisch-Technische Bundesanstalt (PTB)": "DE",
+    "Deutsche Gesetzliche Unfallversicherung (DGUV)": "DE",
+    "Deutscher Ausschuss für Stahlbau (DASt)": "DE",
+    "Deutsche Vereinigung für Wasserwirtschaft, Abwasser und Abfall (DWA)": "DE",
+    "Arbeitsgemeinschaft Druckbehälter (AD)": "DE",
+    _BAUA: "DE",
+    _EIGA: "EU",
+    "ASTM International": "US",
+    "American Society of Mechanical Engineers (ASME)": "US",
+    "SAE International": "US",
+    "American Petroleum Institute (API)": "US",
+    "Compressed Gas Association (CGA)": "US",
+    "National Fire Protection Association (NFPA)": "US",
+    "NACE International": "US",
+    "UL Solutions": "US",
+    "Occupational Safety and Health Administration (OSHA)": "US",
+    "National Aeronautics and Space Administration (NASA)": "US",
+    _NIST: "US",
+    "Sandia National Laboratories": "US",
+    "Saudi Aramco": "SA",
+    "DNV": "mezinárodní",
+    "Institution of Gas Engineers and Managers (IGEM)": "UK",
+    _CSA: "CA",
+    "American Institute of Aeronautics and Astronautics (AIAA)": "US",
+    "Standards Australia": "AU",
+}
+
+
+def resolve_norma_jurisdikce(identifier):
+    """Returns the jurisdikce implied by a `Norma` record's OWN
+    designation, via the same issuing-body resolution
+    `resolve_standards_body()` already uses — never derived any other
+    way. `None` when the body isn't recognized at all, or is recognized
+    but not yet in `_JURISDIKCE_BY_BODY` (never assumed)."""
+    body = resolve_standards_body(identifier)
+    if not body:
+        return None
+    return _JURISDIKCE_BY_BODY.get(body)

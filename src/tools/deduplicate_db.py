@@ -351,7 +351,15 @@ def programmatic_merge(cluster_records):
                       # perfectly good verified title/URL/jurisdikce fix.
                       "nazev_autoritativni", "popis_autoritativni",
                       "zdroj_autoritativni_url", "jurisdikce_autoritativni",
-                      "jurisdikce_puvodni"):
+                      "jurisdikce_puvodni",
+                      # doc/PLAN.md §41, 2026-09-18: `jurisdikce` itself
+                      # was missing from this tuple despite the comment
+                      # above literally naming it — found live via a real
+                      # cluster where "best" (blank typ_dokumentu, blank
+                      # jurisdikce) shadowed a sibling raw row that DID
+                      # have both correctly set, silently discarding a
+                      # jurisdikce backfill that had already run.
+                      "jurisdikce"):
             if not merged.get(field) and r.get(field):
                 merged[field] = r.get(field)
 
