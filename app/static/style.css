@@ -224,11 +224,22 @@ main {
     border: none;
     border-radius: var(--radius-md);
     padding: 0 2rem;
+    /* min-height, not height: index.html's search bar sits this in a
+       flex row next to .search-input and relies on align-items: stretch
+       to reach that sibling's (taller) height — an explicit `height`
+       would override that stretch per the flexbox spec and shrink it
+       back down, undoing the very thing this fixes. Every admin form
+       button (login, propose, confirm/reject) has no such flex sibling
+       to stretch against, so it collapsed to font line-height alone;
+       min-height gives it the same floor .btn-secondary's fixed height
+       already provides, without touching the stretched case. */
+    min-height: 44px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     transition: var(--transition);
 }
