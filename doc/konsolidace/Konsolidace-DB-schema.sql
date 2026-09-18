@@ -518,12 +518,21 @@ CREATE TABLE scenario_document (
 
 -- Malá, ručně zakládaná skupina důvěryhodných editorů (žádná
 -- samoregistrace, žádný reset hesla e-mailem — provisioning přes
--- `src/tools/create_editor_user.py`) — jediná role `editor`, rozlišení
--- "kdo smí co" řeší až `ReviewItem`'s vlastní pravidlo níže (navrhovatel
--- ≠ schvalovatel), ne sloupec role.
+-- `src/db/dbuser_add.py`/`src/db/dbuser_passwd.py`) — jediná role
+-- `editor`, rozlišení "kdo smí co" řeší až `ReviewItem`'s vlastní
+-- pravidlo níže (navrhovatel ≠ schvalovatel), ne sloupec role. `name`
+-- (doc/PLAN.md §43, 2026-09-18, uživatelské zadání) je čitelné jméno
+-- osoby — `username` je jen přihlašovací login, oboje se zadává zvlášť
+-- při založení účtu. `email` (uživatelské zadání, 2026-09-18) — kontaktní
+-- adresa, povinná a jedinečná stejně jako `username`, zadává se rovněž
+-- při založení účtu (`dbuser_add.py`) a beze změny zůstává, dokud ji
+-- nikdo ručně needituje přímo v databázi — žádný skript na její změnu
+-- zatím není potřeba.
 CREATE TABLE User (
   id             INT AUTO_INCREMENT PRIMARY KEY,
   username       VARCHAR(100) NOT NULL UNIQUE,
+  name           VARCHAR(200) NOT NULL,
+  email          VARCHAR(255) NOT NULL UNIQUE,
   password_hash  VARCHAR(255) NOT NULL,
   is_active      TINYINT(1)   NOT NULL DEFAULT 1,
   created_at     TIMESTAMP    DEFAULT CURRENT_TIMESTAMP

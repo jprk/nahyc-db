@@ -3,7 +3,7 @@
 <div class="admin-card" style="max-width: 720px;">
     <h2 style="margin-bottom: 0.5rem;"><i class="ph ph-check-square"></i> Posoudit návrh opravy</h2>
     <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-        Navrhl: {{ item.proposed_by_username }} &middot; Důvod revize: {{ item.review_reason or '—' }}
+        Navrhl: {{ item.proposed_by_name }} ({{ item.proposed_by_username }}) &middot; Důvod revize: {{ item.review_reason or '—' }}
     </p>
 
     <table class="admin-table" style="margin-bottom: 1.5rem;">

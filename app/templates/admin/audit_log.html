@@ -20,7 +20,7 @@
                 {% for entry in entries %}
                 <tr>
                     <td>{{ entry.changed_at }}</td>
-                    <td>{{ entry.changed_by_username }}</td>
+                    <td>{{ entry.changed_by_name }} ({{ entry.changed_by_username }})</td>
                     <td>
                         {% if entry.slug %}<a href="{{ url_for('document_detail', slug=entry.slug) }}">{{ entry.title }}</a>
                         {% else %}#{{ entry.record_id }}{% endif %}

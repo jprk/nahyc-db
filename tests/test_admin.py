@@ -119,9 +119,12 @@ class AdminReviewWorkflowTestCase(unittest.TestCase):
                         "VALUES (%s, 1, 'chybí popis/anotace dokumentu')", (_TEST_DOC_TITLE,))
             cls.document_id = cur.lastrowid
 
-            for username, password in (("alice", cls.ALICE_PASSWORD), ("bob", cls.BOB_PASSWORD)):
-                cur.execute("INSERT INTO User (username, password_hash) VALUES (%s, %s)",
-                            (username, generate_password_hash(password)))
+            for username, name, email, password in (
+                ("alice", "Alice Testing", "alice@example.test", cls.ALICE_PASSWORD),
+                ("bob", "Bob Testing", "bob@example.test", cls.BOB_PASSWORD),
+            ):
+                cur.execute("INSERT INTO User (username, name, email, password_hash) VALUES (%s, %s, %s, %s)",
+                            (username, name, email, generate_password_hash(password)))
 
     @classmethod
     def tearDownClass(cls):

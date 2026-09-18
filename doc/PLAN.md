@@ -5871,3 +5871,46 @@ JSON-level application is now directly verified as above, and
 production rebuild carries real risk (as just demonstrated) for
 marginal additional coverage, so it's left for whenever this feature's
 first real correction actually gets confirmed through the app.
+
+## 43. Dedicated user-provisioning scripts, `name`/`email` on `User` (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Write a small script to `src/db/dbuser_add.py`
+which creates a new user in the database with the given login, name,
+and a password. Write another script `src/db/user_passwd.py` that
+updates a password for a given user login." — clarified via
+`AskUserQuestion` that "user" means an `app/admin.py` editor account
+(the `User` table §42 just added), not a MariaDB server-level account;
+followed by two more instructions mid-turn: rename the second script to
+`src/db/dbuser_passwd.py`, and add a required, unique `email` column,
+captured at account creation.
+
+Given the heavy overlap with `src/tools/create_editor_user.py` (§42) —
+same purpose, same `[--apply]` discipline, but a cleaner split (add vs.
+change-password as two scripts) and now also `name`/`email` — that
+script is REMOVED rather than kept alongside a newer, more complete
+replacement; nothing else referenced it. `User` gained `name VARCHAR(200)
+NOT NULL` and `email VARCHAR(255) NOT NULL UNIQUE` (edited directly into
+§42's own `CREATE TABLE`, not a separate `ALTER TABLE` — that table was
+itself only just added on this same unmerged branch, never deployed, so
+there's no real migration history to preserve by layering on top of it
+instead).
+
+`dbuser_add.py <login> <name> <email>` rejects an obviously-malformed
+email (a loose sanity regex, not a full RFC 5322 validator — deliberately
+permissive, since a validator strict enough to reject typos would also
+reject plenty of real addresses) and a login/email that already exists
+(both `UNIQUE`) before ever prompting for a password. `dbuser_passwd.py
+<login>` requires the account to already exist and asks for the new
+password twice (rejects on mismatch) — deliberately narrower than
+`dbuser_add.py`, never silently creates an account.
+
+`app/admin.py`'s `login()` now also loads `name` into the session, and
+`review_list.html`/`review_confirm.html`/`audit_log.html` show
+"name (username)" wherever only the login handle was shown before —
+the point of asking for a name at all. Live-verified end to end against
+`.env.test`: created an account, confirmed the invalid-email and
+duplicate-login/email rejections, changed its password, confirmed the
+new hash verifies and the old one doesn't, then removed the test
+account. `tests/test_admin.py`'s fixtures updated for the two new
+`NOT NULL` columns. Full test suite (914 tests) green, stable across
+repeated runs.

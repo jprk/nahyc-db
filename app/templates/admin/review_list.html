@@ -3,7 +3,7 @@
 <section class="results-section">
     <div class="results-header">
         <h2 class="results-title">Položky k revizi <span class="badge">{{ items|length }}</span></h2>
-        <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('username') }})</a>
+        <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('name') }})</a>
     </div>
 
     <div class="table-glass-container">
@@ -26,7 +26,7 @@
                     <td>{{ item.review_reason or '—' }}</td>
                     <td>
                         {% if item.review_status == 'proposed' %}
-                            Navrženo editorem {{ item.proposed_by_username }}
+                            Navrženo editorem {{ item.proposed_by_name }} ({{ item.proposed_by_username }})
                         {% else %}
                             Čeká na návrh opravy
                         {% endif %}

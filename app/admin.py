@@ -89,7 +89,7 @@ def login():
     password = request.form.get("password") or ""
     db = get_db()
     with db.cursor() as cur:
-        cur.execute("SELECT id, password_hash, is_active FROM User WHERE username=%s", (username,))
+        cur.execute("SELECT id, name, password_hash, is_active FROM User WHERE username=%s", (username,))
         user = cur.fetchone()
     if not user or not user["is_active"] or not check_password_hash(user["password_hash"], password):
         flash("Neplatné přihlašovací jméno nebo heslo.", "error")
@@ -97,6 +97,7 @@ def login():
 
     session["user_id"] = user["id"]
     session["username"] = username
+    session["name"] = user["name"]
     return redirect(request.args.get("next") or url_for("admin.review_list"))
 
 
@@ -117,7 +118,8 @@ def fetch_review_list(db):
         cur.execute("""
             SELECT d.id AS document_id, d.slug, d.identifier, d.title, d.review_reason,
                    ri.id AS review_item_id, ri.status AS review_status,
-                   ri.proposed_by_user_id, pu.username AS proposed_by_username
+                   ri.proposed_by_user_id, pu.username AS proposed_by_username,
+                   pu.name AS proposed_by_name
             FROM Document d
             LEFT JOIN ReviewItem ri
                 ON ri.document_id = d.id AND ri.status IN ('needs_review', 'proposed')
@@ -201,7 +203,7 @@ def fetch_review_item(db, review_item_id):
     with db.cursor() as cur:
         cur.execute("""
             SELECT ri.*, d.slug, d.identifier, d.title, d.description,
-                   pu.username AS proposed_by_username
+                   pu.username AS proposed_by_username, pu.name AS proposed_by_name
             FROM ReviewItem ri
             JOIN Document d ON d.id = ri.document_id
             LEFT JOIN User pu ON pu.id = ri.proposed_by_user_id
@@ -327,7 +329,7 @@ def audit_log():
     db = get_db()
     with db.cursor() as cur:
         cur.execute("""
-            SELECT a.*, u.username AS changed_by_username, d.slug, d.title
+            SELECT a.*, u.username AS changed_by_username, u.name AS changed_by_name, d.slug, d.title
             FROM AuditLog a
             LEFT JOIN User u ON u.id = a.changed_by_user_id
             LEFT JOIN Document d ON d.id = a.record_id AND a.table_name = 'Document'
