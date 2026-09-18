@@ -86,12 +86,35 @@ _TYPE_KEYWORD_MAP = {
     "rozhodnutí": "Rozhodnutí EU", "rozhodnutie": "Rozhodnutí EU",
 }
 
+# A citation legitimately naming an EU act can carry a leading prefix
+# that names neither the act's type nor identity — found live, doc/
+# PLAN.md §38: an article/point reference ("Čl. 13 směrnice Rady
+# 2001/86/ES ...", zakonyprolidi.cz/cs/2006-262; "Čl. 1 bod 4 nařízení
+# Komise (ES) č. 865/2006 ...", /cs/1992-114) or an explicit "this is an
+# illustrative, non-exhaustive example" marker ("Například Směrnice Rady
+# 75/440/EHS ...", /cs/2001-254 — the EIA-era Water Act's own footnote
+# "1)" genuinely lists EU water directives this way). Each is stripped
+# ONLY for these two narrowly-defined, safe shapes — never a general
+# "skip the first word(s)" rule, which is exactly what caused the
+# 183/2006 Sb. regression this same fix guards against (its footnote
+# "1)" cites ANOTHER CZECH LAW, "Zákon č. 311/2006 Sb., ...", and
+# "Například zákon č. 114/1995 Sb., ..." at /cs/1997-22 is the same
+# shape with the example marker — both correctly stay unclassified).
+_LEADING_EXAMPLE_RE = re.compile(r"^(?:například|např\.)\s+", re.IGNORECASE)
+_LEADING_ARTICLE_REF_RE = re.compile(r"^čl\.\s*\d+[a-z]?(?:\s+bod\s*\d+[a-z]?)?\s+", re.IGNORECASE)
+
+
+def strip_leading_article_ref(text):
+    text = _LEADING_EXAMPLE_RE.sub("", text or "", count=1)
+    return _LEADING_ARTICLE_REF_RE.sub("", text, count=1)
+
 
 def classify_citation_type(text):
     """"Směrnice Evropského..." -> "Směrnice EU"; None if the citation
     doesn't start with one of the three known EU-act-type keywords (in
-    either Czech or Slovak)."""
-    words = (text or "").strip().split(None, 1)
+    either Czech or Slovak) — after stripping a leading article
+    reference, if any (see `strip_leading_article_ref()`)."""
+    words = strip_leading_article_ref(text).strip().split(None, 1)
     if not words:
         return None
     key = words[0].strip(".,;:").lower()
@@ -336,13 +359,30 @@ def resolve_citations(raw_items, session):
     Czech, yet only resolves under `eli/reg/...`, not `eli/dir/...`.
     Every candidate (primary or fallback) still needs Cellar to actually
     return a title AND that title's date to match the citation's own —
-    never guessed, never accepted on digit-pair coincidence alone."""
+    never guessed, never accepted on digit-pair coincidence alone.
+
+    A citation that doesn't even START with one of the three EU-act-type
+    keywords (`classify_citation_type()` returns None) is never resolved
+    AT ALL, not even tried against all three types as a "maybe" —
+    regression found live, doc/PLAN.md §38: footnote "1)" of Act
+    183/2006 Sb. actually cites ANOTHER CZECH LAW ("Zákon č. 311/2006
+    Sb., o pohonných hmotách...", no date at all in the text), and
+    trying every type blindly matched an entirely unrelated EU wheat-
+    export Regulation that happens to share the digit pair — accepted
+    because `title_matches_date()` never blocks when there is no date
+    signal to check against. Every footnote-1/annex item is NOT
+    guaranteed to be an EU-act citation (some CZ laws use "1)" for a
+    plain domestic cross-reference instead) — only a recognized leading
+    keyword earns any resolution attempt at all."""
     resolved, unresolved = [], []
     for raw in raw_items:
+        primary = classify_citation_type(raw)
+        if primary is None:
+            unresolved.append(raw)
+            continue
         expanded = expand_two_digit_year(designation_text_for_resolution(raw))
         date_signal = extract_date_signal(raw)
-        primary = classify_citation_type(raw)
-        candidates = [primary] + [t for t in _ALL_TYPE_NAMES if t != primary] if primary else list(_ALL_TYPE_NAMES)
+        candidates = [primary] + [t for t in _ALL_TYPE_NAMES if t != primary]
         act = None
         for type_name in candidates:
             candidate_act = resolve_eu_act_by_designation(expanded, type_name, session=session)

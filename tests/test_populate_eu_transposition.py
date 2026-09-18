@@ -50,6 +50,37 @@ class ClassifyCitationTypeTestCase(unittest.TestCase):
         self.assertIsNone(pet.classify_citation_type(""))
         self.assertIsNone(pet.classify_citation_type(None))
 
+    def test_leading_article_reference_is_stripped_before_classifying(self):
+        # Found live, doc/PLAN.md §38: a legitimate EU-act citation can be
+        # prefixed with a specific article reference.
+        self.assertEqual(
+            pet.classify_citation_type("Čl. 13 směrnice Rady 2001/86/ES ze dne 8. října 2001..."),
+            "Směrnice EU")
+
+    def test_a_law_citation_is_never_mistaken_for_an_article_reference(self):
+        # "Zákon" is not "Čl. N" -- must stay unclassified (this is the
+        # exact 183/2006 Sb. regression shape).
+        self.assertIsNone(pet.classify_citation_type(
+            "Zákon č. 311/2006 Sb., o pohonných hmotách a čerpacích stanicích..."))
+
+    def test_article_and_point_reference_is_stripped(self):
+        self.assertEqual(pet.classify_citation_type(
+            "Čl. 1 bod 4 nařízení Komise (ES) č. 865/2006 ze dne 4. května 2006..."),
+            "Nařízení EU")
+
+    def test_leading_example_marker_is_stripped(self):
+        # zakonyprolidi.cz/cs/2001-254 (Water Act): footnote "1)" genuinely
+        # lists EU water directives introduced by "Například" ("e.g.").
+        self.assertEqual(pet.classify_citation_type(
+            "Například Směrnice Rady 75/440/EHS ze dne 16. června 1975 o..."),
+            "Směrnice EU")
+
+    def test_example_marker_before_a_law_citation_still_stays_unclassified(self):
+        # zakonyprolidi.cz/cs/1997-22: "Například" also introduces plain
+        # domestic cross-references -- the marker itself never implies EU.
+        self.assertIsNone(pet.classify_citation_type(
+            "Například zákon č. 114/1995 Sb., o vnitrozemské plavbě..."))
+
 
 class ExpandTwoDigitYearTestCase(unittest.TestCase):
     def test_expands_pre_2000_style_citation(self):
@@ -231,6 +262,26 @@ class ResolveCitationsTestCase(unittest.TestCase):
             resolved, unresolved = pet.resolve_citations(["Směrnice 9999/9999/EU o ničem"], session=None)
             self.assertEqual(resolved, [])
             self.assertEqual(unresolved, ["Směrnice 9999/9999/EU o ničem"])
+
+    def test_unclassified_citation_is_never_resolved_even_on_a_coincidental_match(self):
+        # Regression, found live (doc/PLAN.md §38): footnote "1)" of Act
+        # 183/2006 Sb. actually cites ANOTHER CZECH LAW ("Zákon č.
+        # 311/2006 Sb., o pohonných hmotách...", no date in the text at
+        # all) -- trying every type blindly against this non-EU-act text
+        # matched an unrelated EU wheat-export Regulation that happens to
+        # share the digit pair, accepted only because there was no date
+        # to check it against. A citation with no recognized leading
+        # keyword must never be resolved, full stop -- not even tried.
+        with patch.object(pet, "resolve_eu_act_by_designation") as mock_resolve:
+            mock_resolve.return_value = {
+                "title": "Nařízení Komise (ES) č. 311/2006 ze dne 22. února 2006, kterým se mění nařízení (ES) č. 27/2006 ...",
+                "url": "https://eur-lex.europa.eu/eli/reg/2006/311/oj"}
+            raw = ("Zákon č. 311/2006 Sb., o pohonných hmotách a čerpacích stanicích pohonných hmot a o "
+                   "změně některých souvisejících zákonů (zákon o pohonných hmotách), ve znění pozdějších předpisů.")
+            resolved, unresolved = pet.resolve_citations([raw], session=None)
+            self.assertEqual(resolved, [])
+            self.assertEqual(unresolved, [raw])
+            mock_resolve.assert_not_called()
 
 
 class BuildCacheEntryTestCase(unittest.TestCase):

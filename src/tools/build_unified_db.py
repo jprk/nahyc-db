@@ -939,7 +939,30 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered ISO Parent Standards data: {e}")
 
-    # 13. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 13. Discovered EU Transposition Targets — doc/PLAN.md §39, 2026-09-18,
+    # user-directed: same shape as §37's ISO-parent import, but for the
+    # R1.3 (`IMPLEMENTS`) gap — 91 EU acts that national laws' own
+    # footnote/annex transposition citations name (independently
+    # verified against EUR-Lex Cellar by `populate_eu_transposition.py`,
+    # doc/PLAN.md §38) but that had no corpus record of their own yet.
+    # `src/tools/import_eu_transposition_targets.py` builds this file
+    # ONLY from already-verified (title, url) pairs already sitting in
+    # data/eu_transposition_cache.json — it never queries EUR-Lex itself
+    # — and deliberately leaves out 28 further digit-pair "candidates"
+    # that turned out to be secondary mentions inside another act's own
+    # title (an amendment/repeal clause), not something any citing law
+    # itself declared as a transposition target (see that script's
+    # module docstring for why resolving those from a bare digit pair
+    # would reopen the exact type-collision bug §38 fixed).
+    file_discovered_eu_transposition_targets = base_dir / "discovered_eu_transposition_targets.json"
+    try:
+        data_discovered_eu_transposition_targets = load_json(file_discovered_eu_transposition_targets)
+        unified_db.extend(data_discovered_eu_transposition_targets)
+        print(f"Loaded {len(data_discovered_eu_transposition_targets)} records from Discovered EU Transposition Targets.")
+    except Exception as e:
+        print(f"Error loading Discovered EU Transposition Targets data: {e}")
+
+    # 14. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json

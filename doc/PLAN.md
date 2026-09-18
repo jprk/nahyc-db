@@ -5394,3 +5394,175 @@ step but out of this task's scope and not done here.
 Live DB re-verified directly: 21 `IMPLEMENTS` rows, 0 orphaned
 `node_document` rows (same fragility as §37.4, still stable). Full test
 suite (862 tests) green.
+
+## 39. A critical §38 bug found post-push, and importing the missing EU act records to close R1.3 (NEW, 2026-09-18, user-directed)
+
+**User instruction:** "Import the missing EU act records to close the
+R1.3 gap" — the natural R1.3 counterpart to §37's ISO-parent import for
+R1.4. Before starting, re-checked §38's own output out of caution (it
+had already been committed and pushed) — good thing: a real, serious
+bug was hiding in it.
+
+### 39.1 The bug: an unrelated act accepted because there was no date to check
+
+Inspecting `data/eu_transposition_missing_targets.json`'s first entry
+("183/2006 Sb." citing "27/2006") led straight to it: Act 183/2006
+Sb.'s (the Building Act) own `nazev_eu` read "Nařízení Komise (ES) č.
+311/2006 ... vývoz pšenice obecné ze zásob německé intervenční
+agentury" — an EU wheat-export-quota regulation, obviously unrelated to
+spatial planning. The real footnote "1)" text turned out to be "**Zákon
+č. 311/2006 Sb.**, o pohonných hmotách ..." — a citation to ANOTHER
+CZECH LAW, not an EU act at all. `resolve_citations()`'s type-fallback
+(§38.3's design, meant for cases like a Regulation whose own title
+starts with "Směrnice") tried all three EU-act types against this
+non-EU-act text anyway, since `classify_citation_type("Zákon č.
+311/2006 Sb...")` returns `None` for "no recognized type" — and the
+digit pair "311/2006" happened to collide with a real, unrelated
+regulation. `title_matches_date()` never blocked it because a plain
+Czech law citation carries no "ze dne ..." date to check against at
+all — the safety gate simply had nothing to check.
+
+Fixed in `resolve_citations()`: a citation that doesn't classify to a
+recognized type at all is now **never resolved**, full stop — not even
+tried against all three types. Re-auditing all 56 original targets
+against the fix found **9 more real cases** of the identical shape
+(Zákon/Vyhláška/§-citations to other Czech laws — "1991-455",
+"1992-114"† , "1995-173", "1997-22", "2001-246", "2001-254"†,
+"2001-274", "2009-268", "2021-283" — each had wrongly picked up an
+unrelated EU regulation about cereals, sugar, customs valuation, or
+veterinary rules).
+
+### 39.2 Two legitimate citation shapes the stricter check then hid
+
+The re-audit also broke two previously-CORRECT matches, both marked
+† above — investigated individually rather than accepted as expected
+fallout:
+- **An article/point reference before the type keyword**: "Čl. 13
+  směrnice Rady 2001/86/ES ..." (zakonyprolidi.cz/cs/2006-262, the
+  Labour Code) and "Čl. 1 bod 4 nařízení Komise (ES) č. 865/2006 ..."
+  (/cs/1992-114) — both genuine EU-act citations, just prefixed with a
+  specific article/point number.
+- **An explicit "illustrative, non-exhaustive example" marker**:
+  "Například Směrnice Rady 75/440/EHS ..." (/cs/2001-254, the Water
+  Act) — confirmed live against the page's own operative text ("...
+  zajistit bezpečnost vodních děl v souladu s právem Evropských
+  společenství<sup>1</sup>)") that footnote "1)" genuinely IS this law's
+  EU-harmonization declaration, just phrased as an example list. The
+  SAME marker also introduces plain Czech-law lists elsewhere
+  (/cs/1997-22's "Například zákon č. 114/1995 Sb., ...") — the marker
+  itself is never a type signal on its own.
+
+Both prefixes are now stripped (`strip_leading_article_ref()`) ONLY for
+these two narrowly-defined shapes before classification — never a
+general "skip the first word(s)" rule, which is exactly what caused
+39.1's regression in the first place.
+
+### 39.3 Corrected result
+
+Cache re-audited fully (both fixes applied, all 56 targets re-fetched
+and re-resolved from scratch, not just the 10 flagged ones): **26
+`fetched`** (down from the buggy 34), 20 `no_transposition` (unchanged
+— genuinely correct), 10 `unresolved` (up from 2 — 8 real domestic
+cross-references correctly rejected, plus the 2 original RIC/RIV/ČSN
+non-EU-act citations). Every corrected/newly-classified case
+individually re-verified by hand against the corpus's own regex
+(`classify_citation_type`) before trusting the batch result. Pipeline
+rebuilt: `apply_eu_transposition` now applies to 33 raw records (was
+45); `link_document_relations_auto.py`: R1.3 21 → **19** edges (net
+DOWN — correctly so, the removed edges were built on wrong acts), 151
+missing-target candidates (down from 160). Full test suite (868 tests,
+5 new regression tests) green. Corrected cache and both `eurlex.py`/
+`populate_eu_transposition.py` fixes committed as a follow-up to §38's
+original commit (not amended — the original commit stays as a true
+record of what was pushed and when).
+
+### 39.4 Importing the missing EU act records
+
+With the corrected `data/eu_transposition_missing_targets.json` (151
+candidates, 119 unique cited references) in hand, `src/tools/import_eu_
+transposition_targets.py` (new) builds Document records — but **only
+from ALREADY independently-verified (title, url) pairs already sitting
+in `data/eu_transposition_cache.json`'s `nazev_eu`/`odkaz_eu`** — this
+script never queries EUR-Lex itself, never resolves anything new.
+`build_eu_act_registry()` indexes every `fetched` cache entry's
+(newline-aligned) title/url pairs by digit core, both orderings.
+
+**Deliberately narrower than "119 unique references" — found live,
+same root cause as §39.1's near-miss**: splitting the 119 into two
+real, distinct shapes. 91 are directly cited by a national law's OWN
+footnote/annex (the large majority) — safe, already resolved+date-
+verified by §38's pipeline. The other 28 are **secondary/incidental
+mentions**: a digit pair that only appears because one of the 91
+ABOVE acts' own OFFICIAL TITLE names another act it amends/repeals
+(e.g. Regulation (EU) 2018/1999's title lists nine other acts it
+changes) — `link_document_relations_auto.py`'s `_EU_REF_RE.finditer()`
+scans the whole `nazev_eu` text blob, so these get swept up too, even
+though the CITING NATIONAL LAW never itself declared them as its own
+transposition target. Verified live that resolving these 28 from the
+bare digit pair alone is genuinely unsafe, not just theoretically so:
+every single one of them resolves to 2-3 completely different,
+unrelated real acts across the three types with no way to disambiguate
+without the exact citation context and date §38.3's collision fix
+depends on — reopening a bare-digit lookup here would reopen §39.1's
+bug for these specific 28. Logged to `data/eu_transposition_secondary_
+references.json` for separate human review instead, never guessed.
+
+91 new records built and (after a second pass, see below) 92 total.
+`znacka` built as bare `"YYYY/NNN/<suffix>"`, with the suffix chosen by
+the act's actual adoption era (EHS pre-1993, ES 1993–2008, EU
+2009-onward) — cosmetic for matching (`digit_core()` doesn't care), but
+this corpus's own stated bar is never asserting something untrue, and a
+1985 act calling itself "(EU)" would be exactly that.
+
+### 39.5 A second real bug found while chasing one more edge: 2-digit years in the MATCHER, not just the extractor
+
+Fixed and re-ran; 132/38 instead of the expected 133/37. One residual:
+"258/2000 Sb." citing "2119/98/ES" (Decision No 2119/98/EC) — the
+freshly-imported target record's own `znacka` is `"1998/2119/EU"`
+(4-digit, built from the ELI URL's year), but the citing record's own
+`nazev_eu` text (Cellar's own title, stored verbatim) still reads
+"č. 2119/98/ES" — `link_document_relations_auto.py`'s OWN
+`_normalized_digit_pair()` (used to try both NNN/YYYY and YYYY/NNN
+orderings) had no 2-digit-year expansion at all, a PRE-EXISTING
+limitation of that file, distinct from and older than §38's fix to the
+extractor. Fixed the same way, in the same place `_normalized_digit_pair`
+already lived — expands a bare 2-digit year in EITHER position to its
+4-digit form (never touches an already-4-digit number). One import,
+one edge: 132 → 133.
+
+### 39.6 A second real bug in the import script itself: silent data loss on re-run
+
+Re-running the import script after the 39.5 fix to pick up this ONE
+extra target overwrote `data/discovered_eu_transposition_targets.json`
+with just that 1 new record — **discarding the previous run's 91**.
+`main()` used to write only its own `added` list; the ONLY reason the
+91 weren't actually lost is that `database_merged_deduplicated.json`
+still had them (the file this script ALSO checks for "does this act
+already exist" via `existing_corpus_digit_cores()`) purely because
+`build_unified_db.py` hadn't been re-run yet — an accident of timing,
+not a real safety net. Recovered by hand (confirmed the 91 records
+survived dedup completely unchanged, byte-for-byte field set, then
+merged with the genuinely-new 1). Fixed properly:
+`load_previously_discovered()` reads the existing output file first and
+`main()` now merges rather than overwrites — verified idempotent by
+running the script a third time with zero further code changes: "0
+nových záznamů přidáno (92 celkem)".
+
+### 39.7 Final result
+
+Full pipeline rebuilt end to end: `database_merged_raw.json` 2420 →
+2512 (+92, exact match), `database_merged_deduplicated.json` 1367 →
+1461 (all 92 new records survived dedup unchanged — no near-duplicates
+with anything already in the corpus, as expected for brand-new EU act
+records). `link_document_relations_auto.py`: **R1.3 (`IMPLEMENTS`) 19 →
+133 edges** — the actual point of this work — with the 37 remaining
+missing-target candidates verified to be EXACTLY the 27 secondary/
+incidental references §39.4 deliberately excluded (not a new gap).
+`load_document_relations.py` loaded 288/292 relations, 0 unmatched.
+Live DB re-verified directly: 133 `IMPLEMENTS` rows (spot-checked
+100/2001 Sb., the EIA Act, now correctly linking to all 3 directives it
+transposes), 0 orphaned `node_document` rows. 19 new unit tests across
+`test_import_eu_transposition_targets.py` (new file),
+`test_link_document_relations_auto.py`, and `test_populate_eu_
+transposition.py`'s further regression coverage for §39.1/§39.2. Full
+test suite (892 tests) green.

@@ -174,12 +174,26 @@ def digit_core(znacka):
 def _normalized_digit_pair(ref_text):
     """A digit-core extracted from free text can appear as 'NNN/YYYY' or
     'YYYY/NNN' depending on style — returns both orderings so either can
-    be matched against a real digit_core()."""
+    be matched against a real digit_core().
+
+    Also expands a bare 2-digit year ("2119/98", a pre-2000 EU act cited
+    "č. NNNN/YY/xx" style — found live, doc/PLAN.md §39: Decision
+    2119/98/EC's own Cellar-sourced title, stored verbatim in a citing
+    law's `nazev_eu`, keeps this 2-digit form, while the imported target
+    record's own znacka is built with the full "1998/2119" year) to its
+    4-digit form, same "always 19xx, EU numbering predates 2000-vs-1900
+    ambiguity" assumption as `populate_eu_transposition.expand_two_digit_
+    year()` — never touches an already-4-digit group."""
     m = re.match(r"(\d+)/(\d+)", ref_text)
     if not m:
         return {ref_text}
     a, b = m.groups()
-    return {f"{a}/{b}", f"{b}/{a}"}
+    candidates = {f"{a}/{b}", f"{b}/{a}"}
+    if len(a) == 2:
+        candidates |= {f"19{a}/{b}", f"{b}/19{a}"}
+    if len(b) == 2:
+        candidates |= {f"{a}/19{b}", f"19{b}/{a}"}
+    return candidates
 
 
 _EU_ACT_ZNACKA_RE = re.compile(

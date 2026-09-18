@@ -7,6 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / 
 from link_document_relations_auto import (
     international_core, jurisdikce_tier, find_localization_pairs,
     digit_core, find_eu_transposition_pairs, is_eu_act_znacka,
+    _normalized_digit_pair,
 )
 
 
@@ -112,6 +113,31 @@ class DigitCoreTestCase(unittest.TestCase):
 
     def test_no_digits_is_none(self):
         self.assertIsNone(digit_core("ČSN ISO 14687"))
+
+
+class NormalizedDigitPairTestCase(unittest.TestCase):
+    def test_plain_pair_returns_both_orderings(self):
+        self.assertEqual(_normalized_digit_pair("2023/1804"), {"2023/1804", "1804/2023"})
+
+    def test_two_digit_year_second_position_is_expanded(self):
+        # doc/PLAN.md §39: Decision 2119/98/EC, "č. NNNN/YY" style —
+        # found live blocking a freshly-imported target from linking.
+        got = _normalized_digit_pair("2119/98")
+        self.assertIn("1998/2119", got)
+        self.assertIn("2119/1998", got)
+        self.assertIn("2119/98", got)  # original orderings still offered
+
+    def test_two_digit_year_first_position_is_expanded(self):
+        got = _normalized_digit_pair("85/337")
+        self.assertIn("1985/337", got)
+        self.assertIn("337/1985", got)
+
+    def test_two_already_four_digit_numbers_are_never_expanded(self):
+        got = _normalized_digit_pair("2001/2011")
+        self.assertEqual(got, {"2001/2011", "2011/2001"})
+
+    def test_non_digit_pair_text_returns_itself_unchanged(self):
+        self.assertEqual(_normalized_digit_pair("ISO 14687"), {"ISO 14687"})
 
 
 class IsEuActZnackaTestCase(unittest.TestCase):
