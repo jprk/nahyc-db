@@ -5695,3 +5695,179 @@ orphaned `node_document` rows. `needs_review` count also dropped
 own flagged reasons were tied to these same records. 9 new unit tests
 across `test_standards_body.py`, `test_build_unified_db.py`, and
 `test_deduplicate_db.py`. Full test suite (906 tests) green.
+
+## 42. Editor accounts, a staged two-editor review workflow, and an audit log (NEW, 2026-09-18, user-directed, branch `edit_review`)
+
+**User instructions, in sequence:** "Can we in between try to plan some
+changes required to logging and user accounts?" → clarified via
+`AskUserQuestion` (accounts driven by admin/editor access needs, logging
+scoped to an audit trail of data changes, sketch-level design first) →
+design sketch discussed and refined interactively (single `editor` role
+but a two-person confirm rule; a proposed correction stays staged, never
+touching the live `Document` row, until a *different* editor confirms
+it; the audit log is visible to any logged-in editor) → "Make that an
+implementation /plan" (entered plan mode, researched the codebase via
+one Explore agent, wrote and got approval for the plan now at
+`/home/laborator/.claude/plans/typed-floating-sketch.md`) → "Proceed in
+auto mode and implement all changes in a new branch called
+`edit_review`".
+
+The app (`app/app.py`) was, until this point, 100% read-only — no
+`SECRET_KEY`, no `flask.session` usage, no user table at all. The only
+way to fix a `needs_review`-flagged record was to edit the source
+spreadsheet/JSON and re-run the whole pipeline by hand.
+
+### 42.1 Schema
+
+Appended to `doc/konsolidace/Konsolidace-DB-schema.sql` as a new
+"VRSTVA E" section (the file's own established append-only, dated-
+comment-block convention — same one `slug`/`needs_review` were each
+added under): `User` (username/password_hash/is_active — no
+self-registration, ever; provisioned by hand via `create_editor_user.py`),
+`ReviewItem` (one row per propose→decide cycle:
+`proposed_changes_json`, `status` `needs_review`→`proposed`→
+`confirmed`|`rejected`, `proposed_by_user_id`/`confirmed_by_user_id`),
+and `AuditLog` (one row per confirmed write, full before/after `Document`
+row as JSON, `review_item_id` linking back to who proposed vs who
+confirmed). The two-different-editors rule is enforced TWICE — in the
+app, and as a MariaDB `CHECK` constraint
+(`chk_ri_distinct_reviewers`) — verified live against `.env.test`: a
+same-user confirm attempt raises MariaDB error 4025, a different-user
+one succeeds.
+
+### 42.2 Pipeline survival
+
+A confirmed correction updates the live `Document` row immediately
+(public visibility right away — not staged behind a future rebuild) AND
+appends to a new `data/manual_corrections.json`, applied by a new
+`apply_manual_corrections()` in `build_unified_db.py` (same call-site
+pattern as `apply_eu_transposition()`/`apply_missing_jurisdikce()`) —
+without this, the next `init_db.py` rebuild (which fully `TRUNCATE`s and
+re-`INSERT`s `Document`, recomputing `needs_review`/`review_reason` from
+scratch via `detect_data_quality_issues()`) would silently erase the
+fix, the exact trap this project's own established discipline exists to
+avoid. Keyed by `znacka`/`identifier` — the same matching key
+`backfill_puvodce.py` already uses to pair a live row back to its JSON
+source record — and, unlike every other `apply_*()` overlay in that
+file, DELIBERATELY overwrites an existing value: a confirmed correction
+exists specifically to replace something wrong, not to fill a gap.
+
+### 42.3 Auth
+
+Hand-rolled `flask.session` + `werkzeug.security` password hashing, not
+a new auth library — matches this codebase's existing minimalism (raw
+`pymysql`, no ORM, no config framework). `SECRET_KEY` added to
+`.env`/`.env.example`/`.env.test` (new — none of them had it).
+
+### 42.4 A real dual-execution-mode import bug, found and fixed before it shipped
+
+`app/app.py` runs two different ways — a directly-executed script
+(`.venv/bin/python app/app.py`, the dev server) and a package import
+(`wsgi.py`'s `from app.app import app`) — which put different
+directories on `sys.path`. A first attempt at wiring the new
+`app/admin.py` blueprint had it `from app.app import get_db` (importing
+the sibling module) — works under one execution mode, silently breaks
+under the other. Fixed two ways at once: `admin.py` carries its OWN copy
+of the tiny `get_db()` helper (`flask.g`/`os.environ` are true global
+proxies regardless of which "copy" of a module defines the function
+referencing them, so duplicating 8 lines is safer than fighting Python's
+import system over it), and `app.py` registers the blueprint via an
+explicit `sys.path.insert(0, str(Path(__file__).resolve().parent))`
+before a bare `from admin import admin_bp` — the same sibling-import
+convention `src/tools/*.py` already uses for its own cross-module
+imports. Verified directly under BOTH execution modes before moving on.
+
+### 42.5 Review workflow (`app/admin.py`)
+
+`/admin/login`, `/admin/logout`, `/admin/review` (every `needs_review`
+`Document`, lazily paired with its currently open `ReviewItem` if one
+exists — no bulk pre-creation of ~340 `ReviewItem` rows up front),
+`/admin/review/<document_id>/edit` (propose — editable fields are named
+after the JSON PIPELINE's own vocabulary, `znacka`/`nazev_cz`/
+`anotace_poznamka`, not the live `identifier`/`title`/`description`
+column names, since that's what `proposed_changes_json`/`data/
+manual_corrections.json` actually speak), `/admin/review/<id>/confirm`
+(confirm or reject — a same-user confirm attempt is rejected with 403
+before the database even gets a chance to enforce its own `CHECK`),
+`/admin/audit-log`. On confirm, `needs_review`/`review_reason` are
+RECOMPUTED from the post-correction values using `init_db.py`'s own
+`is_garbled_znacka`/`is_fragment_title` directly (`recompute_
+needs_review()`) — the identical rule that flagged the record in the
+first place, so a partial fix (one of several reasons corrected) still
+correctly leaves the record flagged for whatever's left.
+
+### 42.6 Templates
+
+New `app/templates/admin/` (`login.html`, `review_list.html`,
+`review_edit.html`, `review_confirm.html`, `audit_log.html`), all
+`{% extends 'base.html' %}`, reusing the existing glass/card visual
+language via a modest set of new shared CSS classes in `style.css`
+(`admin-card`, `admin-form-group`, `admin-table`, `flash*`,
+`diff-old`/`diff-new`) — no new frontend framework or build step.
+`base.html` gained a `get_flashed_messages()` block (unused anywhere
+else in the app until now) and an "Editor" nav link.
+
+### 42.7 Two more real bugs, found while testing the testing
+
+Writing `tests/test_admin.py` (a live-DB integration test against
+`.env.test`, never production — `os.environ` saved/restored around the
+whole class, every write additionally guarded by a hard `assert
+DB_NAME == "h2regdocs_test"`) surfaced two bugs in the TEST itself, not
+the app:
+- **MariaDB REPEATABLE READ snapshot staleness**: the test's own
+  verification connection, having already run one `SELECT`, kept
+  reading a pre-write snapshot and reported a confirmed change as
+  missing — the app's write had genuinely landed (confirmed by a
+  separate, fresh connection) but the test's connection needed
+  `autocommit(True)` to see it.
+- **Non-idempotent fixtures**: `setUpClass` originally reused an
+  existing `Document`/`User` row if one was already there from a prior
+  run — safe-looking, but a leftover already-`confirmed` `ReviewItem`
+  from that prior run made a second run fail even though the app was
+  behaving correctly. Fixed by always deleting then recreating its own
+  named fixtures (`alice`/`bob`, a fixed test-document title) at the
+  start of every run, rather than conditionally reusing whatever state
+  happened to already be there.
+
+Verified stable across repeated `unittest discover` runs (911→914 tests
+depending on point in this work), with no `.env.test` environment
+leakage into any other test in the same process.
+
+### 42.8 Final verification
+
+Full test suite (914 tests) green. Schema verified live against
+`.env.test` (§42.1). The login→propose→confirm→audit-log path is
+verified live end to end by `test_admin.py`'s integration test against
+`.env.test` — a stronger, repeatable substitute for a one-off manual
+browser click-through, so no separate manual walkthrough was done.
+
+Pipeline survival (§42.2) verified directly rather than assumed: wrote
+a real `data/manual_corrections.json` entry against an actual corpus
+record (`266/1994 Sb.`), ran `build_unified_db.py`, confirmed the
+correction landed in `database_merged_raw.json`, then removed the
+overlay and re-ran to restore the original. **This surfaced a genuine
+side effect, caught and fixed immediately, not swept under the rug**:
+temporarily changing that record's `nazev_cz` broke `build_unified_db.
+py`'s OWN "restore previous run's annotations" mechanism for that same
+record for one hop (it's keyed on `zdroj_dat`+`nazev_cz`, and the
+temporary title didn't match going forward), silently dropping its
+`anotace_poznamka`. Caught by diffing the resulting file against the
+last commit (`git diff --stat` showed exactly one changed record, not
+zero) rather than assuming the revert was clean — recovered the exact
+original value from `git show HEAD:...` and patched it back by hand;
+`git diff` afterward showed the file byte-identical to the last commit.
+Lesson for next time: verify a JSON-pipeline overlay's effects against a
+scratch copy of the corpus file, not the live one, even when planning to
+revert immediately afterward — a "harmless" revert can still have a
+narrow side effect through an unrelated mechanism that shares the same
+keying.
+
+Full pipeline (`build_unified_db.py` → `deduplicate_db.py` →
+`init_db.py`) was deliberately NOT re-run against production
+`h2regdocs` as part of this verification — `apply_manual_corrections()`
+and `recompute_needs_review()` are each independently unit-tested, the
+JSON-level application is now directly verified as above, and
+`test_admin.py` independently verifies the live-DB write path; a full
+production rebuild carries real risk (as just demonstrated) for
+marginal additional coverage, so it's left for whenever this feature's
+first real correction actually gets confirmed through the app.

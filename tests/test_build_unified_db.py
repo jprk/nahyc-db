@@ -10,6 +10,7 @@ from build_unified_db import (
     synthesize_csn_adoption_records,
     classify_law_document_typ, split_sinay_zakony_row,
     apply_missing_jurisdikce, _is_missing_jurisdikce,
+    apply_manual_corrections,
 )
 
 
@@ -312,6 +313,37 @@ class RecordUrlTestCase(unittest.TestCase):
 
     def test_no_url_is_empty_string(self):
         self.assertEqual(record_url({}), "")
+
+
+class ApplyManualCorrectionsTestCase(unittest.TestCase):
+    """doc/PLAN.md §42, 2026-09-18: an editor-confirmed correction,
+    written to data/manual_corrections.json by the admin app when a
+    second editor confirms a ReviewItem."""
+
+    def test_applies_every_field_in_the_changes_block(self):
+        record = {"znacka": "266/1994 Sb.", "nazev_cz": "Old title", "jurisdikce": "neurčeno"}
+        corrections = {"266/1994 Sb.": {"changes": {"nazev_cz": "Corrected title", "jurisdikce": "CZ"}}}
+        apply_manual_corrections(record, corrections)
+        self.assertEqual(record["nazev_cz"], "Corrected title")
+        self.assertEqual(record["jurisdikce"], "CZ")
+
+    def test_overwrites_an_already_meaningful_value(self):
+        # Unlike every other apply_*() overlay, a confirmed correction
+        # DELIBERATELY replaces a wrong value, not just fills a gap.
+        record = {"znacka": "X", "nazev_cz": "Wrong title"}
+        corrections = {"X": {"changes": {"nazev_cz": "Right title"}}}
+        apply_manual_corrections(record, corrections)
+        self.assertEqual(record["nazev_cz"], "Right title")
+
+    def test_no_matching_correction_is_a_no_op(self):
+        record = {"znacka": "X", "nazev_cz": "Untouched"}
+        apply_manual_corrections(record, {"Y": {"changes": {"nazev_cz": "Should not apply"}}})
+        self.assertEqual(record["nazev_cz"], "Untouched")
+
+    def test_blank_znacka_is_never_matched(self):
+        record = {"znacka": "", "nazev_cz": "Untouched"}
+        apply_manual_corrections(record, {"": {"changes": {"nazev_cz": "Should never apply"}}})
+        self.assertEqual(record["nazev_cz"], "Untouched")
 
 
 class ApplyMissingJurisdikceTestCase(unittest.TestCase):

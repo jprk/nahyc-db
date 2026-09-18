@@ -29,10 +29,22 @@
                 <a href="{{ url_for('index') }}" class="nav-link{% if request.endpoint == 'index' %} active{% endif %}">Databáze</a>
                 <a href="{{ url_for('process_overview') }}" class="nav-link{% if request.endpoint in ('process_overview', 'process_detail') %} active{% endif %}">Procesy</a>
                 <a href="https://www.cistadoprava.cz/nahyc-m/" class="nav-link">O projektu</a>
+                <a href="{{ url_for('admin.review_list') if session.get('user_id') else url_for('admin.login') }}"
+                   class="nav-link{% if request.endpoint and request.endpoint.startswith('admin.') %} active{% endif %}">Editor</a>
                 <img src="{{ url_for('static', filename='logos/tacr.png') }}" alt="TAČR logo" width="48" height="48">
             </div>
         </div>
     </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
 
     <main class="container">
         {% block content %}{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card" style="max-width: 720px;">
+    <h2 style="margin-bottom: 0.5rem;"><i class="ph ph-check-square"></i> Posoudit návrh opravy</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Navrhl: {{ item.proposed_by_username }} &middot; Důvod revize: {{ item.review_reason or '—' }}
+    </p>
+
+    <table class="admin-table" style="margin-bottom: 1.5rem;">
+        <thead><tr><th>Pole</th><th>Původní hodnota</th><th>Navržená hodnota</th></tr></thead>
+        <tbody>
+            {% for field, (live_column, label) in fields.items() %}
+            {% if field in proposed_changes %}
+            <tr>
+                <td>{{ label }} ({{ field }})</td>
+                <td class="diff-old">{{ item[live_column] or '—' }}</td>
+                <td class="diff-new">{{ proposed_changes[field] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="POST" action="{{ url_for('admin.confirm', review_item_id=item.id) }}">
+        <div class="admin-form-group">
+            <label for="rejection_note">Poznámka k zamítnutí (nepovinné)</label>
+            <textarea id="rejection_note" name="rejection_note" rows="2"></textarea>
+        </div>
+        <button type="submit" name="action" value="confirm" class="btn-primary">Potvrdit</button>
+        <button type="submit" name="action" value="reject" class="btn-secondary">Zamítnout</button>
+        <a href="{{ url_for('admin.review_list') }}" class="btn-secondary">Zpět</a>
+    </form>
+</div>
+{% endblock %}

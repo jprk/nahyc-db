@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="results-section">
+    <div class="results-header">
+        <h2 class="results-title">Auditní log <span class="badge">{{ entries|length }}</span></h2>
+        <a href="{{ url_for('admin.review_list') }}" class="btn-secondary">Zpět na revize</a>
+    </div>
+
+    <div class="table-glass-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Kdy</th>
+                    <th>Kdo</th>
+                    <th>Dokument</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.changed_at }}</td>
+                    <td>{{ entry.changed_by_username }}</td>
+                    <td>
+                        {% if entry.slug %}<a href="{{ url_for('document_detail', slug=entry.slug) }}">{{ entry.title }}</a>
+                        {% else %}#{{ entry.record_id }}{% endif %}
+                    </td>
+                    <td>{{ entry.action }} ({{ entry.table_name }})</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4">Zatím žádné záznamy.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

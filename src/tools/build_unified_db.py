@@ -16,6 +16,7 @@ from standards_body import resolve_norma_jurisdikce  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
+MANUAL_CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -401,6 +402,40 @@ def apply_missing_jurisdikce(record):
         if first_token in _INTERNATIONAL_TREATY_PREFIXES:
             record["jurisdikce"] = "mezinárodní"
             return
+
+
+def load_manual_corrections():
+    """doc/PLAN.md §42, 2026-09-18: reads data/manual_corrections.json
+    (written by the admin app when a second editor confirms a
+    `ReviewItem` — see `app/admin.py`) — empty dict if it doesn't exist
+    yet."""
+    if MANUAL_CORRECTIONS_PATH.exists():
+        return load_json(MANUAL_CORRECTIONS_PATH)
+    return {}
+
+
+def apply_manual_corrections(record, corrections):
+    """Applies an editor-confirmed correction — mutates `record` in
+    place. Keyed by this record's own `znacka` (== `Document.identifier`
+    once resolved by `init_db.py`) — the SAME matching key `backfill_
+    puvodce.py`'s `match_records()` already uses to pair a live
+    `Document` row back to its JSON source record (doc/PLAN.md §42's
+    admin app captures `Document.identifier` at confirm time, which is
+    this same value). Unlike every other `apply_*()` overlay in this
+    file, this one DELIBERATELY overwrites whatever value the record
+    already has — a confirmed correction exists specifically to replace
+    a wrong value, not to fill a gap default. A record with no `znacka`
+    at all (the same handful of edge cases `backfill_puvodce.py` needs a
+    title-prefix fallback for) simply can't be matched here yet — no
+    correction is silently guessed for it."""
+    znacka = (record.get("znacka") or "").strip()
+    if not znacka:
+        return
+    entry = corrections.get(znacka)
+    if not entry:
+        return
+    for field, value in entry.get("changes", {}).items():
+        record[field] = value
 
 
 def apply_synthesized_summary(record, summaries):
@@ -1110,6 +1145,17 @@ def build_unified_db():
     if jurisdikce_backfill_count:
         print(f"Backfilled jurisdikce for {jurisdikce_backfill_count} record(s) with no prior "
               f"jurisdikce (doc/PLAN.md §41).")
+
+    manual_corrections = load_manual_corrections()
+    manual_correction_count = 0
+    for record in unified_db:
+        before = dict(record)
+        apply_manual_corrections(record, manual_corrections)
+        if record != before:
+            manual_correction_count += 1
+    if manual_correction_count:
+        print(f"Applied {manual_correction_count} editor-confirmed correction(s) from "
+              f"{MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)} (doc/PLAN.md §42).")
 
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
