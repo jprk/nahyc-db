@@ -612,10 +612,17 @@ def fetch_node_detail(db, node_id):
         ''', (node_id,))
         variability = cur.fetchall()
 
+        # doc/PLAN.md §35, 2026-09-18, user-directed: a citation to a bare
+        # EU-level norm (e.g. "EN 17124") now links to every national
+        # jurisdiction's adoption in the corpus (load_process_layer.py's
+        # match_citations()), so the same designation can appear more than
+        # once here under different jurisdikce — sorted by identifier then
+        # jurisdikce so those sibling rows sit next to each other instead
+        # of being scattered by title.
         cur.execute('''
-            SELECT nd.link_type, d.slug, d.identifier, d.title
+            SELECT nd.link_type, d.slug, d.identifier, d.title, d.jurisdikce
             FROM node_document nd JOIN Document d ON d.id = nd.document_id
-            WHERE nd.node_id = %s ORDER BY nd.link_type, d.title
+            WHERE nd.node_id = %s ORDER BY nd.link_type, d.identifier, d.jurisdikce, d.title
         ''', (node_id,))
         documents = cur.fetchall()
 

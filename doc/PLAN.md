@@ -4954,3 +4954,87 @@ own small question flagged to the user but not yet resolved: when a
 bare citation matches both a ČSN and an STN adoption, does the process
 node link to one jurisdiction, both, or something else. Not pursued
 further this round pending that answer.
+
+## 35. Process-layer citations link to every jurisdiction, not just one (NEW, 2026-09-18, user-directed)
+
+**User instruction:** answered §34.3's open question — a bare EU-level
+citation ("EN 17124") should link to CZ, SK, and every other available
+jurisdiction's adoption, with the app able to differentiate which
+document belongs to which jurisdiction.
+
+### 35.1 Matching change — fan-out via a new "EU core" lookup
+
+`load_process_layer.py:match_citation()` did exact-text matching only
+— a bare citation like "EN 17124" never matched a corpus identifier at
+all, since every real adoption carries a national prefix ("ČSN EN
+17124"/"STN EN 17124"). Replaced with `match_citations()` (plural,
+returns a list):
+
+- **Law citations** ("digits" kind) unchanged — still exactly one match,
+  no fan-out (a law citation is already jurisdiction-specific).
+- **A citation that already names a national prefix** (the bibliography
+  spelling out "ČSN EN 17124" itself) still matches exactly that one
+  identifier — never fanned out to a sibling jurisdiction it didn't ask
+  for.
+- **A bare EU-level citation** now fans out via a new `by_eu_core`
+  lookup: `eu_core_designation()` strips the trailing edition/date
+  suffix (reusing `norm_title.designation_core()`, the same function
+  `init_db.py`/`backfill_norm_designation.py` already use) THEN the
+  leading national-agency token (`ČSN`/`STN`/`TNI`/`DIN`/...), so "ČSN
+  EN 17124" and "STN EN 17124/ - 2022.06" both key to "EN 17124" — the
+  fan-out list for that key.
+
+`load_node_document_links()` and the bibliography two-pass
+(`load_bibliography()`/`load_node_bibliography_links()`) both now
+insert one `node_document` row per matched identifier instead of at
+most one — `document_id_by_ref_id` in the bibliography path widened
+from `{ref_id: document_id}` to `{ref_id: [document_id, ...]}`
+accordingly. 11 new/changed unit tests in `tests/
+test_load_process_layer.py` (`StripNationalPrefixTestCase`,
+`EuCoreDesignationTestCase`, plus fan-out cases in
+`BuildDocumentLookupTestCase`/renamed `MatchCitationsTestCase`) —
+including a regression pinning that the exact-match/fan-out split still
+respects §9's original invariant (ČSN and STN never conflate in
+`by_text`) while deliberately gathering them together in `by_eu_core`.
+
+### 35.2 Applied live to the remaining 4 review-queue items
+
+§34.3 left 4 citation items unresolved. Verified live with the new
+lookup: "EN 17124" → `["ČSN EN 17124", "STN EN 17124/ - 2022.06"]`, "EN
+ISO 17268" → `["ČSN EN ISO 17268", "STN EN ISO 17268/ - 2020.08"]`.
+Applied directly to the live database (not a full `load_process_layer
+.py` re-run — see the caution below) — 6 new `node_document` rows: U5→
+{ČSN, STN} EN 17124, U7→{ČSN, STN} EN 17124, U7→{ČSN, STN} EN ISO
+17268. The bibliography entry (ref_id 57, "EN ISO 17268...") resolves
+too, though no node currently cites it via a "[57]" marker, so no link
+to insert there — just no longer unmatched.
+`process_layer_review_queue.json` is now empty — every item from §34's
+original 18 is resolved.
+
+**Why not a full re-run**: `load_process_layer.py`'s `main()` always
+`TRUNCATE`s and fully re-derives layer B (`node_description` etc.) and
+`node_document` from the parsed docx JSON on every run — safe for those
+tables (they're 100% re-derived, no manual edits ever applied to them
+this session) — but it ALSO unconditionally calls `load_node_edges()`
+for every node, and that function's matching query doesn't check the
+reverse-direction case for a plain `DIRECT` edge (only for
+`BIDIRECTIONAL`) — §34.1's from/to mislabeling means several of §34's
+corrected edges (e.g. U1→U4, stored opposite to the docx's own U4→U1
+label) would show up as "unmatched" again and get written back into
+the review queue, discarding that already-resolved triage. Applying
+just the citation fix directly (this section) avoids that; fixing
+`load_node_edges()`'s own idempotency is a separate, not-yet-requested
+concern.
+
+### 35.3 App: jurisdiction shown per document on the process page
+
+`/proces/<node_id>` (`fetch_process_detail()` in `app/app.py`) now
+selects `d.jurisdikce` alongside the existing document columns, sorted
+by identifier-then-jurisdikce so sibling adoptions of the same standard
+sit next to each other instead of being scattered by title.
+`process_detail.html` shows a jurisdikce badge per document, reusing
+the exact `meta-tag`/`ph-globe-hemisphere-east` styling
+`document.html` already uses for the same field — no new CSS. Verified
+live on the running dev server: `/proces/U5` and `/proces/U7` both show
+their EN 17124/EN ISO 17268 entries twice, correctly tagged CZ and SK
+and positioned adjacently. Full test suite (793 tests) green throughout.

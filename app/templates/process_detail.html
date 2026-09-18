@@ -165,6 +165,7 @@
                 {% for d in documents %}
                 <li>
                     <span class="relation-type">{{ 'právní opora' if d.link_type == 'LEGAL_BASIS' else 'pramen' }}</span>
+                    {% if d.jurisdikce %}<span class="meta-tag"><i class="ph ph-globe-hemisphere-east"></i> {{ d.jurisdikce }}</span>{% endif %}
                     <a href="{{ url_for('document_detail', slug=d.slug) }}">
                         {%- if d.identifier %}{{ d.identifier }} — {% endif -%}
                         {{ d.title }}</a>
