@@ -38,6 +38,15 @@ langdetect==1.0.9
 # see .env.example.
 openai==3.8.0
 
+# src/agentic/ (doc/PLAN.md §45, 2026-09-19) — the LangGraph StateGraph
+# implementing §3's agentic architecture, on the `automation` branch only
+# (explicitly overriding §5's earlier "not adopted this pass" decision,
+# per direct instruction). Deterministic graph orchestration only — no
+# LangChain model wrappers, prompt templates, or agent executors; LLM
+# calls still go through the plain `openai` client already above, same
+# as every other enrichment script in this repo.
+langgraph==1.2.11
+
 # XLSX ingestion (src/tools/build_unified_db.py and the process_* /
 # parse_* tools reading the partner-supplied spreadsheets under data/).
 openpyxl==3.1.5

@@ -5940,3 +5940,72 @@ orange, same variables as `.approximate-label`). Scoped to `.review-flag`
 (the catalog-list badge the user pointed at, e.g. `doc-2aa86b8c`) —
 `.review-banner` (the document-detail-page banner) was left with its own
 original treatment, not asked for.
+
+## 45. The §3 agentic architecture, actually built (NEW, 2026-09-19, user-directed, branch `automation`)
+
+**"Create a new branch 'automation', and implement the agentic mechanism
+for automated database updates as outlined in PLAN.md. Ignore the
+rejection in §5 in this branch."** — a direct, explicit instruction to
+build what §3 proposed and §5 later rejected ("harden existing scripts
+only... No LangGraph adoption"), scoped to this one branch. §5's
+rejection stands unchanged for `master`; this section documents what
+exists ONLY on `automation`.
+
+Built exactly as §3.3 describes, with one addition and a few
+adjustments forced by what's actually on disk today (§3.5 already
+flagged the gap this closes — `fetch_fulltext.py`, built after §3 was
+written, now has real fetched full text to verify against, which §3.5's
+"structural sanity check instead of genuine verification" fallback
+never had):
+
+- **`langgraph==1.2.11`** (`requirements.txt`) — a real `StateGraph`,
+  not a hand-rolled retry loop dressed up as one.
+- **`src/agentic/`** — `state.py`/`parser.py`/`extraction.py`/
+  `verification.py`/`research.py`/`reconciliation.py`/`graph.py`, full
+  module-by-module rationale in `src/agentic/0README.md`. Pipeline:
+  Parse → Extract → Verify → (retry ≤3 | escalate) → Research
+  (conditional) → Reconcile → (escalate on `"ambiguous"` | done) —
+  matching §3.3's six steps, with step 1 ("source screening") left
+  as-is: `screen_eurlex.py`/`screen_esbirka.py`/`screen_slovlex.py`
+  already produce `data/fulltext_screening_candidates.json` (300
+  EUR-Lex + candidates), consumed as input rather than rebuilt.
+- **`src/tools/run_agentic_pipeline.py`** — the CLI entry point tying
+  the graph to real files: `data/discovered_agentic_candidates.json`
+  (clean `"new"` outcomes, same record shape as every other
+  `discovered_*.json`, ready for `build_unified_db.py`),
+  `data/agentic_review_queue.json` (escalated/`"existing"`/`"ambiguous"`
+  — the human-in-the-loop destination §3.3 step 6 calls for),
+  `data/agentic_not_relevant.json` (see next point). Idempotent via
+  `data/agentic_pipeline_processed.json`.
+- **One addition §3 didn't call for, added after a live run exposed
+  the gap**: running the pipeline against real EUR-Lex candidates
+  (before this fix) correctly extracted-and-verified several
+  administrative documents — a call for proposals, a staff working
+  paper, a written parliamentary question, an annual-accounts report —
+  as clean `"new"` records, because §3's Extraction/Verification agents
+  check that a document says what it claims to say, not that it's the
+  *kind* of document this database tracks. This is the exact
+  false-positive failure `add_eurlex_hydrogen_acts.py` already solved
+  once (§28 — 38 of 51 raw "hydrogen" keyword matches were the same
+  kind of noise). Rather than reimplementing that filter, the CLI
+  reuses `classify_candidate()`/`is_off_topic()` from that script
+  directly, applied to EUR-Lex candidates before the graph runs at all
+  (cheaper, and keeps the graph itself source-agnostic).
+- **Live-verified, not just unit-tested** (`.env.test`, small `--limit`
+  runs, 2026-09-19): a real EUR-Lex candidate fetched over HTTP, parsed,
+  extracted via the real `gpt-4o-mini` client, verified against the real
+  fetched text, reconciled against the live test database — the full
+  loop, no mocks, before relying on it. Confirmed both success (`"new"`)
+  and the retry-then-escalate path (3 failed verification attempts) and
+  the parse-failure-escalates-immediately path.
+- **Not built this pass** (see `src/agentic/0README.md`'s closing
+  section for the fuller list): the §3.4 schema extension
+  (`hydrogen_specifics`/`legal_relationships` — still no DB columns,
+  unrelated to this branch's scope), a real admin-UI view of
+  `agentic_review_queue.json` (today just a file — `ReviewItem` expects
+  an existing `document_id`, which an escalated *candidate* doesn't
+  have yet), and a Research Agent for Slov-Lex/e-Sbírka sources (only
+  EUR-Lex has a structured-data source to fall back on today).
+- 38 new unit tests (`tests/test_agentic_*.py`,
+  `tests/test_run_agentic_pipeline.py`), bringing the full suite to 952
+  tests, all green — see `tests/0README.md`.
