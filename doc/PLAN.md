@@ -5914,3 +5914,29 @@ new hash verifies and the old one doesn't, then removed the test
 account. `tests/test_admin.py`'s fixtures updated for the two new
 `NOT NULL` columns. Full test suite (914 tests) green, stable across
 repeated runs.
+
+## 44. Two small admin-UI fixes, user-directed (branch `edit_review`)
+
+**"the button to confirm login is too small"**: `.btn-primary` had zero
+vertical padding (`padding: 0 2rem`) and relied entirely on a
+flex-stretch parent to reach a sensible height — true only for its one
+prior use (`index.html`'s search bar, stretched to match `.search-input`).
+Every new admin form button (login, propose, confirm/reject) has no such
+sibling to stretch against, so it collapsed to font line-height alone.
+Fixed with `min-height: 44px` (matching `.btn-secondary`'s own fixed
+height) rather than `height` — an explicit `height` would override the
+existing flex-stretch behavior on the search bar and shrink that
+button instead of fixing the new ones.
+
+**"the tag 'Neúplné' ... should be the same red colour as 'Vyžaduje
+opravy'", revised moments later to "'Neúplné' is an error and red,
+'Vyžaduje opravu' is a warning and the colour should be orange"**:
+`.review-flag.is-incomplete` was deliberately calmer/muted by design
+(§18, 2026-09-17 — "most of what needs_review flags is 'incomplete', not
+'wrong'"); the final instruction inverts that reading entirely —
+"incomplete" is now the red/error state, and "defect" (`Vyžaduje opravu`)
+is the calmer amber/warning one (`.is-defect` now shares `.is-approximate`'s
+orange, same variables as `.approximate-label`). Scoped to `.review-flag`
+(the catalog-list badge the user pointed at, e.g. `doc-2aa86b8c`) —
+`.review-banner` (the document-detail-page banner) was left with its own
+original treatment, not asked for.
