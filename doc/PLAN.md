@@ -5929,10 +5929,14 @@ existing flex-stretch behavior on the search bar and shrink that
 button instead of fixing the new ones.
 
 **"the tag 'Neúplné' ... should be the same red colour as 'Vyžaduje
-opravy'"**: `.review-flag.is-incomplete` was deliberately calmer/muted
-by design (§18, 2026-09-17 — "most of what needs_review flags is
-'incomplete', not 'wrong'"); per this direct instruction it now shares
-`.is-defect`'s red instead. Scoped to `.review-flag` (the catalog-list
-badge the user pointed at, e.g. `doc-2aa86b8c`) — `.review-banner`
-(the document-detail-page banner) was left with its own calmer
-`.is-incomplete` treatment, not asked for.
+opravy'", revised moments later to "'Neúplné' is an error and red,
+'Vyžaduje opravu' is a warning and the colour should be orange"**:
+`.review-flag.is-incomplete` was deliberately calmer/muted by design
+(§18, 2026-09-17 — "most of what needs_review flags is 'incomplete', not
+'wrong'"); the final instruction inverts that reading entirely —
+"incomplete" is now the red/error state, and "defect" (`Vyžaduje opravu`)
+is the calmer amber/warning one (`.is-defect` now shares `.is-approximate`'s
+orange, same variables as `.approximate-label`). Scoped to `.review-flag`
+(the catalog-list badge the user pointed at, e.g. `doc-2aa86b8c`) —
+`.review-banner` (the document-detail-page banner) was left with its own
+original treatment, not asked for.

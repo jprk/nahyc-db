@@ -463,20 +463,21 @@ main {
    warning — most of what needs_review flags is "incomplete", not "wrong".
    .is-approximate reuses the same amber as .approximate-label below,
    since it's the same claim in a different-shaped element.
-   doc/PLAN.md §44, 2026-09-19 (user-directed): .is-incomplete now shares
-   .is-defect's red — the earlier calmer/muted treatment for "incomplete"
-   read as too easy to miss in practice. */
+   doc/PLAN.md §44, 2026-09-19 (user-directed, revised): "Neúplné" is an
+   error (red, .is-incomplete); "Vyžaduje opravu" is a warning — calmer
+   than red but still flagging a real problem — so .is-defect now shares
+   .is-approximate's orange instead of red. */
 .review-flag {
     cursor: help;
 }
 
-.review-flag.is-defect,
 .review-flag.is-incomplete {
     background: rgba(239, 68, 68, 0.15);
     color: var(--danger);
     border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
+.review-flag.is-defect,
 .review-flag.is-approximate {
     background: rgba(245, 158, 11, 0.12);
     color: var(--warning);
