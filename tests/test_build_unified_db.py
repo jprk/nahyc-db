@@ -1,5 +1,7 @@
+import json
 import pathlib
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / "tools"))
@@ -10,7 +12,7 @@ from build_unified_db import (
     synthesize_csn_adoption_records,
     classify_law_document_typ, split_sinay_zakony_row,
     apply_missing_jurisdikce, _is_missing_jurisdikce,
-    apply_manual_corrections,
+    apply_manual_corrections, load_agentic_candidates,
 )
 
 
@@ -790,6 +792,36 @@ class SplitSinayZakonyRowTestCase(unittest.TestCase):
         records, _ = split_sinay_zakony_row(item)
         for record in records:
             self.assertEqual(record["gestor"], ["MPO"])
+
+
+class LoadAgenticCandidatesTestCase(unittest.TestCase):
+    """doc/AUTOMATION.md §6.3: `run_agentic_pipeline.py`'s output is wired
+    into the rebuild. The file is absent until the first `--apply` run, so
+    a missing file must be silent and a malformed one must not abort the
+    whole build."""
+
+    def _write(self, text):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        path = pathlib.Path(tmp.name) / "discovered_agentic_candidates.json"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def test_missing_file_gives_empty_list(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "discovered_agentic_candidates.json"
+            self.assertEqual(load_agentic_candidates(path), [])
+
+    def test_records_are_returned_as_is(self):
+        records = [{"nazev_cz": "Nařízení (EU) 2024/1", "odkaz": "https://eur-lex.europa.eu/x"}]
+        path = self._write(json.dumps(records))
+        self.assertEqual(load_agentic_candidates(path), records)
+
+    def test_malformed_json_gives_empty_list(self):
+        self.assertEqual(load_agentic_candidates(self._write("{not json")), [])
+
+    def test_non_list_json_gives_empty_list(self):
+        self.assertEqual(load_agentic_candidates(self._write('{"a": 1}')), [])
 
 
 if __name__ == "__main__":

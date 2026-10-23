@@ -438,6 +438,24 @@ def apply_manual_corrections(record, corrections):
         record[field] = value
 
 
+def load_agentic_candidates(filepath):
+    """Records from `run_agentic_pipeline.py`'s output, or [] if there is
+    none yet. A file that exists but is unreadable or not a list is
+    reported and skipped, like the sibling `discovered_*.json` blocks."""
+    if not pathlib.Path(filepath).exists():
+        return []
+    try:
+        records = load_json(filepath)
+    except Exception as e:
+        print(f"Error loading Discovered Agentic Candidates data: {e}")
+        return []
+    if not isinstance(records, list):
+        print("Error loading Discovered Agentic Candidates data: expected a JSON list, "
+              f"got {type(records).__name__}")
+        return []
+    return records
+
+
 def apply_synthesized_summary(record, summaries):
     """Attaches `popis_priblizny` — mutates `record` in place.
 
@@ -1086,7 +1104,20 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered EU Transposition Targets data: {e}")
 
-    # 14. Authoritative per-site title/description overlay — doc/PLAN.md §8,
+    # 14. Agentic-pipeline candidates — doc/AUTOMATION.md §6.3: the
+    # clean `"new"` outcomes of `src/tools/run_agentic_pipeline.py`
+    # (Parse -> Extract -> Verify -> Reconcile), in the same raw-record
+    # shape as the five `discovered_*.json` files above. Unlike those,
+    # this file does not exist until the first `--apply` run, so its
+    # absence is the normal state, not an error. Escalated/ambiguous
+    # outcomes never reach this file (they go to the human review queue).
+    data_discovered_agentic_candidates = load_agentic_candidates(
+        base_dir / "discovered_agentic_candidates.json")
+    unified_db.extend(data_discovered_agentic_candidates)
+    if data_discovered_agentic_candidates:
+        print(f"Loaded {len(data_discovered_agentic_candidates)} records from Discovered Agentic Candidates.")
+
+    # 15. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed
     # government zdroj_autoritativni_url) from data/site_metadata_cache.json
