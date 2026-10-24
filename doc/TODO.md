@@ -71,6 +71,7 @@ beze změny; obsahuje rozpracovanou reorganizaci, kterou nemíchat s feature vě
 |---|---|---|---|
 | `../nahyc-h2db-wire-agentic` | `feature/wire-agentic-candidates` | `automation` @ `13db9b1` | commit `b3a2b5d`, nezmergováno, nepushnuto |
 | `../nahyc-h2db-reorg` | `reorganizace` | `master` @ `0f45c45` | commit `82b8e45` (přesun `tools/`, `db/`, `documents/`, `text/` do `src/`, `doc/`, `tests/`; + `CLAUDE.md`, `TEXT_STYLE.md`), nezmergováno, nepushnuto |
+| `../nahyc-h2db-fulltext-extract` | `feature/fulltext-extract` | `master` @ `0f45c45` | extraktor čistého textu (issue #2), commit lokální, nepushnuto, bez napojení na aplikaci |
 
 ### `feature/wire-agentic-candidates` — krok 1 z přehledu nedodělků
 - Co: `build_unified_db.py` nově načítá `data/discovered_agentic_candidates.json`
