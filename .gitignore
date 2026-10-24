@@ -245,3 +245,6 @@ deduplication_*.log
 
 # Local database backups (mariadb-dump snapshots) — never versioned
 backups/
+
+# Local agent instructions (lists all branches and worktrees; machine-specific)
+CLAUDE.md
