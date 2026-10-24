@@ -30,3 +30,7 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 ## Anotace dokumentů (od 2026-09-17, viz `doc/PLAN.md` §17)
 
 * `synthesized_summaries.json` — klíčováno označením normy: **přibližná** česká shrnutí odvozená POUZE z názvu, pro normy, u nichž vydavatel žádný předmět nepublikuje (generuje `src/tools/synthesize_summaries.py`). Záměrně vlastní soubor, ne součást `site_metadata_cache.json` — ta znamená „staženo od zdroje"; sloučením by se ztratil rozdíl mezi ověřeným a odvozeným textem. `build_unified_db.py` ho aplikuje do `popis_priblizny`, nikdy do `description`. Každý záznam nese i `derived_from_title`, `reason`, `model` a `basis: "title-only"`, aby bylo z dat samotných vidět, že text neměl jiný podklad než název.
+
+## Vyčištěné plné texty (od 2026-10-24, viz GitHub issue #2)
+
+* `fulltext_clean/` — odvozeno z `fulltext/` skriptem `src/tools/extract_fulltext.py --apply`: čistý text předpisu (`.html` v uzavřené slovní zásobě + `.txt`), zrcadlí cesty `fulltext/`. Regenerovatelné, mimo git. Pokryty jen zakonyprolidi.cz a EUR-Lex (HTML).

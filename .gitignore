@@ -245,3 +245,6 @@ deduplication_*.log
 
 # Local database backups (mariadb-dump snapshots) — never versioned
 backups/
+
+# Clean text extracted from data/fulltext/ by src/tools/extract_fulltext.py (derived, regenerable)
+data/fulltext_clean/
