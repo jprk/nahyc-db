@@ -70,6 +70,7 @@ beze změny; obsahuje rozpracovanou reorganizaci, kterou nemíchat s feature vě
 | Worktree | Větev | Základ | Stav |
 |---|---|---|---|
 | `../nahyc-h2db-wire-agentic` | `feature/wire-agentic-candidates` | `automation` @ `13db9b1` | commit `b3a2b5d`, nezmergováno, nepushnuto |
+| `../nahyc-h2db-reorg` | `reorganizace` | `master` @ `0f45c45` | commit `82b8e45` (přesun `tools/`, `db/`, `documents/`, `text/` do `src/`, `doc/`, `tests/`; + `CLAUDE.md`, `TEXT_STYLE.md`), nezmergováno, nepushnuto |
 
 ### `feature/wire-agentic-candidates` — krok 1 z přehledu nedodělků
 - Co: `build_unified_db.py` nově načítá `data/discovered_agentic_candidates.json`
@@ -86,3 +87,13 @@ beze změny; obsahuje rozpracovanou reorganizaci, kterou nemíchat s feature vě
 2. Rozhodnutí zadavatele k R1.9 (plánovač vs. úprava znění požadavku).
 3. Aktualizace hlavičky `doc/PLAN.md` a vyčištění tohoto souboru.
 4. Screenery VeKLEP a Slov-Lex legislatívny proces (`data/monitored_sources.json`).
+
+### Rozdělení změn (2026-10-24)
+Původně ležela reorganizace necommitovaná v hlavním stromu na větvi `automation`.
+Rozdělení: agentní práce commitnuta na `automation` (`12ce41b`), reorganizace
+přesunuta na větev `reorganizace` (od `master`). Hlavní strom proto už nemá
+`CLAUDE.md`, `TEXT_STYLE.md` ani kořenový `0README.md` — jsou jen na `reorganizace`.
+Dvě `.xlsx` v `data/*/raw/` mají na disku zkomolené názvy (mojibake); obsah je
+shodný s verzovanými originály, proto se nezařadily — kopie lze smazat.
+`feature/wire-agentic-candidates` je odvozena z `13db9b1`, před mergem do
+`automation` je třeba ji rebasovat na `12ce41b`.
