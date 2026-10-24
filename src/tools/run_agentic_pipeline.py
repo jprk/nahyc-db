@@ -63,6 +63,42 @@ NOT_RELEVANT_PATH = REPO_ROOT / "data" / "agentic_not_relevant.json"
 
 SOURCE_NAME = "Agentic_Discovery"
 
+# Each top-level key in data/fulltext_screening_candidates.json is written
+# by a DIFFERENT screening script and carries a different payload shape
+# (doc/AUTOMATION.md odstavec 4.1) — only EUR-Lex entries are actual
+# new-document candidates. This table states that per source instead of
+# letting it happen by accident: before this existed, e-Sbírka entries
+# were skipped only because they happen to carry `uri` rather than `url`
+# and so fell through a falsy-URL guard, which would have silently
+# started admitting 100 unresolved fragment nodes as documents the moment
+# that screener gained a `url` field. A source missing from this table is
+# skipped and reported, never processed on a guess — adding a screener
+# means adding it here deliberately.
+#
+# `build_discovered_record()` reads `candidate["url"]` directly, which is
+# safe precisely because every source marked processable here is declared
+# to carry its URL in that field.
+SOURCE_HANDLING = {
+    "EUR-Lex": {
+        "processable": True,
+        "url_field": "url",
+        "relevance_filter": "eurlex",
+    },
+    "e-Sbirka": {
+        "processable": False,
+        "reason": "screen_esbirka.py emits unresolved LOD fragment nodes "
+                  "(`uri`/`snippet`), not documents — which act a fragment belongs "
+                  "to is not determinable from the node itself. "
+                  "add_esbirka_hydrogen_acts.py is the path that resolves these.",
+    },
+    "Slov-Lex": {
+        "processable": False,
+        "reason": "screen_slovlex.py reports link rot among already-known `odkaz_sk` "
+                  "URLs — a maintenance report, not new-document discovery. "
+                  "Slov-Lex exposes no public full-text search to discover from.",
+    },
+}
+
 
 def load_json(path, default):
     if path.exists():
@@ -76,15 +112,35 @@ def save_json(path, data):
         json.dump(data, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 
-def iter_candidates():
-    """Flattens `fulltext_screening_candidates.json`'s per-source lists
-    into (source, candidate) pairs, tagging each candidate with its
-    source (the file's own top-level keys don't appear inside each
-    entry)."""
-    data = load_json(CANDIDATES_PATH, {})
+def partition_candidates(data):
+    """Splits the screening file's per-source lists into the candidates
+    this pipeline can actually process and the ones it deliberately
+    won't, according to SOURCE_HANDLING.
+
+    Returns (processable, skipped_by_source, anomalies), where
+    `processable` is a list of (source, candidate, url) tuples.
+
+    Counting covers the WHOLE file regardless of any later `--limit`, so
+    a limited run still reports the true shape of its input rather than
+    however far it happened to get."""
+    processable, skipped, anomalies = [], {}, []
     for source, entries in data.items():
+        handling = SOURCE_HANDLING.get(source)
+        if handling is None or not handling["processable"]:
+            key = source if handling else f"{source} (unknown — not declared in SOURCE_HANDLING)"
+            skipped[key] = skipped.get(key, 0) + len(entries)
+            continue
         for entry in entries:
-            yield source, entry
+            url = entry.get(handling["url_field"])
+            if not url:
+                # A source declared processable whose entry lacks its own
+                # declared URL field is a genuine anomaly, not routine —
+                # the screener's output shape has changed under us.
+                anomalies.append({"source": source, "missing_field": handling["url_field"],
+                                   "entry_keys": sorted(entry.keys())})
+                continue
+            processable.append((source, entry, url))
+    return processable, skipped, anomalies
 
 
 def build_discovered_record(source, candidate, extracted):
@@ -138,15 +194,17 @@ def main():
     def conn_factory():
         return get_connection(env_file=args.env_file)
 
+    candidates, skipped_by_source, anomalies = partition_candidates(
+        load_json(CANDIDATES_PATH, {}))
+
     processed_count = 0
-    for source, candidate in iter_candidates():
-        url = candidate.get("url")
-        if not url or url in processed:
+    for source, candidate, url in candidates:
+        if url in processed:
             continue
         if args.limit is not None and processed_count >= args.limit:
             break
 
-        if source == "EUR-Lex":
+        if SOURCE_HANDLING[source].get("relevance_filter") == "eurlex":
             doc_type = classify_candidate(candidate)
             if doc_type is None or is_off_topic(candidate.get("title", "")):
                 reason = "not a binding act type" if doc_type is None else "off-topic title pattern"
@@ -183,6 +241,16 @@ def main():
             print(f"[review] {candidate.get('title', url)} -- {outcome['escalation_reason'] or outcome['reconciliation_action']}")
 
         processed[url] = {"processed_at": now, "outcome": "new" if is_clean_new else "queued"}
+
+    for skipped_source, count in sorted(skipped_by_source.items()):
+        if not count:
+            continue
+        reason = (SOURCE_HANDLING.get(skipped_source) or {}).get(
+            "reason", "source not declared processable")
+        print(f"[source skipped] {skipped_source}: {count} entr(ies) — {reason}")
+    for anomaly in anomalies:
+        print(f"[anomaly] {anomaly['source']} entry has no '{anomaly['missing_field']}' field "
+              f"(keys present: {', '.join(anomaly['entry_keys'])}) — screener output shape may have changed")
 
     print(f"\nProcessed {processed_count} candidate(s); "
           f"{len(discovered)} total discovered, {len(review_queue)} total in review queue, "

@@ -6009,3 +6009,73 @@ never had):
 - 38 new unit tests (`tests/test_agentic_*.py`,
   `tests/test_run_agentic_pipeline.py`), bringing the full suite to 952
   tests, all green — see `tests/0README.md`.
+
+## 46. Monitored-source registry, and an explicit-source fix in the agentic CLI (NEW, 2026-09-20, user-directed, branch `automation`)
+
+Two user-directed items, both following from §45's write-up in
+`doc/AUTOMATION.md`.
+
+**The fix.** `run_agentic_pipeline.py` processed only EUR-Lex candidates
+— correct, but by accident: e-Sbírka entries carry `uri` rather than
+`url`, so they fell through a falsy-URL guard. Had `screen_esbirka.py`
+ever gained a `url` field, 100 unresolved LOD fragment nodes would have
+started flowing in as if they were acts, silently. Replaced with an
+explicit `SOURCE_HANDLING` declaration plus `partition_candidates()`: a
+source states whether it is processable and why not, an undeclared
+source is skipped *and reported* rather than processed on a guess, skip
+counts are computed over the whole input file regardless of `--limit`
+(a limited run previously never reached the later sources at all, so the
+summary would have under-reported), and a processable-source entry
+missing its declared URL field is raised separately as an anomaly
+signalling that a screener's output shape has changed. Six new tests,
+including the regression that matters: an e-Sbírka entry *with* a `url`
+must still be skipped, because the reason it is not a candidate is what
+it is, not which fields it has.
+
+**The registry.** `data/monitored_sources.json` — 42 entries covering
+where we look, or should look, for new hydrogen documents. Every URL was
+verified live before being written down; nothing here is a guessed
+address. Notable findings:
+
+- **Early signal is the real gap.** We see a regulation only once
+  promulgated. Three verified sources show it sooner: **VeKLEP/ODok**
+  (Czech drafts in the legislative process — paginated JSON API, 8 655
+  items, plus RSS), **Slov-Lex legislatívny proces** (Slovak drafts via
+  plain-HTTP RSS, which neatly sidesteps the Angular-SPA problem that
+  blocks us from Slov-Lex today), and the **ÚNMZ Věstník** (a monthly
+  PDF delta of issued/withdrawn ČSN, replacing per-designation polling).
+- **The comitology register stays blocked.** It is the highest-value EU
+  early-signal source. `data.europa.eu` advertises a CSV distribution for
+  it, but the advertised URL was verified to return the same 1 368-byte
+  Angular shell as the register itself — an advertised distribution is
+  not a real one. Headless Chromium, as already used for `iso.org`/
+  `iec.ch`, or discovery of the SPA's own backing API.
+- **Two relevant standards sources are off-limits by terms, not
+  technique.** CEN/CLC/JTC 6 *Hydrogen in energy systems* is
+  server-rendered and trivially readable, but its `robots.txt` is a
+  blanket `Disallow: /`; ISO/TC 197 returns 403 *and* forbids systematic
+  catalogue extraction. Recorded as `prohibited` and not scraped — the
+  same principle that already keeps standards' full texts out of this
+  corpus. ASTM and ASME are the two international bodies that are
+  reachable, server-rendered and crawl-permitted, so they are the
+  sensible place to start; UNECE (GTR 13, ADR/RID — binding, hydrogen-
+  specific, and covered nowhere in our corpus) is the highest-value
+  target whose only obstacle is a WAF rather than a licence.
+- **Trade press and social media were investigated and mostly
+  rejected**, deliberately recorded with reasons rather than silently
+  omitted: two prohibit automated access (one via a formal §44b UrhG
+  TDM reservation), one is paywalled, and one has a perfectly good RSS
+  feed carrying no regulatory content at all. Two are kept
+  `manual_only`. The category cannot be a source of record here — a
+  press item is at most a tip-off that still has to be confirmed against
+  an authoritative register we already poll. Of the social platforms,
+  only Bluesky is open to unauthenticated reading; X ended its free tier
+  in February 2026 and LinkedIn has no open read access.
+- **Incidental operational finding:** Czech government sites have moved
+  to `.gov.cz`. `check_csn_validity.py` was checked against this and is
+  *not* affected — `csnonline.agentura-cas.cz` still serves directly, and
+  the `.gov.cz` variant redirects back to it, the opposite direction from
+  the parent domain.
+
+No scheduler still exists, so none of this polls itself yet; the registry
+carries a suggested `cadence` per source for whenever one is built.
