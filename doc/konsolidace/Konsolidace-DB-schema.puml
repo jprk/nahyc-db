@@ -1,0 +1,419 @@
+@startuml Konsolidovana_DB
+' ============================================================
+' NAHYC DP004 — Konsolidované schéma databáze
+' Regulační předpisy (V01) + procesní uzly U1–U7 (V02)
+' + compliance vrstva (V03)
+' Autor: Jan Přikryl / Claude Code  |  Červenec 2026
+' Render: https://www.plantuml.com/plantuml
+' ============================================================
+
+!pragma layout smetana
+skinparam linetype ortho
+skinparam roundcorner 8
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam entity {
+  BackgroundColor #F8F9FA
+  BorderColor #495057
+  HeaderBackgroundColor #343A40
+  HeaderFontColor #FFFFFF
+  HeaderFontSize 12
+  HeaderFontStyle bold
+}
+
+skinparam arrow {
+  Color #495057
+  FontSize 9
+}
+
+' ─────────────────────────────────────────────
+' VRSTVA A — REGULATORNÍ (V01, rozšířeno)
+' ─────────────────────────────────────────────
+
+package "A. Regulatorní vrstva (V01)" #E7F1FF {
+
+entity "Document" as DOC {
+  * id : INT <<PK>>
+  --
+  * title : VARCHAR(500)
+  identifier : VARCHAR(100) <<UNIQUE>> ' NOVÉ (č. 283/2021 Sb., EN 17124…)
+  description : TEXT
+  * type_id : INT <<FK>>
+  * source_id : INT <<FK>>
+  language : VARCHAR(10)
+  url : VARCHAR(500)
+  file_path : VARCHAR(500)
+  effective_date : DATE
+  version : INT
+  created_at : DATETIME
+  updated_at : DATETIME
+}
+
+entity "DocumentType" as DT {
+  * id : INT <<PK>>
+  --
+  * name : VARCHAR(100)
+  description : TEXT
+}
+
+entity "DocumentSource" as DS {
+  * id : INT <<PK>>
+  --
+  * name : VARCHAR(200)
+  institution_type : VARCHAR(50)  ' NOVÉ
+  jurisdiction : VARCHAR(20)      ' NOVÉ (CZ | EU | mezinárodní)
+}
+
+entity "Keyword" as KW {
+  * id : INT <<PK>>
+  --
+  * keyword : VARCHAR(100)
+}
+
+entity "DocumentKeyword" as DKW {
+  * document_id : INT <<FK>>
+  * keyword_id : INT <<FK>>
+}
+
+entity "DocumentVersion" as DV {
+  * id : INT <<PK>>
+  --
+  * document_id : INT <<FK>>
+  * version : INT
+  file_path : VARCHAR(500)
+  change_log : TEXT
+  is_current : BOOLEAN            ' NOVÉ
+  created_at : DATETIME
+}
+
+}
+
+' ─────────────────────────────────────────────
+' VRSTVA B — PROCESNÍ (dle návrhu V02)
+' ─────────────────────────────────────────────
+
+package "B. Procesní vrstva (V02)" #E9F7EC {
+
+entity "process_class" as PC {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(30) <<UNIQUE>>
+  * name : VARCHAR(100)
+  description : TEXT
+}
+
+entity "process_node" as PN {
+  * id : VARCHAR(3) <<PK>>
+  ' U1 … U7
+  --
+  * name : VARCHAR(200)
+  chapter_ref : VARCHAR(10)
+  * process_class_id : INT <<FK>>
+  * has_branches : BOOLEAN
+  valid_from : DATE               ' NOVÉ
+  valid_to : DATE                 ' NOVÉ
+}
+
+entity "node_description" as ND {
+  * node_id : VARCHAR(3) <<PK,FK>>
+  --
+  purpose : TEXT
+  role_in_phase : TEXT
+  trigger_condition : TEXT
+  key_decision_point : TEXT
+  v01_link_description : TEXT
+}
+
+entity "node_branch" as NB {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  * branch_code : VARCHAR(5)
+  branch_name : VARCHAR(200)
+  activation_condition : TEXT
+  description : TEXT
+  output_document : TEXT
+  is_default : BOOLEAN
+}
+
+entity "branch_step" as BS {
+  * id : INT <<PK>>
+  --
+  * branch_id : INT <<FK>>
+  * step_number : INT
+  title : VARCHAR(300)
+  description : TEXT
+}
+
+entity "node_input" as NI {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  seq_no : INT
+  * description : TEXT
+  is_specific_to_hydrogen : BOOLEAN
+}
+
+entity "node_output" as NO {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  branch_id : INT <<FK,NULL>>
+  * document_name : VARCHAR(300)
+  description : TEXT
+  enables_next_node : VARCHAR(3) <<FK,NULL>>
+  is_project_blocking : BOOLEAN
+}
+
+entity "subject" as SUBJ {
+  * id : INT <<PK>>
+  --
+  * name : VARCHAR(200) <<UNIQUE>>
+  abbreviation : VARCHAR(20)
+  subject_type : VARCHAR(50)
+  competence_area : VARCHAR(100)
+  description : TEXT
+}
+
+entity "node_subject" as NS {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  * subject_id : INT <<FK>>
+  process_role : TEXT
+  is_deciding_authority : BOOLEAN
+}
+
+entity "node_edge" as NE {
+  * id : INT <<PK>>
+  --
+  * from_node_id : VARCHAR(3) <<FK>>
+  * to_node_id : VARCHAR(3) <<FK>>
+  direction : VARCHAR(20)
+  character : VARCHAR(30)
+  description : TEXT
+}
+
+entity "installation_type" as IT {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(20) <<UNIQUE>>
+  ' ELEKTROLYZA | SKLADOVANI | VCS | VOZIDLA
+  name : VARCHAR(100)
+  value_chain_stage_id : INT <<FK>> ' ZMĚNA: FK místo textu
+  description : TEXT
+}
+
+entity "intensity_level" as IL {
+  * code : VARCHAR(20) <<PK>>
+  ' KLICOVY | VYZNAMNY | OKRAJOVY
+  --
+  label : VARCHAR(50)
+  numeric_level : INT
+  description : TEXT
+}
+
+entity "node_variability" as NV {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  * installation_type_id : INT <<FK>>
+  * intensity_code : VARCHAR(20) <<FK>>
+  specifics : TEXT
+}
+
+entity "node_problem" as NP {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  seq_no : INT
+  problem_title : VARCHAR(300)
+  description : TEXT
+}
+
+entity "node_problem_installation" as NPI {
+  * problem_id : INT <<PK,FK>>
+  * installation_type_id : INT <<PK,FK>>
+}
+
+}
+
+' ─────────────────────────────────────────────
+' VRSTVA C — INTEGRAČNÍ
+' ─────────────────────────────────────────────
+
+package "C. Integrační vrstva" #FFF3E0 {
+
+entity "node_document" as NDOC {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  * document_id : INT <<FK>>
+  * link_type : ENUM
+  ' LEGAL_BASIS | SOURCE
+  is_primary_basis : BOOLEAN
+  relevance_note : TEXT
+}
+
+}
+
+' ─────────────────────────────────────────────
+' VRSTVA D — KLASIFIKACE A COMPLIANCE (V03)
+' ─────────────────────────────────────────────
+
+package "D. Klasifikace a compliance (V03)" #F3E8FD {
+
+entity "value_chain_stage" as VCS {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(20) <<UNIQUE>>
+  ' VYROBA | DISTRIBUCE | SKLADOVANI | VYUZITI
+  * name : VARCHAR(100)
+}
+
+entity "technology_type" as TT {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(40) <<UNIQUE>>
+  * name : VARCHAR(150)
+  description : TEXT
+}
+
+entity "integration_level" as INTL {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(20) <<UNIQUE>>
+  ' SAMOSTATNA | INTEGROVANA | KOMPLEXNI | OSTROVNI
+  * name : VARCHAR(100)
+}
+
+entity "application_area" as AA {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(20) <<UNIQUE>>
+  ' MOBILITA | ENERGETIKA | PRUMYSL | PILOTNI
+  * name : VARCHAR(100)
+}
+
+entity "project_criterion" as PCRIT {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(40) <<UNIQUE>>
+  * name : VARCHAR(150)
+  * data_type : ENUM
+  ' NUMERIC | BOOLEAN | ENUM | TEXT
+  unit : VARCHAR(20)
+  description : TEXT
+}
+
+entity "node_activation_rule" as NAR {
+  * id : INT <<PK>>
+  --
+  * node_id : VARCHAR(3) <<FK>>
+  branch_id : INT <<FK,NULL>>
+  * criterion_id : INT <<FK>>
+  * comparator : ENUM
+  ' EQ|NE|GT|GTE|LT|LTE|IN|IS_TRUE|IS_FALSE
+  value : VARCHAR(200)
+  rule_group : INT
+  description : TEXT
+  basis_document_id : INT <<FK,NULL>>
+}
+
+entity "use_case_scenario" as UCS {
+  * id : INT <<PK>>
+  --
+  * code : VARCHAR(40) <<UNIQUE>>
+  * name : VARCHAR(200)
+  description : TEXT
+  * application_area_id : INT <<FK>>
+  * integration_level_id : INT <<FK>>
+}
+
+entity "scenario_value_chain" as SVC {
+  * scenario_id : INT <<PK,FK>>
+  * stage_id : INT <<PK,FK>>
+}
+
+entity "scenario_technology" as ST {
+  * scenario_id : INT <<PK,FK>>
+  * technology_type_id : INT <<PK,FK>>
+}
+
+entity "scenario_node" as SN {
+  * scenario_id : INT <<PK,FK>>
+  * node_id : VARCHAR(3) <<PK,FK>>
+  --
+  * intensity_code : VARCHAR(20) <<FK>>
+  note : TEXT
+}
+
+entity "scenario_document" as SD {
+  * scenario_id : INT <<PK,FK>>
+  * document_id : INT <<PK,FK>>
+  --
+  relevance_note : TEXT
+}
+
+}
+
+' ─────────────────────────────────────────────
+' VAZBY — vrstva A
+' ─────────────────────────────────────────────
+DOC }o--|| DT : type_id
+DOC }o--|| DS : source_id
+DKW }o--|| DOC
+DKW }o--|| KW
+DV }o--|| DOC : document_id
+
+' ─────────────────────────────────────────────
+' VAZBY — vrstva B
+' ─────────────────────────────────────────────
+PN }o--|| PC : process_class_id
+ND |o--|| PN : node_id (1:1)
+NB }o--|| PN : node_id
+BS }o--|| NB : branch_id
+NI }o--|| PN : node_id
+NO }o--|| PN : node_id
+NO }o--o| NB : branch_id
+NO }o--o| PN : enables_next_node
+NS }o--|| PN : node_id
+NS }o--|| SUBJ : subject_id
+NE }o--|| PN : from_node_id
+NE }o--|| PN : to_node_id
+NV }o--|| PN : node_id
+NV }o--|| IT : installation_type_id
+NV }o--|| IL : intensity_code
+NP }o--|| PN : node_id
+NPI }o--|| NP : problem_id
+NPI }o--|| IT : installation_type_id
+IT }o--o| VCS : value_chain_stage_id
+
+' ─────────────────────────────────────────────
+' VAZBY — vrstva C (integrace A ↔ B)
+' ─────────────────────────────────────────────
+NDOC }o--|| PN : node_id
+NDOC }o--|| DOC : document_id
+
+' ─────────────────────────────────────────────
+' VAZBY — vrstva D
+' ─────────────────────────────────────────────
+NAR }o--|| PN : node_id
+NAR }o--o| NB : branch_id
+NAR }o--|| PCRIT : criterion_id
+NAR }o--o| DOC : basis_document_id
+UCS }o--|| AA : application_area_id
+UCS }o--|| INTL : integration_level_id
+SVC }o--|| UCS
+SVC }o--|| VCS
+ST }o--|| UCS
+ST }o--|| TT
+SN }o--|| UCS
+SN }o--|| PN
+SN }o--|| IL : intensity_code
+SD }o--|| UCS
+SD }o--|| DOC
+
+@enduml

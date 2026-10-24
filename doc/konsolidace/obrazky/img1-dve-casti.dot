@@ -1,0 +1,25 @@
+// Obr. 1 — Výchozí situace: dva oddělené světy
+digraph DvaSvety {
+  rankdir=LR;
+  fontname="Arial"; fontsize=12;
+  node [fontname="Arial", fontsize=12, shape=box, style="rounded,filled", margin="0.25,0.15"];
+  edge [fontname="Arial", fontsize=11, color="#495057"];
+
+  subgraph cluster_v01 {
+    label="V01 — Databáze dokumentů\n(existuje, běží v provozu)";
+    labeljust=c; style="rounded,filled"; fillcolor="#E7F1FF"; color="#1C64D9"; fontname="Arial";
+    doc [label="Zákony, vyhlášky,\nnormy, metodiky\n+ jejich verze a třídění", fillcolor="#CFE2FF"];
+  }
+
+  subgraph cluster_v02 {
+    label="V02 — Popis procesů\n(existuje jen jako text a návrh)";
+    labeljust=c; style="rounded,filled"; fillcolor="#E9F7EC"; color="#2E7D32"; fontname="Arial";
+    proc [label="7 procesních uzlů U1–U7:\nco musí investor projít\nod záměru po povolení", fillcolor="#D4EDDA"];
+  }
+
+  chybi [label="Dnes: propojení jen přes klíčová slova\n→ nelze se spolehlivě ptát\n„který předpis platí pro který proces?“",
+         shape=note, fillcolor="#FFF3CD", color="#B8860B"];
+
+  doc -> chybi [dir=none, style=dashed];
+  chybi -> proc [dir=none, style=dashed];
+}

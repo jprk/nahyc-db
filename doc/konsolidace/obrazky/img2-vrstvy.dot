@@ -1,0 +1,17 @@
+// Obr. 2 — Čtyři vrstvy konsolidovaného schématu
+digraph Vrstvy {
+  rankdir=TB;
+  fontname="Arial";
+  node [fontname="Arial", fontsize=12, shape=box, style="rounded,filled", width=5.6, margin="0.25,0.18"];
+  edge [fontname="Arial", fontsize=11, color="#495057"];
+
+  D [label="D. KLASIFIKACE A COMPLIANCE  (nová vrstva)\nTypové scénáře, podmínky aktivace procesů,\nčtyři klasifikační hlediska projektu", fillcolor="#F3E8FD", color="#6F42C1"];
+  C [label="C. INTEGRACE  (nová vrstva)\nPřímé vazby: procesní uzel ↔ dokument\n(právní opora / citovaný pramen)", fillcolor="#FFE5CC", color="#FD7E14"];
+  B [label="B. PROCESY  (podle návrhu V02)\nUzly U1–U7, jejich větve, kroky, vstupy, výstupy,\nzapojené úřady a vzájemné vazby", fillcolor="#E9F7EC", color="#2E7D32"];
+  A [label="A. DOKUMENTY  (stávající V01, jen rozšířeno)\nPředpisy, normy a metodiky, jejich typy,\nzdroje, klíčová slova a verze", fillcolor="#E7F1FF", color="#1C64D9"];
+
+  D -> C [label="  ptá se přes"];
+  C -> B [label="  propojuje", dir=both];
+  C -> A [style=invis];
+  B -> A [label="  odkazuje na dokumenty (přes vrstvu C)", style=dashed];
+}
