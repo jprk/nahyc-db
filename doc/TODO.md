@@ -97,3 +97,10 @@ Dvě `.xlsx` v `data/*/raw/` mají na disku zkomolené názvy (mojibake); obsah 
 shodný s verzovanými originály, proto se nezařadily — kopie lze smazat.
 `feature/wire-agentic-candidates` je odvozena z `13db9b1`, před mergem do
 `automation` je třeba ji rebasovat na `12ce41b`.
+
+### Živá DB `h2regdocs` — schéma §42 doplněno (2026-10-24)
+Porovnání s `h2regdocs_test` ukázalo jediný rozdíl: chyběly `User`, `ReviewItem`,
+`AuditLog`. Po záloze (`backups/h2regdocs_20261024_111830.sql.gz`, mimo git) byly
+vytvořeny třemi `CREATE TABLE` z `Konsolidace-DB-schema.sql`; data (1462 `Document`)
+nedotčena, opětovné porovnání bez rozdílů. Zbývá založit editorské účty
+(`src/db/dbuser_add.py`) — zadává se heslo, dělá uživatel.
