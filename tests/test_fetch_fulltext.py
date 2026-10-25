@@ -216,7 +216,7 @@ class FetchOneTestCase(unittest.TestCase):
             root = pathlib.Path(tmp)
             with mock.patch.object(ff, "REPO_ROOT", root), \
                     mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"):
-                entry = ff.fetch_one(self._session(b"x"), {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "A 1"},
+                entry = ff.fetch_one(self._session(b"%PDF-1.4 x"), {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "A 1"},
                                      "odkaz_hlavni", "https://example.com/doc")
             self.assertNotIn("Haltuf", entry["local_path"])
 
@@ -227,6 +227,137 @@ class FlatNameTestCase(unittest.TestCase):
 
     def test_unsafe_designation_is_sanitized(self):
         self.assertEqual(ff.flat_name("183/2006 Sb.", "0123456789abcdef" * 4, "pdf"), "183_2006_Sb.__01234567.pdf")
+
+
+SEARCH_PAGE = b"<html><head><title>Search results - EUR-Lex</title></head><body>0 results</body></html>"
+ACT_PAGE = b"<html><head><title>Regulation - 2018/858 - EN - EUR-Lex</title></head><body><div id='text'>act</div></body></html>"
+
+
+class IsDocumentPageTestCase(unittest.TestCase):
+    def test_eur_lex_search_results_page_is_not_a_document(self):
+        ok, reason = ff.is_document_page("https://eur-lex.europa.eu/eli/dir/2018/858/oj", SEARCH_PAGE, "text/html")
+        self.assertFalse(ok)
+        self.assertIn("search-results", reason)
+
+    def test_real_eur_lex_act_is_a_document(self):
+        self.assertEqual(ff.is_document_page("https://eur-lex.europa.eu/eli/reg/2018/858/oj", ACT_PAGE, "text/html"), (True, ""))
+
+    def test_empty_body_is_not_a_document(self):
+        self.assertFalse(ff.is_document_page("https://example.test/x", b"", "text/html")[0])
+
+    def test_a_pdf_must_start_like_a_pdf(self):
+        self.assertTrue(ff.is_document_page("https://example.test/x.pdf", b"%PDF-1.7 ...", "application/pdf")[0])
+        self.assertFalse(ff.is_document_page("https://example.test/x.pdf", b"<html>captcha</html>", "application/pdf")[0])
+
+    def test_a_page_called_search_results_elsewhere_is_left_alone(self):
+        self.assertTrue(ff.is_document_page("https://www.zakonyprolidi.cz/x", SEARCH_PAGE, "text/html")[0])
+
+
+class FetchOneGuardsTestCase(unittest.TestCase):
+    def _session(self, content, status=200, content_type="text/html"):
+        from unittest.mock import MagicMock
+        resp = MagicMock()
+        resp.content, resp.status_code = content, status
+        resp.headers = {"Content-Type": content_type}
+        resp.raise_for_status.return_value = None
+        session = MagicMock()
+        session.get.return_value = resp
+        return session
+
+    def _run(self, session, url, browser=None):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"), \
+                    mock.patch.object(ff, "fetch_with_browser", return_value=browser) as fb:
+                entry = ff.fetch_one(session, {"zdroj_dat": "S", "znacka": "56/2001 Sb."}, "odkaz_eu", url)
+                written = list((root / "data" / "fulltext").glob("*")) if (root / "data" / "fulltext").exists() else []
+            return entry, written, fb
+
+    def test_a_search_results_page_is_recorded_as_failed_and_not_written(self):
+        entry, written, _ = self._run(self._session(SEARCH_PAGE), "https://eur-lex.europa.eu/eli/dir/2018/858/oj")
+        self.assertEqual(entry["status"], "failed")
+        self.assertEqual(written, [])
+
+    def test_a_firewall_challenge_is_retried_in_a_browser(self):
+        entry, written, fb = self._run(self._session(b"", status=202), "https://eur-lex.europa.eu/eli/reg/2018/858/oj",
+                                       browser=(200, ACT_PAGE, "text/html; charset=utf-8"))
+        fb.assert_called_once()
+        self.assertEqual(entry["status"], "fetched")
+        self.assertEqual(entry["http_status"], 200)
+        self.assertEqual(len(written), 1)
+
+    def test_a_challenge_with_no_browser_is_a_failure_not_an_empty_file(self):
+        entry, written, _ = self._run(self._session(b"", status=202), "https://eur-lex.europa.eu/eli/reg/2018/858/oj")
+        self.assertEqual(entry["status"], "failed")
+        self.assertEqual(written, [])
+
+    def test_other_hosts_are_not_sent_to_a_browser(self):
+        _, _, fb = self._run(self._session(b"", status=202), "https://example.test/x")
+        fb.assert_not_called()
+
+
+class OverridesTestCase(unittest.TestCase):
+    RECORDS = [{"zdroj_dat": "Sinay_Zakony", "znacka": "56/2001 Sb.", "typ_dokumentu": "Zákon",
+                "odkaz_hlavni": "https://a/x", "odkaz_eu": "https://eur-lex.europa.eu/eli/dir/2018/858/oj"}]
+
+    def test_an_override_replaces_only_its_own_url(self):
+        overrides = {"Sinay_Zakony|56/2001 Sb.|odkaz_eu": {"url": "https://eur-lex.europa.eu/eli/reg/2018/858/oj", "reason": "r"}}
+        urls = {f: u for _, f, u in ff.iter_fetch_targets(self.RECORDS, overrides)}
+        self.assertEqual(urls["odkaz_eu"], "https://eur-lex.europa.eu/eli/reg/2018/858/oj")
+        self.assertEqual(urls["odkaz_hlavni"], "https://a/x")
+
+    def test_without_overrides_nothing_changes(self):
+        urls = {f: u for _, f, u in ff.iter_fetch_targets(self.RECORDS)}
+        self.assertEqual(urls["odkaz_eu"], "https://eur-lex.europa.eu/eli/dir/2018/858/oj")
+
+    def test_missing_overrides_file_is_an_empty_mapping(self):
+        self.assertEqual(ff.load_url_overrides("/nonexistent/overrides.json"), {})
+
+    def test_the_committed_overrides_are_well_formed(self):
+        for key, value in ff.load_url_overrides().items():
+            self.assertEqual(key.count("|") >= 2, True, key)
+            self.assertTrue(value["url"].startswith("https://"))
+            self.assertTrue(value["reason"])
+
+
+class AuditManifestTestCase(unittest.TestCase):
+    def setUp(self):
+        import tempfile
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.root = pathlib.Path(tmp.name)
+        (self.root / "data" / "fulltext").mkdir(parents=True)
+        (self.root / "data/fulltext/bad.html").write_bytes(SEARCH_PAGE)
+        (self.root / "data/fulltext/good.html").write_bytes(ACT_PAGE)
+        eur = "https://eur-lex.europa.eu/eli/reg/x/oj"
+        self.manifest = {
+            "S|A|odkaz_hlavni": {"status": "fetched", "url": eur, "local_path": "data/fulltext/bad.html"},
+            "S|A|odkaz_eu": {"status": "fetched", "url": eur, "local_path": "data/fulltext/bad.html"},
+            "S|B|odkaz_hlavni": {"status": "fetched", "url": eur, "local_path": "data/fulltext/good.html"},
+        }
+
+    def test_dry_run_reports_and_changes_nothing(self):
+        bad = ff.audit_manifest(self.manifest, self.root)
+        self.assertEqual([k for k, _, _ in bad], ["S|A|odkaz_eu", "S|A|odkaz_hlavni"])
+        self.assertEqual(self.manifest["S|A|odkaz_hlavni"]["status"], "fetched")
+        self.assertTrue((self.root / "data/fulltext/bad.html").exists())
+
+    def test_apply_marks_failed_and_deletes_the_shared_file_once(self):
+        ff.audit_manifest(self.manifest, self.root, apply=True)
+        self.assertEqual(self.manifest["S|A|odkaz_hlavni"]["status"], "failed")
+        self.assertEqual(self.manifest["S|A|odkaz_eu"]["status"], "failed")
+        self.assertFalse((self.root / "data/fulltext/bad.html").exists())
+        self.assertEqual(self.manifest["S|B|odkaz_hlavni"]["status"], "fetched")
+        self.assertTrue((self.root / "data/fulltext/good.html").exists())
+
+    def test_a_good_file_still_used_by_a_fetched_entry_is_never_deleted(self):
+        self.manifest["S|C|odkaz_hlavni"] = {"status": "fetched", "url": "https://eur-lex.europa.eu/eli/reg/y/oj",
+                                             "local_path": "data/fulltext/bad.html"}
+        self.manifest["S|C|odkaz_hlavni"]["url"] = "https://www.zakonyprolidi.cz/cs/x"  # a different host: its check passes
+        ff.audit_manifest(self.manifest, self.root, apply=True)
+        self.assertTrue((self.root / "data/fulltext/bad.html").exists())
 
 
 if __name__ == "__main__":
