@@ -34,3 +34,4 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 ## Vyčištěné plné texty (od 2026-10-24, viz GitHub issue #2)
 
 * `fulltext_clean/` — odvozeno z `fulltext/` skriptem `src/tools/extract_fulltext.py --apply`: čistý text předpisu (`.html` v uzavřené slovní zásobě + `.txt`), zrcadlí cesty `fulltext/`. Regenerovatelné, mimo git. Pokryty jen zakonyprolidi.cz a EUR-Lex (HTML).
+* `fulltext_manifest.json` — záznamy o stažených plných textech; od 2026-10-25 míří `local_path` do ploché `data/fulltext/<značka>__<8 znaků SHA-256>.<přípona>` (dřív podle zdrojové tabulky), viz `src/tools/migrate_fulltext_layout.py`.

@@ -16,6 +16,11 @@ doc/REQUIREMENTS.md R4.1): a law record can still carry a handful of
 stray norm citations of its own, which the `typ_dokumentu` check alone
 would miss.
 
+Layout (2026-10-25): every file goes straight into `data/fulltext/`, named
+`<designation>__<8 hex digits of its SHA-256>.<ext>` (`flat_name()`); the
+spreadsheet a record came from is not part of the path. Files downloaded
+before that were moved by `migrate_fulltext_layout.py`.
+
 Idempotent: `data/fulltext_manifest.json` (git-tracked — small metadata,
 no document content) records one entry per (source, znacka, URL field).
 A record already `fetched` with its local file present is skipped on
@@ -66,6 +71,16 @@ def sanitize_znacka(znacka):
     truth for which record a file belongs to."""
     safe = re.sub(r"[^A-Za-z0-9._-]+", "_", znacka.strip())
     return safe.strip("_") or "unnamed"
+
+
+def flat_name(znacka, sha256, ext):
+    """File name of a downloaded document inside `data/fulltext/` — one flat
+    directory, not one folder per spreadsheet that happened to list it. The
+    designation keeps the name readable; the first 8 hex digits of the
+    content hash keep two different documents (or two versions of one) from
+    ever sharing a name, and make the same content downloaded twice — e.g.
+    from `odkaz_hlavni` and `odkaz_eu` — one file."""
+    return f"{sanitize_znacka(znacka)}__{sha256[:8]}.{ext}"
 
 
 def is_fetchable_source(typ_dokumentu):
@@ -149,7 +164,6 @@ def fetch_one(session, record, url_field, url):
     """Performs the actual HTTP GET and returns a manifest entry dict.
     Never raises — network/HTTP failures are recorded as a `failed`
     status so one bad URL doesn't abort the whole run."""
-    zdroj_dat = record["zdroj_dat"]
     znacka = record["znacka"].strip()
     now = datetime.datetime.now().isoformat(timespec="seconds")
     try:
@@ -165,17 +179,18 @@ def fetch_one(session, record, url_field, url):
         }
 
     ext = extension_from_url(url, resp.headers.get("Content-Type", ""))
-    out_dir = FULLTEXT_DIR / zdroj_dat
-    out_dir.mkdir(parents=True, exist_ok=True)
-    local_path = out_dir / f"{sanitize_znacka(znacka)}__{url_field}.{ext}"
-    local_path.write_bytes(resp.content)
+    sha256 = hashlib.sha256(resp.content).hexdigest()
+    FULLTEXT_DIR.mkdir(parents=True, exist_ok=True)
+    local_path = FULLTEXT_DIR / flat_name(znacka, sha256, ext)
+    if not local_path.exists():  # same content already stored: nothing to write
+        local_path.write_bytes(resp.content)
 
     return {
         "status": "fetched",
         "url": url,
         "local_path": str(local_path.relative_to(REPO_ROOT)),
         "http_status": resp.status_code,
-        "sha256": hashlib.sha256(resp.content).hexdigest(),
+        "sha256": sha256,
         "fetched_at": now,
     }
 

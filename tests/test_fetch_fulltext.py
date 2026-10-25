@@ -155,27 +155,78 @@ class FetchOneTestCase(unittest.TestCase):
         entry = ff.fetch_one(session, record, "odkaz_hlavni", "https://eur-lex.europa.eu/x")
         self.assertEqual(entry["status"], "failed")
 
-    def test_writes_file_and_records_success(self):
+    def _session(self, content, content_type="application/pdf"):
         session = MagicMock()
         resp = MagicMock()
-        resp.content = b"%PDF-1.4 fake content"
+        resp.content = content
         resp.status_code = 200
-        resp.headers = {"Content-Type": "application/pdf"}
+        resp.headers = {"Content-Type": content_type}
         resp.raise_for_status.return_value = None
         session.get.return_value = resp
+        return session
 
-        record = {"zdroj_dat": "__test_source__", "znacka": "TEST/2026"}
-        try:
-            entry = ff.fetch_one(session, record, "odkaz_hlavni", "https://example.com/doc")
+    def test_writes_one_flat_file_named_by_designation_and_content(self):
+        import hashlib
+        import tempfile
+        from unittest import mock
+        content = b"%PDF-1.4 fake content"
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), \
+                    mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"):
+                entry = ff.fetch_one(self._session(content), {"zdroj_dat": "Anything", "znacka": "TEST/2026"},
+                                     "odkaz_hlavni", "https://example.com/doc")
+            sha = hashlib.sha256(content).hexdigest()
             self.assertEqual(entry["status"], "fetched")
-            self.assertTrue((ff.REPO_ROOT / entry["local_path"]).exists())
-            self.assertEqual((ff.REPO_ROOT / entry["local_path"]).read_bytes(), resp.content)
-        finally:
-            out_dir = ff.REPO_ROOT / "data" / "fulltext" / "__test_source__"
-            for f in out_dir.glob("*"):
-                f.unlink()
-            if out_dir.exists():
-                out_dir.rmdir()
+            self.assertEqual(entry["sha256"], sha)
+            # straight into data/fulltext/, no per-source folder
+            self.assertEqual(entry["local_path"], f"data/fulltext/TEST_2026__{sha[:8]}.pdf")
+            self.assertEqual((root / entry["local_path"]).read_bytes(), content)
+
+    def test_the_same_content_from_two_url_fields_is_one_file(self):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), \
+                    mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"):
+                record = {"zdroj_dat": "Sinay_Zakony", "znacka": "(EU) 2022/869"}
+                first = ff.fetch_one(self._session(b"<html>x</html>", "text/html"), record, "odkaz_hlavni", "https://a/x")
+                second = ff.fetch_one(self._session(b"<html>x</html>", "text/html"), record, "odkaz_eu", "https://b/x")
+            self.assertEqual(first["local_path"], second["local_path"])
+            self.assertEqual(len(list((root / "data" / "fulltext").iterdir())), 1)
+
+    def test_different_content_under_the_same_designation_gets_a_different_name(self):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), \
+                    mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"):
+                record = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "201/2012 Sb."}
+                a = ff.fetch_one(self._session(b"<html>cz law</html>", "text/html"), record, "odkaz_hlavni", "https://a/x")
+                b = ff.fetch_one(self._session(b"<html>eur-lex</html>", "text/html"), record, "odkaz_hlavni", "https://b/x")
+            self.assertNotEqual(a["local_path"], b["local_path"])
+            self.assertEqual(len(list((root / "data" / "fulltext").iterdir())), 2)
+
+    def test_source_spreadsheet_is_not_part_of_the_path(self):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), \
+                    mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"):
+                entry = ff.fetch_one(self._session(b"x"), {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "A 1"},
+                                     "odkaz_hlavni", "https://example.com/doc")
+            self.assertNotIn("Haltuf", entry["local_path"])
+
+
+class FlatNameTestCase(unittest.TestCase):
+    def test_designation_and_eight_hash_digits(self):
+        self.assertEqual(ff.flat_name("(EU) 2022/869", "a" * 64, "html"), "EU_2022_869__aaaaaaaa.html")
+
+    def test_unsafe_designation_is_sanitized(self):
+        self.assertEqual(ff.flat_name("183/2006 Sb.", "0123456789abcdef" * 4, "pdf"), "183_2006_Sb.__01234567.pdf")
 
 
 if __name__ == "__main__":
