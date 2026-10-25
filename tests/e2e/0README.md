@@ -14,6 +14,7 @@ JavaScriptu nebo když požadavek na naši aplikaci selže / vrátí ≥ 400 bez
 * `test_catalog.py` — katalog: seznam a součty, hledání (i bez shody), filtr typu, rozbalení řádku, další strana, telefonní rozložení.
 * `test_document_page.py` — stránka dokumentu: shoda s řádkem seznamu, nařízení EU 2022/869 (záznam 80), stažená kopie, placená norma (bez stažení, `/fulltext/<id>` = 403), neznámý slug = 404.
 * `test_processes.py` — procesní pohled: sedm uzlů a matice, detail uzlu, telefonní rozložení.
+* `test_fulltext_page.py` — čtení textu v aplikaci (issue #2): nařízení EU 2022/869 (očíslované body jako odstavce `p.item`, žádné `script`/`a`/`img`/`iframe`, telefon bez přetékání), český zákon (nadpisy a úrovně), placená norma = 403, surové stažení jako příloha se sandbox CSP. `run_tests.py` před startem serveru znovu vygeneruje `data/fulltext_clean/` (`extract_clean_texts`), takže scénáře nečtou texty po starší verzi extraktoru.
 * `test_readability.py` — čitelnost odkazů: všechny textové odkazy na hlavních stránkách (katalog s rozbaleným řádkem, procesy, detail uzlu, přihlášení, dokument se vztahy) mají kontrast vůči tmavému pozadí aspoň 3.
 * `test_editor_workflow.py` — celý editorský workflow přes skutečné stránky: přesměrování na přihlášení, špatné heslo, návrh opravy, zákaz potvrzení vlastního návrhu (403), potvrzení druhým editorem s rozdílem, auditní log. Fixtury (dva editoři a dokument) vytváří a maže v testovací DB.
 

@@ -86,7 +86,7 @@
                 <a href="{{ url_for('document_text', slug=document.slug) }}" class="btn-external">
                     Číst text <i class="ph ph-book-open-text"></i></a>
                 {% endif %}
-                {% if document.file_path and not document.restricted_fulltext %}
+                {% if has_local_copy %}
                 <a href="{{ url_for('fulltext', doc_id=document.id) }}" target="_blank" class="btn-external">
                     Stažená kopie <i class="ph ph-file-text"></i></a>
                 {% elif document.restricted_fulltext %}
