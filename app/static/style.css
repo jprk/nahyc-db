@@ -56,6 +56,12 @@ body {
     width: 100%;
 }
 
+/* Links with no rule of their own (permalink, relation and process tables, ...)
+   would be the browser's default #0000EE — unreadable on this dark background. */
+a {
+    color: var(--accent-secondary);
+}
+
 /* === Navigation === */
 .navbar {
     background: var(--bg-glass);
@@ -635,6 +641,44 @@ main {
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+    /* The header used to keep its desktop layout: logo, four links and the
+       funder's logo in one fixed 70px row, 616px wide on a 390px phone, which
+       made the whole page scroll sideways. Two rows instead. */
+    .nav-content {
+        height: auto;
+        min-height: 70px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.5rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .brand {
+        font-size: 1.25rem;
+    }
+
+    .brand-text {
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.25rem;
+    }
+
+    .nav-link.active::after {
+        bottom: -6px;
+    }
+
+    .nav-links img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 @media (max-width: 992px) {
     .col-source {
         display: none;
@@ -799,6 +843,13 @@ main {
 .doc-panels {
     display: grid;
     gap: 1.25rem;
+}
+
+/* A grid item never shrinks below its content by default, so a wide table
+   (.doc-table-wrap scrolls it) widened the panel and with it the whole page
+   on a phone. */
+.doc-panels > .doc-panel {
+    min-width: 0;
 }
 
 .doc-panel {

@@ -17,6 +17,8 @@ data/20250915_Haltuf/v*
 # Fetched full-text law documents (large, copyright status unverified for
 # redistribution — kept local only; see doc/PLAN.md §4)
 data/fulltext/
+# ... and as a symlink (a worktree links to the main tree's copy)
+data/fulltext
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -248,3 +250,14 @@ backups/
 
 # Clean text extracted from data/fulltext/ by src/tools/extract_fulltext.py (derived, regenerable)
 data/fulltext_clean/
+# Browser-test screenshots (src/tools/run_tests.py, one folder per session)
+data/test_screenshots/
+
+# Temporary/working directories and editor backups (see CLAUDE.md)
+Databaze/
+Web/
+zip/
+*~
+
+# Local agent instructions (lists all branches and worktrees; machine-specific)
+CLAUDE.md
