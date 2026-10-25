@@ -1,0 +1,19 @@
+// Obr. 3 — Vrstva A: dokumentová část (V01)
+digraph V01 {
+  rankdir=LR;
+  fontname="Arial";
+  node [fontname="Arial", fontsize=12, shape=box, style="rounded,filled", margin="0.22,0.14"];
+  edge [fontname="Arial", fontsize=10, color="#495057"];
+
+  DOC [label="DOKUMENT\nnázev, popis, identifikátor\n(č. 283/2021 Sb., EN 17124…),\ndatum účinnosti, odkaz", fillcolor="#1C64D9", fontcolor="white"];
+
+  TYP [label="Typ dokumentu\nzákon | vyhláška | norma |\nmetodika | strategie…", fillcolor="#CFE2FF"];
+  ZDROJ [label="Zdroj dokumentu\nkdo jej vydal + jurisdikce\n(ČR | EU | mezinárodní)", fillcolor="#CFE2FF"];
+  KW [label="Klíčová slova\nřízený slovník\n(„elektrolýza“, „plnicí stanice“…)", fillcolor="#CFE2FF"];
+  VER [label="Verze dokumentu\nhistorie znění + příznak\naktuálně platné verze", fillcolor="#CFE2FF"];
+
+  TYP -> DOC [label="každý dokument\nmá právě 1 typ"];
+  ZDROJ -> DOC [label="právě 1 zdroj"];
+  KW -> DOC [label="libovolně mnoho\n(M:N)", dir=both];
+  VER -> DOC [label="1 dokument =\nvíce verzí"];
+}

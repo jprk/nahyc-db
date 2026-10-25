@@ -1,0 +1,31 @@
+// Obr. 5 — Procesní síť U1–U7 (dle V02)
+digraph Sit {
+  rankdir=LR;
+  fontname="Arial";
+  node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled", fillcolor="#D4EDDA", color="#2E7D32", margin="0.2,0.12"];
+  edge [fontname="Arial", fontsize=9, color="#495057"];
+
+  U1 [label="U1\nÚzemní kompatibilita"];
+  U2 [label="U2\nEnvironmentální režim"];
+  U3 [label="U3\nStavební povolení"];
+  U4 [label="U4\nEnergeticko-provozní\noprávnění"];
+  U5 [label="U5\nBezpečnostní režim"];
+  U6 [label="U6\nPřipojení\nk infrastruktuře"];
+  U7 [label="U7\nCertifikační schopnost\ndle RFNBO", fillcolor="#B7E4C7"];
+
+  U1 -> U2 [dir=both];
+  U1 -> U3;
+  U1 -> U6 [dir=both];
+  U2 -> U3;
+  U2 -> U5 [dir=both];
+  U6 -> U2 [style=dashed];
+  U2 -> U7;
+  U3 -> U5 [dir=both];
+  U6 -> U3 [style=dashed];
+  U3 -> U4;
+  U4 -> U5 [dir=both];
+  U6 -> U4 [style=dashed];
+  U4 -> U7;
+  U5 -> U6;
+  U6 -> U7;
+}

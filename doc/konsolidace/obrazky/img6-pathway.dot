@@ -1,0 +1,14 @@
+// Obr. 6 — Compliance pathway: od záměru k předpisům
+digraph Pathway {
+  rankdir=TB;
+  fontname="Arial";
+  node [fontname="Arial", fontsize=12, shape=box, style="rounded,filled", width=5.4, margin="0.25,0.16"];
+  edge [fontname="Arial", fontsize=11, color="#495057"];
+
+  ZAMER [label="1. ZÁMĚR INVESTORA\nElektrolyzér 1,2 MW v průmyslové zóně,\nprodej vodíku pro autobusy města", fillcolor="#FFF3CD", color="#B8860B"];
+  SCENAR [label="2. VÝBĚR SCÉNÁŘE + PARAMETRY\ntypový scénář „výrobna s prodejem pro mobilitu“;\nparametry: kapacita, umístění, prodej třetím stranám…", fillcolor="#F3E8FD", color="#6F42C1"];
+  AKTIVACE [label="3. AKTIVACE PROCESNÍCH UZLŮ\naktivační pravidla vyhodnotí parametry →\nnapř. U1–U6 klíčové, U7 nutné kvůli RFNBO;\nv U2 větev „zjišťovací řízení“", fillcolor="#E9F7EC", color="#2E7D32"];
+  DOKUMENTY [label="4. RELEVANTNÍ PŘEDPISY A NORMY\nke každému aktivovanému uzlu databáze vrátí\njeho právní oporu: stavební zákon, zákon o EIA,\nenergetický zákon, EN 17124, akty k RFNBO…", fillcolor="#E7F1FF", color="#1C64D9"];
+
+  ZAMER -> SCENAR -> AKTIVACE -> DOKUMENTY;
+}

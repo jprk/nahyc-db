@@ -43,7 +43,7 @@ for source, target, attr, src_mult, tgt_mult in relations:
     etree.SubElement(relation, "{%s}OwnedEnd" % uml_ns, {"type": target, "multiplicity": tgt_mult})
 
 # Uložení XMI souboru
-xmi_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'db', 'RegulatoryDocumentsDB.xmi')
+xmi_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../zip/V01', 'db', 'RegulatoryDocumentsDB.xmi')
 with open(xmi_file_path, "wb") as f:
     f.write(etree.tostring(xmi, pretty_print=True, xml_declaration=True, encoding="UTF-8"))
 

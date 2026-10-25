@@ -1,0 +1,76 @@
+// NAHYC DP004 — Konsolidované schéma DB: konceptuální přehled
+// Render: dot -Tsvg Konsolidace-DB-koncept.dot -o Konsolidace-DB-koncept.svg
+//         dot -Tpng -Gdpi=300 Konsolidace-DB-koncept.dot -o Konsolidace-DB-koncept.png
+digraph KonsolidovanaDB {
+  rankdir=LR;
+  fontname="Arial";
+  node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled"];
+  edge [fontname="Arial", fontsize=9, color="#495057"];
+  compound=true;
+
+  // ── Vrstva A: Regulatorní (V01) ──
+  subgraph cluster_A {
+    label="A. Regulatorní vrstva (V01, rozšířeno)";
+    style="rounded,filled"; fillcolor="#E7F1FF"; color="#1C64D9";
+    Document [fillcolor="#1C64D9", fontcolor="white", label="Document\n(+ identifier)"];
+    DocumentType [fillcolor="#CFE2FF", label="DocumentType"];
+    DocumentSource [fillcolor="#CFE2FF", label="DocumentSource\n(+ institution_type,\n+ jurisdiction)"];
+    Keyword [fillcolor="#CFE2FF", label="Keyword +\nDocumentKeyword"];
+    DocumentVersion [fillcolor="#CFE2FF", label="DocumentVersion\n(+ is_current)"];
+  }
+
+  // ── Vrstva B: Procesní (V02) ──
+  subgraph cluster_B {
+    label="B. Procesní vrstva (dle návrhu V02)";
+    style="rounded,filled"; fillcolor="#E9F7EC"; color="#2E7D32";
+    process_node [fillcolor="#343A40", fontcolor="white", label="process_node\nU1–U7\n(+ valid_from/to)"];
+    node_description [fillcolor="#D4EDDA", label="node_description\n(1:1 narativní texty)"];
+    branches [fillcolor="#D4EDDA", label="node_branch +\nbranch_step"];
+    io [fillcolor="#D4EDDA", label="node_input /\nnode_output"];
+    subjects [fillcolor="#D4EDDA", label="subject +\nnode_subject"];
+    node_edge [fillcolor="#D4EDDA", label="node_edge\n(procesní síť)"];
+    variability [fillcolor="#D4EDDA", label="node_variability\n(matice 4×7) +\ninstallation_type,\nintensity_level"];
+    problems [fillcolor="#D4EDDA", label="node_problem +\nnode_problem_installation"];
+    process_class [fillcolor="#D4EDDA", label="process_class"];
+  }
+
+  // ── Vrstva C: Integrační ──
+  node_document [fillcolor="#FD7E14", fontcolor="white",
+    label="C. node_document\n(LEGAL_BASIS | SOURCE)\nnahrazuje legal_document,\nsource_reference a obě M:N"];
+
+  // ── Vrstva D: Klasifikace a compliance (V03) ──
+  subgraph cluster_D {
+    label="D. Klasifikace a compliance (V03)";
+    style="rounded,filled"; fillcolor="#F3E8FD"; color="#6F42C1";
+    scenario [fillcolor="#6F42C1", fontcolor="white", label="use_case_scenario\n(typové scénáře)"];
+    classifiers [fillcolor="#E2D4F0", label="4 hlediska:\nvalue_chain_stage,\ntechnology_type,\nintegration_level,\napplication_area"];
+    rules [fillcolor="#E2D4F0", label="node_activation_rule +\nproject_criterion\n(podmínky aktivace)"];
+    scenario_links [fillcolor="#E2D4F0", label="scenario_node,\nscenario_document,\nscenario_value_chain,\nscenario_technology"];
+  }
+
+  // ── Vazby ──
+  DocumentType -> Document;
+  DocumentSource -> Document;
+  Keyword -> Document [label="M:N"];
+  DocumentVersion -> Document [label="1:N"];
+
+  process_class -> process_node;
+  node_description -> process_node [label="1:1"];
+  branches -> process_node;
+  io -> process_node;
+  subjects -> process_node [label="M:N"];
+  node_edge -> process_node [label="graf"];
+  variability -> process_node;
+  problems -> process_node;
+
+  node_document -> process_node [color="#FD7E14", penwidth=2];
+  node_document -> Document [color="#FD7E14", penwidth=2];
+
+  classifiers -> scenario;
+  rules -> process_node [color="#6F42C1", label="aktivace"];
+  rules -> Document [color="#6F42C1", style=dashed, label="basis_document_id"];
+  scenario_links -> scenario;
+  scenario_links -> process_node [color="#6F42C1", label="intenzita"];
+  scenario_links -> Document [color="#6F42C1", style=dashed];
+  variability -> classifiers [style=dashed, label="installation_type\n→ value_chain_stage"];
+}
