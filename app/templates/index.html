@@ -158,7 +158,7 @@
                                     Číst text <i class="ph ph-book-open-text"></i>
                                 </a>
                                 {% endif %}
-                                {% if doc.file_path and not doc.restricted_fulltext %}
+                                {% if doc.has_local_copy %}
                                 <a href="{{ url_for('fulltext', doc_id=doc.id) }}" target="_blank" class="btn-external">
                                     Stažená kopie <i class="ph ph-file-text"></i>
                                 </a>

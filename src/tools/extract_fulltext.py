@@ -155,7 +155,7 @@ def _enumeration_items(tag, source, depth):
         lead = ""
         if body and (m := _PLAIN_P.match(body[0])):
             lead, body = m.group(1), body[1:]
-        items.append(f'<p class="item d{level}"><span class="num">{html.escape(marker, quote=False)}</span> {lead}</p>')
+        items.append(f'<p class="item d{level}"><span class="num">{html.escape(marker, quote=False)}</span>{lead}</p>')
         items.extend(body)
     return items or None
 
@@ -287,6 +287,10 @@ def html_to_text(fragment):
     soup = BeautifulSoup(fragment, "html.parser")
     for br in soup.find_all("br"):
         br.replace_with("\n")
+    # An item's marker hangs in a fixed-width column in the page, so the
+    # markup has no space after it; the plain text needs one.
+    for marker in soup.select("p.item > span.num"):
+        marker.insert_after(" ")
     lines = []
     for block in soup.find_all(recursive=False):
         if block.name == "hr":

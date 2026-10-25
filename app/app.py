@@ -395,6 +395,8 @@ def index():
     # Set here, not in fetch_documents_with_tags(): /export/<fmt> shares
     # that helper and must not pick up a key it was never meant to emit.
     for doc in documents:
+        doc['has_local_copy'] = (not doc['restricted_fulltext']
+                                 and local_copy_path(doc['file_path']) is not None)
         doc['has_clean_text'] = (not doc['restricted_fulltext']
                                  and clean_text_path(doc['file_path']) is not None)
     total_document_count = get_total_document_count(db)
@@ -505,9 +507,27 @@ def document_detail(slug):
     if detail is None:
         abort(404)
     document = detail['document']
+    detail['has_local_copy'] = (not document['restricted_fulltext']
+                                and local_copy_path(document['file_path']) is not None)
     detail['has_clean_text'] = (not document['restricted_fulltext']
                                 and clean_text_path(document['file_path']) is not None)
     return render_template('document.html', **detail)
+
+
+def local_copy_path(file_path):
+    """Path of the downloaded original for a Document.file_path, or None when
+    it is not on this machine. `file_path` is recorded in the database by the
+    pipeline, but the files themselves (data/fulltext/, gitignored, large)
+    exist only where they were downloaded — so a link to one must be offered
+    only when the file is really there, not whenever the column is set.
+    Verified to stay inside FULLTEXT_DIR (defence in depth, as for any path
+    that ends up in send_file)."""
+    if not file_path:
+        return None
+    full_path = (REPO_ROOT / file_path).resolve()
+    if FULLTEXT_DIR not in full_path.parents or not full_path.is_file():
+        return None
+    return full_path
 
 
 def clean_text_path(file_path):
@@ -758,8 +778,8 @@ def fulltext(doc_id):
     if row['restricted_fulltext']:
         abort(403)
 
-    full_path = (REPO_ROOT / row['file_path']).resolve()
-    if FULLTEXT_DIR not in full_path.parents or not full_path.is_file():
+    full_path = local_copy_path(row['file_path'])
+    if full_path is None:
         abort(404)
 
     # GitHub issue #2: a downloaded HTML page is a foreign document with its

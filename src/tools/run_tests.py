@@ -76,6 +76,20 @@ def new_screenshot_dir(root=SHOT_ROOT, keep=KEEP_SHOT_SESSIONS):
     return folder
 
 
+def extract_clean_texts(env):
+    """Regenerates data/fulltext_clean/ from the downloaded originals, so the
+    browser scenarios never read texts left by an older extractor. Only where
+    the extractor exists and the originals are on this machine."""
+    script = REPO_ROOT / "src" / "tools" / "extract_fulltext.py"
+    fulltext = REPO_ROOT / "data" / "fulltext"
+    if not script.is_file() or not fulltext.is_dir():
+        return
+    result = subprocess.run([sys.executable, str(script), "--apply"], cwd=REPO_ROOT, env=env,
+                            capture_output=True, text=True)
+    summary = [line.strip() for line in result.stdout.splitlines() if "extracted" in line]
+    print("clean texts:", "; ".join(summary) if summary else f"extraction exited with {result.returncode}")
+
+
 def run_unittest(args, env):
     return subprocess.run([sys.executable, "-m", "unittest", *args], cwd=REPO_ROOT, env=env).returncode
 
@@ -134,6 +148,7 @@ def main(argv=None):
             if run_integration:
                 results.append(("integration", run_unittest([f"tests.{m}" for m in integration_modules], env) == 0))
             if run_e2e:
+                extract_clean_texts(env)
                 with testdb.DebugServer(env, port=args.port) as server:
                     failures = smoke(server.url)
                     for failure in failures:

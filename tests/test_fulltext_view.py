@@ -87,6 +87,42 @@ class FulltextViewTestCase(unittest.TestCase):
         self.assertIsNone(appmod.clean_text_path("data/fulltext/../fulltext_clean/S/a.html"))
         self.assertIsNone(appmod.clean_text_path("../../etc/passwd"))
 
+    def test_local_copy_path_is_none_when_the_file_is_not_on_this_machine(self):
+        self.assertEqual(appmod.local_copy_path("data/fulltext/S/a.html"), self.raw_dir / "S" / "a.html")
+        self.assertIsNone(appmod.local_copy_path("data/fulltext/S/not-downloaded.html"))
+        self.assertIsNone(appmod.local_copy_path(None))
+        self.assertIsNone(appmod.local_copy_path(""))
+        self.assertIsNone(appmod.local_copy_path("../../etc/passwd"))
+
+    # --- the buttons on the document page --------------------------------
+    def _document_page(self, file_path, restricted=0):
+        detail = {"document": {**self._row(file_path, restricted), "description": None, "popis_priblizny": None,
+                               "language": None, "effective_date": None, "jurisdikce": None,
+                               "jurisdikce_uroven": None, "needs_review": 0, "review_reason": None,
+                               "updated_at": None, "type_name": "Zákon", "source_name": None, "id": 1},
+                  "keywords": [], "versions": [], "relations": [], "process_nodes": []}
+        self._db(self._row())
+        patcher = mock.patch.object(appmod, "fetch_document_detail", return_value=detail)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        response = self.client.get("/dokument/nv-116-2016")
+        self.assertEqual(response.status_code, 200)
+        body = response.data.decode("utf-8")
+        return "Číst text" in body, "Stažená kopie" in body, "Plný text nedostupný" in body
+
+    def test_both_buttons_when_the_copy_and_its_clean_text_exist(self):
+        self.assertEqual(self._document_page("data/fulltext/S/a.html"), (True, True, False))
+
+    def test_only_the_download_when_the_text_has_not_been_extracted_yet(self):
+        (self.raw_dir / "S" / "b.html").write_text("x", encoding="utf-8")
+        self.assertEqual(self._document_page("data/fulltext/S/b.html"), (False, True, False))
+
+    def test_no_download_button_when_the_recorded_file_is_not_on_this_machine(self):
+        self.assertEqual(self._document_page("data/fulltext/S/not-downloaded.html"), (False, False, False))
+
+    def test_restricted_type_shows_only_the_lock(self):
+        self.assertEqual(self._document_page("data/fulltext/S/a.html", restricted=1), (False, False, True))
+
     # --- /dokument/<slug>/text -------------------------------------------
     def test_text_page_renders_the_clean_text_unescaped_inside_the_app(self):
         self._db(self._row())
