@@ -82,6 +82,10 @@
                 {% endif %}
                 {# R4.1: the download link appears only for a non-restricted type;
                    /fulltext/<id> re-checks this server-side regardless. #}
+                {% if has_clean_text %}
+                <a href="{{ url_for('document_text', slug=document.slug) }}" class="btn-external">
+                    Číst text <i class="ph ph-book-open-text"></i></a>
+                {% endif %}
                 {% if document.file_path and not document.restricted_fulltext %}
                 <a href="{{ url_for('fulltext', doc_id=document.id) }}" target="_blank" class="btn-external">
                     Stažená kopie <i class="ph ph-file-text"></i></a>

@@ -1122,3 +1122,106 @@ main {
     color: var(--success);
     font-weight: 600;
 }
+
+/* GitHub issue #2: document text rendered from src/tools/extract_fulltext.py's
+   closed HTML vocabulary (h3/h4, p.l1-l5/para/note/title/center, tables). */
+.fulltext-notice {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+.fulltext-notice a {
+    color: var(--accent-secondary);
+}
+
+.fulltext {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.fulltext p {
+    margin: 0.5rem 0;
+}
+
+.fulltext h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin: 1.75rem 0 0.5rem;
+    text-align: center;
+}
+
+.fulltext h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin: 1.25rem 0 0.4rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.fulltext p.title,
+.fulltext p.center,
+.fulltext p.para {
+    text-align: center;
+    font-weight: 600;
+}
+
+.fulltext p.para {
+    margin-top: 1.5rem;
+}
+
+.fulltext p.l2 { margin-left: 1rem; }
+.fulltext p.l3 { margin-left: 2rem; }
+.fulltext p.l4 { margin-left: 3rem; }
+.fulltext p.l5 { margin-left: 4rem; }
+
+.fulltext p.note {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.fulltext .num {
+    color: var(--text-secondary);
+    margin-right: 0.25rem;
+}
+
+.fulltext hr {
+    border: 0;
+    border-top: 1px solid var(--border-glass);
+    margin: 1.5rem 0;
+}
+
+.fulltext table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+}
+
+.fulltext table.data th,
+.fulltext table.data td {
+    border: 1px solid var(--border-glass);
+    padding: 0.4rem 0.6rem;
+    vertical-align: top;
+}
+
+.fulltext table.layout td {
+    vertical-align: top;
+    padding: 0 0.5rem 0 0;
+}
+
+.fulltext table.layout td:first-child {
+    width: 3rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .fulltext {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+}
