@@ -232,12 +232,12 @@
     "url": "https://eur-lex.europa.eu/eli/dec/1998/2119/oj/ces"
   },
   "EU_Transposition_Targets_Import|1998/2119/ES|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:45:15",
+    "fetched_at": "2026-10-25T17:42:49",
     "http_status": 202,
-    "local_path": "data/fulltext/1998_2119_ES__e4eeabdf.html",
-    "sha256": "e4eeabdfa3bfdb6dcd9b359c92e405b9ae5937d9e20841fa8089fd9b4e79094f",
+    "local_path": "data/fulltext/1998_2119_ES__de568c03.html",
+    "sha256": "de568c0336dcb3d7fc6662c801e3f01916fb76ddc5783b20bdaa5991ae44499a",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/dec/1998/2119/oj/ces"
+    "url": "https://eur-lex.europa.eu/eli/dec/1998/2119/oj"
   },
   "EU_Transposition_Targets_Import|1999/31/ES|odkaz_eu": {
     "fetched_at": "2026-10-25T18:36:31",
@@ -246,14 +246,6 @@
     "sha256": "991366b22bdc5e94a2c969895a3ade6da3e697513b5313ae90ae99ccc1f3f44a",
     "status": "fetched",
     "url": "https://eur-lex.europa.eu/eli/dir/1999/31/oj/ces"
-  },
-  "EU_Transposition_Targets_Import|1998/2119/ES|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T17:42:49",
-    "http_status": 202,
-    "local_path": "data/fulltext/1998_2119_ES__de568c03.html",
-    "sha256": "de568c0336dcb3d7fc6662c801e3f01916fb76ddc5783b20bdaa5991ae44499a",
-    "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/dec/1998/2119/oj"
   },
   "EU_Transposition_Targets_Import|1999/31/ES|odkaz_hlavni": {
     "fetched_at": "2026-10-25T18:36:31",
@@ -2248,36 +2240,36 @@
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32019R0942"
   },
   "Haltuf_Dokumenty|(EU) 2022/869|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:54:40",
+    "fetched_at": "2026-10-25T21:20:59",
     "http_status": 200,
-    "local_path": "data/fulltext/EU_2022_869__ec9103df.pdf",
-    "sha256": "ec9103dfac5dd11d300dfafc41b0e200debc60cb9e64d1d2fcc3ed2ec816474e",
+    "local_path": "data/fulltext/EU_2022_869__3eb3e4dd.pdf",
+    "sha256": "3eb3e4ddc83acd3c278e92de0137f7227e63d046aa883c3f0e7f3c303454d185",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:02022R0869-20250205"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02022R0869-20250205"
   },
   "Haltuf_Dokumenty|(EU) 2022/869|odkaz_eu_html": {
-    "fetched_at": "2026-10-25T18:29:46",
+    "fetched_at": "2026-10-25T21:21:04",
     "http_status": 202,
-    "local_path": "data/fulltext/EU_2022_869__5694e806.html",
-    "sha256": "5694e80605cd960b09f53137140917bf570e7d7c59811042663faf7cbbc60dcb",
+    "local_path": "data/fulltext/EU_2022_869__83c24700.html",
+    "sha256": "83c24700921dad07fc1b026aa8e122b81c03f3c242c8ce3f44cb1204adac37ab",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:02022R0869-20250205"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02022R0869-20250205"
   },
   "Haltuf_Dokumenty|(EU) 2022/869|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:29:41",
+    "fetched_at": "2026-10-25T21:20:59",
     "http_status": 200,
-    "local_path": "data/fulltext/EU_2022_869__ec9103df.pdf",
-    "sha256": "ec9103dfac5dd11d300dfafc41b0e200debc60cb9e64d1d2fcc3ed2ec816474e",
+    "local_path": "data/fulltext/EU_2022_869__3eb3e4dd.pdf",
+    "sha256": "3eb3e4ddc83acd3c278e92de0137f7227e63d046aa883c3f0e7f3c303454d185",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:02022R0869-20250205"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02022R0869-20250205"
   },
   "Haltuf_Dokumenty|(EU) 2022/869|odkaz_hlavni_html": {
-    "fetched_at": "2026-10-25T18:29:46",
+    "fetched_at": "2026-10-25T21:21:04",
     "http_status": 202,
-    "local_path": "data/fulltext/EU_2022_869__5694e806.html",
-    "sha256": "5694e80605cd960b09f53137140917bf570e7d7c59811042663faf7cbbc60dcb",
+    "local_path": "data/fulltext/EU_2022_869__83c24700.html",
+    "sha256": "83c24700921dad07fc1b026aa8e122b81c03f3c242c8ce3f44cb1204adac37ab",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:02022R0869-20250205"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02022R0869-20250205"
   },
   "Haltuf_Dokumenty|(EU) 2023/1804|odkaz_eu": {
     "fetched_at": "2026-09-11T00:51:27",
@@ -2344,36 +2336,36 @@
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=OJ:L_202302413"
   },
   "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:50:45",
+    "fetched_at": "2026-10-25T21:20:40",
     "http_status": 200,
-    "local_path": "data/fulltext/EU_2024_1788__12fd9daf.pdf",
-    "sha256": "12fd9daf2002175b1c27627a08a38a8b1df8220744be65a85f2d9f5788717a45",
+    "local_path": "data/fulltext/EU_2024_1788__4d393afd.pdf",
+    "sha256": "4d393afdb8f07ca5a0ccaa056bab081e6182a77cc93ab9e8971cf5ef4a4b00cd",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L_202401788"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401788"
   },
   "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_eu_html": {
-    "fetched_at": "2026-10-25T18:28:17",
+    "fetched_at": "2026-10-25T21:20:46",
     "http_status": 202,
-    "local_path": "data/fulltext/EU_2024_1788__b0375d4c.html",
-    "sha256": "b0375d4c6ac6da11fe1b7554390871eed605b345448d6d4d215e4484b0d50ca8",
+    "local_path": "data/fulltext/EU_2024_1788__2700da7e.html",
+    "sha256": "2700da7e2d3eafedc9c5a4db62f70a74d9b4e85049b8cbc768d2d3209afa874a",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=OJ:L_202401788"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401788"
   },
   "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:28:12",
+    "fetched_at": "2026-10-25T21:20:40",
     "http_status": 200,
-    "local_path": "data/fulltext/EU_2024_1788__12fd9daf.pdf",
-    "sha256": "12fd9daf2002175b1c27627a08a38a8b1df8220744be65a85f2d9f5788717a45",
+    "local_path": "data/fulltext/EU_2024_1788__4d393afd.pdf",
+    "sha256": "4d393afdb8f07ca5a0ccaa056bab081e6182a77cc93ab9e8971cf5ef4a4b00cd",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L_202401788"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401788"
   },
   "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_hlavni_html": {
-    "fetched_at": "2026-10-25T18:28:17",
+    "fetched_at": "2026-10-25T21:20:46",
     "http_status": 202,
-    "local_path": "data/fulltext/EU_2024_1788__b0375d4c.html",
-    "sha256": "b0375d4c6ac6da11fe1b7554390871eed605b345448d6d4d215e4484b0d50ca8",
+    "local_path": "data/fulltext/EU_2024_1788__2700da7e.html",
+    "sha256": "2700da7e2d3eafedc9c5a4db62f70a74d9b4e85049b8cbc768d2d3209afa874a",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=OJ:L_202401788"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401788"
   },
   "Haltuf_Dokumenty|(EU) 2024/1789|odkaz_eu": {
     "fetched_at": "2026-09-11T00:50:48",
@@ -2568,36 +2560,36 @@
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
   },
   "Haltuf_Dokumenty|2014/34/EU|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:54:33",
+    "fetched_at": "2026-10-25T21:20:49",
     "http_status": 200,
-    "local_path": "data/fulltext/2014_34_EU__ebdc13b5.pdf",
-    "sha256": "ebdc13b5ca0954468d2d441013b5c196a67ba25257b9c820b74639d42d917887",
+    "local_path": "data/fulltext/2014_34_EU__00d81c83.pdf",
+    "sha256": "00d81c838041c543b18ae95c225fbde8db48f9224df9ef70a134802bc3fac9e0",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L:2014:096:FULL"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L:2014:096:FULL"
   },
   "Haltuf_Dokumenty|2014/34/EU|odkaz_eu_html": {
-    "fetched_at": "2026-10-25T18:29:05",
+    "fetched_at": "2026-10-25T21:20:55",
     "http_status": 202,
-    "local_path": "data/fulltext/2014_34_EU__f4c5bbb1.html",
-    "sha256": "f4c5bbb16fe4a64c1fa08bf228168dd8f0a481d54209493b8058a36ea2d3666a",
+    "local_path": "data/fulltext/2014_34_EU__79159638.html",
+    "sha256": "79159638e0678c0407c28783d308352f260af70a3d292ffce107e7d26a9c46b7",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0034"
   },
   "Haltuf_Dokumenty|2014/34/EU|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:28:59",
+    "fetched_at": "2026-10-25T21:20:49",
     "http_status": 200,
-    "local_path": "data/fulltext/2014_34_EU__ebdc13b5.pdf",
-    "sha256": "ebdc13b5ca0954468d2d441013b5c196a67ba25257b9c820b74639d42d917887",
+    "local_path": "data/fulltext/2014_34_EU__00d81c83.pdf",
+    "sha256": "00d81c838041c543b18ae95c225fbde8db48f9224df9ef70a134802bc3fac9e0",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L:2014:096:FULL"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L:2014:096:FULL"
   },
   "Haltuf_Dokumenty|2014/34/EU|odkaz_hlavni_html": {
-    "fetched_at": "2026-10-25T18:29:05",
+    "fetched_at": "2026-10-25T21:20:55",
     "http_status": 202,
-    "local_path": "data/fulltext/2014_34_EU__f4c5bbb1.html",
-    "sha256": "f4c5bbb16fe4a64c1fa08bf228168dd8f0a481d54209493b8058a36ea2d3666a",
+    "local_path": "data/fulltext/2014_34_EU__79159638.html",
+    "sha256": "79159638e0678c0407c28783d308352f260af70a3d292ffce107e7d26a9c46b7",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0034"
   },
   "Haltuf_Dokumenty|2014/68/EU|odkaz_eu": {
     "fetched_at": "2026-09-11T00:50:55",
@@ -2998,12 +2990,12 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2022/869/oj"
   },
   "Sinay_Zakony|(EU) 2022/869|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:26:12",
+    "fetched_at": "2026-10-25T21:20:36",
     "http_status": 202,
-    "local_path": "data/fulltext/EU_2022_869__8d3e79b2.html",
-    "sha256": "8d3e79b2a3b3059ae7a330ffd33961a577898816cb1cb8f9e6d43516a0bcd0ac",
+    "local_path": "data/fulltext/EU_2022_869__01e3c89c.html",
+    "sha256": "01e3c89cad0aa936de5472444575b497d6d18aa8626ce83c2c9162715648a2b2",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/reg/2022/869/oj/ces"
+    "url": "https://eur-lex.europa.eu/eli/reg/2022/869/oj"
   },
   "Sinay_Zakony|(EU) 2022/869|odkaz_sk": {
     "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",

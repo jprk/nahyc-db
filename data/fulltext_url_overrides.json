@@ -1,11 +1,11 @@
 {
   "Haltuf_Dokumenty|2014/34/EU|odkaz_eu_html": {
-    "reason": "The stored PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive; the text is taken from the directive's own page, Directive 2014/34/EU (CELEX 32014L0034).",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text. The stored PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive; the text is taken from the directive's own page (CELEX 32014L0034).",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0034"
   },
   "Haltuf_Dokumenty|2014/34/EU|odkaz_hlavni_html": {
-    "reason": "The stored PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive; the text is taken from the directive's own page, Directive 2014/34/EU (CELEX 32014L0034).",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text. The stored PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive; the text is taken from the directive's own page (CELEX 32014L0034).",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0034"
   },
   "Sinay_Zakony|(EU) 2018/858|odkaz_hlavni": {
     "reason": "The source's ELI says 'dir' (directive); (EU) 2018/858 is a regulation, so /eli/dir/2018/858 is an unknown address (search page) and /eli/reg/2018/858 is the act.",
@@ -30,5 +30,49 @@
   "V02_Bibliografie|(ES) 1907/2006|odkaz_eu": {
     "reason": "Regulation (EC) 1907/2006 (REACH): /eli/reg/2006/1907/oj/ces returns the Bulgarian text (the consolidated page lists Bulgarian first); the Czech one comes from the legal-content address.",
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32006R1907"
+  },
+  "Haltuf_Dokumenty|(EU) 2022/869|odkaz_hlavni": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02022R0869-20250205"
+  },
+  "Haltuf_Dokumenty|(EU) 2022/869|odkaz_eu": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02022R0869-20250205"
+  },
+  "Haltuf_Dokumenty|(EU) 2022/869|odkaz_hlavni_html": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02022R0869-20250205"
+  },
+  "Haltuf_Dokumenty|(EU) 2022/869|odkaz_eu_html": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02022R0869-20250205"
+  },
+  "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_hlavni": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401788"
+  },
+  "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_eu": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401788"
+  },
+  "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_hlavni_html": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401788"
+  },
+  "Haltuf_Dokumenty|(EU) 2024/1788|odkaz_eu_html": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401788"
+  },
+  "Haltuf_Dokumenty|2014/34/EU|odkaz_hlavni": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L:2014:096:FULL"
+  },
+  "Haltuf_Dokumenty|2014/34/EU|odkaz_eu": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L:2014:096:FULL"
+  },
+  "Sinay_Zakony|(EU) 2022/869|odkaz_hlavni": {
+    "reason": "The document is English (English title, language EN): the source lists it twice, a CZ and an EN row, and the deduplicated record is the English one, so the language rule must not turn it into the Czech text.",
+    "url": "https://eur-lex.europa.eu/eli/reg/2022/869/oj"
   }
 }
