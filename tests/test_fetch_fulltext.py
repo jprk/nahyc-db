@@ -1,3 +1,4 @@
+import json
 import pathlib
 import sys
 import unittest
@@ -597,6 +598,18 @@ class SlovLexHistoryTestCase(unittest.TestCase):
 
     def test_no_versions_listed_gives_none(self):
         self.assertIsNone(ff._slovlex_latest_version_url(self.FakePage([])))
+
+
+class CommittedManifestTestCase(unittest.TestCase):
+    def test_no_fetched_entry_has_another_address_than_the_one_the_record_asks_for(self):
+        raw = json.loads(ff.RAW_DB_PATH.read_text(encoding="utf-8"))
+        manifest = ff.load_manifest()
+        seen, stale = set(), []
+        for record, field, url in ff.iter_fetch_targets(raw, ff.load_url_overrides()):
+            key = ff.manifest_key(record["zdroj_dat"], record["znacka"].strip(), field)
+            if key not in seen and not seen.add(key) and ff.is_stale(manifest, key, url):
+                stale.append(key)
+        self.assertEqual(stale, [], "fetch_fulltext.py would fetch these again")
 
 
 if __name__ == "__main__":
