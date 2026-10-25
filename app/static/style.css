@@ -1143,6 +1143,7 @@ main {
     margin-top: 1.5rem;
     line-height: 1.7;
     overflow-wrap: anywhere;
+    max-width: 60rem; /* ~90 characters a line; the full page width is unreadable */
 }
 
 .fulltext p {
@@ -1209,14 +1210,28 @@ main {
     vertical-align: top;
 }
 
+/* Numbered recitals and lists: marker hanging in the margin, one paragraph
+   per item; d1..d3 are nested levels, and plain p.dN continues an item's text. */
+.fulltext p.item {
+    padding-left: 3rem;
+    text-indent: -3rem;
+}
+
+.fulltext p.item .num {
+    display: inline-block;
+    width: 3rem;
+    margin-right: 0;
+    text-indent: 0;
+}
+
+.fulltext p.d1 { margin-left: 3rem; }
+.fulltext p.d2 { margin-left: 6rem; }
+.fulltext p.d3 { margin-left: 9rem; }
+.fulltext p.d4 { margin-left: 12rem; }
+
 .fulltext table.layout td {
     vertical-align: top;
     padding: 0 0.5rem 0 0;
-}
-
-.fulltext table.layout td:first-child {
-    width: 3rem;
-    white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -1224,4 +1239,11 @@ main {
         padding: 1rem;
         overflow-x: auto;
     }
+
+    .fulltext p.item { padding-left: 2.25rem; text-indent: -2.25rem; }
+    .fulltext p.item .num { width: 2.25rem; }
+    .fulltext p.d1 { margin-left: 2.25rem; }
+    .fulltext p.d2 { margin-left: 4.5rem; }
+    .fulltext p.d3 { margin-left: 6.75rem; }
+    .fulltext p.d4 { margin-left: 9rem; }
 }

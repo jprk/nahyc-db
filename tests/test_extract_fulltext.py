@@ -94,17 +94,47 @@ class EurLexTestCase(unittest.TestCase):
         self.assertIn("<h4>Subject matter</h4>", h)
         self.assertIn("Treaty<sup>1</sup>, see <em>ibid.</em>", h)
 
-    def test_enumeration_table_is_layout_and_data_table_keeps_spans(self):
+    def test_enumeration_table_becomes_an_item_paragraph_and_data_table_keeps_spans(self):
         h = self.result.html
-        self.assertIn('<table class="layout">', h)
+        self.assertIn('<p class="item d0"><span class="num">(a)</span> first item</p>', h)
+        self.assertNotIn('<table class="layout">', h)
         self.assertIn('<table class="data">', h)
         self.assertIn('<td colspan="2">', h)
         self.assertIn("<th><p>Name</p></th>", h.replace(' class="oj-tbl-hdr"', ""))
 
-    def test_layout_table_text_reads_as_one_line_data_table_uses_bars(self):
+    def test_item_text_reads_as_one_line_data_table_uses_bars(self):
         lines = self.result.text.splitlines()
         self.assertIn("(a) first item", lines)
         self.assertIn("Name | Value", lines)
+
+    def test_nested_enumerations_are_one_level_deeper_with_continuation_text(self):
+        page = ('<div id="text"><div class="eli-container">'
+                '<table><tr><td><p class="oj-normal">(1)</p></td><td>'
+                '<p class="oj-normal">Main point:</p>'
+                '<table><tr><td><p class="oj-normal">(a)</p></td><td><p class="oj-normal">sub point</p></td></tr></table>'
+                '<p class="oj-normal">closing words</p>'
+                '</td></tr></table></div></div>')
+        r = ef.extract(page, "https://eur-lex.europa.eu/x")
+        self.assertEqual(r.html.split("\n"), [
+            '<p class="item d0"><span class="num">(1)</span> Main point:</p>',
+            '<p class="item d1"><span class="num">(a)</span> sub point</p>',
+            '<p class="d1">closing words</p>'])
+        self.assertEqual(r.text.splitlines(), ["(1) Main point:", "(a) sub point", "closing words"])
+
+    def test_leading_empty_cell_is_an_indentation_spacer(self):
+        page = ('<div id="text"><div class="eli-container"><table><tr><td></td>'
+                '<td><p class="oj-normal">(1)</p></td><td><p class="oj-normal">indented item</p></td>'
+                '</tr></table></div></div>')
+        r = ef.extract(page, "https://eur-lex.europa.eu/x")
+        self.assertEqual(r.html, '<p class="item d1"><span class="num">(1)</span> indented item</p>')
+
+    def test_layout_table_that_is_not_an_enumeration_stays_a_table(self):
+        page = ('<div id="text"><div class="eli-container"><table><tr>'
+                '<td><p class="oj-normal">A long first column that is real content</p></td>'
+                '<td><p class="oj-normal">second</p></td></tr></table></div></div>')
+        r = ef.extract(page, "https://eur-lex.europa.eu/x")
+        self.assertIn('<table class="layout">', r.html)
+        self.assertNotIn("item", r.html)
 
     def test_images_are_dropped(self):
         self.assertNotIn("img", self.result.html)

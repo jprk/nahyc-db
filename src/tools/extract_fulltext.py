@@ -18,7 +18,7 @@ Slov-Lex and PDFs are NOT handled here (doc/PLAN.md, issue #2 open
 questions).
 
 Output vocabulary (everything else is dropped or unwrapped): `h3`, `h4`,
-`p` (class `l1`..`l5`, `para`, `note`, `title`, `center`), `hr`, `table`
+`p` (class `l1`..`l5`, `para`, `note`, `title`, `center`, `item` + `d0`..`d4`), `hr`, `table`
 (class `data` or `layout`) with `tr`/`th`/`td`, and inline `em`,
 `strong`, `sub`, `sup`, `br`, `span.num`. Links, images, scripts, styles
 and every attribute not listed here are removed.
@@ -120,16 +120,59 @@ def _emit(tag_name, cls, inner):
     return f"<{tag_name}{attr}>{inner}</{tag_name}>"
 
 
-def _table(tag, source):
+_PLAIN_P = re.compile(r'^<p(?: class="d\d")?>(.*)</p>$', re.S)
+_MARKER_MAX = 8  # "(10)", "(iii)", "a)", "1." — longer first cells are real content
+
+
+def _own_rows(table):
+    """The rows of `table` itself — find_all("tr") would also return the rows
+    of any table nested inside one of its cells, which are handled there."""
+    return [tr for tr in table.find_all("tr") if tr.find_parent("table") is table]
+
+
+def _enumeration_items(tag, source, depth):
+    """A layout table that is only an enumeration — rows of a short marker
+    ("(1)", "(a)") next to the text, as the Official Journal sets every
+    numbered recital and list — becomes one hanging-indent paragraph per
+    row, nested ones one level deeper. Rendered as separate tables these
+    never lined up (each table sized its own marker column). None when the
+    table is anything else."""
+    items = []
+    for tr in _own_rows(tag):
+        cells = tr.find_all(["td", "th"], recursive=False)
+        # Leading empty cells are indentation spacers: one level deeper each.
+        spacers = 0
+        while len(cells) > 2 and not cells[0].get_text().strip():
+            cells = cells[1:]
+            spacers += 1
+        if len(cells) != 2:
+            return None
+        marker = _WS.sub(" ", cells[0].get_text()).strip()
+        if not marker or len(marker) > _MARKER_MAX:
+            return None
+        level = depth + spacers
+        body = list(_blocks(cells[1], source, level + 1))
+        lead = ""
+        if body and (m := _PLAIN_P.match(body[0])):
+            lead, body = m.group(1), body[1:]
+        items.append(f'<p class="item d{level}"><span class="num">{html.escape(marker, quote=False)}</span> {lead}</p>')
+        items.extend(body)
+    return items or None
+
+
+def _table(tag, source, depth=0):
     cls = "data" if "oj-table" in _classes(tag) or source == "zakonyprolidi" else "layout"
+    if cls == "layout":
+        items = _enumeration_items(tag, source, depth)
+        if items:
+            return "\n".join(items)
     rows = []
-    for tr in tag.find_all("tr"):
-        # Nested tables are flattened by their own row; only direct cells here.
+    for tr in _own_rows(tag):
         cells = []
         for cell in tr.find_all(["td", "th"], recursive=False):
             span = "".join(f' {a}="{int(cell[a])}"' for a in ("colspan", "rowspan")
                            if str(cell.get(a, "")).isdigit() and int(cell[a]) > 1)
-            body = "".join(_blocks(cell, source)) or _inline(cell).strip()
+            body = "".join(_blocks(cell, source, depth)) or _inline(cell).strip()
             cells.append(f"<{cell.name}{span}>{body}</{cell.name}>")
         if cells and _has_text("".join(cells)):
             rows.append("<tr>" + "".join(cells) + "</tr>")
@@ -182,8 +225,9 @@ def _eurlex_block(tag):
 _BLOCK_RULES = {"zakonyprolidi": _zakonyprolidi_block, "eurlex": _eurlex_block}
 
 
-def _blocks(node, source):
-    """Yields the HTML of the block-level content of `node`, in order."""
+def _blocks(node, source, depth=0):
+    """Yields the HTML of the block-level content of `node`, in order.
+    `depth` is how many enumeration levels (see _enumeration_items) enclose it."""
     rule = _BLOCK_RULES[source]
     pending = []  # loose inline content between blocks
 
@@ -191,7 +235,7 @@ def _blocks(node, source):
         if pending:
             text = "".join(pending)
             pending.clear()
-            piece = _emit("p", None, text)
+            piece = _emit("p", f"d{depth}" if depth else None, text)
             if piece:
                 yield piece
 
@@ -211,12 +255,15 @@ def _blocks(node, source):
             yield from flush()
             if source == "eurlex" and child.find(class_="oj-hd-ti"):
                 continue  # the Official Journal page header table
-            piece = _table(child, source)
+            piece = _table(child, source, depth)
             if piece:
                 yield piece
         elif (mapped := rule(child)) is not None:
             yield from flush()
-            piece = _emit(mapped[0], mapped[1], _inline(child))
+            tag_name, cls = mapped
+            if depth and tag_name == "p" and cls is None:
+                cls = f"d{depth}"  # body text continuing under an enumeration item
+            piece = _emit(tag_name, cls, _inline(child))
             if piece:
                 yield piece
         elif child.name in _BLOCK_WRAPPERS and not _is_inline_span(child):
@@ -224,7 +271,7 @@ def _blocks(node, source):
             if source == "zakonyprolidi" and "L0" in _classes(child) and child.find("hr"):
                 yield "<hr>"
             else:
-                yield from _blocks(child, source)
+                yield from _blocks(child, source, depth)
         else:
             pending.append(_inline_tag(child))
     yield from flush()
