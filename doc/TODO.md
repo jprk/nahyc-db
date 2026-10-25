@@ -62,6 +62,8 @@ No single unified plan ties these together — they're independent backlog items
 
 ## 003 - Rozpracované feature větve a worktrees (2026-10-24)
 
+> **Stav k 2026-10-25:** PR #1 (reorganizace) a PR #3 (test runner) jsou zmergované do `master`; hlavní strom je na `master`, `automation` má vlastní worktree `../nahyc-h2db-automation`. Aktuální přehled větví a worktrees je v lokálním `CLAUDE.md` (mimo git); tabulka níže je historická, k 2026-10-24.
+
 Pracovní konvence: každý krok se dělá na vlastní feature větvi v samostatném
 worktree (`git worktree add ../nahyc-h2db-<název> -b feature/<název> automation`).
 Hlavní strom (`/home/laborator/DEVEL/nahyc-h2db`, větev `automation`) zůstává
