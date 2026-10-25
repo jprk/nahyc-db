@@ -250,3 +250,12 @@ backups/
 
 # Browser-test screenshots (src/tools/run_tests.py, one folder per session)
 data/test_screenshots/
+
+# Temporary/working directories and editor backups (see CLAUDE.md)
+Databaze/
+Web/
+zip/
+*~
+
+# Local agent instructions (lists all branches and worktrees; machine-specific)
+CLAUDE.md
