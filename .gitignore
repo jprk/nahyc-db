@@ -247,3 +247,6 @@ deduplication_*.log
 
 # Local database backups (mariadb-dump snapshots) — never versioned
 backups/
+
+# Browser-test screenshots (src/tools/run_tests.py, one folder per session)
+data/test_screenshots/

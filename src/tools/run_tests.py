@@ -23,7 +23,9 @@ Run it with the main working tree's interpreter (worktrees have no `.venv`):
 The exit status is non-zero when anything failed.
 """
 import argparse
+import datetime
 import pathlib
+import shutil
 import subprocess
 import sys
 import urllib.error
@@ -54,6 +56,24 @@ def session_env(target_env):
     settings win over anything the application would read from `.env`."""
     import os
     return {**os.environ, **{k: str(v) for k, v in target_env.items() if v is not None}}
+
+
+SHOT_ROOT = REPO_ROOT / "data" / "test_screenshots"
+KEEP_SHOT_SESSIONS = 5
+
+
+def new_screenshot_dir(root=SHOT_ROOT, keep=KEEP_SHOT_SESSIONS):
+    """A fresh folder for this session's screenshots; only the newest `keep`
+    sessions are kept (the folder is gitignored and the pictures are big)."""
+    root = pathlib.Path(root)
+    root.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    folder = root / stamp
+    folder.mkdir(exist_ok=True)
+    sessions = sorted(p for p in root.iterdir() if p.is_dir() and p.name[:8].isdigit())
+    for old in sessions[:-keep]:
+        shutil.rmtree(old, ignore_errors=True)
+    return folder
 
 
 def run_unittest(args, env):
@@ -120,7 +140,9 @@ def main(argv=None):
                         print(f"smoke check failed: {failure}")
                     results.append(("smoke", not failures))
                     if any(E2E_DIR.glob("test_*.py")):
-                        e2e_env = {**env, "H2DB_BASE_URL": server.url}
+                        shots = new_screenshot_dir()
+                        e2e_env = {**env, "H2DB_BASE_URL": server.url, "H2DB_SHOT_DIR": str(shots)}
+                        print(f"screenshots: {shots}")
                         results.append(("e2e", run_unittest(["discover", "-s", str(E2E_DIR), "-p", "test_*.py"], e2e_env) == 0))
         finally:
             if lock:
