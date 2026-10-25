@@ -124,12 +124,31 @@ def load_url_overrides(path=URL_OVERRIDES_PATH):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# `TXT/PDF/?uri=CELEX:...` or `...?uri=OJ:L_<year><number>` (the Official Journal's
+# own id), optionally with the `&qid=...` the EUR-Lex site appends to a copied link.
+# Not `OJ:L:2014:096:FULL`: that PDF is a whole issue of the Journal, not one act.
+_EURLEX_PDF = re.compile(r"^(https://eur-lex\.europa\.eu/legal-content/[A-Z]{2}/TXT/)PDF"
+                         r"(/\?uri=(?:CELEX:[0-9A-Za-z()_\-]+|OJ:L_[0-9]+))(?:&[^#]*)?$")
+HTML_SUFFIX = "_html"
+
+
+def html_alternative(url):
+    """The HTML page of the same EUR-Lex document as a `TXT/PDF` address, or
+    None. The PDF stays the document's downloadable original; the HTML has the
+    structure (articles, paragraphs, lists) that a PDF's page layout does not,
+    so the readable text is made from it — see extract_fulltext.py."""
+    m = _EURLEX_PDF.match(url or "")
+    return f"{m.group(1)}HTML{m.group(2)}" if m else None
+
+
 def iter_fetch_targets(raw_data, overrides=None):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
     there's no stable key to file them under. A URL listed in `overrides`
-    (see load_url_overrides) replaces the one from the record."""
+    (see load_url_overrides) replaces the one from the record. An EUR-Lex PDF
+    address is followed by the address of the same document as HTML
+    (`html_alternative`) under the field `<field>_html`."""
     overrides = overrides or {}
     for record in raw_data:
         if not is_fetchable_source(record.get("typ_dokumentu", "")):
@@ -141,7 +160,14 @@ def iter_fetch_targets(raw_data, overrides=None):
             url = first_url(record.get(url_field))
             if url:
                 override = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field))
-                yield record, url_field, (override["url"] if override else url)
+                url = override["url"] if override else url
+                yield record, url_field, url
+                alternative = html_alternative(url)
+                twin = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field + HTML_SUFFIX))
+                if twin:  # e.g. the PDF is a whole Official Journal issue: name the act's own page
+                    alternative = twin["url"]
+                if alternative:  # a second manifest entry, key field "<field>_html"
+                    yield record, url_field + HTML_SUFFIX, alternative
 
 
 def extension_from_url(url, content_type=None):
@@ -264,7 +290,7 @@ def fetch_with_browser(url, timeout_ms=45000):
     except ImportError:
         return None
     slovlex = "slov-lex.sk" in url
-    ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly"
+    ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly, .eli-container, p.oj-doc-ti"
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -410,6 +436,7 @@ def main():
     session.headers.update({"User-Agent": USER_AGENT})
 
     fetched_count = 0
+    run_cache = {}  # (znacka, url) -> entry: the same address under two fields is fetched once
     for record, url_field, url in iter_fetch_targets(raw_data, load_url_overrides()):
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
         if args.only and key not in args.only:
@@ -421,10 +448,18 @@ def main():
         if args.limit is not None and fetched_count >= args.limit:
             break
 
+        cached = run_cache.get((record["znacka"].strip(), url))
+        if cached:
+            print(f"[{record['zdroj_dat']}] {record['znacka']} ({url_field}) -> same address as before, reused")
+            manifest[key] = dict(cached)
+            save_manifest(manifest)
+            continue
         if fetched_count > 0:
             time.sleep(SLEEP_SECONDS)
         print(f"[{record['zdroj_dat']}] {record['znacka']} ({url_field}) -> {url}")
         manifest[key] = fetch_one(session, record, url_field, url)
+        if manifest[key]["status"] == "fetched":
+            run_cache[(record["znacka"].strip(), url)] = manifest[key]
         print(f"  {manifest[key]['status']}")
         fetched_count += 1
         save_manifest(manifest)

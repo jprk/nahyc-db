@@ -78,6 +78,28 @@ class FulltextPageTestCase(BrowserTestCase):
             self.assertEqual(article.locator(foreign).count(), 0, f"<{foreign}> inside the text")
         self.shot(page, "slovak-act-top", full_page=False)
 
+    def test_document_whose_file_is_a_pdf_reads_from_the_html_of_the_same_act(self):
+        with self.db.cursor() as cur:
+            cur.execute("""SELECT d.slug FROM Document d JOIN DocumentType dt ON dt.id=d.type_id
+                           WHERE d.file_path LIKE '%.pdf' AND dt.restricted_fulltext=0 ORDER BY d.id""")
+            rows = [r["slug"] for r in cur.fetchall()]
+        page = self.new_page()
+        for slug in rows:
+            self.goto(page, f"/dokument/{slug}")
+            if page.get_by_role("link", name="Číst text").count():
+                break
+        else:
+            self.skipTest("no PDF-based document has an extracted text on this machine")
+        # the document still offers its PDF original, and the text view next to it
+        self.assertTrue(page.get_by_role("link", name="Stažená kopie").is_visible())
+        page.get_by_role("link", name="Číst text").click()
+        page.wait_for_url(re.compile(r"/text$"))
+        article = page.locator("article.fulltext")
+        self.assertGreater(article.locator("p").count(), 20)
+        for foreign in ("script", "a", "img", "iframe"):
+            self.assertEqual(article.locator(foreign).count(), 0, f"<{foreign}> inside the text")
+        self.shot(page, "pdf-document-text", full_page=False)
+
     def test_text_page_fits_a_phone(self):
         page = self.new_page(PHONE)
         self.open_text(page, "eu-2022-869")

@@ -63,7 +63,10 @@ _INLINE_TAGS = {"i": "em", "em": "em", "b": "strong", "strong": "strong",
                 "sub": "sub", "sup": "sup"}
 # EUR-Lex marks emphasis with classed spans.
 _INLINE_CLASSES = {"oj-italic": "em", "oj-bold": "strong",
-                   "oj-sub": "sub", "oj-super": "sup"}
+                   "oj-sub": "sub", "oj-super": "sup",
+                   # the consolidated-text dialect of EUR-Lex
+                   "italics": "em", "boldface": "strong",
+                   "subscript": "sub", "superscript": "sup"}
 
 _NON_TEXT_STRINGS = ("Comment", "Doctype", "CData", "ProcessingInstruction", "Declaration")
 
@@ -151,17 +154,44 @@ def _enumeration_items(tag, source, depth):
         if not marker or len(marker) > _MARKER_MAX:
             return None
         level = depth + spacers
-        body = list(_blocks(cells[1], source, level + 1))
-        lead = ""
-        if body and (m := _PLAIN_P.match(body[0])):
-            lead, body = m.group(1), body[1:]
-        items.append(f'<p class="item d{level}"><span class="num">{html.escape(marker, quote=False)}</span>{lead}</p>')
-        items.extend(body)
+        items.extend(_item(marker, list(_blocks(cells[1], source, level + 1)), level))
     return items or None
 
 
+def _item(marker, body, level):
+    """A hanging-indent item paragraph: the marker, then the first plain
+    paragraph of `body` (the blocks of the item's content) joined to it, then
+    the rest of `body` (continuations, nested items)."""
+    lead = ""
+    if body and (m := _PLAIN_P.match(body[0])):
+        lead, body = m.group(1), body[1:]
+    return [f'<p class="item d{level}"><span class="num">{html.escape(marker, quote=False)}</span>{lead}</p>', *body]
+
+
+def _eurlex_special(child, depth):
+    """The two list shapes of consolidated EUR-Lex texts: a `grid-list` (marker
+    column + text column) and a numbered paragraph (`div.norm` that starts with
+    `span.no-parag`). A list of the blocks, or None when `child` is neither."""
+    classes = _classes(child)
+    if child.name != "div":
+        return None
+    if "grid-list" in classes:
+        marker_cell = child.find("div", class_="list")
+        text_cell = child.find("div", class_="grid-list-column-2")
+        if marker_cell is None or text_cell is None:
+            return None
+        marker = _WS.sub(" ", marker_cell.get_text()).strip()
+        return _item(marker, list(_blocks(text_cell, "eurlex", depth + 1)), depth)
+    number = child.find("span", class_="no-parag", recursive=False) if "norm" in classes else None
+    if number is not None:
+        marker = _WS.sub(" ", number.get_text()).strip()
+        number.extract()
+        return _item(marker, list(_blocks(child, "eurlex", depth + 1)), depth)
+    return None
+
+
 def _table(tag, source, depth=0):
-    cls = "data" if "oj-table" in _classes(tag) or source in ("zakonyprolidi", "slovlex") else "layout"
+    cls = "data" if {"oj-table", "borderOj"} & set(_classes(tag)) or source in ("zakonyprolidi", "slovlex") else "layout"
     if cls == "layout":
         items = _enumeration_items(tag, source, depth)
         if items:
@@ -205,10 +235,19 @@ _EURLEX_CLASSES = {
     "oj-sti-art": ("h4", None), "oj-note": ("p", "note"),
     "oj-signatory": ("p", "center"), "oj-center": ("p", "center"),
     "oj-ti-annotation": ("p", "note"),
+    # consolidated texts ("TXT/HTML/?uri=CELEX:0..."): another set of class names
+    "title-doc-first": ("p", "title"), "title-doc-last": ("p", "title"),
+    "title-division-1": ("h3", None), "title-division-2": ("h3", None),
+    "title-gr-seq-level-1": ("h4", None), "title-gr-seq-level-2": ("h4", None),
+    "title-gr-seq-level-3": ("h4", None), "title-article-norm": ("h4", None),
+    "stitle-article-norm": ("h4", None), "title-annex-1": ("h3", None),
+    "title-annex-2": ("h3", None), "footnote": ("p", "note"),
 }
 # Document-header furniture (date, language, "Official Journal ...", page).
 _EURLEX_SKIP = {"oj-hd-date", "oj-hd-lg", "oj-hd-ti", "oj-hd-oj", "oj-hd-coll",
-                "oj-hd-uniq", "oj-separator"}
+                "oj-hd-uniq", "oj-separator",
+                # amendment markers ("▼B" and the link to the next one) in consolidated texts
+                "arrow", "modref"}
 
 
 def _eurlex_block(tag):
@@ -253,7 +292,10 @@ def _blocks(node, source, depth=0):
             continue
         if source == "eurlex" and any(c in _EURLEX_SKIP for c in _classes(child)):
             continue
-        if child.name == "hr":
+        if source == "eurlex" and (special := _eurlex_special(child, depth)) is not None:
+            yield from flush()
+            yield from special
+        elif child.name == "hr":
             yield from flush()
             yield "<hr>"
         elif child.name == "table":
@@ -323,12 +365,35 @@ def _extract_zakonyprolidi(soup):
     return "\n".join(_blocks(frags, "zakonyprolidi"))
 
 
+_LEGACY_TITLE = re.compile(r"^EUR-Lex\s*-\s*\w+\s*-\s*[A-Z]{2}\b")
+
+
+def _extract_eurlex_legacy(soup):
+    """Acts from before 2004 have a third kind of page ("Avis juridique
+    important"): no classes at all, the text is a plain run of `<p>` under the
+    site's own header and language bar. Returns the HTML or None when the page
+    is not of that kind."""
+    title = soup.title.get_text(" ", strip=True) if soup.title else ""
+    body = soup.body
+    if body is None or not _LEGACY_TITLE.match(title) or len(body.find_all("p")) < 20:
+        return None
+    for chrome in body.select("div.bglang, div.bgtool, p.bglang, h1, script, style"):
+        chrome.decompose()
+    return "\n".join(_blocks(body, "eurlex"))
+
+
 def _extract_eurlex(soup):
-    # The text container also exists on search-result and error pages, so
-    # require the Official Journal markup that only real acts carry.
-    root = soup.find("div", id="text")
-    if root is None or not (root.find(class_="eli-container") or root.find(class_="oj-normal")):
-        raise ExtractionError("eur-lex: no Official Journal text (search/error page?)")
+    # Search-result and error pages carry the same page chrome, so require the
+    # markup that only real acts have: the Official Journal's `oj-*` classes, or
+    # the `eli-container` of the consolidated-text page, which has no `div#text`
+    # — or, for an act from before 2004, the legacy page (see above).
+    root = soup.find("div", id="text") or soup.select_one(".eli-container") or soup.body
+    if root is None or not (root.find(class_="eli-container") or root.find(class_="oj-normal")
+                            or "eli-container" in _classes(root) or root.find(class_="oj-doc-ti")):
+        legacy = _extract_eurlex_legacy(soup)
+        if legacy is None:
+            raise ExtractionError("eur-lex: no Official Journal text (search/error page?)")
+        return legacy
     return "\n".join(_blocks(root, "eurlex"))
 
 
@@ -481,6 +546,18 @@ def extract(page_html, url=None):
     return Extracted(fragment, html_to_text(fragment), source)
 
 
+def clean_name_source(key, entry, manifest):
+    """The download whose file name the clean text takes. Normally the file
+    itself; for the HTML alternative of a PDF (field `<field>_html`, see
+    fetch_fulltext.html_alternative) it is the PDF — the file a Document points
+    at — so that the application finds the text from `file_path` alone."""
+    if key.endswith("_html"):
+        twin = manifest.get(key[:-len("_html")], {})
+        if twin.get("status") == "fetched" and (twin.get("local_path") or "").lower().endswith(".pdf"):
+            return twin["local_path"]
+    return entry["local_path"]
+
+
 def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT):
     manifest = json.loads(pathlib.Path(manifest_path).read_text(encoding="utf-8"))
     stats = collections.Counter()
@@ -502,7 +579,7 @@ def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_ro
             continue
         stats[f"extracted: {result.source}"] += 1
         if apply:
-            target = pathlib.Path(output_dir) / pathlib.Path(local).relative_to("data/fulltext")
+            target = pathlib.Path(output_dir) / pathlib.Path(clean_name_source(key, entry, manifest)).relative_to("data/fulltext")
             target.parent.mkdir(parents=True, exist_ok=True)
             target.with_suffix(".html").write_text(result.html + "\n", encoding="utf-8")
             target.with_suffix(".txt").write_text(result.text, encoding="utf-8")

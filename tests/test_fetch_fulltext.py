@@ -436,5 +436,52 @@ class PermanentFailureTestCase(unittest.TestCase):
         self.assertFalse(ff.is_permanent_failure({}))
 
 
+class HtmlAlternativeTestCase(unittest.TestCase):
+    PDF = "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:02022R0869-20250205"
+
+    def test_an_eur_lex_pdf_address_has_an_html_twin_in_the_same_language(self):
+        self.assertEqual(ff.html_alternative(self.PDF),
+                         "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:02022R0869-20250205")
+        self.assertEqual(ff.html_alternative("https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R1300"),
+                         "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R1300")
+
+    def test_the_qid_the_site_appends_is_dropped_and_the_oj_id_form_is_understood(self):
+        self.assertEqual(ff.html_alternative("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014R1304&qid=1751367790372"),
+                         "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014R1304")
+        self.assertEqual(ff.html_alternative("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32018D0010(01)&qid=1"),
+                         "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32018D0010(01)")
+        self.assertEqual(ff.html_alternative("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L_202401788"),
+                         "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=OJ:L_202401788")
+
+    def test_a_whole_official_journal_issue_has_no_single_act_twin(self):
+        self.assertIsNone(ff.html_alternative("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L:2014:096:FULL"))
+
+    def test_other_addresses_have_none(self):
+        for url in ("https://eur-lex.europa.eu/eli/reg/2022/869/oj", "https://example.test/x.pdf",
+                    "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014R1300", "", None):
+            self.assertIsNone(ff.html_alternative(url), url)
+
+    def test_a_pdf_target_is_followed_by_its_html_target_under_a_suffixed_field(self):
+        records = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2022/869", "typ_dokumentu": "Nařízení EU",
+                    "odkaz_hlavni": self.PDF, "odkaz_eu": "https://eur-lex.europa.eu/eli/reg/2022/869/oj"}]
+        targets = [(f, u) for _, f, u in ff.iter_fetch_targets(records)]
+        self.assertEqual(targets, [("odkaz_hlavni", self.PDF),
+                                   ("odkaz_hlavni_html", ff.html_alternative(self.PDF)),
+                                   ("odkaz_eu", "https://eur-lex.europa.eu/eli/reg/2022/869/oj")])
+
+    def test_an_override_can_name_the_twin_of_a_pdf_that_has_none(self):
+        issue = "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L:2014:096:FULL"
+        records = [{"zdroj_dat": "H", "znacka": "2014/34/EU", "typ_dokumentu": "Směrnice EU", "odkaz_eu": issue}]
+        twin = "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+        overrides = {"H|2014/34/EU|odkaz_eu_html": {"url": twin, "reason": "r"}}
+        self.assertEqual([(f, u) for _, f, u in ff.iter_fetch_targets(records, overrides)],
+                         [("odkaz_eu", issue), ("odkaz_eu_html", twin)])
+        self.assertEqual([f for _, f, _ in ff.iter_fetch_targets(records)], ["odkaz_eu"])
+
+    def test_the_html_twin_gets_its_own_manifest_key(self):
+        self.assertEqual(ff.manifest_key("S", "X 1", "odkaz_hlavni" + ff.HTML_SUFFIX), "S|X 1|odkaz_hlavni_html")
+        self.assertEqual(ff.designation_of("S|X 1|odkaz_hlavni_html"), "X 1")
+
+
 if __name__ == "__main__":
     unittest.main()

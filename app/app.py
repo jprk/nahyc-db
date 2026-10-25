@@ -534,7 +534,9 @@ def clean_text_path(file_path):
     """Path of the extracted clean text for a Document.file_path (a raw
     `data/fulltext/...` download), or None when there is none — only HTML
     downloads from the supported sources are ever extracted
-    (src/tools/extract_fulltext.py), and only after `--apply`. Verified to
+    (src/tools/extract_fulltext.py), and only after `--apply`; a PDF's text is
+    made from the HTML of the same EUR-Lex document and stored under the PDF's
+    name. Verified to
     stay inside CLEAN_TEXT_DIR, like /fulltext/<id> does for FULLTEXT_DIR."""
     if not file_path:
         return None
@@ -542,7 +544,7 @@ def clean_text_path(file_path):
         relative = (REPO_ROOT / file_path).resolve().relative_to(FULLTEXT_DIR)
     except ValueError:
         return None
-    if relative.suffix.lower() != '.html':
+    if relative.suffix.lower() not in ('.html', '.pdf'):
         return None
     candidate = (CLEAN_TEXT_DIR / relative).with_suffix('.html').resolve()
     if CLEAN_TEXT_DIR not in candidate.parents or not candidate.is_file():
