@@ -264,3 +264,6 @@ CLAUDE.md
 
 # Old->new path mapping of the one-off full-text layout migration (src/tools/migrate_fulltext_layout.py)
 data/fulltext_layout_map.json
+
+# Output captured from test runs (src/tools/run_tests.py sessions, redirected by hand)
+log/*.out

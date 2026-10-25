@@ -14,8 +14,8 @@ Supported sources (anything else is reported as unsupported, never
 guessed at):
 - zakonyprolidi.cz — the `div.Frags` inside `article#idBody_idCtn`.
 - eur-lex.europa.eu — `div#text` (Official Journal markup, `oj-*` classes).
-Slov-Lex and PDFs are NOT handled here (doc/PLAN.md, issue #2 open
-questions).
+- slov-lex.sk — `div.predpis` of the page as a browser rendered it.
+PDFs are NOT handled here (issue #2 open question).
 
 Output vocabulary (everything else is dropped or unwrapped): `h3`, `h4`,
 `p` (class `l1`..`l5`, `para`, `note`, `title`, `center`, `item` + `d0`..`d4`), `hr`, `table`
@@ -161,7 +161,7 @@ def _enumeration_items(tag, source, depth):
 
 
 def _table(tag, source, depth=0):
-    cls = "data" if "oj-table" in _classes(tag) or source == "zakonyprolidi" else "layout"
+    cls = "data" if "oj-table" in _classes(tag) or source in ("zakonyprolidi", "slovlex") else "layout"
     if cls == "layout":
         items = _enumeration_items(tag, source, depth)
         if items:
@@ -222,7 +222,12 @@ def _eurlex_block(tag):
     return "p", None
 
 
-_BLOCK_RULES = {"zakonyprolidi": _zakonyprolidi_block, "eurlex": _eurlex_block}
+def _slovlex_block(tag):
+    """Only reached for the cells of a table inside an act's text."""
+    return {"p": ("p", None), "h3": ("h3", None), "h4": ("h4", None)}.get(tag.name)
+
+
+_BLOCK_RULES = {"zakonyprolidi": _zakonyprolidi_block, "eurlex": _eurlex_block, "slovlex": _slovlex_block}
 
 
 def _blocks(node, source, depth=0):
@@ -327,7 +332,123 @@ def _extract_eurlex(soup):
     return "\n".join(_blocks(root, "eurlex"))
 
 
-_EXTRACTORS = {"zakonyprolidi": _extract_zakonyprolidi, "eurlex": _extract_eurlex}
+# --- Slov-Lex -------------------------------------------------------------
+# The page is an Angular app; what is stored is the DOM after a browser ran it
+# (fetch_fulltext.py). The act is `div.predpis`: a header (number, type, issuer,
+# date, title, enacting formula) followed by nested groups — cast > hlava >
+# oddiel > skupinaParagrafov > paragraf > odsek > pismeno > bod — each with an
+# `...Oznacenie` (its number/marker), an optional `...Nadpis` (its title) and, for
+# the leaves, a `div.text`.
+_SLOVLEX_HEADER = ("predpisOznacenie", "predpisTyp", "predpisPodnadpis", "predpisDatum", "predpisNadpis")
+_SLOVLEX_HEADINGS = {"cast": "h3", "hlava": "h4", "oddiel": "h4", "skupinaParagrafov": "h4"}
+_SLOVLEX_ITEMS = ("odsek", "pismeno", "bod")
+
+
+def _slovlex_kind(tag):
+    classes = _classes(tag)
+    return next((k for k in (*_SLOVLEX_HEADINGS, "paragraf", *_SLOVLEX_ITEMS) if k in classes), None)
+
+
+def _slovlex_child(tag, cls):
+    return next((c for c in tag.find_all("div", recursive=False) if cls in _classes(c)), None)
+
+
+def _slovlex_own(tag, cls):
+    """The `cls` element that belongs to this group: found through the
+    wrapper divs Slov-Lex puts around parts, but never inside a nested group
+    (that one's marker or text is its own)."""
+    for child in tag.find_all("div", recursive=False):
+        if cls in _classes(child):
+            return child
+        if _slovlex_kind(child) is None:
+            found = _slovlex_own(child, cls)
+            if found is not None:
+                return found
+    return None
+
+
+def _slovlex_walk(tag, level, out):
+    """Appends the HTML blocks of one group (and its sub-groups) to `out`.
+    `level` is the depth of items (odsek 0, pismeno 1, bod 2, ...)."""
+    kind = _slovlex_kind(tag)
+    if kind in _SLOVLEX_HEADINGS:
+        label = _slovlex_own(tag, f"{kind}Oznacenie")
+        title = _slovlex_own(tag, f"{kind}Nadpis")
+        for part in (label, title):
+            if part is not None:
+                piece = _emit(_SLOVLEX_HEADINGS[kind], None, _inline(part))
+                if piece:
+                    out.append(piece)
+    elif kind == "paragraf":
+        label = _slovlex_own(tag, "paragrafOznacenie")
+        title = _slovlex_own(tag, "paragrafNadpis")
+        if label is not None:
+            out.append(_emit("p", "para", _inline(label)))
+        if title is not None:
+            piece = _emit("h4", None, _inline(title))
+            if piece:
+                out.append(piece)
+        text = _slovlex_own(tag, "text")  # a § that has no (1), (2): its text sits directly in it
+        if text is not None:
+            piece = _emit("p", None, _inline(text))
+            if piece:
+                out.append(piece)
+    elif kind in _SLOVLEX_ITEMS:
+        marker = _slovlex_own(tag, f"{kind}Oznacenie")
+        text = _slovlex_own(tag, "text")
+        body = _inline(text) if text is not None else ""
+        if marker is not None and body.strip():
+            num = html.escape(_WS.sub(" ", marker.get_text()).strip(), quote=False)
+            out.append(f'<p class="item d{level}"><span class="num">{num}</span>{body.strip()}</p>')
+        elif body.strip():
+            out.append(_emit("p", f"d{level}" if level else None, body))
+        level += 1  # whatever is nested under this item is one level deeper
+    for child in tag.find_all(True, recursive=False):
+        classes = _classes(child)
+        if child.name == "table":
+            piece = _table(child, "slovlex", level)
+            if piece:
+                out.append(piece)
+        elif child.name != "div" or any(c.endswith(("Oznacenie", "Nadpis")) or c == "text" for c in classes):
+            continue  # already used above (or inline content)
+        elif "text2" in classes:
+            piece = _emit("p", "center", _inline(child))
+            if piece:
+                out.append(piece)
+        else:
+            _slovlex_walk(child, level, out)
+
+
+def _extract_slovlex(soup):
+    root = soup.select_one("div.predpis")
+    if root is None or _slovlex_child(root, "predpisOznacenie") is None:
+        raise ExtractionError("slov-lex: no act text in the page (an empty shell or a history page)")
+    out = []
+    for cls in _SLOVLEX_HEADER:
+        part = _slovlex_child(root, cls)
+        if part is not None:
+            piece = _emit("p", "title", _inline(part))
+            if piece:
+                out.append(piece)
+    preamble = _slovlex_child(root, "predpisText")
+    if preamble is not None:
+        piece = _emit("p", None, _inline(preamble))
+        if piece:
+            out.append(piece)
+    for child in root.find_all("div", recursive=False):
+        classes = _classes(child)
+        if any(c in _SLOVLEX_HEADER or c == "predpisText" for c in classes):
+            continue
+        if "text2" in classes:  # the signature after the last section
+            piece = _emit("p", "center", _inline(child))
+            if piece:
+                out.append(piece)
+        else:
+            _slovlex_walk(child, 0, out)
+    return "\n".join(out)
+
+
+_EXTRACTORS = {"zakonyprolidi": _extract_zakonyprolidi, "eurlex": _extract_eurlex, "slovlex": _extract_slovlex}
 
 
 def detect_source(url=None, soup=None):
@@ -336,6 +457,8 @@ def detect_source(url=None, soup=None):
         return "zakonyprolidi"
     if host.endswith("eur-lex.europa.eu"):
         return "eurlex"
+    if host.endswith("slov-lex.sk"):
+        return "slovlex"
     if host:
         raise Unsupported(f"unsupported source: {host}")
     if soup is not None:
@@ -343,6 +466,8 @@ def detect_source(url=None, soup=None):
             return "zakonyprolidi"
         if soup.find("div", id="text") and soup.find(class_=re.compile(r"^(oj-|eli-)")):
             return "eurlex"
+        if soup.select_one("div.predpis > div.predpisOznacenie"):
+            return "slovlex"
     raise Unsupported("unsupported source: cannot tell the site from the page")
 
 

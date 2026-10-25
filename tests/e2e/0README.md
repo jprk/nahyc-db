@@ -24,3 +24,4 @@ tabulka roztahovala panel v mřížce, a odkazy bez vlastní barvy (např. „Tr
 odkaz“) měly výchozí modrou `#0000EE` na tmavém pozadí (kontrast 1,9).
 Screenshoty se pořizují s `animations="disabled"`, aby nezachytily rozpracovaný
 náběh (fade-in) úvodních textů.
+* `test_fulltext_page.py` — navíc slovenský předpis ze Slov-Lexu (`124/2000 Z. z.`): odstavce `p.item d0`, písmena o úroveň hlouběji, značky § a nadpisy, žádný `script`/`a`/`img`/`iframe`.

@@ -360,5 +360,81 @@ class AuditManifestTestCase(unittest.TestCase):
         self.assertTrue((self.root / "data/fulltext/bad.html").exists())
 
 
+SLOVLEX_SHELL = b"<!doctype html><html lang='sk'><head><title>Slov-Lex</title></head><body><app-root></app-root></body></html>"
+SLOVLEX_ACT = ("<html><head><title>124/2000 Z. z. Vyhláška</title></head><body><div class='predpis'>"
+               "<div class='predpisOznacenie'>124</div></div></body></html>").encode("utf-8")
+SLOVLEX_HISTORY = b"<html><head><title>Historia predpisu 96/2004 Z. z.</title></head><body>History</body></html>"
+SLOVLEX_URL = "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/"
+
+
+class SlovLexTestCase(unittest.TestCase):
+    def test_the_empty_shell_is_not_a_document(self):
+        ok, reason = ff.is_document_page(SLOVLEX_URL, SLOVLEX_SHELL, "text/html", "124/2000 Z. z.")
+        self.assertFalse(ok)
+        self.assertIn("Slov-Lex", reason)
+
+    def test_a_history_page_is_not_a_document(self):
+        self.assertFalse(ff.is_document_page(SLOVLEX_URL, SLOVLEX_HISTORY, "text/html")[0])
+
+    def test_the_rendered_act_is_a_document_and_must_carry_the_records_designation(self):
+        self.assertTrue(ff.is_document_page(SLOVLEX_URL, SLOVLEX_ACT, "text/html", "124/2000 Z. z.")[0])
+        ok, reason = ff.is_document_page(SLOVLEX_URL, SLOVLEX_ACT, "text/html", "125/2000 Z. z.")
+        self.assertFalse(ok)
+        self.assertIn("different act", reason)
+
+    def test_designation_numbers(self):
+        self.assertEqual(ff.designation_numbers("124/2000 Z. z."), {"124/2000"})
+        self.assertEqual(ff.designation_numbers("(EU) 2019/2144"), {"2019/2144"})
+        self.assertEqual(ff.designation_numbers("ADR 2025"), set())
+
+    def test_slov_lex_always_needs_a_browser_eur_lex_only_for_a_challenge(self):
+        self.assertTrue(ff.needs_browser(SLOVLEX_URL, 200, SLOVLEX_SHELL))
+        self.assertTrue(ff.needs_browser("https://eur-lex.europa.eu/x", 202, b""))
+        self.assertFalse(ff.needs_browser("https://eur-lex.europa.eu/x", 200, b"<html>act</html>"))
+        self.assertFalse(ff.needs_browser("https://www.zakonyprolidi.cz/x", 200, b"<html></html>"))
+
+
+class SlovLexFetchOneTestCase(unittest.TestCase):
+    def _run(self, browser):
+        import tempfile
+        from unittest import mock
+        session = mock.MagicMock()
+        resp = mock.MagicMock()
+        resp.content, resp.status_code, resp.headers = SLOVLEX_SHELL, 200, {"Content-Type": "text/html"}
+        resp.raise_for_status.return_value = None
+        session.get.return_value = resp
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"), \
+                    mock.patch.object(ff, "fetch_with_browser", return_value=browser):
+                entry = ff.fetch_one(session, {"zdroj_dat": "S", "znacka": "124/2000 Z. z."}, "odkaz_sk", SLOVLEX_URL)
+                written = list((root / "data" / "fulltext").glob("*")) if (root / "data" / "fulltext").exists() else []
+        return entry, written
+
+    def test_the_browser_rendered_act_is_stored(self):
+        entry, written = self._run((200, SLOVLEX_ACT, "text/html; charset=utf-8"))
+        self.assertEqual(entry["status"], "fetched")
+        self.assertEqual(len(written), 1)
+
+    def test_without_a_browser_the_shell_is_a_failure_and_not_written(self):
+        entry, written = self._run(None)
+        self.assertEqual(entry["status"], "failed")
+        self.assertEqual(written, [])
+
+    def test_a_browser_that_ends_on_a_history_page_is_a_failure(self):
+        entry, written = self._run((200, SLOVLEX_HISTORY, "text/html; charset=utf-8"))
+        self.assertEqual(entry["status"], "failed")
+        self.assertEqual(written, [])
+
+
+class PermanentFailureTestCase(unittest.TestCase):
+    def test_a_wrong_act_is_permanent_other_failures_are_retried(self):
+        self.assertTrue(ff.is_permanent_failure({"status": "failed", "error": "Slov-Lex page is a different act than 100/2001 Sb. ('24/2006')"}))
+        self.assertFalse(ff.is_permanent_failure({"status": "failed", "error": "403 Client Error"}))
+        self.assertFalse(ff.is_permanent_failure({"status": "failed", "error": "empty response"}))
+        self.assertFalse(ff.is_permanent_failure({"status": "fetched"}))
+        self.assertFalse(ff.is_permanent_failure({}))
+
+
 if __name__ == "__main__":
     unittest.main()

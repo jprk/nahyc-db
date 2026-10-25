@@ -627,6 +627,13 @@
     "status": "fetched",
     "url": "https://www.technicke-normy-csn.cz/csn-iso-19880-1-656525-214583.html"
   },
+  "Sinay_Zakony|(EHK OSN) č. 134|odkaz_hlavni": {
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T16:06:38",
+    "http_status": 200,
+    "status": "failed",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZZ/2006/134/"
+  },
   "Sinay_Zakony|(EHK OSN) č. 134|odkaz_sk": {
     "error": "Manual correction, 2026-09-14 (doc/PLAN.md §13): HTTP 200 but the response body is slov-lex.sk's own redirect-failure page (\"Nepodarilo sa prejst na poziadovanu URL adresu...\"), not real document content -- confirmed live. fetch_fulltext.py could not have detected this automatically (real 200 status, no HTTP-level signal it is an error page).",
     "fetched_at": "2026-09-11T00:50:29",
@@ -651,11 +658,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2019/2144/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2019/2144|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:21",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2019_2144__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2020/2144/"
   },
   "Sinay_Zakony|(EU) 2021/535|odkaz_eu": {
@@ -675,11 +680,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2021/535/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2021/535|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:27",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2021_535__d23e428f.html",
-    "sha256": "d23e428f64772605c775a5624a694a995dab1ad85abb8db5c62543482365f6b0",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/535/"
   },
   "Sinay_Zakony|(EU) 2022/869|odkaz_eu": {
@@ -699,11 +702,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2022/869/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2022/869|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:56",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2022_869__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/869/"
   },
   "Sinay_Zakony|(EU) 2023/1184|odkaz_eu": {
@@ -723,11 +724,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg_del/2023/1184/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2023/1184|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:47",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_1184__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/1184/"
   },
   "Sinay_Zakony|(EU) 2023/1185|odkaz_eu": {
@@ -747,11 +746,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg_del/2023/1185/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2023/1185|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:51",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_1185__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/eli/deleg_reg/2023/1185"
   },
   "Sinay_Zakony|(EU) 2023/1804|odkaz_eu": {
@@ -771,11 +768,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2023/1804/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2023/1804|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:00",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_1804__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/eli/eur/2023/1804"
   },
   "Sinay_Zakony|(EU) 2023/2405|odkaz_eu": {
@@ -795,11 +790,9 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2023/2405/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2023/2405|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:05",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_2405__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/eli/eur/2023/2405"
   },
   "Sinay_Zakony|(EU) 2023/2413|odkaz_eu": {
@@ -811,11 +804,9 @@
     "url": "https://eur-lex.europa.eu/eli/dir/2023/2413/oj"
   },
   "Sinay_Zakony|(EU) 2023/2413|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:07",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_2413__6b9a0a56.html",
-    "sha256": "6b9a0a5657d44c7d3a4b64e855874135a545ac5f73d13d799687eaafcc4923f4",
-    "status": "fetched",
+    "error": "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)",
+    "fetched_at": "2026-10-25T15:44:06",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/eli/dir/2023/2413"
   },
   "Sinay_Zakony|(EU) 2023/955|odkaz_eu": {
@@ -851,18 +842,17 @@
     "url": "https://www.zakonyprolidi.cz/cs/2001-100"
   },
   "Sinay_Zakony|100/2001 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-09T17:34:20",
+    "error": "Slov-Lex page is a different act than 100/2001 Sb. ('24/2006 Z. z. Zákon o posudzovaní vplyvov na životné prostre')",
+    "fetched_at": "2026-10-25T15:57:46",
     "http_status": 200,
-    "local_path": "data/fulltext/100_2001_Sb.__9eaf201b.html",
-    "sha256": "9eaf201b9c2b160260b1da655dc2fe6076e46366a74a2bcdc0249d19da2eb77d",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/24/"
   },
-  "Sinay_Zakony|124/2000 Z. z.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:30",
+  "Sinay_Zakony|124/2000 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:07:25",
     "http_status": 200,
-    "local_path": "data/fulltext/124_2000_Z._z.__f6bbfb98.html",
-    "sha256": "f6bbfb98916b49c7a00755d3f40a7aaebd71e1461ea27e45d86a3c88c7c7a8c1",
+    "local_path": "data/fulltext/124_2000_Z._z.__12f40276.html",
+    "sha256": "12f402761241f44eab5869c29da2707bad0025a016bc8f1afef8a17d52e512cd",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/"
   },
@@ -875,12 +865,19 @@
     "url": "https://www.zakonyprolidi.cz/cs/2010-133"
   },
   "Sinay_Zakony|133/2010 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:28",
+    "error": "Slov-Lex page is a different act than 133/2010 Sb. ('251/2023 Z. z. Vyhláška Ministerstva životného prostredia Sl')",
+    "fetched_at": "2026-10-25T15:56:11",
     "http_status": 200,
-    "local_path": "data/fulltext/133_2010_Sb.__fb7afff2.html",
-    "sha256": "fb7afff2fe603e00af675f1bc42e03b1290130af2dfc5701d85ad4bdc5d3560e",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/251/"
+  },
+  "Sinay_Zakony|146/2023 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:50:36",
+    "http_status": 200,
+    "local_path": "data/fulltext/146_2023_Z._z.__ecfb63d1.html",
+    "sha256": "ecfb63d19af15ab9fdb19429a13e87da1e60b17bb43b8cb53ffb854f99110078",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/146/"
   },
   "Sinay_Zakony|165/2012 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:49:34",
@@ -891,11 +888,10 @@
     "url": "https://www.zakonyprolidi.cz/cs/2012-165"
   },
   "Sinay_Zakony|165/2012 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:35",
+    "error": "Slov-Lex page is a different act than 165/2012 Sb. ('309/2009 Z. z. Zákon o podpore obnoviteľných zdrojov energie')",
+    "fetched_at": "2026-10-25T16:01:51",
     "http_status": 200,
-    "local_path": "data/fulltext/165_2012_Sb.__70600368.html",
-    "sha256": "7060036803e34c131e2fa2cc2c8236657d50b2c3cb2771f1300b374ff2d33585",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2009/309/"
   },
   "Sinay_Zakony|183/2006 Sb.|odkaz_hlavni": {
@@ -907,10 +903,17 @@
     "url": "https://www.zakonyprolidi.cz/cs/2006-183"
   },
   "Sinay_Zakony|183/2006 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-09T17:34:17",
+    "error": "Slov-Lex page is a different act than 183/2006 Sb. ('201/2022 Z. z. Zákon o výstavbe | Slov-Lex')",
+    "fetched_at": "2026-10-25T15:46:25",
     "http_status": 200,
-    "local_path": "data/fulltext/183_2006_Sb.__af871169.html",
-    "sha256": "af871169204a5426f843a31e711557d1dacc4ff66f2ff071c61c8a6d9e019cef",
+    "status": "failed",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/201/"
+  },
+  "Sinay_Zakony|200/2022 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:45:37",
+    "http_status": 200,
+    "local_path": "data/fulltext/200_2022_Z._z.__2de2f25d.html",
+    "sha256": "2de2f25d6fccd0814134d0ea8dd5fc6a286c6f58cf6ad8630f6608dd5f726e9a",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/200/"
   },
@@ -931,12 +934,26 @@
     "url": "https://www.zakonyprolidi.cz/cs/2012-201"
   },
   "Sinay_Zakony|201/2012 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-09T17:34:29",
+    "error": "Slov-Lex page is a different act than 201/2012 Sb. ('146/2023 Z. z. Zákon o ochrane ovzdušia a o zmene a doplnení')",
+    "fetched_at": "2026-10-25T15:55:23",
     "http_status": 200,
-    "local_path": "data/fulltext/201_2012_Sb.__5c68964b.html",
-    "sha256": "5c68964bd2394dbd9de991c22c9bc2ea91927c7a97883203fb6ff3ef3102e0ca",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/146/"
+  },
+  "Sinay_Zakony|201/2022 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:46:30",
+    "http_status": 200,
+    "local_path": "data/fulltext/201_2022_Z._z.__5c4eb9ef.html",
+    "sha256": "5c4eb9ef4b1d6ea1aa046ac5bc6bc56f85b3b810117a3971fe67c09141adc72a",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/201/"
+  },
+  "Sinay_Zakony|2010/75/EU|odkaz_hlavni": {
+    "error": "Slov-Lex page is a different act than 2010/75/EU ('75/2010 Z. z. Oznámenie Ministerstva dopravy, pôšt a telekom')",
+    "fetched_at": "2026-10-25T16:00:15",
+    "http_status": 200,
+    "status": "failed",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2010/75"
   },
   "Sinay_Zakony|224/2015 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:49:32",
@@ -947,12 +964,43 @@
     "url": "https://www.zakonyprolidi.cz/cs/2015-224"
   },
   "Sinay_Zakony|224/2015 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:33",
+    "error": "Slov-Lex page is a different act than 224/2015 Sb. ('128/2015 Z. z. Zákon o prevencii závažných priemyselných hav')",
+    "fetched_at": "2026-10-25T16:01:03",
     "http_status": 200,
-    "local_path": "data/fulltext/224_2015_Sb.__1909ad16.html",
-    "sha256": "1909ad165023d08a29620beba875f5d008bafaeb0233cdd0f1eaab3848e2d46b",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2015/128/"
+  },
+  "Sinay_Zakony|24/2006 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:47:24",
+    "http_status": 200,
+    "local_path": "data/fulltext/24_2006_Z._z.__3b6b9cb1.html",
+    "sha256": "3b6b9cb1608a909306f8874283d3924d47ffba3f9da846bc5b082a64c1b812a1",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/24/"
+  },
+  "Sinay_Zakony|248/2023 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:54:35",
+    "http_status": 200,
+    "local_path": "data/fulltext/248_2023_Z._z.__a88f661f.html",
+    "sha256": "a88f661f3e700fc42e40e765ff44f19ae89701e0ec047a244234acde8d51f705",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/248/"
+  },
+  "Sinay_Zakony|250/2012 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:04:15",
+    "http_status": 200,
+    "local_path": "data/fulltext/250_2012_Z._z.__3483ebed.html",
+    "sha256": "3483ebedc828ffd40e51c35c25dd33505be7c0e6b956d35cbd17dee7c5238a9a",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2012/250/"
+  },
+  "Sinay_Zakony|251/2023 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:56:59",
+    "http_status": 200,
+    "local_path": "data/fulltext/251_2023_Z._z.__0a8e8201.html",
+    "sha256": "0a8e820110fbbe10986e538793ad4cf32992148af5452761305e7d385d3c357a",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2023/251/"
   },
   "Sinay_Zakony|254/2001 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-09T17:34:30",
@@ -963,11 +1011,10 @@
     "url": "https://www.zakonyprolidi.cz/cs/2001-254"
   },
   "Sinay_Zakony|254/2001 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-09T17:34:31",
+    "error": "Slov-Lex page is a different act than 254/2001 Sb. ('364/2004 Z. z. Zákon o vodách a o zmene zákona Slovenskej ná')",
+    "fetched_at": "2026-10-25T15:51:24",
     "http_status": 200,
-    "local_path": "data/fulltext/254_2001_Sb.__b6689f42.html",
-    "sha256": "b6689f42fbe40aedd27aa21d45b9ba42fb1002a2496fc80f486dcc58781f817d",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/364/"
   },
   "Sinay_Zakony|262/2006 Sb.|odkaz_hlavni": {
@@ -979,11 +1026,10 @@
     "url": "https://www.zakonyprolidi.cz/cs/2006-262"
   },
   "Sinay_Zakony|262/2006 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:35",
+    "error": "Slov-Lex page is a different act than 262/2006 Sb. ('124/2006 Z. z. Zákon o bezpečnosti a ochrane zdravia pri prá')",
+    "fetched_at": "2026-10-25T16:10:00",
     "http_status": 200,
-    "local_path": "data/fulltext/262_2006_Sb.__0019c77c.html",
-    "sha256": "0019c77c624dd3fed5b97302dda6fbb1850af46c4043be68e7e80c6c9d24ebc2",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"
   },
   "Sinay_Zakony|309/2006 Sb.|odkaz_hlavni": {
@@ -995,11 +1041,10 @@
     "url": "https://www.zakonyprolidi.cz/cs/2006-309"
   },
   "Sinay_Zakony|309/2006 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:42",
+    "error": "Slov-Lex page is a different act than 309/2006 Sb. ('124/2006 Z. z. Zákon o bezpečnosti a ochrane zdravia pri prá')",
+    "fetched_at": "2026-10-25T16:13:11",
     "http_status": 200,
-    "local_path": "data/fulltext/309_2006_Sb.__0019c77c.html",
-    "sha256": "0019c77c624dd3fed5b97302dda6fbb1850af46c4043be68e7e80c6c9d24ebc2",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"
   },
   "Sinay_Zakony|353/2003 Sb.|odkaz_hlavni": {
@@ -1011,12 +1056,19 @@
     "url": "https://www.zakonyprolidi.cz/cs/2003-353"
   },
   "Sinay_Zakony|353/2003 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:42",
+    "error": "Slov-Lex page is a different act than 353/2003 Sb. ('492/2010 Z. z. Zákon, ktorým sa mení a dopĺňa zákon č. 98/20')",
+    "fetched_at": "2026-10-25T16:05:02",
     "http_status": 200,
-    "local_path": "data/fulltext/353_2003_Sb.__76904549.html",
-    "sha256": "769045495105a0ba6ee6571ff34d722cb7c798f42ea454092a4c46963ef6fc9c",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2010/492/"
+  },
+  "Sinay_Zakony|364/2004 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:52:11",
+    "http_status": 200,
+    "local_path": "data/fulltext/364_2004_Z._z.__4acc43b4.html",
+    "sha256": "4acc43b464080e65da43aa95275fc7a4850a8918ebe3780f29bbc1d8edaf5b49",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/364/"
   },
   "Sinay_Zakony|378/2001 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:50:39",
@@ -1027,12 +1079,27 @@
     "url": "https://www.zakonyprolidi.cz/cs/2001-378"
   },
   "Sinay_Zakony|378/2001 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:40",
+    "error": "Slov-Lex page is a different act than 378/2001 Sb. ('508/2009 Z. z. Vyhláška Ministerstva práce, sociálnych vecí ')",
+    "fetched_at": "2026-10-25T16:12:24",
     "http_status": 200,
-    "local_path": "data/fulltext/378_2001_Sb.__5f15a0db.html",
-    "sha256": "5f15a0db7d2deaf3f8b3bade7fa03b862cab3a8039690597c263e30c221791c5",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2009/508/"
+  },
+  "Sinay_Zakony|39/2013 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T15:49:00",
+    "http_status": 200,
+    "local_path": "data/fulltext/39_2013_Z._z.__a4ae64ae.html",
+    "sha256": "a4ae64ae07897f2b9e7af51d7b58cb68f9d7fecb51010ccc1f0b5c3cab9166d0",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2013/39/"
+  },
+  "Sinay_Zakony|393/2006 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:11:36",
+    "http_status": 200,
+    "local_path": "data/fulltext/393_2006_Z._z.__e95330be.html",
+    "sha256": "e95330be59124e83640fafca08c1f90fec989e064eeade75fbea72cf5592ddcb",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/393/"
   },
   "Sinay_Zakony|406/2004 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:50:36",
@@ -1043,12 +1110,19 @@
     "url": "https://www.zakonyprolidi.cz/cs/2004-406"
   },
   "Sinay_Zakony|406/2004 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:37",
+    "error": "Slov-Lex page is a different act than 406/2004 Sb. ('393/2006 Z. z. Nariadenie vlády Slovenskej republiky o minim')",
+    "fetched_at": "2026-10-25T16:10:48",
     "http_status": 200,
-    "local_path": "data/fulltext/406_2004_Sb.__056b697c.html",
-    "sha256": "056b697c283c15c649a969f211d02f2751c94f9a23698fd4bb785186384fb86f",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/393/"
+  },
+  "Sinay_Zakony|451/2022 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:09:54",
+    "http_status": 200,
+    "local_path": "data/fulltext/451_2022_Z._z.__bfeb5352.html",
+    "sha256": "bfeb5352cdf7a28ab53135f742051b8edf4580a1d050d20faf3ebf226180c467",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/451/"
   },
   "Sinay_Zakony|458/2000 Sb.|odkaz_eu": {
     "fetched_at": "2026-09-11T00:50:08",
@@ -1067,11 +1141,10 @@
     "url": "https://www.zakonyprolidi.cz/cs/2000-458"
   },
   "Sinay_Zakony|458/2000 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:40",
+    "error": "Slov-Lex page is a different act than 458/2000 Sb. ('250/2012 Z. z. Zákon o regulácii v sieťových odvetviach | Sl')",
+    "fetched_at": "2026-10-25T16:03:27",
     "http_status": 200,
-    "local_path": "data/fulltext/458_2000_Sb.__f362eb46.html",
-    "sha256": "f362eb46e9aa3489e260cca829b53d1b7da5a69c506ad86b5384053ee040e55f",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2012/250/"
   },
   "Sinay_Zakony|56/2001 Sb.|odkaz_eu": {
@@ -1091,18 +1164,17 @@
     "url": "https://www.zakonyprolidi.cz/cs/2001-56"
   },
   "Sinay_Zakony|56/2001 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:49:37",
+    "error": "Slov-Lex page is a different act than 56/2001 Sb. ('214/2021 Z. z. Zákon o podpore ekologických vozidiel cestnej')",
+    "fetched_at": "2026-10-25T16:02:39",
     "http_status": 200,
-    "local_path": "data/fulltext/56_2001_Sb.__89adc481.html",
-    "sha256": "89adc4810aa44a12590168e3deb62008726a32a1f4c47388269f07b4a00b9fa6",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/214/"
   },
-  "Sinay_Zakony|699/2004 Z. z.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:33",
+  "Sinay_Zakony|699/2004 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:09:06",
     "http_status": 200,
-    "local_path": "data/fulltext/699_2004_Z._z.__7c4f153e.html",
-    "sha256": "7c4f153eab396faa282f40dc57d19a003e497f7742ec6ae2cd9d7c2e6cb8053e",
+    "local_path": "data/fulltext/699_2004_Z._z.__b9cc99f3.html",
+    "sha256": "b9cc99f3c218037f00f606c30b974eb19e20abc2b027743650a3cdd6707e042c",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/699/"
   },
@@ -1115,27 +1187,34 @@
     "url": "https://www.zakonyprolidi.cz/cs/2002-76"
   },
   "Sinay_Zakony|76/2002 Sb.|odkaz_sk": {
-    "fetched_at": "2026-09-09T17:34:26",
+    "error": "Slov-Lex page is a different act than 76/2002 Sb. ('39/2013 Z. z. Zákon o integrovanej prevencii a kontrole zneč')",
+    "fetched_at": "2026-10-25T15:58:34",
     "http_status": 200,
-    "local_path": "data/fulltext/76_2002_Sb.__7e70b309.html",
-    "sha256": "7e70b30905d509d784f4b1934c283cb43f9a5e68136c9cd2dcc26aab66afbe56",
-    "status": "fetched",
+    "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2013/39/"
   },
-  "Sinay_Zakony|94/2004 Z. z.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:31",
+  "Sinay_Zakony|94/2004 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:08:12",
     "http_status": 200,
-    "local_path": "data/fulltext/94_2004_Z._z.__0a0a4ef8.html",
-    "sha256": "0a0a4ef81d89c70bfd1b116962f732bc41e1adcd3dfbe8a305635cf5f22800b2",
+    "local_path": "data/fulltext/94_2004_Z._z.__56993f4c.html",
+    "sha256": "56993f4cb1bd43106b30c478627cf9e78f13bd77ea4e2ba9e3c425a680ee7b02",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/94/"
   },
-  "Sinay_Zakony|96/2004 Z. z.|odkaz_sk": {
-    "fetched_at": "2026-09-11T00:50:32",
+  "Sinay_Zakony|96/2004 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:09:01",
     "http_status": 200,
-    "local_path": "data/fulltext/96_2004_Z._z.__628ee764.html",
-    "sha256": "628ee76439453aece36217da544cd1f60df690238d469e4bc508d08f5c589a9b",
+    "local_path": "data/fulltext/96_2004_Z._z.__33677175.html",
+    "sha256": "33677175cb01f8d35389892de89aef96be969a1dd6656157dbefdf49785eab1b",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/96/"
+  },
+  "Sinay_Zakony|98/2004 Z. z.|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T16:05:50",
+    "http_status": 200,
+    "local_path": "data/fulltext/98_2004_Z._z.__aaea2195.html",
+    "sha256": "aaea2195da475ef2a688d62e070e87f63dd67f419d03a45e2943c940682ba7ee",
+    "status": "fetched",
+    "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2010/492/"
   }
 }
