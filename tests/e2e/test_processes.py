@@ -25,8 +25,6 @@ class ProcessViewTestCase(BrowserTestCase):
             self.assertTrue(page.get_by_role("heading", name=re.compile(section)).first.is_visible(), section)
         self.shot(page, "node")
 
-    # KNOWN DEFECT, same cause as in test_catalog.py: the header overflows at 390 px.
-    @unittest.expectedFailure
     def test_phone_layout_does_not_scroll_sideways(self):
         from browser_case import PHONE
         page = self.new_page(PHONE)

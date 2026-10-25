@@ -72,12 +72,6 @@ class CatalogTestCase(BrowserTestCase):
         self.assertNotEqual(page.locator(".document-row .doc-title").first.inner_text(), first)
         self.shot(page, "page-2", full_page=False)
 
-    # KNOWN DEFECT (found by this scenario, 2026-10-25, R2.2): at 390 px the
-    # header (logo, four links, funder logo) does not wrap or collapse, so the
-    # page is 616 px wide and scrolls sideways; the logo text wraps over three
-    # lines on top of the links. Remove the decorator when the header is fixed —
-    # the run will report an "unexpected success" to remind whoever does it.
-    @unittest.expectedFailure
     def test_phone_layout_does_not_scroll_sideways(self):
         page = self.new_page(PHONE)
         self.goto(page, "/")

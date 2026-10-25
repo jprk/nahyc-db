@@ -82,14 +82,14 @@ class BrowserTestCase(unittest.TestCase):
 
     def shot(self, page, name, full_page=True):
         path = SHOT_DIR / f"{type(self).__name__}-{name}.png"
-        page.screenshot(path=str(path), full_page=full_page)
+        page.screenshot(path=str(path), full_page=full_page, animations="disabled")
         self.assertGreater(path.stat().st_size, 2000, f"screenshot {path.name} is empty")
         print(f"  screenshot: {path}")
         return path
 
     def shot_element(self, locator, name):
         path = SHOT_DIR / f"{type(self).__name__}-{name}.png"
-        locator.screenshot(path=str(path))
+        locator.screenshot(path=str(path), animations="disabled")
         self.assertGreater(path.stat().st_size, 2000, f"screenshot {path.name} is empty")
         print(f"  screenshot: {path}")
         return path
