@@ -27,13 +27,21 @@ REPO_ROOT = ff.REPO_ROOT
 FIELD_PRIORITY = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
 
 
-def resolve_by_identifier(manifest, identifier):
-    """`local_path` of the best fetched manifest entry for this designation, or None."""
+def resolve_by_identifier(manifest, identifier, sources=None):
+    """`local_path` of the best fetched manifest entry for this designation, or
+    None. With `sources` (the document's own `zdroj_dat`), only entries of those
+    spreadsheets/imports count: the same designation can name different
+    documents in different sources (a Slovak notice numbered 2010/75 and the EU
+    directive 2010/75/EU), and matching on the designation alone attached the
+    directive's text to the notice."""
     identifier = (identifier or "").strip()
     for field in FIELD_PRIORITY:
         for key in sorted(manifest):
             source_znacka, _, key_field = key.rpartition("|")
-            if key_field != field or source_znacka.split("|", 1)[-1] != identifier:
+            source, _, znacka = source_znacka.partition("|")
+            if key_field != field or znacka != identifier:
+                continue
+            if sources is not None and source not in sources:
                 continue
             entry = manifest[key]
             if entry.get("status") == "fetched" and entry.get("local_path"):
@@ -41,9 +49,15 @@ def resolve_by_identifier(manifest, identifier):
     return None
 
 
+def document_sources(zdroj_dat):
+    """The sources a merged document came from (`"A, B"`), as a set."""
+    return {part for part in (zdroj_dat or "").split(", ") if part}
+
+
 def plan_changes(rows, manifest, repo_root=REPO_ROOT, fill=False):
     """[(document id, identifier, old path, new path or None)] for the rows
-    `(id, identifier, file_path[, restricted])`:
+    `(id, identifier, file_path[, restricted[, zdroj_dat]])` — with `zdroj_dat`
+    only manifest entries of the document's own sources are considered:
     - a `file_path` whose file is missing on disk is repointed at the
       manifest's best entry for the designation (or cleared);
     - with `fill`, a document with NO `file_path` gets the manifest's entry for
@@ -54,10 +68,11 @@ def plan_changes(rows, manifest, repo_root=REPO_ROOT, fill=False):
     for row in rows:
         doc_id, identifier, path = row[0], row[1], row[2]
         restricted = bool(row[3]) if len(row) > 3 else False
+        sources = document_sources(row[4]) if len(row) > 4 and row[4] else None
         if path and not (root / path).is_file():
-            changes.append((doc_id, identifier, path, resolve_by_identifier(manifest, identifier)))
+            changes.append((doc_id, identifier, path, resolve_by_identifier(manifest, identifier, sources)))
         elif fill and not path and not restricted:
-            new = resolve_by_identifier(manifest, identifier)
+            new = resolve_by_identifier(manifest, identifier, sources)
             if new and (root / new).is_file():
                 changes.append((doc_id, identifier, None, new))
     return changes
@@ -87,7 +102,7 @@ def main(argv=None):
                            password=env["DB_PASSWORD"], database=env["DB_NAME"])
     try:
         with conn.cursor() as cur:
-            cur.execute("""SELECT d.id, d.identifier, d.file_path, dt.restricted_fulltext
+            cur.execute("""SELECT d.id, d.identifier, d.file_path, dt.restricted_fulltext, d.zdroj_dat
                            FROM Document d LEFT JOIN DocumentType dt ON dt.id = d.type_id""")
             rows = cur.fetchall()
         changes = plan_changes(rows, ff.load_manifest(), fill=args.fill)

@@ -519,5 +519,23 @@ class EurLexPdfRoutingTestCase(unittest.TestCase):
             self.assertTrue(entry["local_path"].endswith(".pdf"))
 
 
+class SlovLexHistoryTestCase(unittest.TestCase):
+    class FakePage:
+        def __init__(self, hrefs):
+            self.hrefs, self.selector = hrefs, None
+
+        def eval_on_selector_all(self, selector, script):
+            self.selector = selector
+            return self.hrefs
+
+    def test_the_newest_listed_version_is_taken_from_the_version_column_only(self):
+        page = self.FakePage(["https://x/SK/ZZ/2011/271/vyhlasene_znenie.html", "https://x/SK/ZZ/2011/271/20230315.html"])
+        self.assertEqual(ff._slovlex_latest_version_url(page), "https://x/SK/ZZ/2011/271/20230315.html")
+        self.assertIn("td.title", page.selector)  # not the "Novela" links to amending acts
+
+    def test_no_versions_listed_gives_none(self):
+        self.assertIsNone(ff._slovlex_latest_version_url(self.FakePage([])))
+
+
 if __name__ == "__main__":
     unittest.main()
