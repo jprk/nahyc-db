@@ -754,20 +754,6 @@
     "status": "fetched",
     "url": "https://www.slov-lex.sk/eli/deleg_reg/2023/1185"
   },
-  "Sinay_Zakony|(EU) 2023/1234|odkaz_eu": {
-    "error": "EUR-Lex returned a search-results page (unknown or mistyped address)",
-    "fetched_at": "2026-10-25T14:31:36",
-    "status": "failed",
-    "url": "https://eur-lex.europa.eu/eli/reg/2023/1234/oj"
-  },
-  "Sinay_Zakony|(EU) 2023/1234|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T14:31:36",
-    "http_status": 202,
-    "local_path": "data/fulltext/EU_2023_1234__724afb91.html",
-    "sha256": "724afb914c16041ee8c4c70be553e2535e663ea3408a45b462bd94c475eb89cb",
-    "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/reg/2024/1735/oj?lang=CS"
-  },
   "Sinay_Zakony|(EU) 2023/1804|odkaz_eu": {
     "fetched_at": "2026-09-11T00:49:58",
     "http_status": 200,
@@ -847,6 +833,14 @@
     "sha256": "894c2867e2f69c51a59ea66b4bea17227538577c19a01366f3612876cb8ca7e4",
     "status": "fetched",
     "url": "https://eur-lex.europa.eu/eli/reg/2023/955/oj?lang=CS"
+  },
+  "Sinay_Zakony|(EU) 2024/1735|odkaz_hlavni": {
+    "fetched_at": "2026-10-25T14:31:36",
+    "http_status": 202,
+    "local_path": "data/fulltext/EU_2024_1735__724afb91.html",
+    "sha256": "724afb914c16041ee8c4c70be553e2535e663ea3408a45b462bd94c475eb89cb",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1735/oj?lang=CS"
   },
   "Sinay_Zakony|100/2001 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-09T17:34:18",

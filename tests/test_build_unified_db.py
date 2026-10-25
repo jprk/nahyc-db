@@ -792,5 +792,50 @@ class SplitSinayZakonyRowTestCase(unittest.TestCase):
             self.assertEqual(record["gestor"], ["MPO"])
 
 
+class CommittedCorrectionsTestCase(unittest.TestCase):
+    """data/manual_corrections.json as committed: the Net-Zero Industry Act was
+    entered in the source spreadsheet as "(EU) 2023/1234", a number that is not
+    an act. The overlay must turn that record into (EU) 2024/1735 — and keep
+    working together with the full-text manifest, which is keyed by the SAME
+    designation."""
+
+    @classmethod
+    def setUpClass(cls):
+        import build_unified_db as b
+        cls.corrections = b.load_json(b.MANUAL_CORRECTIONS_PATH)
+
+    def record(self):
+        return {"zdroj_dat": "Sinay_Zakony", "znacka": "(EU) 2023/1234", "typ_dokumentu": "Nařízení EU",
+                "nazev_cz": "Nařízení Evropského parlamentu a Rady (EU) 2023/1234 o zřízení rámce ...",
+                "odkaz_hlavni": "https://eur-lex.europa.eu/eli/reg/2023/1234/oj", "anotace_poznamka": "keep me"}
+
+    def test_the_wrong_number_becomes_the_real_act(self):
+        record = self.record()
+        apply_manual_corrections(record, self.corrections)
+        self.assertEqual(record["znacka"], "(EU) 2024/1735")
+        self.assertEqual(record["odkaz_hlavni"], "https://eur-lex.europa.eu/eli/reg/2024/1735/oj")
+        self.assertTrue(record["nazev_cz"].startswith("Nařízení Evropského parlamentu a Rady (EU) 2024/1735 ze dne 13. června 2024"))
+        self.assertNotIn("2023/1234", record["nazev_cz"])
+
+    def test_fields_the_correction_does_not_name_are_left_alone(self):
+        record = self.record()
+        apply_manual_corrections(record, self.corrections)
+        self.assertEqual(record["anotace_poznamka"], "keep me")
+        self.assertEqual(record["typ_dokumentu"], "Nařízení EU")
+
+    def test_every_committed_correction_has_a_reason_and_changes(self):
+        for znacka, entry in self.corrections.items():
+            self.assertTrue(entry.get("changes"), znacka)
+            self.assertTrue(entry.get("reason") or entry.get("confirmed_by"), znacka)
+
+    def test_the_full_text_manifest_follows_the_corrected_designation(self):
+        import fetch_fulltext as ff
+        manifest = ff.load_manifest()
+        self.assertEqual([k for k in manifest if "|(EU) 2023/1234|" in k], [], "a manifest key still has the wrong number")
+        entry = manifest["Sinay_Zakony|(EU) 2024/1735|odkaz_hlavni"]
+        name = entry["local_path"].rsplit("/", 1)[-1]
+        self.assertEqual(name, ff.flat_name("(EU) 2024/1735", entry["sha256"], "html"))
+
+
 if __name__ == "__main__":
     unittest.main()
