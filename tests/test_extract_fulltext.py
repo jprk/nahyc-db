@@ -283,5 +283,143 @@ class SlovLexTestCase(unittest.TestCase):
             ef.extract(page, "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/96/")
 
 
+CONSOLIDATED_PAGE = """<html><head><title>TEXT v úplném znění</title></head><body><div class="Wrapper"><div class="eli-container">
+<p><br/></p><p class="arrow">▼B <a class="anchorarrow" href="#B-2"><i class="fa"></i></a></p>
+<div class="eli-main-title"><p class="title-doc-first">NAŘÍZENÍ (EU) 2022/869</p><p class="title-doc-last">kterým se stanoví hlavní směry</p></div>
+<div class="eli-subdivision"><div id="cpt_I">
+  <p class="title-division-1"><span class="italics">KAPITOLA I</span></p>
+  <p class="title-division-2"><span class="boldface">Obecná ustanovení</span></p>
+  <div class="eli-subdivision"><p class="title-article-norm">Článek 1</p>
+    <div class="eli-title"><p class="stitle-article-norm">Předmět</p></div>
+    <div class="norm"><span class="no-parag">1. </span><div class="norm inline-element">Toto nařízení stanoví<a href="#E1"><span class="superscript">1</span></a> hlavní směry.</div></div>
+    <div class="norm"><span class="no-parag">2. </span><div class="norm inline-element">Toto nařízení zejména:</div></div>
+    <div class="grid-container grid-list"><div class="list grid-list-column-1"><span>a) </span></div>
+      <div class="grid-list-column-2"><p class="norm">určuje projekty,</p></div></div>
+  </div>
+  <div class="eli-subdivision"><p class="title-article-norm">Článek 2</p>
+    <p class="norm">Pro účely tohoto nařízení se rozumí:</p>
+    <div class="grid-container grid-list"><div class="list grid-list-column-1"><span>1) </span></div>
+      <div class="grid-list-column-2"><p class="norm">„projektem“ jedno vedení;</p></div></div>
+    <table class="borderOj"><tbody><tr><td><p class="tbl-norm">A</p></td><td><p class="tbl-norm">B</p></td></tr></tbody></table>
+    <p class="footnote">(1) Nařízení (EU) 2018/1999.</p>
+  </div>
+</div></div>
+<div id="anx_I"><hr class="separator-annex"/><p class="title-annex-1">PŘÍLOHA I</p><p class="title-annex-2"><span class="norm">PRIORITNÍ KORIDORY</span></p>
+  <p class="norm">Toto nařízení se vztahuje na tyto koridory:</p></div>
+<p class="modref">next</p>
+</div></div></body></html>"""
+
+
+class ConsolidatedEurLexTestCase(unittest.TestCase):
+    def setUp(self):
+        self.result = ef.extract(CONSOLIDATED_PAGE, "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:02022R0869-20250205")
+
+    def test_page_without_div_text_is_read_from_the_eli_container(self):
+        self.assertEqual(self.result.source, "eurlex")
+        self.assertIn('<p class="title">NAŘÍZENÍ (EU) 2022/869</p>', self.result.html)
+
+    def test_amendment_markers_are_dropped(self):
+        for marker in ("▼B", "next", "arrow", "modref"):
+            self.assertNotIn(marker, self.result.html)
+
+    def test_chapters_articles_and_annexes_become_headings(self):
+        h = self.result.html
+        self.assertIn("<h3><em>KAPITOLA I</em></h3>", h)
+        self.assertIn("<h4>Článek 1</h4>", h)
+        self.assertIn("<h4>Předmět</h4>", h)
+        self.assertIn("<h3>PŘÍLOHA I</h3>", h)
+        self.assertIn("<hr>", h)
+
+    def test_numbered_paragraphs_and_grid_lists_are_items(self):
+        h = self.result.html
+        self.assertIn('<p class="item d0"><span class="num">1.</span>Toto nařízení stanoví<sup>1</sup> hlavní směry.</p>', h)
+        self.assertIn('<p class="item d0"><span class="num">2.</span>Toto nařízení zejména:</p>', h)
+        self.assertIn('<p class="item d0"><span class="num">a)</span>určuje projekty,</p>', h)
+        self.assertIn('<p class="item d0"><span class="num">1)</span>„projektem“ jedno vedení;</p>', h)
+
+    def test_plain_paragraph_note_and_data_table(self):
+        h = self.result.html
+        self.assertIn("<p>Pro účely tohoto nařízení se rozumí:</p>", h)
+        self.assertIn('<p class="note">(1) Nařízení (EU) 2018/1999.</p>', h)
+        self.assertIn('<table class="data">', h)
+
+    def test_nothing_executable_or_linked_survives(self):
+        for forbidden in ("<script", "<a ", "href", "<i ", "anchorarrow"):
+            self.assertNotIn(forbidden, self.result.html)
+
+    def test_a_search_page_without_any_act_markup_is_still_rejected(self):
+        page = "<html><head><title>Search results - EUR-Lex</title></head><body><div class='Wrapper'><p>0 results</p></div></body></html>"
+        with self.assertRaises(ef.ExtractionError):
+            ef.extract(page, "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:1")
+
+
+class PdfTwinNamingTestCase(unittest.TestCase):
+    MANIFEST = {
+        "S|A 1|odkaz_hlavni": {"status": "fetched", "local_path": "data/fulltext/A_1__11111111.pdf"},
+        "S|A 1|odkaz_hlavni_html": {"status": "fetched", "local_path": "data/fulltext/A_1__22222222.html"},
+        "S|B 2|odkaz_hlavni_html": {"status": "fetched", "local_path": "data/fulltext/B_2__33333333.html"},
+        "S|C 3|odkaz_hlavni": {"status": "failed"},
+        "S|C 3|odkaz_hlavni_html": {"status": "fetched", "local_path": "data/fulltext/C_3__44444444.html"},
+    }
+
+    def name(self, key):
+        return ef.clean_name_source(key, self.MANIFEST[key], self.MANIFEST)
+
+    def test_the_html_twin_of_a_pdf_takes_the_pdfs_name(self):
+        self.assertEqual(self.name("S|A 1|odkaz_hlavni_html"), "data/fulltext/A_1__11111111.pdf")
+
+    def test_a_plain_download_keeps_its_own_name(self):
+        manifest = {"S|D 4|odkaz_hlavni": {"status": "fetched", "local_path": "data/fulltext/D_4__55555555.html"}}
+        self.assertEqual(ef.clean_name_source("S|D 4|odkaz_hlavni", manifest["S|D 4|odkaz_hlavni"], manifest),
+                         "data/fulltext/D_4__55555555.html")
+
+    def test_a_twin_without_a_fetched_pdf_keeps_its_own_name(self):
+        self.assertEqual(self.name("S|B 2|odkaz_hlavni_html"), "data/fulltext/B_2__33333333.html")
+        self.assertEqual(self.name("S|C 3|odkaz_hlavni_html"), "data/fulltext/C_3__44444444.html")
+
+    def test_run_writes_the_text_under_the_pdfs_name(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            (root / "data" / "fulltext").mkdir(parents=True)
+            (root / "data/fulltext/A_1__11111111.pdf").write_bytes(b"%PDF-1.4 x")
+            (root / "data/fulltext/A_1__22222222.html").write_text(CONSOLIDATED_PAGE, encoding="utf-8")
+            manifest = {
+                "S|A 1|odkaz_hlavni": {"status": "fetched", "local_path": "data/fulltext/A_1__11111111.pdf",
+                                       "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:1"},
+                "S|A 1|odkaz_hlavni_html": {"status": "fetched", "local_path": "data/fulltext/A_1__22222222.html",
+                                            "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:1"}}
+            manifest_path = root / "data" / "fulltext_manifest.json"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            out = root / "data" / "fulltext_clean"
+            stats, problems = ef.run(apply=True, manifest_path=manifest_path, output_dir=out, repo_root=root)
+            self.assertEqual(problems, [])
+            self.assertEqual(stats["extracted: eurlex"], 1)
+            self.assertIn("Článek 1", (out / "A_1__11111111.txt").read_text(encoding="utf-8"))
+            self.assertTrue((out / "A_1__11111111.html").exists())
+            self.assertFalse((out / "A_1__22222222.html").exists())
+
+
+LEGACY_PAGE = ("<html><head><title>EUR-Lex - 31999L0092 - EN</title></head><body><div class='bgtool'>tools</div><h1>menu</h1>"
+               "<p class='bglang'><a href='x'><b>Avis juridique important</b></a></p><p> <txt_te> </txt_te></p>"
+               "<p>DIRECTIVE 1999/92/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL</p><p>of 16 December 1999</p>"
+               + "".join(f"<p>1.{i} Paragraph number {i} of the directive text.</p>" for i in range(30))
+               + "</body></html>")
+
+
+class LegacyEurLexTestCase(unittest.TestCase):
+    def test_a_pre_2004_page_is_read_as_plain_paragraphs_without_the_site_chrome(self):
+        r = ef.extract(LEGACY_PAGE, "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:31999L0092")
+        self.assertEqual(r.source, "eurlex")
+        self.assertIn("<p>DIRECTIVE 1999/92/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL</p>", r.html)
+        self.assertIn("<p>1.7 Paragraph number 7 of the directive text.</p>", r.html)
+        for chrome in ("Avis juridique", "tools", "menu", "txt_te"):
+            self.assertNotIn(chrome, r.html)
+
+    def test_a_short_page_with_the_same_title_shape_is_not_taken_for_an_act(self):
+        page = "<html><head><title>EUR-Lex - 31999L0092 - EN</title></head><body><p>not found</p></body></html>"
+        with self.assertRaises(ef.ExtractionError):
+            ef.extract(page, "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:31999L0092")
+
+
 if __name__ == "__main__":
     unittest.main()

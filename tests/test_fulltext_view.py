@@ -82,8 +82,15 @@ class FulltextViewTestCase(unittest.TestCase):
         (self.raw_dir / "S" / "b.html").write_text("x", encoding="utf-8")
         self.assertIsNone(appmod.clean_text_path("data/fulltext/S/b.html"))
 
-    def test_clean_text_path_ignores_pdfs_and_paths_outside_the_download_dir(self):
+    def test_a_pdf_has_clean_text_only_when_it_was_extracted_under_its_name(self):
         self.assertIsNone(appmod.clean_text_path("data/fulltext/S/p.pdf"))
+        (self.clean_dir / "S" / "p.html").write_text(CLEAN, encoding="utf-8")
+        self.assertEqual(appmod.clean_text_path("data/fulltext/S/p.pdf"), self.clean_dir / "S" / "p.html")
+
+    def test_other_file_types_and_paths_outside_the_download_dir_have_no_clean_text(self):
+        (self.raw_dir / "S" / "x.xml").write_text("x", encoding="utf-8")
+        (self.clean_dir / "S" / "x.html").write_text(CLEAN, encoding="utf-8")
+        self.assertIsNone(appmod.clean_text_path("data/fulltext/S/x.xml"))
         self.assertIsNone(appmod.clean_text_path("data/fulltext/../fulltext_clean/S/a.html"))
         self.assertIsNone(appmod.clean_text_path("../../etc/passwd"))
 
