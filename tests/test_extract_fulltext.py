@@ -415,6 +415,17 @@ class LegacyEurLexTestCase(unittest.TestCase):
         for chrome in ("Avis juridique", "tools", "menu", "txt_te"):
             self.assertNotIn(chrome, r.html)
 
+    def test_the_same_plain_text_inside_the_current_page_chrome_is_read_too(self):
+        page = ("<html><head><title>Directive - 1999/31 - EN - EUR-Lex</title></head><body><div class='ecl-site-header'>nav</div>"
+                "<div id='text'><div class='tabContent'><p class='bglang'><b>Avis juridique important</b></p>"
+                "<p>COUNCIL DIRECTIVE 1999/31/EC</p>"
+                + "".join(f"<p>Article {i}. Text of the article number {i}.</p>" for i in range(30))
+                + "</div></div><div class='ecl-site-footer'>footer</div></body></html>")
+        r = ef.extract(page, "https://eur-lex.europa.eu/eli/dir/1999/31/oj")
+        self.assertIn("<p>Article 7. Text of the article number 7.</p>", r.html)
+        for chrome in ("Avis juridique", "nav", "footer"):
+            self.assertNotIn(chrome, r.html)
+
     def test_a_short_page_with_the_same_title_shape_is_not_taken_for_an_act(self):
         page = "<html><head><title>EUR-Lex - 31999L0092 - EN</title></head><body><p>not found</p></body></html>"
         with self.assertRaises(ef.ExtractionError):
