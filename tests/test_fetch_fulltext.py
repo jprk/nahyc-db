@@ -519,5 +519,67 @@ class EurLexPdfRoutingTestCase(unittest.TestCase):
             self.assertTrue(entry["local_path"].endswith(".pdf"))
 
 
+class LocalizedUrlTestCase(unittest.TestCase):
+    ELI = "https://eur-lex.europa.eu/eli/reg/2022/869/oj"
+
+    def test_an_english_eli_becomes_the_documents_language(self):
+        self.assertEqual(ff.localized_url(self.ELI, "CS"), self.ELI + "/ces")
+        self.assertEqual(ff.localized_url(self.ELI, "SK"), self.ELI + "/slk")
+        self.assertEqual(ff.localized_url(self.ELI, "DE"), self.ELI + "/deu")
+
+    def test_the_ignored_lang_parameter_is_replaced_not_kept(self):
+        self.assertEqual(ff.localized_url(self.ELI + "?lang=CS", "CS"), self.ELI + "/ces")
+
+    def test_english_unknown_or_other_languages_change_nothing(self):
+        for language in ("EN", None, "FR", ""):
+            self.assertEqual(ff.localized_url(self.ELI, language), self.ELI, language)
+
+    def test_an_address_that_already_names_a_language_is_kept(self):
+        self.assertEqual(ff.localized_url(self.ELI + "/slk", "CS"), self.ELI + "/slk")
+        self.assertEqual(ff.localized_url(self.ELI + "/ces", "CS"), self.ELI + "/ces")
+
+    def test_legal_content_addresses_swap_only_an_english_language_segment(self):
+        en = "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R1300&qid=1"
+        self.assertEqual(ff.localized_url(en, "CS"), en.replace("/EN/", "/CS/"))
+        cs = "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32000D0096"
+        self.assertEqual(ff.localized_url(cs, "SK"), cs)
+
+    def test_other_hosts_and_empty_addresses_are_untouched(self):
+        self.assertEqual(ff.localized_url("https://www.zakonyprolidi.cz/cs/2006-183", "CS"), "https://www.zakonyprolidi.cz/cs/2006-183")
+        self.assertEqual(ff.localized_url("", "CS"), "")
+        self.assertIsNone(ff.localized_url(None, "CS"))
+
+
+class TargetLanguageTestCase(unittest.TestCase):
+    def _targets(self, record, overrides=None, language="CS"):
+        from unittest import mock
+        with mock.patch.object(ff, "record_language", return_value=language):
+            return [(f, u) for _, f, u in ff.iter_fetch_targets([record], overrides)]
+
+    RECORD = {"zdroj_dat": "S", "znacka": "(EU) 2022/869", "typ_dokumentu": "Nařízení EU",
+              "odkaz_hlavni": "https://eur-lex.europa.eu/eli/reg/2022/869/oj"}
+
+    def test_the_target_is_fetched_in_the_records_language(self):
+        self.assertEqual(self._targets(self.RECORD), [("odkaz_hlavni", self.RECORD["odkaz_hlavni"] + "/ces")])
+
+    def test_an_explicit_override_wins_over_the_language_rule(self):
+        pinned = {"S|(EU) 2022/869|odkaz_hlavni": {"url": self.RECORD["odkaz_hlavni"], "reason": "the document is English"}}
+        self.assertEqual(self._targets(self.RECORD, pinned), [("odkaz_hlavni", self.RECORD["odkaz_hlavni"])])
+
+    def test_an_unknown_language_leaves_the_address_alone(self):
+        self.assertEqual(self._targets(self.RECORD, language=None), [("odkaz_hlavni", self.RECORD["odkaz_hlavni"])])
+
+
+class StaleEntryTestCase(unittest.TestCase):
+    def test_a_fetched_entry_with_another_address_is_stale(self):
+        manifest = {"k": {"status": "fetched", "url": "https://a/oj"}}
+        self.assertTrue(ff.is_stale(manifest, "k", "https://a/oj/ces"))
+        self.assertFalse(ff.is_stale(manifest, "k", "https://a/oj"))
+
+    def test_missing_and_failed_entries_are_not_stale_they_are_simply_not_fetched(self):
+        self.assertFalse(ff.is_stale({}, "k", "https://a"))
+        self.assertFalse(ff.is_stale({"k": {"status": "failed", "url": "https://old"}}, "k", "https://a"))
+
+
 if __name__ == "__main__":
     unittest.main()

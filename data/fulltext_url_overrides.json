@@ -18,5 +18,17 @@
   "V02_Bibliografie|(ES) 1272/2008|odkaz_hlavni": {
     "reason": "EUR-Lex gives the CLP regulation (/eli/reg/2008/1272/oj and its HTML view) as an empty page for an automated browser — the text is published as a PDF only; the PDF is the downloadable original, no readable text can be made from it.",
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272"
+  },
+  "Sinay_Zakony|(EU) 2023/1185|odkaz_hlavni": {
+    "reason": "The document is English; the stored copy was fetched from the address with ?lang=CS, which EUR-Lex ignores, so it is the English text already. Pinned so that it is not fetched again.",
+    "url": "https://eur-lex.europa.eu/eli/reg_del/2023/1185/oj?lang=CS"
+  },
+  "V02_Bibliografie|(ES) 1907/2006|odkaz_hlavni": {
+    "reason": "Regulation (EC) 1907/2006 (REACH): /eli/reg/2006/1907/oj/ces returns the Bulgarian text (the consolidated page lists Bulgarian first); the Czech one comes from the legal-content address.",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32006R1907"
+  },
+  "V02_Bibliografie|(ES) 1907/2006|odkaz_eu": {
+    "reason": "Regulation (EC) 1907/2006 (REACH): /eli/reg/2006/1907/oj/ces returns the Bulgarian text (the consolidated page lists Bulgarian first); the Czech one comes from the legal-content address.",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32006R1907"
   }
 }
