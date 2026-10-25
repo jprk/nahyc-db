@@ -76,8 +76,46 @@ class ApplyTestCase(unittest.TestCase):
         conn = FakeConn()
         sp.apply_changes(conn, [(2, "B", "old", "new"), (3, "C", "old2", None)])
         self.assertEqual([p for _, p in conn.statements], [("new", 2, "old"), (None, 3, "old2")])
-        self.assertTrue(all("WHERE id = %s AND file_path = %s" in s for s, _ in conn.statements))
+        self.assertTrue(all("WHERE id = %s AND file_path <=> %s" in s for s, _ in conn.statements))
         self.assertTrue(conn.committed)
+
+
+class FillTestCase(unittest.TestCase):
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.root = pathlib.Path(tmp.name)
+        (self.root / "data" / "fulltext").mkdir(parents=True)
+        (self.root / "data/fulltext/new.html").write_text("x", encoding="utf-8")
+        self.manifest = {"S|124/2000 Z. z.|odkaz_hlavni": fetched("data/fulltext/new.html"),
+                         "S|EN 17127|odkaz_hlavni": fetched("data/fulltext/new.html"),
+                         "S|ghost|odkaz_hlavni": fetched("data/fulltext/ghost.html")}
+
+    def test_without_fill_a_document_with_no_path_is_left_alone(self):
+        rows = [(1, "124/2000 Z. z.", None, 0)]
+        self.assertEqual(sp.plan_changes(rows, self.manifest, self.root), [])
+
+    def test_fill_gives_a_path_to_a_document_that_has_none(self):
+        rows = [(1, "124/2000 Z. z.", None, 0)]
+        self.assertEqual(sp.plan_changes(rows, self.manifest, self.root, fill=True),
+                         [(1, "124/2000 Z. z.", None, "data/fulltext/new.html")])
+
+    def test_a_restricted_type_is_never_filled(self):
+        rows = [(2, "EN 17127", None, 1)]
+        self.assertEqual(sp.plan_changes(rows, self.manifest, self.root, fill=True), [])
+
+    def test_a_manifest_entry_whose_file_is_missing_is_not_filled(self):
+        rows = [(3, "ghost", None, 0)]
+        self.assertEqual(sp.plan_changes(rows, self.manifest, self.root, fill=True), [])
+
+    def test_a_document_that_already_has_a_working_path_is_untouched(self):
+        rows = [(4, "124/2000 Z. z.", "data/fulltext/new.html", 0)]
+        self.assertEqual(sp.plan_changes(rows, self.manifest, self.root, fill=True), [])
+
+    def test_apply_uses_a_null_safe_comparison_for_a_filled_document(self):
+        conn = FakeConn()
+        sp.apply_changes(conn, [(1, "x", None, "new")])
+        self.assertEqual(conn.statements[0][1], ("new", 1, None))
 
 
 if __name__ == "__main__":

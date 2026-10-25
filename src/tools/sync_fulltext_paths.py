@@ -5,12 +5,15 @@ has for its designation (the same order `init_db.py` uses: `odkaz_hlavni`,
 `odkaz_eu`, `odkaz_sk`), or clearing it when there is none, so that nothing
 serves a missing file or a wrong one.
 
-A documents's own `file_path` is touched only when its file is missing; every
-other document is left alone. Changes are applied in one transaction.
+A document's own `file_path` is touched only when its file is missing; every
+other document is left alone — unless `--fill` is given, which also sets a
+`file_path` on documents that have none (a text downloaded after the database
+was built), but never on a restricted type. Changes are applied in one transaction.
 
 Usage:
     .venv/bin/python src/tools/sync_fulltext_paths.py            # dry run
     .venv/bin/python src/tools/sync_fulltext_paths.py --apply
+    .venv/bin/python src/tools/sync_fulltext_paths.py --fill        # also documents with no file_path
 """
 import argparse
 import json
@@ -38,27 +41,42 @@ def resolve_by_identifier(manifest, identifier):
     return None
 
 
-def plan_changes(rows, manifest, repo_root=REPO_ROOT):
+def plan_changes(rows, manifest, repo_root=REPO_ROOT, fill=False):
     """[(document id, identifier, old path, new path or None)] for the rows
-    `(id, identifier, file_path)` whose file is missing on disk."""
+    `(id, identifier, file_path[, restricted])`:
+    - a `file_path` whose file is missing on disk is repointed at the
+      manifest's best entry for the designation (or cleared);
+    - with `fill`, a document with NO `file_path` gets the manifest's entry for
+      its designation when that file exists — never for a restricted type
+      (paid standards, R4.1), whatever the manifest says."""
     root = pathlib.Path(repo_root)
     changes = []
-    for doc_id, identifier, path in rows:
+    for row in rows:
+        doc_id, identifier, path = row[0], row[1], row[2]
+        restricted = bool(row[3]) if len(row) > 3 else False
         if path and not (root / path).is_file():
             changes.append((doc_id, identifier, path, resolve_by_identifier(manifest, identifier)))
+        elif fill and not path and not restricted:
+            new = resolve_by_identifier(manifest, identifier)
+            if new and (root / new).is_file():
+                changes.append((doc_id, identifier, None, new))
     return changes
 
 
 def apply_changes(conn, changes):
     with conn.cursor() as cur:
         for doc_id, _identifier, old, new in changes:
-            cur.execute("UPDATE Document SET file_path = %s WHERE id = %s AND file_path = %s", (new, doc_id, old))
+            # `<=>` is the NULL-safe equality: a filled document has no old path
+            cur.execute("UPDATE Document SET file_path = %s WHERE id = %s AND file_path <=> %s", (new, doc_id, old))
     conn.commit()
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true", help="change the database (dry run without it)")
+    parser.add_argument("--fill", action="store_true",
+                        help="also give a file_path to documents that have none, when the manifest has a "
+                             "downloaded file for their designation (never for restricted types)")
     parser.add_argument("--env-file", default=None, help="database account (default: .env, from this tree or the main one)")
     args = parser.parse_args(argv)
     import pymysql
@@ -69,9 +87,10 @@ def main(argv=None):
                            password=env["DB_PASSWORD"], database=env["DB_NAME"])
     try:
         with conn.cursor() as cur:
-            cur.execute("SELECT id, identifier, file_path FROM Document WHERE file_path IS NOT NULL")
+            cur.execute("""SELECT d.id, d.identifier, d.file_path, dt.restricted_fulltext
+                           FROM Document d LEFT JOIN DocumentType dt ON dt.id = d.type_id""")
             rows = cur.fetchall()
-        changes = plan_changes(rows, ff.load_manifest())
+        changes = plan_changes(rows, ff.load_manifest(), fill=args.fill)
         for doc_id, identifier, old, new in changes:
             print(f"document {doc_id} ({identifier}): {old} -> {new or 'NULL (no valid file)'}")
         if args.apply and changes:

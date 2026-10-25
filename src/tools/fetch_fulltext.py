@@ -30,6 +30,7 @@ Usage:
     .venv/bin/python src/tools/fetch_fulltext.py [--limit N] [--force]
     .venv/bin/python src/tools/fetch_fulltext.py --audit [--apply]
     .venv/bin/python src/tools/fetch_fulltext.py --only "Sinay_Zakony|56/2001 Sb.|odkaz_eu"
+    .venv/bin/python src/tools/fetch_fulltext.py --host slov-lex.sk
 """
 import argparse
 import datetime
@@ -170,6 +171,14 @@ def save_manifest(manifest):
         json.dump(manifest, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 
+def is_permanent_failure(entry):
+    """A failure that retrying cannot change: the address leads to a different
+    act than the record's (Slov-Lex links of Czech laws point at their Slovak
+    equivalents). Skipped by a normal run — each retry costs a browser — unless
+    `--force`."""
+    return entry.get("status") == "failed" and "is a different act than" in (entry.get("error") or "")
+
+
 def already_fetched(manifest, key):
     entry = manifest.get(key)
     if not entry or entry.get("status") != "fetched":
@@ -178,12 +187,24 @@ def already_fetched(manifest, key):
     return bool(local_path) and (REPO_ROOT / local_path).exists()
 
 
-def is_document_page(url, content, content_type=""):
+def designation_numbers(znacka):
+    """The `N/YYYY` or `YYYY/N` number pairs in a designation ("124/2000 Z. z."
+    -> {"124/2000"}, "(EU) 2019/2144" -> {"2019/2144"}), used to check that a
+    fetched page is the act the record names and not some other act that the
+    source's address happens to lead to."""
+    return set(re.findall(r"\d{1,4}/\d{1,4}", znacka or ""))
+
+
+def is_document_page(url, content, content_type="", znacka=None):
     """(True, "") when `content` is the document that `url` points at, else
     (False, reason). EUR-Lex answers an unknown or mistyped ELI — and a request
     its firewall does not like — with a 200 "Search results" page or an empty
-    body; storing that as the document's full text (which is what happened for
-    three records) serves the search page to every reader."""
+    body; Slov-Lex answers every request with the same empty Angular shell
+    unless a browser renders it, and shows an act's history page, not its text,
+    for an act with no current version. Storing any of these as the document's
+    full text (which is what happened for three EUR-Lex records and for all 27
+    Slov-Lex ones) serves the wrong page to every reader. With `znacka`, a
+    Slov-Lex page must also carry that designation."""
     if not content:
         return False, "empty response"
     if "pdf" in (content_type or "").lower() or url.lower().split("?")[0].endswith(".pdf"):
@@ -193,6 +214,16 @@ def is_document_page(url, content, content_type=""):
         m = re.search(r"<title>(.*?)</title>", head, re.S | re.I)
         if m and "search results" in m.group(1).lower():
             return False, "EUR-Lex returned a search-results page (unknown or mistyped address)"
+    if "slov-lex.sk" in url:
+        text = content.decode("utf-8", "replace")
+        if "predpisOznacenie" not in text:
+            return False, "Slov-Lex page without the act's text (an empty shell, a history page or a missing act)"
+        numbers = designation_numbers(znacka)
+        if numbers:
+            m = re.search(r"<title>(.*?)</title>", text, re.S | re.I)
+            title = m.group(1) if m else ""
+            if not any(n in title for n in numbers):
+                return False, f"Slov-Lex page is a different act than {znacka} ({title.strip()[:60]!r})"
     return True, ""
 
 
@@ -202,15 +233,38 @@ def is_waf_challenge(status_code, content):
     return status_code == 202 or not content
 
 
+def needs_browser(url, status_code, content):
+    """True when plain HTTP cannot give the document: EUR-Lex's firewall
+    challenge, or any Slov-Lex page (a single-page app whose HTML is an empty
+    shell until a browser runs it)."""
+    if "slov-lex.sk" in url:
+        return True
+    return "eur-lex.europa.eu" in url and is_waf_challenge(status_code, content)
+
+
+_SLOVLEX_READY = "div.predpis .predpisOznacenie, tr.effectivenessHistoryItem"
+
+
+def _slovlex_latest_version_url(page):
+    """Slov-Lex shows an act that has no current version (repealed) as a
+    history page; the newest listed version is the closest thing to its text.
+    Returns that version's absolute URL or None."""
+    hrefs = page.eval_on_selector_all("tr.effectivenessHistoryItem a",
+                                      "els => els.map(e => e.href)")
+    return hrefs[-1] if hrefs else None
+
+
 def fetch_with_browser(url, timeout_ms=45000):
     """(status, content, content_type) of the page rendered by headless
     Chromium (Playwright, see requirements-optional.txt), or None when
-    Playwright is not installed or the browser fails. Used only when plain
-    HTTP got a firewall challenge."""
+    Playwright is not installed or the browser fails. Used when plain HTTP got
+    a firewall challenge (EUR-Lex) or an empty shell (Slov-Lex)."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         return None
+    slovlex = "slov-lex.sk" in url
+    ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly"
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -218,9 +272,17 @@ def fetch_with_browser(url, timeout_ms=45000):
                 page = browser.new_page()
                 response = page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
                 try:
-                    page.wait_for_selector("div#text, #TexteOnly", timeout=timeout_ms)
+                    page.wait_for_selector(ready, timeout=timeout_ms)
                 except Exception:
                     pass  # a search/error page has neither; the caller decides
+                if slovlex and page.locator("div.predpis .predpisOznacenie").count() == 0:
+                    latest = _slovlex_latest_version_url(page)
+                    if latest:
+                        response = page.goto(latest, wait_until="domcontentloaded", timeout=timeout_ms)
+                        try:
+                            page.wait_for_selector("div.predpis .predpisOznacenie", timeout=timeout_ms)
+                        except Exception:
+                            pass
                 return (response.status if response else 0, page.content().encode("utf-8"),
                         "text/html; charset=utf-8")
             finally:
@@ -250,12 +312,12 @@ def fetch_one(session, record, url_field, url):
         }
     status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
 
-    if is_waf_challenge(status, content) and "eur-lex.europa.eu" in url:
+    if needs_browser(url, status, content):
         browsed = fetch_with_browser(url)
         if browsed:
             status, content, content_type = browsed
 
-    ok, reason = is_document_page(url, content, content_type)
+    ok, reason = is_document_page(url, content, content_type, znacka)
     if not ok:
         return {"status": "failed", "url": url, "http_status": status, "error": reason, "fetched_at": now}
 
@@ -276,6 +338,11 @@ def fetch_one(session, record, url_field, url):
     }
 
 
+def designation_of(key):
+    """The designation inside a manifest key `source|designation|url field`."""
+    return key.split("|", 1)[1].rsplit("|", 1)[0]
+
+
 def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
     """Finds `fetched` entries whose stored file is not the document (see
     is_document_page) — downloads from before that check existed — marks them
@@ -287,8 +354,11 @@ def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
         path = entry.get("local_path")
         if entry.get("status") != "fetched" or not path or not (root / path).is_file():
             continue
-        ok, reason = is_document_page(entry.get("url", ""), (root / path).read_bytes()[:20000],
-                                      "application/pdf" if path.endswith(".pdf") else "text/html")
+        content = (root / path).read_bytes()
+        # Slov-Lex markers sit deep in a large page; EUR-Lex's title is at the top.
+        ok, reason = is_document_page(entry.get("url", ""), content if "slov-lex.sk" in entry.get("url", "") else content[:20000],
+                                      "application/pdf" if path.endswith(".pdf") else "text/html",
+                                      designation_of(key))
         if not ok:
             bad.append((key, path, reason))
     if apply:
@@ -312,6 +382,9 @@ def main():
                          help="fetch only this manifest key ('source|designation|url field'; repeatable), "
                               "even if already fetched — for repairing single entries without retrying the "
                               "ones that were marked failed on purpose")
+    parser.add_argument("--host", default=None, metavar="TEXT",
+                         help="fetch only the targets whose URL contains TEXT (e.g. slov-lex.sk) — for "
+                              "staged runs; the other hosts keep their manifest entries untouched")
     parser.add_argument("--audit", action="store_true",
                          help="check the already stored files: mark those that are not the document "
                               "(search-results pages, empty files) failed and delete them with --apply; "
@@ -341,7 +414,9 @@ def main():
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
         if args.only and key not in args.only:
             continue
-        if not args.force and not args.only and already_fetched(manifest, key):
+        if args.host and args.host not in url:
+            continue
+        if not args.force and not args.only and (already_fetched(manifest, key) or is_permanent_failure(manifest.get(key, {}))):
             continue
         if args.limit is not None and fetched_count >= args.limit:
             break

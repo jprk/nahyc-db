@@ -62,6 +62,22 @@ class FulltextPageTestCase(BrowserTestCase):
         self.assertGreater(article.locator("p.l2").count(), 10)
         self.shot(page, "czech-act-top", full_page=False)
 
+    def test_slovak_act_from_slov_lex_reads_with_parts_paragraphs_and_items(self):
+        slug = "124-2000-z-z"
+        if not self.one(f"SELECT 1 AS x FROM Document WHERE slug='{slug}'"):
+            self.skipTest(f"{slug} is not in this database")
+        page = self.new_page()
+        self.open_text(page, slug)
+        article = page.locator("article.fulltext")
+        self.assertIn("124/2000", page.locator("p.doc-designation").inner_text())
+        self.assertGreater(article.locator("p.item.d0").count(), 100, "odseky are item paragraphs")
+        self.assertGreater(article.locator("p.item.d1").count(), 10, "pismena are one level deeper")
+        self.assertGreater(article.locator("p.para").count(), 20, "every paragraf has its section sign")
+        self.assertGreater(article.locator("h4").count(), 0, "a paragraf title is a heading")
+        for foreign in ("script", "a", "img", "iframe"):
+            self.assertEqual(article.locator(foreign).count(), 0, f"<{foreign}> inside the text")
+        self.shot(page, "slovak-act-top", full_page=False)
+
     def test_text_page_fits_a_phone(self):
         page = self.new_page(PHONE)
         self.open_text(page, "eu-2022-869")

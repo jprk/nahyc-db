@@ -149,7 +149,7 @@ class EurLexTestCase(unittest.TestCase):
 class DispatchTestCase(unittest.TestCase):
     def test_unsupported_domain_is_reported_not_guessed(self):
         with self.assertRaises(ef.Unsupported):
-            ef.extract(ZPL_PAGE, "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/")
+            ef.extract(ZPL_PAGE, "https://www.technicke-normy-csn.cz/csn-en-17127")
 
     def test_empty_slovlex_style_shell_is_unsupported_without_url(self):
         with self.assertRaises(ef.Unsupported):
@@ -178,7 +178,7 @@ class RunTestCase(unittest.TestCase):
             "k|a": {"status": "fetched", "local_path": "data/fulltext/S/a.html", "url": "https://www.zakonyprolidi.cz/cs/x"},
             "k|b": {"status": "fetched", "local_path": "data/fulltext/S/b.html", "url": "https://eur-lex.europa.eu/x"},
             "k|c": {"status": "fetched", "local_path": "data/fulltext/S/c.html", "url": "https://eur-lex.europa.eu/search"},
-            "k|d": {"status": "fetched", "local_path": "data/fulltext/S/d.html", "url": "https://www.slov-lex.sk/x"},
+            "k|d": {"status": "fetched", "local_path": "data/fulltext/S/d.html", "url": "https://www.technicke-normy-csn.cz/x"},
             "k|e": {"status": "fetched", "local_path": "data/fulltext/S/e.pdf", "url": "https://eur-lex.europa.eu/pdf"},
             "k|f": {"status": "failed", "local_path": "", "url": "https://eur-lex.europa.eu/y"},
         }
@@ -194,7 +194,7 @@ class RunTestCase(unittest.TestCase):
             self.assertEqual(stats["extracted: zakonyprolidi"], 1)
             self.assertEqual(stats["extracted: eurlex"], 1)
             self.assertEqual(stats["failed"], 1)
-            self.assertEqual(stats["skipped: unsupported source: www.slov-lex.sk"], 1)
+            self.assertEqual(stats["skipped: unsupported source: www.technicke-normy-csn.cz"], 1)
             self.assertEqual(stats["skipped: not a fetched HTML file"], 2)
             self.assertEqual([k for k, _ in problems], ["k|c"])
             self.assertFalse(out.exists())
@@ -208,6 +208,79 @@ class RunTestCase(unittest.TestCase):
             self.assertIn("<h3>Předmět úpravy</h3>", (out / "S" / "a.html").read_text(encoding="utf-8"))
             self.assertTrue((out / "S" / "b.html").exists())
             self.assertFalse((out / "S" / "c.html").exists())
+
+
+SLOVLEX_PAGE = """<html><head><title>124/2000 Z. z. Vyhláška</title></head><body><div class="menu">Prihlásenie</div>
+<div class="predpis Skupina">
+<div class="predpisOznacenie">124</div><div class="predpisTyp">VYHLÁŠKA</div>
+<div class="predpisPodnadpis">Ministerstva vnútra</div><div class="predpisDatum">z 20. marca 2000,</div>
+<div class="predpisNadpis NADPIS">ktorou sa ustanovujú zásady</div>
+<div class="predpisText">Ministerstvo ustanovuje:<a class="citacnyOdkazJednoduchy" href="#x">odkaz</a></div>
+<div class="utilities-addition"><div class="cast Skupina">
+  <div class="castOznacenie">PRVÁ ČASŤ</div><div class="castNadpis NADPIS">ZÁKLADNÉ USTANOVENIA</div>
+  <div class="utilities-addition"><div class="paragraf Skupina">
+    <div class="paragrafOznacenie">§ 1</div><div class="paragrafNadpis NADPIS">Predmet úpravy</div>
+    <div class="utilities-addition"><div class="odsek Skupina">
+      <div class="odsekOznacenie">(1)</div><div class="text">Táto vyhláška upravuje<sup>1</sup>) pri</div>
+      <div class="pismeno Skupina"><div class="pismenoOznacenie">a)</div><div class="text">výstavbe <img class="tooltip-fragment" src="x.svg"></div>
+        <div class="bod Skupina"><div class="bodOznacenie">1.</div><div class="text">podbod</div></div></div>
+    </div></div>
+  </div></div>
+  <div class="paragraf Skupina"><div class="paragrafOznacenie">§ 2</div><div class="text">Táto vyhláška nadobúda účinnosť.</div></div>
+</div></div>
+<div class="text2">Ladislav Pittner v. r.</div>
+</div></body></html>"""
+
+
+class SlovLexTestCase(unittest.TestCase):
+    def setUp(self):
+        self.result = ef.extract(SLOVLEX_PAGE, "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/")
+
+    def test_source_is_detected_from_the_host_and_from_the_page(self):
+        self.assertEqual(self.result.source, "slovlex")
+        self.assertEqual(ef.extract(SLOVLEX_PAGE).source, "slovlex")
+
+    def test_header_formula_and_signature_are_kept_without_the_site_chrome(self):
+        h = self.result.html
+        self.assertIn('<p class="title">VYHLÁŠKA</p>', h)
+        self.assertIn('<p class="title">ktorou sa ustanovujú zásady</p>', h)
+        self.assertIn("<p>Ministerstvo ustanovuje:odkaz</p>", h)
+        self.assertIn('<p class="center">Ladislav Pittner v. r.</p>', h)
+        self.assertNotIn("Prihlásenie", h)
+
+    def test_parts_found_through_wrapper_divs_are_not_lost(self):
+        h = self.result.html
+        self.assertIn("<h3>PRVÁ ČASŤ</h3>", h)
+        self.assertIn("<h3>ZÁKLADNÉ USTANOVENIA</h3>", h)
+        self.assertIn('<p class="para">§ 1</p>', h)
+        self.assertIn("<h4>Predmet úpravy</h4>", h)
+
+    def test_items_nest_one_level_deeper_each(self):
+        h = self.result.html
+        self.assertIn('<p class="item d0"><span class="num">(1)</span>Táto vyhláška upravuje<sup>1</sup>) pri</p>', h)
+        self.assertIn('<p class="item d1"><span class="num">a)</span>výstavbe</p>', h)
+        self.assertIn('<p class="item d2"><span class="num">1.</span>podbod</p>', h)
+
+    def test_a_section_with_no_subsections_keeps_its_text(self):
+        self.assertIn("<p>Táto vyhláška nadobúda účinnosť.</p>", self.result.html)
+
+    def test_nothing_executable_or_linked_survives(self):
+        for forbidden in ("<script", "<a ", "href", "<img", "tooltip", "class=\"predpis"):
+            self.assertNotIn(forbidden, self.result.html)
+
+    def test_plain_text_reads_marker_then_text(self):
+        lines = self.result.text.splitlines()
+        self.assertIn("(1) Táto vyhláška upravuje1) pri", lines)
+        self.assertIn("a) výstavbe", lines)
+
+    def test_the_empty_angular_shell_is_an_error_not_an_empty_text(self):
+        with self.assertRaises(ef.ExtractionError):
+            ef.extract("<html><body><app-root></app-root></body></html>", "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2000/124/")
+
+    def test_a_history_page_is_an_error(self):
+        page = "<html><body><table><tr class='effectivenessHistoryItem'><td>1.</td></tr></table></body></html>"
+        with self.assertRaises(ef.ExtractionError):
+            ef.extract(page, "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/96/")
 
 
 if __name__ == "__main__":
