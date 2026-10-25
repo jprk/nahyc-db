@@ -28,6 +28,8 @@ rerun unless `--force` is passed.
 
 Usage:
     .venv/bin/python src/tools/fetch_fulltext.py [--limit N] [--force]
+    .venv/bin/python src/tools/fetch_fulltext.py --audit [--apply]
+    .venv/bin/python src/tools/fetch_fulltext.py --only "Sinay_Zakony|56/2001 Sb.|odkaz_eu"
 """
 import argparse
 import datetime
@@ -44,6 +46,7 @@ REPO_ROOT = BASE_DIR.parent.parent
 RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
 FULLTEXT_DIR = REPO_ROOT / "data" / "fulltext"
 MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+URL_OVERRIDES_PATH = REPO_ROOT / "data" / "fulltext_url_overrides.json"
 
 URL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
 
@@ -108,11 +111,25 @@ def first_url(raw_value):
     return parts[0] if parts else ""
 
 
-def iter_fetch_targets(raw_data):
+def load_url_overrides(path=URL_OVERRIDES_PATH):
+    """`{manifest key: {"url": ..., "reason": ...}}` — corrections of a URL
+    that the source spreadsheet gets wrong (a wrong act type in an ELI, a
+    number that does not exist). Kept next to the data instead of editing the
+    raw spreadsheets' output: the correction and the reason stay visible and
+    survive a rebuild of `database_merged_raw.json`."""
+    path = pathlib.Path(path)
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def iter_fetch_targets(raw_data, overrides=None):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
-    there's no stable key to file them under."""
+    there's no stable key to file them under. A URL listed in `overrides`
+    (see load_url_overrides) replaces the one from the record."""
+    overrides = overrides or {}
     for record in raw_data:
         if not is_fetchable_source(record.get("typ_dokumentu", "")):
             continue
@@ -122,7 +139,8 @@ def iter_fetch_targets(raw_data):
         for url_field in URL_FIELDS:
             url = first_url(record.get(url_field))
             if url:
-                yield record, url_field, url
+                override = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field))
+                yield record, url_field, (override["url"] if override else url)
 
 
 def extension_from_url(url, content_type=None):
@@ -160,10 +178,63 @@ def already_fetched(manifest, key):
     return bool(local_path) and (REPO_ROOT / local_path).exists()
 
 
+def is_document_page(url, content, content_type=""):
+    """(True, "") when `content` is the document that `url` points at, else
+    (False, reason). EUR-Lex answers an unknown or mistyped ELI — and a request
+    its firewall does not like — with a 200 "Search results" page or an empty
+    body; storing that as the document's full text (which is what happened for
+    three records) serves the search page to every reader."""
+    if not content:
+        return False, "empty response"
+    if "pdf" in (content_type or "").lower() or url.lower().split("?")[0].endswith(".pdf"):
+        return (True, "") if content[:5] == b"%PDF-" else (False, "not a PDF")
+    if "eur-lex.europa.eu" in url:
+        head = content[:20000].decode("utf-8", "replace")
+        m = re.search(r"<title>(.*?)</title>", head, re.S | re.I)
+        if m and "search results" in m.group(1).lower():
+            return False, "EUR-Lex returned a search-results page (unknown or mistyped address)"
+    return True, ""
+
+
+def is_waf_challenge(status_code, content):
+    """EUR-Lex's firewall answers automated clients with HTTP 202 and an empty
+    body (an interstitial that only a real browser completes)."""
+    return status_code == 202 or not content
+
+
+def fetch_with_browser(url, timeout_ms=45000):
+    """(status, content, content_type) of the page rendered by headless
+    Chromium (Playwright, see requirements-optional.txt), or None when
+    Playwright is not installed or the browser fails. Used only when plain
+    HTTP got a firewall challenge."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return None
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            try:
+                page = browser.new_page()
+                response = page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
+                try:
+                    page.wait_for_selector("div#text, #TexteOnly", timeout=timeout_ms)
+                except Exception:
+                    pass  # a search/error page has neither; the caller decides
+                return (response.status if response else 0, page.content().encode("utf-8"),
+                        "text/html; charset=utf-8")
+            finally:
+                browser.close()
+    except Exception:
+        return None
+
+
 def fetch_one(session, record, url_field, url):
     """Performs the actual HTTP GET and returns a manifest entry dict.
     Never raises — network/HTTP failures are recorded as a `failed`
-    status so one bad URL doesn't abort the whole run."""
+    status so one bad URL doesn't abort the whole run. A response that is
+    not the document (a search-results page, an empty body) is a failure
+    too, and is never written to disk."""
     znacka = record["znacka"].strip()
     now = datetime.datetime.now().isoformat(timespec="seconds")
     try:
@@ -177,22 +248,58 @@ def fetch_one(session, record, url_field, url):
             "error": str(exc),
             "fetched_at": now,
         }
+    status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
 
-    ext = extension_from_url(url, resp.headers.get("Content-Type", ""))
-    sha256 = hashlib.sha256(resp.content).hexdigest()
+    if is_waf_challenge(status, content) and "eur-lex.europa.eu" in url:
+        browsed = fetch_with_browser(url)
+        if browsed:
+            status, content, content_type = browsed
+
+    ok, reason = is_document_page(url, content, content_type)
+    if not ok:
+        return {"status": "failed", "url": url, "http_status": status, "error": reason, "fetched_at": now}
+
+    ext = extension_from_url(url, content_type)
+    sha256 = hashlib.sha256(content).hexdigest()
     FULLTEXT_DIR.mkdir(parents=True, exist_ok=True)
     local_path = FULLTEXT_DIR / flat_name(znacka, sha256, ext)
     if not local_path.exists():  # same content already stored: nothing to write
-        local_path.write_bytes(resp.content)
+        local_path.write_bytes(content)
 
     return {
         "status": "fetched",
         "url": url,
         "local_path": str(local_path.relative_to(REPO_ROOT)),
-        "http_status": resp.status_code,
+        "http_status": status,
         "sha256": sha256,
         "fetched_at": now,
     }
+
+
+def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
+    """Finds `fetched` entries whose stored file is not the document (see
+    is_document_page) — downloads from before that check existed — marks them
+    `failed` and deletes the file unless another entry still uses it. Returns
+    [(key, old local_path, reason)]. Dry run without `apply`."""
+    root = pathlib.Path(repo_root)
+    bad = []
+    for key, entry in sorted(manifest.items()):
+        path = entry.get("local_path")
+        if entry.get("status") != "fetched" or not path or not (root / path).is_file():
+            continue
+        ok, reason = is_document_page(entry.get("url", ""), (root / path).read_bytes()[:20000],
+                                      "application/pdf" if path.endswith(".pdf") else "text/html")
+        if not ok:
+            bad.append((key, path, reason))
+    if apply:
+        for key, path, reason in bad:
+            manifest[key] = {"status": "failed", "url": manifest[key].get("url"), "error": reason,
+                             "fetched_at": datetime.datetime.now().isoformat(timespec="seconds")}
+        still_used = {e.get("local_path") for e in manifest.values() if e.get("status") == "fetched"}
+        for path in {p for _, p, _ in bad}:
+            if path not in still_used:
+                (root / path).unlink()
+    return bad
 
 
 def main():
@@ -201,7 +308,26 @@ def main():
                          help="fetch at most N documents (for a manual smoke test)")
     parser.add_argument("--force", action="store_true",
                          help="re-fetch even if the manifest already has this entry")
+    parser.add_argument("--only", action="append", default=[], metavar="KEY",
+                         help="fetch only this manifest key ('source|designation|url field'; repeatable), "
+                              "even if already fetched — for repairing single entries without retrying the "
+                              "ones that were marked failed on purpose")
+    parser.add_argument("--audit", action="store_true",
+                         help="check the already stored files: mark those that are not the document "
+                              "(search-results pages, empty files) failed and delete them with --apply; "
+                              "then exit (run again without --audit to fetch them from the right address)")
+    parser.add_argument("--apply", action="store_true", help="with --audit: really change the manifest and delete")
     args = parser.parse_args()
+
+    if args.audit:
+        manifest = load_manifest()
+        bad = audit_manifest(manifest, apply=args.apply)
+        for key, path, reason in bad:
+            print(f"{key}: {path} — {reason}")
+        if args.apply:
+            save_manifest(manifest)
+        print(f"{len(bad)} stored files are not the document" + ("" if args.apply else " (dry run — add --apply)"))
+        return
 
     with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
@@ -211,9 +337,11 @@ def main():
     session.headers.update({"User-Agent": USER_AGENT})
 
     fetched_count = 0
-    for record, url_field, url in iter_fetch_targets(raw_data):
+    for record, url_field, url in iter_fetch_targets(raw_data, load_url_overrides()):
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
-        if not args.force and already_fetched(manifest, key):
+        if args.only and key not in args.only:
+            continue
+        if not args.force and not args.only and already_fetched(manifest, key):
             continue
         if args.limit is not None and fetched_count >= args.limit:
             break

@@ -755,20 +755,18 @@
     "url": "https://www.slov-lex.sk/eli/deleg_reg/2023/1185"
   },
   "Sinay_Zakony|(EU) 2023/1234|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:50:15",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_1234__349bad52.html",
-    "sha256": "349bad52a4197ecbb43183c2d9a435b2d8a6a11f046d40675c99b5f3acc71148",
-    "status": "fetched",
+    "error": "EUR-Lex returned a search-results page (unknown or mistyped address)",
+    "fetched_at": "2026-10-25T14:31:36",
+    "status": "failed",
     "url": "https://eur-lex.europa.eu/eli/reg/2023/1234/oj"
   },
   "Sinay_Zakony|(EU) 2023/1234|odkaz_hlavni": {
-    "fetched_at": "2026-09-11T00:50:13",
-    "http_status": 200,
-    "local_path": "data/fulltext/EU_2023_1234__058d2898.html",
-    "sha256": "058d28987f31ff6feea3d75b7e3a9a62cd5bde78f7adfd550776711a00750da0",
+    "fetched_at": "2026-10-25T14:31:36",
+    "http_status": 202,
+    "local_path": "data/fulltext/EU_2023_1234__724afb91.html",
+    "sha256": "724afb914c16041ee8c4c70be553e2535e663ea3408a45b462bd94c475eb89cb",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/reg/2023/1234/oj?lang=CS"
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1735/oj?lang=CS"
   },
   "Sinay_Zakony|(EU) 2023/1804|odkaz_eu": {
     "fetched_at": "2026-09-11T00:49:58",
@@ -1083,12 +1081,12 @@
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2012/250/"
   },
   "Sinay_Zakony|56/2001 Sb.|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:50:16",
-    "http_status": 200,
-    "local_path": "data/fulltext/56_2001_Sb.__47528ead.html",
-    "sha256": "47528eadef85dfb40e221d2e1a1b1bb9231ae38463b84f16d0bb5c6d99569608",
+    "fetched_at": "2026-10-25T14:31:40",
+    "http_status": 202,
+    "local_path": "data/fulltext/56_2001_Sb.__870605c8.html",
+    "sha256": "870605c8f37c6ffbe5dfac118ada7bf15d8a952ca8f2c377888165a698bd1442",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/dir/2018/858/oj"
+    "url": "https://eur-lex.europa.eu/eli/reg/2018/858/oj"
   },
   "Sinay_Zakony|56/2001 Sb.|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:49:36",

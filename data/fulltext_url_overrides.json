@@ -1,0 +1,14 @@
+{
+  "Sinay_Zakony|(EU) 2023/1234|odkaz_eu": {
+    "reason": "The source gives the number 2023/1234, which is not an act (EUR-Lex answers with a search page). The record's title is the Net-Zero Industry Act, Regulation (EU) 2024/1735 (verified: same title).",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1735/oj"
+  },
+  "Sinay_Zakony|(EU) 2023/1234|odkaz_hlavni": {
+    "reason": "Same as odkaz_eu: the real act is Regulation (EU) 2024/1735, not 2023/1234.",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1735/oj?lang=CS"
+  },
+  "Sinay_Zakony|56/2001 Sb.|odkaz_eu": {
+    "reason": "The source's ELI says 'dir' (directive); (EU) 2018/858 is a regulation, so /eli/dir/2018/858 is an unknown address (search page) and /eli/reg/2018/858 is the act.",
+    "url": "https://eur-lex.europa.eu/eli/reg/2018/858/oj"
+  }
+}
