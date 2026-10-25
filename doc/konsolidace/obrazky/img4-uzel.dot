@@ -1,0 +1,21 @@
+// Obr. 4 — Vrstva B: procesní uzel a jeho satelity
+digraph Uzel {
+  fontname="Arial";
+  layout=neato; overlap=false; splines=true;
+  node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled", margin="0.18,0.12"];
+  edge [fontname="Arial", fontsize=9, color="#495057", len=2.0];
+
+  PN [label="PROCESNÍ UZEL\nnapř. U3 — Stavební povolení", fillcolor="#343A40", fontcolor="white", fontsize=13];
+
+  POPIS [label="Popis (1:1)\núčel, spouštěcí podmínky,\nklíčový rozhodovací bod", fillcolor="#D4EDDA"];
+  VETVE [label="Větve průběhu\nnapř. U2: bez posouzení /\nzjišťovací řízení / plná EIA\n+ kroky každé větve", fillcolor="#D4EDDA"];
+  VSTUPY [label="Vstupy\nco musí investor doložit", fillcolor="#D4EDDA"];
+  VYSTUPY [label="Výstupy\nrozhodnutí, povolení —\nco uzel produkuje", fillcolor="#D4EDDA"];
+  SUBJEKTY [label="Subjekty a role\nstavební úřad, HZS, ERÚ…\nkdo rozhoduje, kdo se vyjadřuje", fillcolor="#D4EDDA"];
+  SIT [label="Vazby na ostatní uzly\nhrany procesní sítě\n(co podmiňuje co)", fillcolor="#D4EDDA"];
+  MATICE [label="Matice variability 4×7\njak silně se uzel uplatní\npro 4 typy instalací", fillcolor="#D4EDDA"];
+  PROBLEMY [label="Typické problémy\nznámé interpretační\na procesní zádrhely", fillcolor="#D4EDDA"];
+
+  POPIS -> PN; VETVE -> PN; VSTUPY -> PN; VYSTUPY -> PN;
+  SUBJEKTY -> PN; SIT -> PN; MATICE -> PN; PROBLEMY -> PN;
+}
