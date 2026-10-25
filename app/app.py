@@ -16,6 +16,9 @@ app = Flask(__name__)
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
+# GitHub issue #2: the clean, sanitized text that src/tools/extract_fulltext.py
+# derives from the raw downloads in FULLTEXT_DIR (same relative paths).
+CLEAN_TEXT_DIR = (REPO_ROOT / "data" / "fulltext_clean").resolve()
 load_dotenv(REPO_ROOT / ".env")
 
 # doc/PLAN.md §42, 2026-09-18: signs the editor-login session cookie
@@ -389,6 +392,11 @@ def index():
 
     documents, doc_tags = fetch_documents_with_tags(
         db, filters, limit=PAGE_SIZE, offset=(page - 1) * PAGE_SIZE)
+    # Set here, not in fetch_documents_with_tags(): /export/<fmt> shares
+    # that helper and must not pick up a key it was never meant to emit.
+    for doc in documents:
+        doc['has_clean_text'] = (not doc['restricted_fulltext']
+                                 and clean_text_path(doc['file_path']) is not None)
     total_document_count = get_total_document_count(db)
     active_document_count = get_active_document_count(db)
     inactive_document_count = total_document_count - active_document_count
@@ -496,7 +504,59 @@ def document_detail(slug):
     detail = fetch_document_detail(get_db(), slug)
     if detail is None:
         abort(404)
+    document = detail['document']
+    detail['has_clean_text'] = (not document['restricted_fulltext']
+                                and clean_text_path(document['file_path']) is not None)
     return render_template('document.html', **detail)
+
+
+def clean_text_path(file_path):
+    """Path of the extracted clean text for a Document.file_path (a raw
+    `data/fulltext/...` download), or None when there is none — only HTML
+    downloads from the supported sources are ever extracted
+    (src/tools/extract_fulltext.py), and only after `--apply`. Verified to
+    stay inside CLEAN_TEXT_DIR, like /fulltext/<id> does for FULLTEXT_DIR."""
+    if not file_path:
+        return None
+    try:
+        relative = (REPO_ROOT / file_path).resolve().relative_to(FULLTEXT_DIR)
+    except ValueError:
+        return None
+    if relative.suffix.lower() != '.html':
+        return None
+    candidate = (CLEAN_TEXT_DIR / relative).with_suffix('.html').resolve()
+    if CLEAN_TEXT_DIR not in candidate.parents or not candidate.is_file():
+        return None
+    return candidate
+
+
+@app.route('/dokument/<slug>/text')
+def document_text(slug):
+    """GitHub issue #2: the document's text rendered inside the application
+    (own styling, no foreign scripts) instead of the raw downloaded page.
+    The same access rule as /fulltext/<id>: a restricted DocumentType (paid
+    or copyrighted standards) is refused server-side regardless of which
+    link the visitor followed. The HTML comes only from
+    src/tools/extract_fulltext.py's closed vocabulary (no links, scripts or
+    attributes), which is why the template may output it unescaped."""
+    with get_db().cursor() as cur:
+        cur.execute('''
+            SELECT d.slug, d.identifier, d.title, d.url, d.file_path,
+                   dt.restricted_fulltext
+            FROM Document d
+            LEFT JOIN DocumentType dt ON d.type_id = dt.id
+            WHERE d.slug = %s
+        ''', (slug,))
+        document = cur.fetchone()
+    if document is None:
+        abort(404)
+    if document['restricted_fulltext']:
+        abort(403)
+    path = clean_text_path(document['file_path'])
+    if path is None:
+        abort(404)
+    return render_template('fulltext.html', document=document,
+                           text_html=path.read_text(encoding='utf-8'))
 
 
 def fetch_process_overview(db):
@@ -702,7 +762,16 @@ def fulltext(doc_id):
     if FULLTEXT_DIR not in full_path.parents or not full_path.is_file():
         abort(404)
 
-    return send_file(full_path)
+    # GitHub issue #2: a downloaded HTML page is a foreign document with its
+    # own scripts, so it is never rendered on our origin — it is offered as
+    # a file (the readable version is /dokument/<slug>/text), and sandboxed
+    # in case a browser opens it anyway. PDFs are still shown inline.
+    is_html = full_path.suffix.lower() == '.html'
+    response = send_file(full_path, as_attachment=is_html)
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    if is_html:  # a sandbox CSP would also stop browsers' built-in PDF viewers
+        response.headers['Content-Security-Policy'] = "sandbox; default-src 'none'"
+    return response
 
 
 def _rows_for_export(documents, doc_tags):

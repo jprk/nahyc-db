@@ -1173,3 +1173,128 @@ main {
     color: var(--success);
     font-weight: 600;
 }
+
+/* GitHub issue #2: document text rendered from src/tools/extract_fulltext.py's
+   closed HTML vocabulary (h3/h4, p.l1-l5/para/note/title/center, tables). */
+.fulltext-notice {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+.fulltext-notice a {
+    color: var(--accent-secondary);
+}
+
+.fulltext {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    max-width: 60rem; /* ~90 characters a line; the full page width is unreadable */
+}
+
+.fulltext p {
+    margin: 0.5rem 0;
+}
+
+.fulltext h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin: 1.75rem 0 0.5rem;
+    text-align: center;
+}
+
+.fulltext h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin: 1.25rem 0 0.4rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.fulltext p.title,
+.fulltext p.center,
+.fulltext p.para {
+    text-align: center;
+    font-weight: 600;
+}
+
+.fulltext p.para {
+    margin-top: 1.5rem;
+}
+
+.fulltext p.l2 { margin-left: 1rem; }
+.fulltext p.l3 { margin-left: 2rem; }
+.fulltext p.l4 { margin-left: 3rem; }
+.fulltext p.l5 { margin-left: 4rem; }
+
+.fulltext p.note {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.fulltext .num {
+    color: var(--text-secondary);
+    margin-right: 0.25rem;
+}
+
+.fulltext hr {
+    border: 0;
+    border-top: 1px solid var(--border-glass);
+    margin: 1.5rem 0;
+}
+
+.fulltext table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+}
+
+.fulltext table.data th,
+.fulltext table.data td {
+    border: 1px solid var(--border-glass);
+    padding: 0.4rem 0.6rem;
+    vertical-align: top;
+}
+
+/* Numbered recitals and lists: marker hanging in the margin, one paragraph
+   per item; d1..d3 are nested levels, and plain p.dN continues an item's text. */
+.fulltext p.item {
+    padding-left: 3rem;
+    text-indent: -3rem;
+}
+
+.fulltext p.item .num {
+    display: inline-block;
+    width: 3rem;
+    margin-right: 0;
+    text-indent: 0;
+}
+
+.fulltext p.d1 { margin-left: 3rem; }
+.fulltext p.d2 { margin-left: 6rem; }
+.fulltext p.d3 { margin-left: 9rem; }
+.fulltext p.d4 { margin-left: 12rem; }
+
+.fulltext table.layout td {
+    vertical-align: top;
+    padding: 0 0.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+    .fulltext {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+
+    .fulltext p.item { padding-left: 2.25rem; text-indent: -2.25rem; }
+    .fulltext p.item .num { width: 2.25rem; }
+    .fulltext p.d1 { margin-left: 2.25rem; }
+    .fulltext p.d2 { margin-left: 4.5rem; }
+    .fulltext p.d3 { margin-left: 6.75rem; }
+    .fulltext p.d4 { margin-left: 9rem; }
+}

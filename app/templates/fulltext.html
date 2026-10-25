@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{# GitHub issue #2. `text_html` is produced by src/tools/extract_fulltext.py
+   from a closed vocabulary (no links, scripts or attributes besides class and
+   colspan/rowspan), so it is the one value in the app that is output unescaped. #}
+{% block content %}
+
+<section class="doc-detail">
+
+    <a href="{{ url_for('document_detail', slug=document.slug) }}" class="back-link">
+        <i class="ph ph-arrow-left"></i> Zpět na dokument</a>
+
+    <header class="doc-header">
+        {% if document.identifier %}
+        <p class="doc-designation">{{ document.identifier }}</p>
+        {% endif %}
+        <h1 class="doc-heading">{{ document.title }}</h1>
+        <p class="fulltext-notice"><i class="ph ph-info"></i>
+            Text je strojově převzatý ze zdrojového webu a slouží jen pro orientaci. Závazné znění je vždy na
+            {% if document.url %}<a href="{{ document.url }}" target="_blank" rel="noopener">zdrojové stránce</a>{% else %}zdrojové stránce{% endif %}.</p>
+    </header>
+
+    <article class="fulltext">
+        {{ text_html|safe }}
+    </article>
+
+</section>
+
+{% endblock %}
