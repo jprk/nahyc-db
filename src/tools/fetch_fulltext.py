@@ -340,7 +340,9 @@ def _slovlex_latest_version_url(page):
     """Slov-Lex shows an act that has no current version (repealed) as a
     history page; the newest listed version is the closest thing to its text.
     Returns that version's absolute URL or None."""
-    hrefs = page.eval_on_selector_all("tr.effectivenessHistoryItem a",
+    # `td.title` is the version column; the third column ("Novela") links to the
+    # amending acts, which are other acts — taking those gave the wrong text.
+    hrefs = page.eval_on_selector_all("tr.effectivenessHistoryItem td.title a",
                                       "els => els.map(e => e.href)")
     return hrefs[-1] if hrefs else None
 
