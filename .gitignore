@@ -17,6 +17,8 @@ data/20250915_Haltuf/v*
 # Fetched full-text law documents (large, copyright status unverified for
 # redistribution — kept local only; see doc/PLAN.md §4)
 data/fulltext/
+# ... and as a symlink (a worktree links to the main tree's copy)
+data/fulltext
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
