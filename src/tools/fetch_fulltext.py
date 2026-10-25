@@ -141,6 +141,52 @@ def html_alternative(url):
     return f"{m.group(1)}HTML{m.group(2)}" if m else None
 
 
+# EUR-Lex serves an act in every official language; which one an address gives
+# is part of the address. An ELI without a language (`.../oj`) gives English, and
+# its `?lang=CS` is ignored; `.../oj/ces` gives Czech. `legal-content` addresses
+# carry the language as their second path segment (`/legal-content/CS/TXT/...`).
+ELI_LANGUAGE = {"CS": "ces", "SK": "slk", "EN": "eng", "DE": "deu"}
+_ELI = re.compile(r"^(https://eur-lex\.europa\.eu/eli/[a-z_]+/\d{4}/\d+/oj)(?:/[a-z]{3})?(?:\?[^#]*)?$")
+_LEGAL_CONTENT = re.compile(r"^(https://eur-lex\.europa\.eu/legal-content/)([A-Z]{2})(/.*)$")
+
+
+def localized_url(url, language):
+    """`url` in the document's own language where EUR-Lex lets the address say
+    so, else `url` unchanged. `language` is a Document.language code.
+
+    Only an *English* address is changed — an ELI without a language, or a
+    `/legal-content/EN/` one — and only for a document that is not English
+    (CS, SK, DE): that is the defect this fixes (an act labelled Czech stored
+    in English). An address that already names another language is left alone,
+    and so is everything for an English or unknown language: a guess must not
+    decide which language a document is stored in."""
+    if not url or language not in ELI_LANGUAGE or language == "EN":
+        return url
+    m = _ELI.match(url)
+    if m:
+        explicit = re.search(r"/oj/([a-z]{3})(?:\?|$)", url)
+        return url if explicit and explicit.group(1) != "eng" else f"{m.group(1)}/{ELI_LANGUAGE[language]}"
+    m = _LEGAL_CONTENT.match(url)
+    if m and m.group(2) == "EN":
+        return f"{m.group(1)}{language}{m.group(3)}"
+    return url
+
+
+def record_language(record):
+    """The language the pipeline will give this record (init_db's cascade: the
+    source domain, a raw `jazyk`, else detection on the title), or None when the
+    result is only a guess."""
+    from language import detect_language, normalize_raw_language, resolve_domain_language_override
+    language = resolve_domain_language_override(record.get("odkaz_hlavni") or record.get("odkaz_eu") or "")
+    if language is None:
+        language = normalize_raw_language(record.get("jazyk", ""))
+    if language is not None:
+        return language
+    title = record.get("nazev_cz") or record.get("nazev") or ""
+    language, confident = detect_language(title, record.get("anotace_poznamka"))
+    return language if confident else None
+
+
 def iter_fetch_targets(raw_data, overrides=None):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
@@ -160,7 +206,10 @@ def iter_fetch_targets(raw_data, overrides=None):
             url = first_url(record.get(url_field))
             if url:
                 override = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field))
-                url = override["url"] if override else url
+                if override:  # an explicit address wins, language included
+                    url = override["url"]
+                else:
+                    url = localized_url(url, record_language(record))
                 yield record, url_field, url
                 alternative = html_alternative(url)
                 twin = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field + HTML_SUFFIX))
@@ -203,6 +252,13 @@ def is_permanent_failure(entry):
     equivalents). Skipped by a normal run — each retry costs a browser — unless
     `--force`."""
     return entry.get("status") == "failed" and "is a different act than" in (entry.get("error") or "")
+
+
+def is_stale(manifest, key, url):
+    """A fetched entry whose address is no longer the one the record asks for
+    (e.g. now the document's own language): it has to be fetched again."""
+    entry = manifest.get(key)
+    return bool(entry and entry.get("status") == "fetched" and entry.get("url") != url)
 
 
 def already_fetched(manifest, key):
@@ -468,6 +524,11 @@ def main():
 
     with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
+    # a confirmed correction (e.g. a wrong designation) changes the manifest key and address too
+    import build_unified_db
+    corrections = build_unified_db.load_manual_corrections()
+    for record in raw_data:
+        build_unified_db.apply_manual_corrections(record, corrections)
 
     manifest = load_manifest()
     session = requests.Session()
@@ -475,13 +536,18 @@ def main():
 
     fetched_count = 0
     run_cache = {}  # (znacka, url) -> entry: the same address under two fields is fetched once
+    seen_keys = set()  # the raw data can list one (source, designation) twice, with different addresses
     for record, url_field, url in iter_fetch_targets(raw_data, load_url_overrides()):
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
+        if key in seen_keys:
+            continue  # the first record decides, as it always did
+        seen_keys.add(key)
         if args.only and key not in args.only:
             continue
         if args.host and args.host not in url:
             continue
-        if not args.force and not args.only and (already_fetched(manifest, key) or is_permanent_failure(manifest.get(key, {}))):
+        if not args.force and not args.only and not is_stale(manifest, key, url) and (
+                already_fetched(manifest, key) or is_permanent_failure(manifest.get(key, {}))):
             continue
         if args.limit is not None and fetched_count >= args.limit:
             break
