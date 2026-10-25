@@ -213,6 +213,12 @@ def already_fetched(manifest, key):
     return bool(local_path) and (REPO_ROOT / local_path).exists()
 
 
+# What every EUR-Lex act page has once its content has rendered: the `div#text`
+# of the original text, the `eli-container` of a consolidated text, or the
+# Official Journal's own title class.
+_EURLEX_ACT_MARKER = re.compile(r"""id=["'](?:text|TexteOnly)["']|eli-container|oj-doc-ti""")
+
+
 def designation_numbers(znacka):
     """The `N/YYYY` or `YYYY/N` number pairs in a designation ("124/2000 Z. z."
     -> {"124/2000"}, "(EU) 2019/2144" -> {"2019/2144"}), used to check that a
@@ -240,6 +246,9 @@ def is_document_page(url, content, content_type="", znacka=None):
         m = re.search(r"<title>(.*?)</title>", head, re.S | re.I)
         if m and "search results" in m.group(1).lower():
             return False, "EUR-Lex returned a search-results page (unknown or mistyped address)"
+        text = content.decode("utf-8", "replace")
+        if "text/html" in (content_type or "text/html") and not _EURLEX_ACT_MARKER.search(text):
+            return False, "EUR-Lex page without the act's text (the content did not render)"
     if "slov-lex.sk" in url:
         text = content.decode("utf-8", "replace")
         if "predpisOznacenie" not in text:
@@ -280,6 +289,28 @@ def _slovlex_latest_version_url(page):
     return hrefs[-1] if hrefs else None
 
 
+def is_eurlex_pdf(url):
+    return "eur-lex.europa.eu" in url and "/TXT/PDF/" in url
+
+
+def _fetch_eurlex_pdf_with_browser(url, timeout_ms):
+    """A PDF cannot be 'rendered', but the firewall that answers plain HTTP with
+    a challenge lets a browser context through once it has loaded a page of the
+    site; the context's own request client can then download the file."""
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        try:
+            context = browser.new_context()
+            page = context.new_page()
+            page.goto("https://eur-lex.europa.eu/homepage.html", wait_until="domcontentloaded", timeout=timeout_ms)
+            page.wait_for_timeout(3000)
+            response = context.request.get(url, timeout=timeout_ms * 3)
+            return response.status, response.body(), response.headers.get("content-type", "")
+        finally:
+            browser.close()
+
+
 def fetch_with_browser(url, timeout_ms=45000):
     """(status, content, content_type) of the page rendered by headless
     Chromium (Playwright, see requirements-optional.txt), or None when
@@ -289,6 +320,11 @@ def fetch_with_browser(url, timeout_ms=45000):
         from playwright.sync_api import sync_playwright
     except ImportError:
         return None
+    if is_eurlex_pdf(url):
+        try:
+            return _fetch_eurlex_pdf_with_browser(url, timeout_ms)
+        except Exception:
+            return None
     slovlex = "slov-lex.sk" in url
     ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly, .eli-container, p.oj-doc-ti"
     try:
@@ -381,8 +417,8 @@ def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
         if entry.get("status") != "fetched" or not path or not (root / path).is_file():
             continue
         content = (root / path).read_bytes()
-        # Slov-Lex markers sit deep in a large page; EUR-Lex's title is at the top.
-        ok, reason = is_document_page(entry.get("url", ""), content if "slov-lex.sk" in entry.get("url", "") else content[:20000],
+        # The markers sit deep in a large page, so the whole file is checked.
+        ok, reason = is_document_page(entry.get("url", ""), content,
                                       "application/pdf" if path.endswith(".pdf") else "text/html",
                                       designation_of(key))
         if not ok:

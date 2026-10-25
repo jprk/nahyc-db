@@ -239,6 +239,18 @@ class IsDocumentPageTestCase(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("search-results", reason)
 
+    def test_an_eur_lex_page_whose_content_did_not_render_is_not_a_document(self):
+        chrome_only = b"<html><head><title>Regulation - 1272/2008 - EN - EUR-Lex</title></head><body><div class='ecl-site-footer'>x</div></body></html>"
+        ok, reason = ff.is_document_page("https://eur-lex.europa.eu/eli/reg/2008/1272/oj", chrome_only, "text/html")
+        self.assertFalse(ok)
+        self.assertIn("did not render", reason)
+
+    def test_each_eur_lex_dialect_passes_the_render_check(self):
+        url = "https://eur-lex.europa.eu/eli/reg/x/oj"
+        for marker in ("<div id='text'>", "<div class='eli-container'>", "<p class='oj-doc-ti'>", "<div id='TexteOnly'>"):
+            page = f"<html><head><title>Regulation - EUR-Lex</title></head><body>{marker}x</body></html>".encode()
+            self.assertTrue(ff.is_document_page(url, page, "text/html")[0], marker)
+
     def test_real_eur_lex_act_is_a_document(self):
         self.assertEqual(ff.is_document_page("https://eur-lex.europa.eu/eli/reg/2018/858/oj", ACT_PAGE, "text/html"), (True, ""))
 
@@ -481,6 +493,30 @@ class HtmlAlternativeTestCase(unittest.TestCase):
     def test_the_html_twin_gets_its_own_manifest_key(self):
         self.assertEqual(ff.manifest_key("S", "X 1", "odkaz_hlavni" + ff.HTML_SUFFIX), "S|X 1|odkaz_hlavni_html")
         self.assertEqual(ff.designation_of("S|X 1|odkaz_hlavni_html"), "X 1")
+
+
+class EurLexPdfRoutingTestCase(unittest.TestCase):
+    def test_only_eur_lex_pdf_addresses_take_the_download_path(self):
+        self.assertTrue(ff.is_eurlex_pdf("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272"))
+        self.assertFalse(ff.is_eurlex_pdf("https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32008R1272"))
+        self.assertFalse(ff.is_eurlex_pdf("https://example.test/TXT/PDF/x"))
+
+    def test_a_pdf_the_browser_downloaded_is_stored(self):
+        import tempfile
+        from unittest import mock
+        session = mock.MagicMock()
+        resp = mock.MagicMock()
+        resp.content, resp.status_code, resp.headers = b"", 202, {"Content-Type": ""}
+        resp.raise_for_status.return_value = None
+        session.get.return_value = resp
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(ff, "REPO_ROOT", root), mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"), \
+                    mock.patch.object(ff, "fetch_with_browser", return_value=(200, b"%PDF-1.4 body", "application/pdf")):
+                entry = ff.fetch_one(session, {"zdroj_dat": "S", "znacka": "(ES) 1272/2008"}, "odkaz_hlavni",
+                                     "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272")
+            self.assertEqual(entry["status"], "fetched")
+            self.assertTrue(entry["local_path"].endswith(".pdf"))
 
 
 if __name__ == "__main__":

@@ -369,17 +369,21 @@ _LEGACY_TITLE = re.compile(r"^EUR-Lex\s*-\s*\w+\s*-\s*[A-Z]{2}\b")
 
 
 def _extract_eurlex_legacy(soup):
-    """Acts from before 2004 have a third kind of page ("Avis juridique
-    important"): no classes at all, the text is a plain run of `<p>` under the
-    site's own header and language bar. Returns the HTML or None when the page
-    is not of that kind."""
+    """Acts from before 2004 have a third kind of text: no classes at all, a
+    plain run of `<p>` under the site's own language bar — either as a whole
+    page ("EUR-Lex - <CELEX> - EN") or inside the `div#text` of the current
+    page chrome ("Directive - 1999/31 - EN - EUR-Lex"). Returns the HTML or
+    None when the page is not of that kind."""
     title = soup.title.get_text(" ", strip=True) if soup.title else ""
-    body = soup.body
-    if body is None or not _LEGACY_TITLE.match(title) or len(body.find_all("p")) < 20:
+    text = soup.find("div", id="text")
+    root = text if text is not None else soup.body
+    if root is None or len(root.find_all("p")) < 20:
         return None
-    for chrome in body.select("div.bglang, div.bgtool, p.bglang, h1, script, style"):
+    if text is None and not _LEGACY_TITLE.match(title):
+        return None
+    for chrome in root.select("div.bglang, div.bgtool, p.bglang, h1, script, style"):
         chrome.decompose()
-    return "\n".join(_blocks(body, "eurlex"))
+    return "\n".join(_blocks(root, "eurlex"))
 
 
 def _extract_eurlex(soup):
