@@ -73,6 +73,16 @@ def append_review_reason(existing, reason):
     return f"{existing}; {reason}"
 
 
+def remove_review_reason(existing, reason):
+    """The counterpart of append_review_reason(): `existing` (reasons joined by
+    "; ") without `reason`, or None when nothing else is left — so that a
+    document whose gestor has since been found stops being flagged for it,
+    while a different reason it also carries stays."""
+    parts = [part.strip() for part in (existing or "").split(";")]
+    rest = [part for part in parts if part and part != reason]
+    return "; ".join(rest) or None
+
+
 def get_or_create_source(cur, name, cache):
     if name in cache:
         return cache[name]
@@ -111,6 +121,7 @@ def main():
     session = requests.Session()
     resolved_plan = []    # (doc_id, current_source, new_source)
     unresolved_plan = []  # (doc_id, current_source, new_review_reason)
+    unflag_plan = []      # (doc_id, remaining_review_reason or None): gestor now found, old flag stale
     unchanged = 0
 
     for i, doc in enumerate(documents):
@@ -122,9 +133,14 @@ def main():
             if gestor and doc["url"]:
                 cache[doc["url"]] = gestor
         if gestor:
+            # The flag is only ever added above; when a later run (or a corrected
+            # record) finds the gestor, the "not found" reason must go again.
+            stale_flag = UNRESOLVED_REVIEW_REASON in (doc["review_reason"] or "")
+            if stale_flag:
+                unflag_plan.append((doc["id"], remove_review_reason(doc["review_reason"], UNRESOLVED_REVIEW_REASON)))
             if gestor != doc["current_source"]:
                 resolved_plan.append((doc["id"], doc["current_source"], gestor))
-            else:
+            elif not stale_flag:
                 unchanged += 1
         else:
             new_reason = append_review_reason(doc["review_reason"], UNRESOLVED_REVIEW_REASON)
@@ -140,11 +156,15 @@ def main():
     print(f"{len(documents)} EU-type documents (Nařízení EU / Směrnice EU / Rozhodnutí EU)")
     print(f"  resolved via EUR-Lex/Cellar, source updated: {len(resolved_plan)}")
     print(f"  unresolved — cleared + flagged for review: {len(unresolved_plan)}")
+    print(f"  gestor found, stale 'not found' review flag removed: {len(unflag_plan)}")
     print(f"  unchanged: {unchanged}")
 
     print(f"\n--- {len(resolved_plan)} resolved changes ---")
     for doc_id, old, new in resolved_plan:
         print(f"  id={doc_id}: {old!r} -> {new!r}")
+
+    for doc_id, rest in unflag_plan:
+        print(f"  id={doc_id}: review flag removed" + (f", still flagged: {rest!r}" if rest else ", no longer needs review"))
 
     if unresolved_plan:
         print(f"\n--- {len(unresolved_plan)} unresolved (source cleared, flagged) ---")
@@ -163,6 +183,10 @@ def main():
     for doc_id, _old, new_reason in unresolved_plan:
         cur.execute("UPDATE Document SET source_id=NULL, needs_review=1, review_reason=%s WHERE id=%s",
                      (new_reason, doc_id))
+    for doc_id, rest in unflag_plan:
+        # another reason it also carries keeps the document flagged
+        cur.execute("UPDATE Document SET needs_review=%s, review_reason=%s WHERE id=%s",
+                     (1 if rest else 0, rest, doc_id))
     conn.commit()
 
     cur.execute("""
@@ -171,7 +195,8 @@ def main():
     """)
     removed = cur.rowcount
     conn.commit()
-    print(f"\nApplied {len(resolved_plan)} resolved + {len(unresolved_plan)} unresolved updates. "
+    print(f"\nApplied {len(resolved_plan)} resolved + {len(unresolved_plan)} unresolved updates, "
+          f"{len(unflag_plan)} stale flags removed. "
           f"Removed {removed} now-orphaned DocumentSource rows.")
     conn.close()
 
