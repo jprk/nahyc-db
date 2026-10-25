@@ -11,3 +11,4 @@ konsolidované databázové schéma v `doc/konsolidace/` (viz jeho vlastní
 * `similarity_analysis.md` — generovaný report `src/tools/analyze_similarities.py` (šedá zóna podobnosti při deduplikaci).
 * `konsolidace/` — konsolidované databázové schéma, viz jeho vlastní `0README.md`.
 * `automation_proposal/` — externí návrh automatizace (Gemini research-agent transkript), reconciliován v `PLAN.md` §3.
+* `FULLTEXT_COVERAGE.md` — audit pokrytí plnými texty (2026-10-25): normy vyřazeny, 37 neomezených dokumentů bez souboru (jednotlivě: co jsou, zdroj, stažitelnost, doporučení), kontrola 199 dokumentů se souborem (správný dokument, text, jazyk — 123 českých dokumentů má anglický text), opravy provedené při auditu a doporučený postup.

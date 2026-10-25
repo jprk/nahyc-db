@@ -118,5 +118,33 @@ class FillTestCase(unittest.TestCase):
         self.assertEqual(conn.statements[0][1], ("new", 1, None))
 
 
+class OwnSourceTestCase(unittest.TestCase):
+    MANIFEST = {"Sinay_Zakony|2010/75/EU|odkaz_hlavni": {"status": "failed"},
+                "EU_Transposition_Targets|2010/75/EU|odkaz_eu": fetched("data/fulltext/directive.html")}
+
+    def test_a_document_of_another_source_does_not_get_the_files_of_a_namesake(self):
+        self.assertIsNone(sp.resolve_by_identifier(self.MANIFEST, "2010/75/EU", {"Sinay_Zakony"}))
+        self.assertEqual(sp.resolve_by_identifier(self.MANIFEST, "2010/75/EU", {"EU_Transposition_Targets"}),
+                         "data/fulltext/directive.html")
+
+    def test_without_sources_the_designation_alone_decides_as_before(self):
+        self.assertEqual(sp.resolve_by_identifier(self.MANIFEST, "2010/75/EU"), "data/fulltext/directive.html")
+
+    def test_a_merged_document_may_use_any_of_its_sources(self):
+        self.assertEqual(sp.document_sources("Sinay_Zakony, EU_Transposition_Targets"),
+                         {"Sinay_Zakony", "EU_Transposition_Targets"})
+        self.assertEqual(sp.resolve_by_identifier(self.MANIFEST, "2010/75/EU", sp.document_sources("Sinay_Zakony, EU_Transposition_Targets")),
+                         "data/fulltext/directive.html")
+
+    def test_fill_respects_the_documents_own_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            (root / "data" / "fulltext").mkdir(parents=True)
+            (root / "data/fulltext/directive.html").write_text("x", encoding="utf-8")
+            rows = [(62, "2010/75/EU", None, 0, "Sinay_Zakony"), (1222, "2010/75/EU", None, 0, "EU_Transposition_Targets")]
+            self.assertEqual(sp.plan_changes(rows, self.MANIFEST, root, fill=True),
+                             [(1222, "2010/75/EU", None, "data/fulltext/directive.html")])
+
+
 if __name__ == "__main__":
     unittest.main()
