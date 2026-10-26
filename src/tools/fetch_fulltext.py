@@ -43,6 +43,7 @@ import time
 import requests
 
 import language_variants
+from fulltext_keys import first_url, url_designation  # noqa: F401 (first_url is part of this module's API)
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
@@ -102,16 +103,6 @@ def is_norm_designation(znacka):
 
 def manifest_key(zdroj_dat, znacka, url_field):
     return f"{zdroj_dat}|{znacka}|{url_field}"
-
-
-def first_url(raw_value):
-    """Some Haltuf odkaz_* cells hold two URLs joined by an embedded
-    newline (an Excel line-break artifact, e.g. the EUR-Lex PDF link
-    followed by an unrelated informational page) — only the first is a
-    real, fetchable document link; sending the whole blob 404s. Splits
-    on any whitespace and returns the first token, or "" for blank/None."""
-    parts = (raw_value or "").split()
-    return parts[0] if parts else ""
 
 
 def load_url_overrides(path=URL_OVERRIDES_PATH):
@@ -205,13 +196,15 @@ def iter_fetch_targets(raw_data, overrides=None):
         if not is_fetchable_source(raw_record.get("typ_dokumentu", "")):
             continue
         znacka = (raw_record.get("znacka") or "").strip()
-        if not znacka or is_norm_designation(znacka):
+        if is_norm_designation(znacka):
             continue
         # the English row of an act that also has a Czech one is a document of its own
-        record = {**raw_record, "znacka": language_variants.variant_designation(raw_record, pairs)}
-        znacka = record["znacka"]
+        variant = language_variants.variant_designation(raw_record, pairs)
         for url_field in URL_FIELDS:
-            url = first_url(record.get(url_field))
+            url = first_url(raw_record.get(url_field))
+            # no znacka: the document is filed under a designation made of this address
+            znacka = variant or (url_designation(url) if url else "")
+            record = {**raw_record, "znacka": znacka}
             if url:
                 override = overrides.get(manifest_key(record["zdroj_dat"], znacka, url_field))
                 if override:  # an explicit address wins, language included

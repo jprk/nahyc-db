@@ -6,6 +6,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src" / "tools"))
 
@@ -190,12 +191,14 @@ class RunTestCase(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root, manifest_path = self._repo(tmp)
             out = root / "data" / "fulltext_clean"
-            stats, problems = ef.run(apply=False, manifest_path=manifest_path, output_dir=out, repo_root=root)
+            with mock.patch.dict(sys.modules, {"pymupdf": None}):  # as in the project venv
+                stats, problems = ef.run(apply=False, manifest_path=manifest_path, output_dir=out, repo_root=root)
             self.assertEqual(stats["extracted: zakonyprolidi"], 1)
             self.assertEqual(stats["extracted: eurlex"], 1)
             self.assertEqual(stats["failed"], 1)
             self.assertEqual(stats["skipped: unsupported source: www.technicke-normy-csn.cz"], 1)
-            self.assertEqual(stats["skipped: not a fetched HTML file"], 2)
+            self.assertEqual(stats["skipped: not a fetched HTML or PDF file"], 1)
+            self.assertEqual(stats["skipped: PDF without an HTML twin, PyMuPDF is not installed"], 1)
             self.assertEqual([k for k, _ in problems], ["k|c"])
             self.assertFalse(out.exists())
 
@@ -430,6 +433,49 @@ class LegacyEurLexTestCase(unittest.TestCase):
         page = "<html><head><title>EUR-Lex - 31999L0092 - EN</title></head><body><p>not found</p></body></html>"
         with self.assertRaises(ef.ExtractionError):
             ef.extract(page, "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:31999L0092")
+
+
+class PdfRunTestCase(unittest.TestCase):
+    def _manifest(self, root, entries):
+        (root / "data" / "fulltext").mkdir(parents=True)
+        manifest_path = root / "data" / "fulltext_manifest.json"
+        manifest_path.write_text(json.dumps(entries), encoding="utf-8")
+        return manifest_path
+
+    def test_a_pdf_without_a_twin_is_extracted_once_under_its_own_name(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            entry = {"status": "fetched", "local_path": "data/fulltext/url-1__ab.pdf", "url": "https://x/a.pdf"}
+            path = self._manifest(root, {"s|url-1|odkaz_hlavni": entry, "s|url-1|odkaz_eu": dict(entry)})
+            result = ef.Extracted('<p class="para">Text</p>', "Text\n", "pdf")
+            with mock.patch.object(ef, "_extract_pdf", return_value=result) as extract:
+                stats, problems = ef.run(apply=True, manifest_path=path, output_dir=root / "out", repo_root=root)
+            self.assertEqual(extract.call_count, 1)
+            self.assertEqual((stats["extracted: pdf"], stats["skipped: the same PDF under another field"]), (1, 1))
+            self.assertEqual((root / "out" / "url-1__ab.txt").read_text(encoding="utf-8"), "Text\n")
+            self.assertEqual(problems, [])
+
+    def test_a_pdf_whose_html_twin_was_fetched_is_left_to_the_twin(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            pdf = {"status": "fetched", "local_path": "data/fulltext/A__ab.pdf", "url": "https://eur-lex.europa.eu/pdf"}
+            twin = {"status": "fetched", "local_path": "data/fulltext/A__cd.html", "url": "https://eur-lex.europa.eu/h"}
+            path = self._manifest(root, {"s|A|odkaz_hlavni": pdf, "s|A|odkaz_hlavni_html": twin})
+            (root / "data" / "fulltext" / "A__cd.html").write_text(EURLEX_PAGE, encoding="utf-8")
+            with mock.patch.object(ef, "_extract_pdf") as extract:
+                stats, _ = ef.run(apply=True, manifest_path=path, output_dir=root / "out", repo_root=root)
+            extract.assert_not_called()
+            self.assertEqual((stats["skipped: PDF with an HTML twin"], stats["extracted: eurlex"]), (1, 1))
+            self.assertTrue((root / "out" / "A__ab.html").exists())  # the twin's text carries the PDF's name
+
+    def test_a_pdf_that_cannot_be_read_is_a_problem_not_a_crash(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            entry = {"status": "fetched", "local_path": "data/fulltext/scan.pdf", "url": "https://x/scan.pdf"}
+            path = self._manifest(root, {"s|url-2|odkaz_hlavni": entry})
+            with mock.patch.object(ef, "_extract_pdf", side_effect=ef.ExtractionError("no text layer")):
+                stats, problems = ef.run(apply=False, manifest_path=path, output_dir=root / "out", repo_root=root)
+            self.assertEqual((stats["failed"], problems), (1, [("s|url-2|odkaz_hlavni", "no text layer")]))
 
 
 if __name__ == "__main__":

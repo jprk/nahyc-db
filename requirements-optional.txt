@@ -23,3 +23,13 @@ duckduckgo_search==8.1.1
 # Not needed for the app, the regular pipeline, or any other src/sites/
 # module — every one of those still uses plain requests/BeautifulSoup.
 playwright==1.63.0
+
+# src/tools/pdf_text.py (called by extract_fulltext.py) — text of the PDFs that have
+# no HTML twin (strategies, studies, REACH, CLP). PyMuPDF is AGPL-licensed, so it is
+# not a dependency of the app: pdf_text.py imports it only when a PDF is opened, and
+# extract_fulltext.py reports such PDFs as skipped without it. Use an interpreter that has
+# it, e.g. the one the literature tools set up (`~/.cache/lit-tools/bin/python`), or
+#
+#   .venv/bin/pip install -r requirements.txt -r requirements-optional.txt
+pymupdf==1.28.2
+

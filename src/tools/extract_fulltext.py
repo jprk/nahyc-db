@@ -15,7 +15,8 @@ guessed at):
 - zakonyprolidi.cz — the `div.Frags` inside `article#idBody_idCtn`.
 - eur-lex.europa.eu — `div#text` (Official Journal markup, `oj-*` classes).
 - slov-lex.sk — `div.predpis` of the page as a browser rendered it.
-PDFs are NOT handled here (issue #2 open question).
+PDFs that have no HTML twin (see fetch_fulltext.html_alternative) are read by
+pdf_text.py, which needs PyMuPDF; without it they are reported as skipped.
 
 Output vocabulary (everything else is dropped or unwrapped): `h3`, `h4`,
 `p` (class `l1`..`l5`, `para`, `note`, `title`, `center`, `item` + `d0`..`d4`), `hr`, `table`
@@ -562,18 +563,40 @@ def clean_name_source(key, entry, manifest):
     return entry["local_path"]
 
 
+def _extract_pdf(path):
+    """Clean text of a PDF through pdf_text.py; `Unsupported` when PyMuPDF is missing."""
+    try:
+        import pymupdf  # noqa: F401
+    except ImportError:
+        raise Unsupported("PDF without an HTML twin, PyMuPDF is not installed") from None
+    import pdf_text
+    return pdf_text.extract_pdf(path)
+
+
 def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT):
     manifest = json.loads(pathlib.Path(manifest_path).read_text(encoding="utf-8"))
     stats = collections.Counter()
     problems = []
+    done_pdfs = set()
     for key, entry in sorted(manifest.items()):
         local = entry.get("local_path", "")
-        if entry.get("status") != "fetched" or not local.lower().endswith(".html"):
-            stats["skipped: not a fetched HTML file"] += 1
+        is_pdf = local.lower().endswith(".pdf")
+        if entry.get("status") != "fetched" or not (local.lower().endswith(".html") or is_pdf):
+            stats["skipped: not a fetched HTML or PDF file"] += 1
+            continue
+        if is_pdf and manifest.get(key + "_html", {}).get("status") == "fetched":
+            stats["skipped: PDF with an HTML twin"] += 1  # the twin's text is filed under this PDF's name
+            continue
+        if is_pdf and local in done_pdfs:
+            stats["skipped: the same PDF under another field"] += 1
             continue
         path = repo_root / local
         try:
-            result = extract(path.read_text(encoding="utf-8", errors="replace"), entry.get("url"))
+            if is_pdf:
+                result = _extract_pdf(path)
+                done_pdfs.add(local)
+            else:
+                result = extract(path.read_text(encoding="utf-8", errors="replace"), entry.get("url"))
         except Unsupported as e:
             stats[f"skipped: {e}"] += 1
             continue
@@ -606,4 +629,5 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import extract_fulltext  # pdf_text imports this module: run the one copy of it, not `__main__`
+    sys.exit(extract_fulltext.main())

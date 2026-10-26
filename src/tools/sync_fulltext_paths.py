@@ -8,7 +8,8 @@ serves a missing file or a wrong one.
 A document's own `file_path` is touched only when its file is missing; every
 other document is left alone — unless `--fill` is given, which also sets a
 `file_path` on documents that have none (a text downloaded after the database
-was built), but never on a restricted type. Changes are applied in one transaction.
+was built; for those without a designation by their address, see
+plan_unidentified), but never on a restricted type. Changes are applied in one transaction.
 
 Usage:
     .venv/bin/python src/tools/sync_fulltext_paths.py            # dry run
@@ -78,6 +79,47 @@ def plan_changes(rows, manifest, repo_root=REPO_ROOT, fill=False):
     return changes
 
 
+def plan_unidentified(rows, items, manifest, repo_root=REPO_ROOT):
+    """Changes for the documents that have no `identifier` (strategies, studies, acts listed
+    by their address only, and a designation another document already holds) and no
+    `file_path`. The manifest knows a record without a designation by its address
+    (fulltext_keys.py), and the database holds nothing to compute that from, so each
+    document is matched to its JSON record by slug (`doc-<hash of the title>`, what
+    init_db gives a record without an identifier) and, where several records share
+    the slug (placeholder titles), by address; the record then names the manifest
+    entry the way init_db.resolve_file_path() does. Never a restricted type, never a
+    guess between records that cannot be told apart.
+    `rows` are `(id, identifier, file_path, restricted, zdroj_dat, slug, url)`, `items`
+    the deduplicated records."""
+    import init_db
+    import slug as slug_module
+    by_slug = {}
+    for item in items:
+        title = init_db.resolve_title(item)
+        if title and not init_db.is_restricted_document_type(init_db.resolve_document_type(item.get("typ_dokumentu", ""))):
+            by_slug.setdefault(slug_module.base_slug(None, title), []).append(item)
+    root = pathlib.Path(repo_root)
+    changes = []
+    for doc_id, identifier, path, restricted, _sources, slug, url in rows:
+        if identifier or path or restricted:
+            continue
+        base = slug.rsplit("-", 1)[0] if _is_suffixed(slug, by_slug) else slug
+        candidates = by_slug.get(base, [])
+        if len(candidates) > 1:
+            candidates = [item for item in candidates if init_db.resolve_url(item) == (url or "")]
+        if len(candidates) != 1:
+            continue
+        new = init_db.resolve_file_path(candidates[0], manifest)
+        if new and (root / new).is_file():
+            changes.append((doc_id, f"slug {slug}", None, new))
+    return changes
+
+
+def _is_suffixed(slug, by_slug):
+    """A slug the collision handling gave a `-2`, `-3` ... suffix (slug.assign_slugs)."""
+    return bool(slug) and slug not in by_slug and slug.rsplit("-", 1)[0] in by_slug
+
+
 def apply_changes(conn, changes):
     with conn.cursor() as cur:
         for doc_id, _identifier, old, new in changes:
@@ -102,10 +144,14 @@ def main(argv=None):
                            password=env["DB_PASSWORD"], database=env["DB_NAME"])
     try:
         with conn.cursor() as cur:
-            cur.execute("""SELECT d.id, d.identifier, d.file_path, dt.restricted_fulltext, d.zdroj_dat
+            cur.execute("""SELECT d.id, d.identifier, d.file_path, dt.restricted_fulltext, d.zdroj_dat, d.slug, d.url
                            FROM Document d LEFT JOIN DocumentType dt ON dt.id = d.type_id""")
             rows = cur.fetchall()
-        changes = plan_changes(rows, ff.load_manifest(), fill=args.fill)
+        manifest = ff.load_manifest()
+        changes = plan_changes([row[:5] for row in rows], manifest, fill=args.fill)
+        if args.fill:
+            records = json.loads((REPO_ROOT / "data" / "database_merged_deduplicated.json").read_text(encoding="utf-8"))
+            changes += plan_unidentified(rows, records, manifest)
         for doc_id, identifier, old, new in changes:
             print(f"document {doc_id} ({identifier}): {old} -> {new or 'NULL (no valid file)'}")
         if args.apply and changes:

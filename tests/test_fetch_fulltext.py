@@ -69,10 +69,23 @@ class IterFetchTargetsTestCase(unittest.TestCase):
                 "odkaz_hlavni": "https://www.technicke-normy-csn.cz/x.html"}]
         self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
 
-    def test_skips_records_without_znacka(self):
-        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "",
-                "odkaz_hlavni": "https://eur-lex.europa.eu/x"}]
-        self.assertEqual(list(ff.iter_fetch_targets(raw)), [])
+    def test_a_record_without_znacka_is_filed_under_a_designation_made_of_the_address(self):
+        raw = [{"zdroj_dat": "HYTEP", "znacka": "", "typ_dokumentu": "Studie",
+                "odkaz_hlavni": "https://www.hytep.cz/a.pdf", "odkaz_eu": "https://www.hytep.cz/b.pdf"}]
+        targets = [(r["znacka"], f, u) for r, f, u in ff.iter_fetch_targets(raw)]
+        self.assertEqual(targets, [(ff.url_designation("https://www.hytep.cz/a.pdf"), "odkaz_hlavni", "https://www.hytep.cz/a.pdf"),
+                                   (ff.url_designation("https://www.hytep.cz/b.pdf"), "odkaz_eu", "https://www.hytep.cz/b.pdf")])
+        self.assertTrue(targets[0][0].startswith("url-"))
+
+    def test_a_record_with_neither_znacka_nor_address_has_nothing_to_fetch(self):
+        self.assertEqual(list(ff.iter_fetch_targets([{"zdroj_dat": "HYTEP", "znacka": "", "typ_dokumentu": "Studie"}])), [])
+
+    def test_an_override_of_a_url_designated_record_is_found_by_that_designation(self):
+        url = "https://md.gov.cz/dead.pdf"
+        key = ff.manifest_key("Haltuf_Dokumenty", ff.url_designation(url), "odkaz_hlavni")
+        raw = [{"zdroj_dat": "Haltuf_Dokumenty", "znacka": "", "typ_dokumentu": "Předpis", "odkaz_hlavni": url}]
+        targets = list(ff.iter_fetch_targets(raw, {key: {"url": "https://md.gov.cz/new.pdf", "reason": "dead"}}))
+        self.assertEqual(targets[0][2], "https://md.gov.cz/new.pdf")
 
     def test_yields_one_entry_per_populated_url_field(self):
         raw = [{"zdroj_dat": "Sinay_Zakony", "znacka": "183/2006 Sb.",

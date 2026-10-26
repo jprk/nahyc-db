@@ -396,5 +396,24 @@ class ResolveSourceJurisdictionTestCase(unittest.TestCase):
         self.assertEqual(resolve_source_jurisdiction("Unknown Body", {"MPO": "CZ"}), (None, None))
 
 
+class ResolveFilePathByAddressTestCase(unittest.TestCase):
+    def test_a_record_without_znacka_is_found_by_the_designation_made_of_its_address(self):
+        import fulltext_keys
+        url = "https://www.hytep.cz/a.pdf"
+        manifest = {f"HYTEP|{fulltext_keys.url_designation(url)}|odkaz_hlavni":
+                    {"status": "fetched", "local_path": "data/fulltext/u__ab.pdf"}}
+        item = {"zdroj_dat": "HYTEP", "znacka": "", "odkaz_hlavni": url}
+        self.assertEqual(resolve_file_path(item, manifest), "data/fulltext/u__ab.pdf")
+
+    def test_a_record_with_neither_znacka_nor_address_has_no_file(self):
+        self.assertIsNone(resolve_file_path({"zdroj_dat": "HYTEP", "znacka": ""}, {}))
+
+    def test_another_address_is_another_designation(self):
+        import fulltext_keys
+        manifest = {f"HYTEP|{fulltext_keys.url_designation('https://x/a.pdf')}|odkaz_hlavni":
+                    {"status": "fetched", "local_path": "data/fulltext/u__ab.pdf"}}
+        self.assertIsNone(resolve_file_path({"zdroj_dat": "HYTEP", "odkaz_hlavni": "https://x/b.pdf"}, manifest))
+
+
 if __name__ == "__main__":
     unittest.main()
