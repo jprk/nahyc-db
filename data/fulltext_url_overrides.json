@@ -50,5 +50,9 @@
   "Sinay_Zakony|url-86dc0d38|odkaz_hlavni": {
     "reason": "Slov-Lex has no such act: the record is the Slovak language version of the Commission Communication COM(2020) 301 (hydrogen strategy), which is on EUR-Lex — doc/FULLTEXT_COVERAGE.md 4.1.",
     "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=CELEX:52020DC0301"
+  },
+  "Sinay_Zakony|url-fd143b87|odkaz_hlavni": {
+    "reason": "The record (document #79) is the Czech version of Commission Communication COM(2020) 301, but its address is the English page. The Czech version exists only as a Word file, which EUR-Lex serves converted to XHTML at the /CS/TXT/HTML/ address (a page the extractor reads as the dialect of a converted Word file).",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301"
   }
 }
