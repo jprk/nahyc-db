@@ -94,7 +94,7 @@ def report_db(conn):
     print(f"relation_type ENUM: {col['Type'] if col else '(missing)'}")
     seen = {r["relation_type"] for r in rel_rows}
     for declared in ("AMENDS", "REPEALS", "IMPLEMENTS", "CONSOLIDATES",
-                     "ADOPTS", "NATIONAL_EQUIVALENT"):
+                     "ADOPTS", "NATIONAL_EQUIVALENT", "TRANSLATION_OF"):
         if declared not in seen:
             print(f"  declared but unused in the data: {declared}")
 

@@ -398,6 +398,99 @@ def resolve_document_versions(item):
     ]
 
 
+def prepare_document(cursor, item, seen_identifiers, gestor_jurisdiction_map, eu_gestor_cache,
+                     fulltext_manifest):
+    """Everything `Document` needs from one JSON record, resolved the way a
+    rebuild resolves it (title, type, language, identifier, gestor/source, file
+    path, review flags), or None for a record without a title. The one place
+    for it: import_json_data() inserts the result, and
+    backfill_language_variants.py applies it to the live database. Creates the
+    DocumentType/DocumentSource rows it refers to when they are missing;
+    `seen_identifiers` is extended with the identifier it claims."""
+    title = resolve_title(item)
+    if not title:
+        return None
+
+    doc_type = resolve_document_type(item.get("typ_dokumentu", ""))
+    effective_date = item.get("platnost", "").strip()
+    url = resolve_url(item)
+
+    description = resolve_description(item)
+
+    # src/tools/language.py, 2026-09-15: a raw `jazyk` value (when
+    # present) is normalized to EN/CS/SK/DE spelling; otherwise the
+    # language is detected from title/description — see that module
+    # for why title takes priority over description (many records'
+    # description is scope/abstract text in a different language than
+    # the document itself). doc/PLAN.md §23, 2026-09-17: checked
+    # first, a domain-based override (e.g. e-sbirka.gov.cz -> CS)
+    # wins over both — a known structural fact about the source
+    # system, not a guess.
+    language = resolve_domain_language_override(url)
+    language_confident = language is not None
+    if language is None:
+        language = normalize_raw_language(item.get("jazyk", ""))
+        language_confident = language is not None
+    if language is None:
+        language, language_confident = detect_language(title, description)
+
+    identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
+
+    # src/tools/puvodce.py, 2026-09-15/16: "Gestor" is a single
+    # institution, chosen by document kind — the primary CZ ministry
+    # for a national act, the responsible EU body for an EU act (from
+    # data/eu_gestor_cache.json, see backfill_eu_gestor.py), or the
+    # publishing standards body for a Norma (derived from its own
+    # designation, see standards_body.py) — never the whole raw
+    # `gestor` list joined verbatim, which is what this script used
+    # to do. Same one-time fixes as backfill_puvodce.py /
+    # backfill_eu_gestor.py / backfill_standards_body.py applied
+    # directly to the already-imported DB, kept here too so a future
+    # rebuild from JSON reproduces the same result. Runs after
+    # resolve_identifier() because the Norma branch reads the
+    # RESOLVED identifier — a znacka nulled by a collision must not
+    # silently resolve a body the live DB row can't.
+    gestor, gestor_unresolved_eu_act = resolve_gestor(
+        item, doc_type, url, eu_gestor_cache, identifier=identifier)
+    source = gestor or ""
+
+    # src/tools/norm_title.py, 2026-09-15: Norma titles never carried
+    # their own designation (e.g. "ČSN EN 17124") — prefix it, same
+    # one-time fix as backfill_norm_designation.py applied directly
+    # to the already-imported DB, kept here too so a future rebuild
+    # from JSON reproduces the same result.
+    if doc_type == "Norma":
+        title, _ = format_norm_title(title, identifier)
+
+    jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
+    file_path = resolve_file_path(item, fulltext_manifest)
+    review_reasons = detect_data_quality_issues(item)
+    if not language_confident:
+        review_reasons.append(f"jazyk dokumentu byl automaticky odhadnut, ověřte ({language})")
+    if gestor_unresolved_eu_act:
+        review_reasons.append(
+            "EU akt: autoritativní gestor (DG/instituce) se v EUR-Lex/Cellar nepodařilo dohledat")
+    needs_review = bool(review_reasons)
+    review_reason = "; ".join(review_reasons) or None
+
+    type_id = get_or_create(
+        cursor, "DocumentType", {"name": doc_type},
+        extra_insert_cols={"restricted_fulltext": is_restricted_document_type(doc_type)})
+
+    source_id = None
+    if source:
+        institution_type, source_jurisdiction = resolve_source_jurisdiction(
+            source, gestor_jurisdiction_map)
+        source_id = get_or_create(
+            cursor, "DocumentSource", {"name": source},
+            extra_insert_cols={"institution_type": institution_type,
+                                "jurisdiction": source_jurisdiction})
+    return {"title": title, "description": description, "type_id": type_id, "source_id": source_id,
+            "language": language, "url": url, "effective_date": effective_date, "identifier": identifier,
+            "jurisdikce": jurisdikce, "file_path": file_path, "needs_review": needs_review,
+            "review_reason": review_reason, "review_reasons": review_reasons}
+
+
 def import_json_data(db_conn):
     print(f"Reading from {JSON_PATH}")
 
@@ -419,84 +512,17 @@ def import_json_data(db_conn):
     slug_inputs = []
 
     for item in data:
-        title = resolve_title(item)
-        if not title:
+        prepared = prepare_document(cursor, item, seen_identifiers, gestor_jurisdiction_map,
+                                    eu_gestor_cache, fulltext_manifest)
+        if prepared is None:
             continue
-
-        doc_type = resolve_document_type(item.get("typ_dokumentu", ""))
-        effective_date = item.get("platnost", "").strip()
-        url = resolve_url(item)
-
-        description = resolve_description(item)
-
-        # src/tools/language.py, 2026-09-15: a raw `jazyk` value (when
-        # present) is normalized to EN/CS/SK/DE spelling; otherwise the
-        # language is detected from title/description — see that module
-        # for why title takes priority over description (many records'
-        # description is scope/abstract text in a different language than
-        # the document itself). doc/PLAN.md §23, 2026-09-17: checked
-        # first, a domain-based override (e.g. e-sbirka.gov.cz -> CS)
-        # wins over both — a known structural fact about the source
-        # system, not a guess.
-        language = resolve_domain_language_override(url)
-        language_confident = language is not None
-        if language is None:
-            language = normalize_raw_language(item.get("jazyk", ""))
-            language_confident = language is not None
-        if language is None:
-            language, language_confident = detect_language(title, description)
-
-        identifier = resolve_identifier(item.get("znacka", ""), seen_identifiers)
-
-        # src/tools/puvodce.py, 2026-09-15/16: "Gestor" is a single
-        # institution, chosen by document kind — the primary CZ ministry
-        # for a national act, the responsible EU body for an EU act (from
-        # data/eu_gestor_cache.json, see backfill_eu_gestor.py), or the
-        # publishing standards body for a Norma (derived from its own
-        # designation, see standards_body.py) — never the whole raw
-        # `gestor` list joined verbatim, which is what this script used
-        # to do. Same one-time fixes as backfill_puvodce.py /
-        # backfill_eu_gestor.py / backfill_standards_body.py applied
-        # directly to the already-imported DB, kept here too so a future
-        # rebuild from JSON reproduces the same result. Runs after
-        # resolve_identifier() because the Norma branch reads the
-        # RESOLVED identifier — a znacka nulled by a collision must not
-        # silently resolve a body the live DB row can't.
-        gestor, gestor_unresolved_eu_act = resolve_gestor(
-            item, doc_type, url, eu_gestor_cache, identifier=identifier)
-        source = gestor or ""
-
-        # src/tools/norm_title.py, 2026-09-15: Norma titles never carried
-        # their own designation (e.g. "ČSN EN 17124") — prefix it, same
-        # one-time fix as backfill_norm_designation.py applied directly
-        # to the already-imported DB, kept here too so a future rebuild
-        # from JSON reproduces the same result.
-        if doc_type == "Norma":
-            title, _ = format_norm_title(title, identifier)
-
-        jurisdikce = normalize_jurisdikce(item.get("jurisdikce", ""))
-        file_path = resolve_file_path(item, fulltext_manifest)
-        review_reasons = detect_data_quality_issues(item)
-        if not language_confident:
-            review_reasons.append(f"jazyk dokumentu byl automaticky odhadnut, ověřte ({language})")
-        if gestor_unresolved_eu_act:
-            review_reasons.append(
-                "EU akt: autoritativní gestor (DG/instituce) se v EUR-Lex/Cellar nepodařilo dohledat")
-        needs_review = bool(review_reasons)
-        review_reason = "; ".join(review_reasons) or None
-
-        type_id = get_or_create(
-            cursor, "DocumentType", {"name": doc_type},
-            extra_insert_cols={"restricted_fulltext": is_restricted_document_type(doc_type)})
-
-        source_id = None
-        if source:
-            institution_type, source_jurisdiction = resolve_source_jurisdiction(
-                source, gestor_jurisdiction_map)
-            source_id = get_or_create(
-                cursor, "DocumentSource", {"name": source},
-                extra_insert_cols={"institution_type": institution_type,
-                                    "jurisdiction": source_jurisdiction})
+        title, description, type_id, source_id = (
+            prepared["title"], prepared["description"], prepared["type_id"], prepared["source_id"])
+        language, url, effective_date, identifier = (
+            prepared["language"], prepared["url"], prepared["effective_date"], prepared["identifier"])
+        jurisdikce, file_path, needs_review, review_reason, review_reasons = (
+            prepared["jurisdikce"], prepared["file_path"], prepared["needs_review"],
+            prepared["review_reason"], prepared["review_reasons"])
 
         # doc/PLAN.md §15, 2026-09-15: zdroj_dat/nazev_autoritativni/
         # popis_autoritativni/zdroj_autoritativni_url/jurisdikce_puvodni

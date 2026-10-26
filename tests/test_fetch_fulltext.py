@@ -611,6 +611,22 @@ class CommittedManifestTestCase(unittest.TestCase):
                 stale.append(key)
         self.assertEqual(stale, [], "fetch_fulltext.py would fetch these again")
 
+class LanguageVariantTargetsTestCase(unittest.TestCase):
+    def rows(self):
+        base = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "2014/68/EU", "typ_dokumentu": "Směrnice EU"}
+        return [{**base, "jazyk": "CZ", "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0068"},
+                {**base, "jazyk": "EN", "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0068"}]
+
+    def test_the_english_row_of_an_act_with_a_czech_row_is_filed_under_its_own_designation(self):
+        targets = [(r["znacka"], f, u) for r, f, u in ff.iter_fetch_targets(self.rows())]
+        self.assertEqual([(z, f) for z, f, _ in targets], [("2014/68/EU", "odkaz_hlavni"), ("2014/68/EU [EN]", "odkaz_hlavni")])
+        self.assertIn("/legal-content/CS/", targets[0][2])
+        self.assertIn("/legal-content/EN/", targets[1][2])
+
+    def test_a_lone_english_row_keeps_its_designation(self):
+        targets = [r["znacka"] for r, _, _ in ff.iter_fetch_targets(self.rows()[1:])]
+        self.assertEqual(targets, ["2014/68/EU"])
+
 
 if __name__ == "__main__":
     unittest.main()

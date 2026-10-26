@@ -42,6 +42,8 @@ import time
 
 import requests
 
+import language_variants
+
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
@@ -192,16 +194,22 @@ def iter_fetch_targets(raw_data, overrides=None):
     non-empty znacka and a populated URL field. Records with no znacka
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
     there's no stable key to file them under. A URL listed in `overrides`
-    (see load_url_overrides) replaces the one from the record. An EUR-Lex PDF
+    (see load_url_overrides) replaces the one from the record. The English row
+    of an act that also has a Czech row is yielded under the designation
+    `<znacka> [EN]` (language_variants.py). An EUR-Lex PDF
     address is followed by the address of the same document as HTML
     (`html_alternative`) under the field `<field>_html`."""
     overrides = overrides or {}
-    for record in raw_data:
-        if not is_fetchable_source(record.get("typ_dokumentu", "")):
+    pairs = language_variants.variant_pairs(raw_data)
+    for raw_record in raw_data:
+        if not is_fetchable_source(raw_record.get("typ_dokumentu", "")):
             continue
-        znacka = (record.get("znacka") or "").strip()
+        znacka = (raw_record.get("znacka") or "").strip()
         if not znacka or is_norm_designation(znacka):
             continue
+        # the English row of an act that also has a Czech one is a document of its own
+        record = {**raw_record, "znacka": language_variants.variant_designation(raw_record, pairs)}
+        znacka = record["znacka"]
         for url_field in URL_FIELDS:
             url = first_url(record.get(url_field))
             if url:
