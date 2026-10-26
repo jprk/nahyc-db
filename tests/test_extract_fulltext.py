@@ -478,5 +478,38 @@ class PdfRunTestCase(unittest.TestCase):
             self.assertEqual((stats["failed"], problems), (1, [("s|url-2|odkaz_hlavni", "no text layer")]))
 
 
+WORD_PAGE = """<html><head><title>IMMC.COM.docx</title></head><body><div class="contentWrapper">
+<div class="content"><p class="Logo"><img src="data:image/png;base64,AAAA"/>
+EVROPSKÁ KOMISE</p></div>
+<div class="content"><p class="Emission">V Bruselu dne 8.7.2020</p><p class="Typedudocument_cp">SDĚLENÍ KOMISE</p>
+<p class="Titreobjet_cp">Vodíková strategie</p></div>
+<div class="content"><p class="li Heading1"><span class="num">1.</span><span class="tab"> </span>Úvod</p>
+<p class="Normal">Vodík se těší pozornosti<a class="footnoteRef" href="#f1">1</a>.</p><p class="Normal"> </p>
+<p class="li ListParagraph"><span class="list-symbol">-</span>první bod</p>
+<p class="Heading2">Podkapitola</p>
+<table><tr><td><p class="Normal">buňka A</p></td><td><p class="Normal">buňka B</p></td></tr></table>
+<p class="FootnoteText"><a class="footnote" href="#r1"></a>Poznámka pod čarou.</p></div></div></body></html>"""
+
+
+class WordDocumentTestCase(unittest.TestCase):
+    def test_a_converted_word_file_gives_the_text_in_the_closed_vocabulary(self):
+        result = ef.extract(WORD_PAGE, "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301")
+        self.assertEqual(result.source, "eurlex")
+        lines = result.html.split("\n")
+        self.assertEqual(lines[0], '<p class="center">EVROPSKÁ KOMISE</p>')
+        self.assertIn('<p class="title">SDĚLENÍ KOMISE</p>', lines)
+        self.assertIn("<h3>1. Úvod</h3>", lines)
+        self.assertIn('<p class="para">Vodík se těší pozornosti<sup>1</sup>.</p>', lines)
+        self.assertIn('<p class="item d0"><span class="num">-</span>první bod</p>', lines)
+        self.assertIn("<h4>Podkapitola</h4>", lines)
+        self.assertIn('<p class="note"><span class="num">1</span> Poznámka pod čarou.</p>', lines)
+        self.assertEqual(result.html.count("<table"), 1)
+        self.assertNotIn("img", result.html)
+        self.assertNotIn("data:", result.text)
+
+    def test_the_source_is_recognised_without_an_address_too(self):
+        self.assertEqual(ef.extract(WORD_PAGE).source, "eurlex")
+
+
 if __name__ == "__main__":
     unittest.main()

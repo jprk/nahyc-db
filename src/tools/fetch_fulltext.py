@@ -272,8 +272,11 @@ def already_fetched(manifest, key):
 
 # What every EUR-Lex act page has once its content has rendered: the `div#text`
 # of the original text, the `eli-container` of a consolidated text, or the
-# Official Journal's own title class.
-_EURLEX_ACT_MARKER = re.compile(r"""id=["'](?:text|TexteOnly)["']|eli-container|oj-doc-ti""")
+# Official Journal's own title class, or the wrapper of a Word file converted to XHTML.
+_EURLEX_ACT_MARKER = re.compile(
+    r"""id=["'](?:text|TexteOnly)["']|eli-container|oj-doc-ti"""
+    # the converted Word file: the classes of its title block, or its first-level headings
+    r"""|class=["'](?:Emission|Rfrenceinstitutionnelle|Typedudocument_cp|Titreobjet_cp|Heading1)["']""")
 
 
 def designation_numbers(znacka):

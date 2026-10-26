@@ -82,7 +82,8 @@ def plan_changes(rows, manifest, repo_root=REPO_ROOT, fill=False):
 def plan_unidentified(rows, items, manifest, repo_root=REPO_ROOT):
     """Changes for the documents that have no `identifier` (strategies, studies, acts listed
     by their address only, and a designation another document already holds) and no
-    `file_path`. The manifest knows a record without a designation by its address
+    `file_path` — or a `file_path` that no manifest entry names any more (the text was fetched again from
+another address). The manifest knows a record without a designation by its address
     (fulltext_keys.py), and the database holds nothing to compute that from, so each
     document is matched to its JSON record by slug (`doc-<hash of the title>`, what
     init_db gives a record without an identifier) and, where several records share
@@ -99,10 +100,11 @@ def plan_unidentified(rows, items, manifest, repo_root=REPO_ROOT):
         if title and not init_db.is_restricted_document_type(init_db.resolve_document_type(item.get("typ_dokumentu", ""))):
             by_slug.setdefault(slug_module.base_slug(None, title), []).append(item)
     root = pathlib.Path(repo_root)
+    referenced = {entry.get("local_path") for entry in manifest.values() if entry.get("status") == "fetched"}
     changes = []
     for doc_id, identifier, path, restricted, _sources, slug, url in rows:
-        if identifier or path or restricted:
-            continue
+        if identifier or restricted or (path and path in referenced):
+            continue  # has a designation, or a file the manifest still names
         base = slug.rsplit("-", 1)[0] if _is_suffixed(slug, by_slug) else slug
         candidates = by_slug.get(base, [])
         if len(candidates) > 1:
@@ -111,7 +113,7 @@ def plan_unidentified(rows, items, manifest, repo_root=REPO_ROOT):
             continue
         new = init_db.resolve_file_path(candidates[0], manifest)
         if new and (root / new).is_file():
-            changes.append((doc_id, f"slug {slug}", None, new))
+            changes.append((doc_id, f"slug {slug}", path, new))
     return changes
 
 

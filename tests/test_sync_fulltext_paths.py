@@ -169,12 +169,20 @@ class UnidentifiedTestCase(unittest.TestCase):
             self.assertEqual(sp.plan_unidentified(rows, [self.item], manifest, repo_root=tmp),
                              [(7, f"slug {self.slug}", None, "data/fulltext/u__ab.pdf")])
 
-    def test_a_document_that_has_a_designation_or_a_path_or_is_restricted_is_left_alone(self):
+    def test_a_document_that_has_a_designation_or_a_current_path_or_is_restricted_is_left_alone(self):
         with tempfile.TemporaryDirectory() as tmp:
             manifest = self._repo(tmp)
-            for row in ((7, "X 1", None, 0, "HYTEP", self.slug, self.URL), (7, None, "data/fulltext/o.pdf", 0, "HYTEP", self.slug, self.URL),
+            for row in ((7, "X 1", None, 0, "HYTEP", self.slug, self.URL),
+                        (7, None, "data/fulltext/u__ab.pdf", 0, "HYTEP", self.slug, self.URL),  # the manifest still names it
                         (7, None, None, 1, "HYTEP", self.slug, self.URL)):
                 self.assertEqual(sp.plan_unidentified([row], [self.item], manifest, repo_root=tmp), [])
+
+    def test_a_path_that_no_manifest_entry_names_any_more_is_repointed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            rows = [(7, None, "data/fulltext/old__en.html", 0, "HYTEP", self.slug, self.URL)]
+            self.assertEqual(sp.plan_unidentified(rows, [self.item], manifest, repo_root=tmp),
+                             [(7, f"slug {self.slug}", "data/fulltext/old__en.html", "data/fulltext/u__ab.pdf")])
 
     def test_a_missing_file_or_another_title_gives_nothing(self):
         with tempfile.TemporaryDirectory() as tmp:

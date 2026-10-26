@@ -10,6 +10,7 @@ headings, paragraphs with a nesting level, tables, a few inline marks —
 that the application can restyle and render without trusting anything the
 source page contained. The original download is never touched.
 
+(EUR-Lex pages that are a converted Word document: `_extract_eurlex_word`.)
 Supported sources (anything else is reported as unsupported, never
 guessed at):
 - zakonyprolidi.cz — the `div.Frags` inside `article#idBody_idCtn`.
@@ -393,6 +394,8 @@ def _extract_eurlex(soup):
     # the `eli-container` of the consolidated-text page, which has no `div#text`
     # — or, for an act from before 2004, the legacy page (see above).
     root = soup.find("div", id="text") or soup.select_one(".eli-container") or soup.body
+    if soup.find("div", id="text") is None and soup.select_one("div.contentWrapper > div.content"):
+        return _extract_eurlex_word(soup)  # a Word document converted to XHTML
     if root is None or not (root.find(class_="eli-container") or root.find(class_="oj-normal")
                             or "eli-container" in _classes(root) or root.find(class_="oj-doc-ti")):
         legacy = _extract_eurlex_legacy(soup)
@@ -400,6 +403,63 @@ def _extract_eurlex(soup):
             raise ExtractionError("eur-lex: no Official Journal text (search/error page?)")
         return legacy
     return "\n".join(_blocks(root, "eurlex"))
+
+
+# --- EUR-Lex, a Word document converted to XHTML ----------------------------
+# Texts that exist only as a Word file (e.g. a Commission communication in its
+# Czech version, `…/CS/TXT/HTML/?uri=CELEX:52020DC0301`) are served as the XHTML
+# of the converted .docx: `div.contentWrapper` > `div.content`, paragraphs carrying
+# Word style names as classes — `Heading1`.., `Normal`, `li` + `ListParagraph` (with a
+# `span.list-symbol`), `FootnoteText`, and a title block (`Emission`, `Typedudocument_cp`,
+# `Titreobjet_cp`).
+_WORD_CENTERED = {"Logo", "Emission", "Rfrenceinstitutionnelle"}
+_WORD_TITLES = {"Typedudocument_cp", "Titreobjet_cp"}
+_WORD_HEADING = re.compile(r"^Heading(\d)$")
+
+
+def _word_text(p):
+    """The inline HTML of a Word paragraph: a footnote reference is a superscript number,
+    the number/tab spans of a heading or an item are separated from the text."""
+    for ref in p.select("a.footnoteRef, span.FootnoteReference"):
+        ref.name = "sup"
+        ref.attrs = {}
+    for number in p.select("span.num"):
+        number.insert_after(" ")
+    for tab in p.select("span.tab"):
+        tab.replace_with(" ")
+    return re.sub(r" {2,}", " ", _inline(p))
+
+
+def _extract_eurlex_word(soup):
+    root = soup.select_one("div.contentWrapper")
+    out = []
+    footnotes = 0  # the number of a footnote is a counter in the Word file, not text
+    for node in root.find_all(["p", "table"]):
+        if node.find_parent("table") is not None and node.name == "p":
+            continue  # a paragraph inside a table cell is part of the table
+        if node.name == "table":
+            out.append(_table(node, "zakonyprolidi"))
+            continue
+        classes = set(_classes(node))
+        symbol = node.select_one("span.list-symbol")
+        heading = next((m for m in map(_WORD_HEADING.match, classes) if m), None)
+        if heading:
+            out.append(_emit("h3" if heading.group(1) == "1" else "h4", None, _word_text(node)))
+        elif "li" in classes and symbol is not None:
+            marker = _WS.sub(" ", symbol.get_text()).strip()
+            symbol.decompose()
+            out.append(_emit("p", "item d0", f'<span class="num">{html.escape(marker, quote=False)}</span>'
+                             + _word_text(node)))
+        elif classes & _WORD_TITLES:
+            out.append(_emit("p", "title", _word_text(node)))
+        elif classes & _WORD_CENTERED:
+            out.append(_emit("p", "center", _word_text(node)))
+        elif "FootnoteText" in classes:
+            footnotes += 1
+            out.append(_emit("p", "note", f'<span class="num">{footnotes}</span> ' + _word_text(node)))
+        else:
+            out.append(_emit("p", "para", _word_text(node)))
+    return "\n".join(block for block in out if block)
 
 
 # --- Slov-Lex -------------------------------------------------------------
@@ -535,6 +595,8 @@ def detect_source(url=None, soup=None):
         if soup.find("article", id="idBody_idCtn"):
             return "zakonyprolidi"
         if soup.find("div", id="text") and soup.find(class_=re.compile(r"^(oj-|eli-)")):
+            return "eurlex"
+        if soup.select_one("div.contentWrapper > div.content") and soup.select_one("p.Normal, p.Heading1"):
             return "eurlex"
         if soup.select_one("div.predpis > div.predpisOznacenie"):
             return "slovlex"

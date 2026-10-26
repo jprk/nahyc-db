@@ -641,5 +641,20 @@ class LanguageVariantTargetsTestCase(unittest.TestCase):
         self.assertEqual(targets, ["2014/68/EU"])
 
 
+
+
+
+class WordDocumentPageTestCase(unittest.TestCase):
+    URL = "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301"
+
+    def test_a_converted_word_file_is_an_act_page(self):
+        page = b'<div class="contentWrapper"><div class="content"><p class="Emission">V Bruselu</p></div></div>'
+        self.assertEqual(ff.is_document_page(self.URL, page, "text/html"), (True, ""))
+
+    def test_an_empty_wrapper_is_not(self):
+        page = b'<div class="contentWrapper"><div class="content"></div></div>'
+        self.assertFalse(ff.is_document_page(self.URL, page, "text/html")[0])
+
+
 if __name__ == "__main__":
     unittest.main()
