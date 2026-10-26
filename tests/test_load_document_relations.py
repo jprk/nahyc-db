@@ -93,14 +93,17 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
         self.hand = base / "document_relations.json"
         self.auto = base / "document_relations_auto.json"
         self.split = base / "document_relations_split.json"
+        self.variants = base / "document_relations_variants.json"
 
-        self._orig = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH)
-        ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH = (
-            self.hand, self.auto, self.split)
+        self._orig = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
+                      ldr.VARIANTS_RELATIONS_PATH)
+        ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH = (
+            self.hand, self.auto, self.split, self.variants)
         self.addCleanup(self._restore_paths)
 
     def _restore_paths(self):
-        ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH = self._orig
+        (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
+         ldr.VARIANTS_RELATIONS_PATH) = self._orig
 
     def test_merges_all_three_when_present(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")
@@ -110,6 +113,11 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
         self.assertEqual(
             sorted(r["relation_type"] for r in relations),
             ["ADOPTS", "AMENDS", "NATIONAL_EQUIVALENT"])
+
+    def test_the_language_variants_file_is_read_too_and_its_type_is_valid(self):
+        self.variants.write_text(json.dumps([{"relation_type": "TRANSLATION_OF"}]), encoding="utf-8")
+        self.assertEqual([r["relation_type"] for r in ldr.load_relation_sources()], ["TRANSLATION_OF"])
+        self.assertIn("TRANSLATION_OF", ldr.VALID_RELATION_TYPES)
 
     def test_missing_split_file_is_silently_skipped(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")

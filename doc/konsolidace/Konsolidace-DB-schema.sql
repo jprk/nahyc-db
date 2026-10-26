@@ -203,6 +203,14 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT') NOT NULL;
 
+-- 2026-10-26: jazykové varianty téhož aktu (česká a anglická řádka
+-- Haltufovy tabulky) jsou samostatné `Document` záznamy spojené relací
+-- `TRANSLATION_OF` (anglická verze -> český originál), viz
+-- `src/tools/language_variants.py`.
+ALTER TABLE document_relation
+  MODIFY COLUMN relation_type
+    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF') NOT NULL;
+
 -- doc/PLAN.md §17, 2026-09-16: anotace dogenerovaná, ne dohledaná.
 -- Popis dohledaný u vydavatele (a přeložený do češtiny) patří do už
 -- existujícího `popis_autoritativni` — to pole znamená "ověřeno u zdroje".

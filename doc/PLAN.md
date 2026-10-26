@@ -5940,3 +5940,18 @@ orange, same variables as `.approximate-label`). Scoped to `.review-flag`
 (the catalog-list badge the user pointed at, e.g. `doc-2aa86b8c`) —
 `.review-banner` (the document-detail-page banner) was left with its own
 original treatment, not asked for.
+
+## 47. Language variants of one act are separate documents (NEW, 2026-10-26, user-directed)
+
+**Problem.** The Haltuf spreadsheet lists every EU act twice (a CZ and an EN row, same `znacka`). `deduplicate_db.py` merged the pair into one record that kept the fields of one row only, so a document could have a Czech title, the label `EN`, an English address and a Czech full text at once (13 documents had `language=EN` with a Czech title and Czech text, three had an English title and Czech text). The earlier fix (EUR-Lex texts in the document's language, PR #15) could not make them consistent: there was no single language to be consistent with.
+
+**Decision (user).** Split the pair into two `Document` rows, following the rule of the 2026-09-15 split of `Sinay_Zakony` rows (a document is a specific text in a specific language), linked by a new relation `TRANSLATION_OF` (English → Czech original). The Czech variant keeps the designation (all `IMPLEMENTS`/`ADOPTS` relations, process links and review items stay valid), the English one gets `<designation> [EN]` because `Document.identifier` is UNIQUE.
+
+**Implementation.**
+- `src/tools/language_variants.py` — pairs (the language of a row is the language segment of its EUR-Lex address, falling back to `jazyk`: both rows of `(EU) 2019/773` say "angličtina"), designation of a variant, split of a deduplicated record (the English variant has no Czech authoritative overlay), relations, copy of the EU gestor.
+- `src/tools/split_language_variants.py` — pipeline step after `deduplicate_db.py`, offline and idempotent; writes the split corpus, `data/document_relations_variants.json` and the gestor cache. 26 pairs.
+- `fetch_fulltext.py` files the English row under `<znacka> [EN]` (100+ new manifest keys; both texts downloaded and checked); the temporary English pins of documents 80/104/108 are gone, the rule is now per variant.
+- `init_db.py` — the loop body became `prepare_document()` (rebuild of the test database with the old and the new code gives identical rows).
+- `backfill_language_variants.py` — the same split in the live database without a rebuild (`id`s stay): the existing document becomes the Czech variant, the English one is inserted with keywords, versions, slug and the relation; the enum `document_relation.relation_type` is extended. `app/templates/document.html` labels the relation.
+
+**Verification.** Rehearsed on a copy of the live database (`h2regdocs_test`): 1462 → 1488 documents, 26 relations, no `gestor not found`, and the language of every document with a text matches the language label (180 CS/cs, 27 EN/en, 16 SK/sk, 0 mismatches).

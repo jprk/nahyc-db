@@ -136,6 +136,8 @@
                             {{ 'konsoliduje' if r.direction == 'from' else 'je konsolidován předpisem' }}
                         {%- elif r.relation_type == 'NATIONAL_EQUIVALENT' -%}
                             národní protějšek
+                        {%- elif r.relation_type == 'TRANSLATION_OF' -%}
+                            {{ 'je anglickou verzí dokumentu' if r.direction == 'from' else 'má anglickou verzi' }}
                         {%- else -%}
                             {{ r.relation_type }}
                         {%- endif -%}
