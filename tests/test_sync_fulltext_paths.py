@@ -146,5 +146,71 @@ class OwnSourceTestCase(unittest.TestCase):
                              [(1222, "2010/75/EU", None, "data/fulltext/directive.html")])
 
 
+class UnidentifiedTestCase(unittest.TestCase):
+    URL = "https://www.hytep.cz/a.pdf"
+
+    def setUp(self):
+        import fulltext_keys
+        import slug as slug_module
+        self.item = {"zdroj_dat": "HYTEP", "znacka": "", "nazev_cz": "Vodíková strategie", "typ_dokumentu": "Strategický dokument",
+                     "odkaz_hlavni": self.URL}
+        self.slug = slug_module.base_slug(None, "Vodíková strategie")
+        self.key = f"HYTEP|{fulltext_keys.url_designation(self.URL)}|odkaz_hlavni"
+
+    def _repo(self, tmp):
+        (pathlib.Path(tmp) / "data" / "fulltext").mkdir(parents=True)
+        (pathlib.Path(tmp) / "data" / "fulltext" / "u__ab.pdf").write_bytes(b"%PDF-")
+        return {self.key: {"status": "fetched", "local_path": "data/fulltext/u__ab.pdf"}}
+
+    def test_a_document_without_designation_gets_the_file_the_manifest_has_for_its_address(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            rows = [(7, None, None, 0, "HYTEP", self.slug, self.URL)]
+            self.assertEqual(sp.plan_unidentified(rows, [self.item], manifest, repo_root=tmp),
+                             [(7, f"slug {self.slug}", None, "data/fulltext/u__ab.pdf")])
+
+    def test_a_document_that_has_a_designation_or_a_path_or_is_restricted_is_left_alone(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            for row in ((7, "X 1", None, 0, "HYTEP", self.slug, self.URL), (7, None, "data/fulltext/o.pdf", 0, "HYTEP", self.slug, self.URL),
+                        (7, None, None, 1, "HYTEP", self.slug, self.URL)):
+                self.assertEqual(sp.plan_unidentified([row], [self.item], manifest, repo_root=tmp), [])
+
+    def test_a_missing_file_or_another_title_gives_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            (pathlib.Path(tmp) / "data" / "fulltext" / "u__ab.pdf").unlink()
+            self.assertEqual(sp.plan_unidentified([(7, None, None, 0, "HYTEP", self.slug, self.URL)], [self.item], manifest, repo_root=tmp), [])
+            self.assertEqual(sp.plan_unidentified([(7, None, None, 0, "HYTEP", "doc-00000000", self.URL)], [self.item], manifest, repo_root=tmp), [])
+
+    def test_records_with_one_title_are_told_apart_by_address_and_a_suffixed_slug_still_matches(self):
+        import fulltext_keys
+        other = {**self.item, "odkaz_hlavni": "https://www.hytep.cz/b.pdf"}
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            manifest[f"HYTEP|{fulltext_keys.url_designation('https://www.hytep.cz/b.pdf')}|odkaz_hlavni"] = {
+                "status": "fetched", "local_path": "data/fulltext/u__ab.pdf"}
+            rows = [(7, None, None, 0, "HYTEP", self.slug, self.URL), (8, None, None, 0, "HYTEP", self.slug + "-2", "https://www.hytep.cz/b.pdf")]
+            changes = sp.plan_unidentified(rows, [self.item, other], manifest, repo_root=tmp)
+            self.assertEqual([c[0] for c in changes], [7, 8])
+            rows_unknown_url = [(7, None, None, 0, "HYTEP", self.slug, "https://elsewhere/")]
+            self.assertEqual(sp.plan_unidentified(rows_unknown_url, [self.item, other], manifest, repo_root=tmp), [])
+
+    def test_a_record_with_a_designation_that_another_document_holds_is_matched_too(self):
+        import fulltext_keys  # noqa: F401
+        item = {**self.item, "znacka": "2010/75/EU"}
+        manifest = {"HYTEP|2010/75/EU|odkaz_hlavni": {"status": "fetched", "local_path": "data/fulltext/u__ab.pdf"}}
+        with tempfile.TemporaryDirectory() as tmp:
+            self._repo(tmp)
+            changes = sp.plan_unidentified([(7, None, None, 0, "HYTEP", self.slug, self.URL)], [item], manifest, repo_root=tmp)
+            self.assertEqual([c[0] for c in changes], [7])
+
+    def test_a_norm_record_is_never_matched(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest = self._repo(tmp)
+            norm = {**self.item, "typ_dokumentu": "Norma"}
+            self.assertEqual(sp.plan_unidentified([(7, None, None, 0, "HYTEP", self.slug, self.URL)], [norm], manifest, repo_root=tmp), [])
+
+
 if __name__ == "__main__":
     unittest.main()

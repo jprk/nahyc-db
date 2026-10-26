@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
+import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
 
@@ -156,13 +157,12 @@ def resolve_file_path(item, manifest):
     its own is_norm_designation()), the fetch failed, or it hasn't run
     yet — but note this alone is not the access-control mechanism (see
     RESTRICTED_DOCUMENT_TYPES above), only a best-effort input to it."""
-    znacka = (item.get("znacka") or "").strip()
-    if not znacka:
-        return None
     sources = [s for s in (item.get("zdroj_dat") or "").split(", ") if s]
     for source in sources:
         for url_field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk"):
-            entry = manifest.get(f"{source}|{znacka}|{url_field}")
+            # a record without a znacka is filed under a designation made of the address (fulltext_keys.py)
+            designation = fulltext_keys.designation(item, url_field)
+            entry = manifest.get(f"{source}|{designation}|{url_field}") if designation else None
             if entry and entry.get("status") == "fetched" and entry.get("local_path"):
                 return entry["local_path"]
     return None

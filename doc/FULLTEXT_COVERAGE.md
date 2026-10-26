@@ -190,3 +190,11 @@ dokumentu. Zbývají dva:
   `ěřů`; slovenština: `ľĺŕôä`).
 * Shoda zdroje: pro každý `file_path` najít v `data/fulltext_manifest.json` položku se stejným
   `local_path` a porovnat její zdroj (`<zdroj>|<označení>|<pole>`) se `Document.zdroj_dat`.
+
+## 9. Stav po doplnění (2026-10-26)
+
+Rozhodnutí z §7 body 1 a 4 provedena (větev `feature/pdf-text-extraction`):
+
+* **Dokumenty bez označení** se stahují podle adresy (`fulltext_keys.py`, označení `url-<hash>`); `init_db.resolve_file_path` a `sync_fulltext_paths.py --fill` je čtou stejně. Stažených 38 cílů: 6 slovenských předpisů (Slov-Lex), RID CS (nová adresa md.gov.cz, 36 MB) i EN, 2 strategie MPO, 21 dokumentů HYTEP/NAHYC (včetně 39,6 MB případové studie), SK znění `(EU) 2022/2427` a COM(2020) 301 z EUR-Lexu (adresy Slov-Lexu byly mrtvé, přepsány v `data/fulltext_url_overrides.json`), směrnice 2010/75/EU (#1222).
+* **Text z PDF** (`pdf_text.py`, PyMuPDF): čitelný text mají PDF bez HTML dvojníka, tedy i REACH (`1907/2006`, 851 s.) a CLP (`1272/2008`, 1355 s.), jejichž HTML se na EUR-Lexu nevykreslí.
+* **Zůstává bez souboru:** #62 (slovenské oznámení `75/2010 Z. z.`, Slov-Lex vrací jiný předpis), #84 a #88 (zdroj nemá adresu), #119 (ADR 2025, UNECE 403 — ruční stažení).
