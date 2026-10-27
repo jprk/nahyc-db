@@ -41,6 +41,7 @@ app.secret_key = os.environ["SECRET_KEY"]
 # for its own sibling imports).
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from admin import admin_bp  # noqa: E402
+import candidates_admin  # noqa: E402,F401  (registers the /admin/candidates pages on admin_bp)
 
 app.register_blueprint(admin_bp, url_prefix="/admin")
 

@@ -1086,6 +1086,17 @@ def build_unified_db():
     except Exception as e:
         print(f"Error loading Discovered EU Transposition Targets data: {e}")
 
+    # 13b. Candidates accepted by two editors on /admin/candidates
+    # (app/candidates_admin.py, 2026-10-27): already in the pipeline's record shape,
+    # keyed by candidate key in data/accepted_candidates.json, which the confirmation
+    # appends to — the document exists in the live database at once and survives a
+    # rebuild through this file.
+    file_accepted_candidates = base_dir / "accepted_candidates.json"
+    if file_accepted_candidates.exists():
+        accepted = list(load_json(file_accepted_candidates).values())
+        unified_db.extend(accepted)
+        print(f"Loaded {len(accepted)} records from accepted candidates.")
+
     # 14. Authoritative per-site title/description overlay — doc/PLAN.md §8,
     # 2026-09-11: attaches nazev_autoritativni/popis_autoritativni (and,
     # for records src/sites/esbirka.py could verify, the confirmed

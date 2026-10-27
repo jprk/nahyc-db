@@ -1298,3 +1298,17 @@ main {
     .fulltext p.d3 { margin-left: 6.75rem; }
     .fulltext p.d4 { margin-left: 9rem; }
 }
+
+/* Candidates of new documents (app/candidates_admin.py) */
+.candidate-counts { color: var(--text-secondary); margin: 0.5rem 0 1rem; }
+.candidate-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.candidate-filters select, .candidate-filters input[type="text"],
+.admin-form-group select { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; color: var(--text-primary);
+    font-family: var(--font-sans); font-size: 1rem; }
+.admin-form-group select { width: 100%; }
+.candidate-context { color: var(--text-secondary); font-style: italic; margin-bottom: 1rem; }
+.admin-card h3 { margin: 1.5rem 0 0.5rem; }
+.candidate-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.candidate-actions .btn-primary { width: auto; padding: 0.6rem 1.2rem; }
+
