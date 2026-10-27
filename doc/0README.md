@@ -12,3 +12,4 @@ konsolidované databázové schéma v `doc/konsolidace/` (viz jeho vlastní
 * `konsolidace/` — konsolidované databázové schéma, viz jeho vlastní `0README.md`.
 * `automation_proposal/` — externí návrh automatizace (Gemini research-agent transkript), reconciliován v `PLAN.md` §3.
 * `FULLTEXT_COVERAGE.md` — audit pokrytí plnými texty (2026-10-25): normy vyřazeny, 37 neomezených dokumentů bez souboru (jednotlivě: co jsou, zdroj, stažitelnost, doporučení), kontrola 199 dokumentů se souborem (správný dokument, text, jazyk — 123 českých dokumentů má anglický text), opravy provedené při auditu a doporučený postup.
+* `DATABASE_SCOPE.md` — vymezení rozsahu pokrytí databáze (2026-10-27): úrovně pokrytí A/B/C, geografický rozsah (včetně předpisů krajů a obcí a územně plánovací dokumentace na úrovni C), deset věcných okruhů, typy dokumentů, stavy dokumentů (platnost × účinnost), četnost kontrol a navazující měření úplnosti.
