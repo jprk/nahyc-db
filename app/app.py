@@ -14,6 +14,12 @@ from flask import Flask, render_template, request, g, send_file, abort, Response
 
 app = Flask(__name__)
 
+# DocumentVersion.lifecycle_state in Czech — the states of doc/DATABASE_SCOPE.md
+# odstavec 5 (src/tools/document_states.py keeps the same list).
+LIFECYCLE_LABELS = {"active": "účinný", "superseded": "nahrazený", "draft": "připravovaný",
+                    "promulgated": "vyhlášený, dosud neúčinný", "repealed": "zrušený"}
+app.jinja_env.globals["lifecycle_labels"] = LIFECYCLE_LABELS
+
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 FULLTEXT_DIR = (REPO_ROOT / "data" / "fulltext").resolve()
 # GitHub issue #2: the clean, sanitized text that src/tools/extract_fulltext.py

@@ -109,7 +109,7 @@
                         <td>{{ v.version }}{% if v.is_current %} <span class="meta-tag">aktuální</span>{% endif %}</td>
                         <td>{{ v.edition_label if v.edition_label else '—' }}</td>
                         <td>{{ v.effective_date if v.effective_date else '—' }}</td>
-                        <td>{{ v.lifecycle_state }}</td>
+                        <td>{{ lifecycle_labels.get(v.lifecycle_state, v.lifecycle_state) }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

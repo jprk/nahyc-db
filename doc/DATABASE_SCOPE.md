@@ -186,9 +186,13 @@ Pro jednotlivé typy dokumentů stavy upřesňujeme:
 
 Zrušené a nahrazené dokumenty v databázi ponecháváme kvůli souvislostem
 (procesní vrstva, historie změn) a propojujeme je s nástupcem (vazby `REPEALS`
-a `AMENDS`). Původní návrh databáze rozlišuje jen stavy `active`, `draft`
-a `superseded` (`DocumentVersion.lifecycle_state`); zavedení stavů podle tohoto
-odstavce bude vyžadovat rozšíření schématu.
+a `AMENDS`). Původní návrh databáze rozlišoval jen stavy `active`, `draft`
+a `superseded` (`DocumentVersion.lifecycle_state`). Od 27. 10. 2026 přibyly stavy
+`promulgated` (vyhlášený, dosud neúčinný) a `repealed` (zrušený); u aktuální verze
+dokumentu je nastavuje kontrola platnosti (`src/tools/check_validity.py`
+a `src/tools/document_states.py`), zrušený dokument je vazbou `REPEALS` propojen
+s předpisem, který jej zrušil, pokud jej databáze obsahuje. Stavy specifické pro
+směrnice, normy a strategie (výše) zatím zavedeny nejsou.
 
 ## 6. Četnost kontrol
 
