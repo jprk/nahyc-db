@@ -25,6 +25,10 @@ THREE sources (see doc/PLAN.md Step 1 follow-up #16, §6, §15):
    `src/tools/split_language_variants.py`: `TRANSLATION_OF` from the English
    variant of an act to its Czech original (language_variants.py).
 
+5. `data/document_relations_validity.json` — written by
+   `src/tools/backfill_document_states.py` from the validity check: `REPEALS` from
+   the act that repealed a document to the document (document_states.py).
+
 Deliberately NOT the same mechanism as a norm's amendment (that's a
 DocumentVersion of the SAME document, populated by
 link_document_versions.py): a law amended by a separate act, or a
@@ -47,6 +51,7 @@ RELATIONS_PATH = REPO_ROOT / "data" / "document_relations.json"
 AUTO_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_auto.json"
 SPLIT_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_split.json"
 VARIANTS_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_variants.json"
+VALIDITY_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_validity.json"
 REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "document_relations_review_queue.json"
 
 sys.path.insert(0, str(BASE_DIR))
@@ -61,7 +66,8 @@ def load_relation_sources():
     (a missing file — e.g. the auto one, before it's ever been generated
     — is silently skipped, not an error)."""
     relations = []
-    for path in (RELATIONS_PATH, AUTO_RELATIONS_PATH, SPLIT_RELATIONS_PATH, VARIANTS_RELATIONS_PATH):
+    for path in (RELATIONS_PATH, AUTO_RELATIONS_PATH, SPLIT_RELATIONS_PATH, VARIANTS_RELATIONS_PATH,
+                 VALIDITY_RELATIONS_PATH):
         if path.exists():
             with open(path, "r", encoding="utf-8") as f:
                 relations.extend(json.load(f))

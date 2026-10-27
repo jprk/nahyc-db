@@ -211,6 +211,13 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF') NOT NULL;
 
+-- 2026-10-27: stavy dokumentů podle doc/DATABASE_SCOPE.md odstavec 5 —
+-- `promulgated` (vyhlášený, dosud neúčinný) a `repealed` (zrušený), zjištěné
+-- kontrolou platnosti (`src/tools/check_validity.py`, `document_states.py`).
+ALTER TABLE DocumentVersion
+  MODIFY COLUMN lifecycle_state
+    ENUM('active','superseded','draft','promulgated','repealed') NOT NULL DEFAULT 'active';
+
 -- doc/PLAN.md §17, 2026-09-16: anotace dogenerovaná, ne dohledaná.
 -- Popis dohledaný u vydavatele (a přeložený do češtiny) patří do už
 -- existujícího `popis_autoritativni` — to pole znamená "ověřeno u zdroje".

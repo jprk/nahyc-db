@@ -193,8 +193,9 @@ Z 183 českých předpisů a aktů EU, které databáze obsahuje, je **34 zruše
 ### 6.3 Doporučení
 
 1. **Stavy dokumentů v databázi.** Označit 34 zrušených předpisů jako zrušené
-   s vazbou na nástupce (vazba `REPEALS`); vyžaduje to rozšíření stavů podle
-   odstavce 5 dokumentu rozsahu.
+   s vazbou na nástupce (vazba `REPEALS`); stavy jsou rozšířeny
+   (`src/tools/backfill_document_states.py`, 27. 10. 2026): 35 aktuálních verzí
+   (34 předpisů a jedna jazyková varianta) a 20 vazeb `REPEALS`.
 2. **Chybějící nástupci.** Doplnit 8 předpisů, které zrušily předpisy
    v databázi, pokud do rozsahu patří.
 3. **Účinní kandidáti.** Ručně posoudit 285 účinných kandidátů v souboru

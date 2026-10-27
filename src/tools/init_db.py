@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
+import document_states
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
@@ -507,6 +508,7 @@ def import_json_data(db_conn):
     seen_identifiers = set()
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
     eu_gestor_cache = load_eu_gestor_cache(REPO_ROOT)
+    validity_cache = document_states.load_cache()
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
     slug_inputs = []
@@ -561,6 +563,9 @@ def import_json_data(db_conn):
             })
 
         for v in resolve_document_versions(item):
+            if v["is_current"]:  # repealed / not yet in effect, from check_validity.py (document_states.py)
+                v["lifecycle_state"] = document_states.current_state(v["lifecycle_state"], identifier, title,
+                                                                     validity_cache)
             cursor.execute("""
                 INSERT INTO DocumentVersion
                 (document_id, version, edition_label, effective_date, is_current, lifecycle_state)
