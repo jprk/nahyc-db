@@ -1,11 +1,15 @@
 # Rozsah pokrytí databáze regulačních dokumentů
 
-Stav k 27. 10. 2026. Dokument vymezuje, které regulační dokumenty má databáze
-regulačních předpisů a předrealizačních procesů dílčího projektu DP004 obsahovat,
+> Historie dokumentu:  
+> 2026-10-27 jprk Návrh první verze  
+> 2026-10-27 jprk Rozhodnuté otázky O1–O3 (odstavec 8)
+
+Tento dokument vymezuje, které regulační dokumenty má databáze
+regulačních předpisů a předrealizačních procesů (tedy výsledek V01 dílčího projektu DP004 centra NAHYC-m) obsahovat,
 v jakém rozsahu za jejich úplnost odpovídáme, jaké stavy dokumentů rozlišujeme
-a jak často se obsah kontroluje. Je výchozím bodem pro měření pokrytí (odstavec 7)
-a pro registr sledovaných zdrojů (`data/monitored_sources.json` a odstavec 11
-dokumentu `doc/AUTOMATION.md`, obojí zatím na větvi `automation`).
+a jak často se obsah kontroluje. Je výchozím bodem pro metodiku měření pokrytí této domény, popsanou v odstavci 7,
+a pro registr sledovaných zdrojů (v tento okamžik na vývojové větvi `automation` v souborech 
+`data/monitored_sources.json` a odstavci 11  dokumentu `doc/AUTOMATION.md`).
 
 ## 1. Účel a východisko
 
@@ -51,8 +55,9 @@ slibuje:
 
 Předpisy územních samosprávných celků (obecně závazné vyhlášky a nařízení krajů
 a obcí) zařazujeme na úroveň C: plošně je neevidujeme, ale pro konkrétní místo
-záměru mohou být rozhodující. Pro jejich dohledání patrně není třeba procházet
-weby jednotlivých obcí:
+záměru mohou být rozhodující. Pro jejich dohledání patrně nebude potřeba procházet
+weby jednotlivých obcí a u předpisů krajů a obcí půjde tento krok patrně
+automatizovat (odstavec 8, otázka O1):
 
 * Od 1. 1. 2022 existuje centrální **Sbírka právních předpisů územních
   samosprávných celků a některých správních úřadů** (zákon č. 35/2021 Sb.,
@@ -67,8 +72,9 @@ weby jednotlivých obcí:
   územně plánovací dokumentace, s účinností od 1. 7. 2023.
 
 Obě zjištění pocházejí z veřejně dostupných informací Ministerstva vnitra
-a Ministerstva pro místní rozvoj; ověřit zbývá, zda oba systémy nabízejí
-strojové rozhraní, a jak úplný je dnes obsah geoportálu.
+a Ministerstva pro místní rozvoj. Ani jeden ze systémů nemá dokumentované
+strojové rozhraní (odstavec 8, otázka O1); jak úplný je dnes obsah geoportálu,
+zbývá ověřit.
 
 ## 3. Věcné okruhy
 
@@ -125,10 +131,10 @@ dokumentu nestanoví jinak. Příklady uvádíme pro orientaci; nejde o úplný 
 RFNBO (okruh 1), jež patří do jádra, protože na ní závisí samotné vymezení
 obnovitelného vodíku.
 
-Okruhy bude vhodné navázat na klasifikaci, kterou databáze již používá
+Okruhy budou navázány na klasifikaci, kterou databáze již používá
 (sekce typu „A - výroba“ ve zdrojových rešerších a procesní uzly U1–U7
 definované v dokumentu V02). Z takového propojení vznikne matice pokrytí
-okruh × typ dokumentu, nad níž se pokrytí měří (odstavec 7).
+okruh × typ dokumentu, nad níž se pokrytí v odstavci 7 měří.
 
 ## 4. Typy dokumentů
 
@@ -138,14 +144,21 @@ okruh × typ dokumentu, nad níž se pokrytí měří (odstavec 7).
 | Předpisy EU | nařízení (přímo použitelná), směrnice (s transpozicí), rozhodnutí, akty v přenesené pravomoci a prováděcí akty | A | EUR-Lex / Cellar; návrhy Komise (COM) |
 | Mezinárodní smlouvy | ADR, RID (COTIF), ADN, předpisy EHK OSN | A | depozitáři smluv (EHK OSN, OTIF); jejich vyhlášení ve Sbírce mezinárodních smluv |
 | Normy převzaté do soustavy ČSN | ČSN, ČSN EN, ČSN EN ISO; harmonizované normy s vazbou na směrnici | A (jen metadata) | ÚNMZ a jeho Věstník, katalog ČSN |
-| Mezinárodní normy dosud nepřevzaté | EN, ISO, IEC bez českého převzetí; návrhy (prEN, DIS) | B (jen metadata) | CEN, ISO, IEC |
-| Technická pravidla a metodiky | TPG a TIN Českého plynárenského svazu, metodické pokyny ministerstev, doporučení EIGA a HYTEP | B | vydavatelé |
+| Mezinárodní normy dosud nepřevzaté | všechny relevantní normy ISO a IEC (a EN) bez českého převzetí; návrhy (prEN, DIS) | A (jen metadata) | CEN, ISO, IEC |
+| Technická pravidla a metodiky | technická pravidla TPG, TD a TIN Českého plynárenského svazu, metodické pokyny ministerstev, doporučení EIGA a HYTEP | B (u TPG, TD a TIN jen metadata a odkaz) | vydavatelé |
 | Strategie a koncepce | Vodíková strategie ČR, strategie EU | B | vydavatelé |
 | Předpisy krajů a obcí; územně plánovací dokumentace | obecně závazné vyhlášky, územní plány | C | Sbírka právních předpisů ÚSC; Národní geoportál územního plánování |
 
-U norem a placených technických pravidel databáze uchovává jen metadata
-(označení, název, stav, vazby); plný text je chráněný a databáze ho nenabízí
-(požadavek R4.1 v `doc/REQUIREMENTS.md`).
+U norem databáze uchovává jen metadata (označení, název, stav, vazby); plný
+text je chráněný a databáze ho nenabízí (požadavek R4.1 v `doc/REQUIREMENTS.md`).
+
+Technická pravidla TPG, TD a TIN Českého plynárenského svazu jsou dostupná
+bezplatně, ale jen ke čtení v on-line prohlížeči po bezplatné registraci;
+dokumenty nesou vodoznaky a jejich stažení ani tisk nejsou dovoleny. Databáze
+proto u nich uchovává jen metadata a uživatele přesměrovává na stránky Českého
+plynárenského svazu. **Poznámka pro analytickou část:** pro elektronické
+zpracování v poradním systému bude třeba tato pravidla obstarat v podobě, jež
+jejich načtení a zpracování umožní (odstavec 8, otázka O2).
 
 **Mimo rozsah:** judikatura, individuální správní akty (rozhodnutí, povolení)
 a prozatím daně a dotace (odstavec 3).
@@ -153,7 +166,7 @@ a prozatím daně a dotace (odstavec 3).
 ## 5. Stavy dokumentů
 
 České právo rozlišuje **platnost** (vyhlášení) a **účinnost** (okamžik, od něhož
-se předpis použije). Rozlišení „platný / neplatný / připravovaný“ proto
+se předpis použije). Původně navrhované rozlišení „platný / neplatný / připravovaný“ proto
 nepostačuje a zavádíme tyto stavy:
 
 | Stav | Význam | Příklad |
@@ -173,7 +186,7 @@ Pro jednotlivé typy dokumentů stavy upřesňujeme:
 
 Zrušené a nahrazené dokumenty v databázi ponecháváme kvůli souvislostem
 (procesní vrstva, historie změn) a propojujeme je s nástupcem (vazby `REPEALS`
-a `AMENDS`). Databáze dnes rozlišuje jen stavy `active`, `draft`
+a `AMENDS`). Původní návrh databáze rozlišuje jen stavy `active`, `draft`
 a `superseded` (`DocumentVersion.lifecycle_state`); zavedení stavů podle tohoto
 odstavce bude vyžadovat rozšíření schématu.
 
@@ -187,7 +200,7 @@ odstavce bude vyžadovat rozšíření schématu.
 | měsíčně | normy (Věstník ÚNMZ vychází měsíčně), mezinárodní smlouvy |
 | čtvrtletně | strategie, technická pravidla a metodiky; měření úplnosti podle odstavce 7 |
 
-Každá kontrola sleduje nejen **nové dokumenty**, ale i **změny stavu dokumentů,
+Každá automatizovaná kontrola sleduje nejen **nové dokumenty**, ale i **změny stavu dokumentů,
 které databáze již obsahuje** (zrušení, novelizace, nabytí účinnosti, nahrazení
 normy). Pro aktuálně platný přehled je druhé patrně stejně důležité jako první.
 Výsledek kontroly se zaznamenává i tehdy, když nic nového nepřinese (zdroj,
@@ -196,9 +209,9 @@ tvrzení o úplnosti.
 
 ## 7. Navazující práce
 
-Z vymezení vyplývají tyto kroky; detailní plán zatím nesestavujeme:
+Z vymezení vyplývají tyto kroky:
 
-1. **Měření úplnosti.** Pro dokumenty úrovně A plánujeme kombinovat nezávislé
+1. **Měření úplnosti.** Pro dokumenty úrovně A budeme kombinovat nezávislé
    kontroly: uzávěr citací (předpisy citované v textech, které databáze ještě
    neobsahuje), porovnání s autoritativním registrem shora (u směrnic EU úplný
    seznam českých prováděcích předpisů z EUR-Lexu, u českých předpisů vazby
@@ -206,7 +219,7 @@ Z vymezení vyplývají tyto kroky; detailní plán zatím nesestavujeme:
    z překryvu tří rešerší a zlatou sadu dokumentů sestavenou odborníky.
    Doplňkovým hlediskem je procesní vrstva: procesní uzel nebo technologie bez
    jediného regulačního dokumentu ukazuje na mezeru.
-2. **Provenance.** U každého dokumentu bude potřeba evidovat, které zdroje jej
+2. **Provenance.** U každého dokumentu je potřeba evidovat, které zdroje jej
    kdy zachytily; bez toho nelze měřit přínos zdrojů ani odhadovat, co chybí.
 3. **Návrhy nových zdrojů.** Registr sledovaných zdrojů rozšíříme o stav
    „navržený“ a o standardní zkušební sondu, jež před napsáním stahovacího
@@ -214,11 +227,24 @@ Z vymezení vyplývají tyto kroky; detailní plán zatím nesestavujeme:
    zdroj přinesl.
 4. **Stavy dokumentů.** Rozšíření schématu o stavy podle odstavce 5.
 
-## 8. Otevřené otázky
+## 8. Rozhodnuté otázky
 
-* Zda Sbírka právních předpisů územních samosprávných celků a Národní geoportál
-  územního plánování nabízejí strojové rozhraní, nebo jen webové vyhledávání.
-* Za jakých podmínek jsou dostupná technická pravidla TPG a TIN (pravděpodobně
-  placená vydání, tedy jen metadata).
-* Jakou podrobnost zvolit u norem nepřevzatých do soustavy ČSN: všechny
-  relevantní normy ISO a IEC, nebo jen ty, na které odkazují předpisy úrovně A.
+Otázky položené v první verzi dokumentu a jejich řešení (2026-10-27):
+
+- **O1: Strojové rozhraní Sbírky právních předpisů ÚSC a Národního geoportálu
+  územního plánování.** Sbírka právních předpisů územních samosprávných celků
+  dokumentované rozhraní nemá; jde o webovou aplikaci (SPA), jež si data pro
+  vyhledávání stahuje na pozadí. Patrně by bylo možné použít její interní,
+  nedokumentované rozhraní, s rizikem, že se bez ohlášení změní. Národní geoportál
+  územního plánování je dostupný jen po přihlášení přes Národní identitní autoritu
+  (NIA), takže jeho automatizované procházení patrně možné nebude a územně
+  plánovací dokumentaci budeme dohledávat ručně pro konkrétní místo záměru.
+- **O2: Dostupnost technických pravidel TPG, TD a TIN.** Pravidla nejsou placená,
+  ale jsou dostupná jen ke čtení v on-line prohlížeči po bezplatné registraci,
+  s vodoznaky a se zákazem stažení a tisku. Databáze je uživatelům poskytovat
+  nemůže; uchovává metadata a odkazuje na stránky Českého plynárenského svazu
+  (odstavec 4). Pro analýzu v poradním systému je bude třeba obstarat
+  k elektronickému zpracování.
+- **O3: Rozsah norem nepřevzatých do soustavy ČSN.** Sledujeme všechny relevantní
+  normy ISO a IEC, nejen ty, na které odkazují předpisy úrovně A; skupina tím
+  přechází na úroveň A (jen metadata, odstavec 4).
