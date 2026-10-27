@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card" style="max-width: 760px;">
+    <p><a href="{{ url_for('admin.candidate_list') }}">&larr; Kandidáti</a></p>
+    <h2 style="margin-bottom: 0.5rem;"><i class="ph ph-plus"></i> Navrhnout nový dokument</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Návrh potvrzuje jiný editor; teprve potom se dokument založí.</p>
+    <form method="POST" action="{{ url_for('admin.candidate_new') }}">
+        {% with c = form %}{% include 'admin/_candidate_fields.html' %}{% endwith %}
+        <button type="submit" class="btn-primary">Uložit návrh</button>
+    </form>
+</div>
+{% endblock %}

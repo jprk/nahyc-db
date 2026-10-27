@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card" style="max-width: 860px;">
+    <p><a href="{{ url_for('admin.candidate_list') }}">&larr; Kandidáti</a></p>
+    <h2 style="margin-bottom: 0.5rem;">{{ c.designation or c.candidate_key or 'Kandidát' }}</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Stav: <strong>{{ state_labels.get(c.status, c.status) }}</strong> &middot; zdroj: {{ sources.get(c.source, c.source) }}
+        {% if c.validity_status %} &middot; platnost: {{ c.validity_status }}{% endif %}
+        {% if c.cited_by %} &middot; citováno {{ c.cited_by }} dokumenty databáze{% endif %}
+    </p>
+
+    <table class="admin-table" style="margin-bottom: 1.5rem;">
+        <tbody>
+            <tr><th>Název</th><td>{{ c.title or '—' }}</td></tr>
+            <tr><th>Typ</th><td>{{ c.document_type or '—' }}</td></tr>
+            <tr><th>Adresa</th><td>{% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.url }}</a>{% else %}—{% endif %}</td></tr>
+            <tr><th>Jazyk / jurisdikce</th><td>{{ c.language or '—' }} / {{ c.jurisdikce or '—' }}</td></tr>
+            {% if c.scope_area %}<tr><th>Věcný okruh</th><td>{{ c.scope_area }}. {{ areas.get(c.scope_area) }}</td></tr>{% endif %}
+            {% if c.decision_note %}<tr><th>Poznámka</th><td>{{ c.decision_note }}</td></tr>{% endif %}
+            {% if c.proposed_by_name %}<tr><th>Navrhl</th><td>{{ c.proposed_by_name }} ({{ c.proposed_at }})</td></tr>{% endif %}
+            {% if c.confirmed_by_name %}<tr><th>Potvrdil</th><td>{{ c.confirmed_by_name }} ({{ c.confirmed_at }})</td></tr>{% endif %}
+            {% if c.decided_by_name %}<tr><th>Rozhodl</th><td>{{ c.decided_by_name }} ({{ c.decided_at }})</td></tr>{% endif %}
+            {% if c.document_slug %}<tr><th>Dokument</th><td><a href="{{ url_for('document_detail', slug=c.document_slug) }}">založen v databázi</a></td></tr>{% endif %}
+        </tbody>
+    </table>
+
+    {% if evidence.context %}
+    <h3>Kontext první citace</h3>
+    <p class="candidate-context">… {{ evidence.context }} …</p>
+    {% endif %}
+    {% if citing %}
+    <h3>Citují jej dokumenty databáze ({{ evidence.citing_ids|length }})</h3>
+    <ul class="doc-relations">
+        {% for d in citing %}<li><a href="{{ url_for('document_detail', slug=d.slug) }}">{{ d.identifier or '' }} — {{ d.title|truncate(110) }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if repeals %}
+    <h3>Zrušil tyto dokumenty databáze</h3>
+    <ul class="doc-relations">
+        {% for d in repeals %}<li><a href="{{ url_for('document_detail', slug=d.slug) }}">{{ d.identifier or '' }} — {{ d.title|truncate(110) }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if c.status in ('new', 'deferred') %}
+    <h3>Navrhnout přijetí</h3>
+    <p style="color: var(--text-secondary);">Přijetí potvrzuje jiný editor; teprve potom se dokument založí.</p>
+    <form method="POST" action="{{ url_for('admin.candidate_propose', candidate_id=c.id) }}">
+        {% include 'admin/_candidate_fields.html' %}
+        <button type="submit" class="btn-primary">Navrhnout přijetí</button>
+    </form>
+    {% elif c.status == 'proposed' %}
+        {% if c.proposed_by_user_id == session.get('user_id') %}
+        <p class="flash flash-success">Váš návrh čeká na potvrzení jiným editorem.</p>
+        {% else %}
+        <form method="POST" action="{{ url_for('admin.candidate_confirm', candidate_id=c.id) }}" style="margin-bottom: 1rem;">
+            <button type="submit" class="btn-primary">Potvrdit přijetí a založit dokument</button>
+        </form>
+        {% endif %}
+    {% endif %}
+
+    {% if c.status in ('new', 'proposed', 'deferred') %}
+    <h3>Zamítnout nebo odložit</h3>
+    <form method="POST" action="{{ url_for('admin.candidate_reject', candidate_id=c.id) }}">
+        <div class="admin-form-group">
+            <label for="reject_note">Důvod (u zamítnutí povinný)</label>
+            <textarea id="reject_note" name="decision_note" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn-secondary">Zamítnout</button>
+        {% if c.status != 'deferred' %}<button type="submit" class="btn-secondary" formaction="{{ url_for('admin.candidate_defer', candidate_id=c.id) }}">Odložit</button>{% endif %}
+        {% if c.status == 'proposed' %}<button type="submit" class="btn-secondary" formaction="{{ url_for('admin.candidate_reopen', candidate_id=c.id) }}">Vrátit návrh</button>{% endif %}
+    </form>
+    {% elif c.status == 'rejected' %}
+    <form method="POST" action="{{ url_for('admin.candidate_reopen', candidate_id=c.id) }}">
+        <button type="submit" class="btn-secondary">Znovu otevřít</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

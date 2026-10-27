@@ -528,6 +528,10 @@ def main():
 
     with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
+    # candidates accepted on /admin/candidates are in the database before the next rebuild of the raw data
+    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
+    if accepted_path.exists():
+        raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
     # a confirmed correction (e.g. a wrong designation) changes the manifest key and address too
     import build_unified_db
     corrections = build_unified_db.load_manual_corrections()

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="results-section">
+    <div class="results-header">
+        <h2 class="results-title">Kandidáti na nové dokumenty <span class="badge">{{ rows|length }}</span></h2>
+        <div class="candidate-actions">
+            <a href="{{ url_for('admin.candidate_new') }}" class="btn-primary"><i class="ph ph-plus"></i> Navrhnout dokument</a>
+            <a href="{{ url_for('admin.review_list') }}" class="btn-secondary">Revize dokumentů</a>
+            <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('name') }})</a>
+        </div>
+    </div>
+
+    <p class="candidate-counts">
+        {% for s, label in state_labels.items() %}{{ label }}: <strong>{{ counts.get(s, 0) }}</strong>{% if not loop.last %} &middot; {% endif %}{% endfor %}
+    </p>
+
+    <form method="GET" action="{{ url_for('admin.candidate_list') }}" class="candidate-filters">
+        <select name="stav" aria-label="Stav">
+            {% for value, label in [('open', 'otevření'), ('new', 'noví'), ('proposed', 'navržení k přijetí'), ('deferred', 'odložení'), ('accepted', 'přijatí'), ('rejected', 'zamítnutí'), ('all', 'všichni')] %}
+            <option value="{{ value }}"{% if value == state %} selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        <select name="zdroj" aria-label="Zdroj">
+            <option value="">všechny zdroje</option>
+            {% for value, label in sources.items() %}<option value="{{ value }}"{% if value == source %} selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        <select name="skupina" aria-label="Skupina">
+            <option value="">české i EU</option>
+            <option value="CZ"{% if family == 'CZ' %} selected{% endif %}>české předpisy</option>
+            <option value="EU"{% if family == 'EU' %} selected{% endif %}>akty EU</option>
+        </select>
+        <input type="text" name="q" value="{{ query }}" placeholder="hledat v názvu nebo označení">
+        <button type="submit" class="btn-secondary">Filtrovat</button>
+    </form>
+
+    <div class="table-glass-container">
+        <table class="admin-table candidate-table">
+            <thead>
+                <tr><th>Označení</th><th>Název</th><th>Zdroj</th><th>Citováno</th><th>Platnost</th><th>Stav</th><th></th></tr>
+            </thead>
+            <tbody>
+                {% for c in rows %}
+                <tr>
+                    <td>{{ c.designation or c.candidate_key or '—' }}</td>
+                    <td>{{ (c.title or '—')|truncate(140) }}</td>
+                    <td>{{ sources.get(c.source, c.source) }}</td>
+                    <td>{{ c.cited_by or '' }}</td>
+                    <td>{{ c.validity_status or '—' }}</td>
+                    <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' %} ({{ c.proposed_by_name }}){% endif %}</td>
+                    <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="btn-secondary">Otevřít</a></td>
+                </tr>
+                {% else %}
+                <tr><td colspan="7">Žádní kandidáti neodpovídají filtru.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

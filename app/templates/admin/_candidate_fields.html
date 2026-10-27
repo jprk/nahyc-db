@@ -1,0 +1,40 @@
+{# Metadata of the document a candidate becomes; `c` is the candidate (or the submitted form). #}
+<div class="admin-form-group">
+    <label for="designation">Označení (značka)</label>
+    <input type="text" id="designation" name="designation" value="{{ c.designation or '' }}" placeholder="např. 505/1990 Sb. nebo (EU) 2019/943">
+</div>
+<div class="admin-form-group">
+    <label for="title">Název</label>
+    <textarea id="title" name="title" rows="3" required>{{ c.title or '' }}</textarea>
+</div>
+<div class="admin-form-group">
+    <label for="document_type">Typ dokumentu</label>
+    <select id="document_type" name="document_type">
+        {% for t in types %}<option value="{{ t }}"{% if t == c.document_type %} selected{% endif %}>{{ t }}</option>{% endfor %}
+    </select>
+</div>
+<div class="admin-form-group">
+    <label for="url">Adresa zdroje</label>
+    <input type="text" id="url" name="url" value="{{ c.url or '' }}">
+</div>
+<div class="admin-form-group">
+    <label for="language">Jazyk</label>
+    <select id="language" name="language">
+        {% for l in languages %}<option value="{{ l }}"{% if l == (c.language or 'CS') %} selected{% endif %}>{{ l }}</option>{% endfor %}
+    </select>
+</div>
+<div class="admin-form-group">
+    <label for="jurisdikce">Jurisdikce</label>
+    <input type="text" id="jurisdikce" name="jurisdikce" value="{{ c.jurisdikce or '' }}" placeholder="CZ, EU, mezinárodní …">
+</div>
+<div class="admin-form-group">
+    <label for="scope_area">Věcný okruh (DATABASE_SCOPE.md, odstavec 3)</label>
+    <select id="scope_area" name="scope_area">
+        <option value="">— vyberte —</option>
+        {% for n, name in areas.items() %}<option value="{{ n }}"{% if n|string == (c.scope_area or '')|string %} selected{% endif %}>{{ n }}. {{ name }}</option>{% endfor %}
+    </select>
+</div>
+<div class="admin-form-group">
+    <label for="decision_note">Poznámka k návrhu</label>
+    <textarea id="decision_note" name="decision_note" rows="2">{{ c.decision_note or '' }}</textarea>
+</div>
