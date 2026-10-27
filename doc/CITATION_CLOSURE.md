@@ -1,7 +1,8 @@
 # Uzávěr citací — první měření úplnosti
 
 > Historie dokumentu:  
-> 2026-10-27 první měření nad živou databází `h2regdocs`
+> 2026-10-27 první měření nad živou databází `h2regdocs`  
+> 2026-10-27 rozlišení platnosti (odstavec 6)
 
 Dokument popisuje první z kontrol úplnosti, které stanovuje odstavec 7 dokumentu
 `doc/DATABASE_SCOPE.md`: **uzávěr citací**. Zjišťujeme, které předpisy, akty EU
@@ -113,3 +114,93 @@ Nejčastěji citované dokumenty, které databáze neobsahuje (bez novelizační
    patrně výrazně zkrátí.
 3. **Opakování měření** po doplnění dokumentů; poměry v tabulce odstavce 2
    slouží jako výchozí stav pro srovnání.
+
+## 6. Platnost citovaných a uložených předpisů
+
+Platnost zjišťuje skript `src/tools/check_validity.py`; výsledky ukládá do
+`data/validity_cache.json` (s datem kontroly, aby se při dalším běhu ověřovalo
+jen to, co je starší než zvolená lhůta) a doplňuje je jako sloupce `platnost`,
+`konec` a `zruseno_predpisem` do souboru kandidátů.
+
+* **Akty EU:** veřejný SPARQL koncový bod Cellar — příznak „v platnosti“, datum
+  konce platnosti a akty, které daný akt zrušily. Akt se dohledává podle čísla
+  CELEX; není-li druh aktu znám (nařízení, směrnice, rozhodnutí), zkoušíme
+  všechny tři a výsledek přijímáme jen tehdy, existuje-li právě jeden.
+* **České předpisy:** otevřená data e-Sbírky — konec účinnosti posledního
+  konsolidovaného znění a počátek účinnosti prvního. Předpis, který daný předpis
+  zrušil, otevřená data e-Sbírky neobsahují; přebíráme jej ze stránky předpisu na
+  zakonyprolidi.cz („Zrušeno k … (N/RRRR Sb.)“).
+
+Kontrolovali jsme 747 předpisů: kandidáty z odstavce 5 (české předpisy a akty EU)
+a všechny české předpisy a akty EU v databázi. Normy zatím nekontrolujeme;
+veřejný strojově čitelný zdroj jejich platnosti nemáme.
+
+### 6.1 Kandidáti
+
+Z 564 kandidátů (české předpisy a akty EU citované alespoň dvěma dokumenty, ne
+převážně jako novela) je:
+
+| Stav | České předpisy | Akty EU | Celkem |
+|---|---|---|---|
+| účinný | 69 | 216 | 285 |
+| zrušený | 37 | 239 | 276 |
+| nezjištěno | 0 | 3 | 3 |
+
+U 110 zrušených kandidátů databáze již obsahuje předpis, který je zrušil
+(například směrnice 94/9/ES → 2014/34/EU, nařízení (ES) č. 715/2009 →
+(EU) 2024/1789, zákon 50/1976 Sb. → 183/2006 Sb.). Nezjištěny zůstaly tři akty,
+které nejsou nařízením, směrnicí ani rozhodnutím (například doporučení Komise
+2003/361/ES o definici malých a středních podniků).
+
+Uzávěr citací omezený na **účinné** předpisy (bez novelizačních citací):
+
+| Skupina | k ≥ 2 | k ≥ 3 | k ≥ 5 |
+|---|---|---|---|
+| české předpisy | 15 / 84 | 14 / 57 | 13 / 35 |
+| akty EU | 72 / 288 | 54 / 186 | 26 / 91 |
+
+K ručnímu posouzení tak zbývá 285 účinných kandidátů, z toho 87 citovaných
+alespoň pěti dokumenty. Nejčastěji citované účinné akty, které databáze nemá:
+směrnice 98/70/ES o jakosti paliv (28 citujících dokumentů), nařízení (EU)
+č. 182/2011 o komitologii (27), rámcová směrnice BOZP 89/391/EHS (22), nařízení
+(EU) č. 1025/2012 o evropské normalizaci (16), směrnice 2003/87/ES o obchodování
+s povolenkami (15), nařízení (ES) č. 715/2007 o schvalování typu vozidel z hlediska
+emisí (13), směrnice 2013/30/EU o bezpečnosti těžby ropy a zemního plynu
+v moři (13), dále směrnice o elektřině (EU) 2019/944 a nařízení (EU) 2019/943,
+evropský klimatický zákon (EU) 2021/1119 a z českých předpisů správní řád,
+zákon o obcích a zákon o cenách.
+
+### 6.2 Předpisy v databázi
+
+Z 183 českých předpisů a aktů EU, které databáze obsahuje, je **34 zrušených**
+(146 účinných, 3 nezjištěné). Databáze je dnes vede bez rozlišení stavu.
+
+* U 18 z nich databáze obsahuje i předpis, který je zrušil (například stavební
+  zákon 183/2006 Sb. → 283/2021 Sb., směrnice 2009/73/ES a (EU) 2019/692 →
+  (EU) 2024/1788, směrnice 2014/94/EU → nařízení (EU) 2023/1804 AFIR,
+  nařízení vlády 133/2005 Sb. → 426/2021 Sb.).
+* U 8 z nich nástupce v databázi chybí: zákon 133/2010 Sb. → 516/2020 Sb.,
+  směrnice 2012/27/EU → (EU) 2023/1791 (energetická účinnost), rozhodnutí
+  2000/96/ES a 2002/253/ES → prováděcí rozhodnutí (EU) 2018/945, rozhodnutí
+  2009/177/ES → (EU) 2021/620, rozhodnutí 1998/2119/ES → 1082/2013/EU,
+  nařízení (EU) č. 559/2014 → (EU) 2021/2085 a nařízení (EU) č. 1305/2014 →
+  (EU) 2026/253.
+* U 8 z nich Cellar nástupce neuvádí (rozhodnutí 2007/875/ES, 2008/426/ES,
+  2009/312/ES, 2009/539/ES, 2009/540/ES, 2009/547/ES, směrnice 2014/106/EU,
+  nařízení (EU) č. 630/2012); jde o akty, jejichž platnost uplynula nebo byla
+  ukončena bez přímé náhrady.
+
+### 6.3 Doporučení
+
+1. **Stavy dokumentů v databázi.** Označit 34 zrušených předpisů jako zrušené
+   s vazbou na nástupce (vazba `REPEALS`); vyžaduje to rozšíření stavů podle
+   odstavce 5 dokumentu rozsahu.
+2. **Chybějící nástupci.** Doplnit 8 předpisů, které zrušily předpisy
+   v databázi, pokud do rozsahu patří.
+3. **Účinní kandidáti.** Ručně posoudit 285 účinných kandidátů v souboru
+   kandidátů (sloupec `rozhodnuti`), nejdříve 87 citovaných alespoň pěti
+   dokumenty; zrušené kandidáty lze při posuzování přeskočit.
+4. **Pravidelná kontrola.** `check_validity.py` spouštět s četností podle
+   odstavce 6 dokumentu rozsahu (registry předpisů týdně); mezipaměť zajistí,
+   že se dotazy opakují jen pro starší záznamy.
+
