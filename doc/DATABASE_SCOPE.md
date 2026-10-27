@@ -5,7 +5,7 @@
 > 2026-10-27 jprk Rozhodnuté otázky O1–O3 (odstavec 8)
 
 Tento dokument vymezuje, které regulační dokumenty má databáze
-regulačních předpisů a předrealizačních procesů (tedy výsledek V01 dílčího projektu DP004 centra NAHYC-m) obsahovat,
+regulačních předpisů a předrealizačních procesů (tedy výsledek V01 dílčího projektu DP004 centra NAHYC) obsahovat,
 v jakém rozsahu za jejich úplnost odpovídáme, jaké stavy dokumentů rozlišujeme
 a jak často se obsah kontroluje. Je výchozím bodem pro metodiku měření pokrytí této domény, popsanou v odstavci 7,
 a pro registr sledovaných zdrojů (v tento okamžik na vývojové větvi `automation` v souborech 
@@ -229,7 +229,7 @@ Z vymezení vyplývají tyto kroky:
 
 ## 8. Rozhodnuté otázky
 
-Otázky položené v první verzi dokumentu a jejich řešení (2026-10-27):
+Otázky položené v předešlých verzích dokumentu a jejich řešení:
 
 - **O1: Strojové rozhraní Sbírky právních předpisů ÚSC a Národního geoportálu
   územního plánování.** Sbírka právních předpisů územních samosprávných celků
