@@ -50,7 +50,7 @@
     "signal": ["link_check"],
     "stage": "E1",
     "adds": "Pouze údržba: hlídá rozpadlé odkazy odkaz_sk. Není vyhledáváním nových dokumentů.",
-    "constraints": "Vyhledávací rozhraní je Angular SPA bez prostého HTTP rozhraní; programový fulltext nabízí jen placená služba třetí strany.",
+    "constraints": "Vyhledávací rozhraní je Angular SPA bez prostého HTTP rozhraní; programový fulltext nabízí jen placená služba třetí strany. Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": null
   },
 
@@ -87,7 +87,7 @@
     "signal": ["draft"],
     "stage": "E2",
     "adds": "Slovenské návrhy předpisů v pripomienkovém konaní — včasný signál, který pro SK zcela chybí.",
-    "constraints": "Obchází problém s Angular SPA: jde o prosté HTTP RSS, tedy lepší cesta do Slov-Lexu, než jakou dnes máme.",
+    "constraints": "Obchází problém s Angular SPA: jde o prosté HTTP RSS, tedy lepší cesta do Slov-Lexu, než jakou dnes máme. Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": "2026-09-20"
   },
 
@@ -107,7 +107,7 @@
     "stage": "E3",
     "adds": "Autoritativní měsíční přehled vydaných, změněných, opravených a zrušených ČSN — hromadná obdoba dnešního dotazování agentury po jednotlivých označeních.",
     "constraints": "Předvídatelný vzor názvu souboru; zpracovatelné knihovnou pdfplumber, jež je již závislostí projektu. Pouze bibliografická data, nikoli plné texty norem.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "unmz-news",
@@ -125,7 +125,7 @@
     "stage": "E3",
     "adds": "Oznamuje vydání nového Věstníku; koncepční materiály k normalizaci a metrologii.",
     "constraints": "Běžné WordPress RSS.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "csn-online",
@@ -143,7 +143,7 @@
     "stage": "E1",
     "adds": "Ověření platnosti a edice konkrétní ČSN.",
     "constraints": "Zastřešující doména agentury se přesunula na agenturacas.gov.cz, ale tento katalog zůstává na csnonline.agentura-cas.cz (ověřeno 2026-09-20: .gov.cz varianta přesměrovává zpět sem). Pouze katalogová metadata, nikdy plné texty. Adresa https://agenturacas.gov.cz/produkty-a-sluzby/csn-online/ je jen informační stránka, jež na tento katalog odkazuje (ověřeno 2026-10-28).",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "vestnik-unms-sr",
@@ -161,7 +161,7 @@
     "stage": "E3",
     "adds": "Slovenská obdoba Věstníku ÚNMZ.",
     "constraints": "Vzor názvu souboru není napříč ročníky stabilní — je nutné projít rozcestník, ne odvozovat URL.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "normoff-stn",
@@ -179,7 +179,7 @@
     "stage": "E1",
     "adds": "Předmět a stav konkrétní STN. RSS existuje, nese však jen aktuality úřadu, nikoli Vestník.",
     "constraints": "Pouze katalogová metadata.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
 
   {
@@ -215,7 +215,7 @@
     "signal": ["new_document"],
     "stage": "E3",
     "adds": "Normy ke kvalitě vodíku a čísla pracovních položek (WK) — signál o normách v přípravě.",
-    "constraints": "robots.txt povoluje, k dispozici sitemap. Server vrací hotové HTML.",
+    "constraints": "robots.txt povoluje, k dispozici sitemap. Server vrací hotové HTML. Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": "2026-09-20"
   },
   {
@@ -234,7 +234,7 @@
     "stage": "E3",
     "adds": "Potrubí pro vodík (B31.12) a tlakové nádoby.",
     "constraints": "robots.txt povoluje, k dispozici sitemap.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "cen-clc-jtc6",
@@ -270,7 +270,7 @@
     "stage": "manual",
     "adds": "Rámcové priority evropské normalizace, nikoli jednotlivé normy.",
     "constraints": "Statický mikroweb, jeden ročně. Bez omezení, ale bez strojově čitelného výstupu.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "iso-tc197",
@@ -305,7 +305,7 @@
     "signal": ["new_document"],
     "stage": "E1",
     "adds": "Bibliografická data publikací IEC.",
-    "constraints": "Za AWS WAF Bot Control — vyžaduje headless Chromium. Pouze katalogová metadata. Webstore https://webstore.iec.ch/ je naproti tomu čitelný bez prohlížeče: HTTP 200, obsah přímo v HTML, detail publikace (např. /en/publication/117179) nese datum vydání a edici, robots.txt prázdný; RSS ani API nenalezeno (ověřeno 2026-10-28). Možné zjednodušení sběru bez headless prohlížeče.",
+    "constraints": "Za AWS WAF Bot Control — vyžaduje headless Chromium. Pouze katalogová metadata. Webstore https://webstore.iec.ch/ je naproti tomu čitelný bez prohlížeče: HTTP 200, obsah přímo v HTML, detail publikace (např. /en/publication/117179) nese datum vydání a edici, robots.txt prázdný; RSS ani API nenalezeno (ověřeno 2026-10-28). Možné zjednodušení sběru bez headless prohlížeče. Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": null
   },
   {
@@ -341,7 +341,7 @@
     "signal": ["new_document"],
     "stage": "E1",
     "adds": "Bezpečnostní dokumenty odvětví technických plynů.",
-    "constraints": "Za WAF, prochází s vhodným parametrem dotazu. Adresa https://www.eiga.eu/publications/ funguje (HTTP 200, ověřeno 2026-10-28, předtím jednou 503 „scheduled maintenance“); robots.txt zakazuje jen /wp-admin/. Web odkazuje kanál RSS https://www.eiga.eu/feed/ (neověřen).",
+    "constraints": "Za WAF, prochází s vhodným parametrem dotazu. Adresa https://www.eiga.eu/publications/ funguje (HTTP 200, ověřeno 2026-10-28, předtím jednou 503 „scheduled maintenance“); robots.txt zakazuje jen /wp-admin/. Web odkazuje kanál RSS https://www.eiga.eu/feed/ (neověřen). Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": null
   },
   {
@@ -378,7 +378,7 @@
     "stage": "E5",
     "adds": "Revizní cyklus NFPA 2 je čitelný signál o připravované změně.",
     "constraints": "JS SPA — server vrací prakticky prázdnou stránku. robots.txt zapovídá /en/ a /data/.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
 
   {
@@ -397,7 +397,7 @@
     "stage": "E6",
     "adds": "Návrhy prováděcích aktů PŘED vyhlášením — nejhodnotnější včasný signál na úrovni EU.",
     "constraints": "Angular SPA; prosté HTTP vrací 1368 bajtů obalu. Katalog data.europa.eu sice inzeruje distribuci ve formátu CSV na adrese .../screen/datasets, ta však ověřeně (2026-09-20) vrací tentýž obal SPA, nikoli CSV. Získání dat by vyžadovalo headless prohlížeč nebo nalezení rozhraní, z něhož čerpá sama aplikace.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "ec-regdel",
@@ -415,7 +415,7 @@
     "stage": "E6",
     "adds": "Akty v přenesené pravomoci v přípravě.",
     "constraints": "Rovněž SPA; prosté HTTP vrací 1144 bajtů obalu.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "ec-have-your-say",
@@ -433,7 +433,7 @@
     "stage": "E5",
     "adds": "Konzultace a lhůty ke zpětné vazbě, včetně návrhů aktů.",
     "constraints": "Stránka odpovídá, strojově čitelné rozhraní se nepodařilo doložit.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "data-europa-search",
@@ -451,7 +451,7 @@
     "stage": "E5",
     "adds": "Nástroj k dohledání, zda některý registr EU nabízí strojově čitelnou distribuci dat.",
     "constraints": "Vyhledávací REST API odpovídá rychle a je použitelné. SPARQL rozhraní je živé, ale dotaz procházející celý katalog skončil chybou 504 — je nutné dotazovat cíleně. POZOR: inzerovaná distribuce nemusí odpovídat skutečnosti (viz ec-comitology-register).",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "acer",
@@ -469,7 +469,7 @@
     "stage": "E4",
     "adds": "Regulace plynárenských a vodíkových sítí: tarifní rozhodnutí, práce na síťových kodexech podle balíčku pro dekarbonizované plyny a vodík. Převážně mimo EUR-Lex.",
     "constraints": "Kanál je vadný: prvky <link> obsahují HTML-escapovaný odkaz místo prosté adresy — poller musí adresu z tohoto řetězce vydolovat.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "european-hydrogen-observatory",
@@ -487,7 +487,7 @@
     "stage": "E5",
     "adds": "Kurátorovaný rozcestník politiky a regulace EU k vodíku — vhodné jako nezávislá kontrola úplnosti našeho korpusu.",
     "constraints": "Bez RSS, nutný sběr z HTML.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "dg-ener-hydrogen",
@@ -505,7 +505,7 @@
     "stage": "E5",
     "adds": "Rámcové politické dokumenty a nelegislativní pokyny.",
     "constraints": "RSS na /rss_en vrací 404. Trh s vodíkem a plynárenský a vodíkový balíček viz položka dg-ener-hydrogen-gas-market.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "clean-hydrogen-partnership",
@@ -523,7 +523,7 @@
     "stage": "manual",
     "adds": "Programové dokumenty a výzvy; regulační přínos je spíše slabý.",
     "constraints": "Bez RSS, pouze newsletter. Bezpečnostní dokumenty European Hydrogen Safety Panel viz položka ehsp.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "eu-hydrogen-bank",
@@ -541,7 +541,7 @@
     "stage": "manual",
     "adds": "Podmínky aukcí a praktické uplatnění definic RFNBO a nízkouhlíkového vodíku.",
     "constraints": "RSS na /rss_en vrací 404.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
 
   {
@@ -560,7 +560,7 @@
     "stage": "E4",
     "adds": "Gestor české vodíkové strategie; signál o konzultacích a koncepčních dokumentech.",
     "constraints": "Rozcestník kanálů uvádí adresy na starším hostiteli — je vhodné ověřit obě varianty.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "mhsr-vodikova-strategia",
@@ -578,7 +578,7 @@
     "stage": "E4",
     "adds": "Sedm dokumentů PDF, mezi nimi „Zoznam noriem“ (seznam norem k vodíku) — přímý vstup do korpusu, vhodný k jednorázovému zpracování.",
     "constraints": "Bez RSS, prosté HTML.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "eru-cz",
@@ -596,7 +596,7 @@
     "stage": "E4",
     "adds": "Rozhodnutí energetického regulátora, plynárenská a vodíková infrastruktura.",
     "constraints": "Stránka věstníků ověřena (295 sdělení). Adresa RSS je převzata z patičky stránky a NEBYLA samostatně ověřena.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "hytep",
@@ -651,7 +651,7 @@
     "stage": "manual",
     "adds": "Stanoviska oboru a reakce na návrhy předpisů. POUZE pro lidské čtení — nikdy nesmí vytvářet kandidáty.",
     "constraints": "Poměr užitečného signálu je nízký (řádově 2 z 10 položek, převážně k financování). Soukromé sdružení, podmínky užití neověřeny.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "clean-hydrogen-bluesky",
@@ -669,7 +669,7 @@
     "stage": "manual",
     "adds": "Občasné upozornění na veřejnou konzultaci. POUZE pro lidské čtení.",
     "constraints": "Jediná sociální síť s otevřeným, neautentizovaným čtením (ověřeno). X i LinkedIn jsou pro automatizované čtení uzavřené — X od února 2026 zrušil bezplatnou úroveň.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
   {
     "id": "bakermckenzie-hydrogen-tracker",
@@ -686,7 +686,7 @@
     "signal": ["context"],
     "stage": "manual",
     "adds": "Nejhutnější nalezený přehled regulace: jmenuje konkrétní nástroje i s daty. Vhodné jako pravidelná ruční kontrola, zda korpusu nějaký předpis nechybí.",
-    "constraints": "Bez RSS. Volně přístupné.",
+    "constraints": "Bez RSS. Volně přístupné. Kontrola dostupnosti 2026-10-29 (check_sources.py, User-Agent „NAHYC-DP004-harvest“): HTTP 403 — web takto identifikovaného robota odmítá; před zapojením rozhodnout, zda zdroj vést jako blocked.",
     "verified_at": "2026-09-20"
   },
 
@@ -760,7 +760,7 @@
     "stage": null,
     "adds": "Vyřazeno.",
     "constraints": "Kanál je technicky v pořádku, ale z posledních deseti položek se regulace netýkala ani jedna — samé firemní a projektové zprávy. Čistý kanál bez regulačního signálu je horší než žádný, protože spotřebovává pozornost při kontrole.",
-    "verified_at": "2026-09-20"
+    "verified_at": "2026-10-28"
   },
 
   {

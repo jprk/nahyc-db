@@ -5,6 +5,7 @@
     <h2 style="margin-bottom: 0.5rem;">{{ c.designation or c.candidate_key or 'Kandidát' }}</h2>
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Stav: <strong>{{ state_labels.get(c.status, c.status) }}</strong> &middot; zdroj: {{ sources.get(c.source, c.source) }}
+        {% if c.signal %} &middot; {{ signal_labels.get(c.signal, c.signal) }}{% endif %}
         {% if c.validity_status %} &middot; platnost: {{ c.validity_status }}{% endif %}
         {% if c.cited_by %} &middot; citováno {{ c.cited_by }} dokumenty databáze{% endif %}
     </p>
@@ -24,6 +25,20 @@
         </tbody>
     </table>
 
+    {% if findings %}
+    <h3>Nálezy ve sledovaných zdrojích ({{ findings|length }})</h3>
+    <ul class="doc-relations">
+        {% for f in findings %}
+        <li>
+            <strong>{{ sources.get(f.source, f.source) }}</strong>
+            {% if f.date %}({{ f.date }}){% endif %} —
+            {% if f.url %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.title|truncate(110) }}</a>{% else %}{{ f.title|truncate(110) }}{% endif %}
+            <span style="color: var(--text-secondary);">· poprvé zachyceno {{ (f.first_seen or '')[:10] }}{% if f.needs_key %} · bez označení předpisu, doplnit ručně{% endif %}</span>
+            {% if f.excerpt %}<p class="candidate-context">… {{ f.excerpt }} …</p>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     {% if evidence.context %}
     <h3>Kontext první citace</h3>
     <p class="candidate-context">… {{ evidence.context }} …</p>

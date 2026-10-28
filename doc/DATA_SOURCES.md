@@ -3,7 +3,8 @@
 > Historie dokumentu:  
 > 2026-10-28 jprk Převzato z odstavce 11 dokumentu `doc/AUTOMATION.md` (větev `automation`, stav 2026-10-24)  
 > 2026-10-28 jprk Doplněno z návrhu katalogu informačních zdrojů: role a priority zdrojů, 36 nových zdrojů ověřených živě, pořadí prací, zpracování nálezu, vyhledávací výrazy, výhled  
-> 2026-10-28 jprk Plán vytěžování zdrojů (odstavec 4) a pole `signal` a `stage` v registru
+> 2026-10-28 jprk Plán vytěžování zdrojů (odstavec 4) a pole `signal` a `stage` v registru  
+> 2026-10-29 jprk Etapa E0 provedena (odstavec 4.3), první kontrola dostupnosti
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -365,6 +366,22 @@ a s druhem `draft`; záznam o každém běhu; **kontrola dostupnosti** všech
 adresy a aktualizuje `verified_at`. Kontrola dostupnosti je levná, týká se
 i ručně kontrolovaných zdrojů a ověření z 28. 10. 2026 ukázalo, že ji
 potřebujeme (odstavec 3.1).
+
+*Stav 29. 10. 2026: provedeno.* Spouštěč `src/tools/harvest_sources.py`,
+knihovna `harvest.py` (tvar nálezu, zápis do fronty, záznam běhů
+`data/source_checks.jsonl`), modul registru `source_registry.py` a kontrola
+dostupnosti `check_sources.py`; fronta kandidátů má sloupec `signal`, ukazuje
+nálezy jednotlivých zdrojů a přijatý návrh předpisu zakládá jako dokument ve
+stavu „připravovaný“. Tabulka adaptérů je zatím prázdná, spouštěč tedy všechny
+zdroje přeskočí a ohlásí. První kontrola dostupnosti: 62 zdrojů v pořádku,
+4 zablokované podle očekávání, 5 zakázaných jsme nestahovali. Šest webů
+(Slov-Lex dvakrát, ASTM, IEC, EIGA, Baker McKenzie) odpovídá robotu, který se
+poctivě identifikuje, kódem 403; u IEC a EIGA šlo o známou ochranu, u Slov-Lexu
+a ASTM o změnu proti ověření ze září. Zda tyto zdroje převést do stavu
+`blocked`, rozhodneme při jejich zapojení (Slov-Lex legislatívny proces patří
+do etapy E2); jinou identifikaci robota, jež by kontrolu webu obcházela,
+nepoužíváme. Kanál RSS VeKLEPu při kontrole neodpověděl včas, jeho rozhraní
+JSON ano.
 
 **E1 — Převod stávající automatizace (10 zdrojů).** `eurlex-cellar`,
 `esbirka-lod`, `slovlex-linkcheck`, `csn-online`, `normoff-stn`,

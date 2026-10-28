@@ -161,6 +161,34 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         self.assertEqual(accepted["TEST:1"]["klicova_slova"], ["Bezpečnost"])
         self.assertIn("založen", bob.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
 
+    def test_a_draft_found_by_a_source_becomes_a_draft_document(self):
+        evidence = {"findings": {"veklep-odok": {"source": "veklep-odok", "signal": "draft", "title": TITLE,
+                                                 "url": "https://example.test/veklep/1", "date": "2026-10-20",
+                                                 "excerpt": "návrh zákona o zkoušení", "seen": "2026-10-28T00:00:00",
+                                                 "first_seen": "2026-10-28T00:00:00", "needs_key": True}}}
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json) VALUES ('TEST:draft', 'veklep-odok', 'draft', %s, "
+                        "'Zákon', 'https://example.test/veklep/1', 'CS', 'CZ', %s)", (TITLE, json.dumps(evidence)))
+            candidate_id = cur.lastrowid
+        alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
+        page = alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True)
+        self.assertIn("Nálezy ve sledovaných zdrojích (1)", page)
+        self.assertIn("VeKLEP", page)
+        self.assertIn("návrh předpisu", page)
+        self.assertIn("doplnit ručně", page)
+        self.assertIn(TITLE, alice.get("/admin/candidates?zdroj=veklep-odok").get_data(as_text=True))
+        alice.post(f"/admin/candidates/{candidate_id}/propose",
+                   data={"designation": "", "title": TITLE, "document_type": "Zákon", "url": "https://example.test/veklep/1",
+                         "language": "CS", "jurisdikce": "CZ", "scope_area": "1", "decision_note": ""})
+        bob.post(f"/admin/candidates/{candidate_id}/confirm")
+        row = self.candidate(candidate_id)
+        self.assertEqual(row["status"], "accepted")
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1",
+                        (row["document_id"],))
+            self.assertEqual(cur.fetchone()["lifecycle_state"], "draft")
+
     def test_a_proposal_without_title_type_or_area_is_refused(self):
         candidate_id = self.insert_candidate("TEST:2", title="Testovací kandidát bez okruhu")
         alice = self.client_for("cand_alice")

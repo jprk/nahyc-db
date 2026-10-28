@@ -3,8 +3,10 @@
 
 A candidate is a document that some check says the database may be missing:
 an act that the texts in the database cite (citation_closure.py), the act that
-repealed a document of the database (check_validity.py), later a find of a
-grabber, or a document an editor proposes by hand. Every candidate is identified
+repealed a document of the database (check_validity.py), a finding of a monitored
+source (harvest_sources.py; `source` is then the source's id in
+data/monitored_sources.json and the evidence keeps every source that found it), or a
+document an editor proposes by hand. Every candidate is identified
 by the same key the checks use (`CZ:505/1990`, `EU:2003/87`, see
 citation_closure.own_keys), so a later run of a check only refreshes the evidence
 of a candidate it has already reported and never asks again about one an editor
@@ -38,6 +40,7 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
   id INT AUTO_INCREMENT PRIMARY KEY,
   candidate_key VARCHAR(120) NULL,
   source VARCHAR(50) NOT NULL,
+  `signal` VARCHAR(20) NULL,
   designation VARCHAR(200) NULL,
   title VARCHAR(1000) NULL,
   document_type VARCHAR(100) NULL,
@@ -70,8 +73,27 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
 """
 
 
+# Tables created before the column existed (2026-10-28) get it here.
+MIGRATIONS = ("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS `signal` VARCHAR(20) NULL AFTER source",)
+# `signal` of a finding (doc/DATA_SOURCES.md odstavec 4.2) as editors read it.
+SIGNAL_LABELS = {"new_document": "nový dokument", "draft": "návrh předpisu (připravovaný)"}
+
+
 def ensure_schema(cursor):
     cursor.execute(SCHEMA)
+    for statement in MIGRATIONS:
+        cursor.execute(statement)
+
+
+def source_labels(registry=None):
+    """{source: label} for the candidate pages: the three checks above and the
+    monitored sources of the registry by their names."""
+    import source_registry
+    try:
+        entries = registry if registry is not None else source_registry.load()[0]
+    except (OSError, ValueError):
+        entries = []
+    return {**SOURCES, **{e["id"]: e["name"] for e in entries}}
 
 
 # --- what a key looks like as a document ----------------------------------
@@ -248,9 +270,14 @@ def upsert(cursor, candidate):
     decision and the metadata an editor may have changed are never touched; a
     rejected or accepted candidate is not reopened. Returns "inserted",
     "updated" or "kept"."""
-    cursor.execute("SELECT id, status FROM DocumentCandidate WHERE candidate_key = %s", (candidate["candidate_key"],))
+    cursor.execute("SELECT id, status, evidence_json FROM DocumentCandidate WHERE candidate_key = %s",
+                   (candidate["candidate_key"],))
     row = cursor.fetchone()
-    evidence = json.dumps(candidate["evidence"], ensure_ascii=False)
+    old = _evidence(row)
+    fresh = dict(candidate["evidence"])
+    if old.get("findings"):
+        fresh["findings"] = old["findings"]  # what monitored sources found stays with the candidate
+    evidence = json.dumps(fresh, ensure_ascii=False)
     if row is None:
         cursor.execute("""INSERT INTO DocumentCandidate
             (candidate_key, source, designation, title, document_type, url, language, jurisdikce,
@@ -267,4 +294,45 @@ def upsert(cursor, candidate):
         return "kept"
     cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, cited_by = %s, validity_status = %s WHERE id = %s",
                    (evidence, candidate.get("cited_by", 0), candidate.get("validity_status"), row_id))
+    return "updated"
+
+
+def _evidence(row):
+    if row is None:
+        return {}
+    raw = row.get("evidence_json") if isinstance(row, dict) else (row[2] if len(row) > 2 else None)
+    try:
+        return json.loads(raw) if raw else {}
+    except ValueError:
+        return {}
+
+
+def upsert_finding(cursor, candidate, finding):
+    """Records a finding of a monitored source (harvest.Finding.as_evidence()) with
+    its candidate: a new candidate gets the metadata of the finding and the source
+    as its `source`; a candidate already reported (by a check or another source)
+    only gets the finding added to `evidence.findings` under the source's id, with
+    the date it was first seen kept. A decided candidate is not touched. Returns
+    "inserted", "updated" or "kept"."""
+    cursor.execute("SELECT id, status, evidence_json FROM DocumentCandidate WHERE candidate_key = %s",
+                   (candidate["candidate_key"],))
+    row = cursor.fetchone()
+    if row is not None and (row["status"] if isinstance(row, dict) else row[1]) in ("accepted", "rejected"):
+        return "kept"
+    evidence = _evidence(row)
+    findings = evidence.setdefault("findings", {})
+    previous = findings.get(finding["source"], {})
+    findings[finding["source"]] = {**finding, "first_seen": previous.get("first_seen", finding["seen"])}
+    payload = json.dumps(evidence, ensure_ascii=False)
+    if row is None:
+        cursor.execute("""INSERT INTO DocumentCandidate
+            (candidate_key, source, `signal`, designation, title, document_type, url, language, jurisdikce,
+             evidence_json)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                       (candidate["candidate_key"], finding["source"], finding["signal"], candidate.get("designation"),
+                        candidate.get("title"), candidate.get("document_type"), candidate.get("url"),
+                        candidate.get("language"), candidate.get("jurisdikce"), payload))
+        return "inserted"
+    row_id = row["id"] if isinstance(row, dict) else row[0]
+    cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s WHERE id = %s", (payload, row_id))
     return "updated"

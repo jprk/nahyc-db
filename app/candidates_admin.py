@@ -13,6 +13,9 @@ the decisions.
 * **Rejecting and deferring need one editor**; both can be reopened.
 * **A manual proposal** of a document creates a candidate already proposed by its
   author, waiting for a second editor.
+* **Findings of monitored sources** (harvest_sources.py) are listed with the
+  candidate, one per source; a candidate of the signal `draft` (a proposed act in
+  the legislative process) becomes a document in the state `draft` (připravovaný).
 
 Every decision is written to the AuditLog (`table_name` = `DocumentCandidate`).
 """
@@ -72,11 +75,12 @@ def candidate_list():
     state = request.args.get("stav", "open")
     states = FILTER_STATES.get(state, cd.OPEN_STATES)
     source = request.args.get("zdroj", "")
+    sources = cd.source_labels()
     family = request.args.get("skupina", "")
     query = (request.args.get("q") or "").strip()
     conditions = ["c.status IN (" + ",".join(["%s"] * len(states)) + ")"]
     params = list(states)
-    if source in cd.SOURCES:
+    if source in sources:
         conditions.append("c.source = %s")
         params.append(source)
     if family in ("CZ", "EU"):
@@ -94,7 +98,7 @@ def candidate_list():
         cur.execute("SELECT status, COUNT(*) AS n FROM DocumentCandidate GROUP BY status")
         counts = {row["status"]: row["n"] for row in cur.fetchall()}
     return render_template("admin/candidates_list.html", rows=rows, counts=counts, state=state, source=source,
-                           family=family, query=query, sources=cd.SOURCES, state_labels=STATE_LABELS)
+                           family=family, query=query, sources=sources, state_labels=STATE_LABELS)
 
 
 def linked_documents(db, ids):
@@ -118,7 +122,9 @@ def candidate_detail(candidate_id):
                            citing=linked_documents(db, evidence.get("citing_ids", [])[:50]),
                            repeals=linked_documents(db, evidence.get("repeals_ids", [])),
                            types=document_types(db), languages=LANGUAGES, areas=cd.SCOPE_AREAS,
-                           state_labels=STATE_LABELS, sources=cd.SOURCES)
+                           state_labels=STATE_LABELS, sources=cd.source_labels(),
+                           findings=sorted(evidence.get("findings", {}).values(), key=lambda f: f.get("first_seen") or ""),
+                           signal_labels=cd.SIGNAL_LABELS)
 
 
 def read_metadata(form, db, own_designation=None):
@@ -244,7 +250,12 @@ def create_document(cur, candidate):
                  PIPELINE_SOURCE,
                  unique_slug(cur, identifier, title)))
     doc_id = cur.lastrowid
-    state = "promulgated" if candidate.get("validity_status") == "dosud neúčinný" else "active"
+    if candidate.get("signal") == "draft":
+        state = "draft"
+    elif candidate.get("validity_status") == "dosud neúčinný":
+        state = "promulgated"
+    else:
+        state = "active"
     cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
                    VALUES (%s, 1, 1, %s)""", (doc_id, state))
     area = cd.SCOPE_AREAS.get(candidate["scope_area"])
