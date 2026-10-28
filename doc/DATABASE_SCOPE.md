@@ -8,8 +8,7 @@ Tento dokument vymezuje, které regulační dokumenty má databáze
 regulačních předpisů a předrealizačních procesů (tedy výsledek V01 dílčího projektu DP004 centra NAHYC) obsahovat,
 v jakém rozsahu za jejich úplnost odpovídáme, jaké stavy dokumentů rozlišujeme
 a jak často se obsah kontroluje. Je výchozím bodem pro metodiku měření pokrytí této domény, popsanou v odstavci 7,
-a pro registr sledovaných zdrojů (v tento okamžik na vývojové větvi `automation` v souborech 
-`data/monitored_sources.json` a odstavci 11  dokumentu `doc/AUTOMATION.md`).
+a pro registr sledovaných zdrojů (`data/monitored_sources.json`, popsaný v `doc/DATA_SOURCES.md`).
 
 ## 1. Účel a východisko
 
