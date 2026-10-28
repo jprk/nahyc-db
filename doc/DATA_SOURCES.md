@@ -2,7 +2,8 @@
 
 > Historie dokumentu:  
 > 2026-10-28 jprk Převzato z odstavce 11 dokumentu `doc/AUTOMATION.md` (větev `automation`, stav 2026-10-24)  
-> 2026-10-28 jprk Doplněno z návrhu katalogu informačních zdrojů: role a priority zdrojů, 36 nových zdrojů ověřených živě, pořadí prací, zpracování nálezu, vyhledávací výrazy, výhled
+> 2026-10-28 jprk Doplněno z návrhu katalogu informačních zdrojů: role a priority zdrojů, 36 nových zdrojů ověřených živě, pořadí prací, zpracování nálezu, vyhledávací výrazy, výhled  
+> 2026-10-28 jprk Plán vytěžování zdrojů (odstavec 4) a pole `signal` a `stage` v registru
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -38,8 +39,9 @@ a žádný skript z něj zatím nečte.
 Každá položka nese pole `id`, `name`, `category`, `jurisdiction`, `url`,
 `access` (způsob a případná strojově čitelná adresa), `status`,
 `screener` (cesta ke skriptu, pokud existuje), `cadence` (navrhovaná
-perioda), `priority`, `role`, `adds` (co zdroj přináší nad rámec stávajícího
-pokrytí), `constraints` a `verified_at`.
+perioda), `priority`, `role`, `signal` a `stage` (druh signálu a etapa
+zapojení podle plánu vytěžování, odstavec 4), `adds` (co zdroj přináší nad
+rámec stávajícího pokrytí), `constraints` a `verified_at`.
 
 Pole `status` nabývá sedmi hodnot:
 
@@ -245,40 +247,190 @@ nesou obecné zprávy úřadu, ne jen regulační dokumenty; stav `ready` u nich
 znamená ověřený kanál, jejž bude třeba filtrovat podle vyhledávacích výrazů
 z odstavce 6.
 
-## 4. Doporučené pořadí prací
+## 4. Plán vytěžování zdrojů
 
-Navrhujeme zapojovat v tomto pořadí, sestupně podle poměru přínosu
-k pracnosti:
+Tento odstavec popisuje, jak budeme ze zdrojů registru získávat dokumenty
+a změny jejich stavu, a v jakém pořadí. Je zároveň zadáním pro budoucí
+automatizaci: každý zdroj nese v registru pole `signal` (co z něj získáváme)
+a `stage` (ve které etapě jej zapojíme), takže spouštěč popsaný v odstavci 4.2
+bude moci plán číst přímo z registru.
 
-1. **VeKLEP** a **Slov-Lex legislatívny proces** — Oba jsou strojově
-   čitelné, oba přinášejí včasný signál, který dnes nemáme vůbec, a oba
-   se tvarem blíží stávajícím skriptům `screen_*.py`.
-2. **Věstník ÚNMZ** — Jeden hromadný měsíční přírůstek ČSN.
-3. **Sněmovní a senátní tisky** a **Legislative Observatory** — Hromadná
-   otevřená data, respektive export RSS a XML; navazují na VeKLEP a ukazují,
-   co se blíží vyhlášení.
-4. **Kanály RSS českých orgánů** (MMR, MŽP, SÚIP, ČOI, Drážní úřad)
-   a **OTIF** — Ověřené kanály, jež vyžadují jen společný filtr podle
-   vyhledávacích výrazů.
-5. **ASTM**, **ASME** a **SAE** (přes Crossref) — Mezinárodní normalizační
-   zdroje dostupné bez headless prohlížeče a bez omezení v `robots.txt`.
-6. **Registrace k REST API e-Sbírky a e-Legislativy** — Jedno správní podání
-   zpřístupní oba systémy; e-Legislativa nese návrhy předpisů, které VeKLEP
-   postupně přestane pokrývat.
-7. **EHK OSN** — Věcně nejhodnotnější (GTR č. 13 pro vodíková vozidla
-   a ADR a ADN pro přepravu, tedy oblast, kterou nepokrýváme vůbec, a bez
-   problému s podmínkami užití), ale vyžádá si headless prohlížeč.
+### 4.1 Výchozí stav
 
-Návrh katalogu dělil zdroje do dvou vln. **První vlnu** tvoří zdroje
-s prioritou A: registry předpisů a návrhů (EUR-Lex, VeKLEP, e-Legislativa),
-harmonizované normy, stavební právo, životní prostředí, technická
-a požární bezpečnost, metrologie a jakost paliv a přeprava nebezpečných věcí.
-Právní zdroje přitom zpracováváme na úrovni identifikátorů a časových verzí,
-normy na úrovni metadat a právních vazeb. **Druhá vlna** (priorita B) doplňuje
-parlamentní a evropské registry, technická pravidla TPG, další portály
-ministerstev a orgánů, evidenci EIA a integrované prevence, železniční orgány
-a odborné zdroje (HYTEP, EHSP); tyto zdroje jsou potřeba zejména k odhalování
-mezer a k provázání regulace s procesy.
+Dokumenty se dnes do databáze dostávají třemi navzájem nepropojenými cestami:
+
+1. **Screeningové skripty a skripty `add_*`** — `screen_eurlex.py`
+   a `screen_esbirka.py` zapisují nálezy do
+   `data/fulltext_screening_candidates.json`; skripty
+   `add_eurlex_hydrogen_acts.py`, `add_esbirka_hydrogen_acts.py`
+   a `add_hytep_hydrogen_docs.py` z nich po ověření a filtraci vytvářejí
+   soubory `data/discovered_*.json`, jež při přestavbě načítá
+   `build_unified_db.py`. Sklizeň katalogů IEC a DVGW
+   (`harvest_iec_publications.py`, `harvest_dvgw_publications.py`) a modul
+   `src/sites/eiga.py` fungují obdobně, každý vlastním způsobem.
+2. **Fronta kandidátů** — tabulka `DocumentCandidate` a stránka
+   `/admin/candidates`; plní ji uzávěr citací, kontrola platnosti (chybějící
+   nástupci zrušených dokumentů) a ruční návrhy editorů. Přijetí dvěma editory
+   vytvoří dokument ihned a zapíše jej do `data/accepted_candidates.json`.
+3. **Agentní zpracování** (větev `automation`) — kandidáty z EUR-Lexu
+   převádí na ověřené záznamy v `data/discovered_agentic_candidates.json`;
+   tento soubor však přestavba zatím nenačítá (`doc/AUTOMATION.md`,
+   odstavec 6.3).
+
+Změny stavu již evidovaných dokumentů sleduje kontrola platnosti
+(`check_validity.py` nad Cellarem, e-Sbírkou a zakonyprolidi.cz,
+`backfill_document_states.py`) a u norem `check_csn_validity.py`
+a `src/sites/normoff.py`. Žádná z cest neběží pravidelně, žádná
+nezaznamenává kontroly, jež nic nepřinesly, a každý nový zdroj by dnes
+znamenal další soubor `discovered_*.json` a další načítací blok
+v přestavbě.
+
+### 4.2 Cílový tvar
+
+Navrhujeme sjednotit všechny cesty do jednoho tvaru:
+
+```
+registr zdrojů (data/monitored_sources.json: signal, stage, cadence)
+      │
+      │  spouštěč: harvest_sources.py --stage E2 | --cadence weekly | --source <id>
+      ▼
+adaptér zdroje (jeden modul na zdroj nebo na druh rozhraní, např. společný adaptér RSS)
+      │  vrací nálezy jednotného tvaru
+      ▼
+filtr věcné příslušnosti (vyhledávací výrazy, odstavec 6; classify_candidate() pro EUR-Lex)
+      │
+      ├── nový dokument / návrh ──▶ fronta kandidátů DocumentCandidate (source = id zdroje)
+      ├── změna stavu ───────────▶ kontrola platnosti → stavy dokumentů (DATABASE_SCOPE.md, odst. 5)
+      └── každý běh ─────────────▶ záznam o kontrole (i bez nálezu)
+                                        │
+                                        ▼
+                             editor: návrh + potvrzení druhým editorem → dokument
+```
+
+Zásady cílového tvaru:
+
+1. **Jediná vstupní brána je fronta kandidátů.** Nový zdroj nepřidává
+   soubor `discovered_*.json` ani načítací blok v přestavbě; jeho nálezy
+   končí ve frontě se zdrojem uvedeným identifikátorem z registru. Klíč
+   kandidáta (`CZ:N/RRRR`, `EU:RRRR/N`, označení normy) zajišťuje, že týž
+   dokument nalezený více zdroji vznikne jen jednou a že zamítnutý kandidát
+   se znovu neotevře; seznam zdrojů, jež dokument zachytily, je zároveň
+   podkladem pro provenance (`doc/DATABASE_SCOPE.md`, odstavec 7, bod 2).
+2. **Jednotný tvar nálezu.** Adaptér vrací pro každý nález: identifikátor
+   zdroje, druh signálu, klíč kandidáta (je-li odvoditelný), označení,
+   název, adresu, datum a doslovný doklad (úryvek ze zdroje). Nález bez
+   odvoditelného klíče se do fronty dostane také, ale s příznakem k ručnímu
+   doplnění, nikoli s odhadnutým klíčem.
+3. **Návrhy předpisů jsou kandidáti zvláštního druhu.** Signál `draft`
+   (připravovaný předpis) vede po přijetí na dokument ve stavu
+   „připravovaný“ (`draft`, jenž schéma již zná); po vyhlášení jej kontrola
+   platnosti převede na vyhlášený nebo účinný a propojí s vyhlášeným
+   předpisem.
+4. **Každý běh se zaznamená**, i když nic nepřinese: zdroj, čas, rozsah
+   dotazu, počet nálezů, chyba (`doc/DATABASE_SCOPE.md`, odstavec 6).
+   Prvním krokem bude soubor záznamů, později tabulka `source_check`
+   (odstavec 7).
+5. **Adaptér nezapisuje do databáze dokumentů.** Do databáze zapisuje jen
+   přijetí kandidáta editory a kontrola platnosti; adaptéry jen čtou zdroj
+   a plní frontu, takže je lze spouštět opakovaně a bez rizika.
+6. **Zdroj bez adaptéru se přeskočí a ohlásí**, nikdy se nezpracuje podle
+   domněnky (obdobně jako tabulka `SOURCE_HANDLING` na větvi `automation`).
+
+Pole `signal` nabývá těchto hodnot:
+
+| Hodnota | Co zdroj přináší | Kam nález vede | Počet zdrojů |
+|---|---|---|---|
+| `new_document` | Nový dokument v rozsahu databáze. | Fronta kandidátů. | 33 |
+| `draft` | Návrh předpisu v legislativním procesu (včasný signál). | Fronta kandidátů, stav „připravovaný“. | 12 |
+| `state_change` | Zrušení, novelizace, nabytí účinnosti, nahrazení normy u dokumentu, jejž databáze již má. | Kontrola platnosti a stavy dokumentů. | 6 |
+| `lookup` | Dohledání na vyžádání pro konkrétní dokument nebo místo záměru; zdroj se pravidelně neprochází. | Editor při posuzování. | 7 |
+| `context` | Rámcové a odborné podklady, upozornění; samy pramenem záznamu nejsou. | Čtvrtletní kontrolní seznam pro editora. | 16 |
+| `link_check` | Jen údržba odkazů. | Hlášení nefunkčních odkazů. | 1 |
+
+Zdroj může nést více hodnot (EUR-Lex, e-Sbírka a Věstník ÚNMZ přinášejí
+nové dokumenty i změny stavu). Zakázané a zavržené zdroje mají seznam prázdný.
+
+### 4.3 Etapy
+
+Etapy jsou seřazeny sestupně podle poměru přínosu k pracnosti; v rámci etapy
+postupujeme podle priority zdroje. Každá etapa končí testy adaptérů nad
+uloženými ukázkovými odpověďmi zdrojů (bez síťového přístupu) a zkušebním
+během proti `h2regdocs_test`.
+
+**E0 — Základ (bez nových zdrojů).** Spouštěč `harvest_sources.py`, jenž čte
+registr a podle pole `stage`, `cadence` nebo identifikátoru volá adaptéry;
+jednotný tvar nálezu; zápis do fronty kandidátů s identifikátorem zdroje
+a s druhem `draft`; záznam o každém běhu; **kontrola dostupnosti** všech
+78 adres registru (`url`, `access.endpoint`), jež hlásí změněné a nefunkční
+adresy a aktualizuje `verified_at`. Kontrola dostupnosti je levná, týká se
+i ručně kontrolovaných zdrojů a ověření z 28. 10. 2026 ukázalo, že ji
+potřebujeme (odstavec 3.1).
+
+**E1 — Převod stávající automatizace (10 zdrojů).** `eurlex-cellar`,
+`esbirka-lod`, `slovlex-linkcheck`, `csn-online`, `normoff-stn`,
+`iec-catalogue`, `dvgw-publications`, `eiga-publications`, `hytep`,
+`zakonyprolidi`. Stávající skripty se stanou adaptéry spouštěče: místo
+souborů `discovered_*.json` budou plnit frontu kandidátů, filtr
+`classify_candidate()` a `is_off_topic()` ze skriptu
+`add_eurlex_hydrogen_acts.py` se přesune do filtru věcné příslušnosti.
+Soubory `discovered_*.json` vzniklé dříve zůstanou vstupem přestavby, nové
+však již nepřibudou. Nálezy e-Sbírky, jež nelze přiřadit předpisu
+(`doc/AUTOMATION.md`, odstavec 4.1), půjdou do fronty s příznakem k ručnímu
+doplnění.
+
+**E2 — Včasný signál (5 zdrojů).** `veklep-odok` (A), `slovlex-legislativny-proces`
+(A), `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil`. Všechny mají ověřenou
+strojově čitelnou cestu (JSON, RSS, hromadná otevřená data). Zavádí do
+databáze připravované předpisy a jejich převod na vyhlášené.
+
+**E3 — Normy, jen metadata (8 zdrojů).** `ec-harmonised-standards` (A),
+`vestnik-unmz`, `unmz-news`, `astm-d03`, `asme-codes`, `cps-tpg`,
+`sae-standards`, `vestnik-unms-sr`. Měsíční přírůstky ČSN z Věstníku ÚNMZ
+nahradí dotazování po jednotlivých označeních; souhrnné seznamy
+harmonizovaných norem doplní vazbu norma → směrnice.
+
+**E4 — Kanály RSS ministerstev, orgánů a agentur (13 zdrojů).**
+`mmr-stavebni-pravo` (A), `mzp-cz` (A), `coi` (A), `otif-rid` (A), `mpo-cz`,
+`suip`, `du-rid`, `acer`, `era-railways`, `ehsp`, `mhsr-vodikova-strategia`,
+`cizp`, `eru-cz`. Jeden společný adaptér RSS s filtrem podle vyhledávacích
+výrazů (odstavec 6); kanály nesou obecné zprávy úřadů, takže přínos závisí
+na kvalitě filtru, již bude třeba vyhodnotit na prvních během.
+
+**E5 — Sběr z HTML a dohledání na vyžádání (15 zdrojů).** Pravidelně
+procházené: `ticr` (A), `hzs-cr` (A), `cmi-oop` (A), `md-adr` (A), `ec-tris`,
+`ec-have-your-say`, `european-hydrogen-observatory`,
+`dg-ener-hydrogen-gas-market`, `dg-ener-hydrogen`, `nfpa-2`; změnu stránky
+lze zjišťovat porovnáním otisku obsahu nebo pole data poslední změny. Na
+vyžádání: `sbirka-pp-usc`, `is-eia`, `echa-chem`, `data-europa-search`,
+`gesetze-im-internet` — pro ně postačí funkce dohledání volaná z editorského
+rozhraní nebo z příkazové řádky, nikoli pravidelný běh.
+
+**E6 — Zdroje vyžadující správní krok nebo rozhodnutí (9 zdrojů).**
+`e-legislativa` (A) a REST API e-Sbírky (položka `esbirka-lod`) zpřístupní
+jedna registrace podáním do datové schránky Ministerstva vnitra; podání je
+vhodné učinit hned, protože posouzení trvá až deset pracovních dní a VeKLEP
+postupně přestane návrhy pokrývat. `unece-wp29` (A),
+`unece-dangerous-goods` (A), `ec-comitology-register` (A), `ec-regdel`,
+`council-public-register`, `ec-documents-register`, `ec-nando` a `baua`
+jsou za ochranou proti robotům nebo jde o aplikace vykreslované až
+v prohlížeči. U aplikací bez ochrany (komitologie, rejstřík aktů v přenesené
+pravomoci, registr dokumentů Komise, NANDO) postačí headless prohlížeč, jaký
+již používá sklizeň IEC. U webů chráněných proti robotům (`unece.org`, registr
+Rady EU, `baua.de`) obcházet ochranu nenavrhujeme: provozovatel jí dává
+najevo, že automatizovaný přístup nepřeje. Náhradní cestou je ruční kontrola
+(předpisy EHK OSN a ADR se mění zpravidla v dvouletém cyklu), u ADR, RID
+a ADN též jejich vyhlášení ve Sbírce mezinárodních smluv přes e-Sbírku.
+
+**Ruční kontrola (12 zdrojů).** Zdroje se stavem `manual_only` (`stage`
+„manual“) spouštěč nevolá; vypíše je jednou za čtvrtletí jako kontrolní
+seznam s datem poslední kontroly, jejíž výsledek editor zaznamená stejně
+jako automatizovaný běh.
+
+**Mimo plán (6 zdrojů).** Zakázané (`prohibited`) a zavržené (`rejected`)
+zdroje nevytěžujeme; náhradní cesty jsou uvedeny v jejich poli
+`constraints`.
+
+### 4.4 Způsob zapojení zdroje
 
 U každého zdroje volíme způsob zapojení v tomto pořadí:
 
@@ -290,14 +442,37 @@ U každého zdroje volíme způsob zapojení v tomto pořadí:
 4. Ruční rešerše a odborné ověření, zejména u placených norem, metodik
    a právně významných výkladů.
 
-Registr je zároveň podkladem pro pravidelnou kontrolu dostupnosti: pole
-`url` a `access.endpoint` lze strojově procházet a hlásit, které adresy
-přestaly odpovídat. Tuto kontrolu zatím žádný skript neprovádí; vzhledem
-k tomu, že se během tohoto ověřování potvrdil přesun českých úřadů na
-doménu `.gov.cz` a ověření z 28. 10. 2026 odhalilo další změněné adresy
-(odstavec 3.1), půjde patrně o užitečné doplnění. Webová stránka se může
-změnit, i když její obsah přetrvává; sběr by proto měl počítat s náhradními
-adresami, s chybami přístupu a s pravidelnou revizí jednotlivých konektorů.
+Webová stránka se může změnit, i když její obsah přetrvává; adaptéry proto
+mají počítat s náhradními adresami a s chybami přístupu a kontrola
+dostupnosti (etapa E0) má jejich selhání zachytit dříve, než se projeví
+jako tichý výpadek signálu.
+
+### 4.5 Plánované spouštění
+
+Spouštěč poběží podle pole `cadence`: týdně registry předpisů a návrhů
+(etapy E1 a E2), měsíčně normy a kanály orgánů (E3 až E5), čtvrtletně
+kontrolní seznam ruční kontroly a měření úplnosti (`doc/DATABASE_SCOPE.md`,
+odstavec 6). Pravidelné spouštění (cron nebo časovač systemd na serveru,
+z něhož běží databáze) dosud neexistuje a zda je v rozsahu této fáze
+projektu, zůstává otevřenou otázkou požadavku R1.9 (`doc/AUTOMATION.md`,
+odstavec 8, bod 1). Do jejího rozhodnutí lze spouštěč spouštět ručně se
+stejným výsledkem; plánovač se pak omezí na volání téhož příkazu.
+
+### 4.6 Rozhodnutí, jež plán předpokládá
+
+1. **Jediná vstupní brána.** Navrhujeme, aby všechny nálezy vedly do fronty
+   kandidátů a nové soubory `discovered_*.json` již nevznikaly (odstavec 4.2,
+   bod 1).
+2. **Agentní zpracování.** Vrstva z větve `automation` by v tomto tvaru
+   nepsala vlastní výstupní soubor, ale doplňovala by kandidáty ve frontě
+   o ověřené údaje z plného textu (označení, název, druh, gestor s doslovnými
+   citacemi) jako podklad pro editora. Tím by odpadl chybějící článek popsaný
+   v `doc/AUTOMATION.md`, odstavec 6.3. Na větvi `master` však dosud platí
+   zamítnutí této architektury (`doc/PLAN.md` §5); plán proto na agentní
+   vrstvě nezávisí a etapy E0 až E5 lze provést bez ní.
+3. **Registrace k REST API e-Sbírky a e-Legislativy** (etapa E6) — podání
+   učiní Ministerstvu vnitra člen řešitelského týmu.
+4. **Plánovač** (odstavec 4.5) — rozhodnutí přísluší zadavateli.
 
 ## 5. Zpracování nálezu
 
