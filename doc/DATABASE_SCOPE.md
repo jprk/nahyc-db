@@ -2,7 +2,8 @@
 
 > Historie dokumentu:  
 > 2026-10-27 jprk Návrh první verze  
-> 2026-10-27 jprk Rozhodnuté otázky O1–O3 (odstavec 8)
+> 2026-10-27 jprk Rozhodnuté otázky O1–O3 (odstavec 8)  
+> 2026-10-28 jprk Doplnění z návrhu katalogu informačních zdrojů (obecné předpisy bez zmínky vodíku, vyhrazená technická zařízení, právní účinek norem, četnost podle skupin zdrojů, kontrola úplnosti podle scénářů)
 
 Tento dokument vymezuje, které regulační dokumenty má databáze
 regulačních předpisů a předrealizačních procesů (tedy výsledek V01 dílčího projektu DP004 centra NAHYC) obsahovat,
@@ -49,6 +50,10 @@ slibuje:
   odstavce 4.
 * **Slovenská republika** — dokumenty, které databáze již obsahuje, v ní
   ponecháváme; úplnost slovenského pokrytí negarantujeme (úroveň B).
+* **Jiné státy** — zahraniční předpisy a návody (například německé) slouží
+  nanejvýš ke srovnání a k výkladu zahraničních metodik; nejsou zdrojem
+  povinností podle českého práva a jejich použitelnost v ČR by vždy vyžadovala
+  samostatné posouzení.
 
 ### 2.2 Předpisy krajů a obcí
 
@@ -72,8 +77,9 @@ automatizovat (odstavec 8, otázka O1):
 
 Obě zjištění pocházejí z veřejně dostupných informací Ministerstva vnitra
 a Ministerstva pro místní rozvoj. Ani jeden ze systémů nemá dokumentované
-strojové rozhraní (odstavec 8, otázka O1); jak úplný je dnes obsah geoportálu,
-zbývá ověřit.
+strojové rozhraní (odstavec 8, otázka O1); Sbírku lze nicméně procházet jako
+běžné HTML, kdežto geoportál je dostupný jen po přihlášení. Jak úplný je dnes
+obsah geoportálu, zbývá ověřit.
 
 ## 3. Věcné okruhy
 
@@ -81,6 +87,13 @@ Za relevantní pro vodík považujeme regulační dokumenty, jež upravují cel�
 životní cyklus vodíku od výroby po využití, včetně podmínek pro umístění
 a provoz zařízení. Okruhy jsou na úrovni A, pokud odstavec 4 u daného typu
 dokumentu nestanoví jinak. Příklady uvádíme pro orientaci; nejde o úplný výčet.
+
+Značná část požadavků na vodíková zařízení plyne z **obecných předpisů**, jež
+vodík výslovně nezmiňují: předpisů o tlakových a plynových zařízeních,
+hořlavých plynech, ochraně před výbuchem, stavbách, přepravě nebezpečných věcí,
+životním prostředí nebo měřidlech. Do rozsahu patří i tyto předpisy; jejich
+vyhledávání proto nelze zúžit na dokumenty obsahující slovo „vodík“ (výrazy
+pro vyhledávání uvádíme v `doc/DATA_SOURCES.md`, odstavec 6).
 
 1. **Výroba vodíku** — šedý, nízkouhlíkový i obnovitelný vodík nebiologického
    původu (RFNBO); elektrolýza, reformování, další procesy. Patří sem
@@ -96,14 +109,15 @@ dokumentu nestanoví jinak. Příklady uvádíme pro orientaci; nejde o úplný 
    (EU) 2024/1789 a směrnice (EU) 2024/1788 o trzích s plynem a vodíkem),
    přepravitelná tlaková zařízení.
 4. **Plnění do vozidel** — plnicí stanice, infrastruktura pro alternativní
-   paliva (nařízení (EU) 2023/1804, AFIR), kvalita paliva (zákon o pohonných
-   hmotách č. 311/2006 Sb., ČSN EN 17124) a **metrologie** výdejních stojanů
-   (zákon o metrologii č. 505/1990 Sb.).
+   paliva (nařízení (EU) 2023/1804, AFIR), kvalita paliva včetně odběru vzorků
+   a kontrolních postupů (zákon o pohonných hmotách č. 311/2006 Sb.,
+   ČSN EN 17124) a **metrologie** výdejních stojanů (zákon o metrologii
+   č. 505/1990 Sb.).
 5. **Provoz vozidel** — schvalování silničních vozidel (nařízení (EU) 2018/858
    a (EU) 2019/2144, předpis EHK OSN č. 134), podmínky provozu vozidel na
    pozemních komunikacích (zákon č. 56/2001 Sb.), kolejová vozidla
-   (technické specifikace pro interoperabilitu), případně provoz v garážích
-   a tunelech.
+   (technické specifikace pro interoperabilitu), technické prohlídky a servis,
+   případně provoz a parkování v garážích a tunelech.
 6. **Využití vodíku mimo vozidla** — průmysl (rafinerie, výroba amoniaku,
    ocelářství), přimíchávání do plynárenské soustavy, stacionární palivové
    články, kombinovaná výroba elektřiny a tepla, akumulace energie
@@ -113,8 +127,9 @@ dokumentu nestanoví jinak. Příklady uvádíme pro orientaci; nejde o úplný 
    nařízení (ES) 1272/2008, CLP, chemický zákon č. 350/2011 Sb.), prevence
    závažných havárií (zákon č. 224/2015 Sb., směrnice 2012/18/EU, SEVESO III),
    výbušná prostředí (směrnice 2014/34/EU a 1999/92/ES, ATEX), tlaková
-   zařízení, požární ochrana (zákon č. 133/1985 Sb.) a bezpečnost a ochrana
-   zdraví při práci (zákon č. 309/2006 Sb.).
+   zařízení, vyhrazená technická zařízení (zákon č. 250/2021 Sb.), požární
+   ochrana (zákon č. 133/1985 Sb.) a bezpečnost a ochrana zdraví při práci
+   (zákon č. 309/2006 Sb.).
 8. **Stavební řízení a umístění** — stavební zákon č. 283/2021 Sb. a jeho
    prováděcí předpisy, technické požadavky na stavby, územní plánování
    (s územně plánovací dokumentací na úrovni C, odstavec 2.2).
@@ -150,6 +165,23 @@ okruh × typ dokumentu, nad níž se pokrytí v odstavci 7 měří.
 
 U norem databáze uchovává jen metadata (označení, název, stav, vazby); plný
 text je chráněný a databáze ho nenabízí (požadavek R4.1 v `doc/REQUIREMENTS.md`).
+Metadata ani bibliografický odkaz v katalogu přitom neopravňují plný text
+ukládat ani šířit; podmínky přístupu je nutné ověřit u držitele práv.
+
+Norma není sama o sobě obecně závazným předpisem. Databáze by proto měla
+rozlišovat tři situace: normu používanou dobrovolně, **harmonizovanou normu**,
+jejíž dodržení za stanovených podmínek zakládá předpoklad shody s požadavky
+směrnice, a normu, jejíž dodržení je povinné, protože na ni přímo odkazuje
+právní předpis, rozhodnutí nebo jiný závazný akt. Zveřejnění odkazu na normu ve
+Věstníku ÚNMZ nebo její zápis v katalogu posouzení jejího právního účinku
+nenahrazuje.
+
+Obdobně u orgánů, jež vydávají metodiky a odborná stanoviska (Technická
+inspekce ČR, Hasičský záchranný sbor ČR, Státní úřad inspekce práce a další),
+rozlišujeme **právní předpis**, **úřední metodiku**, **nezávazné odborné
+stanovisko** a **individuální správní akt**. Technická inspekce ČR například
+obecně závazné předpisy nevydává; české předpisy, na něž se její materiály
+odvolávají, evidujeme podle jejich vyhlášení v e-Sbírce.
 
 Technická pravidla TPG, TD a TIN Českého plynárenského svazu jsou dostupná
 bezplatně, ale jen ke čtení v on-line prohlížeči po bezplatné registraci;
@@ -160,7 +192,10 @@ zpracování v poradním systému bude třeba tato pravidla obstarat v podobě, 
 jejich načtení a zpracování umožní (odstavec 8, otázka O2).
 
 **Mimo rozsah:** judikatura, individuální správní akty (rozhodnutí, povolení)
-a prozatím daně a dotace (odstavec 3).
+a prozatím daně a dotace (odstavec 3). Evidence konkrétních záměrů
+(například dokumentace v informačním systému EIA/SEA) může posloužit jako
+doklad, jak se předpisy v povolovací praxi uplatňují, ale do databáze
+dokumentů nepatří a na jiný záměr není automaticky přenositelná.
 
 ## 5. Stavy dokumentů
 
@@ -178,7 +213,9 @@ nepostačuje a zavádíme tyto stavy:
 Pro jednotlivé typy dokumentů stavy upřesňujeme:
 
 * **Směrnice EU** mají navíc stav „účinná, dosud netransponovaná“, odvozený
-  z vazby `IMPLEMENTS` na české prováděcí předpisy.
+  z vazby `IMPLEMENTS` na české prováděcí předpisy. Rozhoduje skutečný stav
+  provedení (vazba směrnice → český prováděcí předpis nebo předpisy), nikoli
+  jen uplynutí lhůty k transpozici.
 * **Normy** mají stavy „návrh“ (prEN, DIS), „platná“ a „zrušená“ nebo
   „nahrazená“.
 * **Strategie a technická pravidla** rozlišují jen „aktuální“ a „nahrazený“.
@@ -195,13 +232,19 @@ směrnice, normy a strategie (výše) zatím zavedeny nejsou.
 
 ## 6. Četnost kontrol
 
-Četnost odlišujeme podle povahy zdroje:
+Četnost odlišujeme podle povahy zdroje; četnost jednotlivých zdrojů vede
+registr `data/monitored_sources.json` v poli `cadence`:
 
 | Četnost | Co se kontroluje |
 |---|---|
-| týdně | registry předpisů: e-Sbírka, EUR-Lex (Cellar), VeKLEP |
-| měsíčně | normy (Věstník ÚNMZ vychází měsíčně), mezinárodní smlouvy |
-| čtvrtletně | strategie, technická pravidla a metodiky; měření úplnosti podle odstavce 7 |
+| týdně | registry předpisů: e-Sbírka, EUR-Lex (Cellar); registry návrhů: VeKLEP, e-Legislativa, sněmovní a senátní tisky, Legislative Observatory, rejstřík komitologie, rejstřík aktů v přenesené pravomoci, TRIS |
+| měsíčně | normy (Věstník ÚNMZ vychází měsíčně), katalogy norem a harmonizované normy, mezinárodní smlouvy; portály ministerstev a dozorových orgánů (nové dokumenty, změny adres) |
+| čtvrtletně | strategie, technická pravidla a metodiky, odborné publikace (European Hydrogen Safety Panel, EIGA, HYTEP); měření úplnosti podle odstavce 7 |
+
+Intervaly jsou návrhem provozu, nikoli doloženou periodicitou, s níž jednotlivé
+portály své údaje aktualizují. U předpisů zásadních z hlediska práva
+a bezpečnosti je vhodné využít upozornění o změně, nabízí-li je zdroj, a změnu
+zachytit co nejdříve po jejím zveřejnění.
 
 Každá automatizovaná kontrola sleduje nejen **nové dokumenty**, ale i **změny stavu dokumentů,
 které databáze již obsahuje** (zrušení, novelizace, nabytí účinnosti, nahrazení
@@ -221,7 +264,8 @@ Z vymezení vyplývají tyto kroky:
    novelizací a platnosti z e-Sbírky), odhad počtu nenalezených dokumentů
    z překryvu tří rešerší a zlatou sadu dokumentů sestavenou odborníky.
    Doplňkovým hlediskem je procesní vrstva: procesní uzel nebo technologie bez
-   jediného regulačního dokumentu ukazuje na mezeru.
+   jediného regulačního dokumentu ukazuje na mezeru (kontrola podle scénářů,
+   odstavec 7.1).
 2. **Provenance.** U každého dokumentu je potřeba evidovat, které zdroje jej
    kdy zachytily; bez toho nelze měřit přínos zdrojů ani odhadovat, co chybí.
 3. **Návrhy nových zdrojů.** Registr sledovaných zdrojů rozšíříme o stav
@@ -230,15 +274,54 @@ Z vymezení vyplývají tyto kroky:
    zdroj přinesl.
 4. **Stavy dokumentů.** Rozšíření schématu o stavy podle odstavce 5.
 
+### 7.1 Kontrola úplnosti podle scénářů
+
+Pro jednotlivé aplikace (technologické scénáře) lze úplnost kontrolovat maticí
+fází vodíkového řetězce a regulačních oblastí. Hodnota „prověřit“ znamená, že je
+třeba ověřit, zda se daný právní režim na konkrétní scénář vztahuje, nikoli že
+povinnost automaticky vzniká:
+
+| Fáze | Stavební a územní právo | Technická bezpečnost (ATEX, tlak) | Životní prostředí | Doprava a schvalování vozidel | Kvalita a měření |
+|---|---|---|---|---|---|
+| Výroba | prověřit | prověřit | prověřit | podle případu | podle použití vodíku |
+| Skladování | prověřit | prověřit | podle lokality a rozsahu | podle režimu přepravy | podle požadované kvality |
+| Distribuce a přeprava | u trvalých zařízení | prověřit | podle technologie | prověřit ADR, RID, ADN a další režimy | podle řetězce kvality |
+| Plnicí stanice | prověřit | prověřit | prověřit | podle typu stanice a vozidel | prověřit |
+| Vozidla a využití | u areálů a servisů | prověřit | podle zařízení | prověřit | podle aplikace |
+
+Buňku, pro niž se žádný dokument nenašel, nelze bez dalšího vykládat jako
+mezeru v právní úpravě: požadavek může plynout z obecného předpisu nebo
+z normy, na niž předpis odkazuje, může chybět jen tematický index, nebo úprava
+skutečně neexistuje. Přeprava silniční, železniční a vodní se v matici ani
+v databázi neslučuje pod jediné nerozlišené „ADR/RID“.
+
+### 7.2 Průběžné metriky
+
+Vedle měření podle bodu 1 je vhodné průběžně sledovat alespoň:
+
+* podíl zdrojů s prioritou A (registr zdrojů, `doc/DATA_SOURCES.md`; nezaměňovat
+  s úrovní pokrytí A podle odstavce 2), jejichž
+  vstupní bod je zapojen a jehož poslední kontrola proběhla úspěšně;
+* podíl dokumentů s ověřeným autoritativním umístěním, verzí a datem účinnosti;
+* podíl věcných okruhů (odstavec 3) a modelových scénářů (odstavec 7.1),
+  pro něž je regulační rešerše hotová;
+* počet zachycených změn, které dosud nikdo odborně neposoudil (fronta
+  kandidátů `/admin/candidates`);
+* počet dokumentů s nevyjasněnou právní relevancí nebo s nejasným stavem.
+
 ## 8. Rozhodnuté otázky
 
 Otázky položené v předešlých verzích dokumentu a jejich řešení:
 
 - **O1: Strojové rozhraní Sbírky právních předpisů ÚSC a Národního geoportálu
   územního plánování.** Sbírka právních předpisů územních samosprávných celků
-  dokumentované rozhraní nemá; jde o webovou aplikaci (SPA), jež si data pro
-  vyhledávání stahuje na pozadí. Patrně by bylo možné použít její interní,
-  nedokumentované rozhraní, s rizikem, že se bez ohlášení změní. Národní geoportál
+  dokumentované rozhraní ani kanál RSS nemá. Původní zjištění, že jde o webovou
+  aplikaci vykreslovanou až v prohlížeči, ověření z 28. 10. 2026 vyvrátilo:
+  výsledky vyhledávání vrací server jako HTML tabulku řazenou od nejnovějších
+  předpisů (adresa `/vyhledavani/vysledek?hlavni_typ=pp`, s filtry podle
+  publikujícího, kraje a data zveřejnění), takže je lze procházet bez
+  prohlížeče; export CSV a XLSX se generuje na pozadí a upozornění chodí jen
+  e-mailem po registraci (registr zdrojů, položka `sbirka-pp-usc`). Národní geoportál
   územního plánování je dostupný jen po přihlášení přes Národní identitní autoritu
   (NIA), takže jeho automatizované procházení patrně možné nebude a územně
   plánovací dokumentaci budeme dohledávat ručně pro konkrétní místo záměru.
