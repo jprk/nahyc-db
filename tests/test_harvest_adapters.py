@@ -296,7 +296,7 @@ class RunnerPlanTestCase(unittest.TestCase):
         run = sorted(i for i, (specs, _) in planned.items() if specs)
         self.assertEqual(run, ["csn-online", "esbirka-lod", "eurlex-cellar", "hytep", "normoff-stn"])
         deferred = sorted(i for i, (_, reason) in planned.items() if reason and reason.startswith("deferred"))
-        self.assertEqual(deferred, sorted(hs.DEFERRED))
+        self.assertEqual(deferred, sorted(i for i in hs.DEFERRED if i in planned))
         self.assertEqual(len(planned["eurlex-cellar"][0]), 2)
 
     def test_every_adapter_and_deferred_source_is_in_the_registry(self):

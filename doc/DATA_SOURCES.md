@@ -9,6 +9,7 @@
 > 2026-11-04 jprk Etapa E1 provedena (odstavce 4.3 a 8.7)
 > 2026-11-04 jprk Rozbor nálezů e-Sbírky a návrh řešení šumu (odstavec 8.8)
 > 2026-11-04 jprk Omezení šumu provedeno (odstavec 8.9)
+> 2026-11-04 jprk Etapa E2 provedena (odstavce 4.3 a 8.10)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -412,6 +413,13 @@ do živé fronty zatím nevstoupil. Podrobně odstavec 8.7.
 (A), `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil`. Všechny mají ověřenou
 strojově čitelnou cestu (JSON, RSS, hromadná otevřená data). Zavádí do
 databáze připravované předpisy a jejich převod na vyhlášené.
+
+*Stav 4. 11. 2026: provedeno pro čtyři zdroje.* VeKLEP (přes kanál RSS, jeho
+rozhraní JSON robota blokuje), sněmovní a senátní tisky a Legislative
+Observatory spouštěč volá (`src/tools/harvest_drafts.py`); Slov-Lex
+legislatívny proces odkládá, protože web robota odmítá. Návrh, který najde více
+zdrojů, je jedním kandidátem. Převod připravovaného předpisu na vyhlášený
+zatím proveden není. Podrobně odstavec 8.10.
 
 **E3 — Normy, jen metadata (8 zdrojů).** `ec-harmonised-standards` (A),
 `vestnik-unmz`, `unmz-news`, `astm-d03`, `asme-codes`, `cps-tpg`,
@@ -1006,4 +1014,94 @@ zahrnuje i předpisy, jež název řadí do okruhů jen volně (například pře
 o mírovém využívání jaderné energie podle výrazu „energ“). Po prvních týdnech
 provozu je bude třeba porovnat s rozhodnutími editorů a upravit. Do živé
 fronty dosud nic nevstoupilo (odstavec 8.7, otevřené body).
+
+### 8.10 Etapa E2 (4. 11. 2026)
+
+Etapa přinesla do fronty kandidátů **návrhy předpisů v legislativním procesu**
+(signál `draft`), tedy včasný signál o tom, co se teprve připravuje. Adaptéry
+jsou v modulu `src/tools/harvest_drafts.py`:
+
+| Zdroj | Adaptér | Co čte |
+|---|---|---|
+| `veklep-odok` | `veklep_rss` | Kanál RSS novinek VeKLEPu: zhruba 17 posledních materiálů (asi dva týdny), u každého název, předkladatel, důvod předložení a identifikátor materiálu (PID). |
+| `psp-snemovni-tisky` | `psp_bills` | Otevřená data Poslanecké sněmovny (`tisky.zip`, `sbirka.zip`, `poslanci.zip`): návrhy zákonů (vládní a ostatní) aktuálního volebního období, jež Sněmovna dosud neprojednala, se stavem projednávání a s předpisy, jež tisk mění nebo ruší (tabulka `sb_pre`). |
+| `senat-tisky` | `senate_bills` | Senátní tisky z otevřených dat Sněmovny (`se_tisk.zip`, vazba `psp2senat`): návrhy zákonů aktuálního funkčního období Senátu. Web Senátu robotům přístup zapovídá. |
+| `ep-oeil` | `oeil_procedures` | Export RSS Legislative Observatory pro „hydrogen“: legislativní postupy (COD, CNS, DEA), každý ověřený v otevřeném API Parlamentu. |
+
+**Jeden návrh, jeden kandidát.** Český návrh dostane klíč
+`DRAFT-CZ:eklep:<PID>`, má-li materiál v eKLEP (tabulka `tisk_eklep` připojuje
+k materiálu sněmovní tisk, tabulka `psp2senat` senátní tisk ke sněmovnímu),
+jinak `DRAFT-CZ:psp:<tisk>` nebo `DRAFT-CZ:senat:<tisk>`; postup EU klíč
+`DRAFT-EU:<číslo postupu>`. Nálezy VeKLEPu, Sněmovny a Senátu o témže návrhu
+se tak setkají u jednoho kandidáta.
+
+**Pravidla výběru.** Do fronty vstupuje jen návrh, jenž se databáze týká:
+
+1. **Pásmo 1** — Návrh mění nebo ruší dokument, jejž databáze má (u tisků podle
+   tabulky `sb_pre`, u VeKLEPu podle předpisů uvedených v názvu), nebo jeho
+   název obsahuje základní výraz k vodíku (odstavec 6).
+2. **Pásmo 2** — Název obsahuje výraz věcných okruhů (týž slovník jako
+   v odstavci 8.9, pravidlo 5).
+3. **Ostatní návrhy** do fronty nevstupují a nezapisují se ani mezi vyřazené:
+   jde o zbytek legislativy, nikoli o nález, jejž by vyřadil filtr.
+
+Návrh, jenž mění dokumenty databáze, nese jejich identifikátory
+(`amends_ids`); přijetím vznikne dokument ve stavu „připravovaný“ s vazbami
+`AMENDS` na ně. U postupů EU je rozhodující, zda je postup uzavřen: uzavřen je,
+nese-li v datech Parlamentu událost vyhlášení v Úředním věstníku. Akty
+v přenesené pravomoci (DEA) Parlament jen přezkoumává a tuto událost nikdy
+nemají; postup DEA proto považujeme za uzavřený, neproběhla-li v něm žádná
+událost po dobu 180 dní (lhůta k námitce činí dva plus dva měsíce). Bez tohoto
+pravidla se jako otevřené jevily i postupy z let 2017 až 2023, mezi nimi
+metodiky RFNBO, z nichž vzešla nařízení (EU) 2023/1184 a 2023/1185, jež databáze
+obsahuje. Postupy z vlastního podnětu Parlamentu (INI) a další nelegislativní
+druhy adaptér vynechává.
+
+**Výsledek (4. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test`:
+
+| Zdroj | Nálezy | Výsledek zápisu |
+|---|---|---|
+| VeKLEP | 1 | 1 nový kandidát (pásmo 2: novela vyhlášky o registraci vozidel) |
+| Sněmovní tisky | 34 (ze 143 neprojednaných návrhů zákonů období) | 34 nových kandidátů |
+| Senátní tisky | 4 | 4 nálezy připsané ke kandidátům ze Sněmovny |
+| Legislative Observatory | 9 (z 59 legislativních postupů pro „hydrogen“) | 9 nových kandidátů |
+
+Celkem 44 kandidátů: 28 českých a 9 evropských v pásmu 1, 7 českých v pásmu 2.
+Všech 28 českých návrhů v pásmu 1 mění dokument databáze; jde mimo jiné
+o novely energetického zákona, zákona o pozemních komunikacích, zákona
+o provozu na pozemních komunikacích, zákona o podmínkách provozu vozidel,
+zákona o technických požadavcích na výrobky, zákona o chemických látkách,
+zákona o odpadech, ale také zákoníku práce či zákona o spotřebních daních.
+Databáze tyto obecné předpisy obsahuje, protože se na vodíková zařízení
+vztahují; jejich novely se však vodíku často netýkají, a pásmo 1 proto
+zahrnuje i návrhy, jež editor patrně zamítne. Mezi návrhy EU jsou například
+revize směrnic (EU) 2018/2001, (EU) 2019/944 a (EU) 2024/1788 (2025/0400(COD)),
+hlavních směrů pro transevropské energetické sítě (2025/0399(COD)) a zahrnutí
+vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(COD)).
+
+**Zjištění při provádění.**
+
+1. **Rozhraní JSON VeKLEPu robota blokuje** stránkou „Požadavek byl
+   zablokován“, a to s kódem HTTP 200. Kontrola dostupnosti z etapy E0 ji proto
+   vyhodnotila jako funkční; nově takové stránky rozpoznává (`check_sources.py`,
+   `BLOCK_PAGE_MARKERS`). Kanál RSS téhož webu robota pouští; zachycuje však jen
+   zhruba dva týdny, týdenní běh je proto nutný.
+2. **VeKLEP neuvádí kódování** odpovědi v hlavičce; kanál se čte jako bajty,
+   aby rozhodla deklarace XML.
+3. **Sněmovní data** nesou vše potřebné bez procházení webu: stav projednávání,
+   vazbu na materiál VeKLEPu, předpisy, jež tisk mění, i předpis Sbírky, jenž
+   z tisku vzešel. Volební období se určuje z tabulky orgánů
+   (`PSP10` = 10. období).
+
+**Otevřené body.**
+
+1. **Převod připravovaného předpisu na vyhlášený.** Tabulka `sbirka` váže
+   předpis Sbírky k tisku, z něhož vzešel; po vyhlášení by tedy šlo přijatý
+   návrh (dokument ve stavu „připravovaný“) automaticky propojit s vyhlášeným
+   předpisem. Zatím to provedeno není.
+2. **Slov-Lex legislatívny proces** zůstává odložen (odstavec 8.5).
+3. **Novely obecných předpisů** v pásmu 1 (výše): po prvních rozhodnutích
+   editorů posoudit, zda je neodsunout do pásma 2, pokud jejich název ani text
+   vodík nezmiňuje.
 

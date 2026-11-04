@@ -60,7 +60,7 @@
     "category": "draft_legislation",
     "jurisdiction": "CZ",
     "url": "https://www.odok.gov.cz/portal/veklep/",
-    "access": {"method": "json_api", "endpoint": "https://www.odok.gov.cz/portal/veklep/materialy/json?page=1", "feed": "https://www.odok.gov.cz/portal/veklep/rss/novinky"},
+    "access": {"method": "rss", "endpoint": "https://www.odok.gov.cz/portal/veklep/rss/novinky"},
     "status": "ready",
     "screener": null,
     "cadence": "weekly",
@@ -69,8 +69,8 @@
     "signal": ["draft"],
     "stage": "E2",
     "adds": "Návrhy zákonů, nařízení vlády a vyhlášek JEŠTĚ PŘED vyhlášením, včetně připomínkového řízení. Dnes vidíme české právo až po vyhlášení — toto je nejvýznamnější chybějící včasný signál.",
-    "constraints": "Stránkované JSON (ověřeno: 8655 položek, 866 stran; pole id_no, pid, date_modified, title, type, status). Vedle toho funkční RSS.",
-    "verified_at": "2026-09-20"
+    "constraints": "Stránkované JSON (ověřeno: 8655 položek, 866 stran; pole id_no, pid, date_modified, title, type, status). Vedle toho funkční RSS. Rozhraní JSON (…/materialy/json?page=N) odpovídá od 2026-11-04 poctivě identifikovanému robotu stránkou „Požadavek byl zablokován“ (HTTP 200); kanál RSS novinek (zhruba 17 posledních materiálů, asi dva týdny) robota pouští a čte jej adaptér harvest_drafts.veklep_rss.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "slovlex-legislativny-proces",
@@ -796,7 +796,7 @@
     "signal": ["draft"],
     "stage": "E2",
     "adds": "Vládní a poslanecké návrhy zákonů ve stadiu projednávání ve Sněmovně, pozměňovací návrhy, usnesení výborů a stav projednávání; navazuje na VeKLEP a ukazuje, co se blíží vyhlášení.",
-    "constraints": "Stránka tisků je server-side HTML (HTTP 200, windows-1250). Strojově čitelná cesta: otevřená data PS (https://www.psp.cz/sqw/hp.sqw?k=1300), archiv tisky.zip (ZIP 4,2 MB, aktualizace denně, ověřeno 28. 10. 2026: soubory z téhož dne 01:54; tisky.unl 39 951 řádků, dále hist.unl, prechody.unl, stavy.unl, tisk_eklep.unl s vazbou na eKLEP). Formát UNL (oddělovač „|“, windows-1250), vždy úplný stav, bez rozdílových dávek. robots.txt nezakazuje /sqw/tisky.sqw ani /eknih/ (zakazuje mj. /sqw/hp.sqw/ s lomítkem, /doc/, hlasování).",
+    "constraints": "Stránka tisků je server-side HTML (HTTP 200, windows-1250). Strojově čitelná cesta: otevřená data PS (https://www.psp.cz/sqw/hp.sqw?k=1300), archiv tisky.zip (ZIP 4,2 MB, aktualizace denně, ověřeno 28. 10. 2026: soubory z téhož dne 01:54; tisky.unl 39 951 řádků, dále hist.unl, prechody.unl, stavy.unl, tisk_eklep.unl s vazbou na eKLEP). Formát UNL (oddělovač „|“, windows-1250), vždy úplný stav, bez rozdílových dávek. robots.txt nezakazuje /sqw/tisky.sqw ani /eknih/ (zakazuje mj. /sqw/hp.sqw/ s lomítkem, /doc/, hlasování). Adaptér harvest_drafts.psp_bills čte vedle tisky.zip i sbirka.zip (tabulka sb_pre: které předpisy tisk mění nebo ruší) a poslanci.zip (číslo volebního období); vazba tisku na materiál VeKLEPu je v tisk_eklep.unl (ověřeno 2026-11-04).",
     "verified_at": "2026-10-28"
   },
   {
@@ -851,7 +851,7 @@
     "signal": ["draft"],
     "stage": "E2",
     "adds": "Průběh evropských legislativních postupů (referenční čísla typu 2021/0424(COD)) od návrhu Komise po přijetí, včetně zpráv výborů a stanovisek. Doplňuje EUR-Lex o fázi projednávání v Parlamentu.",
-    "constraints": "Návrhová adresa oeil.secure.europarl.europa.eu přesměrovává na oeil.europarl.europa.eu/oeil/en (HTTP 200, server-side HTML). robots.txt neexistuje (404). Výsledky hledání lze exportovat jako RSS a XML; parametr je „fullText.term“ (parametr „searchText“ se ignoruje a export pak obsahuje všech 22 496 postupů, v RSS prvních 500). RSS pro „hydrogen“ ověřeno: 139 položek, nejnovější datovaná 2026-09-30. Vedle toho otevřené API Parlamentu https://data.europarl.europa.eu/api/v2/procedures (JSON-LD, ověřeno; robots.txt povoluje vše s Crawl-delay 2).",
+    "constraints": "Návrhová adresa oeil.secure.europarl.europa.eu přesměrovává na oeil.europarl.europa.eu/oeil/en (HTTP 200, server-side HTML). robots.txt neexistuje (404). Výsledky hledání lze exportovat jako RSS a XML; parametr je „fullText.term“ (parametr „searchText“ se ignoruje a export pak obsahuje všech 22 496 postupů, v RSS prvních 500). RSS pro „hydrogen“ ověřeno: 139 položek, nejnovější datovaná 2026-09-30. Vedle toho otevřené API Parlamentu https://data.europarl.europa.eu/api/v2/procedures (JSON-LD, ověřeno; robots.txt povoluje vše s Crawl-delay 2). Stav postupu nese otevřené API Parlamentu (data.europarl.europa.eu/api/v2/procedures/<rok>-<číslo>): postup s událostí PUBLICATION_OFFICIAL_JOURNAL je uzavřen; API vrací i český název (ověřeno 2026-11-04). Ze 139 postupů pro „hydrogen“ je 59 legislativních (COD 46, CNS 8, DEA 5).",
     "verified_at": "2026-10-28"
   },
   {

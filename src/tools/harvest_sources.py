@@ -41,13 +41,18 @@ import requests
 import harvest
 import source_registry
 
-# Source id → adapters (harvest_adapters.py, stage E1).
+# Source id → adapters (harvest_adapters.py, stage E1; harvest_drafts.py, stage E2).
 ADAPTERS = {
     "eurlex-cellar": ("harvest_adapters:eurlex_new", "harvest_adapters:validity_eu"),
     "esbirka-lod": ("harvest_adapters:esbirka_new", "harvest_adapters:validity_cz"),
     "csn-online": ("harvest_adapters:csn_state",),
     "normoff-stn": ("harvest_adapters:normoff_state",),
     "hytep": ("harvest_adapters:hytep_new",),
+    # stage E2 (harvest_drafts.py)
+    "veklep-odok": ("harvest_drafts:veklep_rss",),
+    "psp-snemovni-tisky": ("harvest_drafts:psp_bills",),
+    "senat-tisky": ("harvest_drafts:senate_bills",),
+    "ep-oeil": ("harvest_drafts:oeil_procedures",),
 }
 # Sources of the plan whose existing script is deliberately not run by the runner.
 DEFERRED = {
@@ -56,6 +61,7 @@ DEFERRED = {
     "iec-catalogue": "harvest_iec_publications.py passes AWS WAF Bot Control with a headless browser — decision pending",
     "eiga-publications": "src/sites/eiga.py gets past the site's WAF with a tailored query — decision pending",
     "dvgw-publications": "harvest_dvgw_publications.py presents itself as a desktop browser — decision pending",
+    "slovlex-legislativny-proces": "answers the identified robot with HTTP 403 since 2026-10-28",
 }
 
 

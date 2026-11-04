@@ -94,9 +94,9 @@ def candidate_list():
     if source in sources:
         conditions.append("c.source = %s")
         params.append(source)
-    if family in ("CZ", "EU"):
-        conditions.append("c.candidate_key LIKE %s")
-        params.append(family + ":%")
+    if family in ("CZ", "EU"):  # drafts have keys `DRAFT-CZ:…`, `DRAFT-EU:…`
+        conditions.append("(c.candidate_key LIKE %s OR c.candidate_key LIKE %s)")
+        params += [family + ":%", f"DRAFT-{family}:%"]
     if query:
         conditions.append("(c.title LIKE %s OR c.designation LIKE %s)")
         params += [f"%{query}%", f"%{query}%"]

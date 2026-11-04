@@ -35,6 +35,8 @@ TIMEOUT = 20
 HOST_DELAY = 1.0
 CHALLENGE_MARKERS = ("just a moment", "cf-chl", "attention required", "access denied", "request unsuccessful",
                      "bot protection", "captcha")
+# Block pages served with HTTP 200 (2026-11-04: the VeKLEP JSON interface, "Požadavek byl zablokován").
+BLOCK_PAGE_MARKERS = ("cf-chl", "just a moment...", "požadavek byl zablokován", "the requested url was rejected")
 
 
 def outcome(status, body=""):
@@ -42,7 +44,7 @@ def outcome(status, body=""):
         return "unreachable"
     if 200 <= status < 300:
         lowered = (body or "")[:4000].lower()
-        return "blocked" if "cf-chl" in lowered or "just a moment..." in lowered else "ok"
+        return "blocked" if any(m in lowered for m in BLOCK_PAGE_MARKERS) else "ok"
     if status == 401:
         return "auth"
     if status in (403, 429) or (status == 503 and any(m in (body or "").lower() for m in CHALLENGE_MARKERS)):

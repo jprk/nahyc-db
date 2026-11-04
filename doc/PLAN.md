@@ -6001,3 +6001,14 @@ original treatment, not asked for.
 - `DocumentCandidate.tier`, `.occurrences` (migrations); `upsert_finding()` keeps `amends_ids`, refreshes tier and count, replaces a placeholder title. Candidate pages: tier filter (default tier 1, counts), ordering by tier, citations, occurrences; the detail shows tier, notes, attached amendments, amended documents; accepting an amendment creates the AMENDS relations.
 - Result on the batch of 2026-11-04: tier 1 27 new + 11 amendments of documents in the database, tier 2 44, 47 attached, 48 excluded (38 patterns, 8 amendments of excluded acts, 1 repealed historic act, 1 consolidated text). Applied to `h2regdocs_test` only.
 - Tests: `tests/test_harvest_adapters.py` (`ClassifyActTestCase`, the adapter on a recorded batch, `ExcludedTestCase`), `tests/test_candidates_admin.py` (tier filter, AMENDS on acceptance); `run_tests.py` all green.
+
+## 52. Harvesting stage E2: proposals in the legislative process (NEW, 2026-11-04, user-directed, branch `feature/harvest-e2`)
+
+**Why.** `doc/DATA_SOURCES.md` odstavec 4.3: the early signal — what is being prepared before it is published.
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.10).
+- `src/tools/harvest_drafts.py`: `veklep_rss` (the VeKLEP news feed; its JSON interface answers the identified robot with a block page), `psp_bills` (Chamber open data: open bills of the current term, stage, acts amended/repealed from `sb_pre`), `senate_bills` (Senate prints via the Chamber's open data, joined to Chamber prints by `psp2senat`), `oeil_procedures` (OEIL RSS for "hydrogen", COD/CNS/DEA checked in the EP open data API; over when published in the OJ, DEA also after 180 quiet days).
+- One proposal, one candidate: `DRAFT-CZ:eklep:<PID>` (tisk_eklep, psp2senat), else `DRAFT-CZ:psp:` / `DRAFT-CZ:senat:`, `DRAFT-EU:<reference>`. Tier 1 = amends/repeals a document of the database or a hydrogen term in the title; tier 2 = subject-area vocabulary; others are no finding. `amends_ids` give AMENDS relations on acceptance.
+- `check_sources.py` recognises block pages served with HTTP 200; registry: VeKLEP read by RSS, notes for PSP and OEIL; `slovlex-legislativny-proces` deferred; the family filter of the candidate list includes `DRAFT-CZ:`/`DRAFT-EU:` keys.
+- Result: 44 candidates (28 CZ + 9 EU tier 1, 7 CZ tier 2); 4 Senate findings joined Chamber candidates. Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_drafts.py` (recorded archives, feed, EP answers), `tests/test_check_sources.py`; `run_tests.py` all green.

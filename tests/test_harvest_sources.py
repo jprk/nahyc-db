@@ -68,7 +68,8 @@ class RunnerTestCase(unittest.TestCase):
         self.assertIn("on demand", planned["sbirka-pp-usc"])
 
     def test_with_no_adapters_nothing_runs_and_the_skips_are_reported(self):
-        records = hs.run(sr.select(self.entries, stage="E2"), {}, apply=False, log_path=self.log, out=self.out.append)
+        records = hs.run(sr.select(self.entries, stage="E2"), {}, apply=False, log_path=self.log, out=self.out.append,
+                         deferred={})
         self.assertEqual(records, [])
         self.assertIn("skipped 5: no adapter yet", self.out)
 

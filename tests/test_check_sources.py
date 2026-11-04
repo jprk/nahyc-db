@@ -25,6 +25,7 @@ class OutcomeTestCase(unittest.TestCase):
 
     def test_bot_protection_pages(self):
         self.assertEqual(cs.outcome(200, "<title>Just a moment...</title>"), "blocked")
+        self.assertEqual(cs.outcome(200, "<title>Požadavek byl zablokován</title>"), "blocked")
         self.assertEqual(cs.outcome(503, "Briefly unavailable for scheduled maintenance"), "server_error")
         self.assertEqual(cs.outcome(503, "Attention Required! | Cloudflare"), "blocked")
 
