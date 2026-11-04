@@ -4,7 +4,8 @@
 > 2026-10-28 jprk Převzato z odstavce 11 dokumentu `doc/AUTOMATION.md` (větev `automation`, stav 2026-10-24)  
 > 2026-10-28 jprk Doplněno z návrhu katalogu informačních zdrojů: role a priority zdrojů, 36 nových zdrojů ověřených živě, pořadí prací, zpracování nálezu, vyhledávací výrazy, výhled  
 > 2026-10-28 jprk Plán vytěžování zdrojů (odstavec 4) a pole `signal` a `stage` v registru  
-> 2026-10-29 jprk Etapa E0 provedena (odstavec 4.3), první kontrola dostupnosti
+> 2026-10-29 jprk Etapa E0 provedena (odstavec 4.3), první kontrola dostupnosti  
+> 2026-11-04 jprk Provoz vytěžování a výsledky etapy E0 (odstavec 8)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -381,7 +382,7 @@ a ASTM o změnu proti ověření ze září. Zda tyto zdroje převést do stavu
 `blocked`, rozhodneme při jejich zapojení (Slov-Lex legislatívny proces patří
 do etapy E2); jinou identifikaci robota, jež by kontrolu webu obcházela,
 nepoužíváme. Kanál RSS VeKLEPu při kontrole neodpověděl včas, jeho rozhraní
-JSON ano.
+JSON ano. Podrobně odstavec 8.
 
 **E1 — Převod stávající automatizace (10 zdrojů).** `eurlex-cellar`,
 `esbirka-lod`, `slovlex-linkcheck`, `csn-online`, `normoff-stn`,
@@ -559,3 +560,158 @@ Proti dnešním polím registru by u zdroje přibyly tyto údaje:
    (dnes souhrnně v poli `constraints`).
 4. **Provozní údaje**: poslední úspěšná kontrola, poslední zjištěná změna,
    technický stav a odpovědná osoba.
+
+## 8. Provoz vytěžování
+
+Tento odstavec popisuje, jak se nástroje etapy E0 (odstavec 4.3) používají,
+co zaznamenávají a jaký výsledek přinesla jejich první ostrá kontrola. Nástroje
+jsou v adresáři `src/tools/` a spouštějí se interpretem hlavního stromu
+(`.venv/bin/python`).
+
+### 8.1 Nástroje
+
+| Nástroj | Účel |
+|---|---|
+| `source_registry.py` | Čtení a zápis registru se zachováním jeho formátu (změna jednoho pole mění jediný řádek), kontrola slovníku hodnot (`validate()`) a výběr zdrojů běhu (`select()`). |
+| `harvest.py` | Jednotný tvar nálezu (`Finding`), zápis nálezů do fronty kandidátů, vyhledávací výrazy z odstavce 6 a záznam běhů. |
+| `harvest_sources.py` | Spouštěč: vybere zdroje, zavolá jejich adaptéry a nálezy zapíše do fronty. |
+| `check_sources.py` | Kontrola dostupnosti všech adres registru. |
+
+Spouštěč vybírá zdroje podle identifikátoru, etapy nebo četnosti:
+
+```
+.venv/bin/python src/tools/harvest_sources.py --stage E2            # suchý běh etapy
+.venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply
+.venv/bin/python src/tools/harvest_sources.py --source veklep-odok --apply --env-file .env.test
+.venv/bin/python src/tools/harvest_sources.py --checklist           # ručně kontrolované zdroje
+.venv/bin/python src/tools/harvest_sources.py --record imo-imdg --note "beze změny" --found 0
+.venv/bin/python src/tools/check_sources.py [--source ID ...] [--apply]
+```
+
+Bez volby `--apply` oba nástroje provedou jen suchý běh: spouštěč nálezy
+vypíše, ale do databáze nezapíše, kontrola dostupnosti nezmění registr. Běh se
+však zaznamená v obou případech, s příznakem, zda šlo o ostrý běh.
+
+Adaptéry deklaruje výslovně tabulka `ADAPTERS` ve spouštěči (identifikátor
+zdroje → `modul:funkce`). Adaptér dostane záznam zdroje z registru, sezení HTTP
+a čas posledního úspěšného ostrého běhu téhož zdroje a vrací seznam nálezů.
+Zdroj bez adaptéru spouštěč přeskočí a ohlásí, stejně jako zdroje ruční kontroly,
+zdroje k dohledání na vyžádání (signál `lookup` nebo `context`) a zdroje
+zakázané či zavržené. Selhání jednoho zdroje se zaznamená a běh pokračuje
+dalším.
+
+### 8.2 Nález a jeho cesta do fronty
+
+Nález nese identifikátor zdroje, druh signálu, klíč kandidáta (je-li odvoditelný),
+označení, název, adresu, datum a doslovný úryvek ze zdroje. Nález bez
+odvoditelného klíče dostane klíč vlastní ve tvaru `<zdroj>:<identifikátor
+položky>` a příznak, že označení předpisu je třeba doplnit ručně; klíč se nikdy
+neodhaduje.
+
+Nálezy se signálem `new_document` a `draft` se zapisují do fronty kandidátů
+(tabulka `DocumentCandidate`, `/admin/candidates`):
+
+1. Dokument, jejž databáze již obsahuje, se nezapíše a započte se jako známý.
+2. Nový kandidát dostane metadata nálezu a jako zdroj identifikátor zdroje
+   z registru; sloupec `signal` rozliší návrh předpisu od vyhlášeného dokumentu.
+3. Kandidát, jejž již dříve ohlásila kontrola nebo jiný zdroj, dostane nález
+   připsaný do svých dokladů (`evidence.findings`, jeden záznam na zdroj); datum
+   prvního zachycení zůstává zachováno. Seznam zdrojů, jež dokument zachytily, je
+   podkladem pro provenance (`doc/DATABASE_SCOPE.md`, odstavec 7, bod 2).
+4. Kandidát, o němž editoři již rozhodli (přijat, zamítnut), se nemění.
+
+Nálezy se signálem `state_change` se zatím jen počítají; do kontroly platnosti
+je zapojí etapa E1. Detail kandidáta v editorském rozhraní ukazuje nálezy
+jednotlivých zdrojů s datem, adresou a úryvkem; seznam kandidátů lze filtrovat
+podle zdroje z registru. Přijatý návrh předpisu (signál `draft`) vznikne jako
+dokument ve stavu „připravovaný“.
+
+### 8.3 Záznam běhů
+
+Soubor `data/source_checks.jsonl` nese jeden záznam JSON na řádek a pouze se
+připisuje. Rozlišujeme tři druhy záznamů:
+
+| Druh (`kind`) | Zapisuje | Obsah |
+|---|---|---|
+| `harvest` | `harvest_sources.py` | Zdroj, čas, ostrý či suchý běh, adaptér, čas, od něhož adaptér pokračoval, počet nálezů podle signálu, výsledky zápisu (vloženo, doplněno, ponecháno, známé), případná chyba. |
+| `availability` | `check_sources.py` | Zdroj, čas, verdikt a u každé adresy stav HTTP, konečná adresa po přesměrování a výsledek. |
+| `manual` | `harvest_sources.py --record` | Zdroj, čas, počet nových dokumentů a poznámka editora. |
+
+Záznam vzniká i tehdy, když běh nic nepřinesl: doložené negativní výsledky jsou
+součástí tvrzení o úplnosti (`doc/DATABASE_SCOPE.md`, odstavec 6). Dalšímu běhu
+zdroje předá spouštěč čas posledního úspěšného ostrého běhu, takže adaptér může
+dotaz omezit na novější položky.
+
+### 8.4 Kontrola dostupnosti
+
+Kontrola stáhne vstupní adresu každého zdroje a adresy z polí `access.endpoint`
+a `access.feed`; přeskočí zakázané zdroje (jejich `robots.txt` stahování
+zapovídá) a šablony adres. Na jednu doménu posílá nejvýše jeden požadavek za
+sekundu a robota identifikuje poctivě (`NAHYC-DP004-harvest`). Každá adresa
+dostane výsledek `ok` (2xx), `auth` (401), `blocked` (403, 429 nebo stránka
+ochrany proti robotům), `missing` (404, 410), `reachable` (jiná odpověď 4xx,
+typicky rozhraní volané bez parametrů), `server_error` (5xx) nebo
+`unreachable` (bez odpovědi). Zdroj pak dostane verdikt:
+
+| Verdikt | Význam |
+|---|---|
+| `ok` | Vstupní adresa odpovídá a žádná další adresa nechybí. |
+| `as_expected` | Zdroj vedený jako `blocked` je stále za ochranou nebo za přihlášením. |
+| `blocked` | Zdroj, jenž jako `blocked` veden není, odmítá robota. |
+| `moved` | Vstupní adresa přesměrovává na jinou doménu. |
+| `endpoint_problem` | Vstupní adresa odpovídá, rozhraní nebo kanál ne. |
+| `broken` | Vstupní adresa neexistuje nebo neodpovídá. |
+
+Verdikt `ok` říká, že adresa odpovídá, nikoli že je její obsah strojově
+použitelný: aplikace vykreslovaná až v prohlížeči vrací obal stránky s kódem
+200. S volbou `--apply` dostanou zdroje s verdiktem `ok` nebo `as_expected`
+v poli `verified_at` dnešní datum; hodnotu `null` (zdroj v aktivním používání)
+kontrola ponechá. Jiné pole registru nemění: přesunutou nebo nefunkční adresu
+má opravit člověk.
+
+### 8.5 Výsledek první kontroly (28. 10. 2026)
+
+Kontrola proběhla 28. 10. 2026 mezi 22:55 a 22:57 UTC nad 73 zdroji a 113
+adresami; pět zakázaných zdrojů jsme nestahovali. Výsledky adres: 99 `ok`,
+11 `blocked`, po jedné `reachable`, `auth` a `unreachable`. Verdikty zdrojů:
+
+| Verdikt | Počet | Zdroje |
+|---|---|---|
+| `ok` | 62 | Ostatní zdroje; mezi nimi i pět zdrojů vedených jako `blocked` kvůli aplikaci vykreslované v prohlížeči (e-Legislativa, rejstřík komitologie, rejstřík aktů v přenesené pravomoci, registr dokumentů Komise, NANDO) |
+| `as_expected` | 4 | `unece-wp29`, `unece-dangerous-goods`, `council-public-register`, `baua` (HTTP 403) |
+| `blocked` | 6 | `slovlex-linkcheck`, `slovlex-legislativny-proces` (vstupní adresa i kanál RSS), `astm-d03`, `iec-catalogue`, `eiga-publications`, `bakermckenzie-hydrogen-tracker` (HTTP 403) |
+| `endpoint_problem` | 1 | `veklep-odok` — kanál RSS nedoběhl do 20 s, rozhraní JSON odpovědělo |
+| `moved`, `broken` | 0 | — |
+
+Kontrola obnovila datum `verified_at` u 23 zdrojů. Ze šesti zdrojů, jež nově
+odmítají robota, je ochrana u IEC (AWS WAF, kvůli němuž stávající sklizeň
+`harvest_iec_publications.py` používá headless prohlížeč) a u EIGA (stávající
+modul `src/sites/eiga.py` volí upravený dotaz) známá a v registru popsaná; u Slov-Lexu a ASTM jde o změnu
+proti ověření z 20. 9. 2026, kdy oba zdroje strojově čitelný přístup nabízely.
+Zjištění jsme u všech šesti připsali do pole `constraints`, stav jsme však
+nezměnili; rozhodneme o něm při zapojení zdroje. Zvlášť se to týká zdroje
+`slovlex-legislativny-proces`, jenž má prioritu A a patří do etapy E2. Jinou
+identifikaci robota, jež by kontrolu webu obcházela, nepoužíváme: provozovatel
+jí dává najevo, že automatizovaný přístup nepřeje, a správnou cestou je patrně
+požádat jej o přístup nebo zdroj sledovat ručně.
+
+### 8.6 Nasazení a ověření
+
+Etapa E0 je na větvi `feature/harvest-e0`, odvozené z větve
+`feature/h2db-sources`; slučovat ji lze až po ní. Živou databázi `h2regdocs`
+etapa zatím nezměnila. Sloupec `signal` tabulky `DocumentCandidate` se do ní
+doplní sám při prvním ostrém běhu spouštěče nebo skriptu `import_candidates.py`
+proti živé databázi (`candidates.ensure_schema()`); jde o přidaný sloupec, jenž
+smí zůstat prázdný, před tímto během je však podle zvyklosti projektu vhodné
+pořídit zálohu do adresáře `backups/`. Do té doby editorské rozhraní funguje
+i bez sloupce.
+
+Etapu ověřují testy `tests/test_source_registry.py` (včetně kontroly, že vložený
+registr je konzistentní a zapisuje se beze změny), `tests/test_harvest.py`,
+`tests/test_harvest_sources.py`, `tests/test_check_sources.py` a nový scénář
+v `tests/test_candidates_admin.py` (návrh předpisu nalezený zdrojem až po
+dokument ve stavu „připravovaný“, nad databází `h2regdocs_test`). Testy se obejdou
+bez síťového přístupu. Celý běh `src/tools/run_tests.py` 29. 10. 2026 prošel
+(unit, integrační, smoke a prohlížečové testy). Vzhled nového bloku s nálezy
+v detailu kandidáta ověřuje jen test obsahu stránky; snímek obrazovky jsme
+nepořídili.
