@@ -35,6 +35,7 @@ import email.utils
 import io
 import re
 import time
+import urllib.parse
 import xml.etree.ElementTree as ET
 import zipfile
 
@@ -89,19 +90,42 @@ def _draft(entry, key, title, tier, amends, context, **fields):
 
 # --- VeKLEP ----------------------------------------------------------------------
 
+def _rss_date(text):
+    """An ISO date of an RSS date: RFC 822, or "Wed, 11/04/2026 - 07:38" (ACER)."""
+    if not text:
+        return None
+    try:
+        return email.utils.parsedate_to_datetime(text).date().isoformat()
+    except (TypeError, ValueError):
+        m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", text)
+        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}" if m else None
+
+
+def _rss_link(link, title_element):
+    """The address of an item. ACER puts an <a href> into <title> and the same anchor,
+    percent-encoded, into <link>: the href is taken and made absolute."""
+    link = (link or "").strip()
+    anchor = title_element.find("a") if title_element is not None else None
+    if "%3Ca" in link or "<a " in urllib.parse.unquote(link):
+        href = anchor.get("href") if anchor is not None else (
+            re.search(r'href="([^"]+)"', urllib.parse.unquote(link)) or [None, None])[1]
+        if href:
+            split = urllib.parse.urlsplit(link)
+            return urllib.parse.urljoin(f"{split.scheme}://{split.netloc}/", href)
+    return link
+
+
 def parse_rss(data):
     """[{title, link, description, guid, date}] of an RSS 2.0 feed, given as bytes so that
-    the XML declaration decides the encoding (VeKLEP sends no charset in its header)."""
+    the XML declaration decides the encoding (VeKLEP sends no charset in its header).
+    A title is all the text of its element (ACER wraps it in an <a>)."""
     items = []
     for item in ET.fromstring(data).iter("item"):
-        date = item.findtext("pubDate")
-        try:
-            date = email.utils.parsedate_to_datetime(date).date().isoformat() if date else None
-        except (TypeError, ValueError):
-            pass
-        items.append({"title": (item.findtext("title") or "").strip(), "link": item.findtext("link"),
+        title = item.find("title")
+        items.append({"title": " ".join("".join(title.itertext()).split()) if title is not None else "",
+                      "link": _rss_link(item.findtext("link"), title),
                       "description": (item.findtext("description") or "").strip(),
-                      "guid": (item.findtext("guid") or "").strip(), "date": date})
+                      "guid": (item.findtext("guid") or "").strip(), "date": _rss_date(item.findtext("pubDate"))})
     return items
 
 

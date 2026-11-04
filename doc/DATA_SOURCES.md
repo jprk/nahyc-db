@@ -12,6 +12,7 @@
 > 2026-11-04 jprk Etapa E2 provedena (odstavce 4.3 a 8.10)
 > 2026-11-04 jprk Souhrn stavu a postup prvního ostrého běhu (odstavec 8.11)
 > 2026-11-05 jprk Etapa E3 provedena (odstavce 4.3, 8.11 a 8.12)
+> 2026-11-05 jprk Etapa E4 provedena (odstavce 4.3, 8.11 a 8.13)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -442,6 +443,12 @@ nepromítají. Podrobně odstavec 8.12.
 `cizp`, `eru-cz`. Jeden společný adaptér RSS s filtrem podle vyhledávacích
 výrazů (odstavec 6); kanály nesou obecné zprávy úřadů, takže přínos závisí
 na kvalitě filtru, již bude třeba vyhodnotit na prvních během.
+
+*Stav 5. 11. 2026: provedeno pro 12 zdrojů.* Kanály čte společný adaptér
+(`harvest_standards.rss_items`), u OTIF, Drážního úřadu a SÚIP i s rozšiřujícími
+výrazy; dokumenty EHSP a změnu stránky RID Drážního úřadu čtou vlastní adaptéry
+(`src/tools/harvest_feeds.py`). Šest kanálů s krátkým oknem se čte týdně.
+Strategie MH SR (signál `context`) spouštěč nevolá. Podrobně odstavec 8.13.
 
 **E5 — Sběr z HTML a dohledání na vyžádání (15 zdrojů).** Pravidelně
 procházené: `ticr` (A), `hzs-cr` (A), `cmi-oop` (A), `md-adr` (A), `ec-tris`,
@@ -1122,15 +1129,16 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
 | E1 | provedeno | `eurlex-cellar`, `esbirka-lod`, `csn-online`, `normoff-stn`, `hytep` | `slovlex-linkcheck`, `iec-catalogue`, `eiga-publications`, `dvgw-publications` |
 | E2 | provedeno | `veklep-odok`, `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil` | `slovlex-legislativny-proces` |
 | E3 | provedeno (5. 11.) | `vestnik-unmz`, `unmz-news`, `ec-harmonised-standards`, `cps-tpg`, `sae-standards` | `astm-d03`, `asme-codes`, `vestnik-unms-sr` |
-| E4–E6 | dosud neprovedeno | — | — |
+| E4 | provedeno (5. 11.) | `acer`, `mpo-cz`, `eru-cz`, `mmr-stavebni-pravo`, `mzp-cz`, `suip`, `cizp`, `coi`, `era-railways`, `ehsp`, `du-rid`, `otif-rid` | — (`mhsr-vodikova-strategia` jen podklad) |
+| E5–E6 | dosud neprovedeno | — | — |
 
 Všechny ostré běhy dosud proběhly jen nad testovací databází `h2regdocs_test`;
 živá databáze `h2regdocs` ani její fronta kandidátů se nezměnily. První ostrý
 běh nad živou databází patrně přinese zhruba 82 kandidátů z e-Sbírky (38 v pásmu
 1), 1 z HYTEP a 44 návrhů předpisů (37 v pásmu 1), dohromady 127 kandidátů,
 z toho 76 v pásmu 1; etapa E3 k nim přidá zhruba 102 kandidátů na normy
-a technická pravidla (24 v pásmu 1). Přesné počty budou záviset na stavu zdrojů
-v den běhu.
+a technická pravidla (24 v pásmu 1) a etapa E4 zhruba 10 (6 v pásmu 1). Přesné
+počty budou záviset na stavu zdrojů v den běhu.
 
 Navrhujeme tento postup:
 
@@ -1260,4 +1268,73 @@ Celkem 102 kandidátů (24 v pásmu 1) a 107 záznamů v mezipaměti norem (14 n
 3. **Odložené zdroje** — ASTM (403), ASME (ruční kontrola), Věstník ÚNMS SR.
 4. **Katalog TPG v pásmu 2** — 66 pravidel bez vodíku v názvu; po prvních
    rozhodnutích editorů posoudit, zda je nezařadit hromadně.
+
+### 8.13 Etapa E4 (5. 11. 2026)
+
+Etapa zapojila kanály zpráv ministerstev, úřadů a agentur. Kanály čte společný
+adaptér `harvest_standards.rss_items` (zavedený v etapě E3 pro novinky ÚNMZ),
+zvláštní zdroje vlastní adaptéry v modulu `src/tools/harvest_feeds.py`:
+
+| Zdroj | Adaptér | Výrazy |
+|---|---|---|
+| `acer`, `mpo-cz`, `eru-cz`, `mmr-stavebni-pravo`, `mzp-cz`, `cizp`, `coi`, `era-railways` | `rss_items` | jen základní výrazy (pásmo 1) |
+| `suip`, `otif-rid` | `rss_items_broader` | základní (pásmo 1) i rozšiřující (pásmo 2) |
+| `du-rid` | `rss_items_broader` a `du_rid_page` | základní i rozšiřující; změna stránky RID |
+| `ehsp` | `ehsp_documents` | dokumenty z REST API WordPress |
+
+**Proč jen u některých zdrojů rozšiřující výrazy.** Zprávy úřadů nejsou
+dokumenty; z kanálu do fronty patří jen to, co se databáze patrně týká.
+Rozšiřující výrazy (tlaková a plynová zařízení, nebezpečné věci a další,
+odstavec 6) propouštíme jen tam, kde jsou samy agendou úřadu a zpráva o nich je
+tedy signálem o změně pravidel: u OTIF a Drážního úřadu přeprava nebezpečných
+věcí po železnici (RID), u SÚIP tlaková a plynová zařízení. U ostatních úřadů by
+rozšiřující výraz propustil běžné zprávy jejich agendy, jako se to stalo
+u novinek ÚNMZ s výrazem „metrologie“ (odstavec 8.12).
+
+**Pravidla zvláštních adaptérů.**
+
+1. **EHSP** — Knihovna médií webu `ehsp.eu` obsahuje vedle dokumentů i medailonky
+   členů panelu („<jméno> Web“) a výzvy. Kandidátem je dokument, jehož název
+   zmiňuje vodík (pásmo 1), nebo jde-li o odborný materiál podle názvu (zpráva,
+   metodika, doporučení, statistika, RCS, HIAD, souhrnný list; pásmo 2).
+   Medailonky a výzvy kandidáty nejsou. Dokumenty se vedou s typem „Metodika“.
+2. **Stránka RID Drážního úřadu** — Změna stránky (pole `modified` v REST API
+   WordPress) vznikne jako kandidát v pásmu 2 („Drážní úřad: změna stránky …“),
+   aby editor ověřil, zda nepřináší nové znění RID nebo metodický pokyn. První
+   ostrý běh nad danou databází jen zaznamená výchozí stav.
+
+Kandidáti z kanálů nemají označení předpisu; databáze je pozná podle adresy
+(`url:` v `harvest.known_keys()`).
+
+**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test`: 10 kandidátů — 1 z ACER (pásmo 1), 8 dokumentů EHSP (5 v pásmu
+1, mj. „Hydrogen Safety. Regulations, codes, and standards (RCS)“ a „EHSP Guidance
+on Hydrogen Safety Engineering“ ve vydání 2026) a 1 z OTIF (pásmo 2: „Dangerous
+goods by rail: final decisions for RID 2027“). Kanály MPO, ERÚ, MMR, MŽP, SÚIP,
+ČIŽP, ČOI, ERA a Drážního úřadu v aktuálních oknech nic k vodíku nenesly; stránka
+RID dostala výchozí stav.
+
+**Zjištění při provádění.**
+
+1. **Okna kanálů jsou krátká.** Kanál ČIŽP pokrývá zhruba 10 dní, MŽP, MMR a ACER
+   dva týdny, ERÚ čtyři týdny, MPO (kanál energetiky) jen několik dní. Při
+   měsíční četnosti, jež byla v registru, by se položky mezi běhy ztrácely;
+   u těchto šesti zdrojů je četnost nově týdenní. Ostatní kanály (SÚIP, ČOI, ERA,
+   Drážní úřad, OTIF) pokrývají měsíce.
+2. **Kanál ACER je vadný**: prvek `<title>` obsahuje odkaz `<a href>`, prvek
+   `<link>` týž odkaz zakódovaný jako adresu a datum je ve tvaru
+   „Wed, 11/04/2026 - 07:38“. Čtení kanálů (`harvest_drafts.parse_rss`) bere
+   nově název z celého textu prvku, adresu z odkazu a datum i v tomto tvaru.
+3. **Kanál RSS ERÚ funguje** (dosud neověřená adresa z patičky webu); zdroj je
+   nově ve stavu `ready`.
+4. **Kanál OTIF** je jediný z etapy, jenž v prvním běhu přinesl změnu pravidel
+   (RID 2027) — a to právě díky rozšiřujícím výrazům.
+
+**Otevřené body.**
+
+1. **Přínos kanálů** — po několika týdnech běhu vyhodnotit, kolik kandidátů
+   z kanálů editoři přijali, a podle toho rozšiřující výrazy u dalších zdrojů
+   zapnout, nebo kanály s nulovým přínosem převést na ruční kontrolu.
+2. **Strategie MH SR** (`mhsr-vodikova-strategia`) — slovenská vodíková strategie
+   je podkladem (`context`), sleduje se v rámci čtvrtletní ruční kontroly.
 

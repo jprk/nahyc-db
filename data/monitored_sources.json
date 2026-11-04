@@ -462,14 +462,14 @@
     "access": {"method": "rss", "endpoint": "https://www.acer.europa.eu/rss.xml"},
     "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "B",
     "role": ["M"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Regulace plynárenských a vodíkových sítí: tarifní rozhodnutí, práce na síťových kodexech podle balíčku pro dekarbonizované plyny a vodík. Převážně mimo EUR-Lex.",
-    "constraints": "Kanál je vadný: prvky <link> obsahují HTML-escapovaný odkaz místo prosté adresy — poller musí adresu z tohoto řetězce vydolovat.",
-    "verified_at": "2026-10-28"
+    "constraints": "Kanál je vadný: prvky <link> obsahují HTML-escapovaný odkaz místo prosté adresy — poller musí adresu z tohoto řetězce vydolovat. Okno kanálu 2026-11-04: 10 položek za 2 týdny — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely. Prvek <title> obsahuje odkaz <a href> a <link> týž odkaz zakódovaný jako adresu; harvest_drafts.parse_rss bere název z textu prvku a adresu z href (2026-11-04). Datum je ve tvaru „Wed, 11/04/2026 - 07:38“.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "european-hydrogen-observatory",
@@ -553,14 +553,14 @@
     "access": {"method": "rss", "endpoint": "https://mpo.gov.cz/cz/energetika.rss"},
     "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "B",
     "role": ["M", "L"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Gestor české vodíkové strategie; signál o konzultacích a koncepčních dokumentech.",
-    "constraints": "Rozcestník kanálů uvádí adresy na starším hostiteli — je vhodné ověřit obě varianty.",
-    "verified_at": "2026-10-28"
+    "constraints": "Rozcestník kanálů uvádí adresy na starším hostiteli — je vhodné ověřit obě varianty. Okno kanálu 2026-11-04: 2 položky za 4 dny — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "mhsr-vodikova-strategia",
@@ -586,17 +586,17 @@
     "category": "regulator",
     "jurisdiction": "CZ",
     "url": "https://eru.gov.cz/energeticke-regulacni-vestniky",
-    "access": {"method": "html", "endpoint": "https://eru.gov.cz/aktualni-sdeleni/rss"},
-    "status": "needs_work",
+    "access": {"method": "rss", "endpoint": "https://eru.gov.cz/aktualni-sdeleni/rss"},
+    "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "C",
     "role": ["M"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Rozhodnutí energetického regulátora, plynárenská a vodíková infrastruktura.",
-    "constraints": "Stránka věstníků ověřena (295 sdělení). Adresa RSS je převzata z patičky stránky a NEBYLA samostatně ověřena.",
-    "verified_at": "2026-10-28"
+    "constraints": "Stránka věstníků ověřena (295 sdělení). Adresa RSS je převzata z patičky stránky a NEBYLA samostatně ověřena. Okno kanálu 2026-11-04: 10 položek za 4 týdny — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely. Kanál RSS ověřen 2026-11-04 (HTTP 200, 10 položek, 6. 10. až 3. 11. 2026).",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "hytep",
@@ -973,14 +973,14 @@
     "access": {"method": "rss", "endpoint": "https://mmr.gov.cz/cs/ostatni/web/rss?rss=AllPageFefed"},
     "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "A",
     "role": ["M"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Výkladová stanoviska a metodická doporučení k novému stavebnímu zákonu (umístění a povolování technologických celků), koncepční dokumenty územního plánování; dnes v databázi jen samotné předpisy.",
-    "constraints": "Server-side HTML (HTTP 200). Rubrika obsahuje oddíly „Stavební zákon 2026“, „Stanoviska a metodiky“, „Právo a legislativa“. Kanály RSS uvedeny na /cs/ostatni/web/rss (12 kanálů); ověřen kanál „Všechny aktualizace portálu“ (30 položek, nejnovější 27. 10. 2026) a „Novinky“ (30 položek, 27. 10. 2026) — obecné, nejen stavební právo, nutno filtrovat. robots.txt zakazuje jen /admin/, /archiv/, /CMSPages/ a podobné. Sitemap v robots/HTML má překlep v doméně (mmr..gov.cz).",
-    "verified_at": "2026-10-28"
+    "constraints": "Server-side HTML (HTTP 200). Rubrika obsahuje oddíly „Stavební zákon 2026“, „Stanoviska a metodiky“, „Právo a legislativa“. Kanály RSS uvedeny na /cs/ostatni/web/rss (12 kanálů); ověřen kanál „Všechny aktualizace portálu“ (30 položek, nejnovější 27. 10. 2026) a „Novinky“ (30 položek, 27. 10. 2026) — obecné, nejen stavební právo, nutno filtrovat. robots.txt zakazuje jen /admin/, /archiv/, /CMSPages/ a podobné. Sitemap v robots/HTML má překlep v doméně (mmr..gov.cz). Okno kanálu 2026-11-04: 30 položek za 2 týdny — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "mzp-cz",
@@ -991,14 +991,14 @@
     "access": {"method": "rss", "endpoint": "https://mzp.gov.cz/cz/rss.xml"},
     "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "A",
     "role": ["M"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Metodiky a sdělení k EIA/SEA, ochraně ovzduší a vod, prevenci závažných havárií, integrované prevenci a odpadům — oblasti, jimiž povolování vodíkových zařízení prochází.",
-    "constraints": "Server-side HTML (Drupal, HTTP 200; https://mzp.gov.cz/ přesměruje na /cz). Kanál RSS /cz/rss.xml ověřen: 10 položek, nejnovější 27. 10. 2026 — převážně tiskové zprávy, nutno filtrovat. Dále stránka otevřených dat (/cz/ministerstvo/otevrena-data) a e-mailový odběr novinek. robots.txt: Crawl-delay 10, zakazuje jen systémové cesty Drupalu a /search/.",
-    "verified_at": "2026-10-28"
+    "constraints": "Server-side HTML (Drupal, HTTP 200; https://mzp.gov.cz/ přesměruje na /cz). Kanál RSS /cz/rss.xml ověřen: 10 položek, nejnovější 27. 10. 2026 — převážně tiskové zprávy, nutno filtrovat. Dále stránka otevřených dat (/cz/ministerstvo/otevrena-data) a e-mailový odběr novinek. robots.txt: Crawl-delay 10, zakazuje jen systémové cesty Drupalu a /search/. Okno kanálu 2026-11-04: 10 položek za 2 týdny — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "ticr",
@@ -1051,7 +1051,7 @@
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Kontrolní zaměření a doporučení k BOZP při provozu tlakových a plynových zařízení a ve výbušném prostředí; doplňuje předpisy o praktický výklad dozorového orgánu.",
-    "constraints": "Server-side HTML (Liferay, HTTP 200). Přehled kanálů RSS na /web/suip/rss; ověřen kanál „Novinky - SÚIP“: 20 položek, nejnovější 15. 10. 2026, nejstarší 1. 1. 2026. Adresa kanálu je dlouhá adresa portletu Liferay — při změně šablony se může změnit. Oddíl /web/suip/legislativa jen HTML. robots.txt zakazuje pro „*“ jen */rest/*.",
+    "constraints": "Server-side HTML (Liferay, HTTP 200). Přehled kanálů RSS na /web/suip/rss; ověřen kanál „Novinky - SÚIP“: 20 položek, nejnovější 15. 10. 2026, nejstarší 1. 1. 2026. Adresa kanálu je dlouhá adresa portletu Liferay — při změně šablony se může změnit. Oddíl /web/suip/legislativa jen HTML. robots.txt zakazuje pro „*“ jen */rest/*. Čte se i s rozšiřujícími výrazy (nebezpečné věci, tlaková zařízení), protože jsou agendou úřadu (harvest_feeds.rss_items_broader).",
     "verified_at": "2026-10-28"
   },
   {
@@ -1099,14 +1099,14 @@
     "access": {"method": "rss", "endpoint": "https://www.cizp.gov.cz/rss.xml"},
     "status": "ready",
     "screener": null,
-    "cadence": "monthly",
+    "cadence": "weekly",
     "priority": "C",
     "role": ["M", "E"],
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Výkladové a kontrolní informace k environmentálním povinnostem provozovatelů (havárie, ovzduší, odpady); doplňkový signál o vymáhání předpisů.",
-    "constraints": "Server-side HTML (Drupal, HTTP 200). Kanál RSS /rss.xml ověřen: 10 položek, nejnovější 27. 10. 2026 — převážně zprávy o kontrolách a haváriích, nutno filtrovat. robots.txt: Crawl-delay 10, zakazuje jen systémové cesty Drupalu, /search/ a /data.",
-    "verified_at": "2026-10-28"
+    "constraints": "Server-side HTML (Drupal, HTTP 200). Kanál RSS /rss.xml ověřen: 10 položek, nejnovější 27. 10. 2026 — převážně zprávy o kontrolách a haváriích, nutno filtrovat. robots.txt: Crawl-delay 10, zakazuje jen systémové cesty Drupalu, /search/ a /data. Okno kanálu 2026-11-04: 10 položek za 10 dní — čte se týdně, při měsíčním běhu by se položky mezi běhy ztrácely.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "cmi-oop",
@@ -1305,7 +1305,7 @@
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Úplné znění RID 2025/2026, schvalování typů cisteren, seznam inspekčních organizací a metodické pokyny Drážního úřadu — železniční přeprava vodíku a vodíková drážní vozidla.",
-    "constraints": "Server-side HTML (WordPress, HTTP 200). Stránka RID je přes WordPress REST API dostupná jako JSON (/wp-json/wp/v2/pages/991, pole modified = 2026-10-13) — změnu lze detekovat. Kanál RSS https://du.gov.cz/feed/ ověřen: 10 položek, nejnovější 22. 10. 2026 (obecné novinky úřadu). Metodické pokyny v oddílu Legislativa jen HTML. robots.txt zakazuje jen /wp-admin/.",
+    "constraints": "Server-side HTML (WordPress, HTTP 200). Stránka RID je přes WordPress REST API dostupná jako JSON (/wp-json/wp/v2/pages/991, pole modified = 2026-10-13) — změnu lze detekovat. Kanál RSS https://du.gov.cz/feed/ ověřen: 10 položek, nejnovější 22. 10. 2026 (obecné novinky úřadu). Metodické pokyny v oddílu Legislativa jen HTML. robots.txt zakazuje jen /wp-admin/. Čte se i s rozšiřujícími výrazy (nebezpečné věci, tlaková zařízení), protože jsou agendou úřadu (harvest_feeds.rss_items_broader). Změnu stránky RID (pole modified) hlásí harvest_feeds.du_rid_page; první běh jen zaznamená výchozí stav.",
     "verified_at": "2026-10-28"
   },
   {
@@ -1359,7 +1359,7 @@
     "signal": ["new_document"],
     "stage": "E4",
     "adds": "Platná a připravovaná znění RID (příloha C k COTIF), opravy a depozitářské notifikace o změnách (např. RID 2027); železniční přeprava vodíku jako nebezpečné věci v databázi dnes chybí.",
-    "constraints": "Titulní stránka https://otif.org/ přesměruje na /en/ (HTTP 200, WordPress, obsah v HTML). robots.txt neexistuje (404), tedy bez omezení. Výchozí kanál ?feed=rss2 je prázdný (0 položek), funkční je kanál typu příspěvků news-pr: 10 položek, poslední 27. 10. 2026. Stránka „Dangerous Goods – RID“ (page_id=1105, server-side HTML) odkazuje 42 PDF — znění RID 2025, změny RID 2027, opravy, depozitářská notifikace NOT-26019; PDF se stahují přímo (HTTP 200, application/pdf). Kanál nese obecné zprávy OTIF, změny RID je nutné dohledat na stránce page_id=1105 (adresy page_id jsou interní identifikátory WordPressu, stabilita nezaručena).",
+    "constraints": "Titulní stránka https://otif.org/ přesměruje na /en/ (HTTP 200, WordPress, obsah v HTML). robots.txt neexistuje (404), tedy bez omezení. Výchozí kanál ?feed=rss2 je prázdný (0 položek), funkční je kanál typu příspěvků news-pr: 10 položek, poslední 27. 10. 2026. Stránka „Dangerous Goods – RID“ (page_id=1105, server-side HTML) odkazuje 42 PDF — znění RID 2025, změny RID 2027, opravy, depozitářská notifikace NOT-26019; PDF se stahují přímo (HTTP 200, application/pdf). Kanál nese obecné zprávy OTIF, změny RID je nutné dohledat na stránce page_id=1105 (adresy page_id jsou interní identifikátory WordPressu, stabilita nezaručena). Čte se i s rozšiřujícími výrazy (nebezpečné věci, tlaková zařízení), protože jsou agendou úřadu (harvest_feeds.rss_items_broader).",
     "verified_at": "2026-10-28"
   },
   {

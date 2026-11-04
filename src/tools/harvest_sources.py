@@ -41,7 +41,7 @@ import requests
 import harvest
 import source_registry
 
-# Source id → adapters (harvest_adapters.py, stage E1; harvest_drafts.py, stage E2; harvest_standards.py, E3).
+# Source id → adapters (harvest_adapters.py, E1; harvest_drafts.py, E2; harvest_standards.py, E3; harvest_feeds.py, E4).
 ADAPTERS = {
     "eurlex-cellar": ("harvest_adapters:eurlex_new", "harvest_adapters:validity_eu"),
     "esbirka-lod": ("harvest_adapters:esbirka_new", "harvest_adapters:validity_cz"),
@@ -59,6 +59,19 @@ ADAPTERS = {
     "ec-harmonised-standards": ("harvest_standards:harmonised_standards",),
     "cps-tpg": ("harvest_standards:cps_tpg",),
     "sae-standards": ("harvest_standards:sae_crossref",),
+    # stage E4 (harvest_feeds.py; plain feeds by harvest_standards.rss_items)
+    "acer": ("harvest_standards:rss_items",),
+    "mpo-cz": ("harvest_standards:rss_items",),
+    "eru-cz": ("harvest_standards:rss_items",),
+    "mmr-stavebni-pravo": ("harvest_standards:rss_items",),
+    "mzp-cz": ("harvest_standards:rss_items",),
+    "cizp": ("harvest_standards:rss_items",),
+    "coi": ("harvest_standards:rss_items",),
+    "era-railways": ("harvest_standards:rss_items",),
+    "suip": ("harvest_feeds:rss_items_broader",),
+    "otif-rid": ("harvest_feeds:rss_items_broader",),
+    "du-rid": ("harvest_feeds:rss_items_broader", "harvest_feeds:du_rid_page"),
+    "ehsp": ("harvest_feeds:ehsp_documents",),
 }
 # Sources of the plan whose existing script is deliberately not run by the runner.
 DEFERRED = {

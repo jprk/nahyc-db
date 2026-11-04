@@ -6021,3 +6021,12 @@ original treatment, not asked for.
 - Standards of the database get state changes into `data/norm_validity_cache.json`, now merged (several sources describe one standard). `harvest.NOT_TERMS` (hydrogenerators). The candidate form offers all document types (a "Norma" could not be accepted before; fetch_fulltext.py never fetches norms).
 - Result: 102 candidates (24 tier 1), 107 entries in the standards cache (14 new editions, 98 harmonisations, 5 standards have both). Deferred: ASTM, ASME, Věstník ÚNMS SR. Applied to `h2regdocs_test` only.
 - Tests: `tests/test_harvest_standards.py`; `run_tests.py` all green.
+
+## 54. Harvesting stage E4: news of ministries, authorities and agencies (NEW, 2026-11-05, user-directed, branch `feature/harvest-e4`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.13).
+- Feeds by `harvest_standards.rss_items` (basic terms only; reads `access.feed` before `access.endpoint`); `src/tools/harvest_feeds.py`: `rss_items_broader` (broader terms too, for OTIF, Drážní úřad, SÚIP — dangerous goods and pressure equipment are their agenda), `ehsp_documents` (WordPress media of ehsp.eu without members' profiles and calls), `du_rid_page` (change of the RID page, baseline on the first applied run).
+- `harvest_drafts.parse_rss`: title from all text of the element, href of an anchor wrapped in `<link>` (ACER), non-RFC dates.
+- Registry: six short-window feeds weekly (ČIŽP ~10 days, MŽP/MMR/ACER ~2 weeks, ERÚ ~4 weeks, MPO a few days); ERÚ RSS verified (`ready`).
+- Result: 10 candidates (ACER 1, EHSP 8, OTIF 1 — RID 2027). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_feeds.py`; `run_tests.py` all green.

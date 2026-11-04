@@ -482,12 +482,12 @@ def sae_crossref(entry, session, since, context):
 # --- news feeds ------------------------------------------------------------------------------
 
 def rss_items(entry, session, since, context, broader=False):
-    """Items of a news feed (`access.endpoint`) whose title or description has a basic
+    """Items of a news feed (`access.feed`, else `access.endpoint`) whose title or description has a basic
     search term (tier 1); with `broader`, also those with a broader one (tier 2). News of
     an authority whose own agenda a broader term names (metrology at ÚNMZ) would all
     match it, so feeds take the basic terms only by default."""
     import harvest_drafts as hd
-    response = session.get(entry["access"]["endpoint"], timeout=60)
+    response = session.get(entry["access"].get("feed") or entry["access"]["endpoint"], timeout=60)
     response.raise_for_status()
     findings = []
     for item in hd.parse_rss(response.content):
