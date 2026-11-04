@@ -8,6 +8,7 @@
 > 2026-11-04 jprk Provoz vytěžování a výsledky etapy E0 (odstavec 8)  
 > 2026-11-04 jprk Etapa E1 provedena (odstavce 4.3 a 8.7)
 > 2026-11-04 jprk Rozbor nálezů e-Sbírky a návrh řešení šumu (odstavec 8.8)
+> 2026-11-04 jprk Omezení šumu provedeno (odstavec 8.9)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -899,12 +900,110 @@ Výsledek na dávce ze 4. 11. 2026 by byl tento: 28 kandidátů v pásmu 1,
 k jiným předpisům a 30 předpisů vyřazených se záznamem. Editor by tak místo
 185 kandidátů nejprve posuzoval 28.
 
-Provedení by se dotklo adaptéru `esbirka_new` (rozpoznání novel, vzory,
-pásmo jako součást dokladu nálezu), zápisu nálezů (připojení novely
-k měněnému předpisu, nový druh nálezu „novela dokumentu v databázi“)
-a fronty kandidátů (sloupec s pásmem, výchozí filtr a řazení). Slovník okruhů
+Návrh jsme provedli téhož dne; pravidla, jak jsou implementována, a jejich
+výsledek popisuje odstavec 8.9. Slovník okruhů
 pro pásmo 1 i seznam vzorů jsou heuristiky odvozené z jediné dávky; po prvních
 týdnech provozu je bude třeba ověřit podle toho, jak editoři kandidáty
 skutečně rozhodnou. Stejný postup se patrně uplatní i u kanálů RSS etapy E4,
 jež nesou obecné zprávy úřadů.
+
+### 8.9 Omezení šumu: provedení (4. 11. 2026)
+
+Návrh z odstavce 8.8 je proveden v adaptéru `esbirka_new`
+(`src/tools/harvest_adapters.py`, funkce `classify_act()`), v zápisu nálezů
+(`src/tools/harvest.py`, `src/tools/candidates.py`) a ve frontě kandidátů
+(`app/candidates_admin.py`). Na větvi `feature/esbirka-noise`.
+
+**Pravidla.** Každý předpis, jejž adaptér nalezne (databáze jej nemá, jeho
+poslední znění obsahuje slovo „vodík“ a je účinné), projde těmito pravidly
+v uvedeném pořadí:
+
+1. **Vyřazení podle vzoru názvu.** Název odpovídá některému ze vzorů
+   `DENY_PATTERNS`: programy statistických zjišťování, smlouvy o volném obchodu,
+   klasifikace produkce, seznam zboží, sazebníky, seznam zdravotních výkonů,
+   potraviny, léčiva, kosmetika, hnojiva, agrochemické zkoušení, zemědělský
+   půdní fond, oceňovací vyhláška, digitální technická mapa, obsahové náplně
+   živností, původ zboží, dohody o přidružení k Evropským společenstvím, obchod
+   s vojenským materiálem. Předpis se vyřadí a vzor se uvede jako důvod.
+2. **Novela.** Předpis je novelou, leží-li všechny výskyty slova v jeho
+   posledním znění v novelizačních bodech (`…/dokument/novela/…`), nebo zní-li
+   jeho název „…, kterým (kterou) se mění …“ či „… o změně …“ a alespoň jeden
+   výskyt v novelizačních bodech leží. Měněné předpisy se čtou z názvu
+   (`citation_closure.own_keys()`). Pak:
+   - Má-li měněný předpis databáze, vznikne nález druhu `amendment` („novela
+     dokumentu v databázi“) s identifikátory měněných dokumentů; přijetí
+     takového kandidáta založí dokument s vazbou `AMENDS` na každý z nich.
+     Pásmo 1.
+   - Je-li měněný předpis mezi nalezenými, novela samostatným kandidátem není;
+     připojí se k nálezu měněného předpisu (pole `amended_by`, v detailu
+     kandidáta „Zmínku vložily nebo mění novely“). Je-li měněný předpis vyřazen,
+     vyřadí se s ním i novela.
+   - Jinak zůstane novela kandidátem v pásmu 2 s poznámkou, který předpis
+     mění, nebo že jej z názvu určit nelze.
+3. **Úplné znění.** Název začíná „Úplné znění …“. Má-li databáze vyhlašovaný
+   předpis, úplné znění se vyřadí s odkazem na něj; jinak se s ním naloží jako
+   s novelou (připojí se k předpisu, je-li mezi nalezenými).
+4. **Předpis z doby před rokem 1990.** Adaptér zkusí zrušující předpis na
+   zakonyprolidi.cz (`check_validity.repealing_act()`); potvrdí-li se zrušení,
+   předpis se vyřadí s datem a zrušujícím předpisem jako důvodem, jinak jde do
+   pásma 2 s poznámkou.
+5. **Pásmo.** Ostatní předpisy jsou v pásmu 1, obsahuje-li název výraz věcných
+   okruhů z `doc/DATABASE_SCOPE.md`, odstavec 3 (vodík, elektrolýza, palivové
+   články, plnicí a čerpací stanice, pohonné hmoty a paliva, energie, plyn,
+   elektřina, teplárenství, emise, ovzduší, skleníkové plyny, obnovitelné zdroje,
+   biopaliva, vozidla, pozemní komunikace, silniční a drážní doprava, železnice,
+   přeprava, nebezpečné věci, látky a zboží, tlaková a plynová zařízení,
+   vyhrazená technická zařízení, výbuch a výbušniny, požární ochrana,
+   bezpečnost a ochrana zdraví při práci, stavby a výstavba, územní plánování,
+   posuzování vlivů, integrovaná prevence, havárie a havarijní plánování,
+   chemické látky, metrologie a měřidla, jakost, technické požadavky, kritická
+   infrastruktura); ostatní v pásmu 2.
+
+Vyřazené předpisy se zapisují do souboru `data/harvest_not_imported.json`
+(po zdrojích: klíč, název, adresa, důvod, datum prvního a posledního zachycení),
+takže zůstávají dohledatelné a vzory lze revidovat. Názvy předpisů adaptér bere
+z fronty kandidátů, má-li je tam, jinak ze zakonyprolidi.cz.
+
+**Fronta kandidátů.** Tabulka `DocumentCandidate` má sloupce `tier` (pásmo)
+a `occurrences` (počet výskytů v posledním znění); doplní je migrace
+v `candidates.ensure_schema()`. Seznam kandidátů ukazuje ve výchozím
+zobrazení pásmo 1 (sem patří i kandidáti z kontrol, kteří pásmo nemají),
+filtr „pásmo“ nabízí pásmo 2 a obě pásma i s počty. Řadí se nejprve návrhy
+k přijetí, pak podle pásma, počtu citací a počtu výskytů. Kandidát pásma 2 nese
+v seznamu označení „pásmo 2“; detail uvádí pásmo, počet výskytů, poznámku,
+připojené novely a u novely dokumentu v databázi měněné dokumenty. Opakovaný
+běh obnoví pásmo a počet výskytů a zástupný název („N/RRRR Sb.“) nahradí
+skutečným; název, jejž upravil editor, ponechá.
+
+**Výsledek (4. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test` dávají shodný výsledek. Ze 185 předpisů:
+
+| Výsledek | Počet |
+|---|---|
+| Pásmo 1 — nový dokument | 27 |
+| Pásmo 1 — novela dokumentu v databázi | 11 |
+| Pásmo 2 — nový dokument | 44 |
+| Připojeno k nálezu měněného předpisu | 47 |
+| Vyřazeno podle vzoru názvu | 38 |
+| Vyřazeno jako novela vyřazeného předpisu | 8 |
+| Vyřazeno jako zrušený historický předpis | 1 |
+| Vyřazeno jako úplné znění předpisu v databázi | 1 |
+
+Osm z nalezených předpisů již bylo kandidáty z uzávěru citací; nález se jim
+připsal (šest v pásmu 1, dva v pásmu 2). Editor tedy ve výchozím zobrazení
+posuzuje 38 kandidátů ze sledovaného zdroje, nikoli 185. Mezi novelami
+dokumentů v databázi jsou například 87/2025 Sb. (67 výskytů; novela
+energetického zákona č. 458/2000 Sb.), 382/2021 Sb. (podporované zdroje
+energie) a 42/2025 Sb. a 172/2018 Sb. (ochrana ovzduší); v pásmu 1 například
+přílohy RID (29/1998 Sb., 60/1999 Sb.), 146/2024 Sb. (požadavky na výstavbu),
+328/2022 Sb. (záruky původu energie), 488/2021 Sb. (připojení k plynárenské
+soustavě) a 361/2007 Sb. (ochrana zdraví při práci, s osmi připojenými
+novelami). Z 16 historických předpisů se zrušení potvrdilo u jediného
+(103/1949 Sb., zrušen 1. 9. 1953); ostatní jsou v pásmu 2.
+
+**Omezení.** Vzory i slovník okruhů jsou odvozeny z jediné dávky a pásmo 1
+zahrnuje i předpisy, jež název řadí do okruhů jen volně (například předpisy
+o mírovém využívání jaderné energie podle výrazu „energ“). Po prvních týdnech
+provozu je bude třeba porovnat s rozhodnutími editorů a upravit. Do živé
+fronty dosud nic nevstoupilo (odstavec 8.7, otevřené body).
 

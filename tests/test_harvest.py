@@ -50,7 +50,7 @@ class Cursor:
         else:
             self.writes.append((sql.split()[0], params))
             if sql.startswith("INSERT"):
-                self.rows[params[0]] = {"id": len(self.rows) + 1, "status": "new", "evidence_json": params[-1]}
+                self.rows[params[0]] = {"id": len(self.rows) + 1, "status": "new", "evidence_json": params[9]}
             elif sql.startswith("UPDATE"):
                 for row in self.rows.values():
                     if row["id"] == params[-1]:

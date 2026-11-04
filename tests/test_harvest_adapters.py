@@ -71,50 +71,97 @@ class EurlexTestCase(unittest.TestCase):
 
 
 ELI = "https://opendata.eselpoint.gov.cz/esel-esb/eli/cz/sb/"
-FRAGMENT = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/1"
-FILE = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-binární-soubor/2"
-OLD_FRAGMENT = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/3"
-ENDED_FRAGMENT = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/4"
-KNOWN_FRAGMENT = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/5"
-METADATA = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-metadata/6"
+HIT = "https://opendata.eselpoint.gov.cz/esel-esb/právní-akt-fragment/"
+TITLES = {
+    "CZ:294/2015": "Vyhláška, kterou se provádějí pravidla provozu na pozemních komunikacích",
+    "CZ:311/2006": "Zákon o pohonných hmotách",  # known, not asked
+    "CZ:42/2025": "Zákon, kterým se mění zákon č. 201/2012 Sb., o ochraně ovzduší",
+    "CZ:10/2022": "Vyhláška, kterou se mění vyhláška č. 361/2007 Sb., o ochraně zdraví při práci",
+    "CZ:361/2007": "Nařízení vlády, kterým se stanoví podmínky ochrany zdraví při práci",
+    "CZ:316/2023": "Vyhláška o Programu statistických zjišťování na rok 2024",
+    "CZ:101/1931": "Vyhláška o počátku platnosti nové přílohy I k Mezinárodní úmluvě o přepravě zboží po železnicích",
+    "CZ:52/1929": "Obchodní úmluva mezi republikou Československou a Francií",
+    "CZ:586/1992": "Zákon o daních z příjmů",
+}
+FOUND = {  # act: (version date, paths of the hits under /dokument/)
+    "CZ:294/2015": ("2025-07-01", ["prilohy/frag_1", "cast_1/frag_2"]),
+    "CZ:311/2006": ("2026-01-01", ["frag_3"]),
+    "CZ:42/2025": ("2025-03-01", ["novela/cast_1/bod_5/frag_4"]),
+    "CZ:10/2022": ("2022-02-01", ["novela/bod_1/frag_5"]),
+    "CZ:361/2007": ("2025-01-01", ["prilohy/frag_6"]),
+    "CZ:316/2023": ("2024-01-01", ["prilohy/frag_7"]),
+    "CZ:101/1931": ("0000-00-00", ["prilohy/frag_8"]),
+    "CZ:52/1929": ("0000-00-00", ["prilohy/frag_9"]),
+    "CZ:586/1992": ("2026-01-01", ["cast_2/frag_10"]),
+}
+
+
+def eli(key):
+    number, year = key.split(":")[1].split("/")
+    return f"{ELI}{year}/{number}"
 
 
 class EsbirkaTestCase(unittest.TestCase):
-    """Acts are found by the hits in their text and kept when the database lacks
-    them, their last version contains the word and it is still in effect."""
+    """Acts the database lacks whose last version in effect contains the word, with
+    the noise reduced as doc/DATA_SOURCES.md odstavec 8.8 proposes."""
 
     def route(self, url, params):
         query = params["query"]
         if "bif:contains" in query and "obsahuje-fragment" in query:
-            return bindings({"owner": ELI + "2015/294/2025-07-01/dokument/prilohy/frag_1", "hit": FRAGMENT},
-                            {"owner": ELI + "2015/294/2025-07-01/dokument/frag_2", "hit": FILE},
-                            {"owner": ELI + "2006/311/2020-01-01/dokument/frag_3", "hit": OLD_FRAGMENT},
-                            {"owner": ELI + "1999/1/2005-01-01/dokument/frag_4", "hit": ENDED_FRAGMENT},
-                            {"owner": ELI + "2000/458/2028-01-01/dokument/frag_5", "hit": KNOWN_FRAGMENT})
+            return bindings(*({"owner": f"{eli(k)}/{date}/dokument/{p}", "hit": f"{HIT}{k}{p}"}
+                              for k, (date, paths) in FOUND.items() for p in paths))
         if "má-poslední-znění" in query:
             self.asked_last = query
-            return bindings({"act": ELI + "2015/294", "last": ELI + "2015/294/2025-07-01"},
-                            {"act": ELI + "2006/311", "last": ELI + "2006/311/2024-01-01"},
-                            {"act": ELI + "1999/1", "last": ELI + "1999/1/2005-01-01", "to": "2010-12-31"})
-        if "citace-názvu" in query:
-            return bindings({"s": METADATA, "title": "vyhláška o plnicích stanicích vodíku"},
-                            {"s": METADATA + "x", "title": "zrušená vyhláška o vodíku", "repealed": "2001-01-01"})
+            return bindings(*({"act": eli(k), "last": f"{eli(k)}/{date}"} for k, (date, _) in FOUND.items()
+                              if f"<{eli(k)}>" in query))
         if "isLiteral" in query:
-            return bindings({"s": FRAGMENT, "o": "Tabulka"}, {"s": FRAGMENT, "o": "<td>409 - Čerpací stanice vodíku</td>"})
+            return bindings(*({"s": f"{HIT}{k}{p}", "o": "výskyt slova vodík"}
+                              for k, (_, paths) in FOUND.items() for p in paths if f"{HIT}{k}{p}" in query))
+        if url.startswith("https://www.zakonyprolidi.cz/cs/"):
+            raise AssertionError("titles come from the patched cz_title")
         raise AssertionError(query)
 
-    def test_acts_in_effect_whose_last_version_has_the_word(self):
-        context = {"today": "2026-11-04", "known": {"CZ:458/2000"}}
-        with mock.patch.object(ha, "time", NO_SLEEP):
+    def run_adapter(self, repealed=()):
+        context = {"today": "2026-11-04", "known": {"CZ:311/2006", "CZ:201/2012"},
+                   "documents": [(7, "201/2012 Sb.", "Zákon o ochraně ovzduší", None)],
+                   "candidate_titles": {"CZ:586/1992": "Zákon o daních z příjmů", "CZ:294/2015": "294/2015 Sb."}}
+        fetched = []
+
+        def cz_title(session, key):
+            fetched.append(key)
+            return TITLES[key]
+
+        def repealing_act(session, key):
+            return (["CZ:1/1960"], "1960-01-01") if key in repealed else ([], None)
+        with mock.patch.object(ha, "time", NO_SLEEP), mock.patch("candidates.cz_title", cz_title), \
+                mock.patch("check_validity.repealing_act", repealing_act):
             findings = ha.esbirka_new(ENTRY, Session(self.route), None, context)
-        keyed = [(f.key, f.designation, f.url) for f in findings if f.key]
-        self.assertEqual(keyed, [("CZ:294/2015", "294/2015 Sb.", "https://www.zakonyprolidi.cz/cs/2015-294")])
-        self.assertIn("409 - Čerpací stanice vodíku", findings[0].excerpt)
-        self.assertIn("2 míst v textu", findings[0].excerpt)
-        self.assertNotIn("2000/458", self.asked_last)
-        titled = [f for f in findings if not f.key]
-        self.assertEqual([(f.title, f.url) for f in titled], [("vyhláška o plnicích stanicích vodíku", METADATA)])
-        self.assertTrue(titled[0].as_evidence("x")["needs_key"])
+        return {f.key: f for f in findings}, fetched
+
+    def test_the_noise_is_sorted_out(self):
+        found, fetched = self.run_adapter(repealed={"CZ:52/1929"})
+        self.assertNotIn("CZ:311/2006", found)  # the database has it
+        self.assertNotIn("CZ:586/1992", fetched)  # its title came from the queue
+        self.assertIn("CZ:294/2015", fetched)  # a placeholder title is looked up
+        tier = {k: (f.signal, f.tier) for k, f in found.items()}
+        self.assertEqual(tier["CZ:294/2015"], ("new_document", 1))
+        self.assertEqual(tier["CZ:361/2007"], ("new_document", 1))
+        self.assertEqual(tier["CZ:586/1992"], ("new_document", 2))
+        self.assertEqual(tier["CZ:101/1931"], ("new_document", 2))
+        self.assertIn("před rokem 1990", found["CZ:101/1931"].extra["note"])
+        self.assertEqual(found["CZ:294/2015"].occurrences, 2)
+        # an amendment of a document of the database, with the documents it amends
+        self.assertEqual(tier["CZ:42/2025"], ("amendment", 1))
+        self.assertEqual(found["CZ:42/2025"].extra, {"amends": ["CZ:201/2012"], "amends_ids": [7]})
+        # an amendment of another act found goes with that act
+        self.assertNotIn("CZ:10/2022", found)
+        self.assertEqual(found["CZ:361/2007"].extra["amended_by"][0]["key"], "CZ:10/2022")
+        # excluded, with the reason
+        self.assertEqual(found["CZ:316/2023"].signal, "excluded")
+        self.assertIn("statistických zjišťování", found["CZ:316/2023"].extra["reason"])
+        self.assertEqual(found["CZ:52/1929"].signal, "excluded")
+        self.assertIn("zrušen k 1960-01-01", found["CZ:52/1929"].extra["reason"])
+        self.assertNotIn("2006/311", self.asked_last)
 
     def test_act_keys_and_versions(self):
         node = ELI + "1925/262/0000-00-00/dokument/prilohy/priloha_0:2/frag_27667"
@@ -128,6 +175,54 @@ class EsbirkaTestCase(unittest.TestCase):
             ha.esbirka_new(ENTRY, Session(self.route), None, {"today": "2026-11-04", "known": set()})
         with mock.patch.object(ha, "time", NO_SLEEP), self.assertRaises(RuntimeError):
             ha.esbirka_new(ENTRY, Session(lambda url, params: bindings()), None, {"today": "x", "known": set()})
+
+
+class ClassifyActTestCase(unittest.TestCase):
+    KNOWN = {"CZ:458/2000", "CZ:353/1999"}
+
+    def classify(self, key, title, paths=("cast_1/frag",), candidates=()):
+        return ha.classify_act(key, title, list(paths), self.KNOWN, set(candidates))
+
+    def test_amendments(self):
+        by_structure = self.classify("CZ:469/2023", "Zákon, kterým se mění zákon č. 458/2000 Sb., energetický zákon",
+                                     ["novela/bod_1"])
+        self.assertEqual((by_structure["action"], by_structure["target"]), ("amendment", ["CZ:458/2000"]))
+        attach = self.classify("CZ:10/2022", "Vyhláška, kterou se mění vyhláška č. 361/2007 Sb.", ["novela/x"],
+                               candidates={"CZ:361/2007"})
+        self.assertEqual((attach["action"], attach["target"]), ("attach", "CZ:361/2007"))
+        outside = self.classify("CZ:1/2020", "Vyhláška, kterou se mění vyhláška č. 9/2010 Sb.", ["novela/x"])
+        self.assertEqual((outside["action"], outside["tier"]), ("candidate", 2))
+        self.assertIn("9/2010", outside["reason"])
+        mixed = self.classify("CZ:349/2023", "Zákon, kterým se mění některé zákony", ["novela/x"])
+        self.assertEqual((mixed["action"], mixed["tier"], mixed["reason"]),
+                         ("candidate", 2, "novela, měněný předpis nezjištěn"))
+        # a title saying "o změně" is not an amendment when no hit lies in amending points
+        own = self.classify("CZ:330/2025", "Zákon o správě informací o stavbě a o změně některých zákonů", ["cast_1/x"])
+        self.assertEqual((own["action"], own["tier"]), ("candidate", 1))
+
+    def test_full_texts_deny_patterns_and_tiers(self):
+        full = self.classify("CZ:349/2004", "Úplné znění zákona č. 353/1999 Sb., o prevenci závažných havárií")
+        self.assertEqual(full["action"], "exclude")
+        self.assertIn("353/1999", full["reason"])
+        self.assertEqual(self.classify("CZ:86/1998", "Dohoda o volném obchodu mezi ČR a Izraelem")["action"], "exclude")
+        self.assertEqual(self.classify("CZ:8/2021", "Katalog odpadů")["tier"], 2)
+        self.assertEqual(self.classify("CZ:226/2015", "Vyhláška o vymezení zóny havarijního plánování")["tier"], 1)
+        self.assertEqual(self.classify("CZ:361/2007", "Nařízení vlády o ochraně zdraví při práci")["tier"], 1)
+        self.assertIsNone(ha.denied("Vyhláška o požadavcích na pohonné hmoty"))
+
+
+class ExcludedTestCase(unittest.TestCase):
+    def test_excluded_findings_go_to_the_not_imported_file_and_keep_their_first_date(self):
+        finding = harvest.Finding("esbirka-lod", "excluded", "Program statistických zjišťování", key="CZ:316/2023",
+                                  extra={"reason": "vzor názvu: sazebník"})
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "not_imported.json"
+            self.assertEqual(harvest.record_excluded([finding], "2026-11-04T10:00:00", path), 1)
+            harvest.record_excluded([finding], "2026-11-11T10:00:00", path)
+            entry = json.loads(path.read_text())["esbirka-lod"]["CZ:316/2023"]
+        self.assertEqual((entry["first_seen"], entry["seen"], entry["reason"]),
+                         ("2026-11-04T10:00:00", "2026-11-11T10:00:00", "vzor názvu: sazebník"))
+        self.assertEqual(harvest.write_findings(None, [finding], set(), "x")["excluded"], 1)
 
 
 class ValidityTestCase(unittest.TestCase):

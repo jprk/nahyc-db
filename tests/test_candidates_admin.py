@@ -189,6 +189,38 @@ class CandidateWorkflowTestCase(unittest.TestCase):
                         (row["document_id"],))
             self.assertEqual(cur.fetchone()["lifecycle_state"], "draft")
 
+    def test_tiers_and_an_amendment_of_a_document_of_the_database(self):
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json, tier, occurrences) VALUES ('TEST:tier2', 'esbirka-lod', "
+                        "'new_document', 'Testovací kandidát pásma 2', 'Zákon', 'https://example.test/t2', 'CS', 'CZ', "
+                        "'{}', 2, 1)")
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json, tier, occurrences) VALUES ('TEST:amends', 'esbirka-lod', "
+                        "'amendment', %s, 'Zákon', 'https://example.test/n', 'CS', 'CZ', %s, 1, 5)",
+                        (TITLE, json.dumps({"amends_ids": [self.repealed_id]})))
+            candidate_id = cur.lastrowid
+        alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
+        default = alice.get("/admin/candidates?q=Testovací").get_data(as_text=True)
+        self.assertIn(TITLE, default)
+        self.assertNotIn("Testovací kandidát pásma 2", default)
+        self.assertIn("Testovací kandidát pásma 2", alice.get("/admin/candidates?q=Testovací&pasmo=2").get_data(as_text=True))
+        page = alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True)
+        self.assertIn("novela dokumentu v databázi", page)
+        self.assertIn("Mění tyto dokumenty databáze", page)
+        alice.post(f"/admin/candidates/{candidate_id}/propose",
+                   data={"designation": "9004/2099 Sb.", "title": TITLE, "document_type": "Zákon",
+                         "url": "https://example.test/n", "language": "CS", "jurisdikce": "CZ", "scope_area": "9",
+                         "decision_note": ""})
+        bob.post(f"/admin/candidates/{candidate_id}/confirm")
+        row = self.candidate(candidate_id)
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) AS n FROM document_relation WHERE from_document_id = %s AND to_document_id = %s "
+                        "AND relation_type = 'AMENDS'", (row["document_id"], self.repealed_id))
+            amends = cur.fetchone()["n"]
+            cur.execute("DELETE FROM document_relation WHERE from_document_id = %s", (row["document_id"],))
+        self.assertEqual((row["status"], amends), ("accepted", 1))
+
     def test_a_proposal_without_title_type_or_area_is_refused(self):
         candidate_id = self.insert_candidate("TEST:2", title="Testovací kandidát bez okruhu")
         alice = self.client_for("cand_alice")

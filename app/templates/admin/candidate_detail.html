@@ -6,6 +6,7 @@
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Stav: <strong>{{ state_labels.get(c.status, c.status) }}</strong> &middot; zdroj: {{ sources.get(c.source, c.source) }}
         {% if c.signal %} &middot; {{ signal_labels.get(c.signal, c.signal) }}{% endif %}
+        {% if c.tier %} &middot; pásmo {{ c.tier }}{% endif %}{% if c.occurrences %} &middot; {{ c.occurrences }} výskytů v posledním znění{% endif %}
         {% if c.validity_status %} &middot; platnost: {{ c.validity_status }}{% endif %}
         {% if c.cited_by %} &middot; citováno {{ c.cited_by }} dokumenty databáze{% endif %}
     </p>
@@ -34,7 +35,10 @@
             {% if f.date %}({{ f.date }}){% endif %} —
             {% if f.url %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.title|truncate(110) }}</a>{% else %}{{ f.title|truncate(110) }}{% endif %}
             <span style="color: var(--text-secondary);">· poprvé zachyceno {{ (f.first_seen or '')[:10] }}{% if f.needs_key %} · bez označení předpisu, doplnit ručně{% endif %}</span>
+            {% if f.note %}<br><span style="color: var(--text-secondary);">{{ f.note }}</span>{% endif %}
             {% if f.excerpt %}<p class="candidate-context">… {{ f.excerpt }} …</p>{% endif %}
+            {% if f.amended_by %}<br><span style="color: var(--text-secondary);">Zmínku vložily nebo mění novely:
+                {% for a in f.amended_by %}{{ a.key.split(':')[1] }} Sb.{% if a.title %} ({{ a.title|truncate(80) }}){% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</span>{% endif %}
         </li>
         {% endfor %}
     </ul>
@@ -47,6 +51,13 @@
     <h3>Citují jej dokumenty databáze ({{ evidence.citing_ids|length }})</h3>
     <ul class="doc-relations">
         {% for d in citing %}<li><a href="{{ url_for('document_detail', slug=d.slug) }}">{{ d.identifier or '' }} — {{ d.title|truncate(110) }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if amends %}
+    <h3>Mění tyto dokumenty databáze</h3>
+    <p style="color: var(--text-secondary);">Přijetím vznikne dokument s vazbou „mění“ (AMENDS) na tyto dokumenty.</p>
+    <ul class="doc-relations">
+        {% for d in amends %}<li><a href="{{ url_for('document_detail', slug=d.slug) }}">{{ d.identifier or '' }} — {{ d.title|truncate(110) }}</a></li>{% endfor %}
     </ul>
     {% endif %}
     {% if repeals %}

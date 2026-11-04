@@ -14,6 +14,14 @@ log of every run.
   check found (`state`) and go to the cache of that check (apply_state_changes):
   Czech and EU acts to data/validity_cache.json, which backfill_document_states.py
   applies to the database, standards to data/norm_validity_cache.json.
+  An `amendment` finding (a new amending act of a document the database has) is a
+  candidate too, carrying the ids of the amended documents (`amends_ids`), so that
+  accepting it creates the AMENDS relation. An `excluded` finding is not queued but
+  written, with its reason, to data/harvest_not_imported.json (record_excluded): what a
+  source found and a filter left out stays visible (doc/DATA_SOURCES.md, odstavec 8.8).
+* A candidate gets the **tier** of its finding (1 shown by default, 2 in a filter of
+  its own) and the number of **occurrences** of the search term, by which the queue
+  is ordered.
 * The **log** (data/source_checks.jsonl, one JSON object per line) records every
   run of a source and every availability check, also those that found nothing:
   the documented negative results of doc/DATABASE_SCOPE.md, odstavec 6.
@@ -33,8 +41,9 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 LOG_PATH = REPO_ROOT / "data" / "source_checks.jsonl"
 VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
 NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
+NOT_IMPORTED_PATH = REPO_ROOT / "data" / "harvest_not_imported.json"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-harvest/1.0; +research use, low-volume)"
-QUEUED_SIGNALS = ("new_document", "draft")
+QUEUED_SIGNALS = ("new_document", "draft", "amendment")
 
 # Search terms of doc/DATA_SOURCES.md odstavec 6: the basic terms on their own mark a
 # finding as relevant; the broader areas are to be combined with a process or an act.
@@ -64,6 +73,9 @@ class Finding:
     date: str = None
     excerpt: str = None
     state: dict = None
+    tier: int = None
+    occurrences: int = None
+    extra: dict = None
 
     def candidate_key(self):
         if self.key:
@@ -74,14 +86,14 @@ class Finding:
     def as_candidate(self):
         return {"candidate_key": self.candidate_key(), "designation": self.designation, "title": self.title,
                 "document_type": self.document_type, "url": self.url, "language": self.language,
-                "jurisdikce": self.jurisdikce}
+                "jurisdikce": self.jurisdikce, "tier": self.tier, "occurrences": self.occurrences}
 
     def as_evidence(self, seen):
         evidence = {"source": self.source, "signal": self.signal, "title": self.title, "url": self.url,
                     "date": self.date, "excerpt": self.excerpt, "seen": seen}
         if not self.key:
             evidence["needs_key"] = True
-        return evidence
+        return {**evidence, **(self.extra or {})}
 
 
 def matches(text, broader=False):
@@ -114,11 +126,11 @@ def known_keys(cursor_or_documents):
 
 def write_findings(cursor, findings, known, seen):
     """Writes the findings into the candidate queue; returns a Counter of outcomes
-    (inserted, updated, kept, known, state_change, not_queued)."""
+    (inserted, updated, kept, known, state_change, excluded, not_queued)."""
     outcome = collections.Counter()
     for finding in findings:
-        if finding.signal == "state_change":
-            outcome["state_change"] += 1
+        if finding.signal in ("state_change", "excluded"):
+            outcome[finding.signal] += 1
         elif finding.signal not in QUEUED_SIGNALS:
             outcome["not_queued"] += 1
         elif (finding.key and finding.key in known) or (finding.url and "url:" + finding.url.strip() in known):
@@ -151,6 +163,24 @@ def apply_state_changes(findings, today, validity_path=None, norm_path=None):
         paths[name].write_text(json.dumps(dict(sorted(caches[name].items())), ensure_ascii=False, indent=1) + "\n",
                                encoding="utf-8")
     return outcome
+
+
+def record_excluded(findings, seen, path=None):
+    """Writes the `excluded` findings to the not-imported file — {source: {key:
+    {title, url, reason, first_seen, seen}}} — and returns how many there were."""
+    path = pathlib.Path(path or NOT_IMPORTED_PATH)
+    excluded = [f for f in findings if f.signal == "excluded"]
+    if not excluded:
+        return 0
+    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    for finding in excluded:
+        entries = data.setdefault(finding.source, {})
+        key = finding.candidate_key()
+        entries[key] = {"title": finding.title, "url": finding.url, "reason": (finding.extra or {}).get("reason"),
+                        "first_seen": entries.get(key, {}).get("first_seen", seen), "seen": seen}
+    path.write_text(json.dumps({s: dict(sorted(e.items())) for s, e in sorted(data.items())}, ensure_ascii=False,
+                               indent=1) + "\n", encoding="utf-8")
+    return len(excluded)
 
 
 # --- the log of runs ----------------------------------------------------------

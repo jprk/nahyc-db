@@ -28,6 +28,9 @@
             <option value="CZ"{% if family == 'CZ' %} selected{% endif %}>české předpisy</option>
             <option value="EU"{% if family == 'EU' %} selected{% endif %}>akty EU</option>
         </select>
+        <select name="pasmo" aria-label="Pásmo">
+            {% for value, label in tiers.items() %}<option value="{{ value }}"{% if value == tier %} selected{% endif %}>{{ label }}{% if value != 'all' %} ({{ tier_counts.get(value, 0) }}){% endif %}</option>{% endfor %}
+        </select>
         <input type="text" name="q" value="{{ query }}" placeholder="hledat v názvu nebo označení">
         <button type="submit" class="btn-secondary">Filtrovat</button>
     </form>
@@ -35,15 +38,15 @@
     <div class="table-glass-container">
         <table class="admin-table candidate-table">
             <thead>
-                <tr><th>Označení</th><th>Název</th><th>Zdroj</th><th>Citováno</th><th>Platnost</th><th>Stav</th><th></th></tr>
+                <tr><th>Označení</th><th>Název</th><th>Zdroj</th><th>Citováno / výskytů</th><th>Platnost</th><th>Stav</th><th></th></tr>
             </thead>
             <tbody>
                 {% for c in rows %}
                 <tr>
                     <td>{{ c.designation or c.candidate_key or '—' }}</td>
-                    <td>{{ (c.title or '—')|truncate(140) }}</td>
+                    <td>{{ (c.title or '—')|truncate(140) }}{% if c.tier == 2 %} <span class="badge">pásmo 2</span>{% endif %}</td>
                     <td>{{ sources.get(c.source, c.source) }}</td>
-                    <td>{{ c.cited_by or '' }}</td>
+                    <td>{{ c.cited_by or '' }}{% if c.occurrences %}{% if c.cited_by %} / {% endif %}{{ c.occurrences }}×{% endif %}</td>
                     <td>{{ c.validity_status or '—' }}</td>
                     <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' %} ({{ c.proposed_by_name }}){% endif %}</td>
                     <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="btn-secondary">Otevřít</a></td>

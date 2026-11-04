@@ -90,7 +90,7 @@ def is_known(finding, known):
 
 
 def run_adapter(entry, adapter, *, session, since, context, apply, connection=None, log_path=None, out=print,
-                validity_path=None, norm_path=None):
+                validity_path=None, norm_path=None, not_imported_path=None):
     """Runs one adapter of a source; returns the logged record."""
     record = {"kind": "harvest", "source": entry["id"], "applied": apply, "since": since, "adapter": adapter,
               "database": context.get("database")}
@@ -100,19 +100,25 @@ def run_adapter(entry, adapter, *, session, since, context, apply, connection=No
         record["by_signal"] = dict(collections.Counter(f.signal for f in findings))
         if apply:
             outcome = collections.Counter()
-            queued = [f for f in findings if f.signal != "state_change"]
+            queued = [f for f in findings if f.signal not in ("state_change", "excluded")]
             if queued:
                 with connection.cursor() as cursor:
                     outcome.update(harvest.write_findings(cursor, queued, context["known"], harvest.now()))
                 connection.commit()
             outcome.update(harvest.apply_state_changes(findings, context["today"], validity_path, norm_path))
+            excluded = harvest.record_excluded(findings, harvest.now(), not_imported_path)
+            if excluded:
+                outcome["excluded"] = excluded
             record["outcome"] = dict(outcome)
         else:
             new = [f for f in findings if f.signal == "state_change" or not is_known(f, context["known"])]
             record["not_known"] = len(new)
+            record["by_tier"] = dict(collections.Counter(str(f.tier) for f in new if f.signal != "excluded"))
             for finding in new[:20]:
-                out(f"    {finding.signal:12} {finding.candidate_key():28} {(finding.title or '')[:70]}"
-                    + (f" [{finding.state.get('status')}]" if finding.state else ""))
+                tier = f"[{finding.tier}]" if finding.tier else "   "
+                out(f"    {finding.signal:12} {tier} {finding.candidate_key():24} {(finding.title or '')[:70]}"
+                    + (f" [{finding.state.get('status')}]" if finding.state else "")
+                    + (f" — {finding.extra['reason']}" if finding.signal == "excluded" else ""))
             if len(new) > 20:
                 out(f"    … and {len(new) - 20} more")
     except Exception as error:  # one adapter must not stop the others
@@ -130,17 +136,27 @@ def last_run_of(records, source, adapter, database=None):
     return max(times) if times else None
 
 
+def candidate_titles(cursor):
+    """{candidate key: title} of the candidate queue ({} before the table exists)."""
+    try:
+        cursor.execute("SELECT candidate_key, title FROM DocumentCandidate WHERE candidate_key IS NOT NULL")
+    except Exception:  # the table appears with the first applied run
+        return {}
+    return {r["candidate_key"]: r["title"] for r in cursor.fetchall() if r["title"]}
+
+
 def build_context(connection, today=None, database=None):
-    docs = []
+    docs, titles = [], {}
     if connection is not None:
         with connection.cursor() as cursor:
             docs = harvest.documents(cursor)
+            titles = candidate_titles(cursor)
     return {"documents": docs, "known": harvest.known_keys(docs), "database": database,
-            "today": today or datetime.date.today().isoformat()}
+            "candidate_titles": titles, "today": today or datetime.date.today().isoformat()}
 
 
 def run(entries, adapters, *, apply, connection=None, log_path=None, session=None, out=print, context=None,
-        deferred=None, validity_path=None, norm_path=None):
+        deferred=None, validity_path=None, norm_path=None, not_imported_path=None):
     """Runs the planned sources; returns the logged records."""
     session = session or requests.Session()
     session.headers.setdefault("User-Agent", harvest.USER_AGENT)
@@ -158,7 +174,7 @@ def run(entries, adapters, *, apply, connection=None, log_path=None, session=Non
             out(f"{entry['id']} ({adapter}, since {since or 'the beginning'})")
             record = run_adapter(entry, adapter, session=session, since=since, context=context, apply=apply,
                                  connection=connection, log_path=log_path, out=out, validity_path=validity_path,
-                                 norm_path=norm_path)
+                                 norm_path=norm_path, not_imported_path=not_imported_path)
             out(f"  → {record.get('error') or record.get('outcome') or str(record.get('findings')) + ' findings'}")
             records.append(record)
     for reason, count in sorted(skipped.items()):

@@ -51,6 +51,8 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
   validity_status VARCHAR(30) NULL,
   evidence_json TEXT NULL,
   cited_by INT NOT NULL DEFAULT 0,
+  tier TINYINT NULL,
+  occurrences INT NULL,
   status ENUM('new','proposed','accepted','rejected','deferred') NOT NULL DEFAULT 'new',
   decision_note VARCHAR(1000) NULL,
   proposed_by_user_id INT NULL,
@@ -74,9 +76,13 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
 
 
 # Tables created before the column existed (2026-10-28) get it here.
-MIGRATIONS = ("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS `signal` VARCHAR(20) NULL AFTER source",)
+MIGRATIONS = ("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS `signal` VARCHAR(20) NULL AFTER source",
+              # 2026-11-04, doc/DATA_SOURCES.md odstavec 8.8: tier 1 is shown by default, tier 2 in a filter
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS tier TINYINT NULL AFTER cited_by",
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS occurrences INT NULL AFTER tier")
 # `signal` of a finding (doc/DATA_SOURCES.md odstavec 4.2) as editors read it.
-SIGNAL_LABELS = {"new_document": "nový dokument", "draft": "návrh předpisu (připravovaný)"}
+SIGNAL_LABELS = {"new_document": "nový dokument", "draft": "návrh předpisu (připravovaný)",
+                 "amendment": "novela dokumentu v databázi"}
 
 
 def ensure_schema(cursor):
@@ -323,16 +329,25 @@ def upsert_finding(cursor, candidate, finding):
     findings = evidence.setdefault("findings", {})
     previous = findings.get(finding["source"], {})
     findings[finding["source"]] = {**finding, "first_seen": previous.get("first_seen", finding["seen"])}
+    if finding.get("amends_ids"):  # read by the acceptance, which creates the AMENDS relations
+        evidence["amends_ids"] = sorted(set(evidence.get("amends_ids", [])) | set(finding["amends_ids"]))
     payload = json.dumps(evidence, ensure_ascii=False)
     if row is None:
         cursor.execute("""INSERT INTO DocumentCandidate
             (candidate_key, source, `signal`, designation, title, document_type, url, language, jurisdikce,
-             evidence_json)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+             evidence_json, tier, occurrences)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
                        (candidate["candidate_key"], finding["source"], finding["signal"], candidate.get("designation"),
                         candidate.get("title"), candidate.get("document_type"), candidate.get("url"),
-                        candidate.get("language"), candidate.get("jurisdikce"), payload))
+                        candidate.get("language"), candidate.get("jurisdikce"), payload, candidate.get("tier"),
+                        candidate.get("occurrences")))
         return "inserted"
     row_id = row["id"] if isinstance(row, dict) else row[0]
-    cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s WHERE id = %s", (payload, row_id))
+    # The tier and the count follow the latest finding; a placeholder title (the designation itself, or none)
+    # gives way to a real one, a title an editor may have written is kept.
+    cursor.execute("""UPDATE DocumentCandidate SET evidence_json = %s, tier = COALESCE(%s, tier),
+                          occurrences = COALESCE(%s, occurrences),
+                          title = CASE WHEN title IS NULL OR title = designation THEN COALESCE(%s, title) ELSE title END
+                      WHERE id = %s""",
+                   (payload, candidate.get("tier"), candidate.get("occurrences"), candidate.get("title"), row_id))
     return "updated"

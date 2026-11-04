@@ -15,7 +15,12 @@ the decisions.
   author, waiting for a second editor.
 * **Findings of monitored sources** (harvest_sources.py) are listed with the
   candidate, one per source; a candidate of the signal `draft` (a proposed act in
-  the legislative process) becomes a document in the state `draft` (připravovaný).
+  the legislative process) becomes a document in the state `draft` (připravovaný),
+  one of the signal `amendment` (a new amendment of documents of the database) gets
+  the AMENDS relations to them.
+* **Tiers** (doc/DATA_SOURCES.md odstavec 8.8): the list shows tier 1 by default (and
+  candidates of the checks, which have none), tier 2 in a filter of its own, ordered
+  by citations and then by the occurrences of the search term.
 
 Every decision is written to the AuditLog (`table_name` = `DocumentCandidate`).
 """
@@ -36,6 +41,7 @@ PIPELINE_SOURCE = "Kandidáti"
 LANGUAGES = ("CS", "EN", "SK", "DE")
 STATE_LABELS = {"new": "nový", "proposed": "navržen k přijetí", "accepted": "přijat", "rejected": "zamítnut",
                 "deferred": "odložen"}
+TIERS = {"1": "pásmo 1", "2": "pásmo 2", "all": "obě pásma"}
 FILTER_STATES = {"open": cd.OPEN_STATES, "new": ("new",), "proposed": ("proposed",), "deferred": ("deferred",),
                  "accepted": ("accepted",), "rejected": ("rejected",), "all": cd.STATES}
 
@@ -78,8 +84,13 @@ def candidate_list():
     sources = cd.source_labels()
     family = request.args.get("skupina", "")
     query = (request.args.get("q") or "").strip()
+    tier = request.args.get("pasmo", "1")
+    tier = tier if tier in TIERS else "1"
     conditions = ["c.status IN (" + ",".join(["%s"] * len(states)) + ")"]
     params = list(states)
+    if tier != "all":
+        conditions.append("COALESCE(c.tier, 1) = %s")
+        params.append(int(tier))
     if source in sources:
         conditions.append("c.source = %s")
         params.append(source)
@@ -93,12 +104,17 @@ def candidate_list():
         cur.execute(f"""SELECT c.*, pu.name AS proposed_by_name FROM DocumentCandidate c
                         LEFT JOIN User pu ON pu.id = c.proposed_by_user_id
                         WHERE {' AND '.join(conditions)}
-                        ORDER BY c.status = 'proposed' DESC, c.cited_by DESC, c.candidate_key LIMIT 1000""", params)
+                        ORDER BY c.status = 'proposed' DESC, COALESCE(c.tier, 1), c.cited_by DESC,
+                                 COALESCE(c.occurrences, 0) DESC, c.candidate_key LIMIT 1000""", params)
         rows = cur.fetchall()
+        cur.execute("SELECT COALESCE(tier, 1) AS tier, COUNT(*) AS n FROM DocumentCandidate WHERE status IN ("
+                    + ",".join(["%s"] * len(states)) + ") GROUP BY COALESCE(tier, 1)", list(states))
+        tier_counts = {str(row["tier"]): row["n"] for row in cur.fetchall()}
         cur.execute("SELECT status, COUNT(*) AS n FROM DocumentCandidate GROUP BY status")
         counts = {row["status"]: row["n"] for row in cur.fetchall()}
     return render_template("admin/candidates_list.html", rows=rows, counts=counts, state=state, source=source,
-                           family=family, query=query, sources=sources, state_labels=STATE_LABELS)
+                           family=family, query=query, sources=sources, state_labels=STATE_LABELS, tier=tier,
+                           tiers=TIERS, tier_counts=tier_counts)
 
 
 def linked_documents(db, ids):
@@ -121,6 +137,7 @@ def candidate_detail(candidate_id):
     return render_template("admin/candidate_detail.html", c=candidate, evidence=evidence,
                            citing=linked_documents(db, evidence.get("citing_ids", [])[:50]),
                            repeals=linked_documents(db, evidence.get("repeals_ids", [])),
+                           amends=linked_documents(db, evidence.get("amends_ids", [])),
                            types=document_types(db), languages=LANGUAGES, areas=cd.SCOPE_AREAS,
                            state_labels=STATE_LABELS, sources=cd.source_labels(),
                            findings=sorted(evidence.get("findings", {}).values(), key=lambda f: f.get("first_seen") or ""),
@@ -273,6 +290,10 @@ def create_document(cur, candidate):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
                        VALUES (%s, %s, 'REPEALS', 'Zrušující předpis podle kontroly platnosti (přijatý kandidát).')""",
                     (doc_id, repealed))
+    for amended in evidence.get("amends_ids", []):
+        cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
+                       VALUES (%s, %s, 'AMENDS', 'Novela podle nálezu sledovaného zdroje (přijatý kandidát).')""",
+                    (doc_id, amended))
     return doc_id
 
 
