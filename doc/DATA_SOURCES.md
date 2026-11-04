@@ -10,6 +10,7 @@
 > 2026-11-04 jprk Rozbor nálezů e-Sbírky a návrh řešení šumu (odstavec 8.8)
 > 2026-11-04 jprk Omezení šumu provedeno (odstavec 8.9)
 > 2026-11-04 jprk Etapa E2 provedena (odstavce 4.3 a 8.10)
+> 2026-11-04 jprk Souhrn stavu a postup prvního ostrého běhu (odstavec 8.11)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -1104,4 +1105,42 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
 3. **Novely obecných předpisů** v pásmu 1 (výše): po prvních rozhodnutích
    editorů posoudit, zda je neodsunout do pásma 2, pokud jejich název ani text
    vodík nezmiňuje.
+
+### 8.11 Souhrn stavu a postup prvního ostrého běhu (4. 11. 2026)
+
+| Etapa | Stav | Zdroje ve spouštěči | Odloženo |
+|---|---|---|---|
+| E0 | provedeno | — (spouštěč, záznam běhů, kontrola dostupnosti) | — |
+| E1 | provedeno | `eurlex-cellar`, `esbirka-lod`, `csn-online`, `normoff-stn`, `hytep` | `slovlex-linkcheck`, `iec-catalogue`, `eiga-publications`, `dvgw-publications` |
+| E2 | provedeno | `veklep-odok`, `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil` | `slovlex-legislativny-proces` |
+| E3–E6 | dosud neprovedeno | — | — |
+
+Všechny ostré běhy dosud proběhly jen nad testovací databází `h2regdocs_test`;
+živá databáze `h2regdocs` ani její fronta kandidátů se nezměnily. První ostrý
+běh nad živou databází patrně přinese zhruba 82 kandidátů z e-Sbírky (38 v pásmu
+1), 1 z HYTEP a 44 návrhů předpisů (37 v pásmu 1), dohromady 127 kandidátů,
+z toho 76 v pásmu 1; přesné počty budou záviset na stavu zdrojů v den běhu.
+
+Navrhujeme tento postup:
+
+1. Sloučit větev do `master` (žádost o sloučení) a v hlavním stromu provést
+   `git pull`; testovací web tím získá nové stránky fronty.
+2. Pořídit zálohu živé databáze do `backups/`.
+3. Založit alespoň dva editorské účty (`src/db/dbuser_add.py`), jinak kandidáty
+   nikdo nepřijme.
+4. Spustit spouštěč nanečisto nad živou databází a porovnat počty s odstavci
+   8.7, 8.9 a 8.10:
+   `harvest_sources.py --stage E1` a `harvest_sources.py --stage E2`.
+5. Spustit týž příkaz s volbou `--apply`. První ostrý běh doplní do tabulky
+   `DocumentCandidate` sloupce `signal`, `tier` a `occurrences`
+   (`candidates.ensure_schema()`); kontroly platnosti zapíší změny stavu do
+   `data/validity_cache.json`, jež do stavů dokumentů promítá
+   `backfill_document_states.py --apply` jako dosud.
+6. Pravidelně: zdroje s četností `weekly` (registry a návrhy) týdně, ostatní
+   podle pole `cadence`; kontrolu dostupnosti (`check_sources.py --apply`)
+   nejméně měsíčně.
+
+Rozhodnutí, jež zůstávají otevřená: zapojení zdrojů IEC, EIGA a DVGW
+(odstavec 8.7), přesunutí novel obecných předpisů do pásma 2 (odstavec 8.10)
+a plánovač (odstavec 4.5).
 
