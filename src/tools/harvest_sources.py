@@ -41,7 +41,7 @@ import requests
 import harvest
 import source_registry
 
-# Source id → adapters (harvest_adapters.py, stage E1; harvest_drafts.py, stage E2).
+# Source id → adapters (harvest_adapters.py, stage E1; harvest_drafts.py, stage E2; harvest_standards.py, E3).
 ADAPTERS = {
     "eurlex-cellar": ("harvest_adapters:eurlex_new", "harvest_adapters:validity_eu"),
     "esbirka-lod": ("harvest_adapters:esbirka_new", "harvest_adapters:validity_cz"),
@@ -53,6 +53,12 @@ ADAPTERS = {
     "psp-snemovni-tisky": ("harvest_drafts:psp_bills",),
     "senat-tisky": ("harvest_drafts:senate_bills",),
     "ep-oeil": ("harvest_drafts:oeil_procedures",),
+    # stage E3 (harvest_standards.py)
+    "vestnik-unmz": ("harvest_standards:vestnik_unmz",),
+    "unmz-news": ("harvest_standards:rss_items",),
+    "ec-harmonised-standards": ("harvest_standards:harmonised_standards",),
+    "cps-tpg": ("harvest_standards:cps_tpg",),
+    "sae-standards": ("harvest_standards:sae_crossref",),
 }
 # Sources of the plan whose existing script is deliberately not run by the runner.
 DEFERRED = {
@@ -62,6 +68,9 @@ DEFERRED = {
     "eiga-publications": "src/sites/eiga.py gets past the site's WAF with a tailored query — decision pending",
     "dvgw-publications": "harvest_dvgw_publications.py presents itself as a desktop browser — decision pending",
     "slovlex-legislativny-proces": "answers the identified robot with HTTP 403 since 2026-10-28",
+    "astm-d03": "answers the identified robot with HTTP 403 since 2026-10-28",
+    "asme-codes": "the standards pages are a shop without a machine-readable list — checked by hand",
+    "vestnik-unms-sr": "an index of PDFs without a stable naming pattern, priority C — not implemented",
 }
 
 

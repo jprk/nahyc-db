@@ -6012,3 +6012,12 @@ original treatment, not asked for.
 - `check_sources.py` recognises block pages served with HTTP 200; registry: VeKLEP read by RSS, notes for PSP and OEIL; `slovlex-legislativny-proces` deferred; the family filter of the candidate list includes `DRAFT-CZ:`/`DRAFT-EU:` keys.
 - Result: 44 candidates (28 CZ + 9 EU tier 1, 7 CZ tier 2); 4 Senate findings joined Chamber candidates. Applied to `h2regdocs_test` only.
 - Tests: `tests/test_harvest_drafts.py` (recorded archives, feed, EP answers), `tests/test_check_sources.py`; `run_tests.py` all green.
+
+## 53. Harvesting stage E3: technical standards, metadata only (NEW, 2026-11-05, user-directed, branch `feature/harvest-e3`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.12).
+- `src/tools/harvest_standards.py`: `vestnik_unmz` (the two latest issues of Věstník ÚNMZ: ČSN issued / amended / corrected / withdrawn, EN approved for direct use, ČSN drafting tasks read column-wise left of "Termíny", prEN in public enquiry incl. draft amendments `EN …/prA1`), `harmonised_standards` (Commission summary lists, XLSX, PED/ATEX/GAR/MID/MD; SPV has PDF only), `cps_tpg` (valid and withdrawn TPG), `sae_crossref` (SAE via Crossref, revisions share a key, embrittlement/plating dropped), `rss_items` (generic feed adapter, basic terms only by default).
+- Keys `NORM:` via `own_keys()` or the national designation (`harvest.norm_key`, `NATIONAL_STANDARD`); `known_keys()` now knows national designations of the database; drafts `DRAFT-NORM:`.
+- Standards of the database get state changes into `data/norm_validity_cache.json`, now merged (several sources describe one standard). `harvest.NOT_TERMS` (hydrogenerators). The candidate form offers all document types (a "Norma" could not be accepted before; fetch_fulltext.py never fetches norms).
+- Result: 102 candidates (24 tier 1), 107 entries in the standards cache (14 new editions, 98 harmonisations, 5 standards have both). Deferred: ASTM, ASME, Věstník ÚNMS SR. Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_standards.py`; `run_tests.py` all green.

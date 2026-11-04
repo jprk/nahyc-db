@@ -11,6 +11,7 @@
 > 2026-11-04 jprk Omezení šumu provedeno (odstavec 8.9)
 > 2026-11-04 jprk Etapa E2 provedena (odstavce 4.3 a 8.10)
 > 2026-11-04 jprk Souhrn stavu a postup prvního ostrého běhu (odstavec 8.11)
+> 2026-11-05 jprk Etapa E3 provedena (odstavce 4.3, 8.11 a 8.12)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -427,6 +428,13 @@ zatím proveden není. Podrobně odstavec 8.10.
 `sae-standards`, `vestnik-unms-sr`. Měsíční přírůstky ČSN z Věstníku ÚNMZ
 nahradí dotazování po jednotlivých označeních; souhrnné seznamy
 harmonizovaných norem doplní vazbu norma → směrnice.
+
+*Stav 5. 11. 2026: provedeno pro pět zdrojů.* Věstník ÚNMZ, novinky ÚNMZ,
+souhrnné seznamy harmonizovaných norem, katalog TPG a normy SAE (přes Crossref)
+spouštěč volá (`src/tools/harvest_standards.py`); ASTM, ASME a Věstník ÚNMS SR
+odkládá. Normy, jež databáze má, dostávají změny stavu (nové vydání, nahrazení,
+zrušení, harmonizace) do mezipaměti norem; do stavů dokumentů se zatím
+nepromítají. Podrobně odstavec 8.12.
 
 **E4 — Kanály RSS ministerstev, orgánů a agentur (13 zdrojů).**
 `mmr-stavebni-pravo` (A), `mzp-cz` (A), `coi` (A), `otif-rid` (A), `mpo-cz`,
@@ -1113,13 +1121,16 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
 | E0 | provedeno | — (spouštěč, záznam běhů, kontrola dostupnosti) | — |
 | E1 | provedeno | `eurlex-cellar`, `esbirka-lod`, `csn-online`, `normoff-stn`, `hytep` | `slovlex-linkcheck`, `iec-catalogue`, `eiga-publications`, `dvgw-publications` |
 | E2 | provedeno | `veklep-odok`, `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil` | `slovlex-legislativny-proces` |
-| E3–E6 | dosud neprovedeno | — | — |
+| E3 | provedeno (5. 11.) | `vestnik-unmz`, `unmz-news`, `ec-harmonised-standards`, `cps-tpg`, `sae-standards` | `astm-d03`, `asme-codes`, `vestnik-unms-sr` |
+| E4–E6 | dosud neprovedeno | — | — |
 
 Všechny ostré běhy dosud proběhly jen nad testovací databází `h2regdocs_test`;
 živá databáze `h2regdocs` ani její fronta kandidátů se nezměnily. První ostrý
 běh nad živou databází patrně přinese zhruba 82 kandidátů z e-Sbírky (38 v pásmu
 1), 1 z HYTEP a 44 návrhů předpisů (37 v pásmu 1), dohromady 127 kandidátů,
-z toho 76 v pásmu 1; přesné počty budou záviset na stavu zdrojů v den běhu.
+z toho 76 v pásmu 1; etapa E3 k nim přidá zhruba 102 kandidátů na normy
+a technická pravidla (24 v pásmu 1). Přesné počty budou záviset na stavu zdrojů
+v den běhu.
 
 Navrhujeme tento postup:
 
@@ -1143,4 +1154,110 @@ Navrhujeme tento postup:
 Rozhodnutí, jež zůstávají otevřená: zapojení zdrojů IEC, EIGA a DVGW
 (odstavec 8.7), přesunutí novel obecných předpisů do pásma 2 (odstavec 8.10)
 a plánovač (odstavec 4.5).
+
+### 8.12 Etapa E3 (5. 11. 2026)
+
+Etapa přinesla do fronty kandidátů normy a technická pravidla, výhradně jako
+metadata (označení, název, vydání, vazby); chráněné plné texty nikdy.
+Adaptéry jsou v modulu `src/tools/harvest_standards.py`:
+
+| Zdroj | Adaptér | Co čte |
+|---|---|---|
+| `vestnik-unmz` | `vestnik_unmz` | Věstník ÚNMZ ve formátu PDF na předvídatelné adrese (`vestnik-<měsíc>-<rok>.pdf`), dvě poslední vydaná čísla: oznámení o vydání ČSN (vydané, změny, opravy, zrušené), evropské normy schválené k přímému používání jako ČSN, zahájené úkoly tvorby ČSN a návrhy evropských norem ve veřejném projednání. |
+| `unmz-news` | `rss_items` | Kanál novinek ÚNMZ, jen položky se základním výrazem k vodíku. |
+| `ec-harmonised-standards` | `harmonised_standards` | Souhrnné seznamy (XLSX) harmonizovaných norem Evropské komise pro směrnice PED, ATEX, plynová zařízení, MID a strojní zařízení; odkaz na soubor se čte ze stránky předpisu, protože jeho adresa se s každou aktualizací mění. |
+| `cps-tpg` | `cps_tpg` | Katalog platných a neplatných technických pravidel TPG Českého plynárenského svazu. |
+| `sae-standards` | `sae_crossref` | Normy SAE k vodíku z otevřeného API Crossref (prefix DOI 10.4271). |
+
+Spouštěč odkládá zdroje `astm-d03` (web odmítá poctivě identifikovaného
+robota), `asme-codes` (stránky norem jsou obchodem bez strojově čitelného
+seznamu; nová vydání ASME B31.12 je vhodnější sledovat ručně) a `vestnik-unms-sr`
+(rozcestník souborů PDF bez stálého vzoru názvů, priorita C).
+
+**Klíče.** Norma má klíč `NORM:<označení>` v podobě, jakou čte
+`citation_closure.own_keys()`: `ČSN EN 17124` i `EN 17124` mají klíč
+`NORM:EN 17124`, takže převzatou normu databáze pozná bez ohledu na předponu
+ČSN. Označení, jež `own_keys()` nečte (ČSN českého původu, TPG, SAE, ASME, ASTM
+a další), mají klíč `NORM:` s úplným označením (`harvest.norm_key()`); podle téhož
+pravidla databáze nově pozná i tyto své dokumenty. Návrh normy má klíč
+`DRAFT-NORM:<označení>` (prEN, bez roku) nebo `DRAFT-NORM:CZ:<číslo úkolu>`
+(zahájená ČSN). Revize normy SAE (písmena za číslem, například AMS2401A až L)
+sdílejí jeden klíč.
+
+**Pravidla.**
+
+1. **Norma, jež je v databázi**, nevzniká jako kandidát, ale dostává změnu stavu
+   do mezipaměti norem `data/norm_validity_cache.json`: nové vydání (stav
+   „platná“ s datem vydání), změnu či opravu, nahrazení jinou normou (stav
+   „nahrazená“, ze záznamu „K datu její účinnosti se zrušuje …“), zrušení
+   (stav „zrušená“) a harmonizaci k předpisu (seznam předpisů s daty začátku
+   a konce právního účinku). Jednu normu popisuje více zdrojů, záznamy se proto
+   v mezipaměti slučují, nikoli přepisují. Do stavů dokumentů se tyto údaje zatím
+   nepromítají, protože schéma stavy norem nerozlišuje (`doc/DATABASE_SCOPE.md`,
+   odstavec 5).
+2. **Norma, jež v databázi není**, je kandidátem v pásmu 1, obsahuje-li její
+   název základní výraz k vodíku nebo nahrazuje-li normu databáze; v pásmu 2,
+   obsahuje-li rozšiřující výraz (tlaková a plynová zařízení, hořlavý plyn,
+   ochrana před výbuchem, nebezpečné věci, metrologie a další, odstavec 6); jiná
+   norma kandidátem není.
+3. **Návrh normy** (prEN, zahájený úkol tvorby ČSN) je kandidátem se signálem
+   `draft` podle téhož pravidla; návrh revize normy databáze je v pásmu 1
+   a nese identifikátory dokumentů, jež reviduje (`amends_ids`).
+4. **Technická pravidla TPG** jsou kandidáty v pásmu 2 (věcně patří k plynovým
+   zařízením), s vodíkem v názvu v pásmu 1; vedou se s typem „Norma“, protože
+   databáze o nich podle `doc/DATABASE_SCOPE.md` (otázka O2) uchovává jen metadata.
+5. **Normy SAE** řady J (silniční vozidla) jsou v pásmu 1, ostatní řady
+   (letectví, materiály) v pásmu 2; normy, v nichž je vodík jen materiálovou
+   vadou (vodíkové zkřehnutí, kadmiové pokovování), kandidáty nejsou.
+6. **Kanál novinek ÚNMZ** propouští jen položky se základním výrazem k vodíku:
+   rozšiřující výraz „metrologie“ by propustil většinu zpráv úřadu, jehož je
+   metrologie agendou.
+
+**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test`:
+
+| Zdroj | Výsledek |
+|---|---|
+| Věstník ÚNMZ (č. 9 a 10/2026) | 20 kandidátů: 7 norem (2 v pásmu 1, mezi nimi ČSN EN ISO 19870-1 o emisích vodíkového řetězce) a 13 návrhů (11 v pásmu 1, mezi nimi kotle na plynná paliva pro 100 % vodík, moduly palivových článků prEN IEC 62282-2-400, revize ISO 12100 a norem pro výbušná prostředí); 14 nových vydání norem databáze (mj. ČSN EN 17124, ČSN EN 1555-1 až 3) |
+| Novinky ÚNMZ | žádný nález |
+| Harmonizované normy | 98 norem databáze s údaji o harmonizaci; žádná nová harmonizovaná norma nezmiňuje vodík |
+| Katalog TPG | 69 kandidátů (3 v pásmu 1, mezi nimi TPG 304 03 „Plnicí stanice stlačeného vodíku pro mobilní zařízení“) |
+| SAE (Crossref) | 13 kandidátů (8 v pásmu 1, mj. SAE J2601/4 a J2601/5, J2719/1, J3121, J3219) |
+
+Celkem 102 kandidátů (24 v pásmu 1) a 107 záznamů v mezipaměti norem (14 nových vydání, 98 harmonizací; pět norem má obojí).
+
+**Zjištění při provádění.**
+
+1. **Věstník ÚNMZ nese víc, než registr uváděl**: vedle vydaných a zrušených ČSN
+   i zahájené úkoly tvorby ČSN (oznámení „o zahájení zpracování návrhů“) a návrhy
+   evropských norem ve veřejném projednání — včasný signál o normách v přípravě.
+   Seznam úkolů je tabulkou, v níž se text názvu prolíná se sloupcem adres
+   zpracovatelů; čte se proto jen levá část stránky, vymezená polohou záhlaví
+   „Termíny“, a tabulka pokračuje na dalších stranách bez záhlaví. Obsah čísla
+   uvádí názvy oznámení také, čtení proto začíná až na straně se záhlavím.
+2. **Návrhy změn norem** se ve Věstníku uvádějí bez předpony prEN
+   (`EN IEC 60079-11:2024/prA1:2026`); poznají se podle části `/pr…` v označení.
+3. **„Hydrogenerators“** (synchronní hydroalternátory) začíná jako „hydrogen“;
+   vyhledávací výrazy mají nově seznam výjimek (`harvest.NOT_TERMS`).
+4. **Stránka jednoduchých tlakových nádob** nabízí souhrnný seznam jen jako PDF;
+   adaptér ji přeskočí, chybou je teprve stav, kdy XLSX chybí u všech předpisů.
+   Seznam plynových spotřebičů odkazuje na XLSX relativní adresou.
+5. **Formulář kandidáta nenabízel typ „Norma“** (omezení na typy bez chráněného
+   plného textu), takže normu nebylo možné přijmout. Omezení jsme zrušili:
+   `fetch_fulltext.py` dokumenty typu „Norma“ nestahuje (požadavek R4.1), přijetí
+   normy tedy plný text stahovat nezačne.
+6. **TPG v databázi dosud nejsou žádné**; všech 69 platných pravidel je proto
+   kandidáty.
+
+**Otevřené body.**
+
+1. **Stavy norem v databázi** — údaje mezipaměti norem (nové vydání, nahrazení,
+   zrušení, harmonizace) promítnout do stavů dokumentů a do vazeb
+   (nahrazená norma → nástupce, norma → směrnice), až schéma stavy norem
+   rozliší (`doc/DATABASE_SCOPE.md`, odstavce 5 a 7).
+2. **Návrh normy → vydaná norma** — návrh prEN či úkol ČSN by po vydání normy šlo
+   propojit s ní (klíč návrhu nese převzaté označení).
+3. **Odložené zdroje** — ASTM (403), ASME (ruční kontrola), Věstník ÚNMS SR.
+4. **Katalog TPG v pásmu 2** — 66 pravidel bez vodíku v názvu; po prvních
+   rozhodnutích editorů posoudit, zda je nezařadit hromadně.
 

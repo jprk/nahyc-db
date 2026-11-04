@@ -48,7 +48,8 @@ FILTER_STATES = {"open": cd.OPEN_STATES, "new": ("new",), "proposed": ("proposed
 
 def document_types(db):
     with db.cursor() as cur:
-        cur.execute("SELECT name FROM DocumentType WHERE restricted_fulltext = 0 ORDER BY name")
+        # all types, standards too: a "Norma" is kept as metadata, fetch_fulltext.py never downloads its text
+        cur.execute("SELECT name FROM DocumentType ORDER BY name")
         return [row["name"] for row in cur.fetchall()]
 
 

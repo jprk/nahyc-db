@@ -56,6 +56,11 @@ BROADER_TERMS = ("tlaková zařízení", "tlakových zařízení", "plynová za�
                  "pressure equipment", "explosive atmosphere", "dangerous goods", "hydrogen purity", "fuel quality",
                  "conformity assessment", "rfnbo", "low-carbon hydrogen",
                  "druckgeräte", "explosionsschutz", "gefahrgut", "genehmigungsverfahren")
+# Words that begin like a basic term but are something else (hydrogenerators: hydro-electric generators).
+NOT_TERMS = ("hydrogenerat",)
+# Standards and technical rules whose designation citation_closure.own_keys() does not read
+# (national ČSN, TPG, SAE, …): their key is `NORM:` with the designation itself.
+NATIONAL_STANDARD = re.compile(r"^(ČSN|STN|TPG|TDG|TIN|SAE|ASME|ASTM|DVGW|NFPA|API)\b")
 
 
 @dataclasses.dataclass
@@ -100,8 +105,22 @@ def matches(text, broader=False):
     """Whether `text` contains a basic search term (or, with `broader`, also a term of
     the broader areas). Case-insensitive; terms are word beginnings."""
     lowered = (text or "").lower()
+    for word in NOT_TERMS:
+        lowered = lowered.replace(word, " ")
     terms = BASIC_TERMS + (BROADER_TERMS if broader else ())
     return any(re.search(r"(?<!\w)" + re.escape(term), lowered) for term in terms)
+
+
+def norm_key(designation):
+    """The key of a standard: what own_keys() reads (`ČSN EN 17124` → `NORM:EN 17124`),
+    else `NORM:<designation>` for a national designation, else None."""
+    text = " ".join((designation or "").split())
+    if not text:
+        return None
+    keys = sorted(k for k in cc.own_keys(text, "") if k.startswith("NORM:"))
+    if keys:
+        return keys[0]
+    return f"NORM:{text}" if NATIONAL_STANDARD.match(text) else None
 
 
 def documents(cursor):
@@ -119,6 +138,9 @@ def known_keys(cursor_or_documents):
     keys = set()
     for _doc_id, identifier, title, url in docs:
         keys |= cc.own_keys(identifier, title)
+        national = norm_key(identifier) if identifier and NATIONAL_STANDARD.match(identifier.strip()) else None
+        if national:
+            keys.add(national)
         if url:
             keys.add("url:" + url.strip())
     return keys
@@ -155,10 +177,12 @@ def apply_state_changes(findings, today, validity_path=None, norm_path=None):
             continue
         name = "validity" if finding.key.split(":")[0] in ("CZ", "EU") else "norm"
         cache = caches[name]
-        before = cache.get(finding.key, {}).get("status")
-        cache[finding.key] = {**finding.state, "checked_at": today}
+        old = cache.get(finding.key, {})
+        # A standard is described by several sources (catalogue, Věstník, harmonised lists, TPG): merged.
+        cache[finding.key] = {**(old if name == "norm" else {}), **finding.state, "checked_at": today}
         touched.add(name)
-        outcome["state_changed" if before != finding.state.get("status") else "state_unchanged"] += 1
+        changed = "status" in finding.state and old.get("status") != finding.state["status"]
+        outcome["state_changed" if changed or not old else "state_unchanged"] += 1
     for name in touched:
         paths[name].write_text(json.dumps(dict(sorted(caches[name].items())), ensure_ascii=False, indent=1) + "\n",
                                encoding="utf-8")

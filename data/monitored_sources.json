@@ -106,8 +106,8 @@
     "signal": ["new_document", "state_change"],
     "stage": "E3",
     "adds": "Autoritativní měsíční přehled vydaných, změněných, opravených a zrušených ČSN — hromadná obdoba dnešního dotazování agentury po jednotlivých označeních.",
-    "constraints": "Předvídatelný vzor názvu souboru; zpracovatelné knihovnou pdfplumber, jež je již závislostí projektu. Pouze bibliografická data, nikoli plné texty norem.",
-    "verified_at": "2026-10-28"
+    "constraints": "Předvídatelný vzor názvu souboru; zpracovatelné knihovnou pdfplumber, jež je již závislostí projektu. Pouze bibliografická data, nikoli plné texty norem. Číslo říjen 2026 (vestnik-10-26.pdf, 85 stran): oznámení o vydání ČSN (vydané, změny, opravy, zrušené), evropské normy schválené k přímému používání, zahájené úkoly tvorby ČSN (tabulka se sloupcem adres zpracovatelů, čte se podle sloupců) a návrhy evropských norem ve veřejném projednání (101 prEN); ověřeno 2026-11-04.",
+    "verified_at": "2026-11-04"
   },
   {
     "id": "unmz-news",
@@ -915,7 +915,7 @@
     "category": "standards_body",
     "jurisdiction": "EU",
     "url": "https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards_en",
-    "access": {"method": "pdf_index", "endpoint": "https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards/pressure-equipment_en"},
+    "access": {"method": "pdf_index", "endpoint": "https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards_en"},
     "status": "needs_work",
     "screener": null,
     "cadence": "monthly",
@@ -924,7 +924,7 @@
     "signal": ["new_document"],
     "stage": "E3",
     "adds": "Konsolidované seznamy odkazů na harmonizované normy (předpoklad shody) podle směrnic PED, ATEX, strojní zařízení, MID aj., s daty začátku a konce právního účinku — normy jen jako metadata s právní vazbou.",
-    "constraints": "HTTP 200, server-side HTML; robots.txt zakazuje jen /search/. Každý předpis má podstránku se souhrnným seznamem („Summary list“) ve formátu PDF a XLSX; adresa souboru obsahuje UUID a mění se s každou aktualizací, proto je nutné ji číst z HTML. Ověřeno: XLSX pro PED (vygenerován 2. 10. 2026, 339 záznamů, sloupce Reference and title, Start/End of legal effect, OJ reference). Seznam ATEX nese datum 17. 9. 2025, ačkoli stránka uvádí prováděcí rozhodnutí z roku 2026 — souhrn může zaostávat; závazná jsou prováděcí rozhodnutí v EUR-Lex. Odběr novinek přes Newsroom (vyžaduje e-mail).",
+    "constraints": "HTTP 200, server-side HTML; robots.txt zakazuje jen /search/. Každý předpis má podstránku se souhrnným seznamem („Summary list“) ve formátu PDF a XLSX; adresa souboru obsahuje UUID a mění se s každou aktualizací, proto je nutné ji číst z HTML. Ověřeno: XLSX pro PED (vygenerován 2. 10. 2026, 339 záznamů, sloupce Reference and title, Start/End of legal effect, OJ reference). Seznam ATEX nese datum 17. 9. 2025, ačkoli stránka uvádí prováděcí rozhodnutí z roku 2026 — souhrn může zaostávat; závazná jsou prováděcí rozhodnutí v EUR-Lex. Odběr novinek přes Newsroom (vyžaduje e-mail). Adaptér harvest_standards.harmonised_standards čte souhrnné seznamy XLSX šesti předpisů (PED, ATEX, plynová zařízení, jednoduché tlakové nádoby, MID, strojní zařízení); odkaz na XLSX bere ze stránky předpisu (ověřeno 2026-11-04; seznam PED nese datum 2. 10. 2026, 339 norem, žádná nezmiňuje vodík).",
     "verified_at": "2026-10-28"
   },
   {
@@ -960,7 +960,7 @@
     "signal": ["new_document"],
     "stage": "E3",
     "adds": "Metadata technických pravidel plynárenství (označení, název, datum schválení a platnosti, změny z1…, nahrazení), mj. TPG 304 03 „Plnicí stanice stlačeného vodíku pro mobilní zařízení“; texty se do databáze neukládají (doc/DATABASE_SCOPE.md odst. 8, O2).",
-    "constraints": "Server-side HTML (HTTP 200), katalog platných TPG s 72 různými označeními a daty schválení a platnosti; souběžně stránky neplatná TPG, platná TDG a TIN (/to.normativni-dokumenty/neplatna-tpg aj.) — vhodné ke sledování zrušení. RSS ani API nenalezeny. robots.txt omezuje jen Applebot. Plné texty jen k on-line čtení po bezplatné registraci (O2), pro registr se sleduje jen katalog.",
+    "constraints": "Server-side HTML (HTTP 200), katalog platných TPG s 72 různými označeními a daty schválení a platnosti; souběžně stránky neplatná TPG, platná TDG a TIN (/to.normativni-dokumenty/neplatna-tpg aj.) — vhodné ke sledování zrušení. RSS ani API nenalezeny. robots.txt omezuje jen Applebot. Plné texty jen k on-line čtení po bezplatné registraci (O2), pro registr se sleduje jen katalog. Adaptér harvest_standards.cps_tpg čte katalog platných i neplatných TPG (u neplatných „nahrazena …“); databáze dosud žádné TPG neobsahuje, kandidáti se vedou s typem „Norma“ (jen metadata).",
     "verified_at": "2026-10-28"
   },
 
