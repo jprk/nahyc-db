@@ -23,6 +23,16 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[2]
 ACCEPTED = REPO_ROOT / "data" / "accepted_candidates.json"
 TITLE = "E2E kandidát: zákon o zkušebních vodíkových zařízeních"
 REJECTED_TITLE = "E2E kandidát k zamítnutí"
+SOURCE_TITLE = "E2E návrh zákona o vodíkových plnicích stanicích"
+FINDINGS = {"findings": {
+    "veklep-odok": {"source": "veklep-odok", "signal": "draft", "title": SOURCE_TITLE,
+                    "url": "https://example.test/veklep/e2e", "date": "2026-10-20",
+                    "excerpt": "Návrh zákona, kterým se mění zákon o pohonných hmotách (vodík)",
+                    "seen": "2026-11-04T10:00:00+00:00", "first_seen": "2026-10-28T10:00:00+00:00", "needs_key": True},
+    "esbirka-lod": {"source": "esbirka-lod", "signal": "new_document", "title": "9003/2099 Sb.",
+                    "url": "https://example.test/esbirka/e2e", "date": None,
+                    "excerpt": "409 - Čerpací stanice vodíku (poslední znění, 2 míst v textu)",
+                    "seen": "2026-11-04T10:00:00+00:00", "first_seen": "2026-11-04T10:00:00+00:00"}}}
 PASSWORDS = {"e2e_cand_alice": "alice-cand-e2e", "e2e_cand_bob": "bob-cand-e2e"}
 
 
@@ -45,6 +55,9 @@ class CandidateWorkflowTestCase(BrowserTestCase):
                             "url, language, jurisdikce, evidence_json, cited_by, validity_status) VALUES "
                             "(%s, 'citation', NULL, %s, 'Zákon', 'https://example.test/e2e', 'CS', 'CZ', %s, 99, 'účinný')",
                             (key, title, json.dumps({"citing_ids": [], "context": "… podle zákona o zkušebních zařízeních …"})))
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json) VALUES ('TEST-E2E:3', 'veklep-odok', 'draft', %s, "
+                        "'Zákon', 'https://example.test/veklep/e2e', 'CS', 'CZ', %s)", (SOURCE_TITLE, json.dumps(FINDINGS)))
 
     @classmethod
     def cleanup(cls):
@@ -129,3 +142,14 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         self.goto(bob, "/admin/candidates?q=E2E&stav=rejected")
         self.assertEqual(self.row(bob, REJECTED_TITLE).count(), 1)
         self.shot(bob, "06-rejected-filter")
+
+    def test_a_candidate_found_by_monitored_sources(self):
+        page = self.new_page()
+        self.login(page, "e2e_cand_alice")
+        self.goto(page, "/admin/candidates?zdroj=veklep-odok&q=E2E")
+        self.assertEqual(self.row(page, SOURCE_TITLE).count(), 1)
+        self.row(page, SOURCE_TITLE).get_by_role("link", name="Otevřít").click()
+        self.assertTrue(page.get_by_text("Nálezy ve sledovaných zdrojích (2)").is_visible())
+        self.assertTrue(page.get_by_text("návrh předpisu (připravovaný)").is_visible())
+        self.assertTrue(page.get_by_text("bez označení předpisu, doplnit ručně").is_visible())
+        self.shot(page, "07-candidate-from-sources")

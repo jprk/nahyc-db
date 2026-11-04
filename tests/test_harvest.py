@@ -42,8 +42,9 @@ class Cursor:
 
     def execute(self, sql, params=None):
         sql = " ".join(sql.split())
-        if sql.startswith("SELECT identifier, title FROM Document"):
-            self.result = [{"identifier": i, "title": t} for i, t in self.documents]
+        if sql.startswith("SELECT id, identifier, title, url FROM Document"):
+            self.result = [{"id": n, "identifier": d[0], "title": d[1], "url": d[2] if len(d) > 2 else None}
+                           for n, d in enumerate(self.documents, 1)]
         elif sql.startswith("SELECT id, status, evidence_json FROM DocumentCandidate"):
             self.result = self.rows.get(params[0])
         else:
@@ -67,6 +68,8 @@ class WriteFindingsTestCase(unittest.TestCase):
         cursor = Cursor(documents=[("(EU) 2024/1789", "Nařízení (EU) 2024/1789 o trzích s vodíkem")])
         known = harvest.known_keys(cursor)
         self.assertIn("EU:2024/1789", known)
+        self.assertEqual(harvest.known_keys([(1, None, "Studie", "https://hytep.test/a.pdf")]),
+                         {"url:https://hytep.test/a.pdf"})
         findings = [harvest.Finding("eurlex-cellar", "new_document", "known", key="EU:2024/1789"),
                     harvest.Finding("veklep-odok", "draft", "Návrh zákona o vodíku", native_id="A1"),
                     harvest.Finding("eurlex-cellar", "state_change", "zrušeno", key="EU:2003/87"),

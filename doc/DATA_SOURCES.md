@@ -5,7 +5,8 @@
 > 2026-10-28 jprk Doplněno z návrhu katalogu informačních zdrojů: role a priority zdrojů, 36 nových zdrojů ověřených živě, pořadí prací, zpracování nálezu, vyhledávací výrazy, výhled  
 > 2026-10-28 jprk Plán vytěžování zdrojů (odstavec 4) a pole `signal` a `stage` v registru  
 > 2026-10-29 jprk Etapa E0 provedena (odstavec 4.3), první kontrola dostupnosti  
-> 2026-11-04 jprk Provoz vytěžování a výsledky etapy E0 (odstavec 8)
+> 2026-11-04 jprk Provoz vytěžování a výsledky etapy E0 (odstavec 8)  
+> 2026-11-04 jprk Etapa E1 provedena (odstavce 4.3 a 8.7)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -396,6 +397,15 @@ však již nepřibudou. Nálezy e-Sbírky, jež nelze přiřadit předpisu
 (`doc/AUTOMATION.md`, odstavec 4.1), půjdou do fronty s příznakem k ručnímu
 doplnění.
 
+*Stav 4. 11. 2026: provedeno s výhradami.* Adaptéry pěti zdrojů
+(`src/tools/harvest_adapters.py`: EUR-Lex, e-Sbírka, katalog ČSN, registr STN,
+HYTEP) spouštěč volá; zakonyprolidi.cz je obsažen v kontrole platnosti
+e-Sbírky. Čtyři zdroje spouštěč výslovně odkládá, protože jejich stávající
+skripty obcházejí ochranu webů proti robotům nebo web robota odmítá
+(Slov-Lex, IEC, EIGA, DVGW); o nich zbývá rozhodnout. Nálezy e-Sbírky se nově
+daří přiřadit k předpisu. Ostrý zápis jsme ověřili nad testovací databází;
+do živé fronty zatím nevstoupil. Podrobně odstavec 8.7.
+
 **E2 — Včasný signál (5 zdrojů).** `veklep-odok` (A), `slovlex-legislativny-proces`
 (A), `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil`. Všechny mají ověřenou
 strojově čitelnou cestu (JSON, RSS, hromadná otevřená data). Zavádí do
@@ -715,3 +725,108 @@ bez síťového přístupu. Celý běh `src/tools/run_tests.py` 29. 10. 2026 pro
 (unit, integrační, smoke a prohlížečové testy). Vzhled nového bloku s nálezy
 v detailu kandidáta ověřuje jen test obsahu stránky; snímek obrazovky jsme
 nepořídili.
+
+### 8.7 Etapa E1 (4. 11. 2026)
+
+Etapa převedla stávající automatizaci pod spouštěč. Adaptéry jsou v modulu
+`src/tools/harvest_adapters.py` a používají funkce skriptů, jež nahrazují;
+způsob dotazování zdrojů nemění. Jeden zdroj může mít více adaptérů, jeden na
+každý druh nálezu:
+
+| Zdroj | Adaptér | Co přináší |
+|---|---|---|
+| `eurlex-cellar` | `eurlex_new` | Závazné akty EU (CELEX R, L, D) s „hydrogen“ nebo „RFNBO“ v názvu, bez vzorů chemických a správních nálezů ze skriptu `add_eurlex_hydrogen_acts.py`; klíč `EU:rok/číslo` z čísla CELEX. Klasifikaci jazykovým modelem adaptér nepoužívá: nejisté případy posoudí editor ve frontě. |
+| `eurlex-cellar` | `validity_eu` | Platnost aktů EU v databázi z Cellaru (funkce `check_validity.eu_status()`). |
+| `esbirka-lod` | `esbirka_new` | České předpisy, jež databáze nemá a jejichž poslední znění obsahuje slovo „vodík“ a je účinné (viz níže). |
+| `esbirka-lod` | `validity_cz` | Platnost českých předpisů v databázi z e-Sbírky, zrušující předpis ze zakonyprolidi.cz (`check_validity.cz_status()`). |
+| `csn-online` | `csn_state` | Platnost norem ČSN v databázi z bezplatného katalogu ČSN. |
+| `normoff-stn` | `normoff_state` | Platnost norem STN v databázi z registru ÚNMS SR. |
+| `hytep` | `hytep_new` | Dokumenty ze dvou seznamů HYTEP; nemají označení, databáze je zná podle adresy. |
+
+Kontroly platnosti procházejí jen dokumenty, jejichž záznam v mezipaměti chybí
+nebo je starší než 30 dní. Změny stavu zapisuje ostrý běh do mezipaměti
+kontroly platnosti (`data/validity_cache.json`), odkud je do stavů dokumentů
+promítá `backfill_document_states.py` jako dosud; stav norem jde do nové
+mezipaměti `data/norm_validity_cache.json`, protože stavy norem databáze zatím
+nerozlišuje (`doc/DATABASE_SCOPE.md`, odstavec 5). Katalog ČSN i registr STN jsou
+určeny pro cílené dotazy, oba zdroje proto mají četnost „na vyžádání“
+a pravidelný běh je nevolá; volba `--limit N` omezí zkušební běh na N dokumentů.
+
+**Odložené zdroje.** Spouštěč je vynechá a důvod ohlásí (tabulka `DEFERRED`):
+
+1. `slovlex-linkcheck` — Web od 28. 10. 2026 odmítá poctivě identifikovaného
+   robota kódem 403 (odstavec 8.5).
+2. `iec-catalogue` — Stávající sklizeň prochází ochranou AWS WAF Bot Control
+   pomocí headless prohlížeče.
+3. `eiga-publications` — Stávající modul se ochraně WAF vyhýbá upraveným
+   dotazem.
+4. `dvgw-publications` — Stávající sklizeň se vydává za prohlížeč (hlavička
+   User-Agent).
+
+U bodů 2 až 4 jde o obcházení ochrany, jíž provozovatel dává najevo, že
+automatizovaný přístup nepřeje. Do pravidelného běhu je proto bez rozhodnutí
+nezapojujeme; náhradou pro IEC je patrně webstore `webstore.iec.ch`, jenž je
+čitelný bez prohlížeče a jehož `robots.txt` nic nezakazuje (odstavec 3.1).
+Zdroj `zakonyprolidi` není samostatně spouštěn, protože jej využívá adaptér
+`validity_cz`.
+
+**Přiřazení nálezů e-Sbírky k předpisu.** Dosavadní screening vracel zásahy do
+textu (fragmenty), u nichž neuměl určit předpis (`doc/AUTOMATION.md`,
+odstavec 4.1). Ověřením jsme zjistili, že fragment je v otevřených datech
+připojen k uzlu ELI svého znění vlastností `obsahuje-fragment` (binární soubor
+o krok dál vlastností `má-binární-soubor`) a že adresa uzlu nese rok, číslo
+a datum znění (`…/eli/cz/sb/2015/294/2025-07-01/dokument/…`). Adaptér proto
+nejprve najde všechny uzly se slovem „vodík“, seskupí je podle předpisu a znění,
+u předpisů, jež databáze nemá, zjistí jejich poslední znění a konec jeho
+účinnosti, a ponechá jen předpisy, jejichž poslední znění slovo obsahuje
+a dosud platí. Dosavadní screening měl navíc limit 100 výsledků a odpověď
+ořezával, aniž by to ohlásil; adaptér oříznutí odpovědi považuje za chybu.
+
+**První běhy (4. 11. 2026).** Suché běhy nad živou databází a ostrý běh nad
+`h2regdocs_test`:
+
+| Adaptér | Výsledek |
+|---|---|
+| `eurlex_new` | 15 závazných aktů, všechny již v databázi. |
+| `validity_eu`, `validity_cz` | Žádný dokument ke kontrole (mezipaměť z 27. 10. 2026 je mladší než 30 dní). |
+| `esbirka_new` | Slovo „vodík“ obsahuje 364 předpisů (8 411 míst v textu ve všech zněních); z nich 185 předpisů databáze nemá a jejich poslední znění je účinné. Ostrý běh vložil 177 kandidátů a u 8 kandidátů, jež již ohlásil uzávěr citací, nález připsal k dokladům. |
+| `hytep_new` | 19 dokumentů, z toho 1 nový („Politicko-strategický, legislativní a nelegislativní rámec EU pro rozvoj…“). |
+| `csn_state` | 39 norem ČSN v databázi: 7 zrušených (mj. ČSN EN 1717, ČSN EN 50128, ČSN EN 50129, ČSN EN 62282-3-200), ostatní platné. |
+| `normoff_state` | Zkušební běh na 5 normách (397 STN v databázi): u 4 nezjištěno, viz níže. |
+
+Opakovaný ostrý běh nad testovací databází nic nevložil a jen obnovil doklady
+(185 kandidátů e-Sbírky, 1 HYTEP); bod, od něhož adaptér pokračuje, se
+posunul. Záznam běhu nese název databáze, takže běh nad testovací databází
+neovlivní běhy nad živou.
+
+Mezi 185 předpisy e-Sbírky jsou dokumenty věcně patrně velmi cenné, jež
+databáze dosud nemá: například 87/2025 Sb. (vodíková přepravní soustava),
+369/2025 Sb. (výrobna vodíku), 42/2025 Sb. (dodání vodíku na čerpací stanici),
+413/2025 Sb. (obsah vodíku ve směsi plynu) nebo 443/2025 Sb. (transpozice
+směrnice (EU) 2024/1788). Vedle nich je však i šum: chemické tabulky
+expozičních limitů, sazebníky, rozbory potravin a 17 předpisů z let 1925 až
+1989. Značnou část tvoří novely. Výběr nefiltrujeme podle roku ani podle počtu
+výskytů; posouzení přísluší editorům, frontu je však vhodné procházet
+s vědomím, že jde zhruba o 185 kandidátů najednou.
+
+**Otevřené body.**
+
+1. **Ostrý běh proti živé databázi.** Dosud neproběhl. Doplní do tabulky
+   `DocumentCandidate` sloupec `signal` a vloží zhruba 186 kandidátů; před ním
+   je vhodné pořídit zálohu do `backups/` a v živé databázi musí existovat
+   alespoň dva editorské účty (`src/db/dbuser_add.py`), jinak kandidáty nikdo
+   nepřijme.
+2. **Odložené zdroje** (IEC, EIGA, DVGW, Slov-Lex) — rozhodnutí, zda je
+   zapojit, nahradit jinou cestou (webstore IEC), nebo sledovat ručně.
+3. **Označení norem STN.** Řada STN je v databázi zapsána s datem vydání
+   (`STN 07 8304/ - 1989.01`); registr ÚNMS takové označení přesně nenajde.
+   Označení neupravujeme odhadem, protože by se tím mohl převzít stav jiného
+   vydání normy.
+4. **Stavy norem v databázi.** Výsledky kontroly ČSN a STN zatím zůstávají
+   v mezipaměti; jejich promítnutí do stavů dokumentů předpokládá rozšíření
+   stavů podle `doc/DATABASE_SCOPE.md`, odstavec 5.
+5. **Dosavadní skripty.** `screen_eurlex.py`, `screen_esbirka.py`
+   a skripty `add_*` zůstávají v repozitáři a soubory `discovered_*.json`
+   zůstávají vstupem přestavby; nové nálezy však již vedou do fronty
+   kandidátů.
+

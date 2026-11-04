@@ -13,13 +13,13 @@ import source_registry as sr
 CALLS = []
 
 
-def fake_adapter(entry, session, since):
+def fake_adapter(entry, session, since, context):
     CALLS.append((entry["id"], since))
     return [harvest.Finding(entry["id"], "draft", "Návrh zákona o vodíku", native_id="1"),
             harvest.Finding(entry["id"], "new_document", "Vyhláška", key="CZ:9/2099")]
 
 
-def failing_adapter(entry, session, since):
+def failing_adapter(entry, session, since, context):
     raise RuntimeError("source down")
 
 

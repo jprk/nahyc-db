@@ -9,8 +9,11 @@ log of every run.
   (`<source>:<native id>`) and the flag `needs_key`, never a guessed key.
 * **Writing** (write_findings) turns findings of the signals `new_document` and
   `draft` into candidates (candidates.upsert_finding); a document the database
-  already has is counted as `known` and not written; `state_change` findings are
-  only counted until the validity check takes them (stage E1).
+  already has (by key, or by address for documents without a designation) is
+  counted as `known` and not written. `state_change` findings carry the state a
+  check found (`state`) and go to the cache of that check (apply_state_changes):
+  Czech and EU acts to data/validity_cache.json, which backfill_document_states.py
+  applies to the database, standards to data/norm_validity_cache.json.
 * The **log** (data/source_checks.jsonl, one JSON object per line) records every
   run of a source and every availability check, also those that found nothing:
   the documented negative results of doc/DATABASE_SCOPE.md, odstavec 6.
@@ -28,6 +31,8 @@ import citation_closure as cc
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 LOG_PATH = REPO_ROOT / "data" / "source_checks.jsonl"
+VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
+NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-harvest/1.0; +research use, low-volume)"
 QUEUED_SIGNALS = ("new_document", "draft")
 
@@ -58,6 +63,7 @@ class Finding:
     jurisdikce: str = None
     date: str = None
     excerpt: str = None
+    state: dict = None
 
     def candidate_key(self):
         if self.key:
@@ -86,13 +92,23 @@ def matches(text, broader=False):
     return any(re.search(r"(?<!\w)" + re.escape(term), lowered) for term in terms)
 
 
-def known_keys(cursor):
-    """Candidate keys of the documents the database already has."""
-    cursor.execute("SELECT identifier, title FROM Document")
+def documents(cursor):
+    """[(id, identifier, title, url)] of the documents of the database."""
+    cursor.execute("SELECT id, identifier, title, url FROM Document")
+    return [(r["id"], r["identifier"], r["title"], r["url"]) if isinstance(r, dict) else tuple(r[:4])
+            for r in cursor.fetchall()]
+
+
+def known_keys(cursor_or_documents):
+    """What the database already has: the candidate keys of its documents and
+    `url:<address>` of every document address (for documents without a
+    designation, such as strategies and studies)."""
+    docs = cursor_or_documents if isinstance(cursor_or_documents, list) else documents(cursor_or_documents)
     keys = set()
-    for row in cursor.fetchall():
-        identifier, title = (row["identifier"], row["title"]) if isinstance(row, dict) else row[:2]
+    for _doc_id, identifier, title, url in docs:
         keys |= cc.own_keys(identifier, title)
+        if url:
+            keys.add("url:" + url.strip())
     return keys
 
 
@@ -105,10 +121,35 @@ def write_findings(cursor, findings, known, seen):
             outcome["state_change"] += 1
         elif finding.signal not in QUEUED_SIGNALS:
             outcome["not_queued"] += 1
-        elif finding.key and finding.key in known:
+        elif (finding.key and finding.key in known) or (finding.url and "url:" + finding.url.strip() in known):
             outcome["known"] += 1
         else:
             outcome[cd.upsert_finding(cursor, finding.as_candidate(), finding.as_evidence(seen))] += 1
+    return outcome
+
+
+def apply_state_changes(findings, today, validity_path=None, norm_path=None):
+    """Writes the `state` of state_change findings into the cache of their check
+    (`checked_at` = today); returns a Counter (state_changed, state_unchanged).
+    A finding's key decides the cache: `CZ:`/`EU:` the validity cache, any other
+    the standards cache."""
+    paths = {"validity": pathlib.Path(validity_path or VALIDITY_CACHE_PATH),
+             "norm": pathlib.Path(norm_path or NORM_CACHE_PATH)}
+    caches = {name: (json.loads(path.read_text(encoding="utf-8")) if path.exists() else {})
+              for name, path in paths.items()}
+    outcome, touched = collections.Counter(), set()
+    for finding in findings:
+        if finding.signal != "state_change" or not finding.key or finding.state is None:
+            continue
+        name = "validity" if finding.key.split(":")[0] in ("CZ", "EU") else "norm"
+        cache = caches[name]
+        before = cache.get(finding.key, {}).get("status")
+        cache[finding.key] = {**finding.state, "checked_at": today}
+        touched.add(name)
+        outcome["state_changed" if before != finding.state.get("status") else "state_unchanged"] += 1
+    for name in touched:
+        paths[name].write_text(json.dumps(dict(sorted(caches[name].items())), ensure_ascii=False, indent=1) + "\n",
+                               encoding="utf-8")
     return outcome
 
 
