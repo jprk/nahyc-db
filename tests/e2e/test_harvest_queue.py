@@ -183,7 +183,7 @@ class HarvestQueueTestCase(BrowserTestCase):
         self.assertTrue(alice.get_by_text("Nálezy ve sledovaných zdrojích (2)").is_visible())
         self.assertTrue(alice.get_by_text("Mění tyto dokumenty databáze").is_visible())
         self.assertTrue(alice.locator("ul.doc-relations a", has_text=self.amended["identifier"]).first.is_visible())
-        alice.select_option("#scope_area", "4")
+        alice.check("input[name=scope_area][value='4']")
         self.shot(alice, "05-draft-detail")
         alice.click("button:has-text('Navrhnout přijetí')")
         alice.wait_for_url(re.compile(r"/admin/candidates$"))

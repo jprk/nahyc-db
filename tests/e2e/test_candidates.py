@@ -106,7 +106,7 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         # Alice proposes acceptance with the metadata the document will get.
         self.row(alice, TITLE).get_by_role("link", name="Otevřít").click()
         alice.fill("#designation", "9002/2099 Sb.")
-        alice.select_option("#scope_area", "4")
+        alice.check("input[name=scope_area][value='4']")
         self.shot(alice, "02-candidate-detail")
         alice.click("button:has-text('Navrhnout přijetí')")
         alice.wait_for_url(re.compile(r"/admin/candidates$"))

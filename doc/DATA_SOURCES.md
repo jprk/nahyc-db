@@ -1588,3 +1588,11 @@ běhů `data/source_checks.jsonl` rozlišuje databázi, takže běhy nad testova
 databází navazování živých běhů neovlivní a první živý běh začne od začátku.
 Testovací databázi lze pro další zkoušku obnovit příkazem
 `run_tests.py` (bez `--no-refresh`); zkouška se tím smaže.
+
+**Doplněno 5. 11. 2026 (fronta kandidátů po prohlídce editorem).** Návrh přijetí
+nese jeden nebo více věcných okruhů (sloupec `scope_areas`); kandidát z citací
+ukazuje kontext citace v každém citujícím dokumentu (až tři místa, přibližně 300
+znaků před citací a 400 po ní, označení vyznačeno). Před nasazením na živou
+databázi je proto třeba doplnit schéma (`candidates.ensure_schema()`, jež volá
+`import_candidates.py --apply` i `harvest_sources.py --apply`) a kontexty
+otevřených kandidátů obnovit během `import_candidates.py --apply`.

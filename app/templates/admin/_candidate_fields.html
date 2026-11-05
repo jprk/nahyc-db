@@ -29,11 +29,11 @@
     <input type="text" id="jurisdikce" name="jurisdikce" value="{{ c.jurisdikce or '' }}" placeholder="CZ, EU, mezinárodní …">
 </div>
 <div class="admin-form-group">
-    <label for="scope_area">Věcný okruh (DATABASE_SCOPE.md, odstavec 3)</label>
-    <select id="scope_area" name="scope_area">
-        <option value="">— vyberte —</option>
-        {% for n, name in areas.items() %}<option value="{{ n }}"{% if n|string == (c.scope_area or '')|string %} selected{% endif %}>{{ n }}. {{ name }}</option>{% endfor %}
-    </select>
+    {% set chosen = ((c.scope_areas or (c.scope_area or ''))|string).split(',') %}
+    <fieldset class="scope-areas">
+        <legend>Věcné okruhy (DATABASE_SCOPE.md, odstavec 3) — jeden nebo více</legend>
+        {% for n, name in areas.items() %}<label class="scope-area"><input type="checkbox" name="scope_area" value="{{ n }}"{% if n|string in chosen %} checked{% endif %}> {{ n }}. {{ name }}</label>{% endfor %}
+    </fieldset>
 </div>
 <div class="admin-form-group">
     <label for="decision_note">Poznámka k návrhu</label>

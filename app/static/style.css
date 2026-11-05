@@ -1328,6 +1328,22 @@ main {
 .candidate-table .candidate-title:hover { color: var(--accent-secondary); text-decoration: underline; }
 .candidate-table .candidate-source { color: var(--accent-secondary); text-decoration: none; }
 .candidate-table .candidate-open { white-space: nowrap; }
+.scope-areas { border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.25rem 1rem; }
+.scope-areas legend { padding: 0 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-weight: 600; }
+.scope-area { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-primary); }
+/* /admin/review: a long title must not crowd out the state, the action button stays on one line */
+.review-table .review-document { width: 30%; }
+.review-table td:first-child { overflow-wrap: anywhere; }
+.review-table .review-state { min-width: 12rem; width: 22%; }
+.review-table .review-action, .review-table td:last-child { white-space: nowrap; width: 1%; }
+.citing-document { margin-bottom: 0.75rem; }
+.citing-document .candidate-context { margin: 0.35rem 0 0.25rem; }
+.citation-count { color: var(--text-secondary); font-size: 0.9rem; }
+.citation-more summary { cursor: pointer; color: var(--accent-secondary); font-size: 0.9rem; }
+.candidate-context mark { background: rgba(14, 165, 233, 0.25); color: var(--text-primary); font-style: normal;
+    padding: 0 0.15em; border-radius: 3px; }
 .candidate-help { margin: 0 0 1rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
     padding: 0.5rem 1rem; color: var(--text-secondary); }
 .candidate-help summary { cursor: pointer; color: var(--text-primary); font-weight: 500; }

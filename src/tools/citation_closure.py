@@ -134,10 +134,36 @@ def is_amendment(text, citation):
     return bool(_AMENDMENT.search(text[max(0, citation.position - 220):citation.position]))
 
 
+CONTEXT_BEFORE, CONTEXT_AFTER = 300, 400
+CONTEXTS_PER_DOCUMENT = 3  # the places a citing document cites an act, shown to the editor; more are only counted
+
+
+def citation_context(text, citation, before=CONTEXT_BEFORE, after=CONTEXT_AFTER):
+    """The text around a citation, for an editor to judge what the act is cited for:
+    {"before", "cited", "after"} — about `before` characters before it and `after`
+    characters after it, cut at whole words, whitespace collapsed. `cited` is the
+    designation as the text writes it ("133/1985 Sb.", "2010/75/EU", "(EU) 2019/943")."""
+    def squeeze(part):
+        return re.sub(r"\s+", " ", part)
+    start, end = max(0, citation.position - before), min(len(text), citation.position + after)
+    if start > 0:  # not from the middle of a word
+        space = re.search(r"\s", text[start:citation.position])
+        start = start + space.end() if space else citation.position
+    if end < len(text):
+        cut = text.rfind(" ", citation.position, end)
+        end = cut if cut > citation.position else end
+    number = re.search(r"\d+\s*/\s*\d+(?:\s*Sb\.|\s*Z\.\s*z\.|/(?:ES|EU|EHS|EHK|ESUO|Euratom|EEC|ECSC|EC)\b)?",
+                       text[citation.position:citation.position + 80])
+    cited_end = citation.position + number.end() if number else citation.position
+    return {"before": squeeze(text[start:citation.position]).lstrip(),
+            "cited": squeeze(text[citation.position:cited_end]),
+            "after": squeeze(text[cited_end:end]).rstrip()}
+
+
 def title_hint(text, citation):
-    """A few words around the first citation, to recognise the act in the report."""
-    start = max(0, citation.position - 60)
-    return re.sub(r"\s+", " ", text[start:citation.position + 140]).strip()
+    """The text around the first citation in one string (the report, the CSV)."""
+    context = citation_context(text, citation)
+    return context["before"] + context["cited"] + context["after"]
 
 
 def closure(documents, texts):
@@ -170,7 +196,13 @@ def closure(documents, texts):
             entry["citations"] += 1
             entry["as_amendment"] += amendment
             if entry["hint"] is None:
-                entry["hint"] = title_hint(text, citation)
+                entry["context_parts"] = citation_context(text, citation)
+                entry["hint"] = "".join(entry["context_parts"].values())
+            # where each citing document cites the act, so that an editor need not read it whole
+            places = entry.setdefault("contexts", {}).setdefault(doc_id, {"count": 0, "places": []})
+            places["count"] += 1
+            if len(places["places"]) < CONTEXTS_PER_DOCUMENT:
+                places["places"].append({**citation_context(text, citation), "amendment": amendment})
             entry.setdefault("family", citation.family)
             entry.setdefault("display", citation.display)
     rows = []
@@ -178,7 +210,8 @@ def closure(documents, texts):
         rows.append({"key": key, "family": entry["family"], "designation": entry["display"], "kind": entry["kind"],
                      "in_database": key in known, "database_ids": sorted(known.get(key, ())),
                      "cited_by": len(entry["units"]), "citing_ids": sorted(entry["documents"]),
-                     "amendment_share": round(entry["as_amendment"] / entry["citations"], 2), "context": entry["hint"]})
+                     "amendment_share": round(entry["as_amendment"] / entry["citations"], 2), "context": entry["hint"],
+                     "context_parts": entry.get("context_parts"), "contexts": entry.get("contexts", {})})
     rows.sort(key=lambda r: (-r["cited_by"], r["family"], r["key"]))
     return rows
 

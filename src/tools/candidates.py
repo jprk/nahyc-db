@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
   jurisdikce VARCHAR(20) NULL,
   scope_area TINYINT NULL,
   validity_status VARCHAR(30) NULL,
-  evidence_json TEXT NULL,
+  evidence_json MEDIUMTEXT NULL,
   cited_by INT NOT NULL DEFAULT 0,
   tier TINYINT NULL,
   occurrences INT NULL,
@@ -79,8 +79,21 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
 MIGRATIONS = ("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS `signal` VARCHAR(20) NULL AFTER source",
               # 2026-11-04, doc/DATA_SOURCES.md odstavec 8.8: tier 1 is shown by default, tier 2 in a filter
               "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS tier TINYINT NULL AFTER cited_by",
-              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS occurrences INT NULL AFTER tier")
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS occurrences INT NULL AFTER tier",
+              # 2026-11-05: a document may belong to several subject areas ("4,7"); scope_area keeps the first
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS scope_areas VARCHAR(64) NULL AFTER scope_area",
+              # 2026-11-05: the evidence carries the contexts of the citation in every citing document (> 64 kB)
+              "ALTER TABLE DocumentCandidate MODIFY COLUMN evidence_json MEDIUMTEXT NULL")
 # `signal` of a finding (doc/DATA_SOURCES.md odstavec 4.2) as editors read it.
+def scope_areas(candidate):
+    """The subject areas chosen for a candidate, [int], also of one proposed before
+    `scope_areas` existed."""
+    listed = (candidate.get("scope_areas") or "").strip()
+    if listed:
+        return [int(n) for n in listed.split(",") if n.strip().isdigit()]
+    return [candidate["scope_area"]] if candidate.get("scope_area") else []
+
+
 SIGNAL_LABELS = {"new_document": "nový dokument", "draft": "návrh předpisu (připravovaný)",
                  "amendment": "novela dokumentu v databázi"}
 
@@ -175,6 +188,9 @@ def from_closure(rows, cache, minimum=2):
             "candidate_key": row["key"], "source": "citation", "kind": kind,
             "validity_status": validity.get("status"), "cited_by": row["cited_by"],
             "evidence": {"citing_ids": row["citing_ids"], "context": row["context"],
+                         **{f"context_{part}": text for part, text in (row.get("context_parts") or {}).items()},
+                         # {citing document id: {"count", "places": [{"before", "cited", "after", "amendment"}]}}
+                         "contexts": {str(doc): places for doc, places in (row.get("contexts") or {}).items()},
                          "amendment_share": row["amendment_share"], "celex": validity.get("celex")},
         })
     return found

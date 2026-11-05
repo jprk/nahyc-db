@@ -157,12 +157,12 @@ def read_metadata(form, db, own_designation=None):
         errors.append("Vyberte typ dokumentu.")
     if metadata["language"] not in LANGUAGES:
         errors.append("Vyberte jazyk.")
-    try:
-        metadata["scope_area"] = int(form.get("scope_area") or 0)
-    except ValueError:
-        metadata["scope_area"] = 0
-    if metadata["scope_area"] not in cd.SCOPE_AREAS:
-        errors.append("Vyberte věcný okruh (DATABASE_SCOPE.md, odstavec 3).")
+    # a document may belong to several subject areas; the first chosen one is also kept in `scope_area`
+    areas = sorted({int(n) for n in form.getlist("scope_area") if n.strip().isdigit() and int(n) in cd.SCOPE_AREAS})
+    metadata["scope_area"] = areas[0] if areas else 0
+    metadata["scope_areas"] = ",".join(map(str, areas))
+    if not areas:
+        errors.append("Vyberte alespoň jeden věcný okruh (DATABASE_SCOPE.md, odstavec 3).")
     if metadata["designation"] and metadata["designation"] != own_designation:
         with db.cursor() as cur:
             cur.execute("SELECT id FROM Document WHERE identifier = %s", (metadata["designation"],))
@@ -173,13 +173,15 @@ def read_metadata(form, db, own_designation=None):
 
 def _store_proposal(cur, candidate_id, metadata):
     cur.execute("""UPDATE DocumentCandidate SET designation = %s, title = %s, document_type = %s, url = %s,
-                       language = %s, jurisdikce = %s, scope_area = %s, decision_note = %s, status = 'proposed',
+                       language = %s, jurisdikce = %s, scope_area = %s, scope_areas = %s, decision_note = %s,
+                       status = 'proposed',
                        proposed_by_user_id = %s, proposed_at = NOW(), confirmed_by_user_id = NULL,
                        confirmed_at = NULL
                    WHERE id = %s""",
                 (metadata["designation"] or None, metadata["title"], metadata["document_type"],
                  metadata["url"] or None, metadata["language"], metadata["jurisdikce"] or None,
-                 metadata["scope_area"], metadata["decision_note"] or None, session["user_id"], candidate_id))
+                 metadata["scope_area"], metadata["scope_areas"], metadata["decision_note"] or None,
+                 session["user_id"], candidate_id))
 
 
 @admin_bp.route("/candidates/<int:candidate_id>/propose", methods=["POST"])
@@ -277,8 +279,7 @@ def create_document(cur, candidate):
         state = "active"
     cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
                    VALUES (%s, 1, 1, %s)""", (doc_id, state))
-    area = cd.SCOPE_AREAS.get(candidate["scope_area"])
-    if area:
+    for area in (cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS):
         cur.execute("SELECT id FROM Keyword WHERE keyword = %s", (area,))
         row = cur.fetchone()
         if row is None:
@@ -304,7 +305,7 @@ def pipeline_record(candidate, confirmed_by):
     (build_unified_db.py), keyed by the candidate key in data/accepted_candidates.json."""
     return {"zdroj_dat": PIPELINE_SOURCE, "znacka": candidate["designation"] or "", "nazev_cz": candidate["title"],
             "typ_dokumentu": candidate["document_type"], "sekce": "", "kategorie_trida": "",
-            "klicova_slova": [cd.SCOPE_AREAS[candidate["scope_area"]]] if candidate["scope_area"] else [],
+            "klicova_slova": [cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS],
             "odkaz_hlavni": candidate["url"] or "", "nazev_eu": "", "odkaz_eu": "", "nazev_sk": "", "odkaz_sk": "",
             "platnost": "", "ratifikovan": "", "gestor": [], "jazyk": candidate["language"] or "",
             "anotace_poznamka": "", "jurisdikce": candidate["jurisdikce"] or "",
@@ -371,7 +372,8 @@ def candidate_new():
         for error in errors:
             flash(error, "error")
         return render_template("admin/candidate_new.html", types=document_types(db), languages=LANGUAGES,
-                               areas=cd.SCOPE_AREAS, form=request.form)
+                               areas=cd.SCOPE_AREAS, form={**request.form.to_dict(),  # every area ticked
+                                                           "scope_areas": ",".join(request.form.getlist("scope_area"))})
     with db.cursor() as cur:
         cur.execute("""INSERT INTO DocumentCandidate (candidate_key, source, evidence_json) VALUES (%s, 'manual', %s)""",
                     (key, json.dumps({"proposed_manually": True}, ensure_ascii=False)))
