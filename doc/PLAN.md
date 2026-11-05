@@ -6030,3 +6030,12 @@ original treatment, not asked for.
 - Registry: six short-window feeds weekly (ČIŽP ~10 days, MŽP/MMR/ACER ~2 weeks, ERÚ ~4 weeks, MPO a few days); ERÚ RSS verified (`ready`).
 - Result: 10 candidates (ACER 1, EHSP 8, OTIF 1 — RID 2027). Applied to `h2regdocs_test` only.
 - Tests: `tests/test_harvest_feeds.py`; `run_tests.py` all green.
+
+## 55. Harvesting stage E5: HTML pages and lookups on demand (NEW, 2026-11-05, user-directed, branch `feature/harvest-e5`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.14).
+- `src/tools/harvest_pages.py`: `ticr_news` (dated blocks split at non-breaking spaces, broader terms), `hzs_news` (basic terms), `cmi_oop` (OOP list; hydrogen tier 1, dispensers/gas meters tier 2), `md_adr_pages` (dates of ADR sub-pages, baseline first), `hys_initiatives` (Have Your Say JSON API, initiatives not yet adopted as proposals → drafts), `tris_notifications` (ready but not run).
+- `src/tools/harvest_lookups.py` + `harvest_sources.py --lookup ID QUERY`: Sbírka ÚSC, IS EIA (session + all form fields), ECHA CHEM, data.europa.eu, Gesetze im Internet; prints only.
+- TRIS: the second POST got 403 "Disallowed by robots.txt" → `ec-tris` is `prohibited`. Have Your Say: JSON API found → `ready`. NFPA 2 deferred.
+- Result: 6 candidates (3 Have Your Say tier 1 incl. the RFNBO criteria revision and the new hydrogen strategy, TIČR 1, ČMI 2). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_pages.py`; `run_tests.py` all green.

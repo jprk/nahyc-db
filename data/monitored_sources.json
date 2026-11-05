@@ -423,8 +423,8 @@
     "category": "draft_legislation",
     "jurisdiction": "EU",
     "url": "https://have-your-say.ec.europa.eu/index_en",
-    "access": {"method": "html", "endpoint": null},
-    "status": "needs_work",
+    "access": {"method": "json_api", "endpoint": "https://ec.europa.eu/info/law/better-regulation/brpapi/searchInitiatives?text=hydrogen&language=EN"},
+    "status": "ready",
     "screener": null,
     "cadence": "monthly",
     "priority": "B",
@@ -432,8 +432,8 @@
     "signal": ["draft"],
     "stage": "E5",
     "adds": "Konzultace a lhůty ke zpětné vazbě, včetně návrhů aktů.",
-    "constraints": "Stránka odpovídá, strojově čitelné rozhraní se nepodařilo doložit.",
-    "verified_at": "2026-10-28"
+    "constraints": "Stránka odpovídá, strojově čitelné rozhraní se nepodařilo doložit. API, jež používá sám web (/info/law/better-regulation/brpapi/searchInitiatives?text=…), vrací JSON se stavem a fází iniciativ (2026-11-05: 16 iniciativ pro „hydrogen“); čte jej harvest_pages.hys_initiatives.",
+    "verified_at": "2026-11-05"
   },
   {
     "id": "data-europa-search",
@@ -450,8 +450,8 @@
     "signal": ["lookup"],
     "stage": "E5",
     "adds": "Nástroj k dohledání, zda některý registr EU nabízí strojově čitelnou distribuci dat.",
-    "constraints": "Vyhledávací REST API odpovídá rychle a je použitelné. SPARQL rozhraní je živé, ale dotaz procházející celý katalog skončil chybou 504 — je nutné dotazovat cíleně. POZOR: inzerovaná distribuce nemusí odpovídat skutečnosti (viz ec-comitology-register).",
-    "verified_at": "2026-10-28"
+    "constraints": "Vyhledávací REST API odpovídá rychle a je použitelné. SPARQL rozhraní je živé, ale dotaz procházející celý katalog skončil chybou 504 — je nutné dotazovat cíleně. POZOR: inzerovaná distribuce nemusí odpovídat skutečnosti (viz ec-comitology-register). Dohledání na vyžádání: harvest_sources.py --lookup data-europa-search \"…\".",
+    "verified_at": "2026-11-05"
   },
   {
     "id": "acer",
@@ -832,8 +832,8 @@
     "signal": ["lookup"],
     "stage": "E5",
     "adds": "Obecně závazné vyhlášky a nařízení obcí a krajů a předpisy vybraných správních úřadů (vyhlášení ve Sbírce je podmínkou platnosti); potřebné při místní analýze konkrétní instalace, např. požární poplachové plány krajů.",
-    "constraints": "Vyvrací zjištění v doc/DATABASE_SCOPE.md odst. 8 (O1): web není SPA, ale server-side HTML (HTTP 200). Výsledky hledání GET /vyhledavani/vysledek?hlavni_typ=pp vracejí HTML tabulku řazenou od nejnovějších (28. 10. 2026: 79 106 podání, první záznamy z 27. 10. 2026), filtry nazev, ovm, kod_vusc, zverejneno_od/do (typ date) aj.; parametr fulltext se ignoruje. Export CSV/XLSX (format_exportu=csv) je asynchronní — přesměruje na stránku /export/<id>/prubeh („Export probíhá“), soubor se generuje na pozadí. Notifikace jen e-mailem po registraci adresy pro zvoleného publikujícího (/email/registrace, s CAPTCHA); RSS ani API nenalezeno. robots.txt neexistuje (HTTP 404). Hledání nazev=vodík: 0 předpisů.",
-    "verified_at": "2026-10-28"
+    "constraints": "Vyvrací zjištění v doc/DATABASE_SCOPE.md odst. 8 (O1): web není SPA, ale server-side HTML (HTTP 200). Výsledky hledání GET /vyhledavani/vysledek?hlavni_typ=pp vracejí HTML tabulku řazenou od nejnovějších (28. 10. 2026: 79 106 podání, první záznamy z 27. 10. 2026), filtry nazev, ovm, kod_vusc, zverejneno_od/do (typ date) aj.; parametr fulltext se ignoruje. Export CSV/XLSX (format_exportu=csv) je asynchronní — přesměruje na stránku /export/<id>/prubeh („Export probíhá“), soubor se generuje na pozadí. Notifikace jen e-mailem po registraci adresy pro zvoleného publikujícího (/email/registrace, s CAPTCHA); RSS ani API nenalezeno. robots.txt neexistuje (HTTP 404). Hledání nazev=vodík: 0 předpisů. Dohledání na vyžádání: harvest_sources.py --lookup sbirka-pp-usc \"…\" (podle názvu).",
+    "verified_at": "2026-11-05"
   },
 
   {
@@ -879,16 +879,16 @@
     "jurisdiction": "EU",
     "url": "https://technical-regulation-information-system.ec.europa.eu/en/home",
     "access": {"method": "html", "endpoint": null},
-    "status": "needs_work",
+    "status": "prohibited",
     "screener": null,
-    "cadence": "weekly",
-    "priority": "B",
+    "cadence": null,
+    "priority": null,
     "role": ["L"],
-    "signal": ["draft"],
-    "stage": "E5",
+    "signal": [],
+    "stage": null,
     "adds": "Návrhy národních technických předpisů všech členských států (včetně ČR) ve fázi tříměsíčního standstillu — předběžný signál např. pro národní pravidla plnicích stanic či tlakových zařízení.",
-    "constraints": "HTTP 200, server-side HTML (Drupal). robots.txt zakazuje jen kořenové /search/, jazykové /en/search nikoli. Vyhledávání je formulář odesílaný metodou POST na /en/search/results s tokenem formuláře; dotaz GET (?search_terms=hydrogen) vrací „No results were found“. RSS ani API nenalezeno. Upozornění nabízí e-mailová konference (/en/the-20151535-and-you/being-informed/mailing-list/subscribe) — vyžaduje přihlášení e-mailu, nezkoušeno.",
-    "verified_at": "2026-10-28"
+    "constraints": "HTTP 200, server-side HTML (Drupal). robots.txt zakazuje jen kořenové /search/, jazykové /en/search nikoli. Vyhledávání je formulář odesílaný metodou POST na /en/search/results s tokenem formuláře; dotaz GET (?search_terms=hydrogen) vrací „No results were found“. RSS ani API nenalezeno. Upozornění nabízí e-mailová konference (/en/the-20151535-and-you/being-informed/mailing-list/subscribe) — vyžaduje přihlášení e-mailu, nezkoušeno. 2026-11-05: první dotaz POST na /en/search/results prošel (52 oznámení pro „hydrogen“), další server odmítl s HTTP 403 „Disallowed by robots.txt“ — robots.txt zakazuje /search/ a provozovatel tím vyhledávání pro roboty vylučuje i v jazykové cestě. Zdroj se proto nesleduje; náhradou je e-mailová konference TRIS nebo ruční kontrola, adaptér harvest_pages.tris_notifications je připraven pro případ, že by provozovatel přístup povolil.",
+    "verified_at": "2026-11-05"
   },
   {
     "id": "ec-documents-register",
@@ -1087,8 +1087,8 @@
     "signal": ["lookup"],
     "stage": "E5",
     "adds": "Konkrétní vodíkové záměry v posuzování vlivů na životní prostředí (oznámení, závěry zjišťovacího řízení, stanoviska) — empirické příklady povolovacího procesu a toho, které předpisy se na ně uplatňují.",
-    "constraints": "Adresa z návrhu https://portal.cenia.cz/eiasea/ vrací HTTP 404 (Tomcat), stejně kořen portal.cenia.cz; funkční je https://portal.cenia.cz/eiasea/view/eia100_cr (server-side HTML, HTTP 200). Vyhledávání formulářem POST (typHledani=rychle, quickSearch=…; rozšířené: nazev, kod, poslZmenaOd/Do, zařazení); dotaz „vodík“ ověřen: 25 záměrů (3 strany), např. MSK2453 „Výroba vodíku z obnovitelných zdrojů v Teplárně Krnov“, změněno 18. 2. 2026; řazení podle data poslední změny. Detail záměru /eiasea/detail/EIA_<kód>. RSS ani API nenalezeny. robots.txt neexistuje (HTTP 404).",
-    "verified_at": "2026-10-28"
+    "constraints": "Adresa z návrhu https://portal.cenia.cz/eiasea/ vrací HTTP 404 (Tomcat), stejně kořen portal.cenia.cz; funkční je https://portal.cenia.cz/eiasea/view/eia100_cr (server-side HTML, HTTP 200). Vyhledávání formulářem POST (typHledani=rychle, quickSearch=…; rozšířené: nazev, kod, poslZmenaOd/Do, zařazení); dotaz „vodík“ ověřen: 25 záměrů (3 strany), např. MSK2453 „Výroba vodíku z obnovitelných zdrojů v Teplárně Krnov“, změněno 18. 2. 2026; řazení podle data poslední změny. Detail záměru /eiasea/detail/EIA_<kód>. RSS ani API nenalezeny. robots.txt neexistuje (HTTP 404). Vyhledávání vyžaduje relaci (načtení stránky) a odeslání všech polí formuláře; dohledání na vyžádání: harvest_sources.py --lookup is-eia \"…\" (2026-11-05).",
+    "verified_at": "2026-11-05"
   },
   {
     "id": "cizp",
@@ -1214,8 +1214,8 @@
     "signal": ["lookup"],
     "stage": "E5",
     "adds": "Regulatorní stav látek důležitých pro vodíkové technologie (vodík, amoniak, nosiče LOHC, látky v membránách): registrace REACH, harmonizovaná klasifikace CLP, seznamy omezení a kandidátských látek.",
-    "constraints": "ECHA CHEM je na chem.echa.europa.eu, nikoli na adrese z návrhu; HTTP 200, ale prázdný obal aplikace Angular. robots.txt chem.echa.europa.eu povoluje vše. Interní API ověřeno dotazem (JSON, pole rmlId, rmlName, rmlEc, rmlCas, listParticipation), není ale veřejně dokumentováno a může se měnit. Web echa.europa.eu (adresa z návrhu i jeho robots.txt) vrací HTTP 403 s výzvou Azure WAF (JavaScript challenge), proto se podmínky opakovaného užití (právní upozornění ECHA) nepodařilo přečíst — před zapojením ověřit ručně. Priorita snížena z A na B: zdroj dodává údaje o látkách, nikoli nové předpisy.",
-    "verified_at": "2026-10-28"
+    "constraints": "ECHA CHEM je na chem.echa.europa.eu, nikoli na adrese z návrhu; HTTP 200, ale prázdný obal aplikace Angular. robots.txt chem.echa.europa.eu povoluje vše. Interní API ověřeno dotazem (JSON, pole rmlId, rmlName, rmlEc, rmlCas, listParticipation), není ale veřejně dokumentováno a může se měnit. Web echa.europa.eu (adresa z návrhu i jeho robots.txt) vrací HTTP 403 s výzvou Azure WAF (JavaScript challenge), proto se podmínky opakovaného užití (právní upozornění ECHA) nepodařilo přečíst — před zapojením ověřit ručně. Priorita snížena z A na B: zdroj dodává údaje o látkách, nikoli nové předpisy. Dohledání na vyžádání: harvest_sources.py --lookup echa-chem \"…\".",
+    "verified_at": "2026-11-05"
   },
   {
     "id": "ec-nando",
@@ -1414,7 +1414,7 @@
     "signal": ["lookup"],
     "stage": "E5",
     "adds": "Konsolidovaná znění německých spolkových předpisů (např. BetrSichV, GefStoffV) pro komparativní výklad zahraničních metodik. Nepoužívat jako zdroj českých právních povinností.",
-    "constraints": "HTTP 200, statické HTML (ISO-8859-1). robots.txt: „User-agent: * / Disallow:“ — vše povoleno. Kanál RSS Aktualitätendienst funkční: 243 položek (vyhlášení v BGBl.), poslední 28. 10. 2026. Úplný seznam předpisů gii-toc.xml: 6147 položek, každá s odkazem na balík XML (…/<zkratka>/xml.zip). Podmínky užití nečteny (zdroj s nízkou prioritou, jen pro srovnání).",
-    "verified_at": "2026-10-28"
+    "constraints": "HTTP 200, statické HTML (ISO-8859-1). robots.txt: „User-agent: * / Disallow:“ — vše povoleno. Kanál RSS Aktualitätendienst funkční: 243 položek (vyhlášení v BGBl.), poslední 28. 10. 2026. Úplný seznam předpisů gii-toc.xml: 6147 položek, každá s odkazem na balík XML (…/<zkratka>/xml.zip). Podmínky užití nečteny (zdroj s nízkou prioritou, jen pro srovnání). Dohledání na vyžádání podle názvu v gii-toc.xml: harvest_sources.py --lookup gesetze-im-internet \"…\".",
+    "verified_at": "2026-11-05"
   }
 ]

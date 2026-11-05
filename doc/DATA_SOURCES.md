@@ -13,6 +13,7 @@
 > 2026-11-04 jprk Souhrn stavu a postup prvního ostrého běhu (odstavec 8.11)
 > 2026-11-05 jprk Etapa E3 provedena (odstavce 4.3, 8.11 a 8.12)
 > 2026-11-05 jprk Etapa E4 provedena (odstavce 4.3, 8.11 a 8.13)
+> 2026-11-05 jprk Etapa E5 provedena (odstavce 4.3, 8.11 a 8.14); TRIS převeden na zakázaný zdroj
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -458,6 +459,12 @@ lze zjišťovat porovnáním otisku obsahu nebo pole data poslední změny. Na
 vyžádání: `sbirka-pp-usc`, `is-eia`, `echa-chem`, `data-europa-search`,
 `gesetze-im-internet` — pro ně postačí funkce dohledání volaná z editorského
 rozhraní nebo z příkazové řádky, nikoli pravidelný běh.
+
+*Stav 5. 11. 2026: provedeno.* Pravidelně se procházejí TIČR, HZS ČR, ČMI, MD (ADR)
+a Have Your Say (`src/tools/harvest_pages.py`); pět zdrojů k dohledání nabízí
+spouštěč volbou `--lookup` (`src/tools/harvest_lookups.py`). TRIS server pro
+roboty uzavřel a vede se nově jako zakázaný zdroj; NFPA 2 je odložena; podklady
+DG ENER a Observatory (signál `context`) spouštěč nevolá. Podrobně odstavec 8.14.
 
 **E6 — Zdroje vyžadující správní krok nebo rozhodnutí (9 zdrojů).**
 `e-legislativa` (A) a REST API e-Sbírky (položka `esbirka-lod`) zpřístupní
@@ -1130,15 +1137,16 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
 | E2 | provedeno | `veklep-odok`, `psp-snemovni-tisky`, `senat-tisky`, `ep-oeil` | `slovlex-legislativny-proces` |
 | E3 | provedeno (5. 11.) | `vestnik-unmz`, `unmz-news`, `ec-harmonised-standards`, `cps-tpg`, `sae-standards` | `astm-d03`, `asme-codes`, `vestnik-unms-sr` |
 | E4 | provedeno (5. 11.) | `acer`, `mpo-cz`, `eru-cz`, `mmr-stavebni-pravo`, `mzp-cz`, `suip`, `cizp`, `coi`, `era-railways`, `ehsp`, `du-rid`, `otif-rid` | — (`mhsr-vodikova-strategia` jen podklad) |
-| E5–E6 | dosud neprovedeno | — | — |
+| E5 | provedeno (5. 11.) | `ticr`, `hzs-cr`, `cmi-oop`, `md-adr`, `ec-have-your-say`; dohledání: `sbirka-pp-usc`, `is-eia`, `echa-chem`, `data-europa-search`, `gesetze-im-internet` | `nfpa-2`; `ec-tris` zakázán |
+| E6 | dosud neprovedeno | — | — |
 
 Všechny ostré běhy dosud proběhly jen nad testovací databází `h2regdocs_test`;
 živá databáze `h2regdocs` ani její fronta kandidátů se nezměnily. První ostrý
 běh nad živou databází patrně přinese zhruba 82 kandidátů z e-Sbírky (38 v pásmu
 1), 1 z HYTEP a 44 návrhů předpisů (37 v pásmu 1), dohromady 127 kandidátů,
 z toho 76 v pásmu 1; etapa E3 k nim přidá zhruba 102 kandidátů na normy
-a technická pravidla (24 v pásmu 1) a etapa E4 zhruba 10 (6 v pásmu 1). Přesné
-počty budou záviset na stavu zdrojů v den běhu.
+a technická pravidla (24 v pásmu 1), etapa E4 zhruba 10 (6 v pásmu 1) a etapa E5
+zhruba 6 (3 v pásmu 1). Přesné počty budou záviset na stavu zdrojů v den běhu.
 
 Navrhujeme tento postup:
 
@@ -1337,4 +1345,76 @@ RID dostala výchozí stav.
    zapnout, nebo kanály s nulovým přínosem převést na ruční kontrolu.
 2. **Strategie MH SR** (`mhsr-vodikova-strategia`) — slovenská vodíková strategie
    je podkladem (`context`), sleduje se v rámci čtvrtletní ruční kontroly.
+
+### 8.14 Etapa E5 (5. 11. 2026)
+
+Etapa zapojila stránky bez kanálu a bez rozhraní, čtené jako HTML, a dohledání na
+vyžádání. Pravidelné adaptéry jsou v modulu `src/tools/harvest_pages.py`, dohledání
+v modulu `src/tools/harvest_lookups.py`:
+
+| Zdroj | Adaptér | Co čte | Pravidlo |
+|---|---|---|---|
+| `ticr` | `ticr_news` | Aktuality Technické inspekce ČR — datované textové bloky jedné stránky | základní i rozšiřující výrazy (tlaková a plynová zařízení jsou agendou úřadu) |
+| `hzs-cr` | `hzs_news` | Zpravodajství HZS ČR (převážně regionální zprávy) | jen základní výrazy |
+| `cmi-oop` | `cmi_oop` | Seznam opatření obecné povahy ČMI (OOP k měřidlům) | vodík pásmo 1; výdejní stojany a měřidla plynu pásmo 2 (stojan na vodík by spadal pod takové opatření) |
+| `md-adr` | `md_adr_pages` | Rozcestník ADR Ministerstva dopravy s datem aktualizace podstránek | změna data po posledním ostrém běhu → pásmo 2; první běh jen výchozí stav |
+| `ec-have-your-say` | `hys_initiatives` | Iniciativy Komise pro „hydrogen“ přes rozhraní JSON, jež používá sám web | aktivní iniciativy dosud nepřijaté jako návrh (návrh sleduje OEIL a EUR-Lex) → návrh předpisu v pásmu 1 |
+
+**Dohledání na vyžádání** spouští editor z příkazové řádky; výsledky se jen
+vypíší, nic se nezapisuje:
+
+```
+.venv/bin/python src/tools/harvest_sources.py --lookup is-eia "vodík"
+.venv/bin/python src/tools/harvest_sources.py --lookup sbirka-pp-usc "požární řád"
+.venv/bin/python src/tools/harvest_sources.py --lookup echa-chem "hydrogen"
+.venv/bin/python src/tools/harvest_sources.py --lookup data-europa-search "hydrogen refuelling"
+.venv/bin/python src/tools/harvest_sources.py --lookup gesetze-im-internet "Wasserstoff"
+```
+
+| Zdroj | Dohledání | Ověřeno 5. 11. 2026 |
+|---|---|---|
+| `is-eia` | záměry v informačním systému EIA podle rychlého hledání (první strana výsledků) | „vodík“: 25 záměrů, mj. MSK2453 Výroba vodíku z obnovitelných zdrojů v Teplárně Krnov, ULK1291 ORLEN Unipetrol RPA |
+| `sbirka-pp-usc` | předpisy krajů a obcí podle názvu, od nejnovějších | „požár“: požární řády obcí a poplachové plány krajů; „vodík“: 0 |
+| `echa-chem` | látky v ECHA CHEM (nedokumentované rozhraní) | „hydrogen“: 20 látek |
+| `data-europa-search` | datové sady katalogu data.europa.eu | „hydrogen refuelling“: plnicí stanice v Belgii a Německu |
+| `gesetze-im-internet` | německé předpisy podle názvu (jen ke srovnání) | „Wasserstoff“: 3 předpisy, mj. zákon o urychlení vodíkové infrastruktury |
+
+Dohledání v editorském rozhraní (například při posuzování kandidáta nebo záměru)
+zatím zapojeno není; funkce jsou na to připraveny (`harvest_lookups.LOOKUPS`).
+
+**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test`: 6 kandidátů — 3 iniciativy Have Your Say v pásmu 1 (nová
+vodíková strategie, revize kritérií pro výrobu RFNBO, revize síťového kodexu
+o přidělování kapacity v plynárenských přepravních soustavách), 1 aktualita TIČR
+v pásmu 2 a 2 opatření ČMI v pásmu 2 (měřidla protečeného množství plynu,
+převodníky hustoty plynů). HZS ČR v aktuálním zpravodajství vodík nezmiňuje;
+rozcestník ADR dostal výchozí stav.
+
+**Zjištění při provádění.**
+
+1. **TRIS uzavřel vyhledávání robotům.** První dotaz POST na `/en/search/results`
+   prošel (52 oznámení pro „hydrogen“), další server odmítl s HTTP 403
+   „Disallowed by robots.txt“. `robots.txt` zakazuje kořenové `/search/`;
+   provozovatel tím vyhledávání pro roboty vylučuje i v jazykové cestě. Zdroj je
+   nově ve stavu `prohibited` a nesleduje se; náhradou je e-mailová konference
+   TRIS nebo ruční kontrola. Adaptér (`tris_notifications`) zůstává připraven pro
+   případ, že by provozovatel přístup povolil.
+2. **Have Your Say má rozhraní JSON** (`brpapi/searchInitiatives`), jež ověření
+   v říjnu nenašlo; zdroj je nově ve stavu `ready`. Rozhraní nese fázi iniciativy,
+   což umožňuje vynechat iniciativy, jež už jsou návrhem Komise.
+3. **Aktuality TIČR** jsou bloky oddělené nezalomitelnými mezerami; datum uvnitř
+   textu zprávy („ze dne 13. 2. 2026“) blok nezačíná.
+4. **IS EIA** vyžaduje relaci a všechna pole formuláře; bez nich vrací jen
+   formulář.
+5. **HZS ČR** je web Next.js, články jsou však v odkazech serverem vykreslené
+   stránky; zpravodajství je převážně regionální.
+
+**Otevřené body.**
+
+1. **Dohledání v editorském rozhraní** — nabídnout `--lookup` přímo u kandidáta
+   (například IS EIA a Sbírku ÚSC při posuzování konkrétního místa).
+2. **TRIS** — požádat provozovatele o přístup, nebo se přihlásit do e-mailové
+   konference.
+3. **Podklady DG ENER a European Hydrogen Observatory** (`context`) — sledovat
+   v rámci čtvrtletní ruční kontroly.
 

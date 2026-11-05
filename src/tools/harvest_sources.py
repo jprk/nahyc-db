@@ -29,6 +29,7 @@ Usage:
   .venv/bin/python src/tools/harvest_sources.py --source normoff-stn --limit 5      # trial run
   .venv/bin/python src/tools/harvest_sources.py --checklist
   .venv/bin/python src/tools/harvest_sources.py --record imo-imdg --note "bez změny" [--found 0]
+  .venv/bin/python src/tools/harvest_sources.py --lookup is-eia "vodík"     # a lookup on demand, prints only
 """
 import argparse
 import collections
@@ -41,7 +42,8 @@ import requests
 import harvest
 import source_registry
 
-# Source id → adapters (harvest_adapters.py, E1; harvest_drafts.py, E2; harvest_standards.py, E3; harvest_feeds.py, E4).
+# Source id → adapters (harvest_adapters.py, E1; harvest_drafts.py, E2; harvest_standards.py, E3; harvest_feeds.py, E4;
+# harvest_pages.py, E5).
 ADAPTERS = {
     "eurlex-cellar": ("harvest_adapters:eurlex_new", "harvest_adapters:validity_eu"),
     "esbirka-lod": ("harvest_adapters:esbirka_new", "harvest_adapters:validity_cz"),
@@ -72,6 +74,12 @@ ADAPTERS = {
     "otif-rid": ("harvest_feeds:rss_items_broader",),
     "du-rid": ("harvest_feeds:rss_items_broader", "harvest_feeds:du_rid_page"),
     "ehsp": ("harvest_feeds:ehsp_documents",),
+    # stage E5 (harvest_pages.py; lookups on demand in harvest_lookups.py)
+    "ticr": ("harvest_pages:ticr_news",),
+    "hzs-cr": ("harvest_pages:hzs_news",),
+    "cmi-oop": ("harvest_pages:cmi_oop",),
+    "md-adr": ("harvest_pages:md_adr_pages",),
+    "ec-have-your-say": ("harvest_pages:hys_initiatives",),
 }
 # Sources of the plan whose existing script is deliberately not run by the runner.
 DEFERRED = {
@@ -84,6 +92,7 @@ DEFERRED = {
     "astm-d03": "answers the identified robot with HTTP 403 since 2026-10-28",
     "asme-codes": "the standards pages are a shop without a machine-readable list — checked by hand",
     "vestnik-unms-sr": "an index of PDFs without a stable naming pattern, priority C — not implemented",
+    "nfpa-2": "a page rendered only in a browser, robots.txt forbids /en/ — checked by hand",
 }
 
 
@@ -219,6 +228,21 @@ def checklist(entries, log_path=None, out=print):
     return rows
 
 
+def lookup(source, query, session=None, out=print):
+    """Prints what a lookup on demand finds (harvest_lookups.LOOKUPS)."""
+    import harvest_lookups
+    if source not in harvest_lookups.LOOKUPS:
+        out(f"no lookup for {source}; available: {', '.join(sorted(harvest_lookups.LOOKUPS))}")
+        return 2
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", harvest.USER_AGENT)
+    results = harvest_lookups.LOOKUPS[source](session, query)
+    for item in results:
+        out(f"- {item['title']}" + (f" — {item['detail']}" if item.get("detail") else "") + (f"\n  {item['url']}" if item.get("url") else ""))
+    out(f"{len(results)} results from {source} for {query!r}")
+    return 0
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     what = parser.add_mutually_exclusive_group(required=True)
@@ -227,6 +251,8 @@ def main(argv=None):
     what.add_argument("--cadence", choices=source_registry.CADENCES)
     what.add_argument("--checklist", action="store_true", help="list the sources checked by hand")
     what.add_argument("--record", metavar="ID", help="log a check done by hand")
+    what.add_argument("--lookup", nargs=2, metavar=("ID", "QUERY"),
+                      help="search a source looked up on demand (harvest_lookups.py); prints, writes nothing")
     parser.add_argument("--note", help="with --record: what the check found")
     parser.add_argument("--found", type=int, default=0, help="with --record: number of new documents")
     parser.add_argument("--limit", type=int, default=None,
@@ -238,6 +264,8 @@ def main(argv=None):
     if args.checklist:
         checklist(entries)
         return 0
+    if args.lookup:
+        return lookup(*args.lookup)
     if args.record:
         entry = source_registry.select(entries, [args.record])[0]
         if not args.note:
