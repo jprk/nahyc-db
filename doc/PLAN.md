@@ -6039,3 +6039,12 @@ original treatment, not asked for.
 - TRIS: the second POST got 403 "Disallowed by robots.txt" → `ec-tris` is `prohibited`. Have Your Say: JSON API found → `ready`. NFPA 2 deferred.
 - Result: 6 candidates (3 Have Your Say tier 1 incl. the RFNBO criteria revision and the new hydrogen strategy, TIČR 1, ČMI 2). Applied to `h2regdocs_test` only.
 - Tests: `tests/test_harvest_pages.py`; `run_tests.py` all green.
+
+## 56. Harvesting stage E6 and the end of the plan (NEW, 2026-11-05, user-directed, branch `feature/harvest-e6`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.15).
+- `src/tools/harvest_eu_registers.py`: three Commission registers that are browser apps, read through the JSON interfaces the apps call themselves (found once with a headless browser; no bot protection, robots.txt allows): `comitology_documents` (POST documents/search, newest 500 ≈ 4 weeks, EUR-Lex off-topic patterns), `delegated_acts` (POST web/delegatedActs with the session's CSRF token; unpublished acts = drafts), `commission_documents` (POST api/groupSearch; COM/C, 90 days, tier 2).
+- UNECE ×2, Council register, BAuA still behind bot protection → `manual_only` (stage manual), not circumvented. e-Legislativa deferred until the Ministry of the Interior issues an API key (its undocumented internal endpoint is not used). NANDO stays a manual lookup.
+- Registry: every source the runner reads is `automated` with its adapters in `screener`. 34 sources run (39 adapters), 5 lookups, 16 manual, 11 deferred, 5 context, 7 prohibited/rejected.
+- Result: 2 candidates (a draft amendment of REACH Annex XVII, an unpublished delegated directive found by "non-biological origin"). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_eu_registers.py`; `run_tests.py` all green.

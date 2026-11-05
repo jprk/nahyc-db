@@ -14,6 +14,7 @@
 > 2026-11-05 jprk Etapa E3 provedena (odstavce 4.3, 8.11 a 8.12)
 > 2026-11-05 jprk Etapa E4 provedena (odstavce 4.3, 8.11 a 8.13)
 > 2026-11-05 jprk Etapa E5 provedena (odstavce 4.3, 8.11 a 8.14); TRIS převeden na zakázaný zdroj
+> 2026-11-05 jprk Etapa E6 provedena, plán vytěžování dokončen (odstavce 2, 4.3, 8.11 a 8.15)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -57,13 +58,19 @@ Pole `status` nabývá sedmi hodnot:
 
 | Hodnota | Význam | Počet |
 |---|---|---|
-| `automated` | Sledujeme dnes, existuje skript. | 10 |
-| `ready` | Strojově čitelná cesta ověřena, zbývá ji zapojit. | 24 |
-| `needs_work` | Dostupné, ale vyžaduje sběr z HTML nebo nestabilní vzor adresy. | 17 |
-| `manual_only` | Vhodné jen k občasné lidské kontrole, ne k automatizaci. | 12 |
-| `prohibited` | Podmínky užití nebo `robots.txt` automatizovaný přístup zapovídají. | 5 |
-| `blocked` | Technická překážka (ochrana proti robotům, aplikace vykreslovaná až v prohlížeči, rozhraní dostupné jen po registraci). | 9 |
+| `automated` | Sledujeme dnes, existuje skript. | 39 |
+| `ready` | Strojově čitelná cesta ověřena, zbývá ji zapojit. | 6 |
+| `needs_work` | Dostupné, ale vyžaduje sběr z HTML nebo nestabilní vzor adresy. | 8 |
+| `manual_only` | Vhodné jen k občasné lidské kontrole, ne k automatizaci. | 16 |
+| `prohibited` | Podmínky užití nebo `robots.txt` automatizovaný přístup zapovídají. | 6 |
+| `blocked` | Technická překážka (ochrana proti robotům, aplikace vykreslovaná až v prohlížeči, rozhraní dostupné jen po registraci). | 2 |
 | `rejected` | Ověřeno a zavrženo pro nedostatek užitečného signálu. | 1 |
+
+Počty odpovídají stavu po etapě E6 (5. 11. 2026). Stav `automated` mají zdroje,
+jež čte spouštěč (pole `screener` uvádí adaptéry), a pět zdrojů se starším
+vlastním skriptem, jež spouštěč záměrně nevolá (odstavec 8.7). Stavy `ready`
+a `needs_work` mají zdroje sloužící k dohledání na vyžádání a podklady
+(`context`), jež se pravidelně neprocházejí.
 
 Pole `verified_at` nese datum, kdy byla adresa naposledy ověřena živě.
 Hodnota `null` znamená, že zdroj je v aktivním používání pipeline, a jeho
@@ -465,6 +472,12 @@ a Have Your Say (`src/tools/harvest_pages.py`); pět zdrojů k dohledání nabí
 spouštěč volbou `--lookup` (`src/tools/harvest_lookups.py`). TRIS server pro
 roboty uzavřel a vede se nově jako zakázaný zdroj; NFPA 2 je odložena; podklady
 DG ENER a Observatory (signál `context`) spouštěč nevolá. Podrobně odstavec 8.14.
+
+*Stav 5. 11. 2026: provedeno.* Tři registry Komise (komitologie, akty
+v přenesené pravomoci, dokumenty Komise) čte spouštěč přes rozhraní, jež
+používají samy aplikace (`src/tools/harvest_eu_registers.py`); e-Legislativa čeká
+na registraci; UNECE, registr Rady EU a BAuA zůstaly za ochranou proti robotům
+a kontrolují se ručně. Podrobně odstavec 8.15.
 
 **E6 — Zdroje vyžadující správní krok nebo rozhodnutí (9 zdrojů).**
 `e-legislativa` (A) a REST API e-Sbírky (položka `esbirka-lod`) zpřístupní
@@ -1138,15 +1151,23 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
 | E3 | provedeno (5. 11.) | `vestnik-unmz`, `unmz-news`, `ec-harmonised-standards`, `cps-tpg`, `sae-standards` | `astm-d03`, `asme-codes`, `vestnik-unms-sr` |
 | E4 | provedeno (5. 11.) | `acer`, `mpo-cz`, `eru-cz`, `mmr-stavebni-pravo`, `mzp-cz`, `suip`, `cizp`, `coi`, `era-railways`, `ehsp`, `du-rid`, `otif-rid` | — (`mhsr-vodikova-strategia` jen podklad) |
 | E5 | provedeno (5. 11.) | `ticr`, `hzs-cr`, `cmi-oop`, `md-adr`, `ec-have-your-say`; dohledání: `sbirka-pp-usc`, `is-eia`, `echa-chem`, `data-europa-search`, `gesetze-im-internet` | `nfpa-2`; `ec-tris` zakázán |
-| E6 | dosud neprovedeno | — | — |
+| E6 | provedeno (5. 11.) | `ec-comitology-register`, `ec-regdel`, `ec-documents-register` | `e-legislativa` (registrace); `unece-wp29`, `unece-dangerous-goods`, `council-public-register`, `baua` převedeny na ruční kontrolu |
+
+**Celkem po dokončení plánu.** Ze 78 zdrojů registru spouštěč pravidelně čte 34
+(39 adaptérů), 5 dalších nabízí k dohledání na vyžádání (`--lookup`), 16 se
+kontroluje ručně (`--checklist`), 11 je odloženo s uvedeným důvodem
+(`DEFERRED`), 5 podkladů se signálem `context` se neprochází a 7 zdrojů je
+zakázaných nebo zavržených.
 
 Všechny ostré běhy dosud proběhly jen nad testovací databází `h2regdocs_test`;
 živá databáze `h2regdocs` ani její fronta kandidátů se nezměnily. První ostrý
 běh nad živou databází patrně přinese zhruba 82 kandidátů z e-Sbírky (38 v pásmu
 1), 1 z HYTEP a 44 návrhů předpisů (37 v pásmu 1), dohromady 127 kandidátů,
 z toho 76 v pásmu 1; etapa E3 k nim přidá zhruba 102 kandidátů na normy
-a technická pravidla (24 v pásmu 1), etapa E4 zhruba 10 (6 v pásmu 1) a etapa E5
-zhruba 6 (3 v pásmu 1). Přesné počty budou záviset na stavu zdrojů v den běhu.
+a technická pravidla (24 v pásmu 1), etapa E4 zhruba 10 (6 v pásmu 1), etapa E5
+zhruba 6 (3 v pásmu 1) a etapa E6 zhruba 2 (oba v pásmu 1) — dohromady zhruba 247
+kandidátů, z toho zhruba 111 v pásmu 1. Přesné počty budou záviset na stavu zdrojů
+v den běhu.
 
 Navrhujeme tento postup:
 
@@ -1168,8 +1189,9 @@ Navrhujeme tento postup:
    nejméně měsíčně.
 
 Rozhodnutí, jež zůstávají otevřená: zapojení zdrojů IEC, EIGA a DVGW
-(odstavec 8.7), přesunutí novel obecných předpisů do pásma 2 (odstavec 8.10)
-a plánovač (odstavec 4.5).
+(odstavec 8.7), přesunutí novel obecných předpisů do pásma 2 (odstavec 8.10),
+registrace k REST API e-Sbírky a e-Legislativy (odstavec 8.15), žádost
+o přístup k TRIS (odstavec 8.14) a plánovač (odstavec 4.5).
 
 ### 8.12 Etapa E3 (5. 11. 2026)
 
@@ -1417,4 +1439,71 @@ rozcestník ADR dostal výchozí stav.
    konference.
 3. **Podklady DG ENER a European Hydrogen Observatory** (`context`) — sledovat
    v rámci čtvrtletní ruční kontroly.
+
+### 8.15 Etapa E6 (5. 11. 2026) a dokončení plánu
+
+Etapa se týkala zdrojů, jež v plánu čekaly na správní krok nebo na rozhodnutí.
+Kontrola dostupnosti 5. 11. 2026 potvrdila stav z října: UNECE (oba zdroje),
+veřejný registr Rady EU a BAuA vracejí poctivě identifikovanému robotu HTTP 403
+(ochrana proti robotům), ostatní odpovídají obalem aplikace vykreslované
+v prohlížeči.
+
+**Aplikace Komise.** Rejstřík komitologie, rejstřík aktů v přenesené pravomoci
+a registr dokumentů Komise za ochranou proti robotům nejsou a `robots.txt` jejich
+cesty nezakazuje. Každou aplikaci jsme jednou načetli v headless prohlížeči
+a zaznamenali, jaká rozhraní JSON si sama volá; adaptéry v modulu
+`src/tools/harvest_eu_registers.py` volají tatáž rozhraní stejným způsobem jako
+aplikace, bez prohlížeče:
+
+| Zdroj | Adaptér | Rozhraní a pravidlo |
+|---|---|---|
+| `ec-comitology-register` | `comitology_documents` | POST `core/api/front/documents/search` řazený podle data vzniku; 500 nejnovějších dokumentů (asi čtyři týdny, proto týdně); dokument, jehož název nebo výbor zmiňuje vodík a jenž není mezi vzory chemických nálezů EUR-Lexu (biocidy s peroxidem vodíku). Návrh prováděcího aktu je návrhem v pásmu 1, jiný dokument (pořad jednání, hlasování) kandidátem v pásmu 2. |
+| `ec-regdel` | `delegated_acts` | POST `web/delegatedActs` s relací a tokenem CSRF, jež aplikace získává z `web/security/status`; hledání „hydrogen“, „RFNBO“ a „non-biological origin“; akt, jenž dosud není vyhlášen, je návrhem v pásmu 1. |
+| `ec-documents-register` | `commission_documents` | POST `api/groupSearch`; dokumenty COM (návrhy) a C za posledních 90 dní s vodíkem v názvu, v pásmu 2, protože návrhy i akty sleduje také EUR-Lex a Legislative Observatory. Hledání jen v názvu rozhraní odmítá, filtruje proto adaptér. |
+
+**Zdroje za ochranou proti robotům.** UNECE (předpisy pro vozidla i nebezpečné
+věci), veřejný registr Rady EU a BAuA jsme převedli do stavu `manual_only`;
+kontrolují se v rámci čtvrtletní ruční kontroly (`harvest_sources.py
+--checklist`). Ochranu neobcházíme. Část jejich signálu nesou jiné zdroje: RID
+kanál OTIF, ADR rozcestník Ministerstva dopravy; ADN a předpisy EHK OSN pro
+vozidla zůstávají jen ruční.
+
+**e-Legislativa.** Oficiální REST API vyžaduje klíč, jejž přiděluje Ministerstvo
+vnitra po registraci; registrace je společná s REST API e-Sbírky. Podání učiní
+člen týmu formulářem do datové schránky ministerstva (ID 6bnaawp, předmět
+„e-Sbírka a e-Legislativa – registrace REST API“) s odhadem objemu dotazů;
+posouzení trvá až deset pracovních dní. Portál e-Legislativy sám volá
+nedokumentované rozhraní, jež odpovídá i bez klíče; nepoužíváme je, protože
+oficiální cesta s registrací existuje. Zdroj spouštěč do registrace odkládá.
+
+**NANDO** (oznámené subjekty) zůstává zdrojem k dohledání ve webovém rozhraní;
+pro databázi má nízkou prioritu.
+
+**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+`h2regdocs_test`: 2 kandidáti v pásmu 1 — návrh nařízení Komise, jímž se mění
+příloha XVII nařízení REACH (rejstřík komitologie; dva odklady schválení biocidů
+s peroxidem vodíku vzory vyřadily), a dosud nevyhlášená směrnice Komise
+v přenesené pravomoci o intenzitě emisí skleníkových plynů v životním cyklu
+(rejstřík aktů v přenesené pravomoci, nalezena dotazem „non-biological origin“).
+Registr dokumentů Komise za 90 dní žádný dokument COM ani C s vodíkem v názvu
+neobsahoval.
+
+**Stav registru po dokončení plánu.** Zdroje, jež čte spouštěč, mají nově stav
+`automated` a v poli `screener` adaptéry; ostatní stavy odpovídají tomu, jak se
+zdroj sleduje (odstavec 2 a souhrn v odstavci 8.11).
+
+**Otevřené body po dokončení plánu.**
+
+1. **První ostrý běh nad živou databází** podle odstavce 8.11 (záloha,
+   editorské účty, suchý běh, `--apply`).
+2. **Plánovač** pravidelných běhů (odstavec 4.5).
+3. **Registrace k REST API** e-Sbírky a e-Legislativy (výše).
+4. **Rozhodnutí o zdrojích, jejichž stávající skripty obcházejí ochranu proti
+   robotům** (IEC, EIGA, DVGW; odstavec 8.7), a žádost o přístup k TRIS
+   (odstavec 8.14).
+5. **Vyhodnocení po několika týdnech provozu**: pásma a vzory podle rozhodnutí
+   editorů (odstavce 8.9, 8.10, 8.13), přínos kanálů úřadů.
+6. **Navazující úpravy databáze**: stavy norem a jejich vazby (odstavec 8.12),
+   propojení návrhu předpisu s vyhlášeným předpisem (odstavce 8.10 a 8.12),
+   dohledání v editorském rozhraní (odstavec 8.14).
 

@@ -43,7 +43,7 @@ import harvest
 import source_registry
 
 # Source id → adapters (harvest_adapters.py, E1; harvest_drafts.py, E2; harvest_standards.py, E3; harvest_feeds.py, E4;
-# harvest_pages.py, E5).
+# harvest_pages.py, E5; harvest_eu_registers.py, E6).
 ADAPTERS = {
     "eurlex-cellar": ("harvest_adapters:eurlex_new", "harvest_adapters:validity_eu"),
     "esbirka-lod": ("harvest_adapters:esbirka_new", "harvest_adapters:validity_cz"),
@@ -80,6 +80,10 @@ ADAPTERS = {
     "cmi-oop": ("harvest_pages:cmi_oop",),
     "md-adr": ("harvest_pages:md_adr_pages",),
     "ec-have-your-say": ("harvest_pages:hys_initiatives",),
+    # stage E6 (harvest_eu_registers.py)
+    "ec-comitology-register": ("harvest_eu_registers:comitology_documents",),
+    "ec-regdel": ("harvest_eu_registers:delegated_acts",),
+    "ec-documents-register": ("harvest_eu_registers:commission_documents",),
 }
 # Sources of the plan whose existing script is deliberately not run by the runner.
 DEFERRED = {
@@ -93,6 +97,7 @@ DEFERRED = {
     "asme-codes": "the standards pages are a shop without a machine-readable list — checked by hand",
     "vestnik-unms-sr": "an index of PDFs without a stable naming pattern, priority C — not implemented",
     "nfpa-2": "a page rendered only in a browser, robots.txt forbids /en/ — checked by hand",
+    "e-legislativa": "the official REST API needs a key from the Ministry of the Interior (registration pending)",
 }
 
 
