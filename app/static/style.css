@@ -1348,6 +1348,7 @@ main {
     padding: 0.5rem 1rem; color: var(--text-secondary); }
 .candidate-help summary { cursor: pointer; color: var(--text-primary); font-weight: 500; }
 .candidate-help p, .candidate-help ol, .candidate-help ul { margin: 0.5rem 0; }
-.candidate-help li { margin: 0.25rem 0; }
+.candidate-help ol, .candidate-help ul { padding-left: 1.75rem; }  /* the global reset takes the indent away */
+.candidate-help li { margin: 0.25rem 0; padding-left: 0.25rem; }
 .candidate-help strong { color: var(--text-primary); }
 
