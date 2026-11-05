@@ -3,7 +3,7 @@
 <section class="results-section">
     <div class="results-header">
         <h2 class="results-title">Položky k revizi <span class="badge">{{ items|length }}</span></h2>
-        <div>
+        <div class="candidate-actions">
             <a href="{{ url_for('admin.candidate_list') }}" class="btn-secondary">Kandidáti na nové dokumenty</a>
             <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('name') }})</a>
         </div>

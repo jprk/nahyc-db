@@ -1307,8 +1307,19 @@ main {
     border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; color: var(--text-primary);
     font-family: var(--font-sans); font-size: 1rem; }
 .admin-form-group select { width: 100%; }
+.candidate-filters select { max-width: 100%; }  /* the source names are long; a phone must not scroll sideways */
 .candidate-context { color: var(--text-secondary); font-style: italic; margin-bottom: 1rem; }
 .admin-card h3 { margin: 1.5rem 0 0.5rem; }
+/* The actions in the header of the admin lists: one row of buttons of the same height, beside
+   the title while there is room, below it otherwise (never two rows squeezed beside it). */
+.results-header:has(.candidate-actions) { flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
 .candidate-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-.candidate-actions .btn-primary { width: auto; padding: 0.6rem 1.2rem; }
+.candidate-actions .btn-primary, .candidate-actions .btn-secondary { width: auto; height: 40px; min-height: 0;
+    margin-top: 0; padding: 0 1rem; font-size: 0.95rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.candidate-help { margin: 0 0 1rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
+    padding: 0.5rem 1rem; color: var(--text-secondary); }
+.candidate-help summary { cursor: pointer; color: var(--text-primary); font-weight: 500; }
+.candidate-help p, .candidate-help ol, .candidate-help ul { margin: 0.5rem 0; }
+.candidate-help li { margin: 0.25rem 0; }
+.candidate-help strong { color: var(--text-primary); }
 

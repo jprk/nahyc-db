@@ -6056,3 +6056,10 @@ original treatment, not asked for.
 - Dress rehearsal on `h2regdocs_test` (fresh copy of the live DB): all stages E1–E6 with `--apply` in 18 min, no adapter error; 247 candidates from sources, 111 in tier 1 — exactly the forecast of odstavec 8.11; a repeated run only updates. Two test editors via `dbuser_add.py --env-file .env.test`; debug server on port 5001; headless walk-through without JS or HTTP errors.
 - Defect found and fixed: 63 harvested drafts/amendments had no document type and the proposal form preselected "Metodika". The form now offers "— vyberte —" for an untyped candidate; `harvest.guess_document_type()` reads the type of drafts and amendments from the title (never of news); `candidates.upsert_finding()` fills a missing type of a queued candidate. 9 candidates remain untyped (initiatives, news).
 - Live DB untouched. Tests: `run_tests.py` all green.
+
+## 58. Candidate queue page: header layout and a short guide (NEW, 2026-11-05, user-directed, branch `feature/candidates-ui`)
+
+- User report: the header of "Kandidáti na nové dokumenty" was crammed — the title wrapped, the buttons wrapped into two rows, "Navrhnout dokument" was taller than the others (`.btn-primary` min-height + padding + 1.1rem font, underlined link text vs. the fixed 44 px `.btn-secondary`). Now one row of 40 px buttons beside the title, below it when there is no room (`.results-header:has(.candidate-actions)`); the review list header uses the same class.
+- The user did not know what to do with a candidate nor what tiers are: a collapsible "Jak s frontou pracovat" on the list explains propose → second editor confirms → document, reject/defer, the state of the created document, tier 1/2, and the two header buttons.
+- On a phone the source filter (long source names) widened the page to 841 px; capped at the row width.
+- Test: `tests/e2e/test_candidates.py::test_header_buttons_help_and_phone_width`.

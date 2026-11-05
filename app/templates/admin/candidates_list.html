@@ -14,6 +14,31 @@
         {% for s, label in state_labels.items() %}{{ label }}: <strong>{{ counts.get(s, 0) }}</strong>{% if not loop.last %} &middot; {% endif %}{% endfor %}
     </p>
 
+    <details class="candidate-help">
+        <summary>Jak s frontou pracovat</summary>
+        <p>Kandidát je dokument, který v databázi zatím není a který našla kontrola citací, kontrola platnosti
+            nebo některý ze sledovaných zdrojů. Do databáze se nic nepřidá samo — o každém kandidátovi rozhodují
+            editoři.</p>
+        <ol>
+            <li><strong>Otevřít</strong> kandidáta a podle nálezů a odkazu na zdroj posoudit, zda do databáze patří.</li>
+            <li>Patří-li tam: doplnit označení, typ dokumentu a věcný okruh a zvolit <strong>Navrhnout přijetí</strong>.</li>
+            <li>Návrh potvrzuje <strong>jiný editor</strong> (filtr stavu „navržení k přijetí“, v detailu
+                <strong>Potvrdit přijetí a založit dokument</strong>). Teprve tím dokument v databázi vznikne;
+                vlastní návrh potvrdit nelze.</li>
+            <li>Nepatří-li tam: <strong>Zamítnout</strong> s uvedeným důvodem; nelze-li to zatím posoudit:
+                <strong>Odložit</strong>.</li>
+        </ol>
+        <p><strong>Stav vzniklého dokumentu:</strong> vyhlášený předpis vznikne jako „účinný“ (nebo „vyhlášený, dosud neúčinný“
+            podle kontroly platnosti), návrh předpisu v legislativním procesu (sněmovní tisk, VeKLEP, návrh Komise)
+            jako „připravovaný“; novela dostane vazbu „novelizuje“ na dokumenty, které mění.</p>
+        <p><strong>Pásmo 1</strong> (výchozí zobrazení): kandidáti, kteří se databáze týkají přímo — mění dokument,
+            který databáze obsahuje, nebo mají v názvu vodík či výraz věcných okruhů databáze.
+            <strong>Pásmo 2</strong>: nálezy, které s ní souvisejí jen nepřímo (téma se objeví jen v textu, okrajová
+            norma, zpráva úřadu); stačí je občas projít, nic z nich se samo nemaže.</p>
+        <p><strong>Navrhnout dokument</strong> slouží k ručnímu návrhu dokumentu, který ve frontě není (potvrzuje jej
+            také druhý editor); <strong>Revize dokumentů</strong> jsou opravy záznamů, které už v databázi jsou.</p>
+    </details>
+
     <form method="GET" action="{{ url_for('admin.candidate_list') }}" class="candidate-filters">
         <select name="stav" aria-label="Stav">
             {% for value, label in [('open', 'otevření'), ('new', 'noví'), ('proposed', 'navržení k přijetí'), ('deferred', 'odložení'), ('accepted', 'přijatí'), ('rejected', 'zamítnutí'), ('all', 'všichni')] %}

@@ -14,7 +14,7 @@ from werkzeug.security import generate_password_hash
 
 import sys
 
-from browser_case import BrowserTestCase, database_connection
+from browser_case import PHONE, BrowserTestCase, database_connection
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "src" / "tools"))
 import candidates  # noqa: E402
@@ -153,3 +153,22 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         self.assertTrue(page.get_by_text("návrh předpisu (připravovaný)").is_visible())
         self.assertTrue(page.get_by_text("bez označení předpisu, doplnit ručně").is_visible())
         self.shot(page, "07-candidate-from-sources")
+
+    def test_header_buttons_help_and_phone_width(self):
+        page = self.new_page()
+        self.login(page, "e2e_cand_alice")
+        self.goto(page, "/admin/candidates")
+        boxes = [b.bounding_box() for b in page.locator(".candidate-actions a").all()]
+        self.assertEqual(len(boxes), 3)
+        self.assertEqual({round(b["height"]) for b in boxes}, {40}, "the header buttons differ in height")
+        tops = [b["y"] for b in boxes]
+        self.assertLess(max(tops) - min(tops), 4, "the header buttons wrap into several rows")
+        page.click(".candidate-help summary")
+        self.assertTrue(page.get_by_text("Návrh potvrzuje").is_visible())
+        self.assertTrue(page.locator(".candidate-help strong", has_text="Pásmo 2").is_visible())
+        self.shot(page, "08-header-and-help", full_page=False)
+
+        phone = self.new_page(PHONE)
+        self.login(phone, "e2e_cand_alice")
+        self.goto(phone, "/admin/candidates")
+        self.assertLessEqual(phone.evaluate("document.documentElement.scrollWidth"), PHONE["width"])
