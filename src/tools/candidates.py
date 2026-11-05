@@ -344,10 +344,12 @@ def upsert_finding(cursor, candidate, finding):
         return "inserted"
     row_id = row["id"] if isinstance(row, dict) else row[0]
     # The tier and the count follow the latest finding; a placeholder title (the designation itself, or none)
-    # gives way to a real one, a title an editor may have written is kept.
+    # gives way to a real one, a title an editor may have written is kept; so is a type, a missing one is filled.
     cursor.execute("""UPDATE DocumentCandidate SET evidence_json = %s, tier = COALESCE(%s, tier),
                           occurrences = COALESCE(%s, occurrences),
-                          title = CASE WHEN title IS NULL OR title = designation THEN COALESCE(%s, title) ELSE title END
+                          title = CASE WHEN title IS NULL OR title = designation THEN COALESCE(%s, title) ELSE title END,
+                          document_type = COALESCE(NULLIF(document_type, ''), %s)
                       WHERE id = %s""",
-                   (payload, candidate.get("tier"), candidate.get("occurrences"), candidate.get("title"), row_id))
+                   (payload, candidate.get("tier"), candidate.get("occurrences"), candidate.get("title"),
+                    candidate.get("document_type"), row_id))
     return "updated"

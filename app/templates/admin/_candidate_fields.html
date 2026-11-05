@@ -10,6 +10,7 @@
 <div class="admin-form-group">
     <label for="document_type">Typ dokumentu</label>
     <select id="document_type" name="document_type">
+        {% if not c.document_type %}<option value="" selected>— vyberte —</option>{% endif %}
         {% for t in types %}<option value="{{ t }}"{% if t == c.document_type %} selected{% endif %}>{{ t }}</option>{% endfor %}
     </select>
 </div>

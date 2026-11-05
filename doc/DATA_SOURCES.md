@@ -15,6 +15,7 @@
 > 2026-11-05 jprk Etapa E4 provedena (odstavce 4.3, 8.11 a 8.13)
 > 2026-11-05 jprk Etapa E5 provedena (odstavce 4.3, 8.11 a 8.14); TRIS převeden na zakázaný zdroj
 > 2026-11-05 jprk Etapa E6 provedena, plán vytěžování dokončen (odstavce 2, 4.3, 8.11 a 8.15)
+> 2026-11-05 jprk Zkouška prvního ostrého běhu na vývojové instalaci a prohlížečový test řetězu (odstavec 8.16)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -1507,3 +1508,83 @@ zdroj sleduje (odstavec 2 a souhrn v odstavci 8.11).
    propojení návrhu předpisu s vyhlášeným předpisem (odstavce 8.10 a 8.12),
    dohledání v editorském rozhraní (odstavec 8.14).
 
+
+### 8.16 Zkouška nanečisto na vývojové instalaci a prohlížečový test (5. 11. 2026)
+
+Řetěz *zdroj → nález → fronta kandidátů → dva editoři → dokument* jsme ověřili
+na vlastní vývojové instalaci dvakrát: trvalým prohlížečovým testem bez sítě
+a jednorázovou zkouškou prvního ostrého běhu nad testovací databází. Živá
+databáze `h2regdocs` zůstala nedotčena.
+
+**Prohlížečový test** `tests/e2e/test_harvest_queue.py` (spouští jej
+`run_tests.py` spolu s ostatními scénáři; Flask v ladicím režimu na portu 5001
+nad `h2regdocs_test`, Chromium bez okna přes Playwright). Nálezy nejsou
+staženy, ale zaznamenány: zapisuje je `harvest.write_findings()` stejně jako
+běh s `--apply`. Pokrývají návrh zákona nalezený Sněmovnou i Senátem (jeden
+kandidát, dva nálezy, novela dokumentu databáze), normu v pásmu 2, vyhlášku
+s připojenou novelou, vyřazený nález a nález dokumentu, který databáze už má.
+Scénář prochází filtry fronty (pásmo, zdroj, skupina — návrhy `DRAFT-CZ:` patří
+k českým předpisům), detail s nálezy a s dokumentem, jejž návrh mění, návrh
+přijetí editorem A a potvrzení editorem B; pak ověří, že vznikl dokument ve
+stavu „připravovaný“ s vazbou „novelizuje“ (AMENDS). Fixtury (dva editoři,
+tři kandidáti, vzniklý dokument a jeho vazby) po sobě maže. Snímky
+`HarvestQueueTestCase-01…06` ukládá do `data/test_screenshots/<relace>/`.
+
+**Zkouška prvního ostrého běhu.** Postup podle odstavce 8.11 nad čerstvou kopií
+živé databáze (`run_tests.py` s obnovou testovací databáze):
+
+1. `harvest_sources.py --stage E1 … E6 --apply --env-file .env.test` —
+   všechny etapy za sebou trvaly 18 minut, z toho 13 minut etapa E1 (stav 397
+   norem STN a 39 ČSN); žádný adaptér neskončil chybou.
+2. Dva editorské účty v testovací databázi skriptem
+   `src/db/dbuser_add.py … --apply --env-file .env.test` (heslo skript čte ze
+   standardního vstupu, není-li terminál).
+3. Ladicí server z pracovního stromu na portu 5001 a projití fronty
+   v prohlížeči bez okna (snímky v `data/test_screenshots/rehearsal_20261105/`).
+
+| Zdroj | Nových kandidátů | Z toho pásmo 1 |
+|---|---|---|
+| e-Sbírka (nové předpisy a novely) | 82 | 38 |
+| Poslanecká sněmovna (+ Senát: 4 nálezy ke stejným tiskům) | 34 | 28 |
+| ČSN / TPG (ČPS) | 69 | 3 |
+| Věstník ÚNMZ | 20 | 13 |
+| SAE | 13 | 8 |
+| Legislativní observatoř EP | 9 | 9 |
+| EHSP | 8 | 5 |
+| ostatní (HYTEP, VeKLEP, ACER, OTIF, HYS, TIČR, ČMI, komitologie, akty v přenesené pravomoci) | 12 | 7 |
+| **celkem** | **247** | **111** |
+
+Počty se přesně shodují s odhadem v odstavci 8.11. Ve frontě je spolu
+s kandidáty z citací a z kontroly platnosti 543 otevřených kandidátů (405
+v pásmu 1, 138 v pásmu 2); 4 kandidáty našly dva zdroje, 48 kandidátů mění
+dokument, který databáze už obsahuje. Opakovaný běh týchž zdrojů nepřidal nic
+nového, jen nálezy aktualizoval (`updated`), takže ostrý běh lze bezpečně
+opakovat. Stránky fronty a detailů neměly chybu JavaScriptu ani chybovou
+odpověď serveru.
+
+**Vada nalezená zkouškou a opravená.** 63 kandidátů ze zdrojů (všechny sněmovní
+tisky, novely z e-Sbírky, procedury EP, návrhy Komise) nemělo typ dokumentu
+a formulář návrhu přijetí v takovém případě předvybral první typ v seznamu,
+„Metodika“ — editor, který by si toho nevšiml, by přijal vyhlášku jako
+metodiku. Oprava:
+
+* formulář nabízí u kandidáta bez typu volbu „— vyberte —“ a návrh bez zvoleného
+  typu odmítne (`_candidate_fields.html`, kontrola v `read_metadata` už byla);
+* `harvest.guess_document_type()` odvodí typ návrhu předpisu a novely z názvu
+  (české názvy podle začátku: „Vládní/Senátní návrh zákona“, „Návrh poslanců …
+  na vydání zákona“, „Zákon, kterým…“, „Vyhláška“, „Nařízení vlády“; názvy EU
+  podle prvního výskytu „nařízení/regulation“, „směrnice/directive“,
+  „rozhodnutí/decision“). Zprávy a aktuality se netypují — „Vláda schválila
+  zákon…“ není zákon;
+* `candidates.upsert_finding()` doplní chybějící typ i kandidátovi, který už ve
+  frontě je; typ, který zadal editor nebo zdroj, nepřepisuje.
+
+Po opravě zůstalo bez typu 9 kandidátů (3 iniciativy Komise, 3 procedury EP bez
+druhu aktu v názvu, 3 zprávy); typ u nich volí editor.
+
+**Pro první ostrý běh nad živou databází** z toho plyne: krok 4 a 5 odstavce
+8.11 provést pro všechny etapy E1–E6 (počítat zhruba s 20 minutami); záznam
+běhů `data/source_checks.jsonl` rozlišuje databázi, takže běhy nad testovací
+databází navazování živých běhů neovlivní a první živý běh začne od začátku.
+Testovací databázi lze pro další zkoušku obnovit příkazem
+`run_tests.py` (bez `--no-refresh`); zkouška se tím smaže.

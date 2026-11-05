@@ -44,6 +44,16 @@ NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
 NOT_IMPORTED_PATH = REPO_ROOT / "data" / "harvest_not_imported.json"
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-harvest/1.0; +research use, low-volume)"
 QUEUED_SIGNALS = ("new_document", "draft", "amendment")
+# The type of a proposed act or an amendment whose source does not give it, read from the
+# title (DocumentType names): Czech titles name the act at their start ("Vládní návrh zákona,
+# kterým…", "Vyhláška, kterou…"); EU titles anywhere, the earliest of the three wins
+# ("Změna směrnic (EU) 2018/2001 …", "Commission Delegated Directive …"). News items are
+# never typed: "Vláda schválila zákon…" is not a law.
+CZ_TYPES = (("Nařízení vlády", r"^nařízení vlády\b"), ("Vyhláška", r"^vyhláška\b"),
+            ("Zákon", r"^zákon\b|^(vládní |senátní )?návrh\b.*\bzákona\b"))
+EU_TYPES = (("Nařízení EU", r"\bregulation\b|\bnařízení\b"), ("Směrnice EU", r"\bdirective\b|\bsměrnic"),
+            ("Rozhodnutí EU", r"\bdecision\b|\brozhodnutí\b"))
+TYPED_SIGNALS = ("draft", "amendment")
 
 # Search terms of doc/DATA_SOURCES.md odstavec 6: the basic terms on their own mark a
 # finding as relevant; the broader areas are to be combined with a process or an act.
@@ -90,7 +100,7 @@ class Finding:
 
     def as_candidate(self):
         return {"candidate_key": self.candidate_key(), "designation": self.designation, "title": self.title,
-                "document_type": self.document_type, "url": self.url, "language": self.language,
+                "document_type": self.document_type or guess_document_type(self), "url": self.url, "language": self.language,
                 "jurisdikce": self.jurisdikce, "tier": self.tier, "occurrences": self.occurrences}
 
     def as_evidence(self, seen):
@@ -99,6 +109,19 @@ class Finding:
         if not self.key:
             evidence["needs_key"] = True
         return {**evidence, **(self.extra or {})}
+
+
+def guess_document_type(finding):
+    """The DocumentType name of a draft or an amendment read from its title, or None."""
+    if finding.signal not in TYPED_SIGNALS or not finding.title:
+        return None
+    title = finding.title.strip().lower()
+    if finding.jurisdikce == "CZ":
+        return next((name for name, pattern in CZ_TYPES if re.search(pattern, title)), None)
+    if finding.jurisdikce == "EU":
+        hits = [(m.start(), name) for name, pattern in EU_TYPES if (m := re.search(pattern, title))]
+        return min(hits)[1] if hits else None
+    return None
 
 
 def matches(text, broader=False):

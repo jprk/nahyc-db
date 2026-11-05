@@ -24,6 +24,28 @@ class FindingTestCase(unittest.TestCase):
         self.assertTrue(by_url.candidate_key().startswith("ep-oeil:"))
         self.assertTrue(by_url.as_evidence("2026-10-28")["needs_key"])
 
+    def test_the_type_of_a_draft_or_an_amendment_is_read_from_its_title(self):
+        # titles seen in the dress rehearsal of 2026-11-05 (doc/DATA_SOURCES.md odstavec 8.16)
+        cases = [("draft", "CZ", "Vládní návrh zákona, kterým se mění zákon č. 73/2012 Sb., o látkách", "Zákon"),
+                 ("draft", "CZ", "Návrh poslanců Petra Hladíka a dalších na vydání zákona, kterým se mění", "Zákon"),
+                 ("draft", "CZ", "Senátní návrh zákona, kterým se mění zákon č. 13/1997 Sb.", "Zákon"),
+                 ("draft", "CZ", "Vyhláška, kterou se mění vyhláška č. 343/2014 Sb., k provedení zákona", "Vyhláška"),
+                 ("draft", "CZ", "Nařízení vlády, kterým se mění nařízení vlády č. 1/2020 Sb.", "Nařízení vlády"),
+                 ("amendment", "CZ", "Zákon, kterým se mění zákon č. 311/2006 Sb., o pohonných hmotách", "Zákon"),
+                 ("draft", "EU", "Změna směrnic (EU) 2018/2001, (EU) 2019/944 a (EU) 2024/1788", "Směrnice EU"),
+                 ("draft", "EU", "Změna nařízení Evropského parlamentu a Rady 2008/98/ES, 2010/75/EU", "Nařízení EU"),
+                 ("draft", "EU", "Commission Delegated Directive introducing lifecycle greenhouse gas", "Směrnice EU"),
+                 ("draft", "EU", "COMMISSION REGULATION (EU) …/… amending Annex XVII to Regulation", "Nařízení EU"),
+                 ("draft", "EU", "Hydrogen strategy", None),
+                 ("draft", "EU", "Zřízení Dočasného fondu pro dekarbonizaci", None),
+                 ("new_document", "CZ", "Zákon o vodíku schválila vláda", None),
+                 ("draft", None, "Directive on something", None)]
+        for signal, jurisdikce, title, expected in cases:
+            finding = harvest.Finding("src", signal, title, jurisdikce=jurisdikce)
+            self.assertEqual(finding.as_candidate()["document_type"], expected, title)
+        given = harvest.Finding("src", "draft", "Vyhláška, kterou", jurisdikce="CZ", document_type="Metodika")
+        self.assertEqual(given.as_candidate()["document_type"], "Metodika")
+
     def test_search_terms(self):
         self.assertTrue(harvest.matches("Návrh vyhlášky o plnicích stanicích vodíku"))
         self.assertTrue(harvest.matches("Regulation on hydrogen and decarbonised gas markets"))
