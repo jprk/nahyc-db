@@ -20,7 +20,8 @@
             nebo některý ze sledovaných zdrojů. Do databáze se nic nepřidá samo — o každém kandidátovi rozhodují
             editoři.</p>
         <ol>
-            <li><strong>Otevřít</strong> kandidáta a podle nálezů a odkazu na zdroj posoudit, zda do databáze patří.</li>
+            <li>Kliknout na název kandidáta (nebo <strong>Otevřít</strong>) a v detailu podle nálezů posoudit, zda do
+                databáze patří; ikona <i class="ph ph-arrow-square-out"></i> u názvu otevře dokument ve zdroji.</li>
             <li>Patří-li tam: doplnit označení, typ dokumentu a věcný okruh a zvolit <strong>Navrhnout přijetí</strong>.</li>
             <li>Návrh potvrzuje <strong>jiný editor</strong> (filtr stavu „navržení k přijetí“, v detailu
                 <strong>Potvrdit přijetí a založit dokument</strong>). Teprve tím dokument v databázi vznikne;
@@ -31,10 +32,14 @@
         <p><strong>Stav vzniklého dokumentu:</strong> vyhlášený předpis vznikne jako „účinný“ (nebo „vyhlášený, dosud neúčinný“
             podle kontroly platnosti), návrh předpisu v legislativním procesu (sněmovní tisk, VeKLEP, návrh Komise)
             jako „připravovaný“; novela dostane vazbu „novelizuje“ na dokumenty, které mění.</p>
-        <p><strong>Pásmo 1</strong> (výchozí zobrazení): kandidáti, kteří se databáze týkají přímo — mění dokument,
-            který databáze obsahuje, nebo mají v názvu vodík či výraz věcných okruhů databáze.
-            <strong>Pásmo 2</strong>: nálezy, které s ní souvisejí jen nepřímo (téma se objeví jen v textu, okrajová
-            norma, zpráva úřadu); stačí je občas projít, nic z nich se samo nemaže.</p>
+        <p>Filtr vztahu k databázi:</p>
+        <ul>
+            <li><strong>Přímý vztah (pásmo 1)</strong> — výchozí zobrazení: kandidáti, kteří se databáze týkají přímo;
+                mění dokument, který databáze obsahuje, nebo mají v názvu vodík či výraz věcných okruhů databáze.</li>
+            <li><strong>Nepřímý vztah (pásmo 2)</strong> — nálezy, které s databází souvisejí jen nepřímo (téma se
+                objeví jen v textu, okrajová norma, zpráva úřadu); stačí je občas projít, nic z nich se samo nemaže.
+                V seznamu je nese štítek „nepřímý vztah“.</li>
+        </ul>
         <p><strong>Navrhnout dokument</strong> slouží k ručnímu návrhu dokumentu, který ve frontě není (potvrzuje jej
             také druhý editor); <strong>Revize dokumentů</strong> jsou opravy záznamů, které už v databázi jsou.</p>
     </details>
@@ -53,8 +58,8 @@
             <option value="CZ"{% if family == 'CZ' %} selected{% endif %}>české předpisy</option>
             <option value="EU"{% if family == 'EU' %} selected{% endif %}>akty EU</option>
         </select>
-        <select name="pasmo" aria-label="Pásmo">
-            {% for value, label in tiers.items() %}<option value="{{ value }}"{% if value == tier %} selected{% endif %}>{{ label }}{% if value != 'all' %} ({{ tier_counts.get(value, 0) }}){% endif %}</option>{% endfor %}
+        <select name="pasmo" aria-label="Vztah k databázi">
+            {% for value, label in tiers.items() %}<option value="{{ value }}"{% if value == tier %} selected{% endif %}>{{ label }}{% if value != 'all' %}: {{ tier_counts.get(value, 0) }}{% endif %}</option>{% endfor %}
         </select>
         <input type="text" name="q" value="{{ query }}" placeholder="hledat v názvu nebo označení">
         <button type="submit" class="btn-secondary">Filtrovat</button>
@@ -68,13 +73,15 @@
             <tbody>
                 {% for c in rows %}
                 <tr>
-                    <td>{{ c.designation or c.candidate_key or '—' }}</td>
-                    <td>{{ (c.title or '—')|truncate(140) }}{% if c.tier == 2 %} <span class="badge">pásmo 2</span>{% endif %}</td>
+                    <td class="candidate-designation">{% if c.designation %}{{ c.designation }}{% else %}<span class="candidate-key">{{ c.candidate_key or '—' }}</span>{% endif %}</td>
+                    <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="candidate-title">{{ (c.title or '—')|truncate(140) }}</a>
+                        {%- if c.url %} <a href="{{ c.url }}" target="_blank" rel="noopener" class="candidate-source" title="Dokument ve zdroji (nové okno)" aria-label="Dokument ve zdroji"><i class="ph ph-arrow-square-out"></i></a>{% endif %}
+                        {%- if c.tier == 2 %} <span class="badge" title="Nepřímý vztah k databázi (pásmo 2)">nepřímý vztah</span>{% endif %}</td>
                     <td>{{ sources.get(c.source, c.source) }}</td>
                     <td>{{ c.cited_by or '' }}{% if c.occurrences %}{% if c.cited_by %} / {% endif %}{{ c.occurrences }}×{% endif %}</td>
                     <td>{{ c.validity_status or '—' }}</td>
-                    <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' %} ({{ c.proposed_by_name }}){% endif %}</td>
-                    <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="btn-secondary">Otevřít</a></td>
+                    <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' and c.proposed_by_name %} ({{ c.proposed_by_name }}){% endif %}</td>
+                    <td class="candidate-open"><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="btn-secondary">Otevřít</a></td>
                 </tr>
                 {% else %}
                 <tr><td colspan="7">Žádní kandidáti neodpovídají filtru.</td></tr>

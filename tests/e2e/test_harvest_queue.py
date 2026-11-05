@@ -156,7 +156,7 @@ class HarvestQueueTestCase(BrowserTestCase):
         self.shot(alice, "01-queue-tier-1")
         self.filter(alice, pasmo="2")
         self.assertEqual(self.row(alice, NORM_TITLE).count(), 1)
-        self.assertTrue(self.row(alice, NORM_TITLE).get_by_text("pásmo 2").is_visible())
+        self.assertTrue(self.row(alice, NORM_TITLE).get_by_text("nepřímý vztah").is_visible())
         self.assertEqual(self.row(alice, DRAFT_TITLE).count(), 0)
         self.shot(alice, "02-queue-tier-2")
         self.filter(alice, pasmo="all", zdroj="psp-snemovni-tisky")

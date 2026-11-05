@@ -6,7 +6,7 @@
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Stav: <strong>{{ state_labels.get(c.status, c.status) }}</strong> &middot; zdroj: {{ sources.get(c.source, c.source) }}
         {% if c.signal %} &middot; {{ signal_labels.get(c.signal, c.signal) }}{% endif %}
-        {% if c.tier %} &middot; pásmo {{ c.tier }}{% endif %}{% if c.occurrences %} &middot; {{ c.occurrences }} výskytů v posledním znění{% endif %}
+        {% if c.tier %} &middot; {{ 'přímý vztah (pásmo 1)' if c.tier == 1 else 'nepřímý vztah (pásmo 2)' }}{% endif %}{% if c.occurrences %} &middot; {{ c.occurrences }} výskytů v posledním znění{% endif %}
         {% if c.validity_status %} &middot; platnost: {{ c.validity_status }}{% endif %}
         {% if c.cited_by %} &middot; citováno {{ c.cited_by }} dokumenty databáze{% endif %}
     </p>

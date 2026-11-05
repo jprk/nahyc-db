@@ -17,7 +17,7 @@ ACER = """<?xml version="1.0" encoding="utf-8"?><rss version="2.0"><channel>
 <item><title><a href="/news/hydrogen-network-monitoring" hreflang="en">ACER report on hydrogen network development</a></title>
 <link>https://www.acer.europa.eu/%3Ca%20href%3D%22/news/hydrogen-network-monitoring%22%20hreflang%3D%22en%22%3EACER%3C/a%3E</link>
 <description>The monitoring report covers hydrogen networks.</description><pubDate>Wed, 11/04/2026 - 07:38</pubDate>
-<guid>g1</guid></item>
+<guid>https://www.acer.europa.eu/%3Ca%20href%3D%22/news/hydrogen-network-monitoring%22%20hreflang%3D%22en%22%3EACER%3C/a%3E</guid></item>
 <item><title>Electricity market integration</title><link>https://www.acer.europa.eu/news/x</link>
 <description>Cross-zonal capacity.</description><pubDate>Tue, 03 Nov 2026 10:00:00 +0000</pubDate><guid>g2</guid></item>
 <item><title>Dangerous goods by rail: final decisions for RID 2027</title><link>https://otif.org/en/?p=1</link>
@@ -55,6 +55,8 @@ class ParseRssTestCase(unittest.TestCase):
         self.assertEqual(items[0]["link"], "https://www.acer.europa.eu/news/hydrogen-network-monitoring")
         self.assertEqual((items[0]["date"], items[1]["date"]), ("2026-11-04", "2026-11-03"))
         self.assertEqual(items[1]["link"], "https://www.acer.europa.eu/news/x")
+        self.assertEqual(items[0]["guid"], items[0]["link"])  # the candidate key must not carry the anchor
+        self.assertEqual(items[1]["guid"], "g2")
 
 
 class RssItemsTestCase(unittest.TestCase):

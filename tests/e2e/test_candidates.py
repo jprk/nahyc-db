@@ -163,9 +163,23 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         self.assertEqual({round(b["height"]) for b in boxes}, {40}, "the header buttons differ in height")
         tops = [b["y"] for b in boxes]
         self.assertLess(max(tops) - min(tops), 4, "the header buttons wrap into several rows")
+        radii = {b.evaluate("e => getComputedStyle(e).borderRadius") for b in page.locator(".candidate-actions a").all()}
+        self.assertEqual(len(radii), 1, "the header buttons differ in shape")
+        self.assertGreater(tops[0] - page.locator("nav, header").first.bounding_box()["height"], 20,
+                           "the header sticks to the main menu")
+        # The whole list fits its frame, so the column with "Otevřít" is never cut off; the title opens the detail.
+        for query in ("", "?pasmo=all"):
+            self.goto(page, "/admin/candidates" + query)
+            table = page.locator("table.candidate-table").bounding_box()["width"]
+            frame = page.locator(".table-glass-container").bounding_box()["width"]
+            self.assertLessEqual(table, frame, query)
+        self.goto(page, "/admin/candidates?q=E2E")
+        self.row(page, TITLE).locator("a.candidate-title").click()
+        self.assertTrue(page.get_by_role("button", name="Navrhnout přijetí").is_visible())
+        self.goto(page, "/admin/candidates")
         page.click(".candidate-help summary")
         self.assertTrue(page.get_by_text("Návrh potvrzuje").is_visible())
-        self.assertTrue(page.locator(".candidate-help strong", has_text="Pásmo 2").is_visible())
+        self.assertTrue(page.locator(".candidate-help strong", has_text="Nepřímý vztah (pásmo 2)").is_visible())
         self.shot(page, "08-header-and-help", full_page=False)
 
         phone = self.new_page(PHONE)

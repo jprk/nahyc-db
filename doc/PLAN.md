@@ -6063,3 +6063,7 @@ original treatment, not asked for.
 - The user did not know what to do with a candidate nor what tiers are: a collapsible "Jak s frontou pracovat" on the list explains propose → second editor confirms → document, reject/defer, the state of the created document, tier 1/2, and the two header buttons.
 - On a phone the source filter (long source names) widened the page to 841 px; capped at the row width.
 - Test: `tests/e2e/test_candidates.py::test_header_buttons_help_and_phone_width`.
+- Follow-up (same day, user feedback): space between the main menu and the page header; "Navrhnout dokument" has the shape of the other two buttons (radius, border, no lift on hover), only its colour differs.
+- The user could not open candidates from the list: the table was 1361 px wide in a 1136 px frame (unbreakable internal keys, one mangled ACER key), so the "Stav" column and "Otevřít" lay beyond the right edge. Keys now wrap, the designation column has a min/max width, the title links to the detail and an icon to the document at the source. "navržen k přijetí (None)" no longer shows when the proposer's account is gone.
+- `harvest_drafts.parse_rss()` cleans ACER's `guid` like its link (the guid is the candidate key; it carried a percent-encoded `<a href>`).
+- Tiers are labelled "Přímý vztah (pásmo 1)" / "Nepřímý vztah (pásmo 2)" (filter, detail, badge "nepřímý vztah"), explained in the guide.

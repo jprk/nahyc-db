@@ -41,7 +41,8 @@ PIPELINE_SOURCE = "Kandidáti"
 LANGUAGES = ("CS", "EN", "SK", "DE")
 STATE_LABELS = {"new": "nový", "proposed": "navržen k přijetí", "accepted": "přijat", "rejected": "zamítnut",
                 "deferred": "odložen"}
-TIERS = {"1": "pásmo 1", "2": "pásmo 2", "all": "obě pásma"}
+# 1 = the candidate concerns the database directly, 2 = only indirectly (doc/DATA_SOURCES.md 8.9, 8.10)
+TIERS = {"1": "Přímý vztah (pásmo 1)", "2": "Nepřímý vztah (pásmo 2)", "all": "oba vztahy"}
 FILTER_STATES = {"open": cd.OPEN_STATES, "new": ("new",), "proposed": ("proposed",), "deferred": ("deferred",),
                  "accepted": ("accepted",), "rejected": ("rejected",), "all": cd.STATES}
 

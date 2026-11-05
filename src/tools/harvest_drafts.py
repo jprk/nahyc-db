@@ -125,7 +125,8 @@ def parse_rss(data):
         items.append({"title": " ".join("".join(title.itertext()).split()) if title is not None else "",
                       "link": _rss_link(item.findtext("link"), title),
                       "description": (item.findtext("description") or "").strip(),
-                      "guid": (item.findtext("guid") or "").strip(), "date": _rss_date(item.findtext("pubDate"))})
+                      # ACER's guid is its mangled link too; it becomes the candidate key
+                      "guid": _rss_link(item.findtext("guid"), title), "date": _rss_date(item.findtext("pubDate"))})
     return items
 
 
