@@ -35,6 +35,9 @@ class ParseHtmlTestCase(unittest.TestCase):
     def test_no_title_at_all_is_none(self):
         self.assertIsNone(_parse_html("<html><head></head><body></body></html>"))
 
+    def test_the_bare_site_name_is_not_a_title(self):
+        self.assertIsNone(_parse_html("<html><head><title>Slov-Lex</title></head><body></body></html>"))
+
     def test_malformed_jsonld_falls_back_to_title_tag(self):
         html = ('<html><head><title>96/2004 Z. z. X | Slov-Lex</title>'
                 '<script type="application/ld+json">{not valid json</script></head></html>')
