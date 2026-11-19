@@ -1,0 +1,1413 @@
+{
+  "_popis": "Řádky tabulek MPO a CDV ze dne 30. 4. 2026 (src/tools/mpo_tables.py convert).",
+  "rows": [
+    {
+      "id": "MPO-02",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 2,
+      "zdroj": "VS",
+      "cislo": "458/2000 Sb.",
+      "nazev": "Energetický zákon",
+      "nositel": "MPO",
+      "zarazeni": "Zákon",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "CZ:458/2000"
+      ]
+    },
+    {
+      "id": "MPO-03",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 3,
+      "zdroj": "VS",
+      "cislo": "349/2015 Sb.",
+      "nazev": "Vyhláška o Pravidlech trhu s plynem, ve znění pozdějších předpisů",
+      "nositel": "ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:349/2015"
+      ]
+    },
+    {
+      "id": "MPO-04",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 4,
+      "zdroj": "VS",
+      "cislo": "488/2021 Sb.",
+      "nazev": "Vyhláška o podmínkách připojení k plynárenské soustavě",
+      "nositel": "ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:488/2021"
+      ]
+    },
+    {
+      "id": "MPO-05",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 5,
+      "zdroj": "VS",
+      "cislo": "401/2010 Sb.",
+      "nazev": "Vyhláška o obsahových náležitostech pravidel provozování přenosové soustavy, pravidel provozování distribuční soustavy, řádu provozovatele přepravní soustavy, řádu provozovatele distribuční soustavy, řádu provozovatele podzemního zásobníku plynu a obchodních podmínek operátora trhu",
+      "nositel": "ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:401/2010"
+      ]
+    },
+    {
+      "id": "MPO-06",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 6,
+      "zdroj": "VS",
+      "cislo": "513/2021 Sb.",
+      "nazev": "Vyhláška, kterou se mění vyhláška č. 262/2015 Sb., o regulačním výkaznictví, ve znění pozdějších předpisů",
+      "nositel": "ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:513/2021"
+      ]
+    },
+    {
+      "id": "MPO-07",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 7,
+      "zdroj": "VS",
+      "cislo": "8/2016 Sb.",
+      "nazev": "Vyhláška o podrobnostech udělování licencí pro podnikání v energetických odvětvích - pokud bude licence pro výrobny vodíku podléhat pravidlům podle energetického zákona",
+      "nositel": "ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:8/2016"
+      ]
+    },
+    {
+      "id": "MPO-08",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 8,
+      "zdroj": "VS",
+      "cislo": "489/2021 Sb.",
+      "nazev": "Vyhláška o postupech registrace podpor u operátora trhu a provedení některých dalších ustanovení zákona o podporovaných zdrojích energie (registrační vyhláška)",
+      "nositel": "MPO/ERÚ",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:489/2021"
+      ]
+    },
+    {
+      "id": "MPO-09",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 9,
+      "zdroj": "VS",
+      "cislo": "108/2011 Sb.",
+      "nazev": "Vyhláška o měření plynu a o způsobu stanovení náhrady škody při neoprávněném odběru, neoprávněné dodávce, neoprávněném uskladňování, neoprávněné přepravě nebo neoprávněné distribuci plynu",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:108/2011"
+      ]
+    },
+    {
+      "id": "MPO-10",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 10,
+      "zdroj": "VS",
+      "cislo": "345/2002 Sb.",
+      "nazev": "Vyhláška, kterou se stanoví měřidla k povinnému ověřování a měřidla podléhající schválení typu",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:345/2002"
+      ]
+    },
+    {
+      "id": "MPO-11",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 11,
+      "zdroj": "VS",
+      "cislo": "344/2012 Sb.",
+      "nazev": "Vyhláška o stavu nouze v plynárenství a o způsobu zajištění bezpečnostního standardu dodávky plynu",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:344/2012"
+      ]
+    },
+    {
+      "id": "MPO-12",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 12,
+      "zdroj": "VS",
+      "cislo": "44/1988 Sb.",
+      "nazev": "Zákon o ochraně a využití nerostného bohatství (horní zákon)",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:44/1988"
+      ]
+    },
+    {
+      "id": "MPO-13",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 13,
+      "zdroj": "VS",
+      "cislo": "61/1988 Sb.",
+      "nazev": "Zákon o hornické činnosti, výbušninách a o státní báňské správě",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:61/1988"
+      ]
+    },
+    {
+      "id": "MPO-14",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 14,
+      "zdroj": "VS",
+      "cislo": "62/1988 Sb.",
+      "nazev": "Zákon o geologických pracích a o Českém geologickém úřadu",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:62/1988"
+      ]
+    },
+    {
+      "id": "MPO-15",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 15,
+      "zdroj": "VS",
+      "cislo": "72/2002 Sb.",
+      "nazev": "Vyhláška o důlní degazaci",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:72/2002"
+      ]
+    },
+    {
+      "id": "MPO-16",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 16,
+      "zdroj": "VS",
+      "cislo": "104/1988 Sb.",
+      "nazev": "Vyhláška o hospodárném využívání výhradních ložisek, povolování a ohlašování hornické činnosti",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:104/1988"
+      ]
+    },
+    {
+      "id": "MPO-17",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 17,
+      "zdroj": "VS",
+      "cislo": "71/2002 Sb.",
+      "nazev": "Vyhláška o zdolávání havárií v dolech a při těžbě ropy a zemního plynu",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:71/2002"
+      ]
+    },
+    {
+      "id": "MPO-18",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 18,
+      "zdroj": "VS",
+      "cislo": "85/2012 Sb.",
+      "nazev": "Zákon o ukládání oxidu uhličitého do přírodních horninových struktur",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se zásobníků plynu a těžby",
+      "yellow": false,
+      "keys": [
+        "CZ:85/2012"
+      ]
+    },
+    {
+      "id": "MPO-19",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 19,
+      "zdroj": "VS",
+      "cislo": "133/1985 Sb.",
+      "nazev": "Zákon o požární ochraně",
+      "nositel": "MV / HZS ČR",
+      "zarazeni": "Zákon",
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": true,
+      "keys": [
+        "CZ:133/1985"
+      ]
+    },
+    {
+      "id": "MPO-20",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 20,
+      "zdroj": "VS",
+      "cislo": "239/1998 Sb.",
+      "nazev": "Vyhláška o bezpečnosti a ochraně zdraví při práci a bezpečnosti provozu při těžbě a úpravě ropy a zemního plynu a při vrtných a geofyzikálních pracích",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:239/1998"
+      ]
+    },
+    {
+      "id": "MPO-21",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 21,
+      "zdroj": "VS",
+      "cislo": "100/2001 Sb.",
+      "nazev": "Zákon o posuzování vlivů na životní prostředí",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:100/2001"
+      ]
+    },
+    {
+      "id": "MPO-22",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 22,
+      "zdroj": "VS",
+      "cislo": "246/2001 Sb.",
+      "nazev": "Vyhláška o stanovení podmínek požární bezpečnosti a výkonu státního požárního dozoru",
+      "nositel": "MV / ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:246/2001"
+      ]
+    },
+    {
+      "id": "MPO-23",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 23,
+      "zdroj": "VS",
+      "cislo": "76/2002 Sb.",
+      "nazev": "Zákon o integrované prevenci a omezování znečištění a o integrovaném registru znečišťování",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:76/2002"
+      ]
+    },
+    {
+      "id": "MPO-24",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 24,
+      "zdroj": "VS",
+      "cislo": "392/2003 Sb.",
+      "nazev": "Vyhláška o bezpečnosti provozu technických zařízení a o požadavcích na vyhrazená technická zařízení tlaková, zdvihací a plynová při hornické činnosti",
+      "nositel": "ČBÚ",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:392/2003"
+      ]
+    },
+    {
+      "id": "MPO-25",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 25,
+      "zdroj": "VS",
+      "cislo": "224/2015 Sb.",
+      "nazev": "Zákon o prevenci závažných havárií",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:224/2015"
+      ]
+    },
+    {
+      "id": "MPO-26",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 26,
+      "zdroj": "VS",
+      "cislo": "226/2015 Sb.",
+      "nazev": "Vyhláška o zásadách pro vymezení zóny havarijního plánování a o náležitostech obsahu havarijního plánu",
+      "nositel": "MV",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:226/2015"
+      ]
+    },
+    {
+      "id": "MPO-27",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 27,
+      "zdroj": "VS",
+      "cislo": "277/2015 Sb.",
+      "nazev": "Vyhláška o náležitostech bezpečnostní dokumentace a rozsahu informací poskytovaných zpracovateli posudku",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:277/2015"
+      ]
+    },
+    {
+      "id": "MPO-28",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 28,
+      "zdroj": "VS",
+      "cislo": "250/2021 Sb.",
+      "nazev": "Zákon o bezpečnosti práce v souvislosti s provozem vyhrazených technických zařízení",
+      "nositel": "MPSV",
+      "zarazeni": "Zákon",
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": true,
+      "keys": [
+        "CZ:250/2021"
+      ]
+    },
+    {
+      "id": "MPO-29",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 29,
+      "zdroj": "VS",
+      "cislo": "165/2012 Sb.",
+      "nazev": "Zákon o POZE (o podporovaných zdrojích energie)",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:165/2012"
+      ]
+    },
+    {
+      "id": "MPO-30",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 30,
+      "zdroj": "VS",
+      "cislo": "110/2022 Sb.",
+      "nazev": "Vyhláška o stanovení druhů a parametrů podporovaných obnovitelných zdrojů",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:110/2022"
+      ]
+    },
+    {
+      "id": "MPO-31",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 31,
+      "zdroj": "VS",
+      "cislo": "166/2022 Sb.",
+      "nazev": "Vyhláška o vykazování energie podle zákona o podporovaných zdrojích energie",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:166/2022"
+      ]
+    },
+    {
+      "id": "MPO-32",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 32,
+      "zdroj": "VS",
+      "cislo": "328/2022 Sb.",
+      "nazev": "Vyhláška o zárukách původu energie",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:328/2022"
+      ]
+    },
+    {
+      "id": "MPO-33",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 33,
+      "zdroj": "VS p",
+      "cislo": "249/2025",
+      "nazev": "Zákon o ZOZE (zákon o urychlení využívání obnovitelných zdrojů energie)",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:249/2025"
+      ]
+    },
+    {
+      "id": "MPO-34",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 34,
+      "zdroj": "VS p",
+      "cislo": "311/2006 Sb.",
+      "nazev": "Zákon o pohonných hmotách",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:311/2006"
+      ]
+    },
+    {
+      "id": "MPO-35",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 35,
+      "zdroj": "ZPL",
+      "cislo": "201/2012 Sb.",
+      "nazev": "Zákon o ochraně ovzduší",
+      "nositel": "MŽP",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:201/2012"
+      ]
+    },
+    {
+      "id": "MPO-36",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 36,
+      "zdroj": "ZPL",
+      "cislo": "586/1992 Sb.",
+      "nazev": "Zákon o daních z příjmů",
+      "nositel": "MF",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:586/1992"
+      ]
+    },
+    {
+      "id": "MPO-37",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 37,
+      "zdroj": "AI",
+      "cislo": "406/2000 Sb.",
+      "nazev": "Zákon o hospodaření energií",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:406/2000"
+      ]
+    },
+    {
+      "id": "MPO-38",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 38,
+      "zdroj": "AI",
+      "cislo": "350/2011 Sb.",
+      "nazev": "Zákon o chemických látkách a směsích",
+      "nositel": "MŽP/MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:350/2011"
+      ]
+    },
+    {
+      "id": "MPO-39",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 39,
+      "zdroj": "AI",
+      "cislo": "250/2021 Sb.",
+      "nazev": "Zákon o bezpečnosti práce (vyhrazená zařízení)",
+      "nositel": "MPSV/MPO",
+      "zarazeni": null,
+      "poznamka": "Předpis týkající se bezpečnosti",
+      "yellow": false,
+      "keys": [
+        "CZ:250/2021"
+      ]
+    },
+    {
+      "id": "MPO-40",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 40,
+      "zdroj": "AI",
+      "cislo": "283/2021 Sb.",
+      "nazev": "Stavební zákon",
+      "nositel": "MMR",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:283/2021"
+      ]
+    },
+    {
+      "id": "MPO-41",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 41,
+      "zdroj": "AI",
+      "cislo": "264/2020 Sb.",
+      "nazev": "Vyhláška o energetické náročnosti budov",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:264/2020"
+      ]
+    },
+    {
+      "id": "MPO-42",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 42,
+      "zdroj": "AI",
+      "cislo": "191/2022 Sb.",
+      "nazev": "Nařízení vlády o vyhrazených tlakových zařízeních",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:191/2022"
+      ]
+    },
+    {
+      "id": "MPO-43",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 43,
+      "zdroj": "AI",
+      "cislo": "146/2024 Sb.",
+      "nazev": "Vyhláška o požadavcích na výstavbu",
+      "nositel": "MMR",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:146/2024"
+      ]
+    },
+    {
+      "id": "MPO-44",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 44,
+      "zdroj": "AI",
+      "cislo": "219/2016 Sb.",
+      "nazev": "Nařízení vlády o posuzování shody tlakových zařízení",
+      "nositel": "MPO",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "CZ:219/2016"
+      ]
+    },
+    {
+      "id": "MPO-45",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 45,
+      "zdroj": "AI",
+      "cislo": "ČSN ISO 14687",
+      "nazev": "Kvalita vodíkového paliva - Specifikace produktu",
+      "nositel": "ČAS",
+      "zarazeni": "-",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "NORM:ISO 14687"
+      ]
+    },
+    {
+      "id": "MPO-46",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 46,
+      "zdroj": "AI",
+      "cislo": "ČSN EN 17124",
+      "nazev": "Vodíkové palivo - Specifikace produktu a zajištění kvality pro čerpací stanice s výdejem plynného vodíku - Aplikace palivových článků s protonvýměnnou membránou (PEM) pro vozidla",
+      "nositel": "ČAS",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "NORM:EN 17124"
+      ]
+    },
+    {
+      "id": "MPO-47",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 47,
+      "zdroj": "AI",
+      "cislo": "ČSN ISO 19880-1",
+      "nazev": "Plynný vodík - Čerpací stanice",
+      "nositel": "ČAS",
+      "zarazeni": "-",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "NORM:ISO 19880-1"
+      ]
+    },
+    {
+      "id": "MPO-48",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 48,
+      "zdroj": "AI",
+      "cislo": "ČSN EN 60079 (řada)",
+      "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+      "nositel": "ČAS",
+      "zarazeni": null,
+      "poznamka": null,
+      "yellow": false,
+      "keys": [
+        "NORM:EN 60079"
+      ]
+    },
+    {
+      "id": "MPO-49",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 49,
+      "zdroj": "AI",
+      "cislo": "ČSN EN 13445",
+      "nazev": "Netopené tlakové nádoby",
+      "nositel": "ČAS",
+      "zarazeni": null,
+      "poznamka": "edice 2021",
+      "yellow": false,
+      "keys": [
+        "NORM:EN 13445"
+      ]
+    },
+    {
+      "id": "MPO-50",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 50,
+      "zdroj": "AI",
+      "cislo": "ČSN EN ISO 11114",
+      "nazev": "Kompatibilita materiálů s vodíkem",
+      "nositel": "ČAS",
+      "zarazeni": null,
+      "poznamka": "vydání 2021",
+      "yellow": false,
+      "keys": [
+        "NORM:EN ISO 11114"
+      ]
+    },
+    {
+      "id": "MPO-51",
+      "table": "MPO",
+      "sheet": "Předpisy (30.4.2026)",
+      "row": 51,
+      "zdroj": "AI",
+      "cislo": "ČSN EN 17127",
+      "nazev": "Venkovní vodíkové plnicí stanice",
+      "nositel": "ČAS",
+      "zarazeni": "-",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "NORM:EN 17127"
+      ]
+    },
+    {
+      "id": "CDV-02",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 2,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "ADR 2025 - Agreement concerning the International Carriage of Dangerous Goods by Road",
+      "nositel": "OSN - EHK OSN (UNECE)",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": null,
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-03",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 3,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "Předpis Evropské hospodářské komise Organizace spojených národů (EHK OSN) č. 134 - Jednotná ustanovení pro schvalování motorových vozidel a jejich konstrukčních částí z hlediska bezpečnosti vozidel na vodíkový pohon (HFCV) [2019/795]",
+      "nositel": "Mezinárodní / evropská instituce",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": null,
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-04",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 4,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "RID - Přípojek C - Řád pro mezinárodní železniční přepravu nebezpečných věcí v rámci Úmluvy o mezinárodní železniční přepravě (COTIF) (ŽD)",
+      "nositel": "OSN - EHK OSN (UNECE)",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": null,
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-05",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 5,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "UNECE Regulation No. 100 (Revision 2)",
+      "nositel": "OSN - EHK OSN (UNECE)",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": null,
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-06",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 6,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "UNECE předpisy (WP.29) - Bezpečnost vozidel",
+      "nositel": "OSN - EHK OSN (UNECE)",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": "Zahrnují předpisy pro vozidla na alternativní paliva, včetně vodíku.",
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-07",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 7,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": null,
+      "nazev": "IMO pravidla pro přepravu vodíku",
+      "nositel": "OSN - Mezinárodní námořní organizace (IMO)",
+      "zarazeni": "Mezinárodní úmluva",
+      "poznamka": "Relevantní pro české firmy zapojené do mezinárodní logistiky.",
+      "yellow": true,
+      "keys": []
+    },
+    {
+      "id": "CDV-08",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 8,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2019/776/EU",
+      "nazev": "(EU) 2019/776 - PROVÁDĚCÍ NAŘÍZENÍ KOMISE ze dne 16. května 2019, kterým se mění nařízení Komise (EU) č. 321/2013, (EU) č. 1299/2014, (EU) č. 1301/2014, (EU) č. 1302/2014, (EU) č. 1303/2014 a (EU) 2016/919 a prováděcí rozhodnutí Komise 2011/665/EU, pokud jde o soulad se směrnicí Evropského parlamentu a Rady (EU) 2016/797 a provádění konkrétních cílů stanovených v rozhodnutí Komise v přenesené pravomoci (EU) 2017/1474",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Nařízení EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2019/776"
+      ]
+    },
+    {
+      "id": "CDV-09",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 9,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2019/942/EU",
+      "nazev": "(EU) 2019/942 - Nařízení Evropského parlamentu a Rady ze dne 5. června 2019, kterým se zřizuje Agentura Evropské unie pro spolupráci energetických regulačních orgánů (přepracované znění)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Nařízení EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2019/942"
+      ]
+    },
+    {
+      "id": "CDV-10",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 10,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2022/869/EU",
+      "nazev": "(EU) 2022/869 - NAŘÍZENÍ EVROPSKÉHO PARLAMENTU A RADY ze dne 30. května 2022, kterým se stanoví hlavní směry pro transevropské energetické sítě, mění nařízení (ES) č. 715/2009, (EU) 2019/942 a (EU) 2019/943 a směrnice 2009/73/ES a (EU) 2019/944 a zrušuje nařízení (EU) č. 347/2013",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Nařízení EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2022/869"
+      ]
+    },
+    {
+      "id": "CDV-11",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 11,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2023/1804/EU",
+      "nazev": "(EU) 2023/1804 - NAŘÍZENÍ EVROPSKÉHO PARLAMENTU A RADY (EU) 2023/1804 ze dne 13. září 2023 o zavádění infrastruktury pro alternativní paliva a o zrušení směrnice 2014/94/EU",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Nařízení EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2023/1804"
+      ]
+    },
+    {
+      "id": "CDV-12",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 12,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2024/1789/EU",
+      "nazev": "(EU) 2024/1789 - Nařízení Evropského parlamentu a Rady (EU) 2024/1789 ze dne 13. června 2024 o vnitřním trhu s plynem z obnovitelných zdrojů, se zemním plynem a s vodíkem, o změně nařízení (EU) č. 1227/2011, (EU) 2017/1938, (EU) 2019/942 a (EU) 2022/869 a rozhodnutí (EU) 2017/684 a o zrušení nařízení (ES) č. 715/2009 (přepracované znění) (Text s významem pro EHP)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Nařízení EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2024/1789"
+      ]
+    },
+    {
+      "id": "CDV-13",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 13,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "1302/2014/EU",
+      "nazev": "LOC&PAS TSI - Prováděcí nařízení Komise (EU) 2019/776 ze dne 16. května 2019, kterým se mění nařízení Komise (EU) č. 321/2013, (EU) č. 1299/2014, (EU) č. 1301/2014, (EU) č. 1302/2014, (EU) č. 1303/2014 a (EU) 2016/919 a prováděcí rozhodnutí Komise 2011/665/EU, pokud jde o soulad se směrnicí Evropského parlamentu a Rady (EU) 2016/797 a provádění konkrétních cílů stanovených v rozhodnutí Komise v přenesené pravomoci (EU) 2017/1474",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Vodíkové jednotky spadají do této kategorie",
+      "yellow": true,
+      "keys": [
+        "EU:2014/1302"
+      ]
+    },
+    {
+      "id": "CDV-14",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 14,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "1303/2014/EU",
+      "nazev": "SRT TSI - Nařízení Komise ze dne 18. listopadu 2014 o technické specifikaci pro interoperabilitu týkající se „bezpečnosti v železničních tunelech“ železničního systému Evropské unie",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Vodík má specifická rizika v tunelech",
+      "yellow": true,
+      "keys": [
+        "EU:2014/1303"
+      ]
+    },
+    {
+      "id": "CDV-15",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 15,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "1305/2014/EU",
+      "nazev": "TAF TSI - Nařízení Komise (EU) č. 1305/2014 ze dne 11. prosince 2014 o technické specifikaci pro interoperabilitu subsystému „Využití telematiky v nákladní dopravě“ železničního systému Evropské unie a o zrušení nařízení (ES) č. 62/2006",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Vodík zahrnut v kontextu neelektrifikovaných tratí.",
+      "yellow": true,
+      "keys": [
+        "EU:2014/1305"
+      ]
+    },
+    {
+      "id": "CDV-16",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 16,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2018/545/EU",
+      "nazev": "Prováděcí nařízení Komise ze dne 4. dubna 2018, kterým se stanoví praktická pravidla pro postup povolování železničních vozidel a typu železničních vozidel v souladu se směrnicí Evropského parlamentu a Rady (EU) 2016/797",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Vodíkové jednotky musí projít schvalovacím procesem podle tohoto nařízení.",
+      "yellow": true,
+      "keys": [
+        "EU:2018/545"
+      ]
+    },
+    {
+      "id": "CDV-17",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 17,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2019/773/EU",
+      "nazev": "TSI OPE - Prováděcí nařízení Komise ze dne 16. května 2019 o technické specifikaci pro interoperabilitu týkající se subsystému „provoz a řízení dopravy“ železničního systému v Evropské unii a o zrušení rozhodnutí 2012/757/EU",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Provoz vodíkových vlaků může vyžadovat specifické postupy (tankování, nouzové situace).",
+      "yellow": true,
+      "keys": [
+        "EU:2019/773"
+      ]
+    },
+    {
+      "id": "CDV-18",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 18,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "402/2013/EU",
+      "nazev": "Prováděcí nařízení Komise ze dne 30. dubna 2013 o společné bezpečnostní metodě pro hodnocení a posuzování rizik a o zrušení nařízení (ES) č. 352/2009",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Vodík je vysoce hořlavý → analýza rizik je zásadní.",
+      "yellow": true,
+      "keys": [
+        "EU:2013/402"
+      ]
+    },
+    {
+      "id": "CDV-19",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 19,
+      "zdroj": "AI - Copilot",
+      "cislo": "79/2009/EU",
+      "nazev": "Regulation (EC) No 79/2009 - Typové schvalování vodíkových vozidel",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Základní právní rámec pro bezpečnost a schvalování vozidel na vodík.",
+      "yellow": false,
+      "keys": [
+        "EU:2009/79"
+      ]
+    },
+    {
+      "id": "CDV-20",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 20,
+      "zdroj": "AI - Copilot",
+      "cislo": null,
+      "nazev": "Alternative Fuels Infrastructure Regulation (AFIR)",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Stanovuje povinnosti členských států pro budování infrastruktury alternativních paliv, včetně vodíkových stanic.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-21",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 21,
+      "zdroj": "AI - Copilot",
+      "cislo": null,
+      "nazev": "TEN-T Regulation (Trans-European Transport Network)",
+      "nositel": "Evropská komise",
+      "zarazeni": "Nařízení EU",
+      "poznamka": "Zahrnuje vodíkovou infrastrukturu jako součást evropské dopravní sítě.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-22",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 22,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2018/2001/EU",
+      "nazev": "Směrnice Evropského parlamentu a Rady ze dne 11. prosince 2018 o podpoře využívání energie z obnovitelných zdrojů (přepracované znění) (Text s významem pro EHP.) Známá jako RED II Direktiva",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": "Stanovuje podmínky pro obnovitelné zdroje energie včetně obnovitelného vodíku.",
+      "yellow": true,
+      "keys": [
+        "EU:2018/2001"
+      ]
+    },
+    {
+      "id": "CDV-23",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 23,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2023/2413/EU",
+      "nazev": "SMĚRNICE EVROPSKÉHO PARLAMENTU A RADY ze dne 18. října 2023, kterou se mění směrnice (EU) 2018/2001, nařízení (EU) 2018/1999 a směrnice 98/70/ES, pokud jde o podporu energie z obnovitelných zdrojů, a zrušuje směrnice Rady (EU) 2015/652 Známá jako RED III Direktiva",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": "Stanovuje podmínky pro obnovitelné zdroje energie včetně obnovitelného vodíku.",
+      "yellow": true,
+      "keys": [
+        "EU:2023/2413"
+      ]
+    },
+    {
+      "id": "CDV-24",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 24,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2024/1788/EU",
+      "nazev": "SMĚRNICE EVROPSKÉHO PARLAMENTU A RADY (EU) o společných pravidlech pro vnitřní trh s plynem z obnovitelných zdrojů, se zemním plynem a s vodíkem a o změně směrnice (EU) 2023/1791 a zrušení směrnice 2009/73/ES (přepracované znění)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2024/1788"
+      ]
+    },
+    {
+      "id": "CDV-25",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 25,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "1999/92/ES (ATEX 137)",
+      "nazev": "SMĚRNICE EVROPSKÉHO PARLAMENTU A RADY ze dne 16. prosince 1999 o minimálních požadavcích na zlepšení bezpečnosti a ochrany zdraví zaměstnanců vystavených riziku výbušných prostředí (patnáctá samostatná směrnice ve smyslu čl. 16 odst. 1 směrnice 89/391/EHS)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:1999/92"
+      ]
+    },
+    {
+      "id": "CDV-26",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 26,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2012/18/EU",
+      "nazev": "SMĚRNICE EVROPSKÉHO PARLAMENTU A RADY ze dne 26. února 2014 o harmonizaci právních předpisů členských států týkajících se zařízení a ochranných systémů určených k použití v prostředí s nebezpečím výbuchu (přepracované znění) Známá jako SEVESO III",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2012/18"
+      ]
+    },
+    {
+      "id": "CDV-27",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 27,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2014/34/EU",
+      "nazev": "Směrnice Evropského parlamentu a Rady ze dne 26. února 2014 o harmonizaci právních předpisů členských států týkajících se zařízení a ochranných systémů určených k použití v prostředí s nebezpečím výbuchu (přepracované znění) ATEX",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2014/34"
+      ]
+    },
+    {
+      "id": "CDV-28",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 28,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2014/68/EU",
+      "nazev": "Směrnice Evropského parlamentu a Rady 2014/68/EU ze dne 15. května 2014 o harmonizaci právních předpisů členských států týkajících se dodávání tlakových zařízení na trh (přepracované znění) Pressure Equipment Directive (PED)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2014/68"
+      ]
+    },
+    {
+      "id": "CDV-29",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 29,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2016/797/EU",
+      "nazev": "Směrnice Evropského parlamentu a Rady ze dne 11. května 2016 o interoperabilitě železničního systému v Evropské unii (přepracované znění)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2016/797"
+      ]
+    },
+    {
+      "id": "CDV-30",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 30,
+      "zdroj": "Databáze CDV/AI - Copilot",
+      "cislo": "2016/798/EU",
+      "nazev": "Směrnice Evropského parlamentu a Rady (EU) ze dne 11. května 2016 o bezpečnosti železnic (přepracované znění)",
+      "nositel": "Evropský parlament a Rada EU",
+      "zarazeni": "Směrnice EU",
+      "poznamka": null,
+      "yellow": true,
+      "keys": [
+        "EU:2016/798"
+      ]
+    },
+    {
+      "id": "CDV-31",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 31,
+      "zdroj": "AI - Copilot",
+      "cislo": "DA 2023/1184/EU",
+      "nazev": "Nařízení Komise v přenesené pravomoci (EU) 2023/1184 ze dne 10. února 2023, kterým se doplňuje směrnice Evropského parlamentu a Rady (EU) 2018/2001 stanovením unijní metodiky, kterou se stanoví podrobná pravidla pro výrobu obnovitelných kapalných a plynných paliv nebiologického původu pro dopravu.",
+      "nositel": "Evropská komise",
+      "zarazeni": "Delegovaný akt EU",
+      "poznamka": "Určují, kdy lze vodík označit jako „obnovitelný“ a \"nízkouhlíkový\" (např. podmínky pro připojení k obnovitelným zdrojům).",
+      "yellow": false,
+      "keys": [
+        "EU:2023/1184"
+      ]
+    },
+    {
+      "id": "CDV-32",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 32,
+      "zdroj": "AI - Copilot",
+      "cislo": "DA 2025/2359/EU",
+      "nazev": "Nařízení Komise v přenesené pravomoci (EU) 2025/2359 ze dne 8. července 2025, kterým se doplňuje směrnice Evropského parlamentu a Rady (EU) 2024/1788, pokud jde o stanovení pravidel pro metodiku započítávání emisí skleníkových plynů pro nízkouhlíková paliva",
+      "nositel": "Evropská komise",
+      "zarazeni": "Delegovaný akt EU",
+      "poznamka": "Určují, kdy lze vodík označit jako „obnovitelný“ a \"nízkouhlíkový\" (např. podmínky pro připojení k obnovitelným zdrojům).",
+      "yellow": false,
+      "keys": [
+        "EU:2025/2359"
+      ]
+    },
+    {
+      "id": "CDV-33",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 33,
+      "zdroj": "AI - Copilot",
+      "cislo": null,
+      "nazev": "Gas Market Decarbonisation Package (2024)",
+      "nositel": "Mezinárodní / evropská instituce",
+      "zarazeni": "Legislativní balíček EU",
+      "poznamka": "Součástí je nová směrnice o společných pravidlech pro trh s obnovitelnými plyny, zemním plynem a vodíkem. ČR ji právě transponuje prostřednictvím Lex Hydrogen.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-34",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 34,
+      "zdroj": "AI - Copilot",
+      "cislo": "ISO 19880-3:2018",
+      "nazev": "Vodíkové čerpací stanice (ventily)",
+      "nositel": "ISO - International Organization for Standardization",
+      "zarazeni": "Technická norma",
+      "poznamka": "Definuje bezpečnostní požadavky pro komponenty vodíkových stanic.",
+      "yellow": false,
+      "keys": [
+        "NORM:ISO 19880-3"
+      ]
+    },
+    {
+      "id": "CDV-35",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 35,
+      "zdroj": "AI - Copilot",
+      "cislo": "ISO/TC 22",
+      "nazev": "Silniční vozidla",
+      "nositel": "ISO - International Organization for Standardization",
+      "zarazeni": "Technická norma",
+      "poznamka": "Zaměřuje se na standardizaci vozidel, jejich součástí a zkušebních postupů pro bezpečnost a environmentální výkonnost.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-36",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 36,
+      "zdroj": "AI - Copilot",
+      "cislo": "ISO/TC 193",
+      "nazev": "Zemní plyn",
+      "nositel": "ISO - International Organization for Standardization",
+      "zarazeni": "Technická norma",
+      "poznamka": "Vyvíjí normy pro odběr vzorků, analýzu a specifikace zemního plynu a jeho náhrad (včetně biometanu).",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-37",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 37,
+      "zdroj": "AI - Copilot",
+      "cislo": "ISO/TC 268",
+      "nazev": "Udržitelná města a obce",
+      "nositel": "ISO - International Organization for Standardization",
+      "zarazeni": "Technická norma",
+      "poznamka": "Vytváří normy, které pomáhají městům spravovat infrastrukturu, zlepšovat udržitelnost a zvyšovat kvalitu života.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-38",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 38,
+      "zdroj": "AI - Copilot",
+      "cislo": "IEC/TC 105",
+      "nazev": "Technologie palivových článků",
+      "nositel": "IEC - International Electrotechnical Commission",
+      "zarazeni": "Technická norma",
+      "poznamka": "Připravuje normy pro technologie palivových článků (např. ve stacionárních a mobilních aplikacích) a energetické systémy na bázi vodíku.",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-39",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 39,
+      "zdroj": "AI - Copilot",
+      "cislo": "CEN/TC 234",
+      "nazev": "Evropské normy pro infrastrukturu a bezpečnost vodíku - plynová infrastruktura",
+      "nositel": "CEN - Evropský výbor pro normalizaci",
+      "zarazeni": "Technická norma",
+      "poznamka": "Plynovody, skladování, měření, kvalita plynu, bezpečnost",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-40",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 40,
+      "zdroj": "AI - Copilot",
+      "cislo": "CEN/TC 235",
+      "nazev": "Evropské normy pro infrastrukturu a bezpečnost vodíku - regulátory tlaku plynu",
+      "nositel": "CEN - Evropský výbor pro normalizaci",
+      "zarazeni": "Technická norma",
+      "poznamka": "Včetně bezpečnostních uzavíracích a pojistných zařízení, přenosové a distribuční soustavy do 100 bar",
+      "yellow": false,
+      "keys": []
+    },
+    {
+      "id": "CDV-41",
+      "table": "CDV",
+      "sheet": "Databáze EU (30.4.2026)",
+      "row": 41,
+      "zdroj": "AI - Copilot",
+      "cislo": "CEN/TC 268",
+      "nazev": "Evropské normy pro infrastrukturu a bezpečnost vodíku - Specifické vodíkové technologie",
+      "nositel": "CEN - Evropský výbor pro normalizaci",
+      "zarazeni": "Technická norma",
+      "poznamka": "Infrastruktura pro tankování vodíku",
+      "yellow": false,
+      "keys": []
+    }
+  ]
+}

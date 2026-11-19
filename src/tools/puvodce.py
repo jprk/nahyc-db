@@ -37,6 +37,8 @@ from standards_body import resolve_standards_body
 # misread as Ministerstvo zemědělství (Agriculture), a different,
 # already-present ministry.
 ABBREVIATION_MAP = {
+    "ČBÚ": "Český báňský úřad",
+    "ERÚ": "Energetický regulační úřad",
     "MD": "Ministerstvo dopravy",
     "MMR": "Ministerstvo pro místní rozvoj",
     "MPO": "Ministerstvo průmyslu a obchodu",

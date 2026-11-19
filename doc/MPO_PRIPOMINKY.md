@@ -209,6 +209,42 @@ databáze tyto opravy nemá.
 * obě tabulky převzít jako zlatou sadu a jejich pokrytí hlídat automatickým
   testem, aby se případná ztráta dokumentu projevila hned.
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok1`, živá DB dosud nezapsána):**
+Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
+
+* *Strojový tvar.* Obě tabulky jsou v `data/20260430_MPO/raw/`; skript
+  `src/tools/mpo_tables.py` je převádí do `mpo_tables.json` (90 řádků)
+  a každý řádek porovnává s databází (`mpo_coverage.json`). Řádky, jež nelze
+  rozhodnout pravidlem, rozhoduje s uvedením důvodu `mpo_decisions.json`.
+* *Pokrytí.* Z 90 řádků je 51 v databázi (MPO 21, CDV 30), 31 ve frontě
+  kandidátů nebo do ní patří (MPO 29, CDV 2: nařízení TEN-T (EU) 2024/1679,
+  jež jsme v EUR-Lexu ověřili, a (EU) 2025/2359) a 8 řádků CDV nejsou dokumenty
+  (sedm technických komisí a souhrnná položka „UNECE předpisy (WP.29)“).
+  Čísla v odstavci 2.1 se potvrdila s jednou výjimkou: řádek MPO-42 uvádí číslo
+  191/2022 Sb., ale název nařízení vlády č. 192/2022 Sb., jež databáze má.
+* *Nesrovnalosti v tabulce MPO.* Řádek „277/2015 Sb.“ míní podle názvu
+  vyhlášku č. 227/2015 Sb.; vyhláška č. 513/2021 Sb. je zrušená novela, platná
+  je vyhláška č. 508/2025 Sb. o regulačním výkaznictví; databáze vede
+  ČSN ISO 19880-1 pod neexistujícím označením ČSN EN ISO 19880-1 (#3).
+* *Fronta kandidátů.* Pro zdroj „MPO/CDV 30. 4. 2026“ je připraveno 34
+  kandidátů s úředním názvem, adresou a platností (zakonyprolidi.cz, e-Sbírka,
+  EUR-Lex, katalog ČAS): 28 českých předpisů, 2 akty EU, norma
+  ČSN EN ISO 11114-4 a 3 kandidáti z uzávěru citací, jimž se jen doplní řádky
+  tabulky do podkladů. Zápis do živé databáze provede
+  `src/tools/mpo_tables.py import --apply`; na `h2regdocs_test` je vyzkoušen.
+* *ERÚ a ČBÚ.* Kandidáti nesou navrženého původce (nový sloupec
+  `DocumentCandidate.puvodce`), mezi nimi Energetický regulační úřad
+  (6 kandidátů) a Český báňský úřad (6 kandidátů). Do `DocumentSource` se
+  instituce zapíše s prvním přijatým dokumentem, aby veřejný filtr nenabízel
+  instituci bez dokumentů.
+* *Zlatý test.* `tests/test_mpo_golden.py` (součást `run_tests.py`) ověřuje
+  nad `h2regdocs_test`, že každý řádek obou tabulek je dokumentem, kandidátem,
+  nebo má uveden důvod, a že žádný dokument z tabulek z databáze nezmizel.
+
+Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení editory
+(potvrzení přijetí vyžaduje dva různé editory), rozhodnutí o dalších
+částech řad ČSN EN 60079 a ČSN EN 13445 a vysvětlení technických komisí MPO.
+
 ### 4.3 Krok 2: Úpravy rozhraní
 
 * jeden řádek na předpis, jazykové verze jen jako štítky CS/EN v tomto řádku;

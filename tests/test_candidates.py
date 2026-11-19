@@ -1,3 +1,4 @@
+import json
 import pathlib
 import sys
 import unittest
@@ -84,6 +85,12 @@ class UpsertTestCase(unittest.TestCase):
         cursor = FakeCursor({"id": 7, "status": "deferred"})
         self.assertEqual(cd.upsert(cursor, self.CANDIDATE), "updated")
         self.assertTrue(cursor.sql[-1][0].startswith("UPDATE DocumentCandidate SET evidence"))
+
+    def test_the_rows_of_the_mpo_tables_survive_fresh_evidence(self):
+        old = {"citing_ids": [2], "mpo_rows": [{"row": "MPO-09"}]}
+        cursor = FakeCursor({"id": 7, "status": "new", "evidence_json": json.dumps(old)})
+        cd.upsert(cursor, self.CANDIDATE)
+        self.assertEqual(json.loads(cursor.sql[-1][1][0]), {"citing_ids": [1], "mpo_rows": [{"row": "MPO-09"}]})
 
     def test_a_decided_candidate_is_left_alone(self):
         for status in ("accepted", "rejected"):

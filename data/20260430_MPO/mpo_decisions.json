@@ -1,0 +1,92 @@
+{
+  "_popis": "Ruční rozhodnutí k řádkům tabulek MPO a CDV (doc/MPO_TABULKY.md), čte je src/tools/mpo_tables.py. Klíč je identifikátor řádku (tabulka a číslo řádku v listu). keys = klíče předpisů, když je nelze odvodit z čísla předpisu; identifiers / title_prefixes = dokumenty databáze bez klíče; reason = proč řádek není dokumentem databáze ani kandidátem; extra_candidates = další dokumenty, které řádek pokrývá jen zčásti; note = poznámka do přehledu.",
+  "MPO-06": {
+    "note": "Vyhláška č. 513/2021 Sb. jen novelizovala vyhlášku č. 262/2015 Sb. o regulačním výkaznictví, kterou k 1. 1. 2026 zrušila vyhláška č. 508/2025 Sb.; podle zakonyprolidi.cz je proto zrušená. Kandidátem je i platná vyhláška č. 508/2025 Sb.",
+    "extra_candidates": ["508/2025 Sb."]
+  },
+  "MPO-27": {
+    "keys": ["CZ:227/2015"],
+    "note": "Tabulka MPO uvádí číslo 277/2015 Sb., to je však vyhláška o náhradě za bolest příslušníků bezpečnostních sborů. Název v tabulce („o náležitostech bezpečnostní dokumentace a rozsahu informací poskytovaných zpracovateli posudku“) doslova odpovídá vyhlášce č. 227/2015 Sb., prováděcímu předpisu zákona o prevenci závažných havárií; jde zjevně o překlep."
+  },
+  "MPO-39": {
+    "note": "Duplicitní řádek: zákon č. 250/2021 Sb. je i v řádku MPO-28."
+  },
+  "MPO-42": {
+    "keys": ["CZ:191/2022", "CZ:192/2022"],
+    "note": "Číslo 191/2022 Sb. patří nařízení vlády o vyhrazených technických plynových zařízeních, název v tabulce MPO („o vyhrazených tlakových zařízeních“) nařízení vlády č. 192/2022 Sb. To je v databázi; nařízení č. 191/2022 Sb. je kandidátem, protože se vodíkových zařízení týká také."
+  },
+  "MPO-47": {
+    "note": "Databáze vede normu pod označením ČSN EN ISO 19880-1, které katalog ČAS nezná; platné české převzetí je ČSN ISO 19880-1 (vydána 8/2025). Označení dokumentu je třeba opravit (krok 0)."
+  },
+  "MPO-48": {
+    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 60079 je v databázi jen část 0. Které další části doplnit, je otevřená otázka (doc/MPO_TABULKY.md)."
+  },
+  "MPO-49": {
+    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 13445 je v databázi jen část 5 (ČSN EN 13445-5+A1). Které další části doplnit, je otevřená otázka (doc/MPO_TABULKY.md)."
+  },
+  "MPO-50": {
+    "note": "Řádek označuje celou řadu norem, v databázi je část 1. Kompatibilitu materiálů s vodíkem (název v tabulce MPO) řeší část 4, která je v databázi jen jako ISO 11114-4 a STN EN ISO 11114-4; české převzetí ČSN EN ISO 11114-4 je proto kandidátem.",
+    "extra_candidates": ["ČSN EN ISO 11114-4"]
+  },
+  "CDV-02": {
+    "identifiers": ["ADR 2025"]
+  },
+  "CDV-03": {
+    "identifiers": ["(EHK OSN) č. 134", "[2019/795]"],
+    "note": "Předpis EHK OSN č. 134 je v databázi dvakrát (#92 a #139), sloučení je otevřené z kroku 0."
+  },
+  "CDV-04": {
+    "title_prefixes": ["RID - Přípojek C"],
+    "note": "Dokument nemá v databázi označení."
+  },
+  "CDV-05": {
+    "identifiers": ["UNECE Regulation No. 100 (Revision 2)"],
+    "note": "Záznam v databázi má označení předpisu EHK OSN č. 100 (elektrický pohon vozidel), ale název „DOC 100/20 - Hydrogen Cylinders and Transport Vessels“, tedy publikace EIGA. Záznam je třeba ověřit."
+  },
+  "CDV-06": {
+    "reason": "Souhrnné označení předpisů EHK OSN připojených k Dohodě z roku 1958 (pracovní skupina WP.29), nikoli jeden dokument. Z těchto předpisů je v databázi předpis č. 134 pro vozidla na vodíkový pohon (řádek CDV-03)."
+  },
+  "CDV-07": {
+    "identifiers": ["IMO CCC8/WP.3 Annex 2"],
+    "note": "Obecná položka; v databázi jí odpovídají prozatímní pokyny IMO pro lodě s vodíkem jako palivem (IMO CCC8/WP.3 Annex 2)."
+  },
+  "CDV-13": {
+    "note": "Tabulka CDV i databáze (#130) spojují označení (EU) č. 1302/2014 (TSI LOC&PAS) s názvem prováděcího nařízení (EU) 2019/776; oprava je otevřená z kroku 0."
+  },
+  "CDV-20": {
+    "keys": ["EU:2023/1804"],
+    "note": "AFIR je nařízení (EU) 2023/1804, totéž co řádek CDV-11."
+  },
+  "CDV-21": {
+    "keys": ["EU:2024/1679"],
+    "note": "Nařízení TEN-T je nařízení (EU) 2024/1679 o hlavních směrech Unie pro rozvoj transevropské dopravní sítě (ověřeno v EUR-Lexu)."
+  },
+  "CDV-26": {
+    "note": "Číslo předpisu 2012/18/EU je směrnice Seveso III, název v tabulce CDV však patří směrnici ATEX 2014/34/EU (řádek CDV-27)."
+  },
+  "CDV-33": {
+    "keys": ["EU:2024/1788", "EU:2024/1789"],
+    "note": "Balíček tvoří směrnice (EU) 2024/1788 a nařízení (EU) 2024/1789 (řádky CDV-24 a CDV-12); databáze je vede jednotlivě, nikoli jako balíček."
+  },
+  "CDV-35": {
+    "reason": "ISO/TC 22 je technická komise ISO (silniční vozidla), nikoli dokument. Z norem komise pro vozidla na vodík databáze obsahuje např. ISO 21266-1, ISO 21266-2 a ISO 23273."
+  },
+  "CDV-36": {
+    "reason": "ISO/TC 193 je technická komise ISO (zemní plyn), nikoli dokument. Z jejích norem databáze obsahuje např. ISO 6976."
+  },
+  "CDV-37": {
+    "reason": "ISO/TC 268 je technická komise ISO (udržitelná města a obce), nikoli dokument; s vodíkovými technologiemi souvisí jen nepřímo."
+  },
+  "CDV-38": {
+    "reason": "IEC/TC 105 je technická komise IEC (technologie palivových článků), nikoli dokument. Z jejích norem řady IEC 62282 obsahuje databáze 30 dokumentů."
+  },
+  "CDV-39": {
+    "reason": "CEN/TC 234 je technická komise CEN (plynová infrastruktura), nikoli dokument."
+  },
+  "CDV-40": {
+    "reason": "CEN/TC 235 je technická komise CEN (regulátory tlaku plynu a bezpečnostní zařízení), nikoli dokument."
+  },
+  "CDV-41": {
+    "reason": "CEN/TC 268 je technická komise CEN (kryogenní nádoby a specifické vodíkové technologie), nikoli dokument. Její normy (např. EN 17124, EN 17127) databáze obsahuje."
+  }
+}
