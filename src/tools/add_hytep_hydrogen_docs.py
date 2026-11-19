@@ -122,7 +122,7 @@ def classify_hytep_document_typ(title):
     patterns — strategy is checked first since "strategická" is the
     title's own primary descriptor."""
     if _STRATEGY_RE.search(title or ""):
-        return "Strategický dokument"
+        return "Strategie"
     if _METHODOLOGY_RE.search(title or ""):
         return "Metodika"
     if _STUDY_RE.search(title or ""):

@@ -81,6 +81,46 @@ class DedupeResolvedRelationsTestCase(unittest.TestCase):
         self.assertEqual(dedupe_resolved_relations(resolved), resolved)
 
 
+class NamesTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 1: a document without an identifier is named by
+    the designation made of its address; a designation renamed by a correction is
+    followed in every relation file."""
+
+    class Cursor:
+        def __init__(self, rows):
+            self.rows = rows
+
+        def execute(self, sql, params=None):
+            pass
+
+        def fetchall(self):
+            return self.rows
+
+    def test_a_document_without_identifier_is_named_by_its_address(self):
+        from fulltext_keys import url_designation
+        names = ldr.fetch_document_identifier_map(self.Cursor([(1, "A", "https://a"), (2, None, "https://b"),
+                                                               (3, None, None)]))
+        self.assertEqual(names, {"A": 1, url_designation("https://b"): 2})
+
+    def test_renamed_designations_are_followed(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        path = pathlib.Path(tmp.name) / "auto.json"
+        path.write_text(json.dumps([{"from_identifier": "x", "to_identifier": "2018/858/ES", "relation_type": "IMPLEMENTS"}]),
+                        encoding="utf-8")
+        original = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
+                    ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH)
+        missing = pathlib.Path(tmp.name) / "missing.json"
+        (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
+         ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = (missing, path, missing, missing, missing, missing)
+        try:
+            relations = ldr.load_relation_sources({"2018/858/ES": {"changes": {"znacka": "(EU) 2018/858 [SK]"}}})
+        finally:
+            (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
+             ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = original
+        self.assertEqual(relations[0]["to_identifier"], "(EU) 2018/858 [SK]")
+
+
 class LoadRelationSourcesTestCase(unittest.TestCase):
     """doc/PLAN.md §15: a third source file (build-time NATIONAL_EQUIVALENT
     pairs) is merged in alongside the existing two — missing files are

@@ -5,7 +5,8 @@ from unittest.mock import MagicMock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
-from sites.eurlex import (celex_candidates_from_designation, celex_from_url,
+from sites.eurlex import (cellar_language, fetch_cellar_document,
+                          celex_candidates_from_designation, celex_from_url,
                           eli_candidates_from_designation, extract,
                           fetch_responsible_gestor, resolve_eu_act_by_designation,
                           resource_uris_from_text)
@@ -265,6 +266,48 @@ class ResolveEuActByDesignationTestCase(unittest.TestCase):
         session = _fake_session([_binding("CES", "Should never be returned")])
         got = resolve_eu_act_by_designation("2011/92", "Zákon", session=session)
         self.assertIsNone(got)
+        session.get.assert_not_called()
+
+
+class CellarDocumentTestCase(unittest.TestCase):
+    """The text of an act from Cellar instead of EUR-Lex, which answers automated
+    clients with a firewall challenge (doc/MPO_PRIPOMINKY.md, 2026-11-19)."""
+
+    def response(self, status, text="", content=b"", content_type="application/xhtml+xml"):
+        resp = MagicMock()
+        resp.status_code, resp.text, resp.content = status, text, content
+        resp.headers = {"Content-Type": content_type}
+        return resp
+
+    def test_the_language_comes_from_the_address(self):
+        self.assertEqual(cellar_language("https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:52020DC0301"), "slk")
+        self.assertEqual(cellar_language("https://eur-lex.europa.eu/eli/reg/2008/1272/oj/ces"), "ces")
+        self.assertEqual(cellar_language("https://eur-lex.europa.eu/eli/reg/2008/1272/oj"), "eng")
+
+    def test_the_main_item_of_a_multiple_choice_answer_is_downloaded(self):
+        session = MagicMock()
+        listing = '<a href="http://publications.europa.eu/resource/cellar/abc.0024.03/DOC_1">x</a>'
+        session.get.side_effect = [self.response(300, text=listing), self.response(200, content=b"<html/>")]
+        status, content, _ = fetch_cellar_document(
+            "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52022DC0230", session=session)
+        self.assertEqual((status, content), (200, b"<html/>"))
+        first, second = session.get.call_args_list
+        self.assertEqual(first.args[0], "http://publications.europa.eu/resource/celex/52022DC0230")
+        self.assertEqual(first.kwargs["headers"]["Accept-Language"], "ces")
+        self.assertEqual(second.args[0], "http://publications.europa.eu/resource/cellar/abc.0024.03/DOC_1")
+
+    def test_a_pdf_address_asks_for_a_pdf_and_a_celex_suffix_is_encoded(self):
+        session = MagicMock()
+        session.get.return_value = self.response(200, content=b"%PDF-", content_type="application/pdf;type=pdfa1a")
+        fetch_cellar_document("https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:42015X0331(01)",
+                              session=session)
+        call = session.get.call_args
+        self.assertEqual(call.args[0], "http://publications.europa.eu/resource/celex/42015X0331%2801%29")
+        self.assertTrue(call.kwargs["headers"]["Accept"].startswith("application/pdf"))
+
+    def test_no_celex_no_request(self):
+        session = MagicMock()
+        self.assertIsNone(fetch_cellar_document("https://eur-lex.europa.eu/eli/reg/2008/1272/oj", session=session))
         session.get.assert_not_called()
 
 

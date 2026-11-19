@@ -182,12 +182,12 @@
   "250/2012 Z. z.": {
     "changes": {
       "gestor": [
-        "Úrad pre reguláciu sieťových odvetví"
+        "Ministerstvo hospodárstva Slovenskej republiky"
       ]
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů. Původcem (předkladatelem) zákona o regulaci v síťových odvětvích je Ministerstvo hospodárstva Slovenskej republiky, nikoli regulační úřad ÚRSO, jenž zákon provádí (rozhodnutí uživatele 2026-11-19)."
   },
   "451/2022 Z. z.": {
     "changes": {
@@ -294,49 +294,60 @@
     "changes": {
       "gestor": [
         "Evropská komise"
-      ]
+      ],
+      "znacka": "COM(2020) 301",
+      "typ_dokumentu": "Strategie",
+      "jazyk": "CZ",
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52020DC0301"
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Sdělení Komise COM(2020) 301 (Vodíková strategie EU) vydala Evropská komise, ne MPO."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Sdělení Komise COM(2020) 301 (Vodíková strategie EU) vydala Evropská komise, ne MPO. Úřední české znění Vodíkové strategie EU bylo vedeno jako „Nezařazeno“ bez označení a s adresou anglického znění; nyní má označení COM(2020) 301, typ Strategie a adresu českého znění v EUR-Lexu (odkud pochází i jeho plný text)."
   },
   "url-86dc0d38": {
     "changes": {
-      "typ_dokumentu": "Strategický dokument",
+      "typ_dokumentu": "Strategie",
       "gestor": [
         "Evropská komise"
       ],
       "nazev_autoritativni": "",
       "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:52020DC0301",
-      "jazyk": "SK"
+      "jazyk": "SK",
+      "znacka": "COM(2020) 301 [SK]"
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenské znění Vodíkové strategie EU (COM(2020) 301): autoritativní odkaz vedl na nesouvisející stránku Slov-Lexu (2021/587), odkud se převzal název „Slov-Lex“; dokument nyní odkazuje na slovenské znění v EUR-Lexu (odkud pochází i jeho plný text), typ je strategický dokument a původcem Evropská komise."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Slovenské znění Vodíkové strategie EU (COM(2020) 301): autoritativní odkaz vedl na nesouvisející stránku Slov-Lexu (2021/587), odkud se převzal název „Slov-Lex“; dokument nyní odkazuje na slovenské znění v EUR-Lexu (odkud pochází i jeho plný text), typ je strategický dokument a původcem Evropská komise. Slovenské znění dostalo označení COM(2020) 301 [SK] a je spojeno s úředním českým zněním COM(2020) 301 vazbou TRANSLATION_OF; typ Strategie."
   },
   "url-e18c5e80": {
     "changes": {
       "nazev_autoritativni": "",
       "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32022D2427",
-      "jazyk": "SK"
+      "jazyk": "SK",
+      "znacka": "(EU) 2022/2427 [SK]",
+      "nazev_cz": "Vykonávacie rozhodnutie Komisie (EÚ) 2022/2427 zo 6. decembra 2022, ktorým sa podľa smernice Európskeho parlamentu a Rady 2010/75/EÚ o priemyselných emisiách stanovujú závery o najlepších dostupných technikách (BAT) pre spoločné systémy nakladania s odpadovými plynmi a ich čistenia v chemickom odvetví [oznámené pod číslom C(2022) 8788] (Text s významom pre EHP)",
+      "gestor": [
+        "Evropská komise"
+      ]
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Prováděcí rozhodnutí Komise (EU) 2022/2427: autoritativní odkaz vedl na stránku Slov-Lexu bez předpisu, odkud se převzal název „Slov-Lex“; dokument nyní odkazuje na slovenské znění v EUR-Lexu (odkud pochází i jeho plný text)."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Prováděcí rozhodnutí Komise (EU) 2022/2427: autoritativní odkaz vedl na stránku Slov-Lexu bez předpisu, odkud se převzal název „Slov-Lex“; dokument nyní odkazuje na slovenské znění v EUR-Lexu (odkud pochází i jeho plný text). Slovenské znění dostalo označení (EU) 2022/2427 [SK] a úřední slovenský název z Cellaru; s českým zněním (EU) 2022/2427 je spojeno vazbou TRANSLATION_OF jako anglická znění. Rozhodnutí vydala Evropská komise."
   },
   "2018/858/ES": {
     "changes": {
-      "nazev_cz": "Nariadenie Európskeho parlamentu a Rady (EÚ) 2018/858",
+      "nazev_cz": "Nariadenie Európskeho parlamentu a Rady (EÚ) 2018/858 z 30. mája 2018 o schvaľovaní motorových vozidiel a ich prípojných vozidiel, ako aj systémov, komponentov a samostatných technických jednotiek určených pre takéto vozidlá a o dohľade nad trhom s nimi, ktorým sa menia nariadenia (ES) č. 715/2007 a (ES) č. 595/2009 a zrušuje smernica 2007/46/ES (Text s významom pre EHP)",
       "typ_dokumentu": "Nařízení EU",
       "gestor": [
         "Evropský parlament a Rada Evropské unie"
       ],
       "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32018R0858",
-      "jazyk": "SK"
+      "jazyk": "SK",
+      "znacka": "(EU) 2018/858 [SK]"
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský záznam aktu (EU) 2018/858 nesl název „Smernica 2018/858/ES“ (jde o nařízení, ne směrnici) a jako původce Ministerstvo dopravy; doplněn odkaz na slovenské znění v EUR-Lexu."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Slovenský záznam aktu (EU) 2018/858 nesl název „Smernica 2018/858/ES“ (jde o nařízení, ne směrnici) a jako původce Ministerstvo dopravy; doplněn odkaz na slovenské znění v EUR-Lexu. Označení „2018/858/ES“ (nařízení není akt ES) nahrazeno označením (EU) 2018/858 [SK] po vzoru anglických znění; doplněn úřední slovenský název z Cellaru; s českým zněním (EU) 2018/858 je spojeno vazbou TRANSLATION_OF."
   },
   "(EU) 2023/2413": {
     "row_language": "CS",
@@ -429,5 +440,87 @@
     "confirmed_at": "2026-11-19",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
     "reason": "Slovenské znění směrnice (EU) 2024/1788 (zdroj Sinay_Zakony) nemělo označení ani adresu a za původce mělo česká ministerstva. Doplněn úřední slovenský název a adresa slovenského znění v EUR-Lexu (CELEX 32024L1788) a původce. Označení (EU) 2024/1788 [SK] odlišuje slovenské znění od českého (EU) 2024/1788 a anglického (EU) 2024/1788 [EN]; zápis „(EÚ) 2024/1788“ nelze použít, protože porovnání v databázi (utf8mb4_czech_ci) diakritiku nerozlišuje a kolidoval by s českým zněním. Záznam bez označení i adresy je klíčován názvem (title-<hash>)."
+  },
+  "2012/18/EU": {
+    "row_language": "CS",
+    "changes": {
+      "nazev_cz": "Směrnice Evropského parlamentu a Rady 2012/18/EU ze dne 4. července 2012 o kontrole nebezpečí závažných havárií s přítomností nebezpečných látek a o změně a následném zrušení směrnice Rady 96/82/ES  Text s významem pro EHP",
+      "nazev_autoritativni": "Směrnice Evropského parlamentu a Rady 2012/18/EU ze dne 4. července 2012 o kontrole nebezpečí závažných havárií s přítomností nebezpečných látek a o změně a následném zrušení směrnice Rady 96/82/ES  Text s významem pro EHP",
+      "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32012L0018",
+      "odkaz_eu": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32012L0018",
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32012L0018",
+      "gestor": [
+        "Evropský parlament",
+        "DG ENV"
+      ]
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Česká varianta záznamu 2012/18/EU (Seveso III) nesla ve zdrojové tabulce (Haltuf_Dokumenty) název a adresu směrnice 2014/34/EU (ATEX), jež je v databázi samostatně; popis a anglická varianta patří ke směrnici 2012/18/EU. Opraveno na směrnici 2012/18/EU (CELEX 32012L0018, úřední český název z Cellaru), plný text stažen znovu. Odpovědným útvarem je podle Cellaru Generální ředitelství pro životní prostředí (dříve převzato od ATEX: GŘ pro vnitřní trh)."
+  },
+  "ČSN EN ISO 19880-1": {
+    "changes": {
+      "znacka": "ČSN ISO 19880-1",
+      "platnost": "od 9/2025"
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Česká norma převzala ISO 19880-1 přímo (ČSN ISO 19880-1, třídicí znak 656525), nikoli přes EN; podle katalogu ČAS (check_csn_validity.py, 19. 11. 2026) platí vydání z 8/2025 (katalogové číslo 522022, účinnost 1. 9. 2025), jež nahradilo vydání z 9/2020."
+  },
+  "UNECE Regulation No. 100 (Revision 2)": {
+    "changes": {
+      "nazev_cz": "UNECE Regulation No. 100 (Revision 2) — Uniform provisions concerning the approval of vehicles with regard to specific requirements for the electric power train",
+      "nazev_autoritativni": "Regulation No 100 of the Economic Commission for Europe of the United Nations (UNECE) — Uniform provisions concerning the approval of vehicles with regard to specific requirements for the electric power train [2015/505]",
+      "popis_autoritativni": "",
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:42015X0331(01)",
+      "odkaz_eu": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:42015X0331(01)",
+      "gestor": [
+        "Evropská hospodářská komise Organizace spojených národů"
+      ],
+      "jurisdikce": "mezinárodní",
+      "jazyk": "EN",
+      "anotace_poznamka": "Předpis EHK OSN č. 100 ve znění revize 2 (série změn 02) stanoví jednotná ustanovení pro schvalování vozidel z hlediska zvláštních požadavků na elektrické hnací ústrojí, mimo jiné na bezpečnost dobíjecího systému pro skladování energie (trakční baterie) a ochranu před úrazem elektrickým proudem. Týká se i vozidel s palivovými články, jež mají elektrický pohon. V Úředním věstníku EU byl zveřejněn jako předpis 2015/505.",
+      "typ_dokumentu": ""
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Záznam předpisu EHK OSN č. 100 (revize 2, elektrické hnací ústrojí vozidel; adresa UNECE ze zdrojové tabulky Haltuf_Dokumenty) dostal automaticky název a popis publikace EIGA Doc 100/20 o vodíkových lahvích (vyhledávání na webu EIGA podle čísla 100) a deduplikace jej proto sloučila s touto publikací ze zdroje Sinay_Normy. Název, popis, původce a adresa nyní patří předpisu EHK OSN č. 100 (zveřejnění revize 2 v Úředním věstníku EU, CELEX 42015X0331(01)); publikace EIGA je opět samostatným dokumentem EIGA IGC Doc 100/20. Typ „Norma“ pocházel z publikace EIGA; předpis EHK OSN je veden jako ostatní předpisy EHK OSN (Nezařazeno)."
+  },
+  "G 100 (A)": {
+    "changes": {
+      "nazev_autoritativni": "",
+      "popis_autoritativni": "",
+      "zdroj_autoritativni_url": ""
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Pravidlo DVGW G 100 (A) (kvalifikace znalců v plynárenství) dostalo automaticky název a popis publikace EIGA Doc 100/20 o vodíkových lahvích (vyhledávání na webu EIGA podle čísla 100); převzatý název, popis a adresa odstraněny."
+  },
+  "url-7ee3a2b4": {
+    "changes": {
+      "stav_dokumentu": "superseded"
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Aktualizace Národního akčního plánu čisté mobility z roku 2019 byla nahrazena 2. aktualizací Národního akčního plánu čisté mobility (usnesení vlády č. 590/2024); dokument zůstává v databázi jako nahrazený, s vazbou na 2. aktualizaci."
+  },
+  "url-95efd271": {
+    "changes": {
+      "stav_dokumentu": "superseded"
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Příloha k aktualizaci Národního akčního plánu čisté mobility z roku 2019 byla nahrazena 2. aktualizací Národního akčního plánu čisté mobility (usnesení vlády č. 590/2024); dokument zůstává v databázi jako nahrazený, s vazbou na 2. aktualizaci."
+  },
+  "2012/18/EU [EN]": {
+    "changes": {
+      "gestor": [
+        "Evropský parlament",
+        "DG ENV"
+      ]
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
+    "reason": "Anglická varianta směrnice 2012/18/EU (Seveso III) měla odpovědný útvar převzatý od české varianty, jež nesla adresu směrnice ATEX 2014/34/EU (GŘ pro vnitřní trh); podle Cellaru je odpovědným útvarem Generální ředitelství pro životní prostředí. Hodnota gestor je u aktů EU jen podnětem k novému určení původce z data/eu_gestor_cache.json."
   }
 }

@@ -50,7 +50,7 @@
     "note": "Číslo 191/2022 Sb. patří nařízení vlády o vyhrazených technických plynových zařízeních, název v tabulce MPO („o vyhrazených tlakových zařízeních“) nařízení vlády č. 192/2022 Sb. To je v databázi; nařízení č. 191/2022 Sb. je kandidátem, protože se vodíkových zařízení týká také. Původcem nařízení je Ministerstvo práce a sociálních věcí (rozhodnutí z 19. 11. 2026), nikoli MPO ze sloupce „Nositel“. Který předpis řádek míní, zůstává k vyjasnění s MPO."
   },
   "MPO-47": {
-    "note": "Databáze vede normu pod označením ČSN EN ISO 19880-1, které katalog ČAS nezná; platné české převzetí je ČSN ISO 19880-1 (vydána 8/2025). Označení dokumentu je třeba opravit (krok 0)."
+    "note": "Databáze vedla normu pod označením ČSN EN ISO 19880-1, které katalog ČAS nezná; platné české převzetí je ČSN ISO 19880-1 (vydána 8/2025). Označení dokumentu je opraveno (doc/MPO_PRIPOMINKY.md, krok 1, opravy dat)."
   },
   "MPO-48": {
     "note": "Řádek označuje celou řadu norem; z řady ČSN EN 60079 je v databázi jen část 0 (ČSN EN IEC 60079-0). Kandidáty jsou další platné části podstatné pro vodíková zařízení (rozhodnutí z 19. 11. 2026): pevný závěr (1), přetlak (2), zajištěné provedení (7), určování nebezpečných prostorů (10-1), jiskrová bezpečnost (11, 25), návrh elektrické instalace (14), prohlídky a údržba (17), opravy (19) a detektory plynů (29-0, 29-1, 29-2). Zrušenou ČSN EN 60079-20-1 (materiálové vlastnosti plynů) nahradila ČSN EN ISO/IEC 80079-20-1, kterou databáze již má (#28). Platnost a vydání podle katalogu ČAS.",
@@ -77,7 +77,7 @@
   },
   "CDV-05": {
     "identifiers": ["UNECE Regulation No. 100 (Revision 2)"],
-    "note": "Záznam v databázi má označení předpisu EHK OSN č. 100 (elektrický pohon vozidel), ale název „DOC 100/20 - Hydrogen Cylinders and Transport Vessels“, tedy publikace EIGA. Záznam je třeba ověřit."
+    "note": "Záznam v databázi měl označení předpisu EHK OSN č. 100 (elektrické hnací ústrojí vozidel), ale název „DOC 100/20 - Hydrogen Cylinders and Transport Vessels“, tedy publikace EIGA; opraveno, publikace EIGA je samostatným dokumentem (doc/MPO_PRIPOMINKY.md, krok 1, opravy dat)."
   },
   "CDV-06": {
     "reason": "Souhrnné označení předpisů EHK OSN připojených k Dohodě z roku 1958 (pracovní skupina WP.29), nikoli jeden dokument. Z těchto předpisů je v databázi předpis č. 134 pro vozidla na vodíkový pohon (řádek CDV-03)."
@@ -98,7 +98,7 @@
     "note": "Nařízení TEN-T je nařízení (EU) 2024/1679 o hlavních směrech Unie pro rozvoj transevropské dopravní sítě (ověřeno v EUR-Lexu)."
   },
   "CDV-26": {
-    "note": "Číslo předpisu 2012/18/EU je směrnice Seveso III, název v tabulce CDV však patří směrnici ATEX 2014/34/EU (řádek CDV-27)."
+    "note": "Číslo předpisu 2012/18/EU je směrnice Seveso III, název v tabulce CDV však patří směrnici ATEX 2014/34/EU (řádek CDV-27). Stejnou chybu měla česká varianta dokumentu 2012/18/EU v databázi; opraveno na Seveso III."
   },
   "CDV-33": {
     "keys": ["EU:2024/1788", "EU:2024/1789"],

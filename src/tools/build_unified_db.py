@@ -459,9 +459,10 @@ def rename_relation_ends(relations, renamed):
     result = []
     for relation in relations:
         relation = dict(relation)
-        for end in ("from_identifier", "to_identifier"):
+        ends = [end for end in ("from_identifier", "to_identifier") if end in relation]
+        for end in ends:
             relation[end] = renamed.get(relation[end], relation[end])
-        if relation["from_identifier"] != relation["to_identifier"]:
+        if len(ends) < 2 or relation["from_identifier"] != relation["to_identifier"]:
             result.append(relation)
     return result
 
@@ -537,6 +538,15 @@ def record_url(item):
     return ""
 
 
+_EIGA_DESIGNATION_RE = re.compile(r"^\s*(?:EIGA|IGC)\b", re.IGNORECASE)
+
+
+def is_eiga_designation(znacka):
+    """True for a designation of an EIGA publication ("EIGA DOC 246",
+    "EIGA IGC Doc 100/20"), the only ones the `eiga:` cache entries belong to."""
+    return bool(_EIGA_DESIGNATION_RE.match(znacka or ""))
+
+
 def _fetched_cache_entry(cache, key):
     """The cache entry at `key`, but only if it's actually
     `status == "fetched"` — a `"failed"` (or missing) entry returns
@@ -594,7 +604,10 @@ def apply_authoritative_metadata(record, cache):
         # root, not a per-document URL" shape as the STN branch above —
         # keyed on eiga.py's own designation normalization (its numbering
         # convention, not designation_core()'s ČSN/STN-oriented one).
-        code = eiga_designation(znacka)
+        # Only an EIGA designation: eiga_designation() takes the first digit
+        # run of anything, so "UNECE Regulation No. 100" or DVGW "G 100 (A)"
+        # used to get the title of EIGA Doc 100 (doc/MPO_PRIPOMINKY.md).
+        code = eiga_designation(znacka) if is_eiga_designation(znacka) else None
         if code:
             entry = _fetched_cache_entry(cache, f"eiga:{code}")
     if entry is None and znacka:
@@ -1090,6 +1103,17 @@ def build_unified_db():
         print(f"Loaded {len(data_mpo_hydrogen_strategy)} records from MPO Hydrogen Strategy Documents.")
     except Exception as e:
         print(f"Error loading MPO Hydrogen Strategy Documents data: {e}")
+
+    # 10a. National and EU strategies of priority A and B found by the review of
+    # strategies missing from the database (doc/MPO_PRIPOMINKY.md, MPO comment 9;
+    # data/strategy_candidates_2026-11.json), hand-verified, same convention.
+    file_strategy_documents = base_dir / "strategy_documents.json"
+    try:
+        data_strategy_documents = load_json(file_strategy_documents)
+        unified_db.extend(data_strategy_documents)
+        print(f"Loaded {len(data_strategy_documents)} records from Strategy Documents.")
+    except Exception as e:
+        print(f"Error loading Strategy Documents data: {e}")
 
     # 11. Discovered HYTEP Hydrogen Docs — doc/PLAN.md §31, 2026-09-17,
     # same leg as above. `src/tools/add_hytep_hydrogen_docs.py` fetches

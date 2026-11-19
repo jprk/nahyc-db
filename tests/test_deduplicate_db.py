@@ -387,6 +387,17 @@ class BuildClustersTestCase(unittest.TestCase):
         clusters = dedup.build_clusters(data)
         self.assertEqual(self._clusters_as_sets(clusters), {frozenset({0}), frozenset({1})})
 
+    def test_a_hand_verified_record_is_never_merged_on_similarity_alone(self):
+        # doc/MPO_PRIPOMINKY.md, krok 1: the 2024 clean mobility plan was merged with the 2019 one.
+        data = [
+            make_record(znacka="", zdroj_dat="Strategy_Research", _embedding=self.IDENTICAL_A),
+            make_record(znacka="", zdroj_dat="HYTEP", _embedding=self.IDENTICAL_B),
+        ]
+        self.assertEqual(self._clusters_as_sets(dedup.build_clusters(data)), {frozenset({0}), frozenset({1})})
+        data[1]["zdroj_dat"] = "Strategy_Research"
+        data[0]["znacka"] = data[1]["znacka"] = "COM(2022) 230"
+        self.assertEqual(self._clusters_as_sets(dedup.build_clusters(data)), {frozenset({0, 1})})
+
     def test_different_znacka_vetoes_even_identical_embeddings(self):
         data = [
             make_record(znacka="ČSN EN 62282-3-300", _embedding=self.IDENTICAL_A),

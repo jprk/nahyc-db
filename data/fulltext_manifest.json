@@ -3416,36 +3416,36 @@
     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012L0018"
   },
   "Haltuf_Dokumenty|2012/18/EU|odkaz_eu": {
-    "fetched_at": "2026-09-11T00:51:09",
+    "fetched_at": "2026-11-19T23:26:50",
     "http_status": 200,
-    "local_path": "data/fulltext/2012_18_EU__197e1c4c.pdf",
-    "sha256": "197e1c4cc51d81a22ec27ab294ae6f302930c32664c23ed8a1b7c9f6eb372152",
+    "local_path": "data/fulltext/2012_18_EU__124b54ad.pdf",
+    "sha256": "124b54ada280f1e54a2aba76d77f082317685ed743a8cc4d47497f944f904b85",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32012L0018"
   },
   "Haltuf_Dokumenty|2012/18/EU|odkaz_eu_html": {
-    "fetched_at": "2026-10-25T18:29:22",
-    "http_status": 202,
-    "local_path": "data/fulltext/2012_18_EU__eefa889d.html",
-    "sha256": "eefa889dad178dfad8373bb75e6bce5c2fd95a8ecb13db2fb75cca6837a4fb30",
+    "fetched_at": "2026-11-19T23:26:52",
+    "http_status": 200,
+    "local_path": "data/fulltext/2012_18_EU__51afbc44.html",
+    "sha256": "51afbc44a30edcd09fe421b4d659f141d437c71d9397c16308787593fb5642e7",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32012L0018"
   },
   "Haltuf_Dokumenty|2012/18/EU|odkaz_hlavni": {
-    "fetched_at": "2026-10-25T18:29:16",
+    "fetched_at": "2026-11-19T23:26:50",
     "http_status": 200,
-    "local_path": "data/fulltext/2012_18_EU__197e1c4c.pdf",
-    "sha256": "197e1c4cc51d81a22ec27ab294ae6f302930c32664c23ed8a1b7c9f6eb372152",
+    "local_path": "data/fulltext/2012_18_EU__124b54ad.pdf",
+    "sha256": "124b54ada280f1e54a2aba76d77f082317685ed743a8cc4d47497f944f904b85",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32012L0018"
   },
   "Haltuf_Dokumenty|2012/18/EU|odkaz_hlavni_html": {
-    "fetched_at": "2026-10-25T18:29:22",
-    "http_status": 202,
-    "local_path": "data/fulltext/2012_18_EU__eefa889d.html",
-    "sha256": "eefa889dad178dfad8373bb75e6bce5c2fd95a8ecb13db2fb75cca6837a4fb30",
+    "fetched_at": "2026-11-19T23:26:52",
+    "http_status": 200,
+    "local_path": "data/fulltext/2012_18_EU__51afbc44.html",
+    "sha256": "51afbc44a30edcd09fe421b4d659f141d437c71d9397c16308787593fb5642e7",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0034"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32012L0018"
   },
   "Haltuf_Dokumenty|2014/34/EU [EN]|odkaz_eu": {
     "fetched_at": "2026-10-26T17:25:49",
@@ -3740,6 +3740,14 @@
     "status": "fetched",
     "url": "https://www.zakonyprolidi.cz/cs/2005-133"
   },
+  "Haltuf_Dokumenty|UNECE Regulation No. 100 (Revision 2)|odkaz_eu": {
+    "fetched_at": "2026-11-19T23:26:53",
+    "http_status": 200,
+    "local_path": "data/fulltext/UNECE_Regulation_No._100_Revision_2__b9647333.html",
+    "sha256": "b96473334a4eb0a22583c27e9ae5db81983b3927559cce32984fde486ce05174",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:42015X0331(01)"
+  },
   "Haltuf_Dokumenty|UNECE Regulation No. 100 (Revision 2)|odkaz_hlavni": {
     "error": "403 Client Error: Forbidden for url: https://www.unece.org/fileadmin/DAM/trans/main/wp29/wp29regs/2018/R100r2e.pdf",
     "fetched_at": "2026-09-11T00:54:51",
@@ -3883,7 +3891,7 @@
     "status": "fetched",
     "url": "https://www.technicke-normy-csn.cz/csn-en-iso-17268-656521-246493.html"
   },
-  "Haltuf_Dokumenty|ČSN EN ISO 19880-1|odkaz_hlavni": {
+  "Haltuf_Dokumenty|ČSN ISO 19880-1|odkaz_hlavni": {
     "fetched_at": "2026-09-11T00:51:14",
     "http_status": 200,
     "local_path": "data/fulltext/SN_EN_ISO_19880-1__e62a3213.html",
@@ -3928,6 +3936,14 @@
     "sha256": "b6aebc8c0877247fb8a79c9ae3d6992464627bb900d2583299c3d7d723da4145",
     "status": "fetched",
     "url": "https://eur-lex.europa.eu/eli/dec_impl/2013/732/oj"
+  },
+  "Sinay_Zakony|(EU) 2018/858 [SK]|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:49",
+    "http_status": 200,
+    "local_path": "data/fulltext/EU_2018_858_SK__2885a565.html",
+    "sha256": "2885a5657a7887d4cf5b49aaf93b50b0c808429f002c9f2782cd2c9317e104ad",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32018R0858"
   },
   "Sinay_Zakony|(EU) 2018/858|odkaz_hlavni": {
     "fetched_at": "2026-10-25T18:27:37",
@@ -3988,6 +4004,22 @@
     "fetched_at": "2026-10-25T15:44:06",
     "status": "failed",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/535/"
+  },
+  "Sinay_Zakony|(EU) 2022/2427 [SK]|odkaz_eu": {
+    "fetched_at": "2026-10-26T20:31:33",
+    "http_status": 202,
+    "local_path": "data/fulltext/url-ee62119e__593fe646.html",
+    "sha256": "593fe646c500f834bb8878623e7f8b3820e406d8ea54176e34d9a3baeb99b7fa",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/eli/dec_impl/2022/2427/oj/slk"
+  },
+  "Sinay_Zakony|(EU) 2022/2427 [SK]|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:37",
+    "http_status": 200,
+    "local_path": "data/fulltext/EU_2022_2427_SK__b8f40a84.html",
+    "sha256": "b8f40a84513d7b96678073386b61828ac08db1d50c10778510e6e99226269807",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:32022D2427"
   },
   "Sinay_Zakony|(EU) 2022/2427|odkaz_hlavni": {
     "fetched_at": "2026-10-25T18:25:28",
@@ -4657,6 +4689,38 @@
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2004/96/"
   },
+  "Sinay_Zakony|COM(2020) 301 [SK]|odkaz_eu": {
+    "fetched_at": "2026-11-19T23:26:46",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_301_SK__04f1d6e0.html",
+    "sha256": "04f1d6e0d5ae43ca6becff31554cf1f8dfb0939eb2709755fc394b4a41a2b410",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX%3A52020DC0301"
+  },
+  "Sinay_Zakony|COM(2020) 301 [SK]|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:38",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_301_SK__8f6c2e0e.pdf",
+    "sha256": "8f6c2e0e8863462a8d1d1463fe314eab03b18aba3faacbe3f1f2df8cd5b60258",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=CELEX:52020DC0301"
+  },
+  "Sinay_Zakony|COM(2020) 301 [SK]|odkaz_hlavni_html": {
+    "fetched_at": "2026-11-19T23:26:45",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_301_SK__04f1d6e0.html",
+    "sha256": "04f1d6e0d5ae43ca6becff31554cf1f8dfb0939eb2709755fc394b4a41a2b410",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:52020DC0301"
+  },
+  "Sinay_Zakony|COM(2020) 301|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:47",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_301__eeeb2bef.html",
+    "sha256": "eeeb2befa9153496e245e3f3a73587fafa12b13a927ea9c6e22c3910f0def72b",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301"
+  },
   "Sinay_Zakony|url-0b9c40e7|odkaz_hlavni": {
     "fetched_at": "2026-10-26T20:33:28",
     "http_status": 200,
@@ -4705,21 +4769,6 @@
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/24/"
   },
-  "Sinay_Zakony|url-86dc0d38|odkaz_hlavni": {
-    "fetched_at": "2026-10-26T20:38:34",
-    "http_status": 200,
-    "local_path": "data/fulltext/url-86dc0d38__8f6c2e0e.pdf",
-    "sha256": "8f6c2e0e8863462a8d1d1463fe314eab03b18aba3faacbe3f1f2df8cd5b60258",
-    "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=CELEX:52020DC0301"
-  },
-  "Sinay_Zakony|url-86dc0d38|odkaz_hlavni_html": {
-    "error": "EUR-Lex page without the act's text (the content did not render)",
-    "fetched_at": "2026-10-26T20:38:40",
-    "http_status": 202,
-    "status": "failed",
-    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:52020DC0301"
-  },
   "Sinay_Zakony|url-8c84b293|odkaz_hlavni": {
     "fetched_at": "2026-10-26T20:37:04",
     "http_status": 200,
@@ -4727,14 +4776,6 @@
     "sha256": "a7d26d347545d023546ab07adbc8a7a63e5c238cd47a5dbc5816a2445e6df8ff",
     "status": "fetched",
     "url": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/"
-  },
-  "Sinay_Zakony|url-e18c5e80|odkaz_hlavni": {
-    "fetched_at": "2026-10-26T20:31:28",
-    "http_status": 202,
-    "local_path": "data/fulltext/url-e18c5e80__17586f49.html",
-    "sha256": "17586f4980f96843c445cbce54a169d1ed64c6616862680abe50d863dafa925c",
-    "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:32022D2427"
   },
   "Sinay_Zakony|url-e809ad20|odkaz_eu": {
     "fetched_at": "2026-10-26T20:35:59",
@@ -4752,29 +4793,109 @@
     "status": "fetched",
     "url": "https://eur-lex.europa.eu/eli/dir/2001/42/oj/slk"
   },
-  "Sinay_Zakony|url-ee62119e|odkaz_eu": {
-    "fetched_at": "2026-10-26T20:31:33",
-    "http_status": 202,
-    "local_path": "data/fulltext/url-ee62119e__593fe646.html",
-    "sha256": "593fe646c500f834bb8878623e7f8b3820e406d8ea54176e34d9a3baeb99b7fa",
+  "Strategy_Research|COM(2019) 640|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:10",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2019_640__8634ce27.html",
+    "sha256": "8634ce2771ce10a40f7292ed77bcf995aa886f64147c45f857f9d8c1bf1a081f",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/eli/dec_impl/2022/2427/oj/slk"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52019DC0640"
   },
-  "Sinay_Zakony|url-fd143b87|odkaz_eu": {
-    "fetched_at": "2026-10-26T20:36:55",
-    "http_status": 202,
-    "local_path": "data/fulltext/url-fd143b87__1385c089.html",
-    "sha256": "1385c0890536d9012e863289780e9a5860662cbc34b2dd32d6408863a833a0b5",
+  "Strategy_Research|COM(2020) 299|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:05",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_299__7ee1f5c5.html",
+    "sha256": "7ee1f5c586bdc06fd74ba12241d93e6dd9fa839ccabb4425814faebabcf754d7",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX%3A52020DC0301"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52020DC0299"
   },
-  "Sinay_Zakony|url-fd143b87|odkaz_hlavni": {
-    "fetched_at": "2026-10-26T23:07:25",
-    "http_status": 202,
-    "local_path": "data/fulltext/url-fd143b87__99df0569.html",
-    "sha256": "99df05694f3936676ff9e5c5b5d487be08af1ffca0a78cdad1d7ea0489efdffd",
+  "Strategy_Research|COM(2020) 789|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:12",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2020_789__6a125fd1.html",
+    "sha256": "6a125fd1f59ed660394624551168ce86839ec6c69c0cc639742ccf362b2ec243",
     "status": "fetched",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301"
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52020DC0789"
+  },
+  "Strategy_Research|COM(2021) 550|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:04",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2021_550__2c13d2e0.html",
+    "sha256": "2c13d2e0a79479b57050d4cb099f87b90e62415016863c575b8cd74883b8ed21",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52021DC0550"
+  },
+  "Strategy_Research|COM(2022) 230|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:02",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2022_230__b5097711.html",
+    "sha256": "b509771141c13abe6e275f9d9d22342d8df54018fd32ae8ff946bca50f2594a6",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52022DC0230"
+  },
+  "Strategy_Research|COM(2023) 156|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:06",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2023_156__bdd6ac32.html",
+    "sha256": "bdd6ac3281ce71d9a638ecbc7a7a0961cc0d3349e09f093390ef9d1781e7f01a",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52023DC0156"
+  },
+  "Strategy_Research|COM(2023) 62|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:13",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2023_62__aa7d1fbc.html",
+    "sha256": "aa7d1fbc6f2a8e9da81b5bea08e1d9765344cb6da4523ce50b697f235ae65d4d",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52023DC0062"
+  },
+  "Strategy_Research|COM(2025) 85|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:08",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2025_85__bd45d1d2.html",
+    "sha256": "bd45d1d27e2c41bdadff5d4c171bdeb443fd689af9c78175849c3f950fd09896",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025DC0085"
+  },
+  "Strategy_Research|COM(2026) 370|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:09",
+    "http_status": 200,
+    "local_path": "data/fulltext/COM_2026_370__cbad5904.html",
+    "sha256": "cbad5904a4b764806515c55a4c84881756f6e82956a629a8798a3070e2a51449",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52026DC0370"
+  },
+  "Strategy_Research|url-4cce51f0|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:58",
+    "http_status": 200,
+    "local_path": "data/fulltext/url-4cce51f0__80958065.docx",
+    "sha256": "80958065fb578246afa6219c988f21ab507d4a0bb2048998f64f15c41936af2e",
+    "status": "fetched",
+    "url": "https://mpo.gov.cz/assets/cz/prumysl/zpracovatelsky-prumysl/automobilovy-prumysl/2024/10/2-Aktualizace-NAP-CM.docx"
+  },
+  "Strategy_Research|url-870faec7|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:26:55",
+    "http_status": 200,
+    "local_path": "data/fulltext/url-870faec7__da86882d.pdf",
+    "sha256": "da86882d4be1ecdbb8416381f7ebc08b96822c5b08fe0ef206ea87e3f4663172",
+    "status": "fetched",
+    "url": "https://mpo.gov.cz/assets/cz/energetika/strategicke-a-koncepcni-dokumenty/2025/10/Vnitrostatni-plan-Ceske-republiky-v-oblasti-energetiky-a-klimatu.pdf"
+  },
+  "Strategy_Research|url-9539c98f|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:00",
+    "http_status": 200,
+    "local_path": "data/fulltext/url-9539c98f__31ee8517.pdf",
+    "sha256": "31ee85175ee266b90bdc5a0accccf1596edb49179ebedfca1b6b65f2b5c365e1",
+    "status": "fetched",
+    "url": "https://mpo.gov.cz/assets/cz/energetika/statni-energeticka-politika/2016/12/Statni-energeticka-koncepce-_2015_.pdf"
+  },
+  "Strategy_Research|url-c30d8019|odkaz_hlavni": {
+    "fetched_at": "2026-11-19T23:27:01",
+    "http_status": 200,
+    "local_path": "data/fulltext/url-c30d8019__3a84cef6.pdf",
+    "sha256": "3a84cef6544c77b9fca8b081496c6959c415eef89c6464542f90cd3d307b4628",
+    "status": "fetched",
+    "url": "https://mzp.gov.cz/system/files/2025-05/OPOK-POK-20170329.pdf"
   },
   "V02_Bibliografie|(ES) 1272/2008|odkaz_eu": {
     "error": "EUR-Lex page without the act's text (the content did not render)",

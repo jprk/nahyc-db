@@ -142,8 +142,9 @@ Před zápisem jsme pořídili zálohu
   reguláciu sieťových odvetví. ADR (#119) má EHK OSN, RID (#120) OTIF,
   sdělení Komise COM(2020) 301 (#79 a slovenské znění #78) Evropskou komisi,
   slovenský záznam aktu (EU) 2018/858 (#88) Evropský parlament a Radu EU.
-  U zákona č. 250/2012 Z. z. (#73) jsme jako původce zvolili ÚRSO; vhodné
-  ověřit.
+  U zákona č. 250/2012 Z. z. (#73) jsme jako původce zvolili ÚRSO; podle
+  uživatele je jím Ministerstvo hospodárstva SR (opraveno v kroku 1 –
+  opravy dat).
 * *Zastaralá hláška.* Popis RED III (#83) je nahrazen popisem bez údajů,
   které stárnou; anglická varianta (#1479) zůstává beze změny.
 * *Názvy.* #57 a #78 již nemají název „Slov-Lex“ a odkazují na slovenské
@@ -201,6 +202,107 @@ databáze tyto opravy nemá.
   zůstal název „Slov-Lex“ a adresa Slov-Lexu), tedy na stav, který dá
   přestavba.
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-data-opravy`, krok 1 – opravy dat
+a strategie podle rozhodnutí uživatele; živá DB zatím nezapsána):** Opravy
+jsou v `data/manual_corrections.json`, nové strategie v
+`data/strategy_documents.json` (čte je `build_unified_db.py`). Commitnuté
+výstupy pipeline odpovídají přestavbě; porovnali jsme je s úplnou
+přestavbou, která se od commitnutého stavu liší i nesouvisejícími změnami
+deduplikace jazykovým modelem, ty jsme nepřevzali. Do živé databáze je
+promítnou `apply_manual_corrections.py` (sloupce dokumentů) a nový
+`src/tools/backfill_strategies.py` (přejmenování typu, nové dokumenty,
+vazby, stavy).
+
+* *Slovenská znění aktů EU.* Slovenská znění mají označení
+  `<značka> [SK]` po vzoru `[EN]` a vazbu `TRANSLATION_OF` na české znění:
+  `(EU) 2022/2427 [SK]` (#57 → #58), `COM(2020) 301 [SK]` (#78 → #79),
+  `(EU) 2018/858 [SK]` (#88, dříve `2018/858/ES` → #89) a
+  `(EU) 2024/1788 [SK]` (#84 → #104). Vazby počítá
+  `language_variants.translation_relations()`, zapisuje je
+  `split_language_variants.py` do `data/document_relations_variants.json`.
+  #57 a #88 mají úřední slovenský název z Cellaru. Katalog je zobrazuje
+  jako jazykovou verzi českého řádku, stránka dokumentu jako „slovenskou
+  verzi dokumentu“. Úřední české znění Vodíkové strategie EU (#79) má nově
+  označení `COM(2020) 301`, adresu českého znění a typ Strategie. Jiná
+  slovenská znění aktů EU databáze nemá; #62 (označení `2010/75/EU`) je
+  slovenské oznámení, nikoli akt EU.
+* *Kolace a klíče.* Označení nekolidují ani pod `utf8mb4_czech_ci` (test).
+  Klíče manifestu plných textů a `data/fulltext_url_overrides.json` jsou
+  přejmenované na nová označení, texty stažené znovu z Cellaru.
+  `load_document_relations.py` sleduje přejmenování z korekcí ve všech
+  souborech vazeb (např. `2018/858/ES` v `document_relations_auto.json`)
+  a dokument bez označení najde podle `url-<hash>` jeho adresy.
+* *Původce 250/2012 Z. z.* (#73) je Ministerstvo hospodárstva Slovenskej
+  republiky (dosud ÚRSO).
+* *#110 (2012/18/EU).* Chybná byla česká varianta: označení, popis
+  i anglická varianta (#1485) patří směrnici Seveso III, název a adresa
+  směrnici ATEX 2014/34/EU (#108). Opraveno na úřední název a adresu
+  2012/18/EU (CELEX 32012L0018), plný text stažen znovu. Odpovědným
+  útvarem obou variant je podle Cellaru GŘ pro životní prostředí (dosud
+  převzato od ATEX: GŘ pro vnitřní trh; opraveno v `data/eu_gestor_cache.json`).
+* *#3.* Označení `ČSN ISO 19880-1` (katalog ČAS: vydání 8/2025, katalogové
+  číslo 522022, účinnost 1. 9. 2025, nahradilo vydání 9/2020), platnost
+  „od 9/2025“.
+* *#140.* Záznam ze zdroje Haltuf_Dokumenty je předpis EHK OSN č. 100
+  (revize 2, elektrické hnací ústrojí vozidel; adresa UNECE). Název a popis
+  publikace EIGA Doc 100/20 o vodíkových lahvích dostal chybou
+  `build_unified_db.py`: klíč `eiga:<číslo>` se hledal pro každé označení
+  s číslem, takže „Regulation No. 100“ i pravidlo DVGW `G 100 (A)` (#744)
+  dostaly titul EIGA Doc 100, a deduplikace pak záznam sloučila s publikací
+  EIGA ze zdroje Sinay_Normy. Klíč `eiga:` se nyní hledá jen u označení
+  EIGA/IGC. #140 má anglický název předpisu, úřední název a adresu
+  zveřejnění revize 2 v Úředním věstníku EU (CELEX 42015X0331(01), plný
+  text z Cellaru), původce EHK OSN, typ Nezařazeno (jako ostatní předpisy
+  EHK OSN) a jurisdikci „mezinárodní“. `EIGA IGC Doc 100/20` je opět
+  samostatný dokument (v živé DB nový); #744 převzatý název a popis ztratil.
+* *Typ „Strategie“.* Typ „Strategický dokument“ je přejmenován na
+  „Strategie“ v pipeline, testech a datech; v živé DB přejmenuje řádek
+  `DocumentType` (i u kandidátů) `backfill_strategies.py`. Úřední české
+  znění Vodíkové strategie EU (#79) je Strategie.
+* *13 strategií s prioritou A a B* (příloha A `doc/MPO_VYPORADANI.md`, 4
+  národní a 9 evropských; dřívější text uváděl 11) jsou dokumenty, nikoli
+  kandidáti: Vnitrostátní plán ČR v oblasti energetiky a klimatu (2024),
+  2. aktualizace NAP čisté mobility (2024), Státní energetická koncepce
+  (2015), Politika ochrany klimatu (2017) a sdělení Komise COM(2019) 640,
+  COM(2020) 299, COM(2020) 789, COM(2021) 550, COM(2022) 230, COM(2023) 62,
+  COM(2023) 156, COM(2025) 85 a COM(2026) 370. Úřední názvy sdělení jsou
+  z Cellaru (u COM(2023) 62 opraven překlep Cellaru „VBORU“), popis je
+  věcný, původ záznamu je v `provenance`. Kategorie Strategie bude mít
+  25 dokumentů. Plné texty jsou stažené všechny; 2. aktualizace NAP čisté
+  mobility je jen ve formátu .docx, jejž `extract_fulltext.py` dosud nečte.
+  Deduplikace jazykovým modelem sloučila 2. aktualizaci NAP čisté mobility
+  s aktualizací z roku 2019; ručně ověřené záznamy (`Strategy_Research`)
+  proto `deduplicate_db.py` slučuje jen podle shodného označení nebo
+  adresy, nikoli podle podobnosti názvu.
+* *Nahrazený NAP čisté mobility.* Aktualizace z roku 2019 (#1246) a její
+  příloha (#1247) zůstávají v databázi ve stavu „nahrazený“
+  (`stav_dokumentu: superseded` v korekcích) s vazbou `REPEALS` od
+  2. aktualizace (`data/document_relations.json`, konce `url-<hash>`).
+  Stránka dokumentu u strategií vazbu popisuje „nahrazuje / je nahrazen
+  dokumentem“, u ostatních typů „ruší“.
+* *Plné texty z EUR-Lexu* stahuje `fetch_fulltext.py` u adres s číslem
+  CELEX z Cellaru Úřadu pro publikace (`sites/eurlex.py`), bez prohlížeče.
+  Nové soubory (21) jsou ve worktree v `data/fulltext_mpo_data_opravy/`;
+  po mergi je zkopírovat `cp -n` do `data/fulltext/` hlavního stromu.
+
+Příkazy pro živou databázi (po sloučení větve, `git pull` a zkopírování
+plných textů; `title-3ef76674` a další korekce kroku 0-zbytek musí být
+promítnuty dřív nebo spolu s nimi, jinak #84 nemá označení `[SK]`):
+
+```
+.venv/bin/python src/tools/backup_db.py --reason before_mpo_data_opravy
+.venv/bin/python src/tools/apply_manual_corrections.py --only url-e18c5e80 --only url-86dc0d38 \
+    --only url-fd143b87 --only 2018/858/ES --only "250/2012 Z. z." --only 2012/18/EU \
+    --only "2012/18/EU [EN]" --only "ČSN EN ISO 19880-1" --only "UNECE Regulation No. 100 (Revision 2)" \
+    --only "G 100 (A)" --only title-3ef76674          # dry run, pak totéž s --apply
+.venv/bin/python src/tools/backfill_strategies.py   # dry run, pak --apply
+~/.cache/lit-tools/bin/python src/tools/extract_fulltext.py --apply
+```
+
+`apply_manual_corrections.py` založí pro opravené dokumenty typ „Strategie“
+jako nový řádek; `backfill_strategies.py` jej sloučí s přejmenovaným
+typem.
+
 ### 4.2 Krok 1: Doplnění obsahu podle tabulek MPO a CDV (1–2 týdny)
 
 * obě tabulky naimportovat jako zdroj „MPO/CDV 30. 4. 2026“ do fronty
@@ -225,7 +327,8 @@ Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
 * *Nesrovnalosti v tabulce MPO.* Řádek „277/2015 Sb.“ míní podle názvu
   vyhlášku č. 227/2015 Sb.; vyhláška č. 513/2021 Sb. je zrušená novela, platná
   je vyhláška č. 508/2025 Sb. o regulačním výkaznictví; databáze vede
-  ČSN ISO 19880-1 pod neexistujícím označením ČSN EN ISO 19880-1 (#3).
+  ČSN ISO 19880-1 pod neexistujícím označením ČSN EN ISO 19880-1 (#3;
+  opraveno v kroku 1 – opravy dat).
 * *Fronta kandidátů.* Pro zdroj „MPO/CDV 30. 4. 2026“ je připraveno 57
   kandidátů s úředním názvem, adresou a platností (zakonyprolidi.cz, e-Sbírka,
   EUR-Lex, katalog ČAS): 31 českých předpisů, 2 akty EU, 21 norem ČSN
@@ -376,7 +479,8 @@ podtypy):
 
 Zjištěno při práci: dokument #110 má označení `2012/18/EU` (Seveso III), ale
 název směrnice 2014/34/EU (ATEX), obdobně jako #130 v odstavci 4.1; do slovníku
-synonym proto Seveso zatím nezařazujeme.
+synonym proto Seveso zatím nezařazujeme. (Opraveno v kroku 1 – opravy dat,
+odstavec 4.1.)
 
 ### 4.4 Krok 3: Průběžná aktualizace
 
@@ -446,7 +550,7 @@ odstavec 6.
 | do 25. 11. 2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
 | do 27. 11. 2026 (pá) | odeslání vypořádání | `MPO_VYPORADANI.md` a `PROVOZ.md` (případně převedené do DOCX podle `TEXT_STYLE.md`) s průvodním e-mailem (`doc/MPO_EMAIL_NAVRH.md`) | nasazení podle předchozího řádku; jména garanta a editorů doplněna |
 | 1.–4. 12. 2026 | jednání s MPO | vypořádání, otázky z odst. 7 vypořádání, dohoda o postupu opětovného schválení V01, editorské účty pro MPO; navrženo út 1. 12., st 2. 12. nebo čt 3. 12. | časové možnosti MPO (posun jednání posouvá i předání) |
-| do 11. 12. 2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 11 strategií A a B; části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
+| do 11. 12. 2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 13 strategií A a B (připraveno); části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
 | do 18. 12. 2026 (pá) | krok 4 | posouzení 112 nálezů sběru v pásmu 1; e2e scénáře připomínek 7–10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání | osoba pro akceptaci k dispozici 14.–18. 12.; závěry jednání bez rozsáhlých úprav |
 | 22. 12. 2026 (út) | opětovné předání V01 | předání MPO postupem dohodnutým na jednání, s výsledky akceptace | akceptace bez závažných nálezů; dohoda o postupu schválení |
 | do 15. 1. 2027 (pá) | provoz | posouzení zbylých nálezů sběru (pásmo 2, odhadem 140) | předání na něm nezávisí |
@@ -474,19 +578,20 @@ psán jako plán.
 * **Slovenské dokumenty** jsou ve výchozím zobrazení katalogu skryté;
   přepínač „Zahrnout i slovenskou legislativu“ je jen pro přihlášené
   editory (provedeno, odstavec 4.3, „Slovenské dokumenty“).
-* **Slovenská znění aktů EU** (#57, #78, #84, #88) propojíme s českými
-  zněními obdobně jako anglické varianty.
-* **Původce zákona č. 250/2012 Z. z.** (#73) bude Ministerstvo
-  hospodárstva Slovenskej republiky (místo ÚRSO zvoleného v kroku 0).
-* **Původce nařízení vlády č. 191/2022 Sb.** bude MPSV, shodně se zákonem
-  č. 250/2021 Sb., který provádí (při přijetí kandidáta).
-* **Doplnit novely LEX OZE** jako dokumenty (čísla novel před doplněním
-  ověřit) a **další části řad ČSN EN 60079 a ČSN EN 13445** (přednostně
-  ty, jež databáze má v jiném národním převzetí; u 60079 části 10-1, 14
-  a 17).
-* **Typ „Strategie“:** typ „Strategický dokument“ přejmenujeme na
-  „Strategie“ a doplníme 11 strategií s prioritou A a B
-  (`doc/MPO_VYPORADANI.md`, příloha A).
+* **Slovenská znění aktů EU** (#57, #78, #84, #88) mají označení
+  `<značka> [SK]` a vazbu `TRANSLATION_OF` na české znění (provedeno,
+  odstavec 4.1).
+* **Původce zákona č. 250/2012 Z. z.** (#73) je Ministerstvo
+  hospodárstva Slovenskej republiky (provedeno; v kroku 0 ÚRSO).
+* **Původce nařízení vlády č. 191/2022 Sb.** je u kandidáta MPSV, shodně
+  se zákonem č. 250/2021 Sb., který provádí (provedeno).
+* **Novely LEX OZE** (19/2023 Sb., 469/2023 Sb., 87/2025 Sb.) a **další
+  části řad ČSN EN 60079 (13) a ČSN EN 13445 (8)** jsou připraveny jako
+  kandidáti (odstavec 4.2).
+* **Typ „Strategie“:** typ „Strategický dokument“ je přejmenován na
+  „Strategie“ a doplněno 13 strategií s prioritou A a B (příloha A
+  `doc/MPO_VYPORADANI.md` jich uvádí 13, nikoli 11); kategorie má
+  25 dokumentů (provedeno, odstavec 4.1).
 * **Termíny etap** podle odstavce 4.6.
 
 ### 5.2 Odloženo, vyřešíme později
@@ -511,6 +616,20 @@ psán jako plán.
 
 ### 5.3 Otevřeno
 
+* **Strategie s prioritou C** (šest sdělení Komise z přílohy A
+  `doc/MPO_VYPORADANI.md`): doplnit je, nebo je ponechat stranou?
+* **Neúřední překlad Vodíkové strategie EU (HYTEP, #1245)** zůstává
+  samostatným dokumentem bez vazby na úřední české znění (#79): vazba
+  `TRANSLATION_OF` by jej v katalogu skryla jako „českou verzi“ českého
+  dokumentu a vhodnější typ vazby (neúřední překlad) číselník nemá.
+* **Neschválené aktualizace strategií** (Politika ochrany klimatu
+  2025–2050, Státní energetická koncepce): vést je jako připravované
+  dokumenty, nebo vyčkat na schválení?
+* **Plné texty z EUR-Lexu bez čísla CELEX** (adresy ELI) stahuje
+  `fetch_fulltext.py` dosud přes prohlížeč, jenž ochranu EUR-Lexu obchází;
+  navrhujeme je převést na Cellar (ELI lze přeložit na CELEX dotazem SPARQL).
+* **Text .docx:** 2. aktualizace NAP čisté mobility je zveřejněna jen ve
+  formátu .docx, jejž `extract_fulltext.py` nečte.
 * **Jména garanta, editorů a správce** doplní uživatel (značky
   `[DOPLNIT: jméno]` v `doc/PROVOZ.md`, odstavec 2).
 * **Otázky pro jednání s MPO** (`doc/MPO_VYPORADANI.md`, odstavec 7):
@@ -524,8 +643,5 @@ psán jako plán.
   mezi normalizačními orgány, nikoli ve skupině Slovensko (veřejnost jej
   od rozhodnutí o slovenských dokumentech nevidí, týká se jen editorů); DGUV, BAuA, PTB,
   OSHA, NIST, NASA a Sandia jsou „zahraniční státní orgány“. Ověřit.
-* **Záznamy #110 a #140:** #110 (`2012/18/EU`, Seveso III) nese název
-  směrnice ATEX 2014/34/EU, #140 (předpis EHK OSN č. 100) název publikace
-  EIGA; do opravy nezařazujeme Seveso do slovníku synonym.
-* **Označení ČSN EN ISO 19880-1 (#3)** opravit na ČSN ISO 19880-1, pokud
-  to neprovede souběžná větev oprav dat.
+* **Seveso III ve slovníku synonym:** záznam #110 je opraven (odstavec 4.1),
+  synonymum „Seveso III“ lze doplnit.

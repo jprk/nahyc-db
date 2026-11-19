@@ -145,6 +145,8 @@
                             {{ 'přejímá' if r.direction == 'from' else 'je přejat normou' }}
                         {%- elif r.relation_type == 'AMENDS' -%}
                             {{ 'novelizuje' if r.direction == 'from' else 'je novelizován předpisem' }}
+                        {%- elif r.relation_type == 'REPEALS' and 'Strategie' in (document.type_name, r.other_type) -%}
+                            {{ 'nahrazuje' if r.direction == 'from' else 'je nahrazen dokumentem' }}
                         {%- elif r.relation_type == 'REPEALS' -%}
                             {{ 'ruší' if r.direction == 'from' else 'je zrušen předpisem' }}
                         {%- elif r.relation_type == 'CONSOLIDATES' -%}
@@ -154,7 +156,9 @@
                         {%- elif r.relation_type == 'ENACTED_AS' -%}
                             {{ 'návrh vyhlášen jako' if r.direction == 'from' else 'vyhlášené znění návrhu' }}
                         {%- elif r.relation_type == 'TRANSLATION_OF' -%}
-                            {{ 'je anglickou verzí dokumentu' if r.direction == 'from' else 'má anglickou verzi' }}
+                            {%- set variant_language = document.language if r.direction == 'from' else r.other_language -%}
+                            {%- set adjective = {'EN': 'anglickou', 'SK': 'slovenskou', 'DE': 'německou', 'CS': 'českou'}.get(variant_language, 'jazykovou') -%}
+                            {{ ('je ' ~ adjective ~ ' verzí dokumentu') if r.direction == 'from' else ('má ' ~ adjective ~ ' verzi') }}
                         {%- else -%}
                             {{ r.relation_type }}
                         {%- endif -%}

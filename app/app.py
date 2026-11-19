@@ -697,17 +697,21 @@ def fetch_document_detail(db, slug):
             SELECT r.relation_type, 'from' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
                    o.title AS other_title, o.identifier AS other_identifier,
-                   o.identifier AS identifier, o.jurisdikce AS jurisdikce
+                   o.identifier AS identifier, o.jurisdikce AS jurisdikce,
+                   o.language AS other_language, ot.name AS other_type
             FROM document_relation r
             JOIN Document o ON o.id = r.to_document_id
+            LEFT JOIN DocumentType ot ON ot.id = o.type_id
             WHERE r.from_document_id = %s
             UNION ALL
             SELECT r.relation_type, 'to' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
                    o.title AS other_title, o.identifier AS other_identifier,
-                   o.identifier AS identifier, o.jurisdikce AS jurisdikce
+                   o.identifier AS identifier, o.jurisdikce AS jurisdikce,
+                   o.language AS other_language, ot.name AS other_type
             FROM document_relation r
             JOIN Document o ON o.id = r.from_document_id
+            LEFT JOIN DocumentType ot ON ot.id = o.type_id
             WHERE r.to_document_id = %s
         ''', (document['id'], document['id']))
         # doc/MPO_PRIPOMINKY.md, odstavec 4.3: a visitor is not led to a
