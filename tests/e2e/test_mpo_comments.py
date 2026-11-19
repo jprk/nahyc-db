@@ -131,20 +131,19 @@ class MpoCommentsTestCase(BrowserTestCase):
         self.shot_element(page.locator(".search-glass-panel"), "filters")
 
     def test_jurisdiction_filter(self):
+        # Slovak documents and the choice "Slovensko" are for logged-in editors
+        # only (tests/e2e/test_slovak_documents.py).
         page = self.new_page()
         self.goto(page, "/")
-        everything = self.count(page)
         select = page.locator("select[name=jurisdikce]")
-        select.select_option(label="Slovensko")
-        page.wait_for_url(re.compile(r"jurisdikce=sk"))
-        slovak = self.count(page)
-        expected = self.one("""SELECT COUNT(*) AS c FROM Document d WHERE d.jurisdikce = 'SK' AND NOT EXISTS
+        labels = [o.strip() for o in select.locator("option").all_inner_texts()]
+        self.assertNotIn("Slovensko", labels)
+        select.select_option(label="Česká republika")
+        page.wait_for_url(re.compile(r"jurisdikce=cz"))
+        expected = self.one("""SELECT COUNT(*) AS c FROM Document d WHERE d.jurisdikce = 'CZ' AND NOT EXISTS
             (SELECT 1 FROM document_relation r WHERE r.from_document_id = d.id
              AND r.relation_type = 'TRANSLATION_OF')""")["c"]
-        self.assertEqual(slovak, expected)
-        self.goto(page, "/?jurisdikce=bez-sk")
-        self.assertEqual(self.count(page), everything - slovak)
-        self.goto(page, "/?jurisdikce=cz")
+        self.assertEqual(self.count(page), expected)
         self.assert_one_row_per_act(page)
         self.shot(page, "jurisdiction-cz")
 

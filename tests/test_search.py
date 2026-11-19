@@ -223,8 +223,18 @@ class MpoCatalogTestCase(unittest.TestCase):
         self.assertEqual([s for s in self.sources if s not in mapped], [])
 
     def test_unfiltered_count_is_one_per_act(self):
+        # Slovak documents are not public (SlovakVisibilityTestCase below)
         _, count, _ = self.rows("/?jurisdikce=vse")
-        self.assertEqual(count, self.documents - self.translations)
+        conn = _connect()
+        with conn.cursor() as cur:
+            cur.execute(f"SELECT COUNT(*) AS c FROM Document d WHERE {SLOVAK}")
+            slovak = cur.fetchone()["c"]
+            cur.execute(f"SELECT COUNT(DISTINCT tr.from_document_id) AS c FROM document_relation tr "
+                        f"JOIN Document d ON d.id = tr.from_document_id "
+                        f"WHERE tr.relation_type = 'TRANSLATION_OF' AND {SLOVAK}")
+            slovak_translations = cur.fetchone()["c"]
+        conn.close()
+        self.assertEqual(count, self.documents - self.translations - (slovak - slovak_translations))
 
     def test_rfnbo_finds_the_delegated_acts_once_each(self):
         rows, count, html = self.rows("/?q=RFNBO")
@@ -250,6 +260,130 @@ class MpoCatalogTestCase(unittest.TestCase):
         self.assertEqual(count, len(rows))
         self.assertLessEqual({"(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2018/674"}, identifiers)
         self.assertNotIn("(EU) 2023/1804", identifiers)
+
+
+
+SLOVAK = "(d.jurisdikce = 'SK' OR d.identifier LIKE '%[SK]')"
+NOT_TRANSLATION = ("NOT EXISTS (SELECT 1 FROM document_relation tr WHERE tr.from_document_id = d.id "
+                   "AND tr.relation_type = 'TRANSLATION_OF')")
+
+
+class SlovakVisibilityTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, odstavec 4.3 (decided): Slovak documents are not
+    in the public catalogue — list, search, exports, menus, counts, relation
+    lists — and a logged-in editor includes them with the switch `sk=1`. The
+    browser version is in tests/e2e/test_slovak_documents.py."""
+
+    @classmethod
+    def setUpClass(cls):
+        conn = _connect()
+        with conn.cursor() as cur:
+            def one(sql):
+                cur.execute(sql)
+                return cur.fetchone()["c"]
+            cls.acts = one(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_TRANSLATION}")
+            cls.slovak_acts = one(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_TRANSLATION} AND {SLOVAK}")
+            cls.documents = one("SELECT COUNT(*) AS c FROM Document d")
+            cls.slovak_documents = one(f"SELECT COUNT(*) AS c FROM Document d WHERE {SLOVAK}")
+            cur.execute(f"SELECT slug FROM Document d WHERE {SLOVAK}")
+            cls.slovak_slugs = {r["slug"] for r in cur.fetchall()}
+            cur.execute(f"""SELECT d.slug, o.slug AS other FROM document_relation r
+                JOIN Document d ON d.id = r.to_document_id JOIN Document o ON o.id = r.from_document_id
+                WHERE NOT ({SLOVAK}) AND (o.jurisdikce = 'SK' OR o.identifier LIKE '%[SK]')
+                UNION ALL SELECT d.slug, o.slug AS other FROM document_relation r
+                JOIN Document d ON d.id = r.from_document_id JOIN Document o ON o.id = r.to_document_id
+                WHERE NOT ({SLOVAK}) AND (o.jurisdikce = 'SK' OR o.identifier LIKE '%[SK]') LIMIT 1""")
+            cls.related = cur.fetchone()
+            cur.execute(f"""SELECT nd.node_id, d.slug FROM node_document nd JOIN Document d ON d.id = nd.document_id
+                WHERE {SLOVAK} LIMIT 1""")
+            cls.process = cur.fetchone()
+        conn.close()
+        if not cls.slovak_acts:
+            raise unittest.SkipTest("no Slovak documents in this database")
+
+    def client(self, editor=False):
+        client = app.test_client()
+        if editor:
+            with client.session_transaction() as session:
+                session["user_id"] = 1
+                session["username"] = "test"
+        return client
+
+    def page(self, query, editor=False):
+        html = self.client(editor).get(query).data.decode("utf-8")
+        count = int(re.search(r'class="badge">(\d+)<', html).group(1))
+        slugs = {slug for slug, _ in ROW_RE.findall(html)}
+        return count, slugs, html
+
+    def test_visitor_does_not_see_slovak_documents(self):
+        for query in ("/", "/?sk=1", "/?jurisdikce=sk", "/?q=STN"):
+            count, slugs, html = self.page(query)
+            self.assertEqual(slugs & self.slovak_slugs, set(), query)
+            if query != "/?q=STN":
+                self.assertEqual(count, self.acts - self.slovak_acts, query)
+            self.assertNotIn("zahrnout i slovenskou legislativu", html.lower(), query)
+
+    def test_hero_counts_leave_slovak_documents_out(self):
+        _, _, html = self.page("/")
+        self.assertIn(f"Prohledejte {self.acts - self.slovak_acts} ", html)
+        _, _, html = self.page("/?sk=1", editor=True)
+        self.assertIn(f"Prohledejte {self.acts} ", html)
+
+    def test_editor_includes_them_with_the_switch(self):
+        count, _, html = self.page("/", editor=True)
+        self.assertEqual(count, self.acts - self.slovak_acts)
+        self.assertIn("Zahrnout i slovenskou legislativu", html)
+        count, _, _ = self.page("/?sk=1", editor=True)
+        self.assertEqual(count, self.acts)
+        count, slugs, _ = self.page("/?sk=1&jurisdikce=sk", editor=True)
+        self.assertGreater(count, 0)
+        self.assertLessEqual(slugs, self.slovak_slugs)
+
+    def test_menus_without_slovak_entries(self):
+        _, _, html = self.page("/")
+        self.assertNotIn("ÚNMS SR", html)
+        self.assertNotIn('optgroup label="Slovensko"', html)
+        self.assertNotIn('value="sk"', html)
+        self.assertNotIn("STN (prijatá v sústave)", html)
+        _, _, html = self.page("/?sk=1", editor=True)
+        self.assertIn("ÚNMS SR", html)
+        self.assertIn('optgroup label="Slovensko"', html)
+        self.assertIn('value="sk"', html)
+
+    def test_exports(self):
+        import json
+        rows = json.loads(self.client().get("/export/json?sk=1").data)
+        self.assertEqual(len(rows), self.documents - self.slovak_documents)
+        self.assertFalse([r for r in rows if r["source_name"].startswith("Úrad pre normalizáciu")])
+        import csv
+        import io
+        csv_rows = list(csv.DictReader(io.StringIO(self.client().get("/export/csv").data.decode("utf-8"))))
+        self.assertEqual(len(csv_rows), len(rows))
+        xml = self.client().get("/export/xml").data.decode("utf-8")
+        self.assertEqual(xml.count("<document>"), len(rows))
+        rows = json.loads(self.client(editor=True).get("/export/json?sk=1").data)
+        self.assertEqual(len(rows), self.documents)
+
+    def test_direct_link_works_but_relations_are_hidden(self):
+        slug = sorted(self.slovak_slugs)[0]
+        response = self.client().get(f"/dokument/{slug}")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Slovenský dokument", response.data.decode("utf-8"))
+        if self.related:
+            link = f'/dokument/{self.related["other"]}"'
+            public = self.client().get(f"/dokument/{self.related['slug']}").data.decode("utf-8")
+            editor = self.client(editor=True).get(f"/dokument/{self.related['slug']}").data.decode("utf-8")
+            self.assertNotIn(link, public)
+            self.assertIn(link, editor)
+
+    def test_process_page_hides_slovak_documents(self):
+        if not self.process:
+            self.skipTest("no process node cites a Slovak document")
+        link = f'/dokument/{self.process["slug"]}"'
+        public = self.client().get(f"/proces/{self.process['node_id']}").data.decode("utf-8")
+        editor = self.client(editor=True).get(f"/proces/{self.process['node_id']}").data.decode("utf-8")
+        self.assertNotIn(link, public)
+        self.assertIn(link, editor)
 
 
 if __name__ == '__main__':

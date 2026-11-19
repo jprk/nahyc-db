@@ -15,7 +15,9 @@ from app.app import (
 )
 
 
-NO_FILTERS = {'q': '', 'type_id': '', 'source_id': '', 'keyword_id': ''}
+# include_sk: these tests are about the other filters; the Slovak restriction
+# of the public view is tested in tests/test_catalog_filters.py.
+NO_FILTERS = {'q': '', 'type_id': '', 'source_id': '', 'keyword_id': '', 'include_sk': True}
 
 
 class BuildDocumentQueryTestCase(unittest.TestCase):
@@ -69,9 +71,10 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         self.assertEqual(params, ['9'])
 
     def test_all_filters_combined_with_limit(self):
+        # without 'include_sk': the public view, Slovak documents left out last
         filters = {'q': 'norma', 'type_id': '1', 'source_id': '2', 'keyword_id': '3'}
         sql, params = build_document_query(filters, limit=50)
-        self.assertEqual(params, ['%norma%', '%norma%', '%norma%', '1', '2', '3', 50])
+        self.assertEqual(params, ['%norma%', '%norma%', '%norma%', '1', '2', '3', 'SK', '%[SK]', 50])
         self.assertTrue(sql.rstrip().endswith("LIMIT %s"))
 
 

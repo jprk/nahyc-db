@@ -27,6 +27,11 @@
             {% endfor %}
         </div>
 
+        {% if is_slovak %}
+        <p class="review-banner is-incomplete slovak-note"><i class="ph ph-info"></i>
+            Slovenský dokument. Ve veřejném katalogu se nezobrazuje, stránka je dostupná jen přímým odkazem.</p>
+        {% endif %}
+
         {% set badge = review_badge(document) %}
         {# 'approximate' is deliberately skipped here — the Popis panel just
            below already carries its own "Přibližné shrnutí, neověřeno"

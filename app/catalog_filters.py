@@ -17,17 +17,19 @@ SOURCE_GROUPS_PATH = REPO_ROOT / "data" / "source_groups.json"
 
 # ---------------------------------------------------------------- jurisdiction
 
-# OPEN QUESTION (doc/MPO_PRIPOMINKY.md, odstavec 5): should the catalogue hide
-# Slovak documents (444 records, mostly STN standards) unless the user asks for
-# them? "vse" shows everything (the state before krok 2); "bez-sk" hides Slovak
-# documents by default and the menu then offers "Všechny jurisdikce" explicitly.
+# Decided by the user (doc/MPO_PRIPOMINKY.md, odstavec 4.3): Slovak documents
+# (STN standards, Slovak laws, the Slovak versions of EU acts) are not part of
+# the public catalogue. Only a logged-in editor may include them with the
+# "zahrnout i slovenskou legislativu" switch (query parameter `sk=1`); see
+# is_slovak() / public_condition() for what counts as Slovak. The jurisdiction menu then
+# offers "Slovensko"; for everybody else it is not offered and `jurisdikce=sk`
+# falls back to the default. "vse" therefore means "everything you may see".
 DEFAULT_JURISDICTION = "vse"
 
 # key -> (label, SQL condition on Document d, params)
 _KNOWN = ("CZ", "SK", "EU", "mezinárodní")
 JURISDICTIONS = {
     "vse": ("Všechny jurisdikce", "", []),
-    "bez-sk": ("Vše kromě Slovenska", "(d.jurisdikce IS NULL OR d.jurisdikce <> %s)", ["SK"]),
     "cz": ("Česká republika", "d.jurisdikce = %s", ["CZ"]),
     "eu": ("Evropská unie", "d.jurisdikce = %s", ["EU"]),
     "int": ("Mezinárodní", "d.jurisdikce = %s", ["mezinárodní"]),
@@ -35,14 +37,19 @@ JURISDICTIONS = {
     "jine": ("Ostatní státy a neurčené",
              "(d.jurisdikce IS NULL OR d.jurisdikce NOT IN (%s, %s, %s, %s))", list(_KNOWN)),
 }
+# Choices that only make sense when Slovak documents are included.
+SLOVAK_ONLY_JURISDICTIONS = ("sk",)
 
 
-def resolve_jurisdiction(raw, default=None):
+def resolve_jurisdiction(raw, default=None, include_slovak=True):
     """The effective jurisdiction key for the `jurisdikce` query parameter:
-    empty or unknown -> the default."""
+    empty or unknown -> the default; "sk" without the Slovak switch -> the
+    default as well."""
     default = default or DEFAULT_JURISDICTION
     raw = (raw or "").strip()
-    return raw if raw in JURISDICTIONS else default
+    if raw not in JURISDICTIONS or (not include_slovak and raw in SLOVAK_ONLY_JURISDICTIONS):
+        return default
+    return raw
 
 
 def jurisdiction_condition(key):
@@ -51,13 +58,50 @@ def jurisdiction_condition(key):
     return condition, list(params)
 
 
-def jurisdiction_options(default=None):
+def jurisdiction_options(default=None, include_slovak=True):
     """[(value, label)] for the menu: the default first under the empty value
-    (so a plain URL means the default), then every other choice."""
+    (so a plain URL means the default), then every other choice ("Slovensko"
+    only with the Slovak switch)."""
     default = default or DEFAULT_JURISDICTION
     options = [("", JURISDICTIONS[default][0])]
-    options += [(key, label) for key, (label, _, _) in JURISDICTIONS.items() if key != default]
+    options += [(key, label) for key, (label, _, _) in JURISDICTIONS.items()
+                if key != default and (include_slovak or key not in SLOVAK_ONLY_JURISDICTIONS)]
     return options
+
+
+# ---------------------------------------------------------------- Slovak documents
+
+# A document is Slovak when its jurisdiction is SK (STN/TNI standards adopted
+# by ÚNMS SR, Slovak laws and decrees, and the Slovak versions of EU acts the
+# Sinay table recorded under SK), or when its designation carries the "[SK]"
+# suffix that marks the Slovak version of an EU act (doc/MPO_PRIPOMINKY.md,
+# odstavec 4.1, #84: "(EU) 2024/1788 [SK]"), whatever jurisdiction it ends up
+# with. The language alone does not decide: German, European and ISO
+# standards whose titles came from a Slovak table (language SK) are not
+# Slovak legislation and stay public.
+SLOVAK_JURISDICTION = "SK"
+SLOVAK_SUFFIX = "[SK]"
+SLOVAK_SWITCH_PARAM = "sk"
+
+
+def is_slovak(document):
+    """Whether a row (dict with `jurisdikce` and `identifier`) is Slovak."""
+    jurisdiction = (document.get("jurisdikce") or "").strip()
+    identifier = (document.get("identifier") or "").strip()
+    return jurisdiction == SLOVAK_JURISDICTION or identifier.upper().endswith(SLOVAK_SUFFIX)
+
+
+def public_condition(alias="d"):
+    """(SQL condition, params) true for a document that is NOT Slovak — the
+    restriction of everything the public catalogue lists and counts."""
+    return (f"NOT (COALESCE({alias}.jurisdikce, '') = %s OR COALESCE({alias}.identifier, '') LIKE %s)",
+            [SLOVAK_JURISDICTION, "%" + SLOVAK_SUFFIX])
+
+
+def wants_slovak(args, logged_in):
+    """The Slovak switch: on only for a logged-in editor who asked for it
+    (`sk=1`); a visitor's `sk=1` is ignored."""
+    return bool(logged_in) and (args.get(SLOVAK_SWITCH_PARAM) or "").strip() == "1"
 
 
 # ---------------------------------------------------------------- EU act subtype

@@ -76,6 +76,20 @@
                 </select>
             </div>
 
+            {% if logged_in %}
+            {# doc/MPO_PRIPOMINKY.md, odstavec 4.3: Slovak documents are hidden
+               from the public catalogue; only an editor may include them. #}
+            <div class="filter-group filter-switch">
+                <label class="switch-label">
+                    <input type="checkbox" name="sk" value="1" {% if include_sk %}checked{% endif %}
+                           onchange="this.form.submit()">
+                    <span>Zahrnout i slovenskou legislativu</span>
+                </label>
+                <p class="switch-note"><i class="ph ph-lock-simple"></i> Jen pro přihlášené editory; veřejnost
+                    slovenské dokumenty (normy STN, slovenské předpisy a slovenská znění aktů EU) v katalogu nevidí.</p>
+            </div>
+            {% endif %}
+
             <div class="filter-group action-group">
                 <a href="{{ url_for('export', fmt='csv', **request.args) }}" class="btn-secondary">CSV <i class="ph ph-file-csv"></i></a>
                 <a href="{{ url_for('export', fmt='json', **request.args) }}" class="btn-secondary">JSON <i class="ph ph-file-code"></i></a>

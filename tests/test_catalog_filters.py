@@ -16,19 +16,20 @@ from app import catalog_filters as cf  # noqa: E402
 class JurisdictionTestCase(unittest.TestCase):
     def test_empty_or_unknown_means_the_default(self):
         self.assertEqual(cf.resolve_jurisdiction("", default="vse"), "vse")
-        self.assertEqual(cf.resolve_jurisdiction("nesmysl", default="bez-sk"), "bez-sk")
-        self.assertEqual(cf.resolve_jurisdiction("cz", default="bez-sk"), "cz")
+        self.assertEqual(cf.resolve_jurisdiction("nesmysl", default="cz"), "cz")
+        self.assertEqual(cf.resolve_jurisdiction("eu", default="vse"), "eu")
 
     def test_the_default_is_a_known_choice(self):
         self.assertIn(cf.DEFAULT_JURISDICTION, cf.JURISDICTIONS)
+        self.assertNotIn(cf.DEFAULT_JURISDICTION, cf.SLOVAK_ONLY_JURISDICTIONS)
 
     def test_everything_adds_no_condition(self):
         self.assertEqual(cf.jurisdiction_condition("vse"), ("", []))
 
-    def test_without_slovakia_keeps_documents_without_a_jurisdiction(self):
-        condition, params = cf.jurisdiction_condition("bez-sk")
-        self.assertIn("IS NULL", condition)
-        self.assertEqual(params, ["SK"])
+    def test_slovakia_only_with_the_switch(self):
+        self.assertEqual(cf.resolve_jurisdiction("sk", include_slovak=True), "sk")
+        self.assertEqual(cf.resolve_jurisdiction("sk", include_slovak=False), cf.DEFAULT_JURISDICTION)
+        self.assertEqual(cf.resolve_jurisdiction("bez-sk"), cf.DEFAULT_JURISDICTION)  # retired choice
 
     def test_other_states_exclude_the_four_named_groups(self):
         condition, params = cf.jurisdiction_condition("jine")
@@ -36,12 +37,48 @@ class JurisdictionTestCase(unittest.TestCase):
         self.assertEqual(set(params), {"CZ", "SK", "EU", "mezinárodní"})
 
     def test_menu_puts_the_default_under_the_empty_value(self):
-        options = cf.jurisdiction_options(default="bez-sk")
-        self.assertEqual(options[0], ("", "Vše kromě Slovenska"))
+        options = cf.jurisdiction_options(default="cz")
+        self.assertEqual(options[0], ("", "Česká republika"))
         values = [v for v, _ in options]
-        self.assertNotIn("bez-sk", values)
+        self.assertNotIn("cz", values)
         self.assertIn("vse", values)
         self.assertEqual(len(values), len(cf.JURISDICTIONS))
+
+    def test_menu_without_the_switch_does_not_offer_slovakia(self):
+        values = [v for v, _ in cf.jurisdiction_options(include_slovak=False)]
+        self.assertNotIn("sk", values)
+        self.assertIn("sk", [v for v, _ in cf.jurisdiction_options(include_slovak=True)])
+
+
+class SlovakDocumentTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, odstavec 4.3: what is Slovak and who sees it."""
+
+    def test_slovak_jurisdiction(self):
+        self.assertTrue(cf.is_slovak({"jurisdikce": "SK", "identifier": "STN EN 1555-1/ - 2021.10"}))
+        self.assertTrue(cf.is_slovak({"jurisdikce": "SK", "identifier": None}))
+
+    def test_slovak_version_of_an_eu_act_by_its_designation(self):
+        self.assertTrue(cf.is_slovak({"jurisdikce": "EU", "identifier": "(EU) 2024/1788 [SK]"}))
+        self.assertFalse(cf.is_slovak({"jurisdikce": "EU", "identifier": "(EU) 2024/1788 [EN]"}))
+        self.assertFalse(cf.is_slovak({"jurisdikce": "EU", "identifier": "(EU) 2024/1788"}))
+
+    def test_language_alone_does_not_make_a_document_slovak(self):
+        # German and European standards whose titles came from a Slovak table
+        self.assertFalse(cf.is_slovak({"jurisdikce": "DE", "identifier": "DIN EN IEC 60079-7",
+                                       "language": "SK"}))
+        self.assertFalse(cf.is_slovak({"jurisdikce": None, "identifier": None}))
+
+    def test_public_condition_is_parameterized(self):
+        condition, params = cf.public_condition("o")
+        self.assertEqual(condition.count("%s"), len(params))
+        self.assertIn("o.jurisdikce", condition)
+        self.assertEqual(params, ["SK", "%[SK]"])
+
+    def test_switch_needs_a_login(self):
+        self.assertTrue(cf.wants_slovak({"sk": "1"}, logged_in=7))
+        self.assertFalse(cf.wants_slovak({"sk": "1"}, logged_in=None))
+        self.assertFalse(cf.wants_slovak({}, logged_in=7))
+        self.assertFalse(cf.wants_slovak({"sk": "ano"}, logged_in=7))
 
 
 class TypeFilterTestCase(unittest.TestCase):
@@ -181,7 +218,7 @@ class CatalogQueryTestCase(unittest.TestCase):
         cls.build_document_query = staticmethod(build_document_query)
 
     BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'keyword_id': '',
-            'jurisdiction': 'vse', 'synonyms': []}
+            'jurisdiction': 'vse', 'synonyms': [], 'include_sk': True}
 
     def test_grouped_list_selects_acts_through_their_variants(self):
         sql, params = self.build_document_query(self.BASE, limit=50, group_variants=True)
@@ -205,11 +242,24 @@ class CatalogQueryTestCase(unittest.TestCase):
                          + ['(EU) 2023/1184', '(EU) 2018/2001'])
 
     def test_subtype_and_jurisdiction(self):
-        filters = {**self.BASE, 'eu_subtype': 'delegated', 'jurisdiction': 'bez-sk'}
+        filters = {**self.BASE, 'eu_subtype': 'delegated', 'jurisdiction': 'sk'}
         sql, params = self.build_document_query(filters)
         self.assertIn("AND d.eu_act_subtype = %s", sql)
-        self.assertIn("d.jurisdikce <> %s", sql)
+        self.assertIn("d.jurisdikce = %s", sql)
         self.assertEqual(params, ['delegated', 'SK'])
+
+    def test_public_view_hides_slovak_documents(self):
+        public = {**self.BASE, 'include_sk': False}
+        for sql, params in (self.build_document_query(public),
+                            self.build_document_query(public, group_variants=True),
+                            self.build_count_query(public),
+                            self.build_count_query(public, group_variants=True)):
+            self.assertIn("NOT (COALESCE(d.jurisdikce, '') = %s", sql)
+            self.assertEqual(params, ['SK', '%[SK]'])
+
+    def test_a_filters_dict_without_the_switch_is_the_public_view(self):
+        filters = {k: v for k, v in self.BASE.items() if k != 'include_sk'}
+        self.assertEqual(self.build_document_query(filters)[1], ['SK', '%[SK]'])
 
     def test_subtype_column_is_read_only_when_asked(self):
         self.assertIn("NULL AS eu_act_subtype", self.build_document_query(self.BASE)[0])

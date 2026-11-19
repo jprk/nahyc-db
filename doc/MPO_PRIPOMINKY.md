@@ -250,7 +250,7 @@ Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení edi
 * jeden řádek na předpis, jazykové verze jen jako štítky CS/EN v tomto řádku;
 * filtr původců rozdělit podle jurisdikce (ČR / EU / mezinárodní /
   normalizační orgány) a slovenské dokumenty ve výchozím zobrazení skrýt
-  (viz otevřenou otázku v odstavci 5);
+  (rozhodnuto, viz „Slovenské dokumenty“ níže);
 * zavést podtyp „akt v přenesené pravomoci / prováděcí akt“;
 * ve vyhledávání využít klíčová slova a synonyma (RFNBO, AFIR, RED III,
   LEX OZE apod.).
@@ -271,11 +271,50 @@ Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení edi
   Normalizační a odborné organizace a Zahraniční státní orgány podle
   datového souboru `data/source_groups.json`; nabízí jen původce, kteří mají
   aspoň jeden dokument (zmizela tak prázdná „Evropská centrální banka“).
-  Nový filtr „Jurisdikce“ nabízí všechny jurisdikce, vše kromě Slovenska,
-  ČR, EU, mezinárodní, Slovensko a ostatní státy. Výchozí stav určuje
-  konstanta `DEFAULT_JURISDICTION` v `app/catalog_filters.py`; ponechali jsme
-  „vše“, přepnutím na `"bez-sk"` se slovenské dokumenty ve výchozím
-  zobrazení skryjí (otevřená otázka v odstavci 5).
+  Nový filtr „Jurisdikce“ nabízí všechny jurisdikce, ČR, EU, mezinárodní
+  a ostatní státy; volbu „Slovensko“ jen přihlášenému editorovi se
+  zapnutým přepínačem slovenské legislativy (viz níže). Výchozí stav určuje
+  konstanta `DEFAULT_JURISDICTION` v `app/catalog_filters.py` („vše“, tj.
+  vše, co smí uživatel vidět); dřívější volbu „vše kromě Slovenska“ jsme
+  zrušili, protože ji nahrazuje přepínač.
+* *Slovenské dokumenty (rozhodnutí uživatele, větev `feature/mpo-sk-filtr`).*
+  Slovenské dokumenty nejsou součástí veřejného katalogu. Za slovenský
+  považujeme dokument s jurisdikcí `SK` nebo s označením končícím příponou
+  `[SK]`, jíž značíme slovenské znění aktu EU (#84, `(EU) 2024/1788 [SK]`),
+  ať by mu později byla přiřazena jakákoli jurisdikce. V živé databázi jde
+  o 444 dokumentů typů norma (416, normy STN, TNI a TPP, z toho 411
+  s původcem ÚNMS SR), zákon (12), vyhláška (9), nařízení vlády (1),
+  rozhodnutí EU (2), nařízení EU (1), strategický dokument (1) a nezařazeno
+  (2); patří mezi ně i slovenská znění aktů EU #57, #78, #84 a #88, která
+  mají jurisdikci `SK`, takže je pravidlo zachytí i bez přípony `[SK]`.
+  Jazyk sám o sobě nerozhoduje: 14 dokumentů se slovenským názvem
+  a jinou jurisdikcí (normy DIN a DVGW, návrhy evropských norem prEN/FprEN,
+  normy ISO, převzaté z tabulky Sinay se slovenským překladem názvu) nejsou
+  slovenskou legislativou a zůstávají veřejné. Nepřihlášený uživatel
+  slovenské dokumenty nevidí v seznamu, ve vyhledávání, v exportech CSV,
+  JSON a XML, v nabídce jurisdikcí (volba „Slovensko“), v nabídce původců
+  (skupina „Slovensko“ a ÚNMS SR mezi normalizačními orgány zmizí, protože
+  nabídka uvádí jen původce s alespoň jedním viditelným dokumentem),
+  v nabídce klíčových slov (např. „STN (prijatá v sústave)“) ani v počtech
+  na úvodní stránce: místo 1461 předpisů, z toho 1276 platných, vidí 1017,
+  z toho 840 platných. Přihlášenému editorovi (relace z `app/admin.py`)
+  nabízí formulář katalogu přepínač „Zahrnout i slovenskou legislativu“
+  (parametr adresy `sk=1`, přenáší se do stránkování i exportu); bez
+  přihlášení se parametr `sk=1` i `jurisdikce=sk` ignoruje.
+  *Přímý odkaz* na stránku slovenského dokumentu (`/dokument/<slug>`)
+  i na jeho text funguje i nepřihlášenému: dokument není tajný, odkazy
+  na něj mohou existovat a jeho skrytí by rozbilo trvalé adresy. Stránka
+  nese upozornění „Slovenský dokument. Ve veřejném katalogu se nezobrazuje,
+  stránka je dostupná jen přímým odkazem.“ *Vazby* na slovenské dokumenty
+  se nepřihlášenému ve výpisech nezobrazují, a to na stránkách dokumentů
+  (v živé databázi 156 vazeb mezi slovenským a jiným dokumentem: 110 `ADOPTS`
+  norem STN k normám EN, 31 `IMPLEMENTS` slovenských předpisů ke směrnicím EU,
+  14 `NATIONAL_EQUIVALENT`, 1 `REPEALS`; stejně se skryjí slovenská znění aktů
+  EU, propojí-li je souběžná větev vazbou `TRANSLATION_OF`, a to i ze štítků
+  jazykových verzí v řádku katalogu) i na stránkách procesů (12 odkazů na
+  slovenské normy ve 4 procesních uzlech). Přihlášený editor vidí vazby
+  vždy. Rozhodnutí o tom, co je slovenský dokument, je v `is_slovak()`
+  a `public_condition()` v `app/catalog_filters.py`.
 * *Podtyp aktů EU.* Nový sloupec `Document.eu_act_subtype`
   (`delegated` / `implementing`) určuje `src/tools/eu_act_subtype.py` podle
   ELI v adrese (`eli/reg_del/…`), jinak podle úředního názvu („v přenesené
@@ -367,18 +406,19 @@ vypořádání pro MPO.
 
 ## 5. Otevřené otázky
 
-* **Slovenské předpisy a normy STN:** ponechat je ve veřejném katalogu,
-  nebo je skrýt či oddělit? Od kroku 2 je k dispozici filtr jurisdikce;
-  výchozí stav je „vše“ a skrytí slovenských dokumentů ve výchozím
-  zobrazení je změna jedné konstanty (`DEFAULT_JURISDICTION = "bez-sk"`
-  v `app/catalog_filters.py`).
+* ~~**Slovenské předpisy a normy STN**~~ — rozhodnuto: ve veřejném
+  katalogu skryté, přihlášený editor je zahrne přepínačem; přímý odkaz
+  funguje (odstavec 4.3, „Slovenské dokumenty“). Zbývá rozhodnout, zda
+  stránky slovenských dokumentů vyloučit z indexování vyhledávači
+  (`noindex`).
 * **LEX OZE ve slovníku synonym:** dotaz nyní najde novelizované zákony
   165/2012 Sb. a 458/2000 Sb.; samotné novely (LEX OZE I–III, např.
   382/2021 Sb. a 469/2023 Sb.) databáze neobsahuje. Doplnit je jako
   dokumenty (krok 1), nebo ponechat odkaz na novelizované zákony? Čísla
   novel je třeba před doplněním ověřit.
 * **Zařazení původců do skupin** (`data/source_groups.json`): ÚNMS SR je
-  mezi normalizačními orgány, nikoli ve skupině Slovensko; DGUV, BAuA, PTB,
+  mezi normalizačními orgány, nikoli ve skupině Slovensko (veřejnost jej
+  od rozhodnutí o slovenských dokumentech nevidí, týká se jen editorů); DGUV, BAuA, PTB,
   OSHA, NIST, NASA a Sandia jsou „zahraniční státní orgány“. Ověřit.
 * **Telekonference z června 2026:** e-mail z 22. 5. 2026 navrhoval schůzku
   začátkem června. Je třeba doplnit, zda proběhla a co se na ní dohodlo.

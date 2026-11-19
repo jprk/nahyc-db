@@ -10,7 +10,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g, send_file, abort, Response, url_for
+from flask import Flask, render_template, request, g, send_file, abort, Response, url_for, session
 
 app = Flask(__name__)
 
@@ -142,35 +142,73 @@ def has_column(db, table, column):
     return found
 
 
-def get_filters():
+def include_slovak(args=None):
+    """The "zahrnout i slovenskou legislativu" switch (doc/MPO_PRIPOMINKY.md,
+    odstavec 4.3): Slovak documents are listed only for a logged-in editor
+    who turned it on; for everybody else they are left out of the catalogue,
+    the search, the exports, the menus and the counts."""
+    return catalog_filters.wants_slovak(request.args if args is None else args,
+                                        session.get('user_id'))
+
+
+def visible_condition(include_sk, alias="d"):
+    """(" AND <condition>", params) hiding Slovak documents unless included."""
+    if include_sk:
+        return "", []
+    condition, params = catalog_filters.public_condition(alias)
+    return f" AND {condition}", params
+
+
+def hide_slovak(rows):
+    """Drops the rows pointing at a Slovak document (relations, process
+    documents) unless the viewer is a logged-in editor: the document page
+    itself stays reachable by its address, but is not advertised."""
+    if session.get('user_id'):
+        return rows
+    return [r for r in rows if not catalog_filters.is_slovak(r)]
+
+
+def get_filters(include_sk=True):
     """Menu contents. Only sources that are the původce of at least one
     document are offered (doc/MPO_PRIPOMINKY.md, připomínka 1: an empty
     "Evropská centrální banka" used to stay in the menu), grouped by
-    data/source_groups.json."""
+    data/source_groups.json. Without the Slovak switch only documents that
+    are not Slovak count, so the Slovak ministries and ÚNMS SR (STN standards)
+    disappear from the menu, and so do the keywords only Slovak documents
+    carry ("STN (prijatá v sústave)")."""
     db = get_db()
+    condition, params = visible_condition(include_sk)
     with db.cursor() as cur:
         cur.execute("SELECT id, name FROM DocumentType ORDER BY name")
         types = cur.fetchall()
         cur.execute("SELECT ds.id, ds.name, ds.jurisdiction FROM DocumentSource ds "
-                    "WHERE EXISTS (SELECT 1 FROM Document d WHERE d.source_id = ds.id) ORDER BY ds.name")
+                    "WHERE EXISTS (SELECT 1 FROM Document d WHERE d.source_id = ds.id"
+                    f"{condition}) ORDER BY ds.name", params)
         sources = cur.fetchall()
-        cur.execute("SELECT id, keyword FROM Keyword ORDER BY keyword")
+        if include_sk:
+            cur.execute("SELECT id, keyword FROM Keyword ORDER BY keyword")
+        else:
+            cur.execute("SELECT k.id, k.keyword FROM Keyword k WHERE EXISTS (SELECT 1 FROM DocumentKeyword dk "
+                        "JOIN Document d ON d.id = dk.document_id WHERE dk.keyword_id = k.id"
+                        f"{condition}) ORDER BY k.keyword", params)
         keywords = cur.fetchall()
     return types, sources, keywords
 
 
-def get_total_document_count(db):
+def get_total_document_count(db, include_sk=True):
     """Real count for the hero section's "Search N documents" headline
     (used to be a hardcoded placeholder, "300") — every act regardless of
     lifecycle state, a language variant (TRANSLATION_OF) not counted
-    separately, so that it equals the row count of the unfiltered list."""
+    separately, so that it equals the row count of the unfiltered list
+    (Slovak documents only with the switch, see include_slovak())."""
+    condition, params = visible_condition(include_sk)
     with db.cursor() as cur:
-        cur.execute(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_A_TRANSLATION}")
+        cur.execute(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_A_TRANSLATION}{condition}", params)
         row = cur.fetchone()
     return row["c"] if row else 0
 
 
-def get_active_document_count(db):
+def get_active_document_count(db, include_sk=True):
     """For the hero section's active/inactive breakdown note. "Active"
     means the document's CURRENT version's lifecycle_state is 'active' —
     the same three-way active/superseded/draft distinction DocumentVersion
@@ -181,13 +219,14 @@ def get_active_document_count(db):
     (currently nonexistent) edge case of a Document with no current
     version row at all. Language variants are not counted (see
     get_total_document_count())."""
+    condition, params = visible_condition(include_sk)
     with db.cursor() as cur:
         cur.execute(f'''
             SELECT COUNT(DISTINCT d.id) AS c FROM Document d
             JOIN DocumentVersion dv ON dv.document_id = d.id
             WHERE dv.is_current = 1 AND dv.lifecycle_state = 'active'
-              AND {NOT_A_TRANSLATION}
-        ''')
+              AND {NOT_A_TRANSLATION}{condition}
+        ''', params)
         row = cur.fetchone()
     return row["c"] if row else 0
 
@@ -300,7 +339,7 @@ def review_badge(doc):
     return {'severity': severity, **REVIEW_SEVERITY[severity]}
 
 
-def parse_filters(args):
+def parse_filters(args, include_sk=False):
     """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the recognized
     search/filter query params into a plain dict, shared by index() and
     /export/<fmt> so both apply identical filtering.
@@ -308,7 +347,9 @@ def parse_filters(args):
     doc/MPO_PRIPOMINKY.md, krok 2: `type_id` may also name an EU act subtype
     ("podtyp-delegated"), `jurisdikce` selects a jurisdiction (empty = the
     default, catalog_filters.DEFAULT_JURISDICTION), and the synonym entries
-    the query triggers (data/search_synonyms.json) are resolved here."""
+    the query triggers (data/search_synonyms.json) are resolved here.
+    `include_sk` is the Slovak switch (include_slovak()); without it Slovak
+    documents are filtered out and "Slovensko" is not a valid jurisdiction."""
     q = args.get('q', '').strip()
     type_id, eu_subtype = catalog_filters.split_type_filter(args.get('type_id', ''))
     return {
@@ -317,7 +358,9 @@ def parse_filters(args):
         'eu_subtype': eu_subtype,
         'source_id': args.get('source_id', ''),
         'keyword_id': args.get('keyword_id', ''),
-        'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', '')),
+        'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', ''),
+                                                             include_slovak=include_sk),
+        'include_sk': include_sk,
         'synonyms': catalog_filters.match_synonyms(q, catalog_filters.load_synonyms()) if q else [],
     }
 
@@ -365,6 +408,12 @@ def build_filter_clause(filters):
     if condition:
         clause += f" AND {condition}"
         params.extend(condition_params)
+
+    # doc/MPO_PRIPOMINKY.md, odstavec 4.3: Slovak documents only with the
+    # switch; a filters dict without the key is the public view.
+    condition, condition_params = visible_condition(filters.get('include_sk', False))
+    clause += condition
+    params.extend(condition_params)
 
     return clause, params
 
@@ -494,7 +543,7 @@ def fetch_documents_with_tags(db, filters, limit=None, offset=None, group_varian
     return documents, doc_tags
 
 
-def attach_language_variants(db, documents):
+def attach_language_variants(db, documents, include_sk=True):
     """Sets doc['variants'] on every act that has language variants: a list of
     {'language', 'slug', 'is_self'} — the act itself first, then its
     translations by language. Acts without variants get an empty list."""
@@ -504,13 +553,14 @@ def attach_language_variants(db, documents):
         return
     by_id = {doc['id']: doc for doc in documents}
     placeholders = ','.join(['%s'] * len(by_id))
+    condition, params = visible_condition(include_sk, alias="o")
     with db.cursor() as cur:
         cur.execute(f'''
             SELECT r.to_document_id AS act_id, o.slug, o.language
             FROM document_relation r JOIN Document o ON o.id = r.from_document_id
-            WHERE r.relation_type = 'TRANSLATION_OF' AND r.to_document_id IN ({placeholders})
+            WHERE r.relation_type = 'TRANSLATION_OF' AND r.to_document_id IN ({placeholders}){condition}
             ORDER BY o.language, o.id
-        ''', list(by_id))
+        ''', list(by_id) + params)
         rows = cur.fetchall()
     for row in rows:
         doc = by_id[row['act_id']]
@@ -530,11 +580,12 @@ def type_menu(types, with_subtype):
 @app.route('/')
 def index():
     db = get_db()
-    filters = parse_filters(request.args)
+    include_sk = include_slovak()
+    filters = parse_filters(request.args, include_sk=include_sk)
     with_subtype = has_column(db, 'Document', 'eu_act_subtype')
     if not with_subtype:
         filters['eu_subtype'] = ''
-    types, sources, keywords = get_filters()
+    types, sources, keywords = get_filters(include_sk)
     types, subtypes = type_menu(types, with_subtype)
     source_groups = catalog_filters.group_sources(sources, catalog_filters.load_source_groups())
 
@@ -550,7 +601,7 @@ def index():
     documents, doc_tags = fetch_documents_with_tags(
         db, filters, limit=PAGE_SIZE, offset=(page - 1) * PAGE_SIZE,
         group_variants=True, with_subtype=with_subtype)
-    attach_language_variants(db, documents)
+    attach_language_variants(db, documents, include_sk)
     # Set here, not in fetch_documents_with_tags(): /export/<fmt> shares
     # that helper and must not pick up a key it was never meant to emit.
     for doc in documents:
@@ -559,8 +610,8 @@ def index():
         doc['has_clean_text'] = (not doc['restricted_fulltext']
                                  and clean_text_path(doc['file_path']) is not None)
         doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
-    total_document_count = get_total_document_count(db)
-    active_document_count = get_active_document_count(db)
+    total_document_count = get_total_document_count(db, include_sk)
+    active_document_count = get_active_document_count(db, include_sk)
     inactive_document_count = total_document_count - active_document_count
 
     selected_type = request.args.get('type_id', '')
@@ -571,8 +622,11 @@ def index():
                            subtypes=subtypes,
                            selected_type=selected_type,
                            source_groups=source_groups,
-                           jurisdiction_options=catalog_filters.jurisdiction_options(),
+                           jurisdiction_options=catalog_filters.jurisdiction_options(
+                               include_slovak=include_sk),
                            selected_jurisdiction=request.args.get('jurisdikce', ''),
+                           logged_in=bool(session.get('user_id')),
+                           include_sk=include_sk,
                            synonyms=filters['synonyms'],
                            keywords=keywords,
                            total_document_count=total_document_count,
@@ -642,19 +696,23 @@ def fetch_document_detail(db, slug):
         cur.execute('''
             SELECT r.relation_type, 'from' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
-                   o.title AS other_title, o.identifier AS other_identifier
+                   o.title AS other_title, o.identifier AS other_identifier,
+                   o.identifier AS identifier, o.jurisdikce AS jurisdikce
             FROM document_relation r
             JOIN Document o ON o.id = r.to_document_id
             WHERE r.from_document_id = %s
             UNION ALL
             SELECT r.relation_type, 'to' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
-                   o.title AS other_title, o.identifier AS other_identifier
+                   o.title AS other_title, o.identifier AS other_identifier,
+                   o.identifier AS identifier, o.jurisdikce AS jurisdikce
             FROM document_relation r
             JOIN Document o ON o.id = r.from_document_id
             WHERE r.to_document_id = %s
         ''', (document['id'], document['id']))
-        relations = cur.fetchall()
+        # doc/MPO_PRIPOMINKY.md, odstavec 4.3: a visitor is not led to a
+        # Slovak document (NATIONAL_EQUIVALENT, a Slovak language variant).
+        relations = hide_slovak(cur.fetchall())
 
         # doc/PLAN.md §20, 2026-09-17: the reciprocal of node_document —
         # which V02 process nodes cite this document, and how (LEGAL_BASIS
@@ -684,6 +742,9 @@ def document_detail(slug):
     if detail is None:
         abort(404)
     document = detail['document']
+    # The page of a Slovak document stays reachable by its address (it is
+    # not secret), only it is not listed; say so instead of pretending.
+    detail['is_slovak'] = catalog_filters.is_slovak(document)
     detail['has_local_copy'] = (not document['restricted_fulltext']
                                 and local_copy_path(document['file_path']) is not None)
     detail['has_clean_text'] = (not document['restricted_fulltext']
@@ -901,7 +962,7 @@ def fetch_node_detail(db, node_id):
             FROM node_document nd JOIN Document d ON d.id = nd.document_id
             WHERE nd.node_id = %s ORDER BY nd.link_type, d.identifier, d.jurisdikce, d.title
         ''', (node_id,))
-        documents = cur.fetchall()
+        documents = hide_slovak(cur.fetchall())
 
     return {"node": node, "description": description, "branches": branches,
             "inputs": inputs, "outputs": outputs, "subjects": subjects,
@@ -1034,7 +1095,7 @@ def export(fmt):
         abort(400)
 
     db = get_db()
-    filters = parse_filters(request.args)
+    filters = parse_filters(request.args, include_sk=include_slovak())
     if not has_column(db, 'Document', 'eu_act_subtype'):
         filters['eu_subtype'] = ''
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)

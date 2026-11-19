@@ -1419,6 +1419,36 @@ main {
     font-style: normal;
 }
 
+/* The editors' switch for Slovak documents (doc/MPO_PRIPOMINKY.md, 4.3): a full row. */
+.filters-grid .filter-switch {
+    grid-column: 1 / -1;
+    gap: 0.25rem;
+}
+
+.filter-switch .switch-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.filter-switch input[type=checkbox] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--accent-secondary);
+    cursor: pointer;
+}
+
+.filter-switch .switch-note {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
 /* Four menus since krok 2: the export/reset buttons take a full row of their own. */
 .filters-grid .action-group {
     grid-column: 1 / -1;
