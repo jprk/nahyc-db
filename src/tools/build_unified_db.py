@@ -13,6 +13,8 @@ from sites.eiga import normalize_designation as eiga_designation  # noqa: E402
 from sites.iec import normalize_designation as iec_designation  # noqa: E402
 from sites.dvgw import normalize_designation as dvgw_designation  # noqa: E402
 from standards_body import resolve_norma_jurisdikce  # noqa: E402
+from fulltext_keys import designation as url_or_znacka_designation  # noqa: E402
+from language_variants import row_language  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
@@ -414,6 +416,14 @@ def load_manual_corrections():
     return {}
 
 
+def correction_key(record):
+    """The key of `record` in data/manual_corrections.json: its `znacka`, or for a
+    record without one the designation made of its main address (`url-<hash>`,
+    fulltext_keys.py) — the same name data/fulltext_manifest.json files it under
+    (doc/MPO_PRIPOMINKY.md, krok 0: Slovak acts and strategies have no znacka)."""
+    return url_or_znacka_designation(record, "odkaz_hlavni")
+
+
 def apply_manual_corrections(record, corrections):
     """Applies an editor-confirmed correction — mutates `record` in
     place. Keyed by this record's own `znacka` (== `Document.identifier`
@@ -425,17 +435,28 @@ def apply_manual_corrections(record, corrections):
     file, this one DELIBERATELY overwrites whatever value the record
     already has — a confirmed correction exists specifically to replace
     a wrong value, not to fill a gap default. A record with no `znacka`
-    at all (the same handful of edge cases `backfill_puvodce.py` needs a
-    title-prefix fallback for) simply can't be matched here yet — no
-    correction is silently guessed for it."""
-    znacka = (record.get("znacka") or "").strip()
-    if not znacka:
-        return
-    entry = corrections.get(znacka)
+    is keyed by its address instead (`correction_key()`).
+
+    An entry with `"exclude": true` removes the record (out of scope): the
+    return value is False for it, True otherwise. An entry with
+    `"row_language": "CS"` changes only the rows of that language (or of none):
+    the Czech and English spreadsheet rows of one act share its znacka until
+    split_language_variants.py, and a Czech description must not reach the
+    English variant (doc/PLAN.md §47)."""
+    key = correction_key(record)
+    if not key:
+        return True
+    entry = corrections.get(key)
     if not entry:
-        return
+        return True
+    if entry.get("exclude"):
+        return False
+    only = entry.get("row_language")
+    if only and row_language(record) not in (None, only):
+        return True
     for field, value in entry.get("changes", {}).items():
         record[field] = value
+    return True
 
 
 def apply_synthesized_summary(record, summaries):
@@ -1159,13 +1180,19 @@ def build_unified_db():
 
     manual_corrections = load_manual_corrections()
     manual_correction_count = 0
+    kept = []
     for record in unified_db:
         before = dict(record)
-        apply_manual_corrections(record, manual_corrections)
+        if not apply_manual_corrections(record, manual_corrections):
+            continue
+        kept.append(record)
         if record != before:
             manual_correction_count += 1
-    if manual_correction_count:
-        print(f"Applied {manual_correction_count} editor-confirmed correction(s) from "
+    excluded_count = len(unified_db) - len(kept)
+    unified_db = kept
+    if manual_correction_count or excluded_count:
+        print(f"Applied {manual_correction_count} editor-confirmed correction(s) and excluded "
+              f"{excluded_count} record(s) out of scope from "
               f"{MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)} (doc/PLAN.md §42).")
 
     # 8. Save combined to JSON
