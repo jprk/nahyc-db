@@ -156,17 +156,50 @@ Před zápisem jsme pořídili zálohu
 
 Zbývá z kroku 0:
 
-* #130 (`(EU) 2014/1302` s názvem prováděcího nařízení 2019/776) a jeho
-  anglická varianta #1466: oprava názvu a adresy vyžaduje korekci každé
-  jazykové varianty zvlášť a nové stažení plného textu;
-* sloučení #92 a #139 (předpis EHK OSN č. 134): sloučení dvou dokumentů
-  mechanismus korekcí zatím neumí;
-* #84 (slovenské znění směrnice o trhu s plynem z obnovitelných zdrojů)
-  nemá označení ani adresu, korekci proto nelze klíčovat;
-* #75 má označení `98/2004 Z. z.`, ale jde o novelu 492/2010 Z. z.;
 * prověření původců ostatních českých předpisů proti sloupci „Nositel“
   tabulky MPO: z předpisů, které tabulka i databáze obsahují, se liší jen
   zákon č. 250/2021 Sb. (opraveno).
+
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok0-zbytek`, živá DB zatím
+nezapsána):** Zbylé opravy kroku 0 jsou v `data/manual_corrections.json`
+a v commitnutých výstupech pipeline, plné texty jsou stažené a zkouška
+proběhla na `h2regdocs_test`. Do živé databáze je promítne
+`src/tools/apply_manual_corrections.py` po sloučení větve; do té doby živá
+databáze tyto opravy nemá.
+
+* *Mechanismus korekcí.* Korekce s klíčem `<značka> [EN]` (označení
+  anglické varianty, které zapisuje i editorské rozhraní) mění jen anglický
+  řádek jazykové dvojice. Záznam bez označení i adresy má klíč
+  `title-<hash>` podle názvu. Položka `"merged_into": "<značka>"` vyřadí
+  duplicitní záznam; v živé databázi skript přesune jeho vazby
+  (`document_relation`, `node_document`, `scenario_document`, klíčová slova,
+  pravidla aktivace, kontrolní položky a kandidáty) na přežívající dokument
+  a duplicitní smaže. Při změně označení skript nastaví i adresu plného
+  textu a slug, jaký by dokument dostal při přestavbě.
+* *#130 a #1466.* Obě jazykové varianty `(EU) 2014/1302` nesou úřední
+  název nařízení Komise (EU) č. 1302/2014 o TSI LOC&PAS (CELEX 32014R1302,
+  český a anglický název z Cellaru), jeho adresu v EUR-Lexu, datum účinnosti
+  1. 1. 2015 a nový popis; plné texty jsme stáhli znovu. Prováděcí nařízení
+  (EU) 2019/776 zůstává samostatně jako #129.
+* *#92 a #139.* Předpis EHK OSN č. 134 je jeden dokument: záznam
+  `(EHK OSN) č. 134` (zdroj Sinay_Zakony, s adresou nesouvisejícího
+  slovenského předpisu 134/2006 Z. z.) je sloučen do `[2019/795]` (#139),
+  jenž má české i anglické znění (#1488, vazba `TRANSLATION_OF`
+  zůstává). #92 neměl vazby ani klíčová slova; #139 nově odkazuje na české
+  znění místo anglického.
+* *#84.* Slovenské znění směrnice (EU) 2024/1788 má označení
+  `(EU) 2024/1788 [SK]`, úřední slovenský název, adresu slovenského znění
+  v EUR-Lexu, typ „Směrnice EU“ a plný text. Původcem je podle pravidla pro
+  akty EU odpovědné generální ředitelství (DG ENER), stejně jako u českého
+  znění #104. Zápis `(EÚ) 2024/1788` použít nelze, protože porovnání
+  v databázi diakritiku nerozlišuje a označení by kolidovalo s #104.
+* *#75.* Novela slovenského zákona o spotřební dani z minerálních olejů má
+  označení `492/2010 Z. z.`; vazba `NATIONAL_EQUIVALENT` na zákon
+  č. 353/2003 Sb. a plný text následují nové označení.
+* *Vedlejší účinek.* U #57 a #78 skript nově srovná i sloupce
+  `nazev_autoritativni` a `zdroj_autoritativni_url` (v živé databázi
+  zůstal název „Slov-Lex“ a adresa Slov-Lexu), tedy na stav, který dá
+  přestavba.
 
 ### 4.2 Krok 1: Doplnění obsahu podle tabulek MPO a CDV (1–2 týdny)
 
@@ -214,3 +247,12 @@ Zbývá z kroku 0:
   začátkem června. Je třeba doplnit, zda proběhla a co se na ní dohodlo.
 * **Přejmenování typu „Strategický dokument“ na „Strategie“** podle návrhu
   MPO.
+* **Označení předpisu EHK OSN č. 134:** přežívající dokument má označení
+  `[2019/795]` (číslo zveřejnění v Úředním věstníku). Patrně vhodnější by
+  bylo `EHK OSN č. 134`; změna by ale přejmenovala i anglickou variantu
+  a klíče plných textů, proto ji necháváme k rozhodnutí.
+* **Slovenské znění aktů EU:** #84 jsme označili `(EU) 2024/1788 [SK]`
+  podle vzoru `[EN]`, ale vazbou na české znění jsme jej nepropojili
+  (`TRANSLATION_OF` vede jen z anglické varianty). Je třeba rozhodnout,
+  zda slovenská znění aktů EU (#57, #78, #84, #88) propojovat stejně.
+
