@@ -9,6 +9,7 @@ import apply_manual_corrections as amc
 class FakeCursor:
     def __init__(self, rows=(), counts=None):
         self.rows, self.counts, self.executed = list(rows), counts or {}, []
+        self.rowcount = 0
 
     def execute(self, sql, params=None):
         self.executed.append((" ".join(sql.split()), params))
@@ -30,7 +31,11 @@ class AffectedColumnsTestCase(unittest.TestCase):
 
     def test_a_new_address_changes_the_url_and_the_file(self):
         self.assertEqual(amc.affected_columns({"odkaz_hlavni": "u", "zdroj_autoritativni_url": ""}),
-                         ["url", "file_path", "needs_review", "review_reason"])
+                         ["url", "file_path", "zdroj_autoritativni_url", "needs_review", "review_reason"])
+
+    def test_the_authoritative_title_has_its_own_column_and_platnost_is_the_effective_date(self):
+        self.assertEqual(amc.affected_columns({"nazev_autoritativni": "T", "platnost": "1.1.2015"})[:3],
+                         ["title", "nazev_autoritativni", "effective_date"])
 
     def test_the_type_changes_the_source_too(self):
         self.assertEqual(amc.affected_columns({"typ_dokumentu": "Zákon", "nazev_cz": "T"})[:3],
@@ -72,6 +77,54 @@ class FindDocumentsTestCase(unittest.TestCase):
         cursor = FakeCursor(rows=[])
         self.assertEqual(amc.find_documents(cursor, "458/2000 Sb.", {"changes": {}}, {"znacka": "458/2000 Sb."}), [])
         self.assertEqual(len(cursor.executed), 1)
+
+
+class TitleKeyTestCase(unittest.TestCase):
+    def test_a_record_without_znacka_and_address_is_found_by_its_title(self):
+        from fulltext_keys import title_designation
+        title = "Smernica  o\xa0plyne"
+
+        class Cursor(FakeCursor):
+            results = [[], [(83, "Iná smernica"), (84, title)]]
+
+            def fetchall(self):
+                return self.results.pop(0)
+
+        key = title_designation(title)
+        self.assertEqual(amc.find_documents(Cursor(), key, {"changes": {"znacka": "(EU) 1/2 [SK]"}}, None), [84])
+
+    def test_once_corrected_it_is_found_by_its_new_identifier(self):
+        cursor = FakeCursor(rows=[(84,)])
+        self.assertEqual(amc.find_documents(cursor, "title-0000abcd", {"changes": {"znacka": "Z"}}, None), [84])
+        self.assertEqual(len(cursor.executed), 1)
+
+
+class MergeTestCase(unittest.TestCase):
+    def test_every_link_moves_to_the_survivor_before_the_document_goes(self):
+        cursor = FakeCursor()
+        amc.merge_document(cursor, 92, 139)
+        statements = [sql for sql, _ in cursor.executed]
+        self.assertTrue(statements[0].startswith("DELETE FROM document_relation WHERE (from_document_id"))
+        self.assertEqual(cursor.executed[0][1], (92, 139, 139, 92))
+        moved = [sql.split()[1] if sql.split()[1] != "IGNORE" else sql.split()[2]
+                 for sql in statements if sql.startswith("UPDATE")]
+        self.assertEqual(moved, ["document_relation", "document_relation", "node_document", "scenario_document",
+                                 "DocumentKeyword", "node_activation_rule", "ReviewItem", "DocumentCandidate"])
+        self.assertIn("UPDATE IGNORE DocumentKeyword SET document_id = %s WHERE document_id = %s", statements)
+        self.assertIn("DELETE FROM DocumentKeyword WHERE document_id = %s", statements)
+        self.assertEqual(statements[-2:], ["DELETE FROM DocumentVersion WHERE document_id = %s",
+                                           "DELETE FROM Document WHERE id = %s"])
+        for sql, params in cursor.executed[1:]:
+            if sql.startswith("UPDATE"):
+                self.assertEqual(params, (139, 92))
+
+    def test_the_slug_of_a_renamed_document_is_the_one_a_rebuild_gives(self):
+        rows = [(75, "98/2004 Z. z.", "Zákon", "98-2004-z-z"), (76, "1/2000 Z. z.", "Iný", "1-2000-z-z")]
+        self.assertEqual(amc.wanted_slug(FakeCursor(rows=rows), 75, "492/2010 Z. z.", "Zákon"), "492-2010-z-z")
+
+    def test_a_slug_another_document_has_is_not_taken(self):
+        rows = [(75, "98/2004 Z. z.", "Zákon", "98-2004-z-z"), (76, "X", "Iný", "492-2010-z-z")]
+        self.assertIsNone(amc.wanted_slug(FakeCursor(rows=rows), 75, "492/2010 Z. z.", "Zákon"))
 
 
 class DeletionTestCase(unittest.TestCase):

@@ -534,9 +534,9 @@ def main():
         raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
     # a confirmed correction (e.g. a wrong designation) changes the manifest key and address too
     import build_unified_db
+    # (a record excluded or merged into another has no document to fetch for)
     corrections = build_unified_db.load_manual_corrections()
-    for record in raw_data:
-        build_unified_db.apply_manual_corrections(record, corrections)
+    raw_data = [record for record in raw_data if build_unified_db.apply_manual_corrections(record, corrections)]
 
     manifest = load_manifest()
     session = requests.Session()

@@ -14,7 +14,8 @@ from sites.iec import normalize_designation as iec_designation  # noqa: E402
 from sites.dvgw import normalize_designation as dvgw_designation  # noqa: E402
 from standards_body import resolve_norma_jurisdikce  # noqa: E402
 from fulltext_keys import designation as url_or_znacka_designation  # noqa: E402
-from language_variants import row_language  # noqa: E402
+from fulltext_keys import title_designation  # noqa: E402
+from language_variants import EN_SUFFIX, row_language  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
@@ -420,8 +421,49 @@ def correction_key(record):
     """The key of `record` in data/manual_corrections.json: its `znacka`, or for a
     record without one the designation made of its main address (`url-<hash>`,
     fulltext_keys.py) — the same name data/fulltext_manifest.json files it under
-    (doc/MPO_PRIPOMINKY.md, krok 0: Slovak acts and strategies have no znacka)."""
-    return url_or_znacka_designation(record, "odkaz_hlavni")
+    (doc/MPO_PRIPOMINKY.md, krok 0: Slovak acts and strategies have no znacka).
+    A record with neither is keyed by its title (`title-<hash>`)."""
+    return url_or_znacka_designation(record, "odkaz_hlavni") or title_designation(record.get("nazev_cz"))
+
+
+def correction_entry(record, corrections):
+    """(key, entry) of the correction that applies to `record`, or (key, None).
+    The English row of an act listed in Czech and in English shares the Czech
+    row's znacka until split_language_variants.py names it `<znacka> [EN]`; a
+    correction keyed by that name (the identifier of the English document, which
+    is what the admin app records) applies to the English row instead of the
+    one keyed by the znacka."""
+    key = correction_key(record)
+    if key and not key.endswith(EN_SUFFIX) and row_language(record) == "EN":
+        english = corrections.get(key + EN_SUFFIX)
+        if english:
+            return key + EN_SUFFIX, english
+    return key, corrections.get(key) if key else None
+
+
+def renamed_designations(corrections):
+    """{old designation: new one} for the corrections that change a record's
+    `znacka` or merge it into another record (`"merged_into"`): relations stored
+    by designation (data/document_relations_split.json) must follow them."""
+    renamed = {}
+    for key, entry in corrections.items():
+        target = entry.get("merged_into") or (entry.get("changes") or {}).get("znacka")
+        if target and target != key:
+            renamed[key] = target
+    return renamed
+
+
+def rename_relation_ends(relations, renamed):
+    """`relations` ({from_identifier, to_identifier, ...}) with renamed ends; a
+    relation of a record with itself (both ends merged into one) is dropped."""
+    result = []
+    for relation in relations:
+        relation = dict(relation)
+        for end in ("from_identifier", "to_identifier"):
+            relation[end] = renamed.get(relation[end], relation[end])
+        if relation["from_identifier"] != relation["to_identifier"]:
+            result.append(relation)
+    return result
 
 
 def apply_manual_corrections(record, corrections):
@@ -442,14 +484,19 @@ def apply_manual_corrections(record, corrections):
     `"row_language": "CS"` changes only the rows of that language (or of none):
     the Czech and English spreadsheet rows of one act share its znacka until
     split_language_variants.py, and a Czech description must not reach the
-    English variant (doc/PLAN.md §47)."""
-    key = correction_key(record)
-    if not key:
-        return True
-    entry = corrections.get(key)
+    English variant (doc/PLAN.md §47). A correction keyed `<znacka> [EN]`
+    changes the English row of such an act (`correction_entry()`).
+
+    An entry with `"merged_into": "<znacka>"` removes the record as a duplicate
+    of the record with that designation (doc/MPO_PRIPOMINKY.md, krok 0: the UN
+    Regulation No 134 was listed twice): the return value is False, and
+    relations stored by designation are moved to the survivor
+    (`renamed_designations()`); apply_manual_corrections.py moves the live
+    document's links."""
+    key, entry = correction_entry(record, corrections)
     if not entry:
         return True
-    if entry.get("exclude"):
+    if entry.get("exclude") or entry.get("merged_into"):
         return False
     only = entry.get("row_language")
     if only and row_language(record) not in (None, only):
@@ -1190,9 +1237,10 @@ def build_unified_db():
             manual_correction_count += 1
     excluded_count = len(unified_db) - len(kept)
     unified_db = kept
+    split_relations = rename_relation_ends(split_relations, renamed_designations(manual_corrections))
     if manual_correction_count or excluded_count:
         print(f"Applied {manual_correction_count} editor-confirmed correction(s) and excluded "
-              f"{excluded_count} record(s) out of scope from "
+              f"{excluded_count} record(s) out of scope or merged into another from "
               f"{MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)} (doc/PLAN.md §42).")
 
     # 8. Save combined to JSON
