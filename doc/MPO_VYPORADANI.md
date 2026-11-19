@@ -12,7 +12,8 @@ termínu. V odstavci 4 odpovídáme na otázky, jež MPO položilo nebo jež
 z připomínek vyplývají, v odstavci 5 uvádíme další nedostatky, jež jsme
 při rozboru nalezli sami, a v odstavci 6 harmonogram dalšího postupu.
 Dokument končí otevřenými otázkami k jednání (odstavec 7) a přílohou A se
-seznamem strategických dokumentů, jež v databázi dosud chybějí.
+seznamem strategických dokumentů z rešerše, z nichž jsme dokumenty
+s prioritou A a B do databáze doplnili.
 
 Stav databáze a webové aplikace uvádíme k 19. 11. 2026. Všechna čísla jsme
 ověřili dotazem nad provozní databází v tento den.
@@ -53,7 +54,7 @@ nezávislého měření úplnosti. Obojí nyní napravujeme (odstavec 6).
 | 6 | U energetického zákona se zobrazuje zastaralá hláška. | Vyřešeno; hláška i interní poznámky z vývoje odstraněny z veřejných popisů. | Doplnit popisy dokumentům, jež po odstranění poznámek popis nemají (průběžně). |
 | 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů je vyvinut a ověřen na testovací databázi. | Uvést do provozu (etapa 3). |
 | 8 | Chybějí i existující předpisy (tabulky MPO a CDV). | Rozbor proveden: z 42 českých předpisů tabulky MPO je v databázi 12. | Doplnit chybějící předpisy přes frontu kandidátů (etapa 1). |
-| 9 | Nová kategorie „Strategie“. | Typ „Strategický dokument“ existuje, obsahuje 11 dokumentů. | Přejmenovat (k rozhodnutí), doplnit strategie podle přílohy A (etapa 1). |
+| 9 | Nová kategorie „Strategie“. | Kategorie „Strategie“ zavedena (přejmenováním dosavadního typu), doplněno 13 strategií podle přílohy A, celkem 25 dokumentů. | Posoudit strategie s prioritou C; pravidelně kontrolovat aktuálnost strategií (etapa 3). |
 | 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; postup popsán v provozním dokumentu. | Pravidelné spouštění kontrol (etapa 3). |
 
 ## 3. Vypořádání jednotlivých připomínek
@@ -156,7 +157,10 @@ stejně jako nařízení vlády č. 133/2005 Sb.; zákon č. 250/2021 Sb. má
 Ministerstvo práce a sociálních věcí. Všem 23 slovenským předpisům jsme
 přiřadili slovenské orgány, dohodě ADR Evropskou hospodářskou komisi OSN,
 řádu RID Mezivládní organizaci pro mezinárodní železniční přepravu (OTIF)
-a sdělení Komise COM(2020) 301 Evropskou komisi. Odpovědné instituce
+a sdělení Komise COM(2020) 301 Evropskou komisi. Slovenskému zákonu
+č. 250/2012 Z. z., o regulácii v sieťových odvetviach, jsme jako
+odpovědnou instituci přiřadili jeho předkladatele, Ministerstvo
+hospodárstva Slovenskej republiky. Odpovědné instituce
 českých předpisů jsme porovnali se sloupcem „Nositel“ tabulky MPO; jiná
 neshoda než u zákona č. 250/2021 Sb. se nevyskytla.
 
@@ -329,43 +333,45 @@ jeden dokument“ [DOPLNIT po kroku 2, pokud bude zařazeno].
 
 ### 4.2 Kategorie „Strategie“
 
-Typ dokumentu „Strategický dokument“ v databázi již existuje a k 19. 11. 2026
-obsahuje 11 dokumentů:
+Typ dokumentu „Strategický dokument“, jenž databáze měla, jsme podle návrhu
+MPO přejmenovali na „Strategie“ a kategorii doplnili. Obsahuje
+25 dokumentů:
 
 * Vodíková strategie České republiky (2021) a její aktualizace (2024);
-* Vodíková strategie EU (2020), ve slovenském znění sdělení COM(2020) 301
-  a v českém překladu zveřejněném platformou HYTEP;
-* Aktualizace Národního akčního plánu čisté mobility (2019) a její příloha;
-* Akční plán digitální a zelené transformace pro vodíkové technologie (2026);
-* Strategická výzkumná agenda pro rozvoj vodíkového hospodářství (2023);
-* Cestovní mapa rozvoje vodíkového hospodářství (2023);
-* Politický, legislativní a nelegislativní rámec EU pro rozvoj vodíkového
-  trhu (2024);
-* Legislativní a politicko-strategický rámec EU s vlivem na rozvoj vodíkové
-  mobility (2023/2024).
+* Vodíková strategie EU (2020): úřední české znění sdělení COM(2020) 301
+  z EUR-Lexu, jež bylo dříve chybně vedeno jako „Nezařazeno“, a s ním
+  propojené slovenské znění; dále český překlad zveřejněný platformou
+  HYTEP;
+* Vnitrostátní plán České republiky v oblasti energetiky a klimatu
+  (aktualizace 2024), Státní energetická koncepce České republiky (2015)
+  a Politika ochrany klimatu v České republice (2017);
+* 2. aktualizace Národního akčního plánu čisté mobility (2024) a jí
+  nahrazená aktualizace z roku 2019 s přílohou;
+* devět sdělení Evropské komise: Zelená dohoda pro Evropu, Strategie EU
+  pro integraci energetického systému, Strategie pro udržitelnou
+  a inteligentní mobilitu, „Fit for 55“, Plán REPowerEU, Průmyslový plán
+  Zelené dohody, Sdělení o Evropské vodíkové bance, Dohoda o čistém
+  průmyslu a AccelerateEU;
+* Akční plán digitální a zelené transformace pro vodíkové technologie
+  (2026), Strategická výzkumná agenda pro rozvoj vodíkového hospodářství
+  (2023), Cestovní mapa rozvoje vodíkového hospodářství (2023), Politický,
+  legislativní a nelegislativní rámec EU pro rozvoj vodíkového trhu (2024)
+  a Legislativní a politicko-strategický rámec EU s vlivem na rozvoj
+  vodíkové mobility (2023/2024).
 
-Úřední české znění Vodíkové strategie EU z EUR-Lexu je v databázi také, je
-však zařazeno jako „Nezařazeno“; Národní akční plán čisté mobility je
-v databázi jen ve verzi z roku 2019, jež byla v srpnu 2024 nahrazena
-2. aktualizací. Kategorie tedy existuje, její obsah však neúplný a zčásti
-zastaralý je.
+Třináct strategií jsme doplnili podle rešerše v příloze A (všechny
+dokumenty s prioritou A a B). U každé uvádíme úřední název, vydavatele,
+datum schválení, adresu na stránkách vydavatele nebo v EUR-Lexu a věcný
+popis vztahu k vodíku; plný text je k dispozici u všech.
+[DOPLNIT: datum zápisu do provozní databáze.]
 
-Navrhujeme:
-
-1. **Přejmenovat typ** „Strategický dokument“ na „Strategie“ podle návrhu
-   MPO (k potvrzení na jednání, odstavec 7).
-2. **Opravit zařazení** úředního českého znění Vodíkové strategie EU a vést
-   je jako hlavní záznam; překlad HYTEP a slovenské znění s ním propojit.
-3. **Doplnit chybějící strategie.** Rešerší jsme nalezli 18 národních
-   a evropských strategických dokumentů k vodíku a energetice, jež v databázi
-   chybějí; seznam s úředními názvy, vydavateli, daty, adresami a vztahem
-   k vodíku uvádíme v příloze A. Doporučujeme zařadit nejméně dokumenty
-   s prioritou A a B (11 dokumentů). Zařadí je editoři přes frontu kandidátů
-   (etapa 1) [DOPLNIT po kroku 1].
-4. **Rozlišovat stav strategie** „aktuální“ a „nahrazená“; nahrazená verze
-   zůstane v databázi kvůli souvislostem, s vazbou na verzi, jež ji
-   nahradila. Starší Národní akční plán čisté mobility tak bude veden jako
-   nahrazený.
+Nahrazená strategie zůstává v databázi kvůli souvislostem: aktualizace
+Národního akčního plánu čisté mobility z roku 2019 a její příloha jsou
+vedeny jako nahrazené, s vazbou na 2. aktualizaci, jež je nahradila.
+Strategie s prioritou C (šest sdělení Komise s okrajovou vazbou na vodík)
+navrhujeme posoudit na jednání (odstavec 7). Aktualizaci Státní
+energetické koncepce a aktualizaci Politiky ochrany klimatu do roku 2050
+doplníme po jejich schválení vládou.
 
 Strategie řadíme mezi dokumenty, jež databáze zahrnuje, aniž by
 garantovala jejich úplnost (nejde o právně závazné předpisy). Jejich
@@ -449,7 +455,19 @@ patrně také uvidí. Uvádíme je kvůli úplnosti:
    název prováděcího nařízení (EU) 2019/776 a působí jako duplicita; předpis
    EHK OSN č. 134 je v databázi dvakrát; záznam s označením 98/2004 Z. z. je
    ve skutečnosti novelou zákona č. 492/2010 Z. z. Opravíme je v etapě 1.
-6. **Slovenské normy a předpisy** — Databáze obsahuje 444 slovenských
+6. **Slovenská znění aktů EU** — Slovenská znění čtyř aktů EU (mimo jiné
+   Vodíkové strategie EU a směrnice (EU) 2024/1788) byla v katalogu
+   samostatnými řádky bez vazby na české znění; nyní jsou s českým zněním
+   propojena a zobrazují se jako jeho jazyková verze, stejně jako znění
+   anglická.
+7. **Další chybné záznamy** — Česká varianta směrnice 2012/18/EU
+   (Seveso III) nesla název a adresu směrnice 2014/34/EU (ATEX); norma
+   ČSN ISO 19880-1 byla vedena pod neexistujícím označením
+   ČSN EN ISO 19880-1; předpis EHK OSN č. 100 (elektrické hnací ústrojí
+   vozidel) nesl název publikace EIGA o vodíkových lahvích a byl s ní
+   sloučen a týž název dostalo i pravidlo DVGW G 100. Opraveno; publikace
+   EIGA je opět samostatným dokumentem.
+8. **Slovenské normy a předpisy** — Databáze obsahuje 444 slovenských
    dokumentů, převážně normy STN, jež mohou českého uživatele mást. Zda je
    ve výchozím zobrazení skrýt, navrhujeme rozhodnout na jednání
    (odstavec 7).
@@ -471,8 +489,9 @@ dokumentu před jeho odesláním [DOPLNIT po krocích 1 až 3].
 
 1. **Slovenské dokumenty:** Ponechat slovenské předpisy a normy STN ve
    veřejném katalogu, nebo je ve výchozím zobrazení skrýt či oddělit?
-2. **Název kategorie:** Souhlasí MPO s přejmenováním typu „Strategický
-   dokument“ na „Strategie“ a s rozsahem strategií podle přílohy A?
+2. **Kategorie „Strategie“:** Souhlasí MPO s názvem kategorie a s jejím
+   rozsahem (odstavec 4.2)? Máme doplnit i strategie s prioritou C
+   z přílohy A?
 3. **Referenční soubor:** Můžeme tabulky MPO a CDV převzít jako referenční
    soubor dokumentů pro měření úplnosti a požádat kolegyně z MPO a CDV
    o jejich průběžné doplňování?
@@ -485,9 +504,11 @@ dokumentu před jeho odesláním [DOPLNIT po krocích 1 až 3].
 7. **Schválení výsledku:** Jaký postup a jaké podklady MPO pro opětovné
    posouzení a schválení výsledku V01 očekává?
 
-## Příloha A: Strategické dokumenty, jež v databázi chybějí
+## Příloha A: Strategické dokumenty z rešerše
 
-Rešerši jsme provedli 19. 11. 2026. U každého dokumentu jsme ověřili, že
+Rešerši jsme provedli 19. 11. 2026. Dokumenty s prioritou A a B jsme do
+databáze doplnili (odstavec 4.2), dokumenty s prioritou C předkládáme
+k posouzení. U každého dokumentu jsme ověřili, že
 oficiální adresa existuje (české dokumenty přímo na stránkách vydavatele,
 dokumenty EU v databázi Úřadu pro publikace EU, jež je oficiálním úložištěm
 dokumentů EUR-Lexu), a dotazem nad databází, že dokument v ní ani ve frontě
