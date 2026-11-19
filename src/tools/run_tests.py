@@ -40,7 +40,8 @@ TESTS_DIR = REPO_ROOT / "tests"
 E2E_DIR = TESTS_DIR / "e2e"
 
 # Test modules that need a live database; every other tests/test_*.py is a unit test.
-INTEGRATION_MODULES = ("test_admin", "test_search", "test_candidates_admin", "test_mpo_golden")
+INTEGRATION_MODULES = ("test_admin", "test_search", "test_candidates_admin", "test_mpo_golden",
+                       "test_drafts_admin")
 
 SMOKE_PAGES = ("/", "/procesy", "/export/csv", "/admin/login")
 

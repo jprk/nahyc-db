@@ -67,6 +67,10 @@
                     {{ document.jurisdikce if document.jurisdikce else 'neurčeno' }}
                     {%- if document.jurisdikce_uroven %} ({{ document.jurisdikce_uroven }}){% endif %}
                 </dd>
+                <dt>Poslední kontrola stavu</dt>
+                <dd>{% if document.status_checked_at %}{{ document.status_checked_at.strftime('%-d. %-m. %Y') if document.status_checked_at.strftime is defined else document.status_checked_at }}
+                    {%- if document.status_checked_by %} ({{ document.status_checked_by }}){% endif %}
+                    {%- else %}dosud neověřeno{% endif %}</dd>
                 <dt>Označení</dt>
                 <dd>{{ document.identifier if document.identifier else '—' }}</dd>
                 <dt>Trvalý odkaz</dt>
@@ -117,6 +121,12 @@
         </section>
         {% endif %}
 
+        {% set current = versions|selectattr('is_current')|list %}
+        {% if session.get('user_id') and current and current[0].lifecycle_state == 'draft' %}
+        <p class="doc-editor-link"><a href="{{ url_for('admin.draft_detail', document_id=document.id) }}" class="btn-secondary">
+            <i class="ph ph-pencil-simple"></i> Návrh byl vyhlášen — převést</a></p>
+        {% endif %}
+
         {% if relations %}
         <section class="doc-panel">
             <h2>Souvisejíci dokumenty <span class="badge">{{ relations|length }}</span></h2>
@@ -136,6 +146,8 @@
                             {{ 'konsoliduje' if r.direction == 'from' else 'je konsolidován předpisem' }}
                         {%- elif r.relation_type == 'NATIONAL_EQUIVALENT' -%}
                             národní protějšek
+                        {%- elif r.relation_type == 'ENACTED_AS' -%}
+                            {{ 'návrh vyhlášen jako' if r.direction == 'from' else 'vyhlášené znění návrhu' }}
                         {%- elif r.relation_type == 'TRANSLATION_OF' -%}
                             {{ 'je anglickou verzí dokumentu' if r.direction == 'from' else 'má anglickou verzi' }}
                         {%- else -%}

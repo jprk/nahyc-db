@@ -1,12 +1,20 @@
 """Applies the states of doc/DATABASE_SCOPE.md odstavec 5 to the live database
 (document_states.py): the current version of a document the validity check
 (check_validity.py) found repealed becomes `repealed`, one not yet in effect
-`promulgated`, and one that no longer is either goes back to `active`; the enum of
-`DocumentVersion.lifecycle_state` is extended when it does not know the new values.
-Adds `REPEALS` from the repealing act to the repealed one where the database has
-both, and writes those relations to data/document_relations_validity.json for a
-rebuild (load_document_relations.py). Dry run unless --apply; back up the database
-first.
+`promulgated`, and one the check now finds in effect goes back to `active` (a state
+an editor confirmed, app/drafts_admin.py, is kept until a check says otherwise); the
+enum of `DocumentVersion.lifecycle_state` is extended when it does not know the new
+values. Adds `REPEALS` from the repealing act to the repealed one where the database
+has both, and writes those relations to data/document_relations_validity.json for a
+rebuild (load_document_relations.py).
+
+Also writes the date of the last check of every document's state
+(`Document.status_checked_at`, `status_checked_by`; status_checks.py) where the
+caches know a newer one, and creates what the editor pages of prepared documents
+need (state_changes.ensure_schema: table DocumentStateChange, relation type
+ENACTED_AS) — the migration of doc/MPO_PRIPOMINKY.md krok 3.
+
+Dry run unless --apply; back up the database first.
 
 Usage: .venv/bin/python src/tools/backfill_document_states.py [--apply] [--env-file FILE]
 """
@@ -16,6 +24,8 @@ import json
 import pymysql
 
 import document_states as ds
+import state_changes
+import status_checks
 
 
 def ensure_states(cursor):
@@ -38,6 +48,8 @@ def plan_states(rows, cache):
     for doc_id, identifier, title, version_id, old in rows:
         base = "draft" if old == "draft" else "active"
         new = ds.current_state(base, identifier, title, cache)
+        if new == "active" and not ds.in_effect(identifier, title, cache):
+            new = old  # back to `active` only on the check's word, not for want of an entry
         if new != old and old in ("active", "draft", "repealed", "promulgated"):
             changes.append((version_id, doc_id, identifier, old, new))
     return changes
@@ -72,9 +84,30 @@ def main(argv=None):
         new_relations = [r for r in relations if (ids[r["from_identifier"]], ids[r["to_identifier"]]) not in existing]
         for r in new_relations:
             print(f"REPEALS: {r['from_identifier']} -> {r['to_identifier']}")
+        cur.execute("SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() "
+                    "AND TABLE_NAME = 'Document' AND COLUMN_NAME = 'status_checked_at'")
+        has_columns = bool(cur.fetchone()[0])
+        if has_columns:
+            cur.execute("SELECT id, identifier, title, status_checked_at FROM Document")
+        else:
+            cur.execute("SELECT id, identifier, title, NULL FROM Document")
+            print("Document.status_checked_at/status_checked_by missing — added with --apply")
+        checks = status_checks.plan_checks(cur.fetchall(), status_checks.load_caches())
+        by_source = {}
+        for _doc_id, _date, label in checks:
+            by_source[label] = by_source.get(label, 0) + 1
+        print(f"last check of the state: {len(checks)} documents get a newer date "
+              + (", ".join(f"{label} {n}" for label, n in sorted(by_source.items())) or "—"))
         if args.apply:
             if ensure_states(cur):
                 print("lifecycle_state enum extended with " + ", ".join(ds.STATES))
+            if status_checks.ensure_columns(cur):
+                print("Document.status_checked_at, status_checked_by added")
+            for what in state_changes.ensure_schema(cur):
+                print(f"created {what}")
+            for doc_id, date, label in checks:
+                cur.execute("UPDATE Document SET status_checked_at = %s, status_checked_by = %s WHERE id = %s",
+                            (date, label, doc_id))
             for version_id, _doc_id, _identifier, _old, new in changes:
                 cur.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (new, version_id))
             for r in new_relations:
@@ -82,7 +115,7 @@ def main(argv=None):
                             "VALUES (%s, %s, 'REPEALS', %s)", (ids[r["from_identifier"]], ids[r["to_identifier"]], r["note"]))
             conn.commit()
             ds.RELATIONS_PATH.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"{len(changes)} states, {len(new_relations)} REPEALS relations "
+        print(f"{len(changes)} states, {len(new_relations)} REPEALS relations, {len(checks)} check dates "
               + (f"written to {env['DB_NAME']}" if args.apply else "(dry run — add --apply)"))
     except Exception:
         conn.rollback()

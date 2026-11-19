@@ -211,6 +211,15 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF') NOT NULL;
 
+-- 2026-11-19 (doc/MPO_PRIPOMINKY.md, krok 3): připravovaný dokument (návrh)
+-- vyhlášený jako jiný dokument databáze — `ENACTED_AS` (návrh -> vyhlášený
+-- předpis), zapisuje ji editor (app/drafts_admin.py). Tabulku návrhů změn stavu
+-- `DocumentStateChange` zakládá src/tools/state_changes.py (ensure_schema), stejně
+-- jako frontu kandidátů `DocumentCandidate` zakládá src/tools/candidates.py.
+ALTER TABLE document_relation
+  MODIFY COLUMN relation_type
+    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF','ENACTED_AS') NOT NULL;
+
 -- 2026-10-27: stavy dokumentů podle doc/DATABASE_SCOPE.md odstavec 5 —
 -- `promulgated` (vyhlášený, dosud neúčinný) a `repealed` (zrušený), zjištěné
 -- kontrolou platnosti (`src/tools/check_validity.py`, `document_states.py`).
@@ -245,6 +254,14 @@ ALTER TABLE Document
 -- katalog podle něj filtruje v nabídce typů.
 ALTER TABLE Document
   ADD COLUMN eu_act_subtype ENUM('delegated','implementing') NULL;
+-- doc/MPO_PRIPOMINKY.md, krok 3 (2026-11-19): kdy a čím byl stav dokumentu
+-- (platnost, zrušení, vyhlášení) naposledy ověřen — z mezipamětí kontrol
+-- (data/validity_cache.json, data/norm_validity_cache.json) nebo potvrzením
+-- editora; plní init_db.py a backfill_document_states.py, viz
+-- src/tools/status_checks.py. Zobrazuje se na stránce dokumentu.
+ALTER TABLE Document
+  ADD COLUMN status_checked_at DATE NULL,
+  ADD COLUMN status_checked_by VARCHAR(100) NULL;
 
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a

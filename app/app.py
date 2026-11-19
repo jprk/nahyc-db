@@ -43,6 +43,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from admin import admin_bp  # noqa: E402
 import candidates_admin  # noqa: E402,F401  (registers the /admin/candidates pages on admin_bp)
 import catalog_filters  # noqa: E402
+import drafts_admin  # noqa: E402,F401  (registers the /admin/drafts pages on admin_bp)
 
 app.register_blueprint(admin_bp, url_prefix="/admin")
 
@@ -608,6 +609,17 @@ def fetch_document_detail(db, slug):
         document = cur.fetchone()
         if document is None:
             return None
+
+        # doc/MPO_PRIPOMINKY.md krok 3: when and by what the state was last checked
+        # (src/tools/status_checks.py); a database without the two columns yet shows none.
+        try:
+            cur.execute('SELECT status_checked_at, status_checked_by FROM Document WHERE id = %s',
+                        (document['id'],))
+            document.update(cur.fetchone())
+        except pymysql.err.OperationalError as error:
+            if error.args[0] != 1054:  # unknown column
+                raise
+            document.update(status_checked_at=None, status_checked_by=None)
 
         cur.execute('''
             SELECT k.keyword FROM Keyword k

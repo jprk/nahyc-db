@@ -10,6 +10,7 @@ from language import detect_language, normalize_raw_language, resolve_domain_lan
 from norm_title import format_norm_title
 import document_states
 import eu_act_subtype
+import status_checks
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
@@ -368,6 +369,31 @@ def classify_lifecycle_state(platnost, is_current):
     return "active"
 
 
+def current_version_state(item, classified, identifier, title, validity_cache):
+    """The state of a record's current version: an editor's confirmed state
+    (`stav_dokumentu`, data/manual_corrections.json, app/drafts_admin.py) replaces
+    the one read from the record's text; the validity check (document_states.py)
+    then overrides `active`/`promulgated` as before. A draft superseded by its
+    promulgated act stays `superseded`."""
+    override = (item.get("stav_dokumentu") or "").strip()
+    if override in document_states.STATES:
+        if override in ("superseded", "draft"):
+            return override
+        classified = override
+    return document_states.current_state(classified, identifier, title, validity_cache)
+
+
+def last_state_check(item, identifier, title, cache):
+    """(ISO date, label) of the latest check of the record's state: the caches of
+    the checks (status_checks.py) or an editor's confirmation (`stav_overen`,
+    `stav_overil`), whichever is newer; None when there is none."""
+    found = status_checks.last_check(identifier, title, cache)
+    editor = (item.get("stav_overen") or "").strip()[:10]
+    if editor and (found is None or editor > found[0]):
+        return editor, item.get("stav_overil") or status_checks.editor_label(None)
+    return found
+
+
 def resolve_document_versions(item):
     """Returns the DocumentVersion rows to insert for this record, in
     order, numbered 1..N: one per entry in its "versions" list (built by
@@ -510,6 +536,8 @@ def import_json_data(db_conn):
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
     eu_gestor_cache = load_eu_gestor_cache(REPO_ROOT)
     validity_cache = document_states.load_cache()
+    check_cache = status_checks.load_caches()
+    status_checks.ensure_columns(cursor)  # a database provisioned before 2026-11-19 lacks them
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
     slug_inputs = []
@@ -571,8 +599,8 @@ def import_json_data(db_conn):
 
         for v in resolve_document_versions(item):
             if v["is_current"]:  # repealed / not yet in effect, from check_validity.py (document_states.py)
-                v["lifecycle_state"] = document_states.current_state(v["lifecycle_state"], identifier, title,
-                                                                     validity_cache)
+                v["lifecycle_state"] = current_version_state(item, v["lifecycle_state"], identifier, title,
+                                                             validity_cache)
             cursor.execute("""
                 INSERT INTO DocumentVersion
                 (document_id, version, edition_label, effective_date, is_current, lifecycle_state)
@@ -601,6 +629,11 @@ def import_json_data(db_conn):
                         (doc_id, kw_id))
                 except pymysql.err.IntegrityError:
                     pass
+
+        checked = last_state_check(item, identifier, title, check_cache)
+        if checked:
+            cursor.execute("UPDATE Document SET status_checked_at = %s, status_checked_by = %s WHERE id = %s",
+                           (checked[0], checked[1], doc_id))
 
         slug_inputs.append((doc_id, identifier, title))
 

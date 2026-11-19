@@ -5965,3 +5965,119 @@ original treatment, not asked for.
 - `src/tools/import_candidates.py`: candidates from the citation closure (in force, cited by at least two documents, not mainly as amending acts) and from the validity check (missing successors of repealed documents), with titles from Cellar and zakonyprolidi.cz. Rehearsed on a copy of the live database: 296 candidates (288 from citations, 8 successors), titles for 293.
 - `app/candidates_admin.py` with three pages: the list (filters by state, source, group, text), the detail (evidence, metadata form, decisions) and the manual proposal. Confirmation creates the `Document` with its first version, the subject area as a keyword and, for a successor, the `REPEALS` relation; writes the AuditLog; and appends the record to `data/accepted_candidates.json`, which `build_unified_db.py` (rebuild) and `fetch_fulltext.py` (full text before the rebuild) read.
 - Tests: `tests/test_candidates.py`, `tests/test_candidates_admin.py` (integration, test database), `tests/e2e/test_candidates.py` (browser, screenshots).
+
+## 49. Harvesting the monitored sources, stage E0: runner, run log, availability check (NEW, 2026-10-29, user-directed, branch `feature/harvest-e0`)
+
+**Why.** `doc/DATA_SOURCES.md` odstavec 4 plans how the 78 sources of the registry are harvested: one runner reading the registry, per-source adapters with a common finding shape, the candidate queue as the only way into the database, every run logged. Stage E0 builds that base without any new source, so that each later stage only adds adapters.
+
+**Implementation.**
+- `src/tools/source_registry.py`: layout-preserving read/write of `data/monitored_sources.json`, `validate()` against the vocabulary of `doc/DATA_SOURCES.md`, `select()` by id, stage, cadence.
+- `src/tools/harvest.py`: `Finding` (source, signal, key or an own key `<source>:<id>` flagged `needs_key`, designation, title, address, date, excerpt), `write_findings()` into the queue (documents already in the database are `known`; `state_change` only counted until the validity check takes it in E1), search terms of odstavec 6, the run log `data/source_checks.jsonl`.
+- `src/tools/harvest_sources.py`: the runner; adapters declared explicitly in `ADAPTERS` (empty in E0), skipped sources reported, one failing source logged and the run goes on, `since` = the last applied successful run; `--checklist` / `--record` for the sources checked by hand.
+- `src/tools/check_sources.py`: availability of every address of the registry, honest User-Agent, 1 s per host, prohibited sources not fetched; `--apply` sets `verified_at` where the outcome is as expected.
+- `DocumentCandidate.signal` (migration in `candidates.ensure_schema()`; `SIGNAL` is reserved in MariaDB, hence back-quoted), `candidates.upsert_finding()` keeps the findings of every source in `evidence.findings`; `upsert()` no longer drops them when a check refreshes the evidence. The candidate pages filter by registry sources, show the findings, and a confirmed `draft` candidate becomes a document in the state `draft`.
+- First availability check (2026-10-28/29): 62 ok, 4 blocked as registered, 5 prohibited skipped; 6 sources answer the identified robot with 403 (Slov-Lex twice, ASTM, IEC, EIGA, Baker McKenzie — noted in their `constraints`), the VeKLEP RSS feed timed out. Trying another User-Agent was deliberately not done: that would be circumventing the sites' bot checks.
+- Tests: `tests/test_source_registry.py`, `test_harvest.py`, `test_harvest_sources.py`, `test_check_sources.py`, a new case in `test_candidates_admin.py`; `run_tests.py` all green.
+
+## 50. Harvesting stage E1: the existing automation under the runner (NEW, 2026-11-04, user-directed, branch `feature/harvest-e1`)
+
+**Why.** `doc/DATA_SOURCES.md` odstavec 4.3: stage E1 brings the ten sources that already had scripts under the runner, so that their findings reach the candidate queue instead of new `discovered_*.json` files.
+
+**Implementation.**
+- `src/tools/harvest_adapters.py`: `eurlex_new` (screen_eurlex.py's Cellar query; binding acts only, off-topic patterns of add_eurlex_hydrogen_acts.py, no LLM stage — editors decide the unsure ones), `validity_eu`/`validity_cz` (check_validity.py for stale acts of the database), `esbirka_new`, `csn_state`, `normoff_state` (on demand, `--limit` for trial runs), `hytep_new` (documents known by address).
+- `esbirka_new` joins a full-text hit to its act: the hit is contained (`obsahuje-fragment`, files via `má-binární-soubor`) by a node under the ELI of its version, `…/eli/cz/sb/<year>/<number>/<date>/…`; kept are acts the database lacks whose last version contains the word and is in effect. screen_esbirka.py's limit of 100 had silently truncated the answer (3,403 hits, 364 acts).
+- Runner: several adapters per source, `DEFERRED` with reasons (Slov-Lex 403; IEC, EIGA, DVGW pass bot protection or present themselves as a browser — not run without a decision), a context with the database's documents (read also in a dry run), state changes into `data/validity_cache.json` / new `data/norm_validity_cache.json`, the database name in every log record.
+- First runs: EUR-Lex 15 acts all known; e-Sbírka 185 acts the database lacks (177 inserted + 8 merged into citation candidates in `h2regdocs_test`, rerun idempotent); HYTEP 1 new; ČSN 39 standards, 7 withdrawn. Not applied to the live database yet (backup, the `signal` column, editor accounts needed).
+- Tests: `tests/test_harvest_adapters.py` (recorded answers, no network), adapted runner tests, a new browser scenario in `tests/e2e/test_candidates.py` (candidate found by two sources, screenshot); `run_tests.py` all green.
+- Noise of the e-Sbírka findings analysed (`data/esbirka_candidates_20261104.csv`, `doc/DATA_SOURCES.md` odstavec 8.8): 86 amendments + 2 consolidated texts, 30 plainly off-topic kinds, 16 historic acts, 28 in scope by title, 41 others. Proposal, not implemented: join amendments to the act they amend (or record them as amendments of a document in the database), deny patterns with a not-imported log, two tiers in the queue, validity rather than year for historic acts — 28 candidates in tier 1 instead of 185.
+
+## 51. Reducing the noise of the e-Sbírka findings (NEW, 2026-11-04, user-directed, branch `feature/esbirka-noise`)
+
+**Why.** Stage E1's e-Sbírka adapter found 185 acts the database lacks; `doc/DATA_SOURCES.md` odstavec 8.8 analysed them (amendments, plainly off-topic kinds, historic acts) and the user asked for the proposal to be implemented.
+
+**Implementation** (rules in `doc/DATA_SOURCES.md` odstavec 8.9).
+- `harvest_adapters.classify_act()`: deny patterns (`DENY_PATTERNS`, excluded with the reason), amendments by structure (all hits under `/dokument/novela/`) or title, joined to the act they amend — an `amendment` finding with `amends_ids` when the database has it, attached to its finding (`amended_by`) when it was found too, excluded with it when it is excluded; consolidated texts likewise; acts before 1990 checked on zakonyprolidi.cz; tier 1 by the subject-area vocabulary of `DATABASE_SCOPE.md`, else tier 2. Titles from the queue or zakonyprolidi.cz.
+- `harvest.py`: `Finding.tier`, `.occurrences`, `.extra`; signals `amendment` (queued) and `excluded` (`record_excluded()` → `data/harvest_not_imported.json`).
+- `DocumentCandidate.tier`, `.occurrences` (migrations); `upsert_finding()` keeps `amends_ids`, refreshes tier and count, replaces a placeholder title. Candidate pages: tier filter (default tier 1, counts), ordering by tier, citations, occurrences; the detail shows tier, notes, attached amendments, amended documents; accepting an amendment creates the AMENDS relations.
+- Result on the batch of 2026-11-04: tier 1 27 new + 11 amendments of documents in the database, tier 2 44, 47 attached, 48 excluded (38 patterns, 8 amendments of excluded acts, 1 repealed historic act, 1 consolidated text). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_adapters.py` (`ClassifyActTestCase`, the adapter on a recorded batch, `ExcludedTestCase`), `tests/test_candidates_admin.py` (tier filter, AMENDS on acceptance); `run_tests.py` all green.
+
+## 52. Harvesting stage E2: proposals in the legislative process (NEW, 2026-11-04, user-directed, branch `feature/harvest-e2`)
+
+**Why.** `doc/DATA_SOURCES.md` odstavec 4.3: the early signal — what is being prepared before it is published.
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.10).
+- `src/tools/harvest_drafts.py`: `veklep_rss` (the VeKLEP news feed; its JSON interface answers the identified robot with a block page), `psp_bills` (Chamber open data: open bills of the current term, stage, acts amended/repealed from `sb_pre`), `senate_bills` (Senate prints via the Chamber's open data, joined to Chamber prints by `psp2senat`), `oeil_procedures` (OEIL RSS for "hydrogen", COD/CNS/DEA checked in the EP open data API; over when published in the OJ, DEA also after 180 quiet days).
+- One proposal, one candidate: `DRAFT-CZ:eklep:<PID>` (tisk_eklep, psp2senat), else `DRAFT-CZ:psp:` / `DRAFT-CZ:senat:`, `DRAFT-EU:<reference>`. Tier 1 = amends/repeals a document of the database or a hydrogen term in the title; tier 2 = subject-area vocabulary; others are no finding. `amends_ids` give AMENDS relations on acceptance.
+- `check_sources.py` recognises block pages served with HTTP 200; registry: VeKLEP read by RSS, notes for PSP and OEIL; `slovlex-legislativny-proces` deferred; the family filter of the candidate list includes `DRAFT-CZ:`/`DRAFT-EU:` keys.
+- Result: 44 candidates (28 CZ + 9 EU tier 1, 7 CZ tier 2); 4 Senate findings joined Chamber candidates. Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_drafts.py` (recorded archives, feed, EP answers), `tests/test_check_sources.py`; `run_tests.py` all green.
+
+## 53. Harvesting stage E3: technical standards, metadata only (NEW, 2026-11-05, user-directed, branch `feature/harvest-e3`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.12).
+- `src/tools/harvest_standards.py`: `vestnik_unmz` (the two latest issues of Věstník ÚNMZ: ČSN issued / amended / corrected / withdrawn, EN approved for direct use, ČSN drafting tasks read column-wise left of "Termíny", prEN in public enquiry incl. draft amendments `EN …/prA1`), `harmonised_standards` (Commission summary lists, XLSX, PED/ATEX/GAR/MID/MD; SPV has PDF only), `cps_tpg` (valid and withdrawn TPG), `sae_crossref` (SAE via Crossref, revisions share a key, embrittlement/plating dropped), `rss_items` (generic feed adapter, basic terms only by default).
+- Keys `NORM:` via `own_keys()` or the national designation (`harvest.norm_key`, `NATIONAL_STANDARD`); `known_keys()` now knows national designations of the database; drafts `DRAFT-NORM:`.
+- Standards of the database get state changes into `data/norm_validity_cache.json`, now merged (several sources describe one standard). `harvest.NOT_TERMS` (hydrogenerators). The candidate form offers all document types (a "Norma" could not be accepted before; fetch_fulltext.py never fetches norms).
+- Result: 102 candidates (24 tier 1), 107 entries in the standards cache (14 new editions, 98 harmonisations, 5 standards have both). Deferred: ASTM, ASME, Věstník ÚNMS SR. Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_standards.py`; `run_tests.py` all green.
+
+## 54. Harvesting stage E4: news of ministries, authorities and agencies (NEW, 2026-11-05, user-directed, branch `feature/harvest-e4`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.13).
+- Feeds by `harvest_standards.rss_items` (basic terms only; reads `access.feed` before `access.endpoint`); `src/tools/harvest_feeds.py`: `rss_items_broader` (broader terms too, for OTIF, Drážní úřad, SÚIP — dangerous goods and pressure equipment are their agenda), `ehsp_documents` (WordPress media of ehsp.eu without members' profiles and calls), `du_rid_page` (change of the RID page, baseline on the first applied run).
+- `harvest_drafts.parse_rss`: title from all text of the element, href of an anchor wrapped in `<link>` (ACER), non-RFC dates.
+- Registry: six short-window feeds weekly (ČIŽP ~10 days, MŽP/MMR/ACER ~2 weeks, ERÚ ~4 weeks, MPO a few days); ERÚ RSS verified (`ready`).
+- Result: 10 candidates (ACER 1, EHSP 8, OTIF 1 — RID 2027). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_feeds.py`; `run_tests.py` all green.
+
+## 55. Harvesting stage E5: HTML pages and lookups on demand (NEW, 2026-11-05, user-directed, branch `feature/harvest-e5`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.14).
+- `src/tools/harvest_pages.py`: `ticr_news` (dated blocks split at non-breaking spaces, broader terms), `hzs_news` (basic terms), `cmi_oop` (OOP list; hydrogen tier 1, dispensers/gas meters tier 2), `md_adr_pages` (dates of ADR sub-pages, baseline first), `hys_initiatives` (Have Your Say JSON API, initiatives not yet adopted as proposals → drafts), `tris_notifications` (ready but not run).
+- `src/tools/harvest_lookups.py` + `harvest_sources.py --lookup ID QUERY`: Sbírka ÚSC, IS EIA (session + all form fields), ECHA CHEM, data.europa.eu, Gesetze im Internet; prints only.
+- TRIS: the second POST got 403 "Disallowed by robots.txt" → `ec-tris` is `prohibited`. Have Your Say: JSON API found → `ready`. NFPA 2 deferred.
+- Result: 6 candidates (3 Have Your Say tier 1 incl. the RFNBO criteria revision and the new hydrogen strategy, TIČR 1, ČMI 2). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_pages.py`; `run_tests.py` all green.
+
+## 56. Harvesting stage E6 and the end of the plan (NEW, 2026-11-05, user-directed, branch `feature/harvest-e6`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.15).
+- `src/tools/harvest_eu_registers.py`: three Commission registers that are browser apps, read through the JSON interfaces the apps call themselves (found once with a headless browser; no bot protection, robots.txt allows): `comitology_documents` (POST documents/search, newest 500 ≈ 4 weeks, EUR-Lex off-topic patterns), `delegated_acts` (POST web/delegatedActs with the session's CSRF token; unpublished acts = drafts), `commission_documents` (POST api/groupSearch; COM/C, 90 days, tier 2).
+- UNECE ×2, Council register, BAuA still behind bot protection → `manual_only` (stage manual), not circumvented. e-Legislativa deferred until the Ministry of the Interior issues an API key (its undocumented internal endpoint is not used). NANDO stays a manual lookup.
+- Registry: every source the runner reads is `automated` with its adapters in `screener`. 34 sources run (39 adapters), 5 lookups, 16 manual, 11 deferred, 5 context, 7 prohibited/rejected.
+- Result: 2 candidates (a draft amendment of REACH Annex XVII, an unpublished delegated directive found by "non-biological origin"). Applied to `h2regdocs_test` only.
+- Tests: `tests/test_harvest_eu_registers.py`; `run_tests.py` all green.
+
+## 57. Dress rehearsal of the first live harvest run and an e2e test of the chain (NEW, 2026-11-05, user-directed, branch `feature/harvest-e2e`)
+
+**Implementation** (details in `doc/DATA_SOURCES.md` odstavec 8.16).
+- `tests/e2e/test_harvest_queue.py`: offline browser scenario of source → finding → queue → two editors → document; recorded findings written by `harvest.write_findings()`, queue filters (tier, source, family), detail with two findings and the amended DB document, acceptance → document in state `draft` with an AMENDS relation.
+- Dress rehearsal on `h2regdocs_test` (fresh copy of the live DB): all stages E1–E6 with `--apply` in 18 min, no adapter error; 247 candidates from sources, 111 in tier 1 — exactly the forecast of odstavec 8.11; a repeated run only updates. Two test editors via `dbuser_add.py --env-file .env.test`; debug server on port 5001; headless walk-through without JS or HTTP errors.
+- Defect found and fixed: 63 harvested drafts/amendments had no document type and the proposal form preselected "Metodika". The form now offers "— vyberte —" for an untyped candidate; `harvest.guess_document_type()` reads the type of drafts and amendments from the title (never of news); `candidates.upsert_finding()` fills a missing type of a queued candidate. 9 candidates remain untyped (initiatives, news).
+- Live DB untouched. Tests: `run_tests.py` all green.
+
+## 58. Candidate queue page: header layout and a short guide (NEW, 2026-11-05, user-directed, branch `feature/candidates-ui`)
+
+- User report: the header of "Kandidáti na nové dokumenty" was crammed — the title wrapped, the buttons wrapped into two rows, "Navrhnout dokument" was taller than the others (`.btn-primary` min-height + padding + 1.1rem font, underlined link text vs. the fixed 44 px `.btn-secondary`). Now one row of 40 px buttons beside the title, below it when there is no room (`.results-header:has(.candidate-actions)`); the review list header uses the same class.
+- The user did not know what to do with a candidate nor what tiers are: a collapsible "Jak s frontou pracovat" on the list explains propose → second editor confirms → document, reject/defer, the state of the created document, tier 1/2, and the two header buttons.
+- On a phone the source filter (long source names) widened the page to 841 px; capped at the row width.
+- Test: `tests/e2e/test_candidates.py::test_header_buttons_help_and_phone_width`.
+- Follow-up (same day, user feedback): space between the main menu and the page header; "Navrhnout dokument" has the shape of the other two buttons (radius, border, no lift on hover), only its colour differs.
+- The user could not open candidates from the list: the table was 1361 px wide in a 1136 px frame (unbreakable internal keys, one mangled ACER key), so the "Stav" column and "Otevřít" lay beyond the right edge. Keys now wrap, the designation column has a min/max width, the title links to the detail and an icon to the document at the source. "navržen k přijetí (None)" no longer shows when the proposer's account is gone.
+- `harvest_drafts.parse_rss()` cleans ACER's `guid` like its link (the guid is the candidate key; it carried a percent-encoded `<a href>`).
+- Tiers are labelled "Přímý vztah (pásmo 1)" / "Nepřímý vztah (pásmo 2)" (filter, detail, badge "nepřímý vztah"), explained in the guide.
+- Several subject areas per proposal (user request): checkboxes, at least one; stored in the new column `DocumentCandidate.scope_areas` ("4,7"; `scope_area` keeps the first one for older readers); the created document gets a keyword for each, the pipeline record lists all of them.
+- Citation context (user request): `citation_closure.citation_context()` gives ~300 characters before and ~400 after the citation, cut at whole words, the designation itself marked (was 60 + 140). Every citing document keeps where it cites the act (`evidence.contexts`: up to 3 places + the count, a flag for a list of amending acts); the candidate detail shows them under each citing document ("další výskyty" folded). `evidence_json` becomes MEDIUMTEXT.
+- **Before deploying this to the live DB**, run `candidates.ensure_schema()` (any of `import_candidates.py --apply` / `harvest_sources.py --apply` does it): the app writes `scope_areas` when proposing; then `import_candidates.py --apply` refreshes the contexts of open candidates.
+- `/admin/review` (user report): "Navrhnout opravu" no longer wraps, the state column is wider and the document column narrower.
+- Guide on /admin/candidates: its lists got their indent back (the global reset removed it, the numbers stuck out of the box); step 2 names several subject areas.
+
+## 59. MPO krok 3: drafts to promulgated acts, date of the last check, first live run plan (NEW, 2026-11-19, user-directed, branch `feature/mpo-krok3`)
+
+- Branch `feature/mpo-krok3` = `feature/h2db-sources` + `master` (already an ancestor) + `feature/mpo-krok0`; conflicts only in `0README.md` files (both sides kept).
+- `/admin/drafts` (`app/drafts_admin.py`, `src/tools/state_changes.py`): a draft (`lifecycle_state='draft'`) becomes the act itself (`self`: new designation/title/URL/date of effect, state `promulgated` or `active`) or is joined to an act already in the DB (`act`: `ENACTED_AS` draft → act, draft `superseded`, act gets the chosen state unless repealed). Two editors (`DocumentStateChange`, CHECK `chk_dsc_distinct_reviewers`), proposer may withdraw, AuditLog for every step; persisted for a rebuild in `data/manual_corrections.json` (`stav_dokumentu`, `stav_overen`, `stav_overil`, read by `init_db.current_version_state`/`last_state_check`) and `data/document_relations_editor.json` (`load_document_relations.py`). `backfill_document_states.plan_states` returns `promulgated`/`repealed` to `active` only when the check says `účinný`, so an editor's state is kept.
+- Date of the last check (`src/tools/status_checks.py`): `Document.status_checked_at`/`status_checked_by` from the per-document caches (`validity_cache.json`, `norm_validity_cache.json`; conclusive entries only), never moved back; filled by `init_db.py` and `backfill_document_states.py` (which also runs the migration: columns, `DocumentStateChange`, `ENACTED_AS`). Shown on the document page ("Poslední kontrola stavu"); the page copes with a DB without the columns. `source_checks.jsonl` logs runs, not documents, so it is not used. Live dry run: 226 documents get a date.
+- First live run: procedure, read-only estimate (252 new candidates, 112 in tier 1, 8 updates of queued ones, no adapter error) and scheduler proposal (`deploy/scheduler/`, `src/tools/scheduled_harvest.sh`, `src/tools/backup_db.py`; not installed) in `doc/DATA_SOURCES.md` 8.17.
+- Live DB only read. Tests: `test_status_checks.py`, `test_state_changes.py`, `test_backup_db.py`, `test_drafts_admin.py` (integration), `tests/e2e/test_drafts.py`.
+

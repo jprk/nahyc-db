@@ -131,10 +131,14 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         self.assertIn(TITLE, alice.get("/admin/candidates?stav=all").get_data(as_text=True))
         self.assertIn("MPO-99", alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
         form = {"designation": "9001/2099 Sb.", "title": TITLE, "document_type": "Zákon", "url": "https://example.test/x",
-                "language": "CS", "jurisdikce": "CZ", "puvodce": SOURCE_NAME, "scope_area": "7",
+                "language": "CS", "jurisdikce": "CZ", "puvodce": SOURCE_NAME, "scope_area": ["9", "7"],
                 "decision_note": "patří do bezpečnosti"}
         alice.post(f"/admin/candidates/{candidate_id}/propose", data=form)
         self.assertEqual(self.candidate(candidate_id)["status"], "proposed")
+        # several subject areas: all of them kept, the first (lowest) one also in `scope_area`
+        self.assertEqual((self.candidate(candidate_id)["scope_areas"], self.candidate(candidate_id)["scope_area"]),
+                         ("7,9", 7))
+        self.assertIn("Energetika", bob.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
         self.assertEqual(alice.post(f"/admin/candidates/{candidate_id}/confirm").status_code, 403)
         bob.post(f"/admin/candidates/{candidate_id}/confirm")
         row = self.candidate(candidate_id)
@@ -161,14 +165,86 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         self.assertTrue(document["slug"])
         self.assertEqual((document["source"], document["jurisdiction"]), (SOURCE_NAME, "CZ"))
         self.assertEqual(version["lifecycle_state"], "active")
-        self.assertEqual(keywords, ["Bezpečnost"])
+        self.assertEqual(sorted(keywords), ["Bezpečnost", "Energetika"])
         self.assertEqual(repeals, 1)
         self.assertEqual(actions, ["PROPOSE", "CONFIRM"])
         accepted = json.loads(self.candidates_admin.ACCEPTED_PATH.read_text(encoding="utf-8"))
         self.assertEqual(accepted["TEST:1"]["znacka"], "9001/2099 Sb.")
-        self.assertEqual(accepted["TEST:1"]["klicova_slova"], ["Bezpečnost"])
+        self.assertEqual(accepted["TEST:1"]["klicova_slova"], ["Bezpečnost", "Energetika"])
         self.assertEqual(accepted["TEST:1"]["gestor"], [SOURCE_NAME])
         self.assertIn("založen", bob.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
+
+    def test_the_detail_shows_where_every_citing_document_cites_the_candidate(self):
+        place = {"before": "postupuje se podle zákona č. ", "cited": "9001/2099 Sb.", "after": ", o zkušebnictví", "amendment": False}
+        candidate_id = self.insert_candidate("TEST:contexts", evidence={
+            "citing_ids": [self.repealed_id], "context": "x",
+            "contexts": {str(self.repealed_id): {"count": 5, "places": [place, {**place, "amendment": True}, place]}}})
+        page = self.client_for("cand_alice").get(f"/admin/candidates/{candidate_id}").get_data(as_text=True)
+        self.assertIn("<mark>9001/2099 Sb.</mark>", page)
+        self.assertIn("(5× v textu)", page)
+        self.assertIn("další výskyty (4)", page)
+        self.assertIn("ve výčtu novel", page)
+        self.assertIn("a dalších 2 výskytů", page)
+
+    def test_a_draft_found_by_a_source_becomes_a_draft_document(self):
+        evidence = {"findings": {"veklep-odok": {"source": "veklep-odok", "signal": "draft", "title": TITLE,
+                                                 "url": "https://example.test/veklep/1", "date": "2026-10-20",
+                                                 "excerpt": "návrh zákona o zkoušení", "seen": "2026-10-28T00:00:00",
+                                                 "first_seen": "2026-10-28T00:00:00", "needs_key": True}}}
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json) VALUES ('TEST:draft', 'veklep-odok', 'draft', %s, "
+                        "'Zákon', 'https://example.test/veklep/1', 'CS', 'CZ', %s)", (TITLE, json.dumps(evidence)))
+            candidate_id = cur.lastrowid
+        alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
+        page = alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True)
+        self.assertIn("Nálezy ve sledovaných zdrojích (1)", page)
+        self.assertIn("VeKLEP", page)
+        self.assertIn("návrh předpisu", page)
+        self.assertIn("doplnit ručně", page)
+        self.assertIn(TITLE, alice.get("/admin/candidates?zdroj=veklep-odok").get_data(as_text=True))
+        alice.post(f"/admin/candidates/{candidate_id}/propose",
+                   data={"designation": "", "title": TITLE, "document_type": "Zákon", "url": "https://example.test/veklep/1",
+                         "language": "CS", "jurisdikce": "CZ", "scope_area": "1", "decision_note": ""})
+        bob.post(f"/admin/candidates/{candidate_id}/confirm")
+        row = self.candidate(candidate_id)
+        self.assertEqual(row["status"], "accepted")
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1",
+                        (row["document_id"],))
+            self.assertEqual(cur.fetchone()["lifecycle_state"], "draft")
+
+    def test_tiers_and_an_amendment_of_a_document_of_the_database(self):
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json, tier, occurrences) VALUES ('TEST:tier2', 'esbirka-lod', "
+                        "'new_document', 'Testovací kandidát pásma 2', 'Zákon', 'https://example.test/t2', 'CS', 'CZ', "
+                        "'{}', 2, 1)")
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json, tier, occurrences) VALUES ('TEST:amends', 'esbirka-lod', "
+                        "'amendment', %s, 'Zákon', 'https://example.test/n', 'CS', 'CZ', %s, 1, 5)",
+                        (TITLE, json.dumps({"amends_ids": [self.repealed_id]})))
+            candidate_id = cur.lastrowid
+        alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
+        default = alice.get("/admin/candidates?q=Testovací").get_data(as_text=True)
+        self.assertIn(TITLE, default)
+        self.assertNotIn("Testovací kandidát pásma 2", default)
+        self.assertIn("Testovací kandidát pásma 2", alice.get("/admin/candidates?q=Testovací&pasmo=2").get_data(as_text=True))
+        page = alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True)
+        self.assertIn("novela dokumentu v databázi", page)
+        self.assertIn("Mění tyto dokumenty databáze", page)
+        alice.post(f"/admin/candidates/{candidate_id}/propose",
+                   data={"designation": "9004/2099 Sb.", "title": TITLE, "document_type": "Zákon",
+                         "url": "https://example.test/n", "language": "CS", "jurisdikce": "CZ", "scope_area": "9",
+                         "decision_note": ""})
+        bob.post(f"/admin/candidates/{candidate_id}/confirm")
+        row = self.candidate(candidate_id)
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) AS n FROM document_relation WHERE from_document_id = %s AND to_document_id = %s "
+                        "AND relation_type = 'AMENDS'", (row["document_id"], self.repealed_id))
+            amends = cur.fetchone()["n"]
+            cur.execute("DELETE FROM document_relation WHERE from_document_id = %s", (row["document_id"],))
+        self.assertEqual((row["status"], amends), ("accepted", 1))
 
     def test_a_proposal_without_title_type_or_area_is_refused(self):
         candidate_id = self.insert_candidate("TEST:2", title="Testovací kandidát bez okruhu")

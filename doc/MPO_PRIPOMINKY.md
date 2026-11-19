@@ -324,6 +324,17 @@ synonym proto Seveso zatím nezařazujeme.
 * sepsat pro garanta krátký provozní dokument: kdo frontu kandidátů
   posuzuje, jak často a podle jakých zdrojů.
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok3`, živá DB jen čtena):**
+větev obsahuje sběr zdrojů (`feature/h2db-sources`) i krok 0 a je připravena
+k žádosti o sloučení do `master`. Přibyla stránka *Připravované dokumenty*
+(`/admin/drafts`) pro převod návrhu na vyhlášený předpis se schválením dvěma
+editory a na stránce každého dokumentu údaj „Poslední kontrola stavu“ (datum
+a zdroj kontroly). Postup prvního ostrého běhu, odhad nanečisto nad živou
+databází (252 kandidátů, z toho 112 v pásmu přímého vztahu) a návrh plánovače
+(`deploy/scheduler/`, neinstalováno) popisuje `doc/DATA_SOURCES.md`,
+odstavec 8.17. Provozní dokument pro garanta a rozhodnutí o plánovači zůstávají
+otevřené.
+
 ### 4.5 Krok 4: Před opětovným předáním
 
 * převést všechny scénáře z připomínek MPO do prohlížečových testů

@@ -1307,10 +1307,50 @@ main {
     border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; color: var(--text-primary);
     font-family: var(--font-sans); font-size: 1rem; }
 .admin-form-group select { width: 100%; }
+.candidate-filters select { max-width: 100%; }  /* the source names are long; a phone must not scroll sideways */
 .candidate-context { color: var(--text-secondary); font-style: italic; margin-bottom: 1rem; }
 .admin-card h3 { margin: 1.5rem 0 0.5rem; }
+/* The actions in the header of the admin lists: one row of buttons of the same height, beside
+   the title while there is room, below it otherwise (never two rows squeezed beside it). */
+.results-header:has(.candidate-actions) { flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem;
+    padding-top: 1.75rem; }
 .candidate-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-.candidate-actions .btn-primary { width: auto; padding: 0.6rem 1.2rem; }
+.candidate-actions .btn-primary, .candidate-actions .btn-secondary { width: auto; height: 40px; min-height: 0;
+    margin-top: 0; padding: 0 1rem; font-size: 0.95rem; font-weight: 500; text-decoration: none; white-space: nowrap;
+    border: 1px solid var(--border-glass); border-radius: var(--radius-sm); box-sizing: border-box; }
+/* the primary one differs by its colour only, not by its shape or a lift on hover */
+.candidate-actions .btn-primary { border-color: transparent; }
+.candidate-actions .btn-primary:hover { transform: none; box-shadow: none; filter: brightness(1.1); }
+/* the list must fit its frame, so the column with "Otevřít" is never cut off */
+.candidate-table .candidate-designation { min-width: 8rem; max-width: 14rem; }
+.candidate-table .candidate-key { color: var(--text-secondary); font-size: 0.85rem; overflow-wrap: anywhere; }
+.candidate-table .candidate-title { color: var(--text-primary); text-decoration: none; }
+.candidate-table .candidate-title:hover { color: var(--accent-secondary); text-decoration: underline; }
+.candidate-table .candidate-source { color: var(--accent-secondary); text-decoration: none; }
+.candidate-table .candidate-open { white-space: nowrap; }
+.scope-areas { border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.25rem 1rem; }
+.scope-areas legend { padding: 0 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-weight: 600; }
+.scope-area { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-primary); }
+/* /admin/review: a long title must not crowd out the state, the action button stays on one line */
+.review-table .review-document { width: 30%; }
+.review-table td:first-child { overflow-wrap: anywhere; }
+.review-table .review-state { min-width: 12rem; width: 22%; }
+.review-table .review-action, .review-table td:last-child { white-space: nowrap; width: 1%; }
+.citing-document { margin-bottom: 0.75rem; }
+.citing-document .candidate-context { margin: 0.35rem 0 0.25rem; }
+.citation-count { color: var(--text-secondary); font-size: 0.9rem; }
+.citation-more summary { cursor: pointer; color: var(--accent-secondary); font-size: 0.9rem; }
+.candidate-context mark { background: rgba(14, 165, 233, 0.25); color: var(--text-primary); font-style: normal;
+    padding: 0 0.15em; border-radius: 3px; }
+.candidate-help { margin: 0 0 1rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
+    padding: 0.5rem 1rem; color: var(--text-secondary); }
+.candidate-help summary { cursor: pointer; color: var(--text-primary); font-weight: 500; }
+.candidate-help p, .candidate-help ol, .candidate-help ul { margin: 0.5rem 0; }
+.candidate-help ol, .candidate-help ul { padding-left: 1.75rem; }  /* the global reset takes the indent away */
+.candidate-help li { margin: 0.25rem 0; padding-left: 0.25rem; }
+.candidate-help strong { color: var(--text-primary); }
 
 
 /* doc/MPO_PRIPOMINKY.md, krok 2: one row per act — its language versions are
@@ -1412,3 +1452,17 @@ main {
         display: none;
     }
 }
+
+/* /admin/drafts/<id>: the form turning a draft into the promulgated act (app/drafts_admin.py) */
+.state-change-form fieldset { border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem; margin: 0 0 1rem; min-width: 0; }
+.state-change-form legend { padding: 0 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-weight: 600; }
+.state-change-form legend label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer;
+    color: var(--text-primary); text-transform: none; letter-spacing: normal; font-size: 1rem; }
+.state-change-form .scope-area { text-transform: none; letter-spacing: normal; font-size: 1rem; font-weight: 400;
+    margin: 0.25rem 0; }
+.state-change-form fieldset > p { color: var(--text-secondary); margin: 0 0 0.5rem; }
+.state-change-form fieldset .admin-form-group:last-child { margin-bottom: 0; }
+.doc-editor-link { margin: 0 0 1.5rem; }
+.draft-meta td, .state-change td { overflow-wrap: anywhere; }
