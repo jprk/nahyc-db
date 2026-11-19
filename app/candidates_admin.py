@@ -124,7 +124,7 @@ def candidate_detail(candidate_id):
 def read_metadata(form, db, own_designation=None):
     """(metadata, errors) of the propose / manual forms."""
     metadata = {field: (form.get(field) or "").strip() for field in
-                ("designation", "title", "document_type", "url", "language", "jurisdikce", "decision_note")}
+                ("designation", "title", "document_type", "url", "language", "jurisdikce", "puvodce", "decision_note")}
     errors = []
     if not metadata["title"]:
         errors.append("Název je povinný.")
@@ -148,13 +148,14 @@ def read_metadata(form, db, own_designation=None):
 
 def _store_proposal(cur, candidate_id, metadata):
     cur.execute("""UPDATE DocumentCandidate SET designation = %s, title = %s, document_type = %s, url = %s,
-                       language = %s, jurisdikce = %s, scope_area = %s, decision_note = %s, status = 'proposed',
+                       language = %s, jurisdikce = %s, puvodce = %s, scope_area = %s, decision_note = %s,
+                       status = 'proposed',
                        proposed_by_user_id = %s, proposed_at = NOW(), confirmed_by_user_id = NULL,
                        confirmed_at = NULL
                    WHERE id = %s""",
                 (metadata["designation"] or None, metadata["title"], metadata["document_type"],
                  metadata["url"] or None, metadata["language"], metadata["jurisdikce"] or None,
-                 metadata["scope_area"], metadata["decision_note"] or None, session["user_id"], candidate_id))
+                 metadata["puvodce"] or None, metadata["scope_area"], metadata["decision_note"] or None, session["user_id"], candidate_id))
 
 
 @admin_bp.route("/candidates/<int:candidate_id>/propose", methods=["POST"])
@@ -231,17 +232,31 @@ def unique_slug(cur, identifier, title):
     return next(f"{base}-{n}" for n in range(2, 10000) if f"{base}-{n}" not in taken)
 
 
+def source_id(cur, name, jurisdikce=None):
+    """The DocumentSource of the issuing institution `name`, created with the first
+    document that has it (so the public filter never lists an institution without
+    documents); None without a name."""
+    if not name:
+        return None
+    cur.execute("SELECT id FROM DocumentSource WHERE name = %s", (name,))
+    row = cur.fetchone()
+    if row:
+        return row["id"]
+    cur.execute("INSERT INTO DocumentSource (name, jurisdiction) VALUES (%s, %s)", (name, jurisdikce or None))
+    return cur.lastrowid
+
+
 def create_document(cur, candidate):
     """Creates the document of an accepted candidate; returns its id."""
     cur.execute("SELECT id FROM DocumentType WHERE name = %s", (candidate["document_type"],))
     type_id = cur.fetchone()["id"]
     identifier = candidate["designation"] or None
     title = candidate["title"]
-    cur.execute("""INSERT INTO Document (title, description, type_id, language, url, identifier, jurisdikce,
-                                         needs_review, review_reason, zdroj_dat, slug)
-                   VALUES (%s, NULL, %s, %s, %s, %s, %s, 1, 'chybí popis/anotace dokumentu', %s, %s)""",
-                (title, type_id, candidate["language"], candidate["url"], identifier, candidate["jurisdikce"],
-                 PIPELINE_SOURCE,
+    cur.execute("""INSERT INTO Document (title, description, type_id, source_id, language, url, identifier,
+                                         jurisdikce, needs_review, review_reason, zdroj_dat, slug)
+                   VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, 1, 'chybí popis/anotace dokumentu', %s, %s)""",
+                (title, type_id, source_id(cur, candidate.get("puvodce"), candidate["jurisdikce"]),
+                 candidate["language"], candidate["url"], identifier, candidate["jurisdikce"], PIPELINE_SOURCE,
                  unique_slug(cur, identifier, title)))
     doc_id = cur.lastrowid
     state = "promulgated" if candidate.get("validity_status") == "dosud neúčinný" else "active"
@@ -272,7 +287,8 @@ def pipeline_record(candidate, confirmed_by):
             "typ_dokumentu": candidate["document_type"], "sekce": "", "kategorie_trida": "",
             "klicova_slova": [cd.SCOPE_AREAS[candidate["scope_area"]]] if candidate["scope_area"] else [],
             "odkaz_hlavni": candidate["url"] or "", "nazev_eu": "", "odkaz_eu": "", "nazev_sk": "", "odkaz_sk": "",
-            "platnost": "", "ratifikovan": "", "gestor": [], "jazyk": candidate["language"] or "",
+            "platnost": "", "ratifikovan": "", "gestor": [candidate["puvodce"]] if candidate.get("puvodce") else [],
+            "jazyk": candidate["language"] or "",
             "anotace_poznamka": "", "jurisdikce": candidate["jurisdikce"] or "",
             "candidate_source": candidate["source"], "accepted_by": confirmed_by,
             "proposed_by": candidate.get("proposed_by_username")}

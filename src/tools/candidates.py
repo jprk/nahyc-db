@@ -25,7 +25,7 @@ import citation_closure as cc
 STATES = ("new", "proposed", "accepted", "rejected", "deferred")
 OPEN_STATES = ("new", "proposed", "deferred")
 SOURCES = {"citation": "citace v textech databáze", "validity": "nástupce zrušeného dokumentu",
-           "manual": "ruční návrh"}
+           "mpo": "MPO/CDV 30. 4. 2026", "manual": "ruční návrh"}
 # Subject areas of doc/DATABASE_SCOPE.md odstavec 3.
 SCOPE_AREAS = {1: "Výroba vodíku", 2: "Skladování", 3: "Přeprava", 4: "Plnění do vozidel",
                5: "Provoz vozidel", 6: "Využití vodíku mimo vozidla", 7: "Bezpečnost",
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
   decided_by_user_id INT NULL,
   decided_at TIMESTAMP NULL,
   document_id INT NULL,
+  puvodce VARCHAR(768) NULL,
   created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   UNIQUE KEY uq_candidate_key (candidate_key),
@@ -72,6 +73,8 @@ CREATE TABLE IF NOT EXISTS DocumentCandidate (
 
 def ensure_schema(cursor):
     cursor.execute(SCHEMA)
+    # the issuing institution (DocumentSource.name) the document will get; added for the MPO tables (mpo_tables.py)
+    cursor.execute("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS puvodce VARCHAR(768) NULL AFTER document_id")
 
 
 # --- what a key looks like as a document ----------------------------------
@@ -248,9 +251,15 @@ def upsert(cursor, candidate):
     decision and the metadata an editor may have changed are never touched; a
     rejected or accepted candidate is not reopened. Returns "inserted",
     "updated" or "kept"."""
-    cursor.execute("SELECT id, status FROM DocumentCandidate WHERE candidate_key = %s", (candidate["candidate_key"],))
+    cursor.execute("SELECT id, status, evidence_json FROM DocumentCandidate WHERE candidate_key = %s",
+                   (candidate["candidate_key"],))
     row = cursor.fetchone()
-    evidence = json.dumps(candidate["evidence"], ensure_ascii=False)
+    evidence = candidate["evidence"]
+    if row is not None:
+        # keep what another source added to the evidence (the rows of the MPO tables, mpo_tables.py)
+        old = json.loads((row.get("evidence_json") if isinstance(row, dict) else row[2]) or "{}")
+        evidence = {**{k: v for k, v in old.items() if k == "mpo_rows"}, **evidence}
+    evidence = json.dumps(evidence, ensure_ascii=False)
     if row is None:
         cursor.execute("""INSERT INTO DocumentCandidate
             (candidate_key, source, designation, title, document_type, url, language, jurisdikce,

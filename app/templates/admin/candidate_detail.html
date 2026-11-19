@@ -15,6 +15,7 @@
             <tr><th>Typ</th><td>{{ c.document_type or '—' }}</td></tr>
             <tr><th>Adresa</th><td>{% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.url }}</a>{% else %}—{% endif %}</td></tr>
             <tr><th>Jazyk / jurisdikce</th><td>{{ c.language or '—' }} / {{ c.jurisdikce or '—' }}</td></tr>
+            {% if c.puvodce %}<tr><th>Původce</th><td>{{ c.puvodce }}</td></tr>{% endif %}
             {% if c.scope_area %}<tr><th>Věcný okruh</th><td>{{ c.scope_area }}. {{ areas.get(c.scope_area) }}</td></tr>{% endif %}
             {% if c.decision_note %}<tr><th>Poznámka</th><td>{{ c.decision_note }}</td></tr>{% endif %}
             {% if c.proposed_by_name %}<tr><th>Navrhl</th><td>{{ c.proposed_by_name }} ({{ c.proposed_at }})</td></tr>{% endif %}
@@ -24,6 +25,17 @@
         </tbody>
     </table>
 
+    {% if evidence.mpo_rows %}
+    <h3>Tabulka předpisů MPO/CDV z 30. 4. 2026</h3>
+    <table class="admin-table" style="margin-bottom: 1.5rem;">
+        <thead><tr><th>Řádek</th><th>Číslo a název v tabulce</th><th>Nositel</th><th>Poznámka</th></tr></thead>
+        <tbody>
+            {% for r in evidence.mpo_rows %}<tr><td>{{ r.row }}</td><td>{{ r.cislo or '' }} {{ r.nazev or '' }}</td><td>{{ r.nositel or '—' }}</td><td>{{ r.poznamka or '' }}</td></tr>{% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if evidence.esbirka_url %}<p>e-Sbírka: <a href="{{ evidence.esbirka_url }}" target="_blank" rel="noopener">{{ evidence.esbirka_url }}</a></p>{% endif %}
+    {% if evidence.repeal_note %}<p>Platnost podle zakonyprolidi.cz: {{ evidence.repeal_note }}</p>{% endif %}
     {% if evidence.context %}
     <h3>Kontext první citace</h3>
     <p class="candidate-context">… {{ evidence.context }} …</p>

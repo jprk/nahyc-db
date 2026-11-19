@@ -42,3 +42,7 @@ Tento adresář slouží pro ukládání surových a předzpracovaných dat pro 
 * `validity_cache.json` — mezipaměť `src/tools/check_validity.py`: pro klíč předpisu (`CZ:N/RRRR`, `EU:RRRR/N`) stav (`účinný` / `dosud neúčinný` / `zrušený` / `nezjištěno`), konec účinnosti, zrušující předpisy, zdroj a datum kontroly.
 * `document_relations_validity.json` — vazby `REPEALS` (předpis, který zrušil → zrušený dokument) z kontroly platnosti; zapisuje `src/tools/backfill_document_states.py`, čte `load_document_relations.py`.
 * `accepted_candidates.json` — kandidáti přijatí na `/admin/candidates` (druhým editorem potvrzení), ve tvaru záznamů pipeline, klíčovaní klíčem kandidáta; zapisuje `app/candidates_admin.py`, čtou `build_unified_db.py` a `fetch_fulltext.py`.
+
+## Tabulky předpisů MPO a CDV (od 2026-11-19, viz `doc/MPO_TABULKY.md`)
+
+* `20260430_MPO/` — tabulky předpisů, jež MPO zaslalo 22. 5. 2026 (`raw/`), jejich strojový tvar (`mpo_tables.json`), ruční rozhodnutí k řádkům (`mpo_decisions.json`), pokrytí v databázi (`mpo_coverage.json`) a kandidáti do fronty (`mpo_candidates.json`); vše vytváří `src/tools/mpo_tables.py`, pokrytí hlídá `tests/test_mpo_golden.py`. Přehled v `20260430_MPO/0README.md`.

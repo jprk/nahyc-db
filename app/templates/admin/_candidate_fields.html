@@ -28,6 +28,10 @@
     <input type="text" id="jurisdikce" name="jurisdikce" value="{{ c.jurisdikce or '' }}" placeholder="CZ, EU, mezinárodní …">
 </div>
 <div class="admin-form-group">
+    <label for="puvodce">Původce (vydávající instituce)</label>
+    <input type="text" id="puvodce" name="puvodce" value="{{ c.puvodce or '' }}" placeholder="např. Energetický regulační úřad">
+</div>
+<div class="admin-form-group">
     <label for="scope_area">Věcný okruh (DATABASE_SCOPE.md, odstavec 3)</label>
     <select id="scope_area" name="scope_area">
         <option value="">— vyberte —</option>

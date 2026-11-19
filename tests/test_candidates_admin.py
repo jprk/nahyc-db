@@ -22,6 +22,7 @@ import testdb  # noqa: E402
 
 TITLE = "Testovací kandidát: zákon o zkoušení kandidátů"
 MANUAL_TITLE = "Testovací ručně navržený dokument"
+SOURCE_NAME = "Testovací původce kandidátů"
 USERS = {"cand_alice": "alice-cand-password", "cand_bob": "bob-cand-password"}
 
 
@@ -80,6 +81,7 @@ class CandidateWorkflowTestCase(unittest.TestCase):
                         (TITLE, MANUAL_TITLE))
             for doc in set(docs):
                 cur.execute("DELETE FROM Document WHERE id = %s", (doc,))
+            cur.execute("DELETE FROM DocumentSource WHERE name = %s", (SOURCE_NAME,))
             cur.execute("DELETE FROM AuditLog WHERE changed_by_user_id IN (SELECT id FROM User WHERE username IN (%s, %s))",
                         tuple(USERS))
             cur.execute("DELETE FROM User WHERE username IN (%s, %s)", tuple(USERS))
@@ -122,11 +124,15 @@ class CandidateWorkflowTestCase(unittest.TestCase):
 
     def test_acceptance_needs_a_second_editor_and_creates_the_document(self):
         candidate_id = self.insert_candidate("TEST:1", designation="9001/2099 Sb.",
-                                             evidence={"repeals_ids": [self.repealed_id]})
+                                             evidence={"repeals_ids": [self.repealed_id],
+                                                       "mpo_rows": [{"row": "MPO-99", "cislo": "9001/2099 Sb.",
+                                                                     "nazev": "Zákon z tabulky", "nositel": "ERÚ"}]})
         alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
         self.assertIn(TITLE, alice.get("/admin/candidates?stav=all").get_data(as_text=True))
+        self.assertIn("MPO-99", alice.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
         form = {"designation": "9001/2099 Sb.", "title": TITLE, "document_type": "Zákon", "url": "https://example.test/x",
-                "language": "CS", "jurisdikce": "CZ", "scope_area": "7", "decision_note": "patří do bezpečnosti"}
+                "language": "CS", "jurisdikce": "CZ", "puvodce": SOURCE_NAME, "scope_area": "7",
+                "decision_note": "patří do bezpečnosti"}
         alice.post(f"/admin/candidates/{candidate_id}/propose", data=form)
         self.assertEqual(self.candidate(candidate_id)["status"], "proposed")
         self.assertEqual(alice.post(f"/admin/candidates/{candidate_id}/confirm").status_code, 403)
@@ -134,8 +140,9 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         row = self.candidate(candidate_id)
         self.assertEqual(row["status"], "accepted")
         with self.conn.cursor() as cur:
-            cur.execute("SELECT d.identifier, d.title, d.slug, dt.name AS type FROM Document d "
-                        "JOIN DocumentType dt ON dt.id = d.type_id WHERE d.id = %s", (row["document_id"],))
+            cur.execute("SELECT d.identifier, d.title, d.slug, dt.name AS type, ds.name AS source, "
+                        "ds.jurisdiction FROM Document d JOIN DocumentType dt ON dt.id = d.type_id "
+                        "LEFT JOIN DocumentSource ds ON ds.id = d.source_id WHERE d.id = %s", (row["document_id"],))
             document = cur.fetchone()
             cur.execute("SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1",
                         (row["document_id"],))
@@ -152,6 +159,7 @@ class CandidateWorkflowTestCase(unittest.TestCase):
             cur.execute("DELETE FROM document_relation WHERE from_document_id = %s", (row["document_id"],))
         self.assertEqual((document["identifier"], document["title"], document["type"]), ("9001/2099 Sb.", TITLE, "Zákon"))
         self.assertTrue(document["slug"])
+        self.assertEqual((document["source"], document["jurisdiction"]), (SOURCE_NAME, "CZ"))
         self.assertEqual(version["lifecycle_state"], "active")
         self.assertEqual(keywords, ["Bezpečnost"])
         self.assertEqual(repeals, 1)
@@ -159,6 +167,7 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         accepted = json.loads(self.candidates_admin.ACCEPTED_PATH.read_text(encoding="utf-8"))
         self.assertEqual(accepted["TEST:1"]["znacka"], "9001/2099 Sb.")
         self.assertEqual(accepted["TEST:1"]["klicova_slova"], ["Bezpečnost"])
+        self.assertEqual(accepted["TEST:1"]["gestor"], [SOURCE_NAME])
         self.assertIn("založen", bob.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
 
     def test_a_proposal_without_title_type_or_area_is_refused(self):
