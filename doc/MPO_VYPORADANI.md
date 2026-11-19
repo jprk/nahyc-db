@@ -597,9 +597,9 @@ patrně také uvidí. Uvádíme je kvůli úplnosti:
 6. **Slovenská znění aktů EU** — Slovenská znění čtyř aktů EU (mimo jiné
    Vodíkové strategie EU a směrnice (EU) 2024/1788) byla v katalogu
    samostatnými řádky bez vazby na české znění; s českým zněním je
-   propojíme (do 25. 11. 2026) a zobrazují se jako jeho jazyková verze, stejně jako znění
-   anglická.
-7. **Další chybné záznamy** — Česká varianta směrnice 2012/18/EU
+   propojíme (do 25. 11. 2026) a budou se zobrazovat jako jeho jazyková
+   verze, stejně jako znění anglická.
+7. **Záměny dokumentů** — Česká varianta směrnice 2012/18/EU
    (Seveso III) nesla název a adresu směrnice 2014/34/EU (ATEX); norma
    ČSN ISO 19880-1 byla vedena pod neexistujícím označením
    ČSN EN ISO 19880-1; předpis EHK OSN č. 100 (elektrické hnací ústrojí
