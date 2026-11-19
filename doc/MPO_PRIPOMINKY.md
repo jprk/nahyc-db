@@ -117,6 +117,57 @@ IMO CCC8/WP.3 Annex 2 (#770).
   databáze z JSON; u dokumentů bez označení to dosud nejde (stejný problém
   jako u štítků jazyka), a bude proto potřeba korekce klíčovat jinak.
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok0`, živá DB zapsána):**
+Před zápisem jsme pořídili zálohu
+`backups/h2regdocs_20261119_170137_before_mpo_krok0.sql.gz`.
+
+* *Původ záznamu.* Poznámky o původu záznamu („Nalezeno screeningem …,
+  doc/PLAN.md §28“) jsou v novém sloupci `Document.provenance`, který veřejné
+  stránky nezobrazují (`src/tools/backfill_provenance.py`; 231 dokumentů).
+  Generátory je nadále zapisují jen tam. Z 231 dokumentů jich 229 nemělo jiný
+  popis než tuto poznámku; nyní jsou bez popisu a nesou důvod kontroly
+  „chybí popis/anotace dokumentu“, takže počet dokumentů s příznakem
+  `needs_review` vzrostl z 339 na 558. Obě vodíkové strategie mají popis
+  bez interní poznámky.
+* *Ruční korekce.* `data/manual_corrections.json` nově přijímá klíč
+  `url-<hash>` pro záznamy bez označení, vyřazení záznamu (`"exclude": true`)
+  a omezení na jazyk řádku; do živé DB je promítá
+  `src/tools/apply_manual_corrections.py` (34 opravených dokumentů,
+  2 smazané).
+* *Původci.* #144, #145 a nařízení vlády 133/2005 Sb. (#148) mají původce
+  Ministerstvo dopravy, zákon č. 250/2021 Sb. (#147) MPSV. Slovenské předpisy
+  (23 dokumentů) mají slovenské orgány: Ministerstvo životného prostredia,
+  dopravy, hospodárstva, financií, vnútra a práce, sociálnych vecí a rodiny
+  Slovenskej republiky, Úrad pre územné plánovanie a výstavbu SR a Úrad pre
+  reguláciu sieťových odvetví. ADR (#119) má EHK OSN, RID (#120) OTIF,
+  sdělení Komise COM(2020) 301 (#79 a slovenské znění #78) Evropskou komisi,
+  slovenský záznam aktu (EU) 2018/858 (#88) Evropský parlament a Radu EU.
+  U zákona č. 250/2012 Z. z. (#73) jsme jako původce zvolili ÚRSO; vhodné
+  ověřit.
+* *Zastaralá hláška.* Popis RED III (#83) je nahrazen popisem bez údajů,
+  které stárnou; anglická varianta (#1479) zůstává beze změny.
+* *Názvy.* #57 a #78 již nemají název „Slov-Lex“ a odkazují na slovenské
+  znění v EUR-Lexu; parser Slov-Lexu název webu za název předpisu
+  nepovažuje. (EU) 2023/1185 (#77) má úřední český název a štítek jazyka CS
+  (plný text byl již český).
+* *Rozhodnutí ECB 2018/546* (#128 a anglická varianta #1472) je vyřazeno
+  jako dokument mimo rozsah. Bylo chybně navázáno jako právní základ uzlu U5;
+  tato vazba zanikla s ním. Celkem 1486 dokumentů.
+
+Zbývá z kroku 0:
+
+* #130 (`(EU) 2014/1302` s názvem prováděcího nařízení 2019/776) a jeho
+  anglická varianta #1466: oprava názvu a adresy vyžaduje korekci každé
+  jazykové varianty zvlášť a nové stažení plného textu;
+* sloučení #92 a #139 (předpis EHK OSN č. 134): sloučení dvou dokumentů
+  mechanismus korekcí zatím neumí;
+* #84 (slovenské znění směrnice o trhu s plynem z obnovitelných zdrojů)
+  nemá označení ani adresu, korekci proto nelze klíčovat;
+* #75 má označení `98/2004 Z. z.`, ale jde o novelu 492/2010 Z. z.;
+* prověření původců ostatních českých předpisů proti sloupci „Nositel“
+  tabulky MPO: z předpisů, které tabulka i databáze obsahují, se liší jen
+  zákon č. 250/2021 Sb. (opraveno).
+
 ### 4.2 Krok 1: Doplnění obsahu podle tabulek MPO a CDV (1–2 týdny)
 
 * obě tabulky naimportovat jako zdroj „MPO/CDV 30. 4. 2026“ do fronty
