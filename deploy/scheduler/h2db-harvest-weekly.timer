@@ -1,0 +1,12 @@
+# Návrh (NEINSTALOVÁNO): týdně registry předpisů a návrhů (doc/DATABASE_SCOPE.md, odstavec 6).
+[Unit]
+Description=NAHYC H2DB: týdenní sběr zdrojů
+
+[Timer]
+OnCalendar=Mon *-*-* 03:30
+RandomizedDelaySec=15min
+Persistent=true
+Unit=h2db-harvest@weekly.service
+
+[Install]
+WantedBy=timers.target

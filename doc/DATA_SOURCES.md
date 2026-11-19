@@ -16,6 +16,7 @@
 > 2026-11-05 jprk Etapa E5 provedena (odstavce 4.3, 8.11 a 8.14); TRIS převeden na zakázaný zdroj
 > 2026-11-05 jprk Etapa E6 provedena, plán vytěžování dokončen (odstavce 2, 4.3, 8.11 a 8.15)
 > 2026-11-05 jprk Zkouška prvního ostrého běhu na vývojové instalaci a prohlížečový test řetězu (odstavec 8.16)
+> 2026-11-19 jprk Postup prvního ostrého běhu nad živou databází, návrh plánovače, datum poslední kontroly a převod návrhu na vyhlášený předpis (odstavec 8.17)
 
 Tento dokument popisuje registr zdrojů, v nichž opakovaně hledáme nové
 regulační dokumenty pro databázi regulačních předpisů a předrealizačních
@@ -1596,3 +1597,181 @@ znaků před citací a 400 po ní, označení vyznačeno). Před nasazením na �
 databázi je proto třeba doplnit schéma (`candidates.ensure_schema()`, jež volá
 `import_candidates.py --apply` i `harvest_sources.py --apply`) a kontexty
 otevřených kandidátů obnovit během `import_candidates.py --apply`.
+
+### 8.17 První ostrý běh nad živou databází a plánovač (19. 11. 2026)
+
+Ministerstvo průmyslu a obchodu se v připomínkách k výsledku V01 ptá, jak se
+zajistí aktuálnost databáze a kde jsou připravované předpisy
+(`doc/MPO_PRIPOMINKY.md`, odstavec 4.4). Odpovědí je pravidelný běh spouštěče
+nad živou databází, fronta kandidátů s rozhodováním dvou editorů, převod
+připravovaného dokumentu na vyhlášený předpis a u každého dokumentu viditelné
+datum poslední kontroly jeho stavu. Tento odstavec popisuje, co k tomu přibylo,
+přesný postup prvního ostrého běhu a návrh plánovače.
+
+**Převod návrhu na vyhlášený předpis.** Stránka *Připravované dokumenty*
+(`/admin/drafts`, `app/drafts_admin.py`; odkaz je v záhlaví revizí dokumentů
+a u připravovaného dokumentu na jeho stránce, je-li editor přihlášen) vypisuje
+dokumenty, jejichž aktuální verze je ve stavu „připravovaný“ (v živé databázi
+151, převážně návrhy norem). Editor u návrhu zvolí, jak skončil:
+
+* *dokument se stal vyhlášeným předpisem* — dokument zůstane týž, dostane stav
+  „vyhlášený, dosud neúčinný“ nebo „účinný“ a případně nové označení (číslo ve
+  Sbírce, EN místo prEN), název, adresu a datum účinnosti;
+* *vyhlášený předpis je v databázi jako jiný dokument* — editor uvede jeho
+  označení; návrh se k němu připojí vazbou „návrh vyhlášen jako“ (`ENACTED_AS`),
+  sám bude veden jako „nahrazený“ a vyhlášený předpis dostane zvolený stav
+  (zrušený předpis se nemění).
+
+Změnu, stejně jako opravu záznamu nebo přijetí kandidáta, navrhuje jeden editor
+a potvrzuje jiný (tabulka `DocumentStateChange`, kontrola
+`chk_dsc_distinct_reviewers`); navrhovatel může návrh stáhnout. Potvrzení
+zapíše živou databázi ihned, každý krok jde do auditního záznamu a změna se
+uloží i do `data/manual_corrections.json` (stav `stav_dokumentu`) a do
+`data/document_relations_editor.json`, aby ji přestavba databáze zachovala.
+Kontrola platnosti (`backfill_document_states.py`) stav potvrzený editorem
+změní jen tehdy, zjistí-li zrušení nebo jiný stav; pouhá absence záznamu v její
+mezipaměti jej nevrací. Návrh bez označení i adresy změnu přestavbou nepřenese;
+stránka na to editora upozorní.
+
+**Datum poslední kontroly.** Stránka dokumentu uvádí v metadatech „Poslední
+kontrola stavu“ s datem a zdrojem (např. „27. 10. 2026 (e-Sbírka)“, „5. 11. 2026
+(ČSN online)“, „19. 11. 2026 (editor Jan Novák)“), u dokumentu bez kontroly
+„dosud neověřeno“. Údaj je uložen ve sloupcích `Document.status_checked_at`
+a `status_checked_by` (`src/tools/status_checks.py`): vychází z mezipamětí
+kontrol `data/validity_cache.json` (předpisy, e-Sbírka a Cellar)
+a `data/norm_validity_cache.json` (normy, ČSN online, Normoff, Věstník ÚNMZ,
+seznamy harmonizovaných norem), do nichž spouštěč zapisuje výsledek každé
+kontroly i tehdy, když se stav nezměnil. Za kontrolu nepovažujeme záznam bez
+výsledku („nezjištěno“, samotný výskyt v seznamu harmonizovaných norem).
+`data/source_checks.jsonl` se pro tento údaj nečte: zaznamenává běhy zdrojů,
+nikoli jednotlivé dokumenty. Toto řešení jsme zvolili jako nejjednodušší
+spolehlivé — údaj se zapisuje v témže kroku, v němž se z mezipamětí promítají
+stavy dokumentů, a datum se nikdy neposouvá zpět. Nanečisto nad živou
+databází (19. 11. 2026): datum dostane 226 dokumentů (Cellar 167, e-Sbírka 37,
+Věstník ÚNMZ 13, seznamy harmonizovaných norem 7, ČSN online 1, Normoff 1);
+ostatní zůstanou „dosud neověřeno“, mezi nimi 395 norem, u nichž Normoff stav
+nezjistil.
+
+**Stav živé databáze (čteno 19. 11. 2026).** 1486 dokumentů (1300 účinných,
+151 připravovaných, 35 zrušených), ve frontě 296 kandidátů z citací a kontroly
+platnosti (295 nových, 1 navržený), dva aktivní editorské účty (`prikryl`,
+`vahalik`). Tabulka `DocumentCandidate` dosud nemá sloupce `signal`, `tier`,
+`occurrences` a `scope_areas`, chybí tabulka `DocumentStateChange`, typ vazby
+`ENACTED_AS` a sloupce `status_checked_*`.
+
+**Odhad prvního běhu nanečisto nad živou databází (19. 11. 2026).** Všechny
+adaptéry spouštěče jsme spustili tak jako při prvním běhu (bez data posledního
+běhu) a nálezy porovnali s dokumenty i s frontou živé databáze, aniž by se
+cokoli zapsalo (spojení jen pro čtení, bez záznamu do `data/source_checks.jsonl`):
+**252 nových kandidátů, z toho 112 v pásmu 1** a 140 v pásmu 2; 8 nálezů
+e-Sbírky se týká kandidátů, kteří už ve frontě jsou (jen se doplní jejich
+doklady), 18 dokumentů HYTEP databáze už má. Kontroly stavu norem vrátily 112
+nálezů (13 platných norem z Věstníku ÚNMZ, 99 záznamů seznamů harmonizovaných
+norem); kontroly platnosti předpisů a stav ČSN/STN nic neprověřovaly, protože
+jejich mezipaměti jsou mladší než 30 dní. Proběhne-li ostrý běh po 26. 11. 2026,
+kontrola platnosti předpisů (záznamy z 27. 10. 2026) je prověří znovu a běh se
+o tuto dobu prodlouží. Žádný adaptér neskončil chybou.
+
+| Zdroj | Nových kandidátů | Z toho pásmo 1 |
+|---|---|---|
+| e-Sbírka (nové předpisy a novely; 49 nálezů vyřazeno filtrem) | 82 | 38 |
+| ČSN / TPG (ČPS) | 69 | 3 |
+| Poslanecká sněmovna (+ Senát: 1 nález k témuž tisku) | 35 | 28 |
+| Věstník ÚNMZ | 23 | 14 |
+| SAE | 13 | 8 |
+| Legislativní observatoř EP | 9 | 9 |
+| EHSP | 9 | 5 |
+| ostatní (HYTEP, VeKLEP, ACER, OTIF, Have Your Say, TIČR, ČMI, akty v přenesené pravomoci) | 12 | 7 |
+| **celkem** | **252** | **112** |
+
+Odhad se od zkoušky z 5. 11. 2026 (odstavec 8.16; 247 a 111) liší jen
+nepatrně; přesné počty budou záviset na stavu zdrojů v den běhu.
+
+**Postup prvního ostrého běhu.** Příkazy se spouštějí v hlavním stromu
+`/home/laborator/DEVEL/nahyc-h2db` interpretem `.venv/bin/python` (zkráceně
+`py`); všechny pracují s databází z `.env`, tedy se živou `h2regdocs`.
+
+1. **Sloučení a nasazení.** Po přijetí žádosti o sloučení větve do `master`
+   provést v hlavním stromu `git pull`. Tím se nový kód projeví na testovacím
+   webu; stránky fronty kandidátů budou až do kroku 3 hlásit chybu (chybějící
+   sloupce), kroky 2 a 3 je proto vhodné provést ihned po něm.
+2. **Záloha.** `py src/tools/backup_db.py --reason before_first_harvest`
+   (vytvoří `backups/h2regdocs_<datum_čas>_before_first_harvest.sql.gz`).
+3. **Schéma.**
+   * `py src/tools/import_candidates.py --apply` — doplní sloupce tabulky
+     `DocumentCandidate` (`candidates.ensure_schema()`) a obnoví doklady
+     a kontexty citací otevřených kandidátů (stahuje názvy z Cellaru
+     a zakonyprolidi.cz, trvá několik minut);
+   * `py src/tools/backfill_document_states.py` nanečisto (očekáváme 0 změn
+     stavu, 0 vazeb `REPEALS` a 226 dat poslední kontroly), potom
+     `py src/tools/backfill_document_states.py --apply` — založí tabulku
+     `DocumentStateChange`, typ vazby `ENACTED_AS` a sloupce `status_checked_*`
+     a zapíše data poslední kontroly.
+4. **Editorské účty.** V živé databázi jsou dva aktivní účty (`prikryl`,
+   `vahalik`), což pravidlu dvou editorů postačuje; ověřit, že se oba přihlásí
+   na `/admin/login`. Další účet lze založit příkazem
+   `py src/db/dbuser_add.py <login> "<jméno>" <e-mail> --apply` (heslo se
+   zadává interaktivně).
+5. **Běh nanečisto.** `for s in E1 E2 E3 E4 E5 E6; do py src/tools/harvest_sources.py --stage $s; done`
+   a porovnat počty s tabulkou výše (běh nanečisto zapíše do
+   `data/source_checks.jsonl` jen záznamy označené `"applied": false`).
+6. **Ostrý běh.** `for s in E1 E2 E3 E4 E5 E6; do py src/tools/harvest_sources.py --stage $s --apply; done`
+   (zhruba 20 minut). Nálezy se zapíší do fronty kandidátů; veřejné stránky se
+   nezmění, dokument vznikne teprve po rozhodnutí dvou editorů. Změny stavu
+   norem se zapíší do `data/norm_validity_cache.json`, předpisů do
+   `data/validity_cache.json`.
+7. **Stavy a data kontrol.** `py src/tools/backfill_document_states.py --apply`.
+8. **Kontrola.** Na `/admin/candidates` ověřit počty (filtr „oba vztahy“);
+   na stránce některého dokumentu údaj „Poslední kontrola stavu“.
+9. **Datové soubory.** Běh změní v hlavním stromu soubory pod správou verzí
+   (`data/source_checks.jsonl`, `data/norm_validity_cache.json`,
+   `data/harvest_not_imported.json`, případně `data/validity_cache.json`
+   a `data/accepted_candidates.json`). Je třeba je zapsat do repozitáře, jinak
+   příští `git pull` (nasazení) narazí na místní změny (otevřená otázka 3 níže).
+
+**Návrh plánovače.** Konfigurace je v adresáři `deploy/scheduler/`
+a **není nainstalována**. Každý plánovaný běh volá skript
+`src/tools/scheduled_harvest.sh <četnost>`: zálohu databáze, běh zdrojů dané
+četnosti s `--apply`, nakonec `backfill_document_states.py --apply`; běhy se
+nepřekrývají (zámek `.harvest.lock`), záznam jde do `logs/harvest_RRRRMM.log`
+a volbou `--dry-run` lze skript zkusit bez zápisu. Četnosti odpovídají
+`doc/DATABASE_SCOPE.md`, odstavci 6, a poli `cadence` registru:
+
+| Běh | Kdy | Zdroje |
+|---|---|---|
+| `weekly` | v pondělí 3:30 | 14 zdrojů: EUR-Lex (Cellar), e-Sbírka, VeKLEP, sněmovní a senátní tisky, Legislativní observatoř EP, rejstřík komitologie, akty v přenesené pravomoci, ACER, MPO, ERÚ, MMR, MŽP, ČIŽP |
+| `monthly` | 2. den v měsíci 4:30 | 14 zdrojů (Věstník ÚNMZ, aktuality ÚNMZ, harmonizované normy, ČPS/TPG, Have Your Say, rejstřík dokumentů Komise, TIČR, HZS, SÚIP, ČMI, ČOI, ERA, MD ADR, Drážní úřad), navíc stav ČSN a STN (`csn-online`, `normoff-stn`, v registru „na vyžádání“; katalogy norem jsou podle odstavce 6 měsíční) a kontrola dostupnosti všech zdrojů (`check_sources.py --apply`) |
+| `quarterly` | 3. ledna, dubna, července a října 5:30 | 4 zdroje: SAE, HYTEP, EHSP, OTIF |
+
+Soubory: `h2db-harvest@.service` (služba systemd, instance = četnost, uživatel
+`laborator`), `h2db-harvest-weekly.timer`, `h2db-harvest-monthly.timer`,
+`h2db-harvest-quarterly.timer` (s `Persistent=true`, takže běh zmeškaný při
+vypnutém serveru proběhne po startu) a `h2db-harvest.crontab` jako varianta bez
+systemd. Postup instalace uvádí `deploy/scheduler/0README.md`. Ruční kontroly
+(`harvest_sources.py --checklist`, 16 zdrojů) a měření úplnosti plánovač
+nespouští; připomenutí čtvrtletní ruční kontroly zůstává na garantovi.
+
+**Ověření.** Testy `test_status_checks.py`, `test_state_changes.py`,
+`test_backup_db.py`, integrační `test_drafts_admin.py` (testovací databáze)
+a prohlížečový scénář `tests/e2e/test_drafts.py`; skript plánovače jsme spustili
+nanečisto (`scheduled_harvest.sh weekly --dry-run`) nad živou databází,
+zálohu (`backup_db.py`) nad testovací databází.
+
+**Otevřené otázky pro zadavatele a garanta.**
+
+1. **Plánovač (R1.9).** Zda plánovač zavést, na kterém serveru (testovací web
+   běží na `nahyc.fd.cvut.cz`, server `nahyc.fel.zcu.cz` je mimo náš dosah)
+   a zda časovač systemd, nebo crontab.
+2. **Kdo frontu posuzuje a jak často.** Pro garanta je třeba sepsat krátký
+   provozní dokument (`doc/MPO_PRIPOMINKY.md`, odstavec 4.4): kdo kandidáty
+   a připravované dokumenty posuzuje, v jakém intervalu a podle jakých zdrojů.
+3. **Datové soubory provozu.** Běhy na serveru mění soubory pod správou verzí
+   v hlavním stromu, z něhož běží web. Možnosti: pravidelně je zapisovat do
+   repozitáře, nebo je přesunout mimo správu verzí (adresář provozních dat).
+4. **Registrace k REST API e-Sbírky a e-Legislativy** (odstavec 8.15) a **žádost
+   o přístup k TRIS** (odstavec 8.14).
+5. **Zdroje IEC, EIGA a DVGW** (odstavec 8.7) — zda je zapojit, když stávající
+   skripty obcházejí ochranu proti robotům.
+6. **Četnost kontroly stavu ČSN a STN** — v registru „na vyžádání“, návrh
+   plánovače je spouští měsíčně; je-li to pro zdroje příliš časté, stačí je
+   z měsíčního běhu vypustit.

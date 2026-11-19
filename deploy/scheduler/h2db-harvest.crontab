@@ -1,0 +1,6 @@
+# Návrh (NEINSTALOVÁNO) — varianta k časovačům systemd, pro `crontab -e` uživatele laborator.
+# Stejné časy jako h2db-harvest-*.timer; běhy se navzájem nepřekrývají (flock ve skriptu).
+# min hod den měs dtý  příkaz
+30 3 * * 1   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh weekly
+30 4 2 * *   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh monthly
+30 5 3 1,4,7,10 *   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh quarterly
