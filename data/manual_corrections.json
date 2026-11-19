@@ -203,11 +203,12 @@
     "changes": {
       "gestor": [
         "Ministerstvo financií Slovenskej republiky"
-      ]
+      ],
+      "znacka": "492/2010 Z. z."
     },
     "confirmed_at": "2026-11-19",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán. Označení: záznam je zákon č. 492/2010 Z. z., kterým se mění a doplňuje zákon č. 98/2004 Z. z. (adresa i plný text ze Slov-Lexu jsou zákona 492/2010); zdrojová tabulka uvedla označení měněného zákona."
   },
   "124/2000 Z. z.": {
     "changes": {
@@ -360,5 +361,73 @@
     "confirmed_at": "2026-11-19",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
     "reason": "Rozhodnutí ECB/2018/10 o přenesení pravomoci přijímat rozhodnutí o kapitálu (vlastních zdrojích) úvěrových institucí s vodíkovými technologiemi nesouvisí; v databázi bylo česky i anglicky (připomínka MPO z 17. 4. 2026)."
+  },
+  "(EU) 2014/1302": {
+    "row_language": "CS",
+    "changes": {
+      "nazev_cz": "Nařízení Komise (EU) č. 1302/2014 ze dne 18. listopadu 2014 o technické specifikaci pro interoperabilitu subsystému kolejová vozidla – lokomotivy a kolejová vozidla pro přepravu osob železničního systému v Evropské unii (Text s významem pro EHP)",
+      "nazev_autoritativni": "Nařízení Komise (EU) č. 1302/2014 ze dne 18. listopadu 2014 o technické specifikaci pro interoperabilitu subsystému kolejová vozidla – lokomotivy a kolejová vozidla pro přepravu osob železničního systému v Evropské unii (Text s významem pro EHP)",
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014R1302",
+      "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014R1302",
+      "odkaz_eu": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014R1302",
+      "platnost": "1.1.2015",
+      "anotace_poznamka": "Nařízení Komise (EU) č. 1302/2014 stanoví technickou specifikaci pro interoperabilitu subsystému kolejová vozidla – lokomotivy a kolejová vozidla pro přepravu osob (TSI LOC&PAS) železničního systému v Evropské unii. Vymezuje základní požadavky na tato vozidla a postupy posuzování jejich shody, a týká se proto i kolejových vozidel s vodíkovým pohonem. Nařízení bylo několikrát změněno, mimo jiné prováděcím nařízením (EU) 2019/776."
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Záznam (EU) 2014/1302 (TSI LOC&PAS) nesl ve zdrojové tabulce (Haltuf_Dokumenty) název, adresu, datum a popis prováděcího nařízení (EU) 2019/776, které je v databázi samostatně; opraveno na nařízení Komise (EU) č. 1302/2014 (CELEX 32014R1302, úřední název z EUR-Lexu, účinnost 1. 1. 2015 podle Cellaru). České znění."
+  },
+  "(EU) 2014/1302 [EN]": {
+    "changes": {
+      "nazev_cz": "Commission Regulation (EU) No 1302/2014 of 18 November 2014 concerning a technical specification for interoperability relating to the ‘rolling stock — locomotives and passenger rolling stock’ subsystem of the rail system in the European Union (Text with EEA relevance)",
+      "nazev_autoritativni": "",
+      "zdroj_autoritativni_url": "",
+      "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R1302",
+      "odkaz_eu": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R1302",
+      "platnost": "1.1.2015",
+      "anotace_poznamka": "Nařízení Komise (EU) č. 1302/2014 stanoví technickou specifikaci pro interoperabilitu subsystému kolejová vozidla – lokomotivy a kolejová vozidla pro přepravu osob (TSI LOC&PAS) železničního systému v Evropské unii. Vymezuje základní požadavky na tato vozidla a postupy posuzování jejich shody, a týká se proto i kolejových vozidel s vodíkovým pohonem. Nařízení bylo několikrát změněno, mimo jiné prováděcím nařízením (EU) 2019/776."
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Záznam (EU) 2014/1302 (TSI LOC&PAS) nesl ve zdrojové tabulce (Haltuf_Dokumenty) název, adresu, datum a popis prováděcího nařízení (EU) 2019/776, které je v databázi samostatně; opraveno na nařízení Komise (EU) č. 1302/2014 (CELEX 32014R1302, úřední název z EUR-Lexu, účinnost 1. 1. 2015 podle Cellaru). Anglické znění; český autoritativní název a adresa patří jen české variantě."
+  },
+  "[2019/795]": {
+    "row_language": "CS",
+    "changes": {
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:42019X0795"
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Česká varianta předpisu EHK OSN č. 134 odkazovala na anglické znění (adresu převzala z anglického řádku tabulky při deduplikaci); nyní odkazuje na české znění, k němuž patří i uložený plný text."
+  },
+  "[2019/795] [EN]": {
+    "changes": {
+      "nazev_autoritativni": "",
+      "zdroj_autoritativni_url": ""
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Anglický řádek předpisu EHK OSN č. 134 nesl český autoritativní název a adresu anglického znění; deduplikace je mohla předat české variantě. Autoritativní název a adresa patří jen české variantě."
+  },
+  "(EHK OSN) č. 134": {
+    "merged_into": "[2019/795]",
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Předpis EHK OSN č. 134 (vozidla na vodíkový pohon, HFCV) byl v databázi dvakrát: ze zdroje Sinay_Zakony (s chybnou adresou slovenského předpisu 134/2006 Z. z. a jurisdikcí SK) a ze zdroje Haltuf_Dokumenty jako [2019/795] s českým i anglickým zněním. Záznam ze Sinay_Zakony je sloučen do [2019/795]."
+  },
+  "title-3ef76674": {
+    "changes": {
+      "znacka": "(EU) 2024/1788 [SK]",
+      "nazev_cz": "Smernica Európskeho parlamentu a Rady (EÚ) 2024/1788 z 13. júna 2024 o spoločných pravidlách pre vnútorné trhy s obnoviteľným plynom, so zemným plynom a s vodíkom, ktorou sa mení smernica (EÚ) 2023/1791 a zrušuje smernica 2009/73/ES (prepracované znenie) (Text s významom pre EHP)",
+      "typ_dokumentu": "Směrnice EU",
+      "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32024L1788",
+      "gestor": [
+        "Evropský parlament a Rada Evropské unie"
+      ],
+      "jazyk": "SK"
+    },
+    "confirmed_at": "2026-11-19",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
+    "reason": "Slovenské znění směrnice (EU) 2024/1788 (zdroj Sinay_Zakony) nemělo označení ani adresu a za původce mělo česká ministerstva. Doplněn úřední slovenský název a adresa slovenského znění v EUR-Lexu (CELEX 32024L1788) a původce. Označení (EU) 2024/1788 [SK] odlišuje slovenské znění od českého (EU) 2024/1788 a anglického (EU) 2024/1788 [EN]; zápis „(EÚ) 2024/1788“ nelze použít, protože porovnání v databázi (utf8mb4_czech_ci) diakritiku nerozlišuje a kolidoval by s českým zněním. Záznam bez označení i adresy je klíčován názvem (title-<hash>)."
   }
 }
