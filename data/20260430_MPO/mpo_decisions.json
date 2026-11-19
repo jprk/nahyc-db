@@ -1,28 +1,64 @@
 {
-  "_popis": "Ruční rozhodnutí k řádkům tabulek MPO a CDV (doc/MPO_TABULKY.md), čte je src/tools/mpo_tables.py. Klíč je identifikátor řádku (tabulka a číslo řádku v listu). keys = klíče předpisů, když je nelze odvodit z čísla předpisu; identifiers / title_prefixes = dokumenty databáze bez klíče; reason = proč řádek není dokumentem databáze ani kandidátem; extra_candidates = další dokumenty, které řádek pokrývá jen zčásti; note = poznámka do přehledu.",
+  "_popis": "Ruční rozhodnutí k řádkům tabulek MPO a CDV (doc/MPO_TABULKY.md), čte je src/tools/mpo_tables.py. Klíč je identifikátor řádku (tabulka a číslo řádku v listu). keys = klíče předpisů, když je nelze odvodit z čísla předpisu; identifiers / title_prefixes = dokumenty databáze bez klíče; reason = proč řádek není dokumentem databáze ani kandidátem; extra_candidates = další dokumenty, které řádek pokrývá jen zčásti; note = poznámka do přehledu. _candidates = údaje ke kandidátům podle klíče, které nelze převzít z řádku tabulky: puvodce (navržený původce místo sloupce „Nositel“), scope_area (navržený věcný okruh), signal (amendment = novela), amends (klíče novelizovaných předpisů; import z nich vytvoří amends_ids, z nichž přijetí kandidáta založí vazby AMENDS), alias (zkratka, pod níž se předpis běžně uvádí) a basis (proč je kandidátem).",
+  "_candidates": {
+    "CZ:191/2022": {
+      "puvodce": "Ministerstvo práce a sociálních věcí"
+    },
+    "CZ:19/2023": {
+      "alias": "LEX OZE I",
+      "signal": "amendment",
+      "scope_area": 9,
+      "amends": ["CZ:458/2000", "CZ:165/2012", "CZ:406/2000"],
+      "basis": "Novela „LEX OZE I“ (zjednodušení povolování obnovitelných zdrojů) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+    },
+    "CZ:469/2023": {
+      "alias": "LEX OZE II",
+      "signal": "amendment",
+      "scope_area": 9,
+      "amends": ["CZ:458/2000", "CZ:165/2012", "CZ:406/2000"],
+      "basis": "Novela „LEX OZE II“ (komunitní energetika a sdílení elektřiny) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+    },
+    "CZ:87/2025": {
+      "alias": "LEX OZE III",
+      "signal": "amendment",
+      "scope_area": 9,
+      "amends": ["CZ:458/2000", "CZ:165/2012", "CZ:406/2000", "CZ:586/1992"],
+      "basis": "Novela „LEX OZE III“ (akumulace, agregace a flexibilita) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+    }
+  },
+  "MPO-02": {
+    "note": "Novely LEX OZE I–III (zákony č. 19/2023 Sb., 469/2023 Sb. a 87/2025 Sb., označení podle prezentace MPO na Konferenci energetiky a odpadového hospodářství 2025) novelizují energetický zákon i zákon o podporovaných zdrojích energie; jsou kandidáty podle rozhodnutí z 19. 11. 2026.",
+    "extra_candidates": ["19/2023 Sb.", "469/2023 Sb.", "87/2025 Sb."]
+  },
   "MPO-06": {
     "note": "Vyhláška č. 513/2021 Sb. jen novelizovala vyhlášku č. 262/2015 Sb. o regulačním výkaznictví, kterou k 1. 1. 2026 zrušila vyhláška č. 508/2025 Sb.; podle zakonyprolidi.cz je proto zrušená. Kandidátem je i platná vyhláška č. 508/2025 Sb.",
     "extra_candidates": ["508/2025 Sb."]
   },
   "MPO-27": {
     "keys": ["CZ:227/2015"],
-    "note": "Tabulka MPO uvádí číslo 277/2015 Sb., to je však vyhláška o náhradě za bolest příslušníků bezpečnostních sborů. Název v tabulce („o náležitostech bezpečnostní dokumentace a rozsahu informací poskytovaných zpracovateli posudku“) doslova odpovídá vyhlášce č. 227/2015 Sb., prováděcímu předpisu zákona o prevenci závažných havárií; jde zjevně o překlep."
+    "note": "Tabulka MPO uvádí číslo 277/2015 Sb., to je však vyhláška o náhradě za bolest příslušníků bezpečnostních sborů. Název v tabulce („o náležitostech bezpečnostní dokumentace a rozsahu informací poskytovaných zpracovateli posudku“) doslova odpovídá vyhlášce č. 227/2015 Sb., prováděcímu předpisu zákona o prevenci závažných havárií; jde zjevně o překlep. Výklad řádku zůstává k vyjasnění s MPO."
+  },
+  "MPO-29": {
+    "note": "Novely LEX OZE I–III (zákony č. 19/2023 Sb., 469/2023 Sb. a 87/2025 Sb., označení podle prezentace MPO na Konferenci energetiky a odpadového hospodářství 2025) novelizují energetický zákon i zákon o podporovaných zdrojích energie; jsou kandidáty podle rozhodnutí z 19. 11. 2026.",
+    "extra_candidates": ["19/2023 Sb.", "469/2023 Sb.", "87/2025 Sb."]
   },
   "MPO-39": {
     "note": "Duplicitní řádek: zákon č. 250/2021 Sb. je i v řádku MPO-28."
   },
   "MPO-42": {
     "keys": ["CZ:191/2022", "CZ:192/2022"],
-    "note": "Číslo 191/2022 Sb. patří nařízení vlády o vyhrazených technických plynových zařízeních, název v tabulce MPO („o vyhrazených tlakových zařízeních“) nařízení vlády č. 192/2022 Sb. To je v databázi; nařízení č. 191/2022 Sb. je kandidátem, protože se vodíkových zařízení týká také."
+    "note": "Číslo 191/2022 Sb. patří nařízení vlády o vyhrazených technických plynových zařízeních, název v tabulce MPO („o vyhrazených tlakových zařízeních“) nařízení vlády č. 192/2022 Sb. To je v databázi; nařízení č. 191/2022 Sb. je kandidátem, protože se vodíkových zařízení týká také. Původcem nařízení je Ministerstvo práce a sociálních věcí (rozhodnutí z 19. 11. 2026), nikoli MPO ze sloupce „Nositel“. Který předpis řádek míní, zůstává k vyjasnění s MPO."
   },
   "MPO-47": {
     "note": "Databáze vede normu pod označením ČSN EN ISO 19880-1, které katalog ČAS nezná; platné české převzetí je ČSN ISO 19880-1 (vydána 8/2025). Označení dokumentu je třeba opravit (krok 0)."
   },
   "MPO-48": {
-    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 60079 je v databázi jen část 0. Které další části doplnit, je otevřená otázka (doc/MPO_TABULKY.md)."
+    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 60079 je v databázi jen část 0 (ČSN EN IEC 60079-0). Kandidáty jsou další platné části podstatné pro vodíková zařízení (rozhodnutí z 19. 11. 2026): pevný závěr (1), přetlak (2), zajištěné provedení (7), určování nebezpečných prostorů (10-1), jiskrová bezpečnost (11, 25), návrh elektrické instalace (14), prohlídky a údržba (17), opravy (19) a detektory plynů (29-0, 29-1, 29-2). Zrušenou ČSN EN 60079-20-1 (materiálové vlastnosti plynů) nahradila ČSN EN ISO/IEC 80079-20-1, kterou databáze již má (#28). Platnost a vydání podle katalogu ČAS.",
+    "extra_candidates": ["ČSN EN 60079-1", "ČSN EN 60079-2", "ČSN EN 60079-7", "ČSN EN IEC 60079-10-1", "ČSN EN IEC 60079-11", "ČSN EN IEC 60079-14", "ČSN EN IEC 60079-17", "ČSN EN IEC 60079-19", "ČSN EN IEC 60079-25", "ČSN EN IEC 60079-29-0", "ČSN EN 60079-29-1", "ČSN EN 60079-29-2"]
   },
   "MPO-49": {
-    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 13445 je v databázi jen část 5 (ČSN EN 13445-5+A1). Které další části doplnit, je otevřená otázka (doc/MPO_TABULKY.md)."
+    "note": "Řádek označuje celou řadu norem; z řady ČSN EN 13445 je v databázi jen část 5 (ČSN EN 13445-5+A1). Kandidáty jsou všechny další české části řady, jež katalog ČAS vede (1, 2, 3, 4, 6, 8, 10, 11; části 7 a 9 jako ČSN nevyšly, část 12 je zatím návrh prEN). Rozhodnutí z 19. 11. 2026.",
+    "extra_candidates": ["ČSN EN 13445-1", "ČSN EN 13445-2", "ČSN EN 13445-3", "ČSN EN 13445-4", "ČSN EN 13445-6", "ČSN EN 13445-8", "ČSN EN 13445-10", "ČSN EN 13445-11"]
   },
   "MPO-50": {
     "note": "Řádek označuje celou řadu norem, v databázi je část 1. Kompatibilitu materiálů s vodíkem (název v tabulce MPO) řeší část 4, která je v databázi jen jako ISO 11114-4 a STN EN ISO 11114-4; české převzetí ČSN EN ISO 11114-4 je proto kandidátem.",

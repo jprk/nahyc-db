@@ -14,7 +14,10 @@ sada databáze (`doc/MPO_TABULKY.md`).
 * `mpo_decisions.json` — ruční rozhodnutí k řádkům, která nelze odvodit pravidlem:
   klíče řádků bez čísla předpisu (AFIR, TEN-T, balíček pro trh s plynem), dokumenty
   bez klíče (ADR, RID, IMO), opravy zjevných překlepů v čísle (277/2015 Sb. →
-  227/2015 Sb.), důvody, proč řádek není dokumentem (technické komise), a poznámky.
+  227/2015 Sb.), důvody, proč řádek není dokumentem (technické komise), další
+  kandidáty, jež z řádku vyplývají (novely LEX OZE, části řad norem), a poznámky.
+  Oddíl `_candidates` nese údaje ke kandidátům, jež z řádku převzít nelze
+  (původce, příznak novely a klíče novelizovaných předpisů, zkratka).
 * `mpo_coverage.json` — výsledek porovnání každého řádku s živou databází
   (`src/tools/mpo_tables.py compare`): v databázi, ve frontě kandidátů, nebo
   s důvodem. Je to zároveň očekávaný stav, který hlídá test

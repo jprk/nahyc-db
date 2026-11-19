@@ -11,7 +11,9 @@ longer found means a document was lost.
 The test first puts the candidates of data/20260430_MPO/mpo_candidates.json into
 the queue (mpo_tables.write_candidates, the same as `mpo_tables.py import
 --apply`, no network), so that it also passes on a copy of a database the import
-has not run on yet; what it added is removed again at the end."""
+has not run on yet; what it added or changed is undone again at the end. A second
+import must change nothing (the import is idempotent), and the amendments in the
+queue carry the ids of the documents they amend (AMENDS on acceptance)."""
 import json
 import os
 import pathlib
@@ -22,6 +24,7 @@ from dotenv import dotenv_values
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src" / "tools"))
+import candidates as cd  # noqa: E402
 import testdb  # noqa: E402
 import mpo_tables as mt  # noqa: E402
 
@@ -41,16 +44,15 @@ class MpoGoldenSetTestCase(unittest.TestCase):
         cls.conn = testdb.connect(env, cursorclass=pymysql.cursors.DictCursor, autocommit=False)
         found = mt.load_candidates()
         with cls.conn.cursor() as cur:
-            cur.execute("SHOW TABLES LIKE 'DocumentCandidate'")
-            table_existed = cur.fetchone() is not None
-            before = {}
-            if table_existed:
-                cur.execute("SELECT id, candidate_key, evidence_json, puvodce FROM DocumentCandidate")
-                before = {r["candidate_key"]: r for r in cur.fetchall()}
+            cd.ensure_schema(cur)  # a copy of a database without the columns of the MPO import gets them
+            cur.execute("SELECT id, candidate_key, evidence_json, puvodce, validity_status, `signal` "
+                        "FROM DocumentCandidate")
+            before = {r["candidate_key"]: r for r in cur.fetchall()}
             snapshot = mt.load_snapshot(cur)
             planned = [c for c in found if not snapshot.documents_for_key(c["candidate_key"], c["designation"])]
             cls.outcome = mt.write_candidates(cur, planned)
         cls.conn.commit()
+        cls.planned = planned
         cls.before = before
         with cls.conn.cursor() as cur:
             cls.snapshot = mt.load_snapshot(cur)
@@ -66,10 +68,11 @@ class MpoGoldenSetTestCase(unittest.TestCase):
                 if outcome == "inserted":
                     cur.execute("DELETE FROM DocumentCandidate WHERE candidate_key = %s AND source = %s",
                                 (key, mt.SOURCE))
-                elif outcome == "evidence":
+                elif outcome in ("evidence", "refreshed"):
                     old = cls.before[key]
-                    cur.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = %s WHERE id = %s",
-                                (old["evidence_json"], old["puvodce"], old["id"]))
+                    cur.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = %s, validity_status = %s, "
+                                "`signal` = %s WHERE id = %s", (old["evidence_json"], old["puvodce"],
+                                                               old["validity_status"], old["signal"], old["id"]))
         cls.conn.commit()
         cls.conn.close()
 
@@ -105,6 +108,34 @@ class MpoGoldenSetTestCase(unittest.TestCase):
                 if not self.snapshot.documents_for_key(entry["key"], self.designations.get(entry["key"])):
                     with self.subTest(key=entry["key"]):
                         self.assertIn(entry["key"], tagged)
+
+    def test_a_second_import_changes_nothing(self):
+        with self.conn.cursor() as cur:
+            again = mt.write_candidates(cur, self.planned)
+        self.conn.rollback()
+        self.assertEqual({k: v for k, v in again.items() if v != "kept"}, {})
+
+    def test_the_lex_oze_amendments_amend_the_energy_acts(self):
+        amended = set(self.snapshot.documents_for_key("CZ:458/2000") + self.snapshot.documents_for_key("CZ:165/2012"))
+        self.assertTrue(amended)
+        with self.conn.cursor() as cur:
+            for key in ("CZ:19/2023", "CZ:469/2023", "CZ:87/2025"):
+                cur.execute("SELECT `signal`, evidence_json FROM DocumentCandidate WHERE candidate_key = %s", (key,))
+                row = cur.fetchone()
+                if row is None:  # already a document
+                    continue
+                with self.subTest(key=key):
+                    evidence = json.loads(row["evidence_json"])
+                    self.assertEqual(row["signal"], "amendment")
+                    self.assertTrue(amended <= set(evidence["amends_ids"]))
+                    self.assertTrue(evidence["alias"].startswith("LEX OZE"))
+
+    def test_the_issuer_of_191_2022_is_the_labour_ministry(self):
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT puvodce FROM DocumentCandidate WHERE candidate_key = 'CZ:191/2022'")
+            row = cur.fetchone()
+        if row is not None:
+            self.assertEqual(row["puvodce"], "Ministerstvo práce a sociálních věcí")
 
     def test_every_other_row_states_why_it_is_not_a_document(self):
         for committed in self.coverage:

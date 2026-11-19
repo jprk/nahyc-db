@@ -82,6 +82,59 @@ class MatchingTestCase(unittest.TestCase):
         self.assertIsNone(self.classify(row("CDV", 36, cislo="ISO/TC 193"))["status"])
 
 
+class CandidateDetailsTestCase(unittest.TestCase):
+    """The details of mpo_decisions.json (`_candidates`) and the plan of the import."""
+
+    def test_the_issuer_of_a_row_can_be_overridden(self):
+        r = {**row("MPO", 42, cislo="191/2022 Sb."), "nositel": "MPO", "poznamka": None}
+        plain = mt.apply_details({"candidate_key": "CZ:191/2022", "evidence": {}}, r, {})
+        self.assertEqual(plain["puvodce"], "Ministerstvo průmyslu a obchodu")
+        fixed = mt.apply_details({"candidate_key": "CZ:191/2022", "evidence": {}}, r,
+                                 {"puvodce": "Ministerstvo práce a sociálních věcí"})
+        self.assertEqual(fixed["puvodce"], "Ministerstvo práce a sociálních věcí")
+
+    def test_an_amendment_carries_the_ids_of_the_amended_documents(self):
+        snapshot = mt.Snapshot(MatchingTestCase.DOCUMENTS, [])
+        candidate = mt.apply_details({"candidate_key": "CZ:19/2023", "evidence": {}},
+                                     {**row("MPO", 2), "nositel": "MPO", "poznamka": None},
+                                     {"signal": "amendment", "amends": ["CZ:458/2000", "CZ:406/2000"],
+                                      "alias": "LEX OZE I"})
+        self.assertEqual((candidate["signal"], candidate["evidence"]["alias"]), ("amendment", "LEX OZE I"))
+        self.assertEqual(mt.amends_ids(candidate, snapshot), [72])  # 406/2000 Sb. is not a document
+
+    def test_the_plan_of_the_import(self):
+        c = {"candidate_key": "CZ:19/2023"}
+        self.assertEqual(mt.planned_outcome(c, None), "inserted")
+        self.assertEqual(mt.planned_outcome(c, {"source": "mpo", "status": "new"}), "refreshed")
+        self.assertEqual(mt.planned_outcome(c, {"source": "mpo", "status": "deferred"}), "refreshed")
+        self.assertEqual(mt.planned_outcome(c, {"source": "citation", "status": "new"}), "evidence")
+        for status in ("proposed", "accepted", "rejected"):
+            self.assertEqual(mt.planned_outcome(c, {"source": "mpo", "status": status}), "kept")
+
+    def test_the_committed_details(self):
+        details = mt.load_candidate_details()
+        candidates = {c["candidate_key"]: c for c in mt.load_candidates()}
+        self.assertEqual(candidates["CZ:191/2022"]["puvodce"], "Ministerstvo práce a sociálních věcí")
+        for key, alias in (("CZ:19/2023", "LEX OZE I"), ("CZ:469/2023", "LEX OZE II"), ("CZ:87/2025", "LEX OZE III")):
+            with self.subTest(key=key):
+                self.assertEqual(details[key]["alias"], alias)
+                self.assertEqual(candidates[key]["evidence"]["alias"], alias)
+                self.assertEqual(candidates[key]["signal"], "amendment")
+                self.assertTrue({"CZ:458/2000", "CZ:165/2012"} <= set(candidates[key]["evidence"]["amends"]))
+        for key in details:
+            self.assertIn(key, candidates, "details of a key that is no candidate")
+
+    def test_the_parts_of_the_standard_series_are_valid_czech_adoptions(self):
+        parts = [c for c in mt.load_candidates() if any(r["row"] in ("MPO-48", "MPO-49")
+                                                        for r in c["evidence"]["mpo_rows"])]
+        self.assertEqual(len(parts), 20)
+        for c in parts:
+            with self.subTest(designation=c["designation"]):
+                self.assertTrue(c["designation"].startswith("ČSN EN "))
+                self.assertEqual(c["validity_status"], "platná")
+                self.assertNotIn("&", c["title"])
+
+
 class CommittedFilesTestCase(unittest.TestCase):
     """The committed conversion and coverage agree with each other and with the workbooks."""
 

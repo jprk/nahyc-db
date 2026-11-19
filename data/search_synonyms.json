@@ -1,5 +1,5 @@
 {
-  "_comment": "Slovník synonym pro vyhledávání v katalogu (doc/MPO_PRIPOMINKY.md, krok 2). Když dotaz obsahuje některý z výrazů v 'aliases' (celá slova, bez ohledu na velikost písmen), hledání najde navíc dokumenty, jejichž název nebo popis obsahuje některý z 'search_terms', a dokumenty s označením uvedeným v 'identifiers' (přesná shoda s Document.identifier; anglické varianty se zobrazí v řádku české). Každé označení musí v databázi existovat (hlídá tests/test_search.py). 'label' se zobrazí uživateli pod výsledky.",
+  "_comment": "Slovník synonym pro vyhledávání v katalogu (doc/MPO_PRIPOMINKY.md, krok 2). Když dotaz obsahuje některý z výrazů v 'aliases' (celá slova, bez ohledu na velikost písmen), hledání najde navíc dokumenty, jejichž název nebo popis obsahuje některý z 'search_terms', a dokumenty s označením uvedeným v 'identifiers' (přesná shoda s Document.identifier; anglické varianty se zobrazí v řádku české). Každé označení musí v databázi existovat, nebo být označením kandidáta zdroje MPO v data/20260430_MPO/mpo_candidates.json, jenž ve frontě nebyl zamítnut (hlídá tests/test_search.py); takové označení začne fungovat přijetím kandidáta. 'label' se zobrazí uživateli pod výsledky.",
   "entries": [
     {
       "label": "RFNBO (obnovitelná paliva nebiologického původu)",
@@ -33,10 +33,28 @@
     },
     {
       "label": "LEX OZE (novely zákona o podporovaných zdrojích energie a energetického zákona)",
-      "aliases": ["LEX OZE", "LEXOZE", "Lex OZE I", "Lex OZE II", "Lex OZE III"],
+      "aliases": ["LEX OZE", "LEXOZE"],
       "search_terms": ["podporovaných zdrojích energie"],
-      "identifiers": ["165/2012 Sb.", "458/2000 Sb."],
-      "note": "Balíčky LEX OZE jsou novely; v databázi jsou jen novelizované zákony 165/2012 Sb. a 458/2000 Sb. Samotné novely (např. 382/2021 Sb., 469/2023 Sb.) databáze neobsahuje — otevřená otázka v doc/MPO_PRIPOMINKY.md, odstavec 5."
+      "identifiers": ["165/2012 Sb.", "458/2000 Sb.", "19/2023 Sb.", "469/2023 Sb.", "87/2025 Sb."],
+      "note": "Novely LEX OZE I–III jsou zákony č. 19/2023 Sb., 469/2023 Sb. a 87/2025 Sb. (prezentace MPO, Konference energetiky a odpadového hospodářství 2025). Zatím jsou kandidáty ve frontě (data/20260430_MPO/mpo_candidates.json); vyhledávání je najde, jakmile je editoři přijmou. Dotaz „LEX OZE II“ spustí i tuto obecnou položku, protože alias se hledá jako celá slova."
+    },
+    {
+      "label": "LEX OZE I (zákon č. 19/2023 Sb., zjednodušení povolování obnovitelných zdrojů)",
+      "aliases": ["LEX OZE I", "LEX OZE 1"],
+      "search_terms": [],
+      "identifiers": ["19/2023 Sb."]
+    },
+    {
+      "label": "LEX OZE II (zákon č. 469/2023 Sb., komunitní energetika a sdílení elektřiny)",
+      "aliases": ["LEX OZE II", "LEX OZE 2"],
+      "search_terms": [],
+      "identifiers": ["469/2023 Sb."]
+    },
+    {
+      "label": "LEX OZE III (zákon č. 87/2025 Sb., akumulace, agregace a flexibilita)",
+      "aliases": ["LEX OZE III", "LEX OZE 3"],
+      "search_terms": [],
+      "identifiers": ["87/2025 Sb."]
     },
     {
       "label": "TEN-E (nařízení o transevropské energetické infrastruktuře)",
