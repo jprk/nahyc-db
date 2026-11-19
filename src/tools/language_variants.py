@@ -21,7 +21,17 @@ import re
 from language import normalize_raw_language
 
 EN_SUFFIX = " [EN]"
+# A Slovak text of an EU act listed by the Sinay spreadsheet is filed under
+# `<designation> [SK]` by a correction in data/manual_corrections.json (its rows
+# carry no designation of their own, or a Slovak spelling of it that would
+# collide under utf8mb4_czech_ci); it is joined to the Czech text the same way.
+SK_SUFFIX = " [SK]"
+VARIANT_SUFFIXES = (EN_SUFFIX, SK_SUFFIX)
 RELATION_TYPE = "TRANSLATION_OF"
+RELATION_NOTES = {
+    EN_SUFFIX: "Anglická a česká jazyková verze téhož aktu (jazykové varianty rozdělené z jednoho záznamu).",
+    SK_SUFFIX: "Slovenská a česká jazyková verze téhož aktu.",
+}
 
 # What differs between the two spreadsheet rows of one act; everything else
 # (type, validity, jurisdiction, ...) is shared and stays as deduplicated.
@@ -116,17 +126,32 @@ def expand_variants(deduplicated, pairs):
     return records
 
 
+def variant_suffix(designation):
+    """The language-variant suffix (`EN_SUFFIX`, `SK_SUFFIX`) `designation` ends
+    with, or None."""
+    for suffix in VARIANT_SUFFIXES:
+        if (designation or "").endswith(suffix):
+            return suffix
+    return None
+
+
+def is_variant(designation):
+    """True for the designation of a language variant (`… [EN]`, `… [SK]`)."""
+    return variant_suffix(designation) is not None
+
+
 def translation_relations(records):
-    """The `TRANSLATION_OF` relations (English variant -> Czech original, the
-    shape load_document_relations.py reads) of a corpus that holds the variants."""
+    """The `TRANSLATION_OF` relations (English or Slovak variant -> Czech
+    original, the shape load_document_relations.py reads) of a corpus that holds
+    the variants."""
     designations = {(record.get("znacka") or "").strip() for record in records}
     relations = []
     for designation in sorted(designations):
-        original = designation[:-len(EN_SUFFIX)]
-        if designation.endswith(EN_SUFFIX) and original in designations:
+        suffix = variant_suffix(designation)
+        original = designation[:-len(suffix)] if suffix else None
+        if suffix and original in designations:
             relations.append({"from_identifier": designation, "to_identifier": original,
-                              "relation_type": RELATION_TYPE,
-                              "note": "Anglická a česká jazyková verze téhož aktu (jazykové varianty rozdělené z jednoho záznamu)."})
+                              "relation_type": RELATION_TYPE, "note": RELATION_NOTES[suffix]})
     return relations
 
 

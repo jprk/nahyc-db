@@ -642,16 +642,20 @@ def fetch_document_detail(db, slug):
         cur.execute('''
             SELECT r.relation_type, 'from' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
-                   o.title AS other_title, o.identifier AS other_identifier
+                   o.title AS other_title, o.identifier AS other_identifier,
+                   o.language AS other_language, ot.name AS other_type
             FROM document_relation r
             JOIN Document o ON o.id = r.to_document_id
+            LEFT JOIN DocumentType ot ON ot.id = o.type_id
             WHERE r.from_document_id = %s
             UNION ALL
             SELECT r.relation_type, 'to' AS direction, r.note,
                    o.id AS other_id, o.slug AS other_slug,
-                   o.title AS other_title, o.identifier AS other_identifier
+                   o.title AS other_title, o.identifier AS other_identifier,
+                   o.language AS other_language, ot.name AS other_type
             FROM document_relation r
             JOIN Document o ON o.id = r.from_document_id
+            LEFT JOIN DocumentType ot ON ot.id = o.type_id
             WHERE r.to_document_id = %s
         ''', (document['id'], document['id']))
         relations = cur.fetchall()

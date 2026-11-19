@@ -93,6 +93,18 @@ class ExpandTestCase(unittest.TestCase):
     def test_no_relation_without_the_original(self):
         self.assertEqual(lv.translation_relations([row("EN", znacka="x [EN]")]), [])
 
+    def test_a_slovak_variant_is_a_translation_of_the_czech_original_too(self):
+        relations = lv.translation_relations([row("CZ", znacka="COM(2020) 301"), row("SK", znacka="COM(2020) 301 [SK]"),
+                                              row("SK", znacka="(EU) 1/2 [SK]")])
+        self.assertEqual([(r["from_identifier"], r["to_identifier"], r["relation_type"]) for r in relations],
+                         [("COM(2020) 301 [SK]", "COM(2020) 301", "TRANSLATION_OF")])
+        self.assertIn("Slovenská", relations[0]["note"])
+
+    def test_variant_designations(self):
+        self.assertTrue(lv.is_variant("x [EN]") and lv.is_variant("x [SK]"))
+        self.assertFalse(lv.is_variant("x"))
+        self.assertEqual(lv.variant_suffix("x [SK]"), lv.SK_SUFFIX)
+
 class GestorCacheTestCase(unittest.TestCase):
     def test_the_english_address_gets_the_gestor_of_the_czech_original(self):
         pairs = lv.variant_pairs([row("CZ"), row("EN")])

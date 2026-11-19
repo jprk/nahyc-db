@@ -17,6 +17,7 @@ verified, non-guessing SPARQL path from those shapes to a CELEX id was
 found; `extract()` returns None for them rather than guessing one.
 """
 import re
+import urllib.parse
 
 import requests
 
@@ -367,4 +368,60 @@ def fetch_responsible_gestor(url, identifier=None, title=None, type_name=None, s
         label, resolved = _gestor_from_resource_uri(session, resource_uri)
         if resolved:
             return label
+    return None
+
+
+# --- The text of an act from Cellar (doc/MPO_PRIPOMINKY.md, 2026-11-19) ------
+# EUR-Lex answers automated clients with a firewall challenge (HTTP 202); the
+# Publications Office's own repository, Cellar, serves the same documents to
+# any client by content negotiation on the work's CELEX URI. The language is
+# negotiated with Accept-Language (ISO 639-2/B code), the format with Accept.
+# A work with several items (an act and its annexes in separate files) answers
+# 300 with a list of them; the main document is always `DOC_1`.
+CELLAR_CELEX_URI = "http://publications.europa.eu/resource/celex/{celex}"
+_LANGUAGE_IN_URL_RE = re.compile(r"/legal-content/([A-Z]{2})/")
+_ELI_LANGUAGE_RE = re.compile(r"/eli/.+/oj/([a-z]{3})(?:[/?#]|$)")
+_CELLAR_LANGUAGES = {"CS": "ces", "SK": "slk", "EN": "eng", "DE": "deu", "PL": "pol", "FR": "fra"}
+_MAIN_ITEM_RE = re.compile(r'href="(http://publications\.europa\.eu/resource/cellar/[^"]+/DOC_1)"')
+HTML_FORMATS = ("application/xhtml+xml", "text/html")
+# Cellar files the PDF of an act under one of these profiles (PDF/A-1a for most acts).
+PDF_FORMATS = ("application/pdf;type=pdfa1a", "application/pdf;type=pdf1x", "application/pdf;type=pdfa2a",
+               "application/pdf;type=pdfa1b", "application/pdf;type=pdfx")
+
+
+def cellar_language(url):
+    """The Cellar language code of the EUR-Lex address `url`: its `legal-content/XX/`
+    segment or the language of its ELI (`.../oj/ces`); English when it names none
+    (what EUR-Lex itself serves then)."""
+    m = _LANGUAGE_IN_URL_RE.search(url or "")
+    if m and m.group(1) in _CELLAR_LANGUAGES:
+        return _CELLAR_LANGUAGES[m.group(1)]
+    m = _ELI_LANGUAGE_RE.search(url or "")
+    return m.group(1) if m else "eng"
+
+
+def fetch_cellar_document(url, session=None, timeout=60):
+    """(status, content, content type) of the document the EUR-Lex address `url`
+    names, downloaded from Cellar in the language of the address: a PDF for a
+    `TXT/PDF` address, else XHTML (or HTML); None when the address carries no
+    CELEX number or Cellar has no such manifestation."""
+    celex = celex_from_url(url)
+    if not celex:
+        return None
+    session = session or requests.Session()
+    formats = PDF_FORMATS if "/TXT/PDF/" in url else HTML_FORMATS
+    headers = {"Accept-Language": cellar_language(url), "User-Agent": USER_AGENT}
+    for accept in formats:
+        try:
+            resp = session.get(CELLAR_CELEX_URI.format(celex=urllib.parse.quote(celex, safe="")), timeout=timeout,
+                               headers={**headers, "Accept": accept})
+            if resp.status_code == 300:
+                m = _MAIN_ITEM_RE.search(resp.text)
+                if not m:
+                    continue
+                resp = session.get(m.group(1), timeout=timeout, headers={**headers, "Accept": accept})
+        except requests.RequestException:
+            continue
+        if resp.status_code == 200 and resp.content:
+            return resp.status_code, resp.content, resp.headers.get("Content-Type", accept)
     return None

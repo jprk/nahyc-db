@@ -38,11 +38,14 @@ import hashlib
 import json
 import pathlib
 import re
+import sys
 import time
 
 import requests
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))  # src/, for sites/
 import language_variants
+from sites.eurlex import fetch_cellar_document  # noqa: E402
 from fulltext_keys import first_url, url_designation  # noqa: F401 (first_url is part of this module's API)
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -221,7 +224,7 @@ def iter_fetch_targets(raw_data, overrides=None):
 
 
 def extension_from_url(url, content_type=None):
-    m = re.search(r"\.(pdf|html?|xml)(?:[?#]|$)", url, re.IGNORECASE)
+    m = re.search(r"\.(pdf|html?|xml|docx)(?:[?#]|$)", url, re.IGNORECASE)
     if m:
         ext = m.group(1).lower()
         return "html" if ext == "htm" else ext
@@ -423,20 +426,27 @@ def fetch_one(session, record, url_field, url):
     too, and is never written to disk."""
     znacka = record["znacka"].strip()
     now = datetime.datetime.now().isoformat(timespec="seconds")
-    try:
-        resp = session.get(url, timeout=30)
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        return {
-            "status": "failed",
-            "url": url,
-            "http_status": getattr(exc.response, "status_code", None),
-            "error": str(exc),
-            "fetched_at": now,
-        }
-    status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
+    # An EUR-Lex address with a CELEX number is downloaded from Cellar, the
+    # Publications Office's repository (src/sites/eurlex.py): EUR-Lex itself
+    # answers automated clients with a firewall challenge.
+    from_cellar = fetch_cellar_document(url) if "eur-lex.europa.eu" in url else None
+    if from_cellar:
+        status, content, content_type = from_cellar
+    else:
+        try:
+            resp = session.get(url, timeout=30)
+            resp.raise_for_status()
+        except requests.RequestException as exc:
+            return {
+                "status": "failed",
+                "url": url,
+                "http_status": getattr(exc.response, "status_code", None),
+                "error": str(exc),
+                "fetched_at": now,
+            }
+        status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
 
-    if needs_browser(url, status, content):
+    if not from_cellar and needs_browser(url, status, content):
         browsed = fetch_with_browser(url)
         if browsed:
             status, content, content_type = browsed

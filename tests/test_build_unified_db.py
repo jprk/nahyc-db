@@ -1,3 +1,4 @@
+import json
 import pathlib
 import sys
 import unittest
@@ -476,6 +477,19 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         apply_authoritative_metadata(record, cache)
         self.assertEqual(record["nazev_autoritativni"], "T")
         self.assertEqual(record["popis_autoritativni"], "D")
+
+    def test_eiga_key_only_for_an_eiga_designation(self):
+        # doc/MPO_PRIPOMINKY.md: "UNECE Regulation No. 100" and DVGW "G 100 (A)"
+        # got the title of EIGA Doc 100 from the first digit run of their designation.
+        cache = {"eiga:100": {"status": "fetched", "title": "DOC 100 / 20", "description": "D",
+                              "zdroj_esbirka_url": None}}
+        for znacka in ("UNECE Regulation No. 100 (Revision 2)", "G 100 (A)"):
+            record = {"znacka": znacka, "odkaz_hlavni": "https://www.dvgw.de/"}
+            apply_authoritative_metadata(record, cache)
+            self.assertNotIn("nazev_autoritativni", record, znacka)
+        record = {"znacka": "EIGA IGC Doc 100/20", "odkaz_hlavni": "https://www.eiga.eu/"}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "DOC 100 / 20")
 
     def test_iec_key_used_when_no_url_or_csn_stn_eiga_match(self):
         # doc/PLAN.md §25: IEC records store only the webstore.iec.ch
@@ -1060,6 +1074,122 @@ class CommittedKrok0RestTestCase(unittest.TestCase):
         self.assertEqual(entry["local_path"].rsplit("/", 1)[-1], ff.flat_name("492/2010 Z. z.", entry["sha256"], "html"))
         for key in ("Haltuf_Dokumenty|(EU) 2014/1302|odkaz_hlavni", "Haltuf_Dokumenty|(EU) 2014/1302 [EN]|odkaz_hlavni"):
             self.assertIn("CELEX:32014R1302", manifest[key]["url"], key)
+
+
+class CommittedKrok1DataFixesTestCase(unittest.TestCase):
+    """data/manual_corrections.json, data/strategy_documents.json and the committed
+    pipeline outputs: the data fixes of doc/MPO_PRIPOMINKY.md, krok 1 (Slovak
+    variants of EU acts, originator of 250/2012 Z. z., 2012/18/EU, ČSN ISO 19880-1,
+    UN Regulation No 100, the type „Strategie“ and the strategies of priority A and B)."""
+
+    SLOVAK = {"(EU) 2022/2427 [SK]": "(EU) 2022/2427", "COM(2020) 301 [SK]": "COM(2020) 301",
+              "(EU) 2018/858 [SK]": "(EU) 2018/858", "(EU) 2024/1788 [SK]": "(EU) 2024/1788"}
+
+    @classmethod
+    def setUpClass(cls):
+        import build_unified_db as b
+        cls.b = b
+        cls.raw = b.load_json(b.REPO_ROOT / "data" / "database_merged_raw.json")
+        cls.deduplicated = b.load_json(b.REPO_ROOT / "data" / "database_merged_deduplicated.json")
+        cls.variants = b.load_json(b.REPO_ROOT / "data" / "document_relations_variants.json")
+        cls.by_znacka = {}
+        for record in cls.deduplicated:
+            cls.by_znacka.setdefault((record.get("znacka") or "").strip(), []).append(record)
+
+    def test_every_slovak_variant_is_a_translation_of_the_czech_text(self):
+        pairs = {(r["from_identifier"], r["to_identifier"]) for r in self.variants if r["relation_type"] == "TRANSLATION_OF"}
+        for slovak, czech in self.SLOVAK.items():
+            self.assertEqual(len(self.by_znacka[slovak]), 1, slovak)
+            self.assertEqual(len(self.by_znacka[czech]), 1, czech)
+            self.assertIn((slovak, czech), pairs)
+            self.assertIn("/SK/", self.by_znacka[slovak][0].get("zdroj_autoritativni_url")
+                          or self.by_znacka[slovak][0]["odkaz_hlavni"], slovak)
+        self.assertNotIn("2018/858/ES", self.by_znacka)
+
+    def test_the_czech_hydrogen_strategy_of_the_eu_is_a_strategy(self):
+        [czech] = self.by_znacka["COM(2020) 301"]
+        self.assertEqual(czech["typ_dokumentu"], "Strategie")
+        self.assertIn("/CS/", czech["zdroj_autoritativni_url"])
+        self.assertEqual(self.by_znacka["COM(2020) 301 [SK]"][0]["typ_dokumentu"], "Strategie")
+
+    def test_no_slovak_designation_collides_under_the_czech_collation(self):
+        import unicodedata
+
+        def folded(text):
+            return "".join(c for c in unicodedata.normalize("NFKD", text.casefold()) if not unicodedata.combining(c))
+        designations = [folded((r.get("znacka") or "").strip()) for r in self.deduplicated if r.get("znacka")]
+        for znacka in list(self.SLOVAK) + list(self.SLOVAK.values()) + ["ČSN ISO 19880-1"]:
+            self.assertEqual(designations.count(folded(znacka)), 1, znacka)
+
+    def test_the_originator_of_250_2012_is_the_slovak_ministry_of_economy(self):
+        [record] = self.by_znacka["250/2012 Z. z."]
+        self.assertEqual(record["gestor"], ["Ministerstvo hospodárstva Slovenskej republiky"])
+
+    def test_2012_18_eu_is_seveso_iii_in_both_languages(self):
+        [czech] = self.by_znacka["2012/18/EU"]
+        [english] = self.by_znacka["2012/18/EU [EN]"]
+        for record in (czech, english):
+            self.assertIn("32012L0018", record["odkaz_hlavni"])
+            self.assertNotIn("2014/34", record.get("nazev_autoritativni") or record["nazev_cz"])
+        self.assertIn("/CS/", czech["odkaz_hlavni"])
+        self.assertTrue(czech["nazev_autoritativni"].startswith("Směrnice Evropského parlamentu a Rady 2012/18/EU"))
+
+    def test_the_czech_standard_19880_1_is_an_iso_adoption(self):
+        self.assertNotIn("ČSN EN ISO 19880-1", self.by_znacka)
+        [record] = self.by_znacka["ČSN ISO 19880-1"]
+        self.assertIn("k=522022", record["zdroj_autoritativni_url"])
+
+    def test_un_regulation_100_and_eiga_doc_100_are_two_documents(self):
+        [regulation] = self.by_znacka["UNECE Regulation No. 100 (Revision 2)"]
+        self.assertEqual(regulation["zdroj_dat"], "Haltuf_Dokumenty")
+        self.assertIn("electric power train", regulation["nazev_autoritativni"])
+        self.assertEqual(regulation["gestor"], ["Evropská hospodářská komise Organizace spojených národů"])
+        self.assertNotIn("eiga", json.dumps(regulation).lower())
+        [publication] = self.by_znacka["EIGA IGC Doc 100/20"]
+        self.assertIn("Hydrogen Cylinders", publication["nazev_autoritativni"])
+        [dvgw] = self.by_znacka["G 100 (A)"]
+        self.assertFalse(dvgw.get("nazev_autoritativni"))
+
+    def test_the_type_is_called_strategie(self):
+        for records in (self.raw, self.deduplicated):
+            self.assertFalse([r for r in records if r.get("typ_dokumentu") == "Strategický dokument"])
+
+    def test_the_strategies_of_priority_a_and_b_are_documents(self):
+        strategies = self.b.load_json(self.b.REPO_ROOT / "data" / "strategy_documents.json")
+        self.assertEqual(len(strategies), 13)
+        designations = {(r.get("znacka") or "") for r in strategies}
+        for expected in ("COM(2022) 230", "COM(2021) 550", "COM(2020) 299", "COM(2023) 156", "COM(2025) 85",
+                         "COM(2026) 370", "COM(2019) 640", "COM(2020) 789", "COM(2023) 62"):
+            self.assertIn(expected, designations)
+            self.assertEqual(len(self.by_znacka[expected]), 1, expected)
+        for record in strategies:
+            self.assertEqual(record["typ_dokumentu"], "Strategie")
+            self.assertTrue(record["anotace_poznamka"] and record["provenance"] and record["platnost"])
+            self.assertNotIn("PLAN.md", record["anotace_poznamka"])
+            self.assertNotIn("strategy_candidates", record["anotace_poznamka"])
+        deduplicated = [r for r in self.deduplicated if r.get("zdroj_dat") == "Strategy_Research"]
+        self.assertEqual(len(deduplicated), 13)
+
+    def test_the_2019_clean_mobility_plan_is_superseded_by_the_2024_one(self):
+        from fulltext_keys import url_designation
+        relations = self.b.load_json(self.b.REPO_ROOT / "data" / "document_relations.json")
+        new = url_designation("https://mpo.gov.cz/assets/cz/prumysl/zpracovatelsky-prumysl/automobilovy-prumysl/2024/10/"
+                              "2-Aktualizace-NAP-CM.docx")
+        replaced = {r["to_identifier"] for r in relations if r["from_identifier"] == new and r["relation_type"] == "REPEALS"}
+        self.assertEqual(replaced, {"url-7ee3a2b4", "url-95efd271"})
+        corrections = self.b.load_json(self.b.MANUAL_CORRECTIONS_PATH)
+        for key in replaced:
+            self.assertEqual(corrections[key]["changes"]["stav_dokumentu"], "superseded")
+            [record] = [r for r in self.deduplicated if self.b.correction_key(r) == key]
+            self.assertEqual(record.get("stav_dokumentu"), "superseded")
+
+    def test_the_full_text_manifest_follows_the_new_designations(self):
+        import fetch_fulltext as ff
+        manifest = ff.load_manifest()
+        for old in ("url-e18c5e80", "url-86dc0d38", "url-fd143b87", "2018/858/ES", "ČSN EN ISO 19880-1"):
+            self.assertEqual([k for k in manifest if f"|{old}|" in k], [], old)
+        self.assertIn("CELEX:32012L0018", manifest["Haltuf_Dokumenty|2012/18/EU|odkaz_hlavni"]["url"])
+        self.assertIn("/CS/", manifest["Sinay_Zakony|COM(2020) 301|odkaz_hlavni"]["url"])
 
 
 if __name__ == "__main__":
