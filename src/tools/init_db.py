@@ -541,8 +541,9 @@ def import_json_data(db_conn):
              effective_date, identifier, jurisdikce, file_path,
              needs_review, review_reason,
              zdroj_dat, nazev_autoritativni, popis_autoritativni,
-             zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny,
+             provenance)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
               effective_date, identifier, jurisdikce, file_path,
               needs_review, review_reason,
@@ -552,7 +553,10 @@ def import_json_data(db_conn):
               # doc/PLAN.md §17: deliberately NOT folded into `description`
               # — a synthesized summary must stay distinguishable from a
               # scope text fetched from the publisher.
-              item.get("popis_priblizny") or None))
+              item.get("popis_priblizny") or None,
+              # doc/MPO_PRIPOMINKY.md, krok 0: which script/source added the
+              # record — internal, never rendered on the public pages.
+              (item.get("provenance") or "").strip() or None))
 
         doc_id = cursor.lastrowid
 

@@ -231,6 +231,13 @@ ALTER TABLE DocumentVersion
 ALTER TABLE Document
   ADD COLUMN popis_priblizny TEXT NULL;
 
+-- doc/MPO_PRIPOMINKY.md, krok 0 (2026-11-19): původ záznamu (který skript
+-- nebo zdroj jej doplnil, odkaz na doc/PLAN.md). Dříve se psal do popisu
+-- (`anotace_poznamka` → `Document.description`) a byl tak veřejně vidět
+-- jako popis dokumentu. Interní údaj, veřejné stránky jej nezobrazují.
+ALTER TABLE Document
+  ADD COLUMN provenance TEXT NULL;
+
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a
 -- `src/tools/init_db.py` při každém běhu tabulku TRUNCATE-uje a nahrává

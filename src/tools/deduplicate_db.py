@@ -340,7 +340,7 @@ def programmatic_merge(cluster_records):
                 sources.append(src)
         for field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk", "nazev_eu", "nazev_sk",
                       "platnost", "ratifikovan", "jazyk", "typ_dokumentu", "sekce",
-                      "kategorie_trida", "anotace_poznamka",
+                      "kategorie_trida", "anotace_poznamka", "provenance",
                       # doc/PLAN.md §9, 2026-09-13: a real bug found live —
                       # "best" (longest nazev_cz) isn't necessarily the
                       # cluster member that actually resolved an

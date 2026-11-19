@@ -124,7 +124,7 @@ class BuildDocumentRecordTestCase(unittest.TestCase):
         self.assertEqual(record["jurisdikce"], "CZ")
         self.assertEqual(record["gestor"], [])
         self.assertEqual(record["jazyk"], "")
-        self.assertIn("HYTEP", record["anotace_poznamka"])
+        self.assertIn("HYTEP", record["provenance"])
 
 
 if __name__ == "__main__":

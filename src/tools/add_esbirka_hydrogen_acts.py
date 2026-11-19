@@ -379,7 +379,8 @@ def build_document_record(znacka, title, doc_type, url, candidate, snippet):
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": (
+        "anotace_poznamka": "",
+        "provenance": (
             f"Nalezeno screeningem e-Sbírky (odpovídající fragment: "
             f"{snippet[:150]!r}, doc/PLAN.md §30), ověřeno živě proti "
             f"zakonyprolidi.cz před doplněním."),
