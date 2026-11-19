@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
 import document_states
+import eu_act_subtype
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
@@ -542,8 +543,8 @@ def import_json_data(db_conn):
              needs_review, review_reason,
              zdroj_dat, nazev_autoritativni, popis_autoritativni,
              zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny,
-             provenance)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             provenance, eu_act_subtype)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
               effective_date, identifier, jurisdikce, file_path,
               needs_review, review_reason,
@@ -556,7 +557,9 @@ def import_json_data(db_conn):
               item.get("popis_priblizny") or None,
               # doc/MPO_PRIPOMINKY.md, krok 0: which script/source added the
               # record — internal, never rendered on the public pages.
-              (item.get("provenance") or "").strip() or None))
+              (item.get("provenance") or "").strip() or None,
+              # doc/MPO_PRIPOMINKY.md, krok 2: delegated / implementing EU act.
+              eu_act_subtype.classify(title, url, jurisdikce)))
 
         doc_id = cursor.lastrowid
 

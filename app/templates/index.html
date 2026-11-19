@@ -17,7 +17,7 @@
         <div class="search-main-input-wrapper">
             <i class="ph ph-magnifying-glass search-icon"></i>
             <input type="text" name="q" class="search-input"
-                placeholder="Hledat v názvu nebo popisu... (např. Energetický zákon)"
+                placeholder="Hledat v názvu, popisu nebo označení... (např. Energetický zákon, RFNBO)"
                 value="{{ request.args.get('q', '') }}">
             <button type="submit" class="btn-primary">Vyhledat <i class="ph ph-arrow-right"></i></button>
         </div>
@@ -28,8 +28,24 @@
                 <select name="type_id" class="filter-select" onchange="this.form.submit()">
                     <option value="">-- Všechny typy --</option>
                     {% for t in types %}
-                    <option value="{{ t.id }}" {% if request.args.get('type_id')==t.id|string %}selected{% endif %}>{{
+                    <option value="{{ t.id }}" {% if selected_type==t.id|string %}selected{% endif %}>{{
                         t.name }}</option>
+                    {% endfor %}
+                    {% if subtypes %}
+                    <optgroup label="Podtyp aktu EU">
+                        {% for t in subtypes %}
+                        <option value="{{ t.id }}" {% if selected_type==t.id %}selected{% endif %}>{{ t.name }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endif %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Jurisdikce</label>
+                <select name="jurisdikce" class="filter-select" onchange="this.form.submit()">
+                    {% for value, label in jurisdiction_options %}
+                    <option value="{{ value }}" {% if selected_jurisdiction==value %}selected{% endif %}>{% if not value %}-- {{ label }} --{% else %}{{ label }}{% endif %}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -38,9 +54,13 @@
                 <label>Odpovědný Orgán / DG</label>
                 <select name="source_id" class="filter-select" onchange="this.form.submit()">
                     <option value="">-- Všechny zdroje --</option>
-                    {% for s in sources %}
-                    <option value="{{ s.id }}" {% if request.args.get('source_id')==s.id|string %}selected{% endif %}>{{
-                        s.name }}</option>
+                    {% for group in source_groups %}
+                    <optgroup label="{{ group.label }}">
+                        {% for s in group.sources %}
+                        <option value="{{ s.id }}" {% if request.args.get('source_id')==s.id|string %}selected{% endif %}>{{
+                            s.name }}</option>
+                        {% endfor %}
+                    </optgroup>
                     {% endfor %}
                 </select>
             </div>
@@ -76,6 +96,13 @@
             {{ (page - 1) * page_size + 1 }}–{{ (page - 1) * page_size + documents|length }}.</p>
         {% endif %}
     </div>
+    {% if synonyms %}
+    <p class="synonym-note"><i class="ph ph-arrows-split"></i>
+        Hledání zahrnuje i synonyma:
+        {% for entry in synonyms %}<span class="synonym-label">{{ entry.label }}</span>{% if not loop.last %}, {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+    <p class="results-hint">Jazykové verze téhož předpisu jsou v jednom řádku; štítky CS/EN vedou na jednotlivé verze.</p>
 
     {% if documents %}
     <div class="table-glass-container">
@@ -90,7 +117,7 @@
             <div class="table-body">
                 {% for doc in documents %}
                 <!-- Document Row Summary -->
-                <div class="document-row">
+                <div class="document-row" data-slug="{{ doc.slug }}" data-identifier="{{ doc.identifier or '' }}">
                     <div class="row-visible">
                         <div class="td col-type">
                             <span class="type-tag">{{ doc.type_name if doc.type_name else 'Neznámý' }}</span>
@@ -104,8 +131,19 @@
                                     <i class="ph {{ badge.icon }}"></i> {{ badge.label }}
                                 </span>
                                 {% endif %}
-                                {% if doc.language %}
+                                {% if doc.variants %}
+                                <span class="language-variants" title="Jazykové verze tohoto předpisu">
+                                    <i class="ph ph-translate"></i>
+                                    {% for v in doc.variants %}
+                                    <a class="lang-chip{% if v.is_self %} is-self{% endif %}" lang="{{ v.language|lower }}"
+                                       href="{{ url_for('document_detail', slug=v.slug) }}">{{ v.language }}</a>
+                                    {% endfor %}
+                                </span>
+                                {% elif doc.language %}
                                 <span class="meta-tag"><i class="ph ph-translate"></i> {{ doc.language }}</span>
+                                {% endif %}
+                                {% if doc.eu_subtype_label %}
+                                <span class="subtype-tag">{{ doc.eu_subtype_label }}</span>
                                 {% endif %}
                                 {% if doc_tags.get(doc.id) %}
                                 {% for tag in doc_tags[doc.id] %}

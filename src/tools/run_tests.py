@@ -4,7 +4,8 @@ Order of a session (see CLAUDE.md, "Jak se testuje aplikace"):
   1. take the server-wide test-suite lock (a second session fails at once, or
      waits with --wait N) — skipped for --unit alone, which touches no database;
   2. refresh the test database (`.env.test`) from the main one (`.env`) —
-     `refresh_test_db.py`; the main database is only read;
+     `refresh_test_db.py`; the main database is only read — and apply this
+     branch's pending schema migrations to it (`TEST_DB_MIGRATIONS`);
   3. unit tests (no database), then the database-backed tests
      (`INTEGRATION_MODULES`) — both with the environment of `.env.test`, so
      nothing in the session can read or write the real database;
@@ -42,6 +43,12 @@ E2E_DIR = TESTS_DIR / "e2e"
 INTEGRATION_MODULES = ("test_admin", "test_search", "test_candidates_admin", "test_mpo_golden")
 
 SMOKE_PAGES = ("/", "/procesy", "/export/csv", "/admin/login")
+
+# Schema migrations of this branch that the live database (and so a fresh copy of
+# it) may not have yet; each is idempotent and is applied to the TEST database
+# after the refresh (`--apply --quiet --env-file <test env>`). Remove an entry
+# once the live database has been migrated.
+TEST_DB_MIGRATIONS = ("backfill_eu_act_subtype.py",)
 
 
 def split_modules(tests_dir=TESTS_DIR):
@@ -88,6 +95,19 @@ def extract_clean_texts(env):
                             capture_output=True, text=True)
     summary = [line.strip() for line in result.stdout.splitlines() if "extracted" in line]
     print("clean texts:", "; ".join(summary) if summary else f"extraction exited with {result.returncode}")
+
+
+def apply_test_db_migrations(target_env_file, env, migrations=TEST_DB_MIGRATIONS):
+    """Runs every migration of TEST_DB_MIGRATIONS on the test database; True when all succeeded."""
+    ok = True
+    for name in migrations:
+        script = REPO_ROOT / "src" / "tools" / name
+        result = subprocess.run([sys.executable, str(script), "--apply", "--quiet", "--env-file", str(target_env_file)],
+                                cwd=REPO_ROOT, env=env, capture_output=True, text=True)
+        last = (result.stdout.strip().splitlines() or [result.stderr.strip()])[-1:]
+        print(f"migration {name}: {' '.join(last)}")
+        ok = ok and result.returncode == 0
+    return ok
 
 
 def run_unittest(args, env):
@@ -140,6 +160,8 @@ def main(argv=None):
                 lock.__enter__()
                 if not args.no_refresh:
                     testdb.refresh_test_db(source, target, lock)
+                results.append(("migrations", apply_test_db_migrations(
+                    testdb.find_env_file(args.target_env), env)))
             if run_integration or run_e2e:
                 testdb.ensure_fulltext_dir()
 

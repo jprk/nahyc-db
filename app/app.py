@@ -42,6 +42,7 @@ app.secret_key = os.environ["SECRET_KEY"]
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from admin import admin_bp  # noqa: E402
 import candidates_admin  # noqa: E402,F401  (registers the /admin/candidates pages on admin_bp)
+import catalog_filters  # noqa: E402
 
 app.register_blueprint(admin_bp, url_prefix="/admin")
 
@@ -112,12 +113,45 @@ def inject_footer_info():
         "db_last_updated": get_db_last_updated(get_db()),
     }
 
+# doc/MPO_PRIPOMINKY.md, krok 2: an English (or other) language variant of an
+# act is its own Document linked to the original by TRANSLATION_OF (variant ->
+# original, src/tools/language_variants.py). The catalogue shows one row per act:
+# the original, with the variants as language links in that row.
+TRANSLATION_JOIN = ("LEFT JOIN document_relation tr ON tr.from_document_id = d.id "
+                    "AND tr.relation_type = 'TRANSLATION_OF'")
+NOT_A_TRANSLATION = ("NOT EXISTS (SELECT 1 FROM document_relation tr WHERE tr.from_document_id = d.id "
+                     "AND tr.relation_type = 'TRANSLATION_OF')")
+
+# Optional columns a newer migration adds (src/tools/backfill_eu_act_subtype.py);
+# the app keeps working without them until the migration has run on that database.
+_present_columns = set()
+
+
+def has_column(db, table, column):
+    """Whether `table.column` exists in the connected database. Only a positive
+    answer is cached: after the migration the feature appears without a restart."""
+    if (table, column) in _present_columns:
+        return True
+    with db.cursor() as cur:
+        cur.execute("SELECT 1 AS present FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() "
+                    "AND TABLE_NAME = %s AND COLUMN_NAME = %s", (table, column))
+        found = cur.fetchone() is not None
+    if found:
+        _present_columns.add((table, column))
+    return found
+
+
 def get_filters():
+    """Menu contents. Only sources that are the původce of at least one
+    document are offered (doc/MPO_PRIPOMINKY.md, připomínka 1: an empty
+    "Evropská centrální banka" used to stay in the menu), grouped by
+    data/source_groups.json."""
     db = get_db()
     with db.cursor() as cur:
         cur.execute("SELECT id, name FROM DocumentType ORDER BY name")
         types = cur.fetchall()
-        cur.execute("SELECT id, name FROM DocumentSource ORDER BY name")
+        cur.execute("SELECT ds.id, ds.name, ds.jurisdiction FROM DocumentSource ds "
+                    "WHERE EXISTS (SELECT 1 FROM Document d WHERE d.source_id = ds.id) ORDER BY ds.name")
         sources = cur.fetchall()
         cur.execute("SELECT id, keyword FROM Keyword ORDER BY keyword")
         keywords = cur.fetchall()
@@ -126,10 +160,11 @@ def get_filters():
 
 def get_total_document_count(db):
     """Real count for the hero section's "Search N documents" headline
-    (used to be a hardcoded placeholder, "300") — every Document row,
-    regardless of lifecycle state."""
+    (used to be a hardcoded placeholder, "300") — every act regardless of
+    lifecycle state, a language variant (TRANSLATION_OF) not counted
+    separately, so that it equals the row count of the unfiltered list."""
     with db.cursor() as cur:
-        cur.execute("SELECT COUNT(*) AS c FROM Document")
+        cur.execute(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_A_TRANSLATION}")
         row = cur.fetchone()
     return row["c"] if row else 0
 
@@ -143,12 +178,14 @@ def get_active_document_count(db):
     alongside it is derived as total - active, not a separate query — so
     the two numbers always add up to the headline total even for the
     (currently nonexistent) edge case of a Document with no current
-    version row at all."""
+    version row at all. Language variants are not counted (see
+    get_total_document_count())."""
     with db.cursor() as cur:
-        cur.execute('''
+        cur.execute(f'''
             SELECT COUNT(DISTINCT d.id) AS c FROM Document d
             JOIN DocumentVersion dv ON dv.document_id = d.id
             WHERE dv.is_current = 1 AND dv.lifecycle_state = 'active'
+              AND {NOT_A_TRANSLATION}
         ''')
         row = cur.fetchone()
     return row["c"] if row else 0
@@ -263,31 +300,56 @@ def review_badge(doc):
 
 
 def parse_filters(args):
-    """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the four
-    recognized search/filter query params into a plain dict, shared by
-    index() and /export/<fmt> so both apply identical filtering."""
+    """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the recognized
+    search/filter query params into a plain dict, shared by index() and
+    /export/<fmt> so both apply identical filtering.
+
+    doc/MPO_PRIPOMINKY.md, krok 2: `type_id` may also name an EU act subtype
+    ("podtyp-delegated"), `jurisdikce` selects a jurisdiction (empty = the
+    default, catalog_filters.DEFAULT_JURISDICTION), and the synonym entries
+    the query triggers (data/search_synonyms.json) are resolved here."""
+    q = args.get('q', '').strip()
+    type_id, eu_subtype = catalog_filters.split_type_filter(args.get('type_id', ''))
     return {
-        'q': args.get('q', '').strip(),
-        'type_id': args.get('type_id', ''),
+        'q': q,
+        'type_id': type_id,
+        'eu_subtype': eu_subtype,
         'source_id': args.get('source_id', ''),
         'keyword_id': args.get('keyword_id', ''),
+        'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', '')),
+        'synonyms': catalog_filters.match_synonyms(q, catalog_filters.load_synonyms()) if q else [],
     }
 
 
 def build_filter_clause(filters):
     """The shared WHERE fragment + params behind both the document list
     and its result count — kept in one place so the two can never drift
-    apart and report different totals."""
+    apart and report different totals. Conditions are on the document `d`
+    itself; in the grouped list (one row per act) they decide which acts
+    match through any of their language variants."""
     clause = ""
     params = []
 
     if filters['q']:
-        clause += " AND (d.title LIKE %s OR d.description LIKE %s)"
-        params.extend([f"%{filters['q']}%", f"%{filters['q']}%"])
+        like = f"%{filters['q']}%"
+        conditions = ["d.title LIKE %s", "d.description LIKE %s", "d.identifier LIKE %s"]
+        params.extend([like, like, like])
+        terms, identifiers = catalog_filters.expansion(filters.get('synonyms') or [])
+        for term in terms:
+            conditions += ["d.title LIKE %s", "d.description LIKE %s"]
+            params.extend([f"%{term}%", f"%{term}%"])
+        if identifiers:
+            conditions.append(f"d.identifier IN ({', '.join(['%s'] * len(identifiers))})")
+            params.extend(identifiers)
+        clause += " AND (" + " OR ".join(conditions) + ")"
 
     if filters['type_id']:
         clause += " AND d.type_id = %s"
         params.append(filters['type_id'])
+
+    if filters.get('eu_subtype'):
+        clause += " AND d.eu_act_subtype = %s"
+        params.append(filters['eu_subtype'])
 
     if filters['source_id']:
         clause += " AND d.source_id = %s"
@@ -297,10 +359,31 @@ def build_filter_clause(filters):
         clause += " AND dk.keyword_id = %s"
         params.append(filters['keyword_id'])
 
+    condition, condition_params = catalog_filters.jurisdiction_condition(
+        filters.get('jurisdiction') or 'vse')
+    if condition:
+        clause += f" AND {condition}"
+        params.extend(condition_params)
+
     return clause, params
 
 
-def build_count_query(filters):
+def build_matching_acts_query(filters):
+    """Ids of the ACTS (originals) any language variant of which matches
+    `filters` — the subquery behind the grouped list and its count."""
+    clause, params = build_filter_clause(filters)
+    return f'''
+        SELECT DISTINCT COALESCE(tr.to_document_id, d.id) AS act_id
+        FROM Document d
+        {TRANSLATION_JOIN}
+        LEFT JOIN DocumentType dt ON d.type_id = dt.id
+        LEFT JOIN DocumentSource ds ON d.source_id = ds.id
+        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
+        WHERE 1=1{clause}
+    ''', params
+
+
+def build_count_query(filters, group_variants=False):
     """doc/PLAN.md §16, 2026-09-16: total number of documents matching
     `filters`, for the pager.
 
@@ -309,7 +392,13 @@ def build_count_query(filters):
     keyword count (3231 links over 1238 documents). A plain COUNT(*)
     would therefore report several times the real total and paginate
     into empty pages — the same trap R2.1 exists for, and that commit
-    ebc1f60 had to fix once already with GROUP BY d.id."""
+    ebc1f60 had to fix once already with GROUP BY d.id.
+
+    group_variants=True (the catalogue): the number of acts, i.e. of rows
+    of the grouped list (doc/MPO_PRIPOMINKY.md, krok 2)."""
+    if group_variants:
+        acts, params = build_matching_acts_query(filters)
+        return f"SELECT COUNT(*) AS c FROM ({acts}) acts", params
     clause, params = build_filter_clause(filters)
     return f'''
         SELECT COUNT(DISTINCT d.id) AS c
@@ -321,28 +410,48 @@ def build_count_query(filters):
     ''', params
 
 
-def build_document_query(filters, limit=None, offset=None):
+DOCUMENT_COLUMNS = '''d.id, d.slug, d.identifier, d.title, d.description, d.popis_priblizny,
+               dt.name as type_name,
+               ds.name as source_name, d.language, d.effective_date, d.url,
+               d.file_path, dt.restricted_fulltext, d.needs_review, d.review_reason'''
+
+
+def build_document_query(filters, limit=None, offset=None, group_variants=False, with_subtype=False):
     """doc/REQUIREMENTS.md R2.1/R2.3/R2.5, 2026-09-11: pure function (no
     DB access) building the parameterized SQL + params for the filtered
     document list. Shared by index() (one page at a time, see PAGE_SIZE)
     and /export/<fmt> (limit=None, i.e. the full filtered result set — an
     export must not silently truncate at the UI's page size). Returns
-    (sql, params)."""
-    base_query = '''
-        SELECT d.id, d.slug, d.title, d.description, d.popis_priblizny,
-               dt.name as type_name,
-               ds.name as source_name, d.language, d.effective_date, d.url,
-               d.file_path, dt.restricted_fulltext, d.needs_review, d.review_reason
+    (sql, params).
+
+    group_variants=True (the catalogue, doc/MPO_PRIPOMINKY.md krok 2): one
+    row per act — the original of every language-variant group that has a
+    matching member. The export keeps one record per document, since each
+    language version has its own title and URL. with_subtype adds
+    Document.eu_act_subtype (only once that column exists)."""
+    columns = DOCUMENT_COLUMNS + (", d.eu_act_subtype" if with_subtype else ", NULL AS eu_act_subtype")
+    if group_variants:
+        acts, params = build_matching_acts_query(filters)
+        base_query = f'''
+        SELECT {columns}
+        FROM Document d
+        LEFT JOIN DocumentType dt ON d.type_id = dt.id
+        LEFT JOIN DocumentSource ds ON d.source_id = ds.id
+        WHERE d.id IN ({acts})
+        ORDER BY d.title ASC'''
+    else:
+        base_query = f'''
+        SELECT {columns}
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
         LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1
     '''
-    clause, params = build_filter_clause(filters)
-    base_query += clause
+        clause, params = build_filter_clause(filters)
+        base_query += clause
+        base_query += " GROUP BY d.id ORDER BY d.title ASC"
 
-    base_query += " GROUP BY d.id ORDER BY d.title ASC"
     if limit is not None:
         base_query += " LIMIT %s"
         params.append(limit)
@@ -353,11 +462,13 @@ def build_document_query(filters, limit=None, offset=None):
     return base_query, params
 
 
-def fetch_documents_with_tags(db, filters, limit=None, offset=None):
+def fetch_documents_with_tags(db, filters, limit=None, offset=None, group_variants=False,
+                              with_subtype=False):
     """Runs build_document_query() and attaches each document's keyword
     tags, exactly like index()'s original inline logic. Returns
     (documents, doc_tags) — used by both index() and /export/<fmt>."""
-    query, params = build_document_query(filters, limit=limit, offset=offset)
+    query, params = build_document_query(filters, limit=limit, offset=offset,
+                                         group_variants=group_variants, with_subtype=with_subtype)
     with db.cursor() as cur:
         cur.execute(query, params)
         documents = cur.fetchall()
@@ -382,14 +493,52 @@ def fetch_documents_with_tags(db, filters, limit=None, offset=None):
     return documents, doc_tags
 
 
+def attach_language_variants(db, documents):
+    """Sets doc['variants'] on every act that has language variants: a list of
+    {'language', 'slug', 'is_self'} — the act itself first, then its
+    translations by language. Acts without variants get an empty list."""
+    for doc in documents:
+        doc['variants'] = []
+    if not documents:
+        return
+    by_id = {doc['id']: doc for doc in documents}
+    placeholders = ','.join(['%s'] * len(by_id))
+    with db.cursor() as cur:
+        cur.execute(f'''
+            SELECT r.to_document_id AS act_id, o.slug, o.language
+            FROM document_relation r JOIN Document o ON o.id = r.from_document_id
+            WHERE r.relation_type = 'TRANSLATION_OF' AND r.to_document_id IN ({placeholders})
+            ORDER BY o.language, o.id
+        ''', list(by_id))
+        rows = cur.fetchall()
+    for row in rows:
+        doc = by_id[row['act_id']]
+        if not doc['variants']:
+            doc['variants'].append({'language': doc['language'] or '?', 'slug': doc['slug'], 'is_self': True})
+        doc['variants'].append({'language': row['language'] or '?', 'slug': row['slug'], 'is_self': False})
+
+
+def type_menu(types, with_subtype):
+    """The type menu: the document types, then (once Document.eu_act_subtype
+    exists) the EU act subtypes as "podtyp-<value>"."""
+    subtypes = ([{'id': catalog_filters.SUBTYPE_PREFIX + key, 'name': label}
+                 for key, label in catalog_filters.EU_SUBTYPES.items()] if with_subtype else [])
+    return types, subtypes
+
+
 @app.route('/')
 def index():
     db = get_db()
     filters = parse_filters(request.args)
+    with_subtype = has_column(db, 'Document', 'eu_act_subtype')
+    if not with_subtype:
+        filters['eu_subtype'] = ''
     types, sources, keywords = get_filters()
+    types, subtypes = type_menu(types, with_subtype)
+    source_groups = catalog_filters.group_sources(sources, catalog_filters.load_source_groups())
 
     with db.cursor() as cur:
-        count_query, count_params = build_count_query(filters)
+        count_query, count_params = build_count_query(filters, group_variants=True)
         cur.execute(count_query, count_params)
         row = cur.fetchone()
     result_count = row['c'] if row else 0
@@ -398,7 +547,9 @@ def index():
     page = parse_page(request.args, page_count)
 
     documents, doc_tags = fetch_documents_with_tags(
-        db, filters, limit=PAGE_SIZE, offset=(page - 1) * PAGE_SIZE)
+        db, filters, limit=PAGE_SIZE, offset=(page - 1) * PAGE_SIZE,
+        group_variants=True, with_subtype=with_subtype)
+    attach_language_variants(db, documents)
     # Set here, not in fetch_documents_with_tags(): /export/<fmt> shares
     # that helper and must not pick up a key it was never meant to emit.
     for doc in documents:
@@ -406,15 +557,22 @@ def index():
                                  and local_copy_path(doc['file_path']) is not None)
         doc['has_clean_text'] = (not doc['restricted_fulltext']
                                  and clean_text_path(doc['file_path']) is not None)
+        doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
     total_document_count = get_total_document_count(db)
     active_document_count = get_active_document_count(db)
     inactive_document_count = total_document_count - active_document_count
 
+    selected_type = request.args.get('type_id', '')
     return render_template('index.html',
                            documents=documents,
                            doc_tags=doc_tags,
                            types=types,
-                           sources=sources,
+                           subtypes=subtypes,
+                           selected_type=selected_type,
+                           source_groups=source_groups,
+                           jurisdiction_options=catalog_filters.jurisdiction_options(),
+                           selected_jurisdiction=request.args.get('jurisdikce', ''),
+                           synonyms=filters['synonyms'],
                            keywords=keywords,
                            total_document_count=total_document_count,
                            active_document_count=active_document_count,
@@ -865,6 +1023,8 @@ def export(fmt):
 
     db = get_db()
     filters = parse_filters(request.args)
+    if not has_column(db, 'Document', 'eu_act_subtype'):
+        filters['eu_subtype'] = ''
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)
     rows = _rows_for_export(documents, doc_tags)
 

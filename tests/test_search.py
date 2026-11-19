@@ -166,5 +166,91 @@ class ExportRouteTestCase(unittest.TestCase):
             self.assertNotIn('restricted_fulltext', tags)
 
 
+def _connect():
+    import pymysql
+    from dotenv import load_dotenv
+    load_dotenv()
+    return pymysql.connect(
+        host=os.environ["DB_HOST"], port=int(os.environ["DB_PORT"]),
+        user=os.environ["DB_USER"], password=os.environ["DB_PASSWORD"],
+        database=os.environ["DB_NAME"], cursorclass=pymysql.cursors.DictCursor)
+
+
+ROW_RE = re.compile(r'<div class="document-row" data-slug="([^"]*)" data-identifier="([^"]*)">')
+
+
+class MpoCatalogTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 2, against the database: one row per act, the
+    synonym dictionary and the source groups match the data, the EU act subtype
+    filter. The browser versions are in tests/e2e/test_mpo_comments.py."""
+
+    @classmethod
+    def setUpClass(cls):
+        conn = _connect()
+        with conn.cursor() as cur:
+            cur.execute("SELECT identifier FROM Document WHERE identifier IS NOT NULL")
+            cls.identifiers = {r["identifier"] for r in cur.fetchall()}
+            cur.execute("SELECT COUNT(*) AS c FROM Document")
+            cls.documents = cur.fetchone()["c"]
+            cur.execute("SELECT COUNT(DISTINCT from_document_id) AS c FROM document_relation "
+                        "WHERE relation_type = 'TRANSLATION_OF'")
+            cls.translations = cur.fetchone()["c"]
+            cur.execute("SELECT ds.name FROM DocumentSource ds "
+                        "WHERE EXISTS (SELECT 1 FROM Document d WHERE d.source_id = ds.id)")
+            cls.sources = [r["name"] for r in cur.fetchall()]
+            cur.execute("SELECT COUNT(*) AS c FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() "
+                        "AND TABLE_NAME = 'Document' AND COLUMN_NAME = 'eu_act_subtype'")
+            cls.has_subtype = cur.fetchone()["c"] == 1
+        conn.close()
+
+    def setUp(self):
+        self.app = app.test_client()
+
+    def rows(self, query):
+        html = self.app.get(query).data.decode("utf-8")
+        count = int(re.search(r'class="badge">(\d+)<', html).group(1))
+        return ROW_RE.findall(html), count, html
+
+    def test_every_synonym_identifier_exists(self):
+        from app import catalog_filters
+        for entry in catalog_filters.load_synonyms():
+            for identifier in entry.get("identifiers", []):
+                self.assertIn(identifier, self.identifiers, entry["label"])
+
+    def test_every_source_has_an_explicit_group(self):
+        from app import catalog_filters
+        mapped = catalog_filters.load_source_groups()["sources"]
+        self.assertEqual([s for s in self.sources if s not in mapped], [])
+
+    def test_unfiltered_count_is_one_per_act(self):
+        _, count, _ = self.rows("/?jurisdikce=vse")
+        self.assertEqual(count, self.documents - self.translations)
+
+    def test_rfnbo_finds_the_delegated_acts_once_each(self):
+        rows, count, html = self.rows("/?q=RFNBO")
+        identifiers = [i for _, i in rows]
+        self.assertEqual(count, len(rows))
+        self.assertEqual(len(identifiers), len(set(identifiers)))
+        for wanted in ("(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2023/2413", "(EU) 2018/2001"):
+            self.assertIn(wanted, identifiers)
+        self.assertFalse([i for i in identifiers if i.endswith("[EN]")])
+        self.assertIn("Hledání zahrnuje i synonyma", html)
+
+    def test_other_mpo_synonyms(self):
+        for query, wanted in (("AFIR", "(EU) 2023/1804"), ("RED+III", "(EU) 2023/2413"),
+                              ("LEX+OZE", "165/2012 Sb.")):
+            rows, _, _ = self.rows(f"/?q={query}")
+            self.assertIn(wanted, [i for _, i in rows], query)
+
+    def test_delegated_acts_filter(self):
+        if not self.has_subtype:
+            self.skipTest("Document.eu_act_subtype not migrated in this database")
+        rows, count, _ = self.rows("/?type_id=podtyp-delegated")
+        identifiers = {i for _, i in rows}
+        self.assertEqual(count, len(rows))
+        self.assertLessEqual({"(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2018/674"}, identifiers)
+        self.assertNotIn("(EU) 2023/1804", identifiers)
+
+
 if __name__ == '__main__':
     unittest.main()
