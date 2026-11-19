@@ -44,10 +44,11 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         self.assertNotIn("LIMIT", sql)
 
     def test_q_filter_adds_like_clause(self):
+        # doc/MPO_PRIPOMINKY.md, krok 2: the designation is searched too.
         filters = {**NO_FILTERS, 'q': 'hydrogen'}
         sql, params = build_document_query(filters)
-        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s)", sql)
-        self.assertEqual(params, ['%hydrogen%', '%hydrogen%'])
+        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)", sql)
+        self.assertEqual(params, ['%hydrogen%', '%hydrogen%', '%hydrogen%'])
 
     def test_type_id_filter(self):
         filters = {**NO_FILTERS, 'type_id': '3'}
@@ -70,7 +71,7 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
     def test_all_filters_combined_with_limit(self):
         filters = {'q': 'norma', 'type_id': '1', 'source_id': '2', 'keyword_id': '3'}
         sql, params = build_document_query(filters, limit=50)
-        self.assertEqual(params, ['%norma%', '%norma%', '1', '2', '3', 50])
+        self.assertEqual(params, ['%norma%', '%norma%', '%norma%', '1', '2', '3', 50])
         self.assertTrue(sql.rstrip().endswith("LIMIT %s"))
 
 
@@ -108,7 +109,7 @@ class PaginationQueryTestCase(unittest.TestCase):
         filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'keyword_id': '9'}
         count_sql, count_params = build_count_query(filters)
         list_sql, list_params = build_document_query(filters, limit=None)
-        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s)",
+        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)",
                          "AND d.type_id = %s", "AND d.source_id = %s",
                          "AND dk.keyword_id = %s"):
             self.assertIn(fragment, count_sql)

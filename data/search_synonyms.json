@@ -1,0 +1,72 @@
+{
+  "_comment": "Slovník synonym pro vyhledávání v katalogu (doc/MPO_PRIPOMINKY.md, krok 2). Když dotaz obsahuje některý z výrazů v 'aliases' (celá slova, bez ohledu na velikost písmen), hledání najde navíc dokumenty, jejichž název nebo popis obsahuje některý z 'search_terms', a dokumenty s označením uvedeným v 'identifiers' (přesná shoda s Document.identifier; anglické varianty se zobrazí v řádku české). Každé označení musí v databázi existovat (hlídá tests/test_search.py). 'label' se zobrazí uživateli pod výsledky.",
+  "entries": [
+    {
+      "label": "RFNBO (obnovitelná paliva nebiologického původu)",
+      "aliases": ["RFNBO", "RFNBOs", "obnovitelná paliva nebiologického původu", "renewable fuels of non-biological origin"],
+      "search_terms": ["nebiologického původu", "non-biological origin"],
+      "identifiers": ["(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2018/2001", "(EU) 2023/2413"]
+    },
+    {
+      "label": "AFIR (nařízení o infrastruktuře pro alternativní paliva)",
+      "aliases": ["AFIR", "alternative fuels infrastructure regulation"],
+      "search_terms": ["infrastruktury pro alternativní paliva", "alternative fuels infrastructure"],
+      "identifiers": ["(EU) 2023/1804"]
+    },
+    {
+      "label": "AFID (směrnice o infrastruktuře pro alternativní paliva)",
+      "aliases": ["AFID"],
+      "search_terms": [],
+      "identifiers": ["2014/94/EU"]
+    },
+    {
+      "label": "RED III (revidovaná směrnice o energii z obnovitelných zdrojů)",
+      "aliases": ["RED III", "RED 3", "REDIII", "RED3"],
+      "search_terms": [],
+      "identifiers": ["(EU) 2023/2413"]
+    },
+    {
+      "label": "RED II (směrnice o energii z obnovitelných zdrojů)",
+      "aliases": ["RED II", "RED 2", "REDII", "RED2"],
+      "search_terms": [],
+      "identifiers": ["(EU) 2018/2001"]
+    },
+    {
+      "label": "LEX OZE (novely zákona o podporovaných zdrojích energie a energetického zákona)",
+      "aliases": ["LEX OZE", "LEXOZE", "Lex OZE I", "Lex OZE II", "Lex OZE III"],
+      "search_terms": ["podporovaných zdrojích energie"],
+      "identifiers": ["165/2012 Sb.", "458/2000 Sb."],
+      "note": "Balíčky LEX OZE jsou novely; v databázi jsou jen novelizované zákony 165/2012 Sb. a 458/2000 Sb. Samotné novely (např. 382/2021 Sb., 469/2023 Sb.) databáze neobsahuje — otevřená otázka v doc/MPO_PRIPOMINKY.md, odstavec 5."
+    },
+    {
+      "label": "TEN-E (nařízení o transevropské energetické infrastruktuře)",
+      "aliases": ["TEN-E", "TENE"],
+      "search_terms": ["transevropské energetické infrastruktury"],
+      "identifiers": ["(EU) 2022/869"]
+    },
+    {
+      "label": "Balíček pro dekarbonizaci trhu s plynem a vodíkem",
+      "aliases": ["plynárenský balíček", "vodíkový a plynárenský balíček", "gas package", "hydrogen and decarbonised gas market package"],
+      "search_terms": [],
+      "identifiers": ["(EU) 2024/1788", "(EU) 2024/1789"]
+    },
+    {
+      "label": "ReFuelEU Aviation",
+      "aliases": ["ReFuelEU", "ReFuelEU Aviation"],
+      "search_terms": [],
+      "identifiers": ["(EU) 2023/2405"]
+    },
+    {
+      "label": "ATEX (výbušné atmosféry)",
+      "aliases": ["ATEX"],
+      "search_terms": ["výbušné atmosféry", "výbušnou atmosférou"],
+      "identifiers": ["2014/34/EU", "1999/92/ES"]
+    },
+    {
+      "label": "PED (směrnice o tlakových zařízeních)",
+      "aliases": ["PED"],
+      "search_terms": [],
+      "identifiers": ["2014/68/EU"]
+    }
+  ]
+}

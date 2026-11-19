@@ -1312,3 +1312,103 @@ main {
 .candidate-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .candidate-actions .btn-primary { width: auto; padding: 0.6rem 1.2rem; }
 
+
+/* doc/MPO_PRIPOMINKY.md, krok 2: one row per act — its language versions are
+   links in that row (CS/EN), the EU act subtype is a tag, and a search that
+   used the synonym dictionary says so under the result count. */
+.language-variants {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    color: #34d399;
+}
+
+.lang-chip {
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+}
+
+.lang-chip:hover,
+.lang-chip:focus-visible {
+    background: rgba(16, 185, 129, 0.3);
+    color: #ecfdf5;
+}
+
+.lang-chip.is-self {
+    background: rgba(16, 185, 129, 0.3);
+}
+
+.subtype-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.15);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.synonym-note,
+.results-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: -0.5rem 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.results-hint {
+    color: var(--text-muted);
+}
+
+.synonym-label {
+    color: var(--text-primary);
+}
+
+.filter-select optgroup {
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+/* Four menus since krok 2: the export/reset buttons take a full row of their own. */
+.filters-grid .action-group {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Phone: the 15% type column was ~45px wide, so "Směrnice EU" spilled over the
+   title. The type tag goes on its own line above the title instead. */
+@media (max-width: 768px) {
+    .row-visible {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .row-visible .col-type {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .row-visible .col-title {
+        width: calc(100% - 2rem);
+    }
+
+    .row-visible .col-action {
+        width: 2rem;
+    }
+
+    .table-header .col-type {
+        display: none;
+    }
+}

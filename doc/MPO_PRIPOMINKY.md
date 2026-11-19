@@ -186,6 +186,64 @@ Zbývá z kroku 0:
 * ve vyhledávání využít klíčová slova a synonyma (RFNBO, AFIR, RED III,
   LEX OZE apod.).
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok2`, živá DB zatím beze změny):**
+
+* *Jeden řádek na předpis.* Katalog zobrazuje jazykové varianty jednoho aktu
+  (vazba `TRANSLATION_OF`, anglická varianta s označením `<značka> [EN]`)
+  jako jeden řádek s českým názvem a štítky CS/EN, které vedou na stránky
+  jednotlivých verzí. Dotaz i filtry se vyhodnocují nad všemi variantami,
+  takže řádek se najde i tehdy, když dotazu odpovídá jen anglický název.
+  Počet nalezených dokumentů je počet řádků; úvodní věta („Prohledejte …“)
+  počítá rovněž předpisy, nikoli jazykové varianty (1461 místo 1486).
+  Export (CSV, JSON, XML) ponechává jeden záznam na jazykovou verzi, protože
+  každá má vlastní název a adresu.
+* *Původci a jurisdikce.* Nabídka „Odpovědný orgán / DG“ je rozdělena do
+  skupin Česká republika, Slovensko, Evropská unie, Mezinárodní organizace,
+  Normalizační a odborné organizace a Zahraniční státní orgány podle
+  datového souboru `data/source_groups.json`; nabízí jen původce, kteří mají
+  aspoň jeden dokument (zmizela tak prázdná „Evropská centrální banka“).
+  Nový filtr „Jurisdikce“ nabízí všechny jurisdikce, vše kromě Slovenska,
+  ČR, EU, mezinárodní, Slovensko a ostatní státy. Výchozí stav určuje
+  konstanta `DEFAULT_JURISDICTION` v `app/catalog_filters.py`; ponechali jsme
+  „vše“, přepnutím na `"bez-sk"` se slovenské dokumenty ve výchozím
+  zobrazení skryjí (otevřená otázka v odstavci 5).
+* *Podtyp aktů EU.* Nový sloupec `Document.eu_act_subtype`
+  (`delegated` / `implementing`) určuje `src/tools/eu_act_subtype.py` podle
+  ELI v adrese (`eli/reg_del/…`), jinak podle úředního názvu („v přenesené
+  pravomoci“, „Delegované nařízení“, „Prováděcí nařízení“, „Commission
+  Implementing Regulation“, slovensky „vykonávacie“); rozhoduje první
+  zmínka v názvu, aby se prováděcí nařízení, které mění akt v přenesené
+  pravomoci, nezařadilo chybně. CELEX oba podtypy nerozlišuje. Podtyp se
+  určuje v pipeline (`init_db.py` při každé přestavbě) a pro existující
+  databázi migrací `src/tools/backfill_eu_act_subtype.py`; katalog jej jen
+  čte, a dokud sloupec v databázi chybí, nabídku podtypů nezobrazí.
+  V nabídce typů přibyla skupina „Podtyp aktu EU“ s položkami „Akt
+  v přenesené pravomoci (EU)“ (5 předpisů: 2023/1184, 2023/1185, 2018/674,
+  2019/1745, 2025/656) a „Prováděcí akt (EU)“ (11 řádků, 17 dokumentů
+  včetně anglických variant); řádek takového aktu nese štítek podtypu.
+* *Synonyma.* Slovník `data/search_synonyms.json` přiřazuje zkratkám
+  a ustáleným názvům hledané výrazy a označení dokumentů: RFNBO
+  (2023/1184, 2023/1185, 2018/2001, 2023/2413 a výraz „nebiologického
+  původu“), AFIR (2023/1804), AFID, RED II, RED III (2023/2413), LEX OZE
+  (165/2012 Sb. a 458/2000 Sb.), TEN-E, plynárenský balíček, ReFuelEU, ATEX
+  a PED. Zkratka se hledá jako celé slovo („RED II“ nenajde RED III).
+  Pod výsledky se zobrazí, která synonyma byla použita. Vyhledávání nově
+  prochází i označení dokumentu. Dotaz „RFNBO“ tak vrací 4 řádky (oba akty
+  v přenesené pravomoci, RED II a RED III), každý předpis jednou.
+
+Ke spuštění na živé databázi (po sloučení větve, před `git pull`
+v hlavním stromu nebo hned po něm; katalog bez sloupce funguje, jen nenabízí
+podtypy):
+
+```
+.venv/bin/python src/tools/backfill_eu_act_subtype.py            # dry run: 22 dokumentů
+.venv/bin/python src/tools/backfill_eu_act_subtype.py --apply    # po záloze DB
+```
+
+Zjištěno při práci: dokument #110 má označení `2012/18/EU` (Seveso III), ale
+název směrnice 2014/34/EU (ATEX), obdobně jako #130 v odstavci 4.1; do slovníku
+synonym proto Seveso zatím nezařazujeme.
+
 ### 4.4 Krok 3: Průběžná aktualizace
 
 * sloučit větev `feature/h2db-sources` do `master` (PR), provést první běh
@@ -206,10 +264,42 @@ Zbývá z kroku 0:
 * připravit pro MPO přehled vypořádání jednotlivých připomínek
   (tento dokument v upravené podobě) jako podklad k telekonferenci.
 
+**Stav k 19. 11. 2026 (větev `feature/mpo-krok2`):** scénáře připomínek 1–6
+jsou v `tests/e2e/test_mpo_comments.py` a běží v rámci
+`src/tools/run_tests.py` nad kopií živé databáze (s opravami kroku 0):
+
+| Připomínka | Scénář | Snímek |
+|---|---|---|
+| 1 (ECB) | filtr původce „Evropská centrální banka“ nevrací duplicity; původce bez dokumentů se nenabízí | `MpoCommentsTestCase-ecb-originator.png` |
+| 2, 3 (RFNBO) | „RFNBO“ vrací jeden řádek na předpis, mezi nimi 2023/1184 a 2023/1185; RED III se štítky CS/EN, štítek EN vede na anglickou verzi | `…-rfnbo.png`, `…-rfnbo-red3-row.png`, `…-rfnbo-red3-english.png` |
+| 3 | v nabídce typů lze vybrat „Akt v přenesené pravomoci (EU)“ | `…-filter-delegated.png` |
+| 4 (MD) | nabídka původců je seskupená, bez holé zkratky („MD“ apod.), Ministerstvo dopravy je mezi českými orgány | `…-filters.png` |
+| 5 (dráhy) | zákony 266/1994 Sb. a 426/2021 Sb. mají původce Ministerstvo dopravy, v řádku i na stránce dokumentu | `…-railway-act.png`, `…-railway-act-page.png` |
+| 6 (hláška) | stránky energetického zákona a RED III (obě jazykové verze) neobsahují „Stav ke dni 30.6.2025“ | `…-stale-note-*.png` |
+| 6 (obecně) | žádný popis, název ani export neobsahuje „doc/PLAN.md“; stránky vodíkových strategií | `…-strategy-*.png` |
+| — | filtr jurisdikce; telefon 390 px bez vodorovného posuvníku | `…-jurisdiction-cz.png`, `…-rfnbo-phone.png` |
+
+Snímky ukládá `run_tests.py` do `data/test_screenshots/<datum_čas>/`.
+Připomínky 7–10 (připravované předpisy, chybějící předpisy z tabulek MPO
+a CDV, kategorie „Strategie“, aktuálnost) jsou obsahové a patří do kroků 1
+a 3; scénáře k nim přibudou s nimi. Zbývá interní akceptace a přehled
+vypořádání pro MPO.
+
 ## 5. Otevřené otázky
 
 * **Slovenské předpisy a normy STN:** ponechat je ve veřejném katalogu,
-  nebo je skrýt či oddělit?
+  nebo je skrýt či oddělit? Od kroku 2 je k dispozici filtr jurisdikce;
+  výchozí stav je „vše“ a skrytí slovenských dokumentů ve výchozím
+  zobrazení je změna jedné konstanty (`DEFAULT_JURISDICTION = "bez-sk"`
+  v `app/catalog_filters.py`).
+* **LEX OZE ve slovníku synonym:** dotaz nyní najde novelizované zákony
+  165/2012 Sb. a 458/2000 Sb.; samotné novely (LEX OZE I–III, např.
+  382/2021 Sb. a 469/2023 Sb.) databáze neobsahuje. Doplnit je jako
+  dokumenty (krok 1), nebo ponechat odkaz na novelizované zákony? Čísla
+  novel je třeba před doplněním ověřit.
+* **Zařazení původců do skupin** (`data/source_groups.json`): ÚNMS SR je
+  mezi normalizačními orgány, nikoli ve skupině Slovensko; DGUV, BAuA, PTB,
+  OSHA, NIST, NASA a Sandia jsou „zahraniční státní orgány“. Ověřit.
 * **Telekonference z června 2026:** e-mail z 22. 5. 2026 navrhoval schůzku
   začátkem června. Je třeba doplnit, zda proběhla a co se na ní dohodlo.
 * **Přejmenování typu „Strategický dokument“ na „Strategie“** podle návrhu

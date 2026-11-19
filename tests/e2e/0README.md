@@ -25,3 +25,4 @@ odkaz“) měly výchozí modrou `#0000EE` na tmavém pozadí (kontrast 1,9).
 Screenshoty se pořizují s `animations="disabled"`, aby nezachytily rozpracovaný
 náběh (fade-in) úvodních textů.
 * `test_fulltext_page.py` — navíc slovenský předpis ze Slov-Lexu (`124/2000 Z. z.`): odstavce `p.item d0`, písmena o úroveň hlouběji, značky § a nadpisy, žádný `script`/`a`/`img`/`iframe`.
+* `test_mpo_comments.py` — připomínky MPO (`doc/MPO_PRIPOMINKY.md`, odstavec 2) jako scénáře: filtr původce „Evropská centrální banka“ bez duplicit, „RFNBO“ jeden řádek na předpis se štítky CS/EN a akty v přenesené pravomoci, podtyp v nabídce typů, nabídka původců seskupená bez zkratky „MD“, filtr jurisdikce, zákon o dráhách s původcem Ministerstvo dopravy, stránky energetického zákona a RED III bez hlášky „Stav ke dni 30.6.2025“, žádný veřejný popis ani export s „doc/PLAN.md“, telefon bez vodorovného posuvníku.

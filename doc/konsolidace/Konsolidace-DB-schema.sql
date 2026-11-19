@@ -238,6 +238,14 @@ ALTER TABLE Document
 ALTER TABLE Document
   ADD COLUMN provenance TEXT NULL;
 
+-- doc/MPO_PRIPOMINKY.md, krok 2 (2026-11-19): podtyp aktu EU — akt v přenesené
+-- pravomoci (čl. 290 SFEU) nebo prováděcí akt (čl. 291 SFEU). Určuje jej
+-- `src/tools/eu_act_subtype.py` z ELI adresy nebo z úředního názvu (init_db.py
+-- při každé přestavbě, `backfill_eu_act_subtype.py` pro existující databázi);
+-- katalog podle něj filtruje v nabídce typů.
+ALTER TABLE Document
+  ADD COLUMN eu_act_subtype ENUM('delegated','implementing') NULL;
+
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a
 -- `src/tools/init_db.py` při každém běhu tabulku TRUNCATE-uje a nahrává
