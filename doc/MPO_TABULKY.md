@@ -1,6 +1,6 @@
 # Tabulky předpisů MPO a CDV jako zlatá sada
 
-Stav k 19. 11. 2026 (větev `feature/mpo-krok1`). Dokument popisuje, jak jsme
+Stav k 19. 11. 2026 (větve `feature/mpo-krok1` a `feature/mpo-kandidati-doplnit`). Dokument popisuje, jak jsme
 porovnali obě tabulky předpisů, jež Ministerstvo průmyslu a obchodu (MPO) zaslalo
 22. 5. 2026, s živou databází `h2regdocs`, jak chybějící předpisy vkládáme do
 fronty kandidátů a jak pokrytí tabulek hlídá automatický test. Navazuje na
@@ -28,7 +28,11 @@ v zápisu, `NORM:EN ISO 11114` pro normu bez národní předpony.
 udržovaný soubor `data/20260430_MPO/mpo_decisions.json`: řádky bez čísla
 (AFIR, TEN-T, balíček pro trh s plynem), dokumenty bez označení (ADR, RID,
 pokyny IMO), zjevné překlepy v čísle předpisu a technické komise, jež
-dokumenty nejsou. U každého rozhodnutí je uveden důvod.
+dokumenty nejsou. U každého rozhodnutí je uveden důvod. Oddíl `_candidates`
+téhož souboru nese údaje ke kandidátům, jež z řádku tabulky převzít nelze:
+navrženého původce tam, kde sloupec „Nositel“ neodpovídá (nařízení vlády
+č. 191/2022 Sb.), příznak novely s klíči novelizovaných předpisů a zkratku,
+pod níž se předpis běžně uvádí (LEX OZE I–III).
 
 ## 2. Porovnání s databází
 
@@ -71,7 +75,9 @@ mezi číslem a názvem předpisu v tabulce MPO:
    technických plynových zařízeních, název v tabulce („o vyhrazených tlakových
    zařízeních“) nařízení vlády č. 192/2022 Sb. To databáze již obsahuje
    (#1214); nařízení č. 191/2022 Sb. se vodíkových zařízení týká také,
-   a je proto kandidátem.
+   a je proto kandidátem. Jeho původcem je podle rozhodnutí z 19. 11. 2026
+   Ministerstvo práce a sociálních věcí (nařízení provádí zákon č. 250/2021 Sb.),
+   nikoli MPO ze sloupce „Nositel“.
 3. **MPO-06, 513/2021 Sb.:** Vyhláška jen novelizovala vyhlášku č. 262/2015 Sb.
    o regulačním výkaznictví, kterou k 1. 1. 2026 zrušila vyhláška
    č. 508/2025 Sb. Podle zakonyprolidi.cz je vyhláška č. 513/2021 Sb. zrušená.
@@ -88,7 +94,8 @@ K normám ČSN:
   v srpnu 2025). Označení dokumentu je třeba opravit.
 * **MPO-48 a MPO-49, řady ČSN EN 60079 a ČSN EN 13445:** Z řad jsou v databázi
   jen ČSN EN IEC 60079-0 a ČSN EN 13445-5+A1. V jiném národním převzetí
-  (STN, DIN) má databáze desítky dalších částí obou řad.
+  (STN, DIN) má databáze desítky dalších částí obou řad. Další české části
+  jsou od 19. 11. 2026 kandidáty (odstavec 3.1).
 * **MPO-50, ČSN EN ISO 11114:** V databázi je část 1. Kompatibilitu materiálů
   s vodíkem, jak řádek popisuje, řeší část 4, která je v databázi jen jako
   ISO 11114-4 a STN EN ISO 11114-4. Kandidátem je proto ČSN EN ISO 11114-4.
@@ -120,9 +127,11 @@ o vodíkových lahvích.
 
 Chybějící předpisy vkládá do fronty kandidátů (`/admin/candidates`) příkaz
 `src/tools/mpo_tables.py import --apply` jako zdroj `mpo` s popisem
-„MPO/CDV 30. 4. 2026“. Jde o 34 kandidátů: 31 nových (28 českých předpisů,
-2 akty EU a norma ČSN EN ISO 11114-4) a 3 kandidáti z uzávěru citací, jimž
-doplňujeme řádky tabulky do podkladů.
+„MPO/CDV 30. 4. 2026“. Jde o 57 kandidátů: 54 nových a 3 kandidáti z uzávěru
+citací, jimž doplňujeme řádky tabulky do podkladů. Nové kandidáty tvoří
+31 českých předpisů (28 z řádků tabulky a tři novely LEX OZE, odstavec 3.1),
+2 akty EU a 21 norem ČSN (ČSN EN ISO 11114-4 a 20 částí řad ČSN EN 60079
+a ČSN EN 13445, odstavec 3.1).
 
 Autoritativní údaje dohledává příkaz `src/tools/mpo_tables.py lookup` a ukládá
 je do `data/20260430_MPO/mpo_candidates.json`, takže samotný import síť
@@ -138,7 +147,7 @@ nepotřebuje:
   (`src/tools/check_csn_validity.py`).
 
 Kandidát nese navrženého původce podle sloupce „Nositel“ tabulky MPO
-(nový sloupec `DocumentCandidate.puvodce`) a návrh věcného okruhu podle
+(nový sloupec `DocumentCandidate.puvodce`), není-li v `_candidates` uveden jiný, a návrh věcného okruhu podle
 poznámky (zásobníky plynu a těžba → skladování, bezpečnost → bezpečnost,
 ERÚ a energetika → energetika). Editor oba údaje při návrhu přijetí potvrdí
 nebo změní. Nově se tak objevují původci Energetický regulační úřad
@@ -146,6 +155,66 @@ nebo změní. Nově se tak objevují původci Energetický regulační úřad
 je zapisuje až přijetí prvního takového kandidáta, aby veřejný filtr původců
 nenabízel instituci, k níž není žádný dokument. Akty EU původce nemají;
 doplní jej po přijetí `src/tools/backfill_eu_gestor.py`.
+
+### 3.1 Kandidáti doplnění 19. 11. 2026
+
+Na základě rozhodnutí z 19. 11. 2026 jsme frontu rozšířili o kandidáty, které
+tabulky výslovně neuvádějí, ale které z jejich řádků vyplývají. Všichni jsou
+zdrojem `mpo` a v podkladech nesou řádek, z něhož vyplývají; zvláštní zdroj
+jsme nezakládali, protože by pouze rozdělil jeden podklad (tabulky MPO a jejich
+vypořádání) do dvou položek filtru a zlatý test by je nehlídal.
+
+**Novely LEX OZE.** Zkratky LEX OZE I–III uvádí MPO ve své prezentaci na
+Konferenci energetiky a odpadového hospodářství 2025
+(<https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf>).
+Čísla, úřední názvy a části zákonů jsme ověřili na zakonyprolidi.cz, adresy
+a platnost v e-Sbírce:
+
+| Zkratka | Předpis | Účinnost od | Hlavní obsah | Novelizuje mimo jiné |
+|---|---|---|---|---|
+| LEX OZE I | zákon č. 19/2023 Sb. | 23. 1. 2023 | zjednodušení povolování obnovitelných zdrojů | 458/2000 Sb., 165/2012 Sb., 406/2000 Sb. |
+| LEX OZE II | zákon č. 469/2023 Sb. | 31. 12. 2023 | komunitní energetika a sdílení elektřiny | 458/2000 Sb., 165/2012 Sb., 406/2000 Sb. |
+| LEX OZE III | zákon č. 87/2025 Sb. | 31. 3. 2025 | akumulace, agregace a flexibilita | 458/2000 Sb., 165/2012 Sb., 406/2000 Sb., 586/1992 Sb. |
+
+Všechny tři zákony mají shodný úřední název „Zákon, kterým se mění zákon
+č. 458/2000 Sb., … (energetický zákon), ve znění pozdějších předpisů, a další
+související zákony“; od sebe je odlišuje označení a zkratka v podkladech
+(`evidence.alias`). Zkratka „LEX OZE IV“ se ve veřejných zdrojích nevyskytuje,
+a proto ji nedoplňujeme. Kandidáti jsou řazeni k řádkům MPO-02 (energetický
+zákon) a MPO-29 (zákon o podporovaných zdrojích energie), mají příznak novely
+(`signal = amendment`), navrženého původce MPO a věcný okruh Energetika.
+
+Vazbu AMENDS vytváří až přijetí kandidáta, a to z identifikátorů novelizovaných
+dokumentů v `evidence.amends_ids` (stejně jako u novel, jež nalézají sledované
+zdroje). Protože identifikátory dokumentů se mezi databázemi liší, ukládá
+`mpo_candidates.json` jen klíče novelizovaných předpisů (`evidence.amends`)
+a import je převádí na identifikátory dokumentů té databáze, do níž zapisuje.
+V živé databázi jsou to energetický zákon (#72) a zákon o podporovaných zdrojích
+energie (#66); zákony č. 406/2000 Sb. a 586/1992 Sb. jsou zatím jen kandidáty,
+a vazba na ně proto zatím nevznikne.
+
+**Další části řad ČSN EN 60079 a ČSN EN 13445.** Platné části jsme vyhledali
+v katalogu ČAS (`src/tools/check_csn_validity.py`) a porovnali s živou
+databází včetně různých zápisů označení (ČSN EN, ČSN EN IEC, ČSN EN ISO/IEC;
+převzetí STN a DIN se za českou normu nepočítají). Označení kandidáta je bez
+čísla vydání, aby odpovídalo zápisu v databázi; vydání a datum vydání uvádí
+`evidence.edition` a `evidence.issued`. Je-li stejné označení v katalogu
+vícekrát, vybíráme nejnovější platné vydání.
+
+* Řada ČSN EN 60079 (13 kandidátů): části 1 (pevný závěr), 2 (přetlak),
+  7 (zajištěné provedení), 10-1 (určování nebezpečných prostorů s plynnou
+  atmosférou), 11 a 25 (jiskrová bezpečnost), 14 (návrh elektrické instalace),
+  17 (prohlídky a údržba), 19 (opravy) a 29-0, 29-1, 29-2 (detektory plynů;
+  část 29-0 vyšla v listopadu 2026 jako nová obecná norma pro detekci plynů).
+  Části 10-1, 11, 14, 17, 19, 25 a 29-0 mají české označení ČSN EN IEC.
+  Zrušenou ČSN EN 60079-20-1 nahradila ČSN EN ISO/IEC 80079-20-1, kterou
+  databáze již má (#28).
+* Řada ČSN EN 13445 (8 kandidátů): části 1, 2, 3, 4, 6, 8, 10 a 11; část 5
+  již v databázi je. Části 7 a 9 jako ČSN nevyšly (část 9 je technická zpráva
+  CEN/TR), část 12 je zatím návrh prEN. Katalog ČAS vede u všech částí nové
+  vydání s datem vydání 12/2026, jež vybíráme; dosavadní vydání (11/2021,
+  u částí 2–4 se změnou A1) jsou stále platná. Editor by měl při posouzení
+  zvážit, zda nové vydání již nabylo účinnosti.
 
 ## 4. Automatický test zlaté sady
 
@@ -159,22 +228,31 @@ v rámci `src/tools/run_tests.py` a ověřuje, že každý z 90 řádků je:
 
 Protože se testovací databáze obnovuje kopií živé, test si kandidáty
 z `mpo_candidates.json` nejdřív sám vloží (bez sítě) a na konci je odebere;
-po importu do živé databáze už nic nevkládá. Soulad commitnutých souborů
+po importu do živé databáze už nic nevkládá. Test dále ověřuje, že opakovaný
+import nic nezmění, že novely LEX OZE nesou identifikátory novelizovaných
+dokumentů a že původcem nařízení vlády č. 191/2022 Sb. je MPSV.
+
+Import lze spouštět opakovaně. Kandidát zdroje `mpo`, o němž dosud nebylo
+rozhodnuto (stav nový nebo odložený), dostane obnovené podklady, platnost
+a navrženého původce; původce, jehož editor změnil, zůstává. Kandidát jiného
+zdroje dostane jen řádky tabulky do podkladů. Kandidáta navrženého k přijetí,
+přijatého nebo zamítnutého import nemění. Příkaz `lookup` se ptá sítě jen na
+kandidáty, kteří v `mpo_candidates.json` dosud nejsou (`--refresh` znovu na
+všechny). Soulad commitnutých souborů
 s tabulkami a s pravidly párování ověřují unit testy `tests/test_mpo_tables.py`.
 
 ## 5. Otevřené otázky
 
-* **Řady norem ČSN EN 60079 a ČSN EN 13445:** Které další části doplnit?
-  Navrhujeme ty, jež databáze již má v jiném národním převzetí, u řady 60079
-  přednostně části 10-1 (určování prostorů s plynnou výbušnou atmosférou),
-  14 a 17.
-* **MPO-27 a MPO-42:** Potvrdit u MPO, že řádky míní vyhlášku č. 227/2015 Sb.
-  a nařízení vlády č. 192/2022 Sb., případně i č. 191/2022 Sb.
-* **Původce nařízení vlády č. 191/2022 Sb.:** Tabulka MPO uvádí MPO; nařízení
-  provádí zákon č. 250/2021 Sb., u něhož jsme původce v kroku 0 opravili na
-  MPSV. Původce je vhodné ověřit při posouzení kandidáta.
+* **MPO-27 a MPO-42 (odloženo, vyřešíme později):** Potvrdit u MPO, že řádky
+  míní vyhlášku č. 227/2015 Sb. (nikoli č. 277/2015 Sb.) a nařízení vlády
+  č. 192/2022 Sb., případně i č. 191/2022 Sb.
 * **Technické komise:** Vysvětlit MPO, že ISO/TC, IEC/TC a CEN/TC nejsou
   dokumenty, a nabídnout přehled norem, jež tyto komise vydaly a jež databáze
   obsahuje.
 * **Označení ČSN EN ISO 19880-1 (#3):** Opravit na ČSN ISO 19880-1
   (pokračování kroku 0).
+* **Vazby novel LEX OZE na zákony č. 406/2000 Sb. a 586/1992 Sb.:** Vzniknou
+  jen tehdy, budou-li tyto zákony přijaty jako dokumenty dříve než novely
+  (import pak doplní jejich identifikátory); jinak je třeba vazbu doplnit ručně.
+* **Vydání norem ČSN EN 13445 z 12/2026:** Ponechat jako označení kandidáta
+  nové vydání, nebo dosavadní (2021, u částí 2–4 se změnou A1)? Viz odstavec 3.1.

@@ -25,13 +25,25 @@ Three steps, each its own subcommand:
   source keeps its source and gets the MPO row added to its evidence. Dry run
   unless --apply; `import` needs no network.
 
+What a row cannot say about a candidate (its issuer when the column "Nositel" is
+wrong, that it is an amendment and of which acts, a nickname such as "LEX OZE II")
+comes from the section `_candidates` of mpo_decisions.json. `lookup` asks the
+network only for candidates not yet in mpo_candidates.json (`--refresh` asks
+again for all); the rows, issuer and these details it always recomputes. `import`
+can run any number of times: a candidate of the source `mpo` still waiting for a
+decision gets its evidence, validity and issuer refreshed (an issuer an editor has
+changed is kept), the keys of the amended acts become the ids of their documents
+in that database (`amends_ids`, from which accepting the candidate creates the
+AMENDS relations), and a decided or proposed candidate is never touched.
+
 Usage: .venv/bin/python src/tools/mpo_tables.py convert
        .venv/bin/python src/tools/mpo_tables.py compare [--env-file FILE] [--output FILE]
-       .venv/bin/python src/tools/mpo_tables.py lookup
+       .venv/bin/python src/tools/mpo_tables.py lookup [--refresh]
        .venv/bin/python src/tools/mpo_tables.py import [--env-file FILE] [--apply]
 """
 import argparse
 import collections
+import html
 import json
 import pathlib
 import re
@@ -144,6 +156,11 @@ def load_rows():
 def load_decisions():
     return {k: v for k, v in json.loads(DECISIONS_PATH.read_text(encoding="utf-8")).items()
             if not k.startswith("_")}
+
+
+def load_candidate_details():
+    """{candidate key: details} from the section `_candidates` of mpo_decisions.json."""
+    return json.loads(DECISIONS_PATH.read_text(encoding="utf-8")).get("_candidates", {})
 
 
 # --- matching -------------------------------------------------------------------
@@ -359,23 +376,66 @@ def csn_metadata(session, designation):
     query = designation.split(" ", 1)[1]
     results = csn.search(session, query)
     best = csn.find_best_match(results, designation)
+    if best and not best["is_valid"]:
+        # a designation without its edition ("ČSN EN 60079-1") matches its first, withdrawn edition exactly;
+        # a valid later edition of the same designation ("ČSN EN 60079-1 ed. 3") is the one meant
+        base = csn.split_edition(csn.strip_catalog_suffix(designation))[0].lower()
+        later = [r for r in results if r.get("is_valid") and r.get("title")
+                 and not csn._AMENDMENT_TITLE_RE.match(r["title"])
+                 and csn.split_edition(re.sub(r"\s+", " ", r["designation"]).lower())[0] == base]
+        if later:
+            best = max(later, key=lambda r: csn._parse_issued(r.get("issued", "")))
     detail = csn.fetch_detail(best["catalog_number"], session) if best and best.get("catalog_number") else None
-    return {"designation": designation, "title": (detail or best or {}).get("title"), "document_type": "Norma",
+    title = (detail or best or {}).get("title")
+    return {"designation": designation, "title": html.unescape(title) if title else None, "document_type": "Norma",
             "url": detail["url"] if detail else None, "jurisdikce": "CZ", "language": "CS",
             "validity_status": ("platná" if best["is_valid"] else "zrušená") if best else None,
             "evidence": {"title_source": detail["url"] if detail else None,
+                         "edition": best.get("designation") if best else None,
                          "issued": best.get("issued") if best else None,
                          "incorporates": (detail or {}).get("incorporates")}}
 
 
-def lookup():
+def fetch_metadata(session, key, designation):
+    """Title, address and validity of one candidate from its authoritative source."""
+    if key.startswith("CZ:"):
+        return cz_metadata(session, key)
+    if key.startswith("EU:"):
+        return eu_metadata(session, key)
+    return csn_metadata(session, designation)
+
+
+def apply_details(candidate, row, details):
+    """The issuer, subject area and evidence a candidate gets from its first MPO row,
+    overridden by its details in mpo_decisions.json (`_candidates`)."""
+    key = candidate["candidate_key"]
+    if key.startswith("NORM:"):
+        puvodce = "Česká agentura pro standardizaci (ČAS)"
+    else:
+        puvodce = issuer(row) if row["table"] == "MPO" else None
+    candidate.update({"source": SOURCE, "puvodce": details.get("puvodce", puvodce),
+                      "scope_area": details.get("scope_area", scope_area(row))})
+    if details.get("signal"):
+        candidate["signal"] = details["signal"]
+    for field in ("alias", "amends", "basis"):
+        if details.get(field):
+            candidate["evidence"][field] = details[field]
+    return candidate
+
+
+def lookup(refresh=False):
+    """Writes mpo_candidates.json: the network metadata of a candidate already there
+    is reused unless `refresh`; its rows, issuer and details are always recomputed."""
     import requests
     records = json.loads(COVERAGE_PATH.read_text(encoding="utf-8"))["rows"]
     rows = {r["id"]: r for r in load_rows()}
     decisions = load_decisions()
+    details = load_candidate_details()
+    known = {} if refresh or not CANDIDATES_PATH.exists() else {c["candidate_key"]: c for c in load_candidates()}
     session = requests.Session()
     session.headers["User-Agent"] = cd_user_agent()
     found = {}
+    fetched = 0
     for record in records:
         row = rows[record["id"]]
         extra = {candidate_key_of(d): d for d in decisions.get(record["id"], {}).get("extra_candidates", [])}
@@ -384,27 +444,25 @@ def lookup():
             if key in found:
                 found[key]["evidence"]["mpo_rows"].append(mpo_evidence(row))
                 continue
-            if key.startswith("CZ:"):
-                metadata = cz_metadata(session, key)
-            elif key.startswith("EU:"):
-                metadata = eu_metadata(session, key)
+            if key in known:
+                metadata = {k: v for k, v in known[key].items() if k not in ("source", "puvodce", "scope_area", "signal")}
+                metadata["evidence"] = {k: v for k, v in metadata["evidence"].items()
+                                        if k not in ("mpo_rows", "alias", "amends", "basis")}
             else:
-                metadata = csn_metadata(session, extra.get(key) or norm_designation(row["cislo"]))
-            puvodce = issuer(row) if row["table"] == "MPO" and not key.startswith("NORM:") else None
-            if key.startswith("NORM:"):
-                puvodce = "Česká agentura pro standardizaci (ČAS)"
-            metadata.update({"candidate_key": key, "source": SOURCE, "puvodce": puvodce,
-                             "scope_area": scope_area(row)})
+                metadata = fetch_metadata(session, key, extra.get(key) or norm_designation(row["cislo"]))
+                fetched += 1
+                print(f"  {key:24} {metadata['validity_status'] or '-':14} "
+                      f"{(metadata['title'] or '— NO TITLE —')[:90]}")
+                time.sleep(1)
+            metadata["candidate_key"] = key
             metadata["evidence"]["mpo_rows"] = [mpo_evidence(row)]
-            found[key] = metadata
-            print(f"  {key:16} {metadata['validity_status'] or '-':14} {(metadata['title'] or '— NO TITLE —')[:90]}")
-            time.sleep(1)
+            found[key] = apply_details(metadata, row, details.get(key, {}))
     CANDIDATES_PATH.write_text(json.dumps({
         "_popis": f"Kandidáti ze zdroje „{SOURCE_LABEL}“ s autoritativním názvem, adresou a platností "
                   "(src/tools/mpo_tables.py lookup); vkládá je src/tools/mpo_tables.py import.",
         "candidates": sorted(found.values(), key=lambda c: c["candidate_key"])},
         ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"{len(found)} candidates, {sum(1 for c in found.values() if c['title'])} with a title")
+    print(f"{len(found)} candidates ({fetched} looked up), {sum(1 for c in found.values() if c['title'])} with a title")
 
 
 def cd_user_agent():
@@ -423,34 +481,82 @@ def load_candidates():
     return json.loads(CANDIDATES_PATH.read_text(encoding="utf-8"))["candidates"]
 
 
-def write_candidates(cursor, found):
-    """Puts the candidates into DocumentCandidate; returns {key: outcome}: `inserted`,
-    `evidence` (a candidate of another source got the MPO rows in its evidence),
-    `kept` (already there with the MPO rows, or decided)."""
+def amends_ids(candidate, snapshot):
+    """The ids of the documents of the acts a candidate amends (`evidence.amends`)
+    in the database of `snapshot`; an amended act not in the database is left out."""
+    ids = set()
+    for key in candidate["evidence"].get("amends", []):
+        ids.update(snapshot.documents_for_key(key))
+    return sorted(ids)
+
+
+def planned_outcome(candidate, existing):
+    """What write_candidates does with a candidate, from the queue row of its key
+    (None when it is not there): `inserted`, `refreshed` (own source, not decided),
+    `evidence` (another source's candidate gets the MPO rows) or `kept`."""
+    if existing is None:
+        return "inserted"
+    if existing["status"] in ("accepted", "rejected", "proposed"):
+        return "kept"
+    if existing["source"] == SOURCE:
+        return "refreshed"
+    return "evidence"
+
+
+def write_candidates(cursor, found, snapshot=None):
+    """Puts the candidates into DocumentCandidate; returns {key: outcome}, see
+    planned_outcome (`refreshed` and `evidence` become `kept` when nothing changed).
+    Running it again changes nothing."""
     cd.ensure_schema(cursor)
+    snapshot = snapshot or load_snapshot(cursor)
     outcome = {}
     for c in found:
-        cursor.execute("SELECT id, source, status, evidence_json, puvodce FROM DocumentCandidate "
-                       "WHERE candidate_key = %s", (c["candidate_key"],))
+        evidence_new = dict(c["evidence"])
+        ids = amends_ids(c, snapshot)
+        if ids:
+            evidence_new["amends_ids"] = ids
+        evidence_new["puvodce_navrh"] = c["puvodce"]  # tells a later run whether an editor changed the issuer
+        cursor.execute("SELECT id, source, status, evidence_json, puvodce, validity_status, `signal` "
+                       "FROM DocumentCandidate WHERE candidate_key = %s", (c["candidate_key"],))
         row = cursor.fetchone()
-        if row is None:
+        action = planned_outcome(c, row)
+        if action == "inserted":
             cursor.execute("""INSERT INTO DocumentCandidate
-                (candidate_key, source, designation, title, document_type, url, language, jurisdikce, scope_area,
-                 validity_status, evidence_json, cited_by, puvodce)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, %s)""",
-                           (c["candidate_key"], SOURCE, c["designation"], c["title"], c["document_type"], c["url"],
-                            c["language"], c["jurisdikce"], c["scope_area"], c["validity_status"],
-                            json.dumps(c["evidence"], ensure_ascii=False), c["puvodce"]))
-            outcome[c["candidate_key"]] = "inserted"
-            continue
-        evidence = json.loads(row["evidence_json"] or "{}")
-        if evidence.get("mpo_rows") or row["status"] in ("accepted", "rejected"):
-            outcome[c["candidate_key"]] = "kept"
-            continue
-        evidence["mpo_rows"] = c["evidence"]["mpo_rows"]
-        cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = COALESCE(puvodce, %s) WHERE id = %s",
-                       (json.dumps(evidence, ensure_ascii=False), c["puvodce"], row["id"]))
-        outcome[c["candidate_key"]] = "evidence"
+                (candidate_key, source, `signal`, designation, title, document_type, url, language, jurisdikce,
+                 scope_area, validity_status, evidence_json, cited_by, puvodce)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, %s)""",
+                           (c["candidate_key"], SOURCE, c.get("signal"), c["designation"], c["title"],
+                            c["document_type"], c["url"], c["language"], c["jurisdikce"], c["scope_area"],
+                            c["validity_status"], json.dumps(evidence_new, ensure_ascii=False), c["puvodce"]))
+        elif action == "refreshed":
+            old = json.loads(row["evidence_json"] or "{}")
+            # what other tools added (findings of monitored sources) stays; the editor's issuer stays
+            evidence = {**{k: v for k, v in old.items() if k not in evidence_new and k != "amends_ids"},
+                        **evidence_new}
+            if "amends_ids" in old and "amends_ids" not in evidence_new:
+                evidence["amends_ids"] = old["amends_ids"]
+            editor_changed = row["puvodce"] not in (None, old.get("puvodce_navrh"))
+            puvodce = row["puvodce"] if editor_changed else c["puvodce"]
+            values = (json.dumps(evidence, ensure_ascii=False), c["validity_status"], puvodce,
+                      c.get("signal") or row["signal"])
+            if values == (row["evidence_json"], row["validity_status"], row["puvodce"], row["signal"]):
+                action = "kept"
+            else:
+                cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, validity_status = %s, puvodce = %s, "
+                               "`signal` = %s WHERE id = %s", values + (row["id"],))
+        elif action == "evidence":
+            evidence = json.loads(row["evidence_json"] or "{}")
+            before = json.dumps(evidence, ensure_ascii=False, sort_keys=True)
+            evidence["mpo_rows"] = c["evidence"]["mpo_rows"]
+            if ids:
+                evidence["amends_ids"] = sorted(set(evidence.get("amends_ids", [])) | set(ids))
+            if (json.dumps(evidence, ensure_ascii=False, sort_keys=True) == before
+                    and (row["puvodce"] or c["puvodce"]) == row["puvodce"]):
+                action = "kept"
+            else:
+                cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = COALESCE(puvodce, %s) "
+                               "WHERE id = %s", (json.dumps(evidence, ensure_ascii=False), c["puvodce"], row["id"]))
+        outcome[c["candidate_key"]] = action
     return outcome
 
 
@@ -463,14 +569,19 @@ def import_candidates(env_file, apply):
             planned = [c for c in found if not snapshot.documents_for_key(c["candidate_key"], c["designation"])]
             for c in planned:
                 existing = snapshot.candidates.get(c["candidate_key"])
-                state = f"in the queue ({existing['source']}, {existing['status']})" if existing else "new"
-                print(f"  {c['candidate_key']:22} {state:24} {(c['title'] or '')[:80]}")
+                state = f"{planned_outcome(c, existing)}" + (f" ({existing['source']}, {existing['status']})"
+                                                              if existing else "")
+                amended = amends_ids(c, snapshot)
+                print(f"  {c['candidate_key']:26} {state:30} {(c['title'] or '')[:70]}"
+                      + (f"  AMENDS {amended}" if amended else ""))
             skipped = len(found) - len(planned)
             if not apply:
-                print(f"{database}: {len(planned)} candidates to write, {skipped} already documents "
-                      "(dry run — add --apply)")
+                counts = collections.Counter(planned_outcome(c, snapshot.candidates.get(c["candidate_key"]))
+                                             for c in planned)
+                print(f"{database}: {len(planned)} candidates, " + ", ".join(f"{v} {k}" for k, v in counts.items())
+                      + f"; {skipped} already documents (dry run — add --apply)")
                 return None
-            outcome = write_candidates(cur, planned)
+            outcome = write_candidates(cur, planned, snapshot)
         conn.commit()
     finally:
         conn.close()
@@ -484,6 +595,8 @@ def main(argv=None):
     parser.add_argument("command", choices=("convert", "compare", "lookup", "import"))
     parser.add_argument("--env-file", default=None, help="database to read (compare) or write (import); default .env")
     parser.add_argument("--apply", action="store_true", help="import: write to the database (dry run without it)")
+    parser.add_argument("--refresh", action="store_true", help="lookup: ask the network again also for the "
+                                                                "candidates already in mpo_candidates.json")
     parser.add_argument("--output", default=None, help="compare: write the coverage here instead of "
                                                          "data/20260430_MPO/mpo_coverage.json")
     args = parser.parse_args(argv)
@@ -492,7 +605,7 @@ def main(argv=None):
     elif args.command == "compare":
         compare(args.env_file, args.output)
     elif args.command == "lookup":
-        lookup()
+        lookup(args.refresh)
     else:
         import_candidates(args.env_file, args.apply)
 

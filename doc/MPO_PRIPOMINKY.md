@@ -226,12 +226,12 @@ Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
   vyhlášku č. 227/2015 Sb.; vyhláška č. 513/2021 Sb. je zrušená novela, platná
   je vyhláška č. 508/2025 Sb. o regulačním výkaznictví; databáze vede
   ČSN ISO 19880-1 pod neexistujícím označením ČSN EN ISO 19880-1 (#3).
-* *Fronta kandidátů.* Pro zdroj „MPO/CDV 30. 4. 2026“ je připraveno 34
+* *Fronta kandidátů.* Pro zdroj „MPO/CDV 30. 4. 2026“ je připraveno 57
   kandidátů s úředním názvem, adresou a platností (zakonyprolidi.cz, e-Sbírka,
-  EUR-Lex, katalog ČAS): 28 českých předpisů, 2 akty EU, norma
-  ČSN EN ISO 11114-4 a 3 kandidáti z uzávěru citací, jimž se jen doplní řádky
-  tabulky do podkladů. Zápis do živé databáze provede
-  `src/tools/mpo_tables.py import --apply`; na `h2regdocs_test` je vyzkoušen.
+  EUR-Lex, katalog ČAS): 31 českých předpisů, 2 akty EU, 21 norem ČSN
+  a 3 kandidáti z uzávěru citací, jimž se jen doplní řádky tabulky do podkladů.
+  Zápis do živé databáze provede `src/tools/mpo_tables.py import --apply`;
+  na `h2regdocs_test` je vyzkoušen, včetně opakovaného běhu, který nic nezmění.
 * *ERÚ a ČBÚ.* Kandidáti nesou navrženého původce (nový sloupec
   `DocumentCandidate.puvodce`), mezi nimi Energetický regulační úřad
   (6 kandidátů) a Český báňský úřad (6 kandidátů). Do `DocumentSource` se
@@ -241,9 +241,35 @@ Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
   nad `h2regdocs_test`, že každý řádek obou tabulek je dokumentem, kandidátem,
   nebo má uveden důvod, a že žádný dokument z tabulek z databáze nezmizel.
 
+**Doplnění k 19. 11. 2026 (větev `feature/mpo-kandidati-doplnit`, živá DB
+dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
+(podrobně `doc/MPO_TABULKY.md`, odstavec 3.1):
+
+* *Původce nařízení vlády č. 191/2022 Sb.* je Ministerstvo práce a sociálních
+  věcí, nikoli MPO uvedené v tabulce.
+* *Novely LEX OZE.* Kandidáty jsou zákony č. 19/2023 Sb. (LEX OZE I),
+  č. 469/2023 Sb. (LEX OZE II) a č. 87/2025 Sb. (LEX OZE III); zkratky podle
+  prezentace MPO z roku 2025, čísla a obsah ověřené na zakonyprolidi.cz
+  a v e-Sbírce. Všechny tři novelizují energetický zákon i zákon
+  o podporovaných zdrojích energie; přijetí kandidáta k nim založí vazby AMENDS.
+  Slovník synonym je obsahuje již nyní (obecná položka „LEX OZE“ a položky
+  „LEX OZE I“, „II“, „III“): označení, jež v databázi dosud není, nic nenajde,
+  a jakmile editoři kandidáta přijmou, vyhledávání novelu najde bez další změny.
+  Test `MpoCatalogTestCase` proto připouští v synonymech i označení kandidáta
+  z `mpo_candidates.json`, jenž nebyl ve frontě zamítnut. Doplnit synonyma až
+  po přijetí by vyžadovalo další změnu kódu, na niž by bylo snadné zapomenout.
+* *Řady ČSN EN 60079 a ČSN EN 13445.* Kandidáty je 13 dalších platných částí
+  řady ČSN EN 60079 (1, 2, 7, 10-1, 11, 14, 17, 19, 25, 29-0, 29-1, 29-2)
+  a 8 částí řady ČSN EN 13445 (1, 2, 3, 4, 6, 8, 10, 11), jež databáze
+  v českém převzetí nemá; ČSN EN ISO/IEC 80079-20-1, náhradu zrušené
+  ČSN EN 60079-20-1, databáze již obsahuje. Jsou zdrojem `mpo` s řádky MPO-48
+  a MPO-49 v podkladech, takže je hlídá i zlatý test.
+* *Opakovaný import.* `mpo_tables.py import` lze spouštět opakovaně: obnoví
+  podklady nerozhodnutých kandidátů zdroje `mpo` a ostatní nemění.
+
 Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení editory
-(potvrzení přijetí vyžaduje dva různé editory), rozhodnutí o dalších
-částech řad ČSN EN 60079 a ČSN EN 13445 a vysvětlení technických komisí MPO.
+(potvrzení přijetí vyžaduje dva různé editory) a vysvětlení technických
+komisí MPO.
 
 ### 4.3 Krok 2: Úpravy rozhraní
 
@@ -294,8 +320,8 @@ Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení edi
   a ustáleným názvům hledané výrazy a označení dokumentů: RFNBO
   (2023/1184, 2023/1185, 2018/2001, 2023/2413 a výraz „nebiologického
   původu“), AFIR (2023/1804), AFID, RED II, RED III (2023/2413), LEX OZE
-  (165/2012 Sb. a 458/2000 Sb.), TEN-E, plynárenský balíček, ReFuelEU, ATEX
-  a PED. Zkratka se hledá jako celé slovo („RED II“ nenajde RED III).
+  (165/2012 Sb. a 458/2000 Sb., od 19. 11. 2026 i novely LEX OZE I–III,
+  odstavec 4.2), TEN-E, plynárenský balíček, ReFuelEU, ATEX a PED. Zkratka se hledá jako celé slovo („RED II“ nenajde RED III).
   Pod výsledky se zobrazí, která synonyma byla použita. Vyhledávání nově
   prochází i označení dokumentu. Dotaz „RFNBO“ tak vrací 4 řádky (oba akty
   v přenesené pravomoci, RED II a RED III), každý předpis jednou.
@@ -372,11 +398,12 @@ vypořádání pro MPO.
   výchozí stav je „vše“ a skrytí slovenských dokumentů ve výchozím
   zobrazení je změna jedné konstanty (`DEFAULT_JURISDICTION = "bez-sk"`
   v `app/catalog_filters.py`).
-* **LEX OZE ve slovníku synonym:** dotaz nyní najde novelizované zákony
-  165/2012 Sb. a 458/2000 Sb.; samotné novely (LEX OZE I–III, např.
-  382/2021 Sb. a 469/2023 Sb.) databáze neobsahuje. Doplnit je jako
-  dokumenty (krok 1), nebo ponechat odkaz na novelizované zákony? Čísla
-  novel je třeba před doplněním ověřit.
+* **Výklad řádků MPO-27 a MPO-42 (odloženo, vyřešíme později):** Řádek
+  MPO-27 uvádí číslo 277/2015 Sb., ale název vyhlášky č. 227/2015 Sb.;
+  kandidátem je vyhláška č. 227/2015 Sb. Řádek MPO-42 uvádí číslo
+  191/2022 Sb., ale název nařízení vlády č. 192/2022 Sb., jež databáze má;
+  kandidátem je i nařízení č. 191/2022 Sb. Který předpis MPO míní, je třeba
+  vyjasnit s MPO.
 * **Zařazení původců do skupin** (`data/source_groups.json`): ÚNMS SR je
   mezi normalizačními orgány, nikoli ve skupině Slovensko; DGUV, BAuA, PTB,
   OSHA, NIST, NASA a Sandia jsou „zahraniční státní orgány“. Ověřit.

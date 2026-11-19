@@ -182,6 +182,59 @@
       "scope_area": 9
     },
     {
+      "designation": "19/2023 Sb.",
+      "title": "Zákon, kterým se mění zákon č. 458/2000 Sb., o podmínkách podnikání a o výkonu státní správy v energetických odvětvích a o změně některých zákonů (energetický zákon), ve znění pozdějších předpisů, a další související zákony",
+      "document_type": "Zákon",
+      "url": "https://www.zakonyprolidi.cz/cs/2023-19",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "účinný",
+      "evidence": {
+        "esbirka_url": "https://e-sbirka.gov.cz/sb/2023/19",
+        "repeal_note": null,
+        "title_source": "https://www.zakonyprolidi.cz/cs/2023-19",
+        "validity": {
+          "status": "účinný",
+          "source": "e-sbirka",
+          "end": null,
+          "effective_from": "2023-01-23",
+          "repealed_by": []
+        },
+        "mpo_rows": [
+          {
+            "row": "MPO-02",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "458/2000 Sb.",
+            "nazev": "Energetický zákon",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          },
+          {
+            "row": "MPO-29",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "165/2012 Sb.",
+            "nazev": "Zákon o POZE (o podporovaných zdrojích energie)",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          }
+        ],
+        "alias": "LEX OZE I",
+        "amends": [
+          "CZ:458/2000",
+          "CZ:165/2012",
+          "CZ:406/2000"
+        ],
+        "basis": "Novela „LEX OZE I“ (zjednodušení povolování obnovitelných zdrojů) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+      },
+      "candidate_key": "CZ:19/2023",
+      "source": "mpo",
+      "puvodce": "Ministerstvo průmyslu a obchodu",
+      "scope_area": 9,
+      "signal": "amendment"
+    },
+    {
       "designation": "191/2022 Sb.",
       "title": "Nařízení vlády o vyhrazených technických plynových zařízeních a požadavcích na zajištění jejich bezpečnosti",
       "document_type": "Nařízení vlády",
@@ -214,7 +267,7 @@
       },
       "candidate_key": "CZ:191/2022",
       "source": "mpo",
-      "puvodce": "Ministerstvo průmyslu a obchodu",
+      "puvodce": "Ministerstvo práce a sociálních věcí",
       "scope_area": null
     },
     {
@@ -722,6 +775,59 @@
       "scope_area": 2
     },
     {
+      "designation": "469/2023 Sb.",
+      "title": "Zákon, kterým se mění zákon č. 458/2000 Sb., o podmínkách podnikání a o výkonu státní správy v energetických odvětvích a o změně některých zákonů (energetický zákon), ve znění pozdějších předpisů, a další související zákony",
+      "document_type": "Zákon",
+      "url": "https://www.zakonyprolidi.cz/cs/2023-469",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "účinný",
+      "evidence": {
+        "esbirka_url": "https://e-sbirka.gov.cz/sb/2023/469",
+        "repeal_note": null,
+        "title_source": "https://www.zakonyprolidi.cz/cs/2023-469",
+        "validity": {
+          "status": "účinný",
+          "source": "e-sbirka",
+          "end": null,
+          "effective_from": "2023-12-31",
+          "repealed_by": []
+        },
+        "mpo_rows": [
+          {
+            "row": "MPO-02",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "458/2000 Sb.",
+            "nazev": "Energetický zákon",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          },
+          {
+            "row": "MPO-29",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "165/2012 Sb.",
+            "nazev": "Zákon o POZE (o podporovaných zdrojích energie)",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          }
+        ],
+        "alias": "LEX OZE II",
+        "amends": [
+          "CZ:458/2000",
+          "CZ:165/2012",
+          "CZ:406/2000"
+        ],
+        "basis": "Novela „LEX OZE II“ (komunitní energetika a sdílení elektřiny) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+      },
+      "candidate_key": "CZ:469/2023",
+      "source": "mpo",
+      "puvodce": "Ministerstvo průmyslu a obchodu",
+      "scope_area": 9,
+      "signal": "amendment"
+    },
+    {
       "designation": "488/2021 Sb.",
       "title": "Vyhláška o podmínkách připojení k plynárenské soustavě",
       "document_type": "Vyhláška",
@@ -1121,6 +1227,60 @@
       "scope_area": 2
     },
     {
+      "designation": "87/2025 Sb.",
+      "title": "Zákon, kterým se mění zákon č. 458/2000 Sb., o podmínkách podnikání a o výkonu státní správy v energetických odvětvích a o změně některých zákonů (energetický zákon), ve znění pozdějších předpisů, a další související zákony",
+      "document_type": "Zákon",
+      "url": "https://www.zakonyprolidi.cz/cs/2025-87",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "účinný",
+      "evidence": {
+        "esbirka_url": "https://e-sbirka.gov.cz/sb/2025/87",
+        "repeal_note": null,
+        "title_source": "https://www.zakonyprolidi.cz/cs/2025-87",
+        "validity": {
+          "status": "účinný",
+          "source": "e-sbirka",
+          "end": null,
+          "effective_from": "2025-03-31",
+          "repealed_by": []
+        },
+        "mpo_rows": [
+          {
+            "row": "MPO-02",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "458/2000 Sb.",
+            "nazev": "Energetický zákon",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          },
+          {
+            "row": "MPO-29",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "165/2012 Sb.",
+            "nazev": "Zákon o POZE (o podporovaných zdrojích energie)",
+            "nositel": "MPO",
+            "zdroj": "VS",
+            "poznamka": null
+          }
+        ],
+        "alias": "LEX OZE III",
+        "amends": [
+          "CZ:458/2000",
+          "CZ:165/2012",
+          "CZ:406/2000",
+          "CZ:586/1992"
+        ],
+        "basis": "Novela „LEX OZE III“ (akumulace, agregace a flexibilita) podle prezentace MPO, Konference energetiky a odpadového hospodářství 2025 (https://www.smocr.cz/shared/clanky/15677/1_1_Rene_Nedela_MPO.pdf); části zákona ověřeny na zakonyprolidi.cz."
+      },
+      "candidate_key": "CZ:87/2025",
+      "source": "mpo",
+      "puvodce": "Ministerstvo průmyslu a obchodu",
+      "scope_area": 9,
+      "signal": "amendment"
+    },
+    {
       "designation": "(EU) 2024/1679",
       "title": "Nařízení Evropského parlamentu a Rady (EU) 2024/1679 ze dne 13. června 2024 o hlavních směrech Unie pro rozvoj transevropské dopravní sítě, o změně nařízení (EU) 2021/1153 a (EU) č. 913/2010 a o zrušení nařízení (EU) č. 1315/2013 (Text s významem pro EHP)",
       "document_type": "Nařízení EU",
@@ -1188,6 +1348,770 @@
       "candidate_key": "EU:2025/2359",
       "source": "mpo",
       "puvodce": null,
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-1",
+      "title": "Netopené tlakové nádoby - Část 1: Obecně",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524696",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524696",
+        "edition": "ČSN EN 13445-1",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-1",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-1",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-10",
+      "title": "Netopené tlakové nádoby - Část 10: Doplňující požadavky na nádoby z niklu a jeho slitin",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524695",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524695",
+        "edition": "ČSN EN 13445-10",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-10",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-10",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-11",
+      "title": "Netopené tlakové nádoby - Část 11: Dodatečné požadavky na tlakové nádoby z titanu a slitin titanu",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524694",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524694",
+        "edition": "ČSN EN 13445-11",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-11",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-11",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-2",
+      "title": "Netopené tlakové nádoby - Část 2: Materiály",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524693",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524693",
+        "edition": "ČSN EN 13445-2",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-2",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-2",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-3",
+      "title": "Netopené tlakové nádoby - Část 3: Konstrukce a výpočet",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524697",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524697",
+        "edition": "ČSN EN 13445-3",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-3",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-3",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-4",
+      "title": "Netopené tlakové nádoby - Část 4: Výroba",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524692",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524692",
+        "edition": "ČSN EN 13445-4",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-4",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-4",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-6",
+      "title": "Netopené tlakové nádoby - Část 6: Požadavky pro navrhování a výrobu tlakových nádob a tlakových částí z litiny s kuličkovým grafitem",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524690",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524690",
+        "edition": "ČSN EN 13445-6",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-6",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-6",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 13445-8",
+      "title": "Netopené tlakové nádoby - Část 8: Doplňující požadavky na nádoby z hliníku a jeho slitin",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524689",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524689",
+        "edition": "ČSN EN 13445-8",
+        "issued": "12.2026",
+        "incorporates": [
+          {
+            "designation": "EN 13445-8",
+            "year": "2026"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-49",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 13445",
+            "nazev": "Netopené tlakové nádoby",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": "edice 2021"
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 13445-8",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 60079-1",
+      "title": "Výbušné atmosféry - Část 1: Ochrana zařízení pevným závěrem „d“",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=97051",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=97051",
+        "edition": "ČSN EN 60079-1 ed. 3",
+        "issued": "4.2015",
+        "incorporates": [
+          {
+            "designation": "EN 60079-1",
+            "year": "2014"
+          },
+          {
+            "designation": "IEC 60079-1",
+            "year": "2014"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 60079-1",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 60079-2",
+      "title": "Výbušné atmosféry - Část 2: Ochrana zařízení závěrem s vnitřním přetlakem „p“",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=97182",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=97182",
+        "edition": "ČSN EN 60079-2 ed. 3",
+        "issued": "5.2015",
+        "incorporates": [
+          {
+            "designation": "EN 60079-2",
+            "year": "2014"
+          },
+          {
+            "designation": "IEC 60079-2",
+            "year": "2014"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 60079-2",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 60079-29-1",
+      "title": "Výbušné atmosféry - Část 29-1: Detektory plynů - Funkční požadavky na detektory hořlavých plynů",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=502389",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=502389",
+        "edition": "ČSN EN 60079-29-1 ed. 2",
+        "issued": "5.2017",
+        "incorporates": [
+          {
+            "designation": "EN 60079-29-1",
+            "year": "2016"
+          },
+          {
+            "designation": "IEC 60079-29-1",
+            "year": "2016"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 60079-29-1",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 60079-29-2",
+      "title": "Výbušné atmosféry - Část 29-2: Detektory plynů - Výběr, instalace, použití a údržba detektorů hořlavých plynů a kyslíku",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=98721",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=98721",
+        "edition": "ČSN EN 60079-29-2 ed. 2",
+        "issued": "11.2015",
+        "incorporates": [
+          {
+            "designation": "EN 60079-29-2",
+            "year": "2015"
+          },
+          {
+            "designation": "IEC 60079-29-2",
+            "year": "2015"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 60079-29-2",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN 60079-7",
+      "title": "Výbušné atmosféry - Část 7: Ochrana zařízení zajištěným provedením „e“",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=502386",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=502386",
+        "edition": "ČSN EN 60079-7 ed. 3",
+        "issued": "6.2017",
+        "incorporates": [
+          {
+            "designation": "EN 60079-7",
+            "year": "2015"
+          },
+          {
+            "designation": "IEC 60079-7",
+            "year": "2015"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN 60079-7",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-10-1",
+      "title": "Výbušné atmosféry - Část 10-1: Určování nebezpečných prostorů - Výbušné plynné atmosféry",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=513022",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=513022",
+        "edition": "ČSN EN IEC 60079-10-1 ed. 3",
+        "issued": "9.2021",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-10-1",
+            "year": "2021"
+          },
+          {
+            "designation": "IEC 60079-10-1",
+            "year": "2020"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-10-1",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-11",
+      "title": "Výbušné atmosféry - Část 11: Ochrana zařízení jiskrovou bezpečností „i“",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523705",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523705",
+        "edition": "ČSN EN IEC 60079-11 ed. 3",
+        "issued": "5.2026",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-11",
+            "year": "2024"
+          },
+          {
+            "designation": "IEC 60079-11",
+            "year": "2023"
+          },
+          {
+            "designation": "IEC 60079-11:2023/COR1",
+            "year": "2023"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-11",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-14",
+      "title": "Výbušné atmosféry - Část 14: Návrh elektrické instalace, výběr a instalace zařízení, včetně výchozí prohlídky",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=521870",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=521870",
+        "edition": "ČSN EN IEC 60079-14 ed. 5",
+        "issued": "7.2025",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-14",
+            "year": "2024"
+          },
+          {
+            "designation": "IEC 60079-14",
+            "year": "2024"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-14",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-17",
+      "title": "Výbušné atmosféry - Část 17: Prohlídky a údržba elektrických instalací",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=521267",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=521267",
+        "edition": "ČSN EN IEC 60079-17 ed. 5",
+        "issued": "4.2025",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-17",
+            "year": "2024"
+          },
+          {
+            "designation": "IEC 60079-17",
+            "year": "2023"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-17",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-19",
+      "title": "Výbušné atmosféry - Část 19: Opravy, generální opravy a renovace zařízení",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523709",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523709",
+        "edition": "ČSN EN IEC 60079-19 ed. 4",
+        "issued": "5.2026",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-19",
+            "year": "2025"
+          },
+          {
+            "designation": "IEC 60079-19",
+            "year": "2025"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-19",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-25",
+      "title": "Výbušné atmosféry - Část 25: Jiskrově bezpečné elektrické systémy",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=520815",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=520815",
+        "edition": "ČSN EN IEC 60079-25 ed. 3",
+        "issued": "6.2025",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-25",
+            "year": "2022"
+          },
+          {
+            "designation": "EN IEC 60079-25:2022/AC",
+            "year": "2022"
+          },
+          {
+            "designation": "IEC 60079-25",
+            "year": "2020"
+          },
+          {
+            "designation": "IEC 60079-25:2020/COR1",
+            "year": "2020"
+          },
+          {
+            "designation": "IEC 60079-25:2020/COR2",
+            "year": "2022"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-25",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
+      "scope_area": null
+    },
+    {
+      "designation": "ČSN EN IEC 60079-29-0",
+      "title": "Výbušné atmosféry - Část 29-0: Zařízení pro detekci plynů - Obecné požadavky a zkušební metody",
+      "document_type": "Norma",
+      "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523495",
+      "jurisdikce": "CZ",
+      "language": "CS",
+      "validity_status": "platná",
+      "evidence": {
+        "title_source": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=523495",
+        "edition": "ČSN EN IEC 60079-29-0",
+        "issued": "11.2026",
+        "incorporates": [
+          {
+            "designation": "EN IEC 60079-29-0",
+            "year": "2026"
+          },
+          {
+            "designation": "IEC 60079-29-0",
+            "year": "2025"
+          }
+        ],
+        "mpo_rows": [
+          {
+            "row": "MPO-48",
+            "sheet": "Předpisy (30.4.2026)",
+            "cislo": "ČSN EN 60079 (řada)",
+            "nazev": "Prostředí s nebezpečím výbuchu (ATEX)",
+            "nositel": "ČAS",
+            "zdroj": "AI",
+            "poznamka": null
+          }
+        ]
+      },
+      "candidate_key": "NORM:EN IEC 60079-29-0",
+      "source": "mpo",
+      "puvodce": "Česká agentura pro standardizaci (ČAS)",
       "scope_area": null
     },
     {

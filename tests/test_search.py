@@ -1,3 +1,5 @@
+import json
+import pathlib
 import unittest
 import sys
 import os
@@ -5,6 +7,7 @@ import re
 
 # Přidání cesty, abychom mohli importovat app
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 from app.app import app
 
@@ -212,10 +215,29 @@ class MpoCatalogTestCase(unittest.TestCase):
         return ROW_RE.findall(html), count, html
 
     def test_every_synonym_identifier_exists(self):
+        """An identifier is a document, or the designation of an MPO candidate not
+        rejected in the queue: accepting the candidate creates the document with that
+        identifier, so the synonym works from then on without another change."""
         from app import catalog_filters
+        candidates = json.loads((REPO_ROOT / "data" / "20260430_MPO" / "mpo_candidates.json")
+                                .read_text(encoding="utf-8"))["candidates"]
+        pending = {c["designation"]: c["candidate_key"] for c in candidates}
+        conn = _connect()
+        try:
+            with conn.cursor() as cur:
+                cur.execute("SELECT candidate_key FROM DocumentCandidate WHERE status = 'rejected'")
+                rejected = {r["candidate_key"] for r in cur.fetchall()}
+        except Exception:  # a database without the queue
+            rejected = set()
+        finally:
+            conn.close()
         for entry in catalog_filters.load_synonyms():
             for identifier in entry.get("identifiers", []):
-                self.assertIn(identifier, self.identifiers, entry["label"])
+                with self.subTest(label=entry["label"], identifier=identifier):
+                    if identifier in self.identifiers:
+                        continue
+                    self.assertIn(identifier, pending, "neither a document nor an MPO candidate")
+                    self.assertNotIn(pending[identifier], rejected, "the candidate was rejected")
 
     def test_every_source_has_an_explicit_group(self):
         from app import catalog_filters
