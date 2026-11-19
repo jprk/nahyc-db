@@ -825,8 +825,64 @@ class CommittedCorrectionsTestCase(unittest.TestCase):
 
     def test_every_committed_correction_has_a_reason_and_changes(self):
         for znacka, entry in self.corrections.items():
-            self.assertTrue(entry.get("changes"), znacka)
+            self.assertTrue(entry.get("changes") or entry.get("exclude"), znacka)
             self.assertTrue(entry.get("reason") or entry.get("confirmed_by"), znacka)
+
+    def test_the_ecb_decision_is_out_of_scope(self):
+        record = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2018/546", "jazyk": "CZ"}
+        self.assertFalse(apply_manual_corrections(record, self.corrections))
+
+    def test_a_slovak_act_without_znacka_gets_a_slovak_ministry(self):
+        record = {"zdroj_dat": "Sinay_Zakony", "znacka": "", "gestor": ["Ministerstvo dopravy"],
+                  "odkaz_hlavni": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/214/"}
+        apply_manual_corrections(record, self.corrections)
+        self.assertEqual(record["gestor"], ["Ministerstvo dopravy Slovenskej republiky"])
+
+    def test_the_red_iii_description_reaches_only_the_czech_row(self):
+        czech = {"znacka": "(EU) 2023/2413", "jazyk": "CZ", "anotace_poznamka": "Stav ke dni 30.6.2025",
+                 "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L_202302413"}
+        english = {"znacka": "(EU) 2023/2413", "jazyk": "EN", "anotace_poznamka": "Amends.",
+                   "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202302413"}
+        apply_manual_corrections(czech, self.corrections)
+        apply_manual_corrections(english, self.corrections)
+        self.assertNotIn("Stav ke dni", czech["anotace_poznamka"])
+        self.assertEqual(english["anotace_poznamka"], "Amends.")
+
+
+class CorrectionKeyTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 0: keys without znacka, exclusion, row language."""
+
+    URL = "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2015/128/"
+
+    def test_a_record_without_znacka_is_keyed_by_its_address(self):
+        import build_unified_db as b
+        from fulltext_keys import url_designation
+        self.assertEqual(b.correction_key({"znacka": "", "odkaz_hlavni": self.URL}), url_designation(self.URL))
+        self.assertEqual(b.correction_key({"znacka": "458/2000 Sb.", "odkaz_hlavni": self.URL}), "458/2000 Sb.")
+
+    def test_a_correction_keyed_by_address_applies(self):
+        from fulltext_keys import url_designation
+        record = {"znacka": "", "odkaz_hlavni": self.URL, "gestor": ["MŽP"]}
+        corrections = {url_designation(self.URL): {"changes": {"gestor": ["X"]}}}
+        self.assertTrue(apply_manual_corrections(record, corrections))
+        self.assertEqual(record["gestor"], ["X"])
+
+    def test_an_excluded_record_is_dropped_unchanged(self):
+        record = {"znacka": "A 1", "nazev_cz": "T"}
+        self.assertFalse(apply_manual_corrections(record, {"A 1": {"exclude": True, "changes": {"nazev_cz": "U"}}}))
+        self.assertEqual(record["nazev_cz"], "T")
+
+    def test_a_record_without_any_key_is_kept(self):
+        self.assertTrue(apply_manual_corrections({"znacka": "", "odkaz_hlavni": ""}, {"": {"exclude": True}}))
+
+    def test_row_language_limits_the_rows(self):
+        corrections = {"A 1": {"row_language": "CS", "changes": {"nazev_cz": "Český"}}}
+        english = {"znacka": "A 1", "jazyk": "EN", "nazev_cz": "English"}
+        unknown = {"znacka": "A 1", "jazyk": "", "nazev_cz": "?"}
+        apply_manual_corrections(english, corrections)
+        apply_manual_corrections(unknown, corrections)
+        self.assertEqual(english["nazev_cz"], "English")
+        self.assertEqual(unknown["nazev_cz"], "Český")
 
     def test_the_full_text_manifest_follows_the_corrected_designation(self):
         import fetch_fulltext as ff

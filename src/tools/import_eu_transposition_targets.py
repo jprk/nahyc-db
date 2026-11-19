@@ -162,7 +162,8 @@ def build_document_record(title, url, doc_type, znacka):
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": (
+        "anotace_poznamka": "",
+        "provenance": (
             "Doplněno jako chybějící cíl transpozice — akt EU citovaný vlastní "
             "poznámkou pod čarou/přílohou národního zákona, nezávisle ověřený "
             "proti EUR-Lex Cellar (doc/PLAN.md §38/§39)."

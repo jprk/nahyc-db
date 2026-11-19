@@ -136,7 +136,8 @@ def build_document_record(prefix, number, title, url):
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": (
+        "anotace_poznamka": "",
+        "provenance": (
             f"Doplněno jako chybějící mezinárodní rodičovský standard pro existující "
             f"národní adopci (doc/PLAN.md §37) — nalezeno a ověřeno živě na iso.org."),
         "jurisdikce": "mezinárodní",

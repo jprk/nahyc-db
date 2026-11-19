@@ -344,7 +344,8 @@ def build_document_record(candidate, doc_type, titles, gestor):
         "ratifikovan": "",
         "gestor": [gestor] if gestor else [],
         "jazyk": "",
-        "anotace_poznamka": (
+        "anotace_poznamka": "",
+        "provenance": (
             f"Nalezeno screeningem EUR-Lex Cellar (klíčové slovo "
             f"{candidate['matched_keyword']!r}, doc/PLAN.md §28), ověřeno "
             f"živě proti CELEX {candidate['celex']} před doplněním."),

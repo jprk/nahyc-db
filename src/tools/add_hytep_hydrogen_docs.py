@@ -174,7 +174,8 @@ def build_document_record(title, url):
         "ratifikovan": "",
         "gestor": [],
         "jazyk": "",
-        "anotace_poznamka": (
+        "anotace_poznamka": "",
+        "provenance": (
             f"Nalezeno v seznamu dokumentů České vodíkové technologické platformy "
             f"(HYTEP, doc/PLAN.md §31), ověřeno živě před doplněním."),
         "jurisdikce": classify_jurisdikce(title),
