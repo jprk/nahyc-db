@@ -1352,3 +1352,16 @@ main {
 .candidate-help li { margin: 0.25rem 0; padding-left: 0.25rem; }
 .candidate-help strong { color: var(--text-primary); }
 
+/* /admin/drafts/<id>: the form turning a draft into the promulgated act (app/drafts_admin.py) */
+.state-change-form fieldset { border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem; margin: 0 0 1rem; min-width: 0; }
+.state-change-form legend { padding: 0 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-weight: 600; }
+.state-change-form legend label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer;
+    color: var(--text-primary); text-transform: none; letter-spacing: normal; font-size: 1rem; }
+.state-change-form .scope-area { text-transform: none; letter-spacing: normal; font-size: 1rem; font-weight: 400;
+    margin: 0.25rem 0; }
+.state-change-form fieldset > p { color: var(--text-secondary); margin: 0 0 0.5rem; }
+.state-change-form fieldset .admin-form-group:last-child { margin-bottom: 0; }
+.doc-editor-link { margin: 0 0 1.5rem; }
+.draft-meta td, .state-change td { overflow-wrap: anywhere; }

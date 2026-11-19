@@ -50,6 +50,11 @@ def state_of(identifier, title, cache):
     return None
 
 
+def in_effect(identifier, title, cache):
+    """True when the validity check found the document in effect (`účinný`)."""
+    return any(cache.get(key, {}).get("status") == "účinný" for key in cc.own_keys(identifier, title))
+
+
 def current_state(classified, identifier, title, cache):
     """The state of a current version: the validity check overrides `active`;
     a draft found in the record's own text stays a draft."""

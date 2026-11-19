@@ -95,16 +95,18 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
         self.split = base / "document_relations_split.json"
         self.variants = base / "document_relations_variants.json"
         self.validity = base / "document_relations_validity.json"
+        self.editor = base / "document_relations_editor.json"
 
         self._orig = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
-                      ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH)
+                      ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH)
         (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
-         ldr.VALIDITY_RELATIONS_PATH) = (self.hand, self.auto, self.split, self.variants, self.validity)
+         ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = (self.hand, self.auto, self.split, self.variants,
+                                                                    self.validity, self.editor)
         self.addCleanup(self._restore_paths)
 
     def _restore_paths(self):
         (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
-         ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH) = self._orig
+         ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = self._orig
 
     def test_merges_all_three_when_present(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")
@@ -123,6 +125,11 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
     def test_the_validity_file_is_read_too(self):
         self.validity.write_text(json.dumps([{"relation_type": "REPEALS"}]), encoding="utf-8")
         self.assertEqual([r["relation_type"] for r in ldr.load_relation_sources()], ["REPEALS"])
+
+    def test_the_editor_file_is_read_too_and_its_type_is_valid(self):
+        self.editor.write_text(json.dumps([{"relation_type": "ENACTED_AS"}]), encoding="utf-8")
+        self.assertEqual([r["relation_type"] for r in ldr.load_relation_sources()], ["ENACTED_AS"])
+        self.assertIn("ENACTED_AS", ldr.VALID_RELATION_TYPES)
 
     def test_missing_split_file_is_silently_skipped(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")
