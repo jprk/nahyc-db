@@ -12,7 +12,7 @@ script, which resolves the corrected record exactly as a rebuild does
   which depends on it); `gestor` → source; `odkaz_*` → url and full-text file (the
   manifest files a text under the address it came from, so a new address has none
   until fetch_fulltext.py fetches it); `zdroj_autoritativni_url` → url; `jazyk` →
-  language; `jurisdikce`; `platnost` → effective date; `znacka` → identifier (and
+  language; `jurisdikce`; `platnost` → effective date; `znacka` → identifier and full-text file (and
   the slug a rebuild would give the document, unless another document has it);
   the `*_autoritativni` fields also go to their own columns, which a rebuild
   copies verbatim; the review flags are recomputed in every case;
@@ -61,7 +61,9 @@ COLUMNS_BY_FIELD = {
     "typ_dokumentu": ("type_id", "source_id"), "gestor": ("source_id",),
     "odkaz_hlavni": ("url", "file_path"), "odkaz_eu": ("url", "file_path"), "odkaz_sk": ("url", "file_path"),
     "zdroj_autoritativni_url": ("url", "zdroj_autoritativni_url"),
-    "jazyk": ("language",), "jurisdikce": ("jurisdikce",), "znacka": ("identifier",),
+    "jazyk": ("language",), "jurisdikce": ("jurisdikce",),
+    # the full-text manifest files a text under the designation, too
+    "znacka": ("identifier", "file_path"),
     "platnost": ("effective_date",),
 }
 # Columns init_db.py copies from the record verbatim (prepare_document() does not resolve them).

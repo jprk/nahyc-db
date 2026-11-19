@@ -42,6 +42,12 @@ class AffectedColumnsTestCase(unittest.TestCase):
                          ["type_id", "source_id", "title"])
 
 
+class RenamedDesignationTestCase(unittest.TestCase):
+    def test_a_new_designation_changes_the_identifier_and_the_file(self):
+        # the full-text manifest is keyed by the designation (fetch_fulltext.manifest_key())
+        self.assertEqual(amc.affected_columns({"znacka": "492/2010 Z. z."})[:2], ["identifier", "file_path"])
+
+
 class RecordsByKeyTestCase(unittest.TestCase):
     def test_rows_sharing_a_znacka_are_kept_together_and_records_without_key_skipped(self):
         records = [{"znacka": "A"}, {"znacka": "A"}, {"znacka": "", "odkaz_hlavni": ""}]
