@@ -1,6 +1,6 @@
 # Připomínky MPO k výsledku V01 a jejich vypořádání
 
-Stav k 19. 11. 2026. Dokument porovnává připomínky Ing. Petra Mervarta
+Stav k 19. 11. 2026 (doplněno o harmonogram a rozhodnutí z téhož dne). Dokument porovnává připomínky Ing. Petra Mervarta
 (Ministerstvo průmyslu a obchodu, aplikační garant dílčího projektu DP004)
 k výsledku V01 „Databáze regulačních předpisů a předrealizačních procesů“
 se současným stavem databáze a webové aplikace a navrhuje postup jejich
@@ -250,7 +250,7 @@ Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení edi
 * jeden řádek na předpis, jazykové verze jen jako štítky CS/EN v tomto řádku;
 * filtr původců rozdělit podle jurisdikce (ČR / EU / mezinárodní /
   normalizační orgány) a slovenské dokumenty ve výchozím zobrazení skrýt
-  (viz otevřenou otázku v odstavci 5);
+  (rozhodnuto: skrýt, odstavec 5.1);
 * zavést podtyp „akt v přenesené pravomoci / prováděcí akt“;
 * ve vyhledávání využít klíčová slova a synonyma (RFNBO, AFIR, RED III,
   LEX OZE apod.).
@@ -275,7 +275,7 @@ Zbývá z kroku 1: zápis kandidátů do živé databáze, jejich posouzení edi
   ČR, EU, mezinárodní, Slovensko a ostatní státy. Výchozí stav určuje
   konstanta `DEFAULT_JURISDICTION` v `app/catalog_filters.py`; ponechali jsme
   „vše“, přepnutím na `"bez-sk"` se slovenské dokumenty ve výchozím
-  zobrazení skryjí (otevřená otázka v odstavci 5).
+  zobrazení skryjí (rozhodnuto, odstavec 5.1).
 * *Podtyp aktů EU.* Nový sloupec `Document.eu_act_subtype`
   (`delegated` / `implementing`) určuje `src/tools/eu_act_subtype.py` podle
   ELI v adrese (`eli/reg_del/…`), jinak podle úředního názvu („v přenesené
@@ -365,31 +365,98 @@ a CDV, kategorie „Strategie“, aktuálnost) jsou obsahové a patří do krok�
 a 3; scénáře k nim přibudou s nimi. Zbývá interní akceptace a přehled
 vypořádání pro MPO.
 
-## 5. Otevřené otázky
+### 4.6 Harmonogram
 
-* **Slovenské předpisy a normy STN:** ponechat je ve veřejném katalogu,
-  nebo je skrýt či oddělit? Od kroku 2 je k dispozici filtr jurisdikce;
-  výchozí stav je „vše“ a skrytí slovenských dokumentů ve výchozím
-  zobrazení je změna jedné konstanty (`DEFAULT_JURISDICTION = "bez-sk"`
-  v `app/catalog_filters.py`).
-* **LEX OZE ve slovníku synonym:** dotaz nyní najde novelizované zákony
-  165/2012 Sb. a 458/2000 Sb.; samotné novely (LEX OZE I–III, např.
-  382/2021 Sb. a 469/2023 Sb.) databáze neobsahuje. Doplnit je jako
-  dokumenty (krok 1), nebo ponechat odkaz na novelizované zákony? Čísla
-  novel je třeba před doplněním ověřit.
+Kroky 0 až 3 jsou hotové na větvích sloučených do integrační větve
+`feature/mpo-integrace` (testy prošly), krok 0 je v živé databázi zapsán
+jen zčásti (odstavec 4.1). Zbývá sloučení do `master`, zápis do živé
+databáze, posouzení kandidátů editory, doplnění strategií a interní
+akceptace. Harmonogram jsme proto zkrátili na nejkratší realistický;
+v podobě pro MPO (bez interních údajů) je v `doc/MPO_VYPORADANI.md`,
+odstavec 6.
+
+| Termín | Krok | Obsah | Podmínka |
+|---|---|---|---|
+| 19. 11. 2026 (provedeno) | krok 0, první část | opravy v živé DB (záloha `before_mpo_krok0`) | — |
+| do 25. 11. 2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
+| do 27. 11. 2026 (pá) | odeslání vypořádání | `MPO_VYPORADANI.md` a `PROVOZ.md` (případně převedené do DOCX podle `TEXT_STYLE.md`) s průvodním e-mailem (`doc/MPO_EMAIL_NAVRH.md`) | nasazení podle předchozího řádku; jména garanta a editorů doplněna |
+| 1.–4. 12. 2026 | jednání s MPO | vypořádání, otázky z odst. 7 vypořádání, dohoda o postupu opětovného schválení V01, editorské účty pro MPO; navrženo út 1. 12., st 2. 12. nebo čt 3. 12. | časové možnosti MPO (posun jednání posouvá i předání) |
+| do 11. 12. 2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 11 strategií A a B; části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
+| do 18. 12. 2026 (pá) | krok 4 | posouzení 112 nálezů sběru v pásmu 1; e2e scénáře připomínek 7–10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání | osoba pro akceptaci k dispozici 14.–18. 12.; závěry jednání bez rozsáhlých úprav |
+| 22. 12. 2026 (út) | opětovné předání V01 | předání MPO postupem dohodnutým na jednání, s výsledky akceptace | akceptace bez závažných nálezů; dohoda o postupu schválení |
+| do 15. 1. 2027 (pá) | provoz | posouzení zbylých nálezů sběru (pásmo 2, odhadem 140) | předání na něm nezávisí |
+
+## 5. Rozhodnutí a otevřené otázky
+
+Stav k 19. 11. 2026. Rozhodnutí uživatele z tohoto dne; jejich provedení
+běží souběžně na samostatných větvích, a kde text na výsledku závisí, je
+psán jako plán.
+
+### 5.1 Rozhodnuto
+
+* **Telekonference z června 2026 neproběhla.** Vypořádání je ve skluzu;
+  jednání s MPO navrhujeme jako první krok po odeslání vypořádání, v prvním
+  prosincovém týdnu (odstavec 4.6). Dokumenty pro MPO nepředpokládají, že
+  jednání proběhlo.
+* **Postup opětovného schválení V01** stanovíme až po vypořádání
+  připomínek: po odeslání vypořádání požádáme MPO o dohodu na postupu
+  a podkladech schválení (včetně potvrzení pro TAČR, o něž žádal e-mail
+  z 26. 2. 2026).
+* **Editorská práva pro MPO.** Pracovníci MPO mohou na vyžádání
+  aplikačního garanta dostat editorský účet se stejnými oprávněními jako
+  editoři řešitele, při zachování potvrzování každé změny druhým editorem
+  (`doc/PROVOZ.md`, odstavec 2.1; `doc/MPO_VYPORADANI.md`, odstavec 4.5).
+* **Slovenské dokumenty** budou ve výchozím zobrazení katalogu skryté;
+  přepínač jurisdikce, jímž je lze zobrazit, bude jen pro přihlášené
+  editory.
+* **Slovenská znění aktů EU** (#57, #78, #84, #88) propojíme s českými
+  zněními obdobně jako anglické varianty.
+* **Původce zákona č. 250/2012 Z. z.** (#73) bude Ministerstvo
+  hospodárstva Slovenskej republiky (místo ÚRSO zvoleného v kroku 0).
+* **Původce nařízení vlády č. 191/2022 Sb.** bude MPSV, shodně se zákonem
+  č. 250/2021 Sb., který provádí (při přijetí kandidáta).
+* **Doplnit novely LEX OZE** jako dokumenty (čísla novel před doplněním
+  ověřit) a **další části řad ČSN EN 60079 a ČSN EN 13445** (přednostně
+  ty, jež databáze má v jiném národním převzetí; u 60079 části 10-1, 14
+  a 17).
+* **Typ „Strategie“:** typ „Strategický dokument“ přejmenujeme na
+  „Strategie“ a doplníme 11 strategií s prioritou A a B
+  (`doc/MPO_VYPORADANI.md`, příloha A).
+* **Termíny etap** podle odstavce 4.6.
+
+### 5.2 Odloženo, vyřešíme později
+
+* **Výklad řádků MPO-27 a MPO-42 tabulky MPO** (227/2015 Sb. místo
+  277/2015 Sb.; 192/2022 Sb., případně i 191/2022 Sb.; `doc/MPO_TABULKY.md`,
+  odstavec 2.1). Kandidáti jsou zařazeni podle názvu i čísla.
+* **Označení předpisu EHK OSN č. 134:** přežívající dokument má označení
+  `[2019/795]`; přejmenování na `EHK OSN č. 134` by změnilo i anglickou
+  variantu a klíče plných textů.
+* **Provozní otázky** (`doc/DATA_SOURCES.md`, odstavec 8.17;
+  `doc/PROVOZ.md`, odstavec 9.3):
+  * plánovač (časovač systemd, nebo crontab; na kterém serveru);
+  * zapisování datových souborů měněných běhy v hlavním stromu do
+    repozitáře, nebo jejich přesun mimo správu verzí;
+  * zdroje IEC, EIGA a DVGW, jejichž skripty obcházejí ochranu proti
+    robotům — navrženo je vypnout;
+  * registrace k REST API e-Sbírky a e-Legislativy a žádost o přístup
+    k TRIS;
+  * četnost kontroly stavu ČSN a STN (v registru „na vyžádání“, návrh
+    plánovače měsíčně).
+
+### 5.3 Otevřeno
+
+* **Jména garanta, editorů a správce** doplní uživatel (značky
+  `[DOPLNIT: jméno]` v `doc/PROVOZ.md`, odstavec 2).
+* **Otázky pro jednání s MPO** (`doc/MPO_VYPORADANI.md`, odstavec 7):
+  postup schválení V01, editorské účty pro MPO, převzetí tabulek jako
+  referenčního souboru a jejich průběžné doplňování, lhůty posouzení
+  kandidátů, strategie s prioritou C, normy podle technických komisí.
 * **Zařazení původců do skupin** (`data/source_groups.json`): ÚNMS SR je
   mezi normalizačními orgány, nikoli ve skupině Slovensko; DGUV, BAuA, PTB,
   OSHA, NIST, NASA a Sandia jsou „zahraniční státní orgány“. Ověřit.
-* **Telekonference z června 2026:** e-mail z 22. 5. 2026 navrhoval schůzku
-  začátkem června. Je třeba doplnit, zda proběhla a co se na ní dohodlo.
-* **Přejmenování typu „Strategický dokument“ na „Strategie“** podle návrhu
-  MPO.
-* **Označení předpisu EHK OSN č. 134:** přežívající dokument má označení
-  `[2019/795]` (číslo zveřejnění v Úředním věstníku). Patrně vhodnější by
-  bylo `EHK OSN č. 134`; změna by ale přejmenovala i anglickou variantu
-  a klíče plných textů, proto ji necháváme k rozhodnutí.
-* **Slovenské znění aktů EU:** #84 jsme označili `(EU) 2024/1788 [SK]`
-  podle vzoru `[EN]`, ale vazbou na české znění jsme jej nepropojili
-  (`TRANSLATION_OF` vede jen z anglické varianty). Je třeba rozhodnout,
-  zda slovenská znění aktů EU (#57, #78, #84, #88) propojovat stejně.
-
+* **Záznamy #110 a #140:** #110 (`2012/18/EU`, Seveso III) nese název
+  směrnice ATEX 2014/34/EU, #140 (předpis EHK OSN č. 100) název publikace
+  EIGA; do opravy nezařazujeme Seveso do slovníku synonym.
+* **Označení ČSN EN ISO 19880-1 (#3)** opravit na ČSN ISO 19880-1, pokud
+  to neprovede souběžná větev oprav dat.

@@ -1,7 +1,8 @@
 # Vypořádání připomínek Ministerstva průmyslu a obchodu k výsledku V01
 
 > Historie dokumentu:  
-> 2026-11-19 jprk Návrh první verze jako podklad k jednání s MPO
+> 2026-11-19 jprk Návrh první verze jako podklad k jednání s MPO  
+> 2026-11-19 jprk Doplněn stav etap 1 až 3, harmonogram s termíny, nabídka editorského přístupu pro MPO
 
 Dokument shrnuje vypořádání připomínek, jež Ing. Petr Mervart, aplikační
 garant dílčího projektu DP004 za Ministerstvo průmyslu a obchodu, vznesl
@@ -9,13 +10,20 @@ k výsledku V01 „Databáze regulačních předpisů a předrealizačních pr
 Ke každé připomínce uvádíme její znění, příčinu nedostatku, opatření, jež
 jsme již provedli, a opatření, jež ještě provedeme, včetně předpokládaného
 termínu. V odstavci 4 odpovídáme na otázky, jež MPO položilo nebo jež
-z připomínek vyplývají, v odstavci 5 uvádíme další nedostatky, jež jsme
+z připomínek vyplývají, a nabízíme pracovníkům MPO editorský přístup
+k databázi, v odstavci 5 uvádíme další nedostatky, jež jsme
 při rozboru nalezli sami, a v odstavci 6 harmonogram dalšího postupu.
-Dokument končí otevřenými otázkami k jednání (odstavec 7) a přílohou A se
+Dokument končí otevřenými otázkami k jednání (odstavec 7) a přílohou A se
 seznamem strategických dokumentů, jež v databázi dosud chybějí.
 
-Stav databáze a webové aplikace uvádíme k 19. 11. 2026. Všechna čísla jsme
-ověřili dotazem nad provozní databází v tento den.
+Stav databáze a webové aplikace uvádíme k 19. 11. 2026. Čísla o obsahu
+databáze jsme ověřili dotazem nad provozní databází v tento den. Rozlišujeme
+přitom dva stavy: opravy údajů z etapy 0 jsou v provozní databázi zčásti
+zapsány; zbylé opravy etapy 0 a úpravy z etap 1 až 3 jsou dokončeny
+a ověřeny automatickými testy nad kopií provozní databáze, do veřejné verze
+aplikace je však teprve nasadíme (podle harmonogramu v odstavci 6 do
+25. 11. 2026). U těchto úprav uvádíme výsledky zkoušek nad kopií databáze
+a označujeme je slovem „připraveno“.
 
 ## 1. Podklady
 
@@ -31,9 +39,12 @@ Vypořádáváme připomínky ze dvou e-mailů:
    nové kategorie „Strategie“, dotaz, jak bude zajištěna aktuálnost předpisů,
    a návrh telekonference začátkem června 2026.
 
-Na e-mail ze 17. 4. 2026 jsme reagovali se zpožděním až 20. 5. 2026. Za
-zpoždění se omlouváme. [DOPLNIT: zda telekonference navržená na začátek
-června 2026 proběhla a co se na ní dohodlo.]
+Na e-mail ze 17. 4. 2026 jsme reagovali se zpožděním až 20. 5. 2026
+a telekonferenci, již MPO navrhlo na začátek června 2026, jsme
+neuskutečnili, protože jsme k ní neměli připraveno vypořádání připomínek.
+Vypořádání tak předkládáme se zpožděním několika měsíců, za něž se
+omlouváme. Jednání s MPO navrhujeme jako první krok po odeslání tohoto
+dokumentu, v prvním prosincovém týdnu (odstavec 6).
 
 Připomínky považujeme za oprávněné. Jejich společnou příčinou patrně je, že
 databáze vznikla sloučením tří samostatných rešerší, jež se lišily rozsahem,
@@ -45,16 +56,16 @@ nezávislého měření úplnosti. Obojí nyní napravujeme (odstavec 6).
 
 | # | Připomínka (zkráceně) | Stav k 19. 11. 2026 | Zbývá |
 |---|---|---|---|
-| 1 | Dokument se ve výsledcích zobrazí dvakrát česky a dvakrát anglicky. | Duplicity odstraněny; dotčený dokument (rozhodnutí ECB) z databáze vyřazen jako nesouvisející. | Zobrazit jazykové verze v jednom řádku (etapa 2). |
-| 2 | Dotaz „RFNBO“ vrací čtyřikrát týž dokument. | Duplicity odstraněny; dotaz vrací jeden dokument. | Vyhledávat i podle synonym a zkratek, aby dotaz našel i akty RFNBO (etapa 2). |
-| 3 | V databázi chybějí akty v přenesené pravomoci. | Pět aktů v databázi je; nařízení (EU) 2023/1185 má nově český název. | Doplnit (EU) 2025/2359 a další (etapa 1); zavést podtyp aktů (etapa 2). |
+| 1 | Dokument se ve výsledcích zobrazí dvakrát česky a dvakrát anglicky. | Duplicity odstraněny; dotčený dokument (rozhodnutí ECB) z databáze vyřazen jako nesouvisející. Zobrazení jazykových verzí v jednom řádku připraveno. | Nasadit (etapa 2, do 25. 11. 2026); vysvětlit uživatelům, u kterých dokumentů vedeme anglickou verzi. |
+| 2 | Dotaz „RFNBO“ vrací čtyřikrát týž dokument. | Duplicity odstraněny; dotaz vrací jeden dokument. Vyhledávání podle zkratek a synonym připraveno; dotaz pak vrací čtyři předpisy, každý jednou. | Nasadit (etapa 2, do 25. 11. 2026). |
+| 3 | V databázi chybějí akty v přenesené pravomoci. | Pět aktů v databázi je; nařízení (EU) 2023/1185 má nově český název. Podtyp aktů připraven; chybějící (EU) 2025/2359 připraveno k přijetí. | Nasadit podtyp (etapa 2); přijmout chybějící akty (etapa 1, do 11. 12. 2026). |
 | 4 | Současně „MD“ i „Ministerstvo dopravy“. | Vyřešeno; zkratky nahrazeny plnými názvy. | — |
-| 5 | MPO je uvedeno jako odpovědné za zákon o dráhách. | Vyřešeno; opraveny i další chybně přiřazené instituce. | Rozdělit filtr institucí podle jurisdikce (etapa 2). |
+| 5 | MPO je uvedeno jako odpovědné za zákon o dráhách. | Vyřešeno; opraveny i další chybně přiřazené instituce. Filtr institucí podle jurisdikce připraven. | Nasadit (etapa 2, do 25. 11. 2026). |
 | 6 | U energetického zákona se zobrazuje zastaralá hláška. | Vyřešeno; hláška i interní poznámky z vývoje odstraněny z veřejných popisů. | Doplnit popisy dokumentům, jež po odstranění poznámek popis nemají (průběžně). |
-| 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů je vyvinut a ověřen na testovací databázi. | Uvést do provozu (etapa 3). |
-| 8 | Chybějí i existující předpisy (tabulky MPO a CDV). | Rozbor proveden: z 42 českých předpisů tabulky MPO je v databázi 12. | Doplnit chybějící předpisy přes frontu kandidátů (etapa 1). |
-| 9 | Nová kategorie „Strategie“. | Typ „Strategický dokument“ existuje, obsahuje 11 dokumentů. | Přejmenovat (k rozhodnutí), doplnit strategie podle přílohy A (etapa 1). |
-| 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; postup popsán v provozním dokumentu. | Pravidelné spouštění kontrol (etapa 3). |
+| 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů a převod návrhu na vyhlášený předpis připraveny; zkouška nanečisto nad provozní databází proběhla. | První běh nad provozní databází (etapa 3, do 25. 11. 2026); posouzení nálezů editory. |
+| 8 | Chybějí i existující předpisy (tabulky MPO a CDV). | Rozbor proveden: z 42 českých předpisů tabulky MPO je v databázi 12. Pro chybějící předpisy připraveno 34 kandidátů s úředními údaji; automatický test pokrytí obou tabulek zaveden. | Posouzení a přijetí kandidátů editory (etapa 1, do 11. 12. 2026). |
+| 9 | Nová kategorie „Strategie“. | Typ „Strategický dokument“ existuje, obsahuje 11 dokumentů. Rozhodli jsme jej přejmenovat na „Strategie“ a doplnit 11 strategií podle přílohy A. | Provést (etapa 1, do 11. 12. 2026). |
+| 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; datum poslední kontroly u dokumentu připraveno; postup popsán v provozním dokumentu. | Nasadit (etapa 3); zavést pravidelné automatické spouštění kontrol. |
 
 ## 3. Vypořádání jednotlivých připomínek
 
@@ -78,11 +89,16 @@ vazbou „překlad“. Rozhodnutí ECB (EU) 2018/546 jsme jako dokument mimo
 rozsah databáze vyřadili. Opravu jsme zapsali tak, aby ji neodstranilo ani
 případné nové sestavení databáze z podkladů.
 
-**Co ještě uděláme:** Ve výsledcích vyhledávání bude každý předpis zobrazen
-jedním řádkem a jeho dostupné jazykové verze budou uvedeny jako štítky
-(např. CS, EN) v tomto řádku (etapa 2). Na stránce aplikace vysvětlíme,
-u kterých dokumentů a proč vedeme i anglickou verzi
-[DOPLNIT po kroku 2].
+**Připraveno k nasazení:** Ve výsledcích vyhledávání je každý předpis
+zobrazen jedním řádkem s českým názvem a jeho dostupné jazykové verze jsou
+uvedeny jako štítky CS a EN, jež vedou na stránky jednotlivých verzí. Dotaz
+i filtry se vyhodnocují nad všemi verzemi, takže řádek se najde i tehdy,
+odpovídá-li dotazu jen anglický název. Počet nalezených dokumentů i údaj
+o velikosti databáze na úvodní stránce počítají předpisy, nikoli jazykové
+verze. Úpravu nasadíme do veřejné verze aplikace do 25. 11. 2026 (etapa 2).
+
+**Co ještě uděláme:** Na stránce aplikace vysvětlíme, u kterých dokumentů
+a proč vedeme i anglickou verzi (etapa 2, do 11. 12. 2026).
 
 ### 3.2 Opakovaný výsledek dotazu „RFNBO“
 
@@ -101,10 +117,19 @@ vymezují.
 jediný dokument, směrnici RED III. Z jejího popisu jsme odstranili
 zastaralou poznámku (odstavec 3.6).
 
-**Co ještě uděláme:** Vyhledávání rozšíříme o klíčová slova a synonyma
-(RFNBO, AFIR, RED III, LEX OZE, LEX vodík apod.), takže dotaz na zkratku
-najde i dokumenty, jež ji v názvu nemají (etapa 2) [DOPLNIT po kroku 2].
-Jazykové verze budou zobrazeny podle odstavce 3.1.
+**Připraveno k nasazení:** Vyhledávání nově prochází i označení dokumentu
+a využívá slovník zkratek a ustálených názvů (RFNBO, AFIR, AFID, RED II,
+RED III, LEX OZE, TEN-E, ReFuelEU, ATEX, PED a další), takže dotaz na zkratku
+najde i dokumenty, jež ji v názvu nemají. Zkratka se hledá jako celé slovo
+(dotaz „RED II“ tedy nenajde RED III) a pod výsledky se zobrazí, která
+synonyma byla použita. Dotaz „RFNBO“ při zkoušce nad kopií provozní databáze
+vrátil čtyři předpisy, každý jednou: nařízení v přenesené pravomoci (EU)
+2023/1184 a 2023/1185 a směrnice RED II a RED III. Jazykové verze jsou
+zobrazeny podle odstavce 3.1. Úpravu nasadíme do 25. 11. 2026 (etapa 2).
+
+**Co ještě uděláme:** Slovník budeme rozšiřovat podle dotazů uživatelů;
+pojem „LEX vodík“ do něj zařadíme, jakmile bude příslušný návrh zákona
+v databázi (odstavec 3.7).
 
 ### 3.3 Akty v přenesené pravomoci
 
@@ -122,15 +147,25 @@ pravomoci (EU) 2025/2359 o metodice pro nízkouhlíkový vodík.
 v přenesené pravomoci (EU) 2023/1184, 2023/1185, 2018/674, 2019/1745
 a 2025/656. Nařízení (EU) 2023/1185 má nyní úřední český název.
 
-**Co ještě uděláme:** Doplníme chybějící akty, především (EU) 2025/2359
-(etapa 1). Zavedeme podtyp „akt v přenesené pravomoci“ a „prováděcí akt“,
-podle něhož bude možné výsledky filtrovat (etapa 2). Nové akty v přenesené
-pravomoci bude průběžně zachycovat sledování rejstříku aktů v přenesené
-pravomoci Evropské komise (odstavec 4.3) [DOPLNIT po krocích 1 až 3].
+**Připraveno k nasazení:** Akty EU nesou podtyp „akt v přenesené
+pravomoci“ nebo „prováděcí akt“, určený podle adresy aktu v EUR-Lexu, jinak
+podle jeho úředního názvu. V nabídce typů dokumentů přibude skupina „Podtyp
+aktu EU“: filtr „Akt v přenesené pravomoci (EU)“ vrací všech pět výše
+uvedených nařízení, filtr „Prováděcí akt (EU)“ 11 předpisů. Řádek takového
+aktu ve výsledcích nese štítek podtypu. Nařízení v přenesené pravomoci (EU)
+2025/2359 a nařízení (EU) 2024/1679 o transevropské dopravní síti jsou
+připravena jako kandidáti k přijetí s úředním českým názvem a údajem
+o platnosti (odstavec 3.8).
+
+**Co ještě uděláme:** Podtyp nasadíme do 25. 11. 2026 (etapa 2), chybějící
+akty přijmou editoři do 11. 12. 2026 (etapa 1). Nové akty v přenesené
+pravomoci a prováděcí akty bude průběžně zachycovat týdenní sledování
+rejstříků Evropské komise a databáze EUR-Lex (odstavec 4.3), jež uvedeme do
+provozu v etapě 3.
 
 ### 3.4 Instituce „MD“ a „Ministerstvo dopravy“
 
-**Znění:** „Proč je v systému současně ‚MD‘ a ‚Ministerstvo dopravy‘? Čím
+**Znění:** „Proč je v systému současně ‚MD‘ a ‚Ministerstvo dopravy‘? Čím
 se tyto instituce liší?“
 
 **Příčina:** Podkladové rešerše zapisovaly odpovědné instituce zčásti
@@ -160,11 +195,19 @@ a sdělení Komise COM(2020) 301 Evropskou komisi. Odpovědné instituce
 českých předpisů jsme porovnali se sloupcem „Nositel“ tabulky MPO; jiná
 neshoda než u zákona č. 250/2021 Sb. se nevyskytla.
 
-**Co ještě uděláme:** Filtr odpovědných institucí dnes míchá česká
-ministerstva, orgány EU a normalizační orgány. Rozdělíme jej podle
-jurisdikce (Česká republika, Evropská unie, mezinárodní organizace,
-normalizační orgány), aby se v něm uživatel snáze orientoval (etapa 2)
-[DOPLNIT po kroku 2].
+**Připraveno k nasazení:** Filtr odpovědných institucí dnes míchá česká
+ministerstva, orgány EU a normalizační orgány. Nově je rozdělen do skupin
+Česká republika, Slovensko, Evropská unie, mezinárodní organizace,
+normalizační a odborné organizace a zahraniční státní orgány a nabízí jen
+instituce, k nimž databáze obsahuje alespoň jeden dokument. Přibyl filtr
+jurisdikce (Česká republika, Evropská unie, mezinárodní, Slovensko, ostatní
+státy). Úpravu nasadíme do 25. 11. 2026 (etapa 2).
+
+**Co ještě uděláme:** Slovenské dokumenty budou ve výchozím zobrazení
+skryty (odstavec 5, bod 6). Při posouzení kandidátů z tabulky MPO ověříme
+odpovědnou instituci každého nově přijímaného předpisu; například nařízení
+vlády č. 191/2022 Sb., jež provádí zákon č. 250/2021 Sb., povedeme
+v souladu s ním pod Ministerstvem práce a sociálních věcí.
 
 ### 3.6 Zastaralá hláška u energetického zákona
 
@@ -208,10 +251,23 @@ běh 4. 11. 2026 našel 44 návrhů předpisů, jež se databáze týkají. Do
 veřejné verze databáze tato část dosud nebyla nasazena. Podrobnosti uvádíme
 v odstavci 4.4.
 
-**Co ještě uděláme:** Sběr uvedeme do provozu nad provozní databází,
-doplníme editorské rozhraní pro posouzení návrhů a převod připravovaného
-předpisu na vyhlášený a na stránce dokumentu budeme stav „připravovaný“
-zřetelně zobrazovat (etapa 3) [DOPLNIT po kroku 3].
+**Připraveno k nasazení:** Editorské rozhraní pro připravované dokumenty
+umožňuje u návrhu zaznamenat, jak skončil: buď se návrh stal vyhlášeným
+předpisem (dokument získá stav „vyhlášený“ nebo „účinný“ a případně nové
+označení, název a datum účinnosti), nebo je vyhlášený předpis v databázi
+veden jako jiný dokument, s nímž se návrh propojí vazbou „návrh vyhlášen
+jako“. Stejně jako přijetí nového dokumentu navrhuje změnu jeden editor
+a potvrzuje ji jiný. Zkouška sběru nanečisto nad provozní databází
+19. 11. 2026, při níž se nic nezapsalo, odhadla 252 nových kandidátů ze
+všech sledovaných zdrojů; z toho 112 má k databázi přímý vztah (mění
+dokument databáze nebo se týká vodíku), mezi nimi 28 sněmovních tisků
+a 9 legislativních postupů EU.
+
+**Co ještě uděláme:** Sběr uvedeme do provozu nad provozní databází
+prvním ostrým během do 25. 11. 2026 (etapa 3). Nálezy přímo související
+s databází posoudí editoři do 18. 12. 2026, ostatní do 15. 1. 2027
+(odstavec 6). Připravované dokumenty jsou na stránce dokumentu označeny
+stavem „připravovaný“.
 
 ### 3.8 Chybějící existující předpisy (tabulky MPO a CDV)
 
@@ -238,7 +294,7 @@ zřídka. Tabulky MPO a CDV jsou tak patrně nejcennějším nezávislým měř
   předpisy k zásobníkům plynu, těžbě a báňské bezpečnosti (44/1988 Sb.,
   61/1988 Sb., 62/1988 Sb., 71/2002 Sb., 72/2002 Sb., 104/1988 Sb.,
   239/1998 Sb., 392/2003 Sb., 85/2012 Sb.), předpisy k prevenci závažných
-  havárií (226/2015 Sb., 277/2015 Sb.), zákony č. 249/2025 Sb.
+  havárií (226/2015 Sb. a předpis uvedený jako 277/2015 Sb.), zákony č. 249/2025 Sb.
   a 406/2000 Sb., nařízení vlády č. 191/2022 Sb. a 219/2016 Sb. a vyhláška
   č. 146/2024 Sb. Normy z tabulky v databázi jsou, z řady ČSN EN 60079 však
   jen část 0.
@@ -250,14 +306,51 @@ zřídka. Tabulky MPO a CDV jsou tak patrně nejcennějším nezávislým měř
   komise se věnujeme v odstavci 4.1. Položce „IMO pravidla pro přepravu
   vodíku“ odpovídá v databázi dokument IMO CCC 8/WP.3, příloha 2.
 
-**Co ještě uděláme:** Všechny chybějící položky obou tabulek zařadíme do
-fronty kandidátů, kde je posoudí a přijmou dva editoři (odstavec 4.3),
-a doplníme chybějící instituce (Energetický regulační úřad, Český báňský
-úřad) (etapa 1) [DOPLNIT po kroku 1: počet přijatých předpisů]. Obě tabulky
-převezmeme jako referenční soubor dokumentů, jejichž přítomnost v databázi
-bude hlídat automatický test, aby se případná ztráta dokumentu projevila
-ihned. Úplnost budeme dále měřit postupy popsanými v provozním dokumentu
-(odstavec 4.3).
+Každý z 90 řádků obou tabulek jsme dále jednotlivě porovnali s databází:
+51 řádků databáze obsahuje (tabulka MPO 21, tabulka CDV 30), 31 řádků
+odpovídá předpisům, jež do databáze doplníme (tabulka MPO 29, tabulka CDV 2),
+a 8 řádků tabulky CDV neoznačuje dokumenty (sedm technických komisí
+a souhrnná položka „UNECE předpisy (WP.29)“, odstavec 4.1). Při dohledávání
+úředních názvů jsme narazili na nesrovnalosti, jež je vhodné znát:
+
+1. **Řádek „277/2015 Sb.“** — Název v tabulce odpovídá vyhlášce
+   č. 227/2015 Sb. o náležitostech bezpečnostní dokumentace; pod číslem
+   277/2015 Sb. je vyhlášen nesouvisející předpis. Kandidátem je vyhláška
+   č. 227/2015 Sb.
+2. **Řádek „191/2022 Sb.“** — Název v tabulce („o vyhrazených tlakových
+   zařízeních“) odpovídá nařízení vlády č. 192/2022 Sb., jež databáze
+   obsahuje; nařízení vlády č. 191/2022 Sb. o vyhrazených technických
+   plynových zařízeních se vodíkových zařízení týká také, a doplníme je proto
+   rovněž.
+3. **Vyhláška č. 513/2021 Sb.** — Jen novelizovala vyhlášku o regulačním
+   výkaznictví, jež byla k 1. 1. 2026 nahrazena vyhláškou č. 508/2025 Sb.;
+   kandidáty jsou obě, do databáze patrně zařadíme platnou vyhlášku.
+4. **Vyhláška č. 146/2024 Sb.** — Podle dostupných údajů bude k 1. 1. 2027
+   zrušena předpisem č. 215/2026 Sb.; editoři posoudí oba předpisy.
+5. **Norma ČSN ISO 19880-1** — Databáze ji vede pod nesprávným označením
+   ČSN EN ISO 19880-1; označení opravíme.
+
+**Připraveno k nasazení:** Pro chybějící předpisy obou tabulek jsme
+připravili 34 kandidátů do fronty kandidátů: 28 českých předpisů, 2 akty EU,
+normu ČSN EN ISO 11114-4 (část řady, jež se týká slučitelnosti materiálů
+s vodíkem) a 3 kandidáty, kteří ve frontě již byli. U každého je úřední
+název, adresa v autoritativním zdroji (e-Sbírka nebo Zákony pro lidi,
+EUR-Lex, katalog České agentury pro standardizaci), údaj o platnosti
+a navržená odpovědná instituce podle sloupce „Nositel“ tabulky MPO,
+mezi nimi Energetický regulační úřad (6 kandidátů) a Český báňský úřad
+(6 kandidátů). Obě tabulky jsme převzali jako referenční soubor: automatický
+test, jenž se spouští před každou změnou aplikace, ověřuje, že každý řádek
+obou tabulek je dokumentem databáze, kandidátem ve frontě, nebo má uveden
+důvod, proč dokumentem není, a že žádný dokument z tabulek z databáze
+nezmizel.
+
+**Co ještě uděláme:** Kandidáty zapíšeme do fronty kandidátů provozní
+databáze do 25. 11. 2026; posoudí a přijmou je dva editoři do 11. 12. 2026
+(etapa 1, odstavec 4.3). Současně doplníme další části řad norem
+ČSN EN 60079 a ČSN EN 13445, jež databáze dosud vede jen v jiném národním
+převzetí (u řady ČSN EN 60079 přednostně části 10-1, 14 a 17), a novely
+zákonů z balíčků LEX OZE. Úplnost budeme dále měřit postupy popsanými
+v provozním dokumentu (odstavec 4.3).
 
 ### 3.9 Kategorie „Strategie“
 
@@ -284,11 +377,21 @@ stránky fungují), nikoli z pohledu uživatele, jenž v databázi hledá
 konkrétní předpis. Nedostatky popsané v připomínkách 1 až 6 by takové
 testování patrně odhalilo.
 
-**Co ještě uděláme:** Každý scénář z připomínek MPO převedeme do
-automatického testu v prohlížeči, jenž se spouští před každou změnou
-aplikace a ověřuje, že se nedostatek neopakuje. Před opětovným předáním
-necháme aplikaci projít osobou mimo vývojový tým (interní akceptace)
-a výsledky akceptace předáme MPO spolu s tímto přehledem (etapa 4).
+**Co jsme udělali:** Scénáře připomínek 1 až 6 jsme převedli do
+automatických testů v prohlížeči, jež se spouštějí před každou změnou
+aplikace nad kopií provozní databáze, ověřují, že se nedostatek neopakuje,
+a pořizují snímky obrazovky. Testy ověřují mimo jiné, že dotaz „RFNBO“
+vrací každý předpis jednou, že akty v přenesené pravomoci lze vybrat
+filtrem, že nabídka institucí neobsahuje holé zkratky, že zákony o dráhách
+mají jako odpovědnou instituci Ministerstvo dopravy, že žádná stránka
+neobsahuje zastaralou hlášku ani interní poznámky a že stránky lze
+používat na telefonu.
+
+**Co ještě uděláme:** Testy doplníme o scénáře připomínek 7 až 10
+(připravované předpisy, předpisy z tabulek MPO a CDV, kategorie
+„Strategie“, datum poslední kontroly). Před opětovným předáním necháme
+aplikaci projít osobou mimo vývojový tým (interní akceptace) a výsledky
+akceptace předáme MPO spolu s výsledkem (etapa 4, odstavec 6).
 
 ## 4. Odpovědi na otázky MPO
 
@@ -325,7 +428,8 @@ eviduje databáze 30 záznamů.
 Navrhujeme na stránce dokumentu normy uvádět, kterou komisí byla připravena,
 a umožnit podle komise filtrovat. Tím by se požadavek, jenž za položkami
 tabulky patrně stojí, splnil v podobě, jež zachovává zásadu „jeden záznam,
-jeden dokument“ [DOPLNIT po kroku 2, pokud bude zařazeno].
+jeden dokument“. Úprava není součástí etap 1 až 4; zařadíme ji, bude-li
+o ni MPO stát (odstavec 7).
 
 ### 4.2 Kategorie „Strategie“
 
@@ -350,19 +454,21 @@ v databázi jen ve verzi z roku 2019, jež byla v srpnu 2024 nahrazena
 2. aktualizací. Kategorie tedy existuje, její obsah však neúplný a zčásti
 zastaralý je.
 
-Navrhujeme:
+Návrh MPO přijímáme a v etapě 1 (do 11. 12. 2026) provedeme tyto kroky:
 
-1. **Přejmenovat typ** „Strategický dokument“ na „Strategie“ podle návrhu
-   MPO (k potvrzení na jednání, odstavec 7).
-2. **Opravit zařazení** úředního českého znění Vodíkové strategie EU a vést
-   je jako hlavní záznam; překlad HYTEP a slovenské znění s ním propojit.
-3. **Doplnit chybějící strategie.** Rešerší jsme nalezli 18 národních
+1. **Přejmenujeme typ** „Strategický dokument“ na „Strategie“ podle návrhu
+   MPO.
+2. **Opravíme zařazení** úředního českého znění Vodíkové strategie EU
+   a povedeme je jako hlavní záznam; překlad HYTEP a slovenské znění s ním
+   propojíme. Obdobně propojíme s českým zněním slovenská znění dalších
+   aktů EU, jež databáze obsahuje.
+3. **Doplníme chybějící strategie.** Rešerší jsme nalezli 18 národních
    a evropských strategických dokumentů k vodíku a energetice, jež v databázi
    chybějí; seznam s úředními názvy, vydavateli, daty, adresami a vztahem
-   k vodíku uvádíme v příloze A. Doporučujeme zařadit nejméně dokumenty
-   s prioritou A a B (11 dokumentů). Zařadí je editoři přes frontu kandidátů
-   (etapa 1) [DOPLNIT po kroku 1].
-4. **Rozlišovat stav strategie** „aktuální“ a „nahrazená“; nahrazená verze
+   k vodíku uvádíme v příloze A. Zařadíme všech 11 dokumentů s prioritou
+   A a B; zařadí je editoři přes frontu kandidátů. O dokumentech
+   s prioritou C rozhodneme po vyjádření MPO (odstavec 7).
+4. **Budeme rozlišovat stav strategie** „aktuální“ a „nahrazená“; nahrazená verze
    zůstane v databázi kvůli souvislostem, s vazbou na verzi, jež ji
    nahradila. Starší Národní akční plán čisté mobility tak bude veden jako
    nahrazený.
@@ -395,14 +501,20 @@ aktuálnosti databáze“, jejž přikládáme. Stručně:
    zrušil. Poslední kontrola 27. 10. 2026 ověřila 747 předpisů ČR a EU
    (předpisy v databázi i kandidáty na doplnění); databáze nyní vede 35
    dokumentů jako zrušené.
-5. **Datum poslední kontroly.** U každého dokumentu bude zobrazeno, kdy byl
-   naposledy ověřen a v jakém zdroji (etapa 3) [DOPLNIT po kroku 3]. Dnes
-   aplikace v zápatí uvádí jen datum poslední změny databáze jako celku.
+5. **Datum poslední kontroly.** Dnes aplikace v zápatí uvádí jen datum
+   poslední změny databáze jako celku. Připraveno k nasazení je zobrazení
+   údaje „Poslední kontrola stavu“ na stránce každého dokumentu, s datem
+   a zdrojem kontroly (například „27. 10. 2026 (e-Sbírka)“), u dokumentu
+   dosud neověřeného s textem „dosud neověřeno“. Po nasazení (etapa 3,
+   do 25. 11. 2026) bude datum kontroly uvedeno patrně u 226 dokumentů
+   (předpisy ověřené kontrolou platnosti a normy ověřené v katalozích
+   norem); s každým dalším během kontrol se bude rozšiřovat.
 
-Otevřeně upozorňujeme, že kontroly zatím spouštíme ručně: pravidelné
-automatické spouštění na serveru není dosud zavedeno a o jeho zavedení
-a provozovateli bude třeba rozhodnout (odstavec 7). Ve stávajícím stavu
-by aktuálnost závisela na tom, zda kontrolu někdo spustí.
+Otevřeně upozorňujeme, že kontroly zatím spouštíme ručně. Pravidelné
+automatické spouštění na serveru máme připraveno, zavedeno však dosud není;
+do jeho zavedení odpovídá za dodržení četnosti kontrol správce databáze,
+jenž je spouští ručně. Ve stávajícím stavu tedy aktuálnost závisí na tom,
+zda kontrolu někdo spustí.
 
 ### 4.4 Připravované předpisy
 
@@ -427,11 +539,38 @@ mění dokumenty databáze nebo se týkají vodíku, a 7 dalších českých
 z věcných okruhů databáze. Mezi evropskými byly například revize směrnic
 (EU) 2018/2001, (EU) 2019/944 a (EU) 2024/1788.
 
-Tato část zatím běžela jen nad testovací kopií databáze; do veřejné verze
-ji uvedeme v etapě 3 [DOPLNIT po kroku 3: datum prvního běhu a počet
-přijatých návrhů]. Převod přijatého návrhu na vyhlášený předpis zatím
-není dokončen. Slovenský legislativní proces (Slov-Lex) automaticky
-sledovat nemůžeme, protože web automatizovaný přístup odmítá.
+Tato část zatím běžela jen nad testovací kopií databáze a 19. 11. 2026
+nanečisto nad provozní databází (odstavec 3.7). Do provozu ji uvedeme
+prvním ostrým během do 25. 11. 2026 (etapa 3); návrhy přímo související
+s databází posoudí editoři do 18. 12. 2026. Převod přijatého návrhu na
+vyhlášený předpis je připraven v editorském rozhraní (odstavec 3.7).
+Slovenský legislativní proces (Slov-Lex) automaticky sledovat nemůžeme,
+protože web automatizovaný přístup odmítá.
+
+### 4.5 Editorský přístup pro pracovníky MPO
+
+Nabízíme, aby pracovníci MPO, například kolegyně, jež zpracovaly tabulky
+předpisů, získali k databázi editorský přístup. Editor se přihlašuje
+v editorské části webové aplikace; žádnou instalaci nepotřebuje. Může:
+
+* posuzovat kandidáty na nové dokumenty a navrhovat jejich přijetí,
+  zamítnutí nebo odložení;
+* sám navrhnout nový dokument, například předpis, jejž v databázi postrádá;
+* navrhovat opravy údajů existujících dokumentů (název, popis, odpovědná
+  instituce, typ, jazyk);
+* zaznamenat, že připravovaný předpis byl vyhlášen.
+
+Každá změna se schvaluje dvoustupňově: jeden editor ji navrhne a druhý,
+odlišný editor ji potvrdí; databáze tuto podmínku sama vynucuje. Návrh
+editora MPO tak potvrdí editor řešitele a naopak, nebo dva editoři MPO
+navzájem. Každé rozhodnutí se zaznamenává (kdo, kdy a co navrhl, potvrdil,
+zamítl nebo odložil). MPO by tak mohlo doplňovat a opravovat obsah databáze
+přímo, bez prostředníka, a průběžně by vidělo, co a proč se v databázi
+mění.
+
+Účet založíme na vyžádání; potřebujeme jméno a e-mailovou adresu
+pracovníka. K účtu připojíme krátký návod a nabízíme úvodní seznámení
+s editorskou částí aplikace, například v rámci jednání podle odstavce 6.
 
 ## 5. Další nedostatky, jež jsme nalezli sami
 
@@ -445,45 +584,62 @@ patrně také uvidí. Uvádíme je kvůli úplnosti:
 4. **Dokumenty bez popisu** — Ke kontrole editorem je označeno 558 dokumentů,
    z toho 540 nemá popis (406 z nich jsou normy, u nichž popis nelze převzít
    z chráněného textu).
-5. **Dosud neopravené záznamy** — Záznam s označením (EU) 2014/1302 nese
-   název prováděcího nařízení (EU) 2019/776 a působí jako duplicita; předpis
-   EHK OSN č. 134 je v databázi dvakrát; záznam s označením 98/2004 Z. z. je
-   ve skutečnosti novelou zákona č. 492/2010 Z. z. Opravíme je v etapě 1.
+5. **Další chybné záznamy** — Záznam s označením (EU) 2014/1302 nesl název
+   prováděcího nařízení (EU) 2019/776 a působil jako duplicita; předpis
+   EHK OSN č. 134 byl v databázi dvakrát; záznam s označením 98/2004 Z. z.
+   byl ve skutečnosti novelou č. 492/2010 Z. z.; slovenské znění směrnice
+   (EU) 2024/1788 nemělo úřední název. Opravy jsou připraveny a do provozní
+   databáze je zapíšeme do 25. 11. 2026. Záznam směrnice Seveso III
+   2012/18/EU nese název směrnice ATEX 2014/34/EU a záznam předpisu EHK OSN
+   č. 100 název publikace o vodíkových lahvích; tyto dva záznamy opravíme
+   v etapě 1.
 6. **Slovenské normy a předpisy** — Databáze obsahuje 444 slovenských
-   dokumentů, převážně normy STN, jež mohou českého uživatele mást. Zda je
-   ve výchozím zobrazení skrýt, navrhujeme rozhodnout na jednání
-   (odstavec 7).
+   dokumentů, převážně normy STN, jež mohou českého uživatele mást.
+   Rozhodli jsme, že ve výchozím zobrazení veřejného katalogu budou skryty;
+   zobrazit je bude moci přihlášený editor přepínačem jurisdikce. Slovenská
+   znění aktů EU propojíme s jejich českým zněním (odstavec 4.2). Úpravu
+   nasadíme do 25. 11. 2026. Bude-li MPO považovat za vhodné slovenské
+   dokumenty veřejnosti nabízet, lze výchozí zobrazení změnit.
 
 ## 6. Harmonogram
 
-| Etapa | Obsah | Předpokládaný termín |
-|---|---|---|
-| 0 | Opravy údajů v databázi (odstavce 3.1 až 3.6 a 5) | provedeno 19. 11. 2026 |
-| 1 | Doplnění předpisů z tabulek MPO a CDV, strategií podle přílohy A a chybějících institucí; referenční soubor a jeho automatická kontrola | [DOPLNIT termín] (odhadem 1 až 2 týdny) |
-| 2 | Úpravy rozhraní: jeden řádek na předpis, filtr institucí podle jurisdikce, podtyp aktů v přenesené pravomoci, vyhledávání podle synonym | [DOPLNIT termín] |
-| 3 | Průběžná aktualizace: uvedení sběru zdrojů a návrhů předpisů do provozu, datum poslední kontroly u dokumentu, rozhraní pro připravované předpisy | [DOPLNIT termín] |
-| 4 | Testy všech scénářů z připomínek, interní akceptace, opětovné předání výsledku V01 | [DOPLNIT termín] |
+Většina úprav je k 19. 11. 2026 dokončena a ověřena automatickými testy
+nad kopií provozní databáze; zbývá je nasadit do veřejné verze, zapsat
+připravené kandidáty a nechat je posoudit editory. Harmonogram jsme proto
+sestavili co nejkratší. U každého termínu uvádíme podmínku, na níž jeho
+dodržení závisí.
 
-Etapy 1 až 3 probíhají souběžně; jejich výsledky doplníme do tohoto
-dokumentu před jeho odesláním [DOPLNIT po krocích 1 až 3].
+| Termín | Krok | Obsah | Podmínka |
+|---|---|---|---|
+| 19. 11. 2026 (provedeno) | Etapa 0, první část | Opravy údajů v provozní databázi: odpovědné instituce, zastaralá hláška, interní poznámky, chybné názvy, vyřazení rozhodnutí ECB (odstavce 3.1 až 3.6). | — |
+| do 25. 11. 2026 | Nasazení etap 0 až 3 | Zbylé opravy etapy 0 (odstavec 5, bod 5); úpravy rozhraní etapy 2 (jeden řádek na předpis, filtr institucí a jurisdikce, skrytí slovenských dokumentů, podtyp aktů EU, vyhledávání podle synonym); zápis 34 kandidátů z tabulek MPO a CDV do fronty kandidátů; etapa 3 (první ostrý běh sběru zdrojů a návrhů předpisů, datum poslední kontroly u dokumentu, rozhraní pro připravované předpisy). | Úspěšné automatické testy sloučené verze nad kopií provozní databáze; záloha provozní databáze před zápisem; dva funkční editorské účty. |
+| do 27. 11. 2026 | Odeslání vypořádání | Tento dokument a provozní dokument „Provoz a udržování aktuálnosti databáze“ odešleme MPO. | Nasazení podle předchozího řádku, aby veřejná verze aplikace odpovídala popsanému stavu; doplnění jmen garanta a editorů v provozním dokumentu. |
+| 1. až 4. 12. 2026 | Jednání s MPO | Projednání vypořádání a otevřených otázek (odstavec 7); dohoda o postupu opětovného schválení výsledku V01; případné založení editorských účtů pro pracovníky MPO a úvodní seznámení s editorskou částí. Navrhujeme úterý 1. 12., středu 2. 12. nebo čtvrtek 3. 12. 2026, online nebo osobně. | Časové možnosti MPO; dohodne-li se pozdější termín, posouvá se o stejnou dobu i termín opětovného předání. |
+| do 11. 12. 2026 | Etapa 1 | Posouzení a přijetí kandidátů z tabulek MPO a CDV dvěma editory; přejmenování typu na „Strategie“ a zařazení 11 strategií s prioritou A a B; další části řad norem ČSN EN 60079 a ČSN EN 13445; novely LEX OZE; oprava dvou chybných záznamů (odstavec 5, bod 5); vysvětlení jazykových verzí na stránce aplikace. | Dva editoři s dostatečnou časovou kapacitou (34 kandidátů z tabulek, 11 strategií, části norem a novely LEX OZE). |
+| do 18. 12. 2026 | Etapa 4 | Posouzení nálezů prvního sběru, jež přímo souvisejí s databází (odhadem 112); testy scénářů připomínek 7 až 10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání s MPO. | Dostupnost osoby pro interní akceptaci v týdnu 14. až 18. 12. 2026; závěry jednání nevyžadují rozsáhlé úpravy. |
+| 22. 12. 2026 | Opětovné předání | Předání výsledku V01 MPO k posouzení postupem dohodnutým na jednání, s výsledky interní akceptace. | Interní akceptace bez závažných nálezů; dohoda o postupu schválení. |
+| do 15. 1. 2027 | Provoz | Posouzení ostatních nálezů prvního sběru (odhadem 140); dále průběžně podle provozního dokumentu. | Opětovné předání na tomto kroku nezávisí. |
 
 ## 7. Otevřené otázky k jednání
 
-1. **Slovenské dokumenty:** Ponechat slovenské předpisy a normy STN ve
-   veřejném katalogu, nebo je ve výchozím zobrazení skrýt či oddělit?
-2. **Název kategorie:** Souhlasí MPO s přejmenováním typu „Strategický
-   dokument“ na „Strategie“ a s rozsahem strategií podle přílohy A?
+1. **Postup schválení výsledku V01:** Po odeslání tohoto vypořádání
+   bychom MPO rádi požádali o dohodu na postupu opětovného posouzení
+   a schválení výsledku V01: jaké podklady MPO očekává, kdo se posouzení
+   zúčastní a jakou formou bude vystaveno potvrzení o schválení výsledku
+   pro Technologickou agenturu ČR.
+2. **Editorské účty pro MPO:** Má MPO zájem o editorský přístup pro své
+   pracovníky (odstavec 4.5), a pokud ano, pro koho?
 3. **Referenční soubor:** Můžeme tabulky MPO a CDV převzít jako referenční
    soubor dokumentů pro měření úplnosti a požádat kolegyně z MPO a CDV
    o jejich průběžné doplňování?
-4. **Editoři:** Kdo bude posuzovat frontu kandidátů? Navrhujeme, aby
-   alespoň jeden z editorů byl z okruhu aplikačního garanta.
-5. **Provoz:** Kdo bude provozovat pravidelné spouštění kontrol na serveru
-   a kde bude databáze provozována po skončení projektu?
+4. **Lhůty posouzení kandidátů:** Navrhujeme, aby editoři kandidáty
+   z týdně kontrolovaných zdrojů posoudili do dvou týdnů od zachycení
+   a ostatní do konce kalendářního čtvrtletí. Vyhovují tyto lhůty MPO?
+5. **Strategie s prioritou C:** Má databáze zahrnout i strategické
+   dokumenty s okrajovou vazbou na vodík (příloha A, priorita C)?
 6. **Normy podle komisí:** Vyhovuje MPO přehled norem podle technických
-   komisí (odstavec 4.1) místo položek s označením komisí?
-7. **Schválení výsledku:** Jaký postup a jaké podklady MPO pro opětovné
-   posouzení a schválení výsledku V01 očekává?
+   komisí (odstavec 4.1) místo položek s označením komisí? Má být komise
+   uvedena na stránce normy a sloužit jako filtr?
 
 ## Příloha A: Strategické dokumenty, jež v databázi chybějí
 
@@ -491,7 +647,7 @@ Rešerši jsme provedli 19. 11. 2026. U každého dokumentu jsme ověřili, že
 oficiální adresa existuje (české dokumenty přímo na stránkách vydavatele,
 dokumenty EU v databázi Úřadu pro publikace EU, jež je oficiálním úložištěm
 dokumentů EUR-Lexu), a dotazem nad databází, že dokument v ní ani ve frontě
-kandidátů není. Priorita A znamená přímý vztah k vodíku nebo nadřazený
+kandidátů není. Priorita A znamená přímý vztah k vodíku nebo nadřazený
 rámec vodíkových předpisů, B rámcový dokument s menším podílem vodíku, C
 okrajovou vazbu k posouzení editorem.
 
@@ -499,8 +655,8 @@ okrajovou vazbu k posouzení editorem.
 
 | Dokument | Vydavatel | Datum | Vztah k vodíku | Priorita |
 |---|---|---|---|---|
-| Vnitrostátní plán České republiky v oblasti energetiky a klimatu (aktualizace prosinec 2024) | MPO, schválila vláda ČR | 18. 12. 2024 | Národní příspěvek k cílům EU do roku 2030 včetně podílu RFNBO v průmyslu (42 % v roce 2030, 60 % v roce 2035) a opatření k výrobě a využití vodíku. | A |
-| 2. aktualizace Národního akčního plánu čisté mobility (usnesení vlády č. 590/2024) | MPO ve spolupráci s MD a MŽP | 28. 8. 2024 | Cíle pro roky 2025, 2030 a 2035 včetně vodíkové mobility a plnicích stanic; vychází z nařízení AFIR. Nahrazuje verzi 2019, jež je v databázi. | A |
+| Vnitrostátní plán České republiky v oblasti energetiky a klimatu (aktualizace prosinec 2024) | MPO, schválila vláda ČR | 18. 12. 2024 | Národní příspěvek k cílům EU do roku 2030 včetně podílu RFNBO v průmyslu (42 % v roce 2030, 60 % v roce 2035) a opatření k výrobě a využití vodíku. | A |
+| 2. aktualizace Národního akčního plánu čisté mobility (usnesení vlády č. 590/2024) | MPO ve spolupráci s MD a MŽP | 28. 8. 2024 | Cíle pro roky 2025, 2030 a 2035 včetně vodíkové mobility a plnicích stanic; vychází z nařízení AFIR. Nahrazuje verzi 2019, jež je v databázi. | A |
 | Státní energetická koncepce České republiky | MPO, schválila vláda ČR | 18. 5. 2015 | Rámec energetické politiky státu; vodík okrajově. Aktualizace byla připravena, vláda však v červenci 2024 její schválení odložila. | B |
 | Politika ochrany klimatu v České republice (usnesení vlády č. 207/2017) | MŽP, schválila vláda ČR | 22. 3. 2017 | Strategie snižování emisí do roku 2030 s výhledem do roku 2050; vodík mezi opatřeními v dopravě a průmyslu. Aktualizace na období 2025–2050 je zveřejněna jako návrh; její schválení jsme nedohledali. | B |
 
@@ -518,12 +674,12 @@ Všechny dokumenty jsou sdělení Evropské komise; adresa má tvar
 
 | Dokument | Označení (CELEX) | Datum | Vztah k vodíku | Priorita |
 |---|---|---|---|---|
-| Plán REPowerEU | COM(2022) 230 (52022DC0230) | 18. 5. 2022 | Cíl 10 mil. t domácí výroby a 10 mil. t dovozu obnovitelného vodíku do roku 2030. | A |
-| „Fit for 55“: plnění klimatického cíle EU pro rok 2030 na cestě ke klimatické neutralitě | COM(2021) 550 (52021DC0550) | 14. 7. 2021 | Zastřešující sdělení k balíčku, z něhož vzešly revize směrnice o obnovitelných zdrojích, AFIR a balíček o trzích s vodíkem a plynem. | A |
-| Cesta ke klimaticky neutrálnímu hospodářství: Strategie EU pro integraci energetického systému | COM(2020) 299 (52020DC0299) | 8. 7. 2020 | Vydána souběžně s Vodíkovou strategií EU; úloha vodíku v propojeném energetickém systému. | A |
-| Sdělení o Evropské vodíkové bance | COM(2023) 156 (52023DC0156) | 16. 3. 2023 | Nástroj podpory výroby a dovozu obnovitelného vodíku. | A |
-| Sdělení o Dohodě o čistém průmyslu: společný plán konkurenceschopnosti a dekarbonizace | COM(2025) 85 (52025DC0085) | 26. 2. 2025 | Mechanismus pro vodík, akt o nízkouhlíkovém vodíku, dekarbonizace průmyslu. | A |
-| AccelerateEU – energetická unie: Cenově dostupná a bezpečná energie prostřednictvím urychlených opatření | COM(2026) 370 (52026DC0370) | 22. 4. 2026 | Ohlašuje cílený přezkum kritérií výroby obnovitelného vodíku (RFNBO), tedy možnou změnu nařízení (EU) 2023/1184 a 2023/1185. | A |
+| Plán REPowerEU | COM(2022) 230 (52022DC0230) | 18. 5. 2022 | Cíl 10 mil. t domácí výroby a 10 mil. t dovozu obnovitelného vodíku do roku 2030. | A |
+| „Fit for 55“: plnění klimatického cíle EU pro rok 2030 na cestě ke klimatické neutralitě | COM(2021) 550 (52021DC0550) | 14. 7. 2021 | Zastřešující sdělení k balíčku, z něhož vzešly revize směrnice o obnovitelných zdrojích, AFIR a balíček o trzích s vodíkem a plynem. | A |
+| Cesta ke klimaticky neutrálnímu hospodářství: Strategie EU pro integraci energetického systému | COM(2020) 299 (52020DC0299) | 8. 7. 2020 | Vydána souběžně s Vodíkovou strategií EU; úloha vodíku v propojeném energetickém systému. | A |
+| Sdělení o Evropské vodíkové bance | COM(2023) 156 (52023DC0156) | 16. 3. 2023 | Nástroj podpory výroby a dovozu obnovitelného vodíku. | A |
+| Sdělení o Dohodě o čistém průmyslu: společný plán konkurenceschopnosti a dekarbonizace | COM(2025) 85 (52025DC0085) | 26. 2. 2025 | Mechanismus pro vodík, akt o nízkouhlíkovém vodíku, dekarbonizace průmyslu. | A |
+| AccelerateEU – energetická unie: Cenově dostupná a bezpečná energie prostřednictvím urychlených opatření | COM(2026) 370 (52026DC0370) | 22. 4. 2026 | Ohlašuje cílený přezkum kritérií výroby obnovitelného vodíku (RFNBO), tedy možnou změnu nařízení (EU) 2023/1184 a 2023/1185. | A |
 | Zelená dohoda pro Evropu | COM(2019) 640 (52019DC0640) | 11. 12. 2019 | Rámcová strategie, z níž vychází Vodíková strategie EU i balíček „Fit for 55“. | B |
 | Strategie pro udržitelnou a inteligentní mobilitu | COM(2020) 789 (52020DC0789) | 9. 12. 2020 | Cíle pro bezemisní vozidla a infrastrukturu plnicích stanic; východisko nařízení AFIR. | B |
 | Průmyslový plán Zelené dohody pro věk s nulovými čistými emisemi | COM(2023) 62 (52023DC0062) | 1. 2. 2023 | Ohlašuje Evropskou vodíkovou banku a akt o průmyslu pro nulové čisté emise. | B |

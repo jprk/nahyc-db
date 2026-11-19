@@ -1,7 +1,8 @@
 # Provoz a udržování aktuálnosti databáze regulačních předpisů
 
 > Historie dokumentu:  
-> 2026-11-19 jprk Návrh první verze (podklad k vypořádání připomínek MPO k výsledku V01)
+> 2026-11-19 jprk Návrh první verze (podklad k vypořádání připomínek MPO k výsledku V01)  
+> 2026-11-19 jprk Doplněn stav po krocích 1 až 3, editorský přístup pro MPO, termíny nasazení
 
 Dokument popisuje, jak se databáze regulačních předpisů a předrealizačních
 procesů (výsledek V01 dílčího projektu DP004 centra NAHYC) udržuje aktuální:
@@ -13,12 +14,14 @@ odpověď na dotaz Ministerstva průmyslu a obchodu, jak bude zajištěna
 aktuálnost předpisů.
 
 Odstavce 1 až 9 popisují postup bez technických podrobností. Technické
-údaje (nástroje, příkazy, datové soubory a tabulky) jsou v příloze A na
+údaje (nástroje, příkazy, datové soubory a tabulky) jsou v příloze A na
 konci dokumentu.
 
-U každého postupu odlišujeme, co platí k 19. 11. 2026, od toho, co teprve
-zavádíme. Plánované stavy popisujeme budoucím časem; místa, jež doplníme po
-dokončení rozpracovaných úprav, jsou označena `[DOPLNIT po kroku N]`.
+U každého postupu odlišujeme, co platí k 19. 11. 2026 v provozní databázi,
+od toho, co je připraveno a ověřeno na kopii databáze a co nasadíme do
+25. 11. 2026 (dále „po nasazení“), a od toho, co teprve zavádíme. Plánované
+stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označena
+`[DOPLNIT: …]`.
 
 ## 1. Zásady
 
@@ -44,13 +47,31 @@ dokončení rozpracovaných úprav, jsou označena `[DOPLNIT po kroku N]`.
 | Role | Kdo | Odpovědnost |
 |---|---|---|
 | Garant databáze | [DOPLNIT: jméno, pracoviště řešitele] | Odpovídá za obsah a rozsah databáze; rozhoduje sporné případy; jednou za čtvrtletí vyhodnocuje úplnost (odstavec 8) a podává zprávu aplikačnímu garantovi. |
-| Editoři (nejméně dva) | [DOPLNIT: jména] | Posuzují frontu kandidátů a navržené opravy; navrhují a potvrzují přijetí dokumentů; provádějí ruční kontroly zdrojů, jež automatizovat nelze. |
+| Editoři řešitele (nejméně dva) | [DOPLNIT: jméno], [DOPLNIT: jméno] | Posuzují frontu kandidátů, připravované dokumenty a navržené opravy; navrhují a potvrzují přijetí dokumentů a změny stavu; provádějí ruční kontroly zdrojů, jež automatizovat nelze. |
+| Editoři MPO (volitelně) | pracovníci MPO určení aplikačním garantem [DOPLNIT po dohodě s MPO: jméno] | Stejná oprávnění jako editoři řešitele (odstavec 2.1); mohou zejména navrhovat nové dokumenty a opravy údajů a potvrzovat návrhy ostatních editorů. |
 | Správce | [DOPLNIT: jméno] | Spouští nebo nastavuje pravidelné kontroly, pořizuje zálohy, sleduje chyby a dostupnost zdrojů, zakládá uživatelské účty editorů. |
-| Aplikační garant (MPO) | Ing. Petr Mervart | Uplatňuje připomínky a požadavky na rozsah; navrhujeme, aby alespoň jeden z editorů byl z jeho okruhu (otevřená otázka, odstavec 9). |
+| Aplikační garant (MPO) | Ing. Petr Mervart | Uplatňuje připomínky a požadavky na rozsah; určuje, kteří pracovníci MPO dostanou editorský účet; dostává čtvrtletní zprávu o úplnosti. |
 
-K 19. 11. 2026 jsou v provozní databázi založeny dva uživatelské účty
-editorů. Přijetí kandidáta vyžaduje dva různé editory; s jediným aktivním
-editorem by tedy fronta kandidátů nemohla být vyřizována.
+K 19. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
+účty editorů řešitele. Přijetí kandidáta vyžaduje dva různé editory; dva
+účty pravidlu postačují, s jediným aktivním editorem by však fronta
+kandidátů nemohla být vyřizována. Proto doporučujeme udržovat nejméně tři
+aktivní editory.
+
+### 2.1 Editorský přístup pro pracovníky MPO
+
+Pracovníkům MPO nabízíme editorský přístup k databázi. Editor MPO se
+přihlašuje v editorské části webové aplikace stejně jako editoři řešitele
+a má stejná oprávnění: posuzuje kandidáty, navrhuje nové dokumenty
+a opravy údajů, zaznamenává vyhlášení připravovaných předpisů a potvrzuje
+návrhy jiných editorů. Pro editory MPO platí tytéž zásady jako pro ostatní
+(odstavec 1): každou změnu jeden editor navrhne a druhý, odlišný editor ji
+potvrdí, a každé rozhodnutí se zaznamenává. Návrh editora MPO tak potvrdí
+editor řešitele, nebo jiný editor MPO, a naopak.
+
+Účet zakládá správce na vyžádání aplikačního garanta (jméno a e-mailová
+adresa pracovníka); úvodní heslo předá editorovi správce. Účet, jenž se již nepoužívá, správce deaktivuje; záznam
+rozhodnutí editora zůstává zachován.
 
 ## 3. Sledované zdroje a četnost kontrol
 
@@ -83,13 +104,23 @@ novinek VeKLEPu například pokrývá jen zhruba dva týdny, a musí se proto
   (288) a z kontroly platnosti (8).
 * **Sběr ze sledovaných zdrojů** (34 zdrojů čtených pravidelně, 5 k dohledání
   na vyžádání, 16 ručně kontrolovaných) je vyvinut a vyzkoušen na testovací
-  kopii databáze, do provozu však dosud uveden nebyl. Uvedeme jej do provozu
-  v rámci vypořádání připomínek MPO [DOPLNIT po kroku 3: datum prvního
-  ostrého běhu a počet nálezů].
+  kopii databáze, do provozu však dosud uveden nebyl. Zkouška nanečisto nad
+  provozní databází 19. 11. 2026, při níž se nic nezapsalo, odhadla 252
+  nových kandidátů, z toho 112 s přímým vztahem k databázi (mění dokument
+  databáze nebo se týká vodíku). Do provozu jej uvedeme prvním ostrým
+  během do 25. 11. 2026; skutečný počet nálezů bude záviset na stavu zdrojů
+  v den běhu. Nálezy s přímým vztahem posoudí editoři do 18. 12. 2026,
+  ostatní do 15. 1. 2027.
+* **Kandidáti z tabulek MPO a CDV** (34 kandidátů s úředním názvem, adresou,
+  platností a navrženou odpovědnou institucí) jsou připraveni a do fronty
+  kandidátů je zapíšeme do 25. 11. 2026; posoudí je editoři do
+  11. 12. 2026.
 * **Pravidelné automatické spouštění** kontrol na serveru zavedeno není;
-  kontroly spouští správce ručně. O plánovači a jeho provozovateli zbývá
-  rozhodnout (odstavec 9). Dokud plánovač nebude zaveden, odpovídá za
-  dodržení četnosti podle odstavce 3.1 správce.
+  kontroly spouští správce ručně. Konfigurace plánovače (týdenní, měsíční
+  a čtvrtletní běh se zálohou databáze před každým zápisem) je připravena,
+  nainstalována však není; rozhodnutí o jejím zavedení jsme odložili
+  (odstavec 9). Dokud plánovač nebude zaveden, odpovídá za dodržení
+  četnosti podle odstavce 3.1 správce.
 
 ## 4. Fronta kandidátů
 
@@ -148,7 +179,8 @@ stahování plných textů (u norem se plný text neuchovává).
 
 Navrhujeme, aby editoři kandidáty z týdenních zdrojů posoudili do dvou
 týdnů od zachycení a ostatní do konce kalendářního čtvrtletí. Lhůty jsou
-návrhem k projednání s aplikačním garantem [DOPLNIT po dohodě s MPO].
+návrhem k projednání s aplikačním garantem na jednání, jež navrhujeme na
+první prosincový týden 2026; po dohodě je zde upřesníme.
 
 ### 4.5 Opravy údajů
 
@@ -188,22 +220,26 @@ je propojeno s předpisem, jenž je zrušil.
    „zrušený“ a vazbu na zrušující předpis, je-li v databázi; chybí-li
    zrušující předpis, stane se kandidátem ve frontě (odstavec 4.1, bod 3).
 
-Kontrola dosud nepokrývá normy (změny stavu norem z Věstníku ÚNMZ se
-zatím jen ukládají a do stavů dokumentů se nepromítají), strategie
-a technická pravidla a slovenské předpisy. Rozšíření kontroly na normy
-a strategie [DOPLNIT po kroku 3].
+Kontrola dosud nepokrývá strategie, technická pravidla a slovenské
+předpisy. U norem po nasazení zaznamenáváme výsledek kontroly v katalozích
+norem (ČSN online, Normoff, Věstník ÚNMZ, souhrnné seznamy harmonizovaných
+norem) a datum této kontroly se zobrazuje u dokumentu (odstavec 7);
+zjištěná změna stavu normy (nahrazení, zrušení) se však do stavu dokumentu
+automaticky nepromítá a provádí ji editor. Automatické promítání stavu
+norem a kontrolu strategií zavedeme v dalším kroku; termín zatím
+nestanovujeme.
 
 ## 6. Co se stane s novým, novelizovaným a zrušeným předpisem
 
 | Událost | Kde ji zachytíme | Co se stane v databázi |
 |---|---|---|
 | Návrh předpisu se objeví ve VeKLEPu nebo jako sněmovní tisk | týdenní sběr návrhů | Kandidát s označením „návrh“; po přijetí dokument ve stavu „připravovaný“ s vazbou na předpisy, jež mění. |
-| Návrh je schválen a vyhlášen ve Sbírce | e-Sbírka (týdně); otevřená data Sněmovny vážou vyhlášený předpis k tisku | Dnes nový kandidát; připravovaný dokument převede editor na vyhlášený. Automatické propojení návrhu s vyhlášeným předpisem plánujeme [DOPLNIT po kroku 3]. |
+| Návrh je schválen a vyhlášen ve Sbírce | e-Sbírka (týdně); otevřená data Sněmovny vážou vyhlášený předpis k tisku | Vyhlášený předpis se stane kandidátem. Po nasazení editor na stránce připravovaných dokumentů zaznamená, jak návrh skončil: buď převede týž dokument na vyhlášený (stav „vyhlášený, dosud neúčinný“ nebo „účinný“, případně nové označení, název a datum účinnosti), nebo jej propojí s vyhlášeným předpisem, jenž je v databázi jiným dokumentem, vazbou „návrh vyhlášen jako“; návrh pak bude veden jako nahrazený. Změnu navrhuje jeden editor a potvrzuje druhý. Automatické propojení návrhu s vyhlášeným předpisem zatím neplánujeme. |
 | Nový předpis EU (nařízení, směrnice, akt v přenesené pravomoci) | EUR-Lex a rejstříky Komise (týdně) | Kandidát; po přijetí dokument ve stavu „účinný“ nebo „vyhlášený, dosud neúčinný“. U směrnice editor sleduje transpozici do českého práva. |
 | Novela předpisu, jejž databáze má | e-Sbírka, EUR-Lex | Novela, jež se týká vodíku nebo věcných okruhů, se stane kandidátem a po přijetí je propojena vazbou „mění“; konsolidované znění odkazuje do autoritativního zdroje. |
 | Předpis nabude účinnosti | kontrola platnosti | Stav „vyhlášený, dosud neúčinný“ se změní na „účinný“. |
 | Předpis je zrušen | kontrola platnosti | Stav „zrušený“, vazba na zrušující předpis; dokument zůstává v databázi. |
-| Norma je nahrazena novým vydáním | Věstník ÚNMZ (měsíčně) | Nové vydání jako kandidát; starší vydání bude vedeno jako nahrazené [DOPLNIT po kroku 3]. |
+| Norma je nahrazena novým vydáním | Věstník ÚNMZ (měsíčně) | Nové vydání jako kandidát; starší vydání převede editor do stavu „nahrazený“ (automaticky se stav normy zatím nemění, odstavec 5.2). Návrh normy (prEN) po vydání převede editor na vydanou normu stejně jako návrh předpisu. |
 | Vláda nebo Komise přijme novou strategii | čtvrtletní kontrola, kanály novinek | Kandidát (ruční návrh editora); předchozí verze strategie bude vedena jako nahrazená. |
 
 ## 7. Jak zjistit, kdy byl dokument naposledy ověřen
@@ -217,11 +253,21 @@ K 19. 11. 2026:
 * datum kontroly platnosti je evidováno u každého předpisu interně
   (poslední kontrola 27. 10. 2026), veřejně se však nezobrazuje.
 
-Plánujeme, že stránka dokumentu bude uvádět datum poslední kontroly a zdroj,
-v němž kontrola proběhla, a že bude zveřejněn přehled kontrol jednotlivých
-zdrojů včetně kontrol bez nálezu [DOPLNIT po kroku 3]. Aplikační garant tak
-bude moci u každého dokumentu ověřit, kdy a podle čeho byl naposledy
-zkontrolován.
+Po nasazení (do 25. 11. 2026) bude stránka dokumentu uvádět údaj „Poslední
+kontrola stavu“ s datem a zdrojem kontroly, například „27. 10. 2026
+(e-Sbírka)“, „5. 11. 2026 (ČSN online)“ nebo u změny potvrzené editorem
+„19. 11. 2026 (editor …)“; dokument, jenž dosud ověřen nebyl, ponese text
+„dosud neověřeno“. Údaj se zapisuje při každém promítnutí výsledků kontrol
+do databáze, i když se stav dokumentu nezměnil, a datum se nikdy neposouvá
+zpět. Podle zkoušky nanečisto nad provozní databází bude datum kontroly
+po nasazení uvedeno u 226 dokumentů (databáze Úřadu pro publikace EU 167,
+e-Sbírka 37, Věstník ÚNMZ 13, seznamy harmonizovaných norem 7, katalogy
+norem 2); ostatní, mezi nimi většina norem STN, ponesou „dosud neověřeno“,
+dokud je některá kontrola neověří. Aplikační garant tak bude moci u každého
+dokumentu ověřit, kdy a podle čeho byl naposledy zkontrolován.
+
+Veřejný přehled kontrol jednotlivých zdrojů včetně kontrol bez nálezu
+plánujeme; dosud jej vede jen záznam běhů dostupný správci (příloha A.2).
 
 ## 8. Měření úplnosti
 
@@ -230,8 +276,13 @@ kontrol:
 
 1. **Referenční soubor** — Tabulky předpisů zpracované MPO a Centrem
    dopravního výzkumu (květen 2026) převezmeme jako referenční soubor;
-   automatický test bude hlídat, že všechny jeho dokumenty databáze obsahuje
-   [DOPLNIT po kroku 1].
+   automatický test, jenž je součástí testů spouštěných před každou změnou
+   aplikace, ověřuje, že každý z 90 řádků obou tabulek je dokumentem
+   databáze, kandidátem ve frontě, nebo má uveden důvod, proč dokumentem
+   není (například technické komise normalizačních organizací), a že žádný
+   dokument z tabulek z databáze nezmizel. Ke 19. 11. 2026 je 51 řádků
+   v databázi, 31 ve frontě kandidátů (po zápisu kandidátů do provozní
+   databáze) a 8 řádků nejsou dokumenty.
 2. **Uzávěr citací** — Předpisy citované v textech dokumentů databáze, jež
    databáze neobsahuje; nejčastěji citované se stávají kandidáty.
 3. **Porovnání s registry** — U směrnic EU seznam českých prováděcích
@@ -246,15 +297,39 @@ tabulky jich v databázi chybělo 27).
 
 ## 9. Otevřené otázky
 
-1. **Plánovač kontrol** — Kdo bude provozovat pravidelné spouštění kontrol
-   na serveru a kde bude databáze provozována po skončení projektu?
-2. **Editoři** — Jména garanta a editorů; účast editora z okruhu
-   aplikačního garanta.
-3. **Lhůty posouzení kandidátů** podle odstavce 4.4.
+### 9.1 K projednání s aplikačním garantem
+
+1. **Editoři MPO** — Zda a kterým pracovníkům MPO založit editorský účet
+   (odstavec 2.1).
+2. **Lhůty posouzení kandidátů** podle odstavce 4.4.
+
+### 9.2 Doplní řešitel
+
+1. **Jména** garanta databáze, editorů řešitele a správce (odstavec 2).
+
+### 9.3 Odloženo, vyřešíme později
+
+Následující provozní otázky jsme odložili; do jejich vyřešení platí postup
+popsaný v odstavci 3.2 (kontroly spouští ručně správce).
+
+1. **Plánovač kontrol** — Zda zavést pravidelné automatické spouštění
+   kontrol, na kterém serveru a jakým mechanismem (časovač systemd, nebo
+   crontab); kde bude databáze provozována po skončení projektu.
+2. **Datové soubory měněné běhy kontrol** — Běhy v hlavním stromu mění
+   soubory pod správou verzí (záznam běhů, mezipaměti kontrol, přijaté
+   kandidáty); zda je pravidelně zapisovat do repozitáře, nebo je přesunout
+   mimo správu verzí. Do rozhodnutí je nutné změněné soubory před každým
+   nasazením nové verze (`git pull` v hlavním stromu) ošetřit ručně.
+3. **Zdroje IEC, EIGA a DVGW** — Stávající způsob jejich čtení obchází
+   ochranu proti robotům; navrhujeme je vypnout a kontrolovat je ručně.
 4. **Registrace** k rozhraní e-Sbírky a e-Legislativy (podání Ministerstvu
-   vnitra datovou schránkou); e-Legislativa postupně nahrazuje VeKLEP.
-5. **Zdroje za ochranou proti robotům** (EHK OSN, registr Rady EU, Slov-Lex,
-   IEC) — Ponechat ruční kontrolu, nebo požádat provozovatele o přístup?
+   vnitra datovou schránkou; e-Legislativa postupně nahrazuje VeKLEP)
+   a **přístup k databázi TRIS** (oznamování technických předpisů).
+5. **Četnost kontroly stavu norem ČSN a STN** — V registru zdrojů je
+   vedena „na vyžádání“, připravený plánovač ji spouští měsíčně.
+6. **Ostatní zdroje za ochranou proti robotům** (EHK OSN, registr Rady EU,
+   Slov-Lex) — Ponechat ruční kontrolu, nebo požádat provozovatele
+   o přístup.
 
 ## Příloha A: Technické údaje
 
@@ -273,8 +348,14 @@ volba `--env-file`).
 | `DocumentCandidate` | fronta kandidátů (stavy `new`, `proposed`, `accepted`, `rejected`, `deferred`; podmínka `chk_dc_distinct_reviewers`) |
 | `ReviewItem` | navržené opravy údajů (podmínka `chk_ri_distinct_reviewers`) |
 | `User`, `AuditLog` | účty editorů a záznam rozhodnutí |
+| `DocumentStateChange` | navržené změny stavu připravovaných dokumentů (podmínka `chk_dsc_distinct_reviewers`; po nasazení kroku 3) |
 
 Sloupec `Document.provenance` nese původ záznamu a veřejně se nezobrazuje.
+Po nasazení kroků 1 až 3 přibudou sloupce `Document.eu_act_subtype`
+(`delegated`, `implementing`), `Document.status_checked_at`
+a `status_checked_by` (datum a zdroj poslední kontroly stavu),
+`DocumentCandidate.puvodce` (navržená odpovědná instituce) a typ vazby
+`ENACTED_AS` („návrh vyhlášen jako“).
 Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 
 ### A.2 Nástroje
@@ -287,16 +368,23 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | `import_candidates.py --apply` | kandidáti z uzávěru citací a kontroly platnosti do `DocumentCandidate` | po předchozích dvou |
 | `apply_manual_corrections.py --apply` | promítnutí ručních korekcí `data/manual_corrections.json` do živé databáze | při změně souboru |
 | `src/db/dbuser_add.py <login> "<jméno>" <email> --apply` | založení účtu editora | podle potřeby |
-| `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů (větev `feature/h2db-sources`, do `master` v kroku 3) | podle `cadence` |
+| `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů (do `master` sloučením kroku 3); při prvním běhu po etapách `--stage E1` až `E6` | podle `cadence` |
+| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, odstavec 9.3) | týdně, měsíčně, čtvrtletně |
+| `backup_db.py --reason <důvod>` | záloha databáze do `backups/` | před každým hromadným zápisem |
+| `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (do 25. 11. 2026) |
+| `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově po nasazení kroku 2 |
 | `harvest_sources.py --checklist`, `--record <zdroj> --note … --found N` | seznam ručně kontrolovaných zdrojů a záznam ruční kontroly | čtvrtletně |
 | `check_sources.py --apply` | kontrola dostupnosti adres registru | měsíčně |
 
-Registr zdrojů: `data/monitored_sources.json` (popis v `doc/DATA_SOURCES.md`
-na větvi `feature/h2db-sources`); záznam běhů a ručních kontrol
+Registr zdrojů: `data/monitored_sources.json` (popis v `doc/DATA_SOURCES.md`);
+záznam běhů a ručních kontrol
 `data/source_checks.jsonl` (jen připisování). Přijaté kandidáty zapisuje
 editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
-`data/manual_corrections.json`; oba soubory čte sestavení databáze
-(`build_unified_db.py`).
+`data/manual_corrections.json`, potvrzené změny stavu připravovaných
+dokumentů do `data/manual_corrections.json` a
+`data/document_relations_editor.json`; tyto soubory čte sestavení databáze
+(`build_unified_db.py`). Mezipaměti kontrol: `data/validity_cache.json`
+(předpisy) a `data/norm_validity_cache.json` (normy).
 
 ### A.3 Editorská aplikace
 
@@ -305,6 +393,7 @@ editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
 | `/admin/login` | přihlášení editora |
 | `/admin/candidates` | fronta kandidátů (filtr podle stavu a zdroje), detail s doklady, `/admin/candidates/new` ruční návrh |
 | `/admin/review` | dokumenty s příznakem ke kontrole a návrhy oprav |
+| `/admin/drafts` | připravované dokumenty a převod návrhu na vyhlášený předpis (po nasazení kroku 3) |
 | `/admin/audit-log` | záznam rozhodnutí |
 
 ### A.4 Doporučený týdenní běh (do zavedení plánovače)
@@ -312,13 +401,15 @@ editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
 ```
 cd /home/laborator/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/check_validity.py
-# záloha databáze do backups/ (mysqldump … | gzip)
+.venv/bin/python src/tools/backup_db.py --reason before_weekly_run
 .venv/bin/python src/tools/backfill_document_states.py --apply
 .venv/bin/python src/tools/import_candidates.py --apply
-.venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply   # po kroku 3
+.venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply   # po nasazení kroku 3
+.venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
 ```
 
 Související dokumenty: `doc/DATABASE_SCOPE.md` (rozsah, stavy, četnost),
 `doc/CITATION_CLOSURE.md` (uzávěr citací), `doc/DATA_SOURCES.md` (registr
-zdrojů a plán vytěžování, větev `feature/h2db-sources`),
+zdrojů a plán vytěžování; postup prvního ostrého běhu a návrh plánovače
+v odstavci 8.17), `doc/MPO_TABULKY.md` (tabulky MPO a CDV jako zlatá sada),
 `doc/MPO_VYPORADANI.md` (vypořádání připomínek MPO).
