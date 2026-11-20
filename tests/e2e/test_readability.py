@@ -39,7 +39,11 @@ class LinkReadabilityTestCase(BrowserTestCase):
         self.check(page, "the catalogue")
         self.goto(page, "/procesy")
         self.check(page, "the process overview")
-        page.locator(".process-node-card").first.click()
+        # the card is a link: wait for the node page, or the check races the navigation
+        # (document.body is null for a moment — a flaky failure seen 2026-11-20)
+        with page.expect_navigation():
+            page.locator(".process-node-card").first.click()
+        page.wait_for_load_state("load")
         self.check(page, "a process node")
         self.goto(page, "/admin/login")
         self.check(page, "the login page")
