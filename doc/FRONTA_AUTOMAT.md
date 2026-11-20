@@ -2,7 +2,8 @@
 
 > Historie dokumentu:  
 > 2026-11-20 Návrh první verze: technický účet, pravidla k odsouhlasení, posouzení jazykovým modelem, ukázka na vzorku 40 kandidátů  
-> 2026-11-20 Úpravy podle vyjádření uživatele: R1 jen pro týž jazyk, nová pravidla R7 (jazyková verze) a R8 (zrušený předpis se přijímá se stavem „zrušený“), R2 zrušeno; vysvětlení R9
+> 2026-11-20 Úpravy podle vyjádření uživatele: R1 jen pro týž jazyk, nová pravidla R7 (jazyková verze) a R8 (zrušený předpis se přijímá se stavem „zrušený“), R2 zrušeno; vysvětlení R9  
+> 2026-11-20 Rozhodnutí uživatele o akcích modelu (odstavec 3.3), vztah k vodíku, kategorie `fondy_zakazky` a `obecne_vyrobky`, pokyny verze 3, souhlas zapsán
 
 Fronta kandidátů na nové dokumenty (`doc/PROVOZ.md`, odstavec 4) obsahovala
 20. 11. 2026 v živé databázi 591 nových kandidátů. Jejich ruční posouzení by
@@ -10,11 +11,10 @@ editory zaměstnalo na týdny, přičemž značnou část z nich lze rozhodnout 
 jednoduchých pravidel nebo s pomocí jazykového modelu. Tento dokument popisuje
 automatické předtřídění fronty, předkládá k odsouhlasení seznam pravidel
 (odstavec 2) a výsledky ukázkového posouzení modelem (odstavec 5). Pravidla ani
-model nad živou databází zatím ostře **neběžely**; ostrý běh je technicky
-zablokovaný, dokud uživatel souhlas nezapíše (odstavec 7). Uživatel se
-20. 11. 2026 k pravidlům vyjádřil (odstavec 2); souhlas zatím zapsán není,
-protože nerozhodl o kategoriích, v nichž smí model sám zamítat a odkládat,
-ani o otázkách rozsahu z odstavce 8.
+model nad živou databází zatím ostře **neběžely**. Uživatel 20. 11. 2026
+pravidla (odstavec 2) i akce modelu (odstavec 3.3) odsouhlasil a souhlas je
+zapsán v `data/triage_rules.json`; ostrý běh nad živou databází proběhne až
+po sloučení větve (odstavec 7).
 
 ## 1. Technický účet „automat“
 
@@ -139,32 +139,35 @@ posoudí je proto jazykový model OpenAI GPT (`gpt-4o-mini`), a to takto:
 2. Model vrátí **doporučení** přijmout, zamítnout nebo odložit, věcné okruhy,
    typ dokumentu, původce, jistotu 0–1 a krátké zdůvodnění česky
    (odstavec 3.2).
-3. Podle **prahů** v souboru pravidel automat s doporučením naloží: s jistotou
-   alespoň 0,95 navrhne přijetí (potvrzuje vždy editor); zamítnout či odložit
-   smí jen v kategoriích, jež uživatel odsouhlasí (zatím žádné); vše ostatní
-   zůstane jen doporučením, které editor uvidí v seznamu i v detailu kandidáta
+3. Podle **prahů** a kategorií odsouhlasených uživatelem automat s odpovědí
+   naloží, vždy jen s jistotou alespoň 0,95: dokument v rozsahu navrhne
+   k přijetí (potvrzuje vždy editor), dokument mimo rozsah zamítne, fondy,
+   programy, zakázky a obecné předpisy o výrobcích odloží, daně, zastaralé
+   předpisy a ne-dokumenty odloží jen při vztahu k vodíku; vše ostatní zůstane
+   jen doporučením, které editor uvidí v seznamu i v detailu kandidáta
    (odstavec 3.3).
 4. Odpověď se uloží do **mezipaměti**, takže se tentýž kandidát modelu
    neposílá dvakrát; před během skript odhadne cenu a běh nad rozpočtem
    odmítne (odstavec 3.4).
 
-Model tedy sám nic do databáze nepřidá ani bez odsouhlasení nezamítne; jeho
-výsledkem je návrh k potvrzení nebo doporučení editorovi.
+Model tedy sám nic do databáze nepřidá; jeho výsledkem je návrh k potvrzení,
+vratné zamítnutí či odložení, nebo doporučení editorovi.
 
-### 2.4 K rozhodnutí uživatele
+### 2.4 Rozhodnutí uživatele z 20. 11. 2026
 
-1. Pravidla R1, R3 až R8 odsouhlasil uživatel 20. 11. 2026 (R1, R7 a R8 ve
-   znění podle jeho úprav).
-2. Zbývá rozhodnout, ve kterých kategoriích smí model sám zamítnout či odložit
-   (odstavec 3.3). Navrhujeme zamítat kategorie `mimo_rozsah`, `dane_dotace`
-   a `zastaraly` a odkládat kategorii `neni_dokument`, vždy jen s jistotou
-   alespoň 0,95.
-3. Zbývá rozhodnout otázky rozsahu z odstavce 8 (obecné předpisy o výrobcích;
-   fondy, dotace a zakázky).
+1. Pravidla R1, R3 až R8 odsouhlasena (R1, R7 a R8 ve znění podle úprav
+   uživatele, R2 zrušeno).
+2. Akce modelu podle kategorií (odstavec 3.3): „mimo rozsah“ zamítnout;
+   „daně a dotace“, „zastaralé“ a „není dokument“ odložit jen při vztahu
+   k vodíku; vše jen s jistotou alespoň 0,95 a vratně.
+3. Obecné předpisy o výrobcích (posuzování shody, dozor nad trhem, EMC,
+   strojní a tlaková zařízení) do databáze patří, jde-li o dokumenty
+   regulační povahy; zatím se vedou jako odložené (kategorie `obecne_vyrobky`).
+4. Fondy, podpůrné programy a veřejné zakázky se vedou jako daně a dotace
+   a evidují jako odložené (kategorie `fondy_zakazky`).
 
-Po rozhodnutí se souhlas zapíše do souboru pravidel (`approval.approved_by`,
-`approval.date`) a schválené kategorie se přesunou
-z `model.proposed_auto_categories` do `model.auto_categories`.
+Souhlas je zapsán v `data/triage_rules.json` (`approval`: Jan Přikryl,
+2026-11-20) a kategorie s akcemi v `model.auto_categories`.
 
 ## 3. Posouzení jazykovým modelem
 
@@ -196,9 +199,11 @@ neposílají; ověřuje to test `test_payload_has_public_data_only`.
 Strukturovaný JSON podle schématu (`response_format` typu `json_schema`,
 přísný režim): zdůvodnění česky (nejvýše tři věty, píše se jako první, aby
 model rozhodoval až po úvaze), doporučení (`accept`, `reject`, `defer`),
-kategorii (`v_rozsahu`, `mimo_rozsah`, `dane_dotace`, `neni_dokument`,
-`zastaraly`, `zahranicni`, `nejiste`), věcné okruhy, typ dokumentu ze seznamu
-databáze, původce, úřední název (jen zná-li jej s jistotou) a jistotu 0–1.
+kategorii (`v_rozsahu`, `mimo_rozsah`, `dane_dotace`, `fondy_zakazky`,
+`obecne_vyrobky`, `neni_dokument`, `zastaraly`, `zahranicni`, `nejiste`),
+věcné okruhy, typ dokumentu ze seznamu databáze, původce, úřední název (jen
+zná-li jej s jistotou), jistotu 0–1 a od verze pokynů 3 **vztah k vodíku**
+(`vztah_k_vodiku`, ano/ne, se zdůvodněním jednou větou).
 Neplatnou odpověď skript zkusí získat znovu (nejvýše třikrát), jinak
 kandidáta ponechá editorům.
 
@@ -210,15 +215,42 @@ téměř vždy blízká 1; prakticky tedy rozhoduje jistota uvedená modelem.
 
 ### 3.3 Prahy a akce
 
-| Doporučení modelu | Podmínka | Akce automatu |
-|---|---|---|
-| přijmout | jistota ≥ 0,95 (`accept_threshold`) a aspoň jeden okruh | navrhne přijetí s údaji podle modelu (typ, původce, okruhy; úřední název jen tam, kde kandidát název nemá nebo je zkrácený) |
-| zamítnout, odložit | kategorie je v `auto_categories` a jistota ≥ 0,95 (`decline_threshold`) | zamítne, resp. odloží |
-| cokoli jiného | — | jen uloží doporučení; editor je vidí v seznamu i v detailu |
+Akce se řídí kategorií, kterou model kandidátovi přidělí, a provede se vždy
+jen s jistotou alespoň 0,95 (`decline_threshold`, `accept_threshold`); pod
+prahem automat jen uloží doporučení. Vše je vratné (**Znovu otevřít**,
+**Vrátit návrh**).
 
-Do odsouhlasení je `auto_categories` prázdné, model tedy sám nezamítá ani
-neodkládá. Prah 0,95 jsme zvolili podle ukázky (odstavec 5): s prahem 0,9 by
-automat navrhl přijetí i dvou dokumentů, jež do databáze zjevně nepatří.
+| Kategorie | Podmínka | Akce automatu |
+|---|---|---|
+| `v_rozsahu` | doporučení přijmout a aspoň jeden věcný okruh | navrhne přijetí s údaji podle modelu (potvrzuje editor) |
+| `mimo_rozsah` | doporučení zamítnout | zamítne |
+| `fondy_zakazky` (daně a dotace: fondy, podpůrné programy, veřejné zakázky) | vždy | odloží |
+| `obecne_vyrobky` (posuzování shody, dozor nad trhem, EMC, strojní a tlaková zařízení) | vždy | odloží |
+| `dane_dotace` (ostatní daně, poplatky, ceny, rozpočet) | vztah k vodíku | odloží; bez vztahu jen doporučení |
+| `zastaraly` | vztah k vodíku | odloží; bez vztahu jen doporučení |
+| `neni_dokument` | vztah k vodíku | odloží; bez vztahu jen doporučení |
+| `zahranicni`, `nejiste` | — | jen doporučení |
+
+**Fondy, programy a zakázky versus ostatní daně a dotace.** Uživatel rozhodl,
+že fondy, podpůrné programy a veřejné zakázky se vedou jako daně a dotace,
+ale evidují jako odložené, a zároveň že daně a dotace se odkládají jen při
+vztahu k vodíku. Obě rozhodnutí slaďujeme tak, že fondy, programy a zakázky
+mají vlastní kategorii `fondy_zakazky`, kterou rozhraní popisuje jako „daně
+a dotace: fondy, podpůrné programy, veřejné zakázky“, a odkládají se **vždy**;
+ostatní daně a dotace (`dane_dotace`) jen při vztahu k vodíku. Důvod: první
+rozhodnutí se týká výslovně těchto tří skupin a říká „evidovat jako odložené“
+bez podmínky, druhé je obecné pravidlo pro zbytek kategorie; samostatná
+kategorie také umožní obě skupiny později posoudit odděleně, aniž by se
+musel znovu volat model.
+
+**Vztah k vodíku** vrací model jako samostatné pole; automat jej navíc
+podpoří deterministicky: vztah má i kandidát, jehož název, označení, úryvek
+nálezu zdroje nebo místo citace v textu databáze obsahuje vodík, RFNBO,
+palivové články či H2 (`triage.hydrogen_in_text()`). Stačí jedno z obojího,
+protože odložení je opatrnější výsledek než ponechání bez akce.
+
+Prah 0,95 jsme zvolili podle ukázky (odstavec 5): s prahem 0,9 by automat
+navrhl přijetí i dvou dokumentů, jež do databáze zjevně nepatří.
 
 ### 3.4 Mezipaměť a cena
 
@@ -264,6 +296,9 @@ Auditní log (`/admin/audit-log`) označuje záznamy automatu štítkem a odkazu
 na kandidáta.
 
 ## 5. Ukázka: vzorek 40 kandidátů z živé databáze
+
+Ukázka proběhla s pokyny verze 2, před rozhodnutím uživatele o akcích modelu;
+výsledky verze 3 pro celou frontu jsou v odstavci 6.
 
 Vzorek jsme vybrali náhodně (`--rule R9-model --sample 40`, semínko 20261120)
 z 459 kandidátů, o nichž rozhoduje model; model se jen volal, do živé
@@ -366,55 +401,69 @@ Oba běhy ukázky (2 × 40 volání) stály podle spotřeby vrácené rozhraním
 poskytovatele, a 12 tisíc výstupních tokenů); jedno posouzení vychází na
 přibližně 0,0006 USD.
 
-## 6. Odhad pro celou frontu
+## 6. Výsledek pro celou frontu
 
-Celý běh pravidel (ve znění podle úprav uživatele) a modelu jsme vyzkoušeli s `--apply` nad testovací
-databází `h2regdocs_test`, obnovenou kopií živé databáze, pod zámkem testů.
-Výsledek pro 591 nových kandidátů:
+### 6.1 Pokyny verze 3 a cena
 
-| Cesta | Kandidátů | Akce |
-|---|---|---|
-| R4-tpg, R5-mpo, R6-navrh-vodik, R8-zruseny | 126 | návrh přijetí podle pravidel (69 TPG, 53 MPO, 3 návrhy, 1 zrušený předpis) |
-| R3-novinka | 6 | odložení |
-| model, přijmout s jistotou ≥ 0,95 | 137 | návrh přijetí |
-| model, zamítnout s jistotou ≥ 0,95 v kategoriích navržených k odsouhlasení | 169 | po odsouhlasení zamítnutí (`mimo_rozsah` 147, `zastaraly` 18, `dane_dotace` 4), do té doby jen doporučení |
-| model, ostatní (přijmout 91, zamítnout 62, odložit 1 s jistotou pod 0,95) | 153 | jen doporučení editorům |
+Po rozhodnutí uživatele o akcích modelu jsme pokyny rozšířili (verze 3:
+kategorie `fondy_zakazky` a `obecne_vyrobky`, pole `vztah_k_vodiku`) a model
+znovu posoudil všech 459 kandidátů živé fronty, o nichž rozhoduje (suchý běh,
+do živé databáze se nic nezapsalo). Odhad skriptu byl 0,47 USD, skutečná cena
+podle spotřeby vrácené rozhraním **0,31 USD** (2,84 milionu vstupních tokenů,
+z toho 82 % z mezipaměti poskytovatele, 98 tisíc výstupních). Za ukázku,
+zkoušky a obě úplná posouzení jsme 20. 11. 2026 utratili celkem přibližně
+**0,66 USD**. Mezipaměť `data/triage_model_cache.json` nyní obsahuje odpovědi
+verze 3 pro celou živou frontu, ostrý běh tedy model volat nebude.
 
-Automaticky by tedy šlo vyřídit (navrhnout k potvrzení, zamítnout nebo
-odložit) **438 kandidátů** (74 %) a na samostatné posouzení lidmi by zůstalo
-**153** (26 %). I návrhy přijetí (263) však vyžadují potvrzení editorem;
-hromadné potvrzení je zrychlí, nikoli nahradí.
+**Kategorie podle názvu.** Model v3 nové kategorie téměř nepoužil: Nástroj pro
+oživení a odolnost, Fond pro spravedlivou transformaci, zákon o Státním fondu
+dopravní infrastruktury, směrnici o zadávání zakázek 2014/25/EU i nařízení
+o evropské normalizaci a směrnici o strojních zařízeních dál doporučoval
+přijmout jako dokumenty v rozsahu. Proto kategorii těchto dvou skupin
+určujeme také podle názvu kandidáta (`model.category_patterns`
+v `data/triage_rules.json`: fondy, zakázky, veřejná podpora, malé a střední
+podniky; posuzování shody, dozor nad trhem, akreditace, normalizace, EMC,
+strojní a tlaková zařízení, výbušné atmosféry, technické požadavky na výrobky).
+Shoduje-li se název se vzorem, platí kategorie podle názvu bez ohledu na
+jistotu modelu (název je jednoznačný údaj); normy se vzorem neposuzují.
+Vzory jsme ověřili na celé frontě: zachytí 20 fondů, programů a zakázek
+a 12 obecných předpisů o výrobcích, schvalování vozidel záměrně ne (okruh 5).
 
-**Kvalita.** Při procházení 137 návrhů přijetí podle modelu jsme odhadem
-u 20 až 25 z nich (15 až 18 %) narazili na dokumenty, jež do databáze patrně
-nepatří, převážně fondy a podpůrné programy (nařízení o Nástroji pro
-oživení a odolnost, o Fondu pro spravedlivou transformaci, zákon o Státním
-fondu dopravní infrastruktury), zadávání zakázek (směrnice 2014/25/EU),
-organizační zákony (zákon o hlavním městě Praze) a definici malých a středních
-podniků. Model u nich dobře rozpozná okruh, podle něhož se o dokumentu
-v databázi mluví, ale nerozliší, že dokument sám nic technicky nereguluje.
-Mezi 169 navrženými zamítnutími jsme chyby téměř nenašli; hraniční jsou
-směrnice NIS 2 (kritická infrastruktura energetiky), katalog odpadů
-(vyhláška č. 8/2021 Sb.) a vyhláška ČBÚ č. 22/1989 Sb. o bezpečnosti práce
-v hornictví, kterou model považoval za zastaralou.
+### 6.2 Suchý běh celé fronty nad živou databází
 
-**Cena.** Celý běh 459 posouzení stál **0,30 USD** (2,67 milionu vstupních
-tokenů, z toho 72 % z mezipaměti poskytovatele, 79 tisíc výstupních);
-odhad skriptu před během byl 0,44 USD. Celkem jsme 20. 11. 2026 za ukázku
-a zkoušku utratili přibližně 0,35 USD. Odpovědi jsou v mezipaměti
-`data/triage_model_cache.json`; protože testovací databáze byla kopií živé,
-ostrý běh nad živou databází bude pro dnešní frontu zdarma (ověřili jsme,
-že všech 459 kandidátů živé fronty, o nichž rozhoduje model, má odpověď
-v mezipaměti); platit se bude jen za kandidáty, kteří mezitím přibudou
-nebo se změní. Další běhy (desítky nových
-kandidátů týdně) budou stát řádově setiny dolaru.
+Výsledek `triage_candidates.py` (pravidla i model, bez zápisu) pro 591 nových
+kandidátů; táž čísla dala zkouška s `--apply` nad `h2regdocs_test`, obnovenou
+kopií živé databáze, pod zámkem testů:
+
+| Výsledek | Pravidla | Model | Celkem |
+|---|---|---|---|
+| navrženo k přijetí (potvrdí editor) | 126 (69 TPG, 53 MPO, 3 návrhy, 1 zrušený předpis) | 116 | **242** |
+| zamítnuto | 0 | 163 (mimo rozsah) | **163** |
+| odloženo | 6 (novinky) | 40 (20 fondy a zakázky, 11 obecné předpisy o výrobcích, 8 zastaralé a 1 daně s vztahem k vodíku) | **46** |
+| jen doporučení editorům | — | 140 | **140** |
+
+Jen doporučení zůstane u kandidátů s jistotou pod 0,95 (65 mimo rozsah,
+59 v rozsahu, 8 zastaralých bez vztahu k vodíku a dalších) a u kategorií bez
+automatické akce (`zahranicni`, `nejiste`). Automaticky se tedy vyřídí
+**451 kandidátů** (76 %), editorům zbude na samostatné posouzení **140**
+(24 %) a k potvrzení 242 návrhů.
+
+**Vztah k vodíku** uvedl model u 167 z 459 kandidátů, často i u obecných
+předpisů citovaných v textech o vodíku; deterministická kontrola názvu
+a úryvků jej doplní. Protože vztah k vodíku vede jen k odložení, nikoli
+k zamítnutí, je jeho nadhodnocení bezpečné.
+
+**Zbylé chyby modelu.** Mezi návrhy přijetí zůstávají dokumenty, jež do
+databáze patrně nepatří, například zákon o hlavním městě Praze nebo vyhláška
+o mýtném (č. 470/2012 Sb.); proto návrhy potvrzuje editor. Mezi 163 zamítnutími
+jsou hraniční rozhodnutí 2010/713/EU (moduly posuzování shody pro
+interoperabilitu železnic) a směrnice NIS 2; obě jde znovu otevřít.
 
 ## 7. Postup ostrého běhu
 
 Po odsouhlasení pravidel (odstavec 2) a sloučení větve do `master`:
 
-1. Do `data/triage_rules.json` zapsat `approval.approved_by` a `approval.date`
-   a přesunout odsouhlasené kategorie do `model.auto_categories`.
+1. Souhlas je zapsán (odstavec 2.4), krok odpadá.
 2. V hlavním stromu (web se po `git pull` nasadí; nové sloupce tabulky
    `DocumentCandidate` vzniknou až prvním během s `--apply`, do té doby
    rozhraní filtry doporučení nenabízí):
@@ -440,20 +489,13 @@ jen má-li v souboru pravidel ceník a vejde-li se odhad do `budget_usd`
 
 ## 8. Otevřené otázky
 
-1. **Odsouhlasení pravidel a kategorií** (odstavec 2): dokud nejsou
-   odsouhlasena, nic se v živé databázi nezmění.
-2. **Obecné předpisy o výrobcích**: patří do databáze předpisy o posuzování
-   shody, dozoru nad trhem, normalizaci (nařízení (EU) č. 1025/2012),
-   elektromagnetické kompatibilitě a strojních zařízeních? Model je zčásti
-   doporučuje přijmout; rozhodnutí by sjednotilo posuzování.
-3. **Fondy, podpůrné programy a zadávání zakázek**: navrhujeme je
-   v pokynech modelu výslovně zařadit do kategorie `dane_dotace` (verze
-   pokynů 3); tím by z návrhů přijetí ubylo odhadem 10 až 15 chybných.
-4. **Model `gpt-6.2-astra`**: je dostupný, ale jeho ceník neznáme. Doplní-li
+1. **Model `gpt-6.2-astra`**: je dostupný, ale jeho ceník neznáme. Doplní-li
    uživatel cenu za milion vstupních a výstupních tokenů, lze jej vyzkoušet
    na stejném vzorku (`--model gpt-6.2-astra --rule R9-model --sample 40`)
-   a porovnat přesnost; s `gpt-4o-mini` zůstává na účtu podle odhadu přes
-   5,6 USD.
-5. **Technická pravidla TPG v pásmu 2**: pravidlo R4 navrhne všech 69 pravidel
+   a porovnat přesnost.
+2. **Technická pravidla TPG v pásmu 2**: pravidlo R4 navrhne všech 69 pravidel
    podle rozhodnutí uživatele, i ta bez přímého vztahu k vodíku (například
    kurzy svařování plastů). Editoři je mohou při potvrzování vynechat.
+3. **Odložené obecné předpisy o výrobcích, fondy a zakázky**: o jejich přijetí
+   (u předpisů o výrobcích regulační povahy) rozhodnou editoři později;
+   filtr „zamítnuté či odložené automatem“ je soustředí.

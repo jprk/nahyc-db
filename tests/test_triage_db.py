@@ -41,11 +41,12 @@ class FakeAssessor:
     def assess(self, payload):
         self.calls += 1
         title = payload["kandidat"]["nazev"]
-        accept = "tlakov" in title
+        accept = "plnic" in title
         return {"reasoning": "Testovací zdůvodnění.", "recommendation": "accept" if accept else "reject",
-                "category": "v_rozsahu" if accept else "mimo_rozsah", "scope_areas": [7] if accept else [],
+                "category": "v_rozsahu" if accept else "zahranicni", "scope_areas": [7] if accept else [],
                 "document_type": "Zákon" if accept else None, "puvodce": "Testovací původce triáže" if accept else None,
-                "official_title": None, "confidence": 0.99, "token_confidence": 0.99}
+                "official_title": None, "confidence": 0.99, "token_confidence": 0.99, "vztah_k_vodiku": False,
+                "vztah_k_vodiku_zduvodneni": "Testovací zdůvodnění."}
 
 
 class TriageDatabaseTestCase(unittest.TestCase):
@@ -168,7 +169,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
                                document_type="Zákon", language="CS", jurisdikce="CZ", validity_status="účinný")
         news = self.insert("news", "acer", "ACER news item", url="https://www.acer.europa.eu/news/test-triage",
                            signal="new_document")
-        accepted = self.insert("CZ:9002/2099", "citation", "Zákon o tlakových zařízeních pro zkoušky",
+        accepted = self.insert("CZ:9002/2099", "citation", "Zákon o plnicích stanicích pro zkoušky",
                                designation="9002/2099 Sb.", document_type="Nezařazeno", language="CS",
                                jurisdikce="CZ", validity_status="účinný")
         declined = self.insert("CZ:9003/2099", "citation", "Zákon o myslivosti pro zkoušky", designation="9003/2099 Sb.",
@@ -189,7 +190,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
         self.assertEqual((c["status"], c["document_type"], c["triage_recommendation"]), ("proposed", "Zákon", "accept"))
         c = self.candidate(declined)
         self.assertEqual((c["status"], c["triage_recommendation"], float(c["triage_confidence"])), ("new", "reject", 0.99))
-        self.assertEqual(json.loads(c["triage_json"])["model"]["category"], "mimo_rozsah")
+        self.assertEqual(json.loads(c["triage_json"])["model"]["category"], "zahranicni")
 
         with self.conn.cursor() as cur:
             cur.execute("""SELECT a.action, a.new_value_json FROM AuditLog a JOIN User u ON u.id = a.changed_by_user_id
@@ -261,7 +262,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
         with self.conn.cursor() as cur:
             cur.execute("""INSERT INTO DocumentCandidate (candidate_key, source, designation, title, document_type, url,
                                language, jurisdikce, validity_status, evidence_json)
-                           VALUES (%s, 'mpo', '9011/2099 Sb.', 'Vyhláška o tlakových zařízeních (zrušená, zkouška)',
+                           VALUES (%s, 'mpo', '9011/2099 Sb.', 'Vyhláška o plnicích stanicích (zrušená, zkouška)',
                                'Vyhláška', 'https://example.test/9011', 'CS', 'CZ', 'zrušený', %s)""",
                         (EXTRA_KEYS[0], json.dumps(evidence)))
             repealed = cur.lastrowid
@@ -298,7 +299,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
         # once the act that repealed it is accepted, REPEALS joins the two (the existing repeals_ids mechanism)
         bob = self.client_for("triage_bob")
         bob.post(f"/admin/candidates/{successor['id']}/propose", data={
-            "designation": "9015/2099 Sb.", "title": "Vyhláška o tlakových zařízeních (nová, zkouška)",
+            "designation": "9015/2099 Sb.", "title": "Vyhláška o plnicích stanicích (nová, zkouška)",
             "document_type": "Vyhláška", "url": "https://example.test/9015", "language": "CS", "jurisdikce": "CZ",
             "scope_area": ["2"]})
         alice.post(f"/admin/candidates/{successor['id']}/confirm")

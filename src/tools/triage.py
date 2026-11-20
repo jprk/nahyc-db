@@ -44,7 +44,9 @@ RECOMMENDATIONS = ("accept", "reject", "defer")
 CATEGORIES = {
     "v_rozsahu": "patří do rozsahu databáze",
     "mimo_rozsah": "věcně mimo okruhy databáze",
-    "dane_dotace": "daně, dotace, rozpočet (mimo rozsah podle DATABASE_SCOPE.md, odst. 3)",
+    "dane_dotace": "daně, poplatky, ceny, rozpočet (mimo rozsah podle DATABASE_SCOPE.md, odst. 3)",
+    "fondy_zakazky": "daně a dotace: fondy, podpůrné programy, veřejné zakázky",
+    "obecne_vyrobky": "obecný předpis o výrobcích (posuzování shody, dozor nad trhem, EMC, strojní a tlaková zařízení)",
     "neni_dokument": "není regulační dokument (zpráva, novinka, prezentace, webinář)",
     "zastaraly": "historický nebo neúčinný předpis bez významu pro dnešní praxi",
     "zahranicni": "předpis jiného státu, mimo ČR, EU a mezinárodní úroveň",
@@ -296,7 +298,16 @@ nebo jde o zprávu či nález, který sám dokumentem není.
 vozidel, metrologie, energetika, životní prostředí). Nepatří sem předpisy, v nichž se vodík nebo plyn \
 objeví jen okrajově: zdravotnictví, potraviny, sociální zabezpečení, pracovní právo mimo BOZP, banky \
 a finanční trh, obrana, statistika, myslivost a lesy, organizace státní správy.
-- Daně, poplatky, mýtné, ceny, rozpočet, dotace a podpůrné programy jsou mimo rozsah: kategorie dane_dotace.
+- Daně, poplatky, mýtné, ceny a rozpočet: kategorie dane_dotace. Fondy (např. Nástroj pro oživení a odolnost, \
+Fond pro spravedlivou transformaci, Státní fond dopravní infrastruktury), dotační a podpůrné programy, \
+veřejná podpora, definice podniků pro účely podpor a zadávání veřejných zakázek: kategorie fondy_zakazky.
+- Obecné předpisy o výrobcích a jejich uvádění na trh (posuzování shody a moduly, dozor nad trhem, \
+akreditace, normalizace, elektromagnetická kompatibilita, strojní zařízení, tlaková zařízení, výrobky \
+pro výbušné prostředí, nízké napětí), jde-li o dokument regulační povahy: kategorie obecne_vyrobky \
+(recommendation „defer“).
+- vztah_k_vodiku: true, týká-li se dokument vodíku, jeho výroby, skladování, přepravy či využití, \
+RFNBO nebo palivových článků (výslovně, nebo je-li zjevné, že se na vodíková zařízení přímo vztahuje); \
+jinak false. Zdůvodni jednou větou v poli vztah_k_vodiku_zduvodneni.
 - Normy a technická pravidla: databáze vede i mezinárodní a zahraniční normy (ISO, IEC, EN, ČSN, DIN, SAE, \
 ASME, CSA, EIGA, DVGW), pokud se týkají vodíku nebo okruhů databáze. Kategorie zahranicni platí jen \
 pro právní předpisy jiných států, ne pro normy.
@@ -335,7 +346,7 @@ def response_schema(document_types):
             "additionalProperties": False,
             # the reasoning first: the model thinks before it decides
             "required": ["reasoning", "recommendation", "category", "scope_areas", "document_type", "puvodce",
-                         "official_title", "confidence"],
+                         "official_title", "confidence", "vztah_k_vodiku", "vztah_k_vodiku_zduvodneni"],
             "properties": {
                 "reasoning": {"type": "string"},
                 "recommendation": {"type": "string", "enum": list(RECOMMENDATIONS)},
@@ -345,6 +356,8 @@ def response_schema(document_types):
                 "puvodce": {"type": ["string", "null"]},
                 "official_title": {"type": ["string", "null"]},
                 "confidence": {"type": "number"},
+                "vztah_k_vodiku": {"type": "boolean"},
+                "vztah_k_vodiku_zduvodneni": {"type": "string"},
             },
         },
     }
@@ -563,16 +576,63 @@ def check_assessment(result, document_types):
     return None
 
 
-def model_action(result, config):
-    """What the automat does with the model's recommendation: "propose", "reject",
-    "defer", or "recommend" (the recommendation is only shown to the editors)."""
+HYDROGEN = re.compile(r"vodík|vodíkov|hydrogen|wasserstoff|rfnbo|nebiologického původu|non-biological origin"
+                      r"|palivov\w* článk|fuel[ -]cell|\bH2\b", re.I)
+
+
+def hydrogen_in_text(candidate):
+    """True when the candidate's own title or designation, the excerpts its sources
+    found, or the places the database cites it name hydrogen (deterministic support of
+    the model's `vztah_k_vodiku`)."""
+    evidence = candidate.get("evidence") or {}
+    texts = [candidate.get("title") or "", candidate.get("designation") or ""]
+    texts += [f"{f.get('title') or ''} {f.get('excerpt') or ''}" for f in (evidence.get("findings") or {}).values()]
+    for places in (evidence.get("contexts") or {}).values():
+        texts += [f"{p.get('before', '')}{p.get('cited', '')}{p.get('after', '')}" for p in places.get("places") or []]
+    if not evidence.get("contexts") and evidence.get("context"):
+        texts.append(evidence["context"])
+    return any(HYDROGEN.search(t) for t in texts)
+
+
+def hydrogen_relation(result, candidate=None):
+    """The candidate's relation to hydrogen: the model's answer, or hydrogen named in
+    the candidate's texts (either suffices; a deferral is the cautious outcome)."""
+    return bool(result.get("vztah_k_vodiku")) or (candidate is not None and hydrogen_in_text(candidate))
+
+
+def effective_category(result, candidate, config):
+    """(category, True) when the candidate's title matches a pattern of
+    `model.category_patterns` (funds, programmes and procurement; general product
+    rules), which the model, as the sample showed, often misses; else (the model's
+    category, False). Standards are left to the model (a pattern names acts)."""
+    if candidate is not None and candidate.get("document_type") != "Norma":
+        for category, pattern in (config["model"].get("category_patterns") or {}).items():
+            if re.search(pattern, candidate.get("title") or "", re.I):
+                return category, True
+    return result["category"], False
+
+
+def model_action(result, config, candidate=None):
+    """What the automat does with the model's answer: "propose", "reject", "defer", or
+    "recommend" (the recommendation is only shown to the editors). Below the threshold
+    nothing happens. A category the user approved (`model.auto_categories`: {category:
+    {"action", "hydrogen"}}) decides first: a rejection only when the model recommends
+    rejecting, an action with `"hydrogen": true` only for a candidate related to hydrogen.
+    Otherwise an acceptance of a candidate within the scope becomes a proposal."""
     settings = config["model"]
     level = confidence(result)
-    if result["recommendation"] == "accept":
+    category, from_pattern = effective_category(result, candidate, config)
+    if from_pattern:  # the title itself says what the document is: no doubt of the model applies
+        level = 1.0
+    rule = (settings.get("auto_categories") or {}).get(category)
+    if isinstance(rule, dict) and level >= settings["decline_threshold"]:
+        allowed = not rule.get("hydrogen") or hydrogen_relation(result, candidate)
+        if rule["action"] == "reject" and result["recommendation"] != "reject":
+            allowed = False
+        if allowed:
+            return rule["action"]
+    if result["recommendation"] == "accept" and category == "v_rozsahu":
         return "propose" if level >= settings["accept_threshold"] and result.get("scope_areas") else "recommend"
-    allowed = (settings.get("auto_categories") or {}).get(result["recommendation"], [])
-    if result["category"] in allowed and level >= settings["decline_threshold"]:
-        return result["recommendation"]
     return "recommend"
 
 
@@ -611,9 +671,14 @@ def decide(candidate, config, index, document_types, cur=None, assessor=None, li
         if model is None:
             return Decision(candidate["id"], rule["id"], "recommend", "Model neodpověděl; rozhodují editoři.",
                             None, [], None, [])
-        action = model_action(model, config)
+        action = model_action(model, config, candidate)
+        relation = "ano" if hydrogen_relation(model, candidate) else "ne"
+        category, from_pattern = effective_category(model, candidate, config)
+        shown = f"{category} (podle názvu; model: {model['category']})" \
+            if from_pattern and category != model["category"] else category
         note = (f"Model ({assessor.model}): {RECOMMENDATION_LABELS[model['recommendation']]}, "
-                f"jistota {confidence(model):.2f}, kategorie {model['category']}. {model['reasoning']}")
+                f"jistota {confidence(model):.2f}, kategorie {shown}, vztah k vodíku {relation}. "
+                f"{model['reasoning']}")
         if action == "propose":
             metadata, areas = proposal_metadata(candidate, None, config, model)
     if action == "propose":

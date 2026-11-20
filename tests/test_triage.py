@@ -72,7 +72,8 @@ def answer(recommendation="accept", category="v_rozsahu", confidence=0.97, areas
     return {"reasoning": "Předpis upravuje bezpečnost tlakových zařízení.", "recommendation": recommendation,
             "category": category, "scope_areas": list(areas), "document_type": fields.get("document_type", "Zákon"),
             "puvodce": fields.get("puvodce"), "official_title": fields.get("official_title"),
-            "confidence": confidence}
+            "confidence": confidence, "vztah_k_vodiku": fields.get("hydrogen", False),
+            "vztah_k_vodiku_zduvodneni": "Zkušební zdůvodnění."}
 
 
 class RulesTestCase(unittest.TestCase):
@@ -81,11 +82,15 @@ class RulesTestCase(unittest.TestCase):
     def rule(self, **fields):
         return triage.match_rule(candidate(**fields), self.config, INDEX)["id"]
 
-    def test_the_rules_file_is_valid_and_not_yet_approved(self):
-        self.assertFalse(triage.is_approved(self.config))
+    def test_the_rules_file_is_valid_and_approved(self):
+        self.assertTrue(triage.is_approved(self.config))
         self.assertEqual(self.config["rules"][-1]["when"], {}, "the last rule must match everything")
-        self.assertEqual(self.config["model"]["auto_categories"], {"reject": [], "defer": []},
-                         "the model may not reject or defer before the user approves the categories")
+        # the decisions of 20 Nov 2026 (doc/FRONTA_AUTOMAT.md, odstavec 3.3)
+        self.assertEqual(self.config["model"]["auto_categories"], {
+            "mimo_rozsah": {"action": "reject"}, "dane_dotace": {"action": "defer", "hydrogen": True},
+            "zastaraly": {"action": "defer", "hydrogen": True}, "neni_dokument": {"action": "defer", "hydrogen": True},
+            "fondy_zakazky": {"action": "defer"}, "obecne_vyrobky": {"action": "defer"}})
+        self.assertTrue(set(self.config["model"]["auto_categories"]) <= set(triage.CATEGORIES))
 
     def test_rules_in_order(self):
         self.assertEqual(self.rule(candidate_key="EU:2019/942", designation="(EU) 2019/942"), "R1-duplicita")
@@ -271,17 +276,49 @@ class ModelTestCase(unittest.TestCase):
         self.assertAlmostEqual(triage.cost({"prompt_tokens": 1_000_000, "cached_tokens": 1_000_000}, prices), 0.075)
 
     def test_thresholds_and_approved_categories(self):
-        config = json.loads(json.dumps(self.config))
-        self.assertEqual(triage.model_action(answer(confidence=0.97), config), "propose")
-        self.assertEqual(triage.model_action(answer(confidence=0.9), config), "recommend")
-        self.assertEqual(triage.model_action({**answer(confidence=0.97), "token_confidence": 0.6}, config), "recommend")
-        self.assertEqual(triage.model_action(answer(confidence=0.99, areas=()), config), "recommend")
-        self.assertEqual(triage.model_action(answer("reject", "mimo_rozsah", 0.99), config), "recommend")
-        config["model"]["auto_categories"] = {"reject": ["mimo_rozsah"], "defer": ["neni_dokument"]}
-        self.assertEqual(triage.model_action(answer("reject", "mimo_rozsah", 0.99), config), "reject")
-        self.assertEqual(triage.model_action(answer("reject", "zahranicni", 0.99), config), "recommend")
-        self.assertEqual(triage.model_action(answer("defer", "neni_dokument", 0.99), config), "defer")
-        self.assertEqual(triage.model_action(answer("reject", "mimo_rozsah", 0.8), config), "recommend")
+        config = self.config
+        act = triage.model_action
+        self.assertEqual(act(answer(confidence=0.97), config), "propose")
+        self.assertEqual(act(answer(confidence=0.9), config), "recommend")
+        self.assertEqual(act({**answer(confidence=0.97), "token_confidence": 0.6}, config), "recommend")
+        self.assertEqual(act(answer(confidence=0.99, areas=()), config), "recommend")
+        # out of scope: rejected, but only when the model recommends rejecting and is sure
+        self.assertEqual(act(answer("reject", "mimo_rozsah", 0.99), config), "reject")
+        self.assertEqual(act(answer("reject", "mimo_rozsah", 0.9), config), "recommend")
+        self.assertEqual(act(answer("defer", "mimo_rozsah", 0.99), config), "recommend")
+        self.assertEqual(act(answer("reject", "zahranicni", 0.99), config), "recommend")
+        # taxes, obsolete acts, non-documents: deferred only with a relation to hydrogen
+        for category in ("dane_dotace", "zastaraly", "neni_dokument"):
+            self.assertEqual(act(answer("reject", category, 0.99), config), "recommend", category)
+            self.assertEqual(act(answer("reject", category, 0.99, hydrogen=True), config), "defer", category)
+        # ... or hydrogen named in the candidate's own texts
+        self.assertEqual(act(answer("reject", "dane_dotace", 0.99), config,
+                             candidate(title="Zákon o spotřební dani z vodíku")), "defer")
+        # funds, programmes, procurement and general product rules: always deferred, even an acceptance
+        self.assertEqual(act(answer("reject", "fondy_zakazky", 0.99), config), "defer")
+        self.assertEqual(act(answer("accept", "obecne_vyrobky", 0.99), config), "defer")
+        self.assertEqual(act(answer("accept", "obecne_vyrobky", 0.9), config), "recommend")
+
+    def test_categories_by_title(self):
+        act = triage.model_action
+        # funds, programmes and procurement in the title: deferred whatever the model said and however sure it was
+        fund = candidate(title="Nařízení, kterým se zřizuje Nástroj pro oživení a odolnost")
+        self.assertEqual(triage.effective_category(answer(), fund, self.config), ("fondy_zakazky", True))
+        self.assertEqual(act(answer(confidence=0.7), self.config, fund), "defer")
+        self.assertEqual(act(answer(), self.config, candidate(title="Směrnice o zadávání veřejných zakázek")), "defer")
+        self.assertEqual(act(answer(), self.config, candidate(title="Směrnice o strojních zařízeních")), "defer")
+        # a standard is left to the model; so is a title without the pattern
+        norm = candidate(title="Výbušné atmosféry - Část 28", document_type="Norma")
+        self.assertEqual(triage.effective_category(answer(), norm, self.config), ("v_rozsahu", False))
+        self.assertEqual(act(answer(), self.config, candidate(title="Zákon o podporovaných zdrojích energie")), "propose")
+
+    def test_hydrogen_in_the_candidates_texts(self):
+        self.assertTrue(triage.hydrogen_in_text(candidate(title="Směrnice o RFNBO")))
+        self.assertTrue(triage.hydrogen_in_text(candidate(evidence={"contexts": {"4": {"places": [
+            {"before": "plnicí stanice vodíku podle ", "cited": "1/2099 Sb.", "after": ""}]}}})))
+        self.assertTrue(triage.hydrogen_in_text(candidate(evidence={"findings": {"x": {
+            "title": "Vyhláška", "excerpt": "palivové články"}}})))
+        self.assertFalse(triage.hydrogen_in_text(candidate(title="Zákon o myslivosti")))
 
     def test_a_proposal_of_the_model_passes_the_editors_validation(self):
         assessor, _ = self.assessor([answer(document_type="Vyhláška", puvodce="Ministerstvo průmyslu a obchodu",
@@ -310,7 +347,9 @@ class CommandTestCase(unittest.TestCase):
     def test_apply_on_the_live_database_needs_approved_rules(self):
         conn = mock.MagicMock()
         lines = []
-        with mock.patch.object(triage_candidates, "connect", return_value=(conn, "h2regdocs")):
+        unapproved = {**triage.load_config(), "approval": {"approved_by": None, "date": None}}
+        with mock.patch.object(triage_candidates, "connect", return_value=(conn, "h2regdocs")), \
+                mock.patch.object(triage, "load_config", return_value=unapproved):
             code = triage_candidates.main(["--apply", "--rules-only"], out=lines.append)
         self.assertEqual(code, 2)
         self.assertIn("not approved", lines[0])

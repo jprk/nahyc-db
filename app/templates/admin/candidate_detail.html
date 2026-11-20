@@ -38,6 +38,7 @@
                 <tr><th>Doporučení</th><td><span class="triage-rec triage-{{ m.recommendation }}">{{ recommendation_labels.get(m.recommendation) }}</span>
                     — jistota {{ '%.2f'|format(c.triage_confidence or m.confidence) }}{% if m.token_confidence is not none %} (uvedená {{ '%.2f'|format(m.confidence) }}, změřená {{ '%.2f'|format(m.token_confidence) }}){% endif %}</td></tr>
                 <tr><th>Kategorie</th><td>{{ categories.get(m.category, m.category) }}</td></tr>
+                {% if m.vztah_k_vodiku is defined %}<tr><th>Vztah k vodíku</th><td>{{ "ano" if m.vztah_k_vodiku else "ne" }}{% if m.vztah_k_vodiku_zduvodneni %} — {{ m.vztah_k_vodiku_zduvodneni }}{% endif %}</td></tr>{% endif %}
                 <tr><th>Zdůvodnění</th><td>{{ m.reasoning }}</td></tr>
                 {% if m.scope_areas %}<tr><th>Okruhy</th><td>{% for n in m.scope_areas %}{{ n }}. {{ areas.get(n) }}{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>{% endif %}
                 {% if m.document_type or m.puvodce %}<tr><th>Typ / původce</th><td>{{ m.document_type or '—' }} / {{ m.puvodce or '—' }}</td></tr>{% endif %}

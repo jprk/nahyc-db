@@ -2,9 +2,9 @@
   "_comment": "Pravidla automatického třídění fronty kandidátů (src/tools/triage.py, doc/FRONTA_AUTOMAT.md). Pravidla se zkoušejí v uvedeném pořadí, platí první, jehož podmínka sedí. Ostrý běh nad živou databází je možný až po odsouhlasení: vyplněné approval.approved_by a approval.date.",
   "version": 1,
   "approval": {
-    "approved_by": null,
-    "date": null,
-    "note": "Pravidla R1, R3 až R8 odsouhlasena uživatelem 20. 11. 2026 (R1 a nová R7, R8 podle jeho úprav, R2 zrušeno); souhlas se zapíše, až uživatel rozhodne o kategoriích modelu (model.proposed_auto_categories) a o otázkách rozsahu (doc/FRONTA_AUTOMAT.md, odstavec 8)."
+    "approved_by": "Jan Přikryl",
+    "date": "2026-11-20",
+    "note": "Pravidla R1, R3 až R8 a akce modelu podle kategorií odsouhlaseny 20. 11. 2026 (doc/FRONTA_AUTOMAT.md, odstavce 2.4 a 3.3; R1 jen pro týž jazyk, R7 a R8 nová, R2 zrušeno)."
   },
   "rules": [
     {
@@ -108,20 +108,24 @@
   },
   "model": {
     "name": "gpt-4o-mini",
-    "prompt_version": 2,
+    "prompt_version": 3,
     "prices_usd_per_million_tokens": {
       "gpt-4o-mini": {"input": 0.15, "cached_input": 0.075, "output": 0.60}
     },
     "budget_usd": 2.0,
     "accept_threshold": 0.95,
     "decline_threshold": 0.95,
-    "auto_categories": {
-      "reject": [],
-      "defer": []
+    "category_patterns": {
+      "fondy_zakazky": "\\bfond\\w*|zadávání\\w*\\s+(veřejných\\s+)?zakáz|veřejných zakázek|InvestEU|Nástroj\\w* pro oživení|veřejn\\w+ podpor|státní podpor|kategorie podpory|blokových výjimek|pro financování|mikropodnik|malých a středních podnik",
+      "obecne_vyrobky": "posuzování shody|dozor\\w* nad trhem|elektromagnetick\\w+ kompatibilit|strojních zařízení|strojní zařízení|tlakových zařízení|tlaková zařízení|akreditac|evropské normalizac|nízkého napětí|výbušné atmosfé|prostředí s nebezpečím výbuchu|technických požadavcích na výrobky"
     },
-    "proposed_auto_categories": {
-      "reject": ["mimo_rozsah", "dane_dotace", "zastaraly"],
-      "defer": ["neni_dokument"]
+    "auto_categories": {
+      "mimo_rozsah": {"action": "reject"},
+      "dane_dotace": {"action": "defer", "hydrogen": true},
+      "zastaraly": {"action": "defer", "hydrogen": true},
+      "neni_dokument": {"action": "defer", "hydrogen": true},
+      "fondy_zakazky": {"action": "defer"},
+      "obecne_vyrobky": {"action": "defer"}
     }
   }
 }
