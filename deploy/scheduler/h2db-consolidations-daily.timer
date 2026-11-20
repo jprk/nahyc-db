@@ -1,0 +1,13 @@
+# Návrh (NEINSTALOVÁNO): denně konsolidovaná znění aktů EU (CLP, REACH; refresh_eu_consolidations.py).
+# Nové konsolidované znění se stane aktuálním v den své účinnosti (CLP 1. 1. 2027).
+[Unit]
+Description=NAHYC H2DB: konsolidovaná znění aktů EU
+
+[Timer]
+OnCalendar=*-*-* 01:15
+RandomizedDelaySec=10min
+Persistent=true
+Unit=h2db-harvest@daily.service
+
+[Install]
+WantedBy=timers.target

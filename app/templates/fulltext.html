@@ -15,6 +15,13 @@
         <p class="doc-designation">{{ document.identifier }}</p>
         {% endif %}
         <h1 class="doc-heading">{{ document.title }}</h1>
+        {% if version %}
+        {# src/tools/eu_consolidations.py: which version of the act this text is #}
+        <p class="fulltext-version"><i class="ph ph-clock-counter-clockwise"></i>
+            Znění: <strong>{{ version.edition_label }}</strong>
+            {%- if version.lifecycle_state != 'active' %} ({{ lifecycle_labels.get(version.lifecycle_state, version.lifecycle_state) }}){% endif %}
+            {%- if version.url %} — <a href="{{ version.url }}" target="_blank" rel="noopener">v EUR-Lexu</a>{% endif %}</p>
+        {% endif %}
         <p class="fulltext-notice"><i class="ph ph-info"></i>
             Text je strojově převzatý ze zdrojového webu a slouží jen pro orientaci. Závazné znění je vždy na
             {% if document.url %}<a href="{{ document.url }}" target="_blank" rel="noopener">zdrojové stránce</a>{% else %}zdrojové stránce{% endif %}.</p>

@@ -1,0 +1,25 @@
+{
+ "_popis": "Akty EU, u nichž databáze zobrazuje aktuální konsolidované znění a obnovuje je při každé změně (src/tools/eu_consolidations.py, refresh_eu_consolidations.py; doc/CELLAR_FULLTEXT.md, odstavec 7). Další akt se zapne přidáním položky: celex = číslo CELEX původního aktu (sektor 3), identifier = Document.identifier, language = jazyk dokumentu (CS), original = označení a den účinnosti původního znění (Úř. věst. a datum ověřené v Cellaru). Rozhodnutí uživatele 2026-11-20: zapnuto jen pro CLP a REACH.",
+ "acts": [
+  {
+   "celex": "32008R1272",
+   "identifier": "(ES) 1272/2008",
+   "name": "CLP",
+   "language": "CS",
+   "original": {
+    "label": "původní znění (Úř. věst. L 353, 31. 12. 2008)",
+    "effective_date": "2009-01-20"
+   }
+  },
+  {
+   "celex": "32006R1907",
+   "identifier": "(ES) 1907/2006",
+   "name": "REACH",
+   "language": "CS",
+   "original": {
+    "label": "původní znění (Úř. věst. L 396, 30. 12. 2006)",
+    "effective_date": "2007-06-01"
+   }
+  }
+ ]
+}

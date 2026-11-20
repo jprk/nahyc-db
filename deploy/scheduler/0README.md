@@ -23,13 +23,31 @@ poslední kontroly). Ručně jej lze spustit i nanečisto (`--dry-run`).
   katalogu ČSN zachytila jako vydané s pozdější účinností, se v ten den stane
   aktuální verzí dokumentu (`src/tools/norm_editions.py`; ČSN EN 13445 z 12/2026
   k 1. 1. 2027).
+  Po stavech v týž běh i konsolidovaná znění aktů EU (jako `daily`).
+* `h2db-consolidations-daily.timer` — denně 1:15: konsolidovaná znění aktů EU
+  ze seznamu `data/eu_consolidated_acts.json` (CLP, REACH;
+  `scheduled_harvest.sh daily`, tj. `refresh_eu_consolidations.py --apply --backup`):
+  nové znění zjištěné v Cellaru se v den své účinnosti stane aktuální verzí
+  dokumentu, jeho text se stáhne z Cellaru a vyčistí (`doc/CELLAR_FULLTEXT.md`,
+  odstavec 7). Záloha databáze jen před změnou. Nové konsolidované znění CLP
+  nabývá účinnosti 1. 1. 2027.
 * `h2db-harvest.crontab` — tytéž běhy jako řádky crontabu (varianta bez systemd).
+
+**Plánovač je třeba nainstalovat do konce prosince 2026.** Závisí na něm
+přepnutí norem ČSN EN 13445 a ČSN EN 1717+A1 na vydání 12/2026 a přechod
+nařízení CLP na konsolidované znění k 1. 1. 2027 (obojí 1. 1. 2027). Nebude-li
+nainstalován, je třeba 1. nebo 2. 1. 2027 v hlavním stromu ručně spustit
+(nouzový postup, `doc/PROVOZ.md`, odstavec 5.4):
+
+    .venv/bin/python src/tools/backup_db.py --reason before_states_20270101
+    .venv/bin/python src/tools/backfill_document_states.py --apply
+    .venv/bin/python src/tools/refresh_eu_consolidations.py --apply
 
 Instalace (až po rozhodnutí):
 
-    sudo cp deploy/scheduler/h2db-harvest@.service deploy/scheduler/h2db-harvest-*.timer deploy/scheduler/h2db-states-monthly.timer /etc/systemd/system/
+    sudo cp deploy/scheduler/h2db-harvest@.service deploy/scheduler/h2db-harvest-*.timer deploy/scheduler/h2db-states-monthly.timer deploy/scheduler/h2db-consolidations-daily.timer /etc/systemd/system/
     sudo systemctl daemon-reload
-    sudo systemctl enable --now h2db-harvest-weekly.timer h2db-harvest-monthly.timer h2db-harvest-quarterly.timer h2db-states-monthly.timer
+    sudo systemctl enable --now h2db-harvest-weekly.timer h2db-harvest-monthly.timer h2db-harvest-quarterly.timer h2db-states-monthly.timer h2db-consolidations-daily.timer
     systemctl list-timers 'h2db-*'
 
 nebo `crontab -e` a vložit řádky z `h2db-harvest.crontab`.

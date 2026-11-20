@@ -4,7 +4,7 @@
 # before it and the states of documents applied after it. Called by the timers
 # or the crontab in deploy/scheduler/ (a proposal, NOT installed); by hand:
 #
-#   src/tools/scheduled_harvest.sh weekly|monthly|quarterly|states [--dry-run]
+#   src/tools/scheduled_harvest.sh weekly|monthly|quarterly|states|daily [--dry-run]
 #
 # weekly    registers of acts and of drafts (cadence `weekly` of data/monitored_sources.json)
 # monthly   standards, feeds and pages (`monthly`), the state checks of ČSN/STN
@@ -14,7 +14,12 @@
 # states    only the states of documents (backfill_document_states.py), on the first day
 #           of every month: ČSN take effect on the first day of a month, and an edition
 #           issued with a later date of effect becomes the current one that day
-#           (norm_editions.py; ČSN EN 13445 of 12/2026 on 1. 1. 2027)
+#           (norm_editions.py; ČSN EN 13445 of 12/2026 on 1. 1. 2027); then also the
+#           consolidated versions of EU acts (as `daily`)
+# daily     only the consolidated versions of the EU acts of data/eu_consolidated_acts.json
+#           (CLP, REACH; refresh_eu_consolidations.py): a new one found in Cellar, the one
+#           in effect made current on its day, its text downloaded from Cellar and cleaned;
+#           a backup is taken only when the database is to change (CLP 1. 1. 2027)
 #
 # Runs one at a time (flock on .harvest.lock, waiting up to 2 hours), logs to
 # logs/harvest_YYYYMM.log of the working tree. Exit status 1 when an adapter failed
@@ -23,7 +28,7 @@ set -uo pipefail
 
 CADENCE="${1:-}"
 DRY_RUN="${2:-}"
-case "$CADENCE" in weekly|monthly|quarterly|states) ;; *) echo "usage: $0 weekly|monthly|quarterly|states [--dry-run]" >&2; exit 2;; esac
+case "$CADENCE" in weekly|monthly|quarterly|states|daily) ;; *) echo "usage: $0 weekly|monthly|quarterly|states|daily [--dry-run]" >&2; exit 2;; esac
 REPO="${H2DB_REPO:-$(cd "$(dirname "$0")/../.." && pwd)}"
 PY="${H2DB_PYTHON:-$REPO/.venv/bin/python}"
 APPLY="--apply"
@@ -39,6 +44,12 @@ flock -w 7200 9 || { echo "$(date -Is) $CADENCE: another run holds .harvest.lock
 
 echo "=== $(date -Is) $CADENCE ${APPLY:-(dry run)}"
 status=0
+if [ "$CADENCE" = daily ]; then
+    # consolidated versions of EU acts; backs up the database itself, and only before a change
+    "$PY" src/tools/refresh_eu_consolidations.py $APPLY ${APPLY:+--backup} || status=1
+    echo "=== $(date -Is) $CADENCE finished, status $status"
+    exit $status
+fi
 if [ -n "$APPLY" ]; then
     "$PY" src/tools/backup_db.py --reason "before_harvest_$CADENCE" || exit 1
 fi
@@ -51,5 +62,9 @@ if [ "$CADENCE" = monthly ]; then
 fi
 # repealed / not yet in effect, REPEALS relations, the dates of the last checks, editions of standards
 "$PY" src/tools/backfill_document_states.py $APPLY || status=1
+if [ "$CADENCE" = states ]; then
+    # consolidated versions of EU acts (Cellar, text of the version in effect); the backup is above
+    "$PY" src/tools/refresh_eu_consolidations.py $APPLY || status=1
+fi
 echo "=== $(date -Is) $CADENCE finished, status $status"
 exit $status

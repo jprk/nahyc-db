@@ -121,8 +121,10 @@ CELEX. Adresy (`url`) se nemění, s výjimkou 2014/34/EU.
 * **Selhané položky** (bez souboru, dokument má text z jiné položky); ze čtyř zbývají dvě:
   * nařízení CLP (ES) 1272/2008, `odkaz_eu` (ELI) a dvojče HTML: doplněno
     20. 11. 2026, odstavec 5.1.
-  * REACH (ES) 1907/2006, dvě dvojčata HTML: Cellar české HTML nemá; text
-    je z PDF (834 tis. znaků, 21 příloh). Řešení není potřeba.
+  * REACH (ES) 1907/2006, dvě dvojčata HTML: Cellar české HTML původního
+    znění nemá; text původního znění je z PDF (834 tis. znaků, 21 příloh).
+    Od 20. 11. 2026 dokument zobrazuje konsolidované znění z HTML
+    (odstavec 7), takže řešení není potřeba.
 * **Soubory PDF bez varianty v Cellaru** nezůstal žádný.
 * **Jiné weby s prohlížečem nebo s identitou prohlížeče** (mimo rozsah této
   změny, uvedeno k rozhodnutí):
@@ -154,8 +156,8 @@ znění nařízení vyhlášené v Úředním věstníku L 353 z 31. 12. 2008 
 pozdější změny (adaptace na technický pokrok a další novely). Cellar vede
 konsolidovaná znění `02008R1272-<datum>`; ke 20. 11. 2026 je účinné znění
 ze 1. 7. 2026 (`02008R1272-20260701`) a připraveno je znění k 1. 1. 2027.
-Zda přejít na konsolidované znění, zůstává otevřenou otázkou
-(`doc/MPO_PRIPOMINKY.md`, odstavec 5.3).
+Uživatel 20. 11. 2026 rozhodl zobrazovat aktuální konsolidované znění
+a původní znění ponechat jako nahrazenou verzi (odstavec 7).
 
 **Převod extraktorem.** `extract_fulltext.py` převede XHTML na čitelný text
 za 30 s s nejvyšší spotřebou paměti 0,8 GB (BeautifulSoup nad 23 MB); výsledek
@@ -216,7 +218,119 @@ cp -n .claude/worktrees/mpo-normy-clp/data/fulltext_mpo_normy_clp/ES_1272_2008__
 přepíše vyčištěný text `data/fulltext_clean/ES_1272_2008__1fe6eaaa.*`
 textem z HTML.
 
-## 7. Tabulka ověření
+Konsolidovaná znění CLP a REACH (odstavec 7) přidávají před
+`prune_fulltext.py` dva soubory a před `extract_fulltext.py` zápis verzí:
+
+```
+cp -n .claude/worktrees/mpo-konsolidace/data/fulltext_mpo_konsolidace/*.html data/fulltext/
+.venv/bin/python src/tools/backup_db.py --reason before_eu_consolidations
+.venv/bin/python src/tools/refresh_eu_consolidations.py           # suchý běh
+.venv/bin/python src/tools/refresh_eu_consolidations.py --apply
+```
+
+## 7. Konsolidovaná znění (CLP, REACH; 20. 11. 2026, větev `feature/mpo-konsolidace`)
+
+**Rozhodnutí.** U nařízení CLP (ES) č. 1272/2008 a REACH (ES) č. 1907/2006
+zobrazujeme aktuální konsolidované znění a obnovujeme je při každé změně;
+původní znění nemažeme, zůstává u dokumentu jako nahrazená verze
+(rozhodnutí uživatele z 20. 11. 2026, `doc/MPO_PRIPOMINKY.md`, odstavec 5.1).
+
+**Zjištění v Cellaru.** Konsolidované znění je v Cellaru samostatné dílo
+(typ `CONS_TEXT`, CELEX sektoru 0 s datem, například `02008R1272-20260701`),
+s původním aktem je spojeno vlastností `act_consolidated_based_on_resource_legal`
+a den, od něhož se znění použije, nese `act_consolidated_date`. Dotaz SPARQL
+(`src/sites/eurlex.py: consolidated_versions`) vrací znění, jež má Cellar
+v jazyce dokumentu, včetně znění připravených s budoucí účinností.
+Ke 20. 11. 2026:
+
+| Akt | Původní znění | Konsolidovaných znění v češtině | Účinné k 20. 11. 2026 | Budoucí |
+|---|---|--:|---|---|
+| CLP | `32008R1272`, Úř. věst. L 353, 31. 12. 2008, účinnost 20. 1. 2009 | 31 (1. 12. 2010 až 1. 1. 2027) | `02008R1272-20260701` | `02008R1272-20270101` |
+| REACH | `32006R1907`, Úř. věst. L 396, 30. 12. 2006, účinnost 1. 6. 2007 | 69 (23. 11. 2007 až 22. 6. 2026) | `02006R1907-20260622` | žádné |
+
+Znění CLP `02008R1272-20090120` (ke dni účinnosti původního znění) Cellar
+v češtině nemá; jde o obsah původního znění, a proto je nevedeme.
+
+**Model v databázi.** Každé znění je verzí (`DocumentVersion`) jediného
+dokumentu aktu; dokument, jeho označení a trvalá adresa se nemění:
+
+* **Původní znění** — verze 1 s označením „původní znění (Úř. věst. L 353,
+  31. 12. 2008)“, dnem účinnosti, uloženým textem (`file_path`: PDF, jehož
+  čitelný text je u CLP z HTML) a odkazem na stránku aktu v EUR-Lexu
+  (`DocumentVersion.url`); stav „nahrazený“.
+* **Konsolidovaná znění** — verze 2 a další v pořadí dat, s označením
+  „konsolidované znění ke dni 1. 7. 2026“, datem a odkazem na stránku
+  znění v EUR-Lexu (`…/legal-content/CS/TXT/?uri=CELEX:02008R1272-20260701`).
+  Znění účinné k danému dni je aktuální verzí (stav „účinný“), starší znění
+  jsou „nahrazená“, znění s budoucím datem „vyhlášené, dosud neúčinné“.
+* **Zobrazený text** (`Document.file_path`) je nejnovější účinné znění, jehož
+  text máme; stahujeme jen text aktuálního znění (z Cellaru, české XHTML,
+  položka manifestu `konsolidace_<RRRRMMDD>`). Text dříve aktuálního znění
+  zůstává u jeho verze, starší konsolidovaná znění odkazují jen do EUR-Lexu.
+
+Všechna historická znění vedeme jako verze proto, aby stránka dokumentu
+nabízela úplnou historii s odkazy a aby se další znění jen připisovala.
+Model jsme převzali od vydání norem (`norm_editions.py`), jež také vedou
+nahrazená vydání jako verze; odlišný je jen zdroj (Cellar místo katalogu
+ČSN) a to, že se mění zobrazený text. Nevýhodou je počet verzí (CLP 32,
+REACH 70); stránka dokumentu proto starší nahrazená znění sbaluje.
+
+**Stránka dokumentu.** Panel „Verze“ uvádí, které znění se zobrazuje
+(„Zobrazený text: konsolidované znění ke dni 1. 7. 2026“), u každé verze
+odkaz do EUR-Lexu a u verzí s uloženým textem odkaz „náš text“
+(`/dokument/<slug>/verze/<číslo>/text`). Původní, aktuální a budoucí znění
+jsou vidět vždy, ostatní znění jsou v rozbalovacím seznamu „Starší znění“.
+Stránka čitelného textu uvádí, o které znění jde.
+
+**Obnova při každé změně.** `refresh_eu_consolidations.py` (denně,
+plánovač `scheduled_harvest.sh daily`, a 1. den v měsíci po promítnutí
+stavů):
+
+1. zjistí v Cellaru konsolidovaná znění aktů ze seznamu
+   `data/eu_consolidated_acts.json` a uloží je do
+   `data/eu_consolidation_cache.json` (při chybě dotazu ponechá dosavadní);
+2. v den účinnosti nového znění chybí-li jeho text, stáhne jej z Cellaru
+   (`fetch_fulltext.fetch_one`, nikoli z EUR-Lexu) a vytvoří čitelný text
+   (`extract_fulltext.py`);
+3. zapíše verze (`eu_consolidations.apply`): nové znění se stane aktuální
+   verzí, dosavadní nahrazenou, zobrazený text se přepne na nový.
+
+Totéž promítnutí verzí (bez Cellaru a stahování) provádí
+`backfill_document_states.py` a sestavení databáze `init_db.py`.
+Přestavba z JSON tak výsledek zachová: Seznam aktů, mezipaměť znění
+a manifest stažených textů jsou datové soubory pod správou verzí
+(`init_db.resolve_file_path` dává aktům ze seznamu text účinného znění).
+Akt, jejž kontrola platnosti vede jako zrušený, se nemění.
+
+**Ověření úplnosti stažených textů:**
+
+| Akt | Znění | Soubor | Velikost | Znaky textu (bez mezer) | Přílohy | Články |
+|---|---|---|--:|--:|---|--:|
+| CLP | `02008R1272-20260701` | `ES_1272_2008__2d5ccccc.html` | 28,4 MB | 1 812 593 (99,3 % textu souboru) | I až VIII | 1 až 62 |
+| REACH | `02006R1907-20260622` | `ES_1907_2006__0a76c85e.html` | 4,9 MB | 917 399 (98,2 %) | I až XVII | 1 až 141 |
+
+Cellar vrací obě znění jako jediný soubor (žádné další položky `DOC_n`).
+Čitelný text CLP obsahuje 4 018 indexových čísel látek přílohy VI
+(původní znění 3 068; přibyly harmonizované klasifikace z adaptací na
+technický pokrok) a je kratší než text původního znění (2,27 mil. znaků
+proti 2,94 mil.), protože tabulka 3.2 přílohy VI byla zrušena. Převod
+extraktorem trvá 34 s pro oba soubory.
+
+**Další akty.** Mechanismus se zapne přidáním položky do
+`data/eu_consolidated_acts.json`. Hodí se pro akty měněné tak často, že
+původní znění čtenáře zavádí. Z aktů, jež databáze má v češtině s textem,
+navrhujeme (k rozhodnutí uživatele): směrnici RED II (EU) 2018/2001 (#106,
+podstatně změněna směrnicí (EU) 2023/2413, jež zavádí cíle pro obnovitelná
+paliva nebiologického původu včetně vodíku), nařízení AFIR (EU) 2023/1804
+(#81, plnicí stanice vodíku), nařízení TEN-E (EU) 2022/869 (#80), nařízení
+o schvalování typu motorových vozidel (EU) 2018/858 (#89) a směrnici
+Seveso III 2012/18/EU (#110); méně často měněné směrnice 2014/68/EU (#107)
+a 2014/34/EU (#108) stačí ponechat v původním znění. Před zapnutím je třeba
+ověřit, že označení dokumentu se shoduje se seznamem a že Cellar vede
+konsolidovaná znění aktu v češtině (suchý běh `refresh_eu_consolidations.py`
+to ukáže).
+
+## 8. Tabulka ověření
 
 Jeden řádek na uložený soubor. „Dokument“ je značka z klíče manifestu
 (u českého zákona s odkazem na akt EU je to značka zákona, CELEX ukazuje

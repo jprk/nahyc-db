@@ -703,11 +703,7 @@ def fetch_document_detail(db, slug):
         ''', (document['id'],))
         keywords = [r['keyword'] for r in cur.fetchall()]
 
-        cur.execute('''
-            SELECT version, edition_label, effective_date, is_current, lifecycle_state
-            FROM DocumentVersion WHERE document_id = %s ORDER BY version
-        ''', (document['id'],))
-        versions = cur.fetchall()
+        versions = fetch_versions(cur, document['id'])
 
         # Both directions in one pass: `direction` tells the template
         # whether this document is the subject or the object of the
@@ -759,6 +755,46 @@ def fetch_document_detail(db, slug):
             "process_nodes": process_nodes}
 
 
+def fetch_versions(cur, document_id):
+    """The versions of a document, oldest first. `url` (the version's page at its
+    publisher, e.g. a consolidated version in EUR-Lex; src/tools/eu_consolidations.py)
+    is None in a database without that column yet."""
+    try:
+        cur.execute('''
+            SELECT version, edition_label, effective_date, is_current, lifecycle_state, file_path, url
+            FROM DocumentVersion WHERE document_id = %s ORDER BY version
+        ''', (document_id,))
+    except pymysql.err.OperationalError as error:
+        if error.args[0] != 1054:  # unknown column
+            raise
+        cur.execute('''
+            SELECT version, edition_label, effective_date, is_current, lifecycle_state, file_path, NULL AS url
+            FROM DocumentVersion WHERE document_id = %s ORDER BY version
+        ''', (document_id,))
+    return cur.fetchall()
+
+
+def annotate_versions(document, versions):
+    """Marks the version whose text the document shows (`is_shown`: its file is the
+    document's `file_path`) and the versions with a readable text of their own
+    (`has_text`); returns the shown version or None. A restricted type (paid
+    standards) never offers a text."""
+    shown = None
+    # a long history (consolidated versions of an EU act) shows the older superseded
+    # versions folded; the first (original) version stays in view
+    fold = len(versions) > 8
+    for i, v in enumerate(versions):
+        v['is_folded'] = fold and i > 0 and v['lifecycle_state'] == 'superseded' and not v['is_current']
+        v['has_text'] = (not document['restricted_fulltext']
+                         and clean_text_path(v.get('file_path')) is not None)
+        v['is_shown'] = bool(v.get('file_path')) and v.get('file_path') == document['file_path']
+        if v['is_shown'] and (shown is None or v['is_current']):
+            shown = v
+    if shown is not None:
+        shown['is_folded'] = False
+    return shown
+
+
 @app.route('/dokument/<slug>')
 def document_detail(slug):
     """doc/PLAN.md §16, 2026-09-16: permanent page for one document.
@@ -778,6 +814,7 @@ def document_detail(slug):
                                 and local_copy_path(document['file_path']) is not None)
     detail['has_clean_text'] = (not document['restricted_fulltext']
                                 and clean_text_path(document['file_path']) is not None)
+    detail['shown_version'] = annotate_versions(document, detail['versions'])
     noindex = noindex_for(document)
     return with_noindex(make_response(render_template('document.html', noindex=noindex, **detail)), noindex)
 
@@ -831,13 +868,14 @@ def document_text(slug):
     attributes), which is why the template may output it unescaped."""
     with get_db().cursor() as cur:
         cur.execute('''
-            SELECT d.slug, d.identifier, d.title, d.url, d.file_path, d.jurisdikce,
+            SELECT d.id, d.slug, d.identifier, d.title, d.url, d.file_path, d.jurisdikce,
                    dt.restricted_fulltext
             FROM Document d
             LEFT JOIN DocumentType dt ON d.type_id = dt.id
             WHERE d.slug = %s
         ''', (slug,))
         document = cur.fetchone()
+        versions = fetch_versions(cur, document['id']) if document and document.get('id') else []
     if document is None:
         abort(404)
     if document['restricted_fulltext']:
@@ -845,8 +883,40 @@ def document_text(slug):
     path = clean_text_path(document['file_path'])
     if path is None:
         abort(404)
+    # which version the text is (a consolidated version of an EU act), when the versions say so
+    shown = annotate_versions(document, versions)
     noindex = noindex_for(document)
     return with_noindex(make_response(render_template('fulltext.html', document=document, noindex=noindex,
+                                                      version=shown if shown and shown.get('url') else None,
+                                                      text_html=path.read_text(encoding='utf-8'))), noindex)
+
+
+@app.route('/dokument/<slug>/verze/<int:version>/text')
+def version_text(slug, version):
+    """The readable text of one version of a document (e.g. the original text of an
+    EU act whose page shows its consolidated version; src/tools/eu_consolidations.py).
+    The same access rules as /dokument/<slug>/text."""
+    with get_db().cursor() as cur:
+        cur.execute('''
+            SELECT d.id, d.slug, d.identifier, d.title, d.url, d.file_path, d.jurisdikce,
+                   dt.restricted_fulltext
+            FROM Document d
+            LEFT JOIN DocumentType dt ON d.type_id = dt.id
+            WHERE d.slug = %s
+        ''', (slug,))
+        document = cur.fetchone()
+        if document is None:
+            abort(404)
+        versions = fetch_versions(cur, document['id'])
+    if document['restricted_fulltext']:
+        abort(403)
+    chosen = next((v for v in versions if v['version'] == version), None)
+    path = clean_text_path(chosen['file_path']) if chosen else None
+    if path is None:
+        abort(404)
+    noindex = noindex_for(document)
+    return with_noindex(make_response(render_template('fulltext.html', document=document, noindex=noindex,
+                                                      version=chosen,
                                                       text_html=path.read_text(encoding='utf-8'))), noindex)
 
 

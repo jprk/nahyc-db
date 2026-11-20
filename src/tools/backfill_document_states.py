@@ -25,6 +25,12 @@ edition switched to has another designation, the document is renamed (slug kept)
 and the renaming recorded in data/manual_corrections.json, data/fulltext_manifest.json
 and data/norm_validity_cache.json (norm_editions.persist()).
 
+Consolidated versions of EU acts (eu_consolidations.py, 2026-11-20): for the acts of
+data/eu_consolidated_acts.json (CLP, REACH) the consolidated version in effect on
+the day becomes the current version, from data/eu_consolidation_cache.json and the
+texts of data/fulltext_manifest.json. This script does not ask Cellar nor download:
+that is refresh_eu_consolidations.py (daily), which also runs this part.
+
 Dry run unless --apply; back up the database first.
 
 Usage: .venv/bin/python src/tools/backfill_document_states.py [--apply] [--env-file FILE] [--today YYYY-MM-DD]
@@ -36,6 +42,7 @@ import json
 import pymysql
 
 import document_states as ds
+import eu_consolidations
 import norm_editions
 import state_changes
 import status_checks
@@ -72,8 +79,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true", help="change the database (dry run without it)")
     parser.add_argument("--env-file", default=None)
-    parser.add_argument("--today", default=None, help="the day to plan the editions of standards for (ISO date; "
-                                                      "default today)")
+    parser.add_argument("--today", default=None, help="the day to plan the editions of standards and the "
+                                                      "consolidated versions for (ISO date; default today)")
     args = parser.parse_args(argv)
     today = args.today or datetime.date.today().isoformat()
     from dotenv import dotenv_values
@@ -115,6 +122,9 @@ def main(argv=None):
         editions = norm_editions.apply(cur, status_checks.load(status_checks.NORM_CACHE_PATH), today, write=False)
         for action in editions:
             print(norm_editions.describe(action))
+        consolidations = eu_consolidations.apply(cur, today, write=False)
+        for action in consolidations:
+            print(eu_consolidations.describe(action))
         print(f"last check of the state: {len(checks)} documents get a newer date "
               + (", ".join(f"{label} {n}" for label, n in sorted(by_source.items())) or "—"))
         if args.apply:
@@ -130,6 +140,7 @@ def main(argv=None):
             for version_id, _doc_id, _identifier, _old, new in changes:
                 cur.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (new, version_id))
             norm_editions.execute(cur, editions)
+            eu_consolidations.execute(cur, consolidations)
             for r in new_relations:
                 cur.execute("INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note) "
                             "VALUES (%s, %s, 'REPEALS', %s)", (ids[r["from_identifier"]], ids[r["to_identifier"]], r["note"]))
@@ -139,7 +150,8 @@ def main(argv=None):
                 print(message)
             ds.RELATIONS_PATH.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"{len(changes)} states, {len(new_relations)} REPEALS relations, {len(checks)} check dates, "
-              f"{len(editions)} changes of editions of standards (on {today}) "
+              f"{len(editions)} changes of editions of standards, {len(consolidations)} of consolidated versions "
+              f"of EU acts (on {today}) "
               + (f"written to {env['DB_NAME']}" if args.apply else "(dry run — add --apply)"))
     except Exception:
         conn.rollback()

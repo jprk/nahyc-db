@@ -1496,3 +1496,36 @@ main {
 .state-change-form fieldset .admin-form-group:last-child { margin-bottom: 0; }
 .doc-editor-link { margin: 0 0 1.5rem; }
 .draft-meta td, .state-change td { overflow-wrap: anywhere; }
+
+/* src/tools/eu_consolidations.py: which version of an EU act the page shows, links of
+   each version (EUR-Lex, our stored text), the older consolidated versions folded. */
+.version-shown,
+.fulltext-version {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin: 0 0 1rem;
+}
+
+.fulltext-version {
+    margin-top: 0.75rem;
+}
+
+.version-links a,
+.fulltext-version a {
+    color: var(--accent-secondary);
+    white-space: nowrap;
+}
+
+.version-links a + a {
+    margin-left: 0.75rem;
+}
+
+.version-history {
+    margin-top: 1rem;
+}
+
+.version-history summary {
+    cursor: pointer;
+    color: var(--accent-secondary);
+    font-size: 0.92rem;
+}

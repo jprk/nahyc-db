@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
 import document_states
+import eu_consolidations
 import norm_editions
 import eu_act_subtype
 import status_checks
@@ -150,6 +151,16 @@ def load_fulltext_manifest():
     return {}
 
 
+_CONSOLIDATIONS = []
+
+
+def _consolidation_data():
+    """(config, cache) of eu_consolidations.py, read once per run."""
+    if not _CONSOLIDATIONS:
+        _CONSOLIDATIONS.extend((eu_consolidations.load_config(), eu_consolidations.load_cache()))
+    return _CONSOLIDATIONS
+
+
 def resolve_file_path(item, manifest):
     """R1.7: returns the locally-cached full-text path for this record, or
     None. The manifest is keyed by the RAW per-source "zdroj_dat|znacka|
@@ -162,6 +173,12 @@ def resolve_file_path(item, manifest):
     its own is_norm_designation()), the fetch failed, or it hasn't run
     yet — but note this alone is not the access-control mechanism (see
     RESTRICTED_DOCUMENT_TYPES above), only a best-effort input to it."""
+    # eu_consolidations.py: an act listed in data/eu_consolidated_acts.json shows its
+    # consolidated version in effect, once its text is downloaded
+    shown = eu_consolidations.displayed_file((item.get("znacka") or "").strip(), manifest,
+                                             datetime.date.today().isoformat(), *_consolidation_data())
+    if shown:
+        return shown
     sources = [s for s in (item.get("zdroj_dat") or "").split(", ") if s]
     for source in sources:
         for url_field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk"):
@@ -658,6 +675,12 @@ def import_json_data(db_conn):
         # a renaming the live database has not made yet is recorded for the next rebuild
         for message in norm_editions.persist(editions):
             print(message)
+
+    # eu_consolidations.py, 2026-11-20: the consolidated versions of the acts of
+    # data/eu_consolidated_acts.json (CLP, REACH), the one in effect current
+    consolidations = eu_consolidations.apply(cursor, datetime.date.today().isoformat())
+    if consolidations:
+        print(f"{len(consolidations)} changes of consolidated versions of EU acts (eu_consolidations.py)")
 
     db_conn.commit()
 

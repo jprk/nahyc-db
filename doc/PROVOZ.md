@@ -2,7 +2,14 @@
 
 > Historie dokumentu:  
 > 2026-11-19 jprk Návrh první verze (podklad k vypořádání připomínek MPO k výsledku V01)  
-> 2026-11-19 jprk Doplněn stav po krocích 1 až 3, editorský přístup pro MPO, termíny nasazení
+> 2026-11-19 jprk Doplněn stav po krocích 1 až 3, editorský přístup pro MPO, termíny nasazení  
+> 2026-11-20 jprk Konsolidovaná znění CLP a REACH, termín instalace plánovače a nouzový postup
+
+> **Plánovač je třeba nainstalovat do konce prosince 2026.** Dne 1. 1. 2027
+> se automaticky přepínají normy ČSN EN 13445 a ČSN EN 1717+A1 na vydání
+> 12/2026 a nařízení CLP na konsolidované znění k 1. 1. 2027; bez plánovače
+> se nic z toho nestane. Nebude-li plánovač do té doby nainstalován, provede
+> správce 2. 1. 2027 nouzový postup podle odstavce 5.4.
 
 Dokument popisuje, jak se databáze regulačních předpisů a předrealizačních
 procesů (výsledek V01 dílčího projektu DP004 centra NAHYC) udržuje aktuální:
@@ -271,6 +278,61 @@ Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
 `csn-en-13445-5-a1`, dokument #1456 na vydání 12/2026 se stejným označením
 `ČSN EN 1717+A1`.
 
+### 5.3 Konsolidovaná znění aktů EU
+
+U nařízení CLP (ES) č. 1272/2008 a REACH (ES) č. 1907/2006 zobrazujeme
+od 20. 11. 2026 aktuální konsolidované znění, nikoli původní znění
+vyhlášené v Úředním věstníku (rozhodnutí uživatele z 20. 11. 2026).
+Konsolidované znění je neúřední úplné znění aktu se všemi změnami; vydává
+je Úřad pro publikace EU, jenž je v databázi Cellar vede s datem, od něhož
+se použije. Databáze vede každé znění jako verzi dokumentu:
+
+* **Aktuální konsolidované znění** (ke 20. 11. 2026 u CLP znění k 1. 7. 2026,
+  u REACH k 22. 6. 2026) je aktuální verzí ve stavu „účinný“ a jeho text se
+  zobrazuje na stránce dokumentu.
+* **Původní znění** a **starší konsolidovaná znění** jsou verze ve stavu
+  „nahrazený“; původní znění si ponechává svůj uložený text.
+* **Připravené znění s budoucí účinností** (u CLP znění k 1. 1. 2027) je
+  verze ve stavu „vyhlášený, dosud neúčinný“.
+
+Stránka dokumentu uvádí, které znění se zobrazuje, a u každé verze odkaz
+do EUR-Lexu, u verzí s uloženým textem i odkaz na náš text. Denní kontrola
+(plánovač, odstavec 5.4) zjistí v Cellaru nové znění, v den jeho účinnosti
+je učiní aktuální verzí, stáhne jeho text z Cellaru a vytvoří čitelný text.
+Dokud se text nového znění nepodaří stáhnout, stránka zobrazuje text
+předchozího znění a uvádí to. Další akty EU lze do mechanismu zařadit
+seznamem v datovém souboru (příloha A.2); návrh je v `doc/CELLAR_FULLTEXT.md`,
+odstavec 7.
+
+### 5.4 Plánovač a nouzový postup
+
+**Plánovač je třeba nainstalovat do konce prosince 2026.** Konfigurace je
+připravena v `deploy/scheduler/` (časovače systemd nebo crontab, příloha
+A.2), dosud není nainstalována (odstavec 9.3). Na plánovači závisí:
+
+* přepnutí norem na vydání s pozdější účinností 1. den v měsíci (1. 1. 2027
+  řada ČSN EN 13445 a ČSN EN 1717+A1, odstavec 5.2);
+* přechod nařízení CLP na konsolidované znění k 1. 1. 2027 a každé další
+  nové konsolidované znění CLP a REACH (odstavec 5.3);
+* týdenní, měsíční a čtvrtletní sběr sledovaných zdrojů (odstavec 3).
+
+Nebude-li plánovač 1. 1. 2027 v provozu, provede správce **2. 1. 2027**
+v hlavním stromu (`/home/laborator/DEVEL/nahyc-h2db`) nouzový postup:
+
+```
+.venv/bin/python src/tools/backup_db.py --reason before_states_20270102
+.venv/bin/python src/tools/backfill_document_states.py            # suchý běh
+.venv/bin/python src/tools/backfill_document_states.py --apply    # normy a verze CLP
+.venv/bin/python src/tools/refresh_eu_consolidations.py           # suchý běh
+.venv/bin/python src/tools/refresh_eu_consolidations.py --apply   # Cellar, text CLP k 1. 1. 2027
+```
+
+Výsledek správce ověří na stránkách dokumentů CLP (`/dokument/es-1272-2008`,
+zobrazený text „konsolidované znění ke dni 1. 1. 2027“) a ČSN EN 13445-5
+(označení `ČSN EN 13445-5`). Totéž platí pro každý další 1. den v měsíci
+(normy) a pro den účinnosti dalšího konsolidovaného znění, dokud plánovač
+nebude nainstalován.
+
 ## 6. Co se stane s novým, novelizovaným a zrušeným předpisem
 
 | Událost | Kde ji zachytíme | Co se stane v databázi |
@@ -278,7 +340,7 @@ Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
 | Návrh předpisu se objeví ve VeKLEPu nebo jako sněmovní tisk | týdenní sběr návrhů | Kandidát s označením „návrh“; po přijetí dokument ve stavu „připravovaný“ s vazbou na předpisy, jež mění. |
 | Návrh je schválen a vyhlášen ve Sbírce | e-Sbírka (týdně); otevřená data Sněmovny vážou vyhlášený předpis k tisku | Vyhlášený předpis se stane kandidátem. Po nasazení editor na stránce připravovaných dokumentů zaznamená, jak návrh skončil: buď převede týž dokument na vyhlášený (stav „vyhlášený, dosud neúčinný“ nebo „účinný“, případně nové označení, název a datum účinnosti), nebo jej propojí s vyhlášeným předpisem, jenž je v databázi jiným dokumentem, vazbou „návrh vyhlášen jako“; návrh pak bude veden jako nahrazený. Změnu navrhuje jeden editor a potvrzuje druhý. Automatické propojení návrhu s vyhlášeným předpisem zatím neplánujeme. |
 | Nový předpis EU (nařízení, směrnice, akt v přenesené pravomoci) | EUR-Lex a rejstříky Komise (týdně) | Kandidát; po přijetí dokument ve stavu „účinný“ nebo „vyhlášený, dosud neúčinný“. U směrnice editor sleduje transpozici do českého práva. |
-| Novela předpisu, jejž databáze má | e-Sbírka, EUR-Lex | Novela, jež se týká vodíku nebo věcných okruhů, se stane kandidátem a po přijetí je propojena vazbou „mění“; konsolidované znění odkazuje do autoritativního zdroje. |
+| Novela předpisu, jejž databáze má | e-Sbírka, EUR-Lex | Novela, jež se týká vodíku nebo věcných okruhů, se stane kandidátem a po přijetí je propojena vazbou „mění“; konsolidované znění odkazuje do autoritativního zdroje. U aktů EU ze seznamu konsolidovaných znění (CLP, REACH) se nové konsolidované znění stane v den účinnosti aktuální verzí dokumentu a zobrazí se jeho text (odstavec 5.3). |
 | Předpis nabude účinnosti | kontrola platnosti | Stav „vyhlášený, dosud neúčinný“ se změní na „účinný“. |
 | Předpis je zrušen | kontrola platnosti | Stav „zrušený“, vazba na zrušující předpis; dokument zůstává v databázi. |
 | Norma je nahrazena novým vydáním | Věstník ÚNMZ a katalog ČSN online (měsíčně) | Nové vydání ČSN, jež databáze má, se uloží jako další verze dokumentu ve stavu „vyhlášený, dosud neúčinný“ a v den účinnosti se automaticky stane aktuální verzí; dosavadní vydání bude „nahrazené“ (odstavec 5.2). Norma, jež v databázi není, je kandidátem. Návrh normy (prEN) po vydání převede editor na vydanou normu stejně jako návrh předpisu. |
@@ -354,9 +416,10 @@ tabulky jich v databázi chybělo 27).
 Následující provozní otázky jsme odložili; do jejich vyřešení platí postup
 popsaný v odstavci 3.2 (kontroly spouští ručně správce).
 
-1. **Plánovač kontrol** — Zda zavést pravidelné automatické spouštění
-   kontrol, na kterém serveru a jakým mechanismem (časovač systemd, nebo
-   crontab); kde bude databáze provozována po skončení projektu.
+1. **Plánovač kontrol** — Na kterém serveru a jakým mechanismem (časovač
+   systemd, nebo crontab) jej provozovat; kde bude databáze provozována po
+   skončení projektu. **Nainstalovat jej je třeba do konce prosince 2026**
+   (odstavec 5.4), jinak se 1. 1. 2027 nepřepnou normy ani znění CLP.
 2. **Datové soubory měněné běhy kontrol** — Běhy v hlavním stromu mění
    soubory pod správou verzí (záznam běhů, mezipaměti kontrol, přijaté
    kandidáty, při přejmenování normy na nové vydání i `data/manual_corrections.json`
@@ -416,7 +479,8 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | `apply_manual_corrections.py --apply` | promítnutí ručních korekcí `data/manual_corrections.json` do živé databáze | při změně souboru |
 | `src/db/dbuser_add.py <login> "<jméno>" <email> --apply` | založení účtu editora | podle potřeby |
 | `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů (do `master` sloučením kroku 3); při prvním běhu po etapách `--stage E1` až `E6` | podle `cadence` |
-| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha a promítnutí stavů; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, odstavec 9.3) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci |
+| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha, promítnutí stavů a konsolidovaná znění; `daily` jen konsolidovaná znění; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, **instalovat do konce prosince 2026**, odstavec 5.4) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci; `daily` denně |
+| `refresh_eu_consolidations.py --apply [--today RRRR-MM-DD] [--backup]` | konsolidovaná znění aktů EU ze seznamu `data/eu_consolidated_acts.json` (CLP, REACH): dotaz do Cellaru → `data/eu_consolidation_cache.json`, stažení textu účinného znění z Cellaru (`fetch_fulltext.py`, položka manifestu `konsolidace_<RRRRMMDD>`), čitelný text, verze dokumentu (`eu_consolidations.py`); `--today` bez `--apply` ukáže stav k danému dni (odstavec 5.3) | denně |
 | `backup_db.py --reason <důvod>` | záloha databáze do `backups/` | před každým hromadným zápisem |
 | `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (do 25. 11. 2026) |
 | `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově po nasazení kroku 2 |
@@ -431,7 +495,11 @@ editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
 dokumentů do `data/manual_corrections.json` a
 `data/document_relations_editor.json`; tyto soubory čte sestavení databáze
 (`build_unified_db.py`). Mezipaměti kontrol: `data/validity_cache.json`
-(předpisy) a `data/norm_validity_cache.json` (normy).
+(předpisy) a `data/norm_validity_cache.json` (normy). Konsolidovaná znění:
+seznam aktů `data/eu_consolidated_acts.json` (další akt se zapne přidáním
+položky), mezipaměť znění z Cellaru `data/eu_consolidation_cache.json`;
+odkaz verze do EUR-Lexu je ve sloupci `DocumentVersion.url` (založí jej
+první zápis verzí).
 
 ### A.3 Editorská aplikace
 
@@ -462,7 +530,14 @@ aby se normy přepnuly na nové vydání v den jeho účinnosti (nejbližší
 ```
 .venv/bin/python src/tools/backup_db.py --reason before_monthly_states
 .venv/bin/python src/tools/backfill_document_states.py --apply
+.venv/bin/python src/tools/refresh_eu_consolidations.py --apply
 ```
+
+Konsolidovaná znění CLP a REACH (odstavec 5.3) mohou nabýt účinnosti
+kterýkoli den; do zavedení plánovače spouští správce
+`refresh_eu_consolidations.py --apply` alespoň týdně a vždy v den účinnosti
+znění, jež suchý běh hlásí jako připravené (nejbližší CLP 1. 1. 2027,
+nouzový postup v odstavci 5.4).
 
 Související dokumenty: `doc/DATABASE_SCOPE.md` (rozsah, stavy, četnost),
 `doc/CITATION_CLOSURE.md` (uzávěr citací), `doc/DATA_SOURCES.md` (registr

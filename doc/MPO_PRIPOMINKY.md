@@ -610,18 +610,27 @@ Kroky 0 až 3 jsou hotové na větvích sloučených do integrační větve
 jen zčásti (odstavec 4.1). Zbývá sloučení do `master`, zápis do živé
 databáze, posouzení kandidátů editory, doplnění strategií a interní
 akceptace. Harmonogram jsme proto zkrátili na nejkratší realistický;
-v podobě pro MPO (bez interních údajů) je v `doc/MPO_VYPORADANI.md`,
+v podobě pro MPO (bez interních údajů) je v `doc/MPO_VYPORADANI.md`,
 odstavec 6.
+
+> **Plánovač je třeba nainstalovat do konce prosince 2026** (řádek „do
+> 31. 12. 2026“ v tabulce). Na něm závisí přepnutí norem ČSN EN 13445
+> a ČSN EN 1717+A1 na vydání 12/2026, přechod nařízení CLP na konsolidované
+> znění k 1. 1. 2027 a další nová konsolidovaná znění CLP a REACH. Není-li
+> nainstalován, provede správce 2. 1. 2027 nouzový postup (`doc/PROVOZ.md`,
+> odstavec 5.4): záloha, `backfill_document_states.py --apply`
+> a `refresh_eu_consolidations.py --apply` v hlavním stromu.
 
 | Termín | Krok | Obsah | Podmínka |
 |---|---|---|---|
 | 19. 11. 2026 (provedeno) | krok 0, první část | opravy v živé DB (záloha `before_mpo_krok0`) | — |
-| do 25. 11. 2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
+| do 25. 11. 2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; konsolidovaná znění CLP a REACH (`cp -n` textů z `data/fulltext_mpo_konsolidace/`, `refresh_eu_consolidations.py --apply`, `extract_fulltext.py --apply`; `doc/CELLAR_FULLTEXT.md`, odstavec 6); první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
 | do 27. 11. 2026 (pá) | odeslání vypořádání | `MPO_VYPORADANI.md` a `PROVOZ.md` (případně převedené do DOCX podle `TEXT_STYLE.md`) s průvodním e-mailem (`doc/MPO_EMAIL_NAVRH.md`) | nasazení podle předchozího řádku; jména garanta a editorů doplněna |
 | 1.–4. 12. 2026 | jednání s MPO | vypořádání, otázky z odst. 7 vypořádání, dohoda o postupu opětovného schválení V01, editorské účty pro MPO; navrženo út 1. 12., st 2. 12. nebo čt 3. 12. | časové možnosti MPO (posun jednání posouvá i předání) |
 | do 11. 12. 2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 13 strategií A a B (připraveno); části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
 | do 18. 12. 2026 (pá) | krok 4 | posouzení 112 nálezů sběru v pásmu 1; e2e scénáře připomínek 7–10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání | osoba pro akceptaci k dispozici 14.–18. 12.; závěry jednání bez rozsáhlých úprav |
 | 22. 12. 2026 (út) | opětovné předání V01 | předání MPO postupem dohodnutým na jednání, s výsledky akceptace | akceptace bez závažných nálezů; dohoda o postupu schválení |
+| **do 31. 12. 2026** | **instalace plánovače** | **časovače z `deploy/scheduler/` (nebo crontab), včetně `h2db-states-monthly.timer` a `h2db-consolidations-daily.timer`; jinak nouzový postup 2. 1. 2027 (`doc/PROVOZ.md`, odstavec 5.4)** | rozhodnutí o serveru a mechanismu (odstavec 5.2) |
 | do 15. 1. 2027 (pá) | provoz | posouzení zbylých nálezů sběru (pásmo 2, odhadem 140) | předání na něm nezávisí |
 
 ## 5. Rozhodnutí a otevřené otázky
@@ -701,10 +710,30 @@ psán jako plán.
   se nově tvoří z něj, PDF zůstává staženým originálem dokumentu
   (`Document.file_path`), stejně jako u ostatních aktů EU s PDF a HTML.
   Zdůvodnění a ověření úplnosti v `doc/CELLAR_FULLTEXT.md`, odstavec 5.
-  Ukládáme původní znění z roku 2008, nikoli konsolidované (otázka
-  v odstavci 5.3).
+  Od rozhodnutí o konsolidovaných zněních (níže) jde o text původního
+  znění, jenž zůstává u nahrazené verze.
 
-* **Plné texty z EUR-Lexu jen z Cellaru** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`):
+* **Konsolidovaná znění CLP a REACH** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`,
+  odstavec 7; `doc/PROVOZ.md`, odstavec 5.3): U nařízení CLP (ES)
+  č. 1272/2008 a REACH (ES) č. 1907/2006 zobrazujeme aktuální konsolidované
+  znění a obnovujeme je při každé změně (rozhodnutí uživatele); otázka
+  z odstavce 5.3 je tím rozhodnuta a provedena. Každé znění je verzí
+  dokumentu: Aktuální konsolidované znění (CLP `02008R1272-20260701`, REACH
+  `02006R1907-20260622`) je aktuální verzí a jeho text (české XHTML
+  z Cellaru, ověřené přílohy) se zobrazuje; původní znění z roku 2008/2006
+  a starší konsolidovaná znění jsou nahrazené verze (původní znění si
+  ponechává uložený text), znění CLP k 1. 1. 2027 je vyhlášené, dosud
+  neúčinné. Stránka dokumentu uvádí zobrazené znění a odkazy do EUR-Lexu
+  u všech verzí. Denní kontrola (`refresh_eu_consolidations.py`, plánovač
+  `daily`) zjistí nové znění v Cellaru, v den účinnosti je učiní aktuálním
+  a stáhne jeho text z Cellaru; stav přežije přestavbu z JSON (seznam aktů
+  `data/eu_consolidated_acts.json`, mezipaměť
+  `data/eu_consolidation_cache.json`, manifest). Mechanismus je obecný,
+  zapnutý jen pro CLP a REACH; návrh dalších aktů (RED II, AFIR, TEN-E,
+  (EU) 2018/858, Seveso III) je k rozhodnutí v odstavci 5.3. Zkouška na
+  testovací databázi s datem 1. 1. 2027: CLP přešlo na znění k 1. 1. 2027,
+  zobrazený text zůstal u znění k 1. 7. 2026 do stažení nového.
+* **Plné texty z EUR-Lexu jen z Cellaru** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`):
   `fetch_fulltext.py` už EUR-Lex neotevírá v prohlížeči ani se na něj
   neobrací; adresy ELI a adresy Úředního věstníku (`?uri=OJ:L_…`) se
   dotazem SPARQL přeloží na číslo CELEX a text se stáhne z Cellaru. Úplnost
@@ -747,7 +776,9 @@ psán jako plán.
   variantu a klíče plných textů.
 * **Provozní otázky** (`doc/DATA_SOURCES.md`, odstavec 8.17;
   `doc/PROVOZ.md`, odstavec 9.3):
-  * plánovač (časovač systemd, nebo crontab; na kterém serveru);
+  * plánovač (časovač systemd, nebo crontab; na kterém serveru) —
+    **nainstalovat do konce prosince 2026** (odstavec 4.6; `doc/PROVOZ.md`,
+    odstavec 5.4), jinak se 1. 1. 2027 nepřepnou normy ani znění CLP;
   * zapisování datových souborů měněných běhy v hlavním stromu do
     repozitáře, nebo jejich přesun mimo správu verzí;
   * zdroje IEC, EIGA a DVGW, jejichž skripty obcházejí ochranu proti
@@ -763,13 +794,12 @@ psán jako plán.
   samostatným dokumentem bez vazby na úřední české znění (#79): vazba
   `TRANSLATION_OF` by jej v katalogu skryla jako „českou verzi“ českého
   dokumentu a vhodnější typ vazby (neúřední překlad) číselník nemá.
-* **Znění nařízení CLP:** Ukládáme původní znění z roku 2008 (CELEX
-  `32008R1272`), nikoli konsolidované. Cellar vede konsolidovaná znění
-  `02008R1272-<datum>`; ke 20. 11. 2026 je účinné znění ze 1. 7. 2026
-  a připraveno znění k 1. 1. 2027. Přejít na konsolidované znění (a pak je
-  při každé změně obnovovat), nebo ponechat původní znění s odkazem na
-  konsolidované znění v EUR-Lexu? Totéž se týká i dalších často měněných
-  aktů (REACH).
+* **Konsolidovaná znění dalších aktů EU:** Rozhodnuto a provedeno pro CLP
+  a REACH (odstavec 5.1). Zapnout totéž i pro další často měněné akty?
+  Navrhujeme směrnici RED II (EU) 2018/2001, nařízení AFIR (EU) 2023/1804,
+  TEN-E (EU) 2022/869, nařízení (EU) 2018/858 a směrnici Seveso III
+  2012/18/EU (`doc/CELLAR_FULLTEXT.md`, odstavec 7); zapíná se položkou
+  v `data/eu_consolidated_acts.json`.
 * **Usnesení vlády k aktualizacím SEK a Politiky ochrany klimatu:** číslo
   usnesení z prosince 2024, jímž vláda od aktualizací upustila, ani pozdější
   rozhodnutí jsme nedohledali; ověřit u MPO a MŽP. Text návrhu SEK není

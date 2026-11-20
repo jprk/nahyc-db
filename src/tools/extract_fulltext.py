@@ -28,6 +28,7 @@ and every attribute not listed here are removed.
 Usage:
     .venv/bin/python src/tools/extract_fulltext.py            # dry run, report only
     .venv/bin/python src/tools/extract_fulltext.py --apply    # write data/fulltext_clean/
+    .venv/bin/python src/tools/extract_fulltext.py --apply --only KEY [--in-dir DIR] [--out-dir DIR]
 """
 import argparse
 import collections
@@ -669,12 +670,18 @@ def _extract_pdf(path):
     return pdf_text.extract_pdf(path)
 
 
-def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT):
+def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT, only=None,
+        in_dir=None):
+    """Extracts every fetched HTML/PDF of the manifest (with `only`, just those
+    manifest keys); `in_dir` is looked into first for a file of that name (the
+    `--out-dir` of fetch_fulltext.py in a worktree)."""
     manifest = json.loads(pathlib.Path(manifest_path).read_text(encoding="utf-8"))
     stats = collections.Counter()
     problems = []
     done_pdfs = set()
     for key, entry in sorted(manifest.items()):
+        if only and key not in only:
+            continue
         local = entry.get("local_path", "")
         is_pdf = local.lower().endswith(".pdf")
         if entry.get("status") != "fetched" or not (local.lower().endswith(".html") or is_pdf):
@@ -687,6 +694,8 @@ def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_ro
             stats["skipped: the same PDF under another field"] += 1
             continue
         path = repo_root / local
+        if in_dir and (pathlib.Path(in_dir) / path.name).is_file():
+            path = pathlib.Path(in_dir) / path.name
         try:
             if is_pdf:
                 result = _extract_pdf(path)
@@ -713,8 +722,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true",
                         help=f"write the extracted files under {OUTPUT_DIR.relative_to(REPO_ROOT)}/")
+    parser.add_argument("--only", action="append", default=None, metavar="KEY",
+                        help="extract only this manifest key (repeatable)")
+    parser.add_argument("--in-dir", default=None, metavar="DIR",
+                        help="read a file from DIR when it is there (the --out-dir of fetch_fulltext.py)")
+    parser.add_argument("--out-dir", default=None, metavar="DIR",
+                        help=f"write to DIR instead of {OUTPUT_DIR.relative_to(REPO_ROOT)}/")
     args = parser.parse_args(argv)
-    stats, problems = run(apply=args.apply)
+    stats, problems = run(apply=args.apply, only=args.only, in_dir=args.in_dir,
+                          output_dir=pathlib.Path(args.out_dir) if args.out_dir else OUTPUT_DIR)
     for label, count in sorted(stats.items()):
         print(f"{count:4d}  {label}")
     for key, message in problems:

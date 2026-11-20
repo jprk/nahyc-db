@@ -227,6 +227,12 @@ ALTER TABLE DocumentVersion
   MODIFY COLUMN lifecycle_state
     ENUM('active','superseded','draft','promulgated','repealed') NOT NULL DEFAULT 'active';
 
+-- 2026-11-20: odkaz verze do EUR-Lexu (konsolidovaná znění aktů EU, původní
+-- znění); sloupec zakládá src/tools/eu_consolidations.py (ensure_schema) při
+-- prvním zápisu verzí, `file_path` verze je její uložený text, pokud jej máme.
+ALTER TABLE DocumentVersion
+  ADD COLUMN url VARCHAR(500) NULL AFTER effective_date;
+
 -- doc/PLAN.md §17, 2026-09-16: anotace dogenerovaná, ne dohledaná.
 -- Popis dohledaný u vydavatele (a přeložený do češtiny) patří do už
 -- existujícího `popis_autoritativni` — to pole znamená "ověřeno u zdroje".

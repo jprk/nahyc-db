@@ -143,6 +143,12 @@ konkrétní stránka/služba skutečně vrací.
   (nahradil by `zakonyprolidi.py`'s roli pro české zákony) — viz
   `REST_API_TODO` poznámka v souboru.
 
+* `eurlex.py` (2026-11-20): `consolidated_versions(celex, language)` —
+  konsolidovaná znění aktu v daném jazyce z Cellaru (`act_consolidated_based_on_resource_legal`,
+  `act_consolidated_date`), včetně znění s budoucí účinností; při chybě dotazu
+  `None` (nikoli prázdný seznam). Volá `src/tools/eu_consolidations.py`
+  (`doc/CELLAR_FULLTEXT.md`, odstavec 7); testy v `tests/test_eu_consolidations.py`.
+
 Pokryto testy v `tests/test_sites_eurlex.py`, `tests/test_sites_
 zakonyprolidi.py`, `tests/test_sites_slovlex.py`,
 `tests/test_sites_esbirka.py`, `tests/test_sites_normoff.py`,

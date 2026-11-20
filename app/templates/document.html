@@ -106,23 +106,54 @@
         </section>
 
         {% if versions %}
-        <section class="doc-panel">
-            <h2>Verze <span class="badge">{{ versions|length }}</span></h2>
-            <table class="doc-table">
-                <thead>
-                    <tr><th>Verze</th><th>Vydání</th><th>Platnost</th><th>Stav</th></tr>
-                </thead>
-                <tbody>
-                    {% for v in versions %}
+        {# src/tools/eu_consolidations.py: versions with a page of their own (consolidated
+           versions of an EU act and its original text) get links to it and to our text #}
+        {% set with_links = versions|selectattr('url')|list|length > 0 %}
+        {% macro version_row(v, with_links) %}
                     <tr{% if v.is_current %} class="is-current"{% endif %}>
-                        <td>{{ v.version }}{% if v.is_current %} <span class="meta-tag">aktuální</span>{% endif %}</td>
+                        <td>{{ v.version }}{% if v.is_current %} <span class="meta-tag">aktuální</span>{% endif %}
+                            {%- if v.is_shown and with_links %} <span class="meta-tag">zobrazeno</span>{% endif %}</td>
                         <td>{{ v.edition_label if v.edition_label else '—' }}</td>
                         <td>{{ v.effective_date if v.effective_date else '—' }}</td>
                         <td>{{ lifecycle_labels.get(v.lifecycle_state, v.lifecycle_state) }}</td>
+                        {% if with_links %}
+                        <td class="version-links">
+                            {%- if v.url %}<a href="{{ v.url }}" target="_blank" rel="noopener">EUR-Lex <i class="ph ph-arrow-up-right"></i></a>{% endif %}
+                            {%- if v.has_text %} <a href="{{ url_for('version_text', slug=document.slug, version=v.version) }}">náš text</a>{% endif %}
+                        </td>
+                        {% endif %}
                     </tr>
-                    {% endfor %}
+        {% endmacro %}
+        <section class="doc-panel">
+            <h2>Verze <span class="badge">{{ versions|length }}</span></h2>
+            {% if shown_version and with_links %}
+            <p class="version-shown"><i class="ph ph-info"></i> Zobrazený text: <strong>{{ shown_version.edition_label }}</strong>
+                {%- if not shown_version.is_current %} (text aktuálního znění dosud není stažen){% endif %}.
+                Předchozí znění včetně původního jsou uvedena níže s odkazy do EUR-Lexu.</p>
+            {% endif %}
+            <div class="doc-table-wrap">
+            <table class="doc-table">
+                <thead>
+                    <tr><th>Verze</th><th>Vydání</th><th>Platnost</th><th>Stav</th>{% if with_links %}<th>Odkazy</th>{% endif %}</tr>
+                </thead>
+                <tbody>
+                    {% for v in versions|rejectattr('is_folded') %}{{ version_row(v, with_links) }}{% endfor %}
                 </tbody>
             </table>
+            </div>
+            {% set folded = versions|selectattr('is_folded')|list %}
+            {% if folded %}
+            <details class="version-history">
+                <summary>Starší znění ({{ folded|length }})</summary>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <tbody>
+                        {% for v in folded|reverse %}{{ version_row(v, with_links) }}{% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </details>
+            {% endif %}
         </section>
         {% endif %}
 

@@ -517,3 +517,49 @@ def fetch_cellar_document(url, session=None, timeout=60):
     """(status, content, content type) of `fetch_cellar()`, or None."""
     found = fetch_cellar(url, session, timeout)
     return (found["status"], found["content"], found["content_type"]) if found else None
+
+
+# --- Consolidated versions of an act (doc/CELLAR_FULLTEXT.md, odstavec 7; 2026-11-20) ---
+# A consolidated version is a work of its own in Cellar (resource type CONS_TEXT,
+# CELEX of sector 0 with the date: 02008R1272-20260701), linked to the act it
+# consolidates by `act_consolidated_based_on_resource_legal`, with the date from
+# which that text applies in `act_consolidated_date`. Cellar also lists versions
+# prepared ahead of their date (02008R1272-20270101, prepared in 2026).
+_CONSOLIDATIONS_QUERY_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?celex ?date WHERE {{
+  ?base cdm:resource_legal_id_celex "{celex}"^^xsd:string .
+  ?work cdm:act_consolidated_based_on_resource_legal ?base .
+  ?work cdm:resource_legal_id_celex ?celex .
+  ?work cdm:act_consolidated_date ?date .
+  ?expr cdm:expression_belongs_to_work ?work .
+  ?expr cdm:expression_uses_language <http://publications.europa.eu/resource/authority/language/{language}> .
+}}
+"""
+_CONSOLIDATED_CELEX_RE = re.compile(r"^0\d{4}[A-Z]\d{4}(?:\(\d{2}\))?-\d{8}$")
+_ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def consolidated_versions(celex, language="ces", session=None, timeout=60):
+    """[{"celex": "02008R1272-20260701", "date": "2026-07-01"}, ...] — the consolidated
+    versions of the act `celex` (sector 3, e.g. 32008R1272) that Cellar has in the
+    language `language` (ISO 639-2/B, `ces`), in the order of their dates, future
+    ones included. None when the query fails (unlike `_run_sparql()`, a failure must
+    not look like "no versions": the caller keeps what it knew)."""
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+    query = _CONSOLIDATIONS_QUERY_TEMPLATE.format(celex=celex, language=language.upper())
+    try:
+        resp = session.get(SPARQL_ENDPOINT, params={"format": "application/sparql-results+json",
+                                                    "query": query.strip()}, timeout=timeout)
+        resp.raise_for_status()
+        bindings = resp.json()["results"]["bindings"]
+    except (requests.RequestException, ValueError, KeyError):
+        return None
+    found = {}
+    for b in bindings:
+        number, date = b.get("celex", {}).get("value", ""), b.get("date", {}).get("value", "")[:10]
+        if _CONSOLIDATED_CELEX_RE.match(number) and _ISO_DATE_RE.match(date):
+            found[number] = date
+    return [{"celex": c, "date": d} for c, d in sorted(found.items(), key=lambda item: (item[1], item[0]))]

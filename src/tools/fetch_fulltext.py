@@ -190,7 +190,7 @@ def record_language(record):
     return language if confident else None
 
 
-def iter_fetch_targets(raw_data, overrides=None):
+def iter_fetch_targets(raw_data, overrides=None, consolidations=None):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
@@ -199,8 +199,17 @@ def iter_fetch_targets(raw_data, overrides=None):
     of an act that also has a Czech row is yielded under the designation
     `<znacka> [EN]` (language_variants.py). An EUR-Lex PDF
     address is followed by the address of the same document as HTML
-    (`html_alternative`) under the field `<field>_html`."""
+    (`html_alternative`) under the field `<field>_html`.
+
+    An act listed in data/eu_consolidated_acts.json (eu_consolidations.py) also
+    yields its consolidated version in effect today, under the field
+    `konsolidace_<YYYYMMDD>`, once per designation. `consolidations` =
+    {designation: (field, address)}; None reads the data files."""
     overrides = overrides or {}
+    if consolidations is None:
+        import eu_consolidations
+        consolidations = eu_consolidations.fetch_targets()
+    consolidations = dict(consolidations)
     pairs = language_variants.variant_pairs(raw_data)
     for raw_record in raw_data:
         if not is_fetchable_source(raw_record.get("typ_dokumentu", "")):
@@ -228,6 +237,10 @@ def iter_fetch_targets(raw_data, overrides=None):
                     alternative = twin["url"]
                 if alternative:  # a second manifest entry, key field "<field>_html"
                     yield record, url_field + HTML_SUFFIX, alternative
+        own = variant or (raw_record.get("znacka") or "").strip()
+        consolidation = consolidations.pop(own, None) if own else None
+        if consolidation:  # the consolidated version in effect (eu_consolidations.py), once per act
+            yield {**raw_record, "znacka": own}, consolidation[0], consolidation[1]
 
 
 def extension_from_url(url, content_type=None):
@@ -498,6 +511,26 @@ def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
     return bad
 
 
+def load_records():
+    """The records whose texts are fetched: the raw data, the candidates accepted on
+    /admin/candidates (in the database before the next rebuild of the raw data),
+    with the confirmed corrections applied (a wrong designation changes the manifest
+    key and address too; a record excluded or merged into another has none)."""
+    with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
+    if accepted_path.exists():
+        raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
+    import build_unified_db
+    corrections = build_unified_db.load_manual_corrections()
+    return [record for record in raw_data if build_unified_db.apply_manual_corrections(record, corrections)]
+
+
+def load_targets(consolidations=None):
+    """iter_fetch_targets() over load_records(), with the URL overrides."""
+    return iter_fetch_targets(load_records(), load_url_overrides(), consolidations)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, default=None,
@@ -532,18 +565,6 @@ def main():
         print(f"{len(bad)} stored files are not the document" + ("" if args.apply else " (dry run — add --apply)"))
         return
 
-    with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
-        raw_data = json.load(f)
-    # candidates accepted on /admin/candidates are in the database before the next rebuild of the raw data
-    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
-    if accepted_path.exists():
-        raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
-    # a confirmed correction (e.g. a wrong designation) changes the manifest key and address too
-    import build_unified_db
-    # (a record excluded or merged into another has no document to fetch for)
-    corrections = build_unified_db.load_manual_corrections()
-    raw_data = [record for record in raw_data if build_unified_db.apply_manual_corrections(record, corrections)]
-
     manifest = load_manifest()
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
@@ -551,7 +572,7 @@ def main():
     fetched_count = 0
     run_cache = {}  # (znacka, url) -> entry: the same address under two fields is fetched once
     seen_keys = set()  # the raw data can list one (source, designation) twice, with different addresses
-    for record, url_field, url in iter_fetch_targets(raw_data, load_url_overrides()):
+    for record, url_field, url in load_targets():
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
         if key in seen_keys:
             continue  # the first record decides, as it always did

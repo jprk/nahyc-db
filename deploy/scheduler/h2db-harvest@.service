@@ -1,4 +1,4 @@
-# Návrh (NEINSTALOVÁNO): jeden běh sběru zdrojů pro četnost %i (weekly, monthly, quarterly).
+# Návrh (NEINSTALOVÁNO): jeden běh sběru zdrojů pro četnost %i (weekly, monthly, quarterly, states, daily).
 # Instalace a rozhodnutí o ní: deploy/scheduler/0README.md, doc/DATA_SOURCES.md odstavec 8.17.
 [Unit]
 Description=NAHYC H2DB: sběr sledovaných zdrojů (%i)
