@@ -48,6 +48,19 @@ class RenamedDesignationTestCase(unittest.TestCase):
         self.assertEqual(amc.affected_columns({"znacka": "492/2010 Z. z."})[:3], ["identifier", "title", "file_path"])
 
 
+class CorrectedItemTestCase(unittest.TestCase):
+    def test_a_record_already_renamed_still_gets_the_pinned_slug(self):
+        entry = {"changes": {"znacka": "ČSN ISO 19880-1", "slug": "csn-en-iso-19880-1"}}
+        record = {"znacka": "ČSN ISO 19880-1", "nazev_cz": "Plynný vodík"}
+        item = amc.corrected_item(record, "ČSN EN ISO 19880-1", entry)
+        self.assertEqual(item["slug"], "csn-en-iso-19880-1")
+        self.assertEqual(record, {"znacka": "ČSN ISO 19880-1", "nazev_cz": "Plynný vodík"})
+
+    def test_a_record_found_by_its_key_is_corrected_as_before(self):
+        item = amc.corrected_item({"znacka": "A 1", "gestor": ["X"]}, "A 1", {"changes": {"gestor": ["Y"]}})
+        self.assertEqual(item["gestor"], ["Y"])
+
+
 class RecordsByKeyTestCase(unittest.TestCase):
     def test_rows_sharing_a_znacka_are_kept_together_and_records_without_key_skipped(self):
         records = [{"znacka": "A"}, {"znacka": "A"}, {"znacka": "", "odkaz_hlavni": ""}]
