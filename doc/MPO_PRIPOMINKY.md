@@ -284,6 +284,36 @@ vazby, stavy).
   CELEX z Cellaru Úřadu pro publikace (`sites/eurlex.py`), bez prohlížeče.
   Nové soubory (21) jsou ve worktree v `data/fulltext_mpo_data_opravy/`;
   po mergi je zkopírovat `cp -n` do `data/fulltext/` hlavního stromu.
+* *Strategie s prioritou C* (rozhodnutí z 20. 11. 2026, větev
+  `feature/mpo-strategie-c`) jsou dokumenty stejně jako priority A a B:
+  COM(2023) 634 (revize plánu SET), COM(2024) 63 (klimatický cíl 2040),
+  COM(2025) 79 (Akční plán pro cenově dostupnou energii), COM(2025) 95
+  (Průmyslový akční plán pro automobilový průmysl) a COM(2025) 1005 (Balíček
+  opatření pro elektrizační soustavy). Úřední názvy jsou z Cellaru, plné texty
+  z Cellaru přes `fetch_fulltext.py --only`. Příloha A uvádí s prioritou C
+  pět sdělení, nikoli šest, jak tvrdil dřívější text.
+* *Neschválené aktualizace strategií* jsou připravované dokumenty
+  (`stav_dokumentu: draft` v `data/strategy_documents.json`, typ Strategie):
+  „Politika ochrany klimatu v České republice. Aktualizace pro období 2025
+  až 2050“ (MŽP, verze z července 2025 zveřejněná 6. 11. 2025, plný text
+  PDF) a „Aktualizace Státní energetické koncepce České republiky (návrh)“
+  (MPO, meziresortní připomínkové řízení od 7. 2. 2024; text návrhu není
+  zveřejněn, adresou je stránka MPO s Východisky aktualizace). Obě mají vazbu
+  `REPEALS` na platnou strategii, již mají nahradit (Politika ochrany klimatu
+  2017, Státní energetická koncepce 2015); stránka dokumentu ji u
+  připravovaného dokumentu popisuje „má nahradit / má být nahrazen
+  připravovaným dokumentem“. Stav projednávání (z médií, usnesení vlády
+  nedohledáno): vláda projednání obou aktualizací v červenci 2024 odložila
+  a podle zpráv z prosince 2024 při schválení Vnitrostátního plánu od jejich
+  aktualizace upustila; MŽP poté zveřejnilo novou verzi Politiky ochrany
+  klimatu. Schválí-li vláda aktualizaci, editor ji na stránce připravovaných
+  dokumentů převede na účinnou (`self`, `active`); aplikace pak nahrazovanou
+  strategii převede do stavu „nahrazený“ (`app/drafts_admin.py`). Kategorie
+  Strategie má 32 dokumentů (30 platných, 2 připravované).
+* *Nové plné texty* (6) jsou ve worktree v `data/fulltext_mpo_strategie_c/`
+  (COM_2023_634, COM_2024_63, COM_2025_79, COM_2025_95, COM_2025_1005
+  a `url-760e34c6` – návrh Politiky ochrany klimatu); po mergi je zkopírovat
+  `cp -n` do `data/fulltext/` hlavního stromu.
 
 Příkazy pro živou databázi (po sloučení větve, `git pull` a zkopírování
 plných textů; `title-3ef76674` a další korekce kroku 0-zbytek musí být
@@ -298,6 +328,12 @@ promítnuty dřív nebo spolu s nimi, jinak #84 nemá označení `[SK]`):
 .venv/bin/python src/tools/backfill_strategies.py   # dry run, pak --apply
 ~/.cache/lit-tools/bin/python src/tools/extract_fulltext.py --apply
 ```
+
+`backfill_strategies.py` vloží i strategie s prioritou C a obě připravované
+aktualizace s vazbami (suchý běh nad živou DB 20. 11. 2026: 22 nových
+dokumentů, z toho 7 této větve, 4 vazby, 2 stavy; vazby slovenských znění
+se vyřeší až po korekcích kroku 0-zbytek). Pro větev `feature/mpo-strategie-c`
+je před ním třeba zkopírovat plné texty z `data/fulltext_mpo_strategie_c/`.
 
 `apply_manual_corrections.py` založí pro opravené dokumenty typ „Strategie“
 jako nový řádek; `backfill_strategies.py` jej sloučí s přejmenovaným
@@ -367,6 +403,36 @@ dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
   v českém převzetí nemá; ČSN EN ISO/IEC 80079-20-1, náhradu zrušené
   ČSN EN 60079-20-1, databáze již obsahuje. Jsou zdrojem `mpo` s řádky MPO-48
   a MPO-49 v podkladech, takže je hlídá i zlatý test.
+* *Vydání ČSN EN 13445* (rozhodnutí z 20. 11. 2026): kandidáti nesou vydání
+  platné a účinné dnes: části 1, 6, 8 a 10 vydání 11/2021, část 11 vydání
+  2/2025, části 2, 3 a 4 konsolidované vydání se změnou A1 (označení
+  `ČSN EN 13445-2+A1` 1/2024, `-3+A1` 9/2026, `-4+A1` 7/2026; vydání 2021
+  bez změny je u nich již zrušené). Nové vydání všech částí s datem vydání
+  1. 12. 2026 (Věstník 12/26) nabývá podle katalogu ČAS účinnosti
+  **1. 1. 2027** (pole „Datum účinnosti“ na stránce normy), nikoli v prosinci
+  2026; kandidát je nese v podkladech jako `upcoming_edition`. Totéž nové
+  vydání má i ČSN EN 13445-5 (v databázi `ČSN EN 13445-5+A1`, #37) a nové
+  vydání ČSN EN 1717+A1 z 12/2026 (#1456), obojí s účinností 1. 1. 2027.
+  Z ostatních kandidátských norem má budoucí účinnost jen ČSN EN IEC
+  60079-29-0 (nová norma, vydána 11/2026, účinná od 1. 12. 2026): kandidát
+  je „dosud neúčinný“ a po přijetí bude dokument ve stavu „vyhlášený, dosud
+  neúčinný“. Ostatní části ČSN EN 60079 a ČSN EN ISO 11114-4 novější vydání
+  nemají (kontrola 20. 11. 2026, `check_csn_validity.py --editions`).
+* *Přepnutí na nové vydání* (`src/tools/norm_editions.py`): nové vydání je
+  další, neaktuální verzí dokumentu ve stavu `promulgated` s datem účinnosti
+  a označením vydání. Kontrola stavu ČSN (`harvest_adapters.csn_state`,
+  měsíčně) je zapisuje do `data/norm_validity_cache.json` jako `upcoming`;
+  `backfill_document_states.py` z něj verzi doplní a v den účinnosti ji
+  učiní aktuální (`active`) a dosavadní vydání `superseded`. Přijetí
+  kandidáta normy založí obě verze hned (`app/candidates_admin.py`);
+  přestavba databáze (`init_db.py`) postupuje stejně. ČSN nabývají účinnosti
+  1. dnem měsíce, proto plánovač spouští promítnutí stavů 1. den v měsíci
+  (`deploy/scheduler/h2db-states-monthly.timer`, `scheduled_harvest.sh
+  states`; zatím neinstalováno, `doc/PROVOZ.md`, odstavec 5.2). Označení
+  dokumentu se při přepnutí nemění (otevřená otázka v odstavci 5.3).
+  Kandidáty v živé DB obnoví `mpo_tables.py import --apply` (nerozhodnutý
+  kandidát zdroje `mpo` dostane nové podklady); `mpo_tables.py lookup
+  --refresh-norms` je znovu zjistí z katalogu.
 * *Opakovaný import.* `mpo_tables.py import` lze spouštět opakovaně: obnoví
   podklady nerozhodnutých kandidátů zdroje `mpo` a ostatní nemění.
 
@@ -592,6 +658,17 @@ psán jako plán.
   „Strategie“ a doplněno 13 strategií s prioritou A a B (příloha A
   `doc/MPO_VYPORADANI.md` jich uvádí 13, nikoli 11); kategorie má
   25 dokumentů (provedeno, odstavec 4.1).
+* **Strategie s prioritou C** (20. 11. 2026): zařadit; doplněno pět sdělení
+  Komise (příloha A jich s prioritou C uvádí pět, nikoli šest), kategorie má
+  32 dokumentů (provedeno, odstavec 4.1).
+* **Neschválené aktualizace strategií** (20. 11. 2026): Politika ochrany
+  klimatu 2025–2050 a aktualizace Státní energetické koncepce jsou vedeny
+  jako připravované dokumenty s vazbou na strategii, již mají nahradit
+  (provedeno, odstavec 4.1).
+* **Vydání ČSN EN 13445** (20. 11. 2026): kandidáti nesou platné vydání
+  (2021, u částí 2–4 se změnou A1; část 11 vydání 2025), nové vydání 12/2026
+  je v podkladech a databáze se na ně sama přepne dnem jeho účinnosti
+  1. 1. 2027 (provedeno, odstavec 4.2; plánovač zatím neinstalován).
 * **Termíny etap** podle odstavce 4.6.
 
 ### 5.2 Odloženo, vyřešíme později
@@ -616,15 +693,18 @@ psán jako plán.
 
 ### 5.3 Otevřeno
 
-* **Strategie s prioritou C** (šest sdělení Komise z přílohy A
-  `doc/MPO_VYPORADANI.md`): doplnit je, nebo je ponechat stranou?
 * **Neúřední překlad Vodíkové strategie EU (HYTEP, #1245)** zůstává
   samostatným dokumentem bez vazby na úřední české znění (#79): vazba
   `TRANSLATION_OF` by jej v katalogu skryla jako „českou verzi“ českého
   dokumentu a vhodnější typ vazby (neúřední překlad) číselník nemá.
-* **Neschválené aktualizace strategií** (Politika ochrany klimatu
-  2025–2050, Státní energetická koncepce): vést je jako připravované
-  dokumenty, nebo vyčkat na schválení?
+* **Označení normy po přepnutí na nové vydání:** dokument si ponechá
+  označení dosavadního vydání (například `ČSN EN 13445-2+A1`, přestože
+  vydání 12/2026 je `ČSN EN 13445-2`); nové označení je jen u verze. Měnit
+  označení dokumentu automaticky, nebo to ponechat editorovi?
+* **Usnesení vlády k aktualizacím SEK a Politiky ochrany klimatu:** číslo
+  usnesení z prosince 2024, jímž vláda od aktualizací upustila, ani pozdější
+  rozhodnutí jsme nedohledali; ověřit u MPO a MŽP. Text návrhu SEK není
+  zveřejněn.
 * **Plné texty z EUR-Lexu bez čísla CELEX** (adresy ELI) stahuje
   `fetch_fulltext.py` dosud přes prohlížeč, jenž ochranu EUR-Lexu obchází;
   navrhujeme je převést na Cellar (ELI lze přeložit na CELEX dotazem SPARQL).
@@ -635,7 +715,7 @@ psán jako plán.
 * **Otázky pro jednání s MPO** (`doc/MPO_VYPORADANI.md`, odstavec 7):
   postup schválení V01, editorské účty pro MPO, převzetí tabulek jako
   referenčního souboru a jejich průběžné doplňování, lhůty posouzení
-  kandidátů, strategie s prioritou C, normy podle technických komisí.
+  kandidátů, normy podle technických komisí.
 * **Stránky slovenských dokumentů a vyhledávače:** přímý odkaz na
   slovenský dokument funguje i nepřihlášenému; vyloučit tyto stránky
   z indexování (`noindex`)?

@@ -212,9 +212,15 @@ vícekrát, vybíráme nejnovější platné vydání.
 * Řada ČSN EN 13445 (8 kandidátů): části 1, 2, 3, 4, 6, 8, 10 a 11; část 5
   již v databázi je. Části 7 a 9 jako ČSN nevyšly (část 9 je technická zpráva
   CEN/TR), část 12 je zatím návrh prEN. Katalog ČAS vede u všech částí nové
-  vydání s datem vydání 12/2026, jež vybíráme; dosavadní vydání (11/2021,
-  u částí 2–4 se změnou A1) jsou stále platná. Editor by měl při posouzení
-  zvážit, zda nové vydání již nabylo účinnosti.
+  vydání s datem vydání 1. 12. 2026 a datem účinnosti 1. 1. 2027. Kandidát
+  nese vydání účinné v den kontroly (části 1, 6, 8, 10: 11/2021; část 11:
+  2/2025; části 2, 3, 4: konsolidované vydání se změnou A1, označení
+  `ČSN EN 13445-2+A1` atd.), nové vydání je v podkladech jako
+  `upcoming_edition`. Po přijetí kandidáta má dokument obě vydání jako verze
+  a 1. 1. 2027 se sám přepne na nové (`src/tools/norm_editions.py`,
+  rozhodnutí z 20. 11. 2026). Z řady ČSN EN 60079 má budoucí účinnost jen
+  nová ČSN EN IEC 60079-29-0 (účinná od 1. 12. 2026; kandidát „dosud
+  neúčinný“).
 
 ## 4. Automatický test zlaté sady
 
@@ -254,5 +260,6 @@ s tabulkami a s pravidly párování ověřují unit testy `tests/test_mpo_table
 * **Vazby novel LEX OZE na zákony č. 406/2000 Sb. a 586/1992 Sb.:** Vzniknou
   jen tehdy, budou-li tyto zákony přijaty jako dokumenty dříve než novely
   (import pak doplní jejich identifikátory); jinak je třeba vazbu doplnit ručně.
-* **Vydání norem ČSN EN 13445 z 12/2026:** Ponechat jako označení kandidáta
-  nové vydání, nebo dosavadní (2021, u částí 2–4 se změnou A1)? Viz odstavec 3.1.
+* **Vydání norem ČSN EN 13445 z 12/2026** (rozhodnuto 20. 11. 2026):
+  kandidáti nesou dosavadní účinné vydání, na nové se databáze přepne dnem
+  jeho účinnosti 1. 1. 2027 (odstavec 3.1).

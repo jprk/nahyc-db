@@ -14,8 +14,7 @@ z připomínek vyplývají, a nabízíme pracovníkům MPO editorský přístu
 k databázi, v odstavci 5 uvádíme další nedostatky, jež jsme
 při rozboru nalezli sami, a v odstavci 6 harmonogram dalšího postupu.
 Dokument končí otevřenými otázkami k jednání (odstavec 7) a přílohou A se
-seznamem strategických dokumentů z rešerše, z nichž jsme dokumenty
-s prioritou A a B do databáze doplnili.
+seznamem strategických dokumentů z rešerše, jež jsme do databáze doplnili.
 
 Stav databáze a webové aplikace uvádíme k 19. 11. 2026. Čísla o obsahu
 databáze jsme ověřili dotazem nad provozní databází v tento den. Rozlišujeme
@@ -65,7 +64,7 @@ nezávislého měření úplnosti. Obojí nyní napravujeme (odstavec 6).
 | 6 | U energetického zákona se zobrazuje zastaralá hláška. | Vyřešeno; hláška i interní poznámky z vývoje odstraněny z veřejných popisů. | Doplnit popisy dokumentům, jež po odstranění poznámek popis nemají (průběžně). |
 | 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů a převod návrhu na vyhlášený předpis připraveny; zkouška nanečisto nad provozní databází proběhla. | První běh nad provozní databází (etapa 3, do 25. 11. 2026); posouzení nálezů editory. |
 | 8 | Chybějí i existující předpisy (tabulky MPO a CDV). | Rozbor proveden: z 42 českých předpisů tabulky MPO je v databázi 12. Pro chybějící předpisy připraveno 34 kandidátů s úředními údaji; automatický test pokrytí obou tabulek zaveden. | Posouzení a přijetí kandidátů editory (etapa 1, do 11. 12. 2026). |
-| 9 | Nová kategorie „Strategie“. | Kategorie „Strategie“ zavedena (přejmenováním dosavadního typu), doplněno 13 strategií podle přílohy A, celkem 25 dokumentů. | Posoudit strategie s prioritou C; pravidelně kontrolovat aktuálnost strategií (etapa 3). |
+| 9 | Nová kategorie „Strategie“. | Kategorie „Strategie“ zavedena (přejmenováním dosavadního typu), doplněno 18 strategií podle přílohy A a dvě připravované aktualizace strategií, celkem 32 dokumentů. | Pravidelně kontrolovat aktuálnost strategií (etapa 3). |
 | 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; datum poslední kontroly u dokumentu připraveno; postup popsán v provozním dokumentu. | Nasadit (etapa 3); zavést pravidelné automatické spouštění kontrol. |
 
 ## 3. Vypořádání jednotlivých připomínek
@@ -353,7 +352,11 @@ databáze do 25. 11. 2026; posoudí a přijmou je dva editoři do 11. 12. 2026
 (etapa 1, odstavec 4.3). Současně doplníme další části řad norem
 ČSN EN 60079 a ČSN EN 13445, jež databáze dosud vede jen v jiném národním
 převzetí (u řady ČSN EN 60079 přednostně části 10-1, 14 a 17), a novely
-zákonů z balíčků LEX OZE. Úplnost budeme dále měřit postupy popsanými
+zákonů z balíčků LEX OZE. U řady ČSN EN 13445 vedeme vydání účinná dnes
+(2021, u částí 2 až 4 se změnou A1, u části 11 z roku 2025); nové vydání
+všech částí z prosince 2026 nabývá účinnosti 1. 1. 2027 a databáze je
+k tomuto dni sama převede na aktuální vydání (odstavec 4.3, bod 4).
+Úplnost budeme dále měřit postupy popsanými
 v provozním dokumentu (odstavec 4.3).
 
 ### 3.9 Kategorie „Strategie“
@@ -439,7 +442,7 @@ o ni MPO stát (odstavec 7).
 
 Typ dokumentu „Strategický dokument“, jenž databáze měla, jsme podle návrhu
 MPO přejmenovali na „Strategie“ a kategorii doplnili. Obsahuje
-25 dokumentů:
+32 dokumentů:
 
 * Vodíková strategie České republiky (2021) a její aktualizace (2024);
 * Vodíková strategie EU (2020): úřední české znění sdělení COM(2020) 301
@@ -451,31 +454,47 @@ MPO přejmenovali na „Strategie“ a kategorii doplnili. Obsahuje
   a Politika ochrany klimatu v České republice (2017);
 * 2. aktualizace Národního akčního plánu čisté mobility (2024) a jí
   nahrazená aktualizace z roku 2019 s přílohou;
-* devět sdělení Evropské komise: Zelená dohoda pro Evropu, Strategie EU
+* čtrnáct sdělení Evropské komise: Zelená dohoda pro Evropu, Strategie EU
   pro integraci energetického systému, Strategie pro udržitelnou
   a inteligentní mobilitu, „Fit for 55“, Plán REPowerEU, Průmyslový plán
-  Zelené dohody, Sdělení o Evropské vodíkové bance, Dohoda o čistém
-  průmyslu a AccelerateEU;
+  Zelené dohody, Sdělení o Evropské vodíkové bance, Sdělení o revizi
+  strategického plánu pro energetické technologie (SET), Klimatický cíl
+  pro Evropu na rok 2040, Dohoda o čistém průmyslu, Akční plán pro cenově
+  dostupnou energii, Průmyslový akční plán pro evropský automobilový
+  průmysl, Balíček opatření pro evropské elektrizační soustavy
+  a AccelerateEU;
 * Akční plán digitální a zelené transformace pro vodíkové technologie
   (2026), Strategická výzkumná agenda pro rozvoj vodíkového hospodářství
   (2023), Cestovní mapa rozvoje vodíkového hospodářství (2023), Politický,
   legislativní a nelegislativní rámec EU pro rozvoj vodíkového trhu (2024)
   a Legislativní a politicko-strategický rámec EU s vlivem na rozvoj
-  vodíkové mobility (2023/2024).
+  vodíkové mobility (2023/2024);
+* dvě připravované aktualizace strategií, jež vláda dosud neschválila:
+  Politika ochrany klimatu v České republice, aktualizace pro období 2025
+  až 2050 (návrh Ministerstva životního prostředí ve verzi z července
+  2025), a Aktualizace Státní energetické koncepce České republiky (návrh
+  Ministerstva průmyslu a obchodu předložený do meziresortního
+  připomínkového řízení v únoru 2024).
 
-Třináct strategií jsme doplnili podle rešerše v příloze A (všechny
-dokumenty s prioritou A a B). U každé uvádíme úřední název, vydavatele,
-datum schválení, adresu na stránkách vydavatele nebo v EUR-Lexu a věcný
-popis vztahu k vodíku; plný text je k dispozici u všech.
+Osmnáct strategií jsme doplnili podle rešerše v příloze A: všechny
+dokumenty s prioritou A a B a po dalším posouzení i pět sdělení Komise
+s prioritou C, jež mají k vodíku vazbu okrajovou, ale vymezují rámec,
+z nějž vodíkové předpisy vycházejí. U každé uvádíme úřední název,
+vydavatele, datum schválení, adresu na stránkách vydavatele nebo
+v EUR-Lexu a věcný popis vztahu k vodíku; plný text je k dispozici u všech.
 [DOPLNIT: datum zápisu do provozní databáze.]
 
 Nahrazená strategie zůstává v databázi kvůli souvislostem: aktualizace
 Národního akčního plánu čisté mobility z roku 2019 a její příloha jsou
 vedeny jako nahrazené, s vazbou na 2. aktualizaci, jež je nahradila.
-Strategie s prioritou C (šest sdělení Komise s okrajovou vazbou na vodík)
-navrhujeme posoudit na jednání (odstavec 7). Aktualizaci Státní
-energetické koncepce a aktualizaci Politiky ochrany klimatu do roku 2050
-doplníme po jejich schválení vládou.
+Neschválené aktualizace Politiky ochrany klimatu a Státní energetické
+koncepce vedeme jako připravované dokumenty s vazbou na platnou strategii,
+již mají nahradit; stránka dokumentu u nich uvádí „má nahradit“. Vláda
+jejich projednání v červenci 2024 odložila a stav projednávání sledujeme.
+Schválí-li vláda aktualizaci, editor ji převede na platnou a dosavadní
+strategie bude vedena jako nahrazená. Text návrhu aktualizace Státní
+energetické koncepce není zveřejněn; dokument proto odkazuje na stránku
+Ministerstva průmyslu a obchodu s východisky aktualizace.
 
 Strategie řadíme mezi dokumenty, jež databáze zahrnuje, aniž by
 garantovala jejich úplnost (nejde o právně závazné předpisy). Jejich
@@ -504,7 +523,12 @@ aktuálnosti databáze“, jejž přikládáme. Stručně:
    zrušené; zrušený předpis zůstává v databázi s vazbou na předpis, jenž jej
    zrušil. Poslední kontrola 27. 10. 2026 ověřila 747 předpisů ČR a EU
    (předpisy v databázi i kandidáty na doplnění); databáze nyní vede 35
-   dokumentů jako zrušené.
+   dokumentů jako zrušené. U českých norem ověřujeme v katalogu České
+   agentury pro standardizaci platné vydání a vydání vydané s pozdějším
+   datem účinnosti. Nové vydání vede databáze u normy jako vyhlášené, dosud
+   neúčinné a v den jeho účinnosti je sama převede na aktuální; dosavadní
+   vydání pak vede jako nahrazené. Takto se 1. 1. 2027 přepne řada
+   ČSN EN 13445 na vydání z prosince 2026.
 5. **Datum poslední kontroly.** Dnes aplikace v zápatí uvádí jen datum
    poslední změny databáze jako celku. Připraveno k nasazení je zobrazení
    údaje „Poslední kontrola stavu“ na stránce každého dokumentu, s datem
@@ -628,7 +652,7 @@ dodržení závisí.
 | do 25. 11. 2026 | Nasazení etap 0 až 3 | Zbylé opravy etapy 0 (odstavec 5, bod 5); úpravy rozhraní etapy 2 (jeden řádek na předpis, filtr institucí a jurisdikce, skrytí slovenských dokumentů, podtyp aktů EU, vyhledávání podle synonym); zápis 34 kandidátů z tabulek MPO a CDV do fronty kandidátů; etapa 3 (první ostrý běh sběru zdrojů a návrhů předpisů, datum poslední kontroly u dokumentu, rozhraní pro připravované předpisy). | Úspěšné automatické testy sloučené verze nad kopií provozní databáze; záloha provozní databáze před zápisem; dva funkční editorské účty. |
 | do 27. 11. 2026 | Odeslání vypořádání | Tento dokument a provozní dokument „Provoz a udržování aktuálnosti databáze“ odešleme MPO. | Nasazení podle předchozího řádku, aby veřejná verze aplikace odpovídala popsanému stavu; doplnění jmen garanta a editorů v provozním dokumentu. |
 | 1. až 4. 12. 2026 | Jednání s MPO | Projednání vypořádání a otevřených otázek (odstavec 7); dohoda o postupu opětovného schválení výsledku V01; případné založení editorských účtů pro pracovníky MPO a úvodní seznámení s editorskou částí. Navrhujeme úterý 1. 12., středu 2. 12. nebo čtvrtek 3. 12. 2026, online nebo osobně. | Časové možnosti MPO; dohodne-li se pozdější termín, posouvá se o stejnou dobu i termín opětovného předání. |
-| do 11. 12. 2026 | Etapa 1 | Posouzení a přijetí kandidátů z tabulek MPO a CDV dvěma editory; přejmenování typu na „Strategie“ a zařazení 11 strategií s prioritou A a B; další části řad norem ČSN EN 60079 a ČSN EN 13445; novely LEX OZE; oprava dvou chybných záznamů (odstavec 5, bod 5); vysvětlení jazykových verzí na stránce aplikace. | Dva editoři s dostatečnou časovou kapacitou (34 kandidátů z tabulek, 11 strategií, části norem a novely LEX OZE). |
+| do 11. 12. 2026 | Etapa 1 | Posouzení a přijetí kandidátů z tabulek MPO a CDV dvěma editory; přejmenování typu na „Strategie“ a zařazení 18 strategií z přílohy A a dvou připravovaných aktualizací strategií; další části řad norem ČSN EN 60079 a ČSN EN 13445; novely LEX OZE; oprava dvou chybných záznamů (odstavec 5, bod 5); vysvětlení jazykových verzí na stránce aplikace. | Dva editoři s dostatečnou časovou kapacitou (34 kandidátů z tabulek, 20 strategií, části norem a novely LEX OZE). |
 | do 18. 12. 2026 | Etapa 4 | Posouzení nálezů prvního sběru, jež přímo souvisejí s databází (odhadem 112); testy scénářů připomínek 7 až 10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání s MPO. | Dostupnost osoby pro interní akceptaci v týdnu 14. až 18. 12. 2026; závěry jednání nevyžadují rozsáhlé úpravy. |
 | 22. 12. 2026 | Opětovné předání | Předání výsledku V01 MPO k posouzení postupem dohodnutým na jednání, s výsledky interní akceptace. | Interní akceptace bez závažných nálezů; dohoda o postupu schválení. |
 | do 15. 1. 2027 | Provoz | Posouzení ostatních nálezů prvního sběru (odhadem 140); dále průběžně podle provozního dokumentu. | Opětovné předání na tomto kroku nezávisí. |
@@ -648,10 +672,9 @@ dodržení závisí.
 4. **Lhůty posouzení kandidátů:** Navrhujeme, aby editoři kandidáty
    z týdně kontrolovaných zdrojů posoudili do dvou týdnů od zachycení
    a ostatní do konce kalendářního čtvrtletí. Vyhovují tyto lhůty MPO?
-5. **Kategorie „Strategie“ a priorita C:** Souhlasí MPO s názvem
-   kategorie a jejím rozsahem (odstavec 4.2)? Má databáze zahrnout
-   i strategické dokumenty s okrajovou vazbou na vodík (příloha A,
-   priorita C)?
+5. **Kategorie „Strategie“:** Souhlasí MPO s názvem kategorie a jejím
+   rozsahem (odstavec 4.2), včetně strategických dokumentů s okrajovou
+   vazbou na vodík a připravovaných aktualizací strategií?
 6. **Normy podle komisí:** Vyhovuje MPO přehled norem podle technických
    komisí (odstavec 4.1) místo položek s označením komisí? Má být komise
    uvedena na stránce normy a sloužit jako filtr?
@@ -659,8 +682,8 @@ dodržení závisí.
 ## Příloha A: Strategické dokumenty z rešerše
 
 Rešerši jsme provedli 19. 11. 2026. Dokumenty s prioritou A a B jsme do
-databáze doplnili (odstavec 4.2), dokumenty s prioritou C předkládáme
-k posouzení. U každého dokumentu jsme ověřili, že
+databáze doplnili 19. 11. 2026, dokumenty s prioritou C 20. 11. 2026
+(odstavec 4.2). U každého dokumentu jsme ověřili, že
 oficiální adresa existuje (české dokumenty přímo na stránkách vydavatele,
 dokumenty EU v databázi Úřadu pro publikace EU, jež je oficiálním úložištěm
 dokumentů EUR-Lexu), a dotazem nad databází, že dokument v ní ani ve frontě
@@ -674,8 +697,8 @@ okrajovou vazbu k posouzení editorem.
 |---|---|---|---|---|
 | Vnitrostátní plán České republiky v oblasti energetiky a klimatu (aktualizace prosinec 2024) | MPO, schválila vláda ČR | 18. 12. 2024 | Národní příspěvek k cílům EU do roku 2030 včetně podílu RFNBO v průmyslu (42 % v roce 2030, 60 % v roce 2035) a opatření k výrobě a využití vodíku. | A |
 | 2. aktualizace Národního akčního plánu čisté mobility (usnesení vlády č. 590/2024) | MPO ve spolupráci s MD a MŽP | 28. 8. 2024 | Cíle pro roky 2025, 2030 a 2035 včetně vodíkové mobility a plnicích stanic; vychází z nařízení AFIR. Nahrazuje verzi 2019, jež je v databázi. | A |
-| Státní energetická koncepce České republiky | MPO, schválila vláda ČR | 18. 5. 2015 | Rámec energetické politiky státu; vodík okrajově. Aktualizace byla připravena, vláda však v červenci 2024 její schválení odložila. | B |
-| Politika ochrany klimatu v České republice (usnesení vlády č. 207/2017) | MŽP, schválila vláda ČR | 22. 3. 2017 | Strategie snižování emisí do roku 2030 s výhledem do roku 2050; vodík mezi opatřeními v dopravě a průmyslu. Aktualizace na období 2025–2050 je zveřejněna jako návrh; její schválení jsme nedohledali. | B |
+| Státní energetická koncepce České republiky | MPO, schválila vláda ČR | 18. 5. 2015 | Rámec energetické politiky státu; vodík okrajově. Aktualizace byla připravena, vláda však v červenci 2024 její schválení odložila; návrh aktualizace vedeme jako připravovaný dokument. | B |
+| Politika ochrany klimatu v České republice (usnesení vlády č. 207/2017) | MŽP, schválila vláda ČR | 22. 3. 2017 | Strategie snižování emisí do roku 2030 s výhledem do roku 2050; vodík mezi opatřeními v dopravě a průmyslu. Aktualizace na období 2025–2050 je zveřejněna jako návrh; její schválení jsme nedohledali, vedeme ji jako připravovaný dokument. | B |
 
 Oficiální adresy:
 
@@ -705,6 +728,9 @@ Všechny dokumenty jsou sdělení Evropské komise; adresa má tvar
 | Akční plán pro cenově dostupnou energii | COM(2025) 79 (52025DC0079) | 26. 2. 2025 | Vodíkové sítě a sektorové smlouvy včetně vodíku. | C |
 | Průmyslový akční plán pro evropský automobilový průmysl | COM(2025) 95 (52025DC0095) | 5. 3. 2025 | Vodíková vozidla jen okrajově. | C |
 | Balíček opatření pro evropské elektrizační soustavy | COM(2025) 1005 (52025DC1005) | 10. 12. 2025 | Investiční potřeba vodíkových sítí, vodíkové koridory mezi prioritními projekty. | C |
+
+Plné texty všech sdělení jsme převzali v češtině z databáze Úřadu pro
+publikace EU (Cellar).
 
 K Plánu REPowerEU patří též pracovní dokument útvarů Komise SWD(2022) 230
 s vodíkovým urychlovačem; jeho české znění není k dispozici.

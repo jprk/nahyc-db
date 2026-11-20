@@ -222,11 +222,24 @@ je propojeno s předpisem, jenž je zrušil.
 Kontrola dosud nepokrývá strategie, technická pravidla a slovenské
 předpisy. U norem po nasazení zaznamenáváme výsledek kontroly v katalozích
 norem (ČSN online, Normoff, Věstník ÚNMZ, souhrnné seznamy harmonizovaných
-norem) a datum této kontroly se zobrazuje u dokumentu (odstavec 7);
-zjištěná změna stavu normy (nahrazení, zrušení) se však do stavu dokumentu
-automaticky nepromítá a provádí ji editor. Automatické promítání stavu
-norem a kontrolu strategií zavedeme v dalším kroku; termín zatím
-nestanovujeme.
+norem) a datum této kontroly se zobrazuje u dokumentu (odstavec 7).
+Zrušení normy se do stavu dokumentu automaticky nepromítá a provádí je
+editor.
+
+**Nové vydání ČSN s pozdější účinností** se promítá automaticky. Katalog
+ČSN online vede nové vydání jako platné ode dne vydání, dosavadní vydání
+však zůstává účinné až do dne účinnosti nového (zpravidla 1. den měsíce
+po vydání; údaj „Datum účinnosti“ na stránce normy). Měsíční kontrola stavu
+ČSN zjistí obě vydání a nové zapíše do mezipaměti kontrol; databáze je pak
+vede u dokumentu jako další verzi ve stavu „vyhlášený, dosud neúčinný“
+s datem účinnosti. V den účinnosti se nové vydání stane aktuální verzí
+a dosavadní vydání „nahrazeným“. Proto se promítnutí stavů spouští
+1. den každého měsíce (plánovač, odstavec 9.3; do jeho zavedení ručně,
+příloha A.4). Nová norma, jež dosud nenabyla účinnosti, je do dne účinnosti
+ve stavu „vyhlášený, dosud neúčinný“. Příklad: řada ČSN EN 13445 vydaná
+1. 12. 2026 nabývá účinnosti 1. 1. 2027, ČSN EN IEC 60079-29-0 vydaná
+v listopadu 2026 nabývá účinnosti 1. 12. 2026. Označení dokumentu se při
+přepnutí nemění; nové označení vydání je uvedeno u verze.
 
 ## 6. Co se stane s novým, novelizovaným a zrušeným předpisem
 
@@ -238,8 +251,8 @@ nestanovujeme.
 | Novela předpisu, jejž databáze má | e-Sbírka, EUR-Lex | Novela, jež se týká vodíku nebo věcných okruhů, se stane kandidátem a po přijetí je propojena vazbou „mění“; konsolidované znění odkazuje do autoritativního zdroje. |
 | Předpis nabude účinnosti | kontrola platnosti | Stav „vyhlášený, dosud neúčinný“ se změní na „účinný“. |
 | Předpis je zrušen | kontrola platnosti | Stav „zrušený“, vazba na zrušující předpis; dokument zůstává v databázi. |
-| Norma je nahrazena novým vydáním | Věstník ÚNMZ (měsíčně) | Nové vydání jako kandidát; starší vydání převede editor do stavu „nahrazený“ (automaticky se stav normy zatím nemění, odstavec 5.2). Návrh normy (prEN) po vydání převede editor na vydanou normu stejně jako návrh předpisu. |
-| Vláda nebo Komise přijme novou strategii | čtvrtletní kontrola, kanály novinek | Kandidát (ruční návrh editora); předchozí verze strategie bude vedena jako nahrazená. |
+| Norma je nahrazena novým vydáním | Věstník ÚNMZ a katalog ČSN online (měsíčně) | Nové vydání ČSN, jež databáze má, se uloží jako další verze dokumentu ve stavu „vyhlášený, dosud neúčinný“ a v den účinnosti se automaticky stane aktuální verzí; dosavadní vydání bude „nahrazené“ (odstavec 5.2). Norma, jež v databázi není, je kandidátem. Návrh normy (prEN) po vydání převede editor na vydanou normu stejně jako návrh předpisu. |
+| Vláda nebo Komise přijme novou strategii | čtvrtletní kontrola, kanály novinek | Kandidát (ruční návrh editora); předchozí verze strategie bude vedena jako nahrazená. Zveřejněný, dosud neschválený návrh aktualizace strategie vedeme jako připravovaný dokument s vazbou na strategii, již má nahradit (dnes Politika ochrany klimatu 2025–2050 a aktualizace Státní energetické koncepce). Po schválení jej editor na stránce připravovaných dokumentů převede na účinný; nahrazovaná strategie se tím převede do stavu „nahrazený“. |
 
 ## 7. Jak zjistit, kdy byl dokument naposledy ověřen
 
@@ -325,7 +338,10 @@ popsaný v odstavci 3.2 (kontroly spouští ručně správce).
    vnitra datovou schránkou; e-Legislativa postupně nahrazuje VeKLEP)
    a **přístup k databázi TRIS** (oznamování technických předpisů).
 5. **Četnost kontroly stavu norem ČSN a STN** — V registru zdrojů je
-   vedena „na vyžádání“, připravený plánovač ji spouští měsíčně.
+   vedena „na vyžádání“, připravený plánovač ji spouští měsíčně. Pro
+   přepnutí norem na nové vydání v den účinnosti je navíc připraveno
+   promítnutí stavů 1. den každého měsíce (`h2db-states-monthly.timer`);
+   bez plánovače je spouští správce ručně (příloha A.4).
 6. **Ostatní zdroje za ochranou proti robotům** (EHK OSN, registr Rady EU,
    Slov-Lex) — Ponechat ruční kontrolu, nebo požádat provozovatele
    o přístup.
@@ -362,13 +378,14 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | Nástroj | Účel | Četnost |
 |---|---|---|
 | `check_validity.py [--max-age 30]` | kontrola platnosti (Cellar, e-Sbírka, zakonyprolidi.cz) → `data/validity_cache.json` | týdně |
-| `backfill_document_states.py --apply` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`) | po kontrole platnosti |
+| `backfill_document_states.py --apply [--today RRRR-MM-DD]` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`); vydání norem s pozdější účinností (`norm_editions.py`): doplnění verze a přepnutí v den účinnosti; `--today` (bez `--apply`) ukáže, co se stane k danému dni | po kontrole platnosti a 1. den v měsíci |
+| `check_csn_validity.py --editions "<označení>"` | platné vydání ČSN a vydání s pozdější účinností z katalogu ČSN online (datum vydání a účinnosti) | podle potřeby |
 | `citation_closure.py` | uzávěr citací → `data/citation_closure.json`, `data/citation_closure_candidates.csv` | čtvrtletně |
 | `import_candidates.py --apply` | kandidáti z uzávěru citací a kontroly platnosti do `DocumentCandidate` | po předchozích dvou |
 | `apply_manual_corrections.py --apply` | promítnutí ručních korekcí `data/manual_corrections.json` do živé databáze | při změně souboru |
 | `src/db/dbuser_add.py <login> "<jméno>" <email> --apply` | založení účtu editora | podle potřeby |
 | `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů (do `master` sloučením kroku 3); při prvním běhu po etapách `--stage E1` až `E6` | podle `cadence` |
-| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, odstavec 9.3) | týdně, měsíčně, čtvrtletně |
+| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha a promítnutí stavů; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, odstavec 9.3) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci |
 | `backup_db.py --reason <důvod>` | záloha databáze do `backups/` | před každým hromadným zápisem |
 | `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (do 25. 11. 2026) |
 | `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově po nasazení kroku 2 |
@@ -404,7 +421,16 @@ cd /home/laborator/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/backfill_document_states.py --apply
 .venv/bin/python src/tools/import_candidates.py --apply
 .venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply   # po nasazení kroku 3
-.venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
+.venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
+```
+
+První den každého měsíce (do zavedení plánovače) navíc promítnutí stavů,
+aby se normy přepnuly na nové vydání v den jeho účinnosti (nejbližší
+1. 12. 2026 a 1. 1. 2027):
+
+```
+.venv/bin/python src/tools/backup_db.py --reason before_monthly_states
+.venv/bin/python src/tools/backfill_document_states.py --apply
 ```
 
 Související dokumenty: `doc/DATABASE_SCOPE.md` (rozsah, stavy, četnost),
