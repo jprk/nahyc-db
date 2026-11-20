@@ -10,9 +10,8 @@ Před odesláním je třeba ověřit, že navržené termíny jednání jsou st�
 volné a že veřejná verze aplikace odpovídá stavu popsanému ve vypořádání.
 
 **Komu:** Ing. Petr Mervart (petr.mervart@mpo.gov.cz)  
-**Kopie:** Ing. Markéta Revíková, Lucie Svobodová (MPO; titul doplnit);
-Petr Polanský, Tereza Matocha (CDV, byli v kopii e-mailu ze 17. 4. 2026;
-zvážit)  
+**Kopie:** Ing. Markéta Revíková, Lucie Svobodová (MPO);
+Petr Polanský, Tereza Matocha (CDV)  
 **Předmět:** RE: NAHYC DP004 - Výsledek V01 "Databáze regulačních předpisů a předrealizačních procesů" – vypořádání připomínek  
 **Přílohy:** Vypořádání připomínek MPO k výsledku V01 (DOCX nebo PDF);
 Provoz a udržování aktuálnosti databáze regulačních předpisů (DOCX nebo PDF)

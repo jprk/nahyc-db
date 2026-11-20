@@ -726,6 +726,17 @@ psán jako plán.
   veřejně uvedené až do nasazení kroku 2. Pojistka `noindex` pokryje i tento
   případ (již zaindexovaná stránka vypadne při příštím průchodu robota).
 
+* **Rozhodnutí z 20. 11. 2026:**
+  * e-mail MPO půjde v kopii Ing. M. Revíkové, L. Svobodové (titul neznáme,
+    neuvádíme) a P. Polanskému a T. Matochové z CDV (`doc/MPO_EMAIL_NAVRH.md`);
+  * skripty pro ISO (`add_missing_iso_parents.py`), IEC, EIGA a DVGW zůstávají,
+    jak jsou (rozhodnutí uživatele; servery nepřetěžovat). Asistent je
+    nespouští ani nerozšiřuje — spouští je řešitel;
+  * Slov-Lex (vykreslení v prohlížeči) a zakonyprolidi.cz (User-Agent
+    prohlížeče) zůstávají, ochranu neobcházejí a fungují;
+  * #3 `ČSN ISO 19880-1` si ponechá trvalou adresu `csn-en-iso-19880-1`
+    (připnutý slug v korekci), stejně jako přejmenované normy.
+
 ### 5.2 Odloženo, vyřešíme později
 
 * **Výklad řádků MPO-27 a MPO-42 tabulky MPO** (227/2015 Sb. místo
