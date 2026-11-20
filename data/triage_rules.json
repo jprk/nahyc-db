@@ -1,0 +1,113 @@
+{
+  "_comment": "Pravidla automatického třídění fronty kandidátů (src/tools/triage.py, doc/FRONTA_AUTOMAT.md). Pravidla se zkoušejí v uvedeném pořadí, platí první, jehož podmínka sedí. Ostrý běh nad živou databází je možný až po odsouhlasení: vyplněné approval.approved_by a approval.date.",
+  "version": 1,
+  "approval": {
+    "approved_by": null,
+    "date": null,
+    "note": "Návrh 2026-11-20 k odsouhlasení uživatelem (doc/FRONTA_AUTOMAT.md, odstavec 2)."
+  },
+  "rules": [
+    {
+      "id": "R1-duplicita",
+      "label": "Duplicita dokumentu databáze",
+      "when": {"duplicate": true},
+      "action": "reject",
+      "note": "Dokument (nebo jiná jazyková verze téhož předpisu) už v databázi je."
+    },
+    {
+      "id": "R2-zruseny",
+      "label": "Zrušený předpis",
+      "when": {"validity_status": ["zrušený"]},
+      "action": "reject",
+      "note": "Předpis je podle kontroly platnosti zrušený; databáze vede jen předpisy platné nebo připravované."
+    },
+    {
+      "id": "R3-novinka",
+      "label": "Novinka, zpráva nebo webinář, ne dokument",
+      "when": {"any": [
+        {"url_regex": "/news/|/aktuality|news-pr|/inpage/aktuality"},
+        {"title_regex": "(?i)\\b(webinar|webinář|factsheet|round table|newsletter|tisková zpráva|press release)\\b"}
+      ]},
+      "action": "defer",
+      "note": "Nález je novinka, zpráva nebo pozvánka, ne regulační dokument; odloženo, ne zamítnuto (zpráva může odkazovat na dokument, který do databáze patří)."
+    },
+    {
+      "id": "R4-tpg",
+      "label": "Technická pravidla TPG Českého plynárenského svazu",
+      "when": {"source": ["cps-tpg"]},
+      "action": "propose",
+      "note": "Technické pravidlo TPG; podle rozhodnutí uživatele z 20. 11. 2026 se zařazují všechna (jen metadata a odkaz, DATABASE_SCOPE.md odst. 4).",
+      "proposal": {
+        "document_type": "Norma",
+        "puvodce": "Český plynárenský svaz (ČPS)",
+        "language": "CS",
+        "jurisdikce": "CZ",
+        "title_without_designation": true,
+        "areas_by_designation": {
+          "TPG 2": [2], "TPG 304": [4], "TPG 6": [3], "TPG 7": [3], "TPG 704": [6], "TPG 8": [6], "TPG 9": [7],
+          "TPG 900": [9], "TPG 901": [9], "TPG 902": [9], "TPG 918": [3, 7], "TPG 920": [3], "TPG 921": [3],
+          "TPG 934": [9], "TPG 935": [3], "TPG 936": [3], "TPG 959": [3], "TPG 982": [4, 5], "TPG 983": [6]
+        },
+        "default_areas": [3]
+      }
+    },
+    {
+      "id": "R5-mpo",
+      "label": "Předpisy a normy z tabulek MPO/CDV",
+      "when": {"source": ["mpo"]},
+      "action": "propose",
+      "note": "Dokument z tabulek předpisů MPO/CDV z 30. 4. 2026 (doc/MPO_TABULKY.md); typ a původce podle tabulky a úředních zdrojů.",
+      "proposal": {
+        "default_areas": [9]
+      }
+    },
+    {
+      "id": "R6-navrh-vodik",
+      "label": "Návrh předpisu nebo normy s vodíkem v názvu",
+      "when": {"signal": ["draft"], "has_document_type": true,
+               "title_regex": "(?i)vodík|hydrogen|rfnbo|nebiologického původu|non-biological origin|palivov\\w* článk|fuel cell"},
+      "action": "propose",
+      "note": "Návrh předpisu nebo normy, který se výslovně týká vodíku; vznikne jako připravovaný dokument.",
+      "proposal": {
+        "default_areas": []
+      }
+    },
+    {
+      "id": "R9-model",
+      "label": "Ostatní: posouzení jazykovým modelem",
+      "when": {},
+      "action": "model",
+      "note": "Bez deterministického pravidla; rozhoduje doporučení modelu (odstavec 3)."
+    }
+  ],
+  "area_keywords": {
+    "1": ["elektrolýz", "electroly", "výroba vodíku", "výrobu vodíku", "hydrogen production", "rfnbo", "nebiologického původu", "non-biological origin"],
+    "2": ["zásobník", "skladování", "storage", "tlakové nádob", "tlakových nádob", "pressure vessel", "plynojem", "lahve na", "cylinder"],
+    "3": ["přeprav", "transport", "plynovod", "pipeline", "armatur", "nebezpečných věcí", "dangerous goods", "přípojk", "rozvod plynu", "regulační stanic", "regulátor"],
+    "4": ["plnicí", "čerpací stanic", "fueling", "fuelling", "refuel", "výdejní", "pohonných hmot", "pohonné hmoty", "fuel quality", "metrolog", "měřidl", "plynoměr"],
+    "5": ["vozid", "vehicle", "garáž", "cng", "pozemních komunikac"],
+    "6": ["spotřebič", "kotl", "boiler", "palivov", "fuel cell", "odběrn", "kogenerac", "stacionár"],
+    "7": ["bezpečnost", "safety", "výbuš", "explosi", "atex", "havári", "požár", "fire", "chemick", "ochrany zdraví", "ochrana zdraví", "nebezpeč", "detekc", "únik", "vyhrazen"],
+    "8": ["stavb", "stavební", "budov", "building", "územní", "výstavb"],
+    "9": ["energ", "plynárensk", "trh s plynem", "trhu s plynem", "gas market", "elektřin", "electricity", "soustav", "licenc", "podporovaných zdroj"],
+    "10": ["životní prostředí", "životního prostředí", "environment", "emis", "ovzduší", "odpad", "waste", "skleníkov", "greenhouse", "klimat", "ozon", "horninov", "ložisk", "geologick"]
+  },
+  "model": {
+    "name": "gpt-4o-mini",
+    "prompt_version": 2,
+    "prices_usd_per_million_tokens": {
+      "gpt-4o-mini": {"input": 0.15, "cached_input": 0.075, "output": 0.60}
+    },
+    "budget_usd": 2.0,
+    "accept_threshold": 0.95,
+    "decline_threshold": 0.95,
+    "auto_categories": {
+      "reject": [],
+      "defer": []
+    },
+    "proposed_auto_categories": {
+      "reject": ["mimo_rozsah", "dane_dotace", "zastaraly"],
+      "defer": ["neni_dokument"]
+    }
+  }
+}

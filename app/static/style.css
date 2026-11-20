@@ -1351,6 +1351,46 @@ main {
 .candidate-help ol, .candidate-help ul { padding-left: 1.75rem; }  /* the global reset takes the indent away */
 .candidate-help li { margin: 0.25rem 0; padding-left: 0.25rem; }
 .candidate-help strong { color: var(--text-primary); }
+/* The automatic triage (doc/FRONTA_AUTOMAT.md): who did it, what it recommends, the bulk actions */
+.automat-badge { display: inline-block; padding: 0 0.4em; border-radius: 3px; font-size: 0.8rem;
+    background: rgba(168, 85, 247, 0.2); color: var(--text-primary); border: 1px solid rgba(168, 85, 247, 0.5); }
+.triage-rec, .triage-rule { display: inline-block; padding: 0 0.4em; border-radius: 3px; font-size: 0.85rem;
+    white-space: nowrap; border: 1px solid var(--border-glass); }
+.triage-accept { background: rgba(34, 197, 94, 0.15); }
+.triage-reject { background: rgba(239, 68, 68, 0.15); }
+.triage-defer { background: rgba(234, 179, 8, 0.15); }
+.triage-rule { color: var(--text-secondary); }
+.triage-box { border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem; }
+.triage-box h3 { margin-top: 0.5rem; }
+.triage-box td, .triage-box th { overflow-wrap: anywhere; }
+.triage-meta { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem; }
+.candidate-table .candidate-pick { width: 1%; }
+.candidate-table .candidate-pick input { width: 1.1rem; height: 1.1rem; cursor: pointer; }
+.candidate-bulk-actions { border: 1px solid var(--border-glass); border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem; margin: 1rem 0; min-width: 0; }
+.candidate-bulk-actions legend { padding: 0 0.25rem; font-size: 0.85rem; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600; }
+.candidate-bulk-actions p { color: var(--text-secondary); margin: 0 0 0.5rem; }
+.candidate-bulk-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.candidate-bulk-buttons button { width: auto; margin-top: 0; }
+/* a phone keeps the columns needed to decide: the tick, designation, title, state, automat */
+@media (max-width: 768px) {
+    .candidate-table .candidate-col-source, .candidate-table .candidate-col-cited,
+    .candidate-table .candidate-col-validity { display: none; }
+    /* one card per candidate: the tick on the left, the rest stacked beside it */
+    .candidate-table thead { display: none; }
+    .candidate-table, .candidate-table tbody { display: block; }
+    .candidate-table tr { display: grid; grid-template-columns: 2rem minmax(0, 1fr); column-gap: 0.5rem;
+        padding: 0.75rem 0.5rem; border-bottom: 1px solid var(--border-glass); }
+    .candidate-table td { display: block; grid-column: 2; padding: 0.1rem 0; border: none; min-width: 0;
+        max-width: none; overflow-wrap: anywhere; }
+    .candidate-table td.candidate-pick { grid-column: 1; grid-row: 1 / span 5; width: auto; }
+    .candidate-table .candidate-designation { min-width: 0; max-width: none; font-size: 0.85rem;
+        color: var(--text-secondary); }
+    .candidate-table .candidate-open .btn-secondary { margin-top: 0.35rem; }
+    .candidate-bulk-buttons button { flex: 1 1 100%; }
+}
 
 
 /* doc/MPO_PRIPOMINKY.md, krok 2: one row per act — its language versions are

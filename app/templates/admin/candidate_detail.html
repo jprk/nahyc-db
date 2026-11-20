@@ -21,12 +21,34 @@
             {% set chosen = ((c.scope_areas or (c.scope_area or ''))|string).split(',')|reject('equalto', '')|list %}
             {% if chosen %}<tr><th>Věcné okruhy</th><td>{% for n in chosen %}{{ n }}. {{ areas.get(n|int) }}{% if not loop.last %}<br>{% endif %}{% endfor %}</td></tr>{% endif %}
             {% if c.decision_note %}<tr><th>Poznámka</th><td>{{ c.decision_note }}</td></tr>{% endif %}
-            {% if c.proposed_by_name %}<tr><th>Navrhl</th><td>{{ c.proposed_by_name }} ({{ c.proposed_at }})</td></tr>{% endif %}
+            {% if c.proposed_by_name %}<tr><th>Navrhl</th><td>{% if c.proposed_by_automat %}<span class="automat-badge">automat</span> {% endif %}{{ c.proposed_by_name }} ({{ c.proposed_at }})</td></tr>{% endif %}
             {% if c.confirmed_by_name %}<tr><th>Potvrdil</th><td>{{ c.confirmed_by_name }} ({{ c.confirmed_at }})</td></tr>{% endif %}
-            {% if c.decided_by_name %}<tr><th>Rozhodl</th><td>{{ c.decided_by_name }} ({{ c.decided_at }})</td></tr>{% endif %}
+            {% if c.decided_by_name %}<tr><th>Rozhodl</th><td>{% if c.decided_by_automat %}<span class="automat-badge">automat</span> {% endif %}{{ c.decided_by_name }} ({{ c.decided_at }})</td></tr>{% endif %}
             {% if c.document_slug %}<tr><th>Dokument</th><td><a href="{{ url_for('document_detail', slug=c.document_slug) }}">založen v databázi</a></td></tr>{% endif %}
         </tbody>
     </table>
+
+    {% if triage %}
+    <section class="triage-box">
+        <h3>Doporučení automatu</h3>
+        <p><span class="triage-rule">{{ triage.rule }}</span> — {{ triage.note }}</p>
+        {% if triage.model %}{% set m = triage.model %}
+        <table class="admin-table">
+            <tbody>
+                <tr><th>Doporučení</th><td><span class="triage-rec triage-{{ m.recommendation }}">{{ recommendation_labels.get(m.recommendation) }}</span>
+                    — jistota {{ '%.2f'|format(c.triage_confidence or m.confidence) }}{% if m.token_confidence is not none %} (uvedená {{ '%.2f'|format(m.confidence) }}, změřená {{ '%.2f'|format(m.token_confidence) }}){% endif %}</td></tr>
+                <tr><th>Kategorie</th><td>{{ categories.get(m.category, m.category) }}</td></tr>
+                <tr><th>Zdůvodnění</th><td>{{ m.reasoning }}</td></tr>
+                {% if m.scope_areas %}<tr><th>Okruhy</th><td>{% for n in m.scope_areas %}{{ n }}. {{ areas.get(n) }}{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>{% endif %}
+                {% if m.document_type or m.puvodce %}<tr><th>Typ / původce</th><td>{{ m.document_type or '—' }} / {{ m.puvodce or '—' }}</td></tr>{% endif %}
+                {% if m.official_title %}<tr><th>Úřední název</th><td>{{ m.official_title }}</td></tr>{% endif %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% if triage.errors %}<p class="flash flash-error">Návrh automatu neprošel kontrolou: {{ triage.errors|join(' ') }}</p>{% endif %}
+        <p class="triage-meta">Posouzeno {{ (triage.at or '')[:16]|replace('T', ' ') }}{% if c.status in ('new', 'deferred') and (triage.proposal or (triage.model and triage.model.recommendation == 'accept')) %}; údaje formuláře níže jsou předvyplněné podle automatu, zkontrolujte je{% endif %}.</p>
+    </section>
+    {% endif %}
 
     {% if evidence.mpo_rows %}
     <h3>Tabulka předpisů MPO/CDV z 30. 4. 2026</h3>
@@ -99,10 +121,11 @@
     <h3>Navrhnout přijetí</h3>
     <p style="color: var(--text-secondary);">Přijetí potvrzuje jiný editor; teprve potom se dokument založí.</p>
     <form method="POST" action="{{ url_for('admin.candidate_propose', candidate_id=c.id) }}">
-        {% include 'admin/_candidate_fields.html' %}
+        {% with c=form %}{% include 'admin/_candidate_fields.html' %}{% endwith %}
         <button type="submit" class="btn-primary">Navrhnout přijetí</button>
     </form>
     {% elif c.status == 'proposed' %}
+        {% if c.proposed_by_automat %}<p class="flash flash-success">Přijetí navrhl automatický navrhovatel; potvrďte je, nebo návrh vraťte či kandidáta zamítněte.</p>{% endif %}
         {% if c.proposed_by_user_id == session.get('user_id') %}
         <p class="flash flash-success">Váš návrh čeká na potvrzení jiným editorem.</p>
         {% else %}
