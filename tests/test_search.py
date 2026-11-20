@@ -309,6 +309,12 @@ class SlovakVisibilityTestCase(unittest.TestCase):
             cls.slovak_documents = one(f"SELECT COUNT(*) AS c FROM Document d WHERE {SLOVAK}")
             cur.execute(f"SELECT slug FROM Document d WHERE {SLOVAK}")
             cls.slovak_slugs = {r["slug"] for r in cur.fetchall()}
+            # one row per act: a Slovak text of an EU act (TRANSLATION_OF) is shown in the
+            # row of its Czech text, so with the Slovak filter that row carries the Czech slug
+            cur.execute(f"""SELECT d.slug FROM document_relation r
+                JOIN Document s ON s.id = r.from_document_id JOIN Document d ON d.id = r.to_document_id
+                WHERE r.relation_type = 'TRANSLATION_OF' AND ({SLOVAK.replace('d.', 's.')})""")
+            cls.slovak_heads = {r["slug"] for r in cur.fetchall()}
             cur.execute(f"""SELECT d.slug, o.slug AS other FROM document_relation r
                 JOIN Document d ON d.id = r.to_document_id JOIN Document o ON o.id = r.from_document_id
                 WHERE NOT ({SLOVAK}) AND (o.jurisdikce = 'SK' OR o.identifier LIKE '%[SK]')
@@ -359,7 +365,7 @@ class SlovakVisibilityTestCase(unittest.TestCase):
         self.assertEqual(count, self.acts)
         count, slugs, _ = self.page("/?sk=1&jurisdikce=sk", editor=True)
         self.assertGreater(count, 0)
-        self.assertLessEqual(slugs, self.slovak_slugs)
+        self.assertLessEqual(slugs, self.slovak_slugs | self.slovak_heads)
 
     def test_menus_without_slovak_entries(self):
         _, _, html = self.page("/")
