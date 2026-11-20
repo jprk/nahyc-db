@@ -14,16 +14,26 @@ caches know a newer one, and creates what the editor pages of prepared documents
 need (state_changes.ensure_schema: table DocumentStateChange, relation type
 ENACTED_AS) — the migration of doc/MPO_PRIPOMINKY.md krok 3.
 
+Editions of standards (norm_editions.py, 2026-11-20): a new edition of a ČSN that
+the check of the catalogue found issued with a later date of effect
+(data/norm_validity_cache.json, `upcoming`) is added as a further version in the
+state `promulgated`; on its date of effect it becomes the current version and the
+edition it replaces `superseded`. The scheduler runs this script on the first day
+of every month (deploy/scheduler/h2db-states-monthly.timer), the day on which ČSN
+take effect. `--today` plans for another day (a dry run of the switch).
+
 Dry run unless --apply; back up the database first.
 
-Usage: .venv/bin/python src/tools/backfill_document_states.py [--apply] [--env-file FILE]
+Usage: .venv/bin/python src/tools/backfill_document_states.py [--apply] [--env-file FILE] [--today YYYY-MM-DD]
 """
 import argparse
+import datetime
 import json
 
 import pymysql
 
 import document_states as ds
+import norm_editions
 import state_changes
 import status_checks
 
@@ -59,7 +69,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true", help="change the database (dry run without it)")
     parser.add_argument("--env-file", default=None)
+    parser.add_argument("--today", default=None, help="the day to plan the editions of standards for (ISO date; "
+                                                      "default today)")
     args = parser.parse_args(argv)
+    today = args.today or datetime.date.today().isoformat()
     from dotenv import dotenv_values
     import testdb
     env = dotenv_values(args.env_file or str(testdb.find_env_file(".env")))
@@ -96,6 +109,9 @@ def main(argv=None):
         by_source = {}
         for _doc_id, _date, label in checks:
             by_source[label] = by_source.get(label, 0) + 1
+        editions = norm_editions.apply(cur, status_checks.load(status_checks.NORM_CACHE_PATH), today, write=False)
+        for action in editions:
+            print(norm_editions.describe(action))
         print(f"last check of the state: {len(checks)} documents get a newer date "
               + (", ".join(f"{label} {n}" for label, n in sorted(by_source.items())) or "—"))
         if args.apply:
@@ -110,12 +126,14 @@ def main(argv=None):
                             (date, label, doc_id))
             for version_id, _doc_id, _identifier, _old, new in changes:
                 cur.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (new, version_id))
+            norm_editions.execute(cur, editions)
             for r in new_relations:
                 cur.execute("INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note) "
                             "VALUES (%s, %s, 'REPEALS', %s)", (ids[r["from_identifier"]], ids[r["to_identifier"]], r["note"]))
             conn.commit()
             ds.RELATIONS_PATH.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"{len(changes)} states, {len(new_relations)} REPEALS relations, {len(checks)} check dates "
+        print(f"{len(changes)} states, {len(new_relations)} REPEALS relations, {len(checks)} check dates, "
+              f"{len(editions)} changes of editions of standards (on {today}) "
               + (f"written to {env['DB_NAME']}" if args.apply else "(dry run — add --apply)"))
     except Exception:
         conn.rollback()

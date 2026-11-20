@@ -131,7 +131,9 @@ class CandidateDetailsTestCase(unittest.TestCase):
         for c in parts:
             with self.subTest(designation=c["designation"]):
                 self.assertTrue(c["designation"].startswith("ČSN EN "))
-                self.assertEqual(c["validity_status"], "platná")
+                # a part issued with a later date of effect is "dosud neúčinný" until then (norm_editions.py)
+                expected = "dosud neúčinný" if c["evidence"]["effective_from"] > "2026-11-20" else "platná"
+                self.assertEqual(c["validity_status"], expected)
                 self.assertNotIn("&", c["title"])
 
 

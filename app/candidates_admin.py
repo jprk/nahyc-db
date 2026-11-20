@@ -24,6 +24,7 @@ the decisions.
 
 Every decision is written to the AuditLog (`table_name` = `DocumentCandidate`).
 """
+import datetime
 import json
 import pathlib
 
@@ -32,6 +33,7 @@ from flask import abort, flash, redirect, render_template, request, session, url
 from admin import REPO_ROOT, admin_bp, get_db, login_required
 import candidates as cd
 import citation_closure as cc
+import norm_editions
 import slug as slug_module
 
 ACCEPTED_PATH = REPO_ROOT / "data" / "accepted_candidates.json"
@@ -292,8 +294,18 @@ def create_document(cur, candidate):
         state = "promulgated"
     else:
         state = "active"
-    cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
-                   VALUES (%s, 1, 1, %s)""", (doc_id, state))
+    evidence = json.loads(candidate["evidence_json"] or "{}")
+    # a standard: the edition in force and one issued with a later date of effect (norm_editions.py)
+    versions = norm_editions.candidate_versions(evidence, datetime.date.today().isoformat()) \
+        if candidate["document_type"] == norm_editions.NORM_TYPE else None
+    if versions:
+        for version in versions:
+            cur.execute("""INSERT INTO DocumentVersion (document_id, version, edition_label, effective_date,
+                                                         is_current, lifecycle_state)
+                           VALUES (%s, %s, %s, %s, %s, %s)""", (doc_id,) + version)
+    else:
+        cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
+                       VALUES (%s, 1, 1, %s)""", (doc_id, state))
     for area in (cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS):
         cur.execute("SELECT id FROM Keyword WHERE keyword = %s", (area,))
         row = cur.fetchone()
@@ -303,7 +315,6 @@ def create_document(cur, candidate):
         else:
             keyword_id = row["id"]
         cur.execute("INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)", (doc_id, keyword_id))
-    evidence = json.loads(candidate["evidence_json"] or "{}")
     for repealed in evidence.get("repeals_ids", []):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
                        VALUES (%s, %s, 'REPEALS', 'Zrušující předpis podle kontroly platnosti (přijatý kandidát).')""",

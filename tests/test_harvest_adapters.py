@@ -261,16 +261,35 @@ class StandardsTestCase(unittest.TestCase):
         results = {"EN 17124": [{"designation": "ČSN EN 17124", "title": "Vodík jako palivo", "issued": "7.2022",
                                  "withdrawn": "", "is_valid": True, "catalog_number": "515125"}],
                    "EN 1": [{"designation": "ČSN EN 1", "title": "Stará", "issued": "1.2000",
-                             "withdrawn": "5.2020", "is_valid": False, "catalog_number": "1"}]}
+                             "withdrawn": "5.2020", "is_valid": False, "catalog_number": "1"}],
+                   # an edition issued with a later date of effect (norm_editions.py)
+                   "EN 13445-2": [{"designation": "ČSN EN 13445-2+A1", "title": "Materiály", "issued": "1.2024",
+                                   "withdrawn": "", "is_valid": True, "catalog_number": "518210"},
+                                  {"designation": "ČSN EN 13445-2", "title": "Materiály", "issued": "12.2026",
+                                   "withdrawn": "", "is_valid": True, "catalog_number": "524693"}]}
+        details = {number: {"designation": d, "title": "T", "url": f"https://csn/?k={number}", "incorporates": [],
+                            "effective_from": effective}
+                   for number, d, effective in (("515125", "ČSN EN 17124", "2022-08-01"),
+                                                ("518210", "ČSN EN 13445-2+A1", "2024-02-01"),
+                                                ("524693", "ČSN EN 13445-2", "2027-01-01"))}
         context = {"today": "2026-11-04", "documents": [(1, "ČSN EN 17124", "x", None), (2, "ČSN EN 1", "y", None),
-                                                        (3, "ČSN EN 2", "z", None), (4, "STN EN 3", "w", None)]}
+                                                        (3, "ČSN EN 2", "z", None), (4, "STN EN 3", "w", None),
+                                                        (5, "ČSN EN 13445-2+A1", "v", None)]}
         with tempfile.TemporaryDirectory() as tmp, \
                 mock.patch.object(harvest, "NORM_CACHE_PATH", pathlib.Path(tmp) / "n.json"), \
                 mock.patch.object(ha, "time", NO_SLEEP), \
+                mock.patch("check_csn_validity.time", NO_SLEEP), \
+                mock.patch("check_csn_validity.fetch_detail", lambda number, session: details.get(number)), \
                 mock.patch("check_csn_validity.search", lambda session, query: results.get(query, [])):
             findings = ha.csn_state(ENTRY, None, None, context)
         self.assertEqual([(f.key, f.state["status"]) for f in findings],
-                         [("NORM:ČSN EN 1", "zrušená"), ("NORM:ČSN EN 17124", "platná"), ("NORM:ČSN EN 2", "nezjištěno")])
+                         [("NORM:ČSN EN 1", "zrušená"), ("NORM:ČSN EN 13445-2+A1", "platná"),
+                          ("NORM:ČSN EN 17124", "platná"), ("NORM:ČSN EN 2", "nezjištěno")])
+        state = findings[1].state
+        self.assertEqual(state["designation"], "ČSN EN 13445-2+A1")
+        self.assertEqual(state["upcoming"]["designation"], "ČSN EN 13445-2")
+        self.assertEqual(state["upcoming"]["effective_from"], "2027-01-01")
+        self.assertIsNone(findings[2].state["upcoming"], "no later edition: said explicitly, so the cache forgets one")
 
 
 class HytepTestCase(unittest.TestCase):

@@ -698,7 +698,9 @@ def fetch_document_detail(db, slug):
                    o.id AS other_id, o.slug AS other_slug,
                    o.title AS other_title, o.identifier AS other_identifier,
                    o.identifier AS identifier, o.jurisdikce AS jurisdikce,
-                   o.language AS other_language, ot.name AS other_type
+                   o.language AS other_language, ot.name AS other_type,
+                   (SELECT ov.lifecycle_state FROM DocumentVersion ov
+                    WHERE ov.document_id = o.id AND ov.is_current = 1 LIMIT 1) AS other_state
             FROM document_relation r
             JOIN Document o ON o.id = r.to_document_id
             LEFT JOIN DocumentType ot ON ot.id = o.type_id
@@ -708,7 +710,9 @@ def fetch_document_detail(db, slug):
                    o.id AS other_id, o.slug AS other_slug,
                    o.title AS other_title, o.identifier AS other_identifier,
                    o.identifier AS identifier, o.jurisdikce AS jurisdikce,
-                   o.language AS other_language, ot.name AS other_type
+                   o.language AS other_language, ot.name AS other_type,
+                   (SELECT ov.lifecycle_state FROM DocumentVersion ov
+                    WHERE ov.document_id = o.id AND ov.is_current = 1 LIMIT 1) AS other_state
             FROM document_relation r
             JOIN Document o ON o.id = r.from_document_id
             LEFT JOIN DocumentType ot ON ot.id = o.type_id

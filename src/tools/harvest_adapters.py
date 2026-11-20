@@ -363,16 +363,34 @@ def csn_state(entry, session, since, context):
             time.sleep(csn.SLEEP_SECONDS)
         # search() takes the base designation without "ČSN" (fetch_authoritative_metadata.csn_core)
         query = csn.split_edition(csn.strip_catalog_suffix(re.sub(r"^ČSN\s+", "", designation)))[0]
-        best = csn.find_best_match(csn.search(session, query), designation)
+        results = csn.search(session, csn._AMENDMENT_MARK_RE.sub("", query))
+        best = csn.find_best_match(results, designation)
+        # the edition in force today and one issued with a later date of effect (norm_editions.py);
+        # a consolidated "+A1" edition and the later edition without it are one standard
+        found = csn.editions(session, designation, context["today"], results=results) if best else None
         if best is None:
             state = {"status": "nezjištěno", "source": "csnonline", "note": "no exact match"}
+        elif found:
+            current = found["current"]
+            effective = current.get("effective_from")
+            state = {"status": "dosud neúčinná" if effective and effective > context["today"] else "platná",
+                     "source": "csnonline", "designation": current["designation"], "issued": current.get("issued"),
+                     "withdrawn": "", "catalog_number": current["catalog_number"], "effective_from": effective,
+                     "upcoming": _edition(found["upcoming"])}
         else:
             state = {"status": "platná" if best["is_valid"] else "zrušená", "source": "csnonline",
                      "designation": best["designation"], "issued": best["issued"], "withdrawn": best["withdrawn"],
-                     "catalog_number": best["catalog_number"]}
+                     "catalog_number": best["catalog_number"], "upcoming": None}
         findings.append(Finding(entry["id"], "state_change", designation, key=f"NORM:{designation}", state=state,
                                 excerpt=state["status"]))
     return findings
+
+
+def _edition(edition):
+    """What the standards cache keeps of an edition not yet in effect (norm_editions.py)."""
+    if not edition:
+        return None
+    return {k: edition.get(k) for k in ("designation", "title", "issued", "effective_from", "catalog_number", "url")}
 
 
 def normoff_state(entry, session, since, context):

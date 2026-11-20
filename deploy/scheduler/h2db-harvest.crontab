@@ -4,3 +4,4 @@
 30 3 * * 1   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh weekly
 30 4 2 * *   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh monthly
 30 5 3 1,4,7,10 *   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh quarterly
+30 0 1 * *   /home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh states

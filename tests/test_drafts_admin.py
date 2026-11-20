@@ -3,8 +3,9 @@ against the TEST database (`.env.test`, `h2regdocs_test`), never the real one:
 a draft that became the act itself (new designation, state `promulgated`), a draft
 promulgated as another document of the database (`ENACTED_AS`, the draft
 `superseded`, the act `active`), the proposer not being allowed to confirm, a
-withdrawn proposal, refused proposals, and the date of the last check on the
-document page. Fixtures (two editors, documents titled `TEST-DRAFT …`) are created
+withdrawn proposal, refused proposals, the date of the last check on the
+document page, and an approved update of a strategy superseding the strategy it
+replaces. Fixtures (two editors, documents titled `TEST-DRAFT …`) are created
 and removed by the test; data/manual_corrections.json and
 data/document_relations_editor.json are redirected to temporary files."""
 import json
@@ -97,6 +98,9 @@ class DraftWorkflowTestCase(unittest.TestCase):
     def tearDownClass(cls):
         if hasattr(cls, "conn"):
             cls.cleanup()
+            if getattr(cls, "created_type", None):
+                with cls.conn.cursor() as cur:
+                    cur.execute("DELETE FROM DocumentType WHERE id = %s", (cls.created_type,))
             cls.conn.close()
         if hasattr(cls, "_saved_paths"):
             cls.sc.MANUAL_CORRECTIONS_PATH, cls.sc.EDITOR_RELATIONS_PATH = cls._saved_paths
@@ -175,6 +179,43 @@ class DraftWorkflowTestCase(unittest.TestCase):
                        "relation_type": "ENACTED_AS", "note": "Návrh vyhlášen jako tento předpis (editor)."}, relations)
         page = self.app.test_client().get("/dokument/test-draft-target").get_data(as_text=True)
         self.assertIn("vyhlášené znění návrhu", page)
+
+    def test_an_approved_strategy_update_supersedes_the_strategy(self):
+        alice, bob = self.client_for("draft_alice"), self.client_for("draft_bob")
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT id FROM DocumentType WHERE name = 'Strategie'")
+            row = cur.fetchone()
+            if row is None:  # the live database may not have the renamed type yet
+                cur.execute("INSERT INTO DocumentType (name) VALUES ('Strategie')")
+                type_id, self.__class__.created_type = cur.lastrowid, cur.lastrowid
+            else:
+                type_id = row["id"]
+            ids = {}
+            for name, state in (("old", "active"), ("new", "draft")):
+                cur.execute("INSERT INTO Document (title, slug, url, description, type_id) VALUES (%s, %s, %s, 'x', %s)",
+                            (f"TEST-DRAFT strategie {name}", f"test-draft-strategy-{name}",
+                             f"https://example.test/strategy-{name}", type_id))
+                ids[name] = cur.lastrowid
+                cur.execute("INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state) "
+                            "VALUES (%s, 1, 1, %s)", (ids[name], state))
+            cur.execute("INSERT INTO document_relation (from_document_id, to_document_id, relation_type) "
+                        "VALUES (%s, %s, 'REPEALS')", (ids["new"], ids["old"]))
+        page = self.app.test_client().get("/dokument/test-draft-strategy-new").get_data(as_text=True)
+        self.assertIn("má nahradit", page)
+        page = self.app.test_client().get("/dokument/test-draft-strategy-old").get_data(as_text=True)
+        self.assertIn("má být nahrazen připravovaným dokumentem", page)
+        alice.post(f"/admin/drafts/{ids['new']}/propose", data={"mode": "self", "to_state": "active"})
+        change = self.one("SELECT * FROM DocumentStateChange WHERE document_id = %s AND status = 'proposed'", (ids["new"],))
+        bob.post(f"/admin/drafts/change/{change['id']}/confirm")
+        state = "SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1"
+        self.assertEqual(self.one(state, (ids["new"],))["lifecycle_state"], "active")
+        self.assertEqual(self.one(state, (ids["old"],))["lifecycle_state"], "superseded")
+        corrections = json.loads(self.sc.MANUAL_CORRECTIONS_PATH.read_text(encoding="utf-8"))
+        old_key = self.sc.correction_key(None, "https://example.test/strategy-old", {})
+        self.assertEqual(corrections[old_key]["changes"]["stav_dokumentu"], "superseded")
+        page = self.app.test_client().get("/dokument/test-draft-strategy-new").get_data(as_text=True)
+        self.assertIn("nahrazuje", page)
+        self.assertNotIn("má nahradit", page)
 
     def test_refused_proposals_and_withdrawing(self):
         alice, bob = self.client_for("draft_alice"), self.client_for("draft_bob")

@@ -23,7 +23,15 @@ document's columns:
    address of a document without one).
 4. **States.** A correction of data/manual_corrections.json with
    `stav_dokumentu` (here: the superseded 2019 plan and its annex) sets the
-   state of the document's current version.
+   state of the document's current version. So does `stav_dokumentu` of a
+   record of this step: the unapproved updates of the Climate Protection Policy
+   (2025–2050) and of the State Energy Concept are prepared documents (`draft`,
+   doc/MPO_PRIPOMINKY.md, odstavec 5), joined by `REPEALS` to the strategy each
+   is to replace (data/document_relations.json; the document page reads it
+   „má nahradit“ while the update is a draft).
+
+Step 2 (2026-11-20) adds to data/strategy_documents.json the five strategies
+of priority C and the two prepared updates; the same run inserts them.
 
 Run it after apply_manual_corrections.py (the Slovak variants get their
 `… [SK]` identifiers there). Idempotent; dry run unless --apply; back up the
@@ -186,6 +194,26 @@ def set_states(cursor, corrections, records):
     return changes
 
 
+def record_states(cursor, records, names):
+    """[(name, document id, old state, new state)] for the records of this step
+    with `stav_dokumentu` whose document's current version has another state
+    (a document inserted by an earlier run, or by a rebuild before the state
+    was set). `names` is {name: document id} after the insertions."""
+    changes = []
+    for item in records:
+        state = (item.get("stav_dokumentu") or "").strip()
+        doc_id = names.get(record_name(item))
+        if not state or doc_id is None:
+            continue
+        cursor.execute("SELECT id, lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1",
+                       (doc_id,))
+        for version_id, current in cursor.fetchall():
+            if current != state:
+                cursor.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (state, version_id))
+                changes.append((record_name(item), doc_id, current, state))
+    return changes
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true", help="change the database (dry run without it)")
@@ -229,6 +257,8 @@ def main(argv=None):
 
         for key, doc_id, before, after in set_states(cursor, corrections, load(DEDUPLICATED_PATH)):
             print(f"state {key} (#{doc_id}): {before} -> {after}")
+        for name, doc_id, before, after in record_states(cursor, new_records(records), live_names(cursor)):
+            print(f"state {name} (#{doc_id}): {before} -> {after}")
 
         if args.apply:
             conn.commit()

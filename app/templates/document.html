@@ -146,7 +146,13 @@
                         {%- elif r.relation_type == 'AMENDS' -%}
                             {{ 'novelizuje' if r.direction == 'from' else 'je novelizován předpisem' }}
                         {%- elif r.relation_type == 'REPEALS' and 'Strategie' in (document.type_name, r.other_type) -%}
-                            {{ 'nahrazuje' if r.direction == 'from' else 'je nahrazen dokumentem' }}
+                            {#- a prepared update (draft) of a strategy has not replaced its predecessor yet -#}
+                            {%- set own_draft = (versions|selectattr('is_current')|map(attribute='lifecycle_state')|list) == ['draft'] -%}
+                            {%- if r.direction == 'from' -%}
+                                {{ 'má nahradit' if own_draft else 'nahrazuje' }}
+                            {%- else -%}
+                                {{ 'má být nahrazen připravovaným dokumentem' if r.other_state == 'draft' else 'je nahrazen dokumentem' }}
+                            {%- endif -%}
                         {%- elif r.relation_type == 'REPEALS' -%}
                             {{ 'ruší' if r.direction == 'from' else 'je zrušen předpisem' }}
                         {%- elif r.relation_type == 'CONSOLIDATES' -%}

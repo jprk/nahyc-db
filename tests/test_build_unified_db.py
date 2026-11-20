@@ -1154,12 +1154,15 @@ class CommittedKrok1DataFixesTestCase(unittest.TestCase):
         for records in (self.raw, self.deduplicated):
             self.assertFalse([r for r in records if r.get("typ_dokumentu") == "Strategický dokument"])
 
-    def test_the_strategies_of_priority_a_and_b_are_documents(self):
+    def test_the_strategies_of_the_research_are_documents(self):
+        # 13 of priority A and B (2026-11-19), 5 of priority C and 2 prepared updates (2026-11-20)
         strategies = self.b.load_json(self.b.REPO_ROOT / "data" / "strategy_documents.json")
-        self.assertEqual(len(strategies), 13)
+        self.assertEqual(len(strategies), 20)
+        self.assertEqual(len([r for r in strategies if r.get("stav_dokumentu") == "draft"]), 2)
         designations = {(r.get("znacka") or "") for r in strategies}
         for expected in ("COM(2022) 230", "COM(2021) 550", "COM(2020) 299", "COM(2023) 156", "COM(2025) 85",
-                         "COM(2026) 370", "COM(2019) 640", "COM(2020) 789", "COM(2023) 62"):
+                         "COM(2026) 370", "COM(2019) 640", "COM(2020) 789", "COM(2023) 62", "COM(2023) 634",
+                         "COM(2024) 63", "COM(2025) 79", "COM(2025) 95", "COM(2025) 1005"):
             self.assertIn(expected, designations)
             self.assertEqual(len(self.by_znacka[expected]), 1, expected)
         for record in strategies:
@@ -1168,7 +1171,7 @@ class CommittedKrok1DataFixesTestCase(unittest.TestCase):
             self.assertNotIn("PLAN.md", record["anotace_poznamka"])
             self.assertNotIn("strategy_candidates", record["anotace_poznamka"])
         deduplicated = [r for r in self.deduplicated if r.get("zdroj_dat") == "Strategy_Research"]
-        self.assertEqual(len(deduplicated), 13)
+        self.assertEqual(len(deduplicated), 20)
 
     def test_the_2019_clean_mobility_plan_is_superseded_by_the_2024_one(self):
         from fulltext_keys import url_designation

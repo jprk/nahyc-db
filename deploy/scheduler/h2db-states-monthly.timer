@@ -1,0 +1,13 @@
+# Návrh (NEINSTALOVÁNO): 1. den v měsíci stavy dokumentů — ČSN nabývají účinnosti 1. dne měsíce
+# a nové vydání normy se v ten den stane aktuální verzí (src/tools/norm_editions.py).
+[Unit]
+Description=NAHYC H2DB: stavy dokumentů a vydání norem (1. den v měsíci)
+
+[Timer]
+OnCalendar=*-*-01 00:30
+RandomizedDelaySec=10min
+Persistent=true
+Unit=h2db-harvest@states.service
+
+[Install]
+WantedBy=timers.target

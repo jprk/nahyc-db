@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import pathlib
@@ -9,6 +10,7 @@ from dotenv import load_dotenv
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
 import document_states
+import norm_editions
 import eu_act_subtype
 import status_checks
 import fulltext_keys
@@ -643,6 +645,13 @@ def import_json_data(db_conn):
     # same on the next rebuild, which is the entire point of the column.
     for doc_id, slug in assign_slugs(slug_inputs).items():
         cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
+
+    # norm_editions.py, 2026-11-20: editions of standards issued with a later date of effect
+    # (data/norm_validity_cache.json, `upcoming`), switched on that date as in the live database
+    editions = norm_editions.apply(cursor, status_checks.load(status_checks.NORM_CACHE_PATH),
+                                   datetime.date.today().isoformat())
+    if editions:
+        print(f"{len(editions)} changes of editions of standards (norm_editions.py)")
 
     db_conn.commit()
 

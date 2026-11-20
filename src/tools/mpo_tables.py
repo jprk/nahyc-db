@@ -38,7 +38,7 @@ AMENDS relations), and a decided or proposed candidate is never touched.
 
 Usage: .venv/bin/python src/tools/mpo_tables.py convert
        .venv/bin/python src/tools/mpo_tables.py compare [--env-file FILE] [--output FILE]
-       .venv/bin/python src/tools/mpo_tables.py lookup [--refresh]
+       .venv/bin/python src/tools/mpo_tables.py lookup [--refresh | --refresh-norms]
        .venv/bin/python src/tools/mpo_tables.py import [--env-file FILE] [--apply]
 """
 import argparse
@@ -370,21 +370,37 @@ def eu_metadata(session, key):
             "evidence": {"celex": cd.celex(key, kind), "title_source": url, "validity": validity}}
 
 
-def csn_metadata(session, designation):
+def csn_metadata(session, designation, today=None):
+    """The candidate of a ČSN: the edition in force on `today` (check_csn_validity.editions()),
+    with a later edition issued but not yet in effect as `evidence.upcoming_edition`
+    (doc/MPO_PRIPOMINKY.md, odstavec 5, 2026-11-20: ČSN EN 13445 of 12/2026 takes effect
+    on 1. 1. 2027; norm_editions.py switches the document then). The designation is
+    without the edition mark ("ČSN EN 60079-1" for "ČSN EN 60079-1 ed. 3"), with a
+    consolidated amendment ("ČSN EN 13445-2+A1")."""
+    import datetime
     import check_csn_validity as csn
-    national, number = norm_parts(designation)
+    today = today or datetime.date.today().isoformat()
     query = designation.split(" ", 1)[1]
-    results = csn.search(session, query)
+    results = csn.search(session, csn._AMENDMENT_MARK_RE.sub("", query))
+    found = csn.editions(session, designation, today, results=results)
+    if found:
+        current, upcoming = found["current"], found["upcoming"]
+        effective = current.get("effective_from")
+        evidence = {"title_source": current["url"], "edition": current["designation"],
+                    "issued": current.get("issued"), "effective_from": effective,
+                    "incorporates": current.get("incorporates")}
+        if upcoming:
+            evidence["upcoming_edition"] = {"edition": upcoming["designation"], "title": html.unescape(upcoming["title"]),
+                                            "issued": upcoming.get("issued"),
+                                            "effective_from": upcoming.get("effective_from"),
+                                            "url": upcoming["url"], "catalog_number": upcoming["catalog_number"],
+                                            "incorporates": upcoming.get("incorporates")}
+        return {"designation": re.sub(r"\s+", " ", csn.split_edition(current["designation"])[0]),
+                "title": html.unescape(current["title"]), "document_type": "Norma", "url": current["url"],
+                "jurisdikce": "CZ", "language": "CS",
+                "validity_status": "dosud neúčinný" if effective and effective > today else "platná",
+                "evidence": evidence}
     best = csn.find_best_match(results, designation)
-    if best and not best["is_valid"]:
-        # a designation without its edition ("ČSN EN 60079-1") matches its first, withdrawn edition exactly;
-        # a valid later edition of the same designation ("ČSN EN 60079-1 ed. 3") is the one meant
-        base = csn.split_edition(csn.strip_catalog_suffix(designation))[0].lower()
-        later = [r for r in results if r.get("is_valid") and r.get("title")
-                 and not csn._AMENDMENT_TITLE_RE.match(r["title"])
-                 and csn.split_edition(re.sub(r"\s+", " ", r["designation"]).lower())[0] == base]
-        if later:
-            best = max(later, key=lambda r: csn._parse_issued(r.get("issued", "")))
     detail = csn.fetch_detail(best["catalog_number"], session) if best and best.get("catalog_number") else None
     title = (detail or best or {}).get("title")
     return {"designation": designation, "title": html.unescape(title) if title else None, "document_type": "Norma",
@@ -423,9 +439,10 @@ def apply_details(candidate, row, details):
     return candidate
 
 
-def lookup(refresh=False):
+def lookup(refresh=False, refresh_norms=False):
     """Writes mpo_candidates.json: the network metadata of a candidate already there
-    is reused unless `refresh`; its rows, issuer and details are always recomputed."""
+    is reused unless `refresh` (all) or `refresh_norms` (the standards: their editions
+    and dates of effect); its rows, issuer and details are always recomputed."""
     import requests
     records = json.loads(COVERAGE_PATH.read_text(encoding="utf-8"))["rows"]
     rows = {r["id"]: r for r in load_rows()}
@@ -444,7 +461,7 @@ def lookup(refresh=False):
             if key in found:
                 found[key]["evidence"]["mpo_rows"].append(mpo_evidence(row))
                 continue
-            if key in known:
+            if key in known and not (refresh_norms and key.startswith("NORM:")):
                 metadata = {k: v for k, v in known[key].items() if k not in ("source", "puvodce", "scope_area", "signal")}
                 metadata["evidence"] = {k: v for k, v in metadata["evidence"].items()
                                         if k not in ("mpo_rows", "alias", "amends", "basis")}
@@ -597,6 +614,8 @@ def main(argv=None):
     parser.add_argument("--apply", action="store_true", help="import: write to the database (dry run without it)")
     parser.add_argument("--refresh", action="store_true", help="lookup: ask the network again also for the "
                                                                 "candidates already in mpo_candidates.json")
+    parser.add_argument("--refresh-norms", action="store_true", help="lookup: ask the ČAS catalogue again for the "
+                                                                      "standards (editions, dates of effect)")
     parser.add_argument("--output", default=None, help="compare: write the coverage here instead of "
                                                          "data/20260430_MPO/mpo_coverage.json")
     args = parser.parse_args(argv)
@@ -605,7 +624,7 @@ def main(argv=None):
     elif args.command == "compare":
         compare(args.env_file, args.output)
     elif args.command == "lookup":
-        lookup(args.refresh)
+        lookup(args.refresh, args.refresh_norms)
     else:
         import_candidates(args.env_file, args.apply)
 

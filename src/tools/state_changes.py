@@ -20,6 +20,11 @@ The confirmation writes the live database at once and, so that a rebuild keeps
 it, data/manual_corrections.json (pipeline fields; `stav_dokumentu` is the state
 of the current version, read by init_db.py) and, for `act`,
 data/document_relations_editor.json (load_document_relations.py).
+
+A prepared update of a strategy (type Strategie) ends the first way when the
+government approves it; the strategies it is joined to by `REPEALS` (the ones it
+replaces) then become `superseded`, in the database and in
+data/manual_corrections.json (app/drafts_admin.py replaced_strategies()).
 """
 import json
 import pathlib
@@ -35,6 +40,9 @@ STATUS_LABELS = {"proposed": "navrženo", "confirmed": "potvrzeno", "withdrawn":
 # Pipeline field (data/manual_corrections.json) -> Document column, for the `self` mode.
 FIELDS = {"znacka": "identifier", "nazev_cz": "title", "odkaz_hlavni": "url", "platnost": "effective_date"}
 RELATION = "ENACTED_AS"
+# A prepared update of a strategy, once approved (`self`, `active`), supersedes the strategy it
+# `REPEALS` (app/drafts_admin.py replaced_strategies()).
+STRATEGY_TYPE = "Strategie"
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS DocumentStateChange (

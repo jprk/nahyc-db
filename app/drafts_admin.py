@@ -223,6 +223,21 @@ def draft_withdraw(change_id):
     return redirect(url_for("admin.draft_detail", document_id=change["document_id"]))
 
 
+def replaced_strategies(db, document_id):
+    """The strategies (with their current version) that the document replaces by
+    `REPEALS` and that are still in effect: a prepared update of a strategy is
+    joined to the strategy it is to replace (src/tools/backfill_strategies.py)."""
+    with db.cursor() as cur:
+        cur.execute("""SELECT d.id, d.identifier, d.url, dv.id AS version_id, dv.lifecycle_state
+                       FROM document_relation r
+                       JOIN Document d ON d.id = r.to_document_id
+                       JOIN DocumentType dt ON dt.id = d.type_id
+                       JOIN DocumentVersion dv ON dv.document_id = d.id AND dv.is_current = 1
+                       WHERE r.from_document_id = %s AND r.relation_type = 'REPEALS' AND dt.name = %s
+                         AND dv.lifecycle_state IN ('active', 'promulgated')""", (document_id, sc.STRATEGY_TYPE))
+        return cur.fetchall()
+
+
 def set_state(cur, version_id, state):
     # the date of effect stays on Document (`platnost`), as a rebuild puts it (init_db.resolve_document_versions)
     cur.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (state, version_id))
@@ -280,6 +295,18 @@ def draft_confirm(change_id):
             persist.append((sc.correction_key(document["identifier"], document["url"], corrections),
                             {**changes, "stav_dokumentu": change["to_state"], "stav_overen": today,
                              "stav_overil": checked_by}))
+            if change["to_state"] == "active" and document["type_name"] == sc.STRATEGY_TYPE:
+                # an approved update of a strategy replaces the strategy it was joined to by REPEALS
+                for predecessor in replaced_strategies(db, document["id"]):
+                    set_state(cur, predecessor["version_id"], "superseded")
+                    mark_checked(cur, predecessor["id"], today, checked_by)
+                    audit(cur, "Document", predecessor["id"], "UPDATE",
+                          {"lifecycle_state": predecessor["lifecycle_state"]},
+                          {"lifecycle_state": "superseded", "replaced_by": document["id"],
+                           "state_change_id": change_id})
+                    persist.append((sc.correction_key(predecessor["identifier"], predecessor["url"], corrections),
+                                    {"stav_dokumentu": "superseded", "stav_overen": today,
+                                     "stav_overil": checked_by}))
         else:
             set_state(cur, document["version_id"], "superseded")
             mark_checked(cur, document["id"], today, checked_by)
