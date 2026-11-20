@@ -19,6 +19,8 @@ data/20250915_Haltuf/v*
 data/fulltext/
 # ... and as a symlink (a worktree links to the main tree's copy)
 data/fulltext
+# ... and the downloads a worktree keeps apart until they are copied after a merge
+data/fulltext_mpo_*/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

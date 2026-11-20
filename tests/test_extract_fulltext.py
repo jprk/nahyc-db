@@ -435,6 +435,49 @@ class LegacyEurLexTestCase(unittest.TestCase):
             ef.extract(page, "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:31999L0092")
 
 
+class CellarEurLexTestCase(unittest.TestCase):
+    """The files Cellar serves (doc/CELLAR_FULLTEXT.md): no EUR-Lex page around them."""
+
+    def test_annexes_after_the_act_are_kept(self):
+        page = ("<html><head><title>L_2022318CS.01015701.xml</title></head><body>"
+                "<table><tr><td><p class='oj-hd-date'>12.12.2022</p></td></tr></table><hr class='oj-separator'/>"
+                "<div class='eli-container'><p class='oj-doc-ti'>PROVÁDĚCÍ ROZHODNUTÍ KOMISE (EU) 2022/2427</p>"
+                "<p class='oj-normal'>Článek 1 rozhodnutí.</p></div><hr class='oj-doc-sep'/>"
+                "<div id='L_2022318CS.01015901'><p class='oj-doc-ti'>PŘÍLOHA</p>"
+                "<p class='oj-normal'>Závěry o BAT.</p></div><hr class='oj-doc-end'/></body></html>")
+        r = ef.extract(page, "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32022D2427")
+        self.assertIn("Článek 1 rozhodnutí.", r.text)
+        self.assertIn("PŘÍLOHA", r.text)
+        self.assertIn("Závěry o BAT.", r.text)
+        self.assertNotIn("12.12.2022", r.text)
+
+    def test_annexes_inside_the_eur_lex_html_view_are_kept_too(self):
+        page = ("<html><head><title>L_2014189CS.01016401.xml</title></head><body><div class='ecl-site-header'>nav</div>"
+                "<div id='docHtml' class='col-md-9'><div class='eli-container'>"
+                "<p class='oj-doc-ti'>SMĚRNICE 2014/68/EU</p><p class='oj-normal'>Článek 1.</p></div>"
+                "<hr class='oj-doc-sep'/><div id='L_2014189CS.01020201'><p class='oj-doc-ti'>PŘÍLOHA I</p>"
+                "<p class='oj-normal'>Základní požadavky.</p></div><hr class='oj-doc-end'/>"
+                "<script>var x = 1;</script></div><div class='ecl-site-footer'>footer</div></body></html>")
+        r = ef.extract(page, "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32014L0068")
+        self.assertIn("PŘÍLOHA I", r.text)
+        self.assertIn("Základní požadavky.", r.text)
+        for chrome in ("nav", "footer", "var x"):
+            self.assertNotIn(chrome, r.text)
+
+    def test_an_old_act_wrapped_in_txt_te_is_split_into_paragraphs(self):
+        paragraphs = "".join(f"<p>Článek {i}. Text článku číslo {i}.</p>" for i in range(30))
+        page = ("<html lang='CS'><head><title>EUR-Lex - 32001L0042 - CS</title></head><body>"
+                "<div id='banner'><div class='bglang'><p class='bglang'>Důležité právní upozornění</p></div></div>"
+                "<h1>32001L0042</h1><div id='TexteOnly'><p><TXT_TE><p>Směrnice 2001/42/ES</p>"
+                + paragraphs + "<p>PŘÍLOHA I</p></TXT_TE></p></div></body></html>")
+        r = ef.extract(page, "https://eur-lex.europa.eu/eli/dir/2001/42/oj/ces")
+        lines = r.text.splitlines()
+        self.assertIn("Směrnice 2001/42/ES", lines)
+        self.assertIn("Článek 7. Text článku číslo 7.", lines)
+        self.assertIn("PŘÍLOHA I", lines)
+        self.assertNotIn("upozornění", r.text)
+
+
 class PdfRunTestCase(unittest.TestCase):
     def _manifest(self, root, entries):
         (root / "data" / "fulltext").mkdir(parents=True)

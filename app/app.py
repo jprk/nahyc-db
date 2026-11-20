@@ -10,7 +10,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g, send_file, abort, Response, url_for, session
+from flask import Flask, render_template, request, g, send_file, abort, Response, url_for, session, make_response
 
 app = Flask(__name__)
 
@@ -166,6 +166,27 @@ def hide_slovak(rows):
     if session.get('user_id'):
         return rows
     return [r for r in rows if not catalog_filters.is_slovak(r)]
+
+
+def noindex_for(document):
+    """True when a page of `document` must tell search engines not to index it:
+    a Slovak document (catalog_filters.is_slovak) shown to a visitor who is not
+    logged in. The public catalogue does not list such documents
+    (doc/MPO_PRIPOMINKY.md, odstavec 4.3), but their pages stay reachable by
+    address, and an address can be linked from outside — this is the cheap
+    safeguard against a search engine following such a link."""
+    return bool(document) and not session.get('user_id') and catalog_filters.is_slovak(document)
+
+
+NOINDEX = "noindex"
+
+
+def with_noindex(response, noindex):
+    """`response` with `X-Robots-Tag: noindex` when `noindex` (the header covers
+    the files a `<meta>` cannot be put into: a PDF, a downloaded page)."""
+    if noindex:
+        response.headers['X-Robots-Tag'] = NOINDEX
+    return response
 
 
 def get_filters(include_sk=True):
@@ -757,7 +778,8 @@ def document_detail(slug):
                                 and local_copy_path(document['file_path']) is not None)
     detail['has_clean_text'] = (not document['restricted_fulltext']
                                 and clean_text_path(document['file_path']) is not None)
-    return render_template('document.html', **detail)
+    noindex = noindex_for(document)
+    return with_noindex(make_response(render_template('document.html', noindex=noindex, **detail)), noindex)
 
 
 def local_copy_path(file_path):
@@ -809,7 +831,7 @@ def document_text(slug):
     attributes), which is why the template may output it unescaped."""
     with get_db().cursor() as cur:
         cur.execute('''
-            SELECT d.slug, d.identifier, d.title, d.url, d.file_path,
+            SELECT d.slug, d.identifier, d.title, d.url, d.file_path, d.jurisdikce,
                    dt.restricted_fulltext
             FROM Document d
             LEFT JOIN DocumentType dt ON d.type_id = dt.id
@@ -823,8 +845,9 @@ def document_text(slug):
     path = clean_text_path(document['file_path'])
     if path is None:
         abort(404)
-    return render_template('fulltext.html', document=document,
-                           text_html=path.read_text(encoding='utf-8'))
+    noindex = noindex_for(document)
+    return with_noindex(make_response(render_template('fulltext.html', document=document, noindex=noindex,
+                                                      text_html=path.read_text(encoding='utf-8'))), noindex)
 
 
 def fetch_process_overview(db):
@@ -1014,7 +1037,7 @@ def fulltext(doc_id):
     db = get_db()
     with db.cursor() as cur:
         cur.execute('''
-            SELECT d.file_path, dt.restricted_fulltext
+            SELECT d.file_path, d.identifier, d.jurisdikce, dt.restricted_fulltext
             FROM Document d
             LEFT JOIN DocumentType dt ON d.type_id = dt.id
             WHERE d.id = %s
@@ -1039,7 +1062,7 @@ def fulltext(doc_id):
     response.headers['X-Content-Type-Options'] = 'nosniff'
     if is_html:  # a sandbox CSP would also stop browsers' built-in PDF viewers
         response.headers['Content-Security-Policy'] = "sandbox; default-src 'none'"
-    return response
+    return with_noindex(response, noindex_for(row))
 
 
 def _rows_for_export(documents, doc_tags):

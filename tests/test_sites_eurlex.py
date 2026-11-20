@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
 
-from sites.eurlex import (cellar_language, fetch_cellar_document,
+from sites.eurlex import (cellar_language, fetch_cellar, fetch_cellar_document, resolve_celex,
                           celex_candidates_from_designation, celex_from_url,
                           eli_candidates_from_designation, extract,
                           fetch_responsible_gestor, resolve_eu_act_by_designation,
@@ -305,10 +305,79 @@ class CellarDocumentTestCase(unittest.TestCase):
         self.assertEqual(call.args[0], "http://publications.europa.eu/resource/celex/42015X0331%2801%29")
         self.assertTrue(call.kwargs["headers"]["Accept"].startswith("application/pdf"))
 
-    def test_no_celex_no_request(self):
+    def test_an_address_without_an_act_asks_nothing(self):
         session = MagicMock()
-        self.assertIsNone(fetch_cellar_document("https://eur-lex.europa.eu/eli/reg/2008/1272/oj", session=session))
+        self.assertIsNone(fetch_cellar_document(
+            "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L:2014:096:FULL", session=session))
         session.get.assert_not_called()
+
+    def sparql(self, *numbers):
+        resp = MagicMock()
+        resp.json.return_value = {"results": {"bindings": [
+            {"celex": {"value": n}} for n in numbers]}}
+        resp.raise_for_status.return_value = None
+        return resp
+
+    def test_an_eli_is_resolved_to_its_celex_through_cellar(self):
+        session = MagicMock()
+        session.get.return_value = self.sparql("32008R1272")
+        self.assertEqual(resolve_celex("https://eur-lex.europa.eu/eli/reg/2008/1272/oj/ces", session), "32008R1272")
+        query = session.get.call_args.kwargs["params"]["query"]
+        self.assertIn("<http://publications.europa.eu/resource/eli/reg/2008/1272/oj>", query)
+
+    def test_an_official_journal_id_is_resolved_too(self):
+        session = MagicMock()
+        session.get.return_value = self.sparql("32023L2413")
+        self.assertEqual(resolve_celex(
+            "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=OJ:L_202302413", session), "32023L2413")
+        self.assertIn("<http://publications.europa.eu/resource/oj/L_202302413>",
+                      session.get.call_args.kwargs["params"]["query"])
+
+    def test_a_consolidated_version_is_not_taken_for_the_act(self):
+        session = MagicMock()
+        session.get.return_value = self.sparql("32018R0858", "02018R0858-20240101")
+        self.assertEqual(resolve_celex("https://eur-lex.europa.eu/eli/reg/2018/858/oj", session), "32018R0858")
+
+    def test_a_consolidated_version_keeps_its_date(self):
+        self.assertEqual(resolve_celex(
+            "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:02022R0869-20250205", MagicMock()),
+            "02022R0869-20250205")
+
+    def test_an_eli_cellar_has_not_linked_is_accepted_only_with_its_number_in_the_title(self):
+        session = MagicMock()
+        title = MagicMock()
+        title.raise_for_status.return_value = None
+        title.json.return_value = {"results": {"bindings": [
+            {"title": {"value": "Nařízení Komise v přenesené pravomoci (EU) 2021/535 ze dne"}, "lang": {"value": "CES"}}]}}
+        session.get.side_effect = [self.sparql(), title]
+        self.assertEqual(resolve_celex("https://eur-lex.europa.eu/eli/reg/2021/535/oj/ces", session), "32021R0535")
+        session.get.side_effect = [self.sparql(), self.sparql()]
+        self.assertIsNone(resolve_celex("https://eur-lex.europa.eu/eli/reg/2021/535/oj/ces", session))
+
+    def test_two_acts_for_one_address_are_not_guessed(self):
+        session = MagicMock()
+        session.get.side_effect = [self.sparql("32018R0858", "32018R0858R(01)"), self.sparql()]
+        self.assertIsNone(resolve_celex("https://eur-lex.europa.eu/eli/reg/2018/858/oj", session))
+
+    def test_an_eli_is_downloaded_from_cellar_in_its_language(self):
+        session = MagicMock()
+        session.get.side_effect = [self.sparql("32014L0094"), self.response(200, content=b"<html/>")]
+        found = fetch_cellar("https://eur-lex.europa.eu/eli/dir/2014/94/oj/ces", session=session)
+        self.assertEqual((found["celex"], found["content"], found["items"]), ("32014L0094", b"<html/>", 1))
+        download = session.get.call_args_list[1]
+        self.assertEqual(download.args[0], "http://publications.europa.eu/resource/celex/32014L0094")
+        self.assertEqual(download.kwargs["headers"]["Accept-Language"], "ces")
+        for call in session.get.call_args_list:
+            self.assertNotIn("eur-lex.europa.eu", call.args[0])
+
+    def test_items_of_a_multiple_choice_answer_are_counted(self):
+        session = MagicMock()
+        listing = ('<a href="http://publications.europa.eu/resource/cellar/abc.0024.03/DOC_1">x</a>'
+                   '<a href="http://publications.europa.eu/resource/cellar/abc.0024.03/DOC_2">y</a>')
+        session.get.side_effect = [self.response(300, text=listing), self.response(200, content=b"%PDF-")]
+        found = fetch_cellar("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272",
+                             session=session)
+        self.assertEqual(found["items"], 2)
 
 
 if __name__ == "__main__":
