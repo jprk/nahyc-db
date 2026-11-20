@@ -594,6 +594,28 @@ psán jako plán.
   25 dokumentů (provedeno, odstavec 4.1).
 * **Termíny etap** podle odstavce 4.6.
 
+* **Plné texty z EUR-Lexu jen z Cellaru** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`):
+  `fetch_fulltext.py` už EUR-Lex neotevírá v prohlížeči ani se na něj
+  neobrací; adresy ELI a adresy Úředního věstníku (`?uri=OJ:L_…`) se
+  dotazem SPARQL přeloží na číslo CELEX a text se stáhne z Cellaru. Úplnost
+  textu z Cellaru byla ověřena porovnáním se všemi 288 uloženými soubory
+  (jazyk, délka textu, přílohy, název): 68 shodných, 218 úplných, žádný
+  kratší; tři uložené stránky byly neúplné. Celé číslo Úředního věstníku
+  u 2014/34/EU nahradilo PDF směrnice. Manifest je přepnut na Cellar u všech
+  505 stažených položek. Současně opravena chyba extraktoru, jenž
+  u 33 souborů (21 aktů) vynechával přílohy (podrobně
+  v `doc/CELLAR_FULLTEXT.md`).
+* **Stránky slovenských dokumentů a vyhledávače** (20. 11. 2026): stránka
+  slovenského dokumentu, jeho čitelný text i stažený soubor nesou pro
+  nepřihlášeného návštěvníka `<meta name="robots" content="noindex">`
+  a hlavičku `X-Robots-Tag: noindex`. Aplikace nemá mapu webu, `robots.txt`
+  serveru vše povoluje; z veřejných stránek, exportů ani procesů na slovenské
+  dokumenty odkazy nevedou (vazby a dokumenty procesů jsou skryté), takže
+  vyhledávač je může najít jen přes odkaz zvenčí, nebo z doby před jejich
+  skrytím — na webu `nahyc.fd.cvut.cz/h2db` (větev `master`) jsou v katalogu
+  veřejně uvedené až do nasazení kroku 2. Pojistka `noindex` pokryje i tento
+  případ (již zaindexovaná stránka vypadne při příštím průchodu robota).
+
 ### 5.2 Odloženo, vyřešíme později
 
 * **Výklad řádků MPO-27 a MPO-42 tabulky MPO** (227/2015 Sb. místo
@@ -625,9 +647,6 @@ psán jako plán.
 * **Neschválené aktualizace strategií** (Politika ochrany klimatu
   2025–2050, Státní energetická koncepce): vést je jako připravované
   dokumenty, nebo vyčkat na schválení?
-* **Plné texty z EUR-Lexu bez čísla CELEX** (adresy ELI) stahuje
-  `fetch_fulltext.py` dosud přes prohlížeč, jenž ochranu EUR-Lexu obchází;
-  navrhujeme je převést na Cellar (ELI lze přeložit na CELEX dotazem SPARQL).
 * **Text .docx:** 2. aktualizace NAP čisté mobility je zveřejněna jen ve
   formátu .docx, jejž `extract_fulltext.py` nečte.
 * **Jména garanta, editorů a správce** doplní uživatel (značky
@@ -636,9 +655,6 @@ psán jako plán.
   postup schválení V01, editorské účty pro MPO, převzetí tabulek jako
   referenčního souboru a jejich průběžné doplňování, lhůty posouzení
   kandidátů, strategie s prioritou C, normy podle technických komisí.
-* **Stránky slovenských dokumentů a vyhledávače:** přímý odkaz na
-  slovenský dokument funguje i nepřihlášenému; vyloučit tyto stránky
-  z indexování (`noindex`)?
 * **Zařazení původců do skupin** (`data/source_groups.json`): ÚNMS SR je
   mezi normalizačními orgány, nikoli ve skupině Slovensko (veřejnost jej
   od rozhodnutí o slovenských dokumentech nevidí, týká se jen editorů); DGUV, BAuA, PTB,
