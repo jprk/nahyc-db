@@ -89,6 +89,17 @@ def affected_columns(changes):
     return columns + ["needs_review", "review_reason"]
 
 
+def corrected_item(record, key, entry):
+    """The record with the correction applied. The committed outputs may already
+    carry the corrected znacka, so the record was found by it and its own key no
+    longer matches `key`; the changes are then applied directly (idempotent), or a
+    pinned slug and other fields added to the correction later would be lost."""
+    item = dict(record)
+    apply_manual_corrections(item, {key: entry})
+    item.update(entry.get("changes", {}))
+    return item
+
+
 def records_by_key(records):
     """{correction key: [records]} — several records can share one znacka (the two
     spreadsheet rows of a language pair before split_language_variants.py)."""
@@ -258,8 +269,7 @@ def main(argv=None):
             if record is None:
                 print(f"{key}: no record in {RECORDS_PATH.name} — skipped")
                 continue
-            item = dict(record)
-            apply_manual_corrections(item, {key: entry})
+            item = corrected_item(record, key, entry)
             for doc_id in ids:
                 cur.execute("SELECT identifier FROM Document WHERE identifier IS NOT NULL AND id <> %s", (doc_id,))
                 seen = {row[0] for row in cur.fetchall()}
