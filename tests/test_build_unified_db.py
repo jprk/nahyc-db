@@ -1,3 +1,4 @@
+import json
 import pathlib
 import sys
 import unittest
@@ -477,6 +478,19 @@ class ApplyAuthoritativeMetadataTestCase(unittest.TestCase):
         self.assertEqual(record["nazev_autoritativni"], "T")
         self.assertEqual(record["popis_autoritativni"], "D")
 
+    def test_eiga_key_only_for_an_eiga_designation(self):
+        # doc/MPO_PRIPOMINKY.md: "UNECE Regulation No. 100" and DVGW "G 100 (A)"
+        # got the title of EIGA Doc 100 from the first digit run of their designation.
+        cache = {"eiga:100": {"status": "fetched", "title": "DOC 100 / 20", "description": "D",
+                              "zdroj_esbirka_url": None}}
+        for znacka in ("UNECE Regulation No. 100 (Revision 2)", "G 100 (A)"):
+            record = {"znacka": znacka, "odkaz_hlavni": "https://www.dvgw.de/"}
+            apply_authoritative_metadata(record, cache)
+            self.assertNotIn("nazev_autoritativni", record, znacka)
+        record = {"znacka": "EIGA IGC Doc 100/20", "odkaz_hlavni": "https://www.eiga.eu/"}
+        apply_authoritative_metadata(record, cache)
+        self.assertEqual(record["nazev_autoritativni"], "DOC 100 / 20")
+
     def test_iec_key_used_when_no_url_or_csn_stn_eiga_match(self):
         # doc/PLAN.md §25: IEC records store only the webstore.iec.ch
         # homepage — same "catalog root" shape, keyed on iec.py's own
@@ -825,8 +839,64 @@ class CommittedCorrectionsTestCase(unittest.TestCase):
 
     def test_every_committed_correction_has_a_reason_and_changes(self):
         for znacka, entry in self.corrections.items():
-            self.assertTrue(entry.get("changes"), znacka)
+            self.assertTrue(entry.get("changes") or entry.get("exclude") or entry.get("merged_into"), znacka)
             self.assertTrue(entry.get("reason") or entry.get("confirmed_by"), znacka)
+
+    def test_the_ecb_decision_is_out_of_scope(self):
+        record = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2018/546", "jazyk": "CZ"}
+        self.assertFalse(apply_manual_corrections(record, self.corrections))
+
+    def test_a_slovak_act_without_znacka_gets_a_slovak_ministry(self):
+        record = {"zdroj_dat": "Sinay_Zakony", "znacka": "", "gestor": ["Ministerstvo dopravy"],
+                  "odkaz_hlavni": "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/214/"}
+        apply_manual_corrections(record, self.corrections)
+        self.assertEqual(record["gestor"], ["Ministerstvo dopravy Slovenskej republiky"])
+
+    def test_the_red_iii_description_reaches_only_the_czech_row(self):
+        czech = {"znacka": "(EU) 2023/2413", "jazyk": "CZ", "anotace_poznamka": "Stav ke dni 30.6.2025",
+                 "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=OJ:L_202302413"}
+        english = {"znacka": "(EU) 2023/2413", "jazyk": "EN", "anotace_poznamka": "Amends.",
+                   "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202302413"}
+        apply_manual_corrections(czech, self.corrections)
+        apply_manual_corrections(english, self.corrections)
+        self.assertNotIn("Stav ke dni", czech["anotace_poznamka"])
+        self.assertEqual(english["anotace_poznamka"], "Amends.")
+
+
+class CorrectionKeyTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 0: keys without znacka, exclusion, row language."""
+
+    URL = "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2015/128/"
+
+    def test_a_record_without_znacka_is_keyed_by_its_address(self):
+        import build_unified_db as b
+        from fulltext_keys import url_designation
+        self.assertEqual(b.correction_key({"znacka": "", "odkaz_hlavni": self.URL}), url_designation(self.URL))
+        self.assertEqual(b.correction_key({"znacka": "458/2000 Sb.", "odkaz_hlavni": self.URL}), "458/2000 Sb.")
+
+    def test_a_correction_keyed_by_address_applies(self):
+        from fulltext_keys import url_designation
+        record = {"znacka": "", "odkaz_hlavni": self.URL, "gestor": ["MŽP"]}
+        corrections = {url_designation(self.URL): {"changes": {"gestor": ["X"]}}}
+        self.assertTrue(apply_manual_corrections(record, corrections))
+        self.assertEqual(record["gestor"], ["X"])
+
+    def test_an_excluded_record_is_dropped_unchanged(self):
+        record = {"znacka": "A 1", "nazev_cz": "T"}
+        self.assertFalse(apply_manual_corrections(record, {"A 1": {"exclude": True, "changes": {"nazev_cz": "U"}}}))
+        self.assertEqual(record["nazev_cz"], "T")
+
+    def test_a_record_without_any_key_is_kept(self):
+        self.assertTrue(apply_manual_corrections({"znacka": "", "odkaz_hlavni": ""}, {"": {"exclude": True}}))
+
+    def test_row_language_limits_the_rows(self):
+        corrections = {"A 1": {"row_language": "CS", "changes": {"nazev_cz": "Český"}}}
+        english = {"znacka": "A 1", "jazyk": "EN", "nazev_cz": "English"}
+        unknown = {"znacka": "A 1", "jazyk": "", "nazev_cz": "?"}
+        apply_manual_corrections(english, corrections)
+        apply_manual_corrections(unknown, corrections)
+        self.assertEqual(english["nazev_cz"], "English")
+        self.assertEqual(unknown["nazev_cz"], "Český")
 
     def test_the_full_text_manifest_follows_the_corrected_designation(self):
         import fetch_fulltext as ff
@@ -835,6 +905,294 @@ class CommittedCorrectionsTestCase(unittest.TestCase):
         entry = manifest["Sinay_Zakony|(EU) 2024/1735|odkaz_hlavni"]
         name = entry["local_path"].rsplit("/", 1)[-1]
         self.assertEqual(name, ff.flat_name("(EU) 2024/1735", entry["sha256"], "html"))
+
+
+
+class LanguageVariantCorrectionTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 0: a correction keyed `<znacka> [EN]` (the
+    English document's identifier) changes the English spreadsheet row, which
+    shares the Czech row's znacka until split_language_variants.py."""
+
+    CS = "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:1"
+    EN = "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:1"
+
+    def rows(self):
+        return ({"znacka": "A 1", "nazev_cz": "Czech", "odkaz_hlavni": self.CS},
+                {"znacka": "A 1", "nazev_cz": "English", "odkaz_hlavni": self.EN})
+
+    def test_the_english_entry_changes_only_the_english_row(self):
+        czech, english = self.rows()
+        corrections = {"A 1": {"row_language": "CS", "changes": {"nazev_cz": "Český"}},
+                       "A 1 [EN]": {"changes": {"nazev_cz": "English fixed"}}}
+        apply_manual_corrections(czech, corrections)
+        apply_manual_corrections(english, corrections)
+        self.assertEqual((czech["nazev_cz"], english["nazev_cz"]), ("Český", "English fixed"))
+
+    def test_without_an_english_entry_the_plain_one_applies_to_both(self):
+        czech, english = self.rows()
+        corrections = {"A 1": {"changes": {"gestor": ["X"]}}}
+        apply_manual_corrections(czech, corrections)
+        apply_manual_corrections(english, corrections)
+        self.assertEqual((czech["gestor"], english["gestor"]), (["X"], ["X"]))
+
+    def test_the_split_english_record_is_keyed_by_its_own_designation(self):
+        record = {"znacka": "A 1 [EN]", "nazev_cz": "English", "odkaz_hlavni": self.EN}
+        apply_manual_corrections(record, {"A 1 [EN]": {"changes": {"nazev_cz": "English fixed"}}})
+        self.assertEqual(record["nazev_cz"], "English fixed")
+
+
+class TitleKeyAndMergeTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 0: a record with neither znacka nor address is
+    keyed by its title; a duplicate is merged into another record."""
+
+    def test_a_record_with_neither_znacka_nor_address_is_keyed_by_its_title(self):
+        import build_unified_db as b
+        from fulltext_keys import title_designation
+        key = b.correction_key({"znacka": "", "odkaz_hlavni": "", "nazev_cz": "Smernica  o\xa0plyne"})
+        self.assertTrue(key.startswith("title-"))
+        self.assertEqual(key, title_designation("Smernica o plyne"))
+        self.assertEqual(title_designation("  "), "")
+
+    def test_a_merged_record_is_dropped(self):
+        record = {"znacka": "B 2", "nazev_cz": "T"}
+        self.assertFalse(apply_manual_corrections(record, {"B 2": {"merged_into": "A 1"}}))
+        self.assertEqual(record["nazev_cz"], "T")
+
+    def test_relations_follow_renamed_and_merged_designations(self):
+        import build_unified_db as b
+        corrections = {"old": {"changes": {"znacka": "new"}}, "dup": {"merged_into": "kept"},
+                       "same": {"changes": {"znacka": "same"}}, "other": {"changes": {"gestor": ["X"]}}}
+        renamed = b.renamed_designations(corrections)
+        self.assertEqual(renamed, {"old": "new", "dup": "kept"})
+        relations = [{"from_identifier": "cz", "to_identifier": "old", "relation_type": "R"},
+                     {"from_identifier": "dup", "to_identifier": "kept", "relation_type": "R"}]
+        self.assertEqual(b.rename_relation_ends(relations, renamed),
+                         [{"from_identifier": "cz", "to_identifier": "new", "relation_type": "R"}])
+
+
+class CommittedKrok0RestTestCase(unittest.TestCase):
+    """data/manual_corrections.json and the committed pipeline outputs: the rest
+    of krok 0 in doc/MPO_PRIPOMINKY.md, odstavec 4.1."""
+
+    @classmethod
+    def setUpClass(cls):
+        import build_unified_db as b
+        cls.b = b
+        cls.corrections = b.load_json(b.MANUAL_CORRECTIONS_PATH)
+        cls.deduplicated = b.load_json(b.REPO_ROOT / "data" / "database_merged_deduplicated.json")
+        cls.by_znacka = {}
+        for record in cls.deduplicated:
+            cls.by_znacka.setdefault((record.get("znacka") or "").strip(), []).append(record)
+
+    def test_1302_2014_rows_are_the_tsi_loc_pas_regulation(self):
+        czech = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2014/1302", "jazyk": "CZ",
+                 "nazev_cz": "(EU) 2014/1302 - LOC&PAS TSI - Prováděcí nařízení Komise (EU) 2019/776",
+                 "nazev_autoritativni": "Prováděcí nařízení Komise (EU) 2019/776",
+                 "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32019R0776"}
+        english = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2014/1302", "jazyk": "EN",
+                   "nazev_cz": "(EU) 2014/1302 - LOC&PAS TSI - COMMISSION IMPLEMENTING REGULATION (EU) 2019/776",
+                   "nazev_autoritativni": "Prováděcí nařízení Komise (EU) 2019/776",
+                   "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32019R0776",
+                   "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32019R0776"}
+        apply_manual_corrections(czech, self.corrections)
+        apply_manual_corrections(english, self.corrections)
+        self.assertTrue(czech["nazev_autoritativni"].startswith("Nařízení Komise (EU) č. 1302/2014 ze dne 18. listopadu 2014"))
+        self.assertIn("/CS/", czech["odkaz_hlavni"])
+        self.assertTrue(english["nazev_cz"].startswith("Commission Regulation (EU) No 1302/2014"))
+        self.assertIn("/EN/", english["odkaz_hlavni"])
+        self.assertEqual((english["nazev_autoritativni"], english["zdroj_autoritativni_url"]), ("", ""))
+        for record in (czech, english):
+            self.assertTrue(record["odkaz_hlavni"].endswith("CELEX:32014R1302"))
+            self.assertNotIn("2019/776", record["nazev_cz"])
+
+    def test_1302_2014_in_the_committed_output(self):
+        [czech] = self.by_znacka["(EU) 2014/1302"]
+        [english] = self.by_znacka["(EU) 2014/1302 [EN]"]
+        self.assertIn("CELEX:32014R1302", czech["zdroj_autoritativni_url"])
+        self.assertIn("/CS/", czech["zdroj_autoritativni_url"])
+        self.assertIn("/EN/", english["odkaz_hlavni"])
+        self.assertNotIn("2019/776", czech["nazev_autoritativni"] + english["nazev_cz"])
+
+    def test_the_new_addresses_have_their_eu_body(self):
+        cache = self.b.load_json(self.b.REPO_ROOT / "data" / "eu_gestor_cache.json")
+        for language in ("CS", "EN"):
+            self.assertEqual(cache[f"https://eur-lex.europa.eu/legal-content/{language}/TXT/PDF/?uri=CELEX:32014R1302"],
+                             "Generální ředitelství pro mobilitu a dopravu")
+        self.assertEqual(cache["https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32024L1788"],
+                         "Generální ředitelství pro energetiku")
+
+    def test_un_regulation_134_is_one_document(self):
+        self.assertEqual(self.corrections["(EHK OSN) č. 134"]["merged_into"], "[2019/795]")
+        self.assertNotIn("(EHK OSN) č. 134", self.by_znacka)
+        [czech] = self.by_znacka["[2019/795]"]
+        self.assertEqual(len(self.by_znacka["[2019/795] [EN]"]), 1)
+        self.assertIn("/CS/", czech["zdroj_autoritativni_url"])
+        titles = [r for r in self.deduplicated if "(EHK OSN) č. 134" in (r.get("nazev_autoritativni") or "")]
+        self.assertEqual([r["znacka"] for r in titles], ["[2019/795]"])
+
+    def test_the_slovak_gas_directive_has_a_designation_and_an_address(self):
+        from fulltext_keys import title_designation
+        record = {"zdroj_dat": "Sinay_Zakony", "jurisdikce": "SK", "gestor": ["Ministerstvo průmyslu a obchodu"],
+                  "nazev_cz": "Smernica Európského parlamentu a Rady  o spoločných pravidlách pre vnútorný trh "
+                              "s obnoviteľnými plynmi a zemným plynom a\xa0s\xa0vodíkom"}
+        self.assertIn(title_designation(record["nazev_cz"]), self.corrections)
+        apply_manual_corrections(record, self.corrections)
+        self.assertEqual(record["znacka"], "(EU) 2024/1788 [SK]")
+        self.assertEqual(record["odkaz_hlavni"], "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32024L1788")
+        self.assertEqual(record["gestor"], ["Evropský parlament a Rada Evropské unie"])
+        self.assertTrue(record["nazev_cz"].startswith("Smernica Európskeho parlamentu a Rady (EÚ) 2024/1788"))
+        self.assertEqual(len(self.by_znacka["(EU) 2024/1788 [SK]"]), 1)
+
+    def test_corrected_designations_do_not_collide(self):
+        """Document.identifier is UNIQUE under utf8mb4_czech_ci, which ignores
+        case and diacritics: "(EÚ) 2024/1788" would be the Czech variant's."""
+        import unicodedata
+
+        def folded(text):
+            return "".join(c for c in unicodedata.normalize("NFKD", text.casefold())
+                           if not unicodedata.combining(c))
+        designations = [folded((r.get("znacka") or "").strip()) for r in self.deduplicated if r.get("znacka")]
+        for znacka in ("(EU) 2024/1788 [SK]", "492/2010 Z. z.", "(EU) 2014/1302", "[2019/795]"):
+            self.assertEqual(designations.count(folded(znacka)), 1, znacka)
+
+    def test_the_amendment_492_2010_has_its_own_designation(self):
+        self.assertNotIn("98/2004 Z. z.", self.by_znacka)
+        [record] = self.by_znacka["492/2010 Z. z."]
+        self.assertEqual(record["odkaz_hlavni"], "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2010/492/")
+        relations = self.b.load_json(self.b.REPO_ROOT / "data" / "document_relations_split.json")
+        ends = {r["from_identifier"] for r in relations} | {r["to_identifier"] for r in relations}
+        self.assertNotIn("98/2004 Z. z.", ends)
+        self.assertIn({"from_identifier": "353/2003 Sb.", "to_identifier": "492/2010 Z. z."},
+                      [{k: r[k] for k in ("from_identifier", "to_identifier")} for r in relations])
+
+    def test_the_full_text_manifest_follows_the_new_designations(self):
+        import fetch_fulltext as ff
+        manifest = ff.load_manifest()
+        self.assertEqual([k for k in manifest if "|98/2004 Z. z.|" in k], [])
+        entry = manifest["Sinay_Zakony|492/2010 Z. z.|odkaz_hlavni"]
+        self.assertEqual(entry["url"], "https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2010/492/")
+        self.assertEqual(entry["local_path"].rsplit("/", 1)[-1], ff.flat_name("492/2010 Z. z.", entry["sha256"], "html"))
+        for key in ("Haltuf_Dokumenty|(EU) 2014/1302|odkaz_hlavni", "Haltuf_Dokumenty|(EU) 2014/1302 [EN]|odkaz_hlavni"):
+            self.assertIn("CELEX:32014R1302", manifest[key]["url"], key)
+
+
+class CommittedKrok1DataFixesTestCase(unittest.TestCase):
+    """data/manual_corrections.json, data/strategy_documents.json and the committed
+    pipeline outputs: the data fixes of doc/MPO_PRIPOMINKY.md, krok 1 (Slovak
+    variants of EU acts, originator of 250/2012 Z. z., 2012/18/EU, ČSN ISO 19880-1,
+    UN Regulation No 100, the type „Strategie“ and the strategies of priority A and B)."""
+
+    SLOVAK = {"(EU) 2022/2427 [SK]": "(EU) 2022/2427", "COM(2020) 301 [SK]": "COM(2020) 301",
+              "(EU) 2018/858 [SK]": "(EU) 2018/858", "(EU) 2024/1788 [SK]": "(EU) 2024/1788"}
+
+    @classmethod
+    def setUpClass(cls):
+        import build_unified_db as b
+        cls.b = b
+        cls.raw = b.load_json(b.REPO_ROOT / "data" / "database_merged_raw.json")
+        cls.deduplicated = b.load_json(b.REPO_ROOT / "data" / "database_merged_deduplicated.json")
+        cls.variants = b.load_json(b.REPO_ROOT / "data" / "document_relations_variants.json")
+        cls.by_znacka = {}
+        for record in cls.deduplicated:
+            cls.by_znacka.setdefault((record.get("znacka") or "").strip(), []).append(record)
+
+    def test_every_slovak_variant_is_a_translation_of_the_czech_text(self):
+        pairs = {(r["from_identifier"], r["to_identifier"]) for r in self.variants if r["relation_type"] == "TRANSLATION_OF"}
+        for slovak, czech in self.SLOVAK.items():
+            self.assertEqual(len(self.by_znacka[slovak]), 1, slovak)
+            self.assertEqual(len(self.by_znacka[czech]), 1, czech)
+            self.assertIn((slovak, czech), pairs)
+            self.assertIn("/SK/", self.by_znacka[slovak][0].get("zdroj_autoritativni_url")
+                          or self.by_znacka[slovak][0]["odkaz_hlavni"], slovak)
+        self.assertNotIn("2018/858/ES", self.by_znacka)
+
+    def test_the_czech_hydrogen_strategy_of_the_eu_is_a_strategy(self):
+        [czech] = self.by_znacka["COM(2020) 301"]
+        self.assertEqual(czech["typ_dokumentu"], "Strategie")
+        self.assertIn("/CS/", czech["zdroj_autoritativni_url"])
+        self.assertEqual(self.by_znacka["COM(2020) 301 [SK]"][0]["typ_dokumentu"], "Strategie")
+
+    def test_no_slovak_designation_collides_under_the_czech_collation(self):
+        import unicodedata
+
+        def folded(text):
+            return "".join(c for c in unicodedata.normalize("NFKD", text.casefold()) if not unicodedata.combining(c))
+        designations = [folded((r.get("znacka") or "").strip()) for r in self.deduplicated if r.get("znacka")]
+        for znacka in list(self.SLOVAK) + list(self.SLOVAK.values()) + ["ČSN ISO 19880-1"]:
+            self.assertEqual(designations.count(folded(znacka)), 1, znacka)
+
+    def test_the_originator_of_250_2012_is_the_slovak_ministry_of_economy(self):
+        [record] = self.by_znacka["250/2012 Z. z."]
+        self.assertEqual(record["gestor"], ["Ministerstvo hospodárstva Slovenskej republiky"])
+
+    def test_2012_18_eu_is_seveso_iii_in_both_languages(self):
+        [czech] = self.by_znacka["2012/18/EU"]
+        [english] = self.by_znacka["2012/18/EU [EN]"]
+        for record in (czech, english):
+            self.assertIn("32012L0018", record["odkaz_hlavni"])
+            self.assertNotIn("2014/34", record.get("nazev_autoritativni") or record["nazev_cz"])
+        self.assertIn("/CS/", czech["odkaz_hlavni"])
+        self.assertTrue(czech["nazev_autoritativni"].startswith("Směrnice Evropského parlamentu a Rady 2012/18/EU"))
+
+    def test_the_czech_standard_19880_1_is_an_iso_adoption(self):
+        self.assertNotIn("ČSN EN ISO 19880-1", self.by_znacka)
+        [record] = self.by_znacka["ČSN ISO 19880-1"]
+        self.assertIn("k=522022", record["zdroj_autoritativni_url"])
+
+    def test_un_regulation_100_and_eiga_doc_100_are_two_documents(self):
+        [regulation] = self.by_znacka["UNECE Regulation No. 100 (Revision 2)"]
+        self.assertEqual(regulation["zdroj_dat"], "Haltuf_Dokumenty")
+        self.assertIn("electric power train", regulation["nazev_autoritativni"])
+        self.assertEqual(regulation["gestor"], ["Evropská hospodářská komise Organizace spojených národů"])
+        self.assertNotIn("eiga", json.dumps(regulation).lower())
+        [publication] = self.by_znacka["EIGA IGC Doc 100/20"]
+        self.assertIn("Hydrogen Cylinders", publication["nazev_autoritativni"])
+        [dvgw] = self.by_znacka["G 100 (A)"]
+        self.assertFalse(dvgw.get("nazev_autoritativni"))
+
+    def test_the_type_is_called_strategie(self):
+        for records in (self.raw, self.deduplicated):
+            self.assertFalse([r for r in records if r.get("typ_dokumentu") == "Strategický dokument"])
+
+    def test_the_strategies_of_the_research_are_documents(self):
+        # 13 of priority A and B (2026-11-19), 5 of priority C and 2 prepared updates (2026-11-20)
+        strategies = self.b.load_json(self.b.REPO_ROOT / "data" / "strategy_documents.json")
+        self.assertEqual(len(strategies), 20)
+        self.assertEqual(len([r for r in strategies if r.get("stav_dokumentu") == "draft"]), 2)
+        designations = {(r.get("znacka") or "") for r in strategies}
+        for expected in ("COM(2022) 230", "COM(2021) 550", "COM(2020) 299", "COM(2023) 156", "COM(2025) 85",
+                         "COM(2026) 370", "COM(2019) 640", "COM(2020) 789", "COM(2023) 62", "COM(2023) 634",
+                         "COM(2024) 63", "COM(2025) 79", "COM(2025) 95", "COM(2025) 1005"):
+            self.assertIn(expected, designations)
+            self.assertEqual(len(self.by_znacka[expected]), 1, expected)
+        for record in strategies:
+            self.assertEqual(record["typ_dokumentu"], "Strategie")
+            self.assertTrue(record["anotace_poznamka"] and record["provenance"] and record["platnost"])
+            self.assertNotIn("PLAN.md", record["anotace_poznamka"])
+            self.assertNotIn("strategy_candidates", record["anotace_poznamka"])
+        deduplicated = [r for r in self.deduplicated if r.get("zdroj_dat") == "Strategy_Research"]
+        self.assertEqual(len(deduplicated), 20)
+
+    def test_the_2019_clean_mobility_plan_is_superseded_by_the_2024_one(self):
+        from fulltext_keys import url_designation
+        relations = self.b.load_json(self.b.REPO_ROOT / "data" / "document_relations.json")
+        new = url_designation("https://mpo.gov.cz/assets/cz/prumysl/zpracovatelsky-prumysl/automobilovy-prumysl/2024/10/"
+                              "2-Aktualizace-NAP-CM.docx")
+        replaced = {r["to_identifier"] for r in relations if r["from_identifier"] == new and r["relation_type"] == "REPEALS"}
+        self.assertEqual(replaced, {"url-7ee3a2b4", "url-95efd271"})
+        corrections = self.b.load_json(self.b.MANUAL_CORRECTIONS_PATH)
+        for key in replaced:
+            self.assertEqual(corrections[key]["changes"]["stav_dokumentu"], "superseded")
+            [record] = [r for r in self.deduplicated if self.b.correction_key(r) == key]
+            self.assertEqual(record.get("stav_dokumentu"), "superseded")
+
+    def test_the_full_text_manifest_follows_the_new_designations(self):
+        import fetch_fulltext as ff
+        manifest = ff.load_manifest()
+        for old in ("url-e18c5e80", "url-86dc0d38", "url-fd143b87", "2018/858/ES", "ČSN EN ISO 19880-1"):
+            self.assertEqual([k for k in manifest if f"|{old}|" in k], [], old)
+        self.assertIn("CELEX:32012L0018", manifest["Haltuf_Dokumenty|2012/18/EU|odkaz_hlavni"]["url"])
+        self.assertIn("/CS/", manifest["Sinay_Zakony|COM(2020) 301|odkaz_hlavni"]["url"])
 
 
 if __name__ == "__main__":

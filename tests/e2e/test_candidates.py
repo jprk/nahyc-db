@@ -14,7 +14,7 @@ from werkzeug.security import generate_password_hash
 
 import sys
 
-from browser_case import BrowserTestCase, database_connection
+from browser_case import PHONE, BrowserTestCase, database_connection
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "src" / "tools"))
 import candidates  # noqa: E402
@@ -23,6 +23,16 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[2]
 ACCEPTED = REPO_ROOT / "data" / "accepted_candidates.json"
 TITLE = "E2E kandidát: zákon o zkušebních vodíkových zařízeních"
 REJECTED_TITLE = "E2E kandidát k zamítnutí"
+SOURCE_TITLE = "E2E návrh zákona o vodíkových plnicích stanicích"
+FINDINGS = {"findings": {
+    "veklep-odok": {"source": "veklep-odok", "signal": "draft", "title": SOURCE_TITLE,
+                    "url": "https://example.test/veklep/e2e", "date": "2026-10-20",
+                    "excerpt": "Návrh zákona, kterým se mění zákon o pohonných hmotách (vodík)",
+                    "seen": "2026-11-04T10:00:00+00:00", "first_seen": "2026-10-28T10:00:00+00:00", "needs_key": True},
+    "esbirka-lod": {"source": "esbirka-lod", "signal": "new_document", "title": "9003/2099 Sb.",
+                    "url": "https://example.test/esbirka/e2e", "date": None,
+                    "excerpt": "409 - Čerpací stanice vodíku (poslední znění, 2 míst v textu)",
+                    "seen": "2026-11-04T10:00:00+00:00", "first_seen": "2026-11-04T10:00:00+00:00"}}}
 PASSWORDS = {"e2e_cand_alice": "alice-cand-e2e", "e2e_cand_bob": "bob-cand-e2e"}
 
 
@@ -45,6 +55,9 @@ class CandidateWorkflowTestCase(BrowserTestCase):
                             "url, language, jurisdikce, evidence_json, cited_by, validity_status) VALUES "
                             "(%s, 'citation', NULL, %s, 'Zákon', 'https://example.test/e2e', 'CS', 'CZ', %s, 99, 'účinný')",
                             (key, title, json.dumps({"citing_ids": [], "context": "… podle zákona o zkušebních zařízeních …"})))
+            cur.execute("INSERT INTO DocumentCandidate (candidate_key, source, `signal`, title, document_type, url, "
+                        "language, jurisdikce, evidence_json) VALUES ('TEST-E2E:3', 'veklep-odok', 'draft', %s, "
+                        "'Zákon', 'https://example.test/veklep/e2e', 'CS', 'CZ', %s)", (SOURCE_TITLE, json.dumps(FINDINGS)))
 
     @classmethod
     def cleanup(cls):
@@ -93,7 +106,7 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         # Alice proposes acceptance with the metadata the document will get.
         self.row(alice, TITLE).get_by_role("link", name="Otevřít").click()
         alice.fill("#designation", "9002/2099 Sb.")
-        alice.select_option("#scope_area", "4")
+        alice.check("input[name=scope_area][value='4']")
         self.shot(alice, "02-candidate-detail")
         alice.click("button:has-text('Navrhnout přijetí')")
         alice.wait_for_url(re.compile(r"/admin/candidates$"))
@@ -129,3 +142,47 @@ class CandidateWorkflowTestCase(BrowserTestCase):
         self.goto(bob, "/admin/candidates?q=E2E&stav=rejected")
         self.assertEqual(self.row(bob, REJECTED_TITLE).count(), 1)
         self.shot(bob, "06-rejected-filter")
+
+    def test_a_candidate_found_by_monitored_sources(self):
+        page = self.new_page()
+        self.login(page, "e2e_cand_alice")
+        self.goto(page, "/admin/candidates?zdroj=veklep-odok&q=E2E")
+        self.assertEqual(self.row(page, SOURCE_TITLE).count(), 1)
+        self.row(page, SOURCE_TITLE).get_by_role("link", name="Otevřít").click()
+        self.assertTrue(page.get_by_text("Nálezy ve sledovaných zdrojích (2)").is_visible())
+        self.assertTrue(page.get_by_text("návrh předpisu (připravovaný)").is_visible())
+        self.assertTrue(page.get_by_text("bez označení předpisu, doplnit ručně").is_visible())
+        self.shot(page, "07-candidate-from-sources")
+
+    def test_header_buttons_help_and_phone_width(self):
+        page = self.new_page()
+        self.login(page, "e2e_cand_alice")
+        self.goto(page, "/admin/candidates")
+        boxes = [b.bounding_box() for b in page.locator(".candidate-actions a").all()]
+        self.assertEqual(len(boxes), 3)
+        self.assertEqual({round(b["height"]) for b in boxes}, {40}, "the header buttons differ in height")
+        tops = [b["y"] for b in boxes]
+        self.assertLess(max(tops) - min(tops), 4, "the header buttons wrap into several rows")
+        radii = {b.evaluate("e => getComputedStyle(e).borderRadius") for b in page.locator(".candidate-actions a").all()}
+        self.assertEqual(len(radii), 1, "the header buttons differ in shape")
+        self.assertGreater(tops[0] - page.locator("nav, header").first.bounding_box()["height"], 20,
+                           "the header sticks to the main menu")
+        # The whole list fits its frame, so the column with "Otevřít" is never cut off; the title opens the detail.
+        for query in ("", "?pasmo=all"):
+            self.goto(page, "/admin/candidates" + query)
+            table = page.locator("table.candidate-table").bounding_box()["width"]
+            frame = page.locator(".table-glass-container").bounding_box()["width"]
+            self.assertLessEqual(table, frame, query)
+        self.goto(page, "/admin/candidates?q=E2E")
+        self.row(page, TITLE).locator("a.candidate-title").click()
+        self.assertTrue(page.get_by_role("button", name="Navrhnout přijetí").is_visible())
+        self.goto(page, "/admin/candidates")
+        page.click(".candidate-help summary")
+        self.assertTrue(page.get_by_text("Návrh potvrzuje").is_visible())
+        self.assertTrue(page.locator(".candidate-help strong", has_text="Nepřímý vztah (pásmo 2)").is_visible())
+        self.shot(page, "08-header-and-help", full_page=False)
+
+        phone = self.new_page(PHONE)
+        self.login(phone, "e2e_cand_alice")
+        self.goto(phone, "/admin/candidates")
+        self.assertLessEqual(phone.evaluate("document.documentElement.scrollWidth"), PHONE["width"])

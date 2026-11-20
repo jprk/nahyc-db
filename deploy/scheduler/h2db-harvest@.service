@@ -1,0 +1,16 @@
+# Návrh (NEINSTALOVÁNO): jeden běh sběru zdrojů pro četnost %i (weekly, monthly, quarterly, states, daily).
+# Instalace a rozhodnutí o ní: deploy/scheduler/0README.md, doc/DATA_SOURCES.md odstavec 8.17.
+[Unit]
+Description=NAHYC H2DB: sběr sledovaných zdrojů (%i)
+After=network-online.target mariadb.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=laborator
+Group=laborator
+WorkingDirectory=/home/laborator/DEVEL/nahyc-h2db
+ExecStart=/home/laborator/DEVEL/nahyc-h2db/src/tools/scheduled_harvest.sh %i
+# běh E1 trvá kolem 15 minut (stav ~400 norem STN), měsíční běh s kontrolou dostupnosti déle
+TimeoutStartSec=3h
+Nice=10

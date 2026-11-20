@@ -15,8 +15,12 @@ ELI-style URLs (`.../eli/dir/2019/692/oj`) and bare Official-Journal
 references (`?uri=OJ:L_202302413`) are NOT resolved by this module — no
 verified, non-guessing SPARQL path from those shapes to a CELEX id was
 found; `extract()` returns None for them rather than guessing one.
+(The full-text download, `resolve_celex()`, 2026-11-20, does resolve them —
+through `owl:sameAs` of the Cellar resource URI, and only when Cellar gives
+exactly one CELEX number.)
 """
 import re
+import urllib.parse
 
 import requests
 
@@ -32,6 +36,10 @@ USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-sites-tool/1.0; +research use
 # suffix and resolved that other act instead, which is how the wrong
 # title reached `nazev_autoritativni` for that record.
 _CELEX_IN_URL_RE = re.compile(r"CELEX(?::|%3A)(\w+(?:\(\d{2}\))?)", re.IGNORECASE)
+# For downloading the text, a consolidated version's date ("02022R0869-20250205")
+# is part of the id: without it Cellar has no such document. (The metadata
+# functions above deliberately work with the number without the date.)
+_CELEX_WITH_DATE_IN_URL_RE = re.compile(r"CELEX(?::|%3A)(\w+(?:\(\d{2}\))?(?:-\d{8})?)", re.IGNORECASE)
 _ELI_IN_URL_RE = re.compile(r"/eli/([a-z_]+)/(\d{4})/(\d+)/oj")
 _OJ_IN_URL_RE = re.compile(r"uri=OJ:(L_\d+)", re.IGNORECASE)
 
@@ -368,3 +376,190 @@ def fetch_responsible_gestor(url, identifier=None, title=None, type_name=None, s
         if resolved:
             return label
     return None
+
+
+# --- The text of an act from Cellar (doc/MPO_PRIPOMINKY.md, 2026-11-19) ------
+# EUR-Lex answers automated clients with a firewall challenge (HTTP 202); the
+# Publications Office's own repository, Cellar, serves the same documents to
+# any client by content negotiation on the work's CELEX URI. The language is
+# negotiated with Accept-Language (ISO 639-2/B code), the format with Accept.
+# A work with several items (an act and its annexes in separate files) answers
+# 300 with a list of them; the main document is always `DOC_1`.
+CELLAR_CELEX_URI = "http://publications.europa.eu/resource/celex/{celex}"
+_LANGUAGE_IN_URL_RE = re.compile(r"/legal-content/([A-Z]{2})/")
+_ELI_LANGUAGE_RE = re.compile(r"/eli/.+/oj/([a-z]{3})(?:[/?#]|$)")
+_CELLAR_LANGUAGES = {"CS": "ces", "SK": "slk", "EN": "eng", "DE": "deu", "PL": "pol", "FR": "fra"}
+_MAIN_ITEM_RE = re.compile(r'href="(http://publications\.europa\.eu/resource/cellar/[^"]+/DOC_1)"')
+_ITEM_RE = re.compile(r'href="http://publications\.europa\.eu/resource/cellar/[^"]+/(DOC_\d+)"')
+HTML_FORMATS = ("application/xhtml+xml", "text/html")
+# Cellar files the PDF of an act under one of these profiles (PDF/A-1a for most acts);
+# a plain `application/pdf` is the last resort — it is how Cellar serves e.g. the
+# Czech special edition of an act from before 2004 (1999/92/ES), under no profile.
+PDF_FORMATS = ("application/pdf;type=pdfa1a", "application/pdf;type=pdf1x", "application/pdf;type=pdfa2a",
+               "application/pdf;type=pdfa1b", "application/pdf;type=pdfx", "application/pdf")
+
+
+def cellar_language(url):
+    """The Cellar language code of the EUR-Lex address `url`: its `legal-content/XX/`
+    segment or the language of its ELI (`.../oj/ces`); English when it names none
+    (what EUR-Lex itself serves then)."""
+    m = _LANGUAGE_IN_URL_RE.search(url or "")
+    if m and m.group(1) in _CELLAR_LANGUAGES:
+        return _CELLAR_LANGUAGES[m.group(1)]
+    m = _ELI_LANGUAGE_RE.search(url or "")
+    return m.group(1) if m else "eng"
+
+
+_RESOURCE_CELEX_QUERY_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT ?celex WHERE {{
+  ?work owl:sameAs <{resource_uri}> .
+  ?work cdm:resource_legal_id_celex ?celex .
+}}
+"""
+
+
+def celex_of_resource(resource_uri, session=None):
+    """The CELEX number of the work Cellar knows as `resource_uri` (an ELI
+    `http://publications.europa.eu/resource/eli/reg/2018/858/oj` or an Official
+    Journal act `http://publications.europa.eu/resource/oj/L_202302413`), or None
+    when Cellar has no such work or gives more than one number (never guessed)."""
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+    bindings = _run_sparql(session, _RESOURCE_CELEX_QUERY_TEMPLATE.format(resource_uri=resource_uri))
+    numbers = {b["celex"]["value"] for b in bindings if "celex" in b}
+    # a consolidated version (sector 0) is a different text than the act itself
+    numbers = {n for n in numbers if not n.startswith("0")} or numbers
+    return numbers.pop() if len(numbers) == 1 else None
+
+
+_CELEX_LETTER_BY_ELI_TYPE = {"reg": "R", "reg_impl": "R", "reg_del": "R",
+                             "dir": "L", "dir_impl": "L", "dir_del": "L",
+                             "dec": "D", "dec_impl": "D", "dec_del": "D"}
+
+
+def _celex_of_eli_by_number(eli_type, year, number, session=None):
+    """The CELEX number an ELI must have (`reg/2021/535` -> 32021R0535), for a
+    work Cellar has not linked to its ELI (Regulation (EU) 2021/535, found
+    2026-11-20) — accepted only when Cellar's title of that CELEX names the
+    act's number `year/number`; else None."""
+    letter = _CELEX_LETTER_BY_ELI_TYPE.get(eli_type)
+    if not letter:
+        return None
+    celex = f"3{year}{letter}{int(number):04d}"
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+    bindings = _run_sparql(session, _TITLE_QUERY_TEMPLATE.format(celex=celex))
+    titles = [b["title"]["value"] for b in bindings if "title" in b]
+    return celex if any(f"{year}/{int(number)}" in title for title in titles) else None
+
+
+def resolve_celex(url, session=None):
+    """The CELEX number of the act the EUR-Lex address `url` names: the number in
+    the address itself, else the one Cellar gives for its ELI (`/eli/reg/2018/858/oj`)
+    or its Official Journal id (`?uri=OJ:L_202302413`). None for anything else —
+    e.g. `?uri=OJ:L:2014:096:FULL`, a whole issue of the Journal, not one act."""
+    m = _CELEX_WITH_DATE_IN_URL_RE.search(url or "")
+    if m:
+        return m.group(1)
+    m = _ELI_IN_URL_RE.search(url or "")
+    if m:
+        return (celex_of_resource(
+            f"http://publications.europa.eu/resource/eli/{m.group(1)}/{m.group(2)}/{m.group(3)}/oj", session)
+            or _celex_of_eli_by_number(m.group(1), m.group(2), m.group(3), session))
+    m = _OJ_IN_URL_RE.search(url or "")
+    if m:
+        return celex_of_resource(f"http://publications.europa.eu/resource/oj/{m.group(1)}", session)
+    return None
+
+
+def wants_pdf(url):
+    """True for an EUR-Lex address of a PDF (`.../TXT/PDF/?uri=...`)."""
+    return "/TXT/PDF/" in (url or "")
+
+
+def fetch_cellar(url, session=None, timeout=60):
+    """The document the EUR-Lex address `url` names, downloaded from Cellar by
+    content negotiation in the language of the address — a PDF for a `TXT/PDF`
+    address, else XHTML (or HTML) — as a dict `status`, `content`, `content_type`,
+    `celex`, `items` (how many files the manifestation has: an act whose annexes
+    are separate files has more than one, and only `DOC_1`, the main one, is
+    returned). None when the address names no act Cellar can identify, or Cellar
+    has no manifestation of it in that language and format. EUR-Lex itself is
+    never contacted."""
+    session = session or requests.Session()
+    celex = resolve_celex(url, session)
+    if not celex:
+        return None
+    formats = PDF_FORMATS if wants_pdf(url) else HTML_FORMATS
+    headers = {"Accept-Language": cellar_language(url), "User-Agent": USER_AGENT}
+    for accept in formats:
+        items = 1
+        try:
+            resp = session.get(CELLAR_CELEX_URI.format(celex=urllib.parse.quote(celex, safe="")), timeout=timeout,
+                               headers={**headers, "Accept": accept})
+            if resp.status_code == 300:
+                listed = _MAIN_ITEM_RE.findall(resp.text)
+                items = len(set(_ITEM_RE.findall(resp.text))) or 1
+                if not listed:
+                    continue
+                resp = session.get(listed[0], timeout=timeout, headers={**headers, "Accept": accept})
+        except requests.RequestException:
+            continue
+        if resp.status_code == 200 and resp.content:
+            return {"status": resp.status_code, "content": resp.content,
+                    "content_type": resp.headers.get("Content-Type", accept), "celex": celex, "items": items}
+    return None
+
+
+def fetch_cellar_document(url, session=None, timeout=60):
+    """(status, content, content type) of `fetch_cellar()`, or None."""
+    found = fetch_cellar(url, session, timeout)
+    return (found["status"], found["content"], found["content_type"]) if found else None
+
+
+# --- Consolidated versions of an act (doc/CELLAR_FULLTEXT.md, odstavec 7; 2026-11-20) ---
+# A consolidated version is a work of its own in Cellar (resource type CONS_TEXT,
+# CELEX of sector 0 with the date: 02008R1272-20260701), linked to the act it
+# consolidates by `act_consolidated_based_on_resource_legal`, with the date from
+# which that text applies in `act_consolidated_date`. Cellar also lists versions
+# prepared ahead of their date (02008R1272-20270101, prepared in 2026).
+_CONSOLIDATIONS_QUERY_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?celex ?date WHERE {{
+  ?base cdm:resource_legal_id_celex "{celex}"^^xsd:string .
+  ?work cdm:act_consolidated_based_on_resource_legal ?base .
+  ?work cdm:resource_legal_id_celex ?celex .
+  ?work cdm:act_consolidated_date ?date .
+  ?expr cdm:expression_belongs_to_work ?work .
+  ?expr cdm:expression_uses_language <http://publications.europa.eu/resource/authority/language/{language}> .
+}}
+"""
+_CONSOLIDATED_CELEX_RE = re.compile(r"^0\d{4}[A-Z]\d{4}(?:\(\d{2}\))?-\d{8}$")
+_ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def consolidated_versions(celex, language="ces", session=None, timeout=60):
+    """[{"celex": "02008R1272-20260701", "date": "2026-07-01"}, ...] — the consolidated
+    versions of the act `celex` (sector 3, e.g. 32008R1272) that Cellar has in the
+    language `language` (ISO 639-2/B, `ces`), in the order of their dates, future
+    ones included. None when the query fails (unlike `_run_sparql()`, a failure must
+    not look like "no versions": the caller keeps what it knew)."""
+    session = session or requests.Session()
+    session.headers.setdefault("User-Agent", USER_AGENT)
+    query = _CONSOLIDATIONS_QUERY_TEMPLATE.format(celex=celex, language=language.upper())
+    try:
+        resp = session.get(SPARQL_ENDPOINT, params={"format": "application/sparql-results+json",
+                                                    "query": query.strip()}, timeout=timeout)
+        resp.raise_for_status()
+        bindings = resp.json()["results"]["bindings"]
+    except (requests.RequestException, ValueError, KeyError):
+        return None
+    found = {}
+    for b in bindings:
+        number, date = b.get("celex", {}).get("value", ""), b.get("date", {}).get("value", "")[:10]
+        if _CONSOLIDATED_CELEX_RE.match(number) and _ISO_DATE_RE.match(date):
+            found[number] = date
+    return [{"celex": c, "date": d} for c, d in sorted(found.items(), key=lambda item: (item[1], item[0]))]

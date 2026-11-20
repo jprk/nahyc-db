@@ -1,0 +1,361 @@
+{
+  "generated": "2026-11-19",
+  "purpose": "Kandidáti na strategické dokumenty k vodíku a energetice, jež v databázi h2regdocs chybějí (rešerše k připomínce MPO o kategorii Strategie). Do databáze se nic nezapsalo; jde o podklad pro frontu kandidátů.",
+  "database_check": {
+    "date": "2026-11-19",
+    "method": "dotaz nad živou h2regdocs (jen čtení): názvy, označení a autoritativní názvy všech dokumentů mimo typ Norma; fronta DocumentCandidate",
+    "result": "Žádný z uvedených dokumentů v databázi ani ve frontě kandidátů není. Typ „Strategický dokument“ má 11 dokumentů (#78, #1240, #1241, #1242, #1245, #1246, #1247, #1249, #1254, #1257, #1258); české znění Vodíkové strategie EU z EUR-Lexu (#79) je vedeno jako „Nezařazeno“."
+  },
+  "priority_legend": {
+    "A": "přímo se týká vodíku nebo je nadřazeným rámcem vodíkových předpisů; doporučujeme zařadit",
+    "B": "rámcový dokument s menším podílem vodíku; doporučujeme zařadit",
+    "C": "okrajová vazba; k posouzení editorem"
+  },
+  "items": [
+    {
+      "key": "CZ:NKEP-2024",
+      "jurisdiction": "CZ",
+      "designation": null,
+      "title": "Vnitrostátní plán České republiky v oblasti energetiky a klimatu (aktualizace prosinec 2024)",
+      "issuer": "Ministerstvo průmyslu a obchodu (schválila vláda ČR)",
+      "date": "2024-12-18",
+      "document_kind": "strategický dokument (plán podle nařízení (EU) 2018/1999)",
+      "url": "https://mpo.gov.cz/assets/cz/energetika/strategicke-a-koncepcni-dokumenty/2025/10/Vnitrostatni-plan-Ceske-republiky-v-oblasti-energetiky-a-klimatu.pdf",
+      "url_landing": "https://mpo.gov.cz/cz/energetika/strategicke-a-koncepcni-dokumenty/vnitrostatni-plan-ceske-republiky-v-oblasti-energetiky-a-klimatu--285293/",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "curl, výchozí User-Agent: stránka MPO HTTP 200, PDF HTTP 200 (application/pdf, 11,6 MB, 498 stran); text: 'vodík' 364×, 'RFNBO' 20×"
+      },
+      "relation_to_hydrogen": "Stanoví národní příspěvek k cílům EU do roku 2030 včetně podílu obnovitelných paliv nebiologického původu (RFNBO) v průmyslu podle směrnice (EU) 2023/2413 (42 % v roce 2030, 60 % v roce 2035) a opatření k výrobě a využití vodíku. Aktualizuje plán z ledna 2020.",
+      "priority": "A",
+      "in_database": false,
+      "notes": "Předchozí verze (leden 2020) a návrh aktualizace (říjen 2023, vláda vzala na vědomí) jsou na téže stránce MPO; v databázi by měla být jako aktuální jen verze z prosince 2024."
+    },
+    {
+      "key": "CZ:SEK-2015",
+      "jurisdiction": "CZ",
+      "designation": null,
+      "title": "Státní energetická koncepce České republiky (2015)",
+      "issuer": "Ministerstvo průmyslu a obchodu (schválila vláda ČR)",
+      "date": "2015-05-18",
+      "document_kind": "strategický dokument (koncepce podle § 3 zákona č. 406/2000 Sb.)",
+      "url": "https://mpo.gov.cz/assets/cz/energetika/statni-energeticka-politika/2016/12/Statni-energeticka-koncepce-_2015_.pdf",
+      "url_landing": "https://mpo.gov.cz/cz/energetika/statni-energeticka-politika/statni-energeticka-koncepce--223620/",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "curl, výchozí User-Agent: stránka MPO HTTP 200, PDF HTTP 200 (145 stran, 'vodík' 9×)"
+      },
+      "relation_to_hydrogen": "Rámcový dokument energetické politiky státu na 25 let; vodík zmiňuje jen okrajově (akumulace energie, alternativní paliva v dopravě). Pro databázi je patrně důležitý jako nadřazený rámec, z nějž vychází Vnitrostátní plán a Vodíková strategie ČR.",
+      "priority": "B",
+      "in_database": false,
+      "notes": "Aktualizace SEK byla připravena (Východiska aktualizace schválila vláda 12. 4. 2023), vláda však v červenci 2024 její schválení odložila; podle zpravodajských zdrojů platí koncepce z roku 2015. Stránka MPO uvádí jen verzi 2015. Stav aktualizace je vhodné ověřit u MPO."
+    },
+    {
+      "key": "CZ:POK-2017",
+      "jurisdiction": "CZ",
+      "designation": "usnesení vlády č. 207/2017",
+      "title": "Politika ochrany klimatu v České republice",
+      "issuer": "Ministerstvo životního prostředí (schválila vláda ČR)",
+      "date": "2017-03-22",
+      "document_kind": "strategický dokument",
+      "url": "https://mzp.gov.cz/system/files/2025-05/OPOK-POK-20170329.pdf",
+      "url_landing": "https://www.mzp.gov.cz/cz/kontakty-pro-media/publikace/politika-ochrany-klimatu-v-cr",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "curl, výchozí User-Agent: stránka publikace MŽP HTTP 200 (odkazuje na manažerské shrnutí Politika_ochrany_klimatu_CR-2017.pdf, 17 stran); úplný text OPOK-POK-20170329.pdf HTTP 200 (123 stran, 'vodík' 10×)"
+      },
+      "relation_to_hydrogen": "Strategie snižování emisí skleníkových plynů do roku 2030 s výhledem do roku 2050; vodík uvádí mezi opatřeními v dopravě a průmyslu. Pro vodíkové technologie má spíše rámcový význam.",
+      "priority": "B",
+      "in_database": false,
+      "notes": "Aktualizace na období 2025–2050 existuje jako návrh (https://mzp.gov.cz/system/files/2025-11/OPOK-POK-Aktualizace-20251106.pdf, HTTP 200); schválení vládou jsme nedohledali — v databázi by patrně měla být vedena jako připravovaná."
+    },
+    {
+      "key": "CZ:NAPCM-2024",
+      "jurisdiction": "CZ",
+      "designation": "usnesení vlády č. 590/2024",
+      "title": "2. aktualizace Národního akčního plánu čisté mobility",
+      "issuer": "Ministerstvo průmyslu a obchodu ve spolupráci s Ministerstvem dopravy a Ministerstvem životního prostředí (schválila vláda ČR)",
+      "date": "2024-08-28",
+      "document_kind": "strategický dokument (národní politický rámec pro infrastrukturu alternativních paliv)",
+      "url": "https://mpo.gov.cz/assets/cz/prumysl/zpracovatelsky-prumysl/automobilovy-prumysl/2024/10/2-Aktualizace-NAP-CM.docx",
+      "url_landing": "https://mpo.gov.cz/cz/prumysl/zpracovatelsky-prumysl/automobilovy-prumysl/2--aktualizace-narodniho-akcniho-planu-ciste-mobility--283771/",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "curl, výchozí User-Agent: stránka MPO HTTP 200 (publikováno 21. 10. 2024); příloha 'III. Analytická příloha' na téže stránce"
+      },
+      "relation_to_hydrogen": "Stanoví cíle pro roky 2025, 2030 a 2035 pro jednotlivé druhy alternativních paliv včetně vodíkové mobility a plnicích stanic; vychází z nařízení (EU) 2023/1804 (AFIR).",
+      "priority": "A",
+      "in_database": false,
+      "notes": "Databáze obsahuje jen předchozí (1.) aktualizaci z roku 2019 (dokumenty #1246 a #1247, převzaté ze stránek HYTEP), jež byla touto aktualizací nahrazena. Po přijetí nové verze by starší měla dostat stav „nahrazený“."
+    },
+    {
+      "key": "EU:COM(2019) 640",
+      "jurisdiction": "EU",
+      "designation": "COM(2019) 640",
+      "celex": "52019DC0640",
+      "title": "Zelená dohoda pro Evropu",
+      "issuer": "Evropská komise",
+      "date": "2019-12-11",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52019DC0640",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu)",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Rámcová strategie, z níž vycházejí Vodíková strategie EU, balíček „Fit for 55“ i další akty; vodík uvádí mezi čistými technologiemi pro odvětví s obtížně snižovanými emisemi.",
+      "priority": "B",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2020) 299",
+      "jurisdiction": "EU",
+      "designation": "COM(2020) 299",
+      "celex": "52020DC0299",
+      "title": "Cesta ke klimaticky neutrálnímu hospodářství: Strategie EU pro integraci energetického systému",
+      "issuer": "Evropská komise",
+      "date": "2020-07-08",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52020DC0299",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 47×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Vydána současně s Vodíkovou strategií EU; vymezuje úlohu obnovitelných a nízkouhlíkových paliv včetně vodíku v propojeném energetickém systému.",
+      "priority": "A",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2020) 789",
+      "jurisdiction": "EU",
+      "designation": "COM(2020) 789",
+      "celex": "52020DC0789",
+      "title": "Strategie pro udržitelnou a inteligentní mobilitu – nasměrování evropské dopravy do budoucnosti",
+      "issuer": "Evropská komise",
+      "date": "2020-12-09",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52020DC0789",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu)",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Dopravní strategie EU s cíli pro bezemisní vozidla a infrastrukturu plnicích stanic včetně vodíkových; východisko nařízení AFIR.",
+      "priority": "B",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2021) 550",
+      "jurisdiction": "EU",
+      "designation": "COM(2021) 550",
+      "celex": "52021DC0550",
+      "title": "„Fit for 55“: plnění klimatického cíle EU pro rok 2030 na cestě ke klimatické neutralitě",
+      "issuer": "Evropská komise",
+      "date": "2021-07-14",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52021DC0550",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 3×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Zastřešující sdělení k balíčku, z něhož vzešly mimo jiné revize směrnice o obnovitelných zdrojích (cíle RFNBO), nařízení AFIR, ReFuelEU a balíček o trzích s vodíkem a plynem, jež databáze obsahuje.",
+      "priority": "A",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2022) 230",
+      "jurisdiction": "EU",
+      "designation": "COM(2022) 230",
+      "celex": "52022DC0230",
+      "title": "Plán REPowerEU",
+      "issuer": "Evropská komise",
+      "date": "2022-05-18",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52022DC0230",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu)",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Stanoví cíl 10 milionů tun domácí výroby a 10 milionů tun dovozu obnovitelného vodíku do roku 2030 (urychlovač vodíku).",
+      "priority": "A",
+      "in_database": false,
+      "related": [
+        "SWD(2022) 230 — pracovní dokument útvarů Komise k provádění REPowerEU, obsahuje vodíkový urychlovač; český název v Cellaru chybí"
+      ]
+    },
+    {
+      "key": "EU:COM(2023) 62",
+      "jurisdiction": "EU",
+      "designation": "COM(2023) 62",
+      "celex": "52023DC0062",
+      "title": "Průmyslový plán Zelené dohody pro věk s nulovými čistými emisemi",
+      "issuer": "Evropská komise",
+      "date": "2023-02-01",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52023DC0062",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 18×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Ohlašuje Evropskou vodíkovou banku a akt o průmyslu pro nulové čisté emise (nařízení (EU) 2024/1735, jež databáze obsahuje).",
+      "priority": "B",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2023) 156",
+      "jurisdiction": "EU",
+      "designation": "COM(2023) 156",
+      "celex": "52023DC0156",
+      "title": "Sdělení Komise o Evropské vodíkové bance",
+      "issuer": "Evropská komise",
+      "date": "2023-03-16",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52023DC0156",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 226×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Celé sdělení se týká vodíku: nástroj podpory výroby obnovitelného vodíku (aukce) a dovozu.",
+      "priority": "A",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2023) 634",
+      "jurisdiction": "EU",
+      "designation": "COM(2023) 634",
+      "celex": "52023DC0634",
+      "title": "Sdělení o revizi strategického plánu pro energetické technologie (SET)",
+      "issuer": "Evropská komise",
+      "date": "2023-10-20",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52023DC0634",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 14×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Výzkumné a inovační priority EU v energetice včetně vodíkových technologií; vazba na výzkumnou agendu (v databázi Strategická výzkumná agenda, #1257).",
+      "priority": "C",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2024) 63",
+      "jurisdiction": "EU",
+      "designation": "COM(2024) 63",
+      "celex": "52024DC0063",
+      "title": "Zajištění naší budoucnosti: Klimatický cíl pro Evropu na rok 2040 a cesta ke klimatické neutralitě do roku 2050",
+      "issuer": "Evropská komise",
+      "date": "2024-02-06",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52024DC0063",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 8×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Dlouhodobý klimatický rámec; počítá s vodíkem v průmyslu a dopravě.",
+      "priority": "C",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2025) 85",
+      "jurisdiction": "EU",
+      "designation": "COM(2025) 85",
+      "celex": "52025DC0085",
+      "title": "Sdělení o Dohodě o čistém průmyslu: společný plán konkurenceschopnosti a dekarbonizace",
+      "issuer": "Evropská komise",
+      "date": "2025-02-26",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025DC0085",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 16×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Ohlašuje mechanismus pro vodík (agregace poptávky), akt v přenesené pravomoci o nízkouhlíkovém vodíku a podporu dekarbonizace průmyslu vodíkem.",
+      "priority": "A",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2025) 79",
+      "jurisdiction": "EU",
+      "designation": "COM(2025) 79",
+      "celex": "52025DC0079",
+      "title": "Akční plán pro cenově dostupnou energii",
+      "issuer": "Evropská komise",
+      "date": "2025-02-26",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025DC0079",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 5×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Souběžný dokument k Dohodě o čistém průmyslu; dotýká se nízkouhlíkového vodíku a trhů s plynem.",
+      "priority": "C",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2025) 95",
+      "jurisdiction": "EU",
+      "designation": "COM(2025) 95",
+      "celex": "52025DC0095",
+      "title": "Průmyslový akční plán pro evropský automobilový průmysl",
+      "issuer": "Evropská komise",
+      "date": "2025-03-05",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025DC0095",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 2×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Okrajově se týká vodíkových vozidel (bezemisní vozidla, infrastruktura).",
+      "priority": "C",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2025) 1005",
+      "jurisdiction": "EU",
+      "designation": "COM(2025) 1005",
+      "celex": "52025DC1005",
+      "title": "Balíček opatření pro evropské elektrizační soustavy",
+      "issuer": "Evropská komise",
+      "date": "2025-12-10",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025DC1005",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 15×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Plánování a financování energetických sítí; uvádí investiční potřebu vodíkových sítí (240 mld. EUR do roku 2040) a vodíkové koridory mezi prioritními projekty.",
+      "priority": "C",
+      "in_database": false
+    },
+    {
+      "key": "EU:COM(2026) 370",
+      "jurisdiction": "EU",
+      "designation": "COM(2026) 370",
+      "celex": "52026DC0370",
+      "title": "AccelerateEU – energetická unie: Cenově dostupná a bezpečná energie prostřednictvím urychlených opatření",
+      "issuer": "Evropská komise",
+      "date": "2026-04-22",
+      "document_kind": "sdělení Komise",
+      "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52026DC0370",
+      "verification": {
+        "date": "2026-11-19",
+        "method": "Cellar SPARQL (cdm:resource_legal_id_celex, český název, datum dokumentu); anglický text z Cellaru: výraz 'hydrogen' 6×",
+        "note": "EUR-Lex vrací automatizovanému klientovi kód 202 (ochrana proti robotům); adresu jsme proto ověřili existencí dokumentu v Cellaru, jenž je oficiálním úložištěm Úřadu pro publikace."
+      },
+      "relation_to_hydrogen": "Ohlašuje cílený přezkum kritérií výroby obnovitelného vodíku (RFNBO) s ohledem na pomalejší rozvoj trhu, tedy možnou změnu aktů v přenesené pravomoci (EU) 2023/1184 a 2023/1185, jež databáze obsahuje.",
+      "priority": "A",
+      "in_database": false
+    }
+  ]
+}

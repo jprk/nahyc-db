@@ -46,7 +46,10 @@ def _parse_html(html):
     title_el = soup.find("title")
     if title_el and title_el.get_text(strip=True):
         title = _TITLE_SUFFIX_RE.sub("", title_el.get_text(strip=True)).strip()
-        if title:
+        # doc/MPO_PRIPOMINKY.md, krok 0: a page with no act on it (an address
+        # that does not exist) has just the site name as its title — two
+        # documents got "Slov-Lex" as their title that way.
+        if title and title.casefold() != "slov-lex":
             return {"title": title, "description": None}
 
     return None

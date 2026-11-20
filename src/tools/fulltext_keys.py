@@ -12,6 +12,7 @@ import hashlib
 
 URL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
 URL_DESIGNATION_PREFIX = "url-"
+TITLE_DESIGNATION_PREFIX = "title-"
 
 
 def first_url(raw_value):
@@ -37,3 +38,14 @@ def designation(record, url_field):
         return znacka
     url = first_url(record.get(url_field))
     return url_designation(url) if url else ""
+
+
+def title_designation(title):
+    """The designation of a record that has neither a znacka nor an address, from
+    its title with whitespace collapsed (non-breaking spaces included), or "".
+    Only data/manual_corrections.json uses it (build_unified_db.correction_key()):
+    such a record has no full text to file."""
+    normalized = " ".join((title or "").split())
+    if not normalized:
+        return ""
+    return TITLE_DESIGNATION_PREFIX + hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:8]

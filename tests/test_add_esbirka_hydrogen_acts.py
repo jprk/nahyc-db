@@ -193,7 +193,7 @@ class BuildDocumentRecordTestCase(unittest.TestCase):
         self.assertEqual(record["jurisdikce"], "CZ")
         self.assertEqual(record["gestor"], [])
         self.assertEqual(record["jazyk"], "")
-        self.assertIn("Čerpací stanice vodíku", record["anotace_poznamka"])
+        self.assertIn("Čerpací stanice vodíku", record["provenance"])
 
 
 class MainHumanExclusionTestCase(unittest.TestCase):

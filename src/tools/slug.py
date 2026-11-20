@@ -61,9 +61,14 @@ def base_slug(identifier, title):
     return f"doc-{digest}"
 
 
-def assign_slugs(records):
+def assign_slugs(records, pinned=None):
     """Maps each record to a unique slug. `records` is an iterable of
     (key, identifier, title); returns {key: slug}.
+
+    `pinned` ({key: slug}) keeps a record's slug regardless of its
+    identifier — a standard renamed on switching to a new edition keeps
+    its permanent address (norm_editions.py, data/manual_corrections.json
+    `slug`); no other record gets a pinned slug.
 
     Records are processed in a content-derived order — (base slug,
     identifier, title) — so the same corpus always produces the same
@@ -76,10 +81,19 @@ def assign_slugs(records):
     ]
     prepared.sort(key=lambda r: (r[0], r[1], r[2], str(r[3])))
 
+    pinned = dict(pinned or {})
+    reserved = set(pinned.values())
     assigned = {}
     seen_counts = {}
     for base, _identifier, _title, key in prepared:
-        seen_counts[base] = seen_counts.get(base, 0) + 1
-        n = seen_counts[base]
-        assigned[key] = base if n == 1 else f"{base}-{n}"
+        if key in pinned:
+            assigned[key] = pinned[key]
+            continue
+        while True:
+            seen_counts[base] = seen_counts.get(base, 0) + 1
+            n = seen_counts[base]
+            slug = base if n == 1 else f"{base}-{n}"
+            if slug not in reserved:
+                break
+        assigned[key] = slug
     return assigned

@@ -8,7 +8,7 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2018/858/oj"
   },
   "V02_Bibliografie|(ES) 1272/2008|odkaz_hlavni": {
-    "reason": "EUR-Lex gives the CLP regulation (/eli/reg/2008/1272/oj and its HTML view) as an empty page for an automated browser — the text is published as a PDF only; the PDF is the downloadable original, no readable text can be made from it.",
+    "reason": "The CLP regulation is downloaded as the PDF (from Cellar, doc/CELLAR_FULLTEXT.md); its text is made from the PDF. (Until 2026-11-20 the reason was that EUR-Lex gave the HTML view as an empty page to an automated browser; Cellar now has a Czech XHTML of 23 MB too.)",
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272"
   },
   "Sinay_Zakony|(EU) 2023/1185|odkaz_hlavni": {
@@ -43,16 +43,32 @@
     "reason": "The address in the source is dead (404); the Ministry of Transport page for RID 2025 links this PDF (36 MB) — doc/FULLTEXT_COVERAGE.md 4.4.",
     "url": "https://md.gov.cz/getattachment/Dokumenty/Drazni-doprava/Preprava-nebezpecnych-veci-drazni-dopravou/Preprava-nebezpecnych-veci-Obecne-informace/RID-2025.pdf.aspx"
   },
-  "Sinay_Zakony|url-e18c5e80|odkaz_hlavni": {
+  "Sinay_Zakony|(EU) 2022/2427 [SK]|odkaz_hlavni": {
     "reason": "Slov-Lex has no such act: the record is the Slovak language version of Implementing Decision (EU) 2022/2427, whose Slovak text is on EUR-Lex — doc/FULLTEXT_COVERAGE.md 4.1.",
     "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:32022D2427"
   },
-  "Sinay_Zakony|url-86dc0d38|odkaz_hlavni": {
+  "Sinay_Zakony|COM(2020) 301 [SK]|odkaz_hlavni": {
     "reason": "Slov-Lex has no such act: the record is the Slovak language version of the Commission Communication COM(2020) 301 (hydrogen strategy), which is on EUR-Lex — doc/FULLTEXT_COVERAGE.md 4.1.",
     "url": "https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=CELEX:52020DC0301"
   },
-  "Sinay_Zakony|url-fd143b87|odkaz_hlavni": {
+  "Sinay_Zakony|COM(2020) 301|odkaz_hlavni": {
     "reason": "The record (document #79) is the Czech version of Commission Communication COM(2020) 301, but its address is the English page. The Czech version exists only as a Word file, which EUR-Lex serves converted to XHTML at the /CS/TXT/HTML/ address (a page the extractor reads as the dialect of a converted Word file).",
     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:52020DC0301"
+  },
+  "Haltuf_Dokumenty|2014/34/EU|odkaz_hlavni": {
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014L0034",
+    "reason": "The source's PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive, and Cellar does not serve an issue as one act; the downloadable original is the directive's own PDF (CELEX 32014L0034), verified complete — doc/CELLAR_FULLTEXT.md."
+  },
+  "Haltuf_Dokumenty|2014/34/EU|odkaz_eu": {
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32014L0034",
+    "reason": "The source's PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive, and Cellar does not serve an issue as one act; the downloadable original is the directive's own PDF (CELEX 32014L0034), verified complete — doc/CELLAR_FULLTEXT.md."
+  },
+  "Haltuf_Dokumenty|2014/34/EU [EN]|odkaz_hlavni": {
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014L0034",
+    "reason": "The source's PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive, and Cellar does not serve an issue as one act; the downloadable original is the directive's own PDF (CELEX 32014L0034), verified complete — doc/CELLAR_FULLTEXT.md."
+  },
+  "Haltuf_Dokumenty|2014/34/EU [EN]|odkaz_eu": {
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014L0034",
+    "reason": "The source's PDF (OJ:L:2014:096:FULL) is a whole issue of the Official Journal, 380 pages, not the directive, and Cellar does not serve an issue as one act; the downloadable original is the directive's own PDF (CELEX 32014L0034), verified complete — doc/CELLAR_FULLTEXT.md."
   }
 }

@@ -29,6 +29,17 @@ THREE sources (see doc/PLAN.md Step 1 follow-up #16, §6, §15):
    `src/tools/backfill_document_states.py` from the validity check: `REPEALS` from
    the act that repealed a document to the document (document_states.py).
 
+6. `data/document_relations_editor.json` — written by the editor pages of
+   prepared documents (app/drafts_admin.py, state_changes.py): `ENACTED_AS`
+   from a draft to the act it was promulgated as.
+
+A document without an identifier (a strategy, a Slovak act listed by its address)
+is named in these files by the designation made of its address, `url-<hash>`
+(fulltext_keys.py, the same name data/manual_corrections.json and the full-text
+manifest use). A designation that a correction in data/manual_corrections.json
+renames (`znacka`, `merged_into`) is followed to its new name in every file, so
+generated files need not be regenerated after a correction.
+
 Deliberately NOT the same mechanism as a norm's amendment (that's a
 DocumentVersion of the SAME document, populated by
 link_document_versions.py): a law amended by a separate act, or a
@@ -52,31 +63,46 @@ AUTO_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_auto.json"
 SPLIT_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_split.json"
 VARIANTS_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_variants.json"
 VALIDITY_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_validity.json"
+EDITOR_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_editor.json"
 REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "document_relations_review_queue.json"
 
 sys.path.insert(0, str(BASE_DIR))
 from init_db import get_connection  # noqa: E402
+from fulltext_keys import first_url, url_designation  # noqa: E402
 
 VALID_RELATION_TYPES = {"AMENDS", "REPEALS", "IMPLEMENTS", "CONSOLIDATES", "ADOPTS",
-                         "NATIONAL_EQUIVALENT", "TRANSLATION_OF"}
+                         "NATIONAL_EQUIVALENT", "TRANSLATION_OF", "ENACTED_AS"}
 
 
-def load_relation_sources():
+def load_relation_sources(corrections=None):
     """Reads and concatenates every relations source file that exists
     (a missing file — e.g. the auto one, before it's ever been generated
-    — is silently skipped, not an error)."""
+    — is silently skipped, not an error), with the designations renamed by
+    data/manual_corrections.json followed (`corrections`, read from the file
+    when not given)."""
+    from build_unified_db import load_manual_corrections, rename_relation_ends, renamed_designations
     relations = []
     for path in (RELATIONS_PATH, AUTO_RELATIONS_PATH, SPLIT_RELATIONS_PATH, VARIANTS_RELATIONS_PATH,
-                 VALIDITY_RELATIONS_PATH):
+                 VALIDITY_RELATIONS_PATH, EDITOR_RELATIONS_PATH):
         if path.exists():
             with open(path, "r", encoding="utf-8") as f:
                 relations.extend(json.load(f))
-    return relations
+    if corrections is None:
+        corrections = load_manual_corrections()
+    return rename_relation_ends(relations, renamed_designations(corrections))
 
 
 def fetch_document_identifier_map(cursor):
-    cursor.execute("SELECT id, identifier FROM Document WHERE identifier IS NOT NULL")
-    return {identifier: doc_id for doc_id, identifier in cursor.fetchall()}
+    """{name: id}: the identifier of every document that has one, and the
+    `url-<hash>` designation of the address of every document that has none."""
+    cursor.execute("SELECT id, identifier, url FROM Document")
+    names = {}
+    for doc_id, identifier, url in cursor.fetchall():
+        if identifier:
+            names[identifier] = doc_id
+        elif first_url(url):
+            names.setdefault(url_designation(first_url(url)), doc_id)
+    return names
 
 
 def resolve_relations(relations, identifier_map):

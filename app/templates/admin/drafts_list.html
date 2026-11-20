@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="results-section">
+    <div class="results-header">
+        <h2 class="results-title">Připravované dokumenty <span class="badge">{{ drafts|length }}</span></h2>
+        <div class="candidate-actions">
+            <a href="{{ url_for('admin.review_list') }}" class="btn-secondary">Revize dokumentů</a>
+            <a href="{{ url_for('admin.candidate_list') }}" class="btn-secondary">Kandidáti</a>
+            <a href="{{ url_for('admin.logout') }}" class="btn-secondary"><i class="ph ph-sign-out"></i> Odhlásit ({{ session.get('name') }})</a>
+        </div>
+    </div>
+
+    <details class="candidate-help">
+        <summary>Jak převést návrh na vyhlášený předpis</summary>
+        <p>Připravovaný dokument je návrh předpisu nebo normy, který ještě nebyl vyhlášen. Když vyhlášen je:</p>
+        <ol>
+            <li>Otevřít návrh a zvolit, jak skončil: <strong>dokument se stal vyhlášeným předpisem</strong>
+                (doplnit nové označení, např. číslo ve Sbírce nebo EN místo prEN, adresu a datum účinnosti), nebo
+                <strong>vyhlášený předpis je v databázi jako jiný dokument</strong> (uvést jeho označení; návrh se
+                k němu připojí a bude veden jako nahrazený).</li>
+            <li>Vybrat stav předpisu: <strong>vyhlášený, dosud neúčinný</strong>, nebo <strong>účinný</strong>.</li>
+            <li>Návrh potvrzuje <strong>jiný editor</strong>; teprve potom se změna zapíše. Vlastní návrh lze stáhnout.</li>
+        </ol>
+    </details>
+
+    {% if proposed %}
+    <h3>Čeká na potvrzení ({{ proposed|length }})</h3>
+    <div class="table-glass-container">
+        <table class="admin-table candidate-table drafts-proposed">
+            <thead><tr><th>Návrh</th><th>Změna</th><th>Navrhl</th><th></th></tr></thead>
+            <tbody>
+                {% for c in proposed %}
+                <tr>
+                    <td><a href="{{ url_for('admin.draft_detail', document_id=c.document_id) }}" class="candidate-title">{{ c.identifier or '' }}{% if c.identifier %} — {% endif %}{{ c.title|truncate(100) }}</a></td>
+                    <td>{{ target_states.get(c.to_state) }}{% if c.mode == 'act' %}, vyhlášen jako {{ c.target_identifier or c.target_title }}{% elif c.changes.znacka %}, nové označení {{ c.changes.znacka }}{% endif %}</td>
+                    <td>{{ c.proposed_by_name }}</td>
+                    <td class="candidate-open"><a href="{{ url_for('admin.draft_detail', document_id=c.document_id) }}" class="btn-secondary">Otevřít</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <form method="GET" action="{{ url_for('admin.draft_list') }}" class="candidate-filters">
+        <input type="text" name="q" value="{{ query }}" placeholder="hledat v názvu nebo označení">
+        <button type="submit" class="btn-secondary">Filtrovat</button>
+    </form>
+
+    <div class="table-glass-container">
+        <table class="admin-table candidate-table drafts-table">
+            <thead><tr><th>Označení</th><th>Název</th><th>Typ</th><th></th></tr></thead>
+            <tbody>
+                {% for d in drafts %}
+                <tr>
+                    <td class="candidate-designation">{{ d.identifier or '—' }}</td>
+                    <td><a href="{{ url_for('admin.draft_detail', document_id=d.id) }}" class="candidate-title">{{ d.title|truncate(140) }}</a>
+                        {%- if d.id in pending %} <span class="badge">čeká na potvrzení</span>{% endif %}</td>
+                    <td>{{ d.type_name or '—' }}</td>
+                    <td class="candidate-open"><a href="{{ url_for('admin.draft_detail', document_id=d.id) }}" class="btn-secondary">Otevřít</a></td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4">Žádný připravovaný dokument neodpovídá filtru.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if confirmed %}
+    <h3>Naposledy potvrzené změny</h3>
+    <ul class="doc-relations">
+        {% for c in confirmed %}
+        <li><a href="{{ url_for('document_detail', slug=c.slug) }}">{{ c.identifier or c.title|truncate(80) }}</a>
+            — {{ target_states.get(c.to_state) }}{% if c.mode == 'act' %}, vyhlášen jako
+            <a href="{{ url_for('document_detail', slug=c.target_slug) }}">{{ c.target_identifier or c.target_title }}</a>{% endif %}
+            <span style="color: var(--text-secondary);">· navrhl {{ c.proposed_by_name }}, potvrdil {{ c.confirmed_by_name }} {{ c.confirmed_at }}</span></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endblock %}

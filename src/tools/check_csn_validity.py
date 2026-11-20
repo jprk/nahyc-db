@@ -11,6 +11,15 @@ valid at a time, and this page is the authoritative source for which one.
 
 Usage:
     .venv/bin/python src/tools/check_csn_validity.py "ISO 14687" "ISO 19880-1"
+    .venv/bin/python src/tools/check_csn_validity.py --editions "ČSN EN 13445-1" "ČSN EN 13445-2"
+
+Editions in effect and editions not yet in effect (doc/MPO_PRIPOMINKY.md,
+odstavec 5, 2026-11-20): the catalogue lists a newly issued edition as valid
+("platná") from its date of issue, while the edition it replaces stays valid
+until the new one takes effect — the date of effect ("Datum účinnosti", usually
+the first day of the month after the issue) is on the detail page only.
+`editions()` reads it and tells the edition in effect today from an edition
+issued with a later date of effect (`--editions` prints both).
 
 Rate-limited (SLEEP_SECONDS between requests) and meant for occasional,
 targeted lookups against our own ambiguous znacka groups — not a bulk
@@ -233,7 +242,94 @@ def fetch_detail(catalog_number, session):
         "title_en": field("nazeven") or None,
         "incorporates": incorporates,
         "url": url,
+        # "01.12.2026" -> "2026-12-01"; dates of issue, of effect and of withdrawal
+        "issued_on": iso_date(field("datvyd")),
+        "effective_from": iso_date(field("datuc")),
+        "withdrawn_on": iso_date(field("datzru")),
     }
+
+
+def iso_date(text):
+    """"1.1.2027" or "01.01.2027" -> "2027-01-01"; anything else -> None."""
+    m = re.fullmatch(r"\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})\s*", text or "")
+    return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}" if m else None
+
+
+_AMENDMENT_MARK_RE = re.compile(r"\s*\+\s*A\d+\b", re.IGNORECASE)
+
+
+def family(designation):
+    """The designation shared by all editions of a standard: without the catalogue
+    number, the edition mark and consolidated amendments ("ČSN EN 13445-2+A1" and
+    "ČSN EN 13445-2" are editions of one standard), lower case."""
+    base = split_edition(strip_catalog_suffix(designation))[0]
+    return _normalize_designation(_AMENDMENT_MARK_RE.sub("", base))
+
+
+def in_force_on(result, today):
+    """True when a search result is not withdrawn on `today` (ISO date): a
+    withdrawal announced for a later day leaves it in force until then."""
+    if not result.get("withdrawn"):
+        return True
+    withdrawn = iso_date(result["withdrawn"])
+    return bool(withdrawn) and withdrawn > today
+
+
+def editions(session, designation, today, results=None, sleep=SLEEP_SECONDS):
+    """{"current": edition, "upcoming": edition or None} of the standard
+    `designation` on `today` (ISO date), or None when the catalogue has no valid
+    edition of it. An edition is the detail page (fetch_detail()) with the search
+    result's `issued` and `catalog_number`; `current` is the edition in force with
+    the latest date of effect not after `today`, `upcoming` the edition with the
+    earliest date of effect after it (issued, not yet in effect). Amendment rows
+    ("Změna ke stažení") are not editions. `results` (a search() result) saves the
+    search."""
+    if results is None:
+        query = re.sub(r"^ČSN\s+", "", split_edition(strip_catalog_suffix(designation))[0])
+        results = search(session, _AMENDMENT_MARK_RE.sub("", query))
+    target = family(designation)
+    pool = [r for r in results if r.get("title") and not _AMENDMENT_TITLE_RE.match(r["title"])
+            and family(r.get("designation", "")) == target and in_force_on(r, today) and r.get("catalog_number")]
+    found = []
+    for index, result in enumerate(sorted(pool, key=lambda r: _parse_issued(r.get("issued", "")))):
+        if index and sleep:
+            time.sleep(sleep)
+        detail = fetch_detail(result["catalog_number"], session)
+        if detail is None:
+            continue
+        found.append({**detail, "issued": result.get("issued"), "catalog_number": result["catalog_number"]})
+    return pick_editions(found, today)
+
+
+def pick_editions(found, today):
+    """The `current` and `upcoming` editions among `found` (see editions())."""
+    def effective(e):
+        return e.get("effective_from") or "0000-00-00"
+    in_force = [e for e in found if effective(e) <= today]
+    later = [e for e in found if effective(e) > today]
+    if not in_force and not later:
+        return None
+    current = max(in_force, key=lambda e: (effective(e), _parse_issued(e.get("issued", "")))) if in_force else None
+    upcoming = min(later, key=effective) if later else None
+    if current is None:  # a new standard that has not yet taken effect
+        current, upcoming = upcoming, None
+    return {"current": current, "upcoming": upcoming}
+
+
+def print_editions(session, designations, today):
+    for idx, designation in enumerate(designations):
+        if idx > 0:
+            time.sleep(SLEEP_SECONDS)
+        found = editions(session, designation, today)
+        print(f"=== {designation} ===")
+        if not found:
+            print("  (no valid edition)")
+            continue
+        for role in ("current", "upcoming"):
+            e = found[role]
+            if e:
+                print(f"  {role:8} {e['designation']} | vydána {e.get('issued')} | účinná od {e.get('effective_from')}"
+                      f" | {e['url']}")
 
 
 def main():
@@ -243,6 +339,11 @@ def main():
 
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
+
+    if sys.argv[1] == "--editions":
+        import datetime
+        print_editions(session, sys.argv[2:], datetime.date.today().isoformat())
+        return
 
     for idx, query in enumerate(sys.argv[1:]):
         if idx > 0:

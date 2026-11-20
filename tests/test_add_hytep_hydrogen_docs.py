@@ -63,17 +63,17 @@ class IsSkippedDuplicateTestCase(unittest.TestCase):
 
 class ClassifyHytepDocumentTypTestCase(unittest.TestCase):
     def test_strategy_document(self):
-        self.assertEqual(classify_hytep_document_typ("Vodíková strategie EU (2020)"), "Strategický dokument")
+        self.assertEqual(classify_hytep_document_typ("Vodíková strategie EU (2020)"), "Strategie")
 
     def test_action_plan_with_inflected_form(self):
         self.assertEqual(
             classify_hytep_document_typ("Aktualizace Národního akčního plánu čisté mobility (2019)"),
-            "Strategický dokument")
+            "Strategie")
 
     def test_roadmap(self):
         self.assertEqual(
             classify_hytep_document_typ("Cestovní mapa rozvoje vodíkového hospodářství (2023)"),
-            "Strategický dokument")
+            "Strategie")
 
     def test_instruction_is_methodology(self):
         self.assertEqual(
@@ -98,7 +98,7 @@ class ClassifyHytepDocumentTypTestCase(unittest.TestCase):
         # is checked first since it's the title's own primary descriptor.
         self.assertEqual(
             classify_hytep_document_typ("Strategická výzkumná agenda pro rozvoj vodíkového hospodářství (2023)"),
-            "Strategický dokument")
+            "Strategie")
 
     def test_genuinely_unclear_title_returns_empty_string(self):
         self.assertEqual(classify_hytep_document_typ("Dovoz obnovitelného vodíku do ČR (2024)"), "")
@@ -124,7 +124,7 @@ class BuildDocumentRecordTestCase(unittest.TestCase):
         self.assertEqual(record["jurisdikce"], "CZ")
         self.assertEqual(record["gestor"], [])
         self.assertEqual(record["jazyk"], "")
-        self.assertIn("HYTEP", record["anotace_poznamka"])
+        self.assertIn("HYTEP", record["provenance"])
 
 
 if __name__ == "__main__":

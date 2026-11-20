@@ -23,7 +23,7 @@ import json
 import pathlib
 
 import citation_closure as cc
-from language_variants import EN_SUFFIX
+from language_variants import is_variant
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
@@ -48,6 +48,11 @@ def state_of(identifier, title, cache):
         if state:
             return state
     return None
+
+
+def in_effect(identifier, title, cache):
+    """True when the validity check found the document in effect (`účinný`)."""
+    return any(cache.get(key, {}).get("status") == "účinný" for key in cc.own_keys(identifier, title))
 
 
 def current_state(classified, identifier, title, cache):
@@ -79,7 +84,7 @@ def repeal_relations(documents, cache):
             for successor in entry.get("repealed_by", []):
                 names = by_key.get(successor, [])
                 # the repealing act once, not each of its language variants
-                for successor_identifier in [n for n in names if not n.endswith(EN_SUFFIX)] or names[:1]:
+                for successor_identifier in [n for n in names if not is_variant(n)] or names[:1]:
                     relations.append({"from_identifier": successor_identifier, "to_identifier": identifier,
                                       "relation_type": "REPEALS", "note": note})
     unique = {(r["from_identifier"], r["to_identifier"]): r for r in relations}

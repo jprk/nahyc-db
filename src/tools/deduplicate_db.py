@@ -340,7 +340,7 @@ def programmatic_merge(cluster_records):
                 sources.append(src)
         for field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk", "nazev_eu", "nazev_sk",
                       "platnost", "ratifikovan", "jazyk", "typ_dokumentu", "sekce",
-                      "kategorie_trida", "anotace_poznamka",
+                      "kategorie_trida", "anotace_poznamka", "provenance",
                       # doc/PLAN.md §9, 2026-09-13: a real bug found live —
                       # "best" (longest nazev_cz) isn't necessarily the
                       # cluster member that actually resolved an
@@ -433,6 +433,21 @@ def _jurisdikce_conflict(a, b):
     return _jurisdikce_known(a) and _jurisdikce_known(b) and a != b
 
 
+# Records added by hand after a check that they are not in the database
+# (doc/MPO_PRIPOMINKY.md, krok 1: the strategies of data/strategy_documents.json).
+# Similar titles are no evidence against that check: the 2024 National Action
+# Plan for Clean Mobility is a different document from the 2019 one it replaces,
+# yet the language model merged the two. They still merge on a shared
+# designation or authoritative address.
+HAND_VERIFIED_SOURCES = frozenset({"Strategy_Research"})
+
+
+def is_hand_verified(item):
+    """True for a record whose every source is in HAND_VERIFIED_SOURCES."""
+    sources = {s.strip() for s in (item.get("zdroj_dat") or "").split(",") if s.strip()}
+    return bool(sources) and sources <= HAND_VERIFIED_SOURCES
+
+
 def build_clusters(valid_data, similarity_threshold=0.85):
     """Groups records (each already carrying a pre-computed '_embedding')
     into clusters: a deterministic pass unions any records sharing a core
@@ -508,11 +523,14 @@ def build_clusters(valid_data, similarity_threshold=0.85):
                 break
         bucket.append(i)
 
+    hand_verified = [is_hand_verified(item) for item in valid_data]
     for i in range(n):
         for j in range(i + 1, n):
             if uf.find(i) == uf.find(j):
                 continue
             if znacka_of[i] and znacka_of[j] and znacka_of[i] != znacka_of[j]:
+                continue
+            if hand_verified[i] or hand_verified[j]:
                 continue
             sim = cosine_similarity(valid_data[i]["_embedding"], valid_data[j]["_embedding"])
             if sim > similarity_threshold:

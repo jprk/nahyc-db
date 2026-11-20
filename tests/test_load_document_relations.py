@@ -81,6 +81,46 @@ class DedupeResolvedRelationsTestCase(unittest.TestCase):
         self.assertEqual(dedupe_resolved_relations(resolved), resolved)
 
 
+class NamesTestCase(unittest.TestCase):
+    """doc/MPO_PRIPOMINKY.md, krok 1: a document without an identifier is named by
+    the designation made of its address; a designation renamed by a correction is
+    followed in every relation file."""
+
+    class Cursor:
+        def __init__(self, rows):
+            self.rows = rows
+
+        def execute(self, sql, params=None):
+            pass
+
+        def fetchall(self):
+            return self.rows
+
+    def test_a_document_without_identifier_is_named_by_its_address(self):
+        from fulltext_keys import url_designation
+        names = ldr.fetch_document_identifier_map(self.Cursor([(1, "A", "https://a"), (2, None, "https://b"),
+                                                               (3, None, None)]))
+        self.assertEqual(names, {"A": 1, url_designation("https://b"): 2})
+
+    def test_renamed_designations_are_followed(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        path = pathlib.Path(tmp.name) / "auto.json"
+        path.write_text(json.dumps([{"from_identifier": "x", "to_identifier": "2018/858/ES", "relation_type": "IMPLEMENTS"}]),
+                        encoding="utf-8")
+        original = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
+                    ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH)
+        missing = pathlib.Path(tmp.name) / "missing.json"
+        (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
+         ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = (missing, path, missing, missing, missing, missing)
+        try:
+            relations = ldr.load_relation_sources({"2018/858/ES": {"changes": {"znacka": "(EU) 2018/858 [SK]"}}})
+        finally:
+            (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
+             ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = original
+        self.assertEqual(relations[0]["to_identifier"], "(EU) 2018/858 [SK]")
+
+
 class LoadRelationSourcesTestCase(unittest.TestCase):
     """doc/PLAN.md §15: a third source file (build-time NATIONAL_EQUIVALENT
     pairs) is merged in alongside the existing two — missing files are
@@ -95,16 +135,18 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
         self.split = base / "document_relations_split.json"
         self.variants = base / "document_relations_variants.json"
         self.validity = base / "document_relations_validity.json"
+        self.editor = base / "document_relations_editor.json"
 
         self._orig = (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
-                      ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH)
+                      ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH)
         (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH, ldr.VARIANTS_RELATIONS_PATH,
-         ldr.VALIDITY_RELATIONS_PATH) = (self.hand, self.auto, self.split, self.variants, self.validity)
+         ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = (self.hand, self.auto, self.split, self.variants,
+                                                                    self.validity, self.editor)
         self.addCleanup(self._restore_paths)
 
     def _restore_paths(self):
         (ldr.RELATIONS_PATH, ldr.AUTO_RELATIONS_PATH, ldr.SPLIT_RELATIONS_PATH,
-         ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH) = self._orig
+         ldr.VARIANTS_RELATIONS_PATH, ldr.VALIDITY_RELATIONS_PATH, ldr.EDITOR_RELATIONS_PATH) = self._orig
 
     def test_merges_all_three_when_present(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")
@@ -123,6 +165,11 @@ class LoadRelationSourcesTestCase(unittest.TestCase):
     def test_the_validity_file_is_read_too(self):
         self.validity.write_text(json.dumps([{"relation_type": "REPEALS"}]), encoding="utf-8")
         self.assertEqual([r["relation_type"] for r in ldr.load_relation_sources()], ["REPEALS"])
+
+    def test_the_editor_file_is_read_too_and_its_type_is_valid(self):
+        self.editor.write_text(json.dumps([{"relation_type": "ENACTED_AS"}]), encoding="utf-8")
+        self.assertEqual([r["relation_type"] for r in ldr.load_relation_sources()], ["ENACTED_AS"])
+        self.assertIn("ENACTED_AS", ldr.VALID_RELATION_TYPES)
 
     def test_missing_split_file_is_silently_skipped(self):
         self.hand.write_text(json.dumps([{"relation_type": "AMENDS"}]), encoding="utf-8")

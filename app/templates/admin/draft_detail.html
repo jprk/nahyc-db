@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-card" style="max-width: 860px;">
+    <p><a href="{{ url_for('admin.draft_list') }}">&larr; Připravované dokumenty</a></p>
+    <h2 style="margin-bottom: 0.5rem;">{{ d.identifier or 'Dokument bez označení' }}</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Stav: <strong>{{ lifecycle.get(d.lifecycle_state, d.lifecycle_state) }}</strong>
+        {% if d.type_name %} &middot; {{ d.type_name }}{% endif %}
+        &middot; <a href="{{ url_for('document_detail', slug=d.slug) }}">stránka dokumentu</a>
+    </p>
+
+    <table class="admin-table draft-meta" style="margin-bottom: 1.5rem;">
+        <tbody>
+            <tr><th>Název</th><td>{{ d.title }}</td></tr>
+            <tr><th>Adresa</th><td>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.url }}</a>{% else %}—{% endif %}</td></tr>
+            <tr><th>Platnost od</th><td>{{ d.effective_date or '—' }}</td></tr>
+            <tr><th>Jazyk / jurisdikce</th><td>{{ d.language or '—' }} / {{ d.jurisdikce or '—' }}</td></tr>
+        </tbody>
+    </table>
+
+    {% if open_change %}
+    <h3>Navržená změna</h3>
+    <table class="admin-table state-change" style="margin-bottom: 1rem;">
+        <tbody>
+            <tr><th>Jak návrh skončil</th><td>{{ modes.get(open_change.mode) }}</td></tr>
+            <tr><th>Nový stav</th><td>{{ target_states.get(open_change.to_state) }}</td></tr>
+            {% if open_change.mode == 'act' %}
+            <tr><th>Vyhlášený předpis</th><td><a href="{{ url_for('document_detail', slug=open_change.target_slug) }}">{{ open_change.target_identifier }} — {{ open_change.target_title|truncate(100) }}</a></td></tr>
+            {% endif %}
+            {% for field, value in open_change.changes.items() %}
+            <tr><th>{{ {'znacka': 'Nové označení', 'nazev_cz': 'Nový název', 'odkaz_hlavni': 'Nová adresa', 'platnost': 'Platnost od'}[field] }}</th><td>{{ value }}</td></tr>
+            {% endfor %}
+            {% if open_change.note %}<tr><th>Poznámka</th><td>{{ open_change.note }}</td></tr>{% endif %}
+            <tr><th>Navrhl</th><td>{{ open_change.proposed_by_name }} ({{ open_change.proposed_at }})</td></tr>
+        </tbody>
+    </table>
+    {% if open_change.proposed_by_user_id == session.get('user_id') %}
+    <p class="flash flash-success">Váš návrh čeká na potvrzení jiným editorem.</p>
+    <form method="POST" action="{{ url_for('admin.draft_withdraw', change_id=open_change.id) }}">
+        <button type="submit" class="btn-secondary">Stáhnout návrh</button>
+    </form>
+    {% else %}
+    <form method="POST" action="{{ url_for('admin.draft_confirm', change_id=open_change.id) }}">
+        <button type="submit" class="btn-primary">Potvrdit změnu stavu</button>
+    </form>
+    {% endif %}
+
+    {% elif d.lifecycle_state == 'draft' %}
+    <h3>Návrh byl vyhlášen</h3>
+    <p style="color: var(--text-secondary);">Změnu potvrzuje jiný editor; teprve potom se zapíše.</p>
+    <form method="POST" action="{{ url_for('admin.draft_propose', document_id=d.id) }}" class="state-change-form">
+        <fieldset class="admin-form-group">
+            <legend>Stav vyhlášeného předpisu</legend>
+            {% for value, label in target_states.items() %}
+            <label class="scope-area"><input type="radio" name="to_state" value="{{ value }}"{% if loop.first %} checked{% endif %}> {{ label }}</label>
+            {% endfor %}
+        </fieldset>
+
+        <fieldset class="admin-form-group">
+            <legend><label><input type="radio" name="mode" value="self" checked> {{ modes['self']|capitalize }}</label></legend>
+            <p style="color: var(--text-secondary);">Vyplňte jen to, co se mění (prázdné pole zůstane beze změny).</p>
+            <div class="admin-form-group">
+                <label for="znacka">Nové označení</label>
+                <input type="text" id="znacka" name="znacka" value="" placeholder="např. 123/2027 Sb., EN 17124:2027">
+            </div>
+            <div class="admin-form-group">
+                <label for="nazev_cz">Název</label>
+                <textarea id="nazev_cz" name="nazev_cz" rows="2">{{ d.title }}</textarea>
+            </div>
+            <div class="admin-form-group">
+                <label for="odkaz_hlavni">Adresa vyhlášeného předpisu</label>
+                <input type="text" id="odkaz_hlavni" name="odkaz_hlavni" value="{{ d.url or '' }}">
+            </div>
+            <div class="admin-form-group">
+                <label for="platnost">Platnost (účinnost) od</label>
+                <input type="text" id="platnost" name="platnost" value="" placeholder="např. 1. 1. 2028">
+            </div>
+        </fieldset>
+
+        <fieldset class="admin-form-group">
+            <legend><label><input type="radio" name="mode" value="act"> {{ modes['act']|capitalize }}</label></legend>
+            <div class="admin-form-group">
+                <label for="target">Označení vyhlášeného předpisu v databázi</label>
+                <input type="text" id="target" name="target" value="" placeholder="přesně jako v databázi, např. ISO 19885-2">
+            </div>
+        </fieldset>
+
+        <div class="admin-form-group">
+            <label for="note">Poznámka (odkud víte, že byl vyhlášen)</label>
+            <textarea id="note" name="note" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Navrhnout změnu stavu</button>
+    </form>
+    {% else %}
+    <p>Dokument není připravovaný; jeho stav se mění jen kontrolou platnosti.</p>
+    {% endif %}
+
+    {% if history %}
+    <h3>Historie změn stavu</h3>
+    <ul class="doc-relations">
+        {% for c in history %}
+        <li>{{ status_labels.get(c.status, c.status) }}: {{ target_states.get(c.to_state) }}{% if c.mode == 'act' %}, vyhlášen jako {{ c.target_identifier or c.target_title }}{% endif %}
+            {%- if c.document_id != d.id %} (návrh {{ c.identifier or c.title|truncate(60) }}){% endif %}
+            <span style="color: var(--text-secondary);">· navrhl {{ c.proposed_by_name }} {{ c.proposed_at }}{% if c.confirmed_by_name %}, potvrdil {{ c.confirmed_by_name }} {{ c.confirmed_at }}{% endif %}</span></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

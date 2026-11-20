@@ -1,0 +1,12 @@
+# Návrh (NEINSTALOVÁNO): čtvrtletně technická pravidla, metodiky a odborné publikace.
+[Unit]
+Description=NAHYC H2DB: čtvrtletní sběr zdrojů
+
+[Timer]
+OnCalendar=*-01,04,07,10-03 05:30
+RandomizedDelaySec=15min
+Persistent=true
+Unit=h2db-harvest@quarterly.service
+
+[Install]
+WantedBy=timers.target

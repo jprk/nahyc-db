@@ -31,6 +31,13 @@ Usage:
     .venv/bin/python src/tools/fetch_fulltext.py --audit [--apply]
     .venv/bin/python src/tools/fetch_fulltext.py --only "Sinay_Zakony|56/2001 Sb.|odkaz_eu"
     .venv/bin/python src/tools/fetch_fulltext.py --host slov-lex.sk
+    .venv/bin/python src/tools/fetch_fulltext.py --only KEY --out-dir data/fulltext_<worktree>
+
+`--out-dir` (2026-11-20) keeps the downloaded files out of `data/fulltext/`: in
+a worktree, `data/fulltext/` is a link to the main tree, which serves the web.
+The files go to the given directory, the manifest still names them
+`data/fulltext/<name>` — where they belong once copied there after the merge
+(`cp -n <dir>/* data/fulltext/`).
 """
 import argparse
 import datetime
@@ -38,11 +45,14 @@ import hashlib
 import json
 import pathlib
 import re
+import sys
 import time
 
 import requests
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))  # src/, for sites/
 import language_variants
+from sites.eurlex import fetch_cellar  # noqa: E402
 from fulltext_keys import first_url, url_designation  # noqa: F401 (first_url is part of this module's API)
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -180,7 +190,7 @@ def record_language(record):
     return language if confident else None
 
 
-def iter_fetch_targets(raw_data, overrides=None):
+def iter_fetch_targets(raw_data, overrides=None, consolidations=None):
     """Yields (record, url_field, url) for every law record with a
     non-empty znacka and a populated URL field. Records with no znacka
     (a small, disclosed residual — see doc/PLAN.md Step 1) are skipped:
@@ -189,8 +199,17 @@ def iter_fetch_targets(raw_data, overrides=None):
     of an act that also has a Czech row is yielded under the designation
     `<znacka> [EN]` (language_variants.py). An EUR-Lex PDF
     address is followed by the address of the same document as HTML
-    (`html_alternative`) under the field `<field>_html`."""
+    (`html_alternative`) under the field `<field>_html`.
+
+    An act listed in data/eu_consolidated_acts.json (eu_consolidations.py) also
+    yields its consolidated version in effect today, under the field
+    `konsolidace_<YYYYMMDD>`, once per designation. `consolidations` =
+    {designation: (field, address)}; None reads the data files."""
     overrides = overrides or {}
+    if consolidations is None:
+        import eu_consolidations
+        consolidations = eu_consolidations.fetch_targets()
+    consolidations = dict(consolidations)
     pairs = language_variants.variant_pairs(raw_data)
     for raw_record in raw_data:
         if not is_fetchable_source(raw_record.get("typ_dokumentu", "")):
@@ -218,10 +237,14 @@ def iter_fetch_targets(raw_data, overrides=None):
                     alternative = twin["url"]
                 if alternative:  # a second manifest entry, key field "<field>_html"
                     yield record, url_field + HTML_SUFFIX, alternative
+        own = variant or (raw_record.get("znacka") or "").strip()
+        consolidation = consolidations.pop(own, None) if own else None
+        if consolidation:  # the consolidated version in effect (eu_consolidations.py), once per act
+            yield {**raw_record, "znacka": own}, consolidation[0], consolidation[1]
 
 
 def extension_from_url(url, content_type=None):
-    m = re.search(r"\.(pdf|html?|xml)(?:[?#]|$)", url, re.IGNORECASE)
+    m = re.search(r"\.(pdf|html?|xml|docx)(?:[?#]|$)", url, re.IGNORECASE)
     if m:
         ext = m.group(1).lower()
         return "html" if ext == "htm" else ext
@@ -322,19 +345,18 @@ def is_document_page(url, content, content_type="", znacka=None):
     return True, ""
 
 
-def is_waf_challenge(status_code, content):
-    """EUR-Lex's firewall answers automated clients with HTTP 202 and an empty
-    body (an interstitial that only a real browser completes)."""
-    return status_code == 202 or not content
+def is_eurlex(url):
+    return "eur-lex.europa.eu" in (url or "")
 
 
 def needs_browser(url, status_code, content):
-    """True when plain HTTP cannot give the document: EUR-Lex's firewall
-    challenge, or any Slov-Lex page (a single-page app whose HTML is an empty
-    shell until a browser runs it)."""
-    if "slov-lex.sk" in url:
-        return True
-    return "eur-lex.europa.eu" in url and is_waf_challenge(status_code, content)
+    """True when plain HTTP cannot give the document: a Slov-Lex page (a
+    single-page app whose HTML is an empty shell until a browser runs it).
+    Never for EUR-Lex (2026-11-20, doc/CELLAR_FULLTEXT.md): its pages answer
+    automated clients with a firewall challenge, and a browser that passes that
+    challenge circumvents the site's protection against robots — the text of an
+    EUR-Lex act comes from Cellar only (`fetch_one`)."""
+    return "slov-lex.sk" in (url or "")
 
 
 _SLOVLEX_READY = "div.predpis .predpisOznacenie, tr.effectivenessHistoryItem"
@@ -351,44 +373,20 @@ def _slovlex_latest_version_url(page):
     return hrefs[-1] if hrefs else None
 
 
-def is_eurlex_pdf(url):
-    return "eur-lex.europa.eu" in url and "/TXT/PDF/" in url
-
-
-def _fetch_eurlex_pdf_with_browser(url, timeout_ms):
-    """A PDF cannot be 'rendered', but the firewall that answers plain HTTP with
-    a challenge lets a browser context through once it has loaded a page of the
-    site; the context's own request client can then download the file."""
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        try:
-            context = browser.new_context()
-            page = context.new_page()
-            page.goto("https://eur-lex.europa.eu/homepage.html", wait_until="domcontentloaded", timeout=timeout_ms)
-            page.wait_for_timeout(3000)
-            response = context.request.get(url, timeout=timeout_ms * 3)
-            return response.status, response.body(), response.headers.get("content-type", "")
-        finally:
-            browser.close()
-
-
 def fetch_with_browser(url, timeout_ms=45000):
     """(status, content, content_type) of the page rendered by headless
     Chromium (Playwright, see requirements-optional.txt), or None when
-    Playwright is not installed or the browser fails. Used when plain HTTP got
-    a firewall challenge (EUR-Lex) or an empty shell (Slov-Lex)."""
+    Playwright is not installed or the browser fails. Used only for Slov-Lex,
+    whose pages are an empty shell until a browser runs them; refused for
+    EUR-Lex (see needs_browser)."""
+    if is_eurlex(url):
+        raise ValueError("EUR-Lex is never opened in a browser; its texts come from Cellar")
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         return None
-    if is_eurlex_pdf(url):
-        try:
-            return _fetch_eurlex_pdf_with_browser(url, timeout_ms)
-        except Exception:
-            return None
     slovlex = "slov-lex.sk" in url
-    ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly, .eli-container, p.oj-doc-ti"
+    ready = _SLOVLEX_READY
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -415,7 +413,7 @@ def fetch_with_browser(url, timeout_ms=45000):
         return None
 
 
-def fetch_one(session, record, url_field, url):
+def fetch_one(session, record, url_field, url, out_dir=None):
     """Performs the actual HTTP GET and returns a manifest entry dict.
     Never raises — network/HTTP failures are recorded as a `failed`
     status so one bad URL doesn't abort the whole run. A response that is
@@ -423,23 +421,36 @@ def fetch_one(session, record, url_field, url):
     too, and is never written to disk."""
     znacka = record["znacka"].strip()
     now = datetime.datetime.now().isoformat(timespec="seconds")
-    try:
-        resp = session.get(url, timeout=30)
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        return {
-            "status": "failed",
-            "url": url,
-            "http_status": getattr(exc.response, "status_code", None),
-            "error": str(exc),
-            "fetched_at": now,
-        }
-    status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
-
-    if needs_browser(url, status, content):
-        browsed = fetch_with_browser(url)
-        if browsed:
-            status, content, content_type = browsed
+    # An EUR-Lex address is downloaded from Cellar, the Publications Office's
+    # repository (src/sites/eurlex.py) — a CELEX number in the address, or the one
+    # Cellar gives for its ELI or Official Journal id. EUR-Lex itself is never
+    # contacted: it answers automated clients with a firewall challenge.
+    if is_eurlex(url):
+        found = fetch_cellar(url)
+        if not found:
+            return {"status": "failed", "url": url, "http_status": None, "fetched_at": now,
+                    "error": "not available from Cellar (no CELEX number for the address, "
+                             "or no manifestation in its language and format)"}
+        status, content, content_type = found["status"], found["content"], found["content_type"]
+        via = {"via": "cellar", "celex": found.get("celex")}
+    else:
+        via = {}
+        try:
+            resp = session.get(url, timeout=30)
+            resp.raise_for_status()
+        except requests.RequestException as exc:
+            return {
+                "status": "failed",
+                "url": url,
+                "http_status": getattr(exc.response, "status_code", None),
+                "error": str(exc),
+                "fetched_at": now,
+            }
+        status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
+        if needs_browser(url, status, content):
+            browsed = fetch_with_browser(url)
+            if browsed:
+                status, content, content_type = browsed
 
     ok, reason = is_document_page(url, content, content_type, znacka)
     if not ok:
@@ -447,18 +458,22 @@ def fetch_one(session, record, url_field, url):
 
     ext = extension_from_url(url, content_type)
     sha256 = hashlib.sha256(content).hexdigest()
-    FULLTEXT_DIR.mkdir(parents=True, exist_ok=True)
-    local_path = FULLTEXT_DIR / flat_name(znacka, sha256, ext)
-    if not local_path.exists():  # same content already stored: nothing to write
-        local_path.write_bytes(content)
+    name = flat_name(znacka, sha256, ext)
+    store = pathlib.Path(out_dir) if out_dir else FULLTEXT_DIR
+    store.mkdir(parents=True, exist_ok=True)
+    stored = store / name
+    if not stored.exists() and not (FULLTEXT_DIR / name).exists():  # same content already stored: nothing to write
+        stored.write_bytes(content)
 
     return {
         "status": "fetched",
         "url": url,
-        "local_path": str(local_path.relative_to(REPO_ROOT)),
+        # with `out_dir`, where the file belongs after the merge
+        "local_path": str((FULLTEXT_DIR / name).relative_to(REPO_ROOT)),
         "http_status": status,
         "sha256": sha256,
         "fetched_at": now,
+        **via,
     }
 
 
@@ -496,6 +511,26 @@ def audit_manifest(manifest, repo_root=REPO_ROOT, apply=False):
     return bad
 
 
+def load_records():
+    """The records whose texts are fetched: the raw data, the candidates accepted on
+    /admin/candidates (in the database before the next rebuild of the raw data),
+    with the confirmed corrections applied (a wrong designation changes the manifest
+    key and address too; a record excluded or merged into another has none)."""
+    with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
+    if accepted_path.exists():
+        raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
+    import build_unified_db
+    corrections = build_unified_db.load_manual_corrections()
+    return [record for record in raw_data if build_unified_db.apply_manual_corrections(record, corrections)]
+
+
+def load_targets(consolidations=None):
+    """iter_fetch_targets() over load_records(), with the URL overrides."""
+    return iter_fetch_targets(load_records(), load_url_overrides(), consolidations)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, default=None,
@@ -514,6 +549,10 @@ def main():
                               "(search-results pages, empty files) failed and delete them with --apply; "
                               "then exit (run again without --audit to fetch them from the right address)")
     parser.add_argument("--apply", action="store_true", help="with --audit: really change the manifest and delete")
+    parser.add_argument("--out-dir", default=None, metavar="DIR",
+                        help="store the downloaded files in DIR instead of data/fulltext/ (a worktree: data/fulltext/ "
+                             "is the main tree's); the manifest names them data/fulltext/<name>, where they go after "
+                             "the merge")
     args = parser.parse_args()
 
     if args.audit:
@@ -526,18 +565,6 @@ def main():
         print(f"{len(bad)} stored files are not the document" + ("" if args.apply else " (dry run — add --apply)"))
         return
 
-    with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
-        raw_data = json.load(f)
-    # candidates accepted on /admin/candidates are in the database before the next rebuild of the raw data
-    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
-    if accepted_path.exists():
-        raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
-    # a confirmed correction (e.g. a wrong designation) changes the manifest key and address too
-    import build_unified_db
-    corrections = build_unified_db.load_manual_corrections()
-    for record in raw_data:
-        build_unified_db.apply_manual_corrections(record, corrections)
-
     manifest = load_manifest()
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
@@ -545,7 +572,7 @@ def main():
     fetched_count = 0
     run_cache = {}  # (znacka, url) -> entry: the same address under two fields is fetched once
     seen_keys = set()  # the raw data can list one (source, designation) twice, with different addresses
-    for record, url_field, url in iter_fetch_targets(raw_data, load_url_overrides()):
+    for record, url_field, url in load_targets():
         key = manifest_key(record["zdroj_dat"], record["znacka"].strip(), url_field)
         if key in seen_keys:
             continue  # the first record decides, as it always did
@@ -569,7 +596,7 @@ def main():
         if fetched_count > 0:
             time.sleep(SLEEP_SECONDS)
         print(f"[{record['zdroj_dat']}] {record['znacka']} ({url_field}) -> {url}")
-        manifest[key] = fetch_one(session, record, url_field, url)
+        manifest[key] = fetch_one(session, record, url_field, url, args.out_dir)
         if manifest[key]["status"] == "fetched":
             run_cache[(record["znacka"].strip(), url)] = manifest[key]
         print(f"  {manifest[key]['status']}")

@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import pathlib
@@ -9,6 +10,10 @@ from dotenv import load_dotenv
 from language import detect_language, normalize_raw_language, resolve_domain_language_override
 from norm_title import format_norm_title
 import document_states
+import eu_consolidations
+import norm_editions
+import eu_act_subtype
+import status_checks
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
@@ -146,6 +151,16 @@ def load_fulltext_manifest():
     return {}
 
 
+_CONSOLIDATIONS = []
+
+
+def _consolidation_data():
+    """(config, cache) of eu_consolidations.py, read once per run."""
+    if not _CONSOLIDATIONS:
+        _CONSOLIDATIONS.extend((eu_consolidations.load_config(), eu_consolidations.load_cache()))
+    return _CONSOLIDATIONS
+
+
 def resolve_file_path(item, manifest):
     """R1.7: returns the locally-cached full-text path for this record, or
     None. The manifest is keyed by the RAW per-source "zdroj_dat|znacka|
@@ -158,6 +173,12 @@ def resolve_file_path(item, manifest):
     its own is_norm_designation()), the fetch failed, or it hasn't run
     yet — but note this alone is not the access-control mechanism (see
     RESTRICTED_DOCUMENT_TYPES above), only a best-effort input to it."""
+    # eu_consolidations.py: an act listed in data/eu_consolidated_acts.json shows its
+    # consolidated version in effect, once its text is downloaded
+    shown = eu_consolidations.displayed_file((item.get("znacka") or "").strip(), manifest,
+                                             datetime.date.today().isoformat(), *_consolidation_data())
+    if shown:
+        return shown
     sources = [s for s in (item.get("zdroj_dat") or "").split(", ") if s]
     for source in sources:
         for url_field in ("odkaz_hlavni", "odkaz_eu", "odkaz_sk"):
@@ -367,6 +388,31 @@ def classify_lifecycle_state(platnost, is_current):
     return "active"
 
 
+def current_version_state(item, classified, identifier, title, validity_cache):
+    """The state of a record's current version: an editor's confirmed state
+    (`stav_dokumentu`, data/manual_corrections.json, app/drafts_admin.py) replaces
+    the one read from the record's text; the validity check (document_states.py)
+    then overrides `active`/`promulgated` as before. A draft superseded by its
+    promulgated act stays `superseded`."""
+    override = (item.get("stav_dokumentu") or "").strip()
+    if override in document_states.STATES:
+        if override in ("superseded", "draft"):
+            return override
+        classified = override
+    return document_states.current_state(classified, identifier, title, validity_cache)
+
+
+def last_state_check(item, identifier, title, cache):
+    """(ISO date, label) of the latest check of the record's state: the caches of
+    the checks (status_checks.py) or an editor's confirmation (`stav_overen`,
+    `stav_overil`), whichever is newer; None when there is none."""
+    found = status_checks.last_check(identifier, title, cache)
+    editor = (item.get("stav_overen") or "").strip()[:10]
+    if editor and (found is None or editor > found[0]):
+        return editor, item.get("stav_overil") or status_checks.editor_label(None)
+    return found
+
+
 def resolve_document_versions(item):
     """Returns the DocumentVersion rows to insert for this record, in
     order, numbered 1..N: one per entry in its "versions" list (built by
@@ -509,9 +555,12 @@ def import_json_data(db_conn):
     gestor_jurisdiction_map = build_gestor_jurisdiction_map(data)
     eu_gestor_cache = load_eu_gestor_cache(REPO_ROOT)
     validity_cache = document_states.load_cache()
+    check_cache = status_checks.load_caches()
+    status_checks.ensure_columns(cursor)  # a database provisioned before 2026-11-19 lacks them
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
     slug_inputs = []
+    pinned_slugs = {}
 
     for item in data:
         prepared = prepare_document(cursor, item, seen_identifiers, gestor_jurisdiction_map,
@@ -541,8 +590,9 @@ def import_json_data(db_conn):
              effective_date, identifier, jurisdikce, file_path,
              needs_review, review_reason,
              zdroj_dat, nazev_autoritativni, popis_autoritativni,
-             zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny,
+             provenance, eu_act_subtype)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
               effective_date, identifier, jurisdikce, file_path,
               needs_review, review_reason,
@@ -552,7 +602,12 @@ def import_json_data(db_conn):
               # doc/PLAN.md §17: deliberately NOT folded into `description`
               # — a synthesized summary must stay distinguishable from a
               # scope text fetched from the publisher.
-              item.get("popis_priblizny") or None))
+              item.get("popis_priblizny") or None,
+              # doc/MPO_PRIPOMINKY.md, krok 0: which script/source added the
+              # record — internal, never rendered on the public pages.
+              (item.get("provenance") or "").strip() or None,
+              # doc/MPO_PRIPOMINKY.md, krok 2: delegated / implementing EU act.
+              eu_act_subtype.classify(title, url, jurisdikce)))
 
         doc_id = cursor.lastrowid
 
@@ -564,8 +619,8 @@ def import_json_data(db_conn):
 
         for v in resolve_document_versions(item):
             if v["is_current"]:  # repealed / not yet in effect, from check_validity.py (document_states.py)
-                v["lifecycle_state"] = document_states.current_state(v["lifecycle_state"], identifier, title,
-                                                                     validity_cache)
+                v["lifecycle_state"] = current_version_state(item, v["lifecycle_state"], identifier, title,
+                                                             validity_cache)
             cursor.execute("""
                 INSERT INTO DocumentVersion
                 (document_id, version, edition_label, effective_date, is_current, lifecycle_state)
@@ -595,14 +650,37 @@ def import_json_data(db_conn):
                 except pymysql.err.IntegrityError:
                     pass
 
+        checked = last_state_check(item, identifier, title, check_cache)
+        if checked:
+            cursor.execute("UPDATE Document SET status_checked_at = %s, status_checked_by = %s WHERE id = %s",
+                           (checked[0], checked[1], doc_id))
+
         slug_inputs.append((doc_id, identifier, title))
+        if item.get("slug"):  # pinned by a correction (norm_editions.py: a renamed standard keeps its address)
+            pinned_slugs[doc_id] = item["slug"]
 
     # src/tools/slug.py, 2026-09-16: assigned in one pass over the whole
     # corpus AFTER the insert loop, never per record — collision suffixes
     # have to be handed out in a content-derived order to come out the
     # same on the next rebuild, which is the entire point of the column.
-    for doc_id, slug in assign_slugs(slug_inputs).items():
+    for doc_id, slug in assign_slugs(slug_inputs, pinned_slugs).items():
         cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
+
+    # norm_editions.py, 2026-11-20: editions of standards issued with a later date of effect
+    # (data/norm_validity_cache.json, `upcoming`), switched on that date as in the live database
+    editions = norm_editions.apply(cursor, status_checks.load(status_checks.NORM_CACHE_PATH),
+                                   datetime.date.today().isoformat())
+    if editions:
+        print(f"{len(editions)} changes of editions of standards (norm_editions.py)")
+        # a renaming the live database has not made yet is recorded for the next rebuild
+        for message in norm_editions.persist(editions):
+            print(message)
+
+    # eu_consolidations.py, 2026-11-20: the consolidated versions of the acts of
+    # data/eu_consolidated_acts.json (CLP, REACH), the one in effect current
+    consolidations = eu_consolidations.apply(cursor, datetime.date.today().isoformat())
+    if consolidations:
+        print(f"{len(consolidations)} changes of consolidated versions of EU acts (eu_consolidations.py)")
 
     db_conn.commit()
 

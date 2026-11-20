@@ -166,7 +166,7 @@ class FetchOneTestCase(unittest.TestCase):
         session = MagicMock()
         session.get.side_effect = requests.RequestException("timeout")
         record = {"zdroj_dat": "Haltuf_Dokumenty", "znacka": "(EU) 2024/1788"}
-        entry = ff.fetch_one(session, record, "odkaz_hlavni", "https://eur-lex.europa.eu/x")
+        entry = ff.fetch_one(session, record, "odkaz_hlavni", "https://www.zakonyprolidi.cz/x")
         self.assertEqual(entry["status"], "failed")
 
     def _session(self, content, content_type="application/pdf"):
@@ -290,38 +290,53 @@ class FetchOneGuardsTestCase(unittest.TestCase):
         session.get.return_value = resp
         return session
 
-    def _run(self, session, url, browser=None):
+    def _run(self, session, url, browser=None, cellar=None):
         import tempfile
         from unittest import mock
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)
             with mock.patch.object(ff, "REPO_ROOT", root), mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"), \
-                    mock.patch.object(ff, "fetch_with_browser", return_value=browser) as fb:
+                    mock.patch.object(ff, "fetch_with_browser", return_value=browser) as fb, \
+                    mock.patch.object(ff, "fetch_cellar", return_value=cellar) as fc:
                 entry = ff.fetch_one(session, {"zdroj_dat": "S", "znacka": "56/2001 Sb."}, "odkaz_eu", url)
                 written = list((root / "data" / "fulltext").glob("*")) if (root / "data" / "fulltext").exists() else []
+            self.cellar_calls = fc.call_count
             return entry, written, fb
 
+    @staticmethod
+    def _cellar(content, content_type="application/xhtml+xml;charset=UTF-8"):
+        return {"status": 200, "content": content, "content_type": content_type, "celex": "32018R0858", "items": 1}
+
     def test_a_search_results_page_is_recorded_as_failed_and_not_written(self):
-        entry, written, _ = self._run(self._session(SEARCH_PAGE), "https://eur-lex.europa.eu/eli/dir/2018/858/oj")
+        entry, written, _ = self._run(self._session(b""), "https://eur-lex.europa.eu/eli/dir/2018/858/oj",
+                                      cellar=self._cellar(SEARCH_PAGE, "text/html"))
         self.assertEqual(entry["status"], "failed")
         self.assertEqual(written, [])
 
-    def test_a_firewall_challenge_is_retried_in_a_browser(self):
-        entry, written, fb = self._run(self._session(b"", status=202), "https://eur-lex.europa.eu/eli/reg/2018/858/oj",
-                                       browser=(200, ACT_PAGE, "text/html; charset=utf-8"))
-        fb.assert_called_once()
+    def test_an_eli_address_is_downloaded_from_cellar_only(self):
+        session = self._session(b"", status=202)
+        entry, written, fb = self._run(session, "https://eur-lex.europa.eu/eli/reg/2018/858/oj",
+                                       cellar=self._cellar(ACT_PAGE))
+        self.assertEqual(self.cellar_calls, 1)
+        session.get.assert_not_called()  # EUR-Lex itself is never contacted
+        fb.assert_not_called()
         self.assertEqual(entry["status"], "fetched")
-        self.assertEqual(entry["http_status"], 200)
         self.assertEqual(len(written), 1)
 
-    def test_a_challenge_with_no_browser_is_a_failure_not_an_empty_file(self):
-        entry, written, _ = self._run(self._session(b"", status=202), "https://eur-lex.europa.eu/eli/reg/2018/858/oj")
+    def test_nothing_from_cellar_is_a_failure_without_eur_lex_or_a_browser(self):
+        session = self._session(b"", status=202)
+        entry, written, fb = self._run(session, "https://eur-lex.europa.eu/eli/reg/2018/858/oj",
+                                       browser=(200, ACT_PAGE, "text/html; charset=utf-8"))
         self.assertEqual(entry["status"], "failed")
+        self.assertIn("Cellar", entry["error"])
         self.assertEqual(written, [])
+        session.get.assert_not_called()
+        fb.assert_not_called()
 
-    def test_other_hosts_are_not_sent_to_a_browser(self):
+    def test_other_hosts_are_not_sent_to_a_browser_nor_to_cellar(self):
         _, _, fb = self._run(self._session(b"", status=202), "https://example.test/x")
         fb.assert_not_called()
+        self.assertEqual(self.cellar_calls, 0)
 
 
 class OverridesTestCase(unittest.TestCase):
@@ -413,9 +428,9 @@ class SlovLexTestCase(unittest.TestCase):
         self.assertEqual(ff.designation_numbers("(EU) 2019/2144"), {"2019/2144"})
         self.assertEqual(ff.designation_numbers("ADR 2025"), set())
 
-    def test_slov_lex_always_needs_a_browser_eur_lex_only_for_a_challenge(self):
+    def test_slov_lex_always_needs_a_browser_eur_lex_never(self):
         self.assertTrue(ff.needs_browser(SLOVLEX_URL, 200, SLOVLEX_SHELL))
-        self.assertTrue(ff.needs_browser("https://eur-lex.europa.eu/x", 202, b""))
+        self.assertFalse(ff.needs_browser("https://eur-lex.europa.eu/x", 202, b""))
         self.assertFalse(ff.needs_browser("https://eur-lex.europa.eu/x", 200, b"<html>act</html>"))
         self.assertFalse(ff.needs_browser("https://www.zakonyprolidi.cz/x", 200, b"<html></html>"))
 
@@ -509,28 +524,33 @@ class HtmlAlternativeTestCase(unittest.TestCase):
         self.assertEqual(ff.designation_of("S|X 1|odkaz_hlavni_html"), "X 1")
 
 
-class EurLexPdfRoutingTestCase(unittest.TestCase):
-    def test_only_eur_lex_pdf_addresses_take_the_download_path(self):
-        self.assertTrue(ff.is_eurlex_pdf("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272"))
-        self.assertFalse(ff.is_eurlex_pdf("https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32008R1272"))
-        self.assertFalse(ff.is_eurlex_pdf("https://example.test/TXT/PDF/x"))
+class EurLexNoBrowserTestCase(unittest.TestCase):
+    """doc/CELLAR_FULLTEXT.md: EUR-Lex is never opened in a browser."""
 
-    def test_a_pdf_the_browser_downloaded_is_stored(self):
+    def test_the_browser_refuses_eur_lex(self):
+        with self.assertRaises(ValueError):
+            ff.fetch_with_browser("https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272")
+
+    def test_no_playwright_code_path_for_eur_lex_is_left(self):
+        source = pathlib.Path(ff.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("homepage.html", source)
+        self.assertFalse(hasattr(ff, "is_eurlex_pdf"))
+
+    def test_a_pdf_from_cellar_is_stored(self):
         import tempfile
         from unittest import mock
         session = mock.MagicMock()
-        resp = mock.MagicMock()
-        resp.content, resp.status_code, resp.headers = b"", 202, {"Content-Type": ""}
-        resp.raise_for_status.return_value = None
-        session.get.return_value = resp
+        found = {"status": 200, "content": b"%PDF-1.4 body", "content_type": "application/pdf;type=pdfa1a",
+                 "celex": "32008R1272", "items": 1}
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)
             with mock.patch.object(ff, "REPO_ROOT", root), mock.patch.object(ff, "FULLTEXT_DIR", root / "data" / "fulltext"), \
-                    mock.patch.object(ff, "fetch_with_browser", return_value=(200, b"%PDF-1.4 body", "application/pdf")):
+                    mock.patch.object(ff, "fetch_cellar", return_value=found):
                 entry = ff.fetch_one(session, {"zdroj_dat": "S", "znacka": "(ES) 1272/2008"}, "odkaz_hlavni",
                                      "https://eur-lex.europa.eu/legal-content/CS/TXT/PDF/?uri=CELEX:32008R1272")
             self.assertEqual(entry["status"], "fetched")
             self.assertTrue(entry["local_path"].endswith(".pdf"))
+        session.get.assert_not_called()
 
 
 class LocalizedUrlTestCase(unittest.TestCase):

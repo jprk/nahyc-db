@@ -73,8 +73,8 @@ class BuildDocumentRecordTestCase(unittest.TestCase):
         self.assertEqual(record["jurisdikce"], "EU")
         self.assertEqual(record["gestor"], ["Evropská komise"])
         self.assertEqual(record["jazyk"], "")
-        self.assertIn("32014R0559", record["anotace_poznamka"])
-        self.assertIn("hydrogen", record["anotace_poznamka"])
+        self.assertIn("32014R0559", record["provenance"])
+        self.assertIn("hydrogen", record["provenance"])
 
     def test_no_gestor_resolved_gives_empty_list(self):
         candidate = {"celex": "32014R0559", "url": "https://x", "matched_keyword": "hydrogen"}

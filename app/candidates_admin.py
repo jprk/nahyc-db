@@ -13,9 +13,18 @@ the decisions.
 * **Rejecting and deferring need one editor**; both can be reopened.
 * **A manual proposal** of a document creates a candidate already proposed by its
   author, waiting for a second editor.
+* **Findings of monitored sources** (harvest_sources.py) are listed with the
+  candidate, one per source; a candidate of the signal `draft` (a proposed act in
+  the legislative process) becomes a document in the state `draft` (připravovaný),
+  one of the signal `amendment` (a new amendment of documents of the database) gets
+  the AMENDS relations to them.
+* **Tiers** (doc/DATA_SOURCES.md odstavec 8.8): the list shows tier 1 by default (and
+  candidates of the checks, which have none), tier 2 in a filter of its own, ordered
+  by citations and then by the occurrences of the search term.
 
 Every decision is written to the AuditLog (`table_name` = `DocumentCandidate`).
 """
+import datetime
 import json
 import pathlib
 
@@ -24,6 +33,7 @@ from flask import abort, flash, redirect, render_template, request, session, url
 from admin import REPO_ROOT, admin_bp, get_db, login_required
 import candidates as cd
 import citation_closure as cc
+import norm_editions
 import slug as slug_module
 
 ACCEPTED_PATH = REPO_ROOT / "data" / "accepted_candidates.json"
@@ -33,13 +43,16 @@ PIPELINE_SOURCE = "Kandidáti"
 LANGUAGES = ("CS", "EN", "SK", "DE")
 STATE_LABELS = {"new": "nový", "proposed": "navržen k přijetí", "accepted": "přijat", "rejected": "zamítnut",
                 "deferred": "odložen"}
+# 1 = the candidate concerns the database directly, 2 = only indirectly (doc/DATA_SOURCES.md 8.9, 8.10)
+TIERS = {"1": "Přímý vztah (pásmo 1)", "2": "Nepřímý vztah (pásmo 2)", "all": "oba vztahy"}
 FILTER_STATES = {"open": cd.OPEN_STATES, "new": ("new",), "proposed": ("proposed",), "deferred": ("deferred",),
                  "accepted": ("accepted",), "rejected": ("rejected",), "all": cd.STATES}
 
 
 def document_types(db):
     with db.cursor() as cur:
-        cur.execute("SELECT name FROM DocumentType WHERE restricted_fulltext = 0 ORDER BY name")
+        # all types, standards too: a "Norma" is kept as metadata, fetch_fulltext.py never downloads its text
+        cur.execute("SELECT name FROM DocumentType ORDER BY name")
         return [row["name"] for row in cur.fetchall()]
 
 
@@ -72,16 +85,22 @@ def candidate_list():
     state = request.args.get("stav", "open")
     states = FILTER_STATES.get(state, cd.OPEN_STATES)
     source = request.args.get("zdroj", "")
+    sources = cd.source_labels()
     family = request.args.get("skupina", "")
     query = (request.args.get("q") or "").strip()
+    tier = request.args.get("pasmo", "1")
+    tier = tier if tier in TIERS else "1"
     conditions = ["c.status IN (" + ",".join(["%s"] * len(states)) + ")"]
     params = list(states)
-    if source in cd.SOURCES:
+    if tier != "all":
+        conditions.append("COALESCE(c.tier, 1) = %s")
+        params.append(int(tier))
+    if source in sources:
         conditions.append("c.source = %s")
         params.append(source)
-    if family in ("CZ", "EU"):
-        conditions.append("c.candidate_key LIKE %s")
-        params.append(family + ":%")
+    if family in ("CZ", "EU"):  # drafts have keys `DRAFT-CZ:…`, `DRAFT-EU:…`
+        conditions.append("(c.candidate_key LIKE %s OR c.candidate_key LIKE %s)")
+        params += [family + ":%", f"DRAFT-{family}:%"]
     if query:
         conditions.append("(c.title LIKE %s OR c.designation LIKE %s)")
         params += [f"%{query}%", f"%{query}%"]
@@ -89,12 +108,17 @@ def candidate_list():
         cur.execute(f"""SELECT c.*, pu.name AS proposed_by_name FROM DocumentCandidate c
                         LEFT JOIN User pu ON pu.id = c.proposed_by_user_id
                         WHERE {' AND '.join(conditions)}
-                        ORDER BY c.status = 'proposed' DESC, c.cited_by DESC, c.candidate_key LIMIT 1000""", params)
+                        ORDER BY c.status = 'proposed' DESC, COALESCE(c.tier, 1), c.cited_by DESC,
+                                 COALESCE(c.occurrences, 0) DESC, c.candidate_key LIMIT 1000""", params)
         rows = cur.fetchall()
+        cur.execute("SELECT COALESCE(tier, 1) AS tier, COUNT(*) AS n FROM DocumentCandidate WHERE status IN ("
+                    + ",".join(["%s"] * len(states)) + ") GROUP BY COALESCE(tier, 1)", list(states))
+        tier_counts = {str(row["tier"]): row["n"] for row in cur.fetchall()}
         cur.execute("SELECT status, COUNT(*) AS n FROM DocumentCandidate GROUP BY status")
         counts = {row["status"]: row["n"] for row in cur.fetchall()}
     return render_template("admin/candidates_list.html", rows=rows, counts=counts, state=state, source=source,
-                           family=family, query=query, sources=cd.SOURCES, state_labels=STATE_LABELS)
+                           family=family, query=query, sources=sources, state_labels=STATE_LABELS, tier=tier,
+                           tiers=TIERS, tier_counts=tier_counts)
 
 
 def linked_documents(db, ids):
@@ -117,14 +141,17 @@ def candidate_detail(candidate_id):
     return render_template("admin/candidate_detail.html", c=candidate, evidence=evidence,
                            citing=linked_documents(db, evidence.get("citing_ids", [])[:50]),
                            repeals=linked_documents(db, evidence.get("repeals_ids", [])),
+                           amends=linked_documents(db, evidence.get("amends_ids", [])),
                            types=document_types(db), languages=LANGUAGES, areas=cd.SCOPE_AREAS,
-                           state_labels=STATE_LABELS, sources=cd.SOURCES)
+                           state_labels=STATE_LABELS, sources=cd.source_labels(),
+                           findings=sorted(evidence.get("findings", {}).values(), key=lambda f: f.get("first_seen") or ""),
+                           signal_labels=cd.SIGNAL_LABELS)
 
 
 def read_metadata(form, db, own_designation=None):
     """(metadata, errors) of the propose / manual forms."""
     metadata = {field: (form.get(field) or "").strip() for field in
-                ("designation", "title", "document_type", "url", "language", "jurisdikce", "decision_note")}
+                ("designation", "title", "document_type", "url", "language", "jurisdikce", "puvodce", "decision_note")}
     errors = []
     if not metadata["title"]:
         errors.append("Název je povinný.")
@@ -132,12 +159,12 @@ def read_metadata(form, db, own_designation=None):
         errors.append("Vyberte typ dokumentu.")
     if metadata["language"] not in LANGUAGES:
         errors.append("Vyberte jazyk.")
-    try:
-        metadata["scope_area"] = int(form.get("scope_area") or 0)
-    except ValueError:
-        metadata["scope_area"] = 0
-    if metadata["scope_area"] not in cd.SCOPE_AREAS:
-        errors.append("Vyberte věcný okruh (DATABASE_SCOPE.md, odstavec 3).")
+    # a document may belong to several subject areas; the first chosen one is also kept in `scope_area`
+    areas = sorted({int(n) for n in form.getlist("scope_area") if n.strip().isdigit() and int(n) in cd.SCOPE_AREAS})
+    metadata["scope_area"] = areas[0] if areas else 0
+    metadata["scope_areas"] = ",".join(map(str, areas))
+    if not areas:
+        errors.append("Vyberte alespoň jeden věcný okruh (DATABASE_SCOPE.md, odstavec 3).")
     if metadata["designation"] and metadata["designation"] != own_designation:
         with db.cursor() as cur:
             cur.execute("SELECT id FROM Document WHERE identifier = %s", (metadata["designation"],))
@@ -148,13 +175,16 @@ def read_metadata(form, db, own_designation=None):
 
 def _store_proposal(cur, candidate_id, metadata):
     cur.execute("""UPDATE DocumentCandidate SET designation = %s, title = %s, document_type = %s, url = %s,
-                       language = %s, jurisdikce = %s, scope_area = %s, decision_note = %s, status = 'proposed',
+                       language = %s, jurisdikce = %s, puvodce = %s, scope_area = %s, scope_areas = %s,
+                       decision_note = %s,
+                       status = 'proposed',
                        proposed_by_user_id = %s, proposed_at = NOW(), confirmed_by_user_id = NULL,
                        confirmed_at = NULL
                    WHERE id = %s""",
                 (metadata["designation"] or None, metadata["title"], metadata["document_type"],
                  metadata["url"] or None, metadata["language"], metadata["jurisdikce"] or None,
-                 metadata["scope_area"], metadata["decision_note"] or None, session["user_id"], candidate_id))
+                 metadata["puvodce"] or None, metadata["scope_area"], metadata["scope_areas"],
+                 metadata["decision_note"] or None, session["user_id"], candidate_id))
 
 
 @admin_bp.route("/candidates/<int:candidate_id>/propose", methods=["POST"])
@@ -231,24 +261,52 @@ def unique_slug(cur, identifier, title):
     return next(f"{base}-{n}" for n in range(2, 10000) if f"{base}-{n}" not in taken)
 
 
+def source_id(cur, name, jurisdikce=None):
+    """The DocumentSource of the issuing institution `name`, created with the first
+    document that has it (so the public filter never lists an institution without
+    documents); None without a name."""
+    if not name:
+        return None
+    cur.execute("SELECT id FROM DocumentSource WHERE name = %s", (name,))
+    row = cur.fetchone()
+    if row:
+        return row["id"]
+    cur.execute("INSERT INTO DocumentSource (name, jurisdiction) VALUES (%s, %s)", (name, jurisdikce or None))
+    return cur.lastrowid
+
+
 def create_document(cur, candidate):
     """Creates the document of an accepted candidate; returns its id."""
     cur.execute("SELECT id FROM DocumentType WHERE name = %s", (candidate["document_type"],))
     type_id = cur.fetchone()["id"]
     identifier = candidate["designation"] or None
     title = candidate["title"]
-    cur.execute("""INSERT INTO Document (title, description, type_id, language, url, identifier, jurisdikce,
-                                         needs_review, review_reason, zdroj_dat, slug)
-                   VALUES (%s, NULL, %s, %s, %s, %s, %s, 1, 'chybí popis/anotace dokumentu', %s, %s)""",
-                (title, type_id, candidate["language"], candidate["url"], identifier, candidate["jurisdikce"],
-                 PIPELINE_SOURCE,
+    cur.execute("""INSERT INTO Document (title, description, type_id, source_id, language, url, identifier,
+                                         jurisdikce, needs_review, review_reason, zdroj_dat, slug)
+                   VALUES (%s, NULL, %s, %s, %s, %s, %s, %s, 1, 'chybí popis/anotace dokumentu', %s, %s)""",
+                (title, type_id, source_id(cur, candidate.get("puvodce"), candidate["jurisdikce"]),
+                 candidate["language"], candidate["url"], identifier, candidate["jurisdikce"], PIPELINE_SOURCE,
                  unique_slug(cur, identifier, title)))
     doc_id = cur.lastrowid
-    state = "promulgated" if candidate.get("validity_status") == "dosud neúčinný" else "active"
-    cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
-                   VALUES (%s, 1, 1, %s)""", (doc_id, state))
-    area = cd.SCOPE_AREAS.get(candidate["scope_area"])
-    if area:
+    if candidate.get("signal") == "draft":
+        state = "draft"
+    elif candidate.get("validity_status") == "dosud neúčinný":
+        state = "promulgated"
+    else:
+        state = "active"
+    evidence = json.loads(candidate["evidence_json"] or "{}")
+    # a standard: the edition in force and one issued with a later date of effect (norm_editions.py)
+    versions = norm_editions.candidate_versions(evidence, datetime.date.today().isoformat()) \
+        if candidate["document_type"] == norm_editions.NORM_TYPE else None
+    if versions:
+        for version in versions:
+            cur.execute("""INSERT INTO DocumentVersion (document_id, version, edition_label, effective_date,
+                                                         is_current, lifecycle_state)
+                           VALUES (%s, %s, %s, %s, %s, %s)""", (doc_id,) + version)
+    else:
+        cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
+                       VALUES (%s, 1, 1, %s)""", (doc_id, state))
+    for area in (cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS):
         cur.execute("SELECT id FROM Keyword WHERE keyword = %s", (area,))
         row = cur.fetchone()
         if row is None:
@@ -257,11 +315,14 @@ def create_document(cur, candidate):
         else:
             keyword_id = row["id"]
         cur.execute("INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)", (doc_id, keyword_id))
-    evidence = json.loads(candidate["evidence_json"] or "{}")
     for repealed in evidence.get("repeals_ids", []):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
                        VALUES (%s, %s, 'REPEALS', 'Zrušující předpis podle kontroly platnosti (přijatý kandidát).')""",
                     (doc_id, repealed))
+    for amended in evidence.get("amends_ids", []):
+        cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
+                       VALUES (%s, %s, 'AMENDS', 'Novela podle nálezu sledovaného zdroje (přijatý kandidát).')""",
+                    (doc_id, amended))
     return doc_id
 
 
@@ -270,9 +331,10 @@ def pipeline_record(candidate, confirmed_by):
     (build_unified_db.py), keyed by the candidate key in data/accepted_candidates.json."""
     return {"zdroj_dat": PIPELINE_SOURCE, "znacka": candidate["designation"] or "", "nazev_cz": candidate["title"],
             "typ_dokumentu": candidate["document_type"], "sekce": "", "kategorie_trida": "",
-            "klicova_slova": [cd.SCOPE_AREAS[candidate["scope_area"]]] if candidate["scope_area"] else [],
+            "klicova_slova": [cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS],
             "odkaz_hlavni": candidate["url"] or "", "nazev_eu": "", "odkaz_eu": "", "nazev_sk": "", "odkaz_sk": "",
-            "platnost": "", "ratifikovan": "", "gestor": [], "jazyk": candidate["language"] or "",
+            "platnost": "", "ratifikovan": "", "gestor": [candidate["puvodce"]] if candidate.get("puvodce") else [],
+            "jazyk": candidate["language"] or "",
             "anotace_poznamka": "", "jurisdikce": candidate["jurisdikce"] or "",
             "candidate_source": candidate["source"], "accepted_by": confirmed_by,
             "proposed_by": candidate.get("proposed_by_username")}
@@ -337,7 +399,8 @@ def candidate_new():
         for error in errors:
             flash(error, "error")
         return render_template("admin/candidate_new.html", types=document_types(db), languages=LANGUAGES,
-                               areas=cd.SCOPE_AREAS, form=request.form)
+                               areas=cd.SCOPE_AREAS, form={**request.form.to_dict(),  # every area ticked
+                                                           "scope_areas": ",".join(request.form.getlist("scope_area"))})
     with db.cursor() as cur:
         cur.execute("""INSERT INTO DocumentCandidate (candidate_key, source, evidence_json) VALUES (%s, 'manual', %s)""",
                     (key, json.dumps({"proposed_manually": True}, ensure_ascii=False)))

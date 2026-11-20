@@ -152,7 +152,7 @@ class UnidentifiedTestCase(unittest.TestCase):
     def setUp(self):
         import fulltext_keys
         import slug as slug_module
-        self.item = {"zdroj_dat": "HYTEP", "znacka": "", "nazev_cz": "Vodíková strategie", "typ_dokumentu": "Strategický dokument",
+        self.item = {"zdroj_dat": "HYTEP", "znacka": "", "nazev_cz": "Vodíková strategie", "typ_dokumentu": "Strategie",
                      "odkaz_hlavni": self.URL}
         self.slug = slug_module.base_slug(None, "Vodíková strategie")
         self.key = f"HYTEP|{fulltext_keys.url_designation(self.URL)}|odkaz_hlavni"

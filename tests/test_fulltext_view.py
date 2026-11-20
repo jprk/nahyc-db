@@ -16,8 +16,9 @@ CLEAN = '<h3>Předmět úpravy</h3>\n<p class="l2"><span class="num">(1)</span> 
 
 
 class FakeCursor:
-    def __init__(self, row):
+    def __init__(self, row, versions=()):
         self.row = row
+        self.versions = list(versions)
 
     def __enter__(self):
         return self
@@ -31,13 +32,17 @@ class FakeCursor:
     def fetchone(self):
         return self.row
 
+    def fetchall(self):  # the versions of the document (fetch_versions)
+        return [dict(v) for v in self.versions]
+
 
 class FakeDb:
-    def __init__(self, row):
+    def __init__(self, row, versions=()):
         self.row = row
+        self.versions = versions
 
     def cursor(self):
-        return FakeCursor(self.row)
+        return FakeCursor(self.row, self.versions)
 
 
 class FulltextViewTestCase(unittest.TestCase):
@@ -59,8 +64,8 @@ class FulltextViewTestCase(unittest.TestCase):
             self.addCleanup(patcher.stop)
         self.client = appmod.app.test_client()
 
-    def _db(self, row):
-        patcher = mock.patch.object(appmod, "get_db", return_value=FakeDb(row))
+    def _db(self, row, versions=()):
+        patcher = mock.patch.object(appmod, "get_db", return_value=FakeDb(row, versions))
         patcher.start()
         self.addCleanup(patcher.stop)
 
@@ -153,6 +158,82 @@ class FulltextViewTestCase(unittest.TestCase):
         self.assertEqual(self.client.get("/dokument/nv-116-2016/text").status_code, 404)
         self._db(self._row(file_path=None))
         self.assertEqual(self.client.get("/dokument/nv-116-2016/text").status_code, 404)
+
+    # --- versions of an EU act shown in its consolidated version (eu_consolidations.py) ---
+    @staticmethod
+    def _versions(count=3):
+        """The original text (p.pdf, superseded), consolidated versions, the last but
+        one current with the text a.html, the last one prepared."""
+        versions = [{"version": 1, "edition_label": "původní znění (Úř. věst. L 353, 31. 12. 2008)",
+                     "effective_date": "2009-01-20", "is_current": 0, "lifecycle_state": "superseded",
+                     "file_path": "data/fulltext/S/p.pdf",
+                     "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32008R1272"}]
+        for n in range(2, count + 2):
+            current, prepared = n == count, n == count + 1
+            versions.append({"version": n, "edition_label": f"konsolidované znění ke dni {n}. 1. 2026",
+                             "effective_date": f"2026-01-{n:02d}", "is_current": int(current),
+                             "lifecycle_state": "promulgated" if prepared else ("active" if current else "superseded"),
+                             "file_path": "data/fulltext/S/a.html" if current else None,
+                             "url": f"https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02008R1272-202601{n:02d}"})
+        return versions
+
+    def _versions_page(self, versions):
+        (self.clean_dir / "S" / "p.html").write_text("<p>Původní znění</p>", encoding="utf-8")
+        detail = {"document": {**self._row(), "description": None, "popis_priblizny": None,
+                               "language": None, "effective_date": None, "jurisdikce": None,
+                               "jurisdikce_uroven": None, "needs_review": 0, "review_reason": None,
+                               "updated_at": None, "type_name": "Nařízení EU", "source_name": None, "id": 1},
+                  "keywords": [], "versions": versions, "relations": [], "process_nodes": []}
+        self._db(self._row())
+        patcher = mock.patch.object(appmod, "fetch_document_detail", return_value=detail)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        response = self.client.get("/dokument/nv-116-2016")
+        self.assertEqual(response.status_code, 200)
+        return response.data.decode("utf-8")
+
+    def test_the_page_says_which_version_it_shows_and_links_every_version(self):
+        body = self._versions_page(self._versions())
+        self.assertIn("Zobrazený text: <strong>konsolidované znění ke dni 3. 1. 2026</strong>", body)
+        self.assertIn("uri=CELEX:32008R1272", body)
+        self.assertIn("uri=CELEX:02008R1272-20260104", body)  # the prepared one
+        self.assertIn('href="/dokument/nv-116-2016/verze/1/text"', body)  # our text of the original
+        self.assertNotIn("Starší znění", body)
+
+    def test_a_long_history_is_folded_but_the_original_stays_in_view(self):
+        body = self._versions_page(self._versions(count=10))
+        self.assertIn("Starší znění (8)", body)
+        head, _, folded = body.partition("Starší znění")
+        self.assertIn("původní znění (Úř. věst. L 353, 31. 12. 2008)", head)
+        self.assertIn("konsolidované znění ke dni 10. 1. 2026", head)
+        self.assertIn("konsolidované znění ke dni 2. 1. 2026", folded)
+
+    def test_versions_of_a_standard_have_no_links_column(self):
+        body = self._versions_page([{"version": 1, "edition_label": "ČSN EN 1 (vydání 1.2020)", "effective_date": None,
+                                     "is_current": 1, "lifecycle_state": "active", "file_path": None, "url": None}])
+        self.assertNotIn("Odkazy", body)
+        self.assertNotIn("Zobrazený text", body)
+
+    def test_the_text_of_one_version(self):
+        (self.clean_dir / "S" / "p.html").write_text("<p>Původní znění</p>", encoding="utf-8")
+        self._db(self._row(), self._versions())
+        response = self.client.get("/dokument/nv-116-2016/verze/1/text")
+        self.assertEqual(response.status_code, 200)
+        body = response.data.decode("utf-8")
+        self.assertIn("<p>Původní znění</p>", body)
+        self.assertIn("původní znění (Úř. věst. L 353, 31. 12. 2008)", body)
+        self.assertIn("nahrazený", body)
+        self.assertEqual(self.client.get("/dokument/nv-116-2016/verze/2/text").status_code, 404)  # no text
+        self.assertEqual(self.client.get("/dokument/nv-116-2016/verze/99/text").status_code, 404)
+
+    def test_the_text_of_a_version_of_a_restricted_type_is_forbidden(self):
+        self._db(self._row(restricted=1), self._versions())
+        self.assertEqual(self.client.get("/dokument/nv-116-2016/verze/1/text").status_code, 403)
+
+    def test_the_main_text_page_names_the_consolidated_version(self):
+        self._db(self._row(), self._versions())
+        body = self.client.get("/dokument/nv-116-2016/text").data.decode("utf-8")
+        self.assertIn("Znění: <strong>konsolidované znění ke dni 3. 1. 2026</strong>", body)
 
     # --- /fulltext/<id> --------------------------------------------------
     def test_raw_html_is_an_attachment_with_a_sandbox_policy(self):

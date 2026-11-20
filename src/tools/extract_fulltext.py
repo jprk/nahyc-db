@@ -28,6 +28,7 @@ and every attribute not listed here are removed.
 Usage:
     .venv/bin/python src/tools/extract_fulltext.py            # dry run, report only
     .venv/bin/python src/tools/extract_fulltext.py --apply    # write data/fulltext_clean/
+    .venv/bin/python src/tools/extract_fulltext.py --apply --only KEY [--in-dir DIR] [--out-dir DIR]
 """
 import argparse
 import collections
@@ -340,6 +341,11 @@ def html_to_text(fragment):
     # markup has no space after it; the plain text needs one.
     for marker in soup.select("p.item > span.num"):
         marker.insert_after(" ")
+    # A table cell can hold several paragraphs (the hazard classes of a substance
+    # in Annex VI of CLP: "Flam. Gas 1" and "Press. Gas"); in a `cell | cell` row
+    # they must not run together.
+    for block in soup.select("td p, th p, td div, th div, td li, th li"):
+        block.append(" ")
     lines = []
     for block in soup.find_all(recursive=False):
         if block.name == "hr":
@@ -385,7 +391,31 @@ def _extract_eurlex_legacy(soup):
         return None
     for chrome in root.select("div.bglang, div.bgtool, p.bglang, h1, script, style"):
         chrome.decompose()
+    # Cellar's copy of such a page wraps the text as `<p><TXT_TE><p>…</p><p>…</p>`;
+    # the parser nests every paragraph inside the first one, which ran the whole
+    # act together into one block. The wrappers go, their paragraphs stay.
+    for wrapper in root.find_all("txt_te"):
+        wrapper.unwrap()
+    for paragraph in root.find_all("p"):
+        if paragraph.find("p") is not None:
+            paragraph.unwrap()
     return "\n".join(_blocks(root, "eurlex"))
+
+
+def _act_with_annexes(soup):
+    """The element holding an act *and* its annexes in the Official Journal's
+    XHTML, or None. That XHTML (served by Cellar, and by EUR-Lex as the
+    `TXT/HTML` view inside its `div#docHtml`) puts the act's own
+    `div.eli-container` and then — each after an `hr.oj-doc-sep` — every annex
+    as a sibling `div`. Taking only the first `.eli-container` dropped all the
+    annexes (found 2026-11-20 on 39 stored texts, e.g. Implementing Decision
+    (EU) 2022/2427 without its BAT conclusions, Regulation (EU) 2019/773 with
+    8 of its 181 thousand characters)."""
+    first = soup.select_one(".eli-container")
+    parent = first.parent if first is not None else None
+    if parent is None or parent.find("hr", class_="oj-doc-sep", recursive=False) is None:
+        return None
+    return parent
 
 
 def _extract_eurlex(soup):
@@ -394,6 +424,11 @@ def _extract_eurlex(soup):
     # the `eli-container` of the consolidated-text page, which has no `div#text`
     # — or, for an act from before 2004, the legacy page (see above).
     root = soup.find("div", id="text") or soup.select_one(".eli-container") or soup.body
+    whole = _act_with_annexes(soup) if soup.find("div", id="text") is None else None
+    if whole is not None:
+        root = whole  # the act and its annexes are siblings, see _act_with_annexes
+        for header in root.select("table:has(.oj-hd-date), table:has(.oj-hd-oj)"):
+            header.decompose()  # the Official Journal's running header, not the act's text
     if soup.find("div", id="text") is None and soup.select_one("div.contentWrapper > div.content"):
         return _extract_eurlex_word(soup)  # a Word document converted to XHTML
     if root is None or not (root.find(class_="eli-container") or root.find(class_="oj-normal")
@@ -635,12 +670,18 @@ def _extract_pdf(path):
     return pdf_text.extract_pdf(path)
 
 
-def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT):
+def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_root=REPO_ROOT, only=None,
+        in_dir=None):
+    """Extracts every fetched HTML/PDF of the manifest (with `only`, just those
+    manifest keys); `in_dir` is looked into first for a file of that name (the
+    `--out-dir` of fetch_fulltext.py in a worktree)."""
     manifest = json.loads(pathlib.Path(manifest_path).read_text(encoding="utf-8"))
     stats = collections.Counter()
     problems = []
     done_pdfs = set()
     for key, entry in sorted(manifest.items()):
+        if only and key not in only:
+            continue
         local = entry.get("local_path", "")
         is_pdf = local.lower().endswith(".pdf")
         if entry.get("status") != "fetched" or not (local.lower().endswith(".html") or is_pdf):
@@ -653,6 +694,8 @@ def run(apply=False, manifest_path=MANIFEST_PATH, output_dir=OUTPUT_DIR, repo_ro
             stats["skipped: the same PDF under another field"] += 1
             continue
         path = repo_root / local
+        if in_dir and (pathlib.Path(in_dir) / path.name).is_file():
+            path = pathlib.Path(in_dir) / path.name
         try:
             if is_pdf:
                 result = _extract_pdf(path)
@@ -679,8 +722,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true",
                         help=f"write the extracted files under {OUTPUT_DIR.relative_to(REPO_ROOT)}/")
+    parser.add_argument("--only", action="append", default=None, metavar="KEY",
+                        help="extract only this manifest key (repeatable)")
+    parser.add_argument("--in-dir", default=None, metavar="DIR",
+                        help="read a file from DIR when it is there (the --out-dir of fetch_fulltext.py)")
+    parser.add_argument("--out-dir", default=None, metavar="DIR",
+                        help=f"write to DIR instead of {OUTPUT_DIR.relative_to(REPO_ROOT)}/")
     args = parser.parse_args(argv)
-    stats, problems = run(apply=args.apply)
+    stats, problems = run(apply=args.apply, only=args.only, in_dir=args.in_dir,
+                          output_dir=pathlib.Path(args.out_dir) if args.out_dir else OUTPUT_DIR)
     for label, count in sorted(stats.items()):
         print(f"{count:4d}  {label}")
     for key, message in problems:

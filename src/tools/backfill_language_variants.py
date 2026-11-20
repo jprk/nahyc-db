@@ -76,7 +76,9 @@ def plan(cursor, records, relations):
     cursor.execute("SELECT identifier, id FROM Document WHERE identifier IS NOT NULL")
     ids = dict(cursor.fetchall())
     rows = []
-    for relation in relations:
+    # only the English variants split from one record; a Slovak variant
+    # (`… [SK]`) is a document of its own from the start
+    for relation in (r for r in relations if r["from_identifier"].endswith(lv.EN_SUFFIX)):
         english, czech = relation["from_identifier"], relation["to_identifier"]
         rows.append((by_designation[czech], by_designation[english], ids.get(czech), ids.get(english)))
     return rows

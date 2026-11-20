@@ -1,0 +1,12 @@
+# Návrh (NEINSTALOVÁNO): měsíčně normy, kanály a stránky orgánů, stav ČSN/STN, dostupnost zdrojů.
+[Unit]
+Description=NAHYC H2DB: měsíční sběr zdrojů
+
+[Timer]
+OnCalendar=*-*-02 04:30
+RandomizedDelaySec=15min
+Persistent=true
+Unit=h2db-harvest@monthly.service
+
+[Install]
+WantedBy=timers.target

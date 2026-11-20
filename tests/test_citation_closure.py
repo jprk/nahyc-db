@@ -48,6 +48,28 @@ class OwnKeysTestCase(unittest.TestCase):
         self.assertEqual(cc.own_keys(None, "Vodíková strategie"), set())
 
 
+class ContextTestCase(unittest.TestCase):
+    def test_the_context_reaches_far_before_and_after_and_cuts_at_words(self):
+        text = ("Úvodní slovo " * 40 + "Provozovatel postupuje podle zákona č. 133/1985 Sb., o požární ochraně, "
+                + "a dále " * 100)
+        citation = cc.citations(text)[0]
+        context = cc.citation_context(text, citation)
+        self.assertEqual(context["cited"], "133/1985 Sb.")
+        self.assertTrue(context["after"].startswith(", o požární ochraně"))
+        self.assertTrue(context["before"].endswith("Provozovatel postupuje podle zákona č. "))
+        self.assertGreater(len(context["before"]), 250)
+        self.assertGreater(len(context["after"]), 350)
+        self.assertTrue(context["before"].startswith("slovo ") or context["before"].startswith("Úvodní "))
+        self.assertTrue(context["after"].endswith("dále") or context["after"].endswith("a"))
+        self.assertEqual(cc.title_hint(text, citation), "".join(context.values()))
+
+    def test_a_citation_at_the_very_start(self):
+        context = cc.citation_context("zákon č. 1/2000 Sb.\nkrátký text", cc.citations("zákon č. 1/2000 Sb.\nkrátký text")[0])
+        self.assertEqual((context["before"], context["cited"], context["after"]), ("zákon č. ", "1/2000 Sb.", " krátký text"))
+        eu = "podle směrnice 2010/75/EU o průmyslových emisích"
+        self.assertEqual(cc.citation_context(eu, cc.citations(eu)[0])["cited"], "2010/75/EU")
+
+
 class ClosureTestCase(unittest.TestCase):
     DOCUMENTS = [(1, "458/2000 Sb.", "Energetický zákon"), (2, "(EU) 2019/943", "Nařízení"),
                  (3, "(EU) 2019/943 [EN]", "Regulation"), (4, None, "Strategie")]
@@ -73,6 +95,16 @@ class ClosureTestCase(unittest.TestCase):
         self.assertEqual([rows[k]["amendment_share"] for k in ("CZ:262/2002", "CZ:151/2002", "CZ:278/2003")], [1.0] * 3)
         self.assertEqual(rows["CZ:500/2004"]["amendment_share"], 0.0)
         self.assertEqual(rows["CZ:458/2000"]["amendment_share"], 0.0)
+
+    def test_every_citing_document_keeps_where_it_cites_the_act(self):
+        texts = {1: "Podle zákona č. 500/2004 Sb., správní řád, se postupuje. " * 5,
+                 4: "Zákon č. 458/2000 Sb., ve znění zákona č. 500/2004 Sb.; jinak dle zákona č. 500/2004 Sb."}
+        contexts = {r["key"]: r for r in cc.closure(self.DOCUMENTS, texts)}["CZ:500/2004"]["contexts"]
+        self.assertEqual(sorted(contexts), [1, 4])
+        self.assertEqual(contexts[1]["count"], 5)
+        self.assertEqual(len(contexts[1]["places"]), cc.CONTEXTS_PER_DOCUMENT)
+        self.assertEqual(contexts[1]["places"][0]["cited"], "500/2004 Sb.")
+        self.assertEqual([p["amendment"] for p in contexts[4]["places"]], [True, False])
 
     def test_the_summary_counts_the_share_per_threshold(self):
         rows = [{"family": "CZ", "cited_by": 3, "in_database": True}, {"family": "CZ", "cited_by": 1, "in_database": False},

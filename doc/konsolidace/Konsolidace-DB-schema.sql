@@ -211,12 +211,27 @@ ALTER TABLE document_relation
   MODIFY COLUMN relation_type
     ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF') NOT NULL;
 
+-- 2026-11-19 (doc/MPO_PRIPOMINKY.md, krok 3): připravovaný dokument (návrh)
+-- vyhlášený jako jiný dokument databáze — `ENACTED_AS` (návrh -> vyhlášený
+-- předpis), zapisuje ji editor (app/drafts_admin.py). Tabulku návrhů změn stavu
+-- `DocumentStateChange` zakládá src/tools/state_changes.py (ensure_schema), stejně
+-- jako frontu kandidátů `DocumentCandidate` zakládá src/tools/candidates.py.
+ALTER TABLE document_relation
+  MODIFY COLUMN relation_type
+    ENUM('AMENDS','REPEALS','IMPLEMENTS','CONSOLIDATES','ADOPTS','NATIONAL_EQUIVALENT','TRANSLATION_OF','ENACTED_AS') NOT NULL;
+
 -- 2026-10-27: stavy dokumentů podle doc/DATABASE_SCOPE.md odstavec 5 —
 -- `promulgated` (vyhlášený, dosud neúčinný) a `repealed` (zrušený), zjištěné
 -- kontrolou platnosti (`src/tools/check_validity.py`, `document_states.py`).
 ALTER TABLE DocumentVersion
   MODIFY COLUMN lifecycle_state
     ENUM('active','superseded','draft','promulgated','repealed') NOT NULL DEFAULT 'active';
+
+-- 2026-11-20: odkaz verze do EUR-Lexu (konsolidovaná znění aktů EU, původní
+-- znění); sloupec zakládá src/tools/eu_consolidations.py (ensure_schema) při
+-- prvním zápisu verzí, `file_path` verze je její uložený text, pokud jej máme.
+ALTER TABLE DocumentVersion
+  ADD COLUMN url VARCHAR(500) NULL AFTER effective_date;
 
 -- doc/PLAN.md §17, 2026-09-16: anotace dogenerovaná, ne dohledaná.
 -- Popis dohledaný u vydavatele (a přeložený do češtiny) patří do už
@@ -230,6 +245,29 @@ ALTER TABLE DocumentVersion
 -- rozhodlo předejít tím, že se vymyšlený popis raději nenapsal vůbec).
 ALTER TABLE Document
   ADD COLUMN popis_priblizny TEXT NULL;
+
+-- doc/MPO_PRIPOMINKY.md, krok 0 (2026-11-19): původ záznamu (který skript
+-- nebo zdroj jej doplnil, odkaz na doc/PLAN.md). Dříve se psal do popisu
+-- (`anotace_poznamka` → `Document.description`) a byl tak veřejně vidět
+-- jako popis dokumentu. Interní údaj, veřejné stránky jej nezobrazují.
+ALTER TABLE Document
+  ADD COLUMN provenance TEXT NULL;
+
+-- doc/MPO_PRIPOMINKY.md, krok 2 (2026-11-19): podtyp aktu EU — akt v přenesené
+-- pravomoci (čl. 290 SFEU) nebo prováděcí akt (čl. 291 SFEU). Určuje jej
+-- `src/tools/eu_act_subtype.py` z ELI adresy nebo z úředního názvu (init_db.py
+-- při každé přestavbě, `backfill_eu_act_subtype.py` pro existující databázi);
+-- katalog podle něj filtruje v nabídce typů.
+ALTER TABLE Document
+  ADD COLUMN eu_act_subtype ENUM('delegated','implementing') NULL;
+-- doc/MPO_PRIPOMINKY.md, krok 3 (2026-11-19): kdy a čím byl stav dokumentu
+-- (platnost, zrušení, vyhlášení) naposledy ověřen — z mezipamětí kontrol
+-- (data/validity_cache.json, data/norm_validity_cache.json) nebo potvrzením
+-- editora; plní init_db.py a backfill_document_states.py, viz
+-- src/tools/status_checks.py. Zobrazuje se na stránce dokumentu.
+ALTER TABLE Document
+  ADD COLUMN status_checked_at DATE NULL,
+  ADD COLUMN status_checked_by VARCHAR(100) NULL;
 
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a
