@@ -20,9 +20,10 @@
                 {% for entry in entries %}
                 <tr>
                     <td>{{ entry.changed_at }}</td>
-                    <td>{{ entry.changed_by_name }} ({{ entry.changed_by_username }})</td>
+                    <td>{% if entry.changed_by_username == 'automat' %}<span class="automat-badge">automat</span> {% endif %}{{ entry.changed_by_name }} ({{ entry.changed_by_username }})</td>
                     <td>
                         {% if entry.slug %}<a href="{{ url_for('document_detail', slug=entry.slug) }}">{{ entry.title }}</a>
+                        {% elif entry.table_name == 'DocumentCandidate' %}<a href="{{ url_for('admin.candidate_detail', candidate_id=entry.record_id) }}">kandidát #{{ entry.record_id }}</a>
                         {% else %}#{{ entry.record_id }}{% endif %}
                     </td>
                     <td>{{ entry.action }} ({{ entry.table_name }})</td>

@@ -36,6 +36,7 @@ from werkzeug.security import check_password_hash
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src" / "tools"))
 from init_db import is_garbled_znacka, is_fragment_title  # noqa: E402
+from candidates import AUTOMAT_USERNAME  # noqa: E402
 
 admin_bp = Blueprint("admin", __name__)
 
@@ -74,7 +75,7 @@ _OPEN_REVIEW_STATUSES = ("needs_review", "proposed")
 def login_required(view):
     @functools.wraps(view)
     def wrapped(*args, **kwargs):
-        if not session.get("user_id"):
+        if not session.get("user_id") or session.get("username") == AUTOMAT_USERNAME:
             return redirect(url_for("admin.login", next=request.path))
         return view(*args, **kwargs)
     return wrapped
@@ -91,7 +92,9 @@ def login():
     with db.cursor() as cur:
         cur.execute("SELECT id, name, password_hash, is_active FROM User WHERE username=%s", (username,))
         user = cur.fetchone()
-    if not user or not user["is_active"] or not check_password_hash(user["password_hash"], password):
+    # the technical account of the automatic triage never signs in (doc/FRONTA_AUTOMAT.md), whatever its row says
+    if not user or username == AUTOMAT_USERNAME or not user["is_active"] \
+            or not check_password_hash(user["password_hash"], password):
         flash("Neplatné přihlašovací jméno nebo heslo.", "error")
         return render_template("admin/login.html")
 

@@ -34,7 +34,8 @@ stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označen
 1. **Nic se do databáze nedostane automaticky.** Automatizované nástroje
    zdroje jen čtou a nálezy předkládají editorům. Nový dokument vznikne až
    rozhodnutím dvou editorů (odstavec 4); automatizovaně zachycená změna není
-   právním posouzením.
+   právním posouzením. Automatický navrhovatel (odstavec 4.4) smí být prvním
+   navrhovatelem přijetí, potvrzuje však vždy člověk.
 2. **Každá změna má dva podpisy.** Přijetí nového dokumentu i oprava údajů
    existujícího dokumentu vyžadují návrh jednoho editora a potvrzení druhým,
    odlišným editorem. Databáze tuto podmínku sama vynucuje.
@@ -156,7 +157,7 @@ Kandidát, o němž editoři již rozhodli, se při dalším nálezu znovu neot
 | navržen k přijetí | jeden editor navrhl přijetí a vyplnil údaje budoucího dokumentu | editor |
 | přijat | druhý, jiný editor návrh potvrdil; dokument vznikl | druhý editor |
 | zamítnut | dokument do databáze nepatří (s odůvodněním) | jeden editor; lze znovu otevřít |
-| odložen | rozhodnutí vyžaduje další podklady | jeden editor; lze znovu otevřít |
+| odložen | rozhodnutí vyžaduje další podklady | jeden editor, nebo automat podle odsouhlaseného pravidla; lze znovu otevřít |
 
 ### 4.3 Postup posouzení
 
@@ -181,14 +182,35 @@ a zapíše se i do podkladů, z nichž lze databázi znovu sestavit, takže j
 případné nové sestavení neodstraní. Jeho plný text se stáhne při nejbližším
 stahování plných textů (u norem se plný text neuchovává).
 
-### 4.4 Lhůty
+### 4.4 Automatické třídění fronty
+
+Nové kandidáty předtřídí technický účet „Automatický navrhovatel“ (přihlašovací
+jméno `automat`), popsaný v dokumentu `doc/FRONTA_AUTOMAT.md`. Účet se
+nepřihlásí a nic nepotvrzuje. Podle pravidel, jež odsouhlasil uživatel
+(`data/triage_rules.json`), smí navrhnout přijetí (například technických
+pravidel TPG, dokumentů z tabulek MPO a CDV, jiné jazykové verze předpisu,
+jejž databáze má, a zrušeného předpisu se stavem „zrušený“ a vazbou na předpis,
+který jej zrušil), zamítnout duplicitu ve stejném jazyce a odložit novinku, jež
+sama dokumentem není; ostatní kandidáty posoudí
+jazykový model a jeho doporučení s jistotou a zdůvodněním se zobrazí editorům.
+Každé rozhodnutí automatu nese poznámku s pravidlem a důvodem, v seznamu
+i v auditním logu je označeno štítkem „automat“ a lze je vrátit
+(**Vrátit návrh**, **Znovu otevřít**). Kandidáta, jejž editor znovu otevřel,
+automat již nemění.
+
+Návrhy automatu potvrzuje editor: ve filtru „návrhy automatu k potvrzení“
+zaškrtne kandidáty, jež zkontroloval, a zvolí **Potvrdit přijetí vybraných**;
+hromadně lze stejně odložit nebo (s důvodem) zamítnout. Každý kandidát se
+zpracuje a do auditu zapíše zvlášť.
+
+### 4.5 Lhůty
 
 Navrhujeme, aby editoři kandidáty z týdenních zdrojů posoudili do dvou
 týdnů od zachycení a ostatní do konce kalendářního čtvrtletí. Lhůty jsou
 návrhem k projednání s aplikačním garantem na jednání, jež navrhujeme na
 první prosincový týden 2026; po dohodě je zde upřesníme.
 
-### 4.5 Opravy údajů
+### 4.6 Opravy údajů
 
 Opravy údajů existujících dokumentů (název, popis, odpovědná instituce,
 typ, jazyk aj.) se schvalují stejně: jeden editor opravu navrhne, druhý ji
@@ -482,6 +504,7 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha, promítnutí stavů a konsolidovaná znění; `daily` jen konsolidovaná znění; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, **instalovat do konce prosince 2026**, odstavec 5.4) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci; `daily` denně |
 | `refresh_eu_consolidations.py --apply [--today RRRR-MM-DD] [--backup]` | konsolidovaná znění aktů EU ze seznamu `data/eu_consolidated_acts.json` (CLP, REACH): dotaz do Cellaru → `data/eu_consolidation_cache.json`, stažení textu účinného znění z Cellaru (`fetch_fulltext.py`, položka manifestu `konsolidace_<RRRRMMDD>`), čitelný text, verze dokumentu (`eu_consolidations.py`); `--today` bez `--apply` ukáže stav k danému dni (odstavec 5.3) | denně |
 | `backup_db.py --reason <důvod>` | záloha databáze do `backups/` | před každým hromadným zápisem |
+| `triage_candidates.py [--rules-only] [--sample N] [--apply]` | automatické třídění fronty kandidátů: pravidla `data/triage_rules.json`, pak jazykový model (mezipaměť `data/triage_model_cache.json`, odhad ceny a limit před během); bez `--apply` suchý běh; ostrý běh nad živou databází až po odsouhlasení pravidel (`approval`), postup v `doc/FRONTA_AUTOMAT.md`, odstavec 7 | po každém sběru a importu kandidátů |
 | `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (do 25. 11. 2026) |
 | `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově po nasazení kroku 2 |
 | `harvest_sources.py --checklist`, `--record <zdroj> --note … --found N` | seznam ručně kontrolovaných zdrojů a záznam ruční kontroly | čtvrtletně |
@@ -520,6 +543,7 @@ cd /home/laborator/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/backfill_document_states.py --apply
 .venv/bin/python src/tools/import_candidates.py --apply
 .venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply   # po nasazení kroku 3
+.venv/bin/python src/tools/triage_candidates.py --apply                    # po odsouhlasení pravidel
 .venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
 ```
 

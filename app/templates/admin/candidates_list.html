@@ -40,6 +40,12 @@
                 objeví jen v textu, okrajová norma, zpráva úřadu); stačí je občas projít, nic z nich se samo nemaže.
                 V seznamu je nese štítek „nepřímý vztah“.</li>
         </ul>
+        <p><strong>Automatický navrhovatel</strong> (technický účet „automat“, doc/FRONTA_AUTOMAT.md) třídí
+            nové kandidáty podle odsouhlasených pravidel a podle doporučení jazykového modelu. Smí navrhnout přijetí
+            (potvrzuje vždy člověk) a podle pravidel zamítnout nebo odložit; vše jde vrátit (<strong>Znovu otevřít</strong>,
+            <strong>Vrátit návrh</strong>). Filtr „návrhy automatu k potvrzení“ ukáže jeho návrhy; zaškrtnuté kandidáty
+            lze potvrdit, odložit nebo zamítnout najednou, každého zvlášť se záznamem v auditu. U každého kandidáta je
+            vidět pravidlo nebo doporučení modelu s jistotou a zdůvodněním.</p>
         <p><strong>Navrhnout dokument</strong> slouží k ručnímu návrhu dokumentu, který ve frontě není (potvrzuje jej
             také druhý editor); <strong>Revize dokumentů</strong> jsou opravy záznamů, které už v databázi jsou.</p>
     </details>
@@ -61,33 +67,74 @@
         <select name="pasmo" aria-label="Vztah k databázi">
             {% for value, label in tiers.items() %}<option value="{{ value }}"{% if value == tier %} selected{% endif %}>{{ label }}{% if value != 'all' %}: {{ tier_counts.get(value, 0) }}{% endif %}</option>{% endfor %}
         </select>
+        <select name="automat" aria-label="Automat">
+            {% for value, label in automat_filters.items() %}<option value="{{ value }}"{% if value == automat %} selected{% endif %}>{{ label }}{% if value == 'navrhy' %}: {{ automat_proposals }}{% endif %}</option>{% endfor %}
+        </select>
+        {% if triage_columns %}
+        <select name="doporuceni" aria-label="Doporučení">
+            {% for value, label in recommendation_filters.items() %}<option value="{{ value }}"{% if value == recommendation %} selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        <select name="jistota" aria-label="Jistota">
+            {% for value, label in confidence_filters.items() %}<option value="{{ value }}"{% if value == level %} selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        {% endif %}
         <input type="text" name="q" value="{{ query }}" placeholder="hledat v názvu nebo označení">
         <button type="submit" class="btn-secondary">Filtrovat</button>
     </form>
 
+    <form method="POST" action="{{ url_for('admin.candidate_bulk') }}" class="candidate-bulk" id="candidate-bulk">
+    <input type="hidden" name="back" value="{{ request.script_root }}{{ request.full_path }}">
     <div class="table-glass-container">
         <table class="admin-table candidate-table">
             <thead>
-                <tr><th>Označení</th><th>Název</th><th>Zdroj</th><th>Citováno / výskytů</th><th>Platnost</th><th>Stav</th><th></th></tr>
+                <tr><th class="candidate-pick"><input type="checkbox" id="pick-all" aria-label="Vybrat vše"></th><th>Označení</th><th>Název</th><th class="candidate-col-source">Zdroj</th><th class="candidate-col-cited">Citováno / výskytů</th><th class="candidate-col-validity">Platnost</th><th>Stav</th><th class="candidate-col-automat">Automat</th><th></th></tr>
             </thead>
             <tbody>
                 {% for c in rows %}
+                {% set t = c.triage %}
                 <tr>
+                    <td class="candidate-pick">{% if c.status in ('new', 'proposed', 'deferred') %}<input type="checkbox" name="ids" value="{{ c.id }}" aria-label="Vybrat {{ c.designation or c.candidate_key or c.id }}">{% endif %}</td>
                     <td class="candidate-designation">{% if c.designation %}{{ c.designation }}{% else %}<span class="candidate-key">{{ c.candidate_key or '—' }}</span>{% endif %}</td>
                     <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="candidate-title">{{ (c.title or '—')|truncate(140) }}</a>
                         {%- if c.url %} <a href="{{ c.url }}" target="_blank" rel="noopener" class="candidate-source" title="Dokument ve zdroji (nové okno)" aria-label="Dokument ve zdroji"><i class="ph ph-arrow-square-out"></i></a>{% endif %}
                         {%- if c.tier == 2 %} <span class="badge" title="Nepřímý vztah k databázi (pásmo 2)">nepřímý vztah</span>{% endif %}</td>
-                    <td>{{ sources.get(c.source, c.source) }}</td>
-                    <td>{{ c.cited_by or '' }}{% if c.occurrences %}{% if c.cited_by %} / {% endif %}{{ c.occurrences }}×{% endif %}</td>
-                    <td>{{ c.validity_status or '—' }}</td>
-                    <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' and c.proposed_by_name %} ({{ c.proposed_by_name }}){% endif %}</td>
+                    <td class="candidate-col-source">{{ sources.get(c.source, c.source) }}</td>
+                    <td class="candidate-col-cited">{{ c.cited_by or '' }}{% if c.occurrences %}{% if c.cited_by %} / {% endif %}{{ c.occurrences }}×{% endif %}</td>
+                    <td class="candidate-col-validity">{{ c.validity_status or '—' }}</td>
+                    <td>{{ state_labels.get(c.status, c.status) }}{% if c.status == 'proposed' and c.proposed_by_name %} ({% if c.proposed_by_automat %}<span class="automat-badge">automat</span>{% else %}{{ c.proposed_by_name }}{% endif %}){% elif c.status in ('rejected', 'deferred') and c.decided_by_automat %} (<span class="automat-badge">automat</span>){% endif %}</td>
+                    <td class="candidate-col-automat">{% if t %}
+                        {%- if t.model %}<span class="triage-rec triage-{{ t.model.recommendation }}" title="{{ t.model.reasoning }}">{{ recommendation_labels.get(t.model.recommendation) }} {{ '%.2f'|format(c.triage_confidence or 0) }}</span>
+                        {%- else %}<span class="triage-rule" title="{{ t.note }}">{{ t.rule }}</span>{% endif %}
+                    {%- endif %}</td>
                     <td class="candidate-open"><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="btn-secondary">Otevřít</a></td>
                 </tr>
                 {% else %}
-                <tr><td colspan="7">Žádní kandidáti neodpovídají filtru.</td></tr>
+                <tr><td colspan="9">Žádní kandidáti neodpovídají filtru.</td></tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    {% if rows %}
+    <fieldset class="candidate-bulk-actions">
+        <legend>Hromadně se zaškrtnutými</legend>
+        <p>Každý vybraný kandidát se zpracuje zvlášť a zvlášť se zapíše do auditu; ten, u něhož krok stav nedovoluje
+            (nebo jde o vlastní návrh), se přeskočí.</p>
+        <div class="admin-form-group">
+            <label for="bulk_note">Důvod (u zamítnutí povinný)</label>
+            <input type="text" id="bulk_note" name="decision_note">
+        </div>
+        <div class="candidate-bulk-buttons">
+            {% if confirmable %}<button type="submit" name="action" value="confirm" class="btn-primary">Potvrdit přijetí vybraných</button>{% endif %}
+            <button type="submit" name="action" value="defer" class="btn-secondary">Odložit vybrané</button>
+            <button type="submit" name="action" value="reject" class="btn-secondary">Zamítnout vybrané</button>
+        </div>
+    </fieldset>
+    {% endif %}
+    </form>
+    <script>
+    document.getElementById('pick-all')?.addEventListener('change', function (e) {
+        document.querySelectorAll('#candidate-bulk input[name=ids]').forEach(function (box) { box.checked = e.target.checked; });
+    });
+    </script>
 </section>
 {% endblock %}

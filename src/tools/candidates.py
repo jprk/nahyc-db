@@ -32,6 +32,12 @@ SOURCES = {"citation": "citace v textech databáze", "validity": "nástupce zru�
 SCOPE_AREAS = {1: "Výroba vodíku", 2: "Skladování", 3: "Přeprava", 4: "Plnění do vozidel",
                5: "Provoz vozidel", 6: "Využití vodíku mimo vozidla", 7: "Bezpečnost",
                8: "Stavební řízení a umístění", 9: "Energetika", 10: "Životní prostředí"}
+LANGUAGES = ("CS", "EN", "SK", "DE")
+# The technical account of the automatic triage (triage.py, doc/FRONTA_AUTOMAT.md): it may be the first
+# proposer of an acceptance and may reject or defer by approved rules, never log in or confirm.
+AUTOMAT_USERNAME = "automat"
+AUTOMAT_NAME = "Automatický navrhovatel"
+AUTOMAT_EMAIL = "automat@nahyc.invalid"
 EU_TYPES = {"regulation": "Nařízení EU", "directive": "Směrnice EU", "decision": "Rozhodnutí EU"}
 CELEX_LETTERS = {"regulation": "R", "directive": "L", "decision": "D"}
 
@@ -84,7 +90,13 @@ MIGRATIONS = ("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS `signal` V
               # 2026-11-05: a document may belong to several subject areas ("4,7"); scope_area keeps the first
               "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS scope_areas VARCHAR(64) NULL AFTER scope_area",
               # 2026-11-05: the evidence carries the contexts of the citation in every citing document (> 64 kB)
-              "ALTER TABLE DocumentCandidate MODIFY COLUMN evidence_json MEDIUMTEXT NULL")
+              "ALTER TABLE DocumentCandidate MODIFY COLUMN evidence_json MEDIUMTEXT NULL",
+              # 2026-11-20, doc/FRONTA_AUTOMAT.md: what the automatic triage (triage.py) found and recommends
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS triage_rule VARCHAR(60) NULL",
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS triage_recommendation VARCHAR(10) NULL",
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS triage_confidence DECIMAL(4,3) NULL",
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS triage_json MEDIUMTEXT NULL",
+              "ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS triaged_at TIMESTAMP NULL")
 # `signal` of a finding (doc/DATA_SOURCES.md odstavec 4.2) as editors read it.
 def scope_areas(candidate):
     """The subject areas chosen for a candidate, [int], also of one proposed before
@@ -319,8 +331,11 @@ def upsert(cursor, candidate):
     row_id = row["id"] if isinstance(row, dict) else row[0]
     if status in ("accepted", "rejected"):
         return "kept"
-    cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, cited_by = %s, validity_status = %s WHERE id = %s",
-                   (evidence, candidate.get("cited_by", 0), candidate.get("validity_status"), row_id))
+    # a candidate inserted without a title (a successor added offline by the triage) gets one when it is found
+    cursor.execute("""UPDATE DocumentCandidate SET evidence_json = %s, cited_by = %s, validity_status = %s,
+                          title = COALESCE(title, %s) WHERE id = %s""",
+                   (evidence, candidate.get("cited_by", 0), candidate.get("validity_status"), candidate.get("title"),
+                    row_id))
     return "updated"
 
 
@@ -374,3 +389,170 @@ def upsert_finding(cursor, candidate, finding):
                    (payload, candidate.get("tier"), candidate.get("occurrences"), candidate.get("title"),
                     candidate.get("document_type"), row_id))
     return "updated"
+
+
+# --- proposals and decisions (the editor pages and the automatic triage alike) ----
+
+def validate_proposal(cur, metadata, areas, document_types, own_designation=None):
+    """(metadata, errors) of a proposal of acceptance: the same checks for an editor's
+    form (candidates_admin.read_metadata) and for the automatic triage (triage.py).
+    `metadata` has designation, title, document_type, url, language, jurisdikce,
+    puvodce, decision_note; `areas` are the chosen subject areas."""
+    metadata = {field: (str(metadata.get(field) or "")).strip() for field in
+                ("designation", "title", "document_type", "url", "language", "jurisdikce", "puvodce", "decision_note")}
+    errors = []
+    if not metadata["title"]:
+        errors.append("Název je povinný.")
+    if metadata["document_type"] not in document_types:
+        errors.append("Vyberte typ dokumentu.")
+    if metadata["language"] not in LANGUAGES:
+        errors.append("Vyberte jazyk.")
+    # a document may belong to several subject areas; the first chosen one is also kept in `scope_area`
+    areas = sorted({int(n) for n in areas if str(n).strip().isdigit() and int(n) in SCOPE_AREAS})
+    metadata["scope_area"] = areas[0] if areas else 0
+    metadata["scope_areas"] = ",".join(map(str, areas))
+    if not areas:
+        errors.append("Vyberte alespoň jeden věcný okruh (DATABASE_SCOPE.md, odstavec 3).")
+    if metadata["designation"] and metadata["designation"] != own_designation:
+        cur.execute("SELECT id FROM Document WHERE identifier = %s", (metadata["designation"],))
+        if cur.fetchone():
+            errors.append(f"Dokument s označením {metadata['designation']} už v databázi je.")
+    return metadata, errors
+
+
+def store_proposal(cur, candidate_id, metadata, user_id):
+    cur.execute("""UPDATE DocumentCandidate SET designation = %s, title = %s, document_type = %s, url = %s,
+                       language = %s, jurisdikce = %s, puvodce = %s, scope_area = %s, scope_areas = %s,
+                       decision_note = %s,
+                       status = 'proposed',
+                       proposed_by_user_id = %s, proposed_at = NOW(), confirmed_by_user_id = NULL,
+                       confirmed_at = NULL
+                   WHERE id = %s""",
+                (metadata["designation"] or None, metadata["title"], metadata["document_type"],
+                 metadata["url"] or None, metadata["language"], metadata["jurisdikce"] or None,
+                 metadata["puvodce"] or None, metadata["scope_area"], metadata["scope_areas"],
+                 metadata["decision_note"] or None, user_id, candidate_id))
+
+
+def store_decision(cur, candidate_id, new_status, note, user_id):
+    """A decision of one editor (or of the automat): rejected, deferred, or back to new."""
+    cur.execute("""UPDATE DocumentCandidate SET status = %s, decision_note = %s, decided_by_user_id = %s,
+                       decided_at = NOW(), proposed_by_user_id = IF(%s = 'new', NULL, proposed_by_user_id)
+                   WHERE id = %s""", (new_status, note or None, user_id, new_status, candidate_id))
+
+
+def audit(cur, candidate_id, action, old, new, user_id):
+    cur.execute("""INSERT INTO AuditLog (table_name, record_id, action, old_value_json, new_value_json,
+                                         changed_by_user_id)
+                   VALUES ('DocumentCandidate', %s, %s, %s, %s, %s)""",
+                (candidate_id, action, json.dumps(old, ensure_ascii=False, default=str),
+                 json.dumps(new, ensure_ascii=False, default=str), user_id))
+
+
+def automat_id(cur, create=False):
+    """The id of the technical account `automat`, created (inactive, with a password hash
+    no password matches) when `create`; None when it does not exist yet."""
+    cur.execute("SELECT id FROM User WHERE username = %s", (AUTOMAT_USERNAME,))
+    row = cur.fetchone()
+    if row:
+        return row["id"] if isinstance(row, dict) else row[0]
+    if not create:
+        return None
+    # "!" is no hash werkzeug can produce, so check_password_hash() is False for every password;
+    # is_active = 0 makes the login refuse the account before the password is even checked.
+    cur.execute("INSERT INTO User (username, name, email, password_hash, is_active) VALUES (%s, %s, %s, '!', 0)",
+                (AUTOMAT_USERNAME, AUTOMAT_NAME, AUTOMAT_EMAIL))
+    return cur.lastrowid
+
+
+# --- language variants and repealed acts (doc/FRONTA_AUTOMAT.md, pravidla R7 a R8) ------------
+
+VARIANT_SUFFIXES = {"EN": " [EN]", "SK": " [SK]"}  # language_variants.EN_SUFFIX, SK_SUFFIX
+
+
+def act_keys(designation):
+    """The Czech and EU keys (citation_closure.own_keys) of a designation, its
+    language-variant suffix (`… [EN]`, `… [SK]`) left out."""
+    base = base_designation(designation)
+    return {k for k in cc.own_keys(base, "") if k.split(":", 1)[0] in ("CZ", "EU")} if base else set()
+
+
+def base_designation(designation):
+    designation = (designation or "").strip()
+    for suffix in VARIANT_SUFFIXES.values():
+        if designation.endswith(suffix):
+            return designation[:-len(suffix)]
+    return designation
+
+
+def variant_designation(designation, language):
+    """The designation of the `language` text of an act: the Czech text keeps the
+    plain designation, the English and Slovak ones get ` [EN]`, ` [SK]`
+    (language_variants.py); None for another language."""
+    base = base_designation(designation)
+    if language == "CS":
+        return base
+    return base + VARIANT_SUFFIXES[language] if language in VARIANT_SUFFIXES else None
+
+
+def same_act_documents(cur, designation, exclude=None):
+    """[(id, identifier, language)] of the documents of the database that are the act
+    of `designation` in any language (the same Czech or EU key)."""
+    keys = act_keys(designation)
+    if not keys:
+        return []
+    cur.execute("SELECT id, identifier, language FROM Document WHERE identifier IS NOT NULL")
+    found = []
+    for row in cur.fetchall():
+        row = row if isinstance(row, dict) else dict(zip(("id", "identifier", "language"), row))
+        if row["id"] != exclude and act_keys(row["identifier"]) & keys:
+            found.append((row["id"], row["identifier"], row["language"]))
+    return found
+
+
+def translation_relations(new, others):
+    """`TRANSLATION_OF` relations joining a new language version `new` = (id, identifier,
+    language) to every other version: from the English or Slovak text to the Czech
+    one (language_variants.py); between two non-Czech texts, from the new one."""
+    relations = []
+    for other in others:
+        if other[2] == new[2]:
+            continue
+        source, target = (other, new) if new[2] == "CS" else (new, other)
+        relations.append((source, target))
+    return relations
+
+
+def successors(candidate, evidence, cache):
+    """The keys of the acts that repealed a candidate: from its own evidence
+    (`validity.repealed_by`, MPO tables) or from data/validity_cache.json."""
+    found = list((evidence.get("validity") or {}).get("repealed_by") or [])
+    keys = {candidate.get("candidate_key") or ""} | act_keys(candidate.get("designation"))
+    for key in sorted(k for k in keys if k):
+        found += cache.get(key, {}).get("repealed_by") or []
+    return list(dict.fromkeys(found))
+
+
+def documents_by_key(cur, keys):
+    """{key: [(id, identifier)]} of the documents of the database (no language variants
+    when the original is there) that are one of `keys`."""
+    wanted = set(keys)
+    if not wanted:
+        return {}
+    cur.execute("SELECT id, identifier FROM Document WHERE identifier IS NOT NULL")
+    found = {}
+    for row in cur.fetchall():
+        row = row if isinstance(row, dict) else dict(zip(("id", "identifier"), row))
+        for key in act_keys(row["identifier"]) & wanted:
+            found.setdefault(key, []).append((row["id"], row["identifier"]))
+    return {k: [d for d in v if base_designation(d[1]) == d[1]] or v[:1] for k, v in found.items()}
+
+
+def successor_candidate(key, repealed_key, cache):
+    """A candidate for the act `key` that repealed the candidate `repealed_key`, made
+    without the network (complete() with no titles: the title is filled in by the
+    next import_candidates.py --apply, which looks it up)."""
+    validity = cache.get(key, {})
+    return complete({"candidate_key": key, "source": "validity", "kind": kind_from_celex(validity.get("celex")),
+                     "validity_status": validity.get("status"), "cited_by": 0,
+                     "evidence": {"successor_of": [repealed_key], "celex": validity.get("celex")}}, {})

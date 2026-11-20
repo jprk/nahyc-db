@@ -33,6 +33,11 @@ class SlovakDocumentsTestCase(BrowserTestCase):
         cls.acts = cls.one(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_TRANSLATION}")["c"]
         cls.slovak_acts = cls.one(f"SELECT COUNT(*) AS c FROM Document d WHERE {NOT_TRANSLATION} AND {SLOVAK}")["c"]
         cls.slovak_slugs = {r["slug"] for r in cls.all(f"SELECT slug FROM Document d WHERE {SLOVAK}")}
+        # one row per act: a Slovak text of an EU act (TRANSLATION_OF) sits in the row of its Czech text
+        cls.slovak_heads = {r["slug"] for r in cls.all(
+            "SELECT d.slug FROM document_relation r JOIN Document s ON s.id = r.from_document_id "
+            "JOIN Document d ON d.id = r.to_document_id WHERE r.relation_type = 'TRANSLATION_OF' "
+            "AND " + SLOVAK.replace("d.", "s."))}
 
     @classmethod
     def cleanup(cls):
@@ -151,13 +156,14 @@ class SlovakDocumentsTestCase(BrowserTestCase):
         page.locator("select[name=jurisdikce]").select_option(label="Slovensko")
         page.wait_for_url(re.compile(r"jurisdikce=sk"))
         self.assertIn("sk=1", page.url)
-        self.assertEqual(self.count(page), self.slovak_acts)
-        self.assertLessEqual(self.row_slugs(page), self.slovak_slugs)
+        # the Slovak documents of their own plus the rows of EU acts with a Slovak text
+        self.assertEqual(self.count(page), self.slovak_acts + len(self.slovak_heads))
+        self.assertLessEqual(self.row_slugs(page), self.slovak_slugs | self.slovak_heads)
         self.shot(page, "editor-slovakia", full_page=False)
 
         # the exports follow the switch and the page ("strana 2" keeps it as well)
         rows = json.loads(page.request.get(BASE_URL + "/export/json?sk=1&jurisdikce=sk").text())
-        self.assertEqual(len(rows), self.one(f"SELECT COUNT(*) AS c FROM Document d WHERE d.jurisdikce = 'SK'")["c"])
+        self.assertEqual(len(rows), self.one(f"SELECT COUNT(*) AS c FROM Document d WHERE {SLOVAK}")["c"])
         if page.locator("a.page-nav[rel=next]").count():
             self.assertIn("sk=1", page.locator("a.page-nav[rel=next]").get_attribute("href"))
 
