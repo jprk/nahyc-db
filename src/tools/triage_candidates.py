@@ -23,6 +23,7 @@ import pymysql
 from dotenv import dotenv_values
 
 import candidates as cd
+import document_states
 import testdb
 import triage
 
@@ -54,7 +55,8 @@ def run(conn, database, args, config, assessor_factory=None, out=print):
         if args.apply:
             cd.ensure_schema(cur)
         types = document_types(cur)
-        index = triage.document_index(triage.load_documents(cur))
+        index = triage.document_index(triage.load_documents(cur), triage.load_document_areas(cur),
+                                      document_states.load_cache())
         queue = triage.load_queue(cur, args.ids)
         if args.rule:
             queue = [c for c in queue if triage.match_rule(c, config, index)["id"] in args.rule]
@@ -83,7 +85,7 @@ def run(conn, database, args, config, assessor_factory=None, out=print):
                                      sources=sources, rules_only=args.rules_only)
             taken = None
             if args.apply:
-                taken = triage.store(cur, candidate, decision, automat)
+                taken = triage.store(cur, candidate, decision, automat, index=index)
                 conn.commit()
             results.append((candidate, decision, taken))
     return results

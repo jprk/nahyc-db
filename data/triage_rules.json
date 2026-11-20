@@ -4,22 +4,36 @@
   "approval": {
     "approved_by": null,
     "date": null,
-    "note": "Návrh 2026-11-20 k odsouhlasení uživatelem (doc/FRONTA_AUTOMAT.md, odstavec 2)."
+    "note": "Pravidla R1, R3 až R8 odsouhlasena uživatelem 20. 11. 2026 (R1 a nová R7, R8 podle jeho úprav, R2 zrušeno); souhlas se zapíše, až uživatel rozhodne o kategoriích modelu (model.proposed_auto_categories) a o otázkách rozsahu (doc/FRONTA_AUTOMAT.md, odstavec 8)."
   },
   "rules": [
     {
       "id": "R1-duplicita",
-      "label": "Duplicita dokumentu databáze",
+      "label": "Duplicita dokumentu databáze ve stejném jazyce",
       "when": {"duplicate": true},
       "action": "reject",
-      "note": "Dokument (nebo jiná jazyková verze téhož předpisu) už v databázi je."
+      "note": "Týž předpis ve stejném jazyce už v databázi je."
     },
     {
-      "id": "R2-zruseny",
+      "id": "R7-jazykova-verze",
+      "label": "Jiná jazyková verze předpisu databáze",
+      "when": {"language_variant": true},
+      "action": "propose",
+      "note": "Znění předpisu v jiném jazyce, než má databáze; navrženo jako jazyková verze (označení „<značka> [EN]“, „[SK]“), přijetí je propojí vazbou TRANSLATION_OF se všemi jazykovými verzemi v databázi (rozhodnutí uživatele z 20. 11. 2026).",
+      "proposal": {
+        "language_variant": true,
+        "default_areas": []
+      }
+    },
+    {
+      "id": "R8-zruseny",
       "label": "Zrušený předpis",
       "when": {"validity_status": ["zrušený"]},
-      "action": "reject",
-      "note": "Předpis je podle kontroly platnosti zrušený; databáze vede jen předpisy platné nebo připravované."
+      "action": "propose",
+      "note": "Předpis je podle kontroly platnosti zrušený; navržen k přijetí se stavem „zrušený“, přijetí jej propojí vazbou REPEALS od předpisu, který jej zrušil (rozhodnutí uživatele z 20. 11. 2026).",
+      "proposal": {
+        "default_areas": []
+      }
     },
     {
       "id": "R3-novinka",

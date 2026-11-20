@@ -79,9 +79,10 @@ def _norm_designation(text):
     return re.sub(r":\s*\d{4}$", "", text)
 
 
-def document_index(documents):
-    """{"keys": {CZ/EU key: [(id, identifier, language)]}, "designations": {normalised identifier: id}}
-    of the documents of the database, `documents` = [(id, identifier, title, language)]."""
+def document_index(documents, areas=None, validity=None):
+    """{"keys": {CZ/EU key: [(id, identifier, language)]}, "designations": {normalised identifier: id},
+    "areas": {id: [subject area]}, "validity": data/validity_cache.json} of the documents of the database,
+    `documents` = [(id, identifier, title, language)]."""
     keys, designations = collections.defaultdict(list), {}
     for doc_id, identifier, title, language in documents:
         for key in cc.own_keys(identifier, title):
@@ -89,27 +90,57 @@ def document_index(documents):
                 keys[key].append((doc_id, identifier, language))
         if identifier:
             designations.setdefault(_norm_designation(identifier), doc_id)
-    return {"keys": dict(keys), "designations": designations}
+    return {"keys": dict(keys), "designations": designations, "areas": areas or {}, "validity": validity or {}}
+
+
+def candidate_language(candidate):
+    return candidate.get("language") or guess_language(candidate.get("title"))
+
+
+def same_act(candidate, index):
+    """[(id, identifier, language)] of the documents of the database that are the act of
+    the candidate in any language (the same Czech or EU key)."""
+    key = candidate.get("candidate_key") or ""
+    keys = {key} if key.split(":", 1)[0] in ("CZ", "EU") else set()
+    if candidate.get("designation"):
+        keys |= cd.act_keys(candidate["designation"])
+    found = {}
+    for k in sorted(keys):
+        for document in index["keys"].get(k, []):
+            found.setdefault(document[0], document)
+    return [found[i] for i in sorted(found)]
 
 
 def duplicate_of(candidate, index):
     """(document id, explanation) of the document of the database the candidate already
-    is, or None. Czech and EU acts are compared by their keys (so another language
-    version of the act counts too), the rest by the designation itself."""
+    is IN ITS LANGUAGE (rule R1), or None. Czech and EU acts are compared by their keys
+    and languages, the rest (standards, technical rules) by the designation itself."""
+    language = candidate_language(candidate)
+    for doc_id, identifier, doc_language in same_act(candidate, index):
+        if (doc_language or "CS") == language:
+            return doc_id, f"v databázi je dokument #{doc_id} {identifier} ve stejném jazyce ({language})"
     key = candidate.get("candidate_key") or ""
-    keys = {key} if key.split(":", 1)[0] in ("CZ", "EU") else set()
-    if candidate.get("designation"):
-        keys |= {k for k in cc.own_keys(candidate["designation"], "") if k.split(":", 1)[0] in ("CZ", "EU")}
-    for k in sorted(keys):
-        for doc_id, identifier, language in index["keys"].get(k, []):
-            variant = " (jiná jazyková verze)" if language and candidate.get("language") \
-                and language != candidate["language"] else ""
-            return doc_id, f"v databázi je dokument #{doc_id} {identifier}{variant}"
-    if candidate.get("designation") and not key.startswith("DRAFT"):
+    if candidate.get("designation") and not key.startswith("DRAFT") and not same_act(candidate, index):
         doc_id = index["designations"].get(_norm_designation(candidate["designation"]))
         if doc_id:
             return doc_id, f"v databázi je dokument #{doc_id} se stejným označením"
     return None
+
+
+def language_variant_of(candidate, index):
+    """The documents of the database that are the candidate's act in OTHER languages
+    (rule R7), when none is in its language and the language has a designation
+    convention (CS, EN, SK); else []."""
+    others = same_act(candidate, index)
+    if not others or duplicate_of(candidate, index) \
+            or cd.variant_designation("x", candidate_language(candidate)) is None:
+        return []
+    return others
+
+
+def repealing_acts(candidate, index):
+    """The keys of the acts that repealed the candidate (its evidence or the validity cache)."""
+    return cd.successors(candidate, candidate.get("evidence") or {}, index.get("validity") or {})
 
 
 # --- rules -----------------------------------------------------------------------
@@ -121,6 +152,9 @@ def _matches(when, candidate, index):
                 return False
         elif field == "duplicate":
             if bool(duplicate_of(candidate, index)) != expected:
+                return False
+        elif field == "language_variant":
+            if bool(language_variant_of(candidate, index)) != expected:
                 return False
         elif field == "has_document_type":
             present = bool(candidate.get("document_type")) and candidate["document_type"] != "Nezařazeno"
@@ -186,7 +220,7 @@ def guess_jurisdiction(candidate):
     return None
 
 
-def proposal_metadata(candidate, rule, config, model=None):
+def proposal_metadata(candidate, rule, config, model=None, index=None):
     """(metadata, areas) of a proposal of acceptance by `rule` (or by the model's
     recommendation `model`), before validation."""
     defaults = (rule or {}).get("proposal") or {}
@@ -201,6 +235,12 @@ def proposal_metadata(candidate, rule, config, model=None):
     document_type = defaults.get("document_type") or candidate.get("document_type")
     if (not document_type or document_type == "Nezařazeno") and model.get("document_type"):
         document_type = model["document_type"]
+    own_areas = None
+    if defaults.get("language_variant") and index is not None:
+        others = language_variant_of(candidate, index)
+        if others:  # the designation follows the convention of language_variants.py, the areas the other texts'
+            designation = cd.variant_designation(others[0][1], candidate_language(candidate)) or designation
+            own_areas = sorted({a for i, _, _ in others for a in index.get("areas", {}).get(i, [])})
     metadata = {
         "designation": designation,
         "title": title,
@@ -210,7 +250,7 @@ def proposal_metadata(candidate, rule, config, model=None):
         "jurisdikce": defaults.get("jurisdikce") or candidate.get("jurisdikce") or guess_jurisdiction(candidate) or "",
         "puvodce": defaults.get("puvodce") or candidate.get("puvodce") or model.get("puvodce") or "",
     }
-    return metadata, proposal_areas(candidate, rule, config, model)
+    return metadata, own_areas or proposal_areas(candidate, rule, config, model)
 
 
 # --- the model ---------------------------------------------------------------------
@@ -548,11 +588,19 @@ def decide(candidate, config, index, document_types, cur=None, assessor=None, li
     are checked."""
     rule = match_rule(candidate, config, index)
     action, note, model, metadata, areas, errors = rule["action"], rule.get("note", ""), None, None, [], []
-    if rule.get("when", {}).get("duplicate"):
+    when = rule.get("when", {})
+    if when.get("duplicate"):
         found = duplicate_of(candidate, index)
         note = f"{note} {found[1][0].upper()}{found[1][1:]}." if found else note
+    if when.get("language_variant"):
+        others = language_variant_of(candidate, index)
+        note = (f"{note} V databázi je v jiném jazyce: "
+                + ", ".join(f"#{i} {identifier} ({language})" for i, identifier, language in others) + ".")
+    if when.get("validity_status") and "zrušený" in when["validity_status"]:
+        successors = repealing_acts(candidate, index)
+        note = f"{note} Zrušil jej: {', '.join(successors)}." if successors else f"{note} Zrušující předpis neznáme."
     if action == "propose":
-        metadata, areas = proposal_metadata(candidate, rule, config)
+        metadata, areas = proposal_metadata(candidate, rule, config, index=index)
         if not areas:  # without a subject area the proposal would not pass; the model decides
             action, note = "model", f"{note} Věcný okruh z pravidla nevyplývá, rozhoduje model."
     if action == "model":
@@ -593,7 +641,22 @@ def _validate_offline(metadata, areas, document_types):
 
 # --- writing ---------------------------------------------------------------------------
 
-def store(cur, candidate, decision, automat, act=True):
+def add_successors(cur, candidate, index):
+    """Puts into the queue, as candidates of the source `validity`, the acts that repealed
+    a repealed candidate (rule R8) and that are neither in the database nor in the queue;
+    made without the network (candidates.successor_candidate). Returns their keys."""
+    added = []
+    for key in repealing_acts(candidate, index):
+        if key.split(":", 1)[0] not in ("CZ", "EU") or index["keys"].get(key):
+            continue
+        cur.execute("SELECT id FROM DocumentCandidate WHERE candidate_key = %s", (key,))
+        if cur.fetchone() is None:
+            cd.upsert(cur, cd.successor_candidate(key, candidate.get("candidate_key"), index.get("validity") or {}))
+            added.append(key)
+    return added
+
+
+def store(cur, candidate, decision, automat, act=True, index=None):
     """Writes the decision: the triage columns always, the action (proposal, rejection,
     deferral) only for a candidate still `new` that the automat has not acted on before
     (one an editor reopened stays with the editors) and when `act`. Returns the action
@@ -623,6 +686,10 @@ def store(cur, candidate, decision, automat, act=True):
     trail = {"automat": True, "rule": decision.rule, "note": decision.note,
              "model": ({k: model.get(k) for k in ("recommendation", "confidence", "token_confidence", "category")}
                        if model else None)}
+    if action == "propose" and index is not None and candidate.get("validity_status") == "zrušený":
+        record["successors_added"] = add_successors(cur, candidate, index) or None
+        cur.execute("UPDATE DocumentCandidate SET triage_json = %s WHERE id = %s",
+                    (json.dumps(record, ensure_ascii=False), candidate["id"]))
     if action == "propose":
         cd.store_proposal(cur, candidate["id"], decision.metadata, automat)
         cd.audit(cur, candidate["id"], "PROPOSE", {"status": candidate["status"]},
@@ -668,6 +735,17 @@ def load_queue(cur, ids=None):
             row["triage_json"] = None
         rows.append(row)
     return rows
+
+
+def load_document_areas(cur):
+    """{document id: [subject area]} from the keywords that name a subject area."""
+    names = {name: n for n, name in cd.SCOPE_AREAS.items()}
+    cur.execute("""SELECT dk.document_id, k.keyword FROM DocumentKeyword dk JOIN Keyword k ON k.id = dk.keyword_id
+                   WHERE k.keyword IN (""" + ",".join(["%s"] * len(names)) + ")", list(names))
+    areas = collections.defaultdict(set)
+    for row in cur.fetchall():
+        areas[row["document_id"]].add(names[row["keyword"]])
+    return {k: sorted(v) for k, v in areas.items()}
 
 
 def load_documents(cur):

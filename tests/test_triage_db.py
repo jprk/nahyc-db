@@ -24,6 +24,8 @@ import testdb  # noqa: E402
 
 USERS = {"triage_alice": "alice-triage-password", "triage_bob": "bob-triage-password"}
 PREFIX = "TEST-TRIAGE:"
+# a repealed act and the act that repealed it, with real-looking keys (the triage and the acceptance read them)
+EXTRA_KEYS = ("CZ:9011/2099", "CZ:9015/2099")
 
 
 class FakeAssessor:
@@ -62,8 +64,11 @@ class TriageDatabaseTestCase(unittest.TestCase):
         cls.cd, cls.triage, cls.triage_candidates = cd, triage, triage_candidates
         cls.candidates_admin = candidates_admin
         cls.tmp = tempfile.TemporaryDirectory()
-        cls._saved_path = candidates_admin.ACCEPTED_PATH
+        cls._saved_paths = (candidates_admin.ACCEPTED_PATH, candidates_admin.EDITOR_RELATIONS_PATH,
+                            candidates_admin.VALIDITY_CACHE_PATH)
         candidates_admin.ACCEPTED_PATH = pathlib.Path(cls.tmp.name) / "accepted.json"
+        candidates_admin.EDITOR_RELATIONS_PATH = pathlib.Path(cls.tmp.name) / "relations.json"
+        candidates_admin.VALIDITY_CACHE_PATH = pathlib.Path(cls.tmp.name) / "validity.json"
         cls.app = app
         import pymysql
         cls.conn = pymysql.connect(host=os.environ["DB_HOST"], port=int(os.environ["DB_PORT"]),
@@ -82,16 +87,20 @@ class TriageDatabaseTestCase(unittest.TestCase):
     @classmethod
     def cleanup(cls):
         with cls.conn.cursor() as cur:
-            cur.execute("SELECT id, document_id FROM DocumentCandidate WHERE candidate_key LIKE %s", (PREFIX + "%",))
+            cur.execute("SELECT id, document_id FROM DocumentCandidate WHERE candidate_key LIKE %s "
+                        "OR candidate_key IN (%s, %s)", (PREFIX + "%",) + EXTRA_KEYS)
             rows = cur.fetchall()
             for row in rows:
                 cur.execute("DELETE FROM AuditLog WHERE table_name = 'DocumentCandidate' AND record_id = %s", (row["id"],))
                 if row["document_id"]:
+                    cur.execute("DELETE FROM document_relation WHERE from_document_id = %s OR to_document_id = %s",
+                                (row["document_id"], row["document_id"]))
                     for table in ("DocumentKeyword", "DocumentVersion"):
                         cur.execute(f"DELETE FROM {table} WHERE document_id = %s", (row["document_id"],))
                     cur.execute("DELETE FROM AuditLog WHERE table_name = 'Document' AND record_id = %s",
                                 (row["document_id"],))
-            cur.execute("DELETE FROM DocumentCandidate WHERE candidate_key LIKE %s", (PREFIX + "%",))
+            cur.execute("DELETE FROM DocumentCandidate WHERE candidate_key LIKE %s OR candidate_key IN (%s, %s)",
+                        (PREFIX + "%",) + EXTRA_KEYS)
             for row in rows:
                 if row["document_id"]:
                     cur.execute("DELETE FROM Document WHERE id = %s", (row["document_id"],))
@@ -106,8 +115,9 @@ class TriageDatabaseTestCase(unittest.TestCase):
         if hasattr(cls, "conn"):
             cls.cleanup()
             cls.conn.close()
-        if hasattr(cls, "_saved_path"):
-            cls.candidates_admin.ACCEPTED_PATH = cls._saved_path
+        if hasattr(cls, "_saved_paths"):
+            (cls.candidates_admin.ACCEPTED_PATH, cls.candidates_admin.EDITOR_RELATIONS_PATH,
+             cls.candidates_admin.VALIDITY_CACHE_PATH) = cls._saved_paths
             cls.tmp.cleanup()
         if hasattr(cls, "_saved_environ"):
             os.environ.clear()
@@ -153,8 +163,9 @@ class TriageDatabaseTestCase(unittest.TestCase):
     def test_triage_then_editors(self):
         tpg = self.insert("TPG 304 03", "cps-tpg", "TPG 304 03 Plnicí stanice stlačeného vodíku pro mobilní zařízení",
                           designation="TPG 304 03", document_type="Norma", signal="new_document")
-        repealed = self.insert("CZ:9001/2099", "mpo", "Vyhláška zrušená", designation="9001/2099 Sb.",
-                               document_type="Vyhláška", language="CS", jurisdikce="CZ", validity_status="zrušený")
+        # the same act in the same language as a document of the database: rejected (R1)
+        repealed = self.insert("dup", "citation", "Energetický zákon (duplicita pro zkoušky)", designation="458/2000 Sb.",
+                               document_type="Zákon", language="CS", jurisdikce="CZ", validity_status="účinný")
         news = self.insert("news", "acer", "ACER news item", url="https://www.acer.europa.eu/news/test-triage",
                            signal="new_document")
         accepted = self.insert("CZ:9002/2099", "citation", "Zákon o tlakových zařízeních pro zkoušky",
@@ -172,7 +183,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
                          ("proposed", "automat", "Norma", "Český plynárenský svaz (ČPS)", "4",
                           "Plnicí stanice stlačeného vodíku pro mobilní zařízení"))
         self.assertEqual((self.candidate(repealed)["status"], self.candidate(repealed)["decider"]), ("rejected", "automat"))
-        self.assertTrue(self.candidate(repealed)["decision_note"].startswith("Automat (R2-zruseny)"))
+        self.assertTrue(self.candidate(repealed)["decision_note"].startswith("Automat (R1-duplicita)"))
         self.assertEqual(self.candidate(news)["status"], "deferred")
         c = self.candidate(accepted)
         self.assertEqual((c["status"], c["document_type"], c["triage_recommendation"]), ("proposed", "Zákon", "accept"))
@@ -234,6 +245,68 @@ class TriageDatabaseTestCase(unittest.TestCase):
         alice.post("/admin/candidates/bulk", data={"action": "defer", "ids": [str(declined)], "decision_note": "později"})
         c = self.candidate(declined)
         self.assertEqual((c["status"], c["decider"], c["decision_note"]), ("deferred", "triage_alice", "později"))
+
+
+    def test_language_version_and_repealed_act(self):
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT id FROM Document WHERE identifier = '458/2000 Sb.'")
+            czech_id = cur.fetchone()["id"]
+            cur.execute("SELECT id FROM Document WHERE identifier = '458/2000 Sb. [EN]'")
+            if cur.fetchone():
+                self.skipTest("the test database has an English text of 458/2000 Sb. already")
+        variant = self.insert("lv", "citation", "Energy Act (triage test)", designation="458/2000 Sb.",
+                              document_type="Zákon", language="EN", jurisdikce="CZ", validity_status="účinný")
+        evidence = {"validity": {"status": "zrušený", "source": "e-sbirka", "end": "2025-12-31",
+                                 "repealed_by": [EXTRA_KEYS[1]], "repealed_on": "2026-01-01"}}
+        with self.conn.cursor() as cur:
+            cur.execute("""INSERT INTO DocumentCandidate (candidate_key, source, designation, title, document_type, url,
+                               language, jurisdikce, validity_status, evidence_json)
+                           VALUES (%s, 'mpo', '9011/2099 Sb.', 'Vyhláška o tlakových zařízeních (zrušená, zkouška)',
+                               'Vyhláška', 'https://example.test/9011', 'CS', 'CZ', 'zrušený', %s)""",
+                        (EXTRA_KEYS[0], json.dumps(evidence)))
+            repealed = cur.lastrowid
+        results = self.run_triage([variant, repealed])
+        self.assertEqual({c["id"]: (d.rule, taken) for c, d, taken in results},
+                         {variant: ("R7-jazykova-verze", "propose"), repealed: ("R8-zruseny", "propose")})
+        self.assertEqual(self.candidate(variant)["designation"], "458/2000 Sb. [EN]")
+        with self.conn.cursor() as cur:  # the act that repealed it was put into the queue, without a title yet
+            cur.execute("SELECT * FROM DocumentCandidate WHERE candidate_key = %s", (EXTRA_KEYS[1],))
+            successor = cur.fetchone()
+        self.assertEqual((successor["source"], successor["designation"], successor["title"], successor["status"]),
+                         ("validity", "9015/2099 Sb.", None, "new"))
+        self.assertEqual(json.loads(self.candidate(repealed)["triage_json"])["successors_added"], [EXTRA_KEYS[1]])
+
+        alice = self.client_for("triage_alice")
+        alice.post("/admin/candidates/bulk", data={"action": "confirm", "ids": [str(variant), str(repealed)]})
+        english_id, repealed_id = self.candidate(variant)["document_id"], self.candidate(repealed)["document_id"]
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT from_document_id, to_document_id FROM document_relation "
+                        "WHERE relation_type = 'TRANSLATION_OF' AND from_document_id = %s", (english_id,))
+            self.assertEqual([(r["from_document_id"], r["to_document_id"]) for r in cur.fetchall()],
+                             [(english_id, czech_id)])
+            cur.execute("SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s", (repealed_id,))
+            self.assertEqual(cur.fetchone()["lifecycle_state"], "repealed")
+            cur.execute("SELECT evidence_json FROM DocumentCandidate WHERE candidate_key = %s", (EXTRA_KEYS[1],))
+            self.assertEqual(json.loads(cur.fetchone()["evidence_json"])["repeals_ids"], [repealed_id])
+        relations = json.loads(self.candidates_admin.EDITOR_RELATIONS_PATH.read_text(encoding="utf-8"))
+        self.assertIn({"from_identifier": "458/2000 Sb. [EN]", "to_identifier": "458/2000 Sb.",
+                       "relation_type": "TRANSLATION_OF", "note": "Jazykové verze téhož předpisu (přijatý kandidát)."},
+                      relations)
+        cache = json.loads(self.candidates_admin.VALIDITY_CACHE_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(cache[EXTRA_KEYS[0]]["repealed_by"], [EXTRA_KEYS[1]])
+
+        # once the act that repealed it is accepted, REPEALS joins the two (the existing repeals_ids mechanism)
+        bob = self.client_for("triage_bob")
+        bob.post(f"/admin/candidates/{successor['id']}/propose", data={
+            "designation": "9015/2099 Sb.", "title": "Vyhláška o tlakových zařízeních (nová, zkouška)",
+            "document_type": "Vyhláška", "url": "https://example.test/9015", "language": "CS", "jurisdikce": "CZ",
+            "scope_area": ["2"]})
+        alice.post(f"/admin/candidates/{successor['id']}/confirm")
+        successor_id = self.candidate(successor["id"])["document_id"]
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) AS n FROM document_relation WHERE relation_type = 'REPEALS' "
+                        "AND from_document_id = %s AND to_document_id = %s", (successor_id, repealed_id))
+            self.assertEqual(cur.fetchone()["n"], 1)
 
 
 if __name__ == "__main__":

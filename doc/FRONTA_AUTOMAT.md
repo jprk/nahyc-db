@@ -1,7 +1,8 @@
 # Automatické třídění fronty kandidátů
 
 > Historie dokumentu:  
-> 2026-11-20 Návrh první verze: technický účet, pravidla k odsouhlasení, posouzení jazykovým modelem, ukázka na vzorku 40 kandidátů
+> 2026-11-20 Návrh první verze: technický účet, pravidla k odsouhlasení, posouzení jazykovým modelem, ukázka na vzorku 40 kandidátů  
+> 2026-11-20 Úpravy podle vyjádření uživatele: R1 jen pro týž jazyk, nová pravidla R7 (jazyková verze) a R8 (zrušený předpis se přijímá se stavem „zrušený“), R2 zrušeno; vysvětlení R9
 
 Fronta kandidátů na nové dokumenty (`doc/PROVOZ.md`, odstavec 4) obsahovala
 20. 11. 2026 v živé databázi 591 nových kandidátů. Jejich ruční posouzení by
@@ -10,7 +11,10 @@ jednoduchých pravidel nebo s pomocí jazykového modelu. Tento dokument popisuj
 automatické předtřídění fronty, předkládá k odsouhlasení seznam pravidel
 (odstavec 2) a výsledky ukázkového posouzení modelem (odstavec 5). Pravidla ani
 model nad živou databází zatím ostře **neběžely**; ostrý běh je technicky
-zablokovaný, dokud uživatel pravidla neodsouhlasí (odstavec 7).
+zablokovaný, dokud uživatel souhlas nezapíše (odstavec 7). Uživatel se
+20. 11. 2026 k pravidlům vyjádřil (odstavec 2); souhlas zatím zapsán není,
+protože nerozhodl o kategoriích, v nichž smí model sám zamítat a odkládat,
+ani o otázkách rozsahu z odstavce 8.
 
 ## 1. Technický účet „automat“
 
@@ -35,26 +39,77 @@ a jménem „Automatický navrhovatel“. Účet:
 Účet založí první ostrý běh skriptu `src/tools/triage_candidates.py`
 (funkce `candidates.automat_id()`).
 
-## 2. Pravidla k odsouhlasení
+## 2. Pravidla
 
 Pravidla jsou zapsána jako data v souboru `data/triage_rules.json`, nikoli
 v kódu; jejich změna tedy nevyžaduje zásah do programu. Zkoušejí se
-v uvedeném pořadí a o kandidátovi rozhoduje první pravidlo, jehož podmínka
-platí. Počty v posledním sloupci jsme zjistili suchým během nad živou
-databází 20. 11. 2026 (`triage_candidates.py --rules-only`) ze 591 nových
-kandidátů.
+v pořadí uvedeném v tabulce (ne podle čísla) a o kandidátovi rozhoduje první
+pravidlo, jehož podmínka platí. Počty v posledním sloupci jsme zjistili suchým
+během nad živou databází 20. 11. 2026 (`triage_candidates.py --rules-only`) ze
+591 nových kandidátů.
 
-| Pravidlo | Podmínka | Akce | Zdůvodnění | Zasáhne v živé DB |
-|---|---|---|---|---|
-| R1-duplicita | klíč kandidáta (český předpis, akt EU) nebo jeho označení už má dokument databáze, i v jiné jazykové verzi (`[EN]`) | zamítnout s odkazem na dokument | tentýž dokument nemá být v databázi dvakrát | 0 |
-| R2-zruseny | platnost podle kontroly platnosti „zrušený“ | zamítnout | databáze vede platné a připravované předpisy; zrušený předpis vstupuje jen jako stav dokumentu, jejž už obsahuje | 1 (vyhláška č. 513/2021 Sb. z tabulek MPO, zrušená k 1. 1. 2026 vyhláškou č. 508/2025 Sb.) |
-| R3-novinka | adresa novinky (`/news/`, `aktuality`) nebo název obsahuje webinář, factsheet, round table, newsletter, tiskovou zprávu | odložit | zpráva sama není regulačním dokumentem, může však odkazovat na dokument, který do databáze patří; proto odložit, ne zamítnout | 6 (2× ACER, webinář a factsheet EHSP, kulatý stůl OTIF, aktualita TIČR) |
-| R4-tpg | zdroj `cps-tpg` (katalog technických pravidel TPG) | navrhnout přijetí | rozhodnutí uživatele z 20. 11. 2026 zařadit všechna TPG; jen metadata a odkaz | 69 |
-| R5-mpo | zdroj `mpo` (tabulky předpisů MPO/CDV z 30. 4. 2026) | navrhnout přijetí | referenční soubor objednatele (`doc/MPO_TABULKY.md`); typ a původce jsou u kandidátů již ověřené | 53 |
-| R6-navrh-vodik | návrh předpisu nebo normy (signál `draft`) se známým typem dokumentu a s vodíkem, RFNBO nebo palivovými články v názvu | navrhnout přijetí jako připravovaný dokument | návrh výslovně o vodíku do rozsahu patří vždy | 3 (směrnice Komise v přenesené pravomoci o emisních hodnotách RFNBO, návrhy ČSN o armaturách pro vodíkové aplikace a o malých stacionárních napájecích systémech s palivovými články) |
-| R9-model | všichni ostatní | posouzení modelem (odstavec 3) | bez deterministického pravidla | 459 |
+| Pořadí | Pravidlo | Podmínka | Akce | Zdůvodnění | Zasáhne v živé DB |
+|---|---|---|---|---|---|
+| 1 | R1-duplicita | týž předpis (shodný klíč českého předpisu nebo aktu EU) už je v databázi **ve stejném jazyce**; u norem a technických pravidel shodné označení | zamítnout s odkazem na dokument | tentýž dokument nemá být v databázi dvakrát | 0 |
+| 2 | R7-jazykova-verze (nové) | týž předpis je v databázi, ale jen v **jiném jazyce** (jazyk kandidáta CS, EN nebo SK) | navrhnout přijetí jako jazykovou verzi | znění v jiném jazyce je samostatný dokument propojený s ostatními verzemi (rozhodnutí uživatele z 20. 11. 2026) | 0 |
+| 3 | R8-zruseny (nové, nahrazuje R2) | platnost podle kontroly platnosti „zrušený“ | navrhnout přijetí se stavem „zrušený“ | zrušený předpis se nezamítá; databáze jej vede se stavem a vazbou na předpis, který jej zrušil (rozhodnutí uživatele z 20. 11. 2026) | 1 (vyhláška č. 513/2021 Sb. z tabulek MPO, zrušená k 1. 1. 2026 vyhláškou č. 508/2025 Sb., jež čeká ve frontě) |
+| 4 | R3-novinka | adresa novinky (`/news/`, `aktuality`) nebo název obsahuje webinář, factsheet, round table, newsletter, tiskovou zprávu | odložit | novinky nejsou regulační dokumenty; mohou však odkazovat na dokument, který do databáze patří, proto odložit, ne zamítnout | 6 (2× ACER, webinář a factsheet EHSP, kulatý stůl OTIF, aktualita TIČR) |
+| 5 | R4-tpg | zdroj `cps-tpg` (katalog technických pravidel TPG) | navrhnout přijetí | rozhodnutí uživatele z 20. 11. 2026 zařadit všechna TPG; jen metadata a odkaz | 69 |
+| 6 | R5-mpo | zdroj `mpo` (tabulky předpisů MPO/CDV z 30. 4. 2026) | navrhnout přijetí | referenční soubor objednatele (`doc/MPO_TABULKY.md`); typ a původce jsou u kandidátů již ověřené | 53 |
+| 7 | R6-navrh-vodik | návrh předpisu nebo normy (signál `draft`) se známým typem dokumentu a s vodíkem, RFNBO nebo palivovými články v názvu | navrhnout přijetí jako připravovaný dokument | návrh výslovně o vodíku do rozsahu patří vždy | 3 (směrnice Komise v přenesené pravomoci o emisních hodnotách RFNBO, návrhy ČSN o armaturách pro vodíkové aplikace a o malých stacionárních napájecích systémech s palivovými články) |
+| 8 | R9-model | všichni ostatní | posouzení jazykovým modelem (odstavec 2.3) | bez deterministického pravidla | 459 |
 
-**Údaje návrhu podle pravidel.** Technická pravidla TPG dostanou typ „Norma“
+Pravidla rozhodnou o 132 kandidátech: 126 navrhnou k přijetí, 6 odloží
+a žádného nezamítnou; o 459 rozhoduje model.
+
+### 2.1 Proč R7 a R8 a co se stalo s R2
+
+V první verzi zamítalo pravidlo R1 i jinou jazykovou verzi předpisu
+a pravidlo R2 každý zrušený předpis. Uživatel rozhodl jinak: zamítá se jen
+duplicita ve stejném jazyce (upravené R1), jiná jazyková verze se přijme
+(nové **R7**) a zrušený předpis se přijme se stavem „zrušený“ (nové **R8**).
+Pravidlo R2 tím zaniklo a jeho číslo se už nepoužije. Nová pravidla dostala
+čísla 7 a 8, aby posouzení modelem (R9) zůstalo posledním pravidlem; v pořadí
+vyhodnocení stojí R7 a R8 hned za R1, aby zrušený předpis nebo jazykovou verzi
+z tabulek MPO zachytila dřív než obecné R5.
+
+**R7 — jazyková verze.** Kandidát dostane označení podle konvence
+`language_variants.py`: české znění holé označení, anglické `<značka> [EN]`,
+slovenské `<značka> [SK]`; věcné okruhy převezme od verzí, jež databáze má.
+Při potvrzení vznikne vazba `TRANSLATION_OF` se **všemi** jazykovými verzemi
+téhož předpisu v databázi: z anglického či slovenského znění na české
+(stejný směr jako u dvojic z Haltufovy tabulky), mezi dvěma nečeskými zněními
+od nového k existujícímu. Vazby se zapíší i do
+`data/document_relations_editor.json`, který čte `load_document_relations.py`,
+takže přežijí přestavbu databáze (soubor `data/document_relations_variants.json`
+naproti tomu přepisuje `split_language_variants.py` při každém běhu, proto do něj
+nezapisujeme). Je-li holé označení obsazené dokumentem v jiném jazyce (anglicky
+titulované dokumenty bez přípony), návrh neprojde kontrolou označení a zůstane
+jen doporučením.
+
+**R8 — zrušený předpis.** Dokument vznikne se stavem `repealed`
+(„zrušený“). Zrušující předpis se zjistí z podkladů kandidáta (`validity.repealed_by`,
+kontrola platnosti u tabulek MPO) nebo z mezipaměti `data/validity_cache.json`:
+
+1. Je-li zrušující předpis v databázi, vznikne při potvrzení vazba `REPEALS`
+   od něj ke zrušenému.
+2. Čeká-li ve frontě (u vyhlášky č. 513/2021 Sb. jde o vyhlášku č. 508/2025 Sb.,
+   kandidáta z tabulek MPO), připíše se nový dokument do jeho `repeals_ids`;
+   vazbu `REPEALS` pak vytvoří přijetí zrušujícího předpisu stávajícím
+   mechanismem (`create_document()` v `app/candidates_admin.py`).
+3. Není-li ani ve frontě, automat jej do fronty přidá jako kandidáta zdroje
+   „nástupce zrušeného dokumentu“ bez sítě, s označením a adresou odvozenými
+   z klíče; úřední název doplní nejbližší `import_candidates.py --apply`
+   (v živé frontě se to dnes netýká žádného kandidáta).
+
+Aby stav a vazba přežily přestavbu, zapíše přijetí údaj o platnosti do
+`data/validity_cache.json`, chybí-li tam (u kandidátů z tabulek MPO);
+`init_db.py` a `backfill_document_states.py` z něj stav i vazbu `REPEALS`
+odvodí znovu (`document_states.py`).
+
+### 2.2 Údaje návrhu
+
+Technická pravidla TPG dostanou typ „Norma“
 (stejně jako pravidla DVGW a EIGA v databázi a podle rozhodnutí
 v `doc/DATA_SOURCES.md`, odstavec 8.12: u TPG databáze uchovává jen
 metadata, typ „Norma“ zajistí, že `fetch_fulltext.py` text nestahuje), původce
@@ -68,16 +123,46 @@ pravidla. Všechny údaje projdou stejnou kontrolou jako ruční návrh editora
 (`candidates.validate_proposal()`); návrh, který kontrolou neprojde, zůstane
 jen doporučením.
 
-**K rozhodnutí uživatele:**
+### 2.3 R9: co je „ostatní“ a jak probíhá posouzení modelem
 
-1. Odsouhlasit pravidla R1 až R6 (případně některá vyřadit nebo upravit).
-2. Rozhodnout, ve kterých kategoriích smí model sám zamítnout či odložit
+Pravidlu R9 připadne každý kandidát, o němž žádné z pravidel R1 až R8
+nerozhodlo: v živé frontě 459 kandidátů, převážně předpisy citované v textech
+databáze (uzávěr citací, 287), nálezy e-Sbírky, sněmovní tisky, normy SAE
+a Věstníku ÚNMZ, materiály EHSP a nástupci zrušených dokumentů. U nich nelze
+z jednoduchých znaků (zdroj, platnost, název) poznat, zda do databáze patří;
+posoudí je proto jazykový model OpenAI GPT (`gpt-4o-mini`), a to takto:
+
+1. Skript složí pro kandidáta **zadání**: popis rozsahu databáze z dokumentu
+   `doc/DATABASE_SCOPE.md` a údaje kandidáta (označení, název, adresa,
+   veřejné úryvky textů, jež jej citují). Posílají se jen veřejné údaje
+   (odstavec 3.1).
+2. Model vrátí **doporučení** přijmout, zamítnout nebo odložit, věcné okruhy,
+   typ dokumentu, původce, jistotu 0–1 a krátké zdůvodnění česky
+   (odstavec 3.2).
+3. Podle **prahů** v souboru pravidel automat s doporučením naloží: s jistotou
+   alespoň 0,95 navrhne přijetí (potvrzuje vždy editor); zamítnout či odložit
+   smí jen v kategoriích, jež uživatel odsouhlasí (zatím žádné); vše ostatní
+   zůstane jen doporučením, které editor uvidí v seznamu i v detailu kandidáta
+   (odstavec 3.3).
+4. Odpověď se uloží do **mezipaměti**, takže se tentýž kandidát modelu
+   neposílá dvakrát; před během skript odhadne cenu a běh nad rozpočtem
+   odmítne (odstavec 3.4).
+
+Model tedy sám nic do databáze nepřidá ani bez odsouhlasení nezamítne; jeho
+výsledkem je návrh k potvrzení nebo doporučení editorovi.
+
+### 2.4 K rozhodnutí uživatele
+
+1. Pravidla R1, R3 až R8 odsouhlasil uživatel 20. 11. 2026 (R1, R7 a R8 ve
+   znění podle jeho úprav).
+2. Zbývá rozhodnout, ve kterých kategoriích smí model sám zamítnout či odložit
    (odstavec 3.3). Navrhujeme zamítat kategorie `mimo_rozsah`, `dane_dotace`
    a `zastaraly` a odkládat kategorii `neni_dokument`, vždy jen s jistotou
    alespoň 0,95.
-3. Potvrdit typ „Norma“ a původce „Český plynárenský svaz (ČPS)“ u TPG.
+3. Zbývá rozhodnout otázky rozsahu z odstavce 8 (obecné předpisy o výrobcích;
+   fondy, dotace a zakázky).
 
-Odsouhlasení se zapíše do souboru pravidel (`approval.approved_by`,
+Po rozhodnutí se souhlas zapíše do souboru pravidel (`approval.approved_by`,
 `approval.date`) a schválené kategorie se přesunou
 z `model.proposed_auto_categories` do `model.auto_categories`.
 
@@ -283,14 +368,13 @@ přibližně 0,0006 USD.
 
 ## 6. Odhad pro celou frontu
 
-Celý běh pravidel a modelu jsme vyzkoušeli s `--apply` nad testovací
+Celý běh pravidel (ve znění podle úprav uživatele) a modelu jsme vyzkoušeli s `--apply` nad testovací
 databází `h2regdocs_test`, obnovenou kopií živé databáze, pod zámkem testů.
 Výsledek pro 591 nových kandidátů:
 
 | Cesta | Kandidátů | Akce |
 |---|---|---|
-| R4-tpg, R5-mpo, R6-navrh-vodik | 125 | návrh přijetí podle pravidel (69 TPG, 53 MPO, 3 návrhy) |
-| R2-zruseny | 1 | zamítnutí |
+| R4-tpg, R5-mpo, R6-navrh-vodik, R8-zruseny | 126 | návrh přijetí podle pravidel (69 TPG, 53 MPO, 3 návrhy, 1 zrušený předpis) |
 | R3-novinka | 6 | odložení |
 | model, přijmout s jistotou ≥ 0,95 | 137 | návrh přijetí |
 | model, zamítnout s jistotou ≥ 0,95 v kategoriích navržených k odsouhlasení | 169 | po odsouhlasení zamítnutí (`mimo_rozsah` 147, `zastaraly` 18, `dane_dotace` 4), do té doby jen doporučení |
@@ -298,7 +382,7 @@ Výsledek pro 591 nových kandidátů:
 
 Automaticky by tedy šlo vyřídit (navrhnout k potvrzení, zamítnout nebo
 odložit) **438 kandidátů** (74 %) a na samostatné posouzení lidmi by zůstalo
-**153** (26 %). I návrhy přijetí (262) však vyžadují potvrzení editorem;
+**153** (26 %). I návrhy přijetí (263) však vyžadují potvrzení editorem;
 hromadné potvrzení je zrychlí, nikoli nahradí.
 
 **Kvalita.** Při procházení 137 návrhů přijetí podle modelu jsme odhadem

@@ -331,8 +331,11 @@ def upsert(cursor, candidate):
     row_id = row["id"] if isinstance(row, dict) else row[0]
     if status in ("accepted", "rejected"):
         return "kept"
-    cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, cited_by = %s, validity_status = %s WHERE id = %s",
-                   (evidence, candidate.get("cited_by", 0), candidate.get("validity_status"), row_id))
+    # a candidate inserted without a title (a successor added offline by the triage) gets one when it is found
+    cursor.execute("""UPDATE DocumentCandidate SET evidence_json = %s, cited_by = %s, validity_status = %s,
+                          title = COALESCE(title, %s) WHERE id = %s""",
+                   (evidence, candidate.get("cited_by", 0), candidate.get("validity_status"), candidate.get("title"),
+                    row_id))
     return "updated"
 
 
@@ -460,3 +463,96 @@ def automat_id(cur, create=False):
     cur.execute("INSERT INTO User (username, name, email, password_hash, is_active) VALUES (%s, %s, %s, '!', 0)",
                 (AUTOMAT_USERNAME, AUTOMAT_NAME, AUTOMAT_EMAIL))
     return cur.lastrowid
+
+
+# --- language variants and repealed acts (doc/FRONTA_AUTOMAT.md, pravidla R7 a R8) ------------
+
+VARIANT_SUFFIXES = {"EN": " [EN]", "SK": " [SK]"}  # language_variants.EN_SUFFIX, SK_SUFFIX
+
+
+def act_keys(designation):
+    """The Czech and EU keys (citation_closure.own_keys) of a designation, its
+    language-variant suffix (`… [EN]`, `… [SK]`) left out."""
+    base = base_designation(designation)
+    return {k for k in cc.own_keys(base, "") if k.split(":", 1)[0] in ("CZ", "EU")} if base else set()
+
+
+def base_designation(designation):
+    designation = (designation or "").strip()
+    for suffix in VARIANT_SUFFIXES.values():
+        if designation.endswith(suffix):
+            return designation[:-len(suffix)]
+    return designation
+
+
+def variant_designation(designation, language):
+    """The designation of the `language` text of an act: the Czech text keeps the
+    plain designation, the English and Slovak ones get ` [EN]`, ` [SK]`
+    (language_variants.py); None for another language."""
+    base = base_designation(designation)
+    if language == "CS":
+        return base
+    return base + VARIANT_SUFFIXES[language] if language in VARIANT_SUFFIXES else None
+
+
+def same_act_documents(cur, designation, exclude=None):
+    """[(id, identifier, language)] of the documents of the database that are the act
+    of `designation` in any language (the same Czech or EU key)."""
+    keys = act_keys(designation)
+    if not keys:
+        return []
+    cur.execute("SELECT id, identifier, language FROM Document WHERE identifier IS NOT NULL")
+    found = []
+    for row in cur.fetchall():
+        row = row if isinstance(row, dict) else dict(zip(("id", "identifier", "language"), row))
+        if row["id"] != exclude and act_keys(row["identifier"]) & keys:
+            found.append((row["id"], row["identifier"], row["language"]))
+    return found
+
+
+def translation_relations(new, others):
+    """`TRANSLATION_OF` relations joining a new language version `new` = (id, identifier,
+    language) to every other version: from the English or Slovak text to the Czech
+    one (language_variants.py); between two non-Czech texts, from the new one."""
+    relations = []
+    for other in others:
+        if other[2] == new[2]:
+            continue
+        source, target = (other, new) if new[2] == "CS" else (new, other)
+        relations.append((source, target))
+    return relations
+
+
+def successors(candidate, evidence, cache):
+    """The keys of the acts that repealed a candidate: from its own evidence
+    (`validity.repealed_by`, MPO tables) or from data/validity_cache.json."""
+    found = list((evidence.get("validity") or {}).get("repealed_by") or [])
+    keys = {candidate.get("candidate_key") or ""} | act_keys(candidate.get("designation"))
+    for key in sorted(k for k in keys if k):
+        found += cache.get(key, {}).get("repealed_by") or []
+    return list(dict.fromkeys(found))
+
+
+def documents_by_key(cur, keys):
+    """{key: [(id, identifier)]} of the documents of the database (no language variants
+    when the original is there) that are one of `keys`."""
+    wanted = set(keys)
+    if not wanted:
+        return {}
+    cur.execute("SELECT id, identifier FROM Document WHERE identifier IS NOT NULL")
+    found = {}
+    for row in cur.fetchall():
+        row = row if isinstance(row, dict) else dict(zip(("id", "identifier"), row))
+        for key in act_keys(row["identifier"]) & wanted:
+            found.setdefault(key, []).append((row["id"], row["identifier"]))
+    return {k: [d for d in v if base_designation(d[1]) == d[1]] or v[:1] for k, v in found.items()}
+
+
+def successor_candidate(key, repealed_key, cache):
+    """A candidate for the act `key` that repealed the candidate `repealed_key`, made
+    without the network (complete() with no titles: the title is filled in by the
+    next import_candidates.py --apply, which looks it up)."""
+    validity = cache.get(key, {})
+    return complete({"candidate_key": key, "source": "validity", "kind": kind_from_celex(validity.get("celex")),
+                     "validity_status": validity.get("status"), "cited_by": 0,
+                     "evidence": {"successor_of": [repealed_key], "celex": validity.get("celex")}}, {})

@@ -43,6 +43,10 @@ from triage import CATEGORIES, RECOMMENDATION_LABELS
 import slug as slug_module
 
 ACCEPTED_PATH = REPO_ROOT / "data" / "accepted_candidates.json"
+# relations an acceptance creates that a rebuild must keep (load_document_relations.py reads the file), and
+# the validity entry of a repealed act accepted from the MPO tables (document_states.py reads the cache)
+EDITOR_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_editor.json"
+VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
 # `zdroj_dat` of an accepted document, in the database and in the pipeline's records alike, so that the
 # full-text manifest key (`Kandidáti|<designation>|odkaz_hlavni`) matches the document's own source.
 PIPELINE_SOURCE = "Kandidáti"
@@ -337,6 +341,8 @@ def create_document(cur, candidate):
     doc_id = cur.lastrowid
     if candidate.get("signal") == "draft":
         state = "draft"
+    elif candidate.get("validity_status") == "zrušený":  # a repealed act is kept with its state (rule R8)
+        state = "repealed"
     elif candidate.get("validity_status") == "dosud neúčinný":
         state = "promulgated"
     else:
@@ -370,7 +376,81 @@ def create_document(cur, candidate):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
                        VALUES (%s, %s, 'AMENDS', 'Novela podle nálezu sledovaného zdroje (přijatý kandidát).')""",
                     (doc_id, amended))
+    link_language_versions(cur, doc_id, identifier, candidate["language"])
+    if state == "repealed":
+        link_repealing_acts(cur, doc_id, candidate, evidence)
     return doc_id
+
+
+def _relation_exists(cur, from_id, to_id, relation_type):
+    cur.execute("SELECT id FROM document_relation WHERE from_document_id = %s AND to_document_id = %s "
+                "AND relation_type = %s", (from_id, to_id, relation_type))
+    return cur.fetchone() is not None
+
+
+def save_relation(from_identifier, to_identifier, relation_type, note, path=None):
+    """Appends a relation (load_document_relations.py shape, by identifier) to
+    data/document_relations_editor.json once, so that a rebuild keeps it."""
+    path = pathlib.Path(path or EDITOR_RELATIONS_PATH)
+    relations = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    if not any((r["from_identifier"], r["to_identifier"], r["relation_type"]) ==
+               (from_identifier, to_identifier, relation_type) for r in relations):
+        relations.append({"from_identifier": from_identifier, "to_identifier": to_identifier,
+                          "relation_type": relation_type, "note": note})
+        path.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def link_language_versions(cur, doc_id, identifier, language):
+    """`TRANSLATION_OF` between a new document and every other language version of the
+    same act in the database (rule R7; the English or Slovak text points to the Czech
+    one, language_variants.py), also written for a rebuild."""
+    if not identifier:
+        return []
+    others = cd.same_act_documents(cur, identifier, exclude=doc_id)
+    links = cd.translation_relations((doc_id, identifier, language), others)
+    for (from_id, from_identifier, _), (to_id, to_identifier, _) in links:
+        note = "Jazykové verze téhož předpisu (přijatý kandidát)."
+        if not _relation_exists(cur, from_id, to_id, "TRANSLATION_OF"):
+            cur.execute("""INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note)
+                           VALUES (%s, %s, 'TRANSLATION_OF', %s)""", (from_id, to_id, note))
+        save_relation(from_identifier, to_identifier, "TRANSLATION_OF", note)
+    return links
+
+
+def link_repealing_acts(cur, doc_id, candidate, evidence):
+    """For an accepted repealed act (rule R8): `REPEALS` from every act that repealed it
+    and is in the database; an act still waiting in the queue gets the new document in
+    its `repeals_ids`, so its acceptance creates the relation (create_document above).
+    The validity entry of the act goes to data/validity_cache.json when the cache lacks
+    it, so that a rebuild keeps the state and the relation (document_states.py)."""
+    import document_states as ds
+    cache = ds.load_cache(VALIDITY_CACHE_PATH)
+    keys = cd.successors(candidate, evidence, cache)
+    in_database = cd.documents_by_key(cur, keys)
+    for key in keys:
+        for successor_id, _ in in_database.get(key, []):
+            if not _relation_exists(cur, successor_id, doc_id, "REPEALS"):
+                cur.execute("""INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note)
+                               VALUES (%s, %s, 'REPEALS', 'Zrušující předpis (přijatý zrušený kandidát).')""",
+                            (successor_id, doc_id))
+        if key in in_database:
+            continue
+        cur.execute("SELECT id, evidence_json FROM DocumentCandidate WHERE candidate_key = %s AND status <> 'rejected'",
+                    (key,))
+        waiting = cur.fetchone()
+        if waiting:
+            other = json.loads(waiting["evidence_json"] or "{}")
+            other["repeals_ids"] = sorted(set(other.get("repeals_ids", [])) | {doc_id})
+            cur.execute("UPDATE DocumentCandidate SET evidence_json = %s WHERE id = %s",
+                        (json.dumps(other, ensure_ascii=False), waiting["id"]))
+    own = candidate.get("candidate_key") or ""
+    validity = evidence.get("validity") or {}
+    if own.split(":", 1)[0] in ("CZ", "EU") and own not in cache and validity.get("status") == "zrušený":
+        cache[own] = {**validity, "checked_at": validity.get("checked_at") or datetime.date.today().isoformat()}
+        # the format of check_validity.py, so that its next run changes only what it re-checks
+        pathlib.Path(VALIDITY_CACHE_PATH).write_text(json.dumps(dict(sorted(cache.items())), ensure_ascii=False,
+                                                                indent=1) + "\n", encoding="utf-8")
+    return keys
 
 
 def pipeline_record(candidate, confirmed_by):

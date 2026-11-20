@@ -188,8 +188,10 @@ Nové kandidáty předtřídí technický účet „Automatický navrhovatel“ 
 jméno `automat`), popsaný v dokumentu `doc/FRONTA_AUTOMAT.md`. Účet se
 nepřihlásí a nic nepotvrzuje. Podle pravidel, jež odsouhlasil uživatel
 (`data/triage_rules.json`), smí navrhnout přijetí (například technických
-pravidel TPG a dokumentů z tabulek MPO a CDV), zamítnout duplicitu nebo zrušený
-předpis a odložit novinku, jež sama dokumentem není; ostatní kandidáty posoudí
+pravidel TPG, dokumentů z tabulek MPO a CDV, jiné jazykové verze předpisu,
+jejž databáze má, a zrušeného předpisu se stavem „zrušený“ a vazbou na předpis,
+který jej zrušil), zamítnout duplicitu ve stejném jazyce a odložit novinku, jež
+sama dokumentem není; ostatní kandidáty posoudí
 jazykový model a jeho doporučení s jistotou a zdůvodněním se zobrazí editorům.
 Každé rozhodnutí automatu nese poznámku s pravidlem a důvodem, v seznamu
 i v auditním logu je označeno štítkem „automat“ a lze je vrátit

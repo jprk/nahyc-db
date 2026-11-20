@@ -25,7 +25,8 @@ INDEX = triage.document_index([
     (2, "(EU) 2019/942 [EN]", "Regulation on ACER", "EN"),
     (3, "ČSN EN 17124", "ČSN EN 17124 — Vodíkové palivo", "CS"),
     (4, "458/2000 Sb.", "Energetický zákon", "CS"),
-])
+    (5, "(EU) 2018/2001 [EN]", "Renewable Energy Directive", "EN"),
+], areas={4: [9], 5: [1, 9]}, validity={"CZ:7/2099": {"status": "zrušený", "repealed_by": ["CZ:8/2099"]}})
 
 
 def candidate(**fields):
@@ -88,7 +89,9 @@ class RulesTestCase(unittest.TestCase):
 
     def test_rules_in_order(self):
         self.assertEqual(self.rule(candidate_key="EU:2019/942", designation="(EU) 2019/942"), "R1-duplicita")
-        self.assertEqual(self.rule(validity_status="zrušený"), "R2-zruseny")
+        self.assertEqual(self.rule(validity_status="zrušený"), "R8-zruseny")
+        self.assertEqual(self.rule(candidate_key="EU:2019/942", designation="(EU) 2019/942", language="SK",
+                                   title="Nariadenie o ACER"), "R7-jazykova-verze")
         self.assertEqual(self.rule(source="acer", url="https://www.acer.europa.eu/news/x", candidate_key="acer:x",
                                    designation=None), "R3-novinka")
         self.assertEqual(self.rule(source="ehsp", title="20261021 EHSP Webinar. Safety Matters", designation=None,
@@ -107,10 +110,17 @@ class RulesTestCase(unittest.TestCase):
         self.assertEqual(self.rule(), "R9-model")
 
     def test_duplicates(self):
+        # the same act in the same language is a duplicate (R1), in another language a variant (R7)
         found = triage.duplicate_of(candidate(candidate_key="EU:2019/942", designation="(EU) 2019/942", language="EN"),
                                     INDEX)
-        self.assertEqual(found[0], 1)
-        self.assertIn("jiná jazyková verze", found[1])
+        self.assertEqual(found[0], 2)
+        self.assertIn("ve stejném jazyce (EN)", found[1])
+        self.assertEqual(triage.duplicate_of(candidate(candidate_key="EU:2019/942", designation="(EU) 2019/942"),
+                                             INDEX)[0], 1)
+        self.assertIsNone(triage.duplicate_of(candidate(candidate_key="EU:2019/942", language="SK"), INDEX))
+        self.assertEqual([d[0] for d in triage.language_variant_of(candidate(candidate_key="EU:2019/942",
+                                                                            language="SK"), INDEX)], [1, 2])
+        self.assertEqual(triage.language_variant_of(candidate(candidate_key="EU:2019/942", language="DE"), INDEX), [])
         self.assertEqual(triage.duplicate_of(candidate(candidate_key="NORM:EN 17124", designation="ČSN EN 17124"),
                                              INDEX)[0], 3)
         # a draft amending a document of the database is no duplicate of it
@@ -147,6 +157,43 @@ class RulesTestCase(unittest.TestCase):
                       candidate_key="DRAFT-NORM:CZ:1/1/26", title="Vodíkové technologie - Názvosloví")
         decision = triage.decide(c, self.config, INDEX, TYPES, rules_only=True)
         self.assertEqual((decision.rule, decision.action), ("R6-navrh-vodik", "model"))
+
+    def test_language_variant_proposal(self):
+        # the English text of an act the database has in Czech: `<designation> [EN]`, the areas of the Czech text
+        c = candidate(candidate_key="CZ:458/2000", designation="458/2000 Sb.", language="EN", title="Energy Act",
+                      document_type="Zákon")
+        decision = triage.decide(c, self.config, INDEX, TYPES)
+        self.assertEqual((decision.rule, decision.action, decision.errors), ("R7-jazykova-verze", "propose", []))
+        self.assertEqual((decision.metadata["designation"], decision.metadata["scope_areas"]), ("458/2000 Sb. [EN]", "9"))
+        self.assertIn("#4 458/2000 Sb. (CS)", decision.note)
+        # the Czech text of an act the database has only in English keeps the plain designation
+        c = candidate(candidate_key="EU:2018/2001", designation="(EU) 2018/2001", document_type="Směrnice EU",
+                      title="Směrnice o podpoře energie z obnovitelných zdrojů", jurisdikce="EU")
+        decision = triage.decide(c, self.config, INDEX, TYPES)
+        self.assertEqual((decision.rule, decision.metadata["designation"], decision.metadata["scope_areas"]),
+                         ("R7-jazykova-verze", "(EU) 2018/2001", "1,9"))
+
+    def test_repealed_act_is_proposed_with_its_successor(self):
+        c = candidate(candidate_key="CZ:7/2099", designation="7/2099 Sb.", validity_status="zrušený",
+                      title="Vyhláška o bezpečnosti plynových zařízení")
+        decision = triage.decide(c, self.config, INDEX, TYPES)
+        self.assertEqual((decision.rule, decision.action, decision.errors), ("R8-zruseny", "propose", []))
+        self.assertIn("Zrušil jej: CZ:8/2099.", decision.note)
+        self.assertEqual(triage.repealing_acts(candidate(candidate_key="CZ:1/2000", evidence={
+            "validity": {"repealed_by": ["CZ:2/2000"]}}), INDEX), ["CZ:2/2000"])
+
+    def test_variant_designations_and_relation_directions(self):
+        import candidates as cd
+        self.assertEqual(cd.variant_designation("(EU) 2019/942 [EN]", "SK"), "(EU) 2019/942 [SK]")
+        self.assertEqual(cd.variant_designation("(EU) 2019/942 [EN]", "CS"), "(EU) 2019/942")
+        self.assertIsNone(cd.variant_designation("(EU) 2019/942", "DE"))
+        self.assertEqual(cd.act_keys("(EU) 2019/942 [SK]"), {"EU:2019/942"})
+        new_sk = (9, "(EU) 2019/942 [SK]", "SK")
+        links = cd.translation_relations(new_sk, [(1, "(EU) 2019/942", "CS"), (2, "(EU) 2019/942 [EN]", "EN")])
+        self.assertEqual([(a[0], b[0]) for a, b in links], [(9, 1), (9, 2)])
+        new_cs = (9, "(EU) 2018/2001", "CS")
+        links = cd.translation_relations(new_cs, [(5, "(EU) 2018/2001 [EN]", "EN"), (6, "(EU) 2018/2001 [SK]", "SK")])
+        self.assertEqual([(a[0], b[0]) for a, b in links], [(5, 9), (6, 9)])
 
     def test_rejection_note_names_the_document(self):
         decision = triage.decide(candidate(candidate_key="CZ:458/2000", designation="458/2000 Sb."), self.config,
