@@ -543,6 +543,7 @@ def import_json_data(db_conn):
     fulltext_manifest = load_fulltext_manifest()
     incomplete_records = []
     slug_inputs = []
+    pinned_slugs = {}
 
     for item in data:
         prepared = prepare_document(cursor, item, seen_identifiers, gestor_jurisdiction_map,
@@ -638,12 +639,14 @@ def import_json_data(db_conn):
                            (checked[0], checked[1], doc_id))
 
         slug_inputs.append((doc_id, identifier, title))
+        if item.get("slug"):  # pinned by a correction (norm_editions.py: a renamed standard keeps its address)
+            pinned_slugs[doc_id] = item["slug"]
 
     # src/tools/slug.py, 2026-09-16: assigned in one pass over the whole
     # corpus AFTER the insert loop, never per record — collision suffixes
     # have to be handed out in a content-derived order to come out the
     # same on the next rebuild, which is the entire point of the column.
-    for doc_id, slug in assign_slugs(slug_inputs).items():
+    for doc_id, slug in assign_slugs(slug_inputs, pinned_slugs).items():
         cursor.execute("UPDATE Document SET slug=%s WHERE id=%s", (slug, doc_id))
 
     # norm_editions.py, 2026-11-20: editions of standards issued with a later date of effect
@@ -652,6 +655,9 @@ def import_json_data(db_conn):
                                    datetime.date.today().isoformat())
     if editions:
         print(f"{len(editions)} changes of editions of standards (norm_editions.py)")
+        # a renaming the live database has not made yet is recorded for the next rebuild
+        for message in norm_editions.persist(editions):
+            print(message)
 
     db_conn.commit()
 

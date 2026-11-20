@@ -116,6 +116,100 @@ class PlanTestCase(unittest.TestCase):
         self.assertIsNone(ne.candidate_versions({"edition": "ČSN EN 1"}, "2026-11-20"))
 
 
+class RenameTestCase(unittest.TestCase):
+    """The designation of the document follows the edition in effect (2026-11-20)."""
+    CACHE = {"NORM:ČSN EN 13445-2+A1": {"status": "platná", "source": "csnonline", "designation": "ČSN EN 13445-2+A1",
+                                        "issued": "1.2024", "catalog_number": "518210", "upcoming": NEW}}
+
+    def docs(self, identifier="ČSN EN 13445-2+A1", old_label=None):
+        return [(7, identifier, [version(70, 1, old_label, None, True, "active"),
+                                 version(71, 2, "ČSN EN 13445-2 (vydání 12.2026)", "2027-01-01", False, "promulgated")])]
+
+    def test_the_switch_renames_when_the_designation_differs(self):
+        [switch] = ne.plan(self.docs(), self.CACHE, "2027-01-01")
+        self.assertEqual(switch["rename_to"], "ČSN EN 13445-2")
+        self.assertEqual(switch["from_label"], "ČSN EN 13445-2+A1 (vydání 1.2024)")
+        self.assertEqual(switch["old_url"], "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=518210")
+        self.assertEqual(switch["new_url"], NEW["url"])
+
+    def test_the_same_designation_stays(self):
+        cache = {"NORM:ČSN EN 1717+A1": {"designation": "ČSN  EN 1717+A1", "issued": "9.2026",
+                                         "upcoming": {"designation": "ČSN EN 1717+A1", "issued": "12.2026",
+                                                      "effective_from": "2027-01-01"}}}
+        docs = [(9, "ČSN EN 1717+A1", [version(90, 1, None, None, True, "active")])]
+        add, switch = ne.plan(docs, cache, "2027-01-01")
+        self.assertIsNone(switch["rename_to"])
+        self.assertEqual(switch["from_label"], "ČSN EN 1717+A1 (vydání 9.2026)")
+        self.assertIsNone(ne.renamed_identifier("ČSN  EN 1717+A1", "ČSN EN 1717+A1 (vydání 12.2026)"))
+        self.assertEqual(ne.renamed_identifier("ČSN EN 13445-2", "ČSN EN 13445-2+A1 (vydání 5.2027)"),
+                         "ČSN EN 13445-2+A1", "an amendment appearing renames too")
+
+    def test_a_labelled_old_version_keeps_its_label(self):
+        [switch] = ne.plan(self.docs(old_label="ČSN EN 13445-2+A1 (vydání 1.2024)"), self.CACHE, "2027-01-01")
+        self.assertIsNone(switch["from_label"])
+
+    def test_a_collision_blocks_the_renaming_not_the_switch(self):
+        class Cursor:
+            def execute(self, sql, params):
+                self.params = params
+
+            def fetchall(self):
+                return [(99,)] if self.params[0] == "ČSN EN 13445-2" else []
+        [switch] = ne.check_collisions(Cursor(), ne.plan(self.docs(), self.CACHE, "2027-01-01"))
+        self.assertIsNone(switch["rename_to"])
+        self.assertEqual(switch["rename_blocked_by"], 99)
+        self.assertIn("NOT renamed", ne.describe(switch))
+
+    def test_retitled(self):
+        self.assertEqual(ne.retitled("ČSN EN 13445-2+A1 — Materiály", "ČSN EN 13445-2+A1", "ČSN EN 13445-2"),
+                         "ČSN EN 13445-2 — Materiály")
+        self.assertEqual(ne.retitled("Materiály", "ČSN EN 13445-2+A1", "ČSN EN 13445-2"), "Materiály")
+
+    def test_record_correction_and_a_second_renaming(self):
+        corrections = {}
+        key = ne.record_correction(corrections, "ČSN EN 1717", "ČSN EN 1717+A1", "csn-en-1717", today="2026-11-20")
+        self.assertEqual(key, "ČSN EN 1717")
+        self.assertEqual(corrections[key]["changes"], {"znacka": "ČSN EN 1717+A1", "slug": "csn-en-1717"})
+        key = ne.record_correction(corrections, "ČSN EN 1717+A1", "ČSN EN 1717+A2", "csn-en-1717-a1",
+                                   new_url="https://x/?k=1", today="2027-01-01")
+        self.assertEqual(key, "ČSN EN 1717", "the correction of the record, not a new key")
+        self.assertEqual(corrections[key]["changes"], {"znacka": "ČSN EN 1717+A2", "slug": "csn-en-1717",
+                                                       "zdroj_autoritativni_url": "https://x/?k=1"})
+        self.assertEqual(corrections[key]["renamed_from"], ["ČSN EN 1717+A1"])
+        from build_unified_db import renamed_designations
+        self.assertEqual(renamed_designations(corrections),
+                         {"ČSN EN 1717": "ČSN EN 1717+A2", "ČSN EN 1717+A1": "ČSN EN 1717+A2"})
+
+    def test_manifest_keys_and_cache_entry_follow(self):
+        manifest = {"Prokop_Normy|ČSN EN 13445-2+A1|odkaz_hlavni": {"status": "fetched"},
+                    "Prokop_Normy|ČSN EN 13445-2+A1 x|odkaz_hlavni": {}}
+        self.assertEqual(ne.rename_manifest_keys(manifest, "ČSN EN 13445-2+A1", "ČSN EN 13445-2"), 1)
+        self.assertIn("Prokop_Normy|ČSN EN 13445-2|odkaz_hlavni", manifest)
+        cache = dict(self.CACHE)
+        self.assertTrue(ne.move_cache_entry(cache, "ČSN EN 13445-2+A1", "ČSN EN 13445-2"))
+        self.assertEqual(list(cache), ["NORM:ČSN EN 13445-2"])
+
+    def test_persist_writes_the_data_files(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = pathlib.Path(tmp)
+            paths = {name: tmp / f"{name}.json" for name in ("corrections", "manifest", "cache")}
+            paths["corrections"].write_text("{}", encoding="utf-8")
+            paths["manifest"].write_text("{}", encoding="utf-8")
+            paths["cache"].write_text(json.dumps(self.CACHE, ensure_ascii=False), encoding="utf-8")
+            [switch] = ne.plan(self.docs(), self.CACHE, "2027-01-01")
+            switch["renamed"] = {"old": "ČSN EN 13445-2+A1", "new": "ČSN EN 13445-2", "slug": "csn-en-13445-2-a1"}
+            switch["url_changed"] = True
+            messages = ne.persist([switch], "2027-01-01", paths["corrections"], paths["manifest"], paths["cache"])
+            self.assertTrue(messages)
+            corrections = json.loads(paths["corrections"].read_text(encoding="utf-8"))
+            self.assertEqual(corrections["ČSN EN 13445-2+A1"]["changes"],
+                             {"znacka": "ČSN EN 13445-2", "slug": "csn-en-13445-2-a1",
+                              "zdroj_autoritativni_url": NEW["url"]})
+            self.assertIn("NORM:ČSN EN 13445-2", json.loads(paths["cache"].read_text(encoding="utf-8")))
+        self.assertEqual(ne.persist([{"action": "add"}]), [], "nothing renamed, no file written")
+
+
 class CommittedDataTestCase(unittest.TestCase):
     """The candidates of ČSN EN 13445 carry the edition in force, the 12/2026 edition is upcoming."""
 

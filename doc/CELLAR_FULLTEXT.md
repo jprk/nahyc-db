@@ -118,11 +118,9 @@ CELEX. Adresy (`url`) se nemění, s výjimkou 2014/34/EU.
 
 ## 5. Co zůstává
 
-* **Čtyři selhané položky** (bez souboru, dokument má text z jiné položky):
-  * nařízení CLP (ES) 1272/2008, `odkaz_eu` (ELI) a dvojče HTML: Cellar
-    nyní české XHTML má (23 MB, 2,47 mil. znaků, 7 příloh), dokument má text
-    z PDF (2,81 mil. znaků). Doplnění HTML navrhujeme zvážit; text z PDF je
-    úplný.
+* **Selhané položky** (bez souboru, dokument má text z jiné položky); ze čtyř zbývají dvě:
+  * nařízení CLP (ES) 1272/2008, `odkaz_eu` (ELI) a dvojče HTML: doplněno
+    20. 11. 2026, odstavec 5.1.
   * REACH (ES) 1907/2006, dvě dvojčata HTML: Cellar české HTML nemá; text
     je z PDF (834 tis. znaků, 21 příloh). Řešení není potřeba.
 * **Soubory PDF bez varianty v Cellaru** nezůstal žádný.
@@ -139,6 +137,53 @@ CELEX. Adresy (`url`) se nemění, s výjimkou 2014/34/EU.
   * ISO (`add_missing_iso_parents.py`) — iso.org vrací prostému HTTP 403,
     skript jej obchází headless prohlížečem s User-Agentem prohlížeče;
     navrhujeme jej zařadit k IEC, EIGA a DVGW a vypnout.
+
+### 5.1 Nařízení CLP (20. 11. 2026, větev `feature/mpo-normy-clp`)
+
+Obě položky jsme stáhli z Cellaru (`fetch_fulltext.py --only … --out-dir
+data/fulltext_mpo_normy_clp`): `odkaz_hlavni_html`
+(`…/legal-content/CS/TXT/HTML/?uri=CELEX:32008R1272`) i `odkaz_eu`
+(`…/eli/reg/2008/1272/oj/ces`, Cellar jej přeloží na tentýž CELEX) daly
+týž soubor `ES_1272_2008__b8cbcaee.html` (české XHTML Úředního věstníku,
+23 MB). Volba `--out-dir` ukládá soubor do adresáře ve worktree, manifest
+jej vede jako `data/fulltext/<název>`, kam se po mergi zkopíruje.
+
+**Které znění.** Adresy záznamu (PDF, HTML i ELI `…/oj`) vedou na původní
+znění nařízení vyhlášené v Úředním věstníku L 353 z 31. 12. 2008 (CELEX
+`32008R1272`), nikoli na konsolidované znění. Stažený text tedy neobsahuje
+pozdější změny (adaptace na technický pokrok a další novely). Cellar vede
+konsolidovaná znění `02008R1272-<datum>`; ke 20. 11. 2026 je účinné znění
+ze 1. 7. 2026 (`02008R1272-20260701`) a připraveno je znění k 1. 1. 2027.
+Zda přejít na konsolidované znění, zůstává otevřenou otázkou
+(`doc/MPO_PRIPOMINKY.md`, odstavec 5.3).
+
+**Převod extraktorem.** `extract_fulltext.py` převede XHTML na čitelný text
+za 30 s s nejvyšší spotřebou paměti 0,8 GB (BeautifulSoup nad 23 MB); výsledek
+má 2,52 mil. znaků, 7 příloh a 528 tabulek, vyčištěné HTML 4,2 MB. Úplnost
+jsme ověřili proti textu z PDF: oba texty obsahují všech 3 068 indexových
+čísel látek přílohy VI a všech 7 příloh. Při převodu jsme opravili jednu
+chybu extraktoru: odstavce v jedné buňce tabulky splývaly v prostém textu
+(„Flam. Gas 1Press. Gas“, „GHS02GHS04Dgr“); nyní jsou odděleny mezerou.
+Oprava se týká všech textů s tabulkami a projeví se po novém běhu
+`extract_fulltext.py --apply`.
+
+**HTML, nebo PDF.** Čitelný text dokumentu (stránka „text“ a fulltextové
+vyhledávání) se nově tvoří z HTML, PDF zůstává staženým originálem
+dokumentu (`Document.file_path`). Postupujeme tak stejně jako u ostatních
+aktů EU, u nichž máme PDF i HTML (`fetch_fulltext.html_alternative`,
+`extract_fulltext.clean_name_source`). Důvody:
+
+* text z PDF obsahuje 9 886 slov rozdělených na konci řádku („Chro- nic“,
+  „nebez- pečnosti“), text z HTML 50 (jde o skutečné spojovníky);
+* tabulky přílohy VI mají v PDF záhlaví zopakované na každé stránce (1 012×),
+  v HTML jednou na tabulku;
+* HTML nese strukturu aktu (články, body, poznámky pod čarou) a tabulky
+  jako tabulky, nikoli jako řádky rekonstruované z polohy textu na stránce;
+* text z HTML je o 0,29 mil. znaků kratší právě o tyto artefakty, obsah je
+  shodný (indexová čísla, přílohy).
+
+PDF ponecháváme jako soubor ke stažení: je to obraz vyhlášeného Úředního
+věstníku a návštěvník jej může potřebovat k citaci stránky.
 
 ## 6. Postup po mergi
 
@@ -158,8 +203,18 @@ cp -n .claude/worktrees/mpo-cellar/data/fulltext_mpo_cellar/*.html \
 (a jejich vyčištěné texty), `sync_fulltext_paths.py --apply` pak přesměruje
 `Document.file_path`, jež ukazuje na chybějící soubor, na soubor z Cellaru
 podle manifestu, `extract_fulltext.py --apply` vytvoří vyčištěné texty znovu
-(s přílohami). Mezi druhým a posledním krokem stránky dotčených dokumentů
+(s přílohami). Mezi druhým a posledním krokem stránky dotčených dokumentů
 krátce nenabízejí text; kroky proto spouštíme bezprostředně po sobě.
+
+Nařízení CLP (odstavec 5.1) přidává před `prune_fulltext.py` jeden soubor:
+
+```
+cp -n .claude/worktrees/mpo-normy-clp/data/fulltext_mpo_normy_clp/ES_1272_2008__b8cbcaee.html data/fulltext/
+```
+
+`Document.file_path` se nemění (PDF), `extract_fulltext.py --apply`
+přepíše vyčištěný text `data/fulltext_clean/ES_1272_2008__1fe6eaaa.*`
+textem z HTML.
 
 ## 7. Tabulka ověření
 

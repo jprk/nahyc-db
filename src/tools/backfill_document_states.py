@@ -20,7 +20,10 @@ the check of the catalogue found issued with a later date of effect
 state `promulgated`; on its date of effect it becomes the current version and the
 edition it replaces `superseded`. The scheduler runs this script on the first day
 of every month (deploy/scheduler/h2db-states-monthly.timer), the day on which ČSN
-take effect. `--today` plans for another day (a dry run of the switch).
+take effect. `--today` plans for another day (a dry run of the switch). When the
+edition switched to has another designation, the document is renamed (slug kept)
+and the renaming recorded in data/manual_corrections.json, data/fulltext_manifest.json
+and data/norm_validity_cache.json (norm_editions.persist()).
 
 Dry run unless --apply; back up the database first.
 
@@ -131,6 +134,9 @@ def main(argv=None):
                 cur.execute("INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note) "
                             "VALUES (%s, %s, 'REPEALS', %s)", (ids[r["from_identifier"]], ids[r["to_identifier"]], r["note"]))
             conn.commit()
+            # a standard renamed by the switch keeps its new designation through a rebuild
+            for message in norm_editions.persist(editions, today):
+                print(message)
             ds.RELATIONS_PATH.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"{len(changes)} states, {len(new_relations)} REPEALS relations, {len(checks)} check dates, "
               f"{len(editions)} changes of editions of standards (on {today}) "

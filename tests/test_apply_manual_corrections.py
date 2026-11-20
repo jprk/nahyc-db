@@ -45,7 +45,7 @@ class AffectedColumnsTestCase(unittest.TestCase):
 class RenamedDesignationTestCase(unittest.TestCase):
     def test_a_new_designation_changes_the_identifier_and_the_file(self):
         # the full-text manifest is keyed by the designation (fetch_fulltext.manifest_key())
-        self.assertEqual(amc.affected_columns({"znacka": "492/2010 Z. z."})[:2], ["identifier", "file_path"])
+        self.assertEqual(amc.affected_columns({"znacka": "492/2010 Z. z."})[:3], ["identifier", "title", "file_path"])
 
 
 class RecordsByKeyTestCase(unittest.TestCase):

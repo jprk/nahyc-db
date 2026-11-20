@@ -412,7 +412,8 @@ dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
   **1. 1. 2027** (pole „Datum účinnosti“ na stránce normy), nikoli v prosinci
   2026; kandidát je nese v podkladech jako `upcoming_edition`. Totéž nové
   vydání má i ČSN EN 13445-5 (v databázi `ČSN EN 13445-5+A1`, #37) a nové
-  vydání ČSN EN 1717+A1 z 12/2026 (#1456), obojí s účinností 1. 1. 2027.
+  vydání ČSN EN 1717+A1 z 12/2026 (#1456, označení opraveno z `ČSN EN 1717`,
+  odstavec 5.1), obojí s účinností 1. 1. 2027.
   Z ostatních kandidátských norem má budoucí účinnost jen ČSN EN IEC
   60079-29-0 (nová norma, vydána 11/2026, účinná od 1. 12. 2026): kandidát
   je „dosud neúčinný“ a po přijetí bude dokument ve stavu „vyhlášený, dosud
@@ -428,8 +429,10 @@ dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
   přestavba databáze (`init_db.py`) postupuje stejně. ČSN nabývají účinnosti
   1. dnem měsíce, proto plánovač spouští promítnutí stavů 1. den v měsíci
   (`deploy/scheduler/h2db-states-monthly.timer`, `scheduled_harvest.sh
-  states`; zatím neinstalováno, `doc/PROVOZ.md`, odstavec 5.2). Označení
-  dokumentu se při přepnutí nemění (otevřená otázka v odstavci 5.3).
+  states`; zatím neinstalováno, `doc/PROVOZ.md`, odstavec 5.2). Liší-li se
+  označení nového vydání od označení dokumentu, změní se v den účinnosti
+  i označení dokumentu; trvalá adresa (slug) zůstává (rozhodnutí
+  z 20. 11. 2026, odstavec 5.1).
   Kandidáty v živé DB obnoví `mpo_tables.py import --apply` (nerozhodnutý
   kandidát zdroje `mpo` dostane nové podklady); `mpo_tables.py lookup
   --refresh-norms` je znovu zjistí z katalogu.
@@ -670,6 +673,36 @@ psán jako plán.
   je v podkladech a databáze se na ně sama přepne dnem jeho účinnosti
   1. 1. 2027 (provedeno, odstavec 4.2; plánovač zatím neinstalován).
 * **Termíny etap** podle odstavce 4.6.
+* **Označení normy po přepnutí na nové vydání** (20. 11. 2026): mění se
+  automaticky. Liší-li se označení vydání, jež nabývá účinnosti, od označení
+  dokumentu (`ČSN EN 13445-2+A1` → `ČSN EN 13445-2`, nebo přibude `+A1`),
+  `norm_editions.py` v den účinnosti změní `Document.identifier` i označení
+  na začátku názvu; slug a tím trvalá adresa zůstávají, dosavadní vydání si
+  ponechá své označení u nahrazené verze (`DocumentVersion.edition_label`),
+  odkaz na stránku dosavadního vydání v katalogu ČSN online se přesměruje
+  na nové vydání. Shoda s označením jiného dokumentu (podle kolace
+  `utf8mb4_czech_ci`) přejmenování zabrání a běh ji vypíše. Aby změna
+  přežila přestavbu databáze, zapíše se do `data/manual_corrections.json`
+  (`znacka`, `slug`, `zdroj_autoritativni_url`), klíče dokumentu
+  v `data/fulltext_manifest.json` se přejmenují a záznam
+  v `data/norm_validity_cache.json` se přesune pod nové označení
+  (provedeno; `doc/PROVOZ.md`, odstavec 5.2). Zkouška na testovací
+  databázi s datem 1. 1. 2027: #37 `ČSN EN 13445-5+A1` → `ČSN EN 13445-5`
+  (slug `csn-en-13445-5-a1`), #1456 bez změny označení.
+* **Označení #1456** (20. 11. 2026): `ČSN EN 1717` opraveno na platné
+  `ČSN EN 1717+A1` (katalog ČSN online: vydání 9/2026, účinné od
+  1. 10. 2026; vydání ČSN EN 1717 z 11/2025, na něž vedl odkaz, bylo
+  zrušeno 1. 10. 2026). Oprava je v `data/manual_corrections.json` (označení,
+  odkaz na stránku vydání 9/2026, slug `csn-en-1717` zůstává). Nové vydání
+  12/2026 má stejné označení `ČSN EN 1717+A1`; 1. 1. 2027 se na ně dokument
+  přepne bez další změny označení (ověřeno na testovací databázi).
+* **Nařízení CLP (ES) č. 1272/2008** (20. 11. 2026): doplněno české XHTML
+  z Cellaru (23 MB); čitelný text dokumentu (stránka „text“ a vyhledávání)
+  se nově tvoří z něj, PDF zůstává staženým originálem dokumentu
+  (`Document.file_path`), stejně jako u ostatních aktů EU s PDF a HTML.
+  Zdůvodnění a ověření úplnosti v `doc/CELLAR_FULLTEXT.md`, odstavec 5.
+  Ukládáme původní znění z roku 2008, nikoli konsolidované (otázka
+  v odstavci 5.3).
 
 * **Plné texty z EUR-Lexu jen z Cellaru** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`):
   `fetch_fulltext.py` už EUR-Lex neotevírá v prohlížeči ani se na něj
@@ -719,10 +752,13 @@ psán jako plán.
   samostatným dokumentem bez vazby na úřední české znění (#79): vazba
   `TRANSLATION_OF` by jej v katalogu skryla jako „českou verzi“ českého
   dokumentu a vhodnější typ vazby (neúřední překlad) číselník nemá.
-* **Označení normy po přepnutí na nové vydání:** dokument si ponechá
-  označení dosavadního vydání (například `ČSN EN 13445-2+A1`, přestože
-  vydání 12/2026 je `ČSN EN 13445-2`); nové označení je jen u verze. Měnit
-  označení dokumentu automaticky, nebo to ponechat editorovi?
+* **Znění nařízení CLP:** Ukládáme původní znění z roku 2008 (CELEX
+  `32008R1272`), nikoli konsolidované. Cellar vede konsolidovaná znění
+  `02008R1272-<datum>`; ke 20. 11. 2026 je účinné znění ze 1. 7. 2026
+  a připraveno znění k 1. 1. 2027. Přejít na konsolidované znění (a pak je
+  při každé změně obnovovat), nebo ponechat původní znění s odkazem na
+  konsolidované znění v EUR-Lexu? Totéž se týká i dalších často měněných
+  aktů (REACH).
 * **Usnesení vlády k aktualizacím SEK a Politiky ochrany klimatu:** číslo
   usnesení z prosince 2024, jímž vláda od aktualizací upustila, ani pozdější
   rozhodnutí jsme nedohledali; ověřit u MPO a MŽP. Text návrhu SEK není

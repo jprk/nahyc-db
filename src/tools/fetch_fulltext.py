@@ -31,6 +31,13 @@ Usage:
     .venv/bin/python src/tools/fetch_fulltext.py --audit [--apply]
     .venv/bin/python src/tools/fetch_fulltext.py --only "Sinay_Zakony|56/2001 Sb.|odkaz_eu"
     .venv/bin/python src/tools/fetch_fulltext.py --host slov-lex.sk
+    .venv/bin/python src/tools/fetch_fulltext.py --only KEY --out-dir data/fulltext_<worktree>
+
+`--out-dir` (2026-11-20) keeps the downloaded files out of `data/fulltext/`: in
+a worktree, `data/fulltext/` is a link to the main tree, which serves the web.
+The files go to the given directory, the manifest still names them
+`data/fulltext/<name>` — where they belong once copied there after the merge
+(`cp -n <dir>/* data/fulltext/`).
 """
 import argparse
 import datetime
@@ -393,7 +400,7 @@ def fetch_with_browser(url, timeout_ms=45000):
         return None
 
 
-def fetch_one(session, record, url_field, url):
+def fetch_one(session, record, url_field, url, out_dir=None):
     """Performs the actual HTTP GET and returns a manifest entry dict.
     Never raises — network/HTTP failures are recorded as a `failed`
     status so one bad URL doesn't abort the whole run. A response that is
@@ -412,7 +419,9 @@ def fetch_one(session, record, url_field, url):
                     "error": "not available from Cellar (no CELEX number for the address, "
                              "or no manifestation in its language and format)"}
         status, content, content_type = found["status"], found["content"], found["content_type"]
+        via = {"via": "cellar", "celex": found.get("celex")}
     else:
+        via = {}
         try:
             resp = session.get(url, timeout=30)
             resp.raise_for_status()
@@ -436,18 +445,22 @@ def fetch_one(session, record, url_field, url):
 
     ext = extension_from_url(url, content_type)
     sha256 = hashlib.sha256(content).hexdigest()
-    FULLTEXT_DIR.mkdir(parents=True, exist_ok=True)
-    local_path = FULLTEXT_DIR / flat_name(znacka, sha256, ext)
-    if not local_path.exists():  # same content already stored: nothing to write
-        local_path.write_bytes(content)
+    name = flat_name(znacka, sha256, ext)
+    store = pathlib.Path(out_dir) if out_dir else FULLTEXT_DIR
+    store.mkdir(parents=True, exist_ok=True)
+    stored = store / name
+    if not stored.exists() and not (FULLTEXT_DIR / name).exists():  # same content already stored: nothing to write
+        stored.write_bytes(content)
 
     return {
         "status": "fetched",
         "url": url,
-        "local_path": str(local_path.relative_to(REPO_ROOT)),
+        # with `out_dir`, where the file belongs after the merge
+        "local_path": str((FULLTEXT_DIR / name).relative_to(REPO_ROOT)),
         "http_status": status,
         "sha256": sha256,
         "fetched_at": now,
+        **via,
     }
 
 
@@ -503,6 +516,10 @@ def main():
                               "(search-results pages, empty files) failed and delete them with --apply; "
                               "then exit (run again without --audit to fetch them from the right address)")
     parser.add_argument("--apply", action="store_true", help="with --audit: really change the manifest and delete")
+    parser.add_argument("--out-dir", default=None, metavar="DIR",
+                        help="store the downloaded files in DIR instead of data/fulltext/ (a worktree: data/fulltext/ "
+                             "is the main tree's); the manifest names them data/fulltext/<name>, where they go after "
+                             "the merge")
     args = parser.parse_args()
 
     if args.audit:
@@ -558,7 +575,7 @@ def main():
         if fetched_count > 0:
             time.sleep(SLEEP_SECONDS)
         print(f"[{record['zdroj_dat']}] {record['znacka']} ({url_field}) -> {url}")
-        manifest[key] = fetch_one(session, record, url_field, url)
+        manifest[key] = fetch_one(session, record, url_field, url, args.out_dir)
         if manifest[key]["status"] == "fetched":
             run_cache[(record["znacka"].strip(), url)] = manifest[key]
         print(f"  {manifest[key]['status']}")

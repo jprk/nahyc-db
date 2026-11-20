@@ -12,8 +12,11 @@ script, which resolves the corrected record exactly as a rebuild does
   which depends on it); `gestor` → source; `odkaz_*` → url and full-text file (the
   manifest files a text under the address it came from, so a new address has none
   until fetch_fulltext.py fetches it); `zdroj_autoritativni_url` → url; `jazyk` →
-  language; `jurisdikce`; `platnost` → effective date; `znacka` → identifier and full-text file (and
-  the slug a rebuild would give the document, unless another document has it);
+  language; `jurisdikce`; `platnost` → effective date; `znacka` → identifier,
+  title (a standard's title begins with its designation) and full-text file (and
+  the slug a rebuild would give the document, unless another document has it,
+  or the slug the correction pins, `slug`: a standard renamed on switching to a
+  new edition keeps its permanent address, norm_editions.py);
   the `*_autoritativni` fields also go to their own columns, which a rebuild
   copies verbatim; the review flags are recomputed in every case;
 * `"exclude": true` deletes the document and its English variant (`<znacka> [EN]`,
@@ -63,7 +66,10 @@ COLUMNS_BY_FIELD = {
     "zdroj_autoritativni_url": ("url", "zdroj_autoritativni_url"),
     "jazyk": ("language",), "jurisdikce": ("jurisdikce",),
     # the full-text manifest files a text under the designation, too
-    "znacka": ("identifier", "file_path"),
+    # and the title of a standard begins with it (init_db.format_norm_title)
+    "znacka": ("identifier", "title", "file_path"),
+    # a slug pinned by the correction (norm_editions.py: a renamed standard keeps its address)
+    "slug": ("slug",),
     "platnost": ("effective_date",),
 }
 # Columns init_db.py copies from the record verbatim (prepare_document() does not resolve them).
@@ -260,7 +266,9 @@ def main(argv=None):
                 prepared = init_db.prepare_document(cur, item, seen, gestor_map, gestor_cache, manifest)
                 prepared.update({column: item.get(column) or None for column in PASS_THROUGH_COLUMNS})
                 columns = affected_columns(entry.get("changes", {}))
-                if "identifier" in columns:
+                if item.get("slug"):
+                    prepared["slug"] = item["slug"]
+                elif "identifier" in columns:
                     columns.append("slug")
                     prepared["slug"] = wanted_slug(cur, doc_id, prepared["identifier"], prepared["title"])
                 cur.execute(f"SELECT {', '.join(columns)} FROM Document WHERE id = %s", (doc_id,))

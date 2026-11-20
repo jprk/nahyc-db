@@ -5940,11 +5940,14 @@
     "url": "https://mzp.gov.cz/system/files/2025-05/OPOK-POK-20170329.pdf"
   },
   "V02_Bibliografie|(ES) 1272/2008|odkaz_eu": {
-    "error": "EUR-Lex page without the act's text (the content did not render)",
-    "fetched_at": "2026-10-26T17:39:27",
-    "http_status": 202,
-    "status": "failed",
-    "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj/ces"
+    "celex": "32008R1272",
+    "fetched_at": "2026-11-20T11:30:53",
+    "http_status": 200,
+    "local_path": "data/fulltext/ES_1272_2008__b8cbcaee.html",
+    "sha256": "b8cbcaee1ad4d4e435130a49de5d00f15e9997f4cdb54df3db19857e6df8e71d",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj/ces",
+    "via": "cellar"
   },
   "V02_Bibliografie|(ES) 1272/2008|odkaz_hlavni": {
     "celex": "32008R1272",
@@ -5957,11 +5960,14 @@
     "via": "cellar"
   },
   "V02_Bibliografie|(ES) 1272/2008|odkaz_hlavni_html": {
-    "error": "EUR-Lex page without the act's text (the content did not render)",
-    "fetched_at": "2026-10-26T17:38:39",
-    "http_status": 202,
-    "status": "failed",
-    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32008R1272"
+    "celex": "32008R1272",
+    "fetched_at": "2026-11-20T11:30:51",
+    "http_status": 200,
+    "local_path": "data/fulltext/ES_1272_2008__b8cbcaee.html",
+    "sha256": "b8cbcaee1ad4d4e435130a49de5d00f15e9997f4cdb54df3db19857e6df8e71d",
+    "status": "fetched",
+    "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32008R1272",
+    "via": "cellar"
   },
   "V02_Bibliografie|(ES) 1907/2006|odkaz_eu": {
     "celex": "32006R1907",

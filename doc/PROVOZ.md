@@ -238,8 +238,38 @@ a dosavadní vydání „nahrazeným“. Proto se promítnutí stavů spouští
 příloha A.4). Nová norma, jež dosud nenabyla účinnosti, je do dne účinnosti
 ve stavu „vyhlášený, dosud neúčinný“. Příklad: řada ČSN EN 13445 vydaná
 1. 12. 2026 nabývá účinnosti 1. 1. 2027, ČSN EN IEC 60079-29-0 vydaná
-v listopadu 2026 nabývá účinnosti 1. 12. 2026. Označení dokumentu se při
-přepnutí nemění; nové označení vydání je uvedeno u verze.
+v listopadu 2026 nabývá účinnosti 1. 12. 2026.
+
+**Označení dokumentu se při přepnutí řídí účinným vydáním** (rozhodnutí
+z 20. 11. 2026). Liší-li se označení nového vydání od dosavadního označení
+dokumentu, například `ČSN EN 13445-5+A1` → `ČSN EN 13445-5` (změna A1 je
+v novém vydání zapracována), nebo naopak přibude `+A1`, změní se v den
+účinnosti automaticky i označení dokumentu a označení na začátku jeho názvu.
+Má-li nové vydání stejné označení (ČSN EN 1717+A1 z 9/2026 a z 12/2026),
+označení se nemění. Dále platí:
+
+* **Trvalá adresa** stránky dokumentu (`/dokument/<slug>`) se nemění; slug
+  odvozený z dosavadního označení zůstává (například
+  `csn-en-13445-5-a1`), aby odkazy na dokument nepřestaly fungovat.
+* **Dosavadní vydání** zůstává u dokumentu jako nahrazená verze se svým
+  označením a měsícem vydání (například „ČSN EN 13445-5+A1 (vydání 4.2025)“).
+* **Odkaz na zdroj**, vedl-li na stránku dosavadního vydání v katalogu ČSN
+  online, vede nově na stránku účinného vydání.
+* **Shoda označení s jiným dokumentem** (porovnává databáze, tedy bez
+  ohledu na velikost písmen) přejmenování zabrání; vydání se přepne,
+  označení zůstane a běh to vypíše. O označení pak rozhodne editor.
+* **Přestavba databáze** změnu zachová: Běh promítnutí stavů ji zapíše
+  do `data/manual_corrections.json` (nové označení, zachovaný slug, nový
+  odkaz), přejmenuje klíče dokumentu v `data/fulltext_manifest.json`
+  a přesune jeho záznam v `data/norm_validity_cache.json` pod nové
+  označení. Vazby uložené podle označení se při přestavbě přejmenují
+  podle `data/manual_corrections.json`. Změněné soubory je třeba zapsat do
+  repozitáře (odstavec 9.3, bod 2).
+
+Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
+#37 přešel na vydání 12/2026 s označením `ČSN EN 13445-5` a slugem
+`csn-en-13445-5-a1`, dokument #1456 na vydání 12/2026 se stejným označením
+`ČSN EN 1717+A1`.
 
 ## 6. Co se stane s novým, novelizovaným a zrušeným předpisem
 
@@ -329,7 +359,8 @@ popsaný v odstavci 3.2 (kontroly spouští ručně správce).
    crontab); kde bude databáze provozována po skončení projektu.
 2. **Datové soubory měněné běhy kontrol** — Běhy v hlavním stromu mění
    soubory pod správou verzí (záznam běhů, mezipaměti kontrol, přijaté
-   kandidáty); zda je pravidelně zapisovat do repozitáře, nebo je přesunout
+   kandidáty, při přejmenování normy na nové vydání i `data/manual_corrections.json`
+   a `data/fulltext_manifest.json`); zda je pravidelně zapisovat do repozitáře, nebo je přesunout
    mimo správu verzí. Do rozhodnutí je nutné změněné soubory před každým
    nasazením nové verze (`git pull` v hlavním stromu) ošetřit ručně.
 3. **Zdroje IEC, EIGA a DVGW** — Stávající způsob jejich čtení obchází
@@ -378,7 +409,7 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | Nástroj | Účel | Četnost |
 |---|---|---|
 | `check_validity.py [--max-age 30]` | kontrola platnosti (Cellar, e-Sbírka, zakonyprolidi.cz) → `data/validity_cache.json` | týdně |
-| `backfill_document_states.py --apply [--today RRRR-MM-DD]` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`); vydání norem s pozdější účinností (`norm_editions.py`): doplnění verze a přepnutí v den účinnosti; `--today` (bez `--apply`) ukáže, co se stane k danému dni | po kontrole platnosti a 1. den v měsíci |
+| `backfill_document_states.py --apply [--today RRRR-MM-DD]` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`); vydání norem s pozdější účinností (`norm_editions.py`): doplnění verze a přepnutí v den účinnosti, případně se změnou označení dokumentu (zápis do `data/manual_corrections.json`, `data/fulltext_manifest.json` a `data/norm_validity_cache.json`, odstavec 5.2); `--today` (bez `--apply`) ukáže, co se stane k danému dni | po kontrole platnosti a 1. den v měsíci |
 | `check_csn_validity.py --editions "<označení>"` | platné vydání ČSN a vydání s pozdější účinností z katalogu ČSN online (datum vydání a účinnosti) | podle potřeby |
 | `citation_closure.py` | uzávěr citací → `data/citation_closure.json`, `data/citation_closure_candidates.csv` | čtvrtletně |
 | `import_candidates.py --apply` | kandidáti z uzávěru citací a kontroly platnosti do `DocumentCandidate` | po předchozích dvou |

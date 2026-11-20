@@ -97,6 +97,12 @@ class AssignSlugsTestCase(unittest.TestCase):
     def test_empty_corpus(self):
         self.assertEqual(assign_slugs([]), {})
 
+    def test_a_pinned_slug_is_kept_and_reserved(self):
+        # norm_editions.py: ČSN EN 13445-2+A1 renamed to ČSN EN 13445-2 keeps its address
+        got = assign_slugs([(1, "ČSN EN 13445-2", "a"), (2, "ČSN EN 13445-2 A1", "b")], {1: "csn-en-13445-2-a1"})
+        self.assertEqual(got[1], "csn-en-13445-2-a1")
+        self.assertEqual(got[2], "csn-en-13445-2-a1-2", "nobody else gets a pinned slug")
+
 
 if __name__ == "__main__":
     unittest.main()

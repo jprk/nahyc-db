@@ -444,12 +444,18 @@ def correction_entry(record, corrections):
 def renamed_designations(corrections):
     """{old designation: new one} for the corrections that change a record's
     `znacka` or merge it into another record (`"merged_into"`): relations stored
-    by designation (data/document_relations_split.json) must follow them."""
+    by designation (data/document_relations_split.json) must follow them. The
+    names in `renamed_from` follow too."""
     renamed = {}
     for key, entry in corrections.items():
         target = entry.get("merged_into") or (entry.get("changes") or {}).get("znacka")
         if target and target != key:
             renamed[key] = target
+            # designations the document had in between (a standard renamed again on
+            # switching to a new edition, norm_editions.py)
+            for name in entry.get("renamed_from", []):
+                if name != target:
+                    renamed[name] = target
     return renamed
 
 

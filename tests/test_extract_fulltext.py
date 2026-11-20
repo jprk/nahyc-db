@@ -554,5 +554,15 @@ class WordDocumentTestCase(unittest.TestCase):
         self.assertEqual(ef.extract(WORD_PAGE).source, "eurlex")
 
 
+
+class TableCellParagraphsTestCase(unittest.TestCase):
+    """Annex VI of CLP (2026-11-20): a cell with several paragraphs reads as words, not run together."""
+
+    def test_paragraphs_of_a_cell_are_separated(self):
+        fragment = ('<table><tr><td><p>601-001-00-4</p></td><td><p>Flam. Gas 1</p><p>Press. Gas</p></td>'
+                    '<td><p>GHS02</p><p>GHS04</p><p>Dgr</p></td></tr></table>')
+        self.assertEqual(ef.html_to_text(fragment), "601-001-00-4 | Flam. Gas 1 Press. Gas | GHS02 GHS04 Dgr\n")
+
+
 if __name__ == "__main__":
     unittest.main()

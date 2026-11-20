@@ -340,6 +340,11 @@ def html_to_text(fragment):
     # markup has no space after it; the plain text needs one.
     for marker in soup.select("p.item > span.num"):
         marker.insert_after(" ")
+    # A table cell can hold several paragraphs (the hazard classes of a substance
+    # in Annex VI of CLP: "Flam. Gas 1" and "Press. Gas"); in a `cell | cell` row
+    # they must not run together.
+    for block in soup.select("td p, th p, td div, th div, td li, th li"):
+        block.append(" ")
     lines = []
     for block in soup.find_all(recursive=False):
         if block.name == "hr":

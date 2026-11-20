@@ -522,5 +522,16 @@
     "confirmed_at": "2026-11-19",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 1 (opravy dat)",
     "reason": "Anglická varianta směrnice 2012/18/EU (Seveso III) měla odpovědný útvar převzatý od české varianty, jež nesla adresu směrnice ATEX 2014/34/EU (GŘ pro vnitřní trh); podle Cellaru je odpovědným útvarem Generální ředitelství pro životní prostředí. Hodnota gestor je u aktů EU jen podnětem k novému určení původce z data/eu_gestor_cache.json."
+  },
+  "ČSN EN 1717": {
+    "changes": {
+      "znacka": "ČSN EN 1717+A1",
+      "slug": "csn-en-1717",
+      "odkaz_hlavni": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524606",
+      "zdroj_autoritativni_url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=524606"
+    },
+    "confirmed_at": "2026-11-20",
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, odstavec 5.1 (rozhodnutí uživatele 20. 11. 2026)",
+    "reason": "Platné a účinné vydání je ČSN EN 1717+A1 (vydána 9/2026, účinná od 1. 10. 2026, katalog ČAS k=524606, ověřeno check_csn_validity.py 20. 11. 2026); vydání ČSN EN 1717 z 11/2025 (k=522378), na něž vedl odkaz, bylo zrušeno 1. 10. 2026. Trvalá adresa (slug csn-en-1717) zůstává. Nové vydání ČSN EN 1717+A1 z 12/2026 (účinné od 1. 1. 2027) má stejné označení, přepnutí na ně označení nezmění."
   }
 }
