@@ -18,8 +18,7 @@ Odstavce 1 až 9 popisují postup bez technických podrobností. Technické
 konci dokumentu.
 
 U každého postupu odlišujeme, co platí k 19. 11. 2026 v provozní databázi,
-od toho, co je připraveno a ověřeno na kopii databáze a co nasadíme do
-25. 11. 2026 (dále „po nasazení“), a od toho, co teprve zavádíme. Plánované
+od toho, co je připraveno a ověřeno na kopii databáze a co nasadíme do 25. 11. 2026 (dále „po nasazení“), a od toho, co teprve zavádíme. Plánované
 stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označena
 `[DOPLNIT: …]`.
 
@@ -46,10 +45,10 @@ stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označen
 
 | Role | Kdo | Odpovědnost |
 |---|---|---|
-| Garant databáze | [DOPLNIT: jméno, pracoviště řešitele] | Odpovídá za obsah a rozsah databáze; rozhoduje sporné případy; jednou za čtvrtletí vyhodnocuje úplnost (odstavec 8) a podává zprávu aplikačnímu garantovi. |
-| Editoři řešitele (nejméně dva) | [DOPLNIT: jméno], [DOPLNIT: jméno] | Posuzují frontu kandidátů, připravované dokumenty a navržené opravy; navrhují a potvrzují přijetí dokumentů a změny stavu; provádějí ruční kontroly zdrojů, jež automatizovat nelze. |
+| Garant databáze | Mgr. Vladimír Kremlík (RICE) | Odpovídá za obsah a rozsah databáze; rozhoduje sporné případy; jednou za čtvrtletí vyhodnocuje úplnost (odstavec 8) a podává zprávu aplikačnímu garantovi. |
+| Editoři řešitele (nejméně dva) | Dr. Bronislav Vahalík (CDV), Ing. Jan Sochor (HYTEP) | Posuzují frontu kandidátů, připravované dokumenty a navržené opravy; navrhují a potvrzují přijetí dokumentů a změny stavu; provádějí ruční kontroly zdrojů, jež automatizovat nelze. |
 | Editoři MPO (volitelně) | pracovníci MPO určení aplikačním garantem [DOPLNIT po dohodě s MPO: jméno] | Stejná oprávnění jako editoři řešitele (odstavec 2.1); mohou zejména navrhovat nové dokumenty a opravy údajů a potvrzovat návrhy ostatních editorů. |
-| Správce | [DOPLNIT: jméno] | Spouští nebo nastavuje pravidelné kontroly, pořizuje zálohy, sleduje chyby a dostupnost zdrojů, zakládá uživatelské účty editorů. |
+| Správce | Dr. Jan Přikryl (RICE) | Spouští nebo nastavuje pravidelné kontroly, pořizuje zálohy, sleduje chyby a dostupnost zdrojů, zakládá uživatelské účty editorů. |
 | Aplikační garant (MPO) | Ing. Petr Mervart | Uplatňuje připomínky a požadavky na rozsah; určuje, kteří pracovníci MPO dostanou editorský účet; dostává čtvrtletní zprávu o úplnosti. |
 
 K 19. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
