@@ -45,7 +45,7 @@ import requests
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))  # src/, for sites/
 import language_variants
-from sites.eurlex import fetch_cellar_document  # noqa: E402
+from sites.eurlex import fetch_cellar  # noqa: E402
 from fulltext_keys import first_url, url_designation  # noqa: F401 (first_url is part of this module's API)
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -325,19 +325,18 @@ def is_document_page(url, content, content_type="", znacka=None):
     return True, ""
 
 
-def is_waf_challenge(status_code, content):
-    """EUR-Lex's firewall answers automated clients with HTTP 202 and an empty
-    body (an interstitial that only a real browser completes)."""
-    return status_code == 202 or not content
+def is_eurlex(url):
+    return "eur-lex.europa.eu" in (url or "")
 
 
 def needs_browser(url, status_code, content):
-    """True when plain HTTP cannot give the document: EUR-Lex's firewall
-    challenge, or any Slov-Lex page (a single-page app whose HTML is an empty
-    shell until a browser runs it)."""
-    if "slov-lex.sk" in url:
-        return True
-    return "eur-lex.europa.eu" in url and is_waf_challenge(status_code, content)
+    """True when plain HTTP cannot give the document: a Slov-Lex page (a
+    single-page app whose HTML is an empty shell until a browser runs it).
+    Never for EUR-Lex (2026-11-20, doc/CELLAR_FULLTEXT.md): its pages answer
+    automated clients with a firewall challenge, and a browser that passes that
+    challenge circumvents the site's protection against robots — the text of an
+    EUR-Lex act comes from Cellar only (`fetch_one`)."""
+    return "slov-lex.sk" in (url or "")
 
 
 _SLOVLEX_READY = "div.predpis .predpisOznacenie, tr.effectivenessHistoryItem"
@@ -354,44 +353,20 @@ def _slovlex_latest_version_url(page):
     return hrefs[-1] if hrefs else None
 
 
-def is_eurlex_pdf(url):
-    return "eur-lex.europa.eu" in url and "/TXT/PDF/" in url
-
-
-def _fetch_eurlex_pdf_with_browser(url, timeout_ms):
-    """A PDF cannot be 'rendered', but the firewall that answers plain HTTP with
-    a challenge lets a browser context through once it has loaded a page of the
-    site; the context's own request client can then download the file."""
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        try:
-            context = browser.new_context()
-            page = context.new_page()
-            page.goto("https://eur-lex.europa.eu/homepage.html", wait_until="domcontentloaded", timeout=timeout_ms)
-            page.wait_for_timeout(3000)
-            response = context.request.get(url, timeout=timeout_ms * 3)
-            return response.status, response.body(), response.headers.get("content-type", "")
-        finally:
-            browser.close()
-
-
 def fetch_with_browser(url, timeout_ms=45000):
     """(status, content, content_type) of the page rendered by headless
     Chromium (Playwright, see requirements-optional.txt), or None when
-    Playwright is not installed or the browser fails. Used when plain HTTP got
-    a firewall challenge (EUR-Lex) or an empty shell (Slov-Lex)."""
+    Playwright is not installed or the browser fails. Used only for Slov-Lex,
+    whose pages are an empty shell until a browser runs them; refused for
+    EUR-Lex (see needs_browser)."""
+    if is_eurlex(url):
+        raise ValueError("EUR-Lex is never opened in a browser; its texts come from Cellar")
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         return None
-    if is_eurlex_pdf(url):
-        try:
-            return _fetch_eurlex_pdf_with_browser(url, timeout_ms)
-        except Exception:
-            return None
     slovlex = "slov-lex.sk" in url
-    ready = _SLOVLEX_READY if slovlex else "div#text, #TexteOnly, .eli-container, p.oj-doc-ti"
+    ready = _SLOVLEX_READY
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -426,12 +401,17 @@ def fetch_one(session, record, url_field, url):
     too, and is never written to disk."""
     znacka = record["znacka"].strip()
     now = datetime.datetime.now().isoformat(timespec="seconds")
-    # An EUR-Lex address with a CELEX number is downloaded from Cellar, the
-    # Publications Office's repository (src/sites/eurlex.py): EUR-Lex itself
-    # answers automated clients with a firewall challenge.
-    from_cellar = fetch_cellar_document(url) if "eur-lex.europa.eu" in url else None
-    if from_cellar:
-        status, content, content_type = from_cellar
+    # An EUR-Lex address is downloaded from Cellar, the Publications Office's
+    # repository (src/sites/eurlex.py) — a CELEX number in the address, or the one
+    # Cellar gives for its ELI or Official Journal id. EUR-Lex itself is never
+    # contacted: it answers automated clients with a firewall challenge.
+    if is_eurlex(url):
+        found = fetch_cellar(url)
+        if not found:
+            return {"status": "failed", "url": url, "http_status": None, "fetched_at": now,
+                    "error": "not available from Cellar (no CELEX number for the address, "
+                             "or no manifestation in its language and format)"}
+        status, content, content_type = found["status"], found["content"], found["content_type"]
     else:
         try:
             resp = session.get(url, timeout=30)
@@ -445,11 +425,10 @@ def fetch_one(session, record, url_field, url):
                 "fetched_at": now,
             }
         status, content, content_type = resp.status_code, resp.content, resp.headers.get("Content-Type", "")
-
-    if not from_cellar and needs_browser(url, status, content):
-        browsed = fetch_with_browser(url)
-        if browsed:
-            status, content, content_type = browsed
+        if needs_browser(url, status, content):
+            browsed = fetch_with_browser(url)
+            if browsed:
+                status, content, content_type = browsed
 
     ok, reason = is_document_page(url, content, content_type, znacka)
     if not ok:

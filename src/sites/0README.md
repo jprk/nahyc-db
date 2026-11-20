@@ -150,3 +150,5 @@ zakonyprolidi.py`, `tests/test_sites_slovlex.py`,
 síťová volání), `tests/test_sites_iec.py` a `tests/test_sites_dvgw.py`
 (`iec.py`/`dvgw.py` samy o sobě žádnou síť nepoužívají — čistě lokální
 slovník místo mocku).
+
+**Doplněno 2026-11-20 (`doc/CELLAR_FULLTEXT.md`)**: `eurlex.py` — `fetch_cellar(url)` stáhne text aktu z Cellaru pro libovolnou adresu EUR-Lexu (vrací i CELEX a počet položek manifestace; `fetch_cellar_document` zůstává jako obal), `resolve_celex(url)` přeloží adresu ELI nebo Úředního věstníku (`?uri=OJ:L_…`) na CELEX dotazem SPARQL (`celex_of_resource`, `owl:sameAs`; konsolidované znění se nebere za akt, víc čísel = None) a pro ELI, jež Cellar nepropojil, ověří CELEX sestavený z typu a čísla podle názvu díla (`_celex_of_eli_by_number`); CELEX konsolidovaného znění si ponechá datum (`02022R0869-20250205`). PDF se zkouší i bez profilu (`application/pdf`). Na EUR-Lex samotný se nic neobrací.

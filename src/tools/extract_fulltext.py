@@ -385,7 +385,31 @@ def _extract_eurlex_legacy(soup):
         return None
     for chrome in root.select("div.bglang, div.bgtool, p.bglang, h1, script, style"):
         chrome.decompose()
+    # Cellar's copy of such a page wraps the text as `<p><TXT_TE><p>…</p><p>…</p>`;
+    # the parser nests every paragraph inside the first one, which ran the whole
+    # act together into one block. The wrappers go, their paragraphs stay.
+    for wrapper in root.find_all("txt_te"):
+        wrapper.unwrap()
+    for paragraph in root.find_all("p"):
+        if paragraph.find("p") is not None:
+            paragraph.unwrap()
     return "\n".join(_blocks(root, "eurlex"))
+
+
+def _act_with_annexes(soup):
+    """The element holding an act *and* its annexes in the Official Journal's
+    XHTML, or None. That XHTML (served by Cellar, and by EUR-Lex as the
+    `TXT/HTML` view inside its `div#docHtml`) puts the act's own
+    `div.eli-container` and then — each after an `hr.oj-doc-sep` — every annex
+    as a sibling `div`. Taking only the first `.eli-container` dropped all the
+    annexes (found 2026-11-20 on 39 stored texts, e.g. Implementing Decision
+    (EU) 2022/2427 without its BAT conclusions, Regulation (EU) 2019/773 with
+    8 of its 181 thousand characters)."""
+    first = soup.select_one(".eli-container")
+    parent = first.parent if first is not None else None
+    if parent is None or parent.find("hr", class_="oj-doc-sep", recursive=False) is None:
+        return None
+    return parent
 
 
 def _extract_eurlex(soup):
@@ -394,6 +418,11 @@ def _extract_eurlex(soup):
     # the `eli-container` of the consolidated-text page, which has no `div#text`
     # — or, for an act from before 2004, the legacy page (see above).
     root = soup.find("div", id="text") or soup.select_one(".eli-container") or soup.body
+    whole = _act_with_annexes(soup) if soup.find("div", id="text") is None else None
+    if whole is not None:
+        root = whole  # the act and its annexes are siblings, see _act_with_annexes
+        for header in root.select("table:has(.oj-hd-date), table:has(.oj-hd-oj)"):
+            header.decompose()  # the Official Journal's running header, not the act's text
     if soup.find("div", id="text") is None and soup.select_one("div.contentWrapper > div.content"):
         return _extract_eurlex_word(soup)  # a Word document converted to XHTML
     if root is None or not (root.find(class_="eli-container") or root.find(class_="oj-normal")
