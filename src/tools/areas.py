@@ -45,8 +45,11 @@ class Rules:
         self.keywords = config["keywords"]
         self.committees = [(re.compile(r["pattern"]), r["areas"]) for r in config["committee_rules"]]
         self.ignore = [re.compile(p) for p in config["ignore"]]
+        self.categories = set(config.get("source_categories", []))
         self.types = config.get("type_rules", {})
-        self.titles = [(r["area"], re.compile(r["pattern"], re.IGNORECASE)) for r in config["title_rules"]]
+        self.titles = [(r["area"], re.compile(r["pattern"], re.IGNORECASE),
+                        re.compile(r["unless"], re.IGNORECASE) if r.get("unless") else None)
+                       for r in config["title_rules"]]
 
     def keyword_areas(self, keyword):
         """(areas, known): the areas a keyword gives, and whether a rule knows it."""
@@ -59,10 +62,12 @@ class Rules:
                 found += [c for c in codes if c not in found]
         if found:
             return found, True
-        return [], any(p.search(keyword) for p in self.ignore)
+        return [], keyword in self.categories or any(p.search(keyword) for p in self.ignore)
 
     def title_areas(self, text):
-        return [code for code, pattern in self.titles if pattern.search(text or "")]
+        text = text or ""
+        return [code for code, pattern, unless in self.titles
+                if pattern.search(text) and not (unless and unless.search(text))]
 
     def assign(self, document):
         """{code: origin} for a document {identifier, title, keywords}, in the order of the areas."""

@@ -54,13 +54,34 @@ class RulesTestCase(unittest.TestCase):
         return self.rules.assign({"identifier": identifier, "title": title, "keywords": list(keywords), "type": type_})
 
     def test_keywords_committees_and_ignored_values(self):
-        self.assertEqual(self.rules.keyword_areas("Explosionsschutz"), (["vybuch"], True))
+        # categories of the source tables were given to whole groups of documents: no area from them
+        for category in ("Explosionsschutz", "Schienenfahrzeuge", "Stationäre und ortsbewegliche Druckbehälter",
+                         "Untertage Gasspeicher", "Verflüssigung", "A - výroba", "Využití - ŽD"):
+            self.assertEqual(self.rules.keyword_areas(category), ([], True), category)
+        self.assertEqual(self.rules.keyword_areas("6972 - Kryogenické nádoby"), (["kryogenika"], True))
         self.assertEqual(self.rules.keyword_areas("Norm (ISO/TC 58/SC 3/WG 27)"), (["tlakove-nadoby"], True))
         self.assertEqual(self.rules.keyword_areas("Norm (ISO/TC 220 Cryogenic vessels)"), (["kryogenika"], True))
         self.assertEqual(self.rules.keyword_areas("STN (prijatá v sústave)"), ([], True))
         self.assertEqual(self.rules.keyword_areas("DIN - Deutsches Institut für Normung e.V."), ([], True))
         self.assertEqual(self.rules.keyword_areas("Něco zcela nového"), ([], False))
         self.assertEqual(self.rules.unknown_keywords(["Explosionsschutz", "Něco zcela nového"]), ["Něco zcela nového"])
+
+    def test_rail_only_from_the_title(self):
+        """doc/OBLASTI.md: a fuelling-station standard of the category "Schienenfahrzeuge" is not about railways."""
+        self.assertNotIn("kolejova-vozidla", self.assign("ISO 19880-1 — Gaseous hydrogen - Fuelling stations",
+                                                         keywords=["Schienenfahrzeuge", "Explosionsschutz"]))
+        for title in ("266/1994 Sb. Zákon o dráhách", "EN 50126 — Railway applications",
+                      "Prováděcí nařízení Komise (EU) 2019/773 o technické specifikaci pro interoperabilitu",
+                      "Kolejová vozidla na vodíkový pohon"):
+            found = self.assign(title)
+            self.assertIn("kolejova-vozidla", found, title)
+            self.assertNotIn("silnicni-vozidla", found, title)
+
+    def test_no_false_matches_found_in_review(self):
+        self.assertNotIn("podzemni-zasobniky", self.assign("DWA-M 376 — Freistehende Biogasspeicher"))
+        self.assertNotIn("zivotni-prostredi", self.assign("G 213 (A) — Anlagen zur Herstellung von Brenngasgemischen"))
+        self.assertNotIn("kvalita-mereni", self.assign("API 5L — Line pipe - Product Specification Levels 2"))
+        self.assertNotIn("tlakove-nadoby", self.assign("Ships using fuel cell power installations on vessels"))
 
     def test_title_rules_in_czech_slovak_english_german(self):
         self.assertIn("plnici-stanice", self.assign("STN ISO 19880-1 — Plynný vodík. Plniace stanice"))
@@ -71,8 +92,9 @@ class RulesTestCase(unittest.TestCase):
         self.assertIn("rfnbo", self.assign("paliva z obnovitelných zdrojů nebiologického původu"))
 
     def test_keyword_first_then_type_then_title(self):
-        found = self.assign("Vodíková strategie a plnicí stanice", keywords=["Explosionsschutz"], type_="Strategie")
-        self.assertEqual(found["vybuch"], "keyword")
+        found = self.assign("Vodíková strategie a plnicí stanice", keywords=["6972 - Kryogenické nádoby"],
+                            type_="Strategie")
+        self.assertEqual(found["kryogenika"], "keyword")
         self.assertEqual(found["strategie"], "type")
         self.assertEqual(found["plnici-stanice"], "title")
         self.assertEqual(list(found), [c for c in self.rules.codes if c in found], "in the order of the data file")
