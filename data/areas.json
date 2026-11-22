@@ -1,0 +1,715 @@
+{
+ "_popis": "Oblasti katalogu (filtr „Oblast“ a štítky v katalogu a na stránce dokumentu; doc/OBLASTI.md). Nahrazují původní klíčová slova ze zdrojových rešerší (238 hodnot: německé a slovenské výrazy, vydavatelé, technické komise, stavy STN), která zůstávají v tabulkách Keyword/DocumentKeyword jako skrytá slova pro vyhledávání a export. Každá oblast patří k věcnému okruhu doc/DATABASE_SCOPE.md odstavec 3 (`okruh`; `obecne` je náhradní oblast pro dokumenty, jimž pravidla žádnou oblast nepřiřadila — ty se vypisují jako nejisté). Dokument dostane oblasti (1) podle svých původních klíčových slov: `keywords` (přesná hodnota), `committee_rules` (regulární výraz nad označením technické komise v klíčovém slově); hodnoty `ignore` (vydavatelé, stavy, obecná označení) oblast neurčují; (2) podle typu dokumentu: `type_rules` (strategie a studie); (3) podle názvu: `title_rules` (regulární výrazy nad názvem a označením, bez ohledu na velikost písmen). Přiřazuje src/tools/assign_areas.py.",
+ "areas": [
+  {
+   "code": "vyroba",
+   "name": "Výroba vodíku",
+   "okruh": 1
+  },
+  {
+   "code": "rfnbo",
+   "name": "Obnovitelný a nízkouhlíkový vodík, certifikace",
+   "okruh": 1
+  },
+  {
+   "code": "tlakove-nadoby",
+   "name": "Tlakové nádoby a lahve",
+   "okruh": 2
+  },
+  {
+   "code": "kryogenika",
+   "name": "Zkapalněný vodík a kryogenní technika",
+   "okruh": 2
+  },
+  {
+   "code": "podzemni-zasobniky",
+   "name": "Podzemní zásobníky",
+   "okruh": 2
+  },
+  {
+   "code": "site",
+   "name": "Plynovody a plynárenské sítě",
+   "okruh": 3
+  },
+  {
+   "code": "preprava-nv",
+   "name": "Přeprava nebezpečných věcí",
+   "okruh": 3
+  },
+  {
+   "code": "plnici-stanice",
+   "name": "Plnicí stanice a infrastruktura paliv",
+   "okruh": 4
+  },
+  {
+   "code": "kvalita-mereni",
+   "name": "Kvalita vodíku, měření a metrologie",
+   "okruh": 4
+  },
+  {
+   "code": "silnicni-vozidla",
+   "name": "Silniční a speciální vozidla",
+   "okruh": 5
+  },
+  {
+   "code": "kolejova-vozidla",
+   "name": "Železnice a kolejová vozidla",
+   "okruh": 5
+  },
+  {
+   "code": "lode-letadla",
+   "name": "Lodní a letecká doprava",
+   "okruh": 5
+  },
+  {
+   "code": "palivove-clanky",
+   "name": "Palivové články",
+   "okruh": 6
+  },
+  {
+   "code": "prumysl",
+   "name": "Průmyslové využití a Power-to-X",
+   "okruh": 6
+  },
+  {
+   "code": "energeticka-zarizeni",
+   "name": "Elektrárny, turbíny a tepelná zařízení",
+   "okruh": 6
+  },
+  {
+   "code": "spotrebice",
+   "name": "Plynové spotřebiče v domácnostech a provozovnách",
+   "okruh": 6
+  },
+  {
+   "code": "vybuch",
+   "name": "Ochrana před výbuchem",
+   "okruh": 7
+  },
+  {
+   "code": "bezpecnost",
+   "name": "Bezpečnost a prevence havárií",
+   "okruh": 7
+  },
+  {
+   "code": "chemicke-latky",
+   "name": "Chemické látky a směsi",
+   "okruh": 7
+  },
+  {
+   "code": "bozp",
+   "name": "BOZP a odborná způsobilost",
+   "okruh": 7
+  },
+  {
+   "code": "materialy",
+   "name": "Materiály a jejich zkoušení",
+   "okruh": 7
+  },
+  {
+   "code": "komponenty",
+   "name": "Komponenty, armatury a potrubí",
+   "okruh": 7
+  },
+  {
+   "code": "rizeni-kyber",
+   "name": "Řídicí systémy a kybernetická bezpečnost",
+   "okruh": 7
+  },
+  {
+   "code": "shoda-vyrobku",
+   "name": "Posuzování shody a certifikace výrobků",
+   "okruh": 7
+  },
+  {
+   "code": "stavby",
+   "name": "Stavby, územní plánování a umístění",
+   "okruh": 8
+  },
+  {
+   "code": "energetika",
+   "name": "Energetika a trh s plynem a vodíkem",
+   "okruh": 9
+  },
+  {
+   "code": "zivotni-prostredi",
+   "name": "Životní prostředí, emise a klima",
+   "okruh": 10
+  },
+  {
+   "code": "strategie",
+   "name": "Strategie, koncepce a studie",
+   "okruh": null
+  },
+  {
+   "code": "obecne",
+   "name": "Obecné a průřezové předpisy",
+   "okruh": null
+  }
+ ],
+ "fallback": "obecne",
+ "keywords": {
+  "Explosionsschutz": [
+   "vybuch"
+  ],
+  "Schienenfahrzeuge": [
+   "kolejova-vozidla"
+  ],
+  "Produktzertifizierung": [
+   "shoda-vyrobku"
+  ],
+  "Sonderfahrzeuge/Spezialfahrzeuge": [
+   "silnicni-vozidla"
+  ],
+  "Verflüssigung": [
+   "kryogenika"
+  ],
+  "Untertage Gasspeicher": [
+   "podzemni-zasobniky"
+  ],
+  "Straßenverkehrsfahrzeuge": [
+   "silnicni-vozidla"
+  ],
+  "Metallische Werkstoffe": [
+   "materialy"
+  ],
+  "Sicherheitstechnische Grundsätze": [
+   "bezpecnost"
+  ],
+  "Stationäre und ortsbewegliche Druckbehälter": [
+   "tlakove-nadoby"
+  ],
+  "Befüllungsanlagen": [
+   "plnici-stanice"
+  ],
+  "Gasanalyse": [
+   "kvalita-mereni"
+  ],
+  "Rohrleitungen": [
+   "komponenty"
+  ],
+  "Anlagentechnik": [
+   "komponenty"
+  ],
+  "Využití - ŽD": [
+   "kolejova-vozidla"
+  ],
+  "Elektrolyse": [
+   "vyroba"
+  ],
+  "Weiterbildung": [
+   "bozp"
+  ],
+  "Bauteile Anwendungen und Technologien": [
+   "komponenty"
+  ],
+  "Cybersicherheit und Datenschnittstellen": [
+   "rizeni-kyber"
+  ],
+  "Controls": [
+   "rizeni-kyber"
+  ],
+  "PtX": [
+   "prumysl"
+  ],
+  "Komposite und Kunststoffe": [
+   "materialy"
+  ],
+  "Brennstoffzelle": [
+   "palivove-clanky"
+  ],
+  "Verteilnetze": [
+   "site"
+  ],
+  "A - výroba": [
+   "vyroba"
+  ],
+  "Häusliche Anwendungen": [
+   "spotrebice"
+  ],
+  "Schiffsverkehr": [
+   "lode-letadla"
+  ],
+  "Bauteile Infrastruktur": [
+   "komponenty"
+  ],
+  "Wasserstoffbeschaffenheit": [
+   "kvalita-mereni"
+  ],
+  "Thermoprozessanlagen": [
+   "energeticka-zarizeni"
+  ],
+  "CCU/CCS": [
+   "zivotni-prostredi"
+  ],
+  "Wasserstoffmesstechnik und Abrechnungsverfahren": [
+   "kvalita-mereni"
+  ],
+  "Transportleitungen": [
+   "site"
+  ],
+  "Sicherheits- und Integritätsmanagement": [
+   "bezpecnost"
+  ],
+  "Kraftwerke": [
+   "energeticka-zarizeni"
+  ],
+  "Turbinen": [
+   "energeticka-zarizeni"
+  ],
+  "KWK-Anlagen": [
+   "energeticka-zarizeni"
+  ],
+  "B-Distribuce": [
+   "site"
+  ],
+  "Gewerbliche Anwendungen": [
+   "spotrebice"
+  ],
+  "Nachhaltigkeitsaspekte und Nachweisführung für Wasserstoff": [
+   "rfnbo"
+  ],
+  "Další normy související s bezpečností a řízením rizik": [
+   "bezpecnost"
+  ],
+  "Materiály pro vodíkové technologie": [
+   "materialy"
+  ],
+  "Gesamtsystemintegration": [
+   "energetika"
+  ],
+  "Palivové články": [
+   "palivove-clanky"
+  ],
+  "Luftfahrt": [
+   "lode-letadla"
+  ],
+  "(petro)chem. Industrie": [
+   "prumysl"
+  ],
+  "Testování materiálů": [
+   "materialy"
+  ],
+  "Reduktionsprozesse": [
+   "prumysl"
+  ],
+  "andere Erzeugungsarten": [
+   "vyroba"
+  ],
+  "3360 - Technologie palivových článků": [
+   "palivove-clanky"
+  ],
+  "Plnící stanice, včetně rychlosti plnění": [
+   "plnici-stanice"
+  ],
+  "6565 - Motorová paliva a ostatní výrobky, jakost": [
+   "kvalita-mereni"
+  ],
+  "6972 - Kryogenické nádoby": [
+   "kryogenika"
+  ],
+  "Elektrolyzéry": [
+   "vyroba"
+  ],
+  "2570 - Tlakoměry, všeobecně a součásti": [
+   "kvalita-mereni"
+  ],
+  "3323 - Elektrická zařízení v různých prostředích": [
+   "vybuch"
+  ],
+  "3322 - Zařizovací předpisy pro elektrická zařízení strojů": [
+   "komponenty"
+  ],
+  "3303 - Prostředí pro elektrická zařízení": [
+   "vybuch"
+  ],
+  "0103 - Jakost": [
+   "shoda-vyrobku"
+  ],
+  "6431 - Plastové rozvodné a ochranné potrubní systémy": [
+   "komponenty"
+  ],
+  "3610 - Bezpečnost elektrických spotřebičů pro domácnost": [
+   "spotrebice"
+  ],
+  "1343 - Pojistné ventily": [
+   "komponenty"
+  ],
+  "0786 - Kovové lahve na plyny a příslušenství": [
+   "tlakove-nadoby"
+  ],
+  "0382 - Oblasti koroze": [
+   "materialy"
+  ],
+  "Kvalita vodíku": [
+   "kvalita-mereni"
+  ],
+  "7602 - Kvalita služby": [
+   "shoda-vyrobku"
+  ],
+  "0210 - Šrouby, matice, podložky. Část obecná": [
+   "komponenty"
+  ],
+  "6952 - Jednoduché netopené tlakové nádoby": [
+   "tlakove-nadoby"
+  ],
+  "1300 - Potrubí, všeobecně": [
+   "komponenty"
+  ],
+  "Technische Anschlussregel (TAR) (VDE FNN)": [
+   "energetika"
+  ],
+  "VDE FNN": [
+   "energetika"
+  ],
+  "OIML - International Organization of Legal Metrology": [
+   "kvalita-mereni"
+  ],
+  "IMO - International Maritime Organization": [
+   "lode-letadla"
+  ],
+  "NFPA - National Fire Protection Association; Massachusetts U.S.": [
+   "bezpecnost"
+  ],
+  "DGUV - Deutsche Gesetzliche Unfallversicherung e.V.": [
+   "bozp"
+  ],
+  "DGUV - Deutsche Gesetzliche Unfallversicherung e.V., Datenblatt": [
+   "bozp"
+  ],
+  "BAuA - The Federal Institute for Occupational Safety and Health": [
+   "bozp"
+  ],
+  "OSHA - U.S. DEPARTMENT OF LABOR Occupational Safety and Health Administration": [
+   "bozp"
+  ],
+  "VDA - Verband der Automobilindustrie e. V.": [
+   "silnicni-vozidla"
+  ],
+  "SAE International (Society of Automotive Engineers)": [
+   "silnicni-vozidla"
+  ],
+  "Association of Corrosion Engineers": [
+   "materialy"
+  ],
+  "NACE - National Association of Corrosion Engineers": [
+   "materialy"
+  ],
+  "NACE - National": [
+   "materialy"
+  ],
+  "Deutscher Ausschuss für Stahlbau DASt e.V.": [
+   "materialy"
+  ],
+  "SEP – Stahl-Eisen- Prüfblätter": [
+   "materialy"
+  ],
+  "DWA - Deutsche Vereinigung für Wasserwirtschaft, Abwasser und Abfall e. V.": [
+   "zivotni-prostredi"
+  ],
+  "VDI-Richtlinie (Kommission Reinhaltung der Luft im VDI und DIN – Normenausschuss KRdL)": [
+   "zivotni-prostredi"
+  ],
+  "Technische Regel (Ausschuss für Betriebssicherheit (ABS) und Ausschuss für Gefahrstoffe (AGS))": [
+   "bozp",
+   "chemicke-latky"
+  ],
+  "CESNI - Comité Européen pour l’Élaboration de Standards dans le Domaine de Navigation Intérieure": [
+   "lode-letadla"
+  ],
+  "4202 - Ingoty z ocelí. Tvářené výrobky z ocelí. Technické dodací předpisy": [
+   "materialy"
+  ],
+  "4204 - Technologické, metalografické a fyzikální zkoušení kovů": [
+   "materialy"
+  ],
+  "4209 - Výrobky z ocelí a oceli na odlitky a litiny. Technické dodací předpisy. Ukazatele jakosti. Rozměry": [
+   "materialy"
+  ],
+  "CEP - The Clean Energy Partnership, Technischer Bericht": [
+   "plnici-stanice"
+  ],
+  "Výroba vodíku": [
+   "vyroba"
+  ],
+  "Skladování": [
+   "tlakove-nadoby"
+  ],
+  "Přeprava": [
+   "site",
+   "preprava-nv"
+  ],
+  "Plnění do vozidel": [
+   "plnici-stanice"
+  ],
+  "Provoz vozidel": [
+   "silnicni-vozidla"
+  ],
+  "Využití vodíku mimo vozidla": [
+   "prumysl"
+  ],
+  "Bezpečnost": [
+   "bezpecnost"
+  ],
+  "Stavební řízení a umístění": [
+   "stavby"
+  ],
+  "Energetika": [
+   "energetika"
+  ],
+  "Životní prostředí": [
+   "zivotni-prostredi"
+  ]
+ },
+ "committee_rules": [
+  {
+   "pattern": "ISO/TC ?58\\b|ISO TC ?58\\b|CEN/TC 23\\b|CEN/TC 54\\b|CEN/TC 269\\b|ISO/TC 17/SC 10",
+   "areas": [
+    "tlakove-nadoby"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 220\\b",
+   "areas": [
+    "kryogenika"
+   ]
+  },
+  {
+   "pattern": "IEC/TC ?31\\b|IEC/SC ?31",
+   "areas": [
+    "vybuch"
+   ]
+  },
+  {
+   "pattern": "IEC/TC 105\\b|CEN/CLC/JTC 17\\b",
+   "areas": [
+    "palivove-clanky"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 22\\b",
+   "areas": [
+    "silnicni-vozidla"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 8\\b",
+   "areas": [
+    "lode-letadla"
+   ]
+  },
+  {
+   "pattern": "IEC/TC 9\\b",
+   "areas": [
+    "kolejova-vozidla"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 158\\b|ISO/TC 193\\b",
+   "areas": [
+    "kvalita-mereni"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 265\\b",
+   "areas": [
+    "zivotni-prostredi"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 67\\b|CEN/TC 234\\b",
+   "areas": [
+    "site"
+   ]
+  },
+  {
+   "pattern": "CEN/TC 235\\b|CEN/TC 58\\b|ISO/TC 161\\b|ISO/TC 45\\b|ISO/TC ?138\\b|CEN/TC 267\\b|IEC/SC/121A",
+   "areas": [
+    "komponenty"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 47\\b",
+   "areas": [
+    "chemicke-latky"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 244\\b|CEN/TC 186\\b",
+   "areas": [
+    "energeticka-zarizeni"
+   ]
+  },
+  {
+   "pattern": "IEC/TC 57\\b|IEC/TC 65\\b",
+   "areas": [
+    "rizeni-kyber"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 164\\b|ISO/TC 26\\b",
+   "areas": [
+    "materialy"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 283\\b",
+   "areas": [
+    "bozp"
+   ]
+  },
+  {
+   "pattern": "ISO/TC 71\\b",
+   "areas": [
+    "stavby"
+   ]
+  },
+  {
+   "pattern": "CEN/TC 393\\b",
+   "areas": [
+    "plnici-stanice"
+   ]
+  },
+  {
+   "pattern": "CEN/TC 109\\b",
+   "areas": [
+    "spotrebice"
+   ]
+  },
+  {
+   "pattern": "CEN/CLC/JTC 6\\b|CEN/CLC JTC 14\\b",
+   "areas": [
+    "energetika"
+   ]
+  }
+ ],
+ "ignore": [
+  "^STN\\b",
+  "^TNI\\b",
+  "^Stav k ",
+  "^(Norm|Technischer Bericht|Technische Spezifikation)\\b",
+  "^DVGW",
+  "^DIN\\b",
+  "^(EU|non - EU|Česká republika|Norm|-|Information|Standardy a normy)$",
+  "^PAS - ",
+  "^(EIGA|ASTM|VDI|CSA|Standards Australia|API|Die Physikalisch|PTB|ASME|BVEG|CGA|UL Solutions|ANSI|AFNOR|NIST|TÜV|IGEM|GASTEC|Aramco|NASA|BSI|Sandia|DNV|US Air Force|VAIS)\\b"
+ ],
+ "title_rules": [
+  {
+   "area": "vyroba",
+   "pattern": "elektrolý|electroly|elektroly|výrob\\w* vodíku|hydrogen (generat|production)|Wasserstofferzeugung|reformování|steam reforming|reformer|pressure swing adsor|\\bPSA\\b"
+  },
+  {
+   "area": "rfnbo",
+   "pattern": "nebiologického původu|non-biological origin|RFNBO|obnoviteln\\w+ (zdroj|energi|vodík|plyn)|renewable (energy|sources|hydrogen|fuel)|nízkouhlíkov|low-carbon|záruk\\w* původu|guarantees? of origin|udržitelnost|sustainability criteria|obnoviteľn|udržateľn"
+  },
+  {
+   "area": "tlakove-nadoby",
+   "pattern": "tlakov\\w* (nádob|zaříz)|pressure (vessel|equipment|receptacle)|cylind|lahv|Druckbehälter|Gasflasche|zásobník\\w* (vodíku|plynu)(?! podzem)|hydrogen tank|fuel tank|storage tank|fľaš|fliaš|tlakov\\w* nádob|\\bvessels?\\b|nádrž|nádob\\w* na plyn"
+  },
+  {
+   "area": "kryogenika",
+   "pattern": "kryogen|cryogen|zkapalněn|liquid hydrogen|liquefied|tiefkalt|LH2\\b|kryogénn|\\bLNG\\b"
+  },
+  {
+   "area": "podzemni-zasobniky",
+   "pattern": "podzemní\\w* zásob|underground (gas )?storage|Untertage|Gasspeicher|underground|podzemn"
+  },
+  {
+   "area": "site",
+   "pattern": "plynovod|pipeline|plynárensk|gas (network|grid|supply|infrastructure|system)|hydrogen network|vodíkov\\w* sít|distribuční soustav|přepravní soustav|Gasversorgung|Gasleitung|Rohrfernleitung|zásobovani\\w* plynom|plynov\\w* zariaden|Plynové zariadenia|vedení technického vybavenia|zemn\\w* plyn|natural gas(?! —)"
+  },
+  {
+   "area": "preprava-nv",
+   "pattern": "\\bADR\\b|\\bRID\\b|\\bADN\\b|nebezpečn\\w* věcí|dangerous goods|carriage of|přeprav\\w* nebezpečn|transportable|přepravitelná|cisternov|tank container|nádržkov"
+  },
+  {
+   "area": "plnici-stanice",
+   "pattern": "plnic\\w* stanic|plnění|čerpací stanic|fuell?ing|refuell?ing|dispens|filling station|Tankstelle|Betankung|alternativní\\w* paliv|alternative fuels|plniac\\w* stanic"
+  },
+  {
+   "area": "kvalita-mereni",
+   "pattern": "kvalit\\w* (vodíku|paliv|plynu)|fuel (quality|specification)|metrolog|měřidl|měřen|measur|analý|analysis|sampling|odběr\\w* vzork|gas meter|Messung|pohonných hmot|hydrogen fuel quality|purity|kvalit\\w* palív|composition|reference conditions|compression factor|kompresn\\w* pomer|hydrogen content|gas chromatograph|výpočet|obsahu síry|jakost\\w* (benzinu|motorových)"
+  },
+  {
+   "area": "silnicni-vozidla",
+   "pattern": "vozid|vehicle|automobil|road transport|silnič|homologac|type-approval|Fahrzeug|\\bbus\\b|autobus|EHK OSN|UNECE Regulation|UN Regulation|pozemn\\w* komunikac|cestn\\w* premáv|čisté mobility|vodíkového pohonu"
+  },
+  {
+   "area": "kolejova-vozidla",
+   "pattern": "železnič|kolejov|railway|rail\\b|drahách|Bahn|interoperabil|drážn"
+  },
+  {
+   "area": "lode-letadla",
+   "pattern": "lodní|plavb|\\bships?\\b|maritime|námořn|marine|inland waterway|aviation|letadl|letect|aircraft|air transport|Schiff|FuelEU|ReFuelEU|leteck|letectv"
+  },
+  {
+   "area": "palivove-clanky",
+   "pattern": "palivov\\w* článk|palivové články|fuel cells?|Brennstoffzell"
+  },
+  {
+   "area": "prumysl",
+   "pattern": "průmysl|industr|amoniak|ammonia|rafiner|refiner|ocelář|steel industry|power-to|PtX|syntetick\\w* paliv|e-fuels|Industrie"
+  },
+  {
+   "area": "energeticka-zarizeni",
+   "pattern": "turbín|turbine|kogenerac|cogeneration|\\bCHP\\b|kotl|boiler|spalovací|combustion|burner|hořák|elektrár|power plant|teplárn|Feuerung|Kessel|priemyseln\\w* pec|furnace|průmyslov\\w* pec"
+  },
+  {
+   "area": "spotrebice",
+   "pattern": "spotřebič|appliance|domácnost|domestic|household|Haushalt|Gasgeräte"
+  },
+  {
+   "area": "vybuch",
+   "pattern": "výbuch|explos|ATEX|hořlav|flammable|\\bEx\\b|Explosions|výbušn"
+  },
+  {
+   "area": "bezpecnost",
+   "pattern": "bezpečnost|safety|havári|major accident|SEVESO|riziko|rizik|\\brisk|požár|požární|\\bfire\\b|hazard|Sicherheit|požiar|protipožiar|hasen|blesk|lightning|Gefahren|nebezpečí"
+  },
+  {
+   "area": "chemicke-latky",
+   "pattern": "\\bREACH\\b|\\bCLP\\b|chemick\\w* látk|chemical|chemick\\w* zákon|látek a směsí|substances and mixtures|nebezpečných přípravků|laboratorní praxe"
+  },
+  {
+   "area": "bozp",
+   "pattern": "ochran\\w* zdraví při práci|BOZP|occupational|pracovn\\w* prostředí|zaměstnan|odborn\\w* způsobilost|Arbeitsschutz|qualification of personnel|zákoník práce|strojů|technických zařízení|bezpečn\\w* provoz"
+  },
+  {
+   "area": "materialy",
+   "pattern": "materiál|materials?\\b|ocel|\\bsteels?\\b|kovov|metallic|embrittlement|křehnut|kompozit|composite|plastic|polymer|zkoušení|test methods|Werkstoff|korozi|corrosion|oceľ|rúr|welding|zvár|svař|weld"
+  },
+  {
+   "area": "komponenty",
+   "pattern": "ventil|valves?\\b|armatur|fittings?\\b|potrubí|piping|hoses?\\b|hadic|connector|spojk|regulátor\\w* tlaku|pressure regulat|kompresor|compressor|těsnění|\\bseals?\\b|čerpadl|\\bpumps?\\b|Armatur|Ventil|armatúr|prírub|tesnen|regulačn\\w* zariaden|netesnost|leak detection|flanges?|gaskets?"
+  },
+  {
+   "area": "rizeni-kyber",
+   "pattern": "kybernet|cyber|řídicí|control systems?|automati|komunikac\\w* mezi|communication|software|IEC 61850|IEC 62443|datov\\w* rozhraní|výmen\\w* informácií|bezpečnosť údajov|information security"
+  },
+  {
+   "area": "shoda-vyrobku",
+   "pattern": "posuzování shody|conformity|certifik(?!ac\\w* (RFNBO|obnovit))|certificat|značení CE|CE marking|akreditac|dozor\\w* nad trhem|market surveillance|technických požadavcích na výrobky"
+  },
+  {
+   "area": "stavby",
+   "pattern": "staveb|stavební|building|construction (works|products)|stavebn|územn\\w* plán|land[- ]use|umísťování|Bauordnung|tunel|garáž|výstavb|stavieb|stavb"
+  },
+  {
+   "area": "energetika",
+   "pattern": "energetick|energy|energie|elektřin|electricity|trh\\w* s (plynem|vodíkem|elektřinou)|gas market|hydrogen market|podporovaných zdroj|akumulac|TEN-E|energy infrastructure|Energiewirtschaft|sieťov\\w* odvetv|regulác\\w* v sieťov|cenov\\w* regulác|vnútorn\\w* trh|vnitřní\\w* trh|zemním plynem|vodíkom|vodíkov\\w* (hospodářstv|trh)|hydrogen (economy|market)"
+  },
+  {
+   "area": "zivotni-prostredi",
+   "pattern": "životní\\w* prostředí|environment|emis|ovzduš|air quality|klima|climate|\\bEIA\\b|odpad|waste|\\bwater|vodní|skleníkov|greenhouse|povolenk|\\bETS\\b|\\bCO2\\b|\\bCCS\\b|\\bCCU\\b|carbon capture|Umwelt|Luftreinhaltung|životn\\w* prostred|vodách|vodovod|kanalizac|ochran\\w* přírody|znečisť|ovzduši|integrovan\\w* prevenc|oxidu uhličitého|hluk|jakost\\w* vod|vody určené"
+  }
+ ],
+ "type_rules": {
+  "Strategie": [
+   "strategie"
+  ],
+  "Studie": [
+   "strategie"
+  ]
+ }
+}

@@ -49,7 +49,7 @@ SMOKE_PAGES = ("/", "/procesy", "/export/csv", "/admin/login")
 # it) may not have yet; each is idempotent and is applied to the TEST database
 # after the refresh (`--apply --quiet --env-file <test env>`). Remove an entry
 # once the live database has been migrated.
-TEST_DB_MIGRATIONS = ("backfill_eu_act_subtype.py",)
+TEST_DB_MIGRATIONS = ("backfill_eu_act_subtype.py", "assign_areas.py")
 
 
 def split_modules(tests_dir=TESTS_DIR):

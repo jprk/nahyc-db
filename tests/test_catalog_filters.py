@@ -239,7 +239,7 @@ class CatalogQueryTestCase(unittest.TestCase):
         sql, params = self.build_document_query(filters)
         self.assertIn("d.identifier IN (%s, %s)", sql)
         self.assertEqual(params, ['%RFNBO%'] * 3 + ['%nebiologického původu%'] * 2
-                         + ['(EU) 2023/1184', '(EU) 2018/2001'])
+                         + ['(EU) 2023/1184', '(EU) 2018/2001', '%RFNBO%'])
 
     def test_subtype_and_jurisdiction(self):
         filters = {**self.BASE, 'eu_subtype': 'delegated', 'jurisdiction': 'sk'}
