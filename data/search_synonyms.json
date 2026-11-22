@@ -3,9 +3,17 @@
   "entries": [
     {
       "label": "RFNBO (obnovitelná paliva nebiologického původu)",
-      "aliases": ["RFNBO", "RFNBOs", "obnovitelná paliva nebiologického původu", "renewable fuels of non-biological origin"],
+      "aliases": ["RFNBO", "RFNBOs", "obnovitelná paliva nebiologického původu", "renewable fuels of non-biological origin", "paliva nebiologického původu", "nebiologického původu", "non-biological origin"],
       "search_terms": ["nebiologického původu", "non-biological origin"],
-      "identifiers": ["(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2018/2001", "(EU) 2023/2413"]
+      "identifiers": ["(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2018/2001", "(EU) 2023/2413", "(EU) 2023/2405", "(EU) 2024/1788", "201/2012 Sb.", "165/2012 Sb.", "458/2000 Sb."],
+      "note": "Doplněno 2026-11-22 (doc/RFNBO_POKRYTI.md): ReFuelEU Aviation 2023/2405, směrnice 2024/1788 a zákony 201/2012, 165/2012 a 458/2000 Sb. pojem obsahují v plném textu (data/fulltext_clean), ne v názvu ani popisu. AFIR 2023/1804, nařízení 2024/1789, 311/2006 Sb. a 2009/30/ES pojem neobsahují, proto zařazeny nejsou; 2024/1789 najde heslo „nízkouhlíkový vodík“."
+    },
+    {
+      "label": "Nízkouhlíkový vodík",
+      "aliases": ["nízkouhlíkový vodík", "nízkouhlíkového vodíku", "low-carbon hydrogen"],
+      "search_terms": ["nízkouhlíkový vodík", "nízkouhlíkového vodíku", "low-carbon hydrogen"],
+      "identifiers": ["(EU) 2024/1788", "(EU) 2024/1789"],
+      "note": "Doplněno 2026-11-22 (doc/RFNBO_POKRYTI.md): oba akty pojem obsahují v plném textu; akt v přenesené pravomoci (EU) 2025/2359 přibude po přijetí kandidáta."
     },
     {
       "label": "AFIR (nařízení o infrastruktuře pro alternativní paliva)",

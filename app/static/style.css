@@ -1583,3 +1583,10 @@ main {
     color: var(--accent-secondary);
     font-size: 0.92rem;
 }
+
+/* The list of candidates must fit its frame even when the automat column holds a long
+   recommendation and a rule (on 22. 11. 2026 the table was 8 px wider than its frame
+   at 1280 px): the badges may wrap inside the cell, a long word in a title breaks. */
+.candidate-table .triage-rec, .candidate-table .triage-rule { white-space: normal; }
+.candidate-table td { overflow-wrap: anywhere; }
+.candidate-table td.candidate-open { overflow-wrap: normal; }

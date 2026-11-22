@@ -1,0 +1,101 @@
+{
+ "_popis": "Kandidáti z tematického auditu RFNBO (doc/RFNBO_POKRYTI.md, odstavec 2): položky, které v databázi ani ve frontě kandidátů nebyly. CELEX, datum a úřední český název ověřeny v Cellaru (SPARQL) 22. 11. 2026; pokyny Komise nemají v Cellaru údaj o platnosti. Do fronty je zapisuje src/tools/import_listed_candidates.py (zdroj `audit-rfnbo`); priority A/B podle doc/DATABASE_SCOPE.md.",
+ "source": "audit-rfnbo",
+ "candidates": [
+  {
+   "candidate_key": "CELEX:52025XC02983",
+   "designation": "C/2025/2983",
+   "title": "Sdělení Komise – Pokyny k cílům spotřeby obnovitelných paliv nebiologického původu v průmyslu a v odvětví dopravy stanoveným v článcích 22a, 22b a 25 směrnice (EU) 2018/2001 o podpoře využívání energie z obnovitelných zdrojů ve znění směrnice (EU) 2023/2413",
+   "document_type": "Metodika",
+   "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:52025XC02983",
+   "language": "CS",
+   "jurisdikce": "EU",
+   "validity_status": null,
+   "puvodce": "Evropská komise",
+   "scope_area": 1,
+   "evidence": {
+    "celex": "52025XC02983",
+    "date": "2025-05-27",
+    "priority": "A",
+    "title_source": "Cellar SPARQL, 2026-11-22",
+    "audit": "doc/RFNBO_POKRYTI.md"
+   }
+  },
+  {
+   "candidate_key": "EU:2024/3176",
+   "designation": "(EU) 2024/3176",
+   "title": "Prováděcí rozhodnutí Komise (EU) 2024/3176 ze dne 19. prosince 2024, kterým se mění prováděcí rozhodnutí (EU) 2022/602, pokud jde o uznání nepovinného režimu International Sustainability & Carbon Certification - ISCC EU pro lesní biomasu, obnovitelná paliva nebiologického původu a recyklovaná paliva s obsahem uhlíku",
+   "document_type": "Rozhodnutí EU",
+   "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32024D3176",
+   "language": "CS",
+   "jurisdikce": "EU",
+   "validity_status": "účinný",
+   "puvodce": "Evropská komise",
+   "scope_area": 1,
+   "evidence": {
+    "celex": "32024D3176",
+    "date": "2024-12-19",
+    "priority": "B",
+    "title_source": "Cellar SPARQL, 2026-11-22",
+    "audit": "doc/RFNBO_POKRYTI.md"
+   }
+  },
+  {
+   "candidate_key": "EU:2024/3180",
+   "designation": "(EU) 2024/3180",
+   "title": "Prováděcí rozhodnutí Komise (EU) 2024/3180 ze dne 19. prosince 2024 o uznání nepovinného režimu CertifHy pro prokázání souladu s požadavky na paliva z obnovitelných zdrojů nebiologického původu stanovenými ve směrnici Evropského parlamentu a Rady (EU) 2018/2001",
+   "document_type": "Rozhodnutí EU",
+   "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32024D3180",
+   "language": "CS",
+   "jurisdikce": "EU",
+   "validity_status": "účinný",
+   "puvodce": "Evropská komise",
+   "scope_area": 1,
+   "evidence": {
+    "celex": "32024D3180",
+    "date": "2024-12-19",
+    "priority": "B",
+    "title_source": "Cellar SPARQL, 2026-11-22",
+    "audit": "doc/RFNBO_POKRYTI.md"
+   }
+  },
+  {
+   "candidate_key": "EU:2024/3194",
+   "designation": "(EU) 2024/3194",
+   "title": "Prováděcí rozhodnutí Komise (EU) 2024/3194 ze dne 19. prosince 2024 o uznání nepovinného režimu REDcert-EU pro prokázání souladu s požadavky na biopaliva, biokapaliny, paliva z biomasy, paliva z obnovitelných zdrojů nebiologického původu a recyklovaná paliva s obsahem uhlíku stanovenými ve směrnici Evropského parlamentu a Rady (EU) 2018/2001 a o zrušení prováděcího rozhodnutí Komise (EU) 2022/605",
+   "document_type": "Rozhodnutí EU",
+   "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32024D3194",
+   "language": "CS",
+   "jurisdikce": "EU",
+   "validity_status": "účinný",
+   "puvodce": "Evropská komise",
+   "scope_area": 1,
+   "evidence": {
+    "celex": "32024D3194",
+    "date": "2024-12-19",
+    "priority": "B",
+    "title_source": "Cellar SPARQL, 2026-11-22",
+    "audit": "doc/RFNBO_POKRYTI.md"
+   }
+  },
+  {
+   "candidate_key": "EU:2026/2316",
+   "designation": "(EU) 2026/2316",
+   "title": "Prováděcí rozhodnutí Komise (EU) 2026/2316 ze dne 15. října 2026 o uznání nepovinného režimu Roundtable on Sustainable Biomaterials (RSB) EU RED pro prokázání souladu s požadavky na biopaliva, biokapaliny, paliva z biomasy, paliva z obnovitelných zdrojů nebiologického původu a recyklovaná paliva s obsahem uhlíku stanovenými ve směrnici Evropského parlamentu a Rady (EU) 2018/2001 a o zrušení prováděcího rozhodnutí Komise (EU) 2022/607",
+   "document_type": "Rozhodnutí EU",
+   "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32026D2316",
+   "language": "CS",
+   "jurisdikce": "EU",
+   "validity_status": "účinný",
+   "puvodce": "Evropská komise",
+   "scope_area": 1,
+   "evidence": {
+    "celex": "32026D2316",
+    "date": "2026-10-15",
+    "priority": "B",
+    "title_source": "Cellar SPARQL, 2026-11-22",
+    "audit": "doc/RFNBO_POKRYTI.md"
+   }
+  }
+ ]
+}

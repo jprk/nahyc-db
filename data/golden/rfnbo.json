@@ -1,0 +1,281 @@
+{
+ "_popis": "Tematický golden set RFNBO (doc/RFNBO_POKRYTI.md, odstavce 2 a 4.1). Položka priority A musí být dokumentem databáze (`identifiers`: Document.identifier) nebo kandidátem ve frontě ve stavu new/proposed/deferred (`candidate_keys`), jinak tests/test_golden_rfnbo.py selže; u priority B test jen varuje. Kandidáti z data/rfnbo_candidates.json se počítají, i když je import do fronty ještě neproběhl (test je před kontrolou vloží do testovací databáze a pak odebere).",
+ "items": [
+  {
+   "name": "RED II",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2018/2001"
+   ],
+   "candidate_keys": [
+    "EU:2018/2001"
+   ]
+  },
+  {
+   "name": "RED III",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/2413"
+   ],
+   "candidate_keys": [
+    "EU:2023/2413"
+   ]
+  },
+  {
+   "name": "Akt v přenesené pravomoci 2023/1184 (výroba RFNBO)",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/1184"
+   ],
+   "candidate_keys": [
+    "EU:2023/1184"
+   ]
+  },
+  {
+   "name": "Akt v přenesené pravomoci 2023/1185 (metodika GHG)",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/1185"
+   ],
+   "candidate_keys": [
+    "EU:2023/1185"
+   ]
+  },
+  {
+   "name": "Prováděcí nařízení 2022/996 (ověřování, certifikace)",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2022/996"
+   ],
+   "candidate_keys": [
+    "EU:2022/996"
+   ]
+  },
+  {
+   "name": "ReFuelEU Aviation",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/2405"
+   ],
+   "candidate_keys": [
+    "EU:2023/2405"
+   ]
+  },
+  {
+   "name": "FuelEU Maritime",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/1805"
+   ],
+   "candidate_keys": [
+    "EU:2023/1805"
+   ]
+  },
+  {
+   "name": "Směrnice 2024/1788 (vodík a plyn)",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2024/1788"
+   ],
+   "candidate_keys": [
+    "EU:2024/1788"
+   ]
+  },
+  {
+   "name": "Nařízení 2024/1789",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2024/1789"
+   ],
+   "candidate_keys": [
+    "EU:2024/1789"
+   ]
+  },
+  {
+   "name": "AFIR",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2023/1804"
+   ],
+   "candidate_keys": [
+    "EU:2023/1804"
+   ]
+  },
+  {
+   "name": "Akt v přenesené pravomoci 2025/2359 (nízkouhlíkový vodík)",
+   "priority": "A",
+   "identifiers": [
+    "(EU) 2025/2359"
+   ],
+   "candidate_keys": [
+    "EU:2025/2359"
+   ]
+  },
+  {
+   "name": "Pokyny Komise k cílům RFNBO v průmyslu a dopravě",
+   "priority": "A",
+   "identifiers": [
+    "C/2025/2983"
+   ],
+   "candidate_keys": [
+    "CELEX:52025XC02983"
+   ]
+  },
+  {
+   "name": "Have your say 19592 — revize kritérií výroby RFNBO (návrh)",
+   "priority": "A",
+   "identifiers": [],
+   "candidate_keys": [
+    "DRAFT-EU:hys:19592"
+   ]
+  },
+  {
+   "name": "Zákon o podporovaných zdrojích energie",
+   "priority": "A",
+   "identifiers": [
+    "165/2012 Sb."
+   ],
+   "candidate_keys": [
+    "CZ:165/2012"
+   ]
+  },
+  {
+   "name": "Zákon o ochraně ovzduší",
+   "priority": "A",
+   "identifiers": [
+    "201/2012 Sb."
+   ],
+   "candidate_keys": [
+    "CZ:201/2012"
+   ]
+  },
+  {
+   "name": "Zákon o pohonných hmotách",
+   "priority": "A",
+   "identifiers": [
+    "311/2006 Sb."
+   ],
+   "candidate_keys": [
+    "CZ:311/2006"
+   ]
+  },
+  {
+   "name": "Energetický zákon",
+   "priority": "A",
+   "identifiers": [
+    "458/2000 Sb."
+   ],
+   "candidate_keys": [
+    "CZ:458/2000"
+   ]
+  },
+  {
+   "name": "NV o kritériích udržitelnosti a snižování emisí z PHM",
+   "priority": "A",
+   "identifiers": [
+    "189/2018 Sb."
+   ],
+   "candidate_keys": [
+    "CZ:189/2018"
+   ]
+  },
+  {
+   "name": "EU ETS",
+   "priority": "B",
+   "identifiers": [
+    "2003/87/ES"
+   ],
+   "candidate_keys": [
+    "EU:2003/87"
+   ]
+  },
+  {
+   "name": "Novela ETS",
+   "priority": "B",
+   "identifiers": [
+    "2023/959/EU"
+   ],
+   "candidate_keys": [
+    "EU:2023/959"
+   ]
+  },
+  {
+   "name": "Governance 2018/1999",
+   "priority": "B",
+   "identifiers": [
+    "2018/1999/EU", "(EU) 2018/1999"
+   ],
+   "candidate_keys": [
+    "EU:2018/1999"
+   ]
+  },
+  {
+   "name": "Uznání ISCC EU",
+   "priority": "B",
+   "identifiers": [
+    "(EU) 2024/3176"
+   ],
+   "candidate_keys": [
+    "EU:2024/3176"
+   ]
+  },
+  {
+   "name": "Uznání CertifHy",
+   "priority": "B",
+   "identifiers": [
+    "(EU) 2024/3180"
+   ],
+   "candidate_keys": [
+    "EU:2024/3180"
+   ]
+  },
+  {
+   "name": "Uznání REDcert-EU",
+   "priority": "B",
+   "identifiers": [
+    "(EU) 2024/3194"
+   ],
+   "candidate_keys": [
+    "EU:2024/3194"
+   ]
+  },
+  {
+   "name": "Uznání RSB EU RED",
+   "priority": "B",
+   "identifiers": [
+    "(EU) 2026/2316"
+   ],
+   "candidate_keys": [
+    "EU:2026/2316"
+   ]
+  },
+  {
+   "name": "Zdanění energie",
+   "priority": "B",
+   "identifiers": [
+    "2003/96/ES"
+   ],
+   "candidate_keys": [
+    "EU:2003/96"
+   ]
+  },
+  {
+   "name": "Směrnice FQD",
+   "priority": "B",
+   "identifiers": [
+    "98/70/ES"
+   ],
+   "candidate_keys": [
+    "EU:1998/70"
+   ]
+  },
+  {
+   "name": "Delegovaná směrnice s výchozími hodnotami GHG (návrh)",
+   "priority": "B",
+   "identifiers": [],
+   "candidate_keys": [
+    "DRAFT-EU:regdel:1054"
+   ]
+  }
+ ]
+}
