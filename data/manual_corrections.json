@@ -352,11 +352,12 @@
   "(EU) 2023/2413": {
     "row_language": "CS",
     "changes": {
-      "anotace_poznamka": "Směrnice (EU) 2023/2413 (RED III) mění směrnici (EU) 2018/2001 o podpoře využívání energie z obnovitelných zdrojů, nařízení (EU) 2018/1999 a směrnici 98/70/ES a zrušuje směrnici Rady (EU) 2015/652. Mimo jiné stanoví cíle pro využívání obnovitelných paliv nebiologického původu (RFNBO), včetně obnovitelného vodíku, v průmyslu a v dopravě a zrychluje povolování zařízení pro výrobu energie z obnovitelných zdrojů. Lhůta pro provedení: ustanovení o povolování do 1. 7. 2024, ostatní ustanovení do 21. 5. 2025."
+      "anotace_poznamka": "Směrnice (EU) 2023/2413 (RED III) mění směrnici (EU) 2018/2001 o podpoře využívání energie z obnovitelných zdrojů, nařízení (EU) 2018/1999 a směrnici 98/70/ES a zrušuje směrnici Rady (EU) 2015/652. Mimo jiné stanoví cíle pro využívání obnovitelných paliv nebiologického původu (RFNBO), včetně obnovitelného vodíku, v průmyslu a v dopravě a zrychluje povolování zařízení pro výrobu energie z obnovitelných zdrojů. Lhůta pro provedení: ustanovení o povolování do 1. 7. 2024, ostatní ustanovení do 21. 5. 2025.",
+      "nazev_cz": "Směrnice Evropského parlamentu a Rady (EU) 2023/2413 ze dne 18. října 2023, kterou se mění směrnice (EU) 2018/2001, nařízení (EU) 2018/1999 a směrnice 98/70/ES, pokud jde o podporu energie z obnovitelných zdrojů, a zrušuje směrnice Rady (EU) 2015/652"
     },
     "confirmed_at": "2026-11-19",
-    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Popis obsahoval zastaralý stav transpozice („Stav ke dni 30.6.2025 – čeká se na podpis presidenta“, připomínka MPO z 17. 4. 2026); nahrazen popisem bez údajů, které stárnou."
+    "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0; doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Popis obsahoval zastaralý stav transpozice („Stav ke dni 30.6.2025 – čeká se na podpis presidenta“, připomínka MPO z 17. 4. 2026); nahrazen popisem bez údajů, které stárnou. Název končil neúředním přívěskem z tabulky („Známá jako RED III Direktiva“); nahrazen úředním názvem aktu."
   },
   "(EU) 2023/1185": {
     "changes": {
@@ -534,5 +535,46 @@
     "confirmed_at": "2026-11-20",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, odstavec 5.1 (rozhodnutí uživatele 20. 11. 2026)",
     "reason": "Platné a účinné vydání je ČSN EN 1717+A1 (vydána 9/2026, účinná od 1. 10. 2026, katalog ČAS k=524606, ověřeno check_csn_validity.py 20. 11. 2026); vydání ČSN EN 1717 z 11/2025 (k=522378), na něž vedl odkaz, bylo zrušeno 1. 10. 2026. Trvalá adresa (slug csn-en-1717) zůstává. Nové vydání ČSN EN 1717+A1 z 12/2026 (účinné od 1. 1. 2027) má stejné označení, přepnutí na ně označení nezmění."
+  },
+  "(EU) 2023/2413 [EN]": {
+    "changes": {
+      "nazev_cz": "Directive (EU) 2023/2413 of the European Parliament and of the Council of 18 October 2023 amending Directive (EU) 2018/2001, Regulation (EU) 2018/1999 and Directive 98/70/EC as regards the promotion of energy from renewable sources, and repealing Council Directive (EU) 2015/652"
+    },
+    "confirmed_at": "2026-11-22",
+    "confirmed_by": "doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Název končil neúředním přívěskem z tabulky („Známá jako RED III Direktiva“); nahrazen úředním názvem aktu."
+  },
+  "(EU) 2018/2001 [EN]": {
+    "changes": {
+      "nazev_cz": "Directive (EU) 2018/2001 of the European Parliament and of the Council of 11 December 2018 on the promotion of the use of energy from renewable sources (recast)"
+    },
+    "confirmed_at": "2026-11-22",
+    "confirmed_by": "doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Název končil neúředním přívěskem z tabulky („Známá jako RED II Direktiva“); nahrazen úředním názvem aktu."
+  },
+  "2014/34/EU": {
+    "row_language": "CS",
+    "changes": {
+      "nazev_cz": "Směrnice Evropského parlamentu a Rady 2014/34/EU ze dne 26. února 2014 o harmonizaci právních předpisů členských států týkajících se zařízení a ochranných systémů určených k použití v prostředí s nebezpečím výbuchu (přepracované znění)"
+    },
+    "confirmed_at": "2026-11-22",
+    "confirmed_by": "doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Název končil neúředním přívěskem z tabulky („ATEX“); nahrazen úředním názvem aktu."
+  },
+  "2014/34/EU [EN]": {
+    "changes": {
+      "nazev_cz": "Directive 2014/34/EU of the European Parliament and of the Council of 26 February 2014 on the harmonisation of the laws of the Member States relating to equipment and protective systems intended for use in potentially explosive atmospheres (recast)"
+    },
+    "confirmed_at": "2026-11-22",
+    "confirmed_by": "doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Název končil neúředním přívěskem z tabulky („ATEX“); nahrazen úředním názvem aktu."
+  },
+  "2014/68/EU [EN]": {
+    "changes": {
+      "nazev_cz": "Directive 2014/68/EU of the European Parliament and of the Council of 15 May 2014 on the harmonisation of the laws of the Member States relating to the making available on the market of pressure equipment (recast)"
+    },
+    "confirmed_at": "2026-11-22",
+    "confirmed_by": "doc/MPO_OVERENI_WEBU.md, Z4",
+    "reason": "Název končil neúředním přívěskem z tabulky („Pressure Equipment Directive (PED)“); nahrazen úředním názvem aktu."
   }
 }

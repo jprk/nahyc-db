@@ -11,7 +11,10 @@ doc/PROVOZ.md, odstavec 5.3). Run daily by the scheduler (deploy/scheduler/,
    `konsolidace_<YYYYMMDD>`) — and extracts its clean text (extract_fulltext.py);
 3. writes the versions to the database: the version in effect becomes the current
    one, the previous one `superseded`, a prepared one `promulgated`; the document
-   shows the newest text in effect it has (eu_consolidations.apply()).
+   shows the newest text in effect it has (eu_consolidations.apply());
+4. moves the date of the last check of the state of the act (`Document.status_checked_at`,
+   `status_checked_by`; status_checks.py) to the day Cellar answered — never back
+   (doc/MPO_OVERENI_WEBU.md Z5).
 
 Dry run unless --apply: Cellar is asked, but nothing is written, downloaded or
 changed. `--today` plans for another day (simulation of 1. 1. 2027). `--offline`
@@ -35,6 +38,7 @@ import pymysql
 import requests
 
 import eu_consolidations as ec
+import status_checks
 import extract_fulltext
 import fetch_fulltext as ff
 
@@ -87,6 +91,17 @@ def fetch_and_extract(missing, out_dir=None, clean_dir=None, fetch=ff.fetch_one,
     return problems
 
 
+def plan_status_checks(cursor, config, cache):
+    """[(document id, date, label)] of the acts of `config` whose date of the last
+    check of the state the refreshed `cache` moves forward (status_checks.plan_checks())."""
+    identifiers = [act["identifier"] for act in config]
+    if not identifiers:
+        return []
+    cursor.execute("SELECT id, identifier, title, status_checked_at FROM Document WHERE identifier IN ("
+                   + ", ".join(["%s"] * len(identifiers)) + ")", identifiers)
+    return status_checks.plan_checks(cursor.fetchall(), status_checks.load_caches(consolidations=cache))
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--apply", action="store_true", help="write the cache, download, change the database")
@@ -131,6 +146,15 @@ def main(argv=None):
         for action in actions:
             print(ec.describe(action))
         writes = [a for a in actions if a["action"] != "skip"]
+        checks = plan_status_checks(cur, config, cache)
+        for doc_id, date, label in checks:
+            print(f"document {doc_id}: last check of the state {date} ({label})")
+        if args.apply and checks:
+            status_checks.ensure_columns(cur)
+            for doc_id, date, label in checks:
+                cur.execute("UPDATE Document SET status_checked_at = %s, status_checked_by = %s WHERE id = %s",
+                            (date, label, doc_id))
+            conn.commit()
         if args.apply and writes:
             if args.backup:
                 subprocess.run([sys.executable, str(BASE_DIR / "backup_db.py"), "--reason", "before_eu_consolidations"]

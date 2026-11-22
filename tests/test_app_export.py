@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.app import (
     build_document_query, build_count_query, build_page_range, parse_page,
     _rows_for_export, EXPORT_FIELDS, PAGE_SIZE,
-    get_git_version, get_db_last_updated, get_active_document_count,
+    get_git_version, get_db_last_updated, get_active_document_count, get_upcoming_document_count,
     get_total_document_count, classify_review_severity, REVIEW_SEVERITY,
 )
 
@@ -352,6 +352,28 @@ class GetActiveDocumentCountTestCase(unittest.TestCase):
         cursor.fetchone.return_value = None
         db.cursor.return_value.__enter__.return_value = cursor
         self.assertEqual(get_active_document_count(db), 0)
+
+
+class GetUpcomingDocumentCountTestCase(unittest.TestCase):
+    """doc/MPO_OVERENI_WEBU.md Z1: drafts / promulgated acts are counted
+    separately, not as "historických"."""
+
+    def test_queries_draft_and_promulgated(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"c": 145}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 145)
+        sql, params = cursor.execute.call_args[0]
+        self.assertIn("lifecycle_state IN", sql)
+        self.assertEqual(params[:2], ['draft', 'promulgated'])
+
+    def test_no_rows_returns_zero(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = None
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 0)
 
 
 if __name__ == '__main__':

@@ -251,6 +251,28 @@ def get_active_document_count(db, include_sk=True):
         row = cur.fetchone()
     return row["c"] if row else 0
 
+
+# Lifecycle states of a document that is not in force YET (doc/MPO_OVERENI_WEBU.md
+# Z1: they used to be counted as "historických" on the home page).
+UPCOMING_STATES = ('draft', 'promulgated')
+
+
+def get_upcoming_document_count(db, include_sk=True):
+    """Documents whose CURRENT version is a draft or promulgated but not yet
+    effective — shown separately from the historical (repealed/superseded)
+    ones in the hero note. Same counting rules as get_active_document_count()."""
+    condition, params = visible_condition(include_sk)
+    placeholders = ', '.join(['%s'] * len(UPCOMING_STATES))
+    with db.cursor() as cur:
+        cur.execute(f'''
+            SELECT COUNT(DISTINCT d.id) AS c FROM Document d
+            JOIN DocumentVersion dv ON dv.document_id = d.id
+            WHERE dv.is_current = 1 AND dv.lifecycle_state IN ({placeholders})
+              AND {NOT_A_TRANSLATION}{condition}
+        ''', list(UPCOMING_STATES) + list(params))
+        row = cur.fetchone()
+    return row["c"] if row else 0
+
 # doc/PLAN.md §16, 2026-09-16: the list was capped at a hardcoded 100
 # rows with a static "showing the first 100" banner and no way to reach
 # the rest, so ~92 % of the corpus was unreachable through the UI.
@@ -633,7 +655,8 @@ def index():
         doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
     total_document_count = get_total_document_count(db, include_sk)
     active_document_count = get_active_document_count(db, include_sk)
-    inactive_document_count = total_document_count - active_document_count
+    upcoming_document_count = get_upcoming_document_count(db, include_sk)
+    inactive_document_count = total_document_count - active_document_count - upcoming_document_count
 
     selected_type = request.args.get('type_id', '')
     return render_template('index.html',
@@ -652,6 +675,7 @@ def index():
                            keywords=keywords,
                            total_document_count=total_document_count,
                            active_document_count=active_document_count,
+                           upcoming_document_count=upcoming_document_count,
                            inactive_document_count=inactive_document_count,
                            result_count=result_count,
                            page=page,

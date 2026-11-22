@@ -140,7 +140,7 @@ def insert_document(cursor, item, context):
         if extra and extra not in keywords:
             keywords.append(extra)
     for keyword in keywords:
-        if isinstance(keyword, str) and keyword.strip():
+        if isinstance(keyword, str) and keyword.strip() and not init_db.is_status_keyword(keyword):
             keyword_id = init_db.get_or_create(cursor, "Keyword", {"keyword": keyword.strip()})
             cursor.execute("INSERT IGNORE INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)",
                            (doc_id, keyword_id))

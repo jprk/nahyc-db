@@ -193,6 +193,20 @@ main {
     position: relative;
 }
 
+/* The icon is positioned against the field, not the whole row: on a phone the
+   row becomes a column (input above the button) and the icon used to land
+   between the two, below the input (doc/MPO_OVERENI_WEBU.md Z2). */
+.search-field {
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+
+.search-field .search-input {
+    width: 100%;
+    min-width: 0;
+}
+
 .search-icon {
     position: absolute;
     left: 1.5rem;
