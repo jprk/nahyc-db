@@ -40,15 +40,25 @@ def download(path=DEFAULT_PATH, url=URL):
 
 
 def base_reference(reference):
-    """"ISO 19880-1:2020/Amd 1:2023" -> "ISO 19880-1"; "ISO/IEC 27001:2022" -> "ISO/IEC 27001"."""
+    """"ISO 19880-1:2020/Amd 1:2023" -> "ISO 19880-1"; "ISO/IEC 27001:2022" -> "ISO/IEC 27001";
+    a note or an edition date of our designations ("ISO 19884 (súbor)", "ISO 11326/ - 2024.011") goes."""
     ref = re.sub(r"\s+", " ", (reference or "").strip())
+    ref = re.sub(r"\s*\([^)]*\)\s*$", "", ref)
+    ref = re.sub(r"\s*/?\s*[-–—]\s*(19|20)\d{2}(\.\d+)?\s*$", "", ref)
     ref = ref.split("/Amd")[0].split("/Cor")[0].split("/DAmd")[0]
     ref = re.sub(r":\s*\d{4}(-\d{2})?$", "", ref)
     return ref.strip().upper()
 
 
+def _number(reference):
+    """The kind and number of a base reference without its stage: "ISO/AWI TR 19884-2" -> ("TR", "19884-2")."""
+    m = re.match(r"^ISO(?:/IEC)?(?:/(?:AWI|PWI|NP|WD|CD|DIS|FDIS|PRF))?(?:[/ ](TS|TR|PAS|IWA))?\s+(\S+)$", reference)
+    return (m.group(1) or "", m.group(2)) if m else None
+
+
 def load_index(path=DEFAULT_PATH):
-    """{base reference: [records]} of the deliverables that are not an amendment or corrigendum."""
+    """{base reference: [records]} of the deliverables that are not an amendment or corrigendum;
+    under `(kind, number)` keys too, so that "ISO 19885-2" finds the project "ISO/AWI 19885-2"."""
     index = {}
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -56,7 +66,11 @@ def load_index(path=DEFAULT_PATH):
             reference = record.get("reference") or ""
             if record.get("supplementType") or re.search(r"/(Amd|Cor|DAmd)", reference):
                 continue
-            index.setdefault(base_reference(reference), []).append(record)
+            base = base_reference(reference)
+            index.setdefault(base, []).append(record)
+            number = _number(base)
+            if number:
+                index.setdefault(number, []).append(record)
     return index
 
 
@@ -74,6 +88,8 @@ def lookup(index, designation):
     if not candidates and draft:  # "ISO/DIS TR 19884" is listed as "ISO/TR 19884" once published
         kind = draft.group(1)
         candidates = index.get(f"ISO/{kind.upper()} {key[draft.end():]}" if kind else f"ISO {key[draft.end():]}")
+    if not candidates and _number(key):
+        candidates = index.get(_number(key))
     if not candidates:
         return None
     return max(candidates, key=_rank)
@@ -81,7 +97,7 @@ def lookup(index, designation):
 
 def summary(record):
     """The fields the database uses, from an ISO record."""
-    return {"reference": record.get("reference"), "id": record.get("id"),
+    return {"reference": record.get("reference"), "iso_id": record.get("id"),
             "title_en": (record.get("title") or {}).get("en"), "ics": record.get("icsCode") or [],
             "committee": record.get("ownerCommittee"), "stage": record.get("currentStage"),
             "published": record.get("publicationDate"),
