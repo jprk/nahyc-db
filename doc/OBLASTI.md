@@ -1,29 +1,36 @@
 # Oblasti katalogu
 
-Stav k 22. 11. 2026. Filtr „Oblast“ v katalogu a štítky u dokumentů v seznamu a na stránce dokumentu
-nově ukazují **oblasti**: 29 českých hodnot (27 věcných, strategie a náhradní) navázaných na věcné okruhy `doc/DATABASE_SCOPE.md`
-(odstavec 3). Dosud v nich byla klíčová slova převzatá ze zdrojových rešerší.
+Stav k 22.11.2026. 
+Filtr „Oblast“ v katalogu a štítky u dokumentů v seznamu a na stránce dokumentu
+nově ukazují **oblasti**: 29 českých hodnot (27 věcných, strategie a náhradní) 
+navázaných na věcné okruhy `doc/DATABASE_SCOPE.md`b(tento dokument, odstavec 3).
+Dosud v nich byla klíčová slova převzatá ze zdrojových rešerší, která nedávala
+moc smysl.
 
 ## 1. Proč
 
-Pole „Oblast (klíčové slovo)“ mělo v živé databázi 238 hodnot (3294 vazeb, 343 dokumentů bez hodnoty):
+Pole „Oblast (klíčové slovo)“ mělo v živé databázi k 21.11.2026 celkem 238 hodnot
+(3294 vazeb, 343 dokumentů bez hodnoty):
 
-* **jazyky:** většina hodnot je německá (tabulka Sinay: „Explosionsschutz“ 247 dokumentů,
-  „Schienenfahrzeuge“ 169, „Produktzertifizierung“ 124 …), část slovenská („STN (prijatá v sústave)“ 375,
-  „Stav k 02/2025: v príprave“ 34) a anglická („Controls“);
-* **nejde o oblasti:** vydavatelé („DIN - Deutsches Institut für Normung e.V.“, „ASTM …“, „EIGA …“,
+* **jazyky:** většina hodnot je německá (převzatá z podkladů prof. Sinaye: „Explosionsschutz“ 
+  247 dokumentů, „Schienenfahrzeuge“ 169, „Produktzertifizierung“ 124 …), část slovenská 
+  („STN (prijatá v sústave)“ 375, „Stav k 02/2025: v príprave“ 34) a anglická („Controls“);
+* **nejde o oblasti:** jsou tam vydavatelé („DIN - Deutsches Institut für Normung e.V.“, „ASTM …“, „EIGA …“,
   přes 40 hodnot), technické komise („Norm (ISO/TC 58/SC 3/WG 27)“, přes 100 hodnot, většinou s 1–5
   dokumenty), stavy normy („STN (zrušená bez náhrady)“), obecné hodnoty („EU“, „Norm“, „-“, „Information“);
 * **duplicity a překlepy:** „Norm (IEC/TC 31)“ / „Norm (IEC/TC31)“, „Norm (ISO TC58 SC3)“ / „Norm (ISO/TC 58/SC 3)“,
   „DIN - Deutsches“ / „DIN - Deutsches Institut …“, „NACE - National“ / „NACE - National Association …“,
   „Palivové články“ / „3360 - Technologie palivových článků“ / „Brennstoffzelle“;
-* **příliš podrobné:** třídy ČSN („4202 - Ingoty z ocelí. Tvářené výrobky z ocelí …“), pracovní skupiny komisí.
+* **příliš podrobné:** třídy ČSN („4202 - Ingoty z ocelí. Tvářené výrobky z ocelí …“),
+  pracovní skupiny komisí.
 
 ## 2. Nová sada oblastí
 
-Počty z dry runu `assign_areas.py` nad živou databází (1506 dokumentů; dokument může mít více oblastí).
-„Před“ je první verze pravidel (22. 11. 2026, odpoledne), „po“ verze zpřesněná týž den večer (odstavec 3):
-oblasti se už neodvozují z kategorií zdrojových tabulek, rozhoduje název dokumentu.
+Počty z běhu nanečistu skriptu `assign_areas.py` nad živou databází (1506 dokumentů; dokument 
+může mít více oblastí). „Před“ je původní verze pravidel (21.11.2026, odpoledne), „po“ verze
+zpřesněná 22.11.2026 (viz odstavec 3 v tomto dokumentu): oblasti se už neodvozují z kategorií
+zdrojových tabulek, rozhoduje název dokumentu \[DOPLNIT: Nerozhoduje jenom název, relevantní 
+pro danou oblast může být i obsah dokumentu.\]
 
 | Oblast | Okruh | Před | Po |
 |---|---|---|---|
@@ -95,14 +102,16 @@ náhradní oblast 70.
 
 ## 3. Pravidla přiřazení (`data/areas.json`)
 
-**Zpřesnění 22. 11. 2026 večer.** Kontrola vzorků ukázala, že zdrojová klíčová slova tabulky Sinay a sekce
-rešerší Prokop/Haltuf (např. „Schienenfahrzeuge“, „Explosionsschutz“, „Stationäre und ortsbewegliche
-Druckbehälter“, „Untertage Gasspeicher“, „Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie
-celých skupin dokumentů**, ne vlastnosti dokumentu: „Schienenfahrzeuge“ nesly i normy plnicích stanic,
-měděných armatur nebo hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice
-o tlakových zařízeních. Tyto hodnoty (60) jsou proto v seznamu `source_categories` a oblast neurčují.
-Pravidla jsou psána tak, aby oblast seděla s obsahem podle názvu; raději méně oblastí než šum
-(průměr klesl z 2,41 na 1,46 oblasti na dokument).
+**Zpřesnění (22.11.2026 večer):** Kontrola vzorků ukázala, že zdrojová klíčová slova tabulky 
+prof. Sinaye a sekce rešerší doc. Prokopa / dr. Haltufa (např. „Schienenfahrzeuge“,
+„Explosionsschutz“, „Stationäre und ortsbewegliche Druckbehälter“, „Untertage Gasspeicher“,
+„Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie celých skupin dokumentů**, 
+ne vlastnosti dokumentu: „Schienenfahrzeuge“ nesly i normy plnicích stanic, měděných armatur nebo
+hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice o tlakových 
+zařízeních. Tyto hodnoty (60) jsou proto v seznamu `source_categories` a oblast neurčují.
+Pravidla přiřazení píšeme tak, aby oblast seděla s obsahem podle názvu
+\[DOPLNIT: Nerozhoduje jenom název, relevantní pro danou oblast může být i obsah dokumentu.\];
+raději méně oblastí než šum (průměr klesl z 2,41 na 1,46 oblasti na dokument).
 
 1. **Původní klíčová slova jen tam, kde jde o vlastnost dokumentu** — `keywords`: třídy ČSN („6972 - Kryogenické
    nádoby“), okruhy přidané editorem při přijetí kandidáta (`app/candidates_admin.py`), několik vydavatelů
@@ -119,11 +128,12 @@ Pravidla jsou psána tak, aby oblast seděla s obsahem podle názvu; raději mé
 
 ## 4. Co se stalo s klíčovými slovy
 
-Původní klíčová slova se **nemažou**: zůstávají v tabulkách `Keyword` a `DocumentKeyword`, prohledává je
-vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné normy) a obsahují je exporty CSV/JSON/XML.
-Nejsou jen nabízena ve filtru ani zobrazena ve štítcích. Důvod: nesou informaci ze zdrojových rešerší (vydavatel,
-technická komise, stav STN), kterou oblasti nenahrazují, a mapování se z nich dá kdykoli přepočítat. Starý odkaz
-`?keyword_id=…` dál funguje.
+Původní klíčová slova se **nemažou**: zůstávají v tabulkách `Keyword` a `DocumentKeyword`, 
+prohledává je vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné normy)
+a obsahují je exporty CSV/JSON/XML. Nejsou jen nabízena ve filtru ani zobrazena ve štítcích.
+*Důvod:* nesou informaci ze zdrojových rešerší (vydavatel, technická komise, stav STN), kterou
+oblasti nenahrazují, a mapování se z nich dá kdykoli přepočítat.
+Starý odkaz `?keyword_id=…` dál funguje.
 
 Oblasti jsou v tabulkách `Area` (kód, název, okruh, pořadí) a `DocumentArea` (dokument, oblast, původ:
 `keyword`, `type`, `title`, `fallback`). Dokud v databázi nejsou, aplikace ukazuje původní klíčová slova.
