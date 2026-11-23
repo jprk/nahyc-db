@@ -211,19 +211,23 @@ def get_areas(db, include_sk=True):
     the order of data/areas.json, as {code, name}."""
     condition, params = visible_condition(include_sk)
     with db.cursor() as cur:
-        cur.execute("SELECT a.code, a.name FROM Area a WHERE EXISTS (SELECT 1 FROM DocumentArea da "
+        cur.execute("SELECT a.code, a.name FROM Area a WHERE a.public = 1 AND EXISTS (SELECT 1 FROM DocumentArea da "
                     "JOIN Document d ON d.id = da.document_id WHERE da.area_id = a.id"
                     f"{condition}) ORDER BY a.sort", params)
         return cur.fetchall()
 
 
-def area_tags(db, doc_ids):
-    """{document id: [area name]} in the order of data/areas.json."""
+def area_tags(db, doc_ids, include_hidden=False):
+    """{document id: [area name]} in the order of data/areas.json. An area that is
+    not public ("Oblast dosud neurčena", a worklist of editors, doc/OBLASTI.md) is
+    left out unless `include_hidden` (a logged-in editor)."""
     if not doc_ids:
         return {}
+    hidden = "" if include_hidden else " AND a.public = 1"
     with db.cursor() as cur:
         cur.execute("SELECT da.document_id, a.name FROM DocumentArea da JOIN Area a ON a.id = da.area_id "
-                    f"WHERE da.document_id IN ({', '.join(['%s'] * len(doc_ids))}) ORDER BY a.sort", list(doc_ids))
+                    f"WHERE da.document_id IN ({', '.join(['%s'] * len(doc_ids))}){hidden} ORDER BY a.sort",
+                    list(doc_ids))
         tags = {}
         for row in cur.fetchall():
             tags.setdefault(row['document_id'], []).append(row['name'])
@@ -707,7 +711,7 @@ def index():
                                  and clean_text_path(doc['file_path']) is not None)
         doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
     if db_areas:  # the tags of the list are the areas, not the original keywords
-        doc_tags = area_tags(db, [doc['id'] for doc in documents])
+        doc_tags = area_tags(db, [doc['id'] for doc in documents], include_hidden=bool(session.get('user_id')))
     total_document_count = get_total_document_count(db, include_sk)
     active_document_count = get_active_document_count(db, include_sk)
     upcoming_document_count = get_upcoming_document_count(db, include_sk)
@@ -784,7 +788,8 @@ def fetch_document_detail(db, slug):
         ''', (document['id'],))
         keywords = [r['keyword'] for r in cur.fetchall()]
         if areas_enabled(db):  # the page shows the areas; the original keywords stay hidden (doc/OBLASTI.md)
-            keywords = area_tags(db, [document['id']]).get(document['id'], [])
+            keywords = area_tags(db, [document['id']], include_hidden=bool(session.get('user_id'))).get(
+                document['id'], [])
 
         versions = fetch_versions(cur, document['id'])
 

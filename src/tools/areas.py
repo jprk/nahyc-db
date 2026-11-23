@@ -9,7 +9,7 @@ gets the fallback area ("Obecné a průřezové předpisy") and is reported as u
 
 The original keywords stay in Keyword/DocumentKeyword: they are searched (hidden)
 and exported, only no longer offered in the filter. Stored in `Area` and
-`DocumentArea` (origin `keyword`, `type`, `title` or `fallback`)."""
+`DocumentArea` (origin `keyword`, `identifier`, `type`, `title` or `fallback`)."""
 import json
 import pathlib
 import re
@@ -23,7 +23,8 @@ SCHEMA = (
       code VARCHAR(40) NOT NULL UNIQUE,
       name VARCHAR(200) NOT NULL,
       okruh TINYINT NULL,
-      sort INT NOT NULL DEFAULT 0
+      sort INT NOT NULL DEFAULT 0,
+      public TINYINT(1) NOT NULL DEFAULT 1
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4""",
     """CREATE TABLE IF NOT EXISTS DocumentArea (
       document_id INT NOT NULL,
@@ -47,6 +48,7 @@ class Rules:
         self.ignore = [re.compile(p) for p in config["ignore"]]
         self.categories = set(config.get("source_categories", []))
         self.types = config.get("type_rules", {})
+        self.identifiers = config.get("identifiers", {})
         self.titles = [(r["area"], re.compile(r["pattern"], re.IGNORECASE),
                         re.compile(r["unless"], re.IGNORECASE) if r.get("unless") else None)
                        for r in config["title_rules"]]
@@ -75,6 +77,8 @@ class Rules:
         for keyword in document.get("keywords") or []:
             for code in self.keyword_areas(keyword)[0]:
                 found.setdefault(code, "keyword")
+        for code in self.identifiers.get((document.get("identifier") or "").strip(), []):
+            found.setdefault(code, "identifier")
         for code in self.types.get(document.get("type") or "", []):
             found.setdefault(code, "type")
         text = " ".join(filter(None, (document.get("identifier"), document.get("title"))))
@@ -95,6 +99,12 @@ def load(path=CONFIG_PATH):
 def ensure_schema(cursor):
     for statement in SCHEMA:
         cursor.execute(statement)
+    # Area.public (2026-11-23): an area left out of the public filter ("Oblast dosud neurčena")
+    cursor.execute("SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() "
+                   "AND TABLE_NAME = 'Area' AND COLUMN_NAME = 'public'")
+    row = cursor.fetchone()
+    if not (row[0] if not isinstance(row, dict) else list(row.values())[0]):
+        cursor.execute("ALTER TABLE Area ADD COLUMN public TINYINT(1) NOT NULL DEFAULT 1")
 
 
 def _tuples(cursor):
@@ -152,9 +162,10 @@ def execute(cursor, rules, changes, create=True):
     if create:
         ensure_schema(cursor)
     for sort, area in enumerate(rules.areas):
-        cursor.execute("INSERT INTO Area (code, name, okruh, sort) VALUES (%s, %s, %s, %s) "
-                       "ON DUPLICATE KEY UPDATE name = VALUES(name), okruh = VALUES(okruh), sort = VALUES(sort)",
-                       (area["code"], area["name"], area.get("okruh"), sort))
+        cursor.execute("INSERT INTO Area (code, name, okruh, sort, public) VALUES (%s, %s, %s, %s, %s) "
+                       "ON DUPLICATE KEY UPDATE name = VALUES(name), okruh = VALUES(okruh), sort = VALUES(sort), "
+                       "public = VALUES(public)",
+                       (area["code"], area["name"], area.get("okruh"), sort, int(area.get("public", True))))
     cursor.execute("SELECT code, id FROM Area")
     ids = dict(_tuples(cursor))
     for doc_id, wanted in changes.items():

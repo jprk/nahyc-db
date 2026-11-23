@@ -2,8 +2,13 @@
  "_popis": "Oblasti katalogu (filtr „Oblast“ a štítky v katalogu a na stránce dokumentu; doc/OBLASTI.md). Nahrazují původní klíčová slova ze zdrojových rešerší, která zůstávají v tabulkách Keyword/DocumentKeyword jako skrytá slova pro vyhledávání a export. Každá oblast patří k věcnému okruhu doc/DATABASE_SCOPE.md odstavec 3 (`okruh`; `obecne` je náhradní oblast pro dokumenty, jimž pravidla žádnou oblast nepřiřadila). Oblast má sedět s obsahem dokumentu: rozhoduje hlavně název. Dokument dostane oblasti (1) podle původních klíčových slov jen tam, kde jde o vlastnost dokumentu: `keywords` (třídy ČSN „NNNN - …“, okruhy přidané editorem při přijetí kandidáta, několik vydavatelů s jednoznačným zaměřením), `committee_rules` (technická komise, která normu vydala); `source_categories` jsou kategorie zdrojových tabulek (např. „Schienenfahrzeuge“, „Explosionsschutz“, „A - výroba“), které se přidělovaly celým skupinám dokumentů, a oblast proto neurčují; `ignore` jsou vydavatelé, stavy a obecné hodnoty; (2) podle typu: `type_rules`; (3) podle názvu a označení: `title_rules` (regulární výrazy bez ohledu na velikost písmen; `unless` pravidlo vyloučí). Přiřazuje src/tools/assign_areas.py.",
  "areas": [
   {
+   "code": "elektrolyza",
+   "name": "Elektrolýza",
+   "okruh": 1
+  },
+  {
    "code": "vyroba",
-   "name": "Výroba vodíku",
+   "name": "Výroba vodíku jinými postupy",
    "okruh": 1
   },
   {
@@ -27,18 +32,13 @@
    "okruh": 2
   },
   {
-   "code": "site",
-   "name": "Plynovody a plynárenské sítě",
-   "okruh": 3
-  },
-  {
-   "code": "preprava-nv",
-   "name": "Přeprava nebezpečných věcí",
+   "code": "doprava",
+   "name": "Doprava vodíku (plynovody, sítě, přeprava)",
    "okruh": 3
   },
   {
    "code": "plnici-stanice",
-   "name": "Plnicí stanice a infrastruktura paliv",
+   "name": "Plnicí stanice",
    "okruh": 4
   },
   {
@@ -143,11 +143,17 @@
   },
   {
    "code": "obecne",
-   "name": "Obecné a průřezové předpisy",
+   "name": "Dokumenty obecné povahy",
    "okruh": null
+  },
+  {
+   "code": "neurceno",
+   "name": "Oblast dosud neurčena",
+   "okruh": null,
+   "public": false
   }
  ],
- "fallback": "obecne",
+ "fallback": "neurceno",
  "keywords": {
   "3360 - Technologie palivových článků": [
    "palivove-clanky"
@@ -252,8 +258,7 @@
    "tlakove-nadoby"
   ],
   "Přeprava": [
-   "site",
-   "preprava-nv"
+   "doprava"
   ],
   "Plnění do vozidel": [
    "plnici-stanice"
@@ -335,7 +340,7 @@
   {
    "pattern": "ISO/TC 67\\b|CEN/TC 234\\b",
    "areas": [
-    "site"
+    "doprava"
    ]
   },
   {
@@ -418,8 +423,13 @@
  ],
  "title_rules": [
   {
+   "area": "elektrolyza",
+   "pattern": "elektrolý|elektrolyz|electroly|Elektroly|\\b22734\\b|Power-to-Hydrogen"
+  },
+  {
    "area": "vyroba",
-   "pattern": "elektrolý|electroly|elektroly|výrob\\w* vodíku|hydrogen (generat|production)|Wasserstofferzeugung|reformování|steam reform|reformer|pressure swing adsor|\\bPSA\\b|22734"
+   "pattern": "výrob\\w* vodíku|hydrogen (generat|production)|Wasserstofferzeugung|reformování|steam reform|reformer|pressure swing adsor|\\bPSA\\b",
+   "unless": "elektrolý|elektrolyz|electroly|Elektroly|\\b22734\\b"
   },
   {
    "area": "rfnbo",
@@ -438,16 +448,13 @@
    "pattern": "podzemn\\w* zásobník|underground (gas |hydrogen )?storage|storage (of hydrogen )?(in systems )?located underground|Untertage|\\bGasspeicher|salt cavern|kavern|Speicherbetrieb|Bohrung|Bohrloch|Futterrohr|casing and tubing|packers|well integrity"
   },
   {
-   "area": "site",
-   "pattern": "plynovod|pipelines?\\b|plynárensk|gas (network|grid|supply|infrastructure|transmission|distribution)|hydrogen (network|grid|pipeline)|vodíkov\\w* sít|distribuční soustav|přepravní soustav|zásobovani\\w* plynom|Gasversorgung|Gasleitung|Rohrfernleitung|Gasinfrastruktur|injection stations?|plynov\\w* zariaden|Wasserstoffversorgung|Gasinstallation|Erdgasanlagen|Gasverwendung|Gasanlagen|Gas-Druckregel|Gasdruckregel|Gasrohrnetz|Gasnetz|Einspeisung von Wasserstoff|Gas Installations|Gas Booster|H2-Readiness|Petroleum and natural gas industries|Öffnen von Systemen|leitungsgebundene Versorgung"
-  },
-  {
-   "area": "preprava-nv",
-   "pattern": "\\bADR\\b|\\bRID\\b|\\bADN\\b|nebezpečn\\w* věcí|nebezpečn\\w* nákladů|dangerous goods|carriage of|přeprav\\w* nebezpečn|transportable|přepravitel|prepravn\\w* fľaš|cisternov|tank container"
+   "area": "doprava",
+   "pattern": "plynovod|pipelines?\\b|plynárensk|gas (network|grid|supply|infrastructure|transmission|distribution)|hydrogen (network|grid|pipeline)|vodíkov\\w* sít|distribuční soustav|přepravní soustav|zásobovani\\w* plynom|Gasversorgung|Gasleitung|Rohrfernleitung|Gasinfrastruktur|injection stations?|plynov\\w* zariaden|Wasserstoffversorgung|Gasinstallation|Erdgasanlagen|Gasverwendung|Gasanlagen|Gas-Druckregel|Gasdruckregel|Gasrohrnetz|Gasnetz|Einspeisung von Wasserstoff|Gas Installations|Gas Booster|H2-Readiness|Petroleum and natural gas industries|Öffnen von Systemen|leitungsgebundene Versorgung|\\bADR\\b|\\bRID\\b|\\bADN\\b|nebezpečn\\w* věcí|nebezpečn\\w* nákladů|dangerous goods|carriage of|přeprav\\w* nebezpečn|transportable|přepravitel|prepravn\\w* fľaš|cisternov|tank container"
   },
   {
    "area": "plnici-stanice",
-   "pattern": "plnic\\w* stanic|plniac\\w* stanic|čerpací\\w* stanic|čerpacie stanic|fuell?ing|refuell?ing|dispens|filling station|Tankstelle|Betankung|alternativní\\w* paliv|alternative fuels|infrastruktur\\w* pro alternativní|hydrogen stations|hysdrogen stations"
+   "pattern": "plnic\\w* stanic|plniac\\w* stanic|čerpací\\w* stanic|čerpacie stanic|fuell?ing|refuell?ing|dispens|filling station|Tankstelle|Betankung|alternativní\\w* paliv|alternative fuels|infrastruktur\\w* pro alternativní|hydrogen stations|hysdrogen stations",
+   "unless": "benzinových par|petrol vapour"
   },
   {
    "area": "kvalita-mereni",
@@ -597,5 +604,22 @@
   "andere Erzeugungsarten",
   "7602 - Kvalita služby",
   "0103 - Jakost"
- ]
+ ],
+ "identifiers": {
+  "CGA G-5": [
+   "obecne"
+  ],
+  "EIGA DOC 247": [
+   "obecne"
+  ],
+  "Gas-Information Nr. 15": [
+   "obecne"
+  ],
+  "353/2003 Sb.": [
+   "obecne"
+  ],
+  "455/1991 Sb.": [
+   "obecne"
+  ]
+ }
 }

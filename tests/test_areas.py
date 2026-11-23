@@ -22,6 +22,8 @@ class AreasFileTestCase(unittest.TestCase):
         self.assertEqual(len({a["name"] for a in CONFIG["areas"]}), len(codes))
         self.assertIn(CONFIG["fallback"], codes)
         circles = {a["okruh"] for a in CONFIG["areas"] if a["okruh"] is not None}
+        self.assertEqual([a["code"] for a in CONFIG["areas"] if not a.get("public", True)], [CONFIG["fallback"]],
+                         "only the fallback area is hidden from the public filter")
         self.assertEqual(circles, set(range(1, 11)), "every subject circle of doc/DATABASE_SCOPE.md has an area")
         for area in CONFIG["areas"]:
             self.assertRegex(area["name"], r"^[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]", area["code"])
@@ -100,8 +102,21 @@ class RulesTestCase(unittest.TestCase):
         self.assertEqual(list(found), [c for c in self.rules.codes if c in found], "in the order of the data file")
 
     def test_every_document_gets_an_area(self):
-        self.assertEqual(self.assign("Zákon o spotřebních daních", keywords=["EU"]), {"obecne": "fallback"})
-        self.assertEqual(self.assign(""), {"obecne": "fallback"})
+        self.assertEqual(self.assign("Nařízení o přenosných nemocech", keywords=["EU"]), {"neurceno": "fallback"})
+        self.assertEqual(self.assign(""), {"neurceno": "fallback"})
+        # genuinely general documents are named in the data file
+        self.assertEqual(self.assign("353/2003 Sb. Zákon o spotřebních daních", identifier="353/2003 Sb."),
+                         {"obecne": "identifier"})
+
+    def test_new_areas_electrolysis_stations_transport(self):
+        self.assertEqual(list(self.assign("ISO 22734 — Hydrogen generators using water electrolysis")), ["elektrolyza"])
+        self.assertIn("vyroba", self.assign("CGA H-10 — Combustion safety for steam reformer"))
+        self.assertIn("plnici-stanice", self.assign("ISO 19880-1 — Gaseous hydrogen — Fuelling stations"))
+        self.assertNotIn("plnici-stanice", self.assign("Směrnice 2009/126/ES o etapě II rekuperace benzinových par "
+                                                       "při čerpání pohonných hmot na čerpacích stanicích"))
+        for title in ("EIGA Doc 12 — Hydrogen Pipeline", "ADR 2025 - Agreement concerning the International Carriage "
+                      "of Dangerous Goods by Road", "STN EN 17339 — Prepravné fľaše na plyny"):
+            self.assertIn("doprava", self.assign(title), title)
 
 
 class FakeCursor:

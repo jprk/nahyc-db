@@ -1,9 +1,9 @@
 # Oblasti katalogu
 
-Stav k 22.11.2026. 
+Stav k 23.11.2026.
 Filtr „Oblast“ v katalogu a štítky u dokumentů v seznamu a na stránce dokumentu
-nově ukazují **oblasti**: 29 českých hodnot (27 věcných, strategie a náhradní) 
-navázaných na věcné okruhy `doc/DATABASE_SCOPE.md`b(tento dokument, odstavec 3).
+nově ukazují **oblasti**: 30 českých hodnot (27 věcných, strategie, dokumenty obecné povahy
+a pracovní „Oblast dosud neurčena“) navázaných na věcné okruhy `doc/DATABASE_SCOPE.md` (tento dokument, odstavec 3).
 Dosud v nich byla klíčová slova převzatá ze zdrojových rešerší, která nedávala
 moc smysl.
 
@@ -12,8 +12,8 @@ moc smysl.
 Pole „Oblast (klíčové slovo)“ mělo v živé databázi k 21.11.2026 celkem 238 hodnot
 (3294 vazeb, 343 dokumentů bez hodnoty):
 
-* **jazyky:** většina hodnot je německá (převzatá z podkladů prof. Sinaye: „Explosionsschutz“ 
-  247 dokumentů, „Schienenfahrzeuge“ 169, „Produktzertifizierung“ 124 …), část slovenská 
+* **jazyky:** většina hodnot je německá (převzatá z podkladů prof. Sinaye: „Explosionsschutz“
+  247 dokumentů, „Schienenfahrzeuge“ 169, „Produktzertifizierung“ 124 …), část slovenská
   („STN (prijatá v sústave)“ 375, „Stav k 02/2025: v príprave“ 34) a anglická („Controls“);
 * **nejde o oblasti:** jsou tam vydavatelé („DIN - Deutsches Institut für Normung e.V.“, „ASTM …“, „EIGA …“,
   přes 40 hodnot), technické komise („Norm (ISO/TC 58/SC 3/WG 27)“, přes 100 hodnot, většinou s 1–5
@@ -26,147 +26,168 @@ Pole „Oblast (klíčové slovo)“ mělo v živé databázi k 21.11.2026 celke
 
 ## 2. Nová sada oblastí
 
-Počty z běhu nanečistu skriptu `assign_areas.py` nad živou databází (1506 dokumentů; dokument 
-může mít více oblastí). „Před“ je původní verze pravidel (21.11.2026, odpoledne), „po“ verze
-zpřesněná 22.11.2026 (viz odstavec 3 v tomto dokumentu): oblasti se už neodvozují z kategorií
-zdrojových tabulek, rozhoduje název dokumentu \[DOPLNIT: Nerozhoduje jenom název, relevantní 
-pro danou oblast může být i obsah dokumentu.\]
+Počty z běhu nanečisto skriptu `assign_areas.py` nad živou databází (1506 dokumentů; dokument
+může mít více oblastí). Sloupec „21. 11.“ ukazuje původní verzi pravidel, „22. 11.“ verzi, ve které
+jsme přestali odvozovat oblasti z kategorií zdrojových tabulek (odstavec 3), a „23. 11.“ současnou
+verzi s novými oblastmi Elektrolýza, Plnicí stanice a Doprava vodíku (odstavec 7). Dnes o oblasti
+rozhoduje hlavně název a označení dokumentu, dále třídy ČSN, technická komise, která normu vydala,
+okruhy zvolené editorem při přijetí kandidáta, několik vydavatelů s jednoznačným zaměřením a typ
+dokumentu. Obsah dokumentu (anotaci, plný text) zatím nepoužíváme; úkol a měření k němu popisuje odstavec 8.
 
-| Oblast | Okruh | Před | Po |
-|---|---|---|---|
-| Výroba vodíku | 1 | 80 | 21 |
-| Obnovitelný a nízkouhlíkový vodík, certifikace | 1 | 30 | 19 |
-| Tlakové nádoby a lahve | 2 | 186 | 164 |
-| Zkapalněný vodík a kryogenní technika | 2 | 172 | 102 |
-| Podzemní zásobníky | 2 | 114 | 13 |
-| Plynovody a plynárenské sítě | 3 | 179 | 129 |
-| Přeprava nebezpečných věcí | 3 | 17 | 33 |
-| Plnicí stanice a infrastruktura paliv | 4 | 94 | 70 |
-| Kvalita vodíku, měření a metrologie | 4 | 153 | 133 |
-| Silniční a speciální vozidla | 5 | 256 | 134 |
-| Železnice a kolejová vozidla | 5 | 220 | 48 |
-| Lodní a letecká doprava | 5 | 55 | 39 |
-| Palivové články | 6 | 75 | 64 |
-| Průmyslové využití a Power-to-X | 6 | 130 | 66 |
-| Elektrárny, turbíny a tepelná zařízení | 6 | 73 | 69 |
-| Plynové spotřebiče v domácnostech a provozovnách | 6 | 48 | 33 |
-| Ochrana před výbuchem | 7 | 273 | 69 |
-| Bezpečnost a prevence havárií | 7 | 240 | 56 |
-| Chemické látky a směsi | 7 | 22 | 18 |
-| BOZP a odborná způsobilost | 7 | 73 | 62 |
-| Materiály a jejich zkoušení | 7 | 317 | 239 |
-| Komponenty, armatury a potrubí | 7 | 281 | 239 |
-| Řídicí systémy a kybernetická bezpečnost | 7 | 94 | 69 |
-| Posuzování shody a certifikace výrobků | 7 | 134 | 14 |
-| Stavby, územní plánování a umístění | 8 | 17 | 19 |
-| Energetika a trh s plynem a vodíkem | 9 | 76 | 62 |
-| Životní prostředí, emise a klima | 10 | 139 | 105 |
-| Strategie, koncepce a studie | — | 38 | 38 |
-| Obecné a průřezové předpisy | — | 40 | 70 |
-| **Oblastí na dokument (průměr)** | | 2.41 | 1.46 |
+| Oblast | Okruh | 21. 11. | 22. 11. | 23. 11. |
+|---|---|---|---|---|
+| Elektrolýza | 1 | — | — | 10 |
+| Výroba vodíku jinými postupy | 1 | 80 | 21 | 11 |
+| Obnovitelný a nízkouhlíkový vodík, certifikace | 1 | 30 | 19 | 19 |
+| Tlakové nádoby a lahve | 2 | 186 | 164 | 164 |
+| Zkapalněný vodík a kryogenní technika | 2 | 172 | 102 | 102 |
+| Podzemní zásobníky | 2 | 114 | 13 | 13 |
+| Doprava vodíku (plynovody, sítě, přeprava) | 3 | 179+17 | 129+33 | 162 |
+| Plnicí stanice | 4 | 94 | 70 | 69 |
+| Kvalita vodíku, měření a metrologie | 4 | 153 | 133 | 133 |
+| Silniční a speciální vozidla | 5 | 256 | 134 | 134 |
+| Železnice a kolejová vozidla | 5 | 220 | 48 | 48 |
+| Lodní a letecká doprava | 5 | 55 | 39 | 39 |
+| Palivové články | 6 | 75 | 64 | 64 |
+| Průmyslové využití a Power-to-X | 6 | 130 | 66 | 66 |
+| Elektrárny, turbíny a tepelná zařízení | 6 | 73 | 69 | 69 |
+| Plynové spotřebiče v domácnostech a provozovnách | 6 | 48 | 33 | 33 |
+| Ochrana před výbuchem | 7 | 273 | 69 | 69 |
+| Bezpečnost a prevence havárií | 7 | 240 | 56 | 56 |
+| Chemické látky a směsi | 7 | 22 | 18 | 18 |
+| BOZP a odborná způsobilost | 7 | 73 | 62 | 62 |
+| Materiály a jejich zkoušení | 7 | 317 | 239 | 239 |
+| Komponenty, armatury a potrubí | 7 | 281 | 239 | 239 |
+| Řídicí systémy a kybernetická bezpečnost | 7 | 94 | 69 | 69 |
+| Posuzování shody a certifikace výrobků | 7 | 134 | 14 | 14 |
+| Stavby, územní plánování a umístění | 8 | 17 | 19 | 19 |
+| Energetika a trh s plynem a vodíkem | 9 | 76 | 62 | 62 |
+| Životní prostředí, emise a klima | 10 | 139 | 105 | 105 |
+| Strategie, koncepce a studie | — | 38 | 38 | 38 |
+| Dokumenty obecné povahy | — | — | — | 5 |
+| Oblast dosud neurčena | — | 40 | 70 | 65 |
+| **Oblastí na dokument (průměr)** | | 2.41 | 1.46 | 1.46 |
 
-Rozpad podle původu (po): jen z názvu 1161 dokumentů, jen z klíčových slov 106, z obojího 157, z typu 12,
-náhradní oblast 70.
+U sloučené oblasti Doprava vodíku uvádíme dřívější počty obou původních oblastí (Plynovody a plynárenské
+sítě + Přeprava nebezpečných věcí); „Oblast dosud neurčena“ nahradila dřívější náhradní oblast
+„Obecné a průřezové předpisy“. Rozpad podle původu (23. 11.): jen z názvu 1161 dokumentů, jen z klíčových
+slov 106, z obojího 157, z typu 12, z výčtu označení 5, oblast dosud neurčena 65.
 
 ### 2.1 Příklady (5 náhodně vybraných názvů z každé oblasti)
 
-* **Výroba vodíku**: EIGA DOC 246 — DOC 246 / 23 - Guideline for Small Scale Hydrogen Production; ISO 16110-1 — Hydrogen generators using fuel processing technologies - Part 1: Safety; VDI 4635 Blatt 3.1 — Power-to-X; Hydrogen production through water electrolysis; ISO 22734:2019 — Hydrogen generators using water electrolysis — Industrial, commercial, an; DIN EN ISO 22734 — DIN EN ISO 22734
-* **Obnovitelný a nízkouhlíkový vodík, certifikace**: (EU) 2018/2001 - DIRECTIVE (EU) 2018/2001 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of; Nařízení Komise v přenesené pravomoci (EU) 2023/1185 ze dne 10. února 2023, kterým se dopl; DIN EN 16325 — Guarantees of Origin related to energy - Guarantees of Origin for Electrici; Zákon, ktorým sa mení a dopĺňa zákon č. 98/2004 Z. z. o spotrebnej dani z minerálneho olej; Recommendations of HYTEP on the Delegated Act specifying a methodology for assessing GHG e
-* **Tlakové nádoby a lahve**: STN EN 13160-5 — Systémy zisťovania netesností. Časť 5: Požiadavky a skúšobné metódy/metód; STN EN 720-1 — Fľaše na prepravu plynov. Plyny a zmesi plynov. Časť 1: Vlastnosti čistých ; STN EN ISO 11114-4 — Prepravné fľaše na plyny. Kompatibilita fľašových a ventilových mater; STN EN 13096 — Fľaše na prepravu plynov. Podmienky plnenia plynov do nádob. Jednozložkové ; AS B12 — Cylinders for the storage and transport of anhydrous ammonia, chlorine and sulphu
-* **Zkapalněný vodík a kryogenní technika**: ASTM C1774-13 — Standard Guide for Thermal Performance Testing of Cryogenic Insulation Sys; STN EN 1626 — Kryogénne nádoby. Ventily na kryogénnu prevádzku; ISO 24132 — Ships and marine technology — Design and testing of marine transfer arms for l; STN EN ISO 20088-1 — Určenie odolnosti izolačných materiálov proti kryogénnemu prenikaniu.; DIN EN ISO 21009-2 — Cryogenic vessels - Static vacuum-insulated vessels - Part 2: Operati
-* **Podzemní zásobníky**: API SPEC 11D1 — Packers and Bridge Plugs; STN EN 1918-1 — Plynárenská infraštruktúra. Podzemné zásobníky plynu. Časť 1: Funkčné poži; BVEG Leitfaden Auswirkungen von Störfällen im Speicherbetrieb; STN EN 1918-2 — Plynárenská infraštruktúra. Podzemné zásobníky plynu. Časť 2: Funkčné poži; STN EN 1918-4 — Plynárenská infraštruktúra. Podzemné zásobníky plynu. Časť 4: Funkčné poži
-* **Plynovody a plynárenské sítě**: STN EN 15001-1 — Plynárenská infraštruktúra. Plynovody s prevádzkovým tlakom väčším ako 0,; G 655 (M) — Guideline H2-Readiness Gas Utilisation; STN EN 12327 — Plynárenská infraštruktúra. Tlakové skúšky, uvedenie do prevádzky a odstave; EIGA IGC Doc 121/14 (2014) — Hydrogen Pipeline System; STN EN 12279 — Systémy zásobovania plynom. Regulačné zariadenia na prípojkách. Požiadavky 
-* **Přeprava nebezpečných věcí**: STN EN 1089-3 — Prepravné fľaše na plyny. Označovanie fliaš (okrem LPG). Časť 3: Farebné o; STN EN ISO 11114-1/Zmena — Prepravné fľaše na plyny. Kompatibilita fľašových a ventilových; IGC Doc 77/01/E — Protection of cryogenic transportable tanks against excessive pressure d; STN EN 13322-1 — Prepravné fľaše na plyny. Navrhovanie a výroba znovuplniteľných oceľových; STN EN ISO 11114-4 — Prepravné fľaše na plyny. Kompatibilita fľašových a ventilových mater
-* **Plnicí stanice a infrastruktura paliv**: SAE J2601 — Fueling Protocols for Light Duty Gaseous Hydrogen Surface Vehicles; ISO/AWI 19885-3 — Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Pa; ISO 13984 — Liquid hydrogen — Land vehicle fuelling system interface; ISO/DIS 13984 — Liquid hydrogen — Land vehicle fueling protocol; TRGS 751 — Vermeidung von Brand-, Explosions- und Druckgefährdungen an Tankstellen und Gas
-* **Kvalita vodíku, měření a metrologie**: STN EN ISO 6145-6 — Analýza plynov. Príprava kalibračných plynných zmesí dynamickými objem; STN EN ISO 6142-1 — Analýza plynov. Príprava kalibračných plynných zmesí. Časť 1: Gravimet; STN EN ISO 16664 — Analýza plynov. Manipulácia s kalibračnými plynmi a plynnými zmesami. P; DIN 50450-2 — Testing of materials for semiconductor technology; determination of impuriti; Směrnice Evropského parlamentu a Rady 2003/30/ES ze dne 8. května 2003 o podpoře užívání b
-* **Silniční a speciální vozidla**: Nařízení Komise v Přenesené Pravomoci (EU) 2019/1745 ze dne 13. srpna 2019, kterým se dopl; SAE J3089 — Characterization of On-Board Vehicular Hydrogen Sensors; Studie – Využití vodíkového pohonu v dopravě v České republice (2017); 205/2025 Sb. Vyhláška, kterou se mění vyhláška č. 294/2015 Sb., kterou se provádějí pravid; ISO/TR 11954 (2008) — Fuel cell road vehicles - Maximum speed measurement
-* **Železnice a kolejová vozidla**: 173/1995 Sb. Vyhláška, kterou se vydává dopravní řád drah; EN 50128 — Railway applications - Communications, signalling and processing systems - Soft; Nařízení Komise (EU) č. 1305/2014 ze dne 11. prosince 2014 o technické specifikaci pro int; (EU) 2019/250 - COMMISSION IMPLEMENTING REGULATION of 12 February 2019 on the templates fo; Nařízení Komise (EU) č. 1302/2014 ze dne 18. listopadu 2014 o technické specifikaci pro in
-* **Lodní a letecká doprava**: Směrnice Evropského parlamentu a Rady 2009/30/ES ze dne 23. dubna 2009 , kterou se mění sm; MSC.1/Circ.1647 — Interim guidelines for the safety of ships using fuel cell power install; Směrnice Rady 1999/63/ES ze dne 21. června 1999 o dohodě o úpravě pracovní doby námořníků ; ISO 16904 — 2016 - Petroleum and natural gas industries — Design and testing of LNG marine; ISO/AWI 18735 — Ship and marine technology — Hi-manganese austenitic steel — Specification
-* **Palivové články**: ISO 14687-1 — Hydrogen fuel - Product specification - Part 1: All applications except prot; SAE J2760 — Pressure Terminology Used in Fuel Cells and Other Hydrogen Vehicle Application; STN EN 62282-3-201 — Technológia palivových článkov. Časť 3-201: Malé stacionárne výkonové; STN EN IEC 62282-3-100 — Technológia palivových článkov. Časť 3-100: Stacionárne výkonové ; DIN EN IEC 63341-2 (VDE 0115-341-2) — Railway applications - Rolling stock - Fuel cell sys
-* **Průmyslové využití a Power-to-X**: AS 1678.8.0.010 — Emergency procedure guide - Transport - Ammonia solution (ammonium hydro; UL Standard (UL 565, Edition 6) — Standard for Liquid-Level Gauges for Anhydrous Ammonia a; VDI 4635 Blatt 3.1 — Power-to-X; Hydrogen production through water electrolysis; ISO 7105 — Liquefied anhydrous ammonia for industrial use -- Determination of water conten; VDI 4635 Blatt 3.3 — Power-to-X; Methanation; System parameters and measurands
-* **Elektrárny, turbíny a tepelná zařízení**: STN EN 12953-13 — Veľkopriestorové vodné kotly. Časť 13: Prevádzkové pokyny; STN EN 12953-5 — Veľkopriestorové vodné kotly. Časť 5: Kontrola počas výroby, dokumentácia; ISO 23551-10 — Safety and control devices for gas burners and gas-burning appliances - Par; ISO 23551-4 — Safety and control devices for gas burners and gas-burning appliances - Part; ISO 23551-5 — Safety and control devices for gas burners and gas-burning appliances - Part
-* **Plynové spotřebiče v domácnostech a provozovnách**: ISO/DIS 23551-12 — Safety and control devices for gas burners and gas-burning appliances -; DIN EN 88-3 — Safety and control devices for gas burners and gas burning appliances - Part; STN EN 1643 — Bezpečnostné a ovládacie zariadenia pre horáky a spotrebiče spaľujúce plynné; STN EN 16678 — Bezpečnostné a ovládacie zariadenia horákov a spotrebičov na plynné palivá.; ISO 23551-4 — Safety and control devices for gas burners and gas-burning appliances - Part
-* **Ochrana před výbuchem**: DIN EN IEC 60079-26 — Explosive atmospheres - Part 26: Equipment with separation elements ; STN EN 1127-1 — Výbušné atmosféry. Prevencia a ochrana pred výbuchom. Časť 1: Základné poj; Směrnice Evropského parlamentu a Rady 1999/92/ES ze dne 16. prosince 1999 o minimálních po; STN EN IEC 60079-26 — Výbušné atmosféry. Časť 26: Zariadenie s oddeľovacími prvkami alebo ; DIN EN IEC 60079-17*VDE 0165-10-1 — Explosive atmospheres - Part 17: Electrical installati
-* **Bezpečnost a prevence havárií**: STN EN ISO 16852 — Protiplameňové uzávery. Požiadavky na účinnosť, skúšobné metódy a obmed; VDI 3783 Blatt 1 — Umweltmeteorologie - Ausbreitung von störfallbedingten Freisetzungen; ISO/TR 15916 — Basic considerations for the safety of hydrogen systems; G 1001 (A) — Sicherheit in der Gas- und Wasserstoffversorgung; Risikomanagement von gastec; ISO 26142 — Hydrogen detection apparatus — Stationary applications
-* **Chemické látky a směsi**: 350/2011 Sb. Chemický zákon; Nařízení Evropského parlamentu a Rady (ES) č. 1272/2008 ze dne 16. prosince 2008 o klasifi; ISO 7104 — Liquefied anhydrous ammonia for industrial use -- Determination of water conten; ISO 7106 — Liquefied anhydrous ammonia for industrial use -- Determination of oil content ; ISO 4276 — Anhydrous ammonia for industrial use -- Evaluation of residue on evaporation --
-* **BOZP a odborná způsobilost**: 258/2000 Sb. Zákon o ochraně veřejného zdraví; G 102-7 (M) — Qualifikationsanforderungen an Sachkundige der Gasinfrastruktur – Teil 7: Sp; Zákon o bezpečnosti a ochrane zdravia pri práci a o zmene a doplnení niektorých zákonov; STN EN ISO 45001 — Systémy manažérstva bezpečnosti a ochrany zdravia pri práci. Požiadavky; TRGS 510 — Lagerung von Gefahrstoffen in ortsbeweglichen Behältern
-* **Materiály a jejich zkoušení**: STN EN ISO 10893-11 — Nedeštruktívne skúšanie oceľových rúr. Časť 11: Automatizované ultra; STN EN 10217-2 — Zvárané oceľové rúry na tlakové účely. Technické dodacie podmienky. Časť ; DIN EN 13322-1 — Transportable gas cylinders - Refillable welded steel gas cylinders - Des; STN EN 14620-4 — Navrhovanie a výroba na mieste stavaných vertikálnych valcových oceľových; STN EN ISO 9809-4 — Fľaše na plyny. Navrhovanie, konštrukcia a skúšanie znovuplniteľných b
-* **Komponenty, armatury a potrubí**: ISO 12619-4 — Road vehicles — Compressed gaseous hydrogen (CGH2) and hydrogen/natural gas ; ISO 21012 — 2024 - Cryogenic vessels — Hoses; ISO 15330 — 1999 - Fasteners — Preloading test for the detection of hydrogen embrittlement; IEC/TS 63208 — Low-voltage switchgear and controlgear - Security aspects; STN EN 10217-2 — Zvárané oceľové rúry na tlakové účely. Technické dodacie podmienky. Časť 
-* **Řídicí systémy a kybernetická bezpečnost**: STN EN IEC 62351-8 — Riadenie elektrických výkonových sústav a pridružená výmena informáci; DIN IEC/TS 62351-100-1 (VDE V 0112-351-100-1) — Power systems management and associated in; NIST Special Publication 800-207 — Zero Trust Architecture; ISO 19885-2 — Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 2; STN EN IEC 62061 — Bezpečnosť strojov. Funkčná bezpečnosť bezpečnostných riadiacich systém
-* **Posuzování shody a certifikace výrobků**: (EU) 2019/250 - COMMISSION IMPLEMENTING REGULATION of 12 February 2019 on the templates fo; H2.22:2022 — Certification program for hydrogen generators and their main components based; DIN 3384-2 — Pipework — Part 2: Conformity assessment of connection for corrugated stainle; STN EN 50549-10 — Požiadavky na generátory určené na pripojenie paralelne s distribučnou s; ZP 3502.20 — Zertifizierungsprogramm Ergänzungsprüfungen für Gebläsebrenner für gasförmige
-* **Stavby, územní plánování a umístění**: STN 73 6005 — Priestorové usporiadanie vedení technického vybavenia; ISO 13315-2 — Environmental management for concrete and concrete structures — Part 2: Syst; Nařízení Komise (EU) č. 1303/2014 ze dne 18. listopadu 2014 o technické specifikaci pro in; Vyhláška Ministerstva vnútra Slovenskej republiky, ktorou sa ustanovujú technické požiadav; Zákon o územnom plánovaní
-* **Energetika a trh s plynem a vodíkem**: (EU) 2024/1789 - Nařízení Evropského parlamentu a Rady (EU) 2024/1789 ze dne 13. června 20; Vyhláška Úradu pre reguláciu sieťových odvetví, ktorou sa ustanovuje cenová regulácia vybr; STN EN 50549-1 — Požiadavky na generátory určené na pripojenie paralelne s distribučnou si; Politický, legislativní a nelegislativní rámec EU pro rozvoj vodíkového trhu (2024); 165/2012 Sb. Zákon o podporovaných zdrojích energie a o změně některých zákonů
-* **Životní prostředí, emise a klima**: Směrnice Evropského parlamentu a Rady 2010/75/EU ze dne 24. listopadu 2010 o průmyslových ; ISO 17179 — 2016 - Stationary source emissions — Determination of the mass concentration o; STN EN 378-1+A1 — Chladiace systémy a tepelné čerpadlá. Požiadavky na bezpečnosť a ochranu; STN ISO 17179 — Ochrana ovzdušia. Stacionárne zdroje emisií. Meranie hmotnostnej koncentrá; ISO 13315-2 — Environmental management for concrete and concrete structures — Part 2: Syst
-* **Strategie, koncepce a studie**: Vodíková stratégia pre klimaticky neutrálnu Európu; Studie – Využití vodíkového pohonu v dopravě v České republice (2017); SDĚLENÍ KOMISE EVROPSKÉMU PARLAMENTU, RADĚ, EVROPSKÉMU HOSPODÁŘSKÉMU A SOCIÁLNÍMU VÝBORU A; SDĚLENÍ KOMISE EVROPSKÉMU PARLAMENTU, RADĚ, EVROPSKÉMU HOSPODÁŘSKÉMU A SOCIÁLNÍMU VÝBORU A; SDĚLENÍ KOMISE EVROPSKÉMU PARLAMENTU, RADĚ, EVROPSKÉMU HOSPODÁŘSKÉMU A SOCIÁLNÍMU VÝBORU A
-* **Obecné a průřezové předpisy**: Směrnice Rady 2001/86/ES ze dne 8. října 2001, kterou se doplňuje statut evropské společno; G 1030 (A) — Code of Practice G 1030; Směrnice Evropského parlamentu a Rady (EU) 2021/1187 ze dne 7. července 2021 o zjednodušen; CGA G-5 — Hydrogen; 2009/540/ES: Rozhodnutí Komise ze dne 10. července 2009 , kterým se mění rozhodnutí 2002/2
+* **Elektrolýza**: VDI 4635 Blatt 3.1 — Power-to-X; Hydrogen production through water electrolysis; DIN EN ISO 22734 — DIN EN ISO 22734; MB 12 — Inverkehrbringen von Wasser- Elektrolyseanlagen; Případová studie výstavby elektrolyzéru v České republice (2023); ČSN EN 60335-2-108 — Elektrické spotřebiče pro domácnost a podobné účely - Bezpečnost - Čá
+* **Výroba vodíku jinými postupy**: ISO 16110-2 — Hydrogen generators using fuel processing technologies - Part 2: Test method; EIGA DOC 185 — DOC 185 / 20 - Safe Start Up and Shutdown Practices for Steam Reformers; Policy Paper HYTEP: The Cost Challenge: Unlocking the Potential of EU Renewable Hydrogen P; EIGA DOC 246 — DOC 246 / 23 - Guideline for Small Scale Hydrogen Production; EIGA DOC 210 — DOC 210 / 23 - Hydrogen Pressure Swing Adsorber (PSA) Mechanical Integrity 
+* **Obnovitelný a nízkouhlíkový vodík, certifikace**: Zákon, ktorým sa mení a dopĺňa zákon č. 98/2004 Z. z. o spotrebnej dani z minerálneho olej; Směrnice Evropského parlamentu a Rady (EU) 2015/1513 ze dne 9. září 2015, kterou se mění s; Nařízení Evropského parlamentu a Rady (EU) 2023/955 ze dne 10. května 2023 o vnitřním trhu; (EU) 2023/2413 - DIRECTIVE OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 18 October 202; Směrnice Evropského parlamentu a Rady 2009/28/ES ze dne 23. dubna 2009 o podpoře využívání
+* **Tlakové nádoby a lahve**: AS B12 — Cylinders for the storage and transport of anhydrous ammonia, chlorine and sulphu; ASME BPVC VIII.3 Article KD-10 — ASME Boiler and Pressure Vessel Code Special requirements; STN EN 10028-7 — Ploché výrobky z ocelí na tlakové nádoby a zariadenia. Časť 7: Nehrdzavej; STN EN ISO 11120 — Fľaše na plyny. Návratné bezšvové oceľové fľaše s vodnou kapacitou od 1; STN EN 13160-3+A1 — Systémy zisťovania netesností. Časť 3: Požiadavky a skúšobné metódy/me
+* **Zkapalněný vodík a kryogenní technika**: DIN EN ISO 21009-2 — Cryogenic vessels - Static vacuum-insulated vessels - Part 2: Operati; ASTM C740-97 — Standard Practice for Evacuated Reflective Insulation in Cryogenic Service; STN EN 13648-1 — Kryogénne nádoby. Zabezpečovacie zariadenia na ochranu pred nadmerným tla; DIN EN ISO 21012 — Cryogenic vessels - Hoses; STN EN ISO 20257-2 — Inštalácia a vybavenie na skvapalnený zemný plyn (LNG). Návrh plávajú
+* **Podzemní zásobníky**: STN EN 1918-4 — Plynárenská infraštruktúra. Podzemné zásobníky plynu. Časť 4: Funkčné poži; BVEG Technische Regel Bohrlochkontrolle; BVEG Leitfaden Futterrohrberechnung; BVEG Leitfaden Auswirkungen von Störfällen im Speicherbetrieb; STN EN 1918-1 — Plynárenská infraštruktúra. Podzemné zásobníky plynu. Časť 1: Funkčné poži
+* **Doprava vodíku (plynovody, sítě, přeprava)**: ISO/AWI 5124 — Installations and equipment for LNG — LNG railcar applications; ISO 15156-2 — 2020 - Petroleum and natural gas industries — Materials for use in H2S-conta; G 102-4 (A) — Qualifikationsanforderungen an Sachkundige der Gasinfrastruktur – Teil 4: Sp; STN P CEN/TS 17977 — Plynárenská infraštruktúra. Kvalita plynu. Vodík používaný v opätovne; STN EN ISO 28460 — Ropný a plynárenský priemysel. Zariadenie a príslušenstvo na skvapalnen
+* **Plnicí stanice**: EN 17127 — Outdoor hydrogen refuelling points dispensing gaseous hydrogen and incorporatin; ISO 19880-8 — Gaseous hydrogen - Fuelling stations - Part 8: Fuel quality control; IGC Doc 15/06/E — Gaseous hydrogen stations; ISO/AWI 13984 — Liquid Hydrogen Land Vehicle Fueling Protocol; ISO 19885-1 — Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 1
+* **Kvalita vodíku, měření a metrologie**: ISO 21087 — Gas analysis — Analytical methods for hydrogen fuel — Proton exchange membrane; Gas-Information Nr. 7 — Technische Spezifikation für DSfG-Realisierungen; ASTM D 7607/D 7607M — Standard Test Method for Analysis of Oxygen in Gaseous Fuels (Electr; STN EN ISO 6145-8 — Analýza plynov. Príprava kalibračných plynných zmesí dynamickými objem; DIN 1340 — Gaseous fuels and other gases; types, constituents, application
+* **Silniční a speciální vozidla**: ISO 8713 — Electrically propelled road vehicles - vocabulary; ISO/TR 11954 — Fuel cell road vehicles — Performance measurement — Vehicles fuelled with c; STN EN 13385 — Prepravné fľaše na plyny. Batérie na vozidlách na stále a skvapalnené plyny; STN EN 1317-1 — Záchytné bezpečnostné zariadenia na pozemných komunikáciách. Časť 1: Termi; ISO 23273 — Fuel cell road vehicles - Safety specifications - Protection against hydrogen 
+* **Železnice a kolejová vozidla**: Směrnice Komise 2014/106/EU ze dne 5. prosince 2014 , kterou se mění přílohy V a VI směrni; (EU) 2018/545 - COMMISSION IMPLEMENTING REGULATION (EU) of 4 April 2018 establishing pract; ČSN EN 50128 — Drážní zařízení - Sdělovací a zabezpečovací systémy a systémy zpracování da; Směrnice Evropského parlamentu a Rady 2007/59/ES ze dne 23. října 2007 o vydávání osvědčen; 133/2005 Sb. Nařízení vlády o technických požadavcích na provozní a technickou propojenost
+* **Lodní a letecká doprava**: Nařízení Komise v Přenesené Pravomoci (EU) 2019/1745 ze dne 13. srpna 2019, kterým se dopl; Směrnice Rady 2014/112/EU ze dne 19. prosince 2014 , kterou se provádí Evropská dohoda o ú; ISO/AWI 18742 — Ship and marine technology — Hi-manganese austenitic steel — Specification; MSC.1/Circ.1647 — Interim guidelines for the safety of ships using fuel cell power install; IMO CCC8/WP.3 Annex 2 — Interim guidelines for ships using hydrogen as fuel
+* **Palivové články**: STN EN IEC 62282-8-201 — Technológia palivových článkov. Časť 8-201: Systémy na akumuláciu; ISO 23828 — Fuel cell road vehicles - Energy consumption measurement - Vehicles fuelled wi; STN EN 62282-3-300 — Technológia palivových článkov. Časť 3-300: Stacionárne výkonové súst; MSC.1/Circ.1647 — Interim guidelines for the safety of ships using fuel cell power install; 2014/832/EU: Rozhodnutí Rady ze dne 7. listopadu 2014 o postoji, který má být zaujat jméne
+* **Průmyslové využití a Power-to-X**: UL Standard (UL 565, Edition 6) — Standard for Liquid-Level Gauges for Anhydrous Ammonia a; STN EN 746-2 — Priemyselné zariadenia na tepelné spracovanie. Časť 2: Bezpečnostné požiada; Gas-Information Nr. 26 — Genehmigungsrechtlicher Leitfaden für Power-to-Gas-Anlagen - Erri; TNI CEN/TR 15339-4 — Žiarové striekanie. Bezpečnostné požiadavky na zariadenie na žiarové ; ISO 7106 — Liquefied anhydrous ammonia for industrial use -- Determination of oil content 
+* **Elektrárny, turbíny a tepelná zařízení**: ISO 13577-4 — 2022 - Industrial furnaces and associated processing equipment — Safety — Pa; ZP 3100.100 — Zertifizierungsprogramm Prüfungen für Heizkessel für gasförmige Brennstoffe ; STN EN 50549-1 — Požiadavky na generátory určené na pripojenie paralelne s distribučnou si; ISO 23551-4 — Safety and control devices for gas burners and gas-burning appliances - Part; STN EN 1829-1 — Vysokotlakové vodné dýzové stroje. Požiadavky na bezpečnosť. Časť 1: Stroj
+* **Plynové spotřebiče v domácnostech a provozovnách**: ISO/DIS 23551-12 — Safety and control devices for gas burners and gas-burning appliances -; STN EN 1106 — Ručne ovládané armatúry pre spotrebiče na plynné palivá; STN EN 14459 — Bezpečnostné a ovládacie zariadenia horákov a spotrebičov na plynné alebo k; STN EN 1643 — Bezpečnostné a ovládacie zariadenia pre horáky a spotrebiče spaľujúce plynné; ISO 23551-8 — Safety and control devices for gas burners and gas-burning appliances - Part
+* **Ochrana před výbuchem**: prEN IEC 60079-2 — Explosive atmospheres - Part 2: Equipment protection by pressurized enc; IEC/TS 60079-46 — Explosive atmospheres - Part 46: Equipment assemblies; STN EN 60079-17 — Výbušné atmosféry. Časť 17: Revízia a údržba elektrických inštalácií; DIN EN IEC 60079-2 — Explosive atmospheres - Part 2: Equipment protection by pressurized e; STN EN 1127-1 — Výbušné atmosféry. Prevencia a ochrana pred výbuchom. Časť 1: Základné poj
+* **Bezpečnost a prevence havárií**: ISO 45001 — 2018 - Occupational health and safety management systems; Vyhláška Ministerstva vnútra Slovenskej republiky, ktorou sa ustanovujú technické požiadav; STN EN ISO 12100 — Bezpečnosť strojov. Všeobecné zásady konštruovania strojov. Posudzovani; ANSI/AIAA G-095A — Guide to Safety of Hydrogen and Hydrogen Systems; VDI 3783 — Ausbreitung von störfallbedingten Freisetzungen - Sicherheitsanalyse
+* **Chemické látky a směsi**: ISO 7106 — Liquefied anhydrous ammonia for industrial use -- Determination of oil content ; ISO 7103 — Liquefied anhydrous ammonia for industrial use -- Sampling -- Taking a laborato; ISO 4276 — Anhydrous ammonia for industrial use -- Evaluation of residue on evaporation --; ISO 6192 — Light olefins for industrial use -- Determination of ammonia -- Photometric met; Směrnice Evropského parlamentu a Rady 1999/45/ES ze dne 31. května 1999 o sbližování právn
+* **BOZP a odborná způsobilost**: TRB 852 — Technische Regeln zur Druckbehälterverordnung Füllanlagen Füllanlagen zum Abfüll; STN ISO 45001 — Systémy manažérstva bezpečnosti a ochrany zdravia pri práci. Požiadavky s ; G 102-12 (M) — Qualifikationsanforderungen an Sachkundige der Gasinfrastruktur – Teil 12: ; BVEG Leitfaden Persönliche Schutzausrüstung; TRBS 3151/TRGS 751 — Vermeidung von Brand-, Explosions- und Druckgefährdungen an Tankstell
+* **Materiály a jejich zkoušení**: STN EN ISO 9809-1 — Fľaše na plyny. Navrhovanie, konštrukcia a skúšanie znovuplniteľných b; ISO 2626 — 1973 - Copper — Hydrogen embrittlement test; DIN 50916-2 — Testingofcopperalloys–Stresscorrosioncrackingtestusingammonia– Part2:Testing; STN EN ISO 21028-1 — Kryogénne nádoby. Požiadavky na húževnatosť materiálu pri nízkych tep; ISO 11114-2 — 2021 Gas cylinders — Compatibility of cylinder and valve materials with gas 
+* **Komponenty, armatury a potrubí**: ISO 23551-2 — Safety and control devices for gas burners and gas-burning appliances - Part; STN EN ISO 3183 — Ropný a plynárenský priemysel. Oceľové rúry na potrubné dopravné systémy; STN EN 13160-6 — Systémy zisťovania netesností. Časť 6: Senzory v monitorovacích sondách; DIN 16966-8 — Glass fibre reinforced polyester resin (UP-GF) pipe fittings and joints; Lam; STN EN 1106+A1 — Ručne ovládané armatúry pre spotrebiče na plynné palivá
+* **Řídicí systémy a kybernetická bezpečnost**: ISO 13849-1 — 2023 - Safety of machinery — Safety-related parts of control systems — Part ; STN EN 61508-5 — Funkčná bezpečnosť elektrických/elektronických/programovateľných elektron; STN EN ISO 13849-1 — Bezpečnosť strojov. Bezpečnostné časti riadiacich systémov. Časť 1: V; ISO/AWI 19885-2 — Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Pa; STN EN 62351-9 — Riadenie elektrických výkonových sústav a pridružená výmena informácií. B
+* **Posuzování shody a certifikace výrobků**: ZP 3100.20 — Zertifizierungsprogramm Ergänzungsprüfungen für Heizkessel für gasförmige Bre; Prováděcí nařízení Komise (EU) 2019/250 ze dne 12. února 2019 o vzorech ES prohlášení a ce; H2.22:2022 — Certification program for hydrogen generators and their main components based; (EU) 2019/250 - COMMISSION IMPLEMENTING REGULATION of 12 February 2019 on the templates fo; Poznámka: ASME Section VIII of the code is dedicated to pressure vessels. It gives detaile
+* **Stavby, územní plánování a umístění**: Zákon o výstavbe; Vyhláška Ministerstva vnútra Slovenskej republiky o zabezpečení stavieb vodou na hasenie p; Gas-Information Nr. 20 — Umsetzung der Homogenbereiche nach DIN 18300 im Erdbau für die Ve; ISO 13315-2 — Environmental management for concrete and concrete structures — Part 2: Syst; STN EN 15001-1 — Plynárenská infraštruktúra. Plynovody s prevádzkovým tlakom väčším ako 0,
+* **Energetika a trh s plynem a vodíkem**: STN EN IEC 62282-8-301 — Technológia palivových článkov. Časť 8-301: Systémy na akumuláciu; Státní energetická koncepce České republiky (2015); Nařízení Evropského parlamentu a Rady (EU) 2023/955 ze dne 10. května 2023 o vnitřním trhu; (EU) 2019/942 - REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 5 June 2019 es; VDE-AR-N 4105 — Generators connected to the low-voltage distribution network – Technical r
+* **Životní prostředí, emise a klima**: ISO 14025 — 2026 - Environmental statements and programmes for products — Environmental pr; EN 1717 — Protection against pollution of water intended for human consumption in potable ; Směrnice Evropského parlamentu a Rady 2014/52/EU ze dne 16. dubna 2014 , kterou se mění sm; VDI 3783 Blatt 1 — Umweltmeteorologie - Ausbreitung von störfallbedingten Freisetzungen; ASTM D 7649 — Standard Test Method for Determination of Trace Carbon Dioxide, Argon, Nitro
+* **Strategie, koncepce a studie**: SDĚLENÍ KOMISE EVROPSKÉMU PARLAMENTU, RADĚ, EVROPSKÉMU HOSPODÁŘSKÉMU A SOCIÁLNÍMU VÝBORU A; Legislativní a politicko-strategický rámec EU s vlivem na rozvoj vodíkové mobility (2023/2; Studie – Využití vodíkového pohonu v dopravě v České republice (2017); FDI Report Energie budoucnosti (H1 2024); Katalog studijních oborů českých vysokých škol v oblasti vodíku (2025/2026)
+* **Dokumenty obecné povahy**: CGA G-5 — Hydrogen; 455/1991 Sb. Živnostenský zákon; EIGA DOC 247 — DOC 247 / 24 - Hydrogen Overview - Distribution-Storage-Applications; 353/2003 Sb. Zákon o spotřebních daních; Gas-Information Nr. 15 — Leitfaden Dokumentation
+* **Oblast dosud neurčena**: Rozhodnutí Komise ze dne 22. prosince 1999 o přenosných nemocích, které musí být postupně ; ASTM D 1141 — Standard Practice For Preparation Of Substitute Ocean Water; Směrnice Rady 2000/78/ES ze dne 27. listopadu 2000, kterou se stanoví obecný rámec pro rov; Směrnice Evropského parlamentu A Rady 2002/14/ES ze dne 11. března 2002, kterou se stanoví; Oznámenie Ministerstva dopravy, pôšt a telekomunikácií Slovenskej republiky o vydaní výnos
 
 ## 3. Pravidla přiřazení (`data/areas.json`)
 
-**Zpřesnění (22.11.2026 večer):** Kontrola vzorků ukázala, že zdrojová klíčová slova tabulky 
+**Zpřesnění (22.11.2026 večer):** Kontrola vzorků ukázala, že zdrojová klíčová slova tabulky
 prof. Sinaye a sekce rešerší doc. Prokopa / dr. Haltufa (např. „Schienenfahrzeuge“,
 „Explosionsschutz“, „Stationäre und ortsbewegliche Druckbehälter“, „Untertage Gasspeicher“,
-„Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie celých skupin dokumentů**, 
+„Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie celých skupin dokumentů**,
 ne vlastnosti dokumentu: „Schienenfahrzeuge“ nesly i normy plnicích stanic, měděných armatur nebo
-hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice o tlakových 
-zařízeních. Tyto hodnoty (60) jsou proto v seznamu `source_categories` a oblast neurčují.
-Pravidla přiřazení píšeme tak, aby oblast seděla s obsahem podle názvu
-\[DOPLNIT: Nerozhoduje jenom název, relevantní pro danou oblast může být i obsah dokumentu.\];
-raději méně oblastí než šum (průměr klesl z 2,41 na 1,46 oblasti na dokument).
+hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice o tlakových
+zařízeních. Tyto hodnoty (61) proto vedeme v seznamu `source_categories` a oblast z nich neurčujeme.
+Pravidla přiřazení píšeme tak, aby oblast seděla s obsahem dokumentu. Dnes obsah poznáváme hlavně
+z názvu, protože anotace a plné texty máme jen u části dokumentů a pravidla nad nimi zatím přidávají
+příliš šumu (odstavec 8). Raději přiřadíme méně oblastí než šum (průměr klesl z 2,41 na 1,46 oblasti
+na dokument).
 
-1. **Původní klíčová slova jen tam, kde jde o vlastnost dokumentu** — `keywords`: třídy ČSN („6972 - Kryogenické
-   nádoby“), okruhy přidané editorem při přijetí kandidáta (`app/candidates_admin.py`), několik vydavatelů
+Oblast určujeme v tomto pořadí:
+
+1. **Původní klíčová slova jen tam, kde popisují samotný dokument** — `keywords`: třídy ČSN („6972 - Kryogenické
+   nádoby“), okruhy, které editor zvolí při přijetí kandidáta (`app/candidates_admin.py`), několik vydavatelů
    s jednoznačným zaměřením (OIML → metrologie, IMO a CESNI → lodní doprava, DGUV/BAuA/OSHA → BOZP);
    `committee_rules`: technická komise, která normu vydala (ISO/TC 58 a CEN/TC 23 → tlakové nádoby,
-   IEC/TC 31 → výbuch, IEC/TC 9 a CEN/TC 256 → železnice …); `source_categories` a `ignore` oblast neurčují.
-   Neznámou hodnotu vypíše `assign_areas.py` a hlídá `tests/test_areas.py`.
-2. **Typ dokumentu** — `type_rules`: strategie a studie → „Strategie, koncepce a studie“.
-3. **Název a označení** — `title_rules`: regulární výrazy v češtině, slovenštině, angličtině a němčině; `unless`
-   pravidlo vyloučí (silniční vozidla ne, jde-li o kolejová vozidla). Železnice jen podle názvu: železnice,
+   IEC/TC 31 → výbuch, IEC/TC 9 a CEN/TC 256 → železnice …). Hodnoty v `source_categories` a `ignore`
+   oblast neurčují. Neznámou hodnotu vypíše `assign_areas.py` a hlídá ji `tests/test_areas.py`.
+2. **Výčet označení** — `identifiers`: dokumenty obecné povahy (odstavec 6).
+3. **Typ dokumentu** — `type_rules`: strategie a studie zařadíme do „Strategie, koncepce a studie“.
+4. **Název a označení** — `title_rules`: regulární výrazy v češtině, slovenštině, angličtině a němčině; volba
+   `unless` pravidlo vyloučí (silniční vozidla nepřiřadíme, jde-li o kolejová vozidla; plnicí stanice ne u benzinových
+   par; „Výroba vodíku jinými postupy“ ne u elektrolýzy). Železnici přiřadíme jen podle názvu: železnice,
    drážní, dráhy, kolejová vozidla, railway, TSI, interoperabilita, Eisenbahn.
-4. **Náhradní oblast** `obecne` dostane dokument, kterému žádné pravidlo nic nepřiřadilo (`--uncertain`).
-   LLM se nepoužívá.
+5. Dokument, kterému žádné pravidlo nic nepřiřadí, dostane pracovní oblast „Oblast dosud neurčena“
+   (`--uncertain` je vypíše). LLM nepoužíváme.
 
 ## 4. Co se stalo s klíčovými slovy
 
-Původní klíčová slova se **nemažou**: zůstávají v tabulkách `Keyword` a `DocumentKeyword`, 
+Původní klíčová slova **nemažeme**: zůstávají v tabulkách `Keyword` a `DocumentKeyword`,
 prohledává je vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné normy)
-a obsahují je exporty CSV/JSON/XML. Nejsou jen nabízena ve filtru ani zobrazena ve štítcích.
+a obsahují je exporty CSV/JSON/XML. Jen je nenabízíme ve filtru a nezobrazujeme ve štítcích.
 *Důvod:* nesou informaci ze zdrojových rešerší (vydavatel, technická komise, stav STN), kterou
-oblasti nenahrazují, a mapování se z nich dá kdykoli přepočítat.
+oblasti nenahrazují, a mapování z nich můžeme kdykoli přepočítat.
 Starý odkaz `?keyword_id=…` dál funguje.
 
-Oblasti jsou v tabulkách `Area` (kód, název, okruh, pořadí) a `DocumentArea` (dokument, oblast, původ:
-`keyword`, `type`, `title`, `fallback`). Dokud v databázi nejsou, aplikace ukazuje původní klíčová slova.
+Oblasti ukládáme do tabulek `Area` (kód, název, okruh, pořadí, veřejná ano/ne) a `DocumentArea` (dokument,
+oblast, původ: `keyword`, `identifier`, `type`, `title`, `fallback`). Dokud v databázi nejsou, aplikace ukazuje
+původní klíčová slova.
 
 ## 5. Údržba
 
-* `src/tools/assign_areas.py` — dry run s rozpadem; `--apply` zapíše; `--uncertain` vypíše nejisté.
-  Idempotentní; spustit po přestavbě databáze (`init_db.py`) a po změně `data/areas.json`.
-* Přijetí kandidáta oblasti novému dokumentu přiřadí hned (`areas.assign_document()`).
-* Test: `tests/test_areas.py` (soubor, pravidla, zápis), `tests/e2e/test_areas.py` (filtr, stránka dokumentu,
-  hledání ve skrytých klíčových slovech). `run_tests.py` oblasti do testovací databáze zapisuje
+* `src/tools/assign_areas.py` — běh nanečisto vypíše rozpad; `--apply` oblasti zapíše; `--uncertain` vypíše
+  dokumenty s oblastí dosud neurčenou. Skript je idempotentní; spouštíme ho po přestavbě databáze (`init_db.py`)
+  a po každé změně `data/areas.json`.
+* Při přijetí kandidáta aplikace přiřadí novému dokumentu oblasti hned (`areas.assign_document()`).
+* Testy: `tests/test_areas.py` (soubor, pravidla, zápis), `tests/e2e/test_areas.py` (filtr, stránka dokumentu,
+  hledání ve skrytých klíčových slovech). `run_tests.py` zapisuje oblasti do testovací databáze
   (`TEST_DB_MIGRATIONS`).
 
-## 6. Náhradní oblast: 70 dokumentů s návrhem
+## 6. Dokumenty obecné povahy a oblast dosud neurčena
 
-Souhrn návrhů: 42 mimo rozsah databáze (pracovní právo, rovné zacházení, přenosné nemoci, lasery, laboratorní voda,
-potraviny — k posouzení vyřazení přes `data/manual_corrections.json`, `"exclude": true`; nic se nemaže automaticky),
-18 pravidel DVGW bez názvu (záznam nese jen „Guideline G 404“ — doplnit název, oblast pak určí pravidla),
-2 poškozené záznamy, 2 zkrácené názvy aktů EU (doplnit z Cellaru), 1 přiřadit ručně (2021/1187/EU, transevropská
-dopravní síť) a 5 ponechat v náhradní oblasti (3 obecné dokumenty o vodíku, zákon o spotřebních daních, živnostenský zákon). U dokumentů, kde šlo určit
-oblast pravidlem (perlit, DSfG, „suitability for hydrogen“, NEC, zemní práce …), je pravidlo doplněno a v seznamu
-už nejsou.
+Dřívější náhradní oblast „Obecné a průřezové předpisy“ spojovala dvě různé skupiny. Rozdělili jsme ji:
+
+* **„Dokumenty obecné povahy“** (veřejná oblast, 5 dokumentů): dokumenty, které se týkají vodíku nebo podnikání
+  s ním jako celku a žádné věcné oblasti nepatří — CGA G-5 (Hydrogen), EIGA DOC 247 (Hydrogen Overview),
+  DVGW Gas-Information Nr. 15, zákon o spotřebních daních, živnostenský zákon. Vedeme je výčtem označení
+  (`identifiers`), ne pravidlem, aby do oblasti nepadaly dokumenty jen proto, že je pravidla neumějí zařadit.
+* **„Oblast dosud neurčena“** (pracovní oblast, 65 dokumentů): dokumenty, kterým žádné pravidlo oblast nepřiřadí.
+  Jde o pracovní seznam pro editory, ne o vlastnost dokumentu. Proto ji **nenabízíme ve veřejném filtru
+  a návštěvníkům ji nezobrazujeme ani jako štítek**: štítek by návštěvníkovi nic neřekl o obsahu a u předpisů mimo
+  rozsah by sliboval, že je někdo zařadí. Přihlášený editor štítek v seznamu i na stránce dokumentu vidí
+  (`Area.public = 0`, `app/app.py`, `area_tags()`), seznam celý vypíše `assign_areas.py --uncertain`.
+
+Souhrn návrhů k 65 dokumentům v oblasti dosud neurčené (tabulka níže): 42 mimo rozsah databáze (pracovní právo,
+rovné zacházení, přenosné nemoci, lasery, laboratorní voda, potraviny) navrhujeme posoudit k vyřazení přes
+`data/manual_corrections.json` (`"exclude": true`; nic automaticky nemažeme), u 18 pravidel DVGW bez názvu
+(záznam nese jen „Guideline G 404“) doplníme název a oblast pak určí pravidla, 2 poškozené záznamy opravíme
+nebo vyřadíme, u 2 aktů EU doplníme úplný název z Cellaru a 1 dokument (2021/1187/EU, transevropská dopravní síť)
+zařadíme ručně.
 
 | # | Označení | Název | Návrh |
 |---|---|---|---|
 | 62 | 2010/75/EU | Oznámenie Ministerstva dopravy, pôšt a telekomunikácií Slovenskej republiky o vydaní výnosu o m | mimo rozsah: slovenské oznámení o výnosu (název zkomolený, chybné označení 2010/75/EU) — k posouzení vyřazení |
-| 74 | 353/2003 Sb. | 353/2003 Sb. Zákon o spotřebních daních | mimo rozsah: daně (doplňkový okruh odložený, doc/DATABASE_SCOPE.md) — ponechat v náhradní oblasti |
 | 91 | (EU) 2021/535 | Nařízení Komise (EU) 2021/535 ze dne 31. března 2021, kterým se mění nařízení (ES) č. 1881/2006 | mimo rozsah: kontaminanty v potravinách (nařízení 1881/2006) — k vyřazení |
 | 385 | / - 2024.08 | / - 2024.08 — kombinovanými úrovňami ochrany | poškozený záznam (název je zbytek řádku) — opravit nebo vyřadit |
 | 445 | STN EN ISO 17526/ - 2003.12 | STN EN ISO 17526 — Optika a optické prístroje. Lasery a laserové zariadenia. Životnosť laserov  | mimo rozsah: lasery — k vyřazení |
 | 472 | STN EN ISO 3696/ - 2000.02 | STN EN ISO 3696 — Kvalita vody na analytické účely. Špecifikácia a skúšobné metódy (ISO 3696:19 | mimo rozsah: voda pro laboratoře — k vyřazení |
-| 711 | CGA G-5 | CGA G-5 — Hydrogen | obecný dokument o vodíku — ponechat v náhradní oblasti, nebo Bezpečnost (CGA G-5 je bezpečnostní příručka) |
-| 740 | EIGA DOC 247 | EIGA DOC 247 — DOC 247 / 24 - Hydrogen Overview - Distribution-Storage-Applications | obecný přehled — ponechat v náhradní oblasti |
 | 745 | G 404 (M) | G 404 (M) — Guideline G 404 | chybí název (pravidlo DVGW, jen označení) — doplnit název, oblast pak určí pravidla |
 | 746 | G 409 (M) | G 409 (M) — Guideline G 409 | chybí název (pravidlo DVGW, jen označení) — doplnit název, oblast pak určí pravidla |
 | 747 | G 102-11 (M) | G 102-11 (M) — Guideline G 102-11 | chybí název (pravidlo DVGW, jen označení) — doplnit název, oblast pak určí pravidla |
@@ -188,9 +209,7 @@ už nejsou.
 | 826 | ASTM D 1141 | ASTM D 1141 — Standard Practice For Preparation Of Substitute Ocean Water | mimo rozsah: náhradní mořská voda — k vyřazení |
 | 827 | ASTM D 1193 | ASTM D 1193 — Standard Specification for Reagent Water | mimo rozsah: reagenční voda — k vyřazení |
 | 834 | ASTM F 21 | ASTM F 21 — Standard Test Method for Hydrophobic Surface Films by the Atomizer Test | mimo rozsah — k vyřazení |
-| 976 | Gas-Information Nr. 15 | Gas-Information Nr. 15 — Leitfaden Dokumentation | obecné (dokumentace) — ponechat v náhradní oblasti |
 | 1077 |  | je možné nájsť na stránkach jednotlivých technických komisií CEN, CENELEC, | poškozený záznam (název je věta z poznámky) — opravit nebo vyřadit |
-| 1213 | 455/1991 Sb. | 455/1991 Sb. Živnostenský zákon | mimo rozsah věcných okruhů (živnostenský zákon); souvisí s živnostenským oprávněním k výrobě vodíku — ponechat |
 | 1234 | (EU) 2025/1486 | Prováděcí rozhodnutí Komise (EU) 2025/1486 ze dne 22. července 2025, kterým se stanoví pravidla | zkrácený název, z označení nelze určit — doplnit úplný název z Cellaru |
 | 1237 | (EU) 2026/1551 | Prováděcí rozhodnutí Komise (EU) 2026/1551 ze dne 9. července 2026, kterým se stanoví pravidla  | zkrácený název — doplnit úplný název z Cellaru |
 | 1305 | ISO 17526 | ISO 17526 — 2003 - Optics and optical instruments — Lasers and laser-related equipment — Lifeti | mimo rozsah: lasery — k vyřazení |
@@ -229,3 +248,63 @@ už nejsou.
 | 1452 | 2000/96/ES | Rozhodnutí Komise ze dne 22. prosince 1999 o přenosných nemocích, které musí být postupně podch | mimo rozsah (pracovní právo, zdraví, nemoci) — k posouzení vyřazení |
 | 1453 | 2006/865/ES | Nařízení Komise (ES) č. 865/2006 ze dne 4. května 2006 o prováděcích pravidlech k nařízení Rady | mimo rozsah (pracovní právo, zdraví, nemoci) — k posouzení vyřazení |
 | 1455 | 1998/2119/ES | Rozhodnutí Evropského parlamentu a Rady č. 2119/98/ES ze dne 24. září 1998 o zřízení sítě epide | mimo rozsah (pracovní právo, zdraví, nemoci) — k posouzení vyřazení |
+
+## 7. Elektrolýza, plnicí stanice, doprava vodíku (23. 11. 2026)
+
+Ověřili jsme, zda dokážeme spolehlivě poznat tři oblasti, které uživatel navrhl. Pravidla jsme testovali na
+názvech; technické komise ISO/TC 197 (vodíkové technologie obecně) a IEC/TC 105 (palivové články) oblast
+nerozliší, třídy ČSN pro tyto oblasti v databázi nemáme (kromě „3360 - Technologie palivových článků“).
+
+* **Elektrolýza** — 10 dokumentů (ISO 22734 a jeho návrhy, DIN EN ISO 22734, ČSN EN 60335-2-108 o elektrolyzérech
+  pro domácnost, VDI 4635 Blatt 3.1, DVGW MB 12 Wasser-Elektrolyseanlagen, instrukce MPO k živnostenskému oprávnění,
+  případová studie výstavby elektrolyzéru). Šum ve vzorku 0 z 10. Chybí: H2.22 (certifikační program pro
+  elektrolyzéry má v názvu překlep „elctrolyzer“) a dokumenty, které elektrolýzu zmiňují jen v anotaci.
+  **Zavedli jsme ji jako samostatnou oblast**; oblast „Výroba vodíku“ jsme zúžili na „Výroba vodíku jinými postupy“
+  (11 dokumentů: reformování, PSA, generátory s úpravou paliva), aby se elektrolýza nepočítala dvakrát.
+* **Plnicí stanice** — stávající oblast obsahovala už téměř jen vodíkové plnicí stanice a AFIR (69 dokumentů:
+  řada ISO 19880, ISO 17268, SAE J2601/J2600, CSA HGV 4.x, ISO 19885, EN 17127, TRBS 3151). Šum ve vzorku 0 z 10
+  po vyloučení směrnice 2009/126/ES o benzinových parách. **Přejmenovali jsme ji na „Plnicí stanice“**; AFIR a akty
+  k infrastruktuře alternativních paliv v ní ponecháváme, protože upravují právě síť plnicích stanic.
+* **Doprava vodíku** — pravidlo jen s výrazem „transport“ a slovem vodík dávalo 35 dokumentů s velkým šumem
+  (permeace vodíku v kovech, emise skleníkových plynů „…transport…“). Spolehlivější je **sloučit** dřívější oblasti
+  „Plynovody a plynárenské sítě“ a „Přeprava nebezpečných věcí“: obě jsme už vzorkovali a dohromady pokrývají
+  plynovody a sítě (včetně vtláčení vodíku), přepravitelné lahve a svazky, ADR/RID/ADN a lodní přepravu
+  zkapalněného vodíku. Nová oblast „Doprava vodíku (plynovody, sítě, přeprava)“ má 162 dokumentů; ve vzorku
+  10 dokumentů je 1 zjevně mimo (ISO 16530-1 o integritě vrtů) a 1 sporný (bunkrování LNG), šum odhadujeme
+  na 10–15 %. Normy plynovodů pro zemní plyn v oblasti ponecháváme, protože vodík se do plynárenských sítí přimíchává
+  (směrnice (EU) 2024/1788). Tube trailery a návěsy v názvech dokumentů v databázi nejsou; pokrýváme je přes
+  přepravitelné lahve, svazky a ADR.
+
+## 8. Úkol: oblasti i z obsahu dokumentu
+
+**Dnešní stav:** oblast určujeme podle názvu a označení a podle několika druhů klíčových slov (odstavec 3).
+Pro danou oblast ale může být relevantní i obsah dokumentu, který se v názvu neobjeví.
+
+**Úkol:** doplníme oblasti z obsahu. Podklady máme: anotaci má 838 norem (celkem 967 dokumentů s popisem),
+plné texty asi 300 předpisů, akty EU mají deskriptory EuroVoc (Cellar) a normy třídění ICS. Postup: nejdřív
+zmapujeme EuroVoc a ICS na oblasti (strukturované, s malým šumem), potom vyzkoušíme pravidla nad anotací
+s přísnějšími výrazy a s vyšší vahou výskytu v úvodní větě anotace, každou novou vazbu označíme původem
+(`annotation`, `eurovoc`, `ics`) a vzorek zkontrolujeme dřív, než pravidla zapneme.
+
+**Měření (23. 11. 2026, jen běh nanečisto, pravidla jsme nezměnili):** stávající pravidla názvu jsme pustili i na
+anotaci (`description`, `popis_autoritativni`). Ze 967 dokumentů s anotací přibude oblast u 418 dokumentů
+(672 nových vazeb; nejvíc Materiály 75, Komponenty 64, Životní prostředí 58, Kvalita a měření 40, Doprava vodíku 37,
+Tlakové nádoby 37); z oblasti dosud neurčené zařadí 16 dokumentů. Ve vzorku 10 dokumentů (17 nových vazeb)
+sedí obsahu 9 vazeb, šum je tedy kolem 45 %:
+
+| Dokument | Nově přidané oblasti | Hodnocení |
+|---|---|---|
+| IGC Doc 114/03/E — Operation of static cryogenic vessels | Tlakové nádoby, Doprava, Výbuch, Bezpečnost, Životní prostředí | 2 z 5 (výbuch, bezpečnost); zbytek z věty o výjimkách |
+| STN EN 60079-29-3 — Detektory plynu, funkčná bezpečnosť | Řídicí systémy | sedí |
+| ISO/AWI 22734-1 — elektrolyzéry | Spotřebiče | nesedí („appliances“ ve významu zařízení) |
+| IEC/TS 62443-1-5 — informační bezpečnost | Posuzování shody | nesedí (zmínka v závorce) |
+| Sdělení Komise o Evropské vodíkové bance | RFNBO, Energetika | sedí |
+| STN EN 1514-1 — Příruby, rozměry těsnění | Materiály | nesedí („typickým materiálům“) |
+| ISO/AWI 19882 — tlakové pojistky pro nádrže vozidel | Palivové články, Elektrárny | nesedí (zmínka o čistotě paliva a spalovacích motorech) |
+| VDI 4635 Blatt 1.2 — Power-to-X, systemic aspects | Výroba jinými postupy, Životní prostředí | 1 ze 2 (výroba) |
+| API 5L PSL 1 — Line pipe | Doprava vodíku, Materiály | sedí |
+| ISO 11114-1 — kompatibilita materiálů lahví | Doprava vodíku | sedí (přepravitelné lahve) |
+
+Závěr měření: pravidla názvu pustit na anotaci beze změny nemůžeme. Šum vzniká z vedlejších zmínek (výjimky z rozsahu,
+odkazy na jiné dokumenty, obecná slova „materials“, „appliances“). Pro anotace připravíme samostatná, užší pravidla
+a začneme strukturovanými údaji EuroVoc a ICS.
