@@ -34,9 +34,9 @@ v katalogu ČAS nejsou a třídník ICS z něj nedostanou.
 | Původ | Dokumenty | Poznámka |
 |---|---|---|
 | EuroVoc | 172 ze 175 aktů EU | průměrně 7 deskriptorů; bez deskriptorů zůstává #62 (slovenské oznámení vedené pod označením 2010/75/EU) a dva akty s chybným názvem (odstavec 3.2) |
-| ICS | 579 ze 797 evropských a mezinárodních norem | zbylých 218 tvoří hlavně normy ISO a IEC bez českého převzetí a rozpracované návrhy (ISO/AWI, DIS, CD, WD) |
+| ICS | 578 ze 797 evropských a mezinárodních norem | zbylých 219 tvoří hlavně normy ISO a IEC bez českého převzetí a rozpracované návrhy (ISO/AWI, DIS, CD, WD) |
 | deskriptory ČAS | 31 norem | katalog je uvádí jen u části ČSN; kódy, které katalog u některých ČSN uvádí místo slov („BL/BY“, „KNX.C“), vynecháváme |
-| model | MODEL_DOCS z 1332 dokumentů | model gpt-5.5, cena MODEL_COST USD |
+| model | 1334 z 1334 dokumentů (všechny kromě 172 aktů s EuroVoc) | gpt-5.5, průměrně 7,7 slova (u 20 dokumentů jen s názvem 3–4); cena celé dávky 7,92 USD, s porovnáním modelů a doplňky asi 8,2 USD |
 
 ### 3.1 Výběr modelu
 
@@ -68,6 +68,8 @@ akt měl zdroj na mysli, a opravit označení nebo název.
 
 ## 4. Uložení
 
+Klíčová slova má po nahrání všech zdrojů všech 1506 dokumentů (zkušebně v `h2regdocs_test`).
+
 Tabulka `DocumentTerm` (vzniká automaticky při prvním zápisu, `document_terms.ensure_schema()`):
 
 | Sloupec | Význam |
@@ -80,7 +82,8 @@ Tabulka `DocumentTerm` (vzniká automaticky při prvním zápisu, `document_term
 | `position` | pořadí ve zdroji (model řadí od nejdůležitějšího) |
 
 Stažené a odvozené údaje držíme v mezipaměti pod správou verzí, klíčované označením dokumentu
-(u dokumentu bez označení `url-<hash adresy>`), aby přežily přestavbu databáze:
+(u dokumentu bez označení `url-<hash adresy>`; sdílí-li adresu více dokumentů bez označení, jako 14 letáků
+BVEG pod `https://www.bveg.de/`, pak `title-<hash názvu>`), aby přežily přestavbu databáze:
 `data/eurovoc_cache.json`, `data/ics_cache.json`, `data/keyword_model_cache.json`.
 `init_db.py` tabulku při přestavbě vyprázdní a `document_terms.py --apply` ji z mezipamětí naplní znovu.
 
@@ -110,7 +113,7 @@ těchto skriptů; model zavoláme znovu jen u dokumentu, jehož vstup (název, a
 
 ## 7. Co zbývá
 
-- ICS pro 218 norem ISO a IEC bez českého převzetí: dostupné na iso.org a iec.ch, ty však chrání
+- ICS pro 219 norem ISO a IEC bez českého převzetí: dostupné na iso.org a iec.ch, ty však chrání
   stránky proti automatickému stahování. Pokud ICS potřebujeme úplné, stáhneme je ručně nebo
   skriptem, který spustí uživatel.
 - Ruční kontrola vzorku klíčových slov z modelu editorem a případný slovník preferovaných termínů
