@@ -25,7 +25,7 @@ URL = ("https://isopublicstorageprod.blob.core.windows.net/opendata/_latest/"
 DEFAULT_PATH = REPO_ROOT / "data" / "external" / "iso_deliverables_metadata.jsonl"
 PUBLISHED = 6060  # stage 60.60, International Standard published
 WITHDRAWN = 9599  # stage 95.99; 90.xx (under review, confirmed) are published editions in force
-_DRAFT = re.compile(r"^ISO/(?:AWI|PWI|NP|WD|CD|DIS|FDIS|PRF)\s+(?:(TS|TR|PAS)\s+)?", re.I)
+_DRAFT = re.compile(r"^ISO/(?:AWI|PWI|NP|WD|CD|DIS|FDIS|PRF|DTR|DTS)\s+(?:(TS|TR|PAS)\s+)?", re.I)
 
 
 def download(path=DEFAULT_PATH, url=URL):
@@ -53,6 +53,8 @@ def base_reference(reference):
 def _number(reference):
     """The kind and number of a base reference without its stage: "ISO/AWI TR 19884-2" -> ("TR", "19884-2")."""
     m = re.match(r"^ISO(?:/IEC)?(?:/(?:AWI|PWI|NP|WD|CD|DIS|FDIS|PRF))?(?:[/ ](TS|TR|PAS|IWA))?\s+(\S+)$", reference)
+    if not m:  # "ISO/DTR 19884-2" is a draft technical report
+        m = re.match(r"^ISO/D(TR|TS)\s+(\S+)$", reference)
     return (m.group(1) or "", m.group(2)) if m else None
 
 

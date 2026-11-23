@@ -1,6 +1,6 @@
 # Kontrola záznamů databáze
 
-Stav k 23. 11. 2026, větev `feature/record-checks`. Kontrolu jsme spustili nad živou databází
+Stav k 23. 11. 2026, větve `feature/record-checks` (kontrola) a `feature/record-fixes` (opravy, odstavec 7). Kontrolu jsme spustili nad živou databází
 `h2regdocs` (1506 dokumentů), jen pro čtení.
 
 ## 1. Proč kontrolujeme
@@ -127,6 +127,50 @@ cd src/tools
 ```
 
 Oba skripty databázi jen čtou (`--env-file` vybere jinou než živou).
+
+## 7. Provedené opravy (23. 11. 2026)
+
+Uživatel rozhodl (23. 11. 2026): opravit 47 chyb s ověřením každého dokumentu ve zdroji, popis
+převzít z anotace ISO, ČAS nebo z textu a nejistý popis odstranit; duplicity sloučit; vydané návrhy
+převést na vydanou normu; 28 aktů EU mimo rozsah vyřadit z katalogu; zapsat opravy a klíčová slova
+do živé databáze a zbylé nálezy předat editorům. Opravy jsou v `data/manual_corrections.json` (tak
+přežijí přestavbu); sestavuje je `src/tools/plan_record_fixes.py`, který u každé uvádí zdroj ověření.
+
+| Skupina | Počet | Postup |
+|---|---|---|
+| Normy ISO (návrhy, duplicity projektů, chybné popisy) | 37 upravených, 33 sloučených | označení, název a anotace podle otevřených dat ISO; vydaný návrh dostal označení vydané normy (např. ISO/DIS 18760 → ISO 18760), rozpracovaný aktuální fázi (ISO 19885-2 → ISO/DIS 19885-2); trvalý odkaz (slug) zůstal; starší fáze téhož projektu jsme sloučili |
+| Popis jiné normy u převzetí ISO | 2 | ČSN EN ISO 13850, STN EN ISO 14001: anotace ISO 13850 a ISO 14001 |
+| Popis bez podkladu | 14 | odstraněn (slovenské vyhlášky, EN 17339, EN 1555-3/-4, EN 60079-13, API SPEC 11D1 a 5CT, (EU) 2018/2001 a 402/2013 v obou jazycích); dokument čeká na doplnění popisu |
+| Jednotlivé opravy | 6 | #62 → (EU) 2013/732 [SK] (úřední slovenský název z Cellaru), #416 doplněný název změny A1, #531 název části 2 podle zdroje, #833 název bez přípony staršího vydání, #911 úřední název ES-TRIN, #1037 TRBS 3146 / TRGS 726 s vlastním názvem |
+| Úlomky a duplicity mimo ISO | 12 sloučených | úlomky řádků PDF (#385, #417, #1001–#1003) do úplných záznamů; ASTM F1624-12, SAE J2578, AGBF Leitfaden, oprava AC k STN EN 14638-3, prEN IEC 62282-2-400, IEC/TS 62933-5-1, DIN ISO 19884 |
+| Akty EU mimo rozsah | 28 vyřazených | cíle transpozice bez vztahu k vodíku (pracovní právo, rovné zacházení, epidemiologie, veterinární předpisy); fronta kandidátů je znovu nenavrhne (`candidates.excluded_keys()`) |
+| (EU) 2023/955, (EU) 2021/535 | 2 | odstavec 3.2 v `doc/KLICOVA_SLOVA.md` |
+
+Dva záznamy se stejným označením ze dvou rešerší (ASTM F1624-12, SAE J2578) rozliší opravu klíč
+`"<označení> @<zdroj>"`, který jsme kvůli tomu doplnili do `build_unified_db.py` a
+`apply_manual_corrections.py`.
+
+**Živá databáze:** záloha `backups/h2regdocs_20261123_164103_before_record_fixes_and_keywords.sql.gz`,
+potom `apply_manual_corrections.py --apply` (60 dokumentů opraveno, 74 sloučeno nebo vyřazeno;
+1506 → 1432 dokumentů), klíčová slova (`document_terms.py --apply`, všech 1432 dokumentů) a nové
+kontroly: vrstva 1 hlásí 19 nálezů, vrstva 2 dvě chyby a 18 dokumentů bez vztahu k vodíku.
+
+**Fronta editorů:** zbylé nálezy 36 dokumentů jsme zapsali do fronty (`review_findings.py --apply`:
+`ReviewItem` se stavem `needs_review` a důvod „Kontrola záznamů: …“ v `review_reason`). Jde o:
+- #208 STN EN 1254-2: slovenský název („lisovacie tvarovky“) neodpovídá normě (spoje sevřením podle
+  ČSN EN 1254-2); úřední název STN doplní editor z katalogu ÚNMS SR;
+- 13 norem, jejichž poslední vydání ISO zrušila (ISO 22734:2019, ISO 14687-1 až -3 a další): převést
+  na stav „zrušený“, případně na nahrazující normu;
+- 3 normy, které ISO neuvádí (ISO 19887, ISO/DIS 19887, ISO/WD 17268-3.2), 3 useknuté názvy
+  (#692, #821, #1078);
+- 18 dokumentů bez vztahu k vodíku podle modelu (staré australské normy pro amoniak, ISO 7106–7109,
+  (EU) 1300/2014 a další): rozhodnout o rozsahu.
+
+Nález u #397 (STN EN IEC 62282-8-301) jsme ověřili jako chybný: norma se skutečně týká systémů
+power-to-methane a popis odpovídá; do fronty nejde (`review_findings.VERIFIED`).
+
+**Pozor:** sloučené dokumenty zanikly i s trvalým odkazem (např. `/dokument/eu-2023-955` vrací 404).
+Odkazy přejmenovaných norem ISO zůstaly.
 
 ## Příloha A: dokumenty s nálezem
 

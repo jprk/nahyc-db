@@ -1,131 +1,19 @@
 {
  "checked_at": "2026-11-23",
- "documents": 1506,
- "answered": 1506,
+ "documents": 1432,
+ "answered": 1432,
  "relevance": {
-  "high": 397,
-  "low": 219,
-  "medium": 842,
-  "none": 48
+  "high": 370,
+  "low": 216,
+  "medium": 828,
+  "none": 18
  },
  "counts": {
-  "error:model_description": 33,
-  "error:model_title": 14,
-  "warning:model_relevance": 48
+  "warning:model_relevance": 18,
+  "error:model_title": 1,
+  "error:model_description": 1
  },
  "findings": [
-  {
-   "id": 35,
-   "identifier": "ČSN EN ISO 13850",
-   "slug": "csn-en-iso-13850",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis se týká měření přepravní doby prioritních poštovních zásilek, nikoli normy ČSN EN ISO 13850 o funkci nouzového zastavení strojních zařízení."
-  },
-  {
-   "id": 62,
-   "identifier": "2010/75/EU",
-   "slug": "2010-75-eu",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Označení 2010/75/EU odkazuje na předpis EU, zatímco název a autoritativní název uvádějí slovenské oznámení ministerstva o zdravotní způsobilosti posádek plavidel."
-  },
-  {
-   "id": 62,
-   "identifier": "2010/75/EU",
-   "slug": "2010-75-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Označení 2010/75/EU odkazuje na předpis EU, zatímco název a autoritativní název uvádějí slovenské oznámení ministerstva o zdravotní způsobilosti posádek plavidel."
-  },
-  {
-   "id": 86,
-   "identifier": "(EU) 2023/955",
-   "slug": "eu-2023-955",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi neodpovídá podkladům: nařízení (EU) 2023/955 zřizuje Sociální klimatický fond a mění nařízení (EU) 2021/1060, nikoli vnitřní trh s obnovitelnými plyny, zemním plynem a vodíkem.; Popis se týká regulace trhu s obnovitelnými plyny, zemním plynem a vodíkem, zatímco podklady popisují zřízení Sociálního klimatického fondu.; Relevance k vodíkovým technologiím je pouze obecná přes klimatickou a energetickou politiku, nikoli přímá."
-  },
-  {
-   "id": 86,
-   "identifier": "(EU) 2023/955",
-   "slug": "eu-2023-955",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Název v databázi neodpovídá podkladům: nařízení (EU) 2023/955 zřizuje Sociální klimatický fond a mění nařízení (EU) 2021/1060, nikoli vnitřní trh s obnovitelnými plyny, zemním plynem a vodíkem.; Popis se týká regulace trhu s obnovitelnými plyny, zemním plynem a vodíkem, zatímco podklady popisují zřízení Sociálního klimatického fondu.; Relevance k vodíkovým technologiím je pouze obecná přes klimatickou a energetickou politiku, nikoli přímá."
-  },
-  {
-   "id": 91,
-   "identifier": "(EU) 2021/535",
-   "slug": "eu-2021-535",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi se týká změny limitů pro ochratoxin A v potravinách, zatímco podklady uvádějí prováděcí nařízení k technickým specifikacím a schvalování typu vozidel z hlediska obecné konstrukční bezpečnosti.; Popis v databázi popisuje limity ochratoxinu A a bezpečnost potravin, což neodpovídá dokumentu podle podkladů."
-  },
-  {
-   "id": 91,
-   "identifier": "(EU) 2021/535",
-   "slug": "eu-2021-535",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Název v databázi se týká změny limitů pro ochratoxin A v potravinách, zatímco podklady uvádějí prováděcí nařízení k technickým specifikacím a schvalování typu vozidel z hlediska obecné konstrukční bezpečnosti.; Popis v databázi popisuje limity ochratoxinu A a bezpečnost potravin, což neodpovídá dokumentu podle podkladů."
-  },
-  {
-   "id": 93,
-   "identifier": "124/2000 Z. z.",
-   "slug": "124-2000-z-z",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nesprávně uvádí, že vyhláška se zaměřuje na ochranu životního prostředí, zatímco podle podkladů upravuje požární bezpečnost při činnostech s hořlavými a hoření podporujícími plyny."
-  },
-  {
-   "id": 94,
-   "identifier": "94/2004 Z. z.",
-   "slug": "94-2004-z-z",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nesprávně uvádí, že vyhláška se zaměřuje na ochranu životního prostředí a obnovitelné zdroje, zatímco podle názvu a textu stanoví technické požadavky na protipožární bezpečnost při výstavbě a užívání staveb."
-  },
-  {
-   "id": 95,
-   "identifier": "96/2004 Z. z.",
-   "slug": "96-2004-z-z",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nepřesně tvrdí, že vyhláška se zaměřuje na bezpečnost a ochranu zdraví při práci, zatímco podle podkladů upravuje protipožární bezpečnost při manipulaci a skladování hořlavých kapalin, olejů a tuků."
-  },
-  {
-   "id": 96,
-   "identifier": "699/2004 Z. z.",
-   "slug": "699-2004-z-z",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis mylně uvádí, že vyhláška se zaměřuje na technické a organizační požadavky v oblasti ochrany životního prostředí, zatímco podle podkladů upravuje zabezpečení staveb vodou na hašení požárů."
-  },
-  {
-   "id": 106,
-   "identifier": "(EU) 2018/2001",
-   "slug": "eu-2018-2001",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis je pouze odkaz na stránku Evropské komise o infrastruktuře pro alternativní paliva, nikoli popis směrnice (EU) 2018/2001 o podpoře využívání energie z obnovitelných zdrojů."
-  },
-  {
-   "id": 113,
-   "identifier": "EN 17339",
-   "slug": "en-17339",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis je příliš obecný a mylně uvádí zařízení a systémy využívající vodík jako palivo místo přepravitelných lahví a trub z uhlíkového kompozitu pro vodík."
-  },
-  {
-   "id": 131,
-   "identifier": "(EU) 402/2013",
-   "slug": "eu-402-2013",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nepřesně zasazuje nařízení do energetických systémů a vodíku, zatímco podle podkladů jde o společnou bezpečnostní metodu pro hodnocení a posuzování rizik v železničním odvětví.; Vztah k vodíkovým technologiím z podkladů nevyplývá přímo, nanejvýš může být okrajový při železniční dopravě nebo infrastruktuře."
-  },
   {
    "id": 136,
    "identifier": "(EU) 1300/2014",
@@ -151,52 +39,12 @@
    "detail": "Model: dokument nesouvisí s vodíkem. "
   },
   {
-   "id": 280,
-   "identifier": "STN EN 1555-3/ - 2021.10",
-   "slug": "stn-en-1555-3",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis uvádí obecné aspekty PE potrubních systémů a použitelnost ve spojení s částmi 2 až 5, což odpovídá spíše obecné části EN 1555-1 než části 3 o tvarovkách."
-  },
-  {
-   "id": 281,
-   "identifier": "STN EN 1555-4/ - 2021.10",
-   "slug": "stn-en-1555-4",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis zřejmě odpovídá obecné části EN 1555-1, protože mluví o obecných aspektech a o potrubích, tvarovkách i armaturách, zatímco označení a název uvádějí EN 1555-4 pro armatúry."
-  },
-  {
-   "id": 324,
-   "identifier": "STN EN 60079-13/ - 2018.04",
-   "slug": "stn-en-60079-13",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. K záznamu nejsou předány žádné podklady, takže správnost názvu nelze ověřit.; Popis se týká jiskrově bezpečných zařízení a odkazuje na požadavky typu ochrany „eigensicher“, což odpovídá jiné části souboru EN 60079 než části 13 pro zařízení chráněná přetlakem a umělým větráním."
-  },
-  {
-   "id": 385,
-   "identifier": "/ - 2024.08",
-   "slug": "2024-08",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou uvedeny žádné podklady, takže nelze ověřit správnost názvu ani identifikovat dokument.; Označení i název jsou neúplné a neumožňují určit konkrétní normu."
-  },
-  {
    "id": 397,
    "identifier": "STN EN IEC 62282-8-301/ - 2023.11",
    "slug": "stn-en-iec-62282-8-301",
    "check": "model_description",
    "severity": "error",
    "detail": "Model: popis neodpovídá dokumentu. Popis hovoří o systémech přeměny energie na metan s dodávkou vody, CO2 a elektřiny, zatímco autoritativní název se týká systémů akumulace energie s moduly palivových článků v reverzním režimu a energetických systémů na bázi pevných oxidů včetně reverzibilního provozu."
-  },
-  {
-   "id": 430,
-   "identifier": "STN EN ISO 14001/ - 2016.04",
-   "slug": "stn-en-iso-14001",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. K záznamu nejsou dodány podklady, takže nelze ověřit přesné znění názvu podle registru.; Popis kombinuje obecnou anotaci ISO 14001 s nesouvisejícím textem o GASTEC QA certifikaci pro vodíkový plyn, který neodpovídá normě ISO 14001."
   },
   {
    "id": 445,
@@ -207,116 +55,12 @@
    "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Podle uvedeného názvu a popisu se norma týká životnosti laserů a nemá zřejmý vztah k vodíkovým technologiím."
   },
   {
-   "id": 531,
-   "identifier": "prEN IEC 63341-2",
-   "slug": "pren-iec-63341-2",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Označení záznamu je prEN IEC 63341-2, ale autoritativní název i databázový název uvádějí Part 3, tedy IEC 63341-3.; Popis výslovně popisuje IEC 63341-3:2025 a uvádí, že vodíkové palivové systémy řeší IEC 63341-2, takže neodpovídá označení prEN IEC 63341-2."
-  },
-  {
-   "id": 531,
-   "identifier": "prEN IEC 63341-2",
-   "slug": "pren-iec-63341-2",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Označení záznamu je prEN IEC 63341-2, ale autoritativní název i databázový název uvádějí Part 3, tedy IEC 63341-3.; Popis výslovně popisuje IEC 63341-3:2025 a uvádí, že vodíkové palivové systémy řeší IEC 63341-2, takže neodpovídá označení prEN IEC 63341-2."
-  },
-  {
-   "id": 562,
-   "identifier": "ISO 13984/ - 1999.03",
-   "slug": "iso-13984",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi uvádí „Land vehicle fuelling system interface“, zatímco podklady k ISO 13984 uvádějí název „Liquid hydrogen — Land vehicle fuelling protocol“."
-  },
-  {
-   "id": 573,
-   "identifier": "ISO 19884 (súbor)",
-   "slug": "iso-19884-subor",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Názov v databáze uvádza tlakové nádoby pre stacionárne skladovanie, zatiaľ čo podklad ISO uvádza fľaše a rúrkové nádoby pre stacionárne skladovanie."
-  },
-  {
-   "id": 575,
-   "identifier": "ISO 19885-2",
-   "slug": "iso-19885-2",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis je zjevně zástupný text („noch nocht vorhanden“) a nepopisuje dokument."
-  },
-  {
-   "id": 576,
-   "identifier": "ISO 19885-3",
-   "slug": "iso-19885-3",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nepopisuje dokument; obsahuje pouze zástupný text „noch nocht vorhanden“."
-  },
-  {
-   "id": 582,
-   "identifier": "ISO 23828/ - 2022.06",
-   "slug": "iso-23828",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis se týká terminologie informační bezpečnosti a neodpovídá normě o měření spotřeby energie a dojezdu silničních vozidel s palivovými články na stlačený vodík."
-  },
-  {
-   "id": 587,
-   "identifier": "ISO/AWI 19885-2",
-   "slug": "iso-awi-19885-2",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis „noch nocht vorhanden“ není věcným popisem dokumentu a neodpovídá podkladům."
-  },
-  {
-   "id": 588,
-   "identifier": "ISO/AWI 19885-3",
-   "slug": "iso-awi-19885-3",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis je pouze zástupný text „noch nocht vorhanden“ a nepopisuje dokument."
-  },
-  {
-   "id": 589,
-   "identifier": "ISO/AWI TR 19884-2",
-   "slug": "iso-awi-tr-19884-2",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu.; Popis je pouze zástupný text „noch nocht vorhanden“ a nepopisuje dokument."
-  },
-  {
-   "id": 590,
-   "identifier": "ISO/AWI TR 19884-3",
-   "slug": "iso-awi-tr-19884-3",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi neodpovídá přesně podkladům: uvádí „Cylinders and tubes“ a „shallow pressure cycle“, zatímco název ISO uvádí „Pressure vessels“ a „partial pressure cycle“.; Popis fakticky chybí, protože obsahuje jen zástupný text „noch nocht vorhanden“."
-  },
-  {
-   "id": 594,
-   "identifier": "ISO/DIS 19880-7",
-   "slug": "iso-dis-19880-7",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis uvádí pouze neaplikovatelnost na palubní tlakové lahve ve vozidlech na zemní plyn, což neodpovídá předmětu normy o pryžových O-kroužcích pro vysokotlaká zařízení vodíkových plnicích stanic."
-  },
-  {
-   "id": 600,
-   "identifier": "ISO/TS 19883/ - 2017.03",
-   "slug": "iso-ts-19883",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis neodpovídá normě ISO/TS 19883:2017, která se týká bezpečnostních opatření a návrhu PSA systémů pro separaci a čištění vodíku, nikoli trubek většího objemu."
-  },
-  {
-   "id": 616,
-   "identifier": "ISO 18172-2/ - 2007.03",
-   "slug": "iso-18172-2",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis chybně uvádí „Teil 1“, zatímco označení i podklady se týkají části 2.; Popis uvádí „Testdruck größer 60bar“, což neodpovídá názvu a anotaci s tlakem větším než 6 MPa, tj. 60 bar."
+   "id": 628,
+   "identifier": "ISO 23551-12",
+   "slug": "iso-23551-12",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
   },
   {
    "id": 646,
@@ -343,30 +87,6 @@
    "detail": "Model: dokument nesouvisí s vodíkem. "
   },
   {
-   "id": 670,
-   "identifier": "ISO/TS 18683/ - 2021.11",
-   "slug": "iso-ts-18683",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis nepopisuje obsah ISO/TS 18683 k bezpečnosti a posuzování rizik při bunkrování LNG, ale uvádí obecnou formulaci o duplicitních inspekcích a chybějících mezinárodních normách, která z podkladů nevyplývá.; Dokument se týká LNG bunkrování, nikoli přímo vodíkových technologií; vztah k vodíku je pouze okrajový přes širší oblast plynných paliv a bezpečnosti."
-  },
-  {
-   "id": 801,
-   "identifier": "API SPEC 11D1",
-   "slug": "api-spec-11d1",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis neodpovídá API SPEC 11D1, ale cituje ASME B31.12 pro vodíkové potrubí."
-  },
-  {
-   "id": 802,
-   "identifier": "API SPEC 5CT",
-   "slug": "api-spec-5ct",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis neodpovídá API SPEC 5CT pro casing and tubing a zjevně popisuje dokument pro potrubí a potrubní systémy ve vodíkové službě."
-  },
-  {
    "id": 808,
    "identifier": "AS 1678.8.0.010-1984",
    "slug": "as-1678-8-0-010",
@@ -389,14 +109,6 @@
    "check": "model_relevance",
    "severity": "warning",
    "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Podle uvedeného názvu se dokument týká zředěného roztoku amoniaku, nikoli vodíkových technologií."
-  },
-  {
-   "id": 833,
-   "identifier": "ASTM E1529-22",
-   "slug": "astm-e1529-22",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název obsahuje označení starší edice „2016e1“, které neodpovídá uvedenému označení ASTM E1529-22.; Popis chybí."
   },
   {
    "id": 838,
@@ -423,60 +135,12 @@
    "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou poskytnuty žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Z uvedeného názvu a popisu jde o normu k vlastnostem a přepravě proudů CO2, nikoli o vodíkové technologie."
   },
   {
-   "id": 911,
-   "identifier": "ES-TRIN",
-   "slug": "doc-04eb3ce4",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Označení ES-TRIN se vztahuje k evropské normě technických požadavků na plavidla vnitrozemské plavby obecně, nikoli pouze k využívání alternativních paliv.; Popis zužuje dokument na požadavky na bunkrování, skladování a uchovávání alternativních paliv, což neodpovídá celému dokumentu ES-TRIN."
-  },
-  {
-   "id": 911,
-   "identifier": "ES-TRIN",
-   "slug": "doc-04eb3ce4",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Označení ES-TRIN se vztahuje k evropské normě technických požadavků na plavidla vnitrozemské plavby obecně, nikoli pouze k využívání alternativních paliv.; Popis zužuje dokument na požadavky na bunkrování, skladování a uchovávání alternativních paliv, což neodpovídá celému dokumentu ES-TRIN."
-  },
-  {
-   "id": 1002,
-   "identifier": "Part 1",
-   "slug": "part-1",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Označení „Part 1“ je neúplné a bez podkladů nelze ověřit, k jaké normě část patří.; Bez podkladů nelze potvrdit, že název „Part 1 — Metallurgical Factors“ odpovídá skutečnému dokumentu."
-  },
-  {
-   "id": 1037,
-   "identifier": "TRGS 3146 / TRGS 726",
-   "slug": "trgs-3146-trgs-726",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis se týká ortsfester Druckanlagen zur Lagerung von Gasen a HCN, zatímco název TRGS 3146 / TRGS 726 se týká ortsbewegliche Druckgasbehälter a jejich plnění, připravení, vnitropodnikové přepravy a vyprazdňování."
-  },
-  {
    "id": 1077,
    "identifier": null,
    "slug": "doc-c8177642",
    "check": "model_relevance",
    "severity": "warning",
    "detail": "Model: dokument nesouvisí s vodíkem. Chybí označení normy i podklady, takže nelze ověřit název dokumentu.; Uvedený „název“ nepůsobí jako název normy, ale jako úryvek věty o technických komisích CEN/CENELEC."
-  },
-  {
-   "id": 1157,
-   "identifier": "DIN ISO 19884",
-   "slug": "din-iso-19884",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi uvádí „Pressure vessels for stationary storage / tlakové nádoby“, zatímco podklad ISO uvádí „Cylinders and tubes for stationary storage“."
-  },
-  {
-   "id": 1167,
-   "identifier": "ISO/TR 11954 (2008)",
-   "slug": "iso-tr-11954-2008",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi zužuje dokument na měření maximální rychlosti, zatímco podklady uvádějí normu pro měření výkonových parametrů vozidel na stlačený vodík obecně."
   },
   {
    "id": 1171,
@@ -495,257 +159,9 @@
    "detail": "Model: dokument nesouvisí s vodíkem. "
   },
   {
-   "id": 1187,
-   "identifier": "ISO/AWI 22734-1",
-   "slug": "iso-awi-22734-1",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi doplňuje oblasti použití a obecné požadavky, zkušební protokoly a bezpečnostní požadavky, zatímco podklady uvádějí název „Hydrogen generators using water electrolysis — Part 1: Safety“."
-  },
-  {
-   "id": 1188,
-   "identifier": "ISO/AWI 5124",
-   "slug": "iso-awi-5124",
-   "check": "model_title",
-   "severity": "error",
-   "detail": "Model: název neodpovídá dokumentu. Název v databázi mluví obecně o „LNG railcar applications“, zatímco podklady uvádějí konkrétně nakládku a vykládku LNG cisternových železničních vozů a kontejnerů.; Dokument se podle podkladů týká LNG, nikoli přímo vodíku."
-  },
-  {
-   "id": 1204,
-   "identifier": "ISO/WD 19880-7",
-   "slug": "iso-wd-19880-7",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis uvádí neaplikovatelnost na palubní tlakové lahve vozidel na zemní plyn, což nepopisuje tuto normu pro pryžové O-kroužky ve vysokotlakých zařízeních vodíkových plnicích stanic."
-  },
-  {
    "id": 1305,
    "identifier": "ISO 17526",
    "slug": "iso-17526",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1367,
-   "identifier": "1999/63/ES",
-   "slug": "1999-63-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1368,
-   "identifier": "1999/70/ES",
-   "slug": "1999-70-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká pracovních poměrů na dobu určitou a podle předaných podkladů nemá vztah k vodíkovým technologiím ani navazujícím technickým či povolovacím oblastem."
-  },
-  {
-   "id": 1369,
-   "identifier": "2000/43/ES",
-   "slug": "2000-43-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká rovného zacházení a zákazu diskriminace podle rasy nebo etnického původu, nikoli vodíkových technologií ani související technické regulace."
-  },
-  {
-   "id": 1374,
-   "identifier": "2000/79/ES",
-   "slug": "2000-79-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1375,
-   "identifier": "2001/23/ES",
-   "slug": "2001-23-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1377,
-   "identifier": "2001/86/ES",
-   "slug": "2001-86-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1380,
-   "identifier": "2002/253/ES",
-   "slug": "2002-253-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká definic případů pro hlášení přenosných nemocí a nemá z předaných údajů vztah k vodíkovým technologiím."
-  },
-  {
-   "id": 1385,
-   "identifier": "2003/72/ES",
-   "slug": "2003-72-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1389,
-   "identifier": "2004/113/ES",
-   "slug": "2004-113-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1401,
-   "identifier": "2007/875/ES",
-   "slug": "2007-875-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká epidemiologického dozoru nad přenosnými nemocemi, nikoli vodíkových technologií ani souvisejících technických či povolovacích oblastí."
-  },
-  {
-   "id": 1402,
-   "identifier": "2008/104/ES",
-   "slug": "2008-104-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1404,
-   "identifier": "2008/426/ES",
-   "slug": "2008-426-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká definic případů pro hlášení přenosných nemocí a epidemiologického dozoru, nikoli vodíkových technologií ani souvisejících oblastí."
-  },
-  {
-   "id": 1413,
-   "identifier": "2009/177/EU",
-   "slug": "2009-177-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká veterinárních požadavků, akvakultury a nákaz vodních živočichů, nikoli vodíkových technologií ani souvisejících oblastí."
-  },
-  {
-   "id": 1417,
-   "identifier": "2009/312/EU",
-   "slug": "2009-312-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká epidemiologického dozoru nad přenosnými nemocemi a nemá z předaných údajů vztah k vodíkovým technologiím."
-  },
-  {
-   "id": 1418,
-   "identifier": "2009/363/EU",
-   "slug": "2009-363-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1419,
-   "identifier": "2009/38/EU",
-   "slug": "2009-38-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1420,
-   "identifier": "2009/539/EU",
-   "slug": "2009-539-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1421,
-   "identifier": "2009/540/EU",
-   "slug": "2009-540-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1422,
-   "identifier": "2009/547/EU",
-   "slug": "2009-547-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká systému včasného varování a reakce pro přenosné nemoci, nikoli vodíkových technologií ani souvisejících technických či povolovacích oblastí."
-  },
-  {
-   "id": 1423,
-   "identifier": "2010/32/EU",
-   "slug": "2010-32-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1432,
-   "identifier": "2014/66/EU",
-   "slug": "2014-66-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká podmínek vstupu a pobytu státních příslušníků třetích zemí při převedení v rámci společnosti, nikoli vodíkových technologií ani související regulace."
-  },
-  {
-   "id": 1437,
-   "identifier": "2015/1794/EU",
-   "slug": "2015-1794-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1445,
-   "identifier": "2019/1158/EU",
-   "slug": "2019-1158-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1447,
-   "identifier": "2019/520/EU",
-   "slug": "2019-520-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1450,
-   "identifier": "2022/2041/EU",
-   "slug": "2022-2041-eu",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1452,
-   "identifier": "2000/96/ES",
-   "slug": "2000-96-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká epidemiologického dozoru nad přenosnými nemocemi a nemá z předaných údajů vztah k vodíkovým technologiím."
-  },
-  {
-   "id": 1453,
-   "identifier": "2006/865/ES",
-   "slug": "2006-865-es",
-   "check": "model_relevance",
-   "severity": "warning",
-   "detail": "Model: dokument nesouvisí s vodíkem. Dokument se týká prováděcích pravidel k ochraně druhů volně žijících živočichů a planě rostoucích rostlin a regulace obchodu s nimi, nikoli vodíkových technologií."
-  },
-  {
-   "id": 1455,
-   "identifier": "1998/2119/ES",
-   "slug": "1998-2119-es",
    "check": "model_relevance",
    "severity": "warning",
    "detail": "Model: dokument nesouvisí s vodíkem. "
@@ -757,22 +173,6 @@
    "check": "model_relevance",
    "severity": "warning",
    "detail": "Model: dokument nesouvisí s vodíkem. "
-  },
-  {
-   "id": 1470,
-   "identifier": "(EU) 2018/2001 [EN]",
-   "slug": "eu-2018-2001-en",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis je pouze odkaz na stránku o infrastruktuře alternativních paliv, nikoli popis směrnice (EU) 2018/2001 o podpoře využívání energie z obnovitelných zdrojů."
-  },
-  {
-   "id": 1482,
-   "identifier": "(EU) 402/2013 [EN]",
-   "slug": "eu-402-2013-en",
-   "check": "model_description",
-   "severity": "error",
-   "detail": "Model: popis neodpovídá dokumentu. Popis zavádí oblast energetických systémů, vodíku a obnovitelných zdrojů, zatímco podklady ukazují, že nařízení se týká společné bezpečnostní metody pro hodnocení rizik v železničním sektoru podle směrnice o bezpečnosti železnic."
   }
  ]
 }

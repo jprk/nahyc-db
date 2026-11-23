@@ -704,6 +704,22 @@
    "prompt_tokens": 725
   }
  },
+ "06625e04420d51d0d7f6f4629cc4b011aec6990d923afc269bb999aa6e627234": {
+  "at": "2026-11-23",
+  "id": 1287,
+  "identifier": "ISO 13577-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1272
+  }
+ },
  "06886b69a43e37a8c198da065e82c4bfe987c8b5fd1e8378b60ebddd660bc481": {
   "at": "2026-11-23",
   "id": 927,
@@ -1351,6 +1367,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 858
+  }
+ },
+ "0bf1263b28aceff3205ff0808004f17b96efd39571ae6823c52e47abbd87f878": {
+  "at": "2026-11-23",
+  "id": 113,
+  "identifier": "EN 17339",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 657
   }
  },
  "0bf459c60612092929064367f3dbe21e0fb337d37c32bbebd834f3e7d701491d": {
@@ -2377,6 +2409,22 @@
    "prompt_tokens": 810
   }
  },
+ "157ad775f95b64513ee5a615b2b654eaed035740682837ff148f9484779ed17c": {
+  "at": "2026-11-23",
+  "id": 659,
+  "identifier": "ISO 18760",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 879
+  }
+ },
  "15c32b0fab62ca90bbfa21b184730cf0b633939ea0280abd3d2524e479a30c8d": {
   "at": "2026-11-23",
   "id": 1341,
@@ -2989,6 +3037,22 @@
    "prompt_tokens": 1865
   }
  },
+ "1b3c17c6631bf9ac2205060eae46ef393719baf8d1a21fe6cada1859aefda8e8": {
+  "at": "2026-11-23",
+  "id": 1273,
+  "identifier": "ISO/TS 19870",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1295
+  }
+ },
  "1b50f162be2ae5db21db4b3ea41b940ee04de0ee6b4d1b03ec19c4580105be91": {
   "at": "2026-11-23",
   "id": 214,
@@ -3074,6 +3138,22 @@
   "usage": {
    "completion_tokens": 270,
    "prompt_tokens": 660
+  }
+ },
+ "1bc34b656045645ddb8a1f88553dd0eb82f6d3620e9ba25549d6d39764501e0a": {
+  "at": "2026-11-23",
+  "id": 131,
+  "identifier": "(EU) 402/2013",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "low",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1875
   }
  },
  "1bf51a27a6908da6edf4bb1572340b6956ea13933812cbe6755b34719c0cd1a9": {
@@ -3190,6 +3270,22 @@
   "usage": {
    "completion_tokens": 59,
    "prompt_tokens": 617
+  }
+ },
+ "1c73e3c2e6942a777a6643c7d0f9d593df435ac3040eb8e8110a96ce88585d50": {
+  "at": "2026-11-23",
+  "id": 562,
+  "identifier": "ISO 13984",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1065
   }
  },
  "1cc9ba4ef1d8260d7f1a85354e440b12be55627199c663e3e3bbd24b2e9ffdd5": {
@@ -3392,6 +3488,25 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 765
+  }
+ },
+ "1df384747cf99478aeef8de97833e347c735fdf5c86c8f658c4ac7f0203305b9": {
+  "at": "2026-11-23",
+  "id": 911,
+  "identifier": "ES-TRIN",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "unknown",
+   "problems": [
+    "K záznamu nejsou předány žádné podklady, takže nelze ověřit úřední název ani správnost popisu.",
+    "Popis je výrazně užší než uvedený název normy ES-TRIN a bez podkladů nelze potvrdit, že vystihuje tentýž dokument."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 443,
+   "prompt_tokens": 649
   }
  },
  "1e1b4c89fdd04869bd5fa44e5e2269c5ee0d416f134828dce7c21a6c12128ca6": {
@@ -3909,6 +4024,22 @@
    "prompt_tokens": 790
   }
  },
+ "21f3837e8aa748f14b7c5a36207411e7b275c08e4edcf1d69fc9c9a579d9e98a": {
+  "at": "2026-11-23",
+  "id": 573,
+  "identifier": "ISO/FDIS 19884-1",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 974
+  }
+ },
  "22099d4f23ea8da84135d0cdc1117470fd07ef5ff6220b77a2f0123320b98cbd": {
   "at": "2026-11-23",
   "id": 274,
@@ -3975,6 +4106,24 @@
   "usage": {
    "completion_tokens": 187,
    "prompt_tokens": 648
+  }
+ },
+ "22712e9cbd2a958e515197c87f784d6a90bae78f8fce70996306e253100ee41d": {
+  "at": "2026-11-23",
+  "id": 91,
+  "identifier": "(EU) 2021/535",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "unknown",
+   "problems": [
+    "Z předaného začátku textu lze ověřit obecný předmět nařízení, ale nelze ověřit konkrétní tvrzení popisu o kompatibilitě materiálů, vodíkovém křehnutí, hrdle k plnění paliva a systémech pro uchovávání zkapalněného vodíku v příloze XIV."
+   ],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 110,
+   "prompt_tokens": 2205
   }
  },
  "229a5b3151557d02792e6fd582af50e4ac33523322d94206d09fd0d295986598": {
@@ -4164,6 +4313,24 @@
    "prompt_tokens": 670
   }
  },
+ "2441d046508e8901030c8a5a8d0af497433605dbe2616d110e3ed82242d42d1f": {
+  "at": "2026-11-23",
+  "id": 281,
+  "identifier": "STN EN 1555-4/ - 2021.10",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou dodány podklady, takže správnost názvu nelze z předaných údajů ověřit."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 318,
+   "prompt_tokens": 665
+  }
+ },
  "245aafbd8bdb73f8acf0cc69e4140888f7be29145bcdeef71121949b7d32014b": {
   "at": "2026-11-23",
   "id": 727,
@@ -4266,6 +4433,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 712
+  }
+ },
+ "2532899ed048ba117744822edde1137d25b340808d86c98aaf2a2b3051558800": {
+  "at": "2026-11-23",
+  "id": 595,
+  "identifier": "ISO 17268-1",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 941
   }
  },
  "254b7069137551a2e6a2a4b326cbcd7ceb4258b29b218f0c980b91eddeb7ec58": {
@@ -5666,6 +5849,22 @@
    "prompt_tokens": 878
   }
  },
+ "361a3e47064d55f545f63ef946c7667c542aef061060489b196eba261ab94a13": {
+  "at": "2026-11-23",
+  "id": 1470,
+  "identifier": "(EU) 2018/2001 [EN]",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1338
+  }
+ },
  "365ab61417ee625d8a41e139feddc9684c02453e7efdf0a2deb3007a27c2e792": {
   "at": "2026-11-23",
   "id": 496,
@@ -6334,6 +6533,24 @@
    "prompt_tokens": 982
   }
  },
+ "3d7ef80df811c498ef93289d08af0c8454936734e2edf443cd27d67667462869": {
+  "at": "2026-11-23",
+  "id": 280,
+  "identifier": "STN EN 1555-3/ - 2021.10",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou předány žádné podklady, takže název nelze nezávisle ověřit."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 375,
+   "prompt_tokens": 665
+  }
+ },
  "3df5df2ea8baf1c03b5badf460a327f27008bd49932ad76e0e0c14f319eef62d": {
   "at": "2026-11-23",
   "id": 968,
@@ -6436,6 +6653,24 @@
   "usage": {
    "completion_tokens": 56,
    "prompt_tokens": 868
+  }
+ },
+ "3f0d9f7f00ec3e9a063145cefe2f52953cd21c97ced99b498dae7ed698fb80f3": {
+  "at": "2026-11-23",
+  "id": 430,
+  "identifier": "STN EN ISO 14001/ - 2016.04",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "unknown",
+   "problems": [
+    "K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu vůči registru nebo textu normy."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 65,
+   "prompt_tokens": 859
   }
  },
  "3f26a2e02a7d17de0843fe4170ca9177306814ea58fe869566f0394109f11146": {
@@ -7453,6 +7688,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1499
+  }
+ },
+ "4787e2f18e4b85bf6f71cd58f46e09d66744bb795dd996278f4b0b0ca6bb2dc4": {
+  "at": "2026-11-23",
+  "id": 576,
+  "identifier": "ISO/DIS 19885-3",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1300
   }
  },
  "47888735c72d7e68e8bb1f21f33e487cb27e447a17d9fe4a47dde7ddafd8e505": {
@@ -8573,6 +8824,22 @@
    "prompt_tokens": 626
   }
  },
+ "52cd096bd50e8381491f9491519957515677ff302cdcd97f33a2cd7dc7231d51": {
+  "at": "2026-11-23",
+  "id": 94,
+  "identifier": "94/2004 Z. z.",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1720
+  }
+ },
  "52d8480bd12e57523d7b5f0764c01e9ab4d6acf6f0eac0c4bf7fffc1880cf002": {
   "at": "2026-11-23",
   "id": 732,
@@ -8589,6 +8856,25 @@
   "usage": {
    "completion_tokens": 212,
    "prompt_tokens": 618
+  }
+ },
+ "531aa4750d37b4222878c0e0068577126f3075b48913ea7c2a512c008c6c5a3f": {
+  "at": "2026-11-23",
+  "id": 801,
+  "identifier": "API SPEC 11D1",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou dodány podklady, takže nelze ověřit správnost názvu.",
+    "Popis chybí."
+   ],
+   "relevance": "low",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 328,
+   "prompt_tokens": 623
   }
  },
  "5325102b77ddd7b2818bacaaeddc12a9dda6ba130c6f094e2062933c28998a3d": {
@@ -9001,6 +9287,22 @@
    "prompt_tokens": 998
   }
  },
+ "56367026e52143da6cc27cdfa2675aae4f1b5252ba5ea408f656d1b25791b151": {
+  "at": "2026-11-23",
+  "id": 574,
+  "identifier": "ISO 19885-1",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1268
+  }
+ },
  "56459347778600f1db44ef4ff0f6774046c41bf3a413066f57691840501b26a9": {
   "at": "2026-11-23",
   "id": 1030,
@@ -9141,6 +9443,22 @@
   "usage": {
    "completion_tokens": 69,
    "prompt_tokens": 998
+  }
+ },
+ "57a8359a6849c0adbea8c2858192af026c3ec2836950ada8d3b248b29174a6d3": {
+  "at": "2026-11-23",
+  "id": 658,
+  "identifier": "ISO 18742",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 857
   }
  },
  "57ac0efeccd9ba6ce5e9f4ade7fc2edb0566b2387f03f6cca34abbafe54f8ec7": {
@@ -10005,6 +10323,22 @@
    "prompt_tokens": 628
   }
  },
+ "60fa67e948d0de5f3b16fb26ff66b8fc7298abbdaa6745d34b6387448437ebbc": {
+  "at": "2026-11-23",
+  "id": 590,
+  "identifier": "ISO/TR 19884-3",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 915
+  }
+ },
  "60faf159355c215cb608f87e2c5e37e8e3f5fabf39bd3349d09a75cd1a0be023": {
   "at": "2026-11-23",
   "id": 244,
@@ -10223,6 +10557,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1402
+  }
+ },
+ "632f9f127d9c86268d49add507fda20fbee72df8394c9a92561b025d118c57be": {
+  "at": "2026-11-23",
+  "id": 660,
+  "identifier": "ISO 18819",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "low",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 870
   }
  },
  "636c403336decd767916beab617cef947e7d4419963ae125d7edbb7934b0bec4": {
@@ -10480,6 +10830,22 @@
    "prompt_tokens": 629
   }
  },
+ "661fb6c0fbd1d6d534bb61d2bdf969750495d224cbd39985a4162b349edfd8c6": {
+  "at": "2026-11-23",
+  "id": 643,
+  "identifier": "ISO 7039",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 928
+  }
+ },
  "6648223319d97575cfec7901c2088a478733864ad314132dd64da9e4c8f21174": {
   "at": "2026-11-23",
   "id": 1253,
@@ -10633,6 +10999,24 @@
    "prompt_tokens": 788
   }
  },
+ "67c40fce3ffbe8552a4f14917495bc57ea453c14f9f2865985b02c2e14d8948c": {
+  "at": "2026-11-23",
+  "id": 531,
+  "identifier": "prEN IEC 63341-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou předány žádné podklady, takže nelze ověřit správnost názvu vůči registru ani textu normy."
+   ],
+   "relevance": "high",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 663
+  }
+ },
  "68025d21321172d9412174f6b8e4427c8334805b0842a082e99b45165db8748f": {
   "at": "2026-11-23",
   "id": 688,
@@ -10668,6 +11052,22 @@
   "usage": {
    "completion_tokens": 124,
    "prompt_tokens": 1053
+  }
+ },
+ "686052d05625429975be6ee9a63a38dfee29227045debd90e5d77d174a0d3b0a": {
+  "at": "2026-11-23",
+  "id": 35,
+  "identifier": "ČSN EN ISO 13850",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 809
   }
  },
  "687d521b460df9014033041a2548547c76c3777cb8f86902316e45c337a070fe": {
@@ -11029,6 +11429,22 @@
    "prompt_tokens": 1751
   }
  },
+ "6b855139b4e9ef8a8415140374468d99e35ad82200bfab4edbf928ee22cfd654": {
+  "at": "2026-11-23",
+  "id": 545,
+  "identifier": "ISO/TR 11954",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 801
+  }
+ },
  "6b95df1d53bf9f8b048a9750255381aa5a631a565fc3dedbc77d245ef4b83f76": {
   "at": "2026-11-23",
   "id": 241,
@@ -11045,6 +11461,24 @@
   "usage": {
    "completion_tokens": 65,
    "prompt_tokens": 726
+  }
+ },
+ "6ba522eb57ec23fae7367bab1189d0737917d22472c3f8b11d0cc0df8a329949": {
+  "at": "2026-11-23",
+  "id": 324,
+  "identifier": "STN EN 60079-13/ - 2018.04",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou uvedeny žádné podklady, takže nelze ověřit správnost názvu vůči registru nebo textu normy."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 677
   }
  },
  "6bd3e7321e4af8ba136b373331dd327e1d18ce2026121c506b37804fb89a5daa": {
@@ -11584,6 +12018,22 @@
    "prompt_tokens": 941
   }
  },
+ "727a491b4357643b73b7eaa348a62166ca56cd7824c827d7d14bf4428ea084db": {
+  "at": "2026-11-23",
+  "id": 656,
+  "identifier": "ISO 18735",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "low",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 827
+  }
+ },
  "729013038210a4456b7c2dea582645f93ac11149819e69823b15a8f84815c5d9": {
   "at": "2026-11-23",
   "id": 1374,
@@ -11649,6 +12099,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1833
+  }
+ },
+ "732fb47f39ed20ee77bcd5d4c50ca2ce18a5f8a9437e86997fcf4648191284db": {
+  "at": "2026-11-23",
+  "id": 670,
+  "identifier": "ISO/TS 18683",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 957
   }
  },
  "7374323fb0a230b8a711cb9e54b9ce01546777fe2e1f68c3799f6e2ef38630ae": {
@@ -12167,6 +12633,22 @@
    "prompt_tokens": 689
   }
  },
+ "79b76d63ff5214fca453bcfe8578f10042bd9ff20dd49f623bdaa83739d771a6": {
+  "at": "2026-11-23",
+  "id": 598,
+  "identifier": "ISO 22734-1",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 747
+  }
+ },
  "79f21f0cdab242de6a288384ed6ee071af029f45d1b2738118cc435dd10aeab6": {
   "at": "2026-11-23",
   "id": 517,
@@ -12202,6 +12684,38 @@
   "usage": {
    "completion_tokens": 69,
    "prompt_tokens": 808
+  }
+ },
+ "7a3bd37c9a97095652eb9abd6bd2313ce36f1df00430dd1334946c926504383a": {
+  "at": "2026-11-23",
+  "id": 93,
+  "identifier": "124/2000 Z. z.",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1777
+  }
+ },
+ "7a6189a52c9c7c0560c0ebb19a8336ba6f5c536c1c308d234c33cd5308278e30": {
+  "at": "2026-11-23",
+  "id": 600,
+  "identifier": "ISO/TS 19883",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 874
   }
  },
  "7a95ad176fc5258840bc6c60a0ed3d5dcfeef919711eb970e8ee19f4e1b708aa": {
@@ -13315,6 +13829,22 @@
    "prompt_tokens": 747
   }
  },
+ "827d4476354c7c44ada46714237886c20c89b09354ecb1bd378903f3bafb1e2b": {
+  "at": "2026-11-23",
+  "id": 571,
+  "identifier": "ISO 19881",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1022
+  }
+ },
  "829ac410bb38a3675baeb64dc529d79d75700d72db39c1c4ea415090bc28dc3f": {
   "at": "2026-11-23",
   "id": 954,
@@ -13981,6 +14511,22 @@
   "usage": {
    "completion_tokens": 185,
    "prompt_tokens": 652
+  }
+ },
+ "894845fad975b5bd2a73b60c293a68d91d1632f3ed0879bc7913d90e65e91c07": {
+  "at": "2026-11-23",
+  "id": 572,
+  "identifier": "ISO 19882",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1130
   }
  },
  "8961de614b05715fb24d5763d1bfd0f9c8a0c2d286e288d4ab2ecf199d863ee2": {
@@ -15271,6 +15817,22 @@
    "prompt_tokens": 762
   }
  },
+ "94f098982347617da9fb5577fbfad0eef611763eded4f756a4b2c40fa7c9aa74": {
+  "at": "2026-11-23",
+  "id": 657,
+  "identifier": "ISO 18741",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 853
+  }
+ },
  "958bf4e219c33b3948f616ccee23cb8aa84f6e51e7090df567670f2e67d2e20d": {
   "at": "2026-11-23",
   "id": 494,
@@ -15532,6 +16094,22 @@
    "prompt_tokens": 673
   }
  },
+ "99aaa1763315b7d9d64932eec98f1bcd14ee293f65191e7cc82e60e73cdf32d7": {
+  "at": "2026-11-23",
+  "id": 95,
+  "identifier": "96/2004 Z. z.",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1841
+  }
+ },
  "99ccf243e9851247fa6546547318e4ebc7e0885ce0686cc9cbec1ff49e10f411": {
   "at": "2026-11-23",
   "id": 812,
@@ -15582,6 +16160,22 @@
   "usage": {
    "completion_tokens": 56,
    "prompt_tokens": 702
+  }
+ },
+ "99fe45f3e3f2e0639f412f4dc7209e88f8d97b1dcdb20ee4fbe04d15168b6554": {
+  "at": "2026-11-23",
+  "id": 575,
+  "identifier": "ISO/DIS 19885-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1290
   }
  },
  "9a10a197245188ef040152b841220c0b4b2931f8a41c01324ebd481e646e93a5": {
@@ -15979,6 +16573,22 @@
   "usage": {
    "completion_tokens": 58,
    "prompt_tokens": 803
+  }
+ },
+ "9f08eb1739d55bd477d1f4234e360884131f2024ffe161161467c6e879309f64": {
+  "at": "2026-11-23",
+  "id": 96,
+  "identifier": "699/2004 Z. z.",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1731
   }
  },
  "9f1d0126fb796daad2c753445000abeff733415c7de4bfcf4fadfd33fa9b4bf8": {
@@ -16474,6 +17084,22 @@
    "prompt_tokens": 786
   }
  },
+ "a4de9fac15e29f352ab66f51d0007a9c02a7fbde8f0584d077b5fcdefbaf99c3": {
+  "at": "2026-11-23",
+  "id": 591,
+  "identifier": "ISO/TS 15916",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 898
+  }
+ },
  "a4e3356d008521b05720c4bbf6c5750df58f86524ad5fdffe08b7e2d2a9babd9": {
   "at": "2026-11-23",
   "id": 1052,
@@ -16556,6 +17182,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1817
+  }
+ },
+ "a57b8b3ab020936ed7890c88214f2c31c2c6af433fa24ecf1bef616f96044aff": {
+  "at": "2026-11-23",
+  "id": 594,
+  "identifier": "ISO 19880-7",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1276
   }
  },
  "a5a45c1a7e1750a3c0248c9ce33e239b07ddace19d2da029c23590c568783089": {
@@ -17477,6 +18119,22 @@
    "prompt_tokens": 1844
   }
  },
+ "af4396b86b8690ac947c2e0b5e88c13fbe77faaf417f2070ac34f62671af7187": {
+  "at": "2026-11-23",
+  "id": 1482,
+  "identifier": "(EU) 402/2013 [EN]",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "low",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1348
+  }
+ },
  "afaf255aad6905cf6459636dd54a7421cd75978eeaf2d71962d9cb9c072f4627": {
   "at": "2026-11-23",
   "id": 440,
@@ -17836,6 +18494,24 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 970
+  }
+ },
+ "b216ab2e46481aff207863df2ff65f199a23671144e04dfb48392e26ef7bc4b1": {
+  "at": "2026-11-23",
+  "id": 416,
+  "identifier": "STN EN ISO 11114-1/Zmena",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou předány žádné podklady, takže nelze ověřit správnost názvu vůči registru nebo textu normy."
+   ],
+   "relevance": "high",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 688
   }
  },
  "b21e9324f7c40eb8eadd92d94cb2408a4276e411a42798f37a35a5dfe466af50": {
@@ -19557,6 +20233,22 @@
    "prompt_tokens": 881
   }
  },
+ "bff4686f3092f0071f625346000032e84f985240a77054b473a719196d791d76": {
+  "at": "2026-11-23",
+  "id": 544,
+  "identifier": "ISO 11326",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 954
+  }
+ },
  "bffc154507bd9c89139ab762218796812b81cdfb898949459b1a30666be11cd7": {
   "at": "2026-11-23",
   "id": 1389,
@@ -19603,6 +20295,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 843
+  }
+ },
+ "c069bfe62396c9f01abbf374980c25ee84fee09a0224d065cf6ba0edffcc0c09": {
+  "at": "2026-11-23",
+  "id": 567,
+  "identifier": "ISO 19880-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1242
   }
  },
  "c07a4c1a37b8393f1027aa176ea1d1f5bfcf5f44de9b4a0a76501e090a7b07c0": {
@@ -20185,6 +20893,22 @@
    "prompt_tokens": 1696
   }
  },
+ "c6519a18d26630a0948e7c6577298e68ca6868a96fcc6b9efae0003e2099e002": {
+  "at": "2026-11-23",
+  "id": 584,
+  "identifier": "ISO 24132",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 984
+  }
+ },
  "c654eccfa317e3ce4d4415a137cb9f2a44282674f8d4aba912a3a5697e54450e": {
   "at": "2026-11-23",
   "id": 252,
@@ -20539,6 +21263,22 @@
    "prompt_tokens": 1857
   }
  },
+ "cb39fdbecd906c9bb53a36dbb4c13de117927ecc2521e078db92f58ba47f14f9": {
+  "at": "2026-11-23",
+  "id": 563,
+  "identifier": "ISO 13985",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 794
+  }
+ },
  "cb4dace11e287e94c1d19e09a27c26a4ad2f226d74d99057e1cace6842579627": {
   "at": "2026-11-23",
   "id": 175,
@@ -20707,6 +21447,40 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1675
+  }
+ },
+ "ce121bd844d5a6512f4f349454f7cdd76954ba72227cb803991cf829aade553e": {
+  "at": "2026-11-23",
+  "id": 833,
+  "identifier": "ASTM E1529-22",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [
+    "K záznamu nejsou předány žádné podklady, takže nelze ověřit správnost názvu vůči registru nebo textu normy."
+   ],
+   "relevance": "low",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 281,
+   "prompt_tokens": 639
+  }
+ },
+ "ce35285136ba57aa1985b88ad1bbc040f801af9afa5aaa5c8817a6358044ca9d": {
+  "at": "2026-11-23",
+  "id": 586,
+  "identifier": "ISO/DIS 17268-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 943
   }
  },
  "ce4bdd66cfd05f870be9a27375cecb0f7b88bfe0f5506448191c8ec675d7c6bb": {
@@ -21141,6 +21915,22 @@
    "prompt_tokens": 1821
   }
  },
+ "d272fe4612f3f26544ef6958571e4d5cc835ad03a36adee22a756389054a2a2d": {
+  "at": "2026-11-23",
+  "id": 628,
+  "identifier": "ISO 23551-12",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "none",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1083
+  }
+ },
  "d2830716e54e8bb2a885e968c9fedb315afdc053689d9e5ab53bf14dbb0fa446": {
   "at": "2026-11-23",
   "id": 1121,
@@ -21225,6 +22015,24 @@
   "usage": {
    "completion_tokens": 65,
    "prompt_tokens": 811
+  }
+ },
+ "d30dec96858a912e1e0470f9d54ab495fbcdd027bca1703a57a275e5cf58347d": {
+  "at": "2026-11-23",
+  "id": 1037,
+  "identifier": "TRBS 3146 / TRGS 726",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "unknown",
+   "problems": [
+    "K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu."
+   ],
+   "relevance": "medium",
+   "title_ok": "unknown"
+  },
+  "usage": {
+   "completion_tokens": 56,
+   "prompt_tokens": 686
   }
  },
  "d359cf5141f22e9f3524beed0f173a99145d4b3b5194b7b2f852d3392a863e87": {
@@ -22326,6 +23134,22 @@
    "prompt_tokens": 844
   }
  },
+ "de1465a37e42cfcc202c50801fb00b1185c589beb7d05022f034176184c41e58": {
+  "at": "2026-11-23",
+  "id": 589,
+  "identifier": "ISO/DTR 19884-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 744
+  }
+ },
  "de204a07633f9e74f37388bc47f24f1cd866bbbda994ff863d0e6d879b8ddf0c": {
   "at": "2026-11-23",
   "id": 547,
@@ -22429,6 +23253,22 @@
   "usage": {
    "completion_tokens": 108,
    "prompt_tokens": 794
+  }
+ },
+ "deb319a80a99003d99a7ac864ddcbdd1a5fd144c1c8f9e3546410d7244df513c": {
+  "at": "2026-11-23",
+  "id": 802,
+  "identifier": "API SPEC 5CT",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "low",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 176,
+   "prompt_tokens": 621
   }
  },
  "dee41c23a1d3aa086472d3d9c8ceece4e7dc07111a5c07cccad4896a18d2d202": {
@@ -23207,6 +24047,22 @@
    "prompt_tokens": 1856
   }
  },
+ "e6aa2d6862ae77394076b52f55a1e935d726fbc5a3b0d42af99fdb8448d59f5c": {
+  "at": "2026-11-23",
+  "id": 569,
+  "identifier": "ISO 19880-5",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1246
+  }
+ },
  "e6ec5ea14886a8722dbf4aa8d3bcb5a92e1d8d38c94c4a6051daf116992d87e5": {
   "at": "2026-11-23",
   "id": 682,
@@ -23639,6 +24495,22 @@
    "prompt_tokens": 1076
   }
  },
+ "eb4be51e0b49867ef093db6c9b9cfdbdf94cc556c3ef85f807d8755f458bffd8": {
+  "at": "2026-11-23",
+  "id": 111,
+  "identifier": "ISO 14687",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 749
+  }
+ },
  "eb901c0034100813462c3a060072c6abe7f1590e76d728f2d2804e52c9ffddad": {
   "at": "2026-11-23",
   "id": 899,
@@ -23960,6 +24832,22 @@
    "prompt_tokens": 725
   }
  },
+ "edab0bc5a40a40651abfdb34e07cc271ae2fb77907ce5796fe56fa8b41e5290e": {
+  "at": "2026-11-23",
+  "id": 106,
+  "identifier": "(EU) 2018/2001",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1811
+  }
+ },
  "ede0858f72f83261d5305aa82b344fdab9436bbe335c6fffebb0063eb8de7519": {
   "at": "2026-11-23",
   "id": 56,
@@ -24268,6 +25156,22 @@
    "prompt_tokens": 909
   }
  },
+ "f001eeb245ce1db8c48dc279f2c243df18b28eb4e91984e463a305f27bb2728c": {
+  "at": "2026-11-23",
+  "id": 570,
+  "identifier": "ISO 19880-8",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 765
+  }
+ },
  "f01431d425b9d86f8f3b2dbe31d8fc6835d1f3a0bb886be41e0c3d1e8d4db658": {
   "at": "2026-11-23",
   "id": 1069,
@@ -24285,6 +25189,22 @@
   "usage": {
    "completion_tokens": 190,
    "prompt_tokens": 641
+  }
+ },
+ "f0312ba6112e42b8bc70dbf264d63a0ded906bb9d93a10a716e76b9f04ef1b4c": {
+  "at": "2026-11-23",
+  "id": 582,
+  "identifier": "ISO 23828",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 740
   }
  },
  "f08e8c668e0dc860cc5eca23d963d48f0bf60411a5152370716d98defaf84b2c": {
@@ -24628,6 +25548,22 @@
    "prompt_tokens": 1744
   }
  },
+ "f4026f4cc105f850e339b19f2a864042051e816dfd8385b01963000d05914db3": {
+  "at": "2026-11-23",
+  "id": 27,
+  "identifier": "ISO 19880-9",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "high",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 1153
+  }
+ },
  "f46deb4a8227182a49480a0d5956c5a5cbd7b1973f72c70e7bea3c8528d76103": {
   "at": "2026-11-23",
   "id": 422,
@@ -24660,6 +25596,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 2041
+  }
+ },
+ "f4eb3e00c2ccbd9ed734e0c0a30600986e8fb956942e950990e8c7f257f0b061": {
+  "at": "2026-11-23",
+  "id": 616,
+  "identifier": "ISO 18172-2",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 923
   }
  },
  "f547507484d44f47078a1e83c20de69345e8bf9f26e2a9eb60ce8bc01693be70": {
@@ -24760,6 +25712,22 @@
   "usage": {
    "completion_tokens": 27,
    "prompt_tokens": 1139
+  }
+ },
+ "f5b48a0d776ac2e4bb6455c1da1b9372909c613228d8d2117a704a06e6b66780": {
+  "at": "2026-11-23",
+  "id": 1334,
+  "identifier": "ISO 5124",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "yes",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 923
   }
  },
  "f618759590bc8c9ff6b8897d7ccd04a8ac53fbc43a42c4bc431b9e2a9c05adf4": {
@@ -25439,6 +26407,22 @@
   "usage": {
    "completion_tokens": 56,
    "prompt_tokens": 753
+  }
+ },
+ "fb8f512ca7ad54f98ba887a97738b51f354f59eb887de294816d1b0ec4969e94": {
+  "at": "2026-11-23",
+  "id": 62,
+  "identifier": "(EU) 2013/732 [SK]",
+  "model": "gpt-5.5",
+  "result": {
+   "description_ok": "none",
+   "problems": [],
+   "relevance": "medium",
+   "title_ok": "yes"
+  },
+  "usage": {
+   "completion_tokens": 27,
+   "prompt_tokens": 963
   }
  },
  "fc3829b9ef2daff7523dcb9b7a259923a03a7e4665c965812203f11ea68ac18f": {

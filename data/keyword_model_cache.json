@@ -137,26 +137,26 @@
  },
  "124/2000 Z. z.": {
   "at": "2026-11-23",
-  "input": "d00dec8613037a4e7fb6f271ec4732d11ae89703f6a12f96723c0ca0e762e7bc",
+  "input": "7535a43d918e2aba97ab3f76c293f854e182e03d748dbfd7b104529b3c7088ad",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
+    "hořlavý plyn",
+    "plyn podporující hoření",
     "požární bezpečnost",
-    "hořlavé plyny",
-    "plyny podporující hoření",
     "plnírna plynů",
     "tlaková nádoba",
     "plnění tlakových nádob",
-    "skladování tlakových nádob",
+    "stáčení plynů",
+    "skladování plynů",
     "manipulace s tlakovými nádobami",
-    "výbušná směs",
-    "plnicí zařízení"
+    "výbušná směs"
    ]
   },
   "usage": {
-   "completion_tokens": 82,
-   "prompt_tokens": 2393
+   "completion_tokens": 83,
+   "prompt_tokens": 2324
   }
  },
  "13/1997 Sb.": {
@@ -1184,26 +1184,26 @@
  },
  "699/2004 Z. z.": {
   "at": "2026-11-23",
-  "input": "61b8e1a48d98541c7b02d06dbddddb78e29cd1ca62478c0785c5f987c481a411",
+  "input": "853690a1d373af6d5d1c5710145da174096a845674a95645705927c4a91390cb",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "voda pro hašení požárů",
+    "voda na hašení požárů",
     "požární vodovod",
     "zdroj požární vody",
     "požární nádrž",
     "požární studna",
-    "hydrant",
-    "odběrné místo",
+    "požární hydrant",
     "hadicové zařízení",
+    "odběrné místo",
     "požární ochrana staveb",
     "hasičská technika"
    ]
   },
   "usage": {
-   "completion_tokens": 72,
-   "prompt_tokens": 2423
+   "completion_tokens": 75,
+   "prompt_tokens": 2348
   }
  },
  "76/2002 Sb.": {
@@ -1232,7 +1232,7 @@
  },
  "94/2004 Z. z.": {
   "at": "2026-11-23",
-  "input": "961b4718da40eb55b13e30d421dd41d949faa45d8336c51fd5236f4189c354d1",
+  "input": "f5793a36ea9a2f97e6635afde726734fd34cf4e47e56a0e0bebc9ff2ddaaf07b",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -1243,39 +1243,39 @@
     "úniková cesta",
     "evakuace osob",
     "požární konstrukce",
-    "požárněbezpečnostní opatření",
-    "požární zařízení",
     "odstupová vzdálenost",
+    "požární zařízení",
+    "skladování",
     "technologické zařízení"
    ]
   },
   "usage": {
-   "completion_tokens": 76,
-   "prompt_tokens": 2455
+   "completion_tokens": 69,
+   "prompt_tokens": 2375
   }
  },
  "96/2004 Z. z.": {
   "at": "2026-11-23",
-  "input": "2cf8c4579793f3ae4b0ce5408b1fed5f8ad2b059a6b6d937aefae7f1c9a1b968",
+  "input": "502cd370bfb361b2a9d90a9732566590f1b5b28aa8ce1f48cd8a15d8ea8375ea",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "hořlavé kapaliny",
-    "protipožární bezpečnost",
+    "hořlavá kapalina",
+    "požární bezpečnost",
     "skladování kapalin",
     "manipulace s kapalinami",
     "čerpací stanice kapalných paliv",
-    "těžké topné oleje",
+    "stáčení kapalin",
+    "plnění kapalin",
     "bod vzplanutí",
-    "přepravní obal",
-    "cisternový kontejner",
-    "třída nebezpečnosti"
+    "topný olej",
+    "přepravní obal"
    ]
   },
   "usage": {
-   "completion_tokens": 85,
-   "prompt_tokens": 2549
+   "completion_tokens": 77,
+   "prompt_tokens": 2459
   }
  },
  "A-A-59874": {
@@ -1644,44 +1644,41 @@
  },
  "API SPEC 11D1": {
   "at": "2026-11-23",
-  "input": "5c4e92b1ff5ac5a56e0bb70134e4c4a169ff241139aefe2e3b83791657183867",
+  "input": "4de06c8f9feb670c04c072973856a77bc3449fd9447e305095446441bea42424",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "pakry",
     "můstkové zátky",
-    "vodíkové potrubí",
-    "potrubní systémy",
-    "vodík",
-    "plynovody"
+    "ropné vrty",
+    "plynové vrty",
+    "dokončování vrtů",
+    "vrtné zařízení"
    ]
   },
   "usage": {
-   "completion_tokens": 40,
-   "prompt_tokens": 639
+   "completion_tokens": 43,
+   "prompt_tokens": 580
   }
  },
  "API SPEC 5CT": {
   "at": "2026-11-23",
-  "input": "aaf51c90d987bd70a8db75f7ccfb3fd8f97fa0881035815cdc69f1e441652a81",
+  "input": "ef7f723739866a009ba4473276798677e36deeecebd672d208bcdc06d126abd3",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "pažnice",
     "těžební trubky",
-    "potrubí",
-    "plynný vodík",
-    "kapalný vodík",
-    "vodíkové potrubí",
     "ropné vrty",
-    "plynové vrty"
+    "plynové vrty",
+    "ocelové trubky"
    ]
   },
   "usage": {
-   "completion_tokens": 56,
-   "prompt_tokens": 602
+   "completion_tokens": 40,
+   "prompt_tokens": 578
   }
  },
  "API SPEC 5L": {
@@ -2590,23 +2587,23 @@
  },
  "ASTM E1529-22": {
   "at": "2026-11-23",
-  "input": "d01c041f635a7d0ce21261848e66d30e8c36d0c95fa9f7596abfe3cec4d56425",
+  "input": "88b4fc9b5a8328d0f4166c067fcf27d761001d900b285bb26a2898c69c20b435",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "požár uhlovodíků",
-    "plošný požár",
-    "nosná konstrukce",
-    "konstrukční prvek",
-    "požární zkouška",
+    "uhlovodíkový kalužový požár",
+    "nosné konstrukce",
+    "konstrukční sestavy",
     "požární odolnost",
-    "tepelné zatížení"
+    "požární zkouška",
+    "tepelné účinky",
+    "stavební prvky"
    ]
   },
   "usage": {
-   "completion_tokens": 57,
-   "prompt_tokens": 602
+   "completion_tokens": 131,
+   "prompt_tokens": 596
   }
  },
  "ASTM F 1624": {
@@ -6421,7 +6418,7 @@
  },
  "EN 17339": {
   "at": "2026-11-23",
-  "input": "1dc714af76aee3b271c9add0085b0db23a8f42c6c7df8bfc6e0daaacf435e2de",
+  "input": "6fad6976386bc26c93176238b2b3e6de6db20b591c09e83efb7703ed7e453913",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -6430,17 +6427,14 @@
     "kompozitní tlaková láhev",
     "uhlíkový kompozit",
     "vodík",
-    "svazek trubek",
     "přepravitelná tlaková nádoba",
-    "obalové vinutí",
-    "plné vinutí",
-    "zkoušení tlakových nádob",
-    "skladování vodíku"
+    "tlaková trubka",
+    "vinutí nádoby"
    ]
   },
   "usage": {
-   "completion_tokens": 81,
-   "prompt_tokens": 656
+   "completion_tokens": 60,
+   "prompt_tokens": 588
   }
  },
  "EN 50126": {
@@ -6513,22 +6507,21 @@
  },
  "ES-TRIN": {
   "at": "2026-11-23",
-  "input": "3c4f0546deefaeb21bd459ee1a0ab46421de9075810de2c0051df5bb23e4ff0f",
+  "input": "9d669232507e6f65642e742aef5da55115a144db8aaa1e5ee5165bf0c8551f4d",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "alternativní paliva",
     "vnitrozemská plavidla",
     "bunkrování paliva",
     "skladování paliva",
-    "palivové zásobníky",
-    "lodní doprava"
+    "palivové systémy plavidel",
+    "lodní pohonné hmoty"
    ]
   },
   "usage": {
-   "completion_tokens": 51,
-   "prompt_tokens": 611
+   "completion_tokens": 181,
+   "prompt_tokens": 613
   }
  },
  "FBETEM-007": {
@@ -9715,6 +9708,30 @@
    "prompt_tokens": 601
   }
  },
+ "ISO 11326": {
+  "at": "2026-11-23",
+  "input": "2be2cf88e970fb8bbbae4217376db23ffe4beeb678f4b7b42bb030af62d6229b",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "kapalný vodík",
+    "nákladní nádrž",
+    "vodíková loď",
+    "vakuová izolace",
+    "dvojitá stěna",
+    "kovová nádrž",
+    "paravodík",
+    "zkoušení nádrží",
+    "přeprava vodíku",
+    "námořní doprava"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 75,
+   "prompt_tokens": 727
+  }
+ },
  "ISO 11326/ - 2024.011": {
   "at": "2026-11-23",
   "input": "8bcd232109d5ad1d9dccdddf976365a9065a1e450105cf9bd6b9ed29e1bf73e5",
@@ -10279,7 +10296,7 @@
  },
  "ISO 13577-2": {
   "at": "2026-11-23",
-  "input": "15be17f8ef8328579fef807d4db6133e2eead33c0f06901eb149f7244ddb0e54",
+  "input": "54433fa6fdda15b5e95c3bb8892577625259cfd43661fd9fa6bace88bd3e2a09",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -10287,15 +10304,18 @@
     "průmyslová pec",
     "spalovací systém",
     "palivový systém",
-    "manipulace s palivem",
-    "bezpečnost spalování",
-    "hořák",
-    "palivové potrubí"
+    "hořákový systém",
+    "plynné palivo",
+    "kapalné palivo",
+    "spalovací vzduch",
+    "spalinový systém",
+    "bezpečnostní řídicí systém",
+    "zapalovací zařízení"
    ]
   },
   "usage": {
-   "completion_tokens": 53,
-   "prompt_tokens": 600
+   "completion_tokens": 71,
+   "prompt_tokens": 975
   }
  },
  "ISO 13577-3/ - 2016.09": {
@@ -10398,6 +10418,30 @@
    "prompt_tokens": 586
   }
  },
+ "ISO 13984": {
+  "at": "2026-11-23",
+  "input": "610e2f7aba8a7e258b703437cf8936a015da64e408639f96136b657f29d8795f",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "kapalný vodík",
+    "plnění vozidel",
+    "čerpací stanice vodíku",
+    "pozemní vozidlo",
+    "palivový systém vozidla",
+    "zásobník kapalného vodíku",
+    "výdejní systém vodíku",
+    "rozhraní stanice–vozidlo",
+    "požár",
+    "výbuch"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 79,
+   "prompt_tokens": 787
+  }
+ },
  "ISO 13984/ - 1999.03": {
   "at": "2026-11-23",
   "input": "681666fa4677c3a062aae0abab763debeb1995e57c742303af5d8679fdf2b102",
@@ -10419,6 +10463,28 @@
   "usage": {
    "completion_tokens": 69,
    "prompt_tokens": 737
+  }
+ },
+ "ISO 13985": {
+  "at": "2026-11-23",
+  "input": "ccd3615d88233d2d1fc0d1b25a894286d8f54ce3cb557d5580eb050f7b81f6e1",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "kapalný vodík",
+    "palivová nádrž",
+    "pozemní vozidlo",
+    "plnitelná nádrž",
+    "konstrukce nádrže",
+    "zkoušení nádrží",
+    "požární riziko",
+    "nebezpečí výbuchu"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 64,
+   "prompt_tokens": 652
   }
  },
  "ISO 13985/ - 2006.11": {
@@ -10599,22 +10665,24 @@
  },
  "ISO 14687": {
   "at": "2026-11-23",
-  "input": "f12295d56175bc6ab3380c4779dc94fbeffa5f712fbd8fee8a0d2feebd90e0ca",
+  "input": "60d923b48aa66e99c482242fde240202d1efd06e44f618b8a9482cf1b2b66161",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "vodíkové palivo",
     "kvalita vodíku",
-    "specifikace produktu",
-    "silniční vozidla",
+    "vodíkové palivo",
+    "čistota vodíku",
+    "čerpací stanice vodíku",
+    "palivové články",
     "stacionární aplikace",
-    "čistota vodíku"
+    "průmyslové využití vodíku",
+    "distribuce vodíku"
    ]
   },
   "usage": {
-   "completion_tokens": 48,
-   "prompt_tokens": 605
+   "completion_tokens": 69,
+   "prompt_tokens": 629
   }
  },
  "ISO 14687-1": {
@@ -11101,6 +11169,30 @@
    "prompt_tokens": 586
   }
  },
+ "ISO 17268-1": {
+  "at": "2026-11-23",
+  "input": "2a64e6fed0851e25a09d91782ebb9a7074e4c6b78fb96b9be0a2dc72092de7ca",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plnicí přípojka vodíku",
+    "vodíkové vozidlo",
+    "plynný vodík",
+    "plnicí pistole",
+    "plnicí hrdlo",
+    "komunikační hardware",
+    "ochranná krytka",
+    "tlak do 70 MPa",
+    "průtok vodíku",
+    "bezpečnost plnění"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 80,
+   "prompt_tokens": 718
+  }
+ },
  "ISO 17526": {
   "at": "2026-11-23",
   "input": "a62d865ac6b5466cbc14051dca2220b2739275b245ea8eae1f9f758e10871887",
@@ -11225,6 +11317,30 @@
    "prompt_tokens": 633
   }
  },
+ "ISO 18172-2": {
+  "at": "2026-11-23",
+  "input": "cdd0379669de9027cc2beab64b484e0bcf2c23323772bf3145340e8da0acae72",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "tlaková láhev",
+    "svařovaná láhev",
+    "nerezová ocel",
+    "plnitelná láhev",
+    "přepravitelná láhev",
+    "stlačený plyn",
+    "zkapalněný plyn",
+    "zkušební tlak",
+    "výroba tlakových lahví",
+    "zkoušení tlakových lahví"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 84,
+   "prompt_tokens": 710
+  }
+ },
  "ISO 18172-2/ - 2007.03": {
   "at": "2026-11-23",
   "input": "5c978606066f94a15d83c200985e46672f900afbbcb50b5e95bbd64bd48df0fd",
@@ -11243,6 +11359,117 @@
   "usage": {
    "completion_tokens": 50,
    "prompt_tokens": 632
+  }
+ },
+ "ISO 18735": {
+  "at": "2026-11-23",
+  "input": "e05b25ac1cdc8d2a267dd26d21df6a39b888d9cb0da50883b932548c9d193032",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vysokomanganová austenitická ocel",
+    "ocelové odlitky",
+    "kryogenní teplota",
+    "tlakové komponenty",
+    "armatury",
+    "příruby",
+    "lodní technika",
+    "tlaková zařízení"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 657
+  }
+ },
+ "ISO 18741": {
+  "at": "2026-11-23",
+  "input": "25ad0d25ff007b4dd83c1deb722a30afec4357de2c3f29111e70aa590b0790ee",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vysokomanganová austenitická ocel",
+    "ocelové výkovky",
+    "kryogenní teplota",
+    "tlakové součásti",
+    "ventily",
+    "příruby",
+    "potrubní tvarovky",
+    "lodní technologie",
+    "námořní technika"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 71,
+   "prompt_tokens": 670
+  }
+ },
+ "ISO 18742": {
+  "at": "2026-11-23",
+  "input": "153ad00682ee3913af6c09bf360cb08a42ffb1b2ad8adeee4c34e95ac07a7a5e",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vysokomanganová austenitická ocel",
+    "svařované tvarovky",
+    "kryogenní teplota",
+    "tlakové potrubí",
+    "tlakové části",
+    "lodní technologie",
+    "pobřežní projekty",
+    "trupové systémy"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 70,
+   "prompt_tokens": 672
+  }
+ },
+ "ISO 18760": {
+  "at": "2026-11-23",
+  "input": "b315e46c2054864a04bc14c84074611ee96df4315b17f734dbd17906246ad0aa",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vysokomanganová austenitická ocel",
+    "podélně svařovaná trubka",
+    "kryogenní teplota",
+    "tlakové potrubí",
+    "lodní technologie",
+    "tlaková část",
+    "potrubní podpěra",
+    "dodací podmínky"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 72,
+   "prompt_tokens": 682
+  }
+ },
+ "ISO 18819": {
+  "at": "2026-11-23",
+  "input": "9bf26064bdd81ea507b15fb1901683e58048487d18c9d464b62aa692a707f199",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vysokomanganová austenitická ocel",
+    "kryogenní teplota",
+    "ocelové plechy",
+    "ocelové svitky",
+    "ocelové pásy",
+    "válcování za tepla",
+    "válcování za studena",
+    "lodní technologie"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 68,
+   "prompt_tokens": 678
   }
  },
  "ISO 19229/ - 2019.07": {
@@ -11286,6 +11513,30 @@
   "usage": {
    "completion_tokens": 78,
    "prompt_tokens": 955
+  }
+ },
+ "ISO 19880-2": {
+  "at": "2026-11-23",
+  "input": "47470f231b46c5087dc37163b44dee02a80e4b30a8de6b46a29de276d66b7f7a",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "výdejní stojan vodíku",
+    "čerpací stanice vodíku",
+    "stlačený vodík",
+    "plnicí systém",
+    "plnicí tlak",
+    "plnicí hadice",
+    "chladicí jednotka",
+    "průtokoměr",
+    "plnicí protokol",
+    "vodíkové vozidlo"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 76,
+   "prompt_tokens": 959
   }
  },
  "ISO 19880-2/ - 2025.02": {
@@ -11333,6 +11584,30 @@
    "prompt_tokens": 648
   }
  },
+ "ISO 19880-5": {
+  "at": "2026-11-23",
+  "input": "502200f3f5b2774af5b7d9741ca91fb54e35111d831f65e0d42154dec46b70d4",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "výdejní hadice vodíku",
+    "hadicové sestavy",
+    "čerpací stanice vodíku",
+    "plynný vodík",
+    "vysokotlaký vodík",
+    "plnění vozidel vodíkem",
+    "vyztužené hadice",
+    "bezpečnost hadic",
+    "zkoušení hadic",
+    "vodíkové konektory"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 82,
+   "prompt_tokens": 874
+  }
+ },
  "ISO 19880-5/ - 2019.11": {
   "at": "2026-11-23",
   "input": "b268edf8bc4a02b71f32efacd2bdacd409f08555f8f5cb81b9e5fa382fd18ad9",
@@ -11354,6 +11629,50 @@
   "usage": {
    "completion_tokens": 68,
    "prompt_tokens": 657
+  }
+ },
+ "ISO 19880-7": {
+  "at": "2026-11-23",
+  "input": "f9cd5830ee610c6e5d8d52d2802819032c0e722a66f58ab183c8b29b1b877f97",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "čerpací stanice vodíku",
+    "plynný vodík",
+    "pryžový O-kroužek",
+    "vysokotlaké vodíkové zařízení",
+    "vodíkové těsnění",
+    "těsnicí systém",
+    "jmenovitý pracovní tlak",
+    "zkoušky těsnění",
+    "teplotní rozsah"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 80,
+   "prompt_tokens": 897
+  }
+ },
+ "ISO 19880-8": {
+  "at": "2026-11-23",
+  "input": "929cb7c93831f45f56c1f27bb1fac7e876c31f0dca6d82438c83dfb7d39ce800",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "čerpací stanice vodíku",
+    "kvalita paliva",
+    "kontrola kvality",
+    "palivový článek PEM",
+    "silniční vozidlo",
+    "distribuce vodíku"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 57,
+   "prompt_tokens": 635
   }
  },
  "ISO 19880-8/ - 2024.12": {
@@ -11379,26 +11698,50 @@
  },
  "ISO 19880-9": {
   "at": "2026-11-23",
-  "input": "3ece7748abb171ce98687153a0883fa775c066845c19cfcce55d5a74870a5636",
+  "input": "962b77c49222058faefbbda895746c56a51d221a2b3a3ca145e54a3a05ffe328",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "odběr vzorků vodíku",
     "čerpací stanice vodíku",
+    "plynný vodík",
+    "vzorkování vodíku",
     "kvalita paliva",
     "výdejní stojan",
     "plnicí pistole",
-    "plynný vodík",
-    "bezpečnost odběru vzorků",
     "analýza vodíku",
-    "přejímací zkoušky",
-    "provozní kontrola"
+    "přejímací zkoušení",
+    "bezpečnost odběru vzorků",
+    "zajištění kvality vodíku"
    ]
   },
   "usage": {
-   "completion_tokens": 84,
-   "prompt_tokens": 841
+   "completion_tokens": 83,
+   "prompt_tokens": 828
+  }
+ },
+ "ISO 19881": {
+  "at": "2026-11-23",
+  "input": "e00c30d887feaa393e1231b4e37ada40067020de01cbe2396df34c2d778c9947",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "palivová nádrž",
+    "pozemní vozidlo",
+    "stlačený vodík",
+    "skladování vodíku",
+    "palivový článek",
+    "spalovací motor",
+    "vysokotlaká nádoba",
+    "zkoušení nádrží",
+    "značení nádrží"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 75,
+   "prompt_tokens": 765
   }
  },
  "ISO 19881/ - 2018.10": {
@@ -11422,6 +11765,30 @@
   "usage": {
    "completion_tokens": 71,
    "prompt_tokens": 674
+  }
+ },
+ "ISO 19882": {
+  "at": "2026-11-23",
+  "input": "6de75116913eb001795297aad21dc12876ca5f50d229aed0a4b53da8d135ccee",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "tepelně aktivované pojistné zařízení",
+    "tlaková nádoba na vodík",
+    "palivová nádrž vozidla",
+    "vodíkové vozidlo",
+    "palivový článek",
+    "spalovací motor",
+    "vysokozdvižný vozík",
+    "odlehčení tlaku",
+    "pozemní vozidlo"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 86,
+   "prompt_tokens": 815
   }
  },
  "ISO 19882/ - 2018.11": {
@@ -11464,6 +11831,30 @@
   "usage": {
    "completion_tokens": 40,
    "prompt_tokens": 609
+  }
+ },
+ "ISO 19885-1": {
+  "at": "2026-11-23",
+  "input": "92ffd1c657afc824472e0a17235f146b5e3030ab489c2079f71ba5387351879c",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plnění vodíku",
+    "plynný vodík",
+    "plnicí protokol",
+    "vozidlo na vodík",
+    "stlačený vodík",
+    "výdejní systém vodíku",
+    "palivová nádrž",
+    "čerpací stanice vodíku",
+    "bezpečné plnění",
+    "silniční vozidlo"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 78,
+   "prompt_tokens": 958
   }
  },
  "ISO 19885-1/ - 2024.05": {
@@ -12043,6 +12434,25 @@
    "prompt_tokens": 591
   }
  },
+ "ISO 22734-1": {
+  "at": "2026-11-23",
+  "input": "3db03b9dc2bccb7e23584e199bb70376e0904e717d4b84fe2f741729de3873a2",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "generátor vodíku",
+    "elektrolýza vody",
+    "výroba vodíku",
+    "bezpečnost zařízení",
+    "elektrochemická reakce"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 43,
+   "prompt_tokens": 627
+  }
+ },
  "ISO 22734:2019": {
   "at": "2026-11-23",
   "input": "a0d3a8fbd87be1c2112bc872ea8d5f48750ab5dbe32d1d3934f6a08a1410a59f",
@@ -12189,6 +12599,30 @@
   "usage": {
    "completion_tokens": 52,
    "prompt_tokens": 603
+  }
+ },
+ "ISO 23551-12": {
+  "at": "2026-11-23",
+  "input": "3a8a88bb8326c773a5aae4f808cd0f81f2d446bb5b208c431b4a528ea4ebe283",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "multifunkční ovládací zařízení",
+    "ochrana proti přetlaku",
+    "butanová kartuše",
+    "přenosný plynový spotřebič",
+    "plynový hořák",
+    "regulátor tlaku",
+    "ruční plynový ventil",
+    "termoelektrická pojistka plamene",
+    "typová zkouška",
+    "bezpečnostní ovládací zařízení"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 90,
+   "prompt_tokens": 779
   }
  },
  "ISO 23551-12/ - 2023.10": {
@@ -12379,6 +12813,27 @@
    "prompt_tokens": 584
   }
  },
+ "ISO 23828": {
+  "at": "2026-11-23",
+  "input": "acb823780c7d038561e504c7df45beaba880f4471e0673fbee64774a7b9a5108",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "silniční vozidlo s palivovým článkem",
+    "spotřeba energie",
+    "dojezd vozidla",
+    "stlačený vodík",
+    "osobní automobil",
+    "lehký užitkový automobil",
+    "měření spotřeby"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 620
+  }
+ },
  "ISO 23828/ - 2022.06": {
   "at": "2026-11-23",
   "input": "aef14b3a64ee625171dacb07476cd026f124480c331b886e876212a2f982a2af",
@@ -12417,6 +12872,30 @@
   "usage": {
    "completion_tokens": 41,
    "prompt_tokens": 644
+  }
+ },
+ "ISO 24132": {
+  "at": "2026-11-23",
+  "input": "3d8444446f622fd760c93b941dd497c3342e682bc0c08ea6d59d810240513d72",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "zkapalněný vodík",
+    "námořní přečerpávací rameno",
+    "vodíkový terminál",
+    "přečerpávání vodíku",
+    "vodíkový tanker",
+    "vakuová izolace",
+    "lodní technologie",
+    "kontrola zařízení",
+    "zkoušení zařízení",
+    "bezpečnost přečerpávání"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 79,
+   "prompt_tokens": 742
   }
  },
  "ISO 24132/ - 2024.06": {
@@ -12742,24 +13221,26 @@
  },
  "ISO 5124": {
   "at": "2026-11-23",
-  "input": "542cdf4ba598d282595e65c76201aeb5f02194e4c650b36b1a648af579dc7e60",
+  "input": "94e59f38162177cf6910b87429e8e1a39ac6ee9e811944347eeeaf8e606f7611",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "LNG",
-    "zkapalněný zemní plyn",
-    "plnění nádržkových vozů",
-    "vyprazdňování nádržkových vozů",
+    "železniční plnění",
+    "vykládka LNG",
+    "železniční cisternový vůz",
     "cisternový kontejner",
-    "železniční přeprava",
-    "kryogenní kapalina",
-    "nakládka a vykládka"
+    "plnicí místo",
+    "pozemní terminál LNG",
+    "satelitní stanice LNG",
+    "vážní most",
+    "manipulace s LNG"
    ]
   },
   "usage": {
-   "completion_tokens": 77,
-   "prompt_tokens": 593
+   "completion_tokens": 75,
+   "prompt_tokens": 711
   }
  },
  "ISO 5145/ - 2017.01": {
@@ -13186,6 +13667,29 @@
   "usage": {
    "completion_tokens": 58,
    "prompt_tokens": 595
+  }
+ },
+ "ISO 7039": {
+  "at": "2026-11-23",
+  "input": "c54e63ca591302bae7ff9b5bf3d4fc2b0e8c5d141efc98f1fbc7087673788773",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "kovové materiály",
+    "zkouška tahem",
+    "vysokotlaký plyn",
+    "vodík",
+    "duté zkušební těleso",
+    "mechanické vlastnosti",
+    "vodíková křehkost",
+    "inertní plyn",
+    "povrchová úprava"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 71,
+   "prompt_tokens": 709
   }
  },
  "ISO 7039/ - 2024.07": {
@@ -14332,6 +14836,29 @@
    "prompt_tokens": 582
   }
  },
+ "ISO/DIS 17268-2": {
+  "at": "2026-11-23",
+  "input": "145932cd2cd30c4201f5fe441efdfa3a3fe7c27ae3203c63f1d55198ba256da1",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plnicí přípojka vodíku",
+    "plynný vodík",
+    "vodíkové vozidlo",
+    "plnicí koncovka",
+    "plnicí hrdlo",
+    "vysokoprůtokové plnění",
+    "tlak 70 MPa",
+    "komunikační hardware",
+    "ochranná krytka"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 77,
+   "prompt_tokens": 722
+  }
+ },
  "ISO/DIS 18735": {
   "at": "2026-11-23",
   "input": "3a13565d70fd5ac9cebcfc8b3270f29f737c4291f9d60020184ad01add120baf",
@@ -14473,6 +15000,54 @@
    "prompt_tokens": 617
   }
  },
+ "ISO/DIS 19885-2": {
+  "at": "2026-11-23",
+  "input": "933e4f36a750ee22f3345aefecbcf5dad02c421508c89b4b26d62972c6a824e9",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "plnění vodíku",
+    "vodíková vozidla",
+    "komunikační protokol",
+    "výdejní stojan vodíku",
+    "řídicí systém vozidla",
+    "stlačený vodík",
+    "těžká silniční vozidla",
+    "jmenovitý pracovní tlak",
+    "čerpací stanice vodíku"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 86,
+   "prompt_tokens": 893
+  }
+ },
+ "ISO/DIS 19885-3": {
+  "at": "2026-11-23",
+  "input": "5d3e684d352c06178ffa34ac77596d260c81c3f7cfb22a45ef8871d8ceb510f1",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "plnění vodíku",
+    "plnicí protokol",
+    "vodíkové silniční vozidlo",
+    "těžké užitkové vozidlo",
+    "stlačený vodík",
+    "čerpací stanice vodíku",
+    "plnicí pistole",
+    "plnicí hrdlo",
+    "komunikace vozidla se stojanem"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 88,
+   "prompt_tokens": 947
+  }
+ },
  "ISO/DIS 19887": {
   "at": "2026-11-23",
   "input": "cdaf7fd93bbdd1cd34475528fb9e1c2a292f036d78d4ed848c5aea2e9687f6a5",
@@ -14514,6 +15089,28 @@
   "usage": {
    "completion_tokens": 70,
    "prompt_tokens": 621
+  }
+ },
+ "ISO/DTR 19884-2": {
+  "at": "2026-11-23",
+  "input": "f2b73eefbc4ba26ae462ac054eef5c3bb331535ad96632ccb85ba34ccaf61c3a",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "stacionární skladování",
+    "tlakové nádoby",
+    "materiálové zkoušky",
+    "ocel",
+    "hliníkové slitiny",
+    "vodíková kompatibilita",
+    "vodíková služba"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 62,
+   "prompt_tokens": 623
   }
  },
  "ISO/FDIS 13577-2": {
@@ -14602,6 +15199,30 @@
   "usage": {
    "completion_tokens": 76,
    "prompt_tokens": 673
+  }
+ },
+ "ISO/FDIS 19884-1": {
+  "at": "2026-11-23",
+  "input": "5d7a95935bec811f395c5eac679ca8995a2fe67f47cc49693086cf2418ced28f",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "stacionární skladování vodíku",
+    "tlaková nádoba",
+    "kompozitní tlaková nádoba",
+    "kovová tlaková nádoba",
+    "svařovaná konstrukce",
+    "bezešvá konstrukce",
+    "výroba tlakových nádob",
+    "zkoušení tlakových nádob",
+    "vysokotlaké skladování"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 86,
+   "prompt_tokens": 742
   }
  },
  "ISO/FDIS 22734-1": {
@@ -14766,6 +15387,29 @@
    "prompt_tokens": 603
   }
  },
+ "ISO/TR 11954": {
+  "at": "2026-11-23",
+  "input": "b571e3b3c172fe620667d26f7f03c4e92d4bce8c963004ebf554b2ce62edb794",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "silniční vozidlo s palivovým článkem",
+    "stlačený vodík",
+    "měření výkonu vozidla",
+    "hybridní elektrické vozidlo",
+    "zrychlení vozidla",
+    "maximální rychlost",
+    "stoupavost vozidla",
+    "osobní automobil",
+    "lehký nákladní automobil"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 81,
+   "prompt_tokens": 653
+  }
+ },
  "ISO/TR 11954 (2008)": {
   "at": "2026-11-23",
   "input": "2502ce0ff577c8f6c1f04408c112589f8dc37665dd30af26abac831453cecf04",
@@ -14849,6 +15493,29 @@
   "usage": {
    "completion_tokens": 90,
    "prompt_tokens": 757
+  }
+ },
+ "ISO/TR 19884-3": {
+  "at": "2026-11-23",
+  "input": "7422808271a53da81a2a56fd537bc4b0da7c274180592f9ce6b5d66b87491aaf",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "plynný vodík",
+    "stacionární skladování",
+    "tlaková nádoba",
+    "tlakový cyklus",
+    "životnost tlakové nádoby",
+    "cyklické namáhání",
+    "Goodmanův diagram",
+    "tlaková zkouška",
+    "únava materiálu"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 69,
+   "prompt_tokens": 706
   }
  },
  "ISO/TR 27912/ - 2016.05": {
@@ -14949,6 +15616,28 @@
    "prompt_tokens": 587
   }
  },
+ "ISO/TS 15916": {
+  "at": "2026-11-23",
+  "input": "96694cb64d9fd989eabf6ba2a41a6ee0f3ec345cf9e2bc4f7cf48d36d91e794f",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "vodíkové systémy",
+    "bezpečnost vodíku",
+    "plynný vodík",
+    "kapalný vodík",
+    "skladování vodíku",
+    "hydridy",
+    "nebezpečné vlastnosti vodíku",
+    "rizika vodíku"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 61,
+   "prompt_tokens": 702
+  }
+ },
  "ISO/TS 16901/ - 2022.12": {
   "at": "2026-11-23",
   "input": "879fe9ddf485f02428f15e71294e30a5bfce3ff019b66d03d7306024bb5a2481",
@@ -15012,6 +15701,30 @@
    "prompt_tokens": 666
   }
  },
+ "ISO/TS 18683": {
+  "at": "2026-11-23",
+  "input": "c51eb0f61f4aa4b2491dceb2d4aff4280be4b64341f25d98fccdf71d77f319ce",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "LNG bunkrování",
+    "LNG palivo",
+    "plavidlo na LNG",
+    "přenos LNG",
+    "posouzení rizik",
+    "bezpečnost provozu",
+    "bunkrovací zařízení",
+    "lodní doprava",
+    "vnitrozemská plavba",
+    "simultánní operace"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 71,
+   "prompt_tokens": 732
+  }
+ },
  "ISO/TS 18683/ - 2021.11": {
   "at": "2026-11-23",
   "input": "2f6cc38c87d893c88de8f7ff14ae43f0743cd1ef1e32a9b1f9c0e2d1093a0a90",
@@ -15035,24 +15748,48 @@
  },
  "ISO/TS 19870": {
   "at": "2026-11-23",
-  "input": "4979244e56c7430b07245f5de12d0f7c68b9c6f3a5ed61a08709647dbb50df5e",
+  "input": "71c1944f34010752d616957f23d65948e882e9d915b9e93af6e6ebea6ce2c9e3",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "emise skleníkových plynů",
-    "výroba vodíku",
-    "úprava vodíku",
-    "přeprava vodíku",
     "uhlíková stopa vodíku",
-    "metodika výpočtu",
-    "brána spotřeby",
-    "vodíkové technologie"
+    "výroba vodíku",
+    "životní cyklus",
+    "elektrolýza vody",
+    "parní reforming metanu",
+    "zachycování a ukládání uhlíku",
+    "zkapalňování vodíku",
+    "nosiče vodíku",
+    "přeprava vodíku"
    ]
   },
   "usage": {
-   "completion_tokens": 69,
-   "prompt_tokens": 603
+   "completion_tokens": 92,
+   "prompt_tokens": 988
+  }
+ },
+ "ISO/TS 19883": {
+  "at": "2026-11-23",
+  "input": "25f8087b97f8263df840c1068fa1a7f881877b414524251b91544175c2bb03f4",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "adsorpce za změny tlaku",
+    "separace vodíku",
+    "čištění vodíku",
+    "vodíkový systém",
+    "nečistý vodík",
+    "bezpečnost zařízení",
+    "kontejnerové zařízení",
+    "průmyslové použití"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 65,
+   "prompt_tokens": 692
   }
  },
  "ISO/TS 19883/ - 2017.03": {
@@ -19507,44 +20244,41 @@
  },
  "STN EN 1555-3/ - 2021.10": {
   "at": "2026-11-23",
-  "input": "6a4eefe86cc7ca25e05225282a67e51ba1c8ef02de8ce3fc85f24fa6c70e76a7",
+  "input": "98f869490ab28cc24217782a55d4421a73b7d3107d8fb769c4be9579e17ec87f",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "polyetylénové potrubí",
+    "potrubní systémy",
     "plynná paliva",
+    "polyetylén",
     "tvarovky",
     "zásobování plynem",
-    "plastové potrubní systémy",
-    "potrubní spoje",
-    "ventily"
-   ]
-  },
-  "usage": {
-   "completion_tokens": 53,
-   "prompt_tokens": 691
-  }
- },
- "STN EN 1555-4/ - 2021.10": {
-  "at": "2026-11-23",
-  "input": "27929c1d5df993bdf9c997e3d77be5c949fd02fba18efa8bdfe12cf13445acff",
-  "model": "gpt-5.5",
-  "prompt_version": 2,
-  "result": {
-   "keywords": [
-    "polyetylenové potrubní systémy",
-    "plynná paliva",
-    "zásobování plynem",
-    "polyetylenové armatury",
-    "potrubní armatury",
-    "potrubní spoje",
     "plastové potrubí"
    ]
   },
   "usage": {
-   "completion_tokens": 59,
-   "prompt_tokens": 691
+   "completion_tokens": 44,
+   "prompt_tokens": 622
+  }
+ },
+ "STN EN 1555-4/ - 2021.10": {
+  "at": "2026-11-23",
+  "input": "c0f1d5cb4d1b49449b50549042bc792d23122ca81e86932e983b39816f2890e8",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "potrubní systémy z plastů",
+    "zásobování plynnými palivy",
+    "polyetylen",
+    "armatury",
+    "plynovody"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 40,
+   "prompt_tokens": 622
   }
  },
  "STN EN 1555-5/ - 2021.10": {
@@ -20644,24 +21378,23 @@
  },
  "STN EN 60079-13/ - 2018.04": {
   "at": "2026-11-23",
-  "input": "6e8c84b262216a115484ca514cbb8c978b99a08f69dcc2a722ccc35b76cb2868",
+  "input": "c1eadc88260f2bd3bfde687b618c7bab5b3fd61781aa1592a4a6976eb8909437",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "výbušná atmosféra",
-    "elektrické zařízení",
-    "prostor s vnitřním přetlakem",
+    "vnitřní přetlak",
     "umělé větrání",
-    "ochrana před vznícením",
-    "tlakování",
-    "větrání zařízení",
-    "zkoušení zařízení"
+    "chráněný prostor",
+    "zařízení do výbušného prostředí",
+    "ochrana přetlakem",
+    "větraný prostor"
    ]
   },
   "usage": {
-   "completion_tokens": 64,
-   "prompt_tokens": 1102
+   "completion_tokens": 61,
+   "prompt_tokens": 635
   }
  },
  "STN EN 60079-14/ - 2016.05": {
@@ -22808,21 +23541,22 @@
  },
  "STN EN ISO 11114-1/Zmena": {
   "at": "2026-11-23",
-  "input": "59760376d92d1a10ece881d9cdfca5c6467987b889c18cce37f9f37d23950589",
+  "input": "a464d614fe2cefdb65cd9dc59cc86e48fffd8a763f6224653d550bde6e922238",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "přepravní láhev na plyn",
     "kompatibilita materiálů",
+    "kovový materiál",
     "ventilový materiál",
-    "materiál tlakové láhve",
-    "plyn"
+    "plynový obsah",
+    "tlaková láhev"
    ]
   },
   "usage": {
-   "completion_tokens": 46,
-   "prompt_tokens": 610
+   "completion_tokens": 50,
+   "prompt_tokens": 646
   }
  },
  "STN EN ISO 11114-2/ - 2022.02": {
@@ -23111,23 +23845,24 @@
  },
  "STN EN ISO 14001/ - 2016.04": {
   "at": "2026-11-23",
-  "input": "edb48914bb34bdbf1a415c28e42aaa04dad36ea181423802397ba33d2e25e917",
+  "input": "79168884579eb0b175a472fcccc92f5fb3a0dc32c9643a6c77b6d95b20a02fd1",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "systém environmentálního managementu",
     "environmentální výkonnost",
+    "environmentální aspekty",
     "environmentální cíle",
-    "právní povinnosti",
-    "certifikace GASTEC QA",
-    "vodík",
-    "plynárenské zařízení"
+    "povinnosti souladu",
+    "udržitelnost",
+    "životní cyklus",
+    "environmentální odpovědnost"
    ]
   },
   "usage": {
-   "completion_tokens": 56,
-   "prompt_tokens": 708
+   "completion_tokens": 61,
+   "prompt_tokens": 823
   }
  },
  "STN EN ISO 14020/ - 2023.10": {
@@ -25640,6 +26375,29 @@
    "prompt_tokens": 581
   }
  },
+ "TRBS 3146 / TRGS 726": {
+  "at": "2026-11-23",
+  "input": "0dcea65e226228da2d3b8dba80df8ccb07fa61775060de1bb98d56d6de53fe41",
+  "model": "gpt-5.5",
+  "prompt_version": 2,
+  "result": {
+   "keywords": [
+    "stacionární tlaková zařízení",
+    "skladování plynů",
+    "kyanovodík",
+    "plnění tlakových zařízení",
+    "vyprazdňování tlakových zařízení",
+    "instalace tlakových zařízení",
+    "údržba tlakových zařízení",
+    "odstavení tlakových zařízení",
+    "demontáž tlakových zařízení"
+   ]
+  },
+  "usage": {
+   "completion_tokens": 74,
+   "prompt_tokens": 650
+  }
+ },
  "TRBS 3151/TRGS 751": {
   "at": "2026-11-23",
   "input": "d903e167718792038fe14b7f1497c511c755bf61fa46bc0048be2def0f182f6f",
@@ -26845,24 +27603,22 @@
  },
  "prEN IEC 63341-2": {
   "at": "2026-11-23",
-  "input": "1516f5abf4e93e05187758d5f02fec7e287a4f45cdcc30e760ab01fe1af86285",
+  "input": "913b25d79fc7f9778893e26d4bdf65f63ed36984cc72a52a2255bd0b076ac313",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "palivový článek",
-    "vodík",
-    "kolejové vozidlo",
-    "výkonová zkouška",
-    "elektrický pohon",
-    "palivový systém",
-    "trakční napájení",
-    "železniční aplikace"
+    "drážní vozidla",
+    "palivové články",
+    "skladování vodíku",
+    "vodíkový pohon",
+    "vodíkový zásobník",
+    "železniční doprava"
    ]
   },
   "usage": {
-   "completion_tokens": 58,
-   "prompt_tokens": 919
+   "completion_tokens": 52,
+   "prompt_tokens": 620
   }
  },
  "prEN ISO 22734-1": {
@@ -27193,26 +27949,21 @@
  },
  "url-0700d382": {
   "at": "2026-11-23",
-  "input": "c358f1410e580d1aaf0d5650550fe71ab92b8b2b598c3e03c0ee83c1330dd150",
+  "input": "dc68cf9102e20479bb23413809921b2811828f5ca5467be891abcf93e2f70d33",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkové hospodářství",
-    "výroba vodíku",
-    "vodíkové technologie",
-    "obnovitelný vodík",
-    "nízkouhlíkový vodík",
-    "skladování vodíku",
-    "přeprava vodíku",
-    "vodíková legislativa",
-    "alternativní paliva",
-    "dekarbonizace"
+    "vodíková strategie",
+    "rozvoj vodíku",
+    "vodíková infrastruktura",
+    "vodíkové technologie"
    ]
   },
   "usage": {
-   "completion_tokens": 82,
-   "prompt_tokens": 2321
+   "completion_tokens": 42,
+   "prompt_tokens": 579
   }
  },
  "url-0b9c40e7": {
@@ -27241,26 +27992,21 @@
  },
  "url-1304338c": {
   "at": "2026-11-23",
-  "input": "f2834357461f5fe8554743a84f99ad2803f64023007eed0b52462bdc34056b01",
+  "input": "5cd8b5c3e8a4d9c6ad63b4a691e55b6e5bda40410b5b02d9a2a47d66dd7312d9",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíková strategie",
-    "čistý vodík",
-    "dekarbonizace průmyslu",
-    "klimatická neutralita",
-    "obnovitelné zdroje energie",
-    "elektrolyzér",
-    "skleníkové plyny",
-    "energetický systém",
-    "vodíková infrastruktura",
-    "nízkouhlíková doprava"
+    "Evropská unie",
+    "vodíkové hospodářství",
+    "výroba vodíku",
+    "dekarbonizace"
    ]
   },
   "usage": {
-   "completion_tokens": 81,
-   "prompt_tokens": 2291
+   "completion_tokens": 43,
+   "prompt_tokens": 571
   }
  },
  "url-1713cb5a": {
@@ -27311,26 +28057,23 @@
  },
  "url-2f5ff7c2": {
   "at": "2026-11-23",
-  "input": "5c380f74dafb432dafde8a8a4e63f0cad190118a3afa28ce9e68575937b16c43",
+  "input": "d72a58a63a20cd0847c98d351a95069bab8f75259690774e85f823624e5eb7b7",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "nízkouhlíkový vodík",
+    "nízkouhlíková paliva",
     "emise skleníkových plynů",
     "úspory emisí",
-    "obnovitelný vodík",
-    "vodíkové hospodářství",
-    "dekarbonizace",
-    "plynárenský balíček",
-    "metodika hodnocení",
-    "legislativa EU",
-    "energetická politika"
+    "metodika posuzování",
+    "delegovaný akt",
+    "HYTEP"
    ]
   },
   "usage": {
-   "completion_tokens": 83,
-   "prompt_tokens": 1468
+   "completion_tokens": 60,
+   "prompt_tokens": 593
   }
  },
  "url-348daeec": {
@@ -27359,26 +28102,23 @@
  },
  "url-49baf23f": {
   "at": "2026-11-23",
-  "input": "63a915ccdc96a00fdadc0d6bf9ad72e25263c1feeb7eb7b40aea78b2e1971ebe",
+  "input": "da71f12242377b2052efa4cad6193d5bc56bcc7fb2036cf2c7c44c0e9d288ca7",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkový trh",
-    "obnovitelný vodík",
+    "vodíkové hospodářství",
+    "politika EU",
     "legislativa EU",
-    "plynárenský balíček",
-    "alternativní paliva",
-    "emise skleníkových plynů",
-    "obnovitelná energie",
-    "nízkouhlíková paliva",
-    "uhlíkové vyrovnání",
-    "udržitelné investice"
+    "regulace vodíku",
+    "nelegislativní opatření",
+    "rozvoj trhu"
    ]
   },
   "usage": {
-   "completion_tokens": 86,
-   "prompt_tokens": 2311
+   "completion_tokens": 53,
+   "prompt_tokens": 588
   }
  },
  "url-4a71f877": {
@@ -27405,26 +28145,21 @@
  },
  "url-4cc10290": {
   "at": "2026-11-23",
-  "input": "6baac994b9ce7765e86eb81e1ceff05424b8e9765206c430ad4b8cb5358f98eb",
+  "input": "bc5784f337266d83176df25a1f4f244e147aa3e149a27ee207fe66ceb666b3e0",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkové technologie",
-    "zelená transformace",
     "digitální transformace",
-    "vodíkový ekosystém",
-    "dekarbonizace sektorů",
-    "výzkum a vývoj",
-    "legislativní výzvy",
-    "technologické výzvy",
-    "dodavatelský řetězec",
-    "vodíková infrastruktura"
+    "zelená transformace",
+    "akční plán",
+    "strategie rozvoje"
    ]
   },
   "usage": {
-   "completion_tokens": 81,
-   "prompt_tokens": 1642
+   "completion_tokens": 34,
+   "prompt_tokens": 580
   }
  },
  "url-4cce51f0": {
@@ -27452,26 +28187,21 @@
  },
  "url-5b97e44a": {
   "at": "2026-11-23",
-  "input": "3e508b1969a29709332e5cc66268cfdeeb9f92914f0fda2777e01eb2a6ab33be",
+  "input": "407046e433f9b691b3fb4aa8e4ef90686ee755a4b57309bce2338f7dcc004083",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "elektrolyzér",
     "výroba vodíku",
-    "elektrolýza vody",
-    "povolovací proces",
-    "vodíková legislativa",
-    "čerpací stanice vodíku",
-    "plnicí infrastruktura",
-    "environmentální posuzování",
-    "integrované povolení",
-    "vodíkové hospodářství"
+    "výstavba elektrolyzéru",
+    "Česká republika",
+    "případová studie"
    ]
   },
   "usage": {
-   "completion_tokens": 80,
-   "prompt_tokens": 2319
+   "completion_tokens": 45,
+   "prompt_tokens": 582
   }
  },
  "url-5d6fb05c": {
@@ -27524,50 +28254,40 @@
  },
  "url-65267260": {
   "at": "2026-11-23",
-  "input": "7a92bfcc521e3a808ced73381ed5f672b8bc3b255c58439909d28bb081f34bd3",
+  "input": "f5f04bd222c57321046796bebdf3aa28c6a5473304ce488b7da3f097949e2345",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkové hospodářství",
+    "výzkumná agenda",
+    "rozvoj vodíku",
     "vodíkové technologie",
-    "výzkum a vývoj",
-    "výroba vodíku",
-    "skladování vodíku",
-    "přeprava vodíku",
-    "distribuce vodíku",
-    "využití vodíku",
-    "palivové články",
-    "dekarbonizace průmyslu"
+    "strategický výzkum"
    ]
   },
   "usage": {
-   "completion_tokens": 81,
-   "prompt_tokens": 2245
+   "completion_tokens": 41,
+   "prompt_tokens": 583
   }
  },
  "url-6b7f3610": {
   "at": "2026-11-23",
-  "input": "91040b37b5c7e5abecb849309661e3b9ad2770469db8e6d5fa8869d9d212b3b2",
+  "input": "996c6ae87e81bb0e7b6921b87a65aef164fb788fd134280f3f4d49071b2971d5",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
+    "Česká vodíková technologická platforma",
     "vodíkové technologie",
-    "palivový článek",
-    "elektrolyzér",
-    "čerpací stanice vodíku",
-    "skladování vodíku",
-    "distribuce vodíku",
-    "výkonová elektronika",
-    "zkušební zařízení",
-    "úprava vody",
-    "certifikace"
+    "vodíkové produkty",
+    "vodíkové služby",
+    "katalog firem"
    ]
   },
   "usage": {
-   "completion_tokens": 73,
-   "prompt_tokens": 1608
+   "completion_tokens": 42,
+   "prompt_tokens": 588
   }
  },
  "url-6d92ceaf": {
@@ -27589,26 +28309,21 @@
  },
  "url-6e893ab7": {
   "at": "2026-11-23",
-  "input": "1e0f92195ac947954ceabc826b34590fdf341a225519e92dcd8e8e01117a929c",
+  "input": "3e37bdb0338f76428be4c295f24804de9ecf9a1dd3ec0cf6f1f17daf1681c43e",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "obnovitelný vodík",
     "dovoz vodíku",
-    "náklady na vodík",
-    "přeprava vodíku",
-    "deriváty vodíku",
-    "výroba vodíku",
-    "vodíkový trh",
-    "dovozní scénáře",
     "Česká republika",
-    "vodíkový hodnotový řetězec"
+    "mezinárodní obchod",
+    "vodíkové hospodářství"
    ]
   },
   "usage": {
-   "completion_tokens": 85,
-   "prompt_tokens": 1757
+   "completion_tokens": 45,
+   "prompt_tokens": 580
   }
  },
  "url-7069e9cf": {
@@ -27634,170 +28349,150 @@
  },
  "url-7098df0e": {
   "at": "2026-11-23",
-  "input": "7c91369c382bc4b0ae8745b47692c2f1037839b0b43a29a677cd7156fdda644a",
+  "input": "cbd887df63a8ecd51b4968ba7d219ca4c9520412657e55665e733027b27538ef",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "přeprava nebezpečných věcí",
     "železniční doprava",
-    "nebezpečné látky",
     "mezinárodní přeprava",
+    "nebezpečné látky",
     "vodík",
-    "obaly nebezpečných věcí",
-    "cisternové vozy",
-    "bezpečnost přepravy",
-    "výjimky z přepravy",
-    "COTIF"
+    "manipulace s nebezpečnými látkami",
+    "bezpečnost dopravy"
    ]
   },
   "usage": {
-   "completion_tokens": 80,
-   "prompt_tokens": 1829
+   "completion_tokens": 65,
+   "prompt_tokens": 687
   }
  },
  "url-74faa6c4": {
   "at": "2026-11-23",
-  "input": "f8d24c5552dc768565f344e7fcb46a434968b888ba08f43cde1934c565287442",
+  "input": "63be8ff68ea5e3d8ea4ee98bf35871b85234aedaa32d010ac47151a8be372a01",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíková strategie",
+    "vodíkové hospodářství",
+    "Česká republika",
+    "národní strategie",
     "vodíkové technologie",
-    "nízkouhlíkový vodík",
-    "výroba vodíku",
-    "skladování vodíku",
-    "doprava vodíku",
-    "spotřeba vodíku",
-    "vodíková infrastruktura",
-    "emise skleníkových plynů",
-    "bezpečnost vodíku"
+    "energetická transformace",
+    "vládní politika"
    ]
   },
   "usage": {
-   "completion_tokens": 82,
-   "prompt_tokens": 1343
+   "completion_tokens": 50,
+   "prompt_tokens": 662
   }
  },
  "url-760e34c6": {
   "at": "2026-11-23",
-  "input": "099170b55994e49449d45c393c8ed9f8dca4279600586705faa6510da31cdc57",
+  "input": "a8c7e35da8237d657fa90970244b771393e66f5528f4d5caea22b05a59a83a26",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "ochrana klimatu",
-    "skleníkové plyny",
-    "klimatická neutralita",
-    "dekarbonizace",
+    "emise skleníkových plynů",
     "energetika",
     "průmysl",
     "doprava",
     "vodík",
-    "obnovitelné zdroje energie",
-    "EU ETS"
+    "dekarbonizace",
+    "klimatická politika",
+    "Česká republika"
    ]
   },
   "usage": {
-   "completion_tokens": 61,
-   "prompt_tokens": 1766
+   "completion_tokens": 57,
+   "prompt_tokens": 822
   }
  },
  "url-7bd3fdf4": {
   "at": "2026-11-23",
-  "input": "19e294a64900818bf5ec98c2edffb2d215bcaa3a2db7ab1797c76e506672c6e2",
+  "input": "825501bf9b61f12335d7b99c054be6fe3d509c5cc17b75ddf89f7cca76ed27b1",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíková strategie",
     "vodíkové hospodářství",
-    "vodík",
-    "obnovitelný vodík",
-    "výroba vodíku",
-    "dovoz vodíku",
+    "Česká republika",
+    "národní strategie",
     "vodíkové technologie",
-    "vodíková doprava",
-    "akumulace energie",
-    "energetická bezpečnost"
+    "dekarbonizace"
    ]
   },
   "usage": {
-   "completion_tokens": 72,
-   "prompt_tokens": 1278
+   "completion_tokens": 45,
+   "prompt_tokens": 630
   }
  },
  "url-7ee3a2b4": {
   "at": "2026-11-23",
-  "input": "b84c913864abacd284ce64d2a3b994e04db546710882124ce4e7fb6bff2a76ff",
+  "input": "5bfd1683870abed49edb310f3d0765294d6862bb19ddb95f3581c6fc57784e28",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "čistá mobilita",
+    "národní akční plán",
     "alternativní paliva",
-    "vodíková elektromobilita",
-    "silniční doprava",
+    "nízkoemisní doprava",
     "elektromobilita",
-    "zemní plyn v dopravě",
-    "dobíjecí infrastruktura",
-    "plnicí infrastruktura",
-    "snižování emisí",
-    "dekarbonizace dopravy"
+    "vodíková mobilita"
    ]
   },
   "usage": {
-   "completion_tokens": 78,
-   "prompt_tokens": 1655
+   "completion_tokens": 48,
+   "prompt_tokens": 580
   }
  },
  "url-870faec7": {
   "at": "2026-11-23",
-  "input": "4790dd327e6c01091b4903a7b09f7b5571025b98d61d1ac1bf0c3e76201e8180",
+  "input": "d31be86fe01bd4836417a10b7df99c2172c345dde35c5130575fb337915f8e5f",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "energetika a klima",
-    "vodík",
-    "obnovitelná paliva nebiologického původu",
-    "snižování emisí",
+    "skleníkové plyny",
     "obnovitelné zdroje energie",
     "energetická účinnost",
     "energetická bezpečnost",
     "vnitřní trh s energií",
-    "klimatická neutralita",
-    "průmysl"
+    "obnovitelná paliva nebiologického původu",
+    "vodík",
+    "průmysl",
+    "snižování emisí"
    ]
   },
   "usage": {
    "completion_tokens": 81,
-   "prompt_tokens": 2504
+   "prompt_tokens": 807
   }
  },
  "url-88cc533c": {
   "at": "2026-11-23",
-  "input": "ea73dd73e6941ccfab281a99c9d06ec85047fe0a3fc882a610cbd7570ecdf8e0",
+  "input": "9e45fed281de618e1f426b118d2aaecd9bd932bc171b928017c3a428268118b4",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkový výzkum",
-    "vodíkové technologie",
     "Česká republika",
-    "výzkum a vývoj",
-    "vodíkové hospodářství",
-    "výroba vodíku",
-    "skladování vodíku",
-    "přeprava vodíku",
-    "palivové články",
-    "mezinárodní spolupráce"
+    "výzkumné projekty",
+    "vodíkové technologie",
+    "výzkumné instituce"
    ]
   },
   "usage": {
-   "completion_tokens": 80,
-   "prompt_tokens": 1499
+   "completion_tokens": 43,
+   "prompt_tokens": 580
   }
  },
  "url-8c84b293": {
@@ -27826,126 +28521,111 @@
  },
  "url-9539c98f": {
   "at": "2026-11-23",
-  "input": "40080c786984c2ca8fef8d36d81c5df668b050c46239e7d310b4643c5e758139",
+  "input": "04be86576d2795a297fee44c49529bfb2a43b320ebf5ef8e3258612761f6c462",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "energetická koncepce",
     "energetická politika",
-    "energetický mix",
-    "energetická bezpečnost",
     "akumulace energie",
     "alternativní paliva",
-    "vodík v dopravě",
-    "plynárenství",
-    "obnovitelné zdroje energie",
-    "energetická účinnost"
+    "vodík",
+    "doprava",
+    "energetika a klima",
+    "Česká republika"
    ]
   },
   "usage": {
-   "completion_tokens": 71,
-   "prompt_tokens": 1761
+   "completion_tokens": 52,
+   "prompt_tokens": 710
   }
  },
  "url-9567af12": {
   "at": "2026-11-23",
-  "input": "aae7d5d6ffcb657671f579fd1671a784f9d390def3598422ec10458f195a577c",
+  "input": "91d429b232f0376583f952591039a8d2e5060d50084628a5d3ec6485a11c5b7d",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "železniční přeprava",
+    "železniční přeprava nebezpečných věcí",
     "nebezpečné věci",
+    "RID",
+    "COTIF",
     "nebezpečné plyny",
-    "chemické látky",
-    "vodík",
-    "nákladní vlak",
-    "kontejner",
-    "cisterna",
-    "kombinovaná přeprava",
-    "bezpečnost přepravy"
+    "chemikálie",
+    "vodíkové technologie",
+    "bezpečnost železniční dopravy"
    ]
   },
   "usage": {
-   "completion_tokens": 68,
-   "prompt_tokens": 2632
+   "completion_tokens": 63,
+   "prompt_tokens": 719
   }
  },
  "url-95efd271": {
   "at": "2026-11-23",
-  "input": "87c125980240dc44b7b900d4dd163858b1b3b22ae039995bd2d998dda6d58472",
+  "input": "0c8b1e3721a3b4f1893b500d4f0c4cf1059fbb141f9c26b95d766f026678c743",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "čistá mobilita",
+    "národní akční plán",
     "alternativní paliva",
+    "nízkoemisní doprava",
     "elektromobilita",
-    "vodíková mobilita",
-    "palivové články",
-    "dobíjecí infrastruktura",
-    "ochrana ovzduší",
-    "emise skleníkových plynů",
-    "výzkum a vývoj",
-    "dotační programy"
+    "vodíková mobilita"
    ]
   },
   "usage": {
-   "completion_tokens": 77,
-   "prompt_tokens": 1731
+   "completion_tokens": 48,
+   "prompt_tokens": 583
   }
  },
  "url-98c1848c": {
   "at": "2026-11-23",
-  "input": "d770ba644dd47547dbf1a9f6f5b63cb5b5f02ed2a28d0eff0636aef3c3a49786",
+  "input": "1318671bccf0efbef02146c0ceee5a9b93bd86c921d110ddc75fd36d94da3827",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "vodíkové technologie",
+    "vodík",
     "studijní obory",
     "vysoké školy",
-    "vodíkové vzdělávání",
-    "výroba vodíku",
-    "skladování vodíku",
-    "distribuce vodíku",
-    "využití vodíku",
-    "výzkum vodíku"
+    "vzdělávání",
+    "katalog oborů"
    ]
   },
   "usage": {
-   "completion_tokens": 69,
-   "prompt_tokens": 2023
+   "completion_tokens": 36,
+   "prompt_tokens": 586
   }
  },
  "url-a07ba517": {
   "at": "2026-11-23",
-  "input": "f26741e07512af2a8eb13b3492088c91482abc2096c28b5fa64123d9f6e2dd52",
+  "input": "767894fc1ef28427ba4278dcf03189aea9b9ec0fc6e66381e5226a598647e744",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "obnovitelný vodík",
     "výroba vodíku",
-    "elektrolyzér",
-    "regulace EU",
-    "RFNBO",
+    "regulace vodíku",
     "náklady na vodík",
-    "kapitálové výdaje",
-    "využití elektrolyzéru",
-    "šedý vodík",
-    "Evropská vodíková banka"
+    "Evropská unie",
+    "vodíková politika",
+    "podpora trhu"
    ]
   },
   "usage": {
-   "completion_tokens": 79,
-   "prompt_tokens": 1679
+   "completion_tokens": 54,
+   "prompt_tokens": 588
   }
  },
  "url-a3dcd7f8": {
   "at": "2026-11-23",
-  "input": "a81434013d758ac92075b7f573759a9f20ca187c03bb4225c6ee0859c7c50288",
+  "input": "289d772f307a3babb7ea56ff8d78c79a00f588c5ec8b4011567851f8be02bad0",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -27953,42 +28633,32 @@
     "výroba vodíku",
     "elektrolýza vody",
     "živnostenské oprávnění",
-    "licence na výrobu plynu",
-    "plynárenská soustava",
-    "vodík jako palivo",
-    "distribuce pohonných hmot",
-    "vodíková čerpací stanice",
-    "nebezpečná chemická látka",
-    "Energetický regulační úřad"
+    "elektrolyzér",
+    "podnikání ve vodíku"
    ]
   },
   "usage": {
-   "completion_tokens": 92,
-   "prompt_tokens": 2198
+   "completion_tokens": 47,
+   "prompt_tokens": 592
   }
  },
  "url-a430ca1c": {
   "at": "2026-11-23",
-  "input": "5711d2150cd353d38bd24be27065b657192a523024ea97e03b0ff618f511f2a4",
+  "input": "163c526eb8054fc314c60c06b99dc2de749bf9ed5b1488a7729b0a38372392f8",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíkový pohon",
-    "vodíková mobilita",
     "doprava",
-    "čerpací stanice vodíku",
-    "vodíkové autobusy",
-    "čistá mobilita",
-    "emise CO2",
-    "veřejná doprava",
-    "podpora infrastruktury",
-    "Česká republika"
+    "Česká republika",
+    "vodíková vozidla",
+    "využití vodíku"
    ]
   },
   "usage": {
-   "completion_tokens": 70,
-   "prompt_tokens": 1362
+   "completion_tokens": 42,
+   "prompt_tokens": 586
   }
  },
  "url-ae518c23": {
@@ -28014,55 +28684,45 @@
  },
  "url-bc5152e0": {
   "at": "2026-11-23",
-  "input": "646485a2a8c54711c783f669ca248d185a9b42ec12ec49613718872cd1ca290d",
+  "input": "5902113d72497d261daabb1d96363a21595e4991fcc91b2d94e0d0f1c15971eb",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
     "vodíková mobilita",
     "legislativa EU",
-    "alternativní paliva",
-    "vodíková infrastruktura",
-    "obnovitelný vodík",
-    "nízkoemisní doprava",
-    "emise skleníkových plynů",
-    "udržitelná doprava",
-    "plynárenský balíček",
-    "strategické dokumenty EU"
+    "strategický rámec EU",
+    "politika EU",
+    "rozvoj dopravy",
+    "vodíkové technologie"
    ]
   },
   "usage": {
-   "completion_tokens": 82,
-   "prompt_tokens": 1846
+   "completion_tokens": 42,
+   "prompt_tokens": 593
   }
  },
  "url-be78d6aa": {
   "at": "2026-11-23",
-  "input": "7e9af3c853c7ebe56ef446c130f5137af3a25765ef39c23c9a614ddd525b10bf",
+  "input": "927e813fed4c8861a3ba8d247dd5bd4cb1b9ee2cb08171b3e825089b26f68851",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
    "keywords": [
-    "vodíkové technologie",
-    "energetická transformace",
-    "čistá energie",
+    "energetika",
+    "přímé zahraniční investice",
     "obnovitelné zdroje energie",
-    "vodíková strategie",
-    "zahraniční investice",
-    "energetický mix",
-    "nízkoemisní doprava",
-    "větrné turbíny",
-    "Zelená dohoda pro Evropu"
+    "energetická transformace"
    ]
   },
   "usage": {
-   "completion_tokens": 76,
-   "prompt_tokens": 2094
+   "completion_tokens": 133,
+   "prompt_tokens": 575
   }
  },
  "url-c30d8019": {
   "at": "2026-11-23",
-  "input": "bde78a9857c82a787cb1b73de371632d202f5ca88ff8a7d4ad5077abda386f5f",
+  "input": "1904ee0103c252c86f569c603fecc18cc9ccf102a977179543bcf369f200922f",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -28070,18 +28730,16 @@
     "ochrana klimatu",
     "skleníkové plyny",
     "snižování emisí",
-    "změna klimatu",
     "vodík v dopravě",
     "vodík v průmyslu",
     "nízkoemisní doprava",
-    "energetika",
-    "obchodování s emisními povolenkami",
-    "zachycování oxidu uhličitého"
+    "průmyslové emise",
+    "klimatická politika"
    ]
   },
   "usage": {
-   "completion_tokens": 81,
-   "prompt_tokens": 1559
+   "completion_tokens": 61,
+   "prompt_tokens": 650
   }
  },
  "url-de298d8a": {
@@ -28741,7 +29399,7 @@
  },
  "ČSN EN ISO 13850": {
   "at": "2026-11-23",
-  "input": "7ac81fdc5e314068db4d3e7523015cf31c0099de9dc637c2890cf0498219de20",
+  "input": "a9b5e8c150487e03bd0659477b291c008cc2711872d913b48966f53552f7513c",
   "model": "gpt-5.5",
   "prompt_version": 2,
   "result": {
@@ -28751,12 +29409,14 @@
     "strojní zařízení",
     "bezpečnostní funkce",
     "ovládací zařízení",
-    "konstrukce strojů"
+    "konstrukce strojů",
+    "snížení rizika",
+    "elektrické ovládání"
    ]
   },
   "usage": {
-   "completion_tokens": 48,
-   "prompt_tokens": 861
+   "completion_tokens": 61,
+   "prompt_tokens": 742
   }
  },
  "ČSN EN ISO 15330": {

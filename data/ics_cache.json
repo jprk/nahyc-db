@@ -1198,7 +1198,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 75815,
+   "iso_id": 75815,
    "published": "2020-11-23",
    "reference": "ISO 11119-1:2020",
    "stage": 9060,
@@ -1215,7 +1215,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 75816,
+   "iso_id": 75816,
    "published": "2020-11-23",
    "reference": "ISO 11119-2:2020",
    "stage": 9092,
@@ -1232,7 +1232,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 75817,
+   "iso_id": 75817,
    "published": "2020-11-23",
    "reference": "ISO 11119-3:2020",
    "stage": 9092,
@@ -1249,7 +1249,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 59757,
+   "iso_id": 59757,
    "published": "2016-02-12",
    "reference": "ISO 11119-4:2016",
    "stage": 9093,
@@ -1273,6 +1273,23 @@
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=99123",
   "valid": true
  },
+ "ISO 11326": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 3",
+   "ics": [
+    "47.020.85"
+   ],
+   "iso_id": 83810,
+   "published": "2024-11-01",
+   "reference": "ISO 11326:2024",
+   "stage": 6060,
+   "title_en": "Ships and marine technology — Test procedures for liquid hydrogen storage tank of hydrogen ships",
+   "url": "https://www.iso.org/standard/83810.html"
+  },
+  "query": "ISO 11326"
+ },
  "ISO 11326/ - 2024.011": {
   "fetched": "2026-11-23",
   "found": false,
@@ -1287,7 +1304,7 @@
    "ics": [
     "23.040.60"
    ],
-   "id": 70031,
+   "iso_id": 70031,
    "published": "2019-03-12",
    "reference": "ISO 11413:2019",
    "stage": 9093,
@@ -1304,7 +1321,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 78506,
+   "iso_id": 78506,
    "published": "2022-08-24",
    "reference": "ISO 11515:2022",
    "stage": 6060,
@@ -1381,7 +1398,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 51569,
+   "iso_id": 51569,
    "published": "2014-06-11",
    "reference": "ISO 12619-1:2014",
    "stage": 9093,
@@ -1398,7 +1415,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70686,
+   "iso_id": 70686,
    "published": "2017-08-10",
    "reference": "ISO 12619-10:2017",
    "stage": 9093,
@@ -1415,7 +1432,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70687,
+   "iso_id": 70687,
    "published": "2017-08-10",
    "reference": "ISO 12619-11:2017",
    "stage": 9093,
@@ -1432,7 +1449,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70688,
+   "iso_id": 70688,
    "published": "2017-08-10",
    "reference": "ISO 12619-12:2017",
    "stage": 9093,
@@ -1449,7 +1466,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70689,
+   "iso_id": 70689,
    "published": "2017-08-10",
    "reference": "ISO 12619-13:2017",
    "stage": 9093,
@@ -1466,7 +1483,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70690,
+   "iso_id": 70690,
    "published": "2017-08-10",
    "reference": "ISO 12619-14:2017",
    "stage": 9093,
@@ -1483,7 +1500,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70691,
+   "iso_id": 70691,
    "published": "2017-08-10",
    "reference": "ISO 12619-15:2017",
    "stage": 9093,
@@ -1500,7 +1517,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70692,
+   "iso_id": 70692,
    "published": "2017-08-10",
    "reference": "ISO 12619-16:2017",
    "stage": 9093,
@@ -1517,7 +1534,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 51570,
+   "iso_id": 51570,
    "published": "2014-06-11",
    "reference": "ISO 12619-2:2014",
    "stage": 9093,
@@ -1534,7 +1551,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 51571,
+   "iso_id": 51571,
    "published": "2014-06-11",
    "reference": "ISO 12619-3:2014",
    "stage": 9093,
@@ -1551,7 +1568,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 68146,
+   "iso_id": 68146,
    "published": "2016-08-11",
    "reference": "ISO 12619-4:2016",
    "stage": 9093,
@@ -1568,7 +1585,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 68147,
+   "iso_id": 68147,
    "published": "2016-08-11",
    "reference": "ISO 12619-5:2016",
    "stage": 9093,
@@ -1585,7 +1602,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 68132,
+   "iso_id": 68132,
    "published": "2017-03-03",
    "reference": "ISO 12619-6:2017",
    "stage": 9093,
@@ -1602,7 +1619,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70683,
+   "iso_id": 70683,
    "published": "2017-12-07",
    "reference": "ISO 12619-7:2017",
    "stage": 9093,
@@ -1619,7 +1636,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70684,
+   "iso_id": 70684,
    "published": "2017-08-02",
    "reference": "ISO 12619-8:2017",
    "stage": 9093,
@@ -1636,7 +1653,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70685,
+   "iso_id": 70685,
    "published": "2017-08-10",
    "reference": "ISO 12619-9:2017",
    "stage": 9093,
@@ -1672,7 +1689,7 @@
    "ics": [
     "71.040.40"
    ],
-   "id": 64891,
+   "iso_id": 64891,
    "published": "2017-04-24",
    "reference": "ISO 12963:2017",
    "stage": 9093,
@@ -1691,7 +1708,7 @@
     "91.100.30",
     "91.080.40"
    ],
-   "id": 83794,
+   "iso_id": 83794,
    "published": "2025-01-07",
    "reference": "ISO 13315-2:2025",
    "stage": 6060,
@@ -1724,7 +1741,7 @@
     "13.100",
     "25.180.01"
    ],
-   "id": 68019,
+   "iso_id": 68019,
    "published": "2016-09-05",
    "reference": "ISO 13577-1:2016",
    "stage": 9092,
@@ -1761,7 +1778,7 @@
     "13.100",
     "25.180.01"
    ],
-   "id": 57988,
+   "iso_id": 57988,
    "published": "2016-09-19",
    "reference": "ISO 13577-3:2016",
    "stage": 9092,
@@ -1834,6 +1851,24 @@
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=501525",
   "valid": true
  },
+ "ISO 13984": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "27.075"
+   ],
+   "iso_id": 86295,
+   "published": "2026-03-11",
+   "reference": "ISO 13984:2026",
+   "stage": 6060,
+   "title_en": "Liquid hydrogen — Land vehicle fuelling protocol",
+   "url": "https://www.iso.org/standard/86295.html"
+  },
+  "query": "ISO 13984"
+ },
  "ISO 13984/ - 1999.03": {
   "fetched": "2026-11-23",
   "found": false,
@@ -1851,6 +1886,24 @@
    "url": "https://www.iso.org/standard/86295.html"
   },
   "query": "ISO 13984"
+ },
+ "ISO 13985": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "iso_id": 39892,
+   "published": "2006-10-20",
+   "reference": "ISO 13985:2006",
+   "stage": 9092,
+   "title_en": "Liquid hydrogen — Land vehicle fuel tanks",
+   "url": "https://www.iso.org/standard/39892.html"
+  },
+  "query": "ISO 13985"
  },
  "ISO 13985/ - 2006.11": {
   "fetched": "2026-11-23",
@@ -1980,7 +2033,7 @@
    "ics": [
     "71.040.40"
    ],
-   "id": 69930,
+   "iso_id": 69930,
    "published": "2018-11-22",
    "reference": "ISO 14167:2018",
    "stage": 9093,
@@ -1997,7 +2050,7 @@
    "ics": [
     "75.200"
    ],
-   "id": 86822,
+   "iso_id": 86822,
    "published": "2025-06-16",
    "reference": "ISO 14313:2025",
    "stage": 6060,
@@ -2071,7 +2124,7 @@
    "ics": [
     "71.100.20"
    ],
-   "id": 55078,
+   "iso_id": 55078,
    "published": "2014-02-05",
    "reference": "ISO 14687-3:2014",
    "stage": 9599,
@@ -2168,7 +2221,7 @@
    "ics": [
     "75.200"
    ],
-   "id": 28195,
+   "iso_id": 28195,
    "published": "2001-06-28",
    "reference": "ISO 15649:2001",
    "stage": 9060,
@@ -2186,7 +2239,7 @@
     "71.020",
     "71.100.20"
    ],
-   "id": 41045,
+   "iso_id": 41045,
    "published": "2007-03-09",
    "reference": "ISO 16110-1:2007",
    "stage": 9093,
@@ -2204,7 +2257,7 @@
     "71.020",
     "71.100.20"
    ],
-   "id": 41046,
+   "iso_id": 41046,
    "published": "2010-02-05",
    "reference": "ISO 16110-2:2010",
    "stage": 9092,
@@ -2221,7 +2274,7 @@
    "ics": [
     "71.100.20"
    ],
-   "id": 67952,
+   "iso_id": 67952,
    "published": "2018-08-16",
    "reference": "ISO 16111:2018",
    "stage": 9093,
@@ -2306,7 +2359,7 @@
    "ics": [
     "77.040.99"
    ],
-   "id": 74320,
+   "iso_id": 74320,
    "published": "2022-02-28",
    "reference": "ISO 16573-2:2022",
    "stage": 6060,
@@ -2387,7 +2440,7 @@
    "ics": [
     "13.040.40"
    ],
-   "id": 59257,
+   "iso_id": 59257,
    "published": "2016-06-17",
    "reference": "ISO 17179:2016",
    "stage": 9093,
@@ -2414,6 +2467,25 @@
   "query": "ISO 17268",
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=514114",
   "valid": false
+ },
+ "ISO 17268-1": {
+  "csn": "ČSN EN ISO 17268-1",
+  "descriptors": [],
+  "fetched": "2026-11-23",
+  "found": true,
+  "ics": [
+   {
+    "code": "27.075",
+    "name": "Vodíkové technologie"
+   },
+   {
+    "code": "43.060.40",
+    "name": "Palivové systémy spalovacích motorů"
+   }
+  ],
+  "query": "ISO 17268-1",
+  "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=522665",
+  "valid": true
  },
  "ISO 17526": {
   "csn": "ČSN EN ISO 17526",
@@ -2525,7 +2597,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 38598,
+   "iso_id": 38598,
    "published": "2007-02-21",
    "reference": "ISO 18172-1:2007",
    "stage": 9060,
@@ -2533,6 +2605,23 @@
    "url": "https://www.iso.org/standard/38598.html"
   },
   "query": "ISO 18172-1"
+ },
+ "ISO 18172-2": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 58/SC 3",
+   "ics": [
+    "23.020.35"
+   ],
+   "iso_id": 38599,
+   "published": "2007-02-21",
+   "reference": "ISO 18172-2:2007",
+   "stage": 9060,
+   "title_en": "Gas cylinders — Refillable welded stainless steel cylinders — Part 2: Test pressure greater than 6 MPa",
+   "url": "https://www.iso.org/standard/38599.html"
+  },
+  "query": "ISO 18172-2"
  },
  "ISO 18172-2/ - 2007.03": {
   "fetched": "2026-11-23",
@@ -2551,6 +2640,91 @@
   },
   "query": "ISO 18172-2"
  },
+ "ISO 18735": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 4",
+   "ics": [
+    "47.020.05"
+   ],
+   "iso_id": 85430,
+   "published": "2026-03-02",
+   "reference": "ISO 18735:2026",
+   "stage": 6060,
+   "title_en": "Ships and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel castings for cryogenic temperature",
+   "url": "https://www.iso.org/standard/85430.html"
+  },
+  "query": "ISO 18735"
+ },
+ "ISO 18741": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 4",
+   "ics": [
+    "47.020.05"
+   ],
+   "iso_id": 85431,
+   "published": "2026-02-06",
+   "reference": "ISO 18741:2026",
+   "stage": 6060,
+   "title_en": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel forgings for cryogenic temperature",
+   "url": "https://www.iso.org/standard/85431.html"
+  },
+  "query": "ISO 18741"
+ },
+ "ISO 18742": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 4",
+   "ics": [
+    "47.020.05"
+   ],
+   "iso_id": 85432,
+   "published": "2026-02-10",
+   "reference": "ISO 18742:2026",
+   "stage": 6060,
+   "title_en": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel welded fittings for cryogenic temperature",
+   "url": "https://www.iso.org/standard/85432.html"
+  },
+  "query": "ISO 18742"
+ },
+ "ISO 18760": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 4",
+   "ics": [
+    "47.020.05"
+   ],
+   "iso_id": 85433,
+   "published": "2026-02-06",
+   "reference": "ISO 18760:2026",
+   "stage": 6060,
+   "title_en": "Ships and marine technology — High-manganese austenitic steel — Longitudinally welded high-manganese austenitic steel pipes for cryogenic temperature",
+   "url": "https://www.iso.org/standard/85433.html"
+  },
+  "query": "ISO 18760"
+ },
+ "ISO 18819": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 4",
+   "ics": [
+    "47.020.05"
+   ],
+   "iso_id": 85435,
+   "published": "2026-03-02",
+   "reference": "ISO 18819:2026",
+   "stage": 6060,
+   "title_en": "Ships and marine technology — High-manganese austenitic steel — Specification for plates, sheets and coils below 6,0 mm for cryogenic temperature",
+   "url": "https://www.iso.org/standard/85435.html"
+  },
+  "query": "ISO 18819"
+ },
  "ISO 19229/ - 2019.07": {
   "fetched": "2026-11-23",
   "found": false,
@@ -2559,7 +2733,7 @@
    "ics": [
     "71.040.40"
    ],
-   "id": 72010,
+   "iso_id": 72010,
    "published": "2019-07-22",
    "reference": "ISO 19229:2019",
    "stage": 9093,
@@ -2586,6 +2760,24 @@
   "query": "ISO 19880-1",
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=522022",
   "valid": true
+ },
+ "ISO 19880-2": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "iso_id": 85839,
+   "published": "2025-02-03",
+   "reference": "ISO 19880-2:2025",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Fuelling stations — Part 2: Dispensers and dispensing systems",
+   "url": "https://www.iso.org/standard/85839.html"
+  },
+  "query": "ISO 19880-2"
  },
  "ISO 19880-2/ - 2025.02": {
   "fetched": "2026-11-23",
@@ -2614,7 +2806,7 @@
     "43.060.40",
     "71.100.20"
    ],
-   "id": 64754,
+   "iso_id": 64754,
    "published": "2018-06-11",
    "reference": "ISO 19880-3:2018",
    "stage": 9093,
@@ -2622,6 +2814,24 @@
    "url": "https://www.iso.org/standard/64754.html"
   },
   "query": "ISO 19880-3"
+ },
+ "ISO 19880-5": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "iso_id": 87684,
+   "published": "2025-07-01",
+   "reference": "ISO 19880-5:2025",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Fuelling stations — Part 5: Dispenser hoses and hose assemblies",
+   "url": "https://www.iso.org/standard/87684.html"
+  },
+  "query": "ISO 19880-5"
  },
  "ISO 19880-5/ - 2019.11": {
   "fetched": "2026-11-23",
@@ -2640,6 +2850,43 @@
    "url": "https://www.iso.org/standard/87684.html"
   },
   "query": "ISO 19880-5"
+ },
+ "ISO 19880-7": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "iso_id": 81701,
+   "published": "2025-08-06",
+   "reference": "ISO 19880-7:2025",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Fuelling stations — Part 7: Rubber O-rings",
+   "url": "https://www.iso.org/standard/81701.html"
+  },
+  "query": "ISO 19880-7"
+ },
+ "ISO 19880-8": {
+  "csn": "ČSN ISO 19880-8",
+  "descriptors": [],
+  "fetched": "2026-11-23",
+  "found": true,
+  "ics": [
+   {
+    "code": "43.060.40",
+    "name": "Palivové systémy spalovacích motorů"
+   },
+   {
+    "code": "71.100.20",
+    "name": "Technické plyny"
+   }
+  ],
+  "query": "ISO 19880-8",
+  "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=510863",
+  "valid": true
  },
  "ISO 19880-8/ - 2024.12": {
   "csn": "ČSN ISO 19880-8",
@@ -2669,7 +2916,7 @@
     "43.060.40",
     "71.100.20"
    ],
-   "id": 82251,
+   "iso_id": 82251,
    "published": "2024-07-16",
    "reference": "ISO 19880-9:2024",
    "stage": 6060,
@@ -2677,6 +2924,24 @@
    "url": "https://www.iso.org/standard/82251.html"
   },
   "query": "ISO 19880-9"
+ },
+ "ISO 19881": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "iso_id": 82595,
+   "published": "2025-06-13",
+   "reference": "ISO 19881:2025",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Land vehicle fuel containers",
+   "url": "https://www.iso.org/standard/82595.html"
+  },
+  "query": "ISO 19881"
  },
  "ISO 19881/ - 2018.10": {
   "fetched": "2026-11-23",
@@ -2695,6 +2960,24 @@
    "url": "https://www.iso.org/standard/82595.html"
   },
   "query": "ISO 19881"
+ },
+ "ISO 19882": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "27.075",
+    "43.060.40"
+   ],
+   "iso_id": 82596,
+   "published": "2025-02-12",
+   "reference": "ISO 19882:2025",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Thermally activated pressure relief devices for compressed hydrogen vehicle fuel containers",
+   "url": "https://www.iso.org/standard/82596.html"
+  },
+  "query": "ISO 19882"
  },
  "ISO 19882/ - 2018.11": {
   "fetched": "2026-11-23",
@@ -2719,6 +3002,24 @@
   "found": false,
   "iso": null,
   "query": "ISO 19884 (súbor)"
+ },
+ "ISO 19885-1": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "27.075"
+   ],
+   "iso_id": 82556,
+   "published": "2024-05-13",
+   "reference": "ISO 19885-1:2024",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 1: Design and development process for fuelling protocols",
+   "url": "https://www.iso.org/standard/82556.html"
+  },
+  "query": "ISO 19885-1"
  },
  "ISO 19885-1/ - 2024.05": {
   "fetched": "2026-11-23",
@@ -2843,7 +3144,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 68589,
+   "iso_id": 68589,
    "published": "2019-06-19",
    "reference": "ISO 20421-1:2019",
    "stage": 9092,
@@ -2875,7 +3176,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 76098,
+   "iso_id": 76098,
    "published": "2022-08-18",
    "reference": "ISO 21009-1:2022",
    "stage": 9092,
@@ -2907,7 +3208,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 70957,
+   "iso_id": 70957,
    "published": "2017-12-08",
    "reference": "ISO 21010:2017",
    "stage": 9092,
@@ -2924,7 +3225,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 44851,
+   "iso_id": 44851,
    "published": "2008-01-24",
    "reference": "ISO 21011:2008",
    "stage": 9092,
@@ -2960,7 +3261,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 76417,
+   "iso_id": 76417,
    "published": "2021-12-20",
    "reference": "ISO 21013-1:2021",
    "stage": 6060,
@@ -3022,7 +3323,7 @@
    "ics": [
     "23.020.40"
    ],
-   "id": 65433,
+   "iso_id": 65433,
    "published": "2018-02-16",
    "reference": "ISO 21029-1:2018",
    "stage": 9092,
@@ -3069,7 +3370,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 59840,
+   "iso_id": 59840,
    "published": "2015-03-30",
    "reference": "ISO 21172-1:2015",
    "stage": 9093,
@@ -3086,7 +3387,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70340,
+   "iso_id": 70340,
    "published": "2018-09-26",
    "reference": "ISO 21266-1:2018",
    "stage": 9060,
@@ -3103,7 +3404,7 @@
    "ics": [
     "43.060.40"
    ],
-   "id": 70341,
+   "iso_id": 70341,
    "published": "2018-09-26",
    "reference": "ISO 21266-2:2018",
    "stage": 9060,
@@ -3142,6 +3443,25 @@
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=509295",
   "valid": true
  },
+ "ISO 22734-1": {
+  "csn": "ČSN EN ISO 22734-1",
+  "descriptors": [],
+  "fetched": "2026-11-23",
+  "found": true,
+  "ics": [
+   {
+    "code": "71.100.20",
+    "name": "Technické plyny"
+   },
+   {
+    "code": "71.120.99",
+    "name": "Ostatní zařízení pro chemický průmysl"
+   }
+  ],
+  "query": "ISO 22734-1",
+  "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=522316",
+  "valid": true
+ },
  "ISO 22734:2019": {
   "fetched": "2026-11-23",
   "found": false,
@@ -3151,7 +3471,7 @@
     "71.120.99",
     "71.100.20"
    ],
-   "id": 69212,
+   "iso_id": 69212,
    "published": "2019-09-30",
    "reference": "ISO 22734:2019",
    "stage": 9599,
@@ -3198,7 +3518,7 @@
    "ics": [
     "43.120"
    ],
-   "id": 64047,
+   "iso_id": 64047,
    "published": "2013-06-03",
    "reference": "ISO 23273:2013",
    "stage": 9060,
@@ -3230,7 +3550,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 83847,
+   "iso_id": 83847,
    "published": "2024-11-22",
    "reference": "ISO 23551-1:2024",
    "stage": 6060,
@@ -3247,7 +3567,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 85515,
+   "iso_id": 85515,
    "published": "2025-05-08",
    "reference": "ISO 23551-10:2025",
    "stage": 6060,
@@ -3255,6 +3575,23 @@
    "url": "https://www.iso.org/standard/85515.html"
   },
   "query": "ISO 23551-10"
+ },
+ "ISO 23551-12": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 161",
+   "ics": [
+    "27.060.20"
+   ],
+   "iso_id": 76435,
+   "published": "2023-10-06",
+   "reference": "ISO 23551-12:2023",
+   "stage": 6060,
+   "title_en": "Safety and control devices for gas burners and gas-burning appliances — Particular requirements — Part 12: Multifunctional controls with integral overpressure protection safety function (OPSF) for use with butane gas cartridges used in portable gas appliances",
+   "url": "https://www.iso.org/standard/76435.html"
+  },
+  "query": "ISO 23551-12"
  },
  "ISO 23551-12/ - 2023.10": {
   "fetched": "2026-11-23",
@@ -3281,7 +3618,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 66515,
+   "iso_id": 66515,
    "published": "2018-09-20",
    "reference": "ISO 23551-2:2018",
    "stage": 9093,
@@ -3298,7 +3635,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 68290,
+   "iso_id": 68290,
    "published": "2018-04-25",
    "reference": "ISO 23551-4:2018",
    "stage": 9093,
@@ -3315,7 +3652,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 75895,
+   "iso_id": 75895,
    "published": "2023-10-18",
    "reference": "ISO 23551-5:2023",
    "stage": 6060,
@@ -3332,7 +3669,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 77901,
+   "iso_id": 77901,
    "published": "2021-11-01",
    "reference": "ISO 23551-6:2021",
    "stage": 6060,
@@ -3349,7 +3686,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 83563,
+   "iso_id": 83563,
    "published": "2023-05-11",
    "reference": "ISO 23551-8:2023",
    "stage": 6060,
@@ -3366,7 +3703,7 @@
    "ics": [
     "27.060.20"
    ],
-   "id": 78036,
+   "iso_id": 78036,
    "published": "2022-01-17",
    "reference": "ISO 23551-9:2022",
    "stage": 6060,
@@ -3383,7 +3720,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 76993,
+   "iso_id": 76993,
    "published": "2026-06-26",
    "reference": "ISO 23802:2026",
    "stage": 6060,
@@ -3406,6 +3743,23 @@
   "query": "ISO 23826",
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=514262",
   "valid": true
+ },
+ "ISO 23828": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 22/SC 37",
+   "ics": [
+    "43.120"
+   ],
+   "iso_id": 78416,
+   "published": "2022-06-21",
+   "reference": "ISO 23828:2022",
+   "stage": 6060,
+   "title_en": "Fuel cell road vehicles — Energy consumption measurement —  Vehicles fuelled with compressed hydrogen",
+   "url": "https://www.iso.org/standard/78416.html"
+  },
+  "query": "ISO 23828"
  },
  "ISO 23828/ - 2022.06": {
   "fetched": "2026-11-23",
@@ -3442,6 +3796,23 @@
   "query": "ISO 24078",
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=522328",
   "valid": true
+ },
+ "ISO 24132": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 8/SC 2",
+   "ics": [
+    "47.020.01"
+   ],
+   "iso_id": 77864,
+   "published": "2024-06-27",
+   "reference": "ISO 24132:2024",
+   "stage": 9092,
+   "title_en": "Ships and marine technology — Design and testing of marine transfer arms for liquefied hydrogen",
+   "url": "https://www.iso.org/standard/77864.html"
+  },
+  "query": "ISO 24132"
  },
  "ISO 24132/ - 2024.06": {
   "fetched": "2026-11-23",
@@ -3484,7 +3855,7 @@
     "71.020",
     "71.100.20"
    ],
-   "id": 52319,
+   "iso_id": 52319,
    "published": "2010-05-14",
    "reference": "ISO 26142:2010",
    "stage": 9060,
@@ -3531,7 +3902,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 84578,
+   "iso_id": 84578,
    "published": "2026-03-25",
    "reference": "ISO 27914:2026",
    "stage": 6060,
@@ -3548,7 +3919,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 89142,
+   "iso_id": 89142,
    "published": "2026-06-24",
    "reference": "ISO 27916:2026",
    "stage": 6060,
@@ -3565,7 +3936,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 67271,
+   "iso_id": 67271,
    "published": "2018-09-28",
    "reference": "ISO 27919-1:2018",
    "stage": 9092,
@@ -3680,7 +4051,7 @@
    "ics": [
     "71.060.99"
    ],
-   "id": 10116,
+   "iso_id": 10116,
    "published": "1978-04-01",
    "reference": "ISO 4276:1978",
    "stage": 9599,
@@ -3727,7 +4098,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 69937,
+   "iso_id": 69937,
    "published": "2017-11-28",
    "reference": "ISO 5145:2017",
    "stage": 9093,
@@ -3853,7 +4224,7 @@
    "ics": [
     "71.040.40"
    ],
-   "id": 45866,
+   "iso_id": 45866,
    "published": "2014-07-18",
    "reference": "ISO 6145-2:2014",
    "stage": 9093,
@@ -3960,7 +4331,7 @@
    "ics": [
     "71.080.10"
    ],
-   "id": 12451,
+   "iso_id": 12451,
    "published": "1981-05-01",
    "reference": "ISO 6192:1981",
    "stage": 9599,
@@ -4007,7 +4378,7 @@
    "ics": [
     "77.060"
    ],
-   "id": 13507,
+   "iso_id": 13507,
    "published": "1988-09-15",
    "reference": "ISO 6957:1988",
    "stage": 9093,
@@ -4046,6 +4417,23 @@
   "url": "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k=503714",
   "valid": true
  },
+ "ISO 7039": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 164/SC 1",
+   "ics": [
+    "77.040.10"
+   ],
+   "iso_id": 82610,
+   "published": "2024-07-22",
+   "reference": "ISO 7039:2024",
+   "stage": 9092,
+   "title_en": "Metallic materials — Tensile testing — Method for evaluating the susceptibility of materials to the effects of high-pressure gas within hollow test pieces",
+   "url": "https://www.iso.org/standard/82610.html"
+  },
+  "query": "ISO 7039"
+ },
  "ISO 7039/ - 2024.07": {
   "fetched": "2026-11-23",
   "found": false,
@@ -4071,7 +4459,7 @@
    "ics": [
     "71.060.99"
    ],
-   "id": 13688,
+   "iso_id": 13688,
    "published": "1982-12-01",
    "reference": "ISO 7103:1982",
    "stage": 9093,
@@ -4088,7 +4476,7 @@
    "ics": [
     "71.060.99"
    ],
-   "id": 13689,
+   "iso_id": 13689,
    "published": "1985-08-01",
    "reference": "ISO 7104:1985",
    "stage": 9599,
@@ -4105,7 +4493,7 @@
    "ics": [
     "71.060.99"
    ],
-   "id": 13690,
+   "iso_id": 13690,
    "published": "1985-06-06",
    "reference": "ISO 7105:1985",
    "stage": 9093,
@@ -4122,7 +4510,7 @@
    "ics": [
     "71.060.99"
    ],
-   "id": 13691,
+   "iso_id": 13691,
    "published": "1985-06-20",
    "reference": "ISO 7106:1985",
    "stage": 9093,
@@ -4139,7 +4527,7 @@
    "ics": [
     "71.060.40"
    ],
-   "id": 13693,
+   "iso_id": 13693,
    "published": "1985-06-06",
    "reference": "ISO 7108:1985",
    "stage": 9093,
@@ -4156,7 +4544,7 @@
    "ics": [
     "71.060.40"
    ],
-   "id": 13694,
+   "iso_id": 13694,
    "published": "1985-05-30",
    "reference": "ISO 7109:1985",
    "stage": 9093,
@@ -4264,7 +4652,7 @@
     "43.120",
     "01.040.43"
    ],
-   "id": 38307,
+   "iso_id": 38307,
    "published": "2005-04-12",
    "reference": "ISO 8713:2005",
    "stage": 9599,
@@ -4282,7 +4670,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72060,
+   "iso_id": 72060,
    "published": "2018-02-01",
    "reference": "ISO 9328-1:2018",
    "stage": 9092,
@@ -4300,7 +4688,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72061,
+   "iso_id": 72061,
    "published": "2018-02-01",
    "reference": "ISO 9328-2:2018",
    "stage": 9092,
@@ -4318,7 +4706,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72062,
+   "iso_id": 72062,
    "published": "2018-02-01",
    "reference": "ISO 9328-3:2018",
    "stage": 9060,
@@ -4336,7 +4724,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72063,
+   "iso_id": 72063,
    "published": "2018-02-01",
    "reference": "ISO 9328-4:2018",
    "stage": 9092,
@@ -4354,7 +4742,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72064,
+   "iso_id": 72064,
    "published": "2018-02-01",
    "reference": "ISO 9328-5:2018",
    "stage": 9060,
@@ -4372,7 +4760,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72065,
+   "iso_id": 72065,
    "published": "2018-02-01",
    "reference": "ISO 9328-6:2018",
    "stage": 9060,
@@ -4390,7 +4778,7 @@
     "77.140.30",
     "77.140.50"
    ],
-   "id": 72066,
+   "iso_id": 72066,
    "published": "2018-02-01",
    "reference": "ISO 9328-7:2018",
    "stage": 9092,
@@ -4504,7 +4892,16 @@
  "ISO/AWI 17268-3": {
   "fetched": "2026-11-23",
   "found": false,
-  "iso": null,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [],
+   "iso_id": 86107,
+   "published": null,
+   "reference": "ISO/CD 17268-3",
+   "stage": 3098,
+   "title_en": "Gaseous hydrogen land vehicle refuelling connection devices — Part 3: Cryo-compressed hydrogen gas",
+   "url": "https://www.iso.org/standard/86107.html"
+  },
   "query": "ISO/AWI 17268-3"
  },
  "ISO/AWI 18735": {
@@ -4702,7 +5099,7 @@
     "71.020",
     "71.100.20"
    ],
-   "id": 56546,
+   "iso_id": 56546,
    "published": "2015-12-03",
    "reference": "ISO/TR 15916:2015",
    "stage": 9599,
@@ -4833,7 +5230,7 @@
     "43.060.40",
     "71.100.20"
    ],
-   "id": 81330,
+   "iso_id": 81330,
    "published": null,
    "reference": "ISO/CD 19880-6",
    "stage": 3098,
@@ -4929,6 +5326,24 @@
    "url": "https://www.iso.org/standard/86295.html"
   },
   "query": "ISO/DIS 13984"
+ },
+ "ISO/DIS 17268-2": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "27.075"
+   ],
+   "iso_id": 87777,
+   "published": null,
+   "reference": "ISO/DIS 17268-2",
+   "stage": 4060,
+   "title_en": "Gaseous hydrogen land vehicle refuelling connection devices — Part 2: Flow capacities greater than 120 g/s",
+   "url": "https://www.iso.org/standard/87777.html"
+  },
+  "query": "ISO/DIS 17268-2"
  },
  "ISO/DIS 18735": {
   "fetched": "2026-11-23",
@@ -5051,6 +5466,42 @@
   },
   "query": "ISO/DIS 19885-1"
  },
+ "ISO/DIS 19885-2": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "27.075"
+   ],
+   "iso_id": 89209,
+   "published": null,
+   "reference": "ISO/DIS 19885-2",
+   "stage": 4060,
+   "title_en": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 2: Definition of communications between the vehicle and dispenser control systems",
+   "url": "https://www.iso.org/standard/89209.html"
+  },
+  "query": "ISO/DIS 19885-2"
+ },
+ "ISO/DIS 19885-3": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "43.060.40",
+    "27.075"
+   ],
+   "iso_id": 89206,
+   "published": null,
+   "reference": "ISO/DIS 19885-3",
+   "stage": 4060,
+   "title_en": "Gaseous hydrogen — Fuelling protocols for hydrogen fuelled vehicles — Part 3: Hydrogen fuelling protocols for road vehicles",
+   "url": "https://www.iso.org/standard/89206.html"
+  },
+  "query": "ISO/DIS 19885-3"
+ },
  "ISO/DIS 19887": {
   "fetched": "2026-11-23",
   "found": false,
@@ -5073,6 +5524,24 @@
    "url": "https://www.iso.org/standard/76435.html"
   },
   "query": "ISO/DIS 23551-12"
+ },
+ "ISO/DTR 19884-2": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "27.075",
+    "23.020.30"
+   ],
+   "iso_id": 86285,
+   "published": null,
+   "reference": "ISO/DTR 19884-2",
+   "stage": 5092,
+   "title_en": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 2: Material test data of class A materials (steels and aluminum alloys) compatible to hydrogen service",
+   "url": "https://www.iso.org/standard/86285.html"
+  },
+  "query": "ISO/DTR 19884-2"
  },
  "ISO/FDIS 13577-2": {
   "fetched": "2026-11-23",
@@ -5145,6 +5614,24 @@
    "url": "https://www.iso.org/standard/82595.html"
   },
   "query": "ISO/FDIS 19881"
+ },
+ "ISO/FDIS 19884-1": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "27.075",
+    "23.020.30"
+   ],
+   "iso_id": 87726,
+   "published": null,
+   "reference": "ISO/FDIS 19884-1",
+   "stage": 5000,
+   "title_en": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 1: General requirements",
+   "url": "https://www.iso.org/standard/87726.html"
+  },
+  "query": "ISO/FDIS 19884-1"
  },
  "ISO/FDIS 22734-1": {
   "fetched": "2026-11-23",
@@ -5266,6 +5753,23 @@
   "iso": null,
   "query": "ISO/PWI 17268-2"
  },
+ "ISO/TR 11954": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 22/SC 37",
+   "ics": [
+    "43.120"
+   ],
+   "iso_id": 84730,
+   "published": "2024-01-05",
+   "reference": "ISO/TR 11954:2024",
+   "stage": 6060,
+   "title_en": "Fuel cell road vehicles — Performance measurement — Vehicles fuelled with compressed hydrogen",
+   "url": "https://www.iso.org/standard/84730.html"
+  },
+  "query": "ISO/TR 11954"
+ },
  "ISO/TR 11954 (2008)": {
   "fetched": "2026-11-23",
   "found": false,
@@ -5309,7 +5813,7 @@
     "71.020",
     "71.100.20"
    ],
-   "id": 56546,
+   "iso_id": 56546,
    "published": "2015-12-03",
    "reference": "ISO/TR 15916:2015",
    "stage": 9599,
@@ -5326,7 +5830,7 @@
    "ics": [
     "75.200"
    ],
-   "id": 59247,
+   "iso_id": 59247,
    "published": "2015-04-07",
    "reference": "ISO/TR 17177:2015",
    "stage": 9093,
@@ -5334,6 +5838,24 @@
    "url": "https://www.iso.org/standard/59247.html"
   },
   "query": "ISO/TR 17177"
+ },
+ "ISO/TR 19884-3": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "27.075",
+    "23.020.30"
+   ],
+   "iso_id": 86286,
+   "published": "2026-08-03",
+   "reference": "ISO/TR 19884-3:2026",
+   "stage": 6060,
+   "title_en": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 3: Pressure cycle test data to demonstrate partial pressure cycle estimation methods",
+   "url": "https://www.iso.org/standard/86286.html"
+  },
+  "query": "ISO/TR 19884-3"
  },
  "ISO/TR 27912/ - 2016.05": {
   "fetched": "2026-11-23",
@@ -5343,7 +5865,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 64233,
+   "iso_id": 64233,
    "published": "2016-05-19",
    "reference": "ISO/TR 27912:2016",
    "stage": 6060,
@@ -5360,7 +5882,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 65981,
+   "iso_id": 65981,
    "published": "2017-08-11",
    "reference": "ISO/TR 27915:2017",
    "stage": 6060,
@@ -5377,7 +5899,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 67273,
+   "iso_id": 67273,
    "published": "2020-05-07",
    "reference": "ISO/TR 27921:2020",
    "stage": 6060,
@@ -5394,7 +5916,7 @@
    "ics": [
     "13.020.40"
    ],
-   "id": 67274,
+   "iso_id": 67274,
    "published": "2021-02-04",
    "reference": "ISO/TR 27922:2021",
    "stage": 6060,
@@ -5412,7 +5934,7 @@
     "43.120",
     "01.040.43"
    ],
-   "id": 71402,
+   "iso_id": 71402,
    "published": "2019-04-01",
    "reference": "ISO/TR 8713:2019",
    "stage": 9093,
@@ -5420,6 +5942,23 @@
    "url": "https://www.iso.org/standard/71402.html"
   },
   "query": "ISO/TR 8713"
+ },
+ "ISO/TS 15916": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "27.075"
+   ],
+   "iso_id": 89423,
+   "published": "2026-01-27",
+   "reference": "ISO/TS 15916:2026",
+   "stage": 6060,
+   "title_en": "Hydrogen technologies — Basic considerations for the safety of hydrogen systems",
+   "url": "https://www.iso.org/standard/89423.html"
+  },
+  "query": "ISO/TS 15916"
  },
  "ISO/TS 16901/ - 2022.12": {
   "fetched": "2026-11-23",
@@ -5429,7 +5968,7 @@
    "ics": [
     "75.180.01"
    ],
-   "id": 83773,
+   "iso_id": 83773,
    "published": "2022-12-13",
    "reference": "ISO/TS 16901:2022",
    "stage": 9093,
@@ -5446,7 +5985,7 @@
    "ics": [
     "75.060"
    ],
-   "id": 83835,
+   "iso_id": 83835,
    "published": "2022-09-21",
    "reference": "ISO/TS 16922:2022",
    "stage": 9092,
@@ -5463,7 +6002,7 @@
    "ics": [
     "23.020.35"
    ],
-   "id": 77998,
+   "iso_id": 77998,
    "published": "2019-06-07",
    "reference": "ISO/TS 17519:2019",
    "stage": 9092,
@@ -5471,6 +6010,23 @@
    "url": "https://www.iso.org/standard/77998.html"
   },
   "query": "ISO/TS 17519"
+ },
+ "ISO/TS 18683": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 67/SC 9",
+   "ics": [
+    "75.200"
+   ],
+   "iso_id": 76811,
+   "published": "2021-11-19",
+   "reference": "ISO/TS 18683:2021",
+   "stage": 9093,
+   "title_en": "Guidelines for safety and risk assessment of LNG fuel bunkering operations",
+   "url": "https://www.iso.org/standard/76811.html"
+  },
+  "query": "ISO/TS 18683"
  },
  "ISO/TS 18683/ - 2021.11": {
   "fetched": "2026-11-23",
@@ -5498,7 +6054,7 @@
     "13.020.40",
     "27.075"
    ],
-   "id": 65628,
+   "iso_id": 65628,
    "published": "2023-11-30",
    "reference": "ISO/TS 19870:2023",
    "stage": 9092,
@@ -5506,6 +6062,23 @@
    "url": "https://www.iso.org/standard/65628.html"
   },
   "query": "ISO/TS 19870"
+ },
+ "ISO/TS 19883": {
+  "fetched": "2026-11-23",
+  "found": false,
+  "iso": {
+   "committee": "ISO/TC 197",
+   "ics": [
+    "71.100.20"
+   ],
+   "iso_id": 61169,
+   "published": "2017-03-21",
+   "reference": "ISO/TS 19883:2017",
+   "stage": 9060,
+   "title_en": "Safety of pressure swing adsorption systems for hydrogen separation and purification",
+   "url": "https://www.iso.org/standard/61169.html"
+  },
+  "query": "ISO/TS 19883"
  },
  "ISO/TS 19883/ - 2017.03": {
   "fetched": "2026-11-23",
@@ -11934,7 +12507,7 @@
    "ics": [
     "13.040.40"
    ],
-   "id": 59257,
+   "iso_id": 59257,
    "published": "2016-06-17",
    "reference": "ISO 17179:2016",
    "stage": 9093,
