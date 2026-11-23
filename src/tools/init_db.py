@@ -75,6 +75,11 @@ def reset_tables(cursor):
     cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
     for table in TRUNCATE_ORDER:
         cursor.execute(f"TRUNCATE TABLE {table}")
+    # doc/KLICOVA_SLOVA.md: the keywords point at document ids, which a rebuild reassigns;
+    # document_terms.py --apply loads them again from the caches under data/
+    cursor.execute("SHOW TABLES LIKE 'DocumentTerm'")
+    if cursor.fetchone():
+        cursor.execute("TRUNCATE TABLE DocumentTerm")
     cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
 
 
