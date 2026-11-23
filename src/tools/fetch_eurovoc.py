@@ -28,13 +28,11 @@ import citation_closure as cc
 import document_terms as dterms
 
 BATCH = 40
-# acts whose title in the database names another act than their number (found 2026-11-23 by
-# comparing with the official titles in Cellar, doc/KLICOVA_SLOVA.md): their descriptors would
-# describe the other act, so they get none until the record is corrected
-EXCLUDED = {
-    "(EU) 2023/955": "titul popisuje nařízení (EU) 2024/1789, číslo 2023/955 je Sociální klimatický fond",
-    "(EU) 2021/535": "titul popisuje limity ochratoxinu A, číslo 2021/535 je homologace vozidel",
-}
+# acts whose title in the database names another act than their number (doc/KLICOVA_SLOVA.md,
+# odstavec 3.2): their descriptors would describe the other act, so they get none until the
+# record is corrected (data/manual_corrections.json); {doc key: reason}. The two found on
+# 2026-11-23, (EU) 2023/955 and (EU) 2021/535, are corrected there.
+EXCLUDED = {}
 # a UN/ECE regulation published in the Official Journal, "[2019/795]" -> CELEX 42019X0795
 _UNECE_IDENTIFIER = re.compile(r"^\[(\d{4})/(\d{1,4})\]")
 QUERY = """PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>

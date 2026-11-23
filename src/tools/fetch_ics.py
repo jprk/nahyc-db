@@ -19,11 +19,16 @@ only with --refresh.
     .venv/bin/python src/tools/fetch_ics.py --limit 20     # the first 20 not in the cache
     .venv/bin/python src/tools/fetch_ics.py                 # all not in the cache
 
+A standard without a ČSN gets its ICS codes from ISO Open Data (iso_open_data.py) when ISO
+lists it, stored under `iso` in its cache entry (the Czech names of the classes come from
+the classes seen in the ČAS catalogue).
+
 Low-volume (check_csn_validity.SLEEP_SECONDS between requests, two requests per
 standard); reads the database and never writes it.
 """
 import argparse
 import datetime
+import pathlib
 import re
 import sys
 import time
@@ -33,6 +38,7 @@ from bs4 import BeautifulSoup
 
 import check_csn_validity as csn
 import document_terms as dterms
+import iso_open_data
 import norm_title
 
 # the national prefixes of an adoption, in front of the international designation
@@ -148,6 +154,9 @@ def main(argv=None):
     parser.add_argument("--env-file", default=None)
     parser.add_argument("--refresh", action="store_true", help="ask again about the standards in the cache")
     parser.add_argument("--limit", type=int, default=None, help="at most this many lookups")
+    parser.add_argument("--no-iso", action="store_true", help="skip ISO Open Data for the standards without a ČSN")
+    parser.add_argument("--iso-data", default=None, help="the ISO Open Data file (default data/external/...)")
+    parser.add_argument("--download-iso", action="store_true", help="download the ISO Open Data file again")
     args = parser.parse_args(argv)
     conn = dterms.connect(args.env_file)
     try:
@@ -184,7 +193,30 @@ def main(argv=None):
     dterms.save_cache(path, cache)
     found = sum(1 for k in wanted if cache.get(k, {}).get("found"))
     print(f"with a ČSN and ICS: {found} of {len(wanted)}")
+    if not args.no_iso:
+        added = add_iso_open_data(cache, wanted, args.iso_data, download=args.download_iso)
+        dterms.save_cache(path, cache)
+        print(f"ICS from ISO Open Data for standards without a ČSN: {added}")
     return 0
+
+
+def add_iso_open_data(cache, wanted, path=None, download=False, index=None):
+    """Adds the ISO record (iso_open_data.summary()) to the cache entries of the standards
+    not found in the ČAS catalogue; returns how many got ICS codes."""
+    if index is None:
+        path = pathlib.Path(path or iso_open_data.DEFAULT_PATH)
+        if download or not path.exists():
+            iso_open_data.download(path)
+        index = iso_open_data.load_index(path)
+    added = 0
+    for key, international in wanted.items():
+        entry = cache.get(key)
+        if not entry or entry.get("found"):
+            continue
+        record = iso_open_data.lookup(index, international)
+        entry["iso"] = iso_open_data.summary(record) if record else None
+        added += bool(record and record.get("icsCode"))
+    return added
 
 
 if __name__ == "__main__":

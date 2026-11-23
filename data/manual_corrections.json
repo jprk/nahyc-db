@@ -534,5 +534,20 @@
     "confirmed_at": "2026-11-20",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, odstavec 5.1 (rozhodnutí uživatele 20. 11. 2026)",
     "reason": "Platné a účinné vydání je ČSN EN 1717+A1 (vydána 9/2026, účinná od 1. 10. 2026, katalog ČAS k=524606, ověřeno check_csn_validity.py 20. 11. 2026); vydání ČSN EN 1717 z 11/2025 (k=522378), na něž vedl odkaz, bylo zrušeno 1. 10. 2026. Trvalá adresa (slug csn-en-1717) zůstává. Nové vydání ČSN EN 1717+A1 z 12/2026 (účinné od 1. 1. 2027) má stejné označení, přepnutí na ně označení nezmění."
+  },
+  "(EU) 2021/535": {
+    "changes": {
+      "nazev_cz": "Prováděcí nařízení Komise (EU) 2021/535 ze dne 31. března 2021, kterým se stanoví pravidla pro uplatňování nařízení Evropského parlamentu a Rady (EU) 2019/2144, pokud jde o jednotné postupy a technické specifikace pro schvalování typu vozidel a systémů, konstrukčních částí a samostatných technických celků určených pro tato vozidla, pokud jde o jejich obecné konstrukční vlastnosti a bezpečnost (Text s významem pro EHP)",
+      "anotace_poznamka": "Prováděcí nařízení k nařízení (EU) 2019/2144 o schvalování typu motorových vozidel. Stanoví jednotné postupy a technické specifikace pro schvalování typu vozidel, jejich systémů, konstrukčních částí a samostatných technických celků z hlediska obecných konstrukčních vlastností a bezpečnosti. Pro vodíkové technologie obsahuje požadavky na vozidla s vodíkovým pohonem: kompatibilitu materiálů vodíkového systému a vodíkové křehnutí, hrdlo k plnění paliva (příloha XIV) a systémy pro uchovávání zkapalněného vodíku převzaté z nařízení (ES) č. 79/2009."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název a popis v databázi (limity ochratoxinu A, nařízení (ES) č. 1881/2006) doplnil jazykový model k číslu z rešerše Sinay (process_laws.py); číslo 2021/535 je podle Cellaru (CELEX 32021R0535) prováděcí nařízení k homologaci vozidel s požadavky na vozidla s vodíkovým pohonem. Úřední český název z Cellaru; rozhodl uživatel 23. 11. 2026 (doc/KONTROLA_ZAZNAMU.md)."
+  },
+  "(EU) 2023/955": {
+    "merged_into": "(EU) 2024/1789",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název a popis záznamu z rešerše Sinay popisují nařízení (EU) 2024/1789 o vnitřním trhu s plynem z obnovitelných zdrojů, se zemním plynem a s vodíkem, které databáze už vede. Číslo 2023/955 je podle Cellaru nařízení o Sociálním klimatickém fondu, které se vodíku netýká. Záznam je duplicitou 2024/1789; rozhodl uživatel 23. 11. 2026 (doc/KONTROLA_ZAZNAMU.md)."
   }
 }

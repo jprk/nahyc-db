@@ -103,9 +103,13 @@ def terms_from_caches(caches=None):
     for key, entry in caches.get("eurovoc", {}).items():
         out["eurovoc"][key] = [{"code": t["code"], "term": t["cs"] or t["en"], "term_en": t["en"]}
                                for t in entry.get("terms", []) if t.get("cs") or t.get("en")]
+    ics_names = {t["code"]: t["name"] for entry in caches.get("ics", {}).values() for t in entry.get("ics", [])
+                 if t.get("name")}
     for key, entry in caches.get("ics", {}).items():
+        classes = entry.get("ics") or [{"code": code, "name": ics_names.get(code, "")}
+                                       for code in ((entry.get("iso") or {}).get("ics") or [])]
         out["ics"][key] = [{"code": t["code"], "term": f'{t["code"]} {t["name"]}'.strip(), "term_en": None}
-                           for t in entry.get("ics", [])]
+                           for t in classes]
         out["cas"][key] = [{"code": None, "term": t, "term_en": None} for t in entry.get("descriptors", [])
                            if fetch_ics._WORD.search(t)]
     for key, entry in caches.get("model", {}).items():

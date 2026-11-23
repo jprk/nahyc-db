@@ -23,6 +23,13 @@ rozlišili úřední indexaci od odvozené.
 | `cas` | deskriptory a klíčová slova ČSN z téhož katalogu ČAS | část norem s českým převzetím | úřední |
 | `model` | 5–10 českých klíčových slov, která odvodí jazykový model z názvu, anotace a začátku plného textu | všechny dokumenty kromě aktů EU s EuroVoc | odvozené, neověřené |
 
+Normy ISO bez českého převzetí dostávají ICS z otevřených dat ISO (ISO Open Data, soubor
+`iso_deliverables_metadata.jsonl` na úložišti ISO, týdně aktualizovaný; `iso_open_data.py`). Stránky
+iso.org a iec.ch automatické klienty odmítají (HTTP 403), otevřená data ale ISO zveřejňuje právě pro
+strojové zpracování. Obsahují i anglický název, anotaci, technickou komisi a stav vydání, které
+využívá kontrola záznamů (`doc/KONTROLA_ZAZNAMU.md`). České názvy tříd ICS přebíráme z tříd, které
+už známe z katalogu ČAS.
+
 Normu ISO, EN nebo IEC hledáme v katalogu ČAS pod jejím mezinárodním označením
 („STN EN ISO 6145-11/ - 2009.02“ → „EN ISO 6145-11“). Třídník ICS je u všech národních převzetí
 téže normy shodný, proto ho z ČSN přebíráme i ke slovenskému, německému nebo původnímu vydání.
@@ -33,8 +40,8 @@ v katalogu ČAS nejsou a třídník ICS z něj nedostanou.
 
 | Původ | Dokumenty | Poznámka |
 |---|---|---|
-| EuroVoc | 172 ze 175 aktů EU | průměrně 7 deskriptorů; bez deskriptorů zůstává #62 (slovenské oznámení vedené pod označením 2010/75/EU) a dva akty s chybným názvem (odstavec 3.2) |
-| ICS | 578 ze 797 evropských a mezinárodních norem | zbylých 219 tvoří hlavně normy ISO a IEC bez českého převzetí a rozpracované návrhy (ISO/AWI, DIS, CD, WD) |
+| EuroVoc | 173 ze 174 aktů EU (po opravě odstavce 3.2) | průměrně 7 deskriptorů; bez deskriptorů zůstává #62 (slovenské oznámení vedené pod označením 2010/75/EU) |
+| ICS | 729 ze 797 evropských a mezinárodních norem | 578 z katalogu ČAS, 151 norem ISO bez českého převzetí z otevřených dat ISO; zbývá 68 norem hlavně IEC, CEN a EN bez českého převzetí |
 | deskriptory ČAS | 31 norem | katalog je uvádí jen u části ČSN; kódy, které katalog u některých ČSN uvádí místo slov („BL/BY“, „KNX.C“), vynecháváme |
 | model | 1334 z 1334 dokumentů (všechny kromě 172 aktů s EuroVoc) | gpt-5.5, průměrně 7,7 slova (u 20 dokumentů jen s názvem 3–4); cena celé dávky 7,92 USD, s porovnáním modelů a doplňky asi 8,2 USD |
 
@@ -62,9 +69,11 @@ U dvou dokumentů název neodpovídá číslu aktu:
 | #86 | (EU) 2023/955 | nařízení o vnitřním trhu s obnovitelnými plyny a zemním plynem (to je nařízení (EU) 2024/1789) | nařízení, kterým se zřizuje Sociální klimatický fond |
 | #91 | (EU) 2021/535 | nařízení, kterým se mění nařízení (ES) č. 1881/2006 (limity ochratoxinu A) | prováděcí nařízení k nařízení (EU) 2019/2144 o schvalování typu motorových vozidel |
 
-Deskriptory EuroVoc by u nich popisovaly jiný akt, proto je vynecháváme (`fetch_eurovoc.EXCLUDED`)
-a klíčová slova jim odvodí model z jejich názvu. Záznamy musí opravit editor: rozhodnout, který
-akt měl zdroj na mysli, a opravit označení nebo název.
+Obě chyby vznikly stejně: tabulka rešerše Sinay uvádí jen číslo aktu („(EÚ) 2021/535 | áno | MD SR“)
+a český název s popisem k němu doplnil jazykový model (`process_laws.py`). Opravy podle rozhodnutí
+uživatele (23. 11. 2026) jsou v `data/manual_corrections.json`: #86 slučujeme do (EU) 2024/1789 (#105),
+#91 dostal úřední název z Cellaru a nový popis (akt obsahuje požadavky na vozidla s vodíkovým pohonem,
+příloha XIV). Systematickou kontrolu dalších záznamů popisuje `doc/KONTROLA_ZAZNAMU.md`.
 
 ## 4. Uložení
 
@@ -113,9 +122,9 @@ těchto skriptů; model zavoláme znovu jen u dokumentu, jehož vstup (název, a
 
 ## 7. Co zbývá
 
-- ICS pro 219 norem ISO a IEC bez českého převzetí: dostupné na iso.org a iec.ch, ty však chrání
-  stránky proti automatickému stahování. Pokud ICS potřebujeme úplné, stáhneme je ručně nebo
-  skriptem, který spustí uživatel.
+- ICS pro 68 norem IEC, CEN a EN bez českého převzetí. Weby iso.org a iec.ch odmítají automatické
+  klienty (HTTP 403); ISO však zveřejňuje metadata všech norem jako otevřená data (odstavec 2),
+  IEC srovnatelný zdroj nenabízí. Zbytek doplníme ručně, pokud ho budeme potřebovat.
 - Ruční kontrola vzorku klíčových slov z modelu editorem a případný slovník preferovaných termínů
   (sjednocení „palivový článek“ / „palivové články“).
 - Filtr katalogu podle třídy ICS a podle deskriptoru EuroVoc.

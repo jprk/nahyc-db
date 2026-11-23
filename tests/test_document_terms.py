@@ -18,6 +18,7 @@ import extract_keywords as ek  # noqa: E402
 import fetch_eurovoc as fe  # noqa: E402
 import fetch_ics as fi  # noqa: E402
 import fulltext_keys  # noqa: E402
+import iso_open_data  # noqa: E402
 
 
 class DocKeyTestCase(unittest.TestCase):
@@ -98,8 +99,11 @@ class EuroVocTestCase(unittest.TestCase):
         self.assertNotIn("ČSN EN 1", acts)
 
     def test_acts_with_a_wrong_title_get_no_descriptors(self):
+        from unittest import mock
         documents = [(1, "(EU) 2021/535", None, "Nařízení EU", "Nařízení Komise (EU) 2021/535 …", "CS", None, None)]
-        self.assertEqual(fe.eu_acts(documents), {})
+        with mock.patch.dict(fe.EXCLUDED, {"(EU) 2021/535": "titul popisuje jiný akt"}):
+            self.assertEqual(fe.eu_acts(documents), {})
+        self.assertEqual(fe.eu_acts(documents), {"(EU) 2021/535": ["32021R0535"]})
 
     def test_entries_take_one_celex_and_both_languages(self):
         found = fe.parse_bindings([self.row("32021R0535", "1252", "homologace", "cs"),
@@ -160,6 +164,48 @@ class IcsTestCase(unittest.TestCase):
         self.assertEqual(fi._split_terms("BL/BY, KNX.C; regulace tlaku, zemní plyn"), ["regulace tlaku", "zemní plyn"])
         terms = dterms.terms_from_caches({"ics": {"X": {"ics": [], "descriptors": ["KIP", "tlak"]}}})
         self.assertEqual([t["term"] for t in terms["cas"]["X"]], ["tlak"])
+
+
+class IsoOpenDataTestCase(unittest.TestCase):
+    RECORDS = [
+        {"id": 1, "reference": "ISO 19880-1:2016", "currentStage": 9599, "publicationDate": "2016-01-01",
+         "icsCode": ["71.100.20"], "title": {"en": "Old"}},
+        {"id": 2, "reference": "ISO 19880-1:2020", "currentStage": 9092, "publicationDate": "2020-03-04",
+         "icsCode": ["43.060.40", "71.100.20"], "title": {"en": "Gaseous hydrogen"}},
+        {"id": 3, "reference": "ISO/DIS 19880-1", "currentStage": 4020, "publicationDate": None,
+         "icsCode": None, "title": {"en": "Gaseous hydrogen"}},
+        {"id": 4, "reference": "ISO 19880-1:2020/Amd 1:2023", "currentStage": 6060, "supplementType": "Amd",
+         "publicationDate": "2023-01-01", "icsCode": []},
+        {"id": 5, "reference": "ISO/TR 15916:2015", "currentStage": 6060, "publicationDate": "2015-12-01",
+         "icsCode": ["71.100.20"], "title": {"en": "Basic considerations"}},
+    ]
+
+    def index(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "iso.jsonl"
+            path.write_text("".join(json.dumps(r) + "\n" for r in self.RECORDS), encoding="utf-8")
+            return iso_open_data.load_index(path)
+
+    def test_base_reference(self):
+        self.assertEqual(iso_open_data.base_reference("ISO 19880-1:2020/Amd 1:2023"), "ISO 19880-1")
+        self.assertEqual(iso_open_data.base_reference("ISO/IEC 27001:2022"), "ISO/IEC 27001")
+
+    def test_lookup_prefers_the_edition_in_force(self):
+        index = self.index()
+        self.assertEqual(iso_open_data.lookup(index, "ISO 19880-1")["id"], 2)  # 90.92 is in force, 95.99 is not
+        self.assertEqual(iso_open_data.lookup(index, "ISO/DIS 19880-1")["id"], 3)
+        self.assertEqual(iso_open_data.lookup(index, "ISO/DIS TR 15916")["id"], 5)  # the draft has been published
+        self.assertIsNone(iso_open_data.lookup(index, "IEC 60079-10-1"))
+
+    def test_ics_of_a_standard_without_a_csn(self):
+        cache = {"ISO 19880-1": {"found": False, "query": "ISO 19880-1"},
+                 "ČSN EN 1": {"found": True, "ics": [{"code": "43.060.40", "name": "Palivové systémy"}]}}
+        import fetch_ics
+        added = fetch_ics.add_iso_open_data(cache, {"ISO 19880-1": "ISO 19880-1", "ČSN EN 1": "EN 1"},
+                                            index=self.index())
+        self.assertEqual(added, 1)
+        terms = dterms.terms_from_caches({"ics": cache})
+        self.assertEqual([t["term"] for t in terms["ics"]["ISO 19880-1"]], ["43.060.40 Palivové systémy", "71.100.20"])
 
 
 class ExtractKeywordsTestCase(unittest.TestCase):
