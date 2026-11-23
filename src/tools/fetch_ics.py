@@ -13,7 +13,7 @@ A standard is looked up by its international designation (`international_part()`
 "STN EN ISO 6145-11/ - 2009.02" -> "EN ISO 6145-11"); national standards with no
 European or international counterpart (DIN, VDI, DVGW, CGA, EIGA, ...) are not in
 the catalogue and get no ICS here. The answers go to data/ics_cache.json, keyed by
-document_terms.doc_key(); a standard not found is stored as such and asked again
+document_terms.document_keys(); a standard not found is stored as such and asked again
 only with --refresh.
 
     .venv/bin/python src/tools/fetch_ics.py --limit 20     # the first 20 not in the cache
@@ -119,11 +119,12 @@ def detail(session, catalog_number):
 def standards(documents):
     """{doc key: international designation} of the standards among `documents`."""
     out = {}
+    keys = dterms.document_keys(documents)
     for doc_id, identifier, url, type_name, *_ in documents:
         if type_name != "Norma":
             continue
         international = international_part(identifier)
-        key = dterms.doc_key(identifier, url)
+        key = keys[doc_id]
         if key and international:
             out[key] = international
     return out

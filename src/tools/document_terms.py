@@ -12,8 +12,8 @@ its origin:
 - `model`   — keywords a language model drew from the title, the annotation and
               the full text we have (extract_keywords.py).
 
-The fetchers write caches under data/ keyed by the document key (`doc_key()`:
-the identifier, else `url-<hash of the address>`), which survives a rebuild of
+The fetchers write caches under data/ keyed by the document key (`document_keys()`:
+the identifier, else `url-<hash of the address>`, else `title-<hash of the title>`), which survives a rebuild of
 the database; this script writes the caches into the table:
 
     .venv/bin/python src/tools/document_terms.py                 # dry run, live DB
@@ -63,12 +63,24 @@ def ensure_schema(cursor):
     cursor.execute(SCHEMA)
 
 
-def doc_key(identifier, url):
-    """The key a document is known by in the caches: its identifier, else its address."""
+def doc_key(identifier, url, title=None, shared_urls=()):
+    """The key a document is known by in the caches: its identifier, else its address
+    (`url-<hash>`), else — or when other documents without an identifier have the same
+    address, as the 14 BVEG leaflets under https://www.bveg.de/ — its title (`title-<hash>`)."""
     if identifier and identifier.strip():
         return identifier.strip()
     first = fulltext_keys.first_url(url)
-    return fulltext_keys.url_designation(first) if first else None
+    if first and first not in shared_urls:
+        return fulltext_keys.url_designation(first)
+    return fulltext_keys.title_designation(title) or None
+
+
+def document_keys(documents):
+    """{document id: key} for rows of fetch_documents() — (id, identifier, url, type, title, ...)."""
+    counts = collections.Counter(fulltext_keys.first_url(r[2]) for r in documents
+                                 if not (r[1] and r[1].strip()) and r[2])
+    shared = {url for url, n in counts.items() if n > 1}
+    return {r[0]: doc_key(r[1], r[2], r[4], shared) for r in documents}
 
 
 def load_cache(path):
@@ -103,11 +115,13 @@ def terms_from_caches(caches=None):
 
 
 def plan(documents, terms):
-    """[(document_id, origin, position, code, term, term_en)] for `documents` —
-    [(id, identifier, url)] — and `terms` from terms_from_caches()."""
+    """[(document_id, origin, position, code, term, term_en)] for `documents` — rows of
+    fetch_documents(), (id, identifier, url, type, title, ...) — and `terms` from terms_from_caches()."""
     rows = []
-    for doc_id, identifier, url in documents:
-        key = doc_key(identifier, url)
+    keys = document_keys(documents)
+    for document in documents:
+        doc_id = document[0]
+        key = keys[doc_id]
         if not key:
             continue
         for origin in ORIGINS:
@@ -154,7 +168,7 @@ def main(argv=None):
     conn = connect(args.env_file)
     try:
         cur = conn.cursor()
-        documents = [(r[0], r[1], r[2]) for r in fetch_documents(cur)]
+        documents = fetch_documents(cur)
         terms = terms_from_caches()
         rows = plan(documents, terms)
         origins = [o for o in ORIGINS if terms[o]]

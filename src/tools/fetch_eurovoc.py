@@ -4,7 +4,7 @@ EuroVoc is the multilingual thesaurus of the EU; the Publications Office indexes
 every act with its descriptors (`cdm:work_is_about_concept_eurovoc`). This
 script finds the CELEX number of each EU act of the database (its identifier or
 title, citation_closure.own_keys()) and stores the Czech and English labels in
-data/eurovoc_cache.json, keyed by document_terms.doc_key():
+data/eurovoc_cache.json, keyed by document_terms.document_keys():
 
     {"(EU) 2021/535": {"celex": "32021R0535", "fetched": "2026-11-23",
                        "terms": [{"code": "1252", "cs": "homologace", "en": "approval"}, ...]}}
@@ -51,10 +51,11 @@ def eu_acts(documents):
     """{doc key: [CELEX candidates]} of the EU acts among `documents`
     (rows of document_terms.fetch_documents())."""
     acts = {}
+    keys = dterms.document_keys(documents)
     for doc_id, identifier, url, type_name, title, *_ in documents:
         if not type_name or not type_name.endswith(" EU"):
             continue
-        key = dterms.doc_key(identifier, url)
+        key = keys[doc_id]
         if not key or key in EXCLUDED:
             continue
         unece = _UNECE_IDENTIFIER.match(identifier or "")

@@ -31,6 +31,17 @@ class DocKeyTestCase(unittest.TestCase):
     def test_nothing(self):
         self.assertIsNone(dterms.doc_key("", None))
 
+    def test_documents_sharing_an_address_are_told_apart_by_title(self):
+        rows = [(1, None, "https://www.bveg.de/", "Strategie", "BVEG Leitfaden A"),
+                (2, None, "https://www.bveg.de/", "Strategie", "BVEG Leitfaden B"),
+                (3, None, "https://example.org/x.pdf", "Strategie", "Jiná"),
+                (4, "ČSN EN 1", "https://www.bveg.de/", "Norma", "Norma")]
+        keys = dterms.document_keys(rows)
+        self.assertEqual(keys[1], fulltext_keys.title_designation("BVEG Leitfaden A"))
+        self.assertNotEqual(keys[1], keys[2])
+        self.assertEqual(keys[3], fulltext_keys.url_designation("https://example.org/x.pdf"))
+        self.assertEqual(keys[4], "ČSN EN 1")
+
 
 class PlanTestCase(unittest.TestCase):
     CACHES = {
@@ -52,7 +63,8 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual(terms["ics"]["ISO 99999"], [])
 
     def test_plan_maps_keys_to_ids_and_drops_duplicates(self):
-        rows = dterms.plan([(7, "ČSN EN 12279", None), (8, "(EU) 2021/535", None), (9, None, None)],
+        rows = dterms.plan([(7, "ČSN EN 12279", None, "Norma", "t"), (8, "(EU) 2021/535", None, "Nařízení EU", "t"),
+                            (9, None, None, "Studie", "")],
                            dterms.terms_from_caches(self.CACHES))
         model = [r for r in rows if r[1] == "model"]
         self.assertEqual([(r[0], r[4]) for r in model], [(7, "regulátor tlaku"), (7, "plynovod")])

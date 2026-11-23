@@ -8,7 +8,7 @@ beginning of the full text we have (data/fulltext_clean/ of the main working
 tree). The keywords are in Czech whatever the language of the document, so that
 a Slovak, German or English standard is found by the same word as a Czech law.
 
-The answers go to data/keyword_model_cache.json, keyed by document_terms.doc_key(),
+The answers go to data/keyword_model_cache.json, keyed by document_terms.document_keys(),
 with the hash of the input: a document is sent again only when its input or the
 prompt (PROMPT_VERSION) changes.
 
@@ -101,8 +101,9 @@ def input_hash(item, model=MODEL):
 def wanted(documents, eurovoc):
     """The rows to give keywords to: all but the EU acts that have EuroVoc descriptors."""
     out = []
+    keys = dterms.document_keys(documents)
     for row in documents:
-        key = dterms.doc_key(row[1], row[2])
+        key = keys[row[0]]
         if key and key not in eurovoc:
             out.append((key, row))
     return out
