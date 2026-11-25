@@ -263,14 +263,21 @@ class MpoCatalogTestCase(unittest.TestCase):
         identifiers = [i for _, i in rows]
         self.assertEqual(count, len(rows))
         self.assertEqual(len(identifiers), len(set(identifiers)))
-        for wanted in ("(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2023/2413", "(EU) 2018/2001"):
+        for wanted in ("(EU) 2023/1184", "(EU) 2023/1185", "(EU) 2023/2413", "(EU) 2018/2001",
+                       # doc/RFNBO_POKRYTI.md: RFNBO only in their full text
+                       "(EU) 2023/2405", "(EU) 2024/1788", "201/2012 Sb.", "165/2012 Sb.", "458/2000 Sb."):
             self.assertIn(wanted, identifiers)
+        # acts that do not use the notion are not dragged in
+        for unwanted in ("(EU) 2023/1804", "(EU) 2024/1789", "311/2006 Sb."):
+            self.assertNotIn(unwanted, identifiers)
         self.assertFalse([i for i in identifiers if i.endswith("[EN]")])
         self.assertIn("Hledání zahrnuje i synonyma", html)
 
     def test_other_mpo_synonyms(self):
         for query, wanted in (("AFIR", "(EU) 2023/1804"), ("RED+III", "(EU) 2023/2413"),
-                              ("LEX+OZE", "165/2012 Sb.")):
+                              ("LEX+OZE", "165/2012 Sb."), ("nebiologického+původu", "(EU) 2023/2405"),
+                              ("non-biological+origin", "(EU) 2024/1788"),
+                              ("nízkouhlíkový+vodík", "(EU) 2024/1789")):
             rows, _, _ = self.rows(f"/?q={query}")
             self.assertIn(wanted, [i for _, i in rows], query)
 

@@ -189,6 +189,51 @@ def with_noindex(response, noindex):
     return response
 
 
+def areas_enabled(db):
+    """True when the database has the areas of the catalogue (data/areas.json,
+    src/tools/assign_areas.py, doc/OBLASTI.md): the filter and the tags then show
+    them instead of the original keywords. A database where assign_areas.py has not
+    run yet keeps the keywords. Checked once per request."""
+    if 'areas_enabled' not in g:
+        with db.cursor() as cur:
+            cur.execute("SELECT COUNT(*) AS c FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() "
+                        "AND TABLE_NAME IN ('Area', 'DocumentArea')")
+            enabled = cur.fetchone()['c'] == 2
+            if enabled:
+                cur.execute("SELECT EXISTS (SELECT 1 FROM DocumentArea) AS e")
+                enabled = bool(cur.fetchone()['e'])
+        g.areas_enabled = enabled
+    return g.areas_enabled
+
+
+def get_areas(db, include_sk=True):
+    """The areas offered in the filter: those of at least one visible document, in
+    the order of data/areas.json, as {code, name}."""
+    condition, params = visible_condition(include_sk)
+    with db.cursor() as cur:
+        cur.execute("SELECT a.code, a.name FROM Area a WHERE a.public = 1 AND EXISTS (SELECT 1 FROM DocumentArea da "
+                    "JOIN Document d ON d.id = da.document_id WHERE da.area_id = a.id"
+                    f"{condition}) ORDER BY a.sort", params)
+        return cur.fetchall()
+
+
+def area_tags(db, doc_ids, include_hidden=False):
+    """{document id: [area name]} in the order of data/areas.json. An area that is
+    not public ("Oblast dosud neurčena", a worklist of editors, doc/OBLASTI.md) is
+    left out unless `include_hidden` (a logged-in editor)."""
+    if not doc_ids:
+        return {}
+    hidden = "" if include_hidden else " AND a.public = 1"
+    with db.cursor() as cur:
+        cur.execute("SELECT da.document_id, a.name FROM DocumentArea da JOIN Area a ON a.id = da.area_id "
+                    f"WHERE da.document_id IN ({', '.join(['%s'] * len(doc_ids))}){hidden} ORDER BY a.sort",
+                    list(doc_ids))
+        tags = {}
+        for row in cur.fetchall():
+            tags.setdefault(row['document_id'], []).append(row['name'])
+    return tags
+
+
 def get_filters(include_sk=True):
     """Menu contents. Only sources that are the původce of at least one
     document are offered (doc/MPO_PRIPOMINKY.md, připomínka 1: an empty
@@ -248,6 +293,28 @@ def get_active_document_count(db, include_sk=True):
             WHERE dv.is_current = 1 AND dv.lifecycle_state = 'active'
               AND {NOT_A_TRANSLATION}{condition}
         ''', params)
+        row = cur.fetchone()
+    return row["c"] if row else 0
+
+
+# Lifecycle states of a document that is not in force YET (doc/MPO_OVERENI_WEBU.md
+# Z1: they used to be counted as "historických" on the home page).
+UPCOMING_STATES = ('draft', 'promulgated')
+
+
+def get_upcoming_document_count(db, include_sk=True):
+    """Documents whose CURRENT version is a draft or promulgated but not yet
+    effective — shown separately from the historical (repealed/superseded)
+    ones in the hero note. Same counting rules as get_active_document_count()."""
+    condition, params = visible_condition(include_sk)
+    placeholders = ', '.join(['%s'] * len(UPCOMING_STATES))
+    with db.cursor() as cur:
+        cur.execute(f'''
+            SELECT COUNT(DISTINCT d.id) AS c FROM Document d
+            JOIN DocumentVersion dv ON dv.document_id = d.id
+            WHERE dv.is_current = 1 AND dv.lifecycle_state IN ({placeholders})
+              AND {NOT_A_TRANSLATION}{condition}
+        ''', list(UPCOMING_STATES) + list(params))
         row = cur.fetchone()
     return row["c"] if row else 0
 
@@ -379,6 +446,7 @@ def parse_filters(args, include_sk=False):
         'eu_subtype': eu_subtype,
         'source_id': args.get('source_id', ''),
         'keyword_id': args.get('keyword_id', ''),
+        'oblast': args.get('oblast', '').strip(),
         'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', ''),
                                                              include_slovak=include_sk),
         'include_sk': include_sk,
@@ -412,6 +480,10 @@ def build_filter_clause(filters):
             conditions.append("EXISTS (SELECT 1 FROM DocumentTerm t WHERE t.document_id = d.id AND ("
                               + " OR ".join(["t.term LIKE %s"] * len(term_likes)) + "))")
             params.extend(term_likes)
+        # the original keywords of the sources stay searchable, though no longer shown (doc/OBLASTI.md)
+        conditions.append("EXISTS (SELECT 1 FROM DocumentKeyword sk JOIN Keyword sw ON sw.id = sk.keyword_id "
+                          "WHERE sk.document_id = d.id AND sw.keyword LIKE %s)")
+        params.append(like)
         clause += " AND (" + " OR ".join(conditions) + ")"
 
     if filters['type_id']:
@@ -429,6 +501,11 @@ def build_filter_clause(filters):
     if filters['keyword_id']:
         clause += " AND dk.keyword_id = %s"
         params.append(filters['keyword_id'])
+
+    if filters.get('oblast'):
+        clause += (" AND EXISTS (SELECT 1 FROM DocumentArea fa JOIN Area fx ON fx.id = fa.area_id "
+                   "WHERE fa.document_id = d.id AND fx.code = %s)")
+        params.append(filters['oblast'])
 
     condition, condition_params = catalog_filters.jurisdiction_condition(
         filters.get('jurisdiction') or 'vse')
@@ -614,6 +691,8 @@ def index():
     if not with_subtype:
         filters['eu_subtype'] = ''
     types, sources, keywords = get_filters(include_sk)
+    db_areas = areas_enabled(get_db())
+    areas = get_areas(get_db(), include_sk) if db_areas else []
     types, subtypes = type_menu(types, with_subtype)
     source_groups = catalog_filters.group_sources(sources, catalog_filters.load_source_groups())
 
@@ -638,9 +717,12 @@ def index():
         doc['has_clean_text'] = (not doc['restricted_fulltext']
                                  and clean_text_path(doc['file_path']) is not None)
         doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
+    if db_areas:  # the tags of the list are the areas, not the original keywords
+        doc_tags = area_tags(db, [doc['id'] for doc in documents], include_hidden=bool(session.get('user_id')))
     total_document_count = get_total_document_count(db, include_sk)
     active_document_count = get_active_document_count(db, include_sk)
-    inactive_document_count = total_document_count - active_document_count
+    upcoming_document_count = get_upcoming_document_count(db, include_sk)
+    inactive_document_count = total_document_count - active_document_count - upcoming_document_count
 
     selected_type = request.args.get('type_id', '')
     return render_template('index.html',
@@ -657,8 +739,11 @@ def index():
                            include_sk=include_sk,
                            synonyms=filters['synonyms'],
                            keywords=keywords,
+                           areas=areas,
+                           areas_mode=db_areas,
                            total_document_count=total_document_count,
                            active_document_count=active_document_count,
+                           upcoming_document_count=upcoming_document_count,
                            inactive_document_count=inactive_document_count,
                            result_count=result_count,
                            page=page,
@@ -710,6 +795,9 @@ def fetch_document_detail(db, slug):
         ''', (document['id'],))
         keywords = [r['keyword'] for r in cur.fetchall()]
         terms = fetch_terms(db, cur, document['id'])
+        if areas_enabled(db):  # the page shows the areas; the original keywords stay hidden (doc/OBLASTI.md)
+            keywords = area_tags(db, [document['id']], include_hidden=bool(session.get('user_id'))).get(
+                document['id'], [])
 
         versions = fetch_versions(cur, document['id'])
 

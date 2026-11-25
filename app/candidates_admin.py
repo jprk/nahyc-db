@@ -36,6 +36,7 @@ import pathlib
 from flask import abort, flash, redirect, render_template, request, session, url_for
 
 from admin import REPO_ROOT, admin_bp, get_db, login_required
+import areas as area_rules
 import candidates as cd
 import citation_closure as cc
 import norm_editions
@@ -368,6 +369,7 @@ def create_document(cur, candidate):
         else:
             keyword_id = row["id"]
         cur.execute("INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)", (doc_id, keyword_id))
+    area_rules.assign_document(cur, doc_id)  # the areas of the catalogue (data/areas.json, doc/OBLASTI.md)
     for repealed in evidence.get("repeals_ids", []):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)
                        VALUES (%s, %s, 'REPEALS', 'Zrušující předpis podle kontroly platnosti (přijatý kandidát).')""",

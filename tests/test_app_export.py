@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.app import (
     build_document_query, build_count_query, build_page_range, parse_page,
     _rows_for_export, EXPORT_FIELDS, PAGE_SIZE,
-    get_git_version, get_db_last_updated, get_active_document_count,
+    get_git_version, get_db_last_updated, get_active_document_count, get_upcoming_document_count,
     get_total_document_count, classify_review_severity, REVIEW_SEVERITY,
 )
 
@@ -49,8 +49,16 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         # doc/MPO_PRIPOMINKY.md, krok 2: the designation is searched too.
         filters = {**NO_FILTERS, 'q': 'hydrogen'}
         sql, params = build_document_query(filters)
-        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)", sql)
-        self.assertEqual(params, ['%hydrogen%', '%hydrogen%', '%hydrogen%'])
+        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s OR ", sql)
+        # doc/OBLASTI.md: the original keywords stay searchable though no longer shown
+        self.assertIn("sw.keyword LIKE %s", sql)
+        self.assertEqual(params, ['%hydrogen%'] * 4)
+
+    def test_area_filter(self):
+        filters = {**NO_FILTERS, 'oblast': 'vybuch'}
+        sql, params = build_document_query(filters)
+        self.assertIn("fx.code = %s", sql)
+        self.assertEqual(params, ['vybuch'])
 
     def test_type_id_filter(self):
         filters = {**NO_FILTERS, 'type_id': '3'}
@@ -74,7 +82,7 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         # without 'include_sk': the public view, Slovak documents left out last
         filters = {'q': 'norma', 'type_id': '1', 'source_id': '2', 'keyword_id': '3'}
         sql, params = build_document_query(filters, limit=50)
-        self.assertEqual(params, ['%norma%', '%norma%', '%norma%', '1', '2', '3', 'SK', '%[SK]', 50])
+        self.assertEqual(params, ['%norma%'] * 4 + ['1', '2', '3', 'SK', '%[SK]', 50])
         self.assertTrue(sql.rstrip().endswith("LIMIT %s"))
 
 
@@ -109,12 +117,12 @@ class PaginationQueryTestCase(unittest.TestCase):
         self.assertIn("COUNT(DISTINCT d.id)", sql)
 
     def test_count_query_applies_the_same_filters_as_the_list(self):
-        filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'keyword_id': '9'}
+        filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'keyword_id': '9', 'oblast': 'vybuch'}
         count_sql, count_params = build_count_query(filters)
         list_sql, list_params = build_document_query(filters, limit=None)
-        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)",
+        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s OR ",
                          "AND d.type_id = %s", "AND d.source_id = %s",
-                         "AND dk.keyword_id = %s"):
+                         "AND dk.keyword_id = %s", "fx.code = %s"):
             self.assertIn(fragment, count_sql)
             self.assertIn(fragment, list_sql)
         self.assertEqual(count_params, list_params)
@@ -352,6 +360,28 @@ class GetActiveDocumentCountTestCase(unittest.TestCase):
         cursor.fetchone.return_value = None
         db.cursor.return_value.__enter__.return_value = cursor
         self.assertEqual(get_active_document_count(db), 0)
+
+
+class GetUpcomingDocumentCountTestCase(unittest.TestCase):
+    """doc/MPO_OVERENI_WEBU.md Z1: drafts / promulgated acts are counted
+    separately, not as "historických"."""
+
+    def test_queries_draft_and_promulgated(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"c": 145}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 145)
+        sql, params = cursor.execute.call_args[0]
+        self.assertIn("lifecycle_state IN", sql)
+        self.assertEqual(params[:2], ['draft', 'promulgated'])
+
+    def test_no_rows_returns_zero(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = None
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 0)
 
 
 if __name__ == '__main__':
