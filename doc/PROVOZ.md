@@ -3,13 +3,14 @@
 > Historie dokumentu:  
 > 2026-11-19 jprk Návrh první verze (podklad k vypořádání připomínek MPO k výsledku V01)  
 > 2026-11-19 jprk Doplněn stav po krocích 1 až 3, editorský přístup pro MPO, termíny nasazení  
-> 2026-11-20 jprk Konsolidovaná znění CLP a REACH, termín instalace plánovače a nouzový postup
+> 2026-11-20 jprk Konsolidovaná znění CLP a REACH, termín instalace plánovače a nouzový postup  
+> 2026-11-21 jprk Stav po nasazení 20. 11. 2026, první běh sběru a automatické předtřídění fronty kandidátů; plánovač dosud nenainstalován, kontroly se spouštějí ručně
 
-> **Plánovač je třeba nainstalovat do konce prosince 2026.** Dne 1. 1. 2027
+> **Plánovač je třeba nainstalovat do konce prosince 2026.** Dne 1. 1. 2027
 > se automaticky přepínají normy ČSN EN 13445 a ČSN EN 1717+A1 na vydání
-> 12/2026 a nařízení CLP na konsolidované znění k 1. 1. 2027; bez plánovače
+> 12/2026 a nařízení CLP na konsolidované znění k 1. 1. 2027; bez plánovače
 > se nic z toho nestane. Nebude-li plánovač do té doby nainstalován, provede
-> správce 2. 1. 2027 nouzový postup podle odstavce 5.4.
+> správce 2. 1. 2027 nouzový postup podle odstavce 5.4.
 
 Dokument popisuje, jak se databáze regulačních předpisů a předrealizačních
 procesů (výsledek V01 dílčího projektu DP004 centra NAHYC) udržuje aktuální:
@@ -21,13 +22,14 @@ odpověď na dotaz Ministerstva průmyslu a obchodu, jak bude zajištěna
 aktuálnost předpisů.
 
 Odstavce 1 až 9 popisují postup bez technických podrobností. Technické
-údaje (nástroje, příkazy, datové soubory a tabulky) jsou v příloze A na
+údaje (nástroje, příkazy, datové soubory a tabulky) jsou v příloze A na
 konci dokumentu.
 
-U každého postupu odlišujeme, co platí k 19. 11. 2026 v provozní databázi,
-od toho, co je připraveno a ověřeno na kopii databáze a co nasadíme do 25. 11. 2026 (dále „po nasazení“), a od toho, co teprve zavádíme. Plánované
-stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označena
-`[DOPLNIT: …]`.
+Stav popisujeme k 20. 11. 2026, kdy jsme všechny popsané úpravy nasadili do
+veřejné verze aplikace a zapsali do provozní databáze; čísla jsme ověřili
+dotazem nad provozní databází 21. 11. 2026. Od toho odlišujeme, co teprve
+zavádíme, především pravidelné automatické spouštění kontrol (plánovač),
+jež dosud nainstalováno není. Plánované stavy popisujeme budoucím časem.
 
 ## 1. Zásady
 
@@ -63,12 +65,14 @@ stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označen
 |---|---|---|
 | Garant databáze | Mgr. Vladimír Kremlík (RICE) | Odpovídá za obsah a rozsah databáze; rozhoduje sporné případy; jednou za čtvrtletí vyhodnocuje úplnost (odstavec 8) a podává zprávu aplikačnímu garantovi. |
 | Editoři řešitele (nejméně dva) | Dr. Bronislav Vahalík (CDV), Ing. Jan Sochor (HYTEP) | Posuzují frontu kandidátů, připravované dokumenty a navržené opravy; navrhují a potvrzují přijetí dokumentů a změny stavu; provádějí ruční kontroly zdrojů, jež automatizovat nelze. |
-| Editoři MPO (volitelně) | pracovníci MPO určení aplikačním garantem [DOPLNIT po dohodě s MPO: jméno] | Stejná oprávnění jako editoři řešitele (odstavec 2.1); mohou zejména navrhovat nové dokumenty a opravy údajů a potvrzovat návrhy ostatních editorů. |
+| Editoři MPO (volitelně) | pracovníci MPO určení aplikačním garantem (po dohodě s MPO) | Stejná oprávnění jako editoři řešitele (odstavec 2.1); mohou zejména navrhovat nové dokumenty a opravy údajů a potvrzovat návrhy ostatních editorů. |
 | Správce | Dr. Jan Přikryl (RICE) | Spouští nebo nastavuje pravidelné kontroly, pořizuje zálohy, sleduje chyby a dostupnost zdrojů, zakládá uživatelské účty editorů. |
 | Aplikační garant (MPO) | Ing. Petr Mervart | Uplatňuje připomínky a požadavky na rozsah; určuje, kteří pracovníci MPO dostanou editorský účet; dostává čtvrtletní zprávu o úplnosti. |
 
-K 19. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
-účty editorů řešitele. Přijetí kandidáta vyžaduje dva různé editory; dva
+K 20. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
+účty (správce a jeden editor řešitele) a neaktivní technický účet
+automatického navrhovatele (odstavec 4.4), jenž se nepřihlašuje a nic
+nepotvrzuje. <!-- OTEVŘENO bod 3: editorské účty --> Přijetí kandidáta vyžaduje dva různé editory; dva
 účty pravidlu postačují, s jediným aktivním editorem by však fronta
 kandidátů nemohla být vyřizována. Proto doporučujeme udržovat nejméně tři
 aktivní editory.
@@ -109,33 +113,40 @@ pokrytí databáze regulačních dokumentů“, odstavec 6) a z povahy zdrojů
 novinek VeKLEPu například pokrývá jen zhruba dva týdny, a musí se proto
 číst nejméně týdně.
 
-### 3.2 Stav k 19. 11. 2026
+### 3.2 Stav k 20. 11. 2026
 
 * **Kontrola platnosti** předpisů ČR a EU je v provozu a naposledy proběhla
-  27. 10. 2026 (747 předpisů ČR a EU — dokumenty databáze i kandidáti na
+  27. 10. 2026 (747 předpisů ČR a EU — dokumenty databáze i kandidáti na
   doplnění, odstavec 5).
-* **Fronta kandidátů** je v provozu; obsahuje 296 kandidátů, z nichž 295
-  čeká na posouzení a 1 je navržen k přijetí. Pocházejí z kontroly úplnosti
-  (288) a z kontroly platnosti (8).
 * **Sběr ze sledovaných zdrojů** (34 zdrojů čtených pravidelně, 5 k dohledání
-  na vyžádání, 16 ručně kontrolovaných) je vyvinut a vyzkoušen na testovací
-  kopii databáze, do provozu však dosud uveden nebyl. Zkouška nanečisto nad
-  provozní databází 19. 11. 2026, při níž se nic nezapsalo, odhadla 252
-  nových kandidátů, z toho 112 s přímým vztahem k databázi (mění dokument
-  databáze nebo se týká vodíku). Do provozu jej uvedeme prvním ostrým
-  během do 25. 11. 2026; skutečný počet nálezů bude záviset na stavu zdrojů
-  v den běhu. Nálezy s přímým vztahem posoudí editoři do 18. 12. 2026,
-  ostatní do 15. 1. 2027.
+  na vyžádání, 16 ručně kontrolovaných) je v provozu. První běh nad
+  provozní databází proběhl 20. 11. 2026: zapsal do fronty 242 nových
+  kandidátů, mezi nimi 35 sněmovních tisků, 9 legislativních postupů EU,
+  74 předpisů z otevřených dat e-Sbírky, 69 technických pravidel TPG
+  a 22 norem a návrhů norem z Věstníku ÚNMZ; u čtyř norem zaznamenal změnu
+  stavu. Souhrnné seznamy harmonizovaných norem Evropské komise se stáhnout
+  nepodařilo (server odmítl dotaz pro přílišnou četnost požadavků,
+  HTTP 429); zdroj se zkontroluje při dalším běhu. Kanál novinek VeKLEPu
+  žádný nový návrh nepřinesl.
 * **Kandidáti z tabulek MPO a CDV** (34 kandidátů s úředním názvem, adresou,
-  platností a navrženou odpovědnou institucí) jsou připraveni a do fronty
-  kandidátů je zapíšeme do 25. 11. 2026; posoudí je editoři do
-  11. 12. 2026.
-* **Pravidelné automatické spouštění** kontrol na serveru zavedeno není;
-  kontroly spouští správce ručně. Konfigurace plánovače (týdenní, měsíční
+  platností a navrženou odpovědnou institucí) a kandidáti na další části
+  řad ČSN EN 60079 a ČSN EN 13445 a na novely LEX OZE jsou od 20. 11. 2026
+  ve frontě kandidátů.
+* **Fronta kandidátů** je v provozu a obsahuje 592 kandidátů. Automatický
+  navrhovatel je 20. 11. 2026 předtřídil (odstavec 4.4): 242 navrhl
+  k přijetí, 163 zamítl, 46 odložil a u 140 ponechal editorům doporučení
+  jazykového modelu; jeden další kandidát byl navržen k přijetí již dříve. Přijetí žádného kandidáta dosud editor nepotvrdil;
+  nálezy s přímým vztahem k databázi posoudí editoři do 18. 12. 2026,
+  kandidáty z tabulek MPO a CDV do 11. 12. 2026 a ostatní do 15. 1. 2027.
+  <!-- OTEVŘENO bod 3: editorské účty -->
+* **Pravidelné automatické spouštění** kontrol na serveru (plánovač)
+  zavedeno není; kontroly, sběr i třídění fronty spouští správce ručně
+  (příloha A.4). Konfigurace plánovače (denní, týdenní, měsíční
   a čtvrtletní běh se zálohou databáze před každým zápisem) je připravena,
-  nainstalována však není; rozhodnutí o jejím zavedení jsme odložili
-  (odstavec 9). Dokud plánovač nebude zaveden, odpovídá za dodržení
-  četnosti podle odstavce 3.1 správce.
+  nainstalována však není (odstavec 9.2). Dokud plánovač nebude zaveden,
+  odpovídá za dodržení četnosti podle odstavce 3.1 správce. Plánovač je
+  třeba nainstalovat do konce prosince 2026; jinak správce 2. 1. 2027
+  provede ruční běh podle odstavce 5.4.
 
 ## 4. Fronta kandidátů
 
@@ -193,23 +204,34 @@ stahování plných textů (u norem se plný text neuchovává).
 ### 4.4 Automatické třídění fronty
 
 Nové kandidáty předtřídí technický účet „Automatický navrhovatel“ (přihlašovací
-jméno `automat`), popsaný v dokumentu `doc/FRONTA_AUTOMAT.md`. Účet se
-nepřihlásí a nic nepotvrzuje. Podle pravidel, jež odsouhlasil uživatel
-(`data/triage_rules.json`), smí navrhnout přijetí (například technických
-pravidel TPG, dokumentů z tabulek MPO a CDV, jiné jazykové verze předpisu,
-jejž databáze má, a zrušeného předpisu se stavem „zrušený“ a vazbou na předpis,
-který jej zrušil), zamítnout duplicitu ve stejném jazyce a odložit novinku, jež
+jméno `automat`; podrobný popis pravidel je v interním dokumentu
+`doc/FRONTA_AUTOMAT.md`). Účet se nepřihlásí a nic nepotvrzuje. Podle
+pravidel, jež řešitel předem schválil (`data/triage_rules.json`), smí navrhnout přijetí (například technických
+pravidel TPG, dokumentů z tabulek MPO a CDV, jiné jazykové verze předpisu,
+jejž databáze má, a zrušeného předpisu se stavem „zrušený“ a vazbou na předpis,
+který jej zrušil), zamítnout duplicitu ve stejném jazyce a odložit novinku, jež
 sama dokumentem není; ostatní kandidáty posoudí
-jazykový model a jeho doporučení s jistotou a zdůvodněním se zobrazí editorům.
-Každé rozhodnutí automatu nese poznámku s pravidlem a důvodem, v seznamu
-i v auditním logu je označeno štítkem „automat“ a lze je vrátit
+jazykový model a jeho doporučení s jistotou a zdůvodněním se zobrazí editorům.
+Každé rozhodnutí automatu nese poznámku s pravidlem a důvodem, v seznamu
+i v auditním logu je označeno štítkem „automat“ a lze je vrátit
 (**Vrátit návrh**, **Znovu otevřít**). Kandidáta, jejž editor znovu otevřel,
 automat již nemění.
 
-Návrhy automatu potvrzuje editor: ve filtru „návrhy automatu k potvrzení“
-zaškrtne kandidáty, jež zkontroloval, a zvolí **Potvrdit přijetí vybraných**;
-hromadně lze stejně odložit nebo (s důvodem) zamítnout. Každý kandidát se
-zpracuje a do auditu zapíše zvlášť.
+Návrhy automatu potvrzuje editor: ve filtru „návrhy automatu k potvrzení“
+zaškrtne kandidáty, jež zkontroloval, a zvolí **Potvrdit přijetí vybraných**;
+hromadně lze stejně odložit nebo (s důvodem) zamítnout. Každý kandidát se
+zpracuje a do auditu zapíše zvlášť.
+
+Předtřídění se spouští po každém sběru zdrojů a importu kandidátů; do
+zavedení plánovače je spouští správce ručně (příloha A.4). První běh nad
+provozní databází proběhl 20. 11. 2026 nad 592 kandidáty: podle pravidel
+navrhl automat k přijetí 126 kandidátů (69 technických pravidel TPG,
+53 kandidátů z tabulek MPO a CDV a souvisejících norem a novel LEX OZE,
+3 návrhy předpisů a norem výslovně o vodíku a 1 zrušený předpis, vyhlášku
+č. 513/2021 Sb. z tabulky MPO), 6 novinek
+odložil; ze 459 kandidátů posouzených jazykovým modelem navrhl k přijetí
+116, zamítl 163, odložil 40 a u 140 ponechal doporučení editorům. Vše je
+vratné a přijetí každého kandidáta musí potvrdit editor.
 
 ### 4.5 Lhůty
 
@@ -223,7 +245,7 @@ první prosincový týden 2026; po dohodě je zde upřesníme.
 Opravy údajů existujících dokumentů (název, popis, odpovědná instituce,
 typ, jazyk aj.) se schvalují stejně: jeden editor opravu navrhne, druhý ji
 potvrdí. Dokumenty s pravděpodobnou vadou údajů nesou příznak ke kontrole
-s důvodem; k 19. 11. 2026 jich je 558, převážně jde o chybějící popis.
+s důvodem; k 20. 11. 2026 jich je 557, převážně jde o chybějící popis.
 
 ## 5. Kontrola platnosti a stavy dokumentů
 
@@ -239,9 +261,10 @@ s důvodem; k 19. 11. 2026 jich je 558, převážně jde o chybějící popis
 
 Úvodní stránka aplikace počítá jen účinné dokumenty; stránka dokumentu
 uvádí stav každé jeho verze a u zrušeného předpisu vazbu „je zrušen
-předpisem“. K 19. 11. 2026 má aktuální verze 1300 dokumentů stav účinný,
-151 připravovaný (vesměs návrhy norem) a 35 zrušený; 20 zrušených předpisů
-je propojeno s předpisem, jenž je zrušil.
+předpisem“. K 20. 11. 2026 má aktuální verze 1316 dokumentů stav účinný,
+153 připravovaný (vesměs návrhy norem a dvě připravované aktualizace
+strategií), 35 zrušený a 2 nahrazený (počty zahrnují jazykové verze
+a slovenské dokumenty).
 
 ### 5.2 Jak kontrola probíhá
 
@@ -257,7 +280,7 @@ je propojeno s předpisem, jenž je zrušil.
    zrušující předpis, stane se kandidátem ve frontě (odstavec 4.1, bod 3).
 
 Kontrola dosud nepokrývá strategie, technická pravidla a slovenské
-předpisy. U norem po nasazení zaznamenáváme výsledek kontroly v katalozích
+předpisy. U norem zaznamenáváme výsledek kontroly v katalozích
 norem (ČSN online, Normoff, Věstník ÚNMZ, souhrnné seznamy harmonizovaných
 norem) a datum této kontroly se zobrazuje u dokumentu (odstavec 7).
 Zrušení normy se do stavu dokumentu automaticky nepromítá a provádí je
@@ -271,14 +294,13 @@ po vydání; údaj „Datum účinnosti“ na stránce normy). Měsíční kontr
 vede u dokumentu jako další verzi ve stavu „vyhlášený, dosud neúčinný“
 s datem účinnosti. V den účinnosti se nové vydání stane aktuální verzí
 a dosavadní vydání „nahrazeným“. Proto se promítnutí stavů spouští
-1. den každého měsíce (plánovač, odstavec 9.3; do jeho zavedení ručně,
+1. den každého měsíce (plánovač, odstavec 9.2; do jeho zavedení ručně,
 příloha A.4). Nová norma, jež dosud nenabyla účinnosti, je do dne účinnosti
-ve stavu „vyhlášený, dosud neúčinný“. Příklad: řada ČSN EN 13445 vydaná
-1. 12. 2026 nabývá účinnosti 1. 1. 2027, ČSN EN IEC 60079-29-0 vydaná
-v listopadu 2026 nabývá účinnosti 1. 12. 2026.
+ve stavu „vyhlášený, dosud neúčinný“. Příklad: řada ČSN EN 13445 vydaná 1. 12. 2026 nabývá účinnosti 1. 1. 2027, ČSN EN IEC 60079-29-0 vydaná
+v listopadu 2026 nabývá účinnosti 1. 12. 2026.
 
 **Označení dokumentu se při přepnutí řídí účinným vydáním** (rozhodnutí
-z 20. 11. 2026). Liší-li se označení nového vydání od dosavadního označení
+z 20. 11. 2026). Liší-li se označení nového vydání od dosavadního označení
 dokumentu, například `ČSN EN 13445-5+A1` → `ČSN EN 13445-5` (změna A1 je
 v novém vydání zapracována), nebo naopak přibude `+A1`, změní se v den
 účinnosti automaticky i označení dokumentu a označení na začátku jeho názvu.
@@ -297,13 +319,13 @@ označení se nemění. Dále platí:
   označení zůstane a běh to vypíše. O označení pak rozhodne editor.
 * **Přestavba databáze** změnu zachová: Běh promítnutí stavů ji zapíše
   do `data/manual_corrections.json` (nové označení, zachovaný slug, nový
-  odkaz), přejmenuje klíče dokumentu v `data/fulltext_manifest.json`
-  a přesune jeho záznam v `data/norm_validity_cache.json` pod nové
+  odkaz), přejmenuje klíče dokumentu v `data/fulltext_manifest.json`
+  a přesune jeho záznam v `data/norm_validity_cache.json` pod nové
   označení. Vazby uložené podle označení se při přestavbě přejmenují
   podle `data/manual_corrections.json`. Změněné soubory je třeba zapsat do
-  repozitáře (odstavec 9.3, bod 2).
+  repozitáře (odstavec 9.2, bod 2).
 
-Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
+Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
 #37 přešel na vydání 12/2026 s označením `ČSN EN 13445-5` a slugem
 `csn-en-13445-5-a1`, dokument #1456 na vydání 12/2026 se stejným označením
 `ČSN EN 1717+A1`.
@@ -311,18 +333,18 @@ Zkouška na testovací databázi s datem 1. 1. 2027 (20. 11. 2026): Dokument
 ### 5.3 Konsolidovaná znění aktů EU
 
 U nařízení CLP (ES) č. 1272/2008 a REACH (ES) č. 1907/2006 zobrazujeme
-od 20. 11. 2026 aktuální konsolidované znění, nikoli původní znění
-vyhlášené v Úředním věstníku (rozhodnutí uživatele z 20. 11. 2026).
+od 20. 11. 2026 aktuální konsolidované znění, nikoli původní znění
+vyhlášené v Úředním věstníku (rozhodnutí řešitele z 20. 11. 2026).
 Konsolidované znění je neúřední úplné znění aktu se všemi změnami; vydává
 je Úřad pro publikace EU, jenž je v databázi Cellar vede s datem, od něhož
 se použije. Databáze vede každé znění jako verzi dokumentu:
 
-* **Aktuální konsolidované znění** (ke 20. 11. 2026 u CLP znění k 1. 7. 2026,
-  u REACH k 22. 6. 2026) je aktuální verzí ve stavu „účinný“ a jeho text se
+* **Aktuální konsolidované znění** (ke 20. 11. 2026 u CLP znění k 1. 7. 2026,
+  u REACH k 22. 6. 2026) je aktuální verzí ve stavu „účinný“ a jeho text se
   zobrazuje na stránce dokumentu.
 * **Původní znění** a **starší konsolidovaná znění** jsou verze ve stavu
   „nahrazený“; původní znění si ponechává svůj uložený text.
-* **Připravené znění s budoucí účinností** (u CLP znění k 1. 1. 2027) je
+* **Připravené znění s budoucí účinností** (u CLP znění k 1. 1. 2027) je
   verze ve stavu „vyhlášený, dosud neúčinný“.
 
 Stránka dokumentu uvádí, které znění se zobrazuje, a u každé verze odkaz
@@ -331,34 +353,34 @@ do EUR-Lexu, u verzí s uloženým textem i odkaz na náš text. Denní kontr
 je učiní aktuální verzí, stáhne jeho text z Cellaru a vytvoří čitelný text.
 Dokud se text nového znění nepodaří stáhnout, stránka zobrazuje text
 předchozího znění a uvádí to. Další akty EU lze do mechanismu zařadit
-seznamem v datovém souboru (příloha A.2); návrh je v `doc/CELLAR_FULLTEXT.md`,
+seznamem v datovém souboru (příloha A.2); návrh je v `doc/CELLAR_FULLTEXT.md`,
 odstavec 7.
 
 ### 5.4 Plánovač a nouzový postup
 
 **Plánovač je třeba nainstalovat do konce prosince 2026.** Konfigurace je
-připravena v `deploy/scheduler/` (časovače systemd nebo crontab, příloha
-A.2), dosud není nainstalována (odstavec 9.3). Na plánovači závisí:
+připravena v `deploy/scheduler/` (časovače systemd nebo crontab, příloha
+A.2), dosud není nainstalována (odstavec 9.2). Na plánovači závisí:
 
-* přepnutí norem na vydání s pozdější účinností 1. den v měsíci (1. 1. 2027
+* přepnutí norem na vydání s pozdější účinností 1. den v měsíci (1. 1. 2027
   řada ČSN EN 13445 a ČSN EN 1717+A1, odstavec 5.2);
-* přechod nařízení CLP na konsolidované znění k 1. 1. 2027 a každé další
+* přechod nařízení CLP na konsolidované znění k 1. 1. 2027 a každé další
   nové konsolidované znění CLP a REACH (odstavec 5.3);
 * týdenní, měsíční a čtvrtletní sběr sledovaných zdrojů (odstavec 3).
 
-Nebude-li plánovač 1. 1. 2027 v provozu, provede správce **2. 1. 2027**
-v hlavním stromu (`/home/laborator/DEVEL/nahyc-h2db`) nouzový postup:
+Nebude-li plánovač 1. 1. 2027 v provozu, provede správce **2. 1. 2027**
+v adresáři provozované aplikace (`/home/laborator/DEVEL/nahyc-h2db`) nouzový postup:
 
 ```
 .venv/bin/python src/tools/backup_db.py --reason before_states_20270102
 .venv/bin/python src/tools/backfill_document_states.py            # suchý běh
-.venv/bin/python src/tools/backfill_document_states.py --apply    # normy a verze CLP
+.venv/bin/python src/tools/backfill_document_states.py --apply    # normy a verze CLP
 .venv/bin/python src/tools/refresh_eu_consolidations.py           # suchý běh
-.venv/bin/python src/tools/refresh_eu_consolidations.py --apply   # Cellar, text CLP k 1. 1. 2027
+.venv/bin/python src/tools/refresh_eu_consolidations.py --apply   # Cellar, text CLP k 1. 1. 2027
 ```
 
 Výsledek správce ověří na stránkách dokumentů CLP (`/dokument/es-1272-2008`,
-zobrazený text „konsolidované znění ke dni 1. 1. 2027“) a ČSN EN 13445-5
+zobrazený text „konsolidované znění ke dni 1. 1. 2027“) a ČSN EN 13445-5
 (označení `ČSN EN 13445-5`). Totéž platí pro každý další 1. den v měsíci
 (normy) a pro den účinnosti dalšího konsolidovaného znění, dokud plánovač
 nebude nainstalován.
@@ -378,26 +400,21 @@ nebude nainstalován.
 
 ## 7. Jak zjistit, kdy byl dokument naposledy ověřen
 
-K 19. 11. 2026:
+Od 20. 11. 2026:
 
 * zápatí každé stránky aplikace uvádí datum a čas poslední změny databáze
   jako celku;
-* stránka dokumentu uvádí stav jeho verzí, nikoli však datum, kdy byl stav
-  naposledy ověřen;
-* datum kontroly platnosti je evidováno u každého předpisu interně
-  (poslední kontrola 27. 10. 2026), veřejně se však nezobrazuje.
+* stránka dokumentu uvádí stav každé jeho verze a údaj „Poslední kontrola
+  stavu“ s datem a zdrojem kontroly, například „27. 10. 2026 (e-Sbírka)“
+  nebo „5. 11. 2026 (Věstník ÚNMZ)“, u změny potvrzené editorem jméno
+  editora; dokument, jenž dosud ověřen nebyl, nese text „dosud neověřeno“.
 
-Po nasazení (do 25. 11. 2026) bude stránka dokumentu uvádět údaj „Poslední
-kontrola stavu“ s datem a zdrojem kontroly, například „27. 10. 2026
-(e-Sbírka)“, „5. 11. 2026 (ČSN online)“ nebo u změny potvrzené editorem
-„19. 11. 2026 (editor …)“; dokument, jenž dosud ověřen nebyl, ponese text
-„dosud neověřeno“. Údaj se zapisuje při každém promítnutí výsledků kontrol
-do databáze, i když se stav dokumentu nezměnil, a datum se nikdy neposouvá
-zpět. Podle zkoušky nanečisto nad provozní databází bude datum kontroly
-po nasazení uvedeno u 226 dokumentů (databáze Úřadu pro publikace EU 167,
-e-Sbírka 37, Věstník ÚNMZ 13, seznamy harmonizovaných norem 7, katalogy
-norem 2); ostatní, mezi nimi většina norem STN, ponesou „dosud neověřeno“,
-dokud je některá kontrola neověří. Aplikační garant tak bude moci u každého
+Údaj se zapisuje při každém promítnutí výsledků kontrol do databáze, i když
+se stav dokumentu nezměnil, a datum se nikdy neposouvá zpět. K 20. 11. 2026
+je datum kontroly uvedeno u 233 dokumentů (databáze Úřadu pro publikace EU
+169, e-Sbírka 37, Věstník ÚNMZ 24, katalogy norem a seznamy harmonizovaných
+norem 3); ostatní, mezi nimi většina norem STN, nesou „dosud neověřeno“,
+dokud je některá kontrola neověří. Aplikační garant tak může u každého
 dokumentu ověřit, kdy a podle čeho byl naposledy zkontrolován.
 
 Veřejný přehled kontrol jednotlivých zdrojů včetně kontrol bez nálezu
@@ -414,9 +431,8 @@ kontrol:
    aplikace, ověřuje, že každý z 90 řádků obou tabulek je dokumentem
    databáze, kandidátem ve frontě, nebo má uveden důvod, proč dokumentem
    není (například technické komise normalizačních organizací), a že žádný
-   dokument z tabulek z databáze nezmizel. Ke 19. 11. 2026 je 51 řádků
-   v databázi, 31 ve frontě kandidátů (po zápisu kandidátů do provozní
-   databáze) a 8 řádků nejsou dokumenty.
+   dokument z tabulek z databáze nezmizel. K 20. 11. 2026 je 51 řádků
+   v databázi, 31 ve frontě kandidátů a 8 řádků nejsou dokumenty.
 2. **Uzávěr citací** — Předpisy citované v textech dokumentů databáze, jež
    databáze neobsahuje; nejčastěji citované se stávají kandidáty.
 3. **Porovnání s registry** — U směrnic EU seznam českých prováděcích
@@ -431,17 +447,13 @@ tabulky jich v databázi chybělo 27).
 
 ## 9. Otevřené otázky
 
-### 9.1 K projednání s aplikačním garantem
+### 9.1 K projednání s aplikačním garantem
 
 1. **Editoři MPO** — Zda a kterým pracovníkům MPO založit editorský účet
    (odstavec 2.1).
-2. **Lhůty posouzení kandidátů** podle odstavce 4.4.
+2. **Lhůty posouzení kandidátů** podle odstavce 4.5.
 
-### 9.2 Doplní řešitel
-
-1. **Jména** garanta databáze, editorů řešitele a správce (odstavec 2).
-
-### 9.3 Odloženo, vyřešíme později
+### 9.2 Odloženo, vyřešíme později
 
 Následující provozní otázky jsme odložili; do jejich vyřešení platí postup
 popsaný v odstavci 3.2 (kontroly spouští ručně správce).
@@ -449,13 +461,13 @@ popsaný v odstavci 3.2 (kontroly spouští ručně správce).
 1. **Plánovač kontrol** — Na kterém serveru a jakým mechanismem (časovač
    systemd, nebo crontab) jej provozovat; kde bude databáze provozována po
    skončení projektu. **Nainstalovat jej je třeba do konce prosince 2026**
-   (odstavec 5.4), jinak se 1. 1. 2027 nepřepnou normy ani znění CLP.
-2. **Datové soubory měněné běhy kontrol** — Běhy v hlavním stromu mění
+   (odstavec 5.4), jinak se 1. 1. 2027 nepřepnou normy ani znění CLP.
+2. **Datové soubory měněné běhy kontrol** — Běhy v adresáři provozované aplikace mění
    soubory pod správou verzí (záznam běhů, mezipaměti kontrol, přijaté
-   kandidáty, při přejmenování normy na nové vydání i `data/manual_corrections.json`
-   a `data/fulltext_manifest.json`); zda je pravidelně zapisovat do repozitáře, nebo je přesunout
+   kandidáty, při přejmenování normy na nové vydání i `data/manual_corrections.json`
+   a `data/fulltext_manifest.json`); zda je pravidelně zapisovat do repozitáře, nebo je přesunout
    mimo správu verzí. Do rozhodnutí je nutné změněné soubory před každým
-   nasazením nové verze (`git pull` v hlavním stromu) ošetřit ručně.
+   nasazením nové verze (`git pull` v adresáři provozované aplikace) ošetřit ručně.
 3. **Zdroje IEC, EIGA a DVGW** — Stávající způsob jejich čtení obchází
    ochranu proti robotům; navrhujeme je vypnout a kontrolovat je ručně.
 4. **Registrace** k rozhraní e-Sbírky a e-Legislativy (podání Ministerstvu
@@ -473,7 +485,7 @@ popsaný v odstavci 3.2 (kontroly spouští ručně správce).
 ## Příloha A: Technické údaje
 
 Údaje v této příloze slouží správci a vývojářům. Nástroje jsou v adresáři
-`src/tools/` hlavního stromu a spouštějí se jeho interpretem
+`src/tools/` adresáře provozované aplikace a spouštějí se jejím interpretem
 (`.venv/bin/python`); bez volby `--apply` provádějí jen suchý běh. Účet
 k databázi se čte ze souboru `.env` (pro testovací databázi `.env.test`,
 volba `--env-file`).
@@ -482,17 +494,17 @@ volba `--env-file`).
 
 | Tabulka | Účel |
 |---|---|
-| `Document`, `DocumentVersion` | dokumenty a jejich verze; stav v `DocumentVersion.lifecycle_state` (`active`, `promulgated`, `draft`, `superseded`, `repealed`) |
+| `Document`, `DocumentVersion` | dokumenty a jejich verze; stav v `DocumentVersion.lifecycle_state` (`active`, `promulgated`, `draft`, `superseded`, `repealed`) |
 | `document_relation` | vazby `AMENDS`, `REPEALS`, `IMPLEMENTS`, `TRANSLATION_OF` aj. |
 | `DocumentCandidate` | fronta kandidátů (stavy `new`, `proposed`, `accepted`, `rejected`, `deferred`; podmínka `chk_dc_distinct_reviewers`) |
 | `ReviewItem` | navržené opravy údajů (podmínka `chk_ri_distinct_reviewers`) |
 | `User`, `AuditLog` | účty editorů a záznam rozhodnutí |
-| `DocumentStateChange` | navržené změny stavu připravovaných dokumentů (podmínka `chk_dsc_distinct_reviewers`; po nasazení kroku 3) |
+| `DocumentStateChange` | navržené změny stavu připravovaných dokumentů (podmínka `chk_dsc_distinct_reviewers`) |
 
 Sloupec `Document.provenance` nese původ záznamu a veřejně se nezobrazuje.
-Po nasazení kroků 1 až 3 přibudou sloupce `Document.eu_act_subtype`
+Od 20. 11. 2026 jsou v provozu sloupce `Document.eu_act_subtype`
 (`delegated`, `implementing`), `Document.status_checked_at`
-a `status_checked_by` (datum a zdroj poslední kontroly stavu),
+a `status_checked_by` (datum a zdroj poslední kontroly stavu),
 `DocumentCandidate.puvodce` (navržená odpovědná instituce) a typ vazby
 `ENACTED_AS` („návrh vyhlášen jako“).
 Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
@@ -502,23 +514,23 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | Nástroj | Účel | Četnost |
 |---|---|---|
 | `check_validity.py [--max-age 30]` | kontrola platnosti (Cellar, e-Sbírka, zakonyprolidi.cz) → `data/validity_cache.json` | týdně |
-| `backfill_document_states.py --apply [--today RRRR-MM-DD]` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`); vydání norem s pozdější účinností (`norm_editions.py`): doplnění verze a přepnutí v den účinnosti, případně se změnou označení dokumentu (zápis do `data/manual_corrections.json`, `data/fulltext_manifest.json` a `data/norm_validity_cache.json`, odstavec 5.2); `--today` (bez `--apply`) ukáže, co se stane k danému dni | po kontrole platnosti a 1. den v měsíci |
+| `backfill_document_states.py --apply [--today RRRR-MM-DD]` | promítnutí výsledků do `lifecycle_state` a vazeb `REPEALS` (`data/document_relations_validity.json`); vydání norem s pozdější účinností (`norm_editions.py`): doplnění verze a přepnutí v den účinnosti, případně se změnou označení dokumentu (zápis do `data/manual_corrections.json`, `data/fulltext_manifest.json` a `data/norm_validity_cache.json`, odstavec 5.2); `--today` (bez `--apply`) ukáže, co se stane k danému dni | po kontrole platnosti a 1. den v měsíci |
 | `check_csn_validity.py --editions "<označení>"` | platné vydání ČSN a vydání s pozdější účinností z katalogu ČSN online (datum vydání a účinnosti) | podle potřeby |
 | `citation_closure.py` | uzávěr citací → `data/citation_closure.json`, `data/citation_closure_candidates.csv` | čtvrtletně |
 | `import_candidates.py --apply` | kandidáti z uzávěru citací a kontroly platnosti do `DocumentCandidate` | po předchozích dvou |
 | `apply_manual_corrections.py --apply` | promítnutí ručních korekcí `data/manual_corrections.json` do živé databáze | při změně souboru |
 | `src/db/dbuser_add.py <login> "<jméno>" <email> --apply` | založení účtu editora | podle potřeby |
-| `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů (do `master` sloučením kroku 3); při prvním běhu po etapách `--stage E1` až `E6` | podle `cadence` |
-| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha, promítnutí stavů a konsolidovaná znění; `daily` jen konsolidovaná znění; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, **instalovat do konce prosince 2026**, odstavec 5.4) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci; `daily` denně |
+| `harvest_sources.py --cadence <četnost> --apply` | sběr ze sledovaných zdrojů do fronty kandidátů; při prvním běhu po etapách `--stage E1` až `E6` | podle `cadence` |
+| `scheduled_harvest.sh <četnost> [--dry-run]` | plánovaný běh: záloha, sběr dané četnosti, promítnutí stavů; četnost `states` jen záloha, promítnutí stavů a konsolidovaná znění; `daily` jen konsolidovaná znění; konfigurace plánovače v `deploy/scheduler/` (nenainstalována, **instalovat do konce prosince 2026**, odstavec 5.4) | týdně, měsíčně, čtvrtletně; `states` 1. den v měsíci; `daily` denně |
 | `refresh_eu_consolidations.py --apply [--today RRRR-MM-DD] [--backup]` | konsolidovaná znění aktů EU ze seznamu `data/eu_consolidated_acts.json` (CLP, REACH): dotaz do Cellaru → `data/eu_consolidation_cache.json`, stažení textu účinného znění z Cellaru (`fetch_fulltext.py`, položka manifestu `konsolidace_<RRRRMMDD>`), čitelný text, verze dokumentu (`eu_consolidations.py`); `--today` bez `--apply` ukáže stav k danému dni (odstavec 5.3) | denně |
 | `backup_db.py --reason <důvod>` | záloha databáze do `backups/` | před každým hromadným zápisem |
-| `triage_candidates.py [--rules-only] [--sample N] [--apply]` | automatické třídění fronty kandidátů: pravidla `data/triage_rules.json`, pak jazykový model (mezipaměť `data/triage_model_cache.json`, odhad ceny a limit před během); bez `--apply` suchý běh; ostrý běh nad živou databází až po odsouhlasení pravidel (`approval`), postup v `doc/FRONTA_AUTOMAT.md`, odstavec 7 | po každém sběru a importu kandidátů |
-| `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (do 25. 11. 2026) |
-| `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově po nasazení kroku 2 |
+| `triage_candidates.py [--rules-only] [--sample N] [--apply]` | automatické třídění fronty kandidátů: pravidla `data/triage_rules.json`, pak jazykový model (mezipaměť `data/triage_model_cache.json`, odhad ceny a limit před během); bez `--apply` suchý běh; ostrý běh nad provozní databází jen s odsouhlasenými pravidly (`approval`), postup v `doc/FRONTA_AUTOMAT.md`, odstavec 7 | po každém sběru a importu kandidátů |
+| `mpo_tables.py import --apply` | kandidáti z tabulek MPO a CDV (`data/20260430_MPO/`) do fronty kandidátů | jednorázově (provedeno 20. 11. 2026) |
+| `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově (provedeno 20. 11. 2026) |
 | `harvest_sources.py --checklist`, `--record <zdroj> --note … --found N` | seznam ručně kontrolovaných zdrojů a záznam ruční kontroly | čtvrtletně |
 | `check_sources.py --apply` | kontrola dostupnosti adres registru | měsíčně |
 
-Registr zdrojů: `data/monitored_sources.json` (popis v `doc/DATA_SOURCES.md`);
+Registr zdrojů: `data/monitored_sources.json` (popis v `doc/DATA_SOURCES.md`);
 záznam běhů a ručních kontrol
 `data/source_checks.jsonl` (jen připisování). Přijaté kandidáty zapisuje
 editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
@@ -526,7 +538,7 @@ editorská aplikace do `data/accepted_candidates.json`, potvrzené opravy do
 dokumentů do `data/manual_corrections.json` a
 `data/document_relations_editor.json`; tyto soubory čte sestavení databáze
 (`build_unified_db.py`). Mezipaměti kontrol: `data/validity_cache.json`
-(předpisy) a `data/norm_validity_cache.json` (normy). Konsolidovaná znění:
+(předpisy) a `data/norm_validity_cache.json` (normy). Konsolidovaná znění:
 seznam aktů `data/eu_consolidated_acts.json` (další akt se zapne přidáním
 položky), mezipaměť znění z Cellaru `data/eu_consolidation_cache.json`;
 odkaz verze do EUR-Lexu je ve sloupci `DocumentVersion.url` (založí jej
@@ -539,7 +551,7 @@ první zápis verzí).
 | `/admin/login` | přihlášení editora |
 | `/admin/candidates` | fronta kandidátů (filtr podle stavu a zdroje), detail s doklady, `/admin/candidates/new` ruční návrh |
 | `/admin/review` | dokumenty s příznakem ke kontrole a návrhy oprav |
-| `/admin/drafts` | připravované dokumenty a převod návrhu na vyhlášený předpis (po nasazení kroku 3) |
+| `/admin/drafts` | připravované dokumenty a převod návrhu na vyhlášený předpis |
 | `/admin/audit-log` | záznam rozhodnutí |
 
 ### A.4 Doporučený týdenní běh (do zavedení plánovače)
@@ -550,14 +562,13 @@ cd /home/laborator/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/backup_db.py --reason before_weekly_run
 .venv/bin/python src/tools/backfill_document_states.py --apply
 .venv/bin/python src/tools/import_candidates.py --apply
-.venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply   # po nasazení kroku 3
-.venv/bin/python src/tools/triage_candidates.py --apply                    # po odsouhlasení pravidel
+.venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply
+.venv/bin/python src/tools/triage_candidates.py --apply
 .venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
 ```
 
 První den každého měsíce (do zavedení plánovače) navíc promítnutí stavů,
-aby se normy přepnuly na nové vydání v den jeho účinnosti (nejbližší
-1. 12. 2026 a 1. 1. 2027):
+aby se normy přepnuly na nové vydání v den jeho účinnosti (nejbližší 1. 12. 2026 a 1. 1. 2027):
 
 ```
 .venv/bin/python src/tools/backup_db.py --reason before_monthly_states
@@ -568,7 +579,7 @@ aby se normy přepnuly na nové vydání v den jeho účinnosti (nejbližší
 Konsolidovaná znění CLP a REACH (odstavec 5.3) mohou nabýt účinnosti
 kterýkoli den; do zavedení plánovače spouští správce
 `refresh_eu_consolidations.py --apply` alespoň týdně a vždy v den účinnosti
-znění, jež suchý běh hlásí jako připravené (nejbližší CLP 1. 1. 2027,
+znění, jež suchý běh hlásí jako připravené (nejbližší CLP 1. 1. 2027,
 nouzový postup v odstavci 5.4).
 
 Související dokumenty: `doc/DATABASE_SCOPE.md` (rozsah, stavy, četnost),
