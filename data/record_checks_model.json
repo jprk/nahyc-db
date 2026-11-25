@@ -1,0 +1,178 @@
+{
+ "checked_at": "2026-11-23",
+ "documents": 1432,
+ "answered": 1432,
+ "relevance": {
+  "high": 370,
+  "low": 216,
+  "medium": 828,
+  "none": 18
+ },
+ "counts": {
+  "warning:model_relevance": 18,
+  "error:model_title": 1,
+  "error:model_description": 1
+ },
+ "findings": [
+  {
+   "id": 136,
+   "identifier": "(EU) 1300/2014",
+   "slug": "eu-1300-2014",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 208,
+   "identifier": "STN EN 1254-2/ - 2021.09",
+   "slug": "stn-en-1254-2",
+   "check": "model_title",
+   "severity": "error",
+   "detail": "Model: název neodpovídá dokumentu. Název uvádí lisovací tvarovky, zatímco popis dokumentu EN 1254-2:2021 se týká svěrných/kompresních spojek pro spojování s měděnými trubkami."
+  },
+  {
+   "id": 235,
+   "identifier": "STN EN 1317-1/ - 2011.02",
+   "slug": "stn-en-1317-1",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 397,
+   "identifier": "STN EN IEC 62282-8-301/ - 2023.11",
+   "slug": "stn-en-iec-62282-8-301",
+   "check": "model_description",
+   "severity": "error",
+   "detail": "Model: popis neodpovídá dokumentu. Popis hovoří o systémech přeměny energie na metan s dodávkou vody, CO2 a elektřiny, zatímco autoritativní název se týká systémů akumulace energie s moduly palivových článků v reverzním režimu a energetických systémů na bázi pevných oxidů včetně reverzibilního provozu."
+  },
+  {
+   "id": 445,
+   "identifier": "STN EN ISO 17526/ - 2003.12",
+   "slug": "stn-en-iso-17526",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Podle uvedeného názvu a popisu se norma týká životnosti laserů a nemá zřejmý vztah k vodíkovým technologiím."
+  },
+  {
+   "id": 628,
+   "identifier": "ISO 23551-12",
+   "slug": "iso-23551-12",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 646,
+   "identifier": "ISO 7106/ - 1985.06",
+   "slug": "iso-7106",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 647,
+   "identifier": "ISO 7108/ - 1985.06",
+   "slug": "iso-7108",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 648,
+   "identifier": "ISO 7109/ - 1985.06",
+   "slug": "iso-7109",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 808,
+   "identifier": "AS 1678.8.0.010-1984",
+   "slug": "as-1678-8-0-010",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou poskytnuty žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Z názvu a popisu plyne, že dokument se týká přepravy roztoku amoniaku, nikoli vodíkových technologií."
+  },
+  {
+   "id": 809,
+   "identifier": "AS 1871.10-1976",
+   "slug": "as-1871-10",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou předány žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Název a popis se týkají stanovení amoniakálního dusíku ve vodách, což z předaných údajů nesouvisí s vodíkovými technologiemi."
+  },
+  {
+   "id": 814,
+   "identifier": "AS 2508.8.015-1988",
+   "slug": "as-2508-8-015",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou dodány žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Podle uvedeného názvu se dokument týká zředěného roztoku amoniaku, nikoli vodíkových technologií."
+  },
+  {
+   "id": 838,
+   "identifier": null,
+   "slug": "doc-fef19de1",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou předány žádné podklady ani označení, takže nelze ověřit název ani popis.; Téma postkvantové kryptografie podle předaných údajů nesouvisí s vodíkovými technologiemi."
+  },
+  {
+   "id": 846,
+   "identifier": null,
+   "slug": "doc-35f6100c",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. Chybí označení dokumentu i podklady, takže nelze ověřit, zda název odpovídá konkrétní normě nebo doporučení."
+  },
+  {
+   "id": 855,
+   "identifier": "C 260 (A)",
+   "slug": "c-260-a",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. K záznamu nejsou poskytnuty žádné podklady, takže nelze ověřit správnost názvu ani popisu.; Z uvedeného názvu a popisu jde o normu k vlastnostem a přepravě proudů CO2, nikoli o vodíkové technologie."
+  },
+  {
+   "id": 1077,
+   "identifier": null,
+   "slug": "doc-c8177642",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. Chybí označení normy i podklady, takže nelze ověřit název dokumentu.; Uvedený „název“ nepůsobí jako název normy, ale jako úryvek věty o technických komisích CEN/CENELEC."
+  },
+  {
+   "id": 1171,
+   "identifier": "ISO 4276",
+   "slug": "iso-4276",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 1172,
+   "identifier": "ISO 6192",
+   "slug": "iso-6192",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 1305,
+   "identifier": "ISO 17526",
+   "slug": "iso-17526",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  },
+  {
+   "id": 1463,
+   "identifier": "(EU) 1300/2014 [EN]",
+   "slug": "eu-1300-2014-en",
+   "check": "model_relevance",
+   "severity": "warning",
+   "detail": "Model: dokument nesouvisí s vodíkem. "
+  }
+ ]
+}

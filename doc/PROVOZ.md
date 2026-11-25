@@ -48,6 +48,14 @@ stavy popisujeme budoucím časem. Místa, jež doplní řešitel, jsou označen
    v databázi se svým stavem a s vazbou na dokument, jenž jej zrušil nebo
    nahradil (odstavec 6).
 6. **Před každým hromadným zápisem pořizujeme zálohu** databáze.
+7. **Jazykový model nesmí dodávat název ani popis bez podkladu.** Název
+   dokumentu přebíráme z úředního registru (Cellar, e-Sbírka, katalog ČAS,
+   otevřená data ISO, vydavatel dokumentu), popis z anotace zdroje nebo
+   z textu dokumentu. Cokoli, co model odvodí (shrnutí, klíčová slova,
+   doporučení), označujeme jako neověřené a nikdy tím nenahrazujeme údaj
+   z registru. Pravidlo zavádíme po kontrole záznamů z 23. 11. 2026
+   (`doc/KONTROLA_ZAZNAMU.md`): model k holému číslu předpisu doplnil název
+   jiného předpisu a popisy, které dokumentu neodpovídaly.
 
 ## 2. Role
 

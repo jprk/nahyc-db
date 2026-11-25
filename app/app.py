@@ -406,6 +406,12 @@ def build_filter_clause(filters):
         if identifiers:
             conditions.append(f"d.identifier IN ({', '.join(['%s'] * len(identifiers))})")
             params.extend(identifiers)
+        if filters.get('with_terms'):
+            # doc/KLICOVA_SLOVA.md: the keywords of the document (EuroVoc, ICS, ČAS, model)
+            term_likes = [like] + [f"%{term}%" for term in terms]
+            conditions.append("EXISTS (SELECT 1 FROM DocumentTerm t WHERE t.document_id = d.id AND ("
+                              + " OR ".join(["t.term LIKE %s"] * len(term_likes)) + "))")
+            params.extend(term_likes)
         clause += " AND (" + " OR ".join(conditions) + ")"
 
     if filters['type_id']:
@@ -603,6 +609,7 @@ def index():
     db = get_db()
     include_sk = include_slovak()
     filters = parse_filters(request.args, include_sk=include_sk)
+    filters['with_terms'] = has_column(db, 'DocumentTerm', 'term')
     with_subtype = has_column(db, 'Document', 'eu_act_subtype')
     if not with_subtype:
         filters['eu_subtype'] = ''
@@ -702,6 +709,7 @@ def fetch_document_detail(db, slug):
             WHERE dk.document_id = %s ORDER BY k.keyword
         ''', (document['id'],))
         keywords = [r['keyword'] for r in cur.fetchall()]
+        terms = fetch_terms(db, cur, document['id'])
 
         versions = fetch_versions(cur, document['id'])
 
@@ -750,9 +758,32 @@ def fetch_document_detail(db, slug):
         ''', (document['id'],))
         process_nodes = cur.fetchall()
 
-    return {"document": document, "keywords": keywords,
+    return {"document": document, "keywords": keywords, "terms": terms,
             "versions": versions, "relations": relations,
             "process_nodes": process_nodes}
+
+
+TERM_ORIGINS = [
+    ("eurovoc", "Deskriptory EuroVoc", "Úřední indexace Úřadu pro publikace EU (Cellar)."),
+    ("cas", "Deskriptory ČSN", "Klíčová slova české normy v katalogu ČAS."),
+    ("ics", "Třídník ICS", "Mezinárodní třídění norem, podle českého převzetí v katalogu ČAS."),
+    ("model", "Odvozená klíčová slova", "Odvodil jazykový model z názvu, anotace a textu dokumentu; neověřeno."),
+]
+
+
+def fetch_terms(db, cur, document_id):
+    """doc/KLICOVA_SLOVA.md: the keywords of a document by origin, in the order of
+    TERM_ORIGINS — [{"origin", "label", "note", "terms": [{"term", "term_en", "code"}]}];
+    a database without the DocumentTerm table yet gives none."""
+    if not has_column(db, 'DocumentTerm', 'term'):
+        return []
+    cur.execute('SELECT origin, code, term, term_en FROM DocumentTerm WHERE document_id = %s '
+                'ORDER BY origin, position, term', (document_id,))
+    by_origin = {}
+    for row in cur.fetchall():
+        by_origin.setdefault(row['origin'], []).append(row)
+    return [{"origin": origin, "label": label, "note": note, "terms": by_origin[origin]}
+            for origin, label, note in TERM_ORIGINS if origin in by_origin]
 
 
 def fetch_versions(cur, document_id):
@@ -1197,6 +1228,7 @@ def export(fmt):
 
     db = get_db()
     filters = parse_filters(request.args, include_sk=include_slovak())
+    filters['with_terms'] = has_column(db, 'DocumentTerm', 'term')
     if not has_column(db, 'Document', 'eu_act_subtype'):
         filters['eu_subtype'] = ''
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)

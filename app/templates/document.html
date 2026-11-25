@@ -60,6 +60,25 @@
             {% endif %}
         </section>
 
+        {% if terms %}
+        {# doc/KLICOVA_SLOVA.md: keywords by origin; each one searches the catalogue #}
+        <section class="doc-panel doc-terms">
+            <h2>Klíčová slova</h2>
+            {% for group in terms %}
+            <div class="term-group term-{{ group.origin }}">
+                <h3 title="{{ group.note }}">{{ group.label }}</h3>
+                <p class="term-list">
+                    {% for t in group.terms %}
+                    <a class="keyword-tag term-tag" href="{{ url_for('index', q=(t.term.split(' ', 1)[1] if group.origin == 'ics' and ' ' in t.term else t.term)) }}"
+                       {% if t.term_en %}title="{{ t.term_en }}"{% endif %}>{{ t.term }}</a>
+                    {% endfor %}
+                </p>
+                <p class="term-note">{{ group.note }}</p>
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
         <section class="doc-panel">
             <h2>Metadata</h2>
             <dl class="doc-meta">

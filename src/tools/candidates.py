@@ -187,13 +187,29 @@ def kind_from_celex(number):
 
 # --- candidates from the checks --------------------------------------------
 
-def from_closure(rows, cache, minimum=2):
+def excluded_keys(corrections=None):
+    """The keys (`EU:2000/43`) of the acts data/manual_corrections.json takes out of the
+    database as out of scope (`"exclude": true`; doc/KONTROLA_ZAZNAMU.md, 2026-11-23): the
+    closure must not propose them again."""
+    if corrections is None:
+        import build_unified_db
+        corrections = build_unified_db.load_manual_corrections()
+    keys = set()
+    for designation, entry in corrections.items():
+        if entry.get("exclude"):
+            keys |= cc.own_keys(designation, None)
+    return keys
+
+
+def from_closure(rows, cache, minimum=2, excluded=None):
     """Candidates from the citation closure: missing Czech and EU acts, cited by at
-    least `minimum` documents, not mainly as amending acts, and not repealed."""
+    least `minimum` documents, not mainly as amending acts, not repealed and not taken
+    out of the database as out of scope (`excluded`, excluded_keys())."""
+    excluded = excluded_keys() if excluded is None else excluded
     found = []
     for row in rows:
         if row["family"] not in ("CZ", "EU") or row["in_database"] or row["cited_by"] < minimum \
-                or row["amendment_share"] >= 0.5:
+                or row["amendment_share"] >= 0.5 or row["key"] in excluded:
             continue
         validity = cache.get(row["key"], {})
         if validity.get("status") == "zrušený":

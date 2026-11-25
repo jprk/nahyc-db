@@ -214,41 +214,49 @@
     "changes": {
       "gestor": [
         "Ministerstvo vnútra Slovenskej republiky"
-      ]
+      ],
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
     },
-    "confirmed_at": "2026-11-19",
+    "confirmed_at": "2026-11-23",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán. Popis odstraněn: popis doplněný modelem uváděl ochranu životního prostředí, vyhláška upravuje požární bezpečnost; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   },
   "94/2004 Z. z.": {
     "changes": {
       "gestor": [
         "Ministerstvo vnútra Slovenskej republiky"
-      ]
+      ],
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
     },
-    "confirmed_at": "2026-11-19",
+    "confirmed_at": "2026-11-23",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán. Popis odstraněn: popis doplněný modelem odporuje názvu (protipožární bezpečnost staveb); zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   },
   "96/2004 Z. z.": {
     "changes": {
       "gestor": [
         "Ministerstvo vnútra Slovenskej republiky"
-      ]
+      ],
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
     },
-    "confirmed_at": "2026-11-19",
+    "confirmed_at": "2026-11-23",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán. Popis odstraněn: popis doplněný modelem odporuje názvu (protipožární bezpečnost hořlavých kapalin); zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   },
   "699/2004 Z. z.": {
     "changes": {
       "gestor": [
         "Ministerstvo vnútra Slovenskej republiky"
-      ]
+      ],
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
     },
-    "confirmed_at": "2026-11-19",
+    "confirmed_at": "2026-11-23",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, krok 0",
-    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán."
+    "reason": "Slovenský předpis byl ve zdrojové tabulce (Sinay_Zakony) přiřazen českému ministerstvu z dvojice CZ/SK předpisů; původcem slovenského předpisu je slovenský orgán. Popis odstraněn: popis doplněný modelem odporuje názvu (zabezpečení staveb vodou na hašení); zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   },
   "url-8c84b293": {
     "changes": {
@@ -534,5 +542,1133 @@
     "confirmed_at": "2026-11-20",
     "confirmed_by": "doc/MPO_PRIPOMINKY.md, odstavec 5.1 (rozhodnutí uživatele 20. 11. 2026)",
     "reason": "Platné a účinné vydání je ČSN EN 1717+A1 (vydána 9/2026, účinná od 1. 10. 2026, katalog ČAS k=524606, ověřeno check_csn_validity.py 20. 11. 2026); vydání ČSN EN 1717 z 11/2025 (k=522378), na něž vedl odkaz, bylo zrušeno 1. 10. 2026. Trvalá adresa (slug csn-en-1717) zůstává. Nové vydání ČSN EN 1717+A1 z 12/2026 (účinné od 1. 1. 2027) má stejné označení, přepnutí na ně označení nezmění."
+  },
+  "(EU) 2021/535": {
+    "changes": {
+      "nazev_cz": "Prováděcí nařízení Komise (EU) 2021/535 ze dne 31. března 2021, kterým se stanoví pravidla pro uplatňování nařízení Evropského parlamentu a Rady (EU) 2019/2144, pokud jde o jednotné postupy a technické specifikace pro schvalování typu vozidel a systémů, konstrukčních částí a samostatných technických celků určených pro tato vozidla, pokud jde o jejich obecné konstrukční vlastnosti a bezpečnost (Text s významem pro EHP)",
+      "anotace_poznamka": "Prováděcí nařízení k nařízení (EU) 2019/2144 o schvalování typu motorových vozidel. Stanoví jednotné postupy a technické specifikace pro schvalování typu vozidel, jejich systémů, konstrukčních částí a samostatných technických celků z hlediska obecných konstrukčních vlastností a bezpečnosti. Pro vodíkové technologie obsahuje požadavky na vozidla s vodíkovým pohonem: kompatibilitu materiálů vodíkového systému a vodíkové křehnutí, hrdlo k plnění paliva (příloha XIV) a systémy pro uchovávání zkapalněného vodíku převzaté z nařízení (ES) č. 79/2009."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název a popis v databázi (limity ochratoxinu A, nařízení (ES) č. 1881/2006) doplnil jazykový model k číslu z rešerše Sinay (process_laws.py); číslo 2021/535 je podle Cellaru (CELEX 32021R0535) prováděcí nařízení k homologaci vozidel s požadavky na vozidla s vodíkovým pohonem. Úřední český název z Cellaru; rozhodl uživatel 23. 11. 2026 (doc/KONTROLA_ZAZNAMU.md)."
+  },
+  "(EU) 2023/955": {
+    "merged_into": "(EU) 2024/1789",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název a popis záznamu z rešerše Sinay popisují nařízení (EU) 2024/1789 o vnitřním trhu s plynem z obnovitelných zdrojů, se zemním plynem a s vodíkem, které databáze už vede. Číslo 2023/955 je podle Cellaru nařízení o Sociálním klimatickém fondu, které se vodíku netýká. Záznam je duplicitou 2024/1789; rozhodl uživatel 23. 11. 2026 (doc/KONTROLA_ZAZNAMU.md)."
+  },
+  "ISO 19880-9": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 9: Sampling for fuel quality analysis",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling stations — Part 9: Sampling for fuel quality analysis",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82251.html",
+      "anotace_poznamka": "This document outlines requirements for sampling from hydrogen fuelling stations for samples taken at the dispenser. The document defines the best practice for sampling at the nozzle of a hydrogen fuelling station as part of the fuelling station acceptance testing, and ongoing operation. Further, the document describes the minimum safety requirements for sampling. This document is targeted for the sampling from the hydrogen fuelling station dispenser. Many of the generic requirements within this document are applicable to sampling at other locations within the hydrogen fuelling station, which can be carried out for hydrogen quality assurance, see ISO 19880-8, however, further specific requirements that can be necessary for safe sampling are not addressed in this document. The intention of sampling hydrogen is to enable analysis against the requirements of ISO 14687, and by analytical methods validated by protocols described in ISO 21087. This document supersedes, and is an extension to, the guidance published in ISO 19880-1:2020, Annex K. NOTE Analytical methods are divided into on-line analyses and off-line analyses. On-line analysis allows for real time analysis at hydrogen stations and is not covered in this document.",
+      "popis_autoritativni": "This document outlines requirements for sampling from hydrogen fuelling stations for samples taken at the dispenser. The document defines the best practice for sampling at the nozzle of a hydrogen fuelling station as part of the fuelling station acceptance testing, and ongoing operation. Further, the document describes the minimum safety requirements for sampling. This document is targeted for the sampling from the hydrogen fuelling station dispenser. Many of the generic requirements within this document are applicable to sampling at other locations within the hydrogen fuelling station, which can be carried out for hydrogen quality assurance, see ISO 19880-8, however, further specific requirements that can be necessary for safe sampling are not addressed in this document. The intention of sampling hydrogen is to enable analysis against the requirements of ISO 14687, and by analytical methods validated by protocols described in ISO 21087. This document supersedes, and is an extension to, the guidance published in ISO 19880-1:2020, Annex K. NOTE Analytical methods are divided into on-line analyses and off-line analyses. On-line analysis allows for real time analysis at hydrogen stations and is not covered in this document."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19880-9:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 14687": {
+    "changes": {
+      "nazev_cz": "Hydrogen fuel quality — Product specification",
+      "nazev_autoritativni": "Hydrogen fuel quality — Product specification",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82660.html",
+      "anotace_poznamka": "This document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in residential, commercial, industrial, vehicular and stationary applications. This document is applicable to hydrogen fuelling applications, which are listed in Table 2.",
+      "popis_autoritativni": "This document specifies the minimum quality characteristics of hydrogen fuel as distributed for utilization in residential, commercial, industrial, vehicular and stationary applications. This document is applicable to hydrogen fuelling applications, which are listed in Table 2."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 14687:2025, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 11326/ - 2024.011": {
+    "changes": {
+      "nazev_cz": "Ships and marine technology — Test procedures for liquid hydrogen storage tank of hydrogen ships",
+      "nazev_autoritativni": "Ships and marine technology — Test procedures for liquid hydrogen storage tank of hydrogen ships",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/83810.html",
+      "anotace_poznamka": "This document specifies general inspection and test requirements for liquid hydrogen cargo tanks on board hydrogen carrier ships. In the cases of liquefied hydrogen containment systems, the testing activity depends strictly on the type of storage containment technology identified by the International Code for the Construction and Equipment of Ships Carrying Liquefied Gases in Bulk (IGC Code). [ 1 ] This document is applicable to Type C independent metallic double wall type tanks with vacuum insulation having a capacity of not more than 1 000 cubic metres (m 3 ). It is also applicable to liquid hydrogen cargo tanks which are designed to transport pure para-hydrogen (not less than 95 % content).",
+      "popis_autoritativni": "This document specifies general inspection and test requirements for liquid hydrogen cargo tanks on board hydrogen carrier ships. In the cases of liquefied hydrogen containment systems, the testing activity depends strictly on the type of storage containment technology identified by the International Code for the Construction and Equipment of Ships Carrying Liquefied Gases in Bulk (IGC Code). [ 1 ] This document is applicable to Type C independent metallic double wall type tanks with vacuum insulation having a capacity of not more than 1 000 cubic metres (m 3 ). It is also applicable to liquid hydrogen cargo tanks which are designed to transport pure para-hydrogen (not less than 95 % content).",
+      "znacka": "ISO 11326",
+      "slug": "iso-11326-2024-011"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 11326:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/TR 11954/ - 2024.01": {
+    "changes": {
+      "nazev_cz": "Fuel cell road vehicles — Performance measurement — Vehicles fuelled with compressed hydrogen",
+      "nazev_autoritativni": "Fuel cell road vehicles — Performance measurement — Vehicles fuelled with compressed hydrogen",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/84730.html",
+      "anotace_poznamka": "This document specifies test methods for the measurement of performance, such as acceleration, maximum speed and hill climbing ability, of fuel cell hybrid electric vehicles (FCHEV) as passenger cars and light duty trucks with a maximum authorized total mass of 3 500 kg and fuelled with compressed hydrogen.",
+      "popis_autoritativni": "This document specifies test methods for the measurement of performance, such as acceleration, maximum speed and hill climbing ability, of fuel cell hybrid electric vehicles (FCHEV) as passenger cars and light duty trucks with a maximum authorized total mass of 3 500 kg and fuelled with compressed hydrogen.",
+      "znacka": "ISO/TR 11954",
+      "slug": "iso-tr-11954"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TR 11954:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 13984/ - 1999.03": {
+    "changes": {
+      "nazev_cz": "Liquid hydrogen — Land vehicle fuelling protocol",
+      "nazev_autoritativni": "Liquid hydrogen — Land vehicle fuelling protocol",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/86295.html",
+      "anotace_poznamka": "This document specifies fuelling protocols for liquid hydrogen (LH 2 ), defining the minimum design, installation and operation requirements for a safe, as well as fast, efficient and interoperable hydrogen transfer from the fuelling station to the vehicle fuel system. This document applies to land vehicles of all types equipped with a liquid hydrogen storage system in accordance with ISO 13985. The protocols described in this document are currently limited to vehicles with storage system total internal volume equal to or comprised between 0,6 m 3 and 4 m 3 . The requirements specified in this document are also applicable to further hydrogen applications, however, further specific requirements that can be necessary for the safe operation of such fuelling are not addressed in this document. This document specifies the requirements for liquid hydrogen fuelling and dispensing systems, fuelling station - vehicle interface and vehicle storage system in order to minimise the risk of fire, explosion or any other hydrogen adverse effects to an acceptable level, especially during and after the fuelling process.",
+      "popis_autoritativni": "This document specifies fuelling protocols for liquid hydrogen (LH 2 ), defining the minimum design, installation and operation requirements for a safe, as well as fast, efficient and interoperable hydrogen transfer from the fuelling station to the vehicle fuel system. This document applies to land vehicles of all types equipped with a liquid hydrogen storage system in accordance with ISO 13985. The protocols described in this document are currently limited to vehicles with storage system total internal volume equal to or comprised between 0,6 m 3 and 4 m 3 . The requirements specified in this document are also applicable to further hydrogen applications, however, further specific requirements that can be necessary for the safe operation of such fuelling are not addressed in this document. This document specifies the requirements for liquid hydrogen fuelling and dispensing systems, fuelling station - vehicle interface and vehicle storage system in order to minimise the risk of fire, explosion or any other hydrogen adverse effects to an acceptable level, especially during and after the fuelling process.",
+      "znacka": "ISO 13984",
+      "slug": "iso-13984"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 13984:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 13985/ - 2006.11": {
+    "changes": {
+      "nazev_cz": "Liquid hydrogen — Land vehicle fuel tanks",
+      "nazev_autoritativni": "Liquid hydrogen — Land vehicle fuel tanks",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/39892.html",
+      "anotace_poznamka": "ISO 13985:2006 specifies the construction requirements for refillable fuel tanks for liquid hydrogen used in land vehicles as well as the testing methods required to ensure that a reasonable level of protection from loss of life and property resulting from fire and explosion is provided. It is applicable to fuel tanks intended to be permanently attached to land vehicles.",
+      "popis_autoritativni": "ISO 13985:2006 specifies the construction requirements for refillable fuel tanks for liquid hydrogen used in land vehicles as well as the testing methods required to ensure that a reasonable level of protection from loss of life and property resulting from fire and explosion is provided. It is applicable to fuel tanks intended to be permanently attached to land vehicles.",
+      "znacka": "ISO 13985",
+      "slug": "iso-13985"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 13985:2006, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19880-2/ - 2025.02": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 2: Dispensers and dispensing systems",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling stations — Part 2: Dispensers and dispensing systems",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85839.html",
+      "anotace_poznamka": "This document specifies safety requirements and test methods for the components and systems that enable the transfer of compressed hydrogen to a hydrogen vehicle, as addressed in ISO 19880-1, by a hydrogen dispenser with dispensing pressures up to the H70 pressure class designation. This document applies to a hydrogen dispensing system, referred to as a “dispenser”; the configuration of the dispenser can range from: a) a dispenser cabinet, located in the fuelling area, that can perform all of the functionality needed to deliver hydrogen to a vehicle, to b) a minimum set of components mounted in or on (as applicable) a dispenser cabinet or other supporting structure as appropriate, with the remaining functionality provided elsewhere in the hydrogen fuelling station. A dispensing system includes the user and vehicle interface and can include components starting from the hydrogen supply, such as a connection to the banking system, a cooling unit, a dispenser control system, a flow meter, a pressure sensor, a fuel temperature sensor, an ambient temperature sensor, user interface and a fuelling hose assembly. Not all dispensing system equipment has to be physically housed within the enclosure at the dispensing area, as long as the specification of component design or type and location are adequate to ensure that the overall process meets the requirements in this document. This document specifies the requirements for hydrogen dispensers and can provide specific references to other standards for individual components included in the hydrogen dispenser, such as valves (ISO 19880-3) and hoses (ISO 19880-5). This document specifies general requirements for supporting the fuelling protocol and directs the user to ISO 19880-1 for additional requirements and the test methods required to verify proper fuelling protocol implementation. This document does not specify the accuracy of flow meters that can be used to meter dispensed fuel.",
+      "popis_autoritativni": "This document specifies safety requirements and test methods for the components and systems that enable the transfer of compressed hydrogen to a hydrogen vehicle, as addressed in ISO 19880-1, by a hydrogen dispenser with dispensing pressures up to the H70 pressure class designation. This document applies to a hydrogen dispensing system, referred to as a “dispenser”; the configuration of the dispenser can range from: a) a dispenser cabinet, located in the fuelling area, that can perform all of the functionality needed to deliver hydrogen to a vehicle, to b) a minimum set of components mounted in or on (as applicable) a dispenser cabinet or other supporting structure as appropriate, with the remaining functionality provided elsewhere in the hydrogen fuelling station. A dispensing system includes the user and vehicle interface and can include components starting from the hydrogen supply, such as a connection to the banking system, a cooling unit, a dispenser control system, a flow meter, a pressure sensor, a fuel temperature sensor, an ambient temperature sensor, user interface and a fuelling hose assembly. Not all dispensing system equipment has to be physically housed within the enclosure at the dispensing area, as long as the specification of component design or type and location are adequate to ensure that the overall process meets the requirements in this document. This document specifies the requirements for hydrogen dispensers and can provide specific references to other standards for individual components included in the hydrogen dispenser, such as valves (ISO 19880-3) and hoses (ISO 19880-5). This document specifies general requirements for supporting the fuelling protocol and directs the user to ISO 19880-1 for additional requirements and the test methods required to verify proper fuelling protocol implementation. This document does not specify the accuracy of flow meters that can be used to meter dispensed fuel.",
+      "znacka": "ISO 19880-2",
+      "slug": "iso-19880-2"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19880-2:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19880-5/ - 2019.11": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 5: Dispenser hoses and hose assemblies",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling stations — Part 5: Dispenser hoses and hose assemblies",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/87684.html",
+      "anotace_poznamka": "This document specifies the requirements for wire or textile reinforced hoses and hose assemblies suitable for dispensing hydrogen up to 70 MPa nominal working pressure, in the operating temperature range of −40 °C to 65 °C. This document specifies safety requirements for material, design, manufacture and testing of gaseous hydrogen hose and hose assemblies for hydrogen fuelling stations. This document does not apply to the following hoses and hose assemblies: a) those used as part of a vehicle high pressure on-board fuel storage system; b) those used as part of a vehicle low pressure fuel delivery system; and c) flexible metal hoses. NOTE 1 This document was developed primarily for hoses and hose assemblies for dispensing high-pressure hydrogen from refuelling dispensers to hydrogen vehicles. ISO 16964 addresses hoses used to deliver hydrogen from a transportable vessel (e.g. trailer) into a buffer storage of a station. NOTE 2 Hose assemblies include a hose with connectors on each end (see Figure 1). Each connector has two basic functional elements that are addressed as described below. a) Coupling to hose. This function is defined by requirements and verified (along with the hose itself) by performance-based tests in this document. b) Fitting for transition and connection to the piping system or equipment. This function is addressed by reference to appropriate hydrogen equipment standards and piping codes.",
+      "popis_autoritativni": "This document specifies the requirements for wire or textile reinforced hoses and hose assemblies suitable for dispensing hydrogen up to 70 MPa nominal working pressure, in the operating temperature range of −40 °C to 65 °C. This document specifies safety requirements for material, design, manufacture and testing of gaseous hydrogen hose and hose assemblies for hydrogen fuelling stations. This document does not apply to the following hoses and hose assemblies: a) those used as part of a vehicle high pressure on-board fuel storage system; b) those used as part of a vehicle low pressure fuel delivery system; and c) flexible metal hoses. NOTE 1 This document was developed primarily for hoses and hose assemblies for dispensing high-pressure hydrogen from refuelling dispensers to hydrogen vehicles. ISO 16964 addresses hoses used to deliver hydrogen from a transportable vessel (e.g. trailer) into a buffer storage of a station. NOTE 2 Hose assemblies include a hose with connectors on each end (see Figure 1). Each connector has two basic functional elements that are addressed as described below. a) Coupling to hose. This function is defined by requirements and verified (along with the hose itself) by performance-based tests in this document. b) Fitting for transition and connection to the piping system or equipment. This function is addressed by reference to appropriate hydrogen equipment standards and piping codes.",
+      "znacka": "ISO 19880-5",
+      "slug": "iso-19880-5"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19880-5:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19880-8/ - 2024.12": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 8: Fuel quality control",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling stations — Part 8: Fuel quality control",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/83949.html",
+      "anotace_poznamka": "This document specifies the protocol for ensuring the quality of the gaseous hydrogen at hydrogen distribution facilities and hydrogen fuelling stations for proton exchange membrane (PEM) fuel cells for road vehicles.",
+      "popis_autoritativni": "This document specifies the protocol for ensuring the quality of the gaseous hydrogen at hydrogen distribution facilities and hydrogen fuelling stations for proton exchange membrane (PEM) fuel cells for road vehicles.",
+      "znacka": "ISO 19880-8",
+      "slug": "iso-19880-8"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19880-8:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19881/ - 2018.10": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Land vehicle fuel containers",
+      "nazev_autoritativni": "Gaseous hydrogen — Land vehicle fuel containers",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82595.html",
+      "anotace_poznamka": "This document specifies requirements for the material, design, manufacture, marking and testing of serially produced, refillable containers intended only for the storage of compressed hydrogen gas for land vehicle operation. These containers: a) are permanently attached to the vehicle; b) have a capacity of up to 1 000 l water capacity; c) have a nominal working pressure that does not exceed 70 MPa. This document is applicable only to fuel containers containing gaseous hydrogen according to ISO 14687 for fuel cell and internal combustion engine land vehicles. This document specifies requirements for hydrogen fuel containers acceptable for use on-board the following types of land vehicles: light-duty vehicles, heavy-duty vehicles and industrial powered trucks, such as forklifts and other material handling vehicles. Requirements for other types of land vehicles such as rail, off-road, etc., can be derived with due consideration of appropriate service conditions.",
+      "popis_autoritativni": "This document specifies requirements for the material, design, manufacture, marking and testing of serially produced, refillable containers intended only for the storage of compressed hydrogen gas for land vehicle operation. These containers: a) are permanently attached to the vehicle; b) have a capacity of up to 1 000 l water capacity; c) have a nominal working pressure that does not exceed 70 MPa. This document is applicable only to fuel containers containing gaseous hydrogen according to ISO 14687 for fuel cell and internal combustion engine land vehicles. This document specifies requirements for hydrogen fuel containers acceptable for use on-board the following types of land vehicles: light-duty vehicles, heavy-duty vehicles and industrial powered trucks, such as forklifts and other material handling vehicles. Requirements for other types of land vehicles such as rail, off-road, etc., can be derived with due consideration of appropriate service conditions.",
+      "znacka": "ISO 19881",
+      "slug": "iso-19881"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19881:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19882/ - 2018.11": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Thermally activated pressure relief devices for compressed hydrogen vehicle fuel containers",
+      "nazev_autoritativni": "Gaseous hydrogen — Thermally activated pressure relief devices for compressed hydrogen vehicle fuel containers",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82596.html",
+      "anotace_poznamka": "This document specifies minimum requirements for pressure relief devices intended for use on hydrogen fuelled vehicle fuel containers that comply with ISO 19881, IEC 62282-4-101, CSA/ANSI HGV 2, EC79/EU406, SAE J2579, UN ECE R134, or the UN GTR No. 13. The applicability of this document is limited to thermally activated pressure relief devices installed on fuel containers containing gaseous hydrogen according to ISO 14687 for fuel cell and internal combustion land vehicles. This document specifies requirements for thermally activated pressure relief devices acceptable for use on-board the following types of land vehicles: — light-duty vehicles; — heavy-duty vehicles; — industrial powered trucks, such as forklifts and other material handling vehicles. Requirements for other types of land vehicles such as rail, off-road, etc., can be derived with due consideration of appropriate service conditions. This document does not apply to reseating, resealing, or pressure-activated devices. Pressure relief devices can be of any design or manufacturing method that meets the requirements of this document.",
+      "popis_autoritativni": "This document specifies minimum requirements for pressure relief devices intended for use on hydrogen fuelled vehicle fuel containers that comply with ISO 19881, IEC 62282-4-101, CSA/ANSI HGV 2, EC79/EU406, SAE J2579, UN ECE R134, or the UN GTR No. 13. The applicability of this document is limited to thermally activated pressure relief devices installed on fuel containers containing gaseous hydrogen according to ISO 14687 for fuel cell and internal combustion land vehicles. This document specifies requirements for thermally activated pressure relief devices acceptable for use on-board the following types of land vehicles: — light-duty vehicles; — heavy-duty vehicles; — industrial powered trucks, such as forklifts and other material handling vehicles. Requirements for other types of land vehicles such as rail, off-road, etc., can be derived with due consideration of appropriate service conditions. This document does not apply to reseating, resealing, or pressure-activated devices. Pressure relief devices can be of any design or manufacturing method that meets the requirements of this document.",
+      "znacka": "ISO 19882",
+      "slug": "iso-19882"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19882:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19884 (súbor)": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 1: General requirements",
+      "nazev_autoritativni": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 1: General requirements",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/87726.html",
+      "anotace_poznamka": "Click or tap here to enter text. This document specifies the requirements for the design, manufacture and testing of pressure vessels to meet the performance criteria at the time of installation for the stationary storage of gaseous hydrogen. Fabricated of seamless metallic or welded construction (Type 1) or of composite construction (Types 2, 3, 4 and 5) regardless of reinforcement (metallic or non-metallic). This document is not applicable to pressure vessels used for: a) solid storage matrix for hydrogen, b) liquid hydrogen or, c) hybrid cryogenic high-pressure hydrogen storage applications. This document is not applicable to closures, valves, fittings, plugs or external piping.",
+      "popis_autoritativni": "Click or tap here to enter text. This document specifies the requirements for the design, manufacture and testing of pressure vessels to meet the performance criteria at the time of installation for the stationary storage of gaseous hydrogen. Fabricated of seamless metallic or welded construction (Type 1) or of composite construction (Types 2, 3, 4 and 5) regardless of reinforcement (metallic or non-metallic). This document is not applicable to pressure vessels used for: a) solid storage matrix for hydrogen, b) liquid hydrogen or, c) hybrid cryogenic high-pressure hydrogen storage applications. This document is not applicable to closures, valves, fittings, plugs or external piping.",
+      "znacka": "ISO/FDIS 19884-1",
+      "slug": "iso-19884-subor"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/FDIS 19884-1, stav 5000): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19885-1/ - 2024.05": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 1: Design and development process for fuelling protocols",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 1: Design and development process for fuelling protocols",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82556.html",
+      "anotace_poznamka": "This document addresses the design and development of fuelling protocols for compressed hydrogen gas dispensing to vehicles with compressed hydrogen storage of fuel. The document does not address dispensing of compressed hydrogen gas to vehicles with hydride-based hydrogen storage systems as well as the dispensing of liquefied or cryo-compressed hydrogen. This document is intended to be used for a wide range of applications including, but not limited to, the following: — light, medium, and heavy-duty road vehicles, — motor bicycles and tricycles, carts, and trailers, — off-road vehicles, — fork-lift and other industrial trucks, — rail locomotives and powered cars, — airplanes and drones, and — maritime ships, boats, and barges. This document applies to a wide spectrum of development situations ranging from companies developing a fuelling protocol for their specific products or applications to standards development organizations (SDOs) developing a consensus-based fuelling protocol for a broad segment of the industrial or commercial market. Additionally, combinations between the two extremes are possible, where, for example, companies start design and development as a way of defining a proposal for new work by an SDO to complete development and publish the document as a consensus-based standard (including technical justification for compliance to this document). This document defines requirements for the design and development of the fuelling protocols. These requirements can be integrated into the existing design and development processes to ensure that the fuelling protocol is fully verified and that the generated documentation is sufficient for the proper implementation and safe use of the fuelling protocols in dispensing systems for the targeted application. In addition to addressing the design and development of fuelling protocols for general applications, Annex A provides specific requirements and information relative to fuelling protocols for road vehicles at public fuelling stations based on ISO 19880 - 1 .",
+      "popis_autoritativni": "This document addresses the design and development of fuelling protocols for compressed hydrogen gas dispensing to vehicles with compressed hydrogen storage of fuel. The document does not address dispensing of compressed hydrogen gas to vehicles with hydride-based hydrogen storage systems as well as the dispensing of liquefied or cryo-compressed hydrogen. This document is intended to be used for a wide range of applications including, but not limited to, the following: — light, medium, and heavy-duty road vehicles, — motor bicycles and tricycles, carts, and trailers, — off-road vehicles, — fork-lift and other industrial trucks, — rail locomotives and powered cars, — airplanes and drones, and — maritime ships, boats, and barges. This document applies to a wide spectrum of development situations ranging from companies developing a fuelling protocol for their specific products or applications to standards development organizations (SDOs) developing a consensus-based fuelling protocol for a broad segment of the industrial or commercial market. Additionally, combinations between the two extremes are possible, where, for example, companies start design and development as a way of defining a proposal for new work by an SDO to complete development and publish the document as a consensus-based standard (including technical justification for compliance to this document). This document defines requirements for the design and development of the fuelling protocols. These requirements can be integrated into the existing design and development processes to ensure that the fuelling protocol is fully verified and that the generated documentation is sufficient for the proper implementation and safe use of the fuelling protocols in dispensing systems for the targeted application. In addition to addressing the design and development of fuelling protocols for general applications, Annex A provides specific requirements and information relative to fuelling protocols for road vehicles at public fuelling stations based on ISO 19880 - 1 .",
+      "znacka": "ISO 19885-1",
+      "slug": "iso-19885-1"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19885-1:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19885-2": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 2: Definition of communications between the vehicle and dispenser control systems",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling protocols for hydrogen-fuelled vehicles — Part 2: Definition of communications between the vehicle and dispenser control systems",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/89209.html",
+      "anotace_poznamka": "A multipart set of documents is envisioned as part of the 19885 series, Gaseous hydrogen -- Fuelling protocols for hydrogen-fuelled vehicles. The 19885 documents will address the general design and development process for the definition and verification of fuelling protocols and the implementation of the protocols for dispensing fuel to hydrogen vehicles rated up to 70 MPa nominal working pressure (NWP). This NP proposes the following project: 19885-2: Gaseous hydrogen – Fuelling protocols for hydrogen fuelled vehicles – Part 2: Definition of communications between the vehicle and dispenser control systems Focus is on the communication system needed to implement the fueling protocols defined in ISO 19885 series to fuel hydrogen vehicles. Approach: • To be written in the context anticipated use as the document proceeds industry application, • Coordinate with 19885-3 to establish the communications to utilize versatile high-flow hydrogen fuelling protocol(s) for 35 or 70 MPa NWP compressed gaseous hydrogen-powered heavy-duty road vehicles (10-200 kg hydrogen capacity). • Specific systems to be given as examples but applying the communication protocol will not be limited to a particular system. The definition of communications systems in ISO 19885-2 is intended to address the different communications UCDC levels referenced in hydrogen fuelling protocol(s) standards ISO 19885-1 and 19885-3.",
+      "popis_autoritativni": "A multipart set of documents is envisioned as part of the 19885 series, Gaseous hydrogen -- Fuelling protocols for hydrogen-fuelled vehicles. The 19885 documents will address the general design and development process for the definition and verification of fuelling protocols and the implementation of the protocols for dispensing fuel to hydrogen vehicles rated up to 70 MPa nominal working pressure (NWP). This NP proposes the following project: 19885-2: Gaseous hydrogen – Fuelling protocols for hydrogen fuelled vehicles – Part 2: Definition of communications between the vehicle and dispenser control systems Focus is on the communication system needed to implement the fueling protocols defined in ISO 19885 series to fuel hydrogen vehicles. Approach: • To be written in the context anticipated use as the document proceeds industry application, • Coordinate with 19885-3 to establish the communications to utilize versatile high-flow hydrogen fuelling protocol(s) for 35 or 70 MPa NWP compressed gaseous hydrogen-powered heavy-duty road vehicles (10-200 kg hydrogen capacity). • Specific systems to be given as examples but applying the communication protocol will not be limited to a particular system. The definition of communications systems in ISO 19885-2 is intended to address the different communications UCDC levels referenced in hydrogen fuelling protocol(s) standards ISO 19885-1 and 19885-3.",
+      "znacka": "ISO/DIS 19885-2",
+      "slug": "iso-19885-2"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/DIS 19885-2, stav 4060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 19885-3": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling protocols for hydrogen fuelled vehicles — Part 3: Hydrogen fuelling protocols for road vehicles",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling protocols for hydrogen fuelled vehicles — Part 3: Hydrogen fuelling protocols for road vehicles",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/89206.html",
+      "anotace_poznamka": "A multipart set of documents is envisioned as part of the 19885 series, Gaseous hydrogen -- Fuelling protocols for hydrogen-fuelled vehicles. The 19885 documents will address the general design and development process for the definition and verification of fuelling protocols and the implementation of the protocols for dispensing fuel to hydrogen vehicles rated up to 70 MPa nominal working pressure (NWP). This NP proposes the following project: 19885-3: High Flow Hydrogen Fuelling Protocols for Heavy Duty Road Vehicles Versatile high-flow hydrogen fuelling protocol(s) for 35 or 70 MPa NWP compressed gaseous hydrogen powered heavy-duty road vehicles (10-200kg hydrogen capacity). Use is intended for but not limited to heavy-duty road vehicles. The hydrogen fuelling protocol(s) in the standard are intended to address different communications UCDC levels in accordance with ISO 19885-1. However, the initial scope will focus on fuelling protocol(s) capable of utilizing UCDC levels 0 and 1 given the existing widespread market use. Approach: • Develop science based and empirically validated fueling protocols which are coordinated with the appropriate HF nozzle, receptacle and communications for HD vehicles • Adopt best practices for fueling taking into consideration regional experiences • Coordinate with established and other relevant standards groups such as SAE • Consider the results and findings of the European Commission funded project “Protocol for Heavy-Duty Hydrogen Refueling” (PRHYDE) • This document can be viewed as a stand-alone document to address a high flow fueling protocol or it could be viewed as part of a series of documents that address the general definition and verification of fueling protocols and communication protocols.",
+      "popis_autoritativni": "A multipart set of documents is envisioned as part of the 19885 series, Gaseous hydrogen -- Fuelling protocols for hydrogen-fuelled vehicles. The 19885 documents will address the general design and development process for the definition and verification of fuelling protocols and the implementation of the protocols for dispensing fuel to hydrogen vehicles rated up to 70 MPa nominal working pressure (NWP). This NP proposes the following project: 19885-3: High Flow Hydrogen Fuelling Protocols for Heavy Duty Road Vehicles Versatile high-flow hydrogen fuelling protocol(s) for 35 or 70 MPa NWP compressed gaseous hydrogen powered heavy-duty road vehicles (10-200kg hydrogen capacity). Use is intended for but not limited to heavy-duty road vehicles. The hydrogen fuelling protocol(s) in the standard are intended to address different communications UCDC levels in accordance with ISO 19885-1. However, the initial scope will focus on fuelling protocol(s) capable of utilizing UCDC levels 0 and 1 given the existing widespread market use. Approach: • Develop science based and empirically validated fueling protocols which are coordinated with the appropriate HF nozzle, receptacle and communications for HD vehicles • Adopt best practices for fueling taking into consideration regional experiences • Coordinate with established and other relevant standards groups such as SAE • Consider the results and findings of the European Commission funded project “Protocol for Heavy-Duty Hydrogen Refueling” (PRHYDE) • This document can be viewed as a stand-alone document to address a high flow fueling protocol or it could be viewed as part of a series of documents that address the general definition and verification of fueling protocols and communication protocols.",
+      "znacka": "ISO/DIS 19885-3",
+      "slug": "iso-19885-3"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/DIS 19885-3, stav 4060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 23828/ - 2022.06": {
+    "changes": {
+      "nazev_cz": "Fuel cell road vehicles — Energy consumption measurement —  Vehicles fuelled with compressed hydrogen",
+      "nazev_autoritativni": "Fuel cell road vehicles — Energy consumption measurement —  Vehicles fuelled with compressed hydrogen",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/78416.html",
+      "anotace_poznamka": "This document specifies the procedures for measuring the energy consumption and driving range of fuel cell passenger cars and light-duty trucks that use compressed hydrogen.",
+      "popis_autoritativni": "This document specifies the procedures for measuring the energy consumption and driving range of fuel cell passenger cars and light-duty trucks that use compressed hydrogen.",
+      "znacka": "ISO 23828",
+      "slug": "iso-23828"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 23828:2022, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 24132/ - 2024.06": {
+    "changes": {
+      "nazev_cz": "Ships and marine technology — Design and testing of marine transfer arms for liquefied hydrogen",
+      "nazev_autoritativni": "Ships and marine technology — Design and testing of marine transfer arms for liquefied hydrogen",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/77864.html",
+      "anotace_poznamka": "This document specifies the design, minimum safety requirements, and inspection and testing procedures for liquefied hydrogen (LH2) marine transfer arms intended for use at onshore LH2 terminals handling LH2 carriers. It also covers the minimum requirements for safe LH2 transfer between ship and shore. Although the requirements for power/control systems are covered, this document does not include all of the details for the design and fabrication of standard parts and fittings associated with transfer arms. This document is mainly focused on hard pipe type transfer systems; hose type transfer systems are not described in detail in the general description of this document. However, hose type transfer systems can also be considered as reasonable vacuum insulated technology for the design of transfer arms for liquefied hydrogen.",
+      "popis_autoritativni": "This document specifies the design, minimum safety requirements, and inspection and testing procedures for liquefied hydrogen (LH2) marine transfer arms intended for use at onshore LH2 terminals handling LH2 carriers. It also covers the minimum requirements for safe LH2 transfer between ship and shore. Although the requirements for power/control systems are covered, this document does not include all of the details for the design and fabrication of standard parts and fittings associated with transfer arms. This document is mainly focused on hard pipe type transfer systems; hose type transfer systems are not described in detail in the general description of this document. However, hose type transfer systems can also be considered as reasonable vacuum insulated technology for the design of transfer arms for liquefied hydrogen.",
+      "znacka": "ISO 24132",
+      "slug": "iso-24132"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 24132:2024, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 17268-2": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen land vehicle refuelling connection devices — Part 2: Flow capacities greater than 120 g/s",
+      "nazev_autoritativni": "Gaseous hydrogen land vehicle refuelling connection devices — Part 2: Flow capacities greater than 120 g/s",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/87777.html",
+      "anotace_poznamka": "This document defines the design, safety and operation characteristics of gaseous hydrogen land vehicle (GHLV) refuelling connectors having flow capacities greater than 120 g/s. GHLV refuelling connectors consist of the following components, as applicable: — receptacle and protective cap (mounted on vehicle); — nozzle; — communication hardware. This document is applicable to refuelling connectors which have nominal working pressures or hydrogen service levels up to 70 MPa. This document is not applicable to refuelling connectors dispensing blends of hydrogen with natural gas.",
+      "popis_autoritativni": "This document defines the design, safety and operation characteristics of gaseous hydrogen land vehicle (GHLV) refuelling connectors having flow capacities greater than 120 g/s. GHLV refuelling connectors consist of the following components, as applicable: — receptacle and protective cap (mounted on vehicle); — nozzle; — communication hardware. This document is applicable to refuelling connectors which have nominal working pressures or hydrogen service levels up to 70 MPa. This document is not applicable to refuelling connectors dispensing blends of hydrogen with natural gas.",
+      "znacka": "ISO/DIS 17268-2",
+      "slug": "iso-awi-17268-2"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/DIS 17268-2, stav 4060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI TR 19884-2": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 2: Material test data of class A materials (steels and aluminum alloys) compatible to hydrogen service",
+      "nazev_autoritativni": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 2: Material test data of class A materials (steels and aluminum alloys) compatible to hydrogen service",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/86285.html",
+      "znacka": "ISO/DTR 19884-2",
+      "slug": "iso-awi-tr-19884-2"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/DTR 19884-2, stav 5092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI TR 19884-3": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 3: Pressure cycle test data to demonstrate partial pressure cycle estimation methods",
+      "nazev_autoritativni": "Gaseous hydrogen — Pressure vessels for stationary storage — Part 3: Pressure cycle test data to demonstrate partial pressure cycle estimation methods",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/86286.html",
+      "anotace_poznamka": "This document describes detailed methods for evaluating cycle life extension by partial pressure cycles with necessary conditions and example data of their application. Two methods for evaluating cycle life extension by partial pressure cycles based on the Goodman diagram and exponential formula are presented in ISO 19884-1 . These methods do not rely on fracture mechanical methodology but on pressurizing cycle test data, since the framework of ISO 19884-1 is constructed on performance demonstrated by pressurizing cycle test data in hydrogen.",
+      "popis_autoritativni": "This document describes detailed methods for evaluating cycle life extension by partial pressure cycles with necessary conditions and example data of their application. Two methods for evaluating cycle life extension by partial pressure cycles based on the Goodman diagram and exponential formula are presented in ISO 19884-1 . These methods do not rely on fracture mechanical methodology but on pressurizing cycle test data, since the framework of ISO 19884-1 is constructed on performance demonstrated by pressurizing cycle test data in hydrogen.",
+      "znacka": "ISO/TR 19884-3",
+      "slug": "iso-awi-tr-19884-3"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TR 19884-3:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI TS 15916": {
+    "changes": {
+      "nazev_cz": "Hydrogen technologies — Basic considerations for the safety of hydrogen systems",
+      "nazev_autoritativni": "Hydrogen technologies — Basic considerations for the safety of hydrogen systems",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/89423.html",
+      "anotace_poznamka": "This document provides guidelines for the use of hydrogen in its gaseous and liquid forms as well as its storage in either of these or other forms (hydrides). This document identifies the basic safety concerns, hazards and risks, and describes the properties of hydrogen that are relevant to safety. Detailed safety requirements associated with specific hydrogen applications are treated in separate International Standards. “Hydrogen” in this document means protium (the most common isotope of hydrogen) (1H), not deuterium (2H) or tritium (3H).",
+      "popis_autoritativni": "This document provides guidelines for the use of hydrogen in its gaseous and liquid forms as well as its storage in either of these or other forms (hydrides). This document identifies the basic safety concerns, hazards and risks, and describes the properties of hydrogen that are relevant to safety. Detailed safety requirements associated with specific hydrogen applications are treated in separate International Standards. “Hydrogen” in this document means protium (the most common isotope of hydrogen) (1H), not deuterium (2H) or tritium (3H).",
+      "znacka": "ISO/TS 15916",
+      "slug": "iso-awi-ts-15916"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TS 15916:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 19880-7": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen — Fuelling stations — Part 7: Rubber O-rings",
+      "nazev_autoritativni": "Gaseous hydrogen — Fuelling stations — Part 7: Rubber O-rings",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/81701.html",
+      "anotace_poznamka": "This document specifies the requirements for rubber O-rings and their housing dimensions, which seal gaseous hydrogen, in high-pressure hydrogen devices for gaseous hydrogen fuelling stations, such as valves, filters, joints, breakaways and other such devices. This document is applicable to O-rings suitable for sealing hydrogen gas of up to 70 MPa nominal working pressure, in the operating temperature range of −40 °C to 65 °C. This document contains safety requirements for the design of O-rings and their housing dimensions, compound design, and test methods for seal systems. This document applies to newly manufactured O-rings for hydrogen gas seal in high-pressure hydrogen devices used in hydrogen fuelling stations. NOTE 1 This document was developed using the ISO 3601 series. NOTE 2 This document was developed based on several temperature classes of rubber O-rings suitable for use with high-pressure hydrogen seals in devices for gaseous hydrogen stations. NOTE 3 The operating temperature is not a temperature of the hydrogen gas to be sealed by the O-ring gas seal system. Regardless of the operating temperature, the hydrogen gas temperature to be sealed can rise up to 180 °C. NOTE 4 The O-ring seal system for the high-pressure hydrogen devices are designed by the device manufacturers. The detailed specifications of the O-rings and design of static or non-static high-pressure hydrogen seal systems for the high-pressure hydrogen devices are determined as agreed upon between the interested parties by referring to this document.",
+      "popis_autoritativni": "This document specifies the requirements for rubber O-rings and their housing dimensions, which seal gaseous hydrogen, in high-pressure hydrogen devices for gaseous hydrogen fuelling stations, such as valves, filters, joints, breakaways and other such devices. This document is applicable to O-rings suitable for sealing hydrogen gas of up to 70 MPa nominal working pressure, in the operating temperature range of −40 °C to 65 °C. This document contains safety requirements for the design of O-rings and their housing dimensions, compound design, and test methods for seal systems. This document applies to newly manufactured O-rings for hydrogen gas seal in high-pressure hydrogen devices used in hydrogen fuelling stations. NOTE 1 This document was developed using the ISO 3601 series. NOTE 2 This document was developed based on several temperature classes of rubber O-rings suitable for use with high-pressure hydrogen seals in devices for gaseous hydrogen stations. NOTE 3 The operating temperature is not a temperature of the hydrogen gas to be sealed by the O-ring gas seal system. Regardless of the operating temperature, the hydrogen gas temperature to be sealed can rise up to 180 °C. NOTE 4 The O-ring seal system for the high-pressure hydrogen devices are designed by the device manufacturers. The detailed specifications of the O-rings and design of static or non-static high-pressure hydrogen seal systems for the high-pressure hydrogen devices are determined as agreed upon between the interested parties by referring to this document.",
+      "znacka": "ISO 19880-7",
+      "slug": "iso-dis-19880-7"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 19880-7:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 17268-1": {
+    "changes": {
+      "nazev_cz": "Gaseous hydrogen land vehicle refuelling connection devices — Part 1: Flow capacities up to and including 120 g/s",
+      "nazev_autoritativni": "Gaseous hydrogen land vehicle refuelling connection devices — Part 1: Flow capacities up to and including 120 g/s",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/86283.html",
+      "anotace_poznamka": "This document specifies the design, safety and operation characteristics of gaseous hydrogen land vehicle (GHLV) refuelling connectors. GHLV refuelling connectors consist of the following components, as applicable: receptacle and protective cap (mounted on vehicle); nozzle; communication hardware. This document is applicable to refuelling connectors which have nominal working pressures or hydrogen service levels up to 70 MPa and maximum flow rates up to 120 g/s. This document is not applicable to refuelling connectors dispensing blends of hydrogen with natural gas.",
+      "popis_autoritativni": "This document specifies the design, safety and operation characteristics of gaseous hydrogen land vehicle (GHLV) refuelling connectors. GHLV refuelling connectors consist of the following components, as applicable: receptacle and protective cap (mounted on vehicle); nozzle; communication hardware. This document is applicable to refuelling connectors which have nominal working pressures or hydrogen service levels up to 70 MPa and maximum flow rates up to 120 g/s. This document is not applicable to refuelling connectors dispensing blends of hydrogen with natural gas.",
+      "znacka": "ISO 17268-1",
+      "slug": "iso-fdis-17268-1"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 17268-1:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 22734-1": {
+    "changes": {
+      "nazev_cz": "Hydrogen generators using water electrolysis — Part 1: Safety",
+      "nazev_autoritativni": "Hydrogen generators using water electrolysis — Part 1: Safety",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82766.html",
+      "anotace_poznamka": "This document specifies the safety requirements of hydrogen gas generation appliances or systems that use electrochemical reactions to electrolyse water to produce hydrogen, herein referred to as hydrogen generators.",
+      "popis_autoritativni": "This document specifies the safety requirements of hydrogen gas generation appliances or systems that use electrochemical reactions to electrolyse water to produce hydrogen, herein referred to as hydrogen generators.",
+      "znacka": "ISO 22734-1",
+      "slug": "iso-fdis-22734-1"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 22734-1:2025, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/TS 19883/ - 2017.03": {
+    "changes": {
+      "nazev_cz": "Safety of pressure swing adsorption systems for hydrogen separation and purification",
+      "nazev_autoritativni": "Safety of pressure swing adsorption systems for hydrogen separation and purification",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/61169.html",
+      "anotace_poznamka": "ISO/TS 19883:2017 identifies safety measures and applicable design features that are used in the design, commissioning, and operation of pressure swing adsorption systems for hydrogen separation and purification. It applies to hydrogen pressure swing adsorption systems that process all kinds of impure hydrogen streams as feed, including both stationary and skid-mounted pressure swing adsorption systems for hydrogen separation and purification in commercial or industrial use. This document also applies to small-scale PSA hydrogen system installed within containers, where allowed by local regulations.",
+      "popis_autoritativni": "ISO/TS 19883:2017 identifies safety measures and applicable design features that are used in the design, commissioning, and operation of pressure swing adsorption systems for hydrogen separation and purification. It applies to hydrogen pressure swing adsorption systems that process all kinds of impure hydrogen streams as feed, including both stationary and skid-mounted pressure swing adsorption systems for hydrogen separation and purification in commercial or industrial use. This document also applies to small-scale PSA hydrogen system installed within containers, where allowed by local regulations.",
+      "znacka": "ISO/TS 19883",
+      "slug": "iso-ts-19883"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TS 19883:2017, stav 9060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 18172-2/ - 2007.03": {
+    "changes": {
+      "nazev_cz": "Gas cylinders — Refillable welded stainless steel cylinders — Part 2: Test pressure greater than 6 MPa",
+      "nazev_autoritativni": "Gas cylinders — Refillable welded stainless steel cylinders — Part 2: Test pressure greater than 6 MPa",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/38599.html",
+      "anotace_poznamka": "ISO 18172-2:2007 specifies minimum requirements concerning material, design, construction and workmanship, manufacturing processes and testing of refillable transportable welded stainless steel gas cylinders, of water capacities from 0,5 l up to and including 150 l, for compressed and liquefied gases. ISO 18172-2:2007 is applicable only to cylinders manufactured from stainless steels with a maximum tensile strength of less than 1 100 MPa and a test pressure above 6 MPa (60 bar).",
+      "popis_autoritativni": "ISO 18172-2:2007 specifies minimum requirements concerning material, design, construction and workmanship, manufacturing processes and testing of refillable transportable welded stainless steel gas cylinders, of water capacities from 0,5 l up to and including 150 l, for compressed and liquefied gases. ISO 18172-2:2007 is applicable only to cylinders manufactured from stainless steels with a maximum tensile strength of less than 1 100 MPa and a test pressure above 6 MPa (60 bar).",
+      "znacka": "ISO 18172-2",
+      "slug": "iso-18172-2"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18172-2:2007, stav 9060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 23551-12/ - 2023.10": {
+    "changes": {
+      "nazev_cz": "Safety and control devices for gas burners and gas-burning appliances — Particular requirements — Part 12: Multifunctional controls with integral overpressure protection safety function (OPSF) for use with butane gas cartridges used in portable gas appliances",
+      "nazev_autoritativni": "Safety and control devices for gas burners and gas-burning appliances — Particular requirements — Part 12: Multifunctional controls with integral overpressure protection safety function (OPSF) for use with butane gas cartridges used in portable gas appliances",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/76435.html",
+      "anotace_poznamka": "This document specifies safety, construction, performance and testing requirements for multifunctional controls with integral overpressure protection safety function (OPSF) intended for use with portable gas appliances. This document is applicable to: — multifunctional controls which consist of a pressure-limiting device and at least one or more controls, including but not limited to a manual gas valve, a pressure regulator and a thermoelectric flame supervision device; and — multifunctional controls with declared maximum operating pressures in normal use, up to and including 500 kPa for use with a butane gas cartridge specified by ISO/TS 21985. This document does not apply to multifunctional controls with OPSF having thread connections for mounting butane gas cartridges. This document covers type testing only.",
+      "popis_autoritativni": "This document specifies safety, construction, performance and testing requirements for multifunctional controls with integral overpressure protection safety function (OPSF) intended for use with portable gas appliances. This document is applicable to: — multifunctional controls which consist of a pressure-limiting device and at least one or more controls, including but not limited to a manual gas valve, a pressure regulator and a thermoelectric flame supervision device; and — multifunctional controls with declared maximum operating pressures in normal use, up to and including 500 kPa for use with a butane gas cartridge specified by ISO/TS 21985. This document does not apply to multifunctional controls with OPSF having thread connections for mounting butane gas cartridges. This document covers type testing only.",
+      "znacka": "ISO 23551-12",
+      "slug": "iso-23551-12"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 23551-12:2023, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 7039/ - 2024.07": {
+    "changes": {
+      "nazev_cz": "Metallic materials — Tensile testing — Method for evaluating the susceptibility of materials to the effects of high-pressure gas within hollow test pieces",
+      "nazev_autoritativni": "Metallic materials — Tensile testing — Method for evaluating the susceptibility of materials to the effects of high-pressure gas within hollow test pieces",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/82610.html",
+      "anotace_poznamka": "This document specifies the geometries and proposed finishing procedures of the inner surface of hollow test piece of metallic materials, filled with a high-pressure gaseous medium. The document specifies a tensile testing procedure to evaluate the effect of high-pressure gaseous medium compared to a high-pressure inert gas or air. The document can be used for the screening of metallic materials by evaluating mechanical property changes due to the effects of various test gases, including hydrogen. NOTE Temperature range and pressure range depend on the materials to be tested and test gas to be used.",
+      "popis_autoritativni": "This document specifies the geometries and proposed finishing procedures of the inner surface of hollow test piece of metallic materials, filled with a high-pressure gaseous medium. The document specifies a tensile testing procedure to evaluate the effect of high-pressure gaseous medium compared to a high-pressure inert gas or air. The document can be used for the screening of metallic materials by evaluating mechanical property changes due to the effects of various test gases, including hydrogen. NOTE Temperature range and pressure range depend on the materials to be tested and test gas to be used.",
+      "znacka": "ISO 7039",
+      "slug": "iso-7039"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 7039:2024, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 18735": {
+    "changes": {
+      "nazev_cz": "Ships and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel castings for cryogenic temperature",
+      "nazev_autoritativni": "Ships and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel castings for cryogenic temperature",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85430.html",
+      "anotace_poznamka": "This document specifies minimum requirements for high-manganese austenitic steel castings for valves, flanges and other pressure-containing components used at cryogenic temperature. This document can be applicable to all pressure retaining components and any non-pressure retaining component.",
+      "popis_autoritativni": "This document specifies minimum requirements for high-manganese austenitic steel castings for valves, flanges and other pressure-containing components used at cryogenic temperature. This document can be applicable to all pressure retaining components and any non-pressure retaining component.",
+      "znacka": "ISO 18735",
+      "slug": "iso-dis-18735"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18735:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 18741": {
+    "changes": {
+      "nazev_cz": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel forgings for cryogenic temperature",
+      "nazev_autoritativni": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel forgings for cryogenic temperature",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85431.html",
+      "anotace_poznamka": "This document specifies minimum requirements for high-manganese austenitic steel forgings for valves, flanges, fittings and other pressure-containing components used at cryogenic temperature. The specification of high-manganese austenitic steel forgings can be applicable to all pressure retaining components and any non-pressure retaining component.",
+      "popis_autoritativni": "This document specifies minimum requirements for high-manganese austenitic steel forgings for valves, flanges, fittings and other pressure-containing components used at cryogenic temperature. The specification of high-manganese austenitic steel forgings can be applicable to all pressure retaining components and any non-pressure retaining component.",
+      "znacka": "ISO 18741",
+      "slug": "iso-dis-18741"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18741:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 18742": {
+    "changes": {
+      "nazev_cz": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel welded fittings for cryogenic temperature",
+      "nazev_autoritativni": "Ship and marine technology — High-manganese austenitic steel — Specification for high-manganese austenitic steel welded fittings for cryogenic temperature",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85432.html",
+      "anotace_poznamka": "This document provides requirements for wrought high-manganese austenitic steel welded fittings used for pressure piping at cryogenic temperature. The specification of high-manganese austenitic steel welded fittings is applicable to all pressure retaining components and any non-pressure retaining components used in hull systems for marine technology and in onshore projects.",
+      "popis_autoritativni": "This document provides requirements for wrought high-manganese austenitic steel welded fittings used for pressure piping at cryogenic temperature. The specification of high-manganese austenitic steel welded fittings is applicable to all pressure retaining components and any non-pressure retaining components used in hull systems for marine technology and in onshore projects.",
+      "znacka": "ISO 18742",
+      "slug": "iso-dis-18742"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18742:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 18760": {
+    "changes": {
+      "nazev_cz": "Ships and marine technology — High-manganese austenitic steel — Longitudinally welded high-manganese austenitic steel pipes for cryogenic temperature",
+      "nazev_autoritativni": "Ships and marine technology — High-manganese austenitic steel — Longitudinally welded high-manganese austenitic steel pipes for cryogenic temperature",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85433.html",
+      "anotace_poznamka": "This document specifies the delivery conditions for longitudinally welded pipes of circular cross-section, made of high-manganese austenitic steel, intended for cryogenic temperature applications under pressure. This document is applicable to all pressure-retaining components and any non-pressure-retaining components, such as members of pipe supports, which are welded directly to a pressure-retaining component.",
+      "popis_autoritativni": "This document specifies the delivery conditions for longitudinally welded pipes of circular cross-section, made of high-manganese austenitic steel, intended for cryogenic temperature applications under pressure. This document is applicable to all pressure-retaining components and any non-pressure-retaining components, such as members of pipe supports, which are welded directly to a pressure-retaining component.",
+      "znacka": "ISO 18760",
+      "slug": "iso-dis-18760"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18760:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 18819": {
+    "changes": {
+      "nazev_cz": "Ships and marine technology — High-manganese austenitic steel — Specification for plates, sheets and coils below 6,0 mm for cryogenic temperature",
+      "nazev_autoritativni": "Ships and marine technology — High-manganese austenitic steel — Specification for plates, sheets and coils below 6,0 mm for cryogenic temperature",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/85435.html",
+      "anotace_poznamka": "This document specifies the delivery conditions for high-manganese austenitic steel in the form of hot rolled or cold rolled plates, sheets, and coils for low temperature purposes. This document covers all product types with a thickness below 6,0 mm. Refer to ISO 23430 for specifications on high manganese-austenitic steel thin strips.",
+      "popis_autoritativni": "This document specifies the delivery conditions for high-manganese austenitic steel in the form of hot rolled or cold rolled plates, sheets, and coils for low temperature purposes. This document covers all product types with a thickness below 6,0 mm. Refer to ISO 23430 for specifications on high manganese-austenitic steel thin strips.",
+      "znacka": "ISO 18819",
+      "slug": "iso-dis-18819"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 18819:2026, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/TS 18683/ - 2021.11": {
+    "changes": {
+      "nazev_cz": "Guidelines for safety and risk assessment of LNG fuel bunkering operations",
+      "nazev_autoritativni": "Guidelines for safety and risk assessment of LNG fuel bunkering operations",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/76811.html",
+      "anotace_poznamka": "This document gives guidance on the risk-based approach to follow for the design and operation of the LNG bunker transfer system, including the interface between the LNG bunkering supply facilities and receiving LNG fuelled vessels. This document provides requirements and recommendations for the development of a bunkering site and facility and the LNG bunker transfer system, providing the minimum functional requirements qualified by a structured risk assessment approach taking into consideration LNG properties and behaviour, simultaneous operations and all parties involved in the operation. This document is applicable to bunkering of both seagoing and inland trading vessels. It covers LNG bunkering from shore or ship, mobile to ship and ship to ship LNG supply scenarios, as described in Clause 4.",
+      "popis_autoritativni": "This document gives guidance on the risk-based approach to follow for the design and operation of the LNG bunker transfer system, including the interface between the LNG bunkering supply facilities and receiving LNG fuelled vessels. This document provides requirements and recommendations for the development of a bunkering site and facility and the LNG bunker transfer system, providing the minimum functional requirements qualified by a structured risk assessment approach taking into consideration LNG properties and behaviour, simultaneous operations and all parties involved in the operation. This document is applicable to bunkering of both seagoing and inland trading vessels. It covers LNG bunkering from shore or ship, mobile to ship and ship to ship LNG supply scenarios, as described in Clause 4.",
+      "znacka": "ISO/TS 18683",
+      "slug": "iso-ts-18683"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TS 18683:2021, stav 9093): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 5124": {
+    "changes": {
+      "nazev_cz": "Loading and unloading of liquefied natural gas (LNG) tank wagons and containers",
+      "nazev_autoritativni": "Loading and unloading of liquefied natural gas (LNG) tank wagons and containers",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/81758.html",
+      "anotace_poznamka": "This document provides requirements and recommendations for the design, construction and operation of newly installed liquefied natural gas (LNG) railway loading and unloading facilities for use on onshore LNG terminals, LNG satellite plants, handling LNG tank wagons or tank containers engaged in international trade. The designated boundary limits of this document are between the LNG terminal’s inlet/outlet piping headers at the beginning of the rail loading or unloading area and the rail track area used for LNG tank wagons and containers. It is applicable to all rail loading bays, weighbridge(s) and related subsystems.",
+      "popis_autoritativni": "This document provides requirements and recommendations for the design, construction and operation of newly installed liquefied natural gas (LNG) railway loading and unloading facilities for use on onshore LNG terminals, LNG satellite plants, handling LNG tank wagons or tank containers engaged in international trade. The designated boundary limits of this document are between the LNG terminal’s inlet/outlet piping headers at the beginning of the rail loading or unloading area and the rail track area used for LNG tank wagons and containers. It is applicable to all rail loading bays, weighbridge(s) and related subsystems."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 5124:2024, stav 6060): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO 13577-2": {
+    "changes": {
+      "nazev_cz": "Industrial furnaces and associated processing equipment — Safety — Part 2: Combustion and fuel handling systems",
+      "nazev_autoritativni": "Industrial furnaces and associated processing equipment — Safety — Part 2: Combustion and fuel handling systems",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/80533.html",
+      "anotace_poznamka": "This document specifies the safety requirements for combustion and fuel handling systems that are part of industrial furnaces and associated processing equipment (TPE), including single and multiple burner systems in thermoprocessing equipment and machines. NOTE The general safety requirements common to TPE are provided in ISO 13577-1:2016. ISO 13577-1:2016, Annex B also includes a list of processes for which industrial furnaces and heating systems covered by the ISO 13577 series are used. This document deals with significant hazards, hazardous situations and events relevant to combustion and fuel handling systems as listed in Annex A, when used as intended and under the conditions for use as described in the instruction handbook. This document covers: — fuel pipework downstream of and including the manual isolating valve; — combustion air supply (including oxygen and oxygen enriched combustion air) and flue gas system; — burner(s), burner system and ignition device; — functional requirements for safety related control system. This document applies to any oxidation of gaseous and liquid fuels with air or other gases containing free oxygen to release thermal energy in TPE. Annex B includes examples of gaseous and liquid fuels. For thermal or catalytic post combustion and waste incineration, this document applies only to auxiliary burners designed to start-up and/or support the process. The pressure hazard of the piping and components covered by this document is within the maximum pressure/size relationship of category I as specified in Annex C. This document also gives the necessary requirements regarding information for use. This document does not cover hazards from heating generated by electricity. This document does not deal with the hazards created by the release of flammable substances from the products processed in the TPE. This document is not applicable to combustion and fuel handling systems: — of gas welding and allied processes; — up-stream of the TPE manual isolating valve. This document is not applicable to industrial furnaces and associated processing equipment (TPE), including single and multiple burner systems in thermoprocessing equipment and machines manufactured before the date of its publication. This document is not applicable to blast furnaces, converters (in steel plants), boilers, fired heaters (including reformer furnaces) in the petrochemical and chemical industries. This document is not applicable to electrical cabling and power cabling upstream of the TPE control panel/protective system.",
+      "popis_autoritativni": "This document specifies the safety requirements for combustion and fuel handling systems that are part of industrial furnaces and associated processing equipment (TPE), including single and multiple burner systems in thermoprocessing equipment and machines. NOTE The general safety requirements common to TPE are provided in ISO 13577-1:2016. ISO 13577-1:2016, Annex B also includes a list of processes for which industrial furnaces and heating systems covered by the ISO 13577 series are used. This document deals with significant hazards, hazardous situations and events relevant to combustion and fuel handling systems as listed in Annex A, when used as intended and under the conditions for use as described in the instruction handbook. This document covers: — fuel pipework downstream of and including the manual isolating valve; — combustion air supply (including oxygen and oxygen enriched combustion air) and flue gas system; — burner(s), burner system and ignition device; — functional requirements for safety related control system. This document applies to any oxidation of gaseous and liquid fuels with air or other gases containing free oxygen to release thermal energy in TPE. Annex B includes examples of gaseous and liquid fuels. For thermal or catalytic post combustion and waste incineration, this document applies only to auxiliary burners designed to start-up and/or support the process. The pressure hazard of the piping and components covered by this document is within the maximum pressure/size relationship of category I as specified in Annex C. This document also gives the necessary requirements regarding information for use. This document does not cover hazards from heating generated by electricity. This document does not deal with the hazards created by the release of flammable substances from the products processed in the TPE. This document is not applicable to combustion and fuel handling systems: — of gas welding and allied processes; — up-stream of the TPE manual isolating valve. This document is not applicable to industrial furnaces and associated processing equipment (TPE), including single and multiple burner systems in thermoprocessing equipment and machines manufactured before the date of its publication. This document is not applicable to blast furnaces, converters (in steel plants), boilers, fired heaters (including reformer furnaces) in the petrochemical and chemical industries. This document is not applicable to electrical cabling and power cabling upstream of the TPE control panel/protective system."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO 13577-2:2023, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/TS 19870": {
+    "changes": {
+      "nazev_cz": "Hydrogen technologies — Methodology for determining the greenhouse gas emissions associated with the production, conditioning and transport of hydrogen to consumption gate",
+      "nazev_autoritativni": "Hydrogen technologies — Methodology for determining the greenhouse gas emissions associated with the production, conditioning and transport of hydrogen to consumption gate",
+      "zdroj_autoritativni_url": "https://www.iso.org/standard/65628.html",
+      "anotace_poznamka": "ISO 14044 requires the goal and scope of an LCA to be clearly defined and be consistent with the intended application. Due to the iterative nature of LCA, it is possible that the LCA scope needs to be refined during the study. This document specifies methodologies that can be applied to determine the carbon footprint of a product (CFP) or partial CFP of a hydrogen product in line with ISO 14067 . The goals and scopes of the methodologies correspond to either approach a) or b), given below, that ISO 14040 : 2006 , A.2 gives as two possible approaches to LCA. a) An approach that assigns elementary flows and potential environmental impacts to a specific product system, typically as an account of the history of the product. b) An approach that studies the environmental consequences of possible (future) changes between alternative product systems. Approaches a) and b) have become known as attributional and consequential, respectively, with complementary information accessible in the ILCD handbook. [ 1 ] There are numerous pathways to produce hydrogen from various primary energy sources. This document describes the requirements and evaluation methods applied to several hydrogen production pathways of interest: electrolysis, steam methane reforming (with carbon capture and storage), co-production and coal gasification (with carbon capture and storage), auto-thermal reforming (with carbon capture and storage), hydrogen as a co-product in industrial applications and hydrogen from biomass waste as feedstock. This document also considers the GHG emissions due to the conditioning or conversion of hydrogen into different physical forms and chemical carriers: — hydrogen liquefaction; — production, transport and cracking of ammonia as a hydrogen carrier; — hydrogenation, transport and dehydrogenation of liquid organic hydrogen carriers (LOHCs). This document considers the GHG emissions due to hydrogen and/or hydrogen carriers’ transport up to the consumption gate. It is possible that future revisions of this document will consider additional hydrogen production, conditioning, conversion and transport methods. This document applies to and includes every delivery along the supply chain up to the final delivery to the consumption gate (see Figure 2 in the Introduction ). This document also provides additional information related to evaluation principles, system boundaries and expected reported metrics in the form of Annexes A to K, that are accessible via the online ISO portal ( https://standards.iso.org/iso/ts/19870/ed-1/en ).",
+      "popis_autoritativni": "ISO 14044 requires the goal and scope of an LCA to be clearly defined and be consistent with the intended application. Due to the iterative nature of LCA, it is possible that the LCA scope needs to be refined during the study. This document specifies methodologies that can be applied to determine the carbon footprint of a product (CFP) or partial CFP of a hydrogen product in line with ISO 14067 . The goals and scopes of the methodologies correspond to either approach a) or b), given below, that ISO 14040 : 2006 , A.2 gives as two possible approaches to LCA. a) An approach that assigns elementary flows and potential environmental impacts to a specific product system, typically as an account of the history of the product. b) An approach that studies the environmental consequences of possible (future) changes between alternative product systems. Approaches a) and b) have become known as attributional and consequential, respectively, with complementary information accessible in the ILCD handbook. [ 1 ] There are numerous pathways to produce hydrogen from various primary energy sources. This document describes the requirements and evaluation methods applied to several hydrogen production pathways of interest: electrolysis, steam methane reforming (with carbon capture and storage), co-production and coal gasification (with carbon capture and storage), auto-thermal reforming (with carbon capture and storage), hydrogen as a co-product in industrial applications and hydrogen from biomass waste as feedstock. This document also considers the GHG emissions due to the conditioning or conversion of hydrogen into different physical forms and chemical carriers: — hydrogen liquefaction; — production, transport and cracking of ammonia as a hydrogen carrier; — hydrogenation, transport and dehydrogenation of liquid organic hydrogen carriers (LOHCs). This document considers the GHG emissions due to hydrogen and/or hydrogen carriers’ transport up to the consumption gate. It is possible that future revisions of this document will consider additional hydrogen production, conditioning, conversion and transport methods. This document applies to and includes every delivery along the supply chain up to the final delivery to the consumption gate (see Figure 2 in the Introduction ). This document also provides additional information related to evaluation principles, system boundaries and expected reported metrics in the form of Annexes A to K, that are accessible via the online ISO portal ( https://standards.iso.org/iso/ts/19870/ed-1/en )."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Údaje podle otevřených dat ISO (ISO/TS 19870:2023, stav 9092): označení, název a anotace normy (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ČSN EN ISO 13850": {
+    "changes": {
+      "anotace_poznamka": "ISO 13850:2015 Standard specifies functional requirements and design principles for the emergency stop function on machinery, independent of the type of energy used. It does not deal with functions such as reversal or limitation of motion, deflection of emissions (e.g. radiation, fluids), shielding, braking or disconnecting, which can be part of the emergency stop function. The requirements for this International Standard apply to all machines, with exception to: - machines where an emergency stop would not reduce the risk; - hand-held or hand-operated machines. NOTE The requirements for the realization of the emergency stop function based on electrical/electronic technology are described in IEC 60204‑1.",
+      "popis_autoritativni": "ISO 13850:2015 Standard specifies functional requirements and design principles for the emergency stop function on machinery, independent of the type of energy used. It does not deal with functions such as reversal or limitation of motion, deflection of emissions (e.g. radiation, fluids), shielding, braking or disconnecting, which can be part of the emergency stop function. The requirements for this International Standard apply to all machines, with exception to: - machines where an emergency stop would not reduce the risk; - hand-held or hand-operated machines. NOTE The requirements for the realization of the emergency stop function based on electrical/electronic technology are described in IEC 60204‑1."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis patřil jiné normě; nahrazen anotací ISO 13850:2015 z otevřených dat ISO (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN ISO 14001/ - 2016.04": {
+    "changes": {
+      "anotace_poznamka": "This document specifies the requirements for an environmental management system that an organization can use to enhance its environmental performance. It is intended for use by an organization seeking to manage its environmental responsibilities in a systematic manner that contributes to the environmental pillar of sustainability. This document helps an organization to achieve the intended outcomes of its environmental management system, which provide value for the environment, the organization itself and interested parties. The intended outcomes of an environmental management system include: enhancing environmental performance; meeting compliance obligations; achieving environmental objectives. This document is applicable to any organization, regardless of size, type or nature, and applies to the environmental aspects of its activities, products and services that the organization determines it can either control or influence considering a life cycle perspective. This document does not state specific environmental performance criteria. This document can be used in whole or in part to systematically improve environmental management. Claims of conformity to this document, however, are not acceptable unless all its requirements are incorporated into an organization’s environmental management system and fulfilled without exclusion.",
+      "popis_autoritativni": "This document specifies the requirements for an environmental management system that an organization can use to enhance its environmental performance. It is intended for use by an organization seeking to manage its environmental responsibilities in a systematic manner that contributes to the environmental pillar of sustainability. This document helps an organization to achieve the intended outcomes of its environmental management system, which provide value for the environment, the organization itself and interested parties. The intended outcomes of an environmental management system include: enhancing environmental performance; meeting compliance obligations; achieving environmental objectives. This document is applicable to any organization, regardless of size, type or nature, and applies to the environmental aspects of its activities, products and services that the organization determines it can either control or influence considering a life cycle perspective. This document does not state specific environmental performance criteria. This document can be used in whole or in part to systematically improve environmental management. Claims of conformity to this document, however, are not acceptable unless all its requirements are incorporated into an organization’s environmental management system and fulfilled without exclusion."
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis patřil jiné normě; nahrazen anotací ISO 14001:2026 z otevřených dat ISO (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2010/75/EU": {
+    "changes": {
+      "znacka": "(EU) 2013/732 [SK]",
+      "nazev_cz": "Vykonávacie rozhodnutie Komisie z 9. decembra 2013, ktorým sa podľa smernice Európskeho parlamentu a Rady 2010/75/EÚ o priemyselných emisiách stanovujú závery o najlepších dostupných technikách (BAT) na výrobu chlóru a lúhov [oznámené pod číslom C(2013) 8589] (Text s významom pre EHP)",
+      "nazev_autoritativni": "Vykonávacie rozhodnutie Komisie z 9. decembra 2013, ktorým sa podľa smernice Európskeho parlamentu a Rady 2010/75/EÚ o priemyselných emisiách stanovujú závery o najlepších dostupných technikách (BAT) na výrobu chlóru a lúhov [oznámené pod číslom C(2013) 8589] (Text s významom pre EHP)",
+      "zdroj_autoritativni_url": "https://eur-lex.europa.eu/legal-content/SK/ALL/?uri=CELEX:32013D0732",
+      "odkaz_hlavni": "https://eur-lex.europa.eu/legal-content/SK/TXT/?uri=CELEX:32013D0732",
+      "jurisdikce": "EU",
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Rešerše Sinay uvádí pod číslem 2010/75/EU slovenský název prováděcího rozhodnutí o závěrech BAT pro výrobu chloru a alkálií, tj. (EU) 2013/732 (české znění je dokument (EU) 2013/732); autoritativní název ze Slov-Lexu (oznámení o zdravotní způsobilosti posádek plavidel) patřil jinému předpisu se stejným číslem. Úřední slovenský název z Cellaru (CELEX 32013D0732). (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN ISO 11114-1/Zmena": {
+    "changes": {
+      "nazev_cz": "Prepravné fľaše na plyny. Kompatibilita fľašových a ventilových materiálov s plynovým obsahom. Časť 1: Kovové materiály (ISO 11114-1: 2020/Amd 1: 2023)",
+      "platnost": "od 03/2024"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název byl ve zdroji (PDF rešerše Sinay) rozdělen do dvou řádků; druhý řádek („A1/ - 2024.03“) vznikl jako samostatný záznam a slučuje se sem. (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "prEN IEC 63341-2": {
+    "changes": {
+      "nazev_cz": "Dráhové aplikácie. Dráhové vozidlá. Systémy palivových článkov na pohon. Časť 2: Systém skladovania vodíka",
+      "nazev_autoritativni": "",
+      "zdroj_autoritativni_url": "",
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Rešerše Sinay uvádí část 2 (systém skladování vodíku); název a popis části 3 (IEC 63341-3) přiřadilo dřívější stahování autoritativních údajů chybně. Název ze zdroje, popis odstraněn (iec.ch automatické dotazy odmítá). (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ASTM E1529-22": {
+    "changes": {
+      "nazev_cz": "Standard Test Methods for Determining Effects of Large Hydrocarbon Pool Fires on Structural Members and Assemblies"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Z názvu odstraněna přípona „, 2016e1“ staršího vydání; označení je vydání 2022. (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ES-TRIN": {
+    "changes": {
+      "nazev_cz": "Europäischer Standard der technischen Vorschriften für Binnenschiffe (ES-TRIN)"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "ES-TRIN je evropský standard technických požadavků na plavidla vnitrozemské plavby (CESNI); požadavky na alternativní paliva jsou jeho částí, popis ze zdroje to uvádí. (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "TRGS 3146 / TRGS 726": {
+    "changes": {
+      "znacka": "TRBS 3146 / TRGS 726",
+      "nazev_cz": "Ortsfeste Druckanlagen für Gase"
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Název patřil sousednímu předpisu TRBS 3145 / TRGS 725 (ortsbewegliche Druckgasbehälter); popis ze zdroje odpovídá TRBS 3146 / TRGS 726 (ortsfeste Druckanlagen für Gase), označení předpisu je TRBS, ne TRGS 3146 (BAuA). (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "(EU) 2018/2001": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: místo popisu odkaz na stránku Komise o infrastruktuře alternativních paliv; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "(EU) 2018/2001 [EN]": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: místo popisu odkaz na stránku Komise o infrastruktuře alternativních paliv; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "(EU) 402/2013": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis doplněný modelem zasadil železniční bezpečnostní metodu do vodíkových systémů; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "(EU) 402/2013 [EN]": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis doplněný modelem zasadil železniční bezpečnostní metodu do vodíkových systémů; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "EN 17339": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis doplněný modelem popisoval obecně vodíková zařízení, ne kompozitní lahve a trubky; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN 1555-3/ - 2021.10": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis patří obecné části EN 1555-1; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN 1555-4/ - 2021.10": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis patří obecné části EN 1555-1; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN 60079-13/ - 2018.04": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis patří části 11 (jiskrová bezpečnost), ne části 13; zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "API SPEC 11D1": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis je úvod normy ASME B31.12 (posunutý řádek zdroje); zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "API SPEC 5CT": {
+    "changes": {
+      "anotace_poznamka": "",
+      "popis_autoritativni": ""
+    },
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Popis odstraněn: popis je úryvek normy ASME B31.12 (posunutý řádek zdroje); zdroj anotaci nenabízí, dokument čeká na doplnění popisu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 19880-9": {
+    "merged_into": "ISO 19880-9",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-9 (ISO 19880-9:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 14687": {
+    "merged_into": "ISO 14687",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 14687 (ISO 14687:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 11326": {
+    "merged_into": "ISO 11326",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 11326 (ISO 11326:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/TR 11954 (2008)": {
+    "merged_into": "ISO/TR 11954",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO/TR 11954 (ISO/TR 11954:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 13984": {
+    "merged_into": "ISO 13984",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 13984 (ISO 13984:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 13984": {
+    "merged_into": "ISO 13984",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 13984 (ISO 13984:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 13985": {
+    "merged_into": "ISO 13985",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 13985 (ISO 13985:2006); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 13985": {
+    "merged_into": "ISO 13985",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 13985 (ISO 13985:2006); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 19880-2": {
+    "merged_into": "ISO 19880-2",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-2 (ISO 19880-2:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 19880-5": {
+    "merged_into": "ISO 19880-5",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-5 (ISO 19880-5:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 19880-5": {
+    "merged_into": "ISO 19880-5",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-5 (ISO 19880-5:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 19880-8": {
+    "merged_into": "ISO 19880-8",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-8 (ISO 19880-8:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 19881": {
+    "merged_into": "ISO 19881",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19881 (ISO 19881:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 19881": {
+    "merged_into": "ISO 19881",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19881 (ISO 19881:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 19882": {
+    "merged_into": "ISO 19882",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19882 (ISO 19882:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 19885-1": {
+    "merged_into": "ISO 19885-1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19885-1 (ISO 19885-1:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 19885-2": {
+    "merged_into": "ISO/DIS 19885-2",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO/DIS 19885-2 (ISO/DIS 19885-2); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 19885-3": {
+    "merged_into": "ISO/DIS 19885-3",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO/DIS 19885-3 (ISO/DIS 19885-3); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 24132": {
+    "merged_into": "ISO 24132",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 24132 (ISO 24132:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/PWI 17268-2": {
+    "merged_into": "ISO/DIS 17268-2",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO/DIS 17268-2 (ISO/DIS 17268-2); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/WD 19880-7": {
+    "merged_into": "ISO 19880-7",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 19880-7 (ISO 19880-7:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 17268-1": {
+    "merged_into": "ISO 17268-1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 17268-1 (ISO 17268-1:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 22734-1": {
+    "merged_into": "ISO 22734-1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 22734-1 (ISO 22734-1:2025); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/DIS 23551-12": {
+    "merged_into": "ISO 23551-12",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 23551-12 (ISO 23551-12:2023); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/CD 7039": {
+    "merged_into": "ISO 7039",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 7039 (ISO 7039:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 18735": {
+    "merged_into": "ISO 18735",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 18735 (ISO 18735:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 18741": {
+    "merged_into": "ISO 18741",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 18741 (ISO 18741:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 18742": {
+    "merged_into": "ISO 18742",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 18742 (ISO 18742:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 18760": {
+    "merged_into": "ISO 18760",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 18760 (ISO 18760:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 18819": {
+    "merged_into": "ISO 18819",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 18819 (ISO 18819:2026); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/AWI 5124": {
+    "merged_into": "ISO 5124",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 5124 (ISO 5124:2024); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/FDIS 13577-2": {
+    "merged_into": "ISO 13577-2",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO 13577-2 (ISO 13577-2:2023); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ISO/WD TS 19870": {
+    "merged_into": "ISO/TS 19870",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Tentýž projekt ISO jako ISO/TS 19870 (ISO/TS 19870:2023); sloučeno (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "/ - 2024.08": {
+    "merged_into": "STN EN IEC 60079-26",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: konec názvu STN EN IEC 60079-26 z dalšího řádku PDF rešerše Sinay; sloučeno do STN EN IEC 60079-26 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "A1/ - 2024.03": {
+    "merged_into": "STN EN ISO 11114-1/Zmena",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: konec názvu změny A1 STN EN ISO 11114-1 z dalšího řádku PDF; sloučeno do STN EN ISO 11114-1/Zmena (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "NACE MR 0175 and 01-77": {
+    "merged_into": "NACE MR 0175 and 01-77 Part 1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: neúplný název části I, úplný má dokument Part 1; sloučeno do NACE MR 0175 and 01-77 Part 1 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "Part 1": {
+    "merged_into": "NACE MR 0175 and 01-77 Part 1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: konec názvu části I z dalšího řádku PDF rešerše Sinay; sloučeno do NACE MR 0175 and 01-77 Part 1 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "Part 2": {
+    "merged_into": "NACE MR 0175 and 01-77 Part 2",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: konec názvu části II z dalšího řádku PDF rešerše Sinay; sloučeno do NACE MR 0175 and 01-77 Part 2 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "ASTM F1624-12 @Sinay_Normy": {
+    "merged_into": "ASTM F1624-12",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: tatáž norma z rešerše Sinay (záznam bez označení); sloučeno do ASTM F1624-12 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "SAE J2578 @Sinay_Normy": {
+    "merged_into": "SAE J2578",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: tatáž norma z rešerše Sinay (záznam bez označení); sloučeno do SAE J2578 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "AGBF- Leitfaden – Wasserstoff": {
+    "merged_into": "AGBF- Leitfaden – Wasserstoff und dessen Gefahren",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: tentýž leták AGBF; sloučeno do AGBF- Leitfaden – Wasserstoff und dessen Gefahren (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "STN EN 14638-3/AC – 2010.12": {
+    "merged_into": "STN EN 14638-3/ - 2010.12",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: oprava AC je součástí normy, ne samostatný dokument; sloučeno do STN EN 14638-3/ - 2010.12 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "prEN IEC 62282-2-400": {
+    "merged_into": "DIN EN IEC 62282-2-400",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: návrh prEN byl vydán jako EN IEC 62282-2-400; sloučeno do DIN EN IEC 62282-2-400 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "IEC/TS 62933-5-1": {
+    "merged_into": "IEC 62933-5-1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: technickou specifikaci nahradila mezinárodní norma IEC 62933-5-1; sloučeno do IEC 62933-5-1 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "DIN ISO 19884": {
+    "merged_into": "ISO/FDIS 19884-1",
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Duplicita: DIN ISO 19884 neexistuje („dosiaľ neprijatý súbor“), jde o projekt ISO 19884-1; sloučeno do ISO/FDIS 19884-1 (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "1999/63/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "1999/70/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2000/43/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2000/79/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2001/23/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2001/86/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2002/253/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2003/72/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2004/113/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2007/875/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2008/104/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2008/426/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/177/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/312/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/363/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/38/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/539/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/540/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2009/547/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2010/32/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2014/66/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2015/1794/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2019/1158/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2019/520/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2022/2041/EU": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2000/96/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "2006/865/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+  },
+  "1998/2119/ES": {
+    "exclude": true,
+    "confirmed_at": "2026-11-23",
+    "confirmed_by": "jprk",
+    "reason": "Mimo rozsah databáze (doc/DATABASE_SCOPE.md): akt EU doplněný jako cíl transpozice citovaný v českém zákoně, bez vztahu k vodíkovým technologiím; vyřazeno z katalogu (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   }
 }

@@ -1569,3 +1569,37 @@ main {
     color: var(--accent-secondary);
     font-size: 0.92rem;
 }
+
+/* doc/KLICOVA_SLOVA.md: keywords of a document, grouped by origin */
+.doc-terms .term-group + .term-group {
+    margin-top: 1rem;
+}
+
+.doc-terms h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+.doc-terms .term-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.doc-terms .term-tag {
+    text-decoration: none;
+}
+
+.doc-terms .term-tag:hover {
+    border-color: var(--accent-secondary);
+    color: var(--text-primary);
+}
+
+.doc-terms .term-note {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    margin-top: 0.35rem;
+}
