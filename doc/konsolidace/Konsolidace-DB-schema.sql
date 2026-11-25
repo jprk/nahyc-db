@@ -15,7 +15,8 @@
 -- ────────────────────────────────────────────────────────────
 -- VRSTVA A — rozšíření tabulek V01 (aditivní ALTERy)
 -- Předpoklad: tabulky Document, DocumentType, DocumentSource,
--- Keyword, DocumentKeyword, DocumentVersion existují dle V01.
+-- Keyword, DocumentKeyword, DocumentVersion existují dle V01 (Keyword a
+-- DocumentKeyword níže přejmenujeme na SourceCategory a DocumentSourceCategory).
 -- ────────────────────────────────────────────────────────────
 
 ALTER TABLE Document
@@ -268,6 +269,58 @@ ALTER TABLE Document
 ALTER TABLE Document
   ADD COLUMN status_checked_at DATE NULL,
   ADD COLUMN status_checked_by VARCHAR(100) NULL;
+
+-- doc/KLICOVA_SLOVA.md odstavec 4 (2026-11-25): tabulky V01 `Keyword` a
+-- `DocumentKeyword` nenesou klíčová slova, ale kategorie převzaté ze
+-- zdrojových rešerší (Sinay, Prokop, Haltuf) — přejmenujeme je podle obsahu.
+-- Řádky i jejich id zůstávají (starý odkaz `?keyword_id=` dál funguje).
+-- Existující databázi převede `src/tools/migrate_vocabulary.py`.
+RENAME TABLE Keyword TO SourceCategory, DocumentKeyword TO DocumentSourceCategory;
+ALTER TABLE DocumentSourceCategory
+  DROP FOREIGN KEY fk_documentkeyword_document,
+  DROP FOREIGN KEY fk_documentkeyword_keyword;
+ALTER TABLE SourceCategory
+  CHANGE keyword name VARCHAR(255) NOT NULL,
+  RENAME INDEX keyword TO uq_source_category_name;
+ALTER TABLE DocumentSourceCategory
+  CHANGE keyword_id category_id INT NOT NULL,
+  RENAME INDEX fk_documentkeyword_keyword TO ix_document_source_category_category;
+ALTER TABLE DocumentSourceCategory
+  ADD CONSTRAINT fk_document_source_category_document FOREIGN KEY (document_id) REFERENCES Document (id),
+  ADD CONSTRAINT fk_document_source_category_category FOREIGN KEY (category_id) REFERENCES SourceCategory (id);
+
+-- doc/KLICOVA_SLOVA.md odstavec 4 (2026-11-25): klíčová slova dokumentů —
+-- centrální tabulka klíčových slov (deskriptory EuroVoc, třídy ICS, deskriptory
+-- ČSN z katalogu ČAS, klíčová slova odvozená jazykovým modelem) a vazební
+-- tabulka. Klíčové slovo identifikuje původ a `term_key`: u EuroVoc a ICS kód,
+-- u ostatních přesný text (binární porovnání — tvary lišící se velikostí písmen
+-- nebo diakritikou slučuje až editor, ne databáze). `term_norm` je text bez
+-- velikosti písmen a diakritiky pro našeptávač a hledání podobných slov.
+-- Plní `src/tools/document_terms.py` (src/tools/vocabulary.py).
+CREATE TABLE Term (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  origin     ENUM('eurovoc','ics','cas','model') NOT NULL,
+  code       VARCHAR(100) NULL,
+  term       VARCHAR(255) NOT NULL,
+  term_en    VARCHAR(255) NULL,
+  term_key   VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  term_norm  VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uq_term_origin_key (origin, term_key),
+  KEY ix_term_term (term),
+  KEY ix_term_norm (term_norm)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
+
+CREATE TABLE DocumentTerm (
+  document_id INT NOT NULL,
+  term_id     INT NOT NULL,
+  position    SMALLINT NOT NULL DEFAULT 0,  -- pořadí ve zdroji (model řadí od nejdůležitějšího)
+  created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (document_id, term_id),
+  KEY ix_document_term_term (term_id),
+  CONSTRAINT fk_document_term_document FOREIGN KEY (document_id) REFERENCES Document (id) ON DELETE CASCADE,
+  CONSTRAINT fk_document_term_term FOREIGN KEY (term_id) REFERENCES Term (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
 -- doc/PLAN.md §16, 2026-09-16: stabilní veřejný identifikátor záznamu.
 -- `Document.id` je AUTO_INCREMENT přidělovaný pořadím vložení a

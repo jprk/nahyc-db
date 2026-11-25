@@ -1,18 +1,22 @@
 """Areas of the catalogue (data/areas.json, doc/OBLASTI.md): a small Czech set of
 subject areas tied to the subject circles of doc/DATABASE_SCOPE.md, replacing the
-238 keywords of the source spreadsheets in the "Oblast" filter and in the tags.
+238 categories of the source spreadsheets in the "Oblast" filter and in the tags.
 
-A document gets its areas from its original keywords (exact values and patterns of
-technical committees; issuers, STN states and generic labels are ignored) and from
+A document gets its areas from its source categories (exact values, `categories`, and
+patterns of technical committees; issuers, STN states, generic labels and the
+categories of whole groups of documents, `group_categories`, are ignored) and from
 its title and designation (title_rules). A document none of the rules give an area
-gets the fallback area ("Obecné a průřezové předpisy") and is reported as uncertain.
+gets the fallback area ("Oblast dosud neurčena") and is reported as uncertain.
 
-The original keywords stay in Keyword/DocumentKeyword: they are searched (hidden)
-and exported, only no longer offered in the filter. Stored in `Area` and
-`DocumentArea` (origin `keyword`, `identifier`, `type`, `title` or `fallback`)."""
+The source categories stay in SourceCategory/DocumentSourceCategory (vocabulary.py):
+they are searched (hidden) and exported, only no longer offered in the filter. Stored
+in `Area` and `DocumentArea` (origin `category`, `identifier`, `type`, `title` or
+`fallback`)."""
 import json
 import pathlib
 import re
+
+import vocabulary
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = REPO_ROOT / "data" / "areas.json"
@@ -43,28 +47,28 @@ class Rules:
         self.areas = config["areas"]
         self.codes = [a["code"] for a in self.areas]
         self.fallback = config["fallback"]
-        self.keywords = config["keywords"]
+        self.category_map = config["categories"]
         self.committees = [(re.compile(r["pattern"]), r["areas"]) for r in config["committee_rules"]]
         self.ignore = [re.compile(p) for p in config["ignore"]]
-        self.categories = set(config.get("source_categories", []))
+        self.group_categories = set(config.get("group_categories", []))
         self.types = config.get("type_rules", {})
         self.identifiers = config.get("identifiers", {})
         self.titles = [(r["area"], re.compile(r["pattern"], re.IGNORECASE),
                         re.compile(r["unless"], re.IGNORECASE) if r.get("unless") else None)
                        for r in config["title_rules"]]
 
-    def keyword_areas(self, keyword):
-        """(areas, known): the areas a keyword gives, and whether a rule knows it."""
-        keyword = (keyword or "").strip()
-        if keyword in self.keywords:
-            return list(self.keywords[keyword]), True
+    def category_areas(self, category):
+        """(areas, known): the areas a source category gives, and whether a rule knows it."""
+        category = (category or "").strip()
+        if category in self.category_map:
+            return list(self.category_map[category]), True
         found = []
         for pattern, codes in self.committees:
-            if pattern.search(keyword):
+            if pattern.search(category):
                 found += [c for c in codes if c not in found]
         if found:
             return found, True
-        return [], keyword in self.categories or any(p.search(keyword) for p in self.ignore)
+        return [], category in self.group_categories or any(p.search(category) for p in self.ignore)
 
     def title_areas(self, text):
         text = text or ""
@@ -72,11 +76,11 @@ class Rules:
                 if pattern.search(text) and not (unless and unless.search(text))]
 
     def assign(self, document):
-        """{code: origin} for a document {identifier, title, keywords}, in the order of the areas."""
+        """{code: origin} for a document {identifier, title, type, categories}, in the order of the areas."""
         found = {}
-        for keyword in document.get("keywords") or []:
-            for code in self.keyword_areas(keyword)[0]:
-                found.setdefault(code, "keyword")
+        for category in document.get("categories") or []:
+            for code in self.category_areas(category)[0]:
+                found.setdefault(code, "category")
         for code in self.identifiers.get((document.get("identifier") or "").strip(), []):
             found.setdefault(code, "identifier")
         for code in self.types.get(document.get("type") or "", []):
@@ -88,8 +92,8 @@ class Rules:
             found[self.fallback] = "fallback"
         return {c: found[c] for c in self.codes if c in found}
 
-    def unknown_keywords(self, keywords):
-        return sorted(k for k in set(keywords) if not self.keyword_areas(k)[1])
+    def unknown_categories(self, categories):
+        return sorted(c for c in set(categories) if not self.category_areas(c)[1])
 
 
 def load(path=CONFIG_PATH):
@@ -113,18 +117,23 @@ def _tuples(cursor):
 
 
 def load_documents(cursor, document_id=None):
-    """[{id, identifier, title, type, keywords}] of every document."""
+    """[{id, identifier, title, type, categories}] of every document; the source categories
+    come from SourceCategory, or from Keyword before migrate_vocabulary.py (the app may
+    accept a candidate before the migration)."""
     where, params = (" WHERE d.id = %s", (document_id,)) if document_id is not None else ("", ())
     cursor.execute("SELECT d.id, d.identifier, d.title, dt.name FROM Document d "
                    "LEFT JOIN DocumentType dt ON dt.id = d.type_id" + where, params)
-    documents = {r[0]: {"id": r[0], "identifier": r[1], "title": r[2], "type": r[3], "keywords": []}
+    documents = {r[0]: {"id": r[0], "identifier": r[1], "title": r[2], "type": r[3], "categories": []}
                  for r in _tuples(cursor)}
-    where = " WHERE dk.document_id = %s" if document_id is not None else ""
-    cursor.execute("SELECT dk.document_id, k.keyword FROM DocumentKeyword dk JOIN Keyword k ON k.id = dk.keyword_id"
+    cat = vocabulary.category_tables(cursor)
+    if cat is None:
+        return list(documents.values())
+    where = " WHERE dc.document_id = %s" if document_id is not None else ""
+    cursor.execute(f"SELECT dc.document_id, c.{cat.name} FROM {cat.link} dc JOIN {cat.table} c ON c.id = dc.{cat.fk}"
                    + where, params)
-    for doc_id, keyword in _tuples(cursor):
+    for doc_id, category in _tuples(cursor):
         if doc_id in documents:
-            documents[doc_id]["keywords"].append(keyword)
+            documents[doc_id]["categories"].append(category)
     return list(documents.values())
 
 

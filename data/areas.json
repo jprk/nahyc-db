@@ -1,5 +1,5 @@
 {
- "_popis": "Oblasti katalogu (filtr „Oblast“ a štítky v katalogu a na stránce dokumentu; doc/OBLASTI.md). Nahrazují původní klíčová slova ze zdrojových rešerší, která zůstávají v tabulkách Keyword/DocumentKeyword jako skrytá slova pro vyhledávání a export. Každá oblast patří k věcnému okruhu doc/DATABASE_SCOPE.md odstavec 3 (`okruh`; `obecne` je náhradní oblast pro dokumenty, jimž pravidla žádnou oblast nepřiřadila). Oblast má sedět s obsahem dokumentu: rozhoduje hlavně název. Dokument dostane oblasti (1) podle původních klíčových slov jen tam, kde jde o vlastnost dokumentu: `keywords` (třídy ČSN „NNNN - …“, okruhy přidané editorem při přijetí kandidáta, několik vydavatelů s jednoznačným zaměřením), `committee_rules` (technická komise, která normu vydala); `source_categories` jsou kategorie zdrojových tabulek (např. „Schienenfahrzeuge“, „Explosionsschutz“, „A - výroba“), které se přidělovaly celým skupinám dokumentů, a oblast proto neurčují; `ignore` jsou vydavatelé, stavy a obecné hodnoty; (2) podle typu: `type_rules`; (3) podle názvu a označení: `title_rules` (regulární výrazy bez ohledu na velikost písmen; `unless` pravidlo vyloučí). Přiřazuje src/tools/assign_areas.py.",
+ "_popis": "Oblasti katalogu (filtr „Oblast“ a štítky v katalogu a na stránce dokumentu; doc/OBLASTI.md). Nahrazují kategorie ze zdrojových rešerší, které zůstávají v tabulkách SourceCategory/DocumentSourceCategory jako skryté hodnoty pro vyhledávání a export. Každá oblast patří k věcnému okruhu doc/DATABASE_SCOPE.md odstavec 3 (`okruh`; `neurceno` je pracovní oblast pro dokumenty, jimž pravidla žádnou oblast nepřiřadila). Oblast má sedět s obsahem dokumentu: rozhoduje hlavně název. Dokument dostane oblasti (1) podle kategorií zdrojových rešerší jen tam, kde jde o vlastnost dokumentu: `categories` (třídy ČSN „NNNN - …“, okruhy přidané editorem při přijetí kandidáta, několik vydavatelů s jednoznačným zaměřením), `committee_rules` (technická komise, která normu vydala); `group_categories` jsou kategorie zdrojových tabulek (např. „Schienenfahrzeuge“, „Explosionsschutz“, „A - výroba“), které se přidělovaly celým skupinám dokumentů, a oblast proto neurčují; `ignore` jsou vydavatelé, stavy a obecné hodnoty; (2) podle typu: `type_rules`; (3) podle názvu a označení: `title_rules` (regulární výrazy bez ohledu na velikost písmen; `unless` pravidlo vyloučí). Přiřazuje src/tools/assign_areas.py.",
  "areas": [
   {
    "code": "elektrolyza",
@@ -154,7 +154,7 @@
   }
  ],
  "fallback": "neurceno",
- "keywords": {
+ "categories": {
   "3360 - Technologie palivových článků": [
    "palivove-clanky"
   ],
@@ -542,7 +542,7 @@
    "strategie"
   ]
  },
- "source_categories": [
+ "group_categories": [
   "(petro)chem. Industrie",
   "A - výroba",
   "Anlagentechnik",

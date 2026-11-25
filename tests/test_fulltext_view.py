@@ -112,7 +112,7 @@ class FulltextViewTestCase(unittest.TestCase):
                                "language": None, "effective_date": None, "jurisdikce": None,
                                "jurisdikce_uroven": None, "needs_review": 0, "review_reason": None,
                                "updated_at": None, "type_name": "Zákon", "source_name": None, "id": 1},
-                  "keywords": [], "versions": [], "relations": [], "process_nodes": []}
+                  "tags": [], "versions": [], "relations": [], "process_nodes": []}
         self._db(self._row())
         patcher = mock.patch.object(appmod, "fetch_document_detail", return_value=detail)
         patcher.start()
@@ -183,7 +183,7 @@ class FulltextViewTestCase(unittest.TestCase):
                                "language": None, "effective_date": None, "jurisdikce": None,
                                "jurisdikce_uroven": None, "needs_review": 0, "review_reason": None,
                                "updated_at": None, "type_name": "Nařízení EU", "source_name": None, "id": 1},
-                  "keywords": [], "versions": versions, "relations": [], "process_nodes": []}
+                  "tags": [], "versions": versions, "relations": [], "process_nodes": []}
         self._db(self._row())
         patcher = mock.patch.object(appmod, "fetch_document_detail", return_value=detail)
         patcher.start()

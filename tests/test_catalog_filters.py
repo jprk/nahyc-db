@@ -217,7 +217,7 @@ class CatalogQueryTestCase(unittest.TestCase):
         cls.build_count_query = staticmethod(build_count_query)
         cls.build_document_query = staticmethod(build_document_query)
 
-    BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'keyword_id': '',
+    BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'category_id': '',
             'jurisdiction': 'vse', 'synonyms': [], 'include_sk': True}
 
     def test_grouped_list_selects_acts_through_their_variants(self):

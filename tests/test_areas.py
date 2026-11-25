@@ -31,7 +31,7 @@ class AreasFileTestCase(unittest.TestCase):
 
     def test_every_reference_is_a_known_area_and_every_pattern_compiles(self):
         codes = {a["code"] for a in CONFIG["areas"]}
-        used = [c for v in CONFIG["keywords"].values() for c in v]
+        used = [c for v in CONFIG["categories"].values() for c in v]
         used += [c for r in CONFIG["committee_rules"] for c in r["areas"]]
         used += [r["area"] for r in CONFIG["title_rules"]]
         used += [c for v in CONFIG.get("type_rules", {}).values() for c in v]
@@ -40,38 +40,40 @@ class AreasFileTestCase(unittest.TestCase):
             re.compile(pattern)
 
     def test_scope_circle_names_are_mapped(self):
-        """app/candidates_admin.py adds the circle of an accepted candidate as a keyword."""
+        """app/candidates_admin.py adds the circle of an accepted candidate as a source category."""
         sys.path.insert(0, str(REPO_ROOT / "src" / "tools"))
         import candidates as cd
         rules = areas.load()
         for name in cd.SCOPE_AREAS.values():
-            self.assertTrue(rules.keyword_areas(name)[0], name)
+            self.assertTrue(rules.category_areas(name)[0], name)
 
 
 class RulesTestCase(unittest.TestCase):
     def setUp(self):
         self.rules = areas.load()
 
-    def assign(self, title, keywords=(), identifier=None, type_=None):
-        return self.rules.assign({"identifier": identifier, "title": title, "keywords": list(keywords), "type": type_})
+    def assign(self, title, categories=(), identifier=None, type_=None):
+        return self.rules.assign({"identifier": identifier, "title": title, "categories": list(categories),
+                                  "type": type_})
 
-    def test_keywords_committees_and_ignored_values(self):
+    def test_categories_committees_and_ignored_values(self):
         # categories of the source tables were given to whole groups of documents: no area from them
         for category in ("Explosionsschutz", "Schienenfahrzeuge", "Stationäre und ortsbewegliche Druckbehälter",
                          "Untertage Gasspeicher", "Verflüssigung", "A - výroba", "Využití - ŽD"):
-            self.assertEqual(self.rules.keyword_areas(category), ([], True), category)
-        self.assertEqual(self.rules.keyword_areas("6972 - Kryogenické nádoby"), (["kryogenika"], True))
-        self.assertEqual(self.rules.keyword_areas("Norm (ISO/TC 58/SC 3/WG 27)"), (["tlakove-nadoby"], True))
-        self.assertEqual(self.rules.keyword_areas("Norm (ISO/TC 220 Cryogenic vessels)"), (["kryogenika"], True))
-        self.assertEqual(self.rules.keyword_areas("STN (prijatá v sústave)"), ([], True))
-        self.assertEqual(self.rules.keyword_areas("DIN - Deutsches Institut für Normung e.V."), ([], True))
-        self.assertEqual(self.rules.keyword_areas("Něco zcela nového"), ([], False))
-        self.assertEqual(self.rules.unknown_keywords(["Explosionsschutz", "Něco zcela nového"]), ["Něco zcela nového"])
+            self.assertEqual(self.rules.category_areas(category), ([], True), category)
+        self.assertEqual(self.rules.category_areas("6972 - Kryogenické nádoby"), (["kryogenika"], True))
+        self.assertEqual(self.rules.category_areas("Norm (ISO/TC 58/SC 3/WG 27)"), (["tlakove-nadoby"], True))
+        self.assertEqual(self.rules.category_areas("Norm (ISO/TC 220 Cryogenic vessels)"), (["kryogenika"], True))
+        self.assertEqual(self.rules.category_areas("STN (prijatá v sústave)"), ([], True))
+        self.assertEqual(self.rules.category_areas("DIN - Deutsches Institut für Normung e.V."), ([], True))
+        self.assertEqual(self.rules.category_areas("Něco zcela nového"), ([], False))
+        self.assertEqual(self.rules.unknown_categories(["Explosionsschutz", "Něco zcela nového"]),
+                         ["Něco zcela nového"])
 
     def test_rail_only_from_the_title(self):
         """doc/OBLASTI.md: a fuelling-station standard of the category "Schienenfahrzeuge" is not about railways."""
         self.assertNotIn("kolejova-vozidla", self.assign("ISO 19880-1 — Gaseous hydrogen - Fuelling stations",
-                                                         keywords=["Schienenfahrzeuge", "Explosionsschutz"]))
+                                                         categories=["Schienenfahrzeuge", "Explosionsschutz"]))
         for title in ("266/1994 Sb. Zákon o dráhách", "EN 50126 — Railway applications",
                       "Prováděcí nařízení Komise (EU) 2019/773 o technické specifikaci pro interoperabilitu",
                       "Kolejová vozidla na vodíkový pohon"):
@@ -93,16 +95,16 @@ class RulesTestCase(unittest.TestCase):
         self.assertIn("chemicke-latky", self.assign("Nařízení (ES) č. 1272/2008 o klasifikaci (CLP)"))
         self.assertIn("rfnbo", self.assign("paliva z obnovitelných zdrojů nebiologického původu"))
 
-    def test_keyword_first_then_type_then_title(self):
-        found = self.assign("Vodíková strategie a plnicí stanice", keywords=["6972 - Kryogenické nádoby"],
+    def test_category_first_then_type_then_title(self):
+        found = self.assign("Vodíková strategie a plnicí stanice", categories=["6972 - Kryogenické nádoby"],
                             type_="Strategie")
-        self.assertEqual(found["kryogenika"], "keyword")
+        self.assertEqual(found["kryogenika"], "category")
         self.assertEqual(found["strategie"], "type")
         self.assertEqual(found["plnici-stanice"], "title")
         self.assertEqual(list(found), [c for c in self.rules.codes if c in found], "in the order of the data file")
 
     def test_every_document_gets_an_area(self):
-        self.assertEqual(self.assign("Nařízení o přenosných nemocech", keywords=["EU"]), {"neurceno": "fallback"})
+        self.assertEqual(self.assign("Nařízení o přenosných nemocech", categories=["EU"]), {"neurceno": "fallback"})
         self.assertEqual(self.assign(""), {"neurceno": "fallback"})
         # genuinely general documents are named in the data file
         self.assertEqual(self.assign("353/2003 Sb. Zákon o spotřebních daních", identifier="353/2003 Sb."),
@@ -138,8 +140,8 @@ class FakeCursor:
 class PlanTestCase(unittest.TestCase):
     def test_plan_only_changed_documents(self):
         rules = areas.load()
-        docs = [{"id": 1, "identifier": None, "title": "Výbušné atmosféry", "keywords": []},
-                {"id": 2, "identifier": None, "title": "Výbušné atmosféry", "keywords": []}]
+        docs = [{"id": 1, "identifier": None, "title": "Výbušné atmosféry", "categories": []},
+                {"id": 2, "identifier": None, "title": "Výbušné atmosféry", "categories": []}]
         stored = {1: {"vybuch": "title"}}
         self.assertEqual(areas.plan(rules, docs, stored), {2: {"vybuch": "title"}})
 

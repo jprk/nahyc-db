@@ -32,6 +32,7 @@ import time
 
 import candidates as cd
 import citation_closure as cc
+import vocabulary
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 RULES_PATH = REPO_ROOT / "data" / "triage_rules.json"
@@ -803,13 +804,17 @@ def load_queue(cur, ids=None):
 
 
 def load_document_areas(cur):
-    """{document id: [subject area]} from the keywords that name a subject area."""
+    """{document id: [subject area]} from the source categories that name a subject area
+    (SourceCategory, or Keyword before migrate_vocabulary.py; vocabulary.py)."""
     names = {name: n for n, name in cd.SCOPE_AREAS.items()}
-    cur.execute("""SELECT dk.document_id, k.keyword FROM DocumentKeyword dk JOIN Keyword k ON k.id = dk.keyword_id
-                   WHERE k.keyword IN (""" + ",".join(["%s"] * len(names)) + ")", list(names))
+    cat = vocabulary.category_tables(cur)
+    if cat is None:
+        return {}
+    cur.execute(f"SELECT dc.document_id, c.{cat.name} AS name FROM {cat.link} dc JOIN {cat.table} c "
+                f"ON c.id = dc.{cat.fk} WHERE c.{cat.name} IN (" + ",".join(["%s"] * len(names)) + ")", list(names))
     areas = collections.defaultdict(set)
     for row in cur.fetchall():
-        areas[row["document_id"]].add(names[row["keyword"]])
+        areas[row["document_id"]].add(names[row["name"]])
     return {k: sorted(v) for k, v in areas.items()}
 
 

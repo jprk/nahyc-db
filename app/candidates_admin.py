@@ -6,7 +6,7 @@ the decisions.
   together with the metadata the document will get, a second, different editor
   confirms it (also enforced by the CHECK constraint `chk_dc_distinct_reviewers`).
   The confirmation creates the document in the database at once (with its first
-  version, the subject area as a keyword and, for the act that repealed a document
+  version, the subject area as a source category and, for the act that repealed a document
   of the database, the `REPEALS` relation) and appends the record to
   data/accepted_candidates.json, which the pipeline reads, so the document survives
   a rebuild and its full text gets fetched (fetch_fulltext.py).
@@ -42,6 +42,7 @@ import citation_closure as cc
 import norm_editions
 from triage import CATEGORIES, RECOMMENDATION_LABELS
 import slug as slug_module
+import vocabulary
 
 ACCEPTED_PATH = REPO_ROOT / "data" / "accepted_candidates.json"
 # relations an acceptance creates that a rebuild must keep (load_document_relations.py reads the file), and
@@ -360,15 +361,18 @@ def create_document(cur, candidate):
     else:
         cur.execute("""INSERT INTO DocumentVersion (document_id, version, is_current, lifecycle_state)
                        VALUES (%s, 1, 1, %s)""", (doc_id, state))
+    # the circles chosen by the editor, stored as source categories (data/areas.json maps them
+    # to areas); SourceCategory, or Keyword before src/tools/migrate_vocabulary.py
+    cat = vocabulary.category_tables(cur)
     for area in (cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS):
-        cur.execute("SELECT id FROM Keyword WHERE keyword = %s", (area,))
+        cur.execute(f"SELECT id FROM {cat.table} WHERE {cat.name} = %s", (area,))
         row = cur.fetchone()
         if row is None:
-            cur.execute("INSERT INTO Keyword (keyword) VALUES (%s)", (area,))
-            keyword_id = cur.lastrowid
+            cur.execute(f"INSERT INTO {cat.table} ({cat.name}) VALUES (%s)", (area,))
+            category_id = cur.lastrowid
         else:
-            keyword_id = row["id"]
-        cur.execute("INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)", (doc_id, keyword_id))
+            category_id = row["id"]
+        cur.execute(f"INSERT INTO {cat.link} (document_id, {cat.fk}) VALUES (%s, %s)", (doc_id, category_id))
     area_rules.assign_document(cur, doc_id)  # the areas of the catalogue (data/areas.json, doc/OBLASTI.md)
     for repealed in evidence.get("repeals_ids", []):
         cur.execute("""INSERT IGNORE INTO document_relation (from_document_id, to_document_id, relation_type, note)

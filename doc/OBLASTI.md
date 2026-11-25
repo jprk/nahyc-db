@@ -1,11 +1,11 @@
 # Oblasti katalogu
 
-Stav k 23.11.2026.
+Stav k 23.11.2026, názvy tabulek a klíčů `data/areas.json` k 25.11.2026 (odstavec 4).
 Filtr „Oblast“ v katalogu a štítky u dokumentů v seznamu a na stránce dokumentu
 nově ukazují **oblasti**: 30 českých hodnot (27 věcných, strategie, dokumenty obecné povahy
 a pracovní „Oblast dosud neurčena“) navázaných na věcné okruhy `doc/DATABASE_SCOPE.md` (tento dokument, odstavec 3).
-Dosud v nich byla klíčová slova převzatá ze zdrojových rešerší, která nedávala
-moc smysl.
+Dosud v nich byly kategorie převzaté ze zdrojových rešerší (do 25. 11. 2026 vedené jako
+„klíčová slova“ v tabulce `Keyword`), které nedávaly moc smysl.
 
 ## 1. Proč
 
@@ -70,8 +70,8 @@ dokumentu. Obsah dokumentu (anotaci, plný text) zatím nepoužíváme; úkol a 
 
 U sloučené oblasti Doprava vodíku uvádíme dřívější počty obou původních oblastí (Plynovody a plynárenské
 sítě + Přeprava nebezpečných věcí); „Oblast dosud neurčena“ nahradila dřívější náhradní oblast
-„Obecné a průřezové předpisy“. Rozpad podle původu (23. 11.): jen z názvu 1161 dokumentů, jen z klíčových
-slov 106, z obojího 157, z typu 12, z výčtu označení 5, oblast dosud neurčena 65.
+„Obecné a průřezové předpisy“. Rozpad podle původu (23. 11.): jen z názvu 1161 dokumentů, jen z kategorií
+zdrojových rešerší 106, z obojího 157, z typu 12, z výčtu označení 5, oblast dosud neurčena 65.
 
 ### 2.1 Příklady (5 náhodně vybraných názvů z každé oblasti)
 
@@ -114,7 +114,8 @@ prof. Sinaye a sekce rešerší doc. Prokopa / dr. Haltufa (např. „Schienenfa
 „Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie celých skupin dokumentů**,
 ne vlastnosti dokumentu: „Schienenfahrzeuge“ nesly i normy plnicích stanic, měděných armatur nebo
 hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice o tlakových
-zařízeních. Tyto hodnoty (61) proto vedeme v seznamu `source_categories` a oblast z nich neurčujeme.
+zařízeních. Tyto hodnoty (61) proto vedeme v seznamu `group_categories` (do 25. 11. 2026 `source_categories`)
+a oblast z nich neurčujeme.
 Pravidla přiřazení píšeme tak, aby oblast seděla s obsahem dokumentu. Dnes obsah poznáváme hlavně
 z názvu, protože anotace a plné texty máme jen u části dokumentů a pravidla nad nimi zatím přidávají
 příliš šumu (odstavec 8). Raději přiřadíme méně oblastí než šum (průměr klesl z 2,41 na 1,46 oblasti
@@ -122,11 +123,12 @@ na dokument).
 
 Oblast určujeme v tomto pořadí:
 
-1. **Původní klíčová slova jen tam, kde popisují samotný dokument** — `keywords`: třídy ČSN („6972 - Kryogenické
+1. **Kategorie zdrojových rešerší jen tam, kde popisují samotný dokument** — `categories` (do 25. 11. 2026
+   `keywords`): třídy ČSN („6972 - Kryogenické
    nádoby“), okruhy, které editor zvolí při přijetí kandidáta (`app/candidates_admin.py`), několik vydavatelů
    s jednoznačným zaměřením (OIML → metrologie, IMO a CESNI → lodní doprava, DGUV/BAuA/OSHA → BOZP);
    `committee_rules`: technická komise, která normu vydala (ISO/TC 58 a CEN/TC 23 → tlakové nádoby,
-   IEC/TC 31 → výbuch, IEC/TC 9 a CEN/TC 256 → železnice …). Hodnoty v `source_categories` a `ignore`
+   IEC/TC 31 → výbuch, IEC/TC 9 a CEN/TC 256 → železnice …). Hodnoty v `group_categories` a `ignore`
    oblast neurčují. Neznámou hodnotu vypíše `assign_areas.py` a hlídá ji `tests/test_areas.py`.
 2. **Výčet označení** — `identifiers`: dokumenty obecné povahy (odstavec 6).
 3. **Typ dokumentu** — `type_rules`: strategie a studie zařadíme do „Strategie, koncepce a studie“.
@@ -137,18 +139,25 @@ Oblast určujeme v tomto pořadí:
 5. Dokument, kterému žádné pravidlo nic nepřiřadí, dostane pracovní oblast „Oblast dosud neurčena“
    (`--uncertain` je vypíše). LLM nepoužíváme.
 
-## 4. Co se stalo s klíčovými slovy
+## 4. Co se stalo s kategoriemi zdrojových rešerší
 
-Původní klíčová slova **nemažeme**: zůstávají v tabulkách `Keyword` a `DocumentKeyword`,
-prohledává je vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné normy)
-a obsahují je exporty CSV/JSON/XML. Jen je nenabízíme ve filtru a nezobrazujeme ve štítcích.
-*Důvod:* nesou informaci ze zdrojových rešerší (vydavatel, technická komise, stav STN), kterou
-oblasti nenahrazují, a mapování z nich můžeme kdykoli přepočítat.
-Starý odkaz `?keyword_id=…` dál funguje.
+Hodnoty, které pole „Oblast (klíčové slovo)“ dosud nabízelo, nejsou klíčová slova dokumentu, ale kategorie
+převzaté ze zdrojových rešerší. Proto jsme 25. 11. 2026 přejmenovali tabulky `Keyword` a `DocumentKeyword` na
+**`SourceCategory`** a **`DocumentSourceCategory`** (sloupce `name` a `category_id`; řádky i jejich id zůstaly,
+převod dělá `src/tools/migrate_vocabulary.py`, doc/KLICOVA_SLOVA.md odstavec 4). Klíčová slova dokumentu
+vedeme odděleně v tabulkách `Term` a `DocumentTerm`.
+
+Kategorie **nemažeme**: prohledává je vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné
+normy) a obsahují je exporty CSV/JSON/XML (pole `source_categories`, do 25. 11. 2026 `keywords`). Jen je
+nenabízíme ve filtru a nezobrazujeme ve štítcích. *Důvod:* nesou informaci ze zdrojových rešerší (vydavatel,
+technická komise, stav STN), kterou oblasti nenahrazují, a mapování z nich můžeme kdykoli přepočítat.
+Filtr podle kategorie má parametr `?category_id=…`; starý odkaz `?keyword_id=…` aplikace přesměruje
+na `?category_id=…` se stejným číslem (export parametr přijme přímo).
 
 Oblasti ukládáme do tabulek `Area` (kód, název, okruh, pořadí, veřejná ano/ne) a `DocumentArea` (dokument,
-oblast, původ: `keyword`, `identifier`, `type`, `title`, `fallback`). Dokud v databázi nejsou, aplikace ukazuje
-původní klíčová slova.
+oblast, původ: `category`, `identifier`, `type`, `title`, `fallback`; původ `category` se do 25. 11. 2026
+jmenoval `keyword` a `assign_areas.py --apply` ho přepíše). Dokud v databázi nejsou, aplikace ukazuje
+kategorie zdrojových rešerší.
 
 ## 5. Údržba
 
@@ -157,8 +166,8 @@ původní klíčová slova.
   a po každé změně `data/areas.json`.
 * Při přijetí kandidáta aplikace přiřadí novému dokumentu oblasti hned (`areas.assign_document()`).
 * Testy: `tests/test_areas.py` (soubor, pravidla, zápis), `tests/e2e/test_areas.py` (filtr, stránka dokumentu,
-  hledání ve skrytých klíčových slovech). `run_tests.py` zapisuje oblasti do testovací databáze
-  (`TEST_DB_MIGRATIONS`).
+  hledání ve skrytých kategoriích, starý odkaz `?keyword_id=`). `run_tests.py` zapisuje oblasti do testovací
+  databáze (`TEST_DB_MIGRATIONS`, po `migrate_vocabulary.py`).
 
 ## 6. Dokumenty obecné povahy a oblast dosud neurčena
 
@@ -277,7 +286,8 @@ nerozliší, třídy ČSN pro tyto oblasti v databázi nemáme (kromě „3360 -
 
 ## 8. Úkol: oblasti i z obsahu dokumentu
 
-**Dnešní stav:** oblast určujeme podle názvu a označení a podle několika druhů klíčových slov (odstavec 3).
+**Dnešní stav:** oblast určujeme podle názvu a označení a podle několika druhů kategorií zdrojových rešerší
+(odstavec 3).
 Pro danou oblast ale může být relevantní i obsah dokumentu, který se v názvu neobjeví.
 
 **Úkol:** doplníme oblasti z obsahu. Podklady máme: anotaci má 838 norem (celkem 967 dokumentů s popisem),

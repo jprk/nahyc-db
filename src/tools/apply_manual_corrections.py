@@ -162,7 +162,7 @@ def blocking_references(cursor, doc_id):
 # whether a row the survivor already has makes it a duplicate to drop).
 MERGED_LINKS = (("document_relation", "from_document_id", True), ("document_relation", "to_document_id", True),
                 ("node_document", "document_id", True), ("scenario_document", "document_id", True),
-                ("DocumentKeyword", "document_id", True), ("node_activation_rule", "basis_document_id", False),
+                ("DocumentSourceCategory", "document_id", True), ("node_activation_rule", "basis_document_id", False),
                 ("ReviewItem", "document_id", False), ("DocumentCandidate", "document_id", False))
 
 
@@ -212,7 +212,7 @@ def node_links(cursor, doc_id):
 def delete_document(cursor, doc_id):
     """Deletes a document with its keywords, versions and process-node links."""
     cursor.execute("DELETE FROM node_document WHERE document_id = %s", (doc_id,))
-    cursor.execute("DELETE FROM DocumentKeyword WHERE document_id = %s", (doc_id,))
+    cursor.execute("DELETE FROM DocumentSourceCategory WHERE document_id = %s", (doc_id,))
     cursor.execute("DELETE FROM DocumentVersion WHERE document_id = %s", (doc_id,))
     cursor.execute("DELETE FROM Document WHERE id = %s", (doc_id,))
 

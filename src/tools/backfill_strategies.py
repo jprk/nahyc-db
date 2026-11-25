@@ -141,9 +141,9 @@ def insert_document(cursor, item, context):
             keywords.append(extra)
     for keyword in keywords:
         if isinstance(keyword, str) and keyword.strip() and not init_db.is_status_keyword(keyword):
-            keyword_id = init_db.get_or_create(cursor, "Keyword", {"keyword": keyword.strip()})
-            cursor.execute("INSERT IGNORE INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)",
-                           (doc_id, keyword_id))
+            category_id = init_db.get_or_create(cursor, "SourceCategory", {"name": keyword.strip()})
+            cursor.execute("INSERT IGNORE INTO DocumentSourceCategory (document_id, category_id) VALUES (%s, %s)",
+                           (doc_id, category_id))
     return doc_id
 
 

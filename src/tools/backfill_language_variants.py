@@ -102,8 +102,9 @@ def apply_pair(cursor, czech_item, english_item, czech_id, english_id, context):
             marks = ", ".join(["%s"] * (len(UPDATED_COLUMNS) + 1))
             cursor.execute(f"INSERT INTO Document ({columns}) VALUES ({marks})", values + [prepared["identifier"]])
             english_id = cursor.lastrowid
-            cursor.execute("INSERT INTO DocumentKeyword (document_id, keyword_id) "
-                           "SELECT %s, keyword_id FROM DocumentKeyword WHERE document_id = %s", (english_id, czech_id))
+            cursor.execute("INSERT INTO DocumentSourceCategory (document_id, category_id) "
+                           "SELECT %s, category_id FROM DocumentSourceCategory WHERE document_id = %s",
+                           (english_id, czech_id))
             cursor.execute("INSERT INTO DocumentVersion (document_id, version, edition_label, effective_date, "
                            "is_current, lifecycle_state) SELECT %s, version, edition_label, effective_date, "
                            "is_current, lifecycle_state FROM DocumentVersion WHERE document_id = %s",

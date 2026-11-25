@@ -5,7 +5,7 @@ The Sinay standards spreadsheet carried, for DIN/ISO standards and their drafts,
 German/Slovak stage stamps where the web shows the effective date ("Platnost od":
 "Arbeitsdokument (Work Item)-Pracovný dokument (pracovná položka)"), a German
 "not available yet" note as the description ("noch nocht vorhanden") and a dated
-Slovak stage note as a keyword ("Stav k 02/2025: v príprave"). init_db.py no longer
+Slovak stage note as a source category ("Stav k 02/2025: v príprave"). init_db.py no longer
 stores them (normalize_effective_date(), is_placeholder_description(),
 is_status_keyword()); this script applies the same rules to an existing database:
 
@@ -13,7 +13,8 @@ is_status_keyword()); this script applies the same rules to an existing database
   (a published standard keeps "od MM/RRRR", a draft or work item nothing);
 * a placeholder description → empty, flagged for review as a rebuild flags it
   ("chybí popis/anotace dokumentu");
-* the links to a stage-note keyword are deleted, then the keyword itself.
+* the links to a stage-note source category are deleted, then the category itself
+  (SourceCategory/DocumentSourceCategory — run migrate_vocabulary.py first).
 
 The lifecycle state is not touched (it was classified from the raw stamp).
 Idempotent. Dry run unless --apply; back up the database first (backup_db.py).
@@ -31,7 +32,7 @@ MISSING_DESCRIPTION = "chybí popis/anotace dokumentu"
 
 def plan(cursor):
     """{"documents": [(id, column, old, new)], "versions": [(id, old, new)],
-    "reviews": [(id, needs_review, review_reason)], "keywords": [(id, keyword, links)]}."""
+    "reviews": [(id, needs_review, review_reason)], "categories": [(id, name, links)]}."""
     documents, reviews = [], []
     cursor.execute("SELECT id, effective_date, description, needs_review, review_reason FROM Document")
     for doc_id, effective, description, needs_review, reason in cursor.fetchall():
@@ -49,13 +50,13 @@ def plan(cursor):
         new = init_db.normalize_effective_date(effective) or None
         if new != effective:
             versions.append((version_id, effective, new))
-    keywords = []
-    cursor.execute("SELECT k.id, k.keyword, COUNT(dk.document_id) FROM Keyword k "
-                   "LEFT JOIN DocumentKeyword dk ON dk.keyword_id = k.id GROUP BY k.id, k.keyword")
-    for keyword_id, keyword, links in cursor.fetchall():
-        if init_db.is_status_keyword(keyword):
-            keywords.append((keyword_id, keyword, links))
-    return {"documents": documents, "versions": versions, "reviews": reviews, "keywords": keywords}
+    categories = []
+    cursor.execute("SELECT c.id, c.name, COUNT(dc.document_id) FROM SourceCategory c "
+                   "LEFT JOIN DocumentSourceCategory dc ON dc.category_id = c.id GROUP BY c.id, c.name")
+    for category_id, name, links in cursor.fetchall():
+        if init_db.is_status_keyword(name):
+            categories.append((category_id, name, links))
+    return {"documents": documents, "versions": versions, "reviews": reviews, "categories": categories}
 
 
 def execute(cursor, changes):
@@ -66,9 +67,9 @@ def execute(cursor, changes):
                        (needs_review, reason, doc_id))
     for version_id, _old, new in changes["versions"]:
         cursor.execute("UPDATE DocumentVersion SET effective_date = %s WHERE id = %s", (new, version_id))
-    for keyword_id, _keyword, _links in changes["keywords"]:
-        cursor.execute("DELETE FROM DocumentKeyword WHERE keyword_id = %s", (keyword_id,))
-        cursor.execute("DELETE FROM Keyword WHERE id = %s", (keyword_id,))
+    for category_id, _category, _links in changes["categories"]:
+        cursor.execute("DELETE FROM DocumentSourceCategory WHERE category_id = %s", (category_id,))
+        cursor.execute("DELETE FROM SourceCategory WHERE id = %s", (category_id,))
 
 
 def summary(changes):
@@ -78,8 +79,8 @@ def summary(changes):
              f"description (placeholder → empty, flagged for review): "
              f"{sum(1 for c in changes['documents'] if c[1] == 'description')} documents",
              f"DocumentVersion.effective_date: {len(changes['versions'])} versions"]
-    for _id, keyword, links in changes["keywords"]:
-        lines.append(f"keyword {keyword!r}: deleted with {links} links")
+    for _id, name, links in changes["categories"]:
+        lines.append(f"source category {name!r}: deleted with {links} links")
     return lines
 
 

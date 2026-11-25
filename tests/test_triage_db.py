@@ -96,7 +96,7 @@ class TriageDatabaseTestCase(unittest.TestCase):
                 if row["document_id"]:
                     cur.execute("DELETE FROM document_relation WHERE from_document_id = %s OR to_document_id = %s",
                                 (row["document_id"], row["document_id"]))
-                    for table in ("DocumentKeyword", "DocumentVersion"):
+                    for table in ("DocumentSourceCategory", "DocumentVersion"):
                         cur.execute(f"DELETE FROM {table} WHERE document_id = %s", (row["document_id"],))
                     cur.execute("DELETE FROM AuditLog WHERE table_name = 'Document' AND record_id = %s",
                                 (row["document_id"],))

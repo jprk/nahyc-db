@@ -177,11 +177,11 @@ def report_db(conn):
         print(f"  Documents with file_path, by restricted_fulltext: {c.fetchall()}")
 
     print("\n--- R1.8 Thematic indexing (many-to-many keywords) ---")
-    c.execute("SELECT COUNT(*) AS n FROM Keyword")
+    c.execute("SELECT COUNT(*) AS n FROM SourceCategory")
     kw = c.fetchone()["n"]
-    c.execute("SELECT COUNT(*) AS n FROM DocumentKeyword")
+    c.execute("SELECT COUNT(*) AS n FROM DocumentSourceCategory")
     dk = c.fetchone()["n"]
-    print(f"Keyword rows: {kw}, DocumentKeyword (M:N link) rows: {dk}")
+    print(f"SourceCategory rows: {kw}, DocumentSourceCategory (M:N link) rows: {dk}")
 
 
 def report_pipeline():
@@ -214,7 +214,7 @@ def report_app():
     # regression in the app. Match both shapes, and name the facets.
     filter_reads = _grep_lines(app_py, r"(?:request\.)?args\.get")
     print(f"filter-param reads in app.py: {filter_reads}")
-    for facet in ('q', 'type_id', 'source_id', 'keyword_id'):
+    for facet in ('q', 'type_id', 'source_id', 'category_id'):
         print(f"  facet {facet!r} parsed: {bool(_grep_lines(app_py, facet))}")
 
     print("\n--- R2.4 Result metadata summary + hyperlink ---")

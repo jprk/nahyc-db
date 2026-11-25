@@ -93,11 +93,11 @@ class FixNormStageFieldsTestCase(unittest.TestCase):
         self.assertEqual(changes["reviews"], [(575, 1, "chybí popis/anotace dokumentu"),
                                               (902, 1, "chybí popis/anotace dokumentu")])
         self.assertEqual(changes["versions"], [(2, "Entwurf-Návrh / 2023-03", None)])
-        self.assertEqual(changes["keywords"], [(7, "Stav k 02/2025: v príprave", 34)])
+        self.assertEqual(changes["categories"], [(7, "Stav k 02/2025: v príprave", 34)])
         cursor.executed.clear()
         fix.execute(cursor, changes)
         statements = [sql for sql, _ in cursor.executed]
-        self.assertIn("DELETE FROM Keyword WHERE id = %s", statements)
+        self.assertIn("DELETE FROM SourceCategory WHERE id = %s", statements)
         self.assertEqual(sum(1 for s in statements if s.startswith("UPDATE Document SET")), 6)
 
     def test_nothing_to_do_on_clean_data(self):

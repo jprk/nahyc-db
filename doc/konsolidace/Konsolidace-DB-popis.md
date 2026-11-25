@@ -89,7 +89,8 @@ https://www.plantuml.com/plantuml), konceptuální přehled
 | A | `Document` | Regulatorní/metodický dokument (metadata) | V01 + sloupce `identifier`, `jurisdikce`, `jurisdikce_uroven`, `file_path`, `needs_review`, `review_reason` |
 | A | `DocumentType` | Číselník typů dokumentů | V01 + `restricted_fulltext` |
 | A | `DocumentSource` | Číselník zdrojů/institucí | V01 + `institution_type`, `jurisdiction` |
-| A | `Keyword`, `DocumentKeyword` | Řízený slovník + M:N vazba | V01 beze změny |
+| A | `SourceCategory`, `DocumentSourceCategory` | Kategorie zdrojových rešerší + M:N vazba | V01 `Keyword`, `DocumentKeyword`, přejmenováno 2026-11-25 |
+| A | `Term`, `DocumentTerm` | Klíčová slova dokumentů (EuroVoc, ICS, ČAS, model) + M:N vazba s pořadím | nové (doc/KLICOVA_SLOVA.md) |
 | A | `DocumentVersion` | Verze dokumentů | V01 + `is_current`, `edition_label`, `effective_date`, `lifecycle_state` |
 | A | `document_relation` | Vztah mezi dvěma samostatně číslovanými dokumenty (novela zákona jiným zákonem) | nová (Krok 1 follow-up #16) |
 | B | `process_class` | Číselník tříd procesů (7) | V02 |
@@ -121,8 +122,10 @@ DDL skript pro MariaDB: `Konsolidace-DB-schema.sql`.
 
 ## 4. Vrstva A — regulatorní (změny oproti V01)
 
-Tabulky `Keyword`, `DocumentKeyword` zůstávají beze změny. `DocumentType`
-získalo rozšíření per R4.1 — viz §4.5 níže.
+Tabulky V01 `Keyword` a `DocumentKeyword` jsme 25. 11. 2026 přejmenovali na `SourceCategory`
+a `DocumentSourceCategory` (sloupce `name` a `category_id`): nenesou klíčová slova, ale kategorie
+převzaté ze zdrojových rešerší. Klíčová slova dokumentů vedeme v tabulkách `Term` a `DocumentTerm`
+(doc/KLICOVA_SLOVA.md, odstavec 4). `DocumentType` získalo rozšíření per R4.1 — viz §4.5 níže.
 
 ### 4.1 `Document` — rozšíření
 

@@ -73,7 +73,7 @@ class CandidateWorkflowTestCase(unittest.TestCase):
             docs += [r["id"] for r in cur.fetchall()]
             for doc in set(docs):
                 cur.execute("DELETE FROM AuditLog WHERE table_name = 'Document' AND record_id = %s", (doc,))
-                cur.execute("DELETE FROM DocumentKeyword WHERE document_id = %s", (doc,))
+                cur.execute("DELETE FROM DocumentSourceCategory WHERE document_id = %s", (doc,))
                 cur.execute("DELETE FROM DocumentVersion WHERE document_id = %s", (doc,))
             for candidate in ids:
                 cur.execute("DELETE FROM AuditLog WHERE table_name = 'DocumentCandidate' AND record_id = %s", (candidate,))
@@ -151,9 +151,9 @@ class CandidateWorkflowTestCase(unittest.TestCase):
             cur.execute("SELECT lifecycle_state FROM DocumentVersion WHERE document_id = %s AND is_current = 1",
                         (row["document_id"],))
             version = cur.fetchone()
-            cur.execute("SELECT k.keyword FROM DocumentKeyword dk JOIN Keyword k ON k.id = dk.keyword_id "
-                        "WHERE dk.document_id = %s", (row["document_id"],))
-            keywords = [r["keyword"] for r in cur.fetchall()]
+            cur.execute("SELECT c.name FROM DocumentSourceCategory dc JOIN SourceCategory c ON c.id = dc.category_id "
+                        "WHERE dc.document_id = %s", (row["document_id"],))
+            categories = [r["name"] for r in cur.fetchall()]
             cur.execute("SELECT COUNT(*) AS n FROM document_relation WHERE from_document_id = %s AND to_document_id = %s "
                         "AND relation_type = 'REPEALS'", (row["document_id"], self.repealed_id))
             repeals = cur.fetchone()["n"]
@@ -165,7 +165,7 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         self.assertTrue(document["slug"])
         self.assertEqual((document["source"], document["jurisdiction"]), (SOURCE_NAME, "CZ"))
         self.assertEqual(version["lifecycle_state"], "active")
-        self.assertEqual(sorted(keywords), ["Bezpečnost", "Energetika"])
+        self.assertEqual(sorted(categories), ["Bezpečnost", "Energetika"])
         self.assertEqual(repeals, 1)
         self.assertEqual(actions, ["PROPOSE", "CONFIRM"])
         accepted = json.loads(self.candidates_admin.ACCEPTED_PATH.read_text(encoding="utf-8"))

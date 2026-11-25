@@ -1,8 +1,8 @@
 """Assigns the areas of the catalogue (data/areas.json, areas.py, doc/OBLASTI.md) to
 every document: creates the tables `Area` and `DocumentArea` when missing and
-rewrites the areas of the documents whose areas change. The original keywords are
+rewrites the areas of the documents whose areas change. The source categories are
 not touched. Prints the breakdown (documents per area), the documents that got only
-the fallback area (uncertain) and the keywords no rule knows. Idempotent; run after
+the fallback area (uncertain) and the source categories no rule knows. Idempotent; run after
 every rebuild (init_db.py) and after documents are added. Dry run unless --apply.
 
 Usage: .venv/bin/python src/tools/assign_areas.py [--apply] [--env-file FILE] [--uncertain] [--quiet]
@@ -27,8 +27,9 @@ def report(rules, documents, quiet=False, uncertain=False):
         origins = collections.Counter(next(iter(found.values())) if len(set(found.values())) == 1 else "mixed"
                                       for found in assigned.values())
         lines.append("documents by origin of their areas: " + ", ".join(f"{k} {v}" for k, v in sorted(origins.items())))
-        unknown = rules.unknown_keywords(k for d in documents for k in d["keywords"])
-        lines.append(f"keywords no rule knows: {len(unknown)}" + ("" if not unknown else " — " + "; ".join(unknown)))
+        unknown = rules.unknown_categories(c for d in documents for c in d["categories"])
+        lines.append(f"source categories no rule knows: {len(unknown)}"
+                     + ("" if not unknown else " — " + "; ".join(unknown)))
     fallback = [d for d in documents if list(assigned[d["id"]]) == [rules.fallback]]
     lines.append(f"uncertain (fallback area only): {len(fallback)} documents")
     if uncertain:

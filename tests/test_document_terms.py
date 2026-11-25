@@ -72,14 +72,59 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual({r[0] for r in rows}, {7, 8})
         self.assertIn((8, "eurovoc", 0, "1252", "homologace", "approval"), rows)
 
+    def test_plan_identifies_coded_terms_by_code(self):
+        caches = {"ics": {"ČSN EN 1": {"ics": [{"code": "71.100.20", "name": "Plyny"},
+                                                {"code": "71.100.20", "name": "Plyny pro průmysl"}]}}}
+        rows = dterms.plan([(1, "ČSN EN 1", None, "Norma", "t")], dterms.terms_from_caches(caches))
+        self.assertEqual([r[4] for r in rows], ["71.100.20 Plyny"])
+
     def test_write_replaces_only_the_given_origins(self):
         executed = []
-        cursor = SimpleNamespace(execute=lambda sql, params=None: executed.append((sql.strip()[:30], params)),
-                                 executemany=lambda sql, rows: executed.append(("INSERT", len(rows))))
-        dterms.write(cursor, [(1, "ics", 0, "1", "x", None)], ["ics"])
-        self.assertTrue(executed[0][0].startswith("CREATE TABLE IF NOT EXISTS"))
-        self.assertEqual(executed[1], ("DELETE FROM DocumentTerm WHERE", ("ics",)))
-        self.assertEqual(executed[2], ("INSERT", 1))
+
+        class Cursor:
+            def execute(self, sql, params=None):
+                executed.append((" ".join(sql.split())[:40], params))
+
+            def executemany(self, sql, rows):
+                executed.append((" ".join(sql.split())[:40], list(rows)))
+
+            def fetchall(self):
+                last = executed[-1][0]
+                if "information_schema.TABLES" in last:
+                    return [("Term",), ("DocumentTerm",)]
+                if "information_schema.COLUMNS" in last:
+                    return [("document_id",), ("term_id",)]
+                if last.startswith("SELECT origin, term_key, id FROM Term"):
+                    return [("ics", "1", 41), ("model", "Vodík", 42)]
+                return []
+
+        dterms.write(Cursor(), [(1, "ics", 0, "1", "1 x", None), (1, "model", 0, None, "Vodík", None)],
+                     ["ics", "model"])
+        statements = [sql for sql, _ in executed]
+        self.assertTrue(any(s.startswith("CREATE TABLE IF NOT EXISTS Term") for s in statements))
+        deletes = [(sql, params) for sql, params in executed if sql.startswith("DELETE l FROM DocumentTerm")]
+        self.assertEqual([p for _, p in deletes], [("ics",), ("model",)])
+        terms = next(rows for sql, rows in executed if sql.startswith("INSERT INTO Term"))
+        self.assertEqual(terms, [("ics", "1", "1 x", None, "1", "1 x"), ("model", None, "Vodík", None, "Vodík", "vodik")])
+        links = next(rows for sql, rows in executed if sql.startswith("INSERT IGNORE INTO DocumentTerm"))
+        self.assertEqual(links, [(1, 41, 0), (1, 42, 0)])
+        self.assertTrue(any(s.startswith("DELETE t FROM Term t LEFT JOIN") for s in statements),
+                        "keywords no document uses any more go")
+
+    def test_write_refuses_the_old_layout(self):
+        class Cursor:
+            last = ""
+
+            def execute(self, sql, params=None):
+                self.last = sql
+
+            def fetchall(self):
+                if "information_schema.TABLES" in self.last:
+                    return [("DocumentTerm",)]
+                return [("document_id",), ("term",)]
+
+        with self.assertRaises(dterms.LegacyLayoutError):
+            dterms.write(Cursor(), [], ["ics"])
 
 
 class EuroVocTestCase(unittest.TestCase):
@@ -251,11 +296,16 @@ class CatalogSearchTestCase(unittest.TestCase):
     def test_search_covers_the_keywords_only_when_the_table_exists(self):
         os.environ.setdefault("SECRET_KEY", "test")
         from app.app import build_filter_clause
-        filters = {"q": "křehkost", "type_id": "", "source_id": "", "keyword_id": "", "include_sk": True}
+        filters = {"q": "křehkost", "type_id": "", "source_id": "", "category_id": "", "include_sk": True}
         clause, _ = build_filter_clause(filters)
         self.assertNotIn("DocumentTerm", clause)
         clause, params = build_filter_clause(dict(filters, with_terms=True))
-        self.assertIn("FROM DocumentTerm t", clause)
+        self.assertIn("FROM DocumentTerm dtm JOIN Term t ON t.id = dtm.term_id", clause)
+        self.assertEqual(clause.count("%s"), len(params))
+        # before src/tools/migrate_vocabulary.py: the old DocumentTerm with the text
+        clause, params = build_filter_clause(dict(filters, with_terms=True, legacy_terms=True))
+        self.assertIn("FROM DocumentTerm t WHERE t.document_id = d.id", clause)
+        self.assertNotIn("JOIN Term", clause)
         self.assertEqual(clause.count("%s"), len(params))
 
 

@@ -10,7 +10,8 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 import pymysql
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g, send_file, abort, Response, url_for, session, make_response
+from flask import (Flask, render_template, request, g, send_file, abort, Response, url_for, session, make_response,
+                   redirect)
 
 app = Flask(__name__)
 
@@ -44,6 +45,7 @@ from admin import admin_bp  # noqa: E402
 import candidates_admin  # noqa: E402,F401  (registers the /admin/candidates pages on admin_bp)
 import catalog_filters  # noqa: E402
 import drafts_admin  # noqa: E402,F401  (registers the /admin/drafts pages on admin_bp)
+import vocabulary  # noqa: E402  (src/tools, on sys.path through admin.py)
 
 app.register_blueprint(admin_bp, url_prefix="/admin")
 
@@ -70,8 +72,10 @@ GIT_VERSION = get_git_version()
 
 # doc/REQUIREMENTS.md R2.5, 2026-09-11: export formats/fields for /export/<fmt>.
 EXPORT_FORMATS = {"csv", "json", "xml"}
+# `source_categories` are the categories of the source surveys (until 2026-11 the field was
+# called "keywords"), `keywords` the keywords of the document (doc/KLICOVA_SLOVA.md)
 EXPORT_FIELDS = ["title", "description", "type_name", "source_name",
-                  "language", "effective_date", "url", "keywords"]
+                 "language", "effective_date", "url", "source_categories", "keywords"]
 
 
 def get_db():
@@ -189,11 +193,34 @@ def with_noindex(response, noindex):
     return response
 
 
+def vocab(db):
+    """The layout of the two vocabularies in the connected database (src/tools/vocabulary.py),
+    checked once per request: {'categories': vocabulary.CATEGORIES (SourceCategory) or
+    vocabulary.LEGACY_CATEGORIES (Keyword, before migrate_vocabulary.py) or None,
+    'terms': 'term' (Term + DocumentTerm), 'legacy' (old DocumentTerm) or None}. The code
+    is deployed by `git pull` before the migration runs, so the app serves both."""
+    if 'vocab' not in g:
+        with db.cursor() as cur:
+            tables = vocabulary.table_names(cur)
+            g.vocab = {'categories': vocabulary.category_tables(cur, tables),
+                       'terms': vocabulary.term_layout(cur, tables)}
+    return g.vocab
+
+
+def apply_vocab(filters, db):
+    """Adds to `filters` what the pure query builders need to know about the layout."""
+    layout = vocab(db)
+    filters['categories'] = layout['categories']
+    filters['with_terms'] = layout['terms'] is not None
+    filters['legacy_terms'] = layout['terms'] == 'legacy'
+    return filters
+
+
 def areas_enabled(db):
     """True when the database has the areas of the catalogue (data/areas.json,
     src/tools/assign_areas.py, doc/OBLASTI.md): the filter and the tags then show
-    them instead of the original keywords. A database where assign_areas.py has not
-    run yet keeps the keywords. Checked once per request."""
+    them instead of the categories of the source surveys. A database where
+    assign_areas.py has not run yet keeps the categories. Checked once per request."""
     if 'areas_enabled' not in g:
         with db.cursor() as cur:
             cur.execute("SELECT COUNT(*) AS c FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() "
@@ -240,8 +267,8 @@ def get_filters(include_sk=True):
     "Evropská centrální banka" used to stay in the menu), grouped by
     data/source_groups.json. Without the Slovak switch only documents that
     are not Slovak count, so the Slovak ministries and ÚNMS SR (STN standards)
-    disappear from the menu, and so do the keywords only Slovak documents
-    carry ("STN (prijatá v sústave)")."""
+    disappear from the menu, and so do the source categories only Slovak
+    documents carry ("STN (prijatá v sústave)"); the categories are {id, name}."""
     db = get_db()
     condition, params = visible_condition(include_sk)
     with db.cursor() as cur:
@@ -251,14 +278,18 @@ def get_filters(include_sk=True):
                     "WHERE EXISTS (SELECT 1 FROM Document d WHERE d.source_id = ds.id"
                     f"{condition}) ORDER BY ds.name", params)
         sources = cur.fetchall()
-        if include_sk:
-            cur.execute("SELECT id, keyword FROM Keyword ORDER BY keyword")
+        cat = vocab(db)['categories']
+        if cat is None:
+            categories = []
         else:
-            cur.execute("SELECT k.id, k.keyword FROM Keyword k WHERE EXISTS (SELECT 1 FROM DocumentKeyword dk "
-                        "JOIN Document d ON d.id = dk.document_id WHERE dk.keyword_id = k.id"
-                        f"{condition}) ORDER BY k.keyword", params)
-        keywords = cur.fetchall()
-    return types, sources, keywords
+            if include_sk:
+                cur.execute(f"SELECT id, {cat.name} AS name FROM {cat.table} ORDER BY {cat.name}")
+            else:
+                cur.execute(f"SELECT c.id, c.{cat.name} AS name FROM {cat.table} c WHERE EXISTS (SELECT 1 "
+                            f"FROM {cat.link} dc JOIN Document d ON d.id = dc.document_id WHERE dc.{cat.fk} = c.id"
+                            f"{condition}) ORDER BY c.{cat.name}", params)
+            categories = cur.fetchall()
+    return types, sources, categories
 
 
 def get_total_document_count(db, include_sk=True):
@@ -445,7 +476,8 @@ def parse_filters(args, include_sk=False):
         'type_id': type_id,
         'eu_subtype': eu_subtype,
         'source_id': args.get('source_id', ''),
-        'keyword_id': args.get('keyword_id', ''),
+        # the category of the source surveys; `keyword_id` is its name in links made before 2026-11
+        'category_id': args.get('category_id', '') or args.get('keyword_id', ''),
         'oblast': args.get('oblast', '').strip(),
         'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', ''),
                                                              include_slovak=include_sk),
@@ -477,13 +509,19 @@ def build_filter_clause(filters):
         if filters.get('with_terms'):
             # doc/KLICOVA_SLOVA.md: the keywords of the document (EuroVoc, ICS, ČAS, model)
             term_likes = [like] + [f"%{term}%" for term in terms]
-            conditions.append("EXISTS (SELECT 1 FROM DocumentTerm t WHERE t.document_id = d.id AND ("
-                              + " OR ".join(["t.term LIKE %s"] * len(term_likes)) + "))")
+            matches = " OR ".join(["t.term LIKE %s"] * len(term_likes))
+            if filters.get('legacy_terms'):  # before src/tools/migrate_vocabulary.py
+                conditions.append(f"EXISTS (SELECT 1 FROM DocumentTerm t WHERE t.document_id = d.id AND ({matches}))")
+            else:
+                conditions.append("EXISTS (SELECT 1 FROM DocumentTerm dtm JOIN Term t ON t.id = dtm.term_id "
+                                  f"WHERE dtm.document_id = d.id AND ({matches}))")
             params.extend(term_likes)
-        # the original keywords of the sources stay searchable, though no longer shown (doc/OBLASTI.md)
-        conditions.append("EXISTS (SELECT 1 FROM DocumentKeyword sk JOIN Keyword sw ON sw.id = sk.keyword_id "
-                          "WHERE sk.document_id = d.id AND sw.keyword LIKE %s)")
-        params.append(like)
+        # the categories of the source surveys stay searchable, though no longer shown (doc/OBLASTI.md)
+        cat = filters.get('categories', vocabulary.CATEGORIES)
+        if cat is not None:
+            conditions.append(f"EXISTS (SELECT 1 FROM {cat.link} sk JOIN {cat.table} sw ON sw.id = sk.{cat.fk} "
+                              f"WHERE sk.document_id = d.id AND sw.{cat.name} LIKE %s)")
+            params.append(like)
         clause += " AND (" + " OR ".join(conditions) + ")"
 
     if filters['type_id']:
@@ -498,9 +536,11 @@ def build_filter_clause(filters):
         clause += " AND d.source_id = %s"
         params.append(filters['source_id'])
 
-    if filters['keyword_id']:
-        clause += " AND dk.keyword_id = %s"
-        params.append(filters['keyword_id'])
+    cat = filters.get('categories', vocabulary.CATEGORIES)
+    if filters.get('category_id') and cat is not None:
+        clause += (f" AND EXISTS (SELECT 1 FROM {cat.link} fc WHERE fc.document_id = d.id "
+                   f"AND fc.{cat.fk} = %s)")
+        params.append(filters['category_id'])
 
     if filters.get('oblast'):
         clause += (" AND EXISTS (SELECT 1 FROM DocumentArea fa JOIN Area fx ON fx.id = fa.area_id "
@@ -532,7 +572,6 @@ def build_matching_acts_query(filters):
         {TRANSLATION_JOIN}
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
-        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1{clause}
     ''', params
 
@@ -541,12 +580,12 @@ def build_count_query(filters, group_variants=False):
     """doc/PLAN.md §16, 2026-09-16: total number of documents matching
     `filters`, for the pager.
 
-    COUNT(DISTINCT d.id), not COUNT(*): the keyword filter needs the
-    DocumentKeyword join, which multiplies a document's rows by its
-    keyword count (3231 links over 1238 documents). A plain COUNT(*)
-    would therefore report several times the real total and paginate
-    into empty pages — the same trap R2.1 exists for, and that commit
-    ebc1f60 had to fix once already with GROUP BY d.id.
+    COUNT(DISTINCT d.id), not COUNT(*): the keyword filter used to join
+    the keyword (now source category) links, which multiplied a document's
+    rows by its keyword count (3231 links over 1238 documents) and
+    paginated into empty pages — the same trap R2.1 exists for, and that
+    commit ebc1f60 had to fix once already with GROUP BY d.id. The filter
+    is an EXISTS now; the DISTINCT stays as a guard.
 
     group_variants=True (the catalogue): the number of acts, i.e. of rows
     of the grouped list (doc/MPO_PRIPOMINKY.md, krok 2)."""
@@ -559,7 +598,6 @@ def build_count_query(filters, group_variants=False):
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
-        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1{clause}
     ''', params
 
@@ -599,7 +637,6 @@ def build_document_query(filters, limit=None, offset=None, group_variants=False,
         FROM Document d
         LEFT JOIN DocumentType dt ON d.type_id = dt.id
         LEFT JOIN DocumentSource ds ON d.source_id = ds.id
-        LEFT JOIN DocumentKeyword dk ON d.id = dk.document_id
         WHERE 1=1
     '''
         clause, params = build_filter_clause(filters)
@@ -618,8 +655,8 @@ def build_document_query(filters, limit=None, offset=None, group_variants=False,
 
 def fetch_documents_with_tags(db, filters, limit=None, offset=None, group_variants=False,
                               with_subtype=False):
-    """Runs build_document_query() and attaches each document's keyword
-    tags, exactly like index()'s original inline logic. Returns
+    """Runs build_document_query() and attaches each document's source
+    categories as tags, exactly like index()'s original inline logic. Returns
     (documents, doc_tags) — used by both index() and /export/<fmt>."""
     query, params = build_document_query(filters, limit=limit, offset=offset,
                                          group_variants=group_variants, with_subtype=with_subtype)
@@ -629,22 +666,37 @@ def fetch_documents_with_tags(db, filters, limit=None, offset=None, group_varian
 
         doc_ids = [doc['id'] for doc in documents]
         doc_tags = {}
-        if doc_ids:
+        cat = filters.get('categories', vocabulary.CATEGORIES)
+        if doc_ids and cat is not None:
             placeholders = ','.join(['%s'] * len(doc_ids))
-            tags_query = f'''
-                SELECT dk.document_id, k.keyword
-                FROM Keyword k
-                JOIN DocumentKeyword dk ON k.id = dk.keyword_id
-                WHERE dk.document_id IN ({placeholders})
-            '''
-            cur.execute(tags_query, doc_ids)
-            tags = cur.fetchall()
-            for tag in tags:
-                doc_id = tag['document_id']
-                if doc_id not in doc_tags:
-                    doc_tags[doc_id] = []
-                doc_tags[doc_id].append(tag['keyword'])
+            cur.execute(f"SELECT dc.document_id, c.{cat.name} AS name FROM {cat.table} c "
+                        f"JOIN {cat.link} dc ON c.id = dc.{cat.fk} WHERE dc.document_id IN ({placeholders})", doc_ids)
+            for tag in cur.fetchall():
+                doc_tags.setdefault(tag['document_id'], []).append(tag['name'])
     return documents, doc_tags
+
+
+def fetch_document_terms(db, doc_ids):
+    """{document id: [keyword]} — the keywords of the documents (doc/KLICOVA_SLOVA.md) in
+    the order of TERM_ORIGINS and of their source; {} without keywords in the database."""
+    layout = vocab(db)['terms']
+    if not doc_ids or layout is None:
+        return {}
+    placeholders = ','.join(['%s'] * len(doc_ids))
+    if layout == 'legacy':
+        query = (f"SELECT t.document_id, t.origin, t.term FROM DocumentTerm t WHERE t.document_id IN ({placeholders}) "
+                 "ORDER BY t.document_id, t.position, t.term")
+    else:
+        query = ("SELECT l.document_id, t.origin, t.term FROM DocumentTerm l JOIN Term t ON t.id = l.term_id "
+                 f"WHERE l.document_id IN ({placeholders}) ORDER BY l.document_id, l.position, t.term")
+    order = {origin: i for i, (origin, _, _) in enumerate(TERM_ORIGINS)}
+    with db.cursor() as cur:
+        cur.execute(query, list(doc_ids))
+        rows = cur.fetchall()
+    terms = {}
+    for row in sorted(rows, key=lambda r: order.get(r['origin'], len(order))):
+        terms.setdefault(row['document_id'], []).append(row['term'])
+    return terms
 
 
 def attach_language_variants(db, documents, include_sk=True):
@@ -685,12 +737,16 @@ def type_menu(types, with_subtype):
 def index():
     db = get_db()
     include_sk = include_slovak()
-    filters = parse_filters(request.args, include_sk=include_sk)
-    filters['with_terms'] = has_column(db, 'DocumentTerm', 'term')
+    if 'keyword_id' in request.args:  # a link from before the source categories were renamed
+        args = request.args.to_dict(flat=False)
+        keyword_id = args.pop('keyword_id')
+        args.setdefault('category_id', keyword_id)
+        return redirect(url_for('index', **args), code=301)
+    filters = apply_vocab(parse_filters(request.args, include_sk=include_sk), db)
     with_subtype = has_column(db, 'Document', 'eu_act_subtype')
     if not with_subtype:
         filters['eu_subtype'] = ''
-    types, sources, keywords = get_filters(include_sk)
+    types, sources, categories = get_filters(include_sk)
     db_areas = areas_enabled(get_db())
     areas = get_areas(get_db(), include_sk) if db_areas else []
     types, subtypes = type_menu(types, with_subtype)
@@ -717,7 +773,7 @@ def index():
         doc['has_clean_text'] = (not doc['restricted_fulltext']
                                  and clean_text_path(doc['file_path']) is not None)
         doc['eu_subtype_label'] = catalog_filters.EU_SUBTYPES.get(doc.get('eu_act_subtype') or '')
-    if db_areas:  # the tags of the list are the areas, not the original keywords
+    if db_areas:  # the tags of the list are the areas, not the source categories
         doc_tags = area_tags(db, [doc['id'] for doc in documents], include_hidden=bool(session.get('user_id')))
     total_document_count = get_total_document_count(db, include_sk)
     active_document_count = get_active_document_count(db, include_sk)
@@ -738,7 +794,7 @@ def index():
                            logged_in=bool(session.get('user_id')),
                            include_sk=include_sk,
                            synonyms=filters['synonyms'],
-                           keywords=keywords,
+                           categories=categories,
                            areas=areas,
                            areas_mode=db_areas,
                            total_document_count=total_document_count,
@@ -788,15 +844,15 @@ def fetch_document_detail(db, slug):
                 raise
             document.update(status_checked_at=None, status_checked_by=None)
 
-        cur.execute('''
-            SELECT k.keyword FROM Keyword k
-            JOIN DocumentKeyword dk ON k.id = dk.keyword_id
-            WHERE dk.document_id = %s ORDER BY k.keyword
-        ''', (document['id'],))
-        keywords = [r['keyword'] for r in cur.fetchall()]
+        cat = vocab(db)['categories']
+        tags = []  # the tags of the page: the source categories, or the areas once there are some
+        if cat is not None:
+            cur.execute(f"SELECT c.{cat.name} AS name FROM {cat.table} c JOIN {cat.link} dc ON c.id = dc.{cat.fk} "
+                        f"WHERE dc.document_id = %s ORDER BY c.{cat.name}", (document['id'],))
+            tags = [r['name'] for r in cur.fetchall()]
         terms = fetch_terms(db, cur, document['id'])
-        if areas_enabled(db):  # the page shows the areas; the original keywords stay hidden (doc/OBLASTI.md)
-            keywords = area_tags(db, [document['id']], include_hidden=bool(session.get('user_id'))).get(
+        if areas_enabled(db):  # the page shows the areas; the source categories stay hidden (doc/OBLASTI.md)
+            tags = area_tags(db, [document['id']], include_hidden=bool(session.get('user_id'))).get(
                 document['id'], [])
 
         versions = fetch_versions(cur, document['id'])
@@ -846,7 +902,7 @@ def fetch_document_detail(db, slug):
         ''', (document['id'],))
         process_nodes = cur.fetchall()
 
-    return {"document": document, "keywords": keywords, "terms": terms,
+    return {"document": document, "tags": tags, "terms": terms,
             "versions": versions, "relations": relations,
             "process_nodes": process_nodes}
 
@@ -862,11 +918,17 @@ TERM_ORIGINS = [
 def fetch_terms(db, cur, document_id):
     """doc/KLICOVA_SLOVA.md: the keywords of a document by origin, in the order of
     TERM_ORIGINS — [{"origin", "label", "note", "terms": [{"term", "term_en", "code"}]}];
-    a database without the DocumentTerm table yet gives none."""
-    if not has_column(db, 'DocumentTerm', 'term'):
+    a database without keywords yet gives none. Reads Term + DocumentTerm, or the old
+    DocumentTerm before src/tools/migrate_vocabulary.py."""
+    layout = vocab(db)['terms']
+    if layout is None:
         return []
-    cur.execute('SELECT origin, code, term, term_en FROM DocumentTerm WHERE document_id = %s '
-                'ORDER BY origin, position, term', (document_id,))
+    if layout == 'legacy':
+        cur.execute('SELECT origin, code, term, term_en FROM DocumentTerm WHERE document_id = %s '
+                    'ORDER BY origin, position, term', (document_id,))
+    else:
+        cur.execute('SELECT t.origin, t.code, t.term, t.term_en FROM DocumentTerm l JOIN Term t ON t.id = l.term_id '
+                    'WHERE l.document_id = %s ORDER BY t.origin, l.position, t.term', (document_id,))
     by_origin = {}
     for row in cur.fetchall():
         by_origin.setdefault(row['origin'], []).append(row)
@@ -1254,7 +1316,7 @@ def fulltext(doc_id):
     return with_noindex(response, noindex_for(row))
 
 
-def _rows_for_export(documents, doc_tags):
+def _rows_for_export(documents, doc_tags, doc_terms=None):
     """doc/REQUIREMENTS.md R2.5/R4.1, 2026-09-11: projects each document
     row down to exactly EXPORT_FIELDS — deliberately excludes file_path/
     restricted_fulltext/id, which must never leave via bulk export (see
@@ -1269,7 +1331,8 @@ def _rows_for_export(documents, doc_tags):
             'language': doc['language'] or '',
             'effective_date': str(doc['effective_date']) if doc['effective_date'] else '',
             'url': doc['url'] or '',
-            'keywords': ', '.join(doc_tags.get(doc['id'], [])),
+            'source_categories': ', '.join(doc_tags.get(doc['id'], [])),
+            'keywords': ', '.join((doc_terms or {}).get(doc['id'], [])),
         })
     return rows
 
@@ -1306,21 +1369,20 @@ def _export_xml(rows):
 @app.route('/export/<fmt>')
 def export(fmt):
     """doc/REQUIREMENTS.md R2.5, 2026-09-11: exports the current
-    filtered/searched result set (same q/type_id/source_id/keyword_id
-    filters as index()) in csv, json, or xml — the FULL filtered set, not
-    the on-screen LIMIT 100 page. Metadata-only per R4.1: never includes
+    filtered/searched result set (same q/type_id/source_id/category_id
+    filters as index(); the old name keyword_id is accepted too) in csv,
+    json, or xml — the FULL filtered set, not the on-screen LIMIT 100 page. Metadata-only per R4.1: never includes
     file_path/restricted_fulltext (see _rows_for_export() — that's the
     separate, gated /fulltext/<id> channel above)."""
     if fmt not in EXPORT_FORMATS:
         abort(400)
 
     db = get_db()
-    filters = parse_filters(request.args, include_sk=include_slovak())
-    filters['with_terms'] = has_column(db, 'DocumentTerm', 'term')
+    filters = apply_vocab(parse_filters(request.args, include_sk=include_slovak()), db)
     if not has_column(db, 'Document', 'eu_act_subtype'):
         filters['eu_subtype'] = ''
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)
-    rows = _rows_for_export(documents, doc_tags)
+    rows = _rows_for_export(documents, doc_tags, fetch_document_terms(db, [doc['id'] for doc in documents]))
 
     if fmt == 'csv':
         return _export_csv(rows)

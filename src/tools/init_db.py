@@ -25,7 +25,9 @@ FULLTEXT_MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
 INCOMPLETE_RECORDS_QUEUE_PATH = REPO_ROOT / "data" / "incomplete_records_review_queue.json"
 
 # Truncation order respects FK dependencies (children before parents).
-TRUNCATE_ORDER = ["DocumentKeyword", "DocumentVersion", "Document", "Keyword",
+# DocumentSourceCategory/SourceCategory: the categories of the source surveys (vocabulary.py;
+# called DocumentKeyword/Keyword until migrate_vocabulary.py).
+TRUNCATE_ORDER = ["DocumentSourceCategory", "DocumentVersion", "Document", "SourceCategory",
                   "DocumentSource", "DocumentType"]
 
 # A purely-numeric (or blank) typ_dokumentu is leaked category-id junk —
@@ -77,9 +79,10 @@ def reset_tables(cursor):
         cursor.execute(f"TRUNCATE TABLE {table}")
     # doc/KLICOVA_SLOVA.md: the keywords point at document ids, which a rebuild reassigns;
     # document_terms.py --apply loads them again from the caches under data/
-    cursor.execute("SHOW TABLES LIKE 'DocumentTerm'")
-    if cursor.fetchone():
-        cursor.execute("TRUNCATE TABLE DocumentTerm")
+    for table in ("DocumentTerm", "Term"):
+        cursor.execute(f"SHOW TABLES LIKE '{table}'")
+        if cursor.fetchone():
+            cursor.execute(f"TRUNCATE TABLE {table}")
     cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
 
 
@@ -700,11 +703,11 @@ def import_json_data(db_conn):
 
         for kw in klicova_slova:
             if isinstance(kw, str) and kw.strip() and not is_status_keyword(kw):
-                kw_id = get_or_create(cursor, "Keyword", {"keyword": kw.strip()})
+                category_id = get_or_create(cursor, "SourceCategory", {"name": kw.strip()})
                 try:
                     cursor.execute(
-                        "INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)",
-                        (doc_id, kw_id))
+                        "INSERT INTO DocumentSourceCategory (document_id, category_id) VALUES (%s, %s)",
+                        (doc_id, category_id))
                 except pymysql.err.IntegrityError:
                     pass
 
@@ -753,6 +756,10 @@ def import_json_data(db_conn):
 if __name__ == "__main__":
     conn = get_connection()
 
+    # a database from before the renaming of Keyword and DocumentTerm (vocabulary.py)
+    import migrate_vocabulary
+    for line in migrate_vocabulary.migrate(conn, apply=True)[-1:]:
+        print(f"migrate_vocabulary: {line}")
     reset_tables(conn.cursor())
     conn.commit()
 
@@ -764,8 +771,8 @@ if __name__ == "__main__":
     print(f"Total Documents: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM DocumentSource")
     print(f"Unique Sources: {c.fetchone()[0]}")
-    c.execute("SELECT COUNT(*) FROM Keyword")
-    print(f"Unique Keywords extracted from filenames: {c.fetchone()[0]}")
+    c.execute("SELECT COUNT(*) FROM SourceCategory")
+    print(f"Source categories (SourceCategory): {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM DocumentVersion")
     print(f"Document versions: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM Document WHERE identifier IS NOT NULL")
