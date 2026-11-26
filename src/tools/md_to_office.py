@@ -472,13 +472,37 @@ def html_segs(segs):
 # ─────────────────────────────── hlavní běh ───────────────────────────────
 
 
+CHAR_CM = 0.2      # přibližná šířka znaku písma 9,5 pt v buňce tabulky
+CELL_PAD_CM = 0.35  # vnitřní okraje buňky
+
+
 def col_widths(header, rows, total=16.0):
-    lens = []
+    """Šířky sloupců v cm: podle průměrné délky obsahu, nejméně však na
+    nejdelší nedělitelný úsek sloupce (slovo, nebo slova spojená pevnou
+    mezerou, např. „18. 12.“), aby se krátké sloupce s daty a čísly
+    nelámaly uprostřed slova („Datu-m“, „(provedeno-)“)."""
+    lens, mins = [], []
     for j in range(len(header)):
-        col = [len(header[j])] + [len(r[j]) if j < len(r) else 0 for r in rows]
-        lens.append(max(9, min(60, sum(col) / len(col))))
+        cells = [header[j]] + [r[j] if j < len(r) else "" for r in rows]
+        lens.append(max(9, min(60, sum(len(c) for c in cells) / len(cells))))
+        longest = max((len(tok) for c in cells for tok in re.split(r"[ \t]+", c.replace("**", ""))), default=0)
+        mins.append(min(4.0, longest * CHAR_CM + CELL_PAD_CM))
     s = sum(lens)
-    return [total * x / s for x in lens]
+    widths = [total * x / s for x in lens]
+    for _ in range(len(widths)):
+        short = [j for j, w in enumerate(widths) if w < mins[j] - 1e-6]
+        if not short:
+            break
+        need = sum(mins[j] - widths[j] for j in short)
+        for j in short:
+            widths[j] = mins[j]
+        donors = [j for j in range(len(widths)) if j not in short and widths[j] > mins[j]]
+        spare = sum(widths[j] - mins[j] for j in donors)
+        if spare <= 0:
+            break
+        for j in donors:
+            widths[j] -= need * (widths[j] - mins[j]) / spare
+    return widths
 
 
 def convert(src, out_dir, subtitle, pdf):

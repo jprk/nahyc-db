@@ -4,7 +4,8 @@
 > 2026-11-19 jprk Návrh první verze (podklad k vypořádání připomínek MPO k výsledku V01)  
 > 2026-11-19 jprk Doplněn stav po krocích 1 až 3, editorský přístup pro MPO, termíny nasazení  
 > 2026-11-20 jprk Konsolidovaná znění CLP a REACH, termín instalace plánovače a nouzový postup  
-> 2026-11-21 jprk Stav po nasazení 20. 11. 2026, první běh sběru a automatické předtřídění fronty kandidátů; plánovač dosud nenainstalován, kontroly se spouštějí ručně
+> 2026-11-21 jprk Stav po nasazení 20. 11. 2026, první běh sběru a automatické předtřídění fronty kandidátů; plánovač dosud nenainstalován, kontroly se spouštějí ručně  
+> 2026-11-26 jprk Stav po nasazení 26. 11. 2026: kontrola záznamů (zásada 7, odstavec 4.7), klíčová slova a oblasti katalogu, čísla ověřená nad provozní databází
 
 > **Plánovač je třeba nainstalovat do konce prosince 2026.** Dne 1. 1. 2027
 > se automaticky přepínají normy ČSN EN 13445 a ČSN EN 1717+A1 na vydání
@@ -25,9 +26,11 @@ Odstavce 1 až 9 popisují postup bez technických podrobností. Technické
 údaje (nástroje, příkazy, datové soubory a tabulky) jsou v příloze A na
 konci dokumentu.
 
-Stav popisujeme k 20. 11. 2026, kdy jsme všechny popsané úpravy nasadili do
-veřejné verze aplikace a zapsali do provozní databáze; čísla jsme ověřili
-dotazem nad provozní databází 21. 11. 2026. Od toho odlišujeme, co teprve
+Stav popisujeme k 26. 11. 2026. Popsané úpravy jsme nasadili do veřejné
+verze aplikace a zapsali do provozní databáze 20. 11. 2026 (kontrola
+platnosti, sběr zdrojů, fronta kandidátů) a 23. a 26. 11. 2026 (kontrola
+záznamů, klíčová slova a oblasti katalogu); čísla jsme ověřili dotazem nad
+provozní databází 26. 11. 2026. Od toho odlišujeme, co teprve
 zavádíme, především pravidelné automatické spouštění kontrol (plánovač),
 jež dosud nainstalováno není. Plánované stavy popisujeme budoucím časem.
 
@@ -69,7 +72,7 @@ jež dosud nainstalováno není. Plánované stavy popisujeme budoucím časem.
 | Správce | Dr. Jan Přikryl (RICE) | Spouští nebo nastavuje pravidelné kontroly, pořizuje zálohy, sleduje chyby a dostupnost zdrojů, zakládá uživatelské účty editorů. |
 | Aplikační garant (MPO) | Ing. Petr Mervart | Uplatňuje připomínky a požadavky na rozsah; určuje, kteří pracovníci MPO dostanou editorský účet; dostává čtvrtletní zprávu o úplnosti. |
 
-K 20. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
+K 26. 11. 2026 jsou v provozní databázi založeny dva aktivní uživatelské
 účty (správce a jeden editor řešitele) a neaktivní technický účet
 automatického navrhovatele (odstavec 4.4), jenž se nepřihlašuje a nic
 nepotvrzuje. <!-- OTEVŘENO bod 3: editorské účty --> Přijetí kandidáta vyžaduje dva různé editory; dva
@@ -113,7 +116,7 @@ pokrytí databáze regulačních dokumentů“, odstavec 6) a z povahy zdrojů
 novinek VeKLEPu například pokrývá jen zhruba dva týdny, a musí se proto
 číst nejméně týdně.
 
-### 3.2 Stav k 20. 11. 2026
+### 3.2 Stav k 26. 11. 2026
 
 * **Kontrola platnosti** předpisů ČR a EU je v provozu a naposledy proběhla
   27. 10. 2026 (747 předpisů ČR a EU — dokumenty databáze i kandidáti na
@@ -132,13 +135,22 @@ novinek VeKLEPu například pokrývá jen zhruba dva týdny, a musí se proto
   platností a navrženou odpovědnou institucí) a kandidáti na další části
   řad ČSN EN 60079 a ČSN EN 13445 a na novely LEX OZE jsou od 20. 11. 2026
   ve frontě kandidátů.
-* **Fronta kandidátů** je v provozu a obsahuje 592 kandidátů. Automatický
-  navrhovatel je 20. 11. 2026 předtřídil (odstavec 4.4): 242 navrhl
+* **Fronta kandidátů** je v provozu a obsahuje 597 kandidátů. Automatický
+  navrhovatel 20. 11. 2026 předtřídil 592 z nich (odstavec 4.4): 242 navrhl
   k přijetí, 163 zamítl, 46 odložil a u 140 ponechal editorům doporučení
-  jazykového modelu; jeden další kandidát byl navržen k přijetí již dříve. Přijetí žádného kandidáta dosud editor nepotvrdil;
+  jazykového modelu; jeden další kandidát byl navržen k přijetí již dříve.
+  Dne 26. 11. 2026 přibylo pět neposouzených kandidátů z porovnání pokrytí
+  tématu RFNBO s referenčním seznamem (odstavec 8). Přijetí žádného kandidáta dosud editor nepotvrdil;
   nálezy s přímým vztahem k databázi posoudí editoři do 18. 12. 2026,
   kandidáty z tabulek MPO a CDV do 11. 12. 2026 a ostatní do 15. 1. 2027.
   <!-- OTEVŘENO bod 3: editorské účty -->
+* **Kontrola záznamů** proti úředním rejstříkům a mezi sebou (odstavec 4.7)
+  proběhla nad celou databází 23. 11. 2026. Po opravách ověřených ve zdroji,
+  sloučení duplicit a vyřazení 28 aktů EU mimo rozsah vede provozní databáze
+  1432 záznamů (dříve 1506); zbylé nálezy u 36 dokumentů čekají na editory.
+* **Klíčová slova a oblasti** má od 23. a 26. 11. 2026 všech 1432 dokumentů
+  (odstavec 4.8). Oblast dosud nelze určit u 39 dokumentů; ty vedeme
+  v pracovní oblasti, jež se veřejně nezobrazuje.
 * **Pravidelné automatické spouštění** kontrol na serveru (plánovač)
   zavedeno není; kontroly, sběr i třídění fronty spouští správce ručně
   (příloha A.4). Konfigurace plánovače (denní, týdenní, měsíční
@@ -245,7 +257,53 @@ první prosincový týden 2026; po dohodě je zde upřesníme.
 Opravy údajů existujících dokumentů (název, popis, odpovědná instituce,
 typ, jazyk aj.) se schvalují stejně: jeden editor opravu navrhne, druhý ji
 potvrdí. Dokumenty s pravděpodobnou vadou údajů nesou příznak ke kontrole
-s důvodem; k 20. 11. 2026 jich je 557, převážně jde o chybějící popis.
+s důvodem; k 26. 11. 2026 jich je 524, převážně jde o chybějící popis (491).
+Dalších 36 navržených oprav předala editorům kontrola záznamů (odstavec 4.7).
+
+### 4.7 Kontrola záznamů
+
+Údaje dokumentů (označení, název, popis) kontrolujeme ve dvou vrstvách:
+
+1. **Porovnání s úředními rejstříky a vnitřní kontroly** — Akty EU
+   porovnáváme s databází Úřadu pro publikace EU (Cellar), normy ISO
+   s otevřenými daty ISO a ostatní dokumenty s autoritativním názvem ze
+   zdrojového webu; dále hledáme duplicity, useknuté názvy a úlomky řádků
+   podkladových tabulek a návrhy norem, jež ISO mezitím vydala nebo zrušila.
+2. **Posouzení jazykovým modelem** — Model dostane záznam s dostupnými
+   podklady (úřední název, anotace, začátek textu) a posoudí, zda název
+   a popis odpovídají dokumentu a jak dokument souvisí s vodíkovými
+   technologiemi. Jeho posouzení je jen podnětem pro editora.
+
+První kontrola nad celou databází proběhla 23. 11. 2026: nález mělo
+151 dokumentů, z toho 47 chyb (název nebo popis jiného dokumentu). Každou
+opravu jsme ověřili ve zdroji a zapsali do podkladů, z nichž lze databázi
+znovu sestavit; popis bez doloženého zdroje jsme odstranili. Zbylé nálezy
+jsme předali editorům jako navržené opravy údajů (odstavec 4.6). První
+vrstvu budeme spouštět po každém přijetí kandidátů a spolu s týdenní
+kontrolou platnosti, druhou po každé změně záznamů; do zavedení plánovače
+je spouští správce ručně (příloha A.4).
+
+### 4.8 Klíčová slova a oblasti
+
+Každý dokument nese klíčová slova se zřetelným původem: deskriptory tezauru
+EuroVoc, jež aktům EU přiděluje Úřad pro publikace EU (146 dokumentů),
+třídník ICS a deskriptory ČSN z katalogu České agentury pro standardizaci,
+u norem ISO bez českého převzetí třídník ICS z otevřených dat ISO
+(705 dokumentů s třídníkem ICS, 31 s deskriptory ČSN), a česká klíčová
+slova, jež jazykový model odvodí z názvu, anotace a textu dokumentu
+(1287 dokumentů). Stránka dokumentu slova odvozená modelem označuje jako
+neověřená (zásada 7). Klíčová slova prohledává i vyhledávání.
+
+Filtr „Oblast“ a štítky dokumentů ukazují 29 veřejných oblastí katalogu
+navázaných na věcné okruhy (odstavec 4.3, bod 2). Oblast určují pravidla
+podle názvu a označení dokumentu, třídy ČSN, technické komise, typu
+dokumentu a okruhů, jež editor zvolil při přijetí kandidáta. Dokument, jemuž
+pravidla oblast nepřiřadí, je v pracovní oblasti „Oblast dosud neurčena“,
+jež se veřejně nezobrazuje; k 26. 11. 2026 jich je 39.
+
+Přijatý kandidát dostane oblast ihned. Klíčová slova novým dokumentům
+doplní správce během, jenž stáhne deskriptory a třídy a odvodí klíčová
+slova modelem (příloha A.2).
 
 ## 5. Kontrola platnosti a stavy dokumentů
 
@@ -259,12 +317,14 @@ s důvodem; k 20. 11. 2026 jich je 557, převážně jde o chybějící popi
 | nahrazený | dokument nahrazený novějším vydáním (u norem a strategií) |
 | zrušený | předpis, jenž se již nepoužije |
 
-Úvodní stránka aplikace počítá jen účinné dokumenty; stránka dokumentu
+Úvodní stránka aplikace uvádí zvlášť počet aktuálně platných, připravovaných
+a historických (zrušených nebo nahrazených) dokumentů; stránka dokumentu
 uvádí stav každé jeho verze a u zrušeného předpisu vazbu „je zrušen
-předpisem“. K 20. 11. 2026 má aktuální verze 1316 dokumentů stav účinný,
-153 připravovaný (vesměs návrhy norem a dvě připravované aktualizace
-strategií), 35 zrušený a 2 nahrazený (počty zahrnují jazykové verze
-a slovenské dokumenty).
+předpisem“. K 26. 11. 2026 má aktuální verze 1281 dokumentů stav účinný,
+124 připravovaný (122 návrhů norem a dvě připravované aktualizace
+strategií), 25 zrušený a 2 nahrazený (počty zahrnují jazykové verze
+a slovenské dokumenty; veřejný katalog bez nich uvádí 825 platných,
+116 připravovaných a 26 historických).
 
 ### 5.2 Jak kontrola probíhá
 
@@ -339,7 +399,7 @@ Konsolidované znění je neúřední úplné znění aktu se všemi změnami; v
 je Úřad pro publikace EU, jenž je v databázi Cellar vede s datem, od něhož
 se použije. Databáze vede každé znění jako verzi dokumentu:
 
-* **Aktuální konsolidované znění** (ke 20. 11. 2026 u CLP znění k 1. 7. 2026,
+* **Aktuální konsolidované znění** (k 26. 11. 2026 u CLP znění k 1. 7. 2026,
   u REACH k 22. 6. 2026) je aktuální verzí ve stavu „účinný“ a jeho text se
   zobrazuje na stránce dokumentu.
 * **Původní znění** a **starší konsolidovaná znění** jsou verze ve stavu
@@ -410,10 +470,12 @@ Od 20. 11. 2026:
   editora; dokument, jenž dosud ověřen nebyl, nese text „dosud neověřeno“.
 
 Údaj se zapisuje při každém promítnutí výsledků kontrol do databáze, i když
-se stav dokumentu nezměnil, a datum se nikdy neposouvá zpět. K 20. 11. 2026
-je datum kontroly uvedeno u 233 dokumentů (databáze Úřadu pro publikace EU
-169, e-Sbírka 37, Věstník ÚNMZ 24, katalogy norem a seznamy harmonizovaných
-norem 3); ostatní, mezi nimi většina norem STN, nesou „dosud neověřeno“,
+se stav dokumentu nezměnil, a datum se nikdy neposouvá zpět; od 26. 11. 2026
+jej posouvá i obnova konsolidovaného znění aktu EU (odstavec 5.3). K 26. 11.
+2026 je datum kontroly uvedeno u 205 dokumentů (databáze Úřadu pro publikace
+EU 141, e-Sbírka 37, Věstník ÚNMZ 24, katalogy norem a seznamy
+harmonizovaných norem 3; 20. 11. 2026 to bylo 233 dokumentů, úbytek připadá
+převážně na vyřazené akty EU); ostatní, mezi nimi většina norem STN, nesou „dosud neověřeno“,
 dokud je některá kontrola neověří. Aplikační garant tak může u každého
 dokumentu ověřit, kdy a podle čeho byl naposledy zkontrolován.
 
@@ -431,8 +493,12 @@ kontrol:
    aplikace, ověřuje, že každý z 90 řádků obou tabulek je dokumentem
    databáze, kandidátem ve frontě, nebo má uveden důvod, proč dokumentem
    není (například technické komise normalizačních organizací), a že žádný
-   dokument z tabulek z databáze nezmizel. K 20. 11. 2026 je 51 řádků
-   v databázi, 31 ve frontě kandidátů a 8 řádků nejsou dokumenty.
+   dokument z tabulek z databáze nezmizel. K 26. 11. 2026 je beze změny
+   51 řádků v databázi, 31 ve frontě kandidátů a 8 řádků nejsou dokumenty.
+   Obdobně hlídá automatický test referenční seznam předpisů k obnovitelným
+   palivům nebiologického původu (RFNBO), jejichž existenci a číslo jsme
+   ověřili v databázi Úřadu pro publikace EU; pět chybějících aktů jsme
+   26. 11. 2026 zapsali do fronty kandidátů.
 2. **Uzávěr citací** — Předpisy citované v textech dokumentů databáze, jež
    databáze neobsahuje; nejčastěji citované se stávají kandidáty.
 3. **Porovnání s registry** — U směrnic EU seznam českých prováděcích
@@ -500,6 +566,9 @@ volba `--env-file`).
 | `ReviewItem` | navržené opravy údajů (podmínka `chk_ri_distinct_reviewers`) |
 | `User`, `AuditLog` | účty editorů a záznam rozhodnutí |
 | `DocumentStateChange` | navržené změny stavu připravovaných dokumentů (podmínka `chk_dsc_distinct_reviewers`) |
+| `Term`, `DocumentTerm` | klíčová slova (původ `eurovoc`, `ics`, `cas`, `model`) a jejich vazby na dokumenty (od 26. 11. 2026) |
+| `Area`, `DocumentArea` | oblasti katalogu (`Area.public = 0` u pracovní oblasti) a jejich vazby na dokumenty (od 26. 11. 2026) |
+| `SourceCategory`, `DocumentSourceCategory` | kategorie převzaté ze zdrojových rešerší (do 26. 11. 2026 `Keyword`, `DocumentKeyword`); prohledávají se, ve filtru je nahradily oblasti |
 
 Sloupec `Document.provenance` nese původ záznamu a veřejně se nezobrazuje.
 Od 20. 11. 2026 jsou v provozu sloupce `Document.eu_act_subtype`
@@ -529,6 +598,13 @@ Zálohy: `backups/h2regdocs_<datum>_<čas>_<důvod>.sql.gz` (mimo git).
 | `backfill_eu_act_subtype.py --apply` | podtyp aktů EU (`Document.eu_act_subtype`) v existující databázi | jednorázově (provedeno 20. 11. 2026) |
 | `harvest_sources.py --checklist`, `--record <zdroj> --note … --found N` | seznam ručně kontrolovaných zdrojů a záznam ruční kontroly | čtvrtletně |
 | `check_sources.py --apply` | kontrola dostupnosti adres registru | měsíčně |
+| `check_records.py` | kontrola záznamů, vrstva 1: Cellar, otevřená data ISO, vnitřní kontroly → `data/record_checks.json` (jen čte) | po přijetí kandidátů a týdně |
+| `check_records_model.py [--run]` | kontrola záznamů, vrstva 2: posouzení modelem (bez `--run` jen odhad ceny, mezipaměť podle obsahu záznamu) → `data/record_checks_model.json` | po změně záznamů |
+| `review_findings.py --apply` | nálezy kontroly záznamů jako navržené opravy (`ReviewItem`) pro editory | po kontrole záznamů |
+| `fetch_eurovoc.py`, `fetch_ics.py`, `extract_keywords.py --run` | deskriptory EuroVoc z Cellaru, třídy ICS a deskriptory ČSN z katalogu ČAS a otevřených dat ISO, klíčová slova modelem → `data/eurovoc_cache.json`, `data/ics_cache.json`, `data/keyword_model_cache.json` | po přijetí nových dokumentů |
+| `document_terms.py --apply` | klíčová slova z mezipamětí do `Term` a `DocumentTerm` | po předchozím řádku a po přestavbě databáze |
+| `assign_areas.py --apply [--uncertain]` | oblasti katalogu podle `data/areas.json` do `DocumentArea`; `--uncertain` vypíše dokumenty bez oblasti | po změně pravidel a po přestavbě databáze |
+| `import_listed_candidates.py <soubor> --apply` | kandidáti ze seznamu (například `data/rfnbo_candidates.json`) do fronty kandidátů | jednorázově (provedeno 26. 11. 2026) |
 
 Registr zdrojů: `data/monitored_sources.json` (popis v `doc/DATA_SOURCES.md`);
 záznam běhů a ručních kontrol
@@ -564,7 +640,8 @@ cd /home/laborator/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/import_candidates.py --apply
 .venv/bin/python src/tools/harvest_sources.py --cadence weekly --apply
 .venv/bin/python src/tools/triage_candidates.py --apply
-.venv/bin/python src/tools/backfill_document_states.py --apply           # stavy a data kontrol
+.venv/bin/python src/tools/backfill_document_states.py --apply  # stavy a data kontrol
+.venv/bin/python src/tools/check_records.py                 # kontrola záznamů, jen čte
 ```
 
 První den každého měsíce (do zavedení plánovače) navíc promítnutí stavů,
@@ -586,4 +663,6 @@ Související dokumenty: `doc/DATABASE_SCOPE.md` (rozsah, stavy, četnost),
 `doc/CITATION_CLOSURE.md` (uzávěr citací), `doc/DATA_SOURCES.md` (registr
 zdrojů a plán vytěžování; postup prvního ostrého běhu a návrh plánovače
 v odstavci 8.17), `doc/MPO_TABULKY.md` (tabulky MPO a CDV jako zlatá sada),
-`doc/MPO_VYPORADANI.md` (vypořádání připomínek MPO).
+`doc/MPO_VYPORADANI.md` (vypořádání připomínek MPO), `doc/KONTROLA_ZAZNAMU.md`
+(kontrola záznamů), `doc/KLICOVA_SLOVA.md` (klíčová slova), `doc/OBLASTI.md`
+(oblasti katalogu), `doc/RFNBO_POKRYTI.md` (pokrytí tématu RFNBO).
