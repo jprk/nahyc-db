@@ -50,22 +50,52 @@ import vocabulary  # noqa: E402  (src/tools, on sys.path through admin.py)
 app.register_blueprint(admin_bp, url_prefix="/admin")
 
 
+def read_git_head(repo_root):
+    """The short commit hash (and branch) of the working tree, read from the files
+    of .git without running git — for a web server whose user may not run git in a
+    repository it does not own ("dubious ownership"). A worktree's .git is a file
+    pointing to its git directory. None when there is no repository."""
+    git = pathlib.Path(repo_root) / ".git"
+    try:
+        if git.is_file():
+            git = (git.parent / git.read_text(encoding="utf-8").split(":", 1)[1].strip()).resolve()
+        head = (git / "HEAD").read_text(encoding="utf-8").strip()
+        if not head.startswith("ref:"):
+            return head[:7]
+        ref = head.split(":", 1)[1].strip()
+        common = git
+        if (git / "commondir").is_file():
+            common = (git / (git / "commondir").read_text(encoding="utf-8").strip()).resolve()
+        for base in (git, common):
+            if (base / ref).is_file():
+                return f"{(base / ref).read_text(encoding='utf-8').strip()[:7]} ({ref.removeprefix('refs/heads/')})"
+        packed = common / "packed-refs"
+        if packed.is_file():
+            for line in packed.read_text(encoding="utf-8").splitlines():
+                if line.endswith(" " + ref):
+                    return f"{line[:7]} ({ref.removeprefix('refs/heads/')})"
+    except (OSError, IndexError):
+        return None
+    return None
+
+
 def get_git_version():
-    """Best-effort short description of the running app's own git
-    revision (e.g. "e69e637" or "e69e637-dirty") — shown in the footer so
-    it's clear which deployed code is actually live. Computed once at
-    import time (a running process doesn't change git revision under
-    itself) rather than per-request. Never raises: git not installed, or
-    a deployment that shipped without the .git directory (an exported
-    zip, not this repo's own `zip/v01/` archive) just means it isn't
-    shown — not a startup failure."""
+    """Short description of the running app's own git revision (e.g.
+    "e69e637" or "e69e637-dirty") — shown in the footer so it's clear which
+    deployed code is actually live. Computed once at import time (a running
+    process doesn't change git revision under itself). git runs with the working
+    tree marked safe, since the web server's user is often not its owner; when git
+    cannot run at all, the commit is read from the files of .git
+    (read_git_head()). Never raises — no repository just means it isn't shown."""
     try:
         result = subprocess.run(
-            ["git", "describe", "--tags", "--always", "--dirty"],
+            ["git", "-c", f"safe.directory={REPO_ROOT}", "describe", "--tags", "--always", "--dirty"],
             cwd=REPO_ROOT, capture_output=True, text=True, timeout=5, check=True)
-        return result.stdout.strip() or None
+        if result.stdout.strip():
+            return result.stdout.strip()
     except (subprocess.SubprocessError, OSError):
-        return None
+        pass
+    return read_git_head(REPO_ROOT)
 
 
 GIT_VERSION = get_git_version()
@@ -119,7 +149,15 @@ def inject_footer_info():
     return {
         "git_version": GIT_VERSION,
         "db_last_updated": get_db_last_updated(get_db()),
+        "test_instance": is_test_instance(),
     }
+
+
+def is_test_instance():
+    """doc/NASAZENI.md, odstavec 4.5: the development server nahyc.fd.cvut.cz shows a
+    copy of production and says so (`H2DB_INSTANCE=test` in its .env); production
+    leaves the variable out."""
+    return os.environ.get("H2DB_INSTANCE", "").strip().lower() == "test"
 
 # doc/MPO_PRIPOMINKY.md, krok 2: an English (or other) language variant of an
 # act is its own Document linked to the original by TRANSLATION_OF (variant ->

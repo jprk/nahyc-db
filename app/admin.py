@@ -35,12 +35,13 @@ from werkzeug.security import check_password_hash
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src" / "tools"))
+import state_paths  # noqa: E402
 from init_db import is_garbled_znacka, is_fragment_title  # noqa: E402
 from candidates import AUTOMAT_USERNAME  # noqa: E402
 
 admin_bp = Blueprint("admin", __name__)
 
-MANUAL_CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
+MANUAL_CORRECTIONS_PATH = state_paths.data_file("manual_corrections.json")
 
 
 def get_db():

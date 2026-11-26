@@ -28,10 +28,11 @@ data/manual_corrections.json (app/drafts_admin.py replaced_strategies()).
 """
 import json
 import pathlib
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-MANUAL_CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
-EDITOR_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_editor.json"
+MANUAL_CORRECTIONS_PATH = state_paths.data_file("manual_corrections.json")
+EDITOR_RELATIONS_PATH = state_paths.data_file("document_relations_editor.json")
 
 MODES = {"self": "dokument se stal vyhlášeným předpisem",
          "act": "vyhlášený předpis je v databázi jako jiný dokument"}

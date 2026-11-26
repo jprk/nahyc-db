@@ -2,6 +2,7 @@ import json
 import pathlib
 import re
 import sys
+import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
@@ -19,7 +20,7 @@ from language_variants import EN_SUFFIX, row_language  # noqa: E402
 SITE_METADATA_CACHE_PATH = REPO_ROOT / "data" / "site_metadata_cache.json"
 SYNTHESIZED_SUMMARIES_PATH = REPO_ROOT / "data" / "synthesized_summaries.json"
 EU_TRANSPOSITION_CACHE_PATH = REPO_ROOT / "data" / "eu_transposition_cache.json"
-MANUAL_CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
+MANUAL_CORRECTIONS_PATH = state_paths.data_file("manual_corrections.json")
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -1203,7 +1204,7 @@ def build_unified_db():
     # keyed by candidate key in data/accepted_candidates.json, which the confirmation
     # appends to — the document exists in the live database at once and survives a
     # rebuild through this file.
-    file_accepted_candidates = base_dir / "accepted_candidates.json"
+    file_accepted_candidates = state_paths.data_file("accepted_candidates.json")
     if file_accepted_candidates.exists():
         accepted = list(load_json(file_accepted_candidates).values())
         unified_db.extend(accepted)

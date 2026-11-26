@@ -6,6 +6,15 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
+- **Příprava nasazení na produkční server (PR #35, `doc/NASAZENI.md`).** Soubory, které se mění za provozu (opravy a
+  rozhodnutí editorů, mezipaměti plánovače, manifest plných textů), aplikace a skripty nově hledají v adresáři
+  z `.env` (`H2DB_STATE_DIR`, `src/tools/state_paths.py`), na produkci tedy mimo pracovní strom gitu. Nástroj
+  `transfer_bundle.py` přenese databázi a stavové soubory jako ověřený balík (kontrolní součty, počty řádků,
+  záloha cílové databáze); skripty v `deploy/production/` jej stáhnou na produkci a jednou týdně pošlou kopii
+  produkce na testovací web `nahyc.fd.cvut.cz/h2db`. Přenos jsme vyzkoušeli z provozní do testovací databáze.
+- **Verze webu a označení testovací verze (PR #35).** Patička uvádí „Verze webu (git)“ i tehdy, když proces webového serveru
+  git spustit nesmí (commit čteme přímo ze souborů `.git`). Server s `H2DB_INSTANCE=test` v `.env` ukazuje na úvodní
+  stránce a v patičce upozornění „Testovací verze“ s odkazem na produkční web (`doc/NASAZENI.md`, odstavec 4.5).
 - **Potvrzení kandidáta nekončí chybou serveru (PR #34).** První přijatý kandidát (vyhláška č. 146/2024 Sb.)
   skončil chybou 500, ačkoli se přijetí do databáze zapsalo: webový server neměl právo zapsat soubor
   `data/accepted_candidates.json`, z něhož se databáze obnovuje při přestavbě. Webovému serveru jsme

@@ -36,12 +36,13 @@ import re
 
 import candidates as cd
 import citation_closure as cc
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-LOG_PATH = REPO_ROOT / "data" / "source_checks.jsonl"
-VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
-NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
-NOT_IMPORTED_PATH = REPO_ROOT / "data" / "harvest_not_imported.json"
+LOG_PATH = state_paths.data_file("source_checks.jsonl")
+VALIDITY_CACHE_PATH = state_paths.data_file("validity_cache.json")
+NORM_CACHE_PATH = state_paths.data_file("norm_validity_cache.json")
+NOT_IMPORTED_PATH = state_paths.data_file("harvest_not_imported.json")
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-harvest/1.0; +research use, low-volume)"
 QUEUED_SIGNALS = ("new_document", "draft", "amendment")
 # The type of a proposed act or an amendment whose source does not give it, read from the

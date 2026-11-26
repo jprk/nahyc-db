@@ -62,9 +62,11 @@ def split_modules(tests_dir=TESTS_DIR):
 
 def session_env(target_env):
     """The process environment for every test child: the test database's
-    settings win over anything the application would read from `.env`."""
+    settings win over anything the application would read from `.env`. The files
+    that change in operation stay in data/ (state_paths.py): an empty
+    H2DB_STATE_DIR keeps a test from writing to a production state directory."""
     import os
-    return {**os.environ, **{k: str(v) for k, v in target_env.items() if v is not None}}
+    return {**os.environ, **{k: str(v) for k, v in target_env.items() if v is not None}, "H2DB_STATE_DIR": ""}
 
 
 SHOT_ROOT = REPO_ROOT / "data" / "test_screenshots"

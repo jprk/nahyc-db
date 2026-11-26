@@ -40,11 +40,12 @@ import datetime
 import json
 import pathlib
 import re
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = REPO_ROOT / "data" / "eu_consolidated_acts.json"
-CACHE_PATH = REPO_ROOT / "data" / "eu_consolidation_cache.json"
-MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+CACHE_PATH = state_paths.data_file("eu_consolidation_cache.json")
+MANIFEST_PATH = state_paths.data_file("fulltext_manifest.json")
 
 FIELD_PREFIX = "konsolidace_"
 ORIGINAL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")

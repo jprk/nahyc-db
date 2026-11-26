@@ -33,11 +33,12 @@ import json
 import pathlib
 
 import citation_closure as cc
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
-NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
-CONSOLIDATION_CACHE_PATH = REPO_ROOT / "data" / "eu_consolidation_cache.json"
+VALIDITY_CACHE_PATH = state_paths.data_file("validity_cache.json")
+NORM_CACHE_PATH = state_paths.data_file("norm_validity_cache.json")
+CONSOLIDATION_CACHE_PATH = state_paths.data_file("eu_consolidation_cache.json")
 
 SOURCE_LABELS = {
     "e-sbirka": "e-Sbírka",

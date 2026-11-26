@@ -32,9 +32,10 @@ import time
 import requests
 
 import citation_closure as cc
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
+CACHE_PATH = state_paths.data_file("validity_cache.json")
 USER_AGENT = "Mozilla/5.0 (compatible; NAHYC-DP004-validity/1.0; +research use, low-volume)"
 
 CELLAR = "http://publications.europa.eu/webapi/rdf/sparql"

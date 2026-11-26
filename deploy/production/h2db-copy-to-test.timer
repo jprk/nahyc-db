@@ -1,0 +1,11 @@
+# Týdně v neděli ve 3:30 (po týdenním sběru zdrojů, doc/NASAZENI.md, odstavec 6).
+[Unit]
+Description=NAHYC H2DB: týdenní kopie produkce na testovací web
+
+[Timer]
+OnCalendar=Sun *-*-* 03:30
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target
