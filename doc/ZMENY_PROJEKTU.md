@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
-- **Potvrzení kandidáta nekončí chybou serveru (PR #NN).** První přijatý kandidát (vyhláška č. 146/2024 Sb.)
+- **Potvrzení kandidáta nekončí chybou serveru (PR #34).** První přijatý kandidát (vyhláška č. 146/2024 Sb.)
   skončil chybou 500, ačkoli se přijetí do databáze zapsalo: webový server neměl právo zapsat soubor
   `data/accepted_candidates.json`, z něhož se databáze obnovuje při přestavbě. Webovému serveru jsme
   povolili zápis do čtyř souborů, které editorské akce mění, a chybějící záznam jsme doplnili. Aplikace
