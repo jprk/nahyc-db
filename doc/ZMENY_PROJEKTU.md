@@ -6,6 +6,9 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
+- **Testovací web označen jako testovací verze.** Na `nahyc.fd.cvut.cz/h2db` platí `H2DB_INSTANCE=test`, úvodní
+  stránka a patička ukazují upozornění „Testovací verze“. Do `doc/NASAZENI.md` (odstavec 4.5) jsme doplnili, že
+  po každé změně `.env` je nutné aplikaci znovu načíst (`touch wsgi.py`).
 - **Příprava nasazení na produkční server (PR #35, `doc/NASAZENI.md`).** Soubory, které se mění za provozu (opravy a
   rozhodnutí editorů, mezipaměti plánovače, manifest plných textů), aplikace a skripty nově hledají v adresáři
   z `.env` (`H2DB_STATE_DIR`, `src/tools/state_paths.py`), na produkci tedy mimo pracovní strom gitu. Nástroj
