@@ -7,7 +7,7 @@
         <h1 class="hero-title">Předpisy a normy <br> pro <span class="text-gradient">vodíkové technologie</span> <br> pro mobilitu a energetiku</h1>
         <p class="hero-subtitle">Prohledejte {{ total_document_count }} národních i mezinárodních regulačních předpisů, zákonů a norem
             souvisejících s výstavbou, instalací a provozem.</p>
-        <p class="hero-note">Z toho {{ active_document_count }} aktuálně platných a {{ inactive_document_count }} historických.</p>
+        <p class="hero-note">Z toho {{ active_document_count }} aktuálně platných, {{ upcoming_document_count }} připravovaných a {{ inactive_document_count }} historických (zrušených nebo nahrazených).</p>
     </div>
 </section>
 
@@ -15,10 +15,12 @@
     <form class="search-glass-panel" method="GET" action="{{ url_for('index') }}">
 
         <div class="search-main-input-wrapper">
-            <i class="ph ph-magnifying-glass search-icon"></i>
-            <input type="text" name="q" class="search-input"
-                placeholder="Hledat v názvu, popisu nebo označení... (např. Energetický zákon, RFNBO)"
-                value="{{ request.args.get('q', '') }}">
+            <div class="search-field">
+                <i class="ph ph-magnifying-glass search-icon"></i>
+                <input type="text" name="q" class="search-input"
+                    placeholder="Hledat v názvu, popisu nebo označení... (např. Energetický zákon, RFNBO)"
+                    value="{{ request.args.get('q', '') }}">
+            </div>
             <button type="submit" class="btn-primary">Vyhledat <i class="ph ph-arrow-right"></i></button>
         </div>
 
@@ -66,14 +68,26 @@
             </div>
 
             <div class="filter-group">
-                <label>Oblast (Klíčové slovo)</label>
-                <select name="keyword_id" class="filter-select" onchange="this.form.submit()">
+                {% if areas_mode %}
+                {# doc/OBLASTI.md: a few dozen Czech areas instead of the source categories #}
+                <label for="filter-oblast">Oblast</label>
+                <select name="oblast" id="filter-oblast" class="filter-select" onchange="this.form.submit()">
                     <option value="">-- Všechny oblasti --</option>
-                    {% for k in keywords %}
-                    <option value="{{ k.id }}" {% if request.args.get('keyword_id')==k.id|string %}selected{% endif %}>
-                        {{ k.keyword }}</option>
+                    {% for a in areas %}
+                    <option value="{{ a.code }}" {% if request.args.get('oblast')==a.code %}selected{% endif %}>{{ a.name }}</option>
                     {% endfor %}
                 </select>
+                {% else %}
+                {# without areas: the categories of the source surveys (SourceCategory) #}
+                <label for="filter-category">Kategorie zdrojové rešerše</label>
+                <select name="category_id" id="filter-category" class="filter-select" onchange="this.form.submit()">
+                    <option value="">-- Všechny kategorie --</option>
+                    {% for c in categories %}
+                    <option value="{{ c.id }}" {% if request.args.get('category_id')==c.id|string %}selected{% endif %}>
+                        {{ c.name }}</option>
+                    {% endfor %}
+                </select>
+                {% endif %}
             </div>
 
             {% if logged_in %}

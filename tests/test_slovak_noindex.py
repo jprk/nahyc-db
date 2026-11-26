@@ -88,7 +88,7 @@ class NoindexPagesTestCase(unittest.TestCase):
         response.close()
 
     def test_document_page_of_a_slovak_document(self):
-        detail = {"document": {**SLOVAK, "id": 1}, "keywords": [], "versions": [], "relations": [],
+        detail = {"document": {**SLOVAK, "id": 1}, "tags": [], "versions": [], "relations": [],
                   "process_nodes": []}
         with mock.patch.object(webapp, "get_db", return_value=fake_db(None)), \
                 mock.patch.object(webapp, "fetch_document_detail", return_value=detail), \

@@ -25,7 +25,9 @@ FULLTEXT_MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
 INCOMPLETE_RECORDS_QUEUE_PATH = REPO_ROOT / "data" / "incomplete_records_review_queue.json"
 
 # Truncation order respects FK dependencies (children before parents).
-TRUNCATE_ORDER = ["DocumentKeyword", "DocumentVersion", "Document", "Keyword",
+# DocumentSourceCategory/SourceCategory: the categories of the source surveys (vocabulary.py;
+# called DocumentKeyword/Keyword until migrate_vocabulary.py).
+TRUNCATE_ORDER = ["DocumentSourceCategory", "DocumentVersion", "Document", "SourceCategory",
                   "DocumentSource", "DocumentType"]
 
 # A purely-numeric (or blank) typ_dokumentu is leaked category-id junk —
@@ -75,6 +77,12 @@ def reset_tables(cursor):
     cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
     for table in TRUNCATE_ORDER:
         cursor.execute(f"TRUNCATE TABLE {table}")
+    # doc/KLICOVA_SLOVA.md: the keywords point at document ids, which a rebuild reassigns;
+    # document_terms.py --apply loads them again from the caches under data/
+    for table in ("DocumentTerm", "Term"):
+        cursor.execute(f"SHOW TABLES LIKE '{table}'")
+        if cursor.fetchone():
+            cursor.execute(f"TRUNCATE TABLE {table}")
     cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
 
 
@@ -255,14 +263,67 @@ def resolve_title(item):
     return title
 
 
+# doc/MPO_OVERENI_WEBU.md Z3, 2026-11-21: the Sinay standards spreadsheet fills
+# the annotation of a standard not yet published with a German "not available yet"
+# note (misspelt "noch nocht vorhanden" in the source) or a bare dash; shown on the
+# web as the document's description. Not a description at all.
+_PLACEHOLDER_DESCRIPTION_RE = re.compile(r"^(?:-+|noch n[io]ch?t vorhanden\.?)$", re.IGNORECASE)
+
+
+def is_placeholder_description(text):
+    """True for an annotation that only says there is none (see above)."""
+    return bool(_PLACEHOLDER_DESCRIPTION_RE.match((text or "").strip()))
+
+
 def resolve_description(item):
     """doc/PLAN.md §8: prefers the verified authoritative description
     (popis_autoritativni) over the spreadsheet-derived anotace_poznamka —
-    same reasoning as resolve_title() above."""
+    same reasoning as resolve_title() above. A placeholder annotation
+    (is_placeholder_description()) counts as none."""
     description = (item.get("popis_autoritativni") or "").strip()
     if description:
         return description
-    return (item.get("anotace_poznamka") or "").strip()
+    description = (item.get("anotace_poznamka") or "").strip()
+    return "" if is_placeholder_description(description) else description
+
+
+# doc/MPO_OVERENI_WEBU.md Z3, 2026-11-21: the Sinay standards spreadsheet's
+# "Platnost" of a DIN/ISO standard is the standards body's stage stamp in German and
+# Slovak ("Veröffentlicht-Publikovaný / 2021-12", "Entwurf-Návrh",
+# "Arbeitsdokument (Work Item)-Pracovný dokument (pracovná položka) / 2023-03"),
+# which the web showed verbatim under "Platnost od". The stamp still decides the
+# lifecycle state (classify_lifecycle_state() reads the raw text); the stored
+# effective date keeps only what the stamp says about it: the month of publication
+# of a published standard ("od 12/2021", the form the rest of the corpus uses),
+# nothing for a draft or a work item (its date is the date of the stage, not of
+# effect) or for a stamp without a date.
+_STAGE_STAMP_RE = re.compile(
+    r"^(?P<stage>(?:vorläufiges )?Arbeitsdokument|Entwurf|Veröffentlicht)\b[^/]*"
+    r"(?:/\s*(?P<year>\d{4})-(?P<month>\d{2}))?\s*$",
+    re.IGNORECASE)
+
+
+def normalize_effective_date(platnost):
+    """The `effective_date` to store for a record's `platnost` (see above);
+    any other text is returned stripped, unchanged."""
+    text = (platnost or "").strip()
+    m = _STAGE_STAMP_RE.match(text)
+    if not m:
+        return text
+    if m.group("stage").lower() == "veröffentlicht" and m.group("year"):
+        return f"od {m.group('month')}/{m.group('year')}"
+    return ""
+
+
+# doc/MPO_OVERENI_WEBU.md Z3: the Slovak list of STN standards (parse_sinay_norms.py)
+# carries a dated stage note ("Stav k 02/2025: v príprave") in the column that
+# becomes a keyword; a dated status is not a keyword.
+_STATUS_KEYWORD_RE = re.compile(r"^Stav k \d{1,2}/\d{4}\s*:", re.IGNORECASE)
+
+
+def is_status_keyword(keyword):
+    """True for a dated stage note that must not become a keyword (see above)."""
+    return bool(_STATUS_KEYWORD_RE.match((keyword or "").strip()))
 
 
 def resolve_url(item):
@@ -437,7 +498,7 @@ def resolve_document_versions(item):
     return [
         {"version": i,
          "edition_label": v.get("edition_label") or None,
-         "effective_date": v.get("effective_date") or None,
+         "effective_date": normalize_effective_date(v.get("effective_date")) or None,
          "is_current": bool(v.get("is_current")),
          "lifecycle_state": classify_lifecycle_state(
              v.get("effective_date") or "", bool(v.get("is_current")))}
@@ -459,7 +520,7 @@ def prepare_document(cursor, item, seen_identifiers, gestor_jurisdiction_map, eu
         return None
 
     doc_type = resolve_document_type(item.get("typ_dokumentu", ""))
-    effective_date = item.get("platnost", "").strip()
+    effective_date = normalize_effective_date(item.get("platnost", ""))
     url = resolve_url(item)
 
     description = resolve_description(item)
@@ -641,12 +702,12 @@ def import_json_data(db_conn):
             klicova_slova.append(kategorie)
 
         for kw in klicova_slova:
-            if isinstance(kw, str) and kw.strip():
-                kw_id = get_or_create(cursor, "Keyword", {"keyword": kw.strip()})
+            if isinstance(kw, str) and kw.strip() and not is_status_keyword(kw):
+                category_id = get_or_create(cursor, "SourceCategory", {"name": kw.strip()})
                 try:
                     cursor.execute(
-                        "INSERT INTO DocumentKeyword (document_id, keyword_id) VALUES (%s, %s)",
-                        (doc_id, kw_id))
+                        "INSERT INTO DocumentSourceCategory (document_id, category_id) VALUES (%s, %s)",
+                        (doc_id, category_id))
                 except pymysql.err.IntegrityError:
                     pass
 
@@ -695,6 +756,10 @@ def import_json_data(db_conn):
 if __name__ == "__main__":
     conn = get_connection()
 
+    # a database from before the renaming of Keyword and DocumentTerm (vocabulary.py)
+    import migrate_vocabulary
+    for line in migrate_vocabulary.migrate(conn, apply=True)[-1:]:
+        print(f"migrate_vocabulary: {line}")
     reset_tables(conn.cursor())
     conn.commit()
 
@@ -706,8 +771,8 @@ if __name__ == "__main__":
     print(f"Total Documents: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM DocumentSource")
     print(f"Unique Sources: {c.fetchone()[0]}")
-    c.execute("SELECT COUNT(*) FROM Keyword")
-    print(f"Unique Keywords extracted from filenames: {c.fetchone()[0]}")
+    c.execute("SELECT COUNT(*) FROM SourceCategory")
+    print(f"Source categories (SourceCategory): {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM DocumentVersion")
     print(f"Document versions: {c.fetchone()[0]}")
     c.execute("SELECT COUNT(*) FROM Document WHERE identifier IS NOT NULL")

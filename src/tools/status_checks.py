@@ -9,6 +9,12 @@ write one entry per checked document into two caches, each with `checked_at` and
 * data/norm_validity_cache.json — standards (`NORM:…`; ČSN online, Normoff,
   Věstník ÚNMZ, the Commission's lists of harmonised standards).
 
+The consolidated versions of the EU acts kept up to date by
+refresh_eu_consolidations.py (CLP, REACH; data/eu_consolidation_cache.json) are a
+check of the act in Cellar too: their `checked_at` counts as a check of
+EUR-Lex (Cellar) (doc/MPO_OVERENI_WEBU.md Z5: CLP showed the date of the last
+validity check, 27. 10., although its consolidations were renewed on 20. 11.).
+
 data/source_checks.jsonl logs runs of sources, not documents, so it is not read
 here: a run that checked a document has already written that document's entry.
 
@@ -31,6 +37,7 @@ import citation_closure as cc
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
 NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
+CONSOLIDATION_CACHE_PATH = REPO_ROOT / "data" / "eu_consolidation_cache.json"
 
 SOURCE_LABELS = {
     "e-sbirka": "e-Sbírka",
@@ -51,9 +58,34 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
-def load_caches(validity_path=None, norm_path=None):
-    """Both caches merged into one {key: entry} (their keys never overlap)."""
-    return {**load(validity_path or VALIDITY_CACHE_PATH), **load(norm_path or NORM_CACHE_PATH)}
+def merge_consolidation_checks(cache, consolidations):
+    """Adds the checks of the consolidated versions (`consolidations` = the content of
+    data/eu_consolidation_cache.json, {celex: {identifier, checked_at, …}}) to
+    `cache` (in place): the act's validity entry gets the newer `checked_at`, with the
+    source `cellar`; an act without one gets an entry of its own. Returns `cache`."""
+    for entry in consolidations.values():
+        checked = (entry.get("checked_at") or "")[:10]
+        if not checked or not entry.get("identifier"):
+            continue
+        for key in cc.own_keys(entry["identifier"], None):
+            known = cache.get(key) or {}
+            if (known.get("checked_at") or "")[:10] >= checked:
+                continue
+            status = known.get("status")
+            cache[key] = {**known, "checked_at": checked, "source": "cellar",
+                          "status": status if status not in INCONCLUSIVE else "konsolidované znění"}
+    return cache
+
+
+def load_caches(validity_path=None, norm_path=None, consolidation_path=None, consolidations=None):
+    """Both caches merged into one {key: entry} (their keys never overlap), with the
+    checks of the consolidated versions (merge_consolidation_checks(); `consolidations`
+    replaces the file, refresh_eu_consolidations.py passes the cache it has just
+    refreshed)."""
+    cache = {**load(validity_path or VALIDITY_CACHE_PATH), **load(norm_path or NORM_CACHE_PATH)}
+    if consolidations is None:
+        consolidations = load(consolidation_path or CONSOLIDATION_CACHE_PATH)
+    return merge_consolidation_checks(cache, consolidations)
 
 
 def keys_of(identifier, title):

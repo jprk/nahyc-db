@@ -40,8 +40,8 @@ TESTS_DIR = REPO_ROOT / "tests"
 E2E_DIR = TESTS_DIR / "e2e"
 
 # Test modules that need a live database; every other tests/test_*.py is a unit test.
-INTEGRATION_MODULES = ("test_admin", "test_search", "test_candidates_admin", "test_mpo_golden",
-                       "test_drafts_admin", "test_triage_db")
+INTEGRATION_MODULES = ("test_admin", "test_search", "test_candidates_admin", "test_mpo_golden", "test_golden_rfnbo",
+                       "test_drafts_admin", "test_triage_db", "test_migrate_vocabulary_db")
 
 SMOKE_PAGES = ("/", "/procesy", "/export/csv", "/admin/login")
 
@@ -49,7 +49,8 @@ SMOKE_PAGES = ("/", "/procesy", "/export/csv", "/admin/login")
 # it) may not have yet; each is idempotent and is applied to the TEST database
 # after the refresh (`--apply --quiet --env-file <test env>`). Remove an entry
 # once the live database has been migrated.
-TEST_DB_MIGRATIONS = ("backfill_eu_act_subtype.py",)
+# migrate_vocabulary.py goes before assign_areas.py, which reads the source categories.
+TEST_DB_MIGRATIONS = ("backfill_eu_act_subtype.py", "migrate_vocabulary.py", "assign_areas.py")
 
 
 def split_modules(tests_dir=TESTS_DIR):

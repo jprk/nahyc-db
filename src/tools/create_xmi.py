@@ -16,8 +16,11 @@ classes = {
     "DocumentVersion": [("id", "Integer"), ("document_id", "Integer"), ("version", "Integer"), ("file_path", "String"),
                         ("change_log", "String"), ("created_at", "DateTime")],
     "DocumentType": [("id", "Integer"), ("name", "String"), ("description", "String")],
-    "Keyword": [("id", "Integer"), ("keyword", "String")],
-    "DocumentKeyword": [("document_id", "Integer"), ("keyword_id", "Integer")],
+    "SourceCategory": [("id", "Integer"), ("name", "String")],
+    "DocumentSourceCategory": [("document_id", "Integer"), ("category_id", "Integer")],
+    "Term": [("id", "Integer"), ("origin", "String"), ("code", "String"), ("term", "String"),
+             ("term_en", "String"), ("term_key", "String"), ("term_norm", "String")],
+    "DocumentTerm": [("document_id", "Integer"), ("term_id", "Integer"), ("position", "Integer")],
     "DocumentSource": [("id", "Integer"), ("name", "String")]
 }
 
@@ -32,8 +35,10 @@ for class_name, attributes in classes.items():
 relations = [
     ("DocumentVersion", "Document", "document_id", "1", "M"),
     ("Document", "DocumentType", "type_id", "M", "1"),
-    ("DocumentKeyword", "Document", "document_id", "M", "1"),
-    ("DocumentKeyword", "Keyword", "keyword_id", "M", "1"),
+    ("DocumentSourceCategory", "Document", "document_id", "M", "1"),
+    ("DocumentSourceCategory", "SourceCategory", "category_id", "M", "1"),
+    ("DocumentTerm", "Document", "document_id", "M", "1"),
+    ("DocumentTerm", "Term", "term_id", "M", "1"),
     ("Document", "DocumentSource", "source", "M", "1")
 ]
 

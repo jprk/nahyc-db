@@ -426,6 +426,14 @@ def correction_key(record):
     return url_or_znacka_designation(record, "odkaz_hlavni") or title_designation(record.get("nazev_cz"))
 
 
+SOURCE_SEPARATOR = " @"
+
+
+def source_qualified_key(key, record):
+    """The correction key naming the record of one source: "ASTM F1624-12 @Sinay_Normy"."""
+    return f"{key}{SOURCE_SEPARATOR}{record.get('zdroj_dat')}" if key and record.get("zdroj_dat") else None
+
+
 def correction_entry(record, corrections):
     """(key, entry) of the correction that applies to `record`, or (key, None).
     The English row of an act listed in Czech and in English shares the Czech
@@ -434,6 +442,12 @@ def correction_entry(record, corrections):
     is what the admin app records) applies to the English row instead of the
     one keyed by the znacka."""
     key = correction_key(record)
+    # two sources can list one standard under one znacka; the rebuild keeps both
+    # (the second without an identifier) — "<znacka> @<zdroj_dat>" names one of them
+    # (doc/KONTROLA_ZAZNAMU.md, 2026-11-23)
+    qualified = source_qualified_key(key, record)
+    if qualified in corrections:
+        return qualified, corrections[qualified]
     if key and not key.endswith(EN_SUFFIX) and row_language(record) == "EN":
         english = corrections.get(key + EN_SUFFIX)
         if english:

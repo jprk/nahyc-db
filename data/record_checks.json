@@ -1,0 +1,302 @@
+{
+ "checked_at": "2026-11-23",
+ "documents": 1432,
+ "counts": {
+  "warning:iso_not_found": 3,
+  "warning:title_fragment": 3,
+  "info:iso_withdrawn": 13
+ },
+ "findings": [
+  {
+   "id": 577,
+   "identifier": "ISO 19887/ - 2024.10",
+   "slug": "iso-19887",
+   "check": "iso_not_found",
+   "severity": "warning",
+   "detail": "ISO normu „ISO 19887“ neuvádí."
+  },
+  {
+   "id": 601,
+   "identifier": "ISO/WD 17268-3.2",
+   "slug": "iso-wd-17268-3-2",
+   "check": "iso_not_found",
+   "severity": "warning",
+   "detail": "ISO normu „ISO/WD 17268-3.2“ neuvádí."
+  },
+  {
+   "id": 1199,
+   "identifier": "ISO/DIS 19887",
+   "slug": "iso-dis-19887",
+   "check": "iso_not_found",
+   "severity": "warning",
+   "detail": "ISO normu „ISO/DIS 19887“ neuvádí."
+  },
+  {
+   "id": 692,
+   "identifier": "ANSI/CSA CHMC 2-2019",
+   "slug": "ansi-csa-chmc-2",
+   "check": "title_fragment",
+   "severity": "warning",
+   "detail": "Název normy začíná malým písmenem, nejspíš je useknutý.",
+   "title": "ANSI/CSA CHMC 2 — est Methods For Evaluating Material Compatibility In Compressed Hydrogen Applications — Polymer"
+  },
+  {
+   "id": 821,
+   "identifier": "ASME Section VIII",
+   "slug": "doc-1abf9547",
+   "check": "title_fragment",
+   "severity": "warning",
+   "detail": "Místo názvu je poznámka.",
+   "title": "Poznámka:\nASME Section VIII of the code is dedicated to pressure vessels. It gives detailed requirements for the design, fabrication, testing, inspection, and certification of both fired and unfired pressure vessels. It specifically refers to those pressure vessels that operate at pressures, either internal or external, that exceed 15 psig. The latest update was published in 2017.\nSection VIII is divided into 3 sections, each of which cover different vessel specifications. Division 1 addresses the requirements for design, fabrication, inspection, testing, and certification. Division 2 provides requirements on materials, design, and nondestructive examination standards. Division 3 provides guidelines for pressure vessels operating at internal or external pressures above 10,000 psi. All 3 Divisions reference many other standards as outlined below."
+  },
+  {
+   "id": 1078,
+   "identifier": "CEN/CLC/JTC 6 Hydrogen in energy",
+   "slug": "cen-clc-jtc-6-hydrogen-in-energy",
+   "check": "title_fragment",
+   "severity": "warning",
+   "detail": "Název normy začíná malým písmenem, nejspíš je useknutý.",
+   "title": "CEN/CLC/JTC 6 Hydrogen in energy — systems"
+  },
+  {
+   "id": 11,
+   "identifier": "ISO 22734:2019",
+   "slug": "iso-22734-2019",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 22734:2019 ISO zrušila (stav 9599).",
+   "reference": "ISO 22734:2019",
+   "iso_id": 69212,
+   "title_en": "Hydrogen generators using water electrolysis — Industrial, commercial, and residential applications",
+   "ics": [
+    "71.120.99",
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2019-09-30",
+   "url": "https://www.iso.org/standard/69212.html"
+  },
+  {
+   "id": 599,
+   "identifier": "ISO/TR 15916/ - 2015.12",
+   "slug": "iso-tr-15916",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO/TR 15916:2015 ISO zrušila (stav 9599).",
+   "reference": "ISO/TR 15916:2015",
+   "iso_id": 56546,
+   "title_en": "Basic considerations for the safety of hydrogen systems",
+   "ics": [
+    "71.020",
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2015-12-03",
+   "url": "https://www.iso.org/standard/56546.html"
+  },
+  {
+   "id": 1168,
+   "identifier": "ISO 14687-1",
+   "slug": "iso-14687-1",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 14687-1:1999 ISO zrušila (stav 9599).",
+   "reference": "ISO 14687-1:1999",
+   "iso_id": 24769,
+   "title_en": "Hydrogen fuel — Product specification — Part 1: All applications except proton exchange membrane (PEM) fuel cell for road vehicles",
+   "ics": [
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "1999-03-11",
+   "url": "https://www.iso.org/standard/24769.html"
+  },
+  {
+   "id": 1169,
+   "identifier": "ISO 14687-2",
+   "slug": "iso-14687-2",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 14687-2:2012 ISO zrušila (stav 9599).",
+   "reference": "ISO 14687-2:2012",
+   "iso_id": 55083,
+   "title_en": "Hydrogen fuel — Product specification — Part 2: Proton exchange membrane (PEM) fuel cell applications for road vehicles",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2012-11-30",
+   "url": "https://www.iso.org/standard/55083.html"
+  },
+  {
+   "id": 1170,
+   "identifier": "ISO 14687-3",
+   "slug": "iso-14687-3",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 14687-3:2014 ISO zrušila (stav 9599).",
+   "reference": "ISO 14687-3:2014",
+   "iso_id": 55078,
+   "title_en": "Hydrogen fuel — Product specification — Part 3: Proton exchange membrane (PEM) fuel cell applications for stationary appliances",
+   "ics": [
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2014-02-05",
+   "url": "https://www.iso.org/standard/55078.html"
+  },
+  {
+   "id": 1171,
+   "identifier": "ISO 4276",
+   "slug": "iso-4276",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 4276:1978 ISO zrušila (stav 9599).",
+   "reference": "ISO 4276:1978",
+   "iso_id": 10116,
+   "title_en": "Anhydrous ammonia for industrial use — Evaluation of residue on evaporation — Gravimetric method",
+   "ics": [
+    "71.060.99"
+   ],
+   "committee": "ISO/TC 47",
+   "stage": 9599,
+   "published": "1978-04-01",
+   "url": "https://www.iso.org/standard/10116.html"
+  },
+  {
+   "id": 1172,
+   "identifier": "ISO 6192",
+   "slug": "iso-6192",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 6192:1981 ISO zrušila (stav 9599).",
+   "reference": "ISO 6192:1981",
+   "iso_id": 12451,
+   "title_en": "Light olefins for industrial use — Determination of ammonia — Photometric method",
+   "ics": [
+    "71.080.10"
+   ],
+   "committee": "ISO/TC 47",
+   "stage": 9599,
+   "published": "1981-05-01",
+   "url": "https://www.iso.org/standard/12451.html"
+  },
+  {
+   "id": 1173,
+   "identifier": "ISO 7104",
+   "slug": "iso-7104",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 7104:1985 ISO zrušila (stav 9599).",
+   "reference": "ISO 7104:1985",
+   "iso_id": 13689,
+   "title_en": "Liquefied anhydrous ammonia for industrial use — Determination of water content — Gas chromatographic method",
+   "ics": [
+    "71.060.99"
+   ],
+   "committee": "ISO/TC 47",
+   "stage": 9599,
+   "published": "1985-08-01",
+   "url": "https://www.iso.org/standard/13689.html"
+  },
+  {
+   "id": 1175,
+   "identifier": "ISO 8713",
+   "slug": "iso-8713",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 8713:2005 ISO zrušila (stav 9599).",
+   "reference": "ISO 8713:2005",
+   "iso_id": 38307,
+   "title_en": "Electric road vehicles — Vocabulary",
+   "ics": [
+    "43.120",
+    "01.040.43"
+   ],
+   "committee": "ISO/TC 22",
+   "stage": 9599,
+   "published": "2005-04-12",
+   "url": "https://www.iso.org/standard/38307.html"
+  },
+  {
+   "id": 1189,
+   "identifier": "ISO/AWI TR 15916",
+   "slug": "iso-awi-tr-15916",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO/TR 15916:2015 ISO zrušila (stav 9599).",
+   "reference": "ISO/TR 15916:2015",
+   "iso_id": 56546,
+   "title_en": "Basic considerations for the safety of hydrogen systems",
+   "ics": [
+    "71.020",
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2015-12-03",
+   "url": "https://www.iso.org/standard/56546.html"
+  },
+  {
+   "id": 1289,
+   "identifier": "ISO 13631",
+   "slug": "iso-13631",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 13631:2002 ISO zrušila (stav 9599).",
+   "reference": "ISO 13631:2002",
+   "iso_id": 34442,
+   "title_en": "Petroleum and natural gas industries — Packaged reciprocating gas compressors",
+   "ics": [
+    "75.180.20"
+   ],
+   "committee": "ISO/TC 118/SC 1",
+   "stage": 9599,
+   "published": "2002-08-22",
+   "url": "https://www.iso.org/standard/34442.html"
+  },
+  {
+   "id": 1460,
+   "identifier": "ČSN ISO 14687-1",
+   "slug": "csn-iso-14687-1",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 14687-1:1999 ISO zrušila (stav 9599).",
+   "reference": "ISO 14687-1:1999",
+   "iso_id": 24769,
+   "title_en": "Hydrogen fuel — Product specification — Part 1: All applications except proton exchange membrane (PEM) fuel cell for road vehicles",
+   "ics": [
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "1999-03-11",
+   "url": "https://www.iso.org/standard/24769.html"
+  },
+  {
+   "id": 1461,
+   "identifier": "ČSN ISO 14687-2",
+   "slug": "csn-iso-14687-2",
+   "check": "iso_withdrawn",
+   "severity": "info",
+   "detail": "Poslední vydání ISO 14687-2:2012 ISO zrušila (stav 9599).",
+   "reference": "ISO 14687-2:2012",
+   "iso_id": 55083,
+   "title_en": "Hydrogen fuel — Product specification — Part 2: Proton exchange membrane (PEM) fuel cell applications for road vehicles",
+   "ics": [
+    "43.060.40",
+    "71.100.20"
+   ],
+   "committee": "ISO/TC 197",
+   "stage": 9599,
+   "published": "2012-11-30",
+   "url": "https://www.iso.org/standard/55083.html"
+  }
+ ]
+}

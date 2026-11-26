@@ -8,16 +8,16 @@ from unittest.mock import MagicMock
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.app import (
-    build_document_query, build_count_query, build_page_range, parse_page,
+    build_document_query, build_count_query, build_filter_clause, build_page_range, parse_page, parse_filters,
     _rows_for_export, EXPORT_FIELDS, PAGE_SIZE,
-    get_git_version, get_db_last_updated, get_active_document_count,
+    get_git_version, get_db_last_updated, get_active_document_count, get_upcoming_document_count,
     get_total_document_count, classify_review_severity, REVIEW_SEVERITY,
 )
 
 
 # include_sk: these tests are about the other filters; the Slovak restriction
 # of the public view is tested in tests/test_catalog_filters.py.
-NO_FILTERS = {'q': '', 'type_id': '', 'source_id': '', 'keyword_id': '', 'include_sk': True}
+NO_FILTERS = {'q': '', 'type_id': '', 'source_id': '', 'category_id': '', 'include_sk': True}
 
 
 class BuildDocumentQueryTestCase(unittest.TestCase):
@@ -30,7 +30,7 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         self.assertNotIn("AND (d.title", sql)
         self.assertNotIn("AND d.type_id", sql)
         self.assertNotIn("AND d.source_id", sql)
-        self.assertNotIn("AND dk.keyword_id", sql)
+        self.assertNotIn("DocumentSourceCategory", sql)
         self.assertNotIn("LIMIT", sql)
         self.assertEqual(params, [])
 
@@ -49,8 +49,17 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         # doc/MPO_PRIPOMINKY.md, krok 2: the designation is searched too.
         filters = {**NO_FILTERS, 'q': 'hydrogen'}
         sql, params = build_document_query(filters)
-        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)", sql)
-        self.assertEqual(params, ['%hydrogen%', '%hydrogen%', '%hydrogen%'])
+        self.assertIn("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s OR ", sql)
+        # doc/OBLASTI.md: the source categories stay searchable though no longer shown
+        self.assertIn("FROM DocumentSourceCategory sk JOIN SourceCategory sw", sql)
+        self.assertIn("sw.name LIKE %s", sql)
+        self.assertEqual(params, ['%hydrogen%'] * 4)
+
+    def test_area_filter(self):
+        filters = {**NO_FILTERS, 'oblast': 'vybuch'}
+        sql, params = build_document_query(filters)
+        self.assertIn("fx.code = %s", sql)
+        self.assertEqual(params, ['vybuch'])
 
     def test_type_id_filter(self):
         filters = {**NO_FILTERS, 'type_id': '3'}
@@ -64,17 +73,33 @@ class BuildDocumentQueryTestCase(unittest.TestCase):
         self.assertIn("AND d.source_id = %s", sql)
         self.assertEqual(params, ['7'])
 
-    def test_keyword_id_filter(self):
-        filters = {**NO_FILTERS, 'keyword_id': '9'}
+    def test_category_id_filter(self):
+        filters = {**NO_FILTERS, 'category_id': '9'}
         sql, params = build_document_query(filters)
-        self.assertIn("AND dk.keyword_id = %s", sql)
+        self.assertIn("EXISTS (SELECT 1 FROM DocumentSourceCategory fc WHERE fc.document_id = d.id "
+                      "AND fc.category_id = %s)", sql)
+        self.assertNotIn("JOIN DocumentSourceCategory", sql, "an EXISTS, no join that multiplies the rows")
         self.assertEqual(params, ['9'])
+
+    def test_category_filter_before_the_migration(self):
+        """src/tools/migrate_vocabulary.py: until it runs, the tables are Keyword/DocumentKeyword."""
+        import vocabulary
+        filters = {**NO_FILTERS, 'q': 'x', 'category_id': '9', 'categories': vocabulary.LEGACY_CATEGORIES}
+        sql, params = build_document_query(filters)
+        self.assertIn("FROM DocumentKeyword sk JOIN Keyword sw ON sw.id = sk.keyword_id", sql)
+        self.assertIn("sw.keyword LIKE %s", sql)
+        self.assertIn("fc.keyword_id = %s", sql)
+        self.assertEqual(params, ['%x%'] * 4 + ['9'])
+
+    def test_old_keyword_id_parameter_is_accepted(self):
+        self.assertEqual(parse_filters({'keyword_id': '12'})['category_id'], '12')
+        self.assertEqual(parse_filters({'category_id': '5', 'keyword_id': '12'})['category_id'], '5')
 
     def test_all_filters_combined_with_limit(self):
         # without 'include_sk': the public view, Slovak documents left out last
-        filters = {'q': 'norma', 'type_id': '1', 'source_id': '2', 'keyword_id': '3'}
+        filters = {'q': 'norma', 'type_id': '1', 'source_id': '2', 'category_id': '3'}
         sql, params = build_document_query(filters, limit=50)
-        self.assertEqual(params, ['%norma%', '%norma%', '%norma%', '1', '2', '3', 'SK', '%[SK]', 50])
+        self.assertEqual(params, ['%norma%'] * 4 + ['1', '2', '3', 'SK', '%[SK]', 50])
         self.assertTrue(sql.rstrip().endswith("LIMIT %s"))
 
 
@@ -101,20 +126,20 @@ class PaginationQueryTestCase(unittest.TestCase):
         self.assertEqual(params, [])
 
     def test_count_query_counts_distinct_documents(self):
-        # NOT COUNT(*): the DocumentKeyword join multiplies a document's
-        # rows by its keyword count, which would inflate the total and
+        # NOT COUNT(*): a join with the category links would multiply a
+        # document's rows by its category count, inflate the total and
         # paginate into empty pages (the R2.1 trap commit ebc1f60 fixed
         # once already with GROUP BY d.id).
         sql, _ = build_count_query(NO_FILTERS)
         self.assertIn("COUNT(DISTINCT d.id)", sql)
 
     def test_count_query_applies_the_same_filters_as_the_list(self):
-        filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'keyword_id': '9'}
+        filters = {'q': 'vodík', 'type_id': '3', 'source_id': '7', 'category_id': '9', 'oblast': 'vybuch'}
         count_sql, count_params = build_count_query(filters)
         list_sql, list_params = build_document_query(filters, limit=None)
-        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s)",
+        for fragment in ("AND (d.title LIKE %s OR d.description LIKE %s OR d.identifier LIKE %s OR ",
                          "AND d.type_id = %s", "AND d.source_id = %s",
-                         "AND dk.keyword_id = %s"):
+                         "AND fc.category_id = %s)", "fx.code = %s"):
             self.assertIn(fragment, count_sql)
             self.assertIn(fragment, list_sql)
         self.assertEqual(count_params, list_params)
@@ -241,13 +266,14 @@ class RowsForExportTestCase(unittest.TestCase):
             'url': 'https://example.test', 'file_path': 'data/fulltext/x.pdf',
             'restricted_fulltext': False,
         }]
-        rows = _rows_for_export(documents, {1: ['vodik', 'energetika']})
+        rows = _rows_for_export(documents, {1: ['vodik', 'energetika']}, {1: ['vodík', 'palivový článek']})
         self.assertEqual(len(rows), 1)
         self.assertEqual(set(rows[0].keys()), set(EXPORT_FIELDS))
         self.assertNotIn('file_path', rows[0])
         self.assertNotIn('restricted_fulltext', rows[0])
         self.assertNotIn('id', rows[0])
-        self.assertEqual(rows[0]['keywords'], 'vodik, energetika')
+        self.assertEqual(rows[0]['source_categories'], 'vodik, energetika')
+        self.assertEqual(rows[0]['keywords'], 'vodík, palivový článek')
 
     def test_none_fields_become_empty_string(self):
         documents = [{
@@ -260,6 +286,7 @@ class RowsForExportTestCase(unittest.TestCase):
         for field in ('description', 'type_name', 'source_name', 'language', 'url'):
             self.assertEqual(row[field], '')
         self.assertEqual(row['effective_date'], '')
+        self.assertEqual(row['source_categories'], '')
         self.assertEqual(row['keywords'], '')
 
     def test_document_with_no_tags_gets_empty_keywords(self):
@@ -268,7 +295,8 @@ class RowsForExportTestCase(unittest.TestCase):
             'source_name': '', 'language': '', 'effective_date': '',
             'url': '', 'file_path': None, 'restricted_fulltext': False,
         }]
-        rows = _rows_for_export(documents, {1: ['other-doc-tag']})
+        rows = _rows_for_export(documents, {1: ['other-doc-tag']}, {1: ['other-doc-term']})
+        self.assertEqual(rows[0]['source_categories'], '')
         self.assertEqual(rows[0]['keywords'], '')
 
 
@@ -352,6 +380,28 @@ class GetActiveDocumentCountTestCase(unittest.TestCase):
         cursor.fetchone.return_value = None
         db.cursor.return_value.__enter__.return_value = cursor
         self.assertEqual(get_active_document_count(db), 0)
+
+
+class GetUpcomingDocumentCountTestCase(unittest.TestCase):
+    """doc/MPO_OVERENI_WEBU.md Z1: drafts / promulgated acts are counted
+    separately, not as "historických"."""
+
+    def test_queries_draft_and_promulgated(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {"c": 145}
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 145)
+        sql, params = cursor.execute.call_args[0]
+        self.assertIn("lifecycle_state IN", sql)
+        self.assertEqual(params[:2], ['draft', 'promulgated'])
+
+    def test_no_rows_returns_zero(self):
+        db = MagicMock()
+        cursor = MagicMock()
+        cursor.fetchone.return_value = None
+        db.cursor.return_value.__enter__.return_value = cursor
+        self.assertEqual(get_upcoming_document_count(db), 0)
 
 
 if __name__ == '__main__':

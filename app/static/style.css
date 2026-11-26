@@ -193,6 +193,20 @@ main {
     position: relative;
 }
 
+/* The icon is positioned against the field, not the whole row: on a phone the
+   row becomes a column (input above the button) and the icon used to land
+   between the two, below the input (doc/MPO_OVERENI_WEBU.md Z2). */
+.search-field {
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+
+.search-field .search-input {
+    width: 100%;
+    min-width: 0;
+}
+
 .search-icon {
     position: absolute;
     left: 1.5rem;
@@ -1569,3 +1583,43 @@ main {
     color: var(--accent-secondary);
     font-size: 0.92rem;
 }
+
+/* doc/KLICOVA_SLOVA.md: keywords of a document, grouped by origin */
+.doc-terms .term-group + .term-group {
+    margin-top: 1rem;
+}
+
+.doc-terms h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+.doc-terms .term-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.doc-terms .term-tag {
+    text-decoration: none;
+}
+
+.doc-terms .term-tag:hover {
+    border-color: var(--accent-secondary);
+    color: var(--text-primary);
+}
+
+.doc-terms .term-note {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    margin-top: 0.35rem;
+}
+/* The list of candidates must fit its frame even when the automat column holds a long
+   recommendation and a rule (on 22. 11. 2026 the table was 8 px wider than its frame
+   at 1280 px): the badges may wrap inside the cell, a long word in a title breaks. */
+.candidate-table .triage-rec, .candidate-table .triage-rule { white-space: normal; }
+.candidate-table td { overflow-wrap: anywhere; }
+.candidate-table td.candidate-open { overflow-wrap: normal; }

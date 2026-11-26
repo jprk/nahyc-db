@@ -16,8 +16,8 @@ from dotenv import load_dotenv
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 load_dotenv(REPO_ROOT / ".env")
 
-TABLES = ["Document", "DocumentType", "DocumentSource", "Keyword",
-          "DocumentKeyword", "DocumentVersion"]
+TABLES = ["Document", "DocumentType", "DocumentSource", "SourceCategory",
+          "DocumentSourceCategory", "DocumentVersion", "Term", "DocumentTerm"]
 
 LAYER_B_TABLES = ["node_description", "node_branch", "branch_step", "node_input",
                    "node_output", "subject", "node_subject", "node_problem",

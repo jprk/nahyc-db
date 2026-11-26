@@ -70,7 +70,7 @@ class TriageQueueTestCase(BrowserTestCase):
             for row in rows:
                 cur.execute("DELETE FROM AuditLog WHERE table_name = 'DocumentCandidate' AND record_id = %s", (row["id"],))
                 if row["document_id"]:
-                    for table in ("DocumentKeyword", "DocumentVersion"):
+                    for table in ("DocumentSourceCategory", "DocumentVersion"):
                         cur.execute(f"DELETE FROM {table} WHERE document_id = %s", (row["document_id"],))
                     cur.execute("DELETE FROM AuditLog WHERE table_name = 'Document' AND record_id = %s", (row["document_id"],))
             cur.execute("DELETE FROM DocumentCandidate WHERE candidate_key LIKE %s", (PREFIX + "%",))

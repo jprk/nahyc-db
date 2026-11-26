@@ -128,9 +128,9 @@ class MergeTestCase(unittest.TestCase):
         moved = [sql.split()[1] if sql.split()[1] != "IGNORE" else sql.split()[2]
                  for sql in statements if sql.startswith("UPDATE")]
         self.assertEqual(moved, ["document_relation", "document_relation", "node_document", "scenario_document",
-                                 "DocumentKeyword", "node_activation_rule", "ReviewItem", "DocumentCandidate"])
-        self.assertIn("UPDATE IGNORE DocumentKeyword SET document_id = %s WHERE document_id = %s", statements)
-        self.assertIn("DELETE FROM DocumentKeyword WHERE document_id = %s", statements)
+                                 "DocumentSourceCategory", "node_activation_rule", "ReviewItem", "DocumentCandidate"])
+        self.assertIn("UPDATE IGNORE DocumentSourceCategory SET document_id = %s WHERE document_id = %s", statements)
+        self.assertIn("DELETE FROM DocumentSourceCategory WHERE document_id = %s", statements)
         self.assertEqual(statements[-2:], ["DELETE FROM DocumentVersion WHERE document_id = %s",
                                            "DELETE FROM Document WHERE id = %s"])
         for sql, params in cursor.executed[1:]:
@@ -155,7 +155,7 @@ class DeletionTestCase(unittest.TestCase):
         cursor = FakeCursor()
         amc.delete_document(cursor, 5)
         tables = [sql.split()[2] for sql, _ in cursor.executed]
-        self.assertEqual(tables, ["node_document", "DocumentKeyword", "DocumentVersion", "Document"])
+        self.assertEqual(tables, ["node_document", "DocumentSourceCategory", "DocumentVersion", "Document"])
 
 
 if __name__ == "__main__":

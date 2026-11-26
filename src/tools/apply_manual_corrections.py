@@ -31,7 +31,8 @@ script, which resolves the corrected record exactly as a rebuild does
   (a link the survivor already has, or a relation between the two, is dropped);
   its versions are deleted with it.
 
-A correction is keyed by the record's `znacka`, or by `url-<hash>` of its main address
+A correction is keyed by the record's `znacka` (`"<znacka> @<zdroj_dat>"` for the record of one
+source when two sources list a standard under one znacka), or by `url-<hash>` of its main address
 when it has none, or by `title-<hash>` of its title when it has neither
 (build_unified_db.correction_key()). The live document is found by its identifier
 (the key, or the corrected `znacka`), or by the address the record resolves to, or
@@ -46,8 +47,8 @@ import pathlib
 import pymysql
 
 import init_db
-from build_unified_db import (MANUAL_CORRECTIONS_PATH, apply_manual_corrections, correction_key,
-                              load_manual_corrections)
+from build_unified_db import (MANUAL_CORRECTIONS_PATH, SOURCE_SEPARATOR, apply_manual_corrections, correction_key,
+                              load_manual_corrections, source_qualified_key)
 from fulltext_keys import (TITLE_DESIGNATION_PREFIX, URL_DESIGNATION_PREFIX, first_url, title_designation,
                            url_designation)
 from puvodce import load_eu_gestor_cache
@@ -108,11 +109,20 @@ def records_by_key(records):
         key = correction_key(record)
         if key:
             found.setdefault(key, []).append(record)
+            qualified = source_qualified_key(key, record)
+            if qualified:
+                found.setdefault(qualified, []).append(record)
     return found
 
 
 def find_documents(cursor, key, entry, record):
     """Ids of the live documents a correction is about."""
+    if SOURCE_SEPARATOR in key:
+        # the record of one source among records sharing a znacka: the rebuild left
+        # it without an identifier, so it is found by its title
+        title = " ".join((init_db.resolve_title(record) or "").split()) if record else ""
+        cursor.execute("SELECT id, title FROM Document WHERE identifier IS NULL ORDER BY id")
+        return [doc_id for doc_id, t in cursor.fetchall() if title and " ".join((t or "").split()) == title]
     identifiers = [key]
     new_znacka = (entry.get("changes") or {}).get("znacka")
     if new_znacka:
@@ -152,7 +162,7 @@ def blocking_references(cursor, doc_id):
 # whether a row the survivor already has makes it a duplicate to drop).
 MERGED_LINKS = (("document_relation", "from_document_id", True), ("document_relation", "to_document_id", True),
                 ("node_document", "document_id", True), ("scenario_document", "document_id", True),
-                ("DocumentKeyword", "document_id", True), ("node_activation_rule", "basis_document_id", False),
+                ("DocumentSourceCategory", "document_id", True), ("node_activation_rule", "basis_document_id", False),
                 ("ReviewItem", "document_id", False), ("DocumentCandidate", "document_id", False))
 
 
@@ -202,7 +212,7 @@ def node_links(cursor, doc_id):
 def delete_document(cursor, doc_id):
     """Deletes a document with its keywords, versions and process-node links."""
     cursor.execute("DELETE FROM node_document WHERE document_id = %s", (doc_id,))
-    cursor.execute("DELETE FROM DocumentKeyword WHERE document_id = %s", (doc_id,))
+    cursor.execute("DELETE FROM DocumentSourceCategory WHERE document_id = %s", (doc_id,))
     cursor.execute("DELETE FROM DocumentVersion WHERE document_id = %s", (doc_id,))
     cursor.execute("DELETE FROM Document WHERE id = %s", (doc_id,))
 

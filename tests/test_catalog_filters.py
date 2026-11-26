@@ -217,7 +217,7 @@ class CatalogQueryTestCase(unittest.TestCase):
         cls.build_count_query = staticmethod(build_count_query)
         cls.build_document_query = staticmethod(build_document_query)
 
-    BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'keyword_id': '',
+    BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'category_id': '',
             'jurisdiction': 'vse', 'synonyms': [], 'include_sk': True}
 
     def test_grouped_list_selects_acts_through_their_variants(self):
@@ -239,7 +239,7 @@ class CatalogQueryTestCase(unittest.TestCase):
         sql, params = self.build_document_query(filters)
         self.assertIn("d.identifier IN (%s, %s)", sql)
         self.assertEqual(params, ['%RFNBO%'] * 3 + ['%nebiologického původu%'] * 2
-                         + ['(EU) 2023/1184', '(EU) 2018/2001'])
+                         + ['(EU) 2023/1184', '(EU) 2018/2001', '%RFNBO%'])
 
     def test_subtype_and_jurisdiction(self):
         filters = {**self.BASE, 'eu_subtype': 'delegated', 'jurisdiction': 'sk'}
