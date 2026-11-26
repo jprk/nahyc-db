@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
-- **Filtr „Ke kontrole“ v katalogu pro editory.** Přihlášený editor zúží katalog na dokumenty s příznakem ke
+- **Filtr „Ke kontrole“ v katalogu pro editory (PR #33).** Přihlášený editor zúží katalog na dokumenty s příznakem ke
   kontrole podle druhu důvodu: vše ke kontrole, vady k opravě, nálezy kontroly záznamů, odhadnutý jazyk
   a chybějící popis. Filtr editor kombinuje s ostatními filtry, hledáním i stránkováním a u každé volby vidí
   počet; export pro editora navíc obsahuje označení, adresu záznamu a důvody kontroly, takže slouží jako
