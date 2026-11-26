@@ -17,11 +17,12 @@ import status_checks
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
+import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 JSON_PATH = REPO_ROOT / "data" / "database_merged_deduplicated.json"
-FULLTEXT_MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+FULLTEXT_MANIFEST_PATH = state_paths.data_file("fulltext_manifest.json")
 INCOMPLETE_RECORDS_QUEUE_PATH = REPO_ROOT / "data" / "incomplete_records_review_queue.json"
 
 # Truncation order respects FK dependencies (children before parents).

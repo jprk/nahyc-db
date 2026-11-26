@@ -33,10 +33,11 @@ import time
 import candidates as cd
 import citation_closure as cc
 import vocabulary
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 RULES_PATH = REPO_ROOT / "data" / "triage_rules.json"
-CACHE_PATH = REPO_ROOT / "data" / "triage_model_cache.json"
+CACHE_PATH = state_paths.data_file("triage_model_cache.json")
 SCOPE_PATH = REPO_ROOT / "doc" / "DATABASE_SCOPE.md"
 API_KEY_PATH = REPO_ROOT / ".openapi_key"
 

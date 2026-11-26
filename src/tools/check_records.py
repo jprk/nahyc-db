@@ -53,10 +53,11 @@ import check_validity as cv
 import document_terms as dterms
 import fetch_eurovoc
 import iso_open_data
+import state_paths
 
 REPO_ROOT = dterms.REPO_ROOT
-REPORT_PATH = REPO_ROOT / "data" / "record_checks.json"
-TITLES_CACHE = REPO_ROOT / "data" / "official_titles_cache.json"
+REPORT_PATH = state_paths.data_file("record_checks.json")
+TITLES_CACHE = state_paths.data_file("official_titles_cache.json")
 LANGUAGES = {"CS": "CES", "EN": "ENG", "SK": "SLK", "DE": "DEU"}
 SIMILAR = 0.5       # below: the titles name different documents
 DUPLICATE = 0.9     # at or above: two titles are the same

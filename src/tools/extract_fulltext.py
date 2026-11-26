@@ -40,10 +40,11 @@ import sys
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup, NavigableString, Tag
+import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
-MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+MANIFEST_PATH = state_paths.data_file("fulltext_manifest.json")
 OUTPUT_DIR = REPO_ROOT / "data" / "fulltext_clean"
 
 

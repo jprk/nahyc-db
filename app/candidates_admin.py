@@ -43,12 +43,13 @@ import norm_editions
 from triage import CATEGORIES, RECOMMENDATION_LABELS
 import slug as slug_module
 import vocabulary
+import state_paths  # noqa: E402
 
-ACCEPTED_PATH = REPO_ROOT / "data" / "accepted_candidates.json"
+ACCEPTED_PATH = state_paths.data_file("accepted_candidates.json")
 # relations an acceptance creates that a rebuild must keep (load_document_relations.py reads the file), and
 # the validity entry of a repealed act accepted from the MPO tables (document_states.py reads the cache)
-EDITOR_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_editor.json"
-VALIDITY_CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
+EDITOR_RELATIONS_PATH = state_paths.data_file("document_relations_editor.json")
+VALIDITY_CACHE_PATH = state_paths.data_file("validity_cache.json")
 # `zdroj_dat` of an accepted document, in the database and in the pipeline's records alike, so that the
 # full-text manifest key (`Kandidáti|<designation>|odkaz_hlavni`) matches the document's own source.
 PIPELINE_SOURCE = "Kandidáti"

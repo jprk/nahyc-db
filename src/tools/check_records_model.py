@@ -41,9 +41,10 @@ import extract_keywords as ek
 import fetch_eurovoc
 import fetch_ics
 import iso_open_data
+import state_paths
 
-CACHE_PATH = dterms.REPO_ROOT / "data" / "record_check_model_cache.json"
-REPORT_PATH = dterms.REPO_ROOT / "data" / "record_checks_model.json"
+CACHE_PATH = state_paths.data_file("record_check_model_cache.json")
+REPORT_PATH = state_paths.data_file("record_checks_model.json")
 MODEL = "gpt-5.5"
 PROMPT_VERSION = 1
 TEXT_LIMIT = 3000

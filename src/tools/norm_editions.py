@@ -53,6 +53,7 @@ import datetime
 import json
 import pathlib
 import re
+import state_paths
 
 NORM_TYPE = "Norma"
 PROMULGATED = "promulgated"
@@ -60,9 +61,9 @@ _ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-CORRECTIONS_PATH = REPO_ROOT / "data" / "manual_corrections.json"
-MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
-NORM_CACHE_PATH = REPO_ROOT / "data" / "norm_validity_cache.json"
+CORRECTIONS_PATH = state_paths.data_file("manual_corrections.json")
+MANIFEST_PATH = state_paths.data_file("fulltext_manifest.json")
+NORM_CACHE_PATH = state_paths.data_file("norm_validity_cache.json")
 DETAIL_URL = "https://csnonline.agentura-cas.cz/Detailnormy.aspx?k={}"
 _LABEL_ISSUE = re.compile(r"\s*\(vydání [^)]*\)\s*$")
 

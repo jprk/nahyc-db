@@ -49,6 +49,7 @@ import sys
 import time
 
 import requests
+import state_paths
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))  # src/, for sites/
 import language_variants
@@ -59,7 +60,7 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
 RAW_DB_PATH = REPO_ROOT / "data" / "database_merged_raw.json"
 FULLTEXT_DIR = REPO_ROOT / "data" / "fulltext"
-MANIFEST_PATH = REPO_ROOT / "data" / "fulltext_manifest.json"
+MANIFEST_PATH = state_paths.data_file("fulltext_manifest.json")
 URL_OVERRIDES_PATH = REPO_ROOT / "data" / "fulltext_url_overrides.json"
 
 URL_FIELDS = ("odkaz_hlavni", "odkaz_eu", "odkaz_sk")
@@ -518,7 +519,7 @@ def load_records():
     key and address too; a record excluded or merged into another has none)."""
     with open(RAW_DB_PATH, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
-    accepted_path = REPO_ROOT / "data" / "accepted_candidates.json"
+    accepted_path = state_paths.data_file("accepted_candidates.json")
     if accepted_path.exists():
         raw_data = raw_data + list(json.loads(accepted_path.read_text(encoding="utf-8")).values())
     import build_unified_db

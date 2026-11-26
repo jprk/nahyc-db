@@ -55,6 +55,7 @@ before loading (same convention as load_process_layer.py's own reset).
 import json
 import pathlib
 import sys
+import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent.parent
@@ -62,8 +63,8 @@ RELATIONS_PATH = REPO_ROOT / "data" / "document_relations.json"
 AUTO_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_auto.json"
 SPLIT_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_split.json"
 VARIANTS_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_variants.json"
-VALIDITY_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_validity.json"
-EDITOR_RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_editor.json"
+VALIDITY_RELATIONS_PATH = state_paths.data_file("document_relations_validity.json")
+EDITOR_RELATIONS_PATH = state_paths.data_file("document_relations_editor.json")
 REVIEW_QUEUE_PATH = REPO_ROOT / "data" / "document_relations_review_queue.json"
 
 sys.path.insert(0, str(BASE_DIR))

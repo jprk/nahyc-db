@@ -33,13 +33,14 @@ import sys
 import fetch_ics
 import fulltext_keys
 import vocabulary
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 DATA = REPO_ROOT / "data"
 CACHES = {
-    "eurovoc": DATA / "eurovoc_cache.json",
-    "ics": DATA / "ics_cache.json",
-    "model": DATA / "keyword_model_cache.json",
+    "eurovoc": state_paths.data_file("eurovoc_cache.json"),
+    "ics": state_paths.data_file("ics_cache.json"),
+    "model": state_paths.data_file("keyword_model_cache.json"),
 }
 ORIGINS = ("eurovoc", "ics", "cas", "model")
 ORIGIN_LABELS = {"eurovoc": "EuroVoc (Úřad pro publikace EU)", "ics": "třídník ICS (katalog ČAS)",

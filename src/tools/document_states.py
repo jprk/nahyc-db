@@ -24,10 +24,11 @@ import pathlib
 
 import citation_closure as cc
 from language_variants import is_variant
+import state_paths
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-CACHE_PATH = REPO_ROOT / "data" / "validity_cache.json"
-RELATIONS_PATH = REPO_ROOT / "data" / "document_relations_validity.json"
+CACHE_PATH = state_paths.data_file("validity_cache.json")
+RELATIONS_PATH = state_paths.data_file("document_relations_validity.json")
 
 STATES = ("active", "superseded", "draft", "promulgated", "repealed")
 LABELS = {"active": "účinný", "superseded": "nahrazený", "draft": "připravovaný",

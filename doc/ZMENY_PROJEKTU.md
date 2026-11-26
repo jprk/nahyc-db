@@ -6,6 +6,12 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
+- **Příprava nasazení na produkční server (`doc/NASAZENI.md`).** Soubory, které se mění za provozu (opravy a
+  rozhodnutí editorů, mezipaměti plánovače, manifest plných textů), aplikace a skripty nově hledají v adresáři
+  z `.env` (`H2DB_STATE_DIR`, `src/tools/state_paths.py`), na produkci tedy mimo pracovní strom gitu. Nástroj
+  `transfer_bundle.py` přenese databázi a stavové soubory jako ověřený balík (kontrolní součty, počty řádků,
+  záloha cílové databáze); skripty v `deploy/production/` jej stáhnou na produkci a jednou týdně pošlou kopii
+  produkce na testovací web `nahyc.fd.cvut.cz/h2db`. Přenos jsme vyzkoušeli z provozní do testovací databáze.
 - **Dokumenty pro MPO podle stavu k 26. 11. (PR #30).** Vypořádání připomínek, provozní dokument a návrh průvodního
   e-mailu uvádějí čísla ověřená nad provozní databází a veřejným webem (veřejný katalog 967 dokumentů,
   z toho 825 platných, 116 připravovaných a 26 historických). Doplnili jsme kontrolu záznamů, klíčová slova,

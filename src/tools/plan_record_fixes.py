@@ -40,6 +40,7 @@ import document_terms as dterms
 import fetch_ics
 import iso_open_data
 from build_unified_db import MANUAL_CORRECTIONS_PATH
+import state_paths
 
 TODAY = "2026-11-23"
 BY = "jprk"
@@ -238,7 +239,7 @@ def main(argv=None):
     finally:
         conn.close()
     findings = (json.loads(cr.REPORT_PATH.read_text(encoding="utf-8"))["findings"]
-                + json.loads((dterms.REPO_ROOT / "data" / "record_checks_model.json").read_text(encoding="utf-8"))["findings"])
+                + json.loads((state_paths.data_file("record_checks_model.json")).read_text(encoding="utf-8"))["findings"])
     planned, report, out_of_scope, missing = build(documents, iso_open_data.load_index(), findings)
     for doc, target, record, action in report:
         print(f"ISO {action:6s} #{doc['id']} {doc['identifier']!r} -> {target} ({record['reference']}, {record.get('currentStage')})")
