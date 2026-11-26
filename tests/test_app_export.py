@@ -1,5 +1,6 @@
 import datetime
 import os
+import pathlib
 import subprocess
 import sys
 import unittest
@@ -309,18 +310,68 @@ class GetGitVersionTestCase(unittest.TestCase):
         self.assertIsInstance(version, str)
         self.assertTrue(version)
 
-    def test_git_not_found_returns_none_not_raise(self):
+    def test_git_not_found_reads_the_commit_from_the_git_files(self):
+        """doc/NASAZENI.md, odstavec 4.5: the web server's user may not run git in a
+        repository it does not own; the commit then comes from .git itself."""
         import app.app as app_module
-        with unittest.mock.patch.object(
-                app_module.subprocess, "run", side_effect=FileNotFoundError):
-            self.assertIsNone(app_module.get_git_version())
+        with unittest.mock.patch.object(app_module.subprocess, "run", side_effect=FileNotFoundError):
+            self.assertRegex(app_module.get_git_version(), r"^[0-9a-f]{7}( \(.+\))?$")
 
-    def test_subprocess_error_returns_none_not_raise(self):
+    def test_subprocess_error_without_a_repository_returns_none_not_raise(self):
         import app.app as app_module
         with unittest.mock.patch.object(
                 app_module.subprocess, "run",
-                side_effect=subprocess.CalledProcessError(1, "git")):
+                side_effect=subprocess.CalledProcessError(1, "git")), \
+                unittest.mock.patch.object(app_module, "read_git_head", return_value=None):
             self.assertIsNone(app_module.get_git_version())
+
+
+class ReadGitHeadTestCase(unittest.TestCase):
+    def make_repo(self, root, packed=False):
+        git = pathlib.Path(root) / ".git"
+        (git / "refs" / "heads" / "feature").mkdir(parents=True)
+        (git / "HEAD").write_text("ref: refs/heads/feature/x\n")
+        sha = "0123456789abcdef0123456789abcdef01234567"
+        if packed:
+            (git / "packed-refs").write_text(f"# pack-refs\n{sha} refs/heads/feature/x\n")
+        else:
+            (git / "refs" / "heads" / "feature" / "x").write_text(sha + "\n")
+        return git
+
+    def test_branch_loose_and_packed(self):
+        import tempfile
+        from app.app import read_git_head
+        for packed in (False, True):
+            with tempfile.TemporaryDirectory() as tmp:
+                self.make_repo(tmp, packed)
+                self.assertEqual(read_git_head(tmp), "0123456 (feature/x)")
+
+    def test_detached_head_worktree_file_and_no_repository(self):
+        import tempfile
+        from app.app import read_git_head
+        with tempfile.TemporaryDirectory() as tmp:
+            git = self.make_repo(pathlib.Path(tmp) / "main")
+            (git / "worktrees" / "w").mkdir(parents=True)
+            (git / "worktrees" / "w" / "HEAD").write_text("ref: refs/heads/feature/x\n")
+            (git / "worktrees" / "w" / "commondir").write_text("../..\n")
+            work = pathlib.Path(tmp) / "w"
+            work.mkdir()
+            (work / ".git").write_text(f"gitdir: {git / 'worktrees' / 'w'}\n")
+            self.assertEqual(read_git_head(work), "0123456 (feature/x)")
+            (git / "HEAD").write_text("fedcba9876543210fedcba9876543210fedcba98\n")
+            self.assertEqual(read_git_head(pathlib.Path(tmp) / "main"), "fedcba9")
+            self.assertIsNone(read_git_head(pathlib.Path(tmp) / "nothing"))
+
+
+class TestInstanceTestCase(unittest.TestCase):
+    """doc/NASAZENI.md, odstavec 4.5: H2DB_INSTANCE=test marks the test web."""
+
+    def test_only_test_marks_the_instance(self):
+        import os
+        from app.app import is_test_instance
+        for value, expected in (("test", True), (" Test ", True), ("", False), ("production", False)):
+            with unittest.mock.patch.dict(os.environ, {"H2DB_INSTANCE": value}):
+                self.assertEqual(is_test_instance(), expected)
 
 
 class GetDbLastUpdatedTestCase(unittest.TestCase):

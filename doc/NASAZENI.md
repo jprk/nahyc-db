@@ -1,6 +1,6 @@
 # Nasazení databáze na produkční server
 
-Stav k 26. 11. 2026, větev `feature/nasazeni`.
+Stav k 26. 11. 2026, větev `feature/nasazeni`; produkce je v `/home/prikryl/DEVEL/nahyc-h2db`.
 
 ## 1. Rozhodnutí
 
@@ -45,8 +45,8 @@ počty řádků a stavové soubory uloží do `H2DB_STATE_DIR` (nahrazené soubo
 
 ## 3. Příprava produkce (jednou, správce serveru)
 
-Navrhujeme níže uvedené cesty; jiné stačí promítnout do `.env`, do konfigurace Apache a do jednotek
-systemd ve `deploy/production/`.
+Cesty odpovídají dnešnímu stavu produkce; jiné stačí promítnout do `.env`, do konfigurace Apache
+a do jednotek systemd ve `deploy/production/`.
 
 ### 3.1 Systém
 
@@ -57,18 +57,22 @@ systemd ve `deploy/production/`.
 
 ### 3.2 Účet a adresáře
 
-- Účet `h2db` (bez přihlášení heslem), pod nímž běží aplikace, plánovač a kopie na testovací web.
-- `/srv/h2db/repo` — pracovní strom gitu, `/srv/h2db/state` — stavové soubory (zapisuje je
-  webová aplikace, tedy proces mod_wsgi pod účtem `h2db`).
-- SSH klíč účtu `h2db` přidáme na vývojovém stroji do `~laborator/.ssh/authorized_keys`
+Na produkci je dnes vše v pracovním stromu `/home/prikryl/DEVEL/nahyc-h2db` účtu `prikryl`
+(26. 11. 2026). Postup s tím počítá:
+
+- Aplikace, plánovač i kopie na testovací web běží pod účtem `prikryl` (démon mod_wsgi
+  s `user=prikryl`, jednotky systemd s `User=prikryl`).
+- `/home/prikryl/DEVEL/nahyc-h2db` — pracovní strom gitu; `/home/prikryl/DEVEL/nahyc-h2db-state` —
+  stavové soubory (`H2DB_STATE_DIR`), mimo pracovní strom gitu.
+- SSH klíč účtu `prikryl` na produkci přidáme na vývojovém stroji do `~laborator/.ssh/authorized_keys`
   (s omezením `from="147.228.82.118"`): přes něj produkce stahuje balík a posílá kopii.
 
 ### 3.3 Kód a prostředí
 
 ```
-sudo -u h2db git clone git@github.com:jprk/nahyc-db.git /srv/h2db/repo
-#  (bez přístupu na GitHub: git clone laborator@nahyc.fd.cvut.cz:/home/laborator/DEVEL/nahyc-h2db /srv/h2db/repo)
-cd /srv/h2db/repo && git checkout <commit vývojového stroje>
+git clone git@github.com:jprk/nahyc-db.git /home/prikryl/DEVEL/nahyc-h2db
+#  (bez přístupu na GitHub: git clone laborator@nahyc.fd.cvut.cz:/home/laborator/DEVEL/nahyc-h2db /home/prikryl/DEVEL/nahyc-h2db)
+cd /home/prikryl/DEVEL/nahyc-h2db && git checkout <commit vývojového stroje>
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 cp deploy/production/env.example .env && chmod 600 .env    # doplnit heslo k DB a SECRET_KEY
 ```
@@ -82,7 +86,7 @@ GRANT ALL PRIVILEGES ON h2regdocs.* TO 'h2regdocs'@'localhost';
 ```
 
 Konfiguraci Apache převezmeme ze vzoru `deploy/production/apache-h2db.conf` (démon mod_wsgi pod
-účtem `h2db`, `WSGIScriptAlias /h2db`).
+účtem `prikryl`, `WSGIScriptAlias /h2db`).
 
 ## 4. První nasazení
 
@@ -103,7 +107,7 @@ Vznikne `~/h2db-export/<datum_čas>/` a odkaz `~/h2db-export/latest`.
 ### 4.3 Stažení a instalace na produkci
 
 ```
-sudo -u h2db /srv/h2db/repo/deploy/production/pull_from_development.sh
+/home/prikryl/DEVEL/nahyc-h2db/deploy/production/pull_from_development.sh
 ```
 
 Skript stáhne balík a plné texty, zkontroluje, že produkce běží na stejném commitu jako vývoj,
@@ -113,15 +117,20 @@ a nainstaluje databázi i stavové soubory. Opakované nasazení do databáze s 
 ### 4.4 Plánovač
 
 Časovače sběru zdrojů (`deploy/scheduler/`) zapneme **jen na produkci**, s účtem a cestami podle
-odstavce 3 (`User=h2db`, `WorkingDirectory=/srv/h2db/repo`). Na vývojovém stroji plánovač neběží
+odstavce 3 (`User=prikryl`, `WorkingDirectory=/home/prikryl/DEVEL/nahyc-h2db`). Na vývojovém stroji plánovač neběží
 a po přepnutí ho tam nezapínáme: dva sběry by zapisovaly do dvou různých databází.
 
 ### 4.5 Přepnutí testovacího webu
 
 Na vývojovém stroji nastavíme v `.env` hlavního stromu `H2DB_STATE_DIR=/home/laborator/h2db-test-state`.
 Kopie produkce pak ukládá stavové soubory tam a nepřepisuje soubory v `data/` pracovního stromu
-gitu, se kterými pracuje vývoj. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`; na úvodní
-stránku a do patičky doplníme upozornění „testovací kopie“ (zatím neuděláno).
+gitu, se kterými pracuje vývoj. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
+úvodní stránka pak nad nadpisem a každá stránka v patičce ukazují upozornění „Testovací verze“
+s odkazem na produkční web. Produkce proměnnou nenastavuje.
+
+Patička na obou strojích uvádí „Verze webu (git)“: popis commitu (`git describe`), a když proces
+webového serveru git spustit nesmí (repozitář patří jinému uživateli), commit a větev přečtené
+přímo ze souborů `.git`.
 
 ### 4.6 Kontrola po nasazení
 
@@ -129,14 +138,16 @@ stránku a do patičky doplníme upozornění „testovací kopie“ (zatím neu
   a vyhledávání fungují (např. „svazek lahví“ najde ISO 11114-2 přes klíčová slova).
 - Stránka dokumentu (`/dokument/eu-2021-535`): popis, klíčová slova, verze, odkaz „Číst text“.
 - Přihlášení editora, fronta kandidátů a fronta oprav (36 položek „Kontrola záznamů“).
-- Zápis: zkušební oprava v editorském rozhraní se objeví v `/srv/h2db/state/manual_corrections.json`,
-  ne v `/srv/h2db/repo/data/`. Zkušební opravu potom zamítneme.
-- `sudo -u h2db .venv/bin/python src/tools/check_records.py` doběhne bez chyby.
+- Zápis: zkušební oprava v editorském rozhraní se objeví v `/home/prikryl/DEVEL/nahyc-h2db-state/manual_corrections.json`,
+  ne v `/home/prikryl/DEVEL/nahyc-h2db/data/`. Zkušební opravu potom zamítneme.
+- `.venv/bin/python src/tools/check_records.py` doběhne bez chyby.
+- V patičce je „Verze webu (git)“ se stejným commitem jako na vývojovém stroji a žádné upozornění
+  „Testovací verze“ (produkce `H2DB_INSTANCE` nenastavuje).
 
 ## 5. Aktualizace kódu na produkci
 
 ```
-cd /srv/h2db/repo
+cd /home/prikryl/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/backup_db.py --reason before_update
 git pull && .venv/bin/pip install -r requirements.txt
 # migrace, které nová verze uvádí v popisu PR (stejné jako TEST_DB_MIGRATIONS v run_tests.py)
@@ -163,8 +174,8 @@ produkce z neděle; testy (`run_tests.py`) dál kopírují `h2regdocs` do `h2reg
 
 ## 8. K potvrzení se správcem produkce
 
-1. Verze systému, Pythonu a MariaDB na `vm-nahyc.fel.zcu.cz`; zda smíme založit účet `h2db` a
-   adresář `/srv/h2db`.
+1. Verze systému, Pythonu a MariaDB na `vm-nahyc.fel.zcu.cz`; zda Apache smí spouštět démona
+   mod_wsgi pod účtem `prikryl` a číst jeho domovský adresář.
 2. Zda produkce smí přes SSH na `nahyc.fd.cvut.cz` (port 22) a na GitHub.
 3. Kdo spravuje Apache a certifikát `nahyc.fel.zcu.cz` (dnes na všech cestách WSGI vrací 500).
 

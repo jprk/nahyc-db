@@ -56,10 +56,15 @@
             <p>&copy; 2026 RICE FEL ZČU and partners.
                 <br />Created with the support of the Technology Agency of the Czech Republic under grant agreement No. TN02000007.
             </p>
+            {%- if test_instance %}
+            <p class="footer-test-notice"><strong>Testovací verze.</strong> Údaje jsou kopií produkční databáze;
+                změny provedené zde se do produkce nepřenášejí. Produkční web:
+                <a href="https://nahyc.fel.zcu.cz/h2db/">nahyc.fel.zcu.cz/h2db</a>.</p>
+            {%- endif %}
             {%- if db_last_updated or git_version %}
             <p class="footer-meta">{%- if db_last_updated %}Databáze aktualizována: {{ db_last_updated.strftime('%Y-%m-%d %H:%M') }}{%- endif -%}
                 {%- if db_last_updated and git_version %} &middot; {% endif -%}
-                {%- if git_version %}Verze aplikace: {{ git_version }}{%- endif -%}</p>
+                {%- if git_version %}Verze webu (git): {{ git_version }}{%- endif -%}</p>
             {%- endif %}
             {# Partner logos - left #}
             <div

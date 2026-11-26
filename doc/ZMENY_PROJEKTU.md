@@ -12,6 +12,9 @@ přidáváme po každém dokončeném kroku.
   `transfer_bundle.py` přenese databázi a stavové soubory jako ověřený balík (kontrolní součty, počty řádků,
   záloha cílové databáze); skripty v `deploy/production/` jej stáhnou na produkci a jednou týdně pošlou kopii
   produkce na testovací web `nahyc.fd.cvut.cz/h2db`. Přenos jsme vyzkoušeli z provozní do testovací databáze.
+- **Verze webu a označení testovací verze.** Patička uvádí „Verze webu (git)“ i tehdy, když proces webového serveru
+  git spustit nesmí (commit čteme přímo ze souborů `.git`). Server s `H2DB_INSTANCE=test` v `.env` ukazuje na úvodní
+  stránce a v patičce upozornění „Testovací verze“ s odkazem na produkční web (`doc/NASAZENI.md`, odstavec 4.5).
 - **Filtr „Ke kontrole“ v katalogu pro editory (PR #33).** Přihlášený editor zúží katalog na dokumenty s příznakem ke
   kontrole podle druhu důvodu: vše ke kontrole, vady k opravě, nálezy kontroly záznamů, odhadnutý jazyk
   a chybějící popis. Filtr editor kombinuje s ostatními filtry, hledáním i stránkováním a u každé volby vidí

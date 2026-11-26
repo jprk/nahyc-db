@@ -9,9 +9,9 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-User=h2db
-Group=h2db
-WorkingDirectory=/srv/h2db/repo
-ExecStart=/srv/h2db/repo/deploy/production/push_copy_to_test.sh
+User=prikryl
+Group=prikryl
+WorkingDirectory=/home/prikryl/DEVEL/nahyc-h2db
+ExecStart=/home/prikryl/DEVEL/nahyc-h2db/deploy/production/push_copy_to_test.sh
 TimeoutStartSec=1h
 Nice=10
