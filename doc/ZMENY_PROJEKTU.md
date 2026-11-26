@@ -12,6 +12,14 @@ přidáváme po každém dokončeném kroku.
   `transfer_bundle.py` přenese databázi a stavové soubory jako ověřený balík (kontrolní součty, počty řádků,
   záloha cílové databáze); skripty v `deploy/production/` jej stáhnou na produkci a jednou týdně pošlou kopii
   produkce na testovací web `nahyc.fd.cvut.cz/h2db`. Přenos jsme vyzkoušeli z provozní do testovací databáze.
+- **Filtr „Ke kontrole“ v katalogu pro editory (PR #33).** Přihlášený editor zúží katalog na dokumenty s příznakem ke
+  kontrole podle druhu důvodu: vše ke kontrole, vady k opravě, nálezy kontroly záznamů, odhadnutý jazyk
+  a chybějící popis. Filtr editor kombinuje s ostatními filtry, hledáním i stránkováním a u každé volby vidí
+  počet; export pro editora navíc obsahuje označení, adresu záznamu a důvody kontroly, takže slouží jako
+  pracovní seznam. Návštěvník volbu nevidí a parametr se na něj nevztahuje (`doc/PROVOZ.md`, odstavec 4.6).
+- **Přehlednější stav kandidáta ve frontě (PR #33).** Sloupec „Stav“ v seznamu kandidátů ukazuje stav na jednom
+  řádku a pod ním samostatný štítek „automat“ nebo jméno navrhovatele; zdroj kandidáta se láme jen mezi
+  slovy.
 - **Dokumenty pro MPO podle stavu k 26. 11. (PR #30).** Vypořádání připomínek, provozní dokument a návrh průvodního
   e-mailu uvádějí čísla ověřená nad provozní databází a veřejným webem (veřejný katalog 967 dokumentů,
   z toho 825 platných, 116 připravovaných a 26 historických). Doplnili jsme kontrolu záznamů, klíčová slova,

@@ -1503,6 +1503,54 @@ main {
     color: var(--text-muted);
 }
 
+/* The editors' block (the "Ke kontrole" filter and the Slovak switch): a full row,
+   set apart by a thin dashed frame so it does not compete with the public menus. */
+.filters-grid .editor-filters {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border: 1px dashed var(--border-glass);
+    border-radius: var(--radius-sm);
+    min-width: 0;
+}
+
+.editor-filters .editor-filters-title {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.editor-filters .editor-filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem 1.5rem;
+}
+
+.editor-filters .review-filter {
+    flex: 0 1 20rem;
+    min-width: 0;
+}
+
+.editor-filters .review-filter .filter-select {
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.editor-filters .filter-switch {
+    padding-bottom: 0.5rem;
+}
+
+.editor-filters .switch-note {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
 /* Four menus since krok 2: the export/reset buttons take a full row of their own. */
 .filters-grid .action-group {
     grid-column: 1 / -1;
@@ -1623,3 +1671,11 @@ main {
 .candidate-table .triage-rec, .candidate-table .triage-rule { white-space: normal; }
 .candidate-table td { overflow-wrap: anywhere; }
 .candidate-table td.candidate-open { overflow-wrap: normal; }
+
+/* The state of a candidate: the state on one line, who proposed or decided it on the next
+   (the automat badge as a component of its own, not inside brackets broken across lines). */
+.candidate-table td.candidate-col-state { overflow-wrap: normal; }
+.candidate-table .candidate-state { white-space: nowrap; }
+.candidate-table .candidate-state-by { display: block; margin-top: 0.2rem; }
+/* The source label breaks between words only ("MPO/CDV 30. 4. 2026", not "MPO/CD V"). */
+.candidate-table td.candidate-col-source { overflow-wrap: normal; }

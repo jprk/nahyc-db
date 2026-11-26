@@ -104,6 +104,71 @@ def wants_slovak(args, logged_in):
     return bool(logged_in) and (args.get(SLOVAK_SWITCH_PARAM) or "").strip() == "1"
 
 
+# ---------------------------------------------------------------- review filter
+
+# The "Ke kontrole" filter of the catalogue: a logged-in editor narrows the list
+# to documents flagged Document.needs_review, by the reason of the flag
+# (Document.review_reason, several reasons joined by "; "). Like the Slovak
+# switch it exists only for an editor; a visitor's `kontrola=...` is ignored,
+# in the list as well as in the exports.
+REVIEW_PARAM = "kontrola"
+
+# The reasons the pipeline writes (matched as substrings, since some carry a
+# dynamic "(...)" suffix): the defects behind the red "Vyžaduje opravu" badge
+# (src/tools/init_db.py, backfill_eu_gestor.py), the findings of the record
+# check (doc/KONTROLA_ZAZNAMU.md), the guessed language and the missing
+# description.
+DEFECT_REASON_MARKERS = (
+    "značka není platné označení dokumentu",
+    "název vypadá jako useknutý fragment textu",
+    "autoritativní gestor",
+)
+RECORD_CHECK_MARKER = "Kontrola záznamů"
+LANGUAGE_GUESS_MARKER = "jazyk dokumentu byl automaticky odhadnut"
+MISSING_DESCRIPTION_MARKER = "chybí popis/anotace dokumentu"
+
+# key -> (label, markers any of which the reason contains; () = any flagged document)
+REVIEW_FILTERS = {
+    "vse": ("Vše ke kontrole", ()),
+    "oprava": ("Vyžaduje opravu (vady)", DEFECT_REASON_MARKERS),
+    "kontrola-zaznamu": ("Nálezy kontroly záznamů", (RECORD_CHECK_MARKER,)),
+    "jazyk": ("Odhadnutý jazyk", (LANGUAGE_GUESS_MARKER,)),
+    "popis": ("Chybí popis", (MISSING_DESCRIPTION_MARKER,)),
+}
+
+
+def wants_review(args, logged_in):
+    """The review filter key: a known key only for a logged-in editor, else ""
+    (no restriction) — a visitor's parameter and an unknown value are ignored."""
+    if not logged_in:
+        return ""
+    raw = (args.get(REVIEW_PARAM) or "").strip()
+    return raw if raw in REVIEW_FILTERS else ""
+
+
+def like_literal(text):
+    """`text` as a LIKE pattern matching it literally anywhere in the value."""
+    escaped = text.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+    return f"%{escaped}%"
+
+
+def review_condition(key, alias="d"):
+    """(SQL condition, params) for a review filter key; ("", []) for none."""
+    if key not in REVIEW_FILTERS:
+        return "", []
+    _, markers = REVIEW_FILTERS[key]
+    condition = f"{alias}.needs_review = 1"
+    if not markers:
+        return condition, []
+    likes = " OR ".join([f"{alias}.review_reason LIKE %s"] * len(markers))
+    return f"{condition} AND ({likes})", [like_literal(m) for m in markers]
+
+
+def review_options():
+    """[(value, label)] for the menu, the empty value (no restriction) first."""
+    return [("", "Všechny dokumenty")] + [(key, label) for key, (label, _) in REVIEW_FILTERS.items()]
+
+
 # ---------------------------------------------------------------- EU act subtype
 
 # Values of Document.eu_act_subtype (src/tools/eu_act_subtype.py decides them);
