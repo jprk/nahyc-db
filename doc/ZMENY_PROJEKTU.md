@@ -6,14 +6,15 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
-- **Dokumenty pro MPO podle stavu k 26. 11.** Vypořádání připomínek, provozní dokument a návrh průvodního
+- **Dokumenty pro MPO podle stavu k 26. 11. (PR #30).** Vypořádání připomínek, provozní dokument a návrh průvodního
   e-mailu uvádějí čísla ověřená nad provozní databází a veřejným webem (veřejný katalog 967 dokumentů,
   z toho 825 platných, 116 připravovaných a 26 historických). Doplnili jsme kontrolu záznamů, klíčová slova,
   oblasti a rozšíření tématu RFNBO a přílohy DOCX a PDF jsme vygenerovali znovu. Opakovaná prohlídka webu
   nenašla žádnou novou vadu (`doc/MPO_OVERENI_WEBU.md`, odstavec 4).
 - **Issue #2 (plné texty) uzavřeno.** Čistý text zobrazujeme ve vlastní šabloně aplikace, surové stažené
   stránky nedoručujeme a text má 247 z 251 nenormových dokumentů. Zbývající otázky jsme převedli do dvou
-  nových issues: hledání v plném textu a ověření práv k veřejnému zobrazení textů jiných vydavatelů.
+  nových issues: hledání v plném textu (#31) a ověření práv k veřejnému zobrazení textů jiných
+  vydavatelů (#32).
 - **Nasazení PR #29 do provozu.** Kategorie zdrojových rešerší jsme přejmenovali (`SourceCategory`),
   klíčová slova dokumentů jsou v centrální tabulce `Term` (5247 klíčových slov, 12 206 vazeb). Opravili
   jsme pole „Platnost od“ u 466 norem, sedm úředních názvů směrnic, propojili slovenské znění rozhodnutí
