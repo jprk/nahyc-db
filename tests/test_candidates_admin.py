@@ -174,6 +174,30 @@ class CandidateWorkflowTestCase(unittest.TestCase):
         self.assertEqual(accepted["TEST:1"]["gestor"], [SOURCE_NAME])
         self.assertIn("založen", bob.get(f"/admin/candidates/{candidate_id}").get_data(as_text=True))
 
+    def test_acceptance_survives_a_state_file_that_cannot_be_written(self):
+        """The web server may lack the right to write data/accepted_candidates.json; the
+        acceptance is in the database already, so the editor gets a warning, not an error page."""
+        candidate_id = self.insert_candidate("TEST:unwritable", designation="9003/2099 Sb.")
+        alice, bob = self.client_for("cand_alice"), self.client_for("cand_bob")
+        form = {"designation": "9003/2099 Sb.", "title": TITLE, "document_type": "Zákon", "url": "https://example.test/x",
+                "language": "CS", "jurisdikce": "CZ", "puvodce": SOURCE_NAME, "scope_area": ["9"],
+                "decision_note": "test nezapisovatelného souboru"}
+        alice.post(f"/admin/candidates/{candidate_id}/propose", data=form)
+        saved = self.candidates_admin.ACCEPTED_PATH
+        self.candidates_admin.ACCEPTED_PATH = pathlib.Path(self.tmp.name) / "missing-dir" / "accepted.json"
+        try:
+            response = bob.post(f"/admin/candidates/{candidate_id}/confirm", follow_redirects=True)
+        finally:
+            self.candidates_admin.ACCEPTED_PATH = saved
+        self.assertEqual(response.status_code, 200)
+        page = response.get_data(as_text=True)
+        self.assertIn("Změna je uložena v databázi, ale nepodařilo se ji zapsat do souboru accepted.json", page)
+        row = self.candidate(candidate_id)
+        self.assertEqual(row["status"], "accepted")
+        with self.conn.cursor() as cur:
+            cur.execute("DELETE FROM document_relation WHERE from_document_id = %s OR to_document_id = %s",
+                        (row["document_id"], row["document_id"]))
+
     def test_the_detail_shows_where_every_citing_document_cites_the_candidate(self):
         place = {"before": "postupuje se podle zákona č. ", "cited": "9001/2099 Sb.", "after": ", o zkušebnictví", "amendment": False}
         candidate_id = self.insert_candidate("TEST:contexts", evidence={

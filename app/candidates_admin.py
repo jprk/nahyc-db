@@ -35,7 +35,7 @@ import pathlib
 
 from flask import abort, flash, redirect, render_template, request, session, url_for
 
-from admin import REPO_ROOT, admin_bp, get_db, login_required
+from admin import REPO_ROOT, admin_bp, flash_state_write_failures, get_db, login_required, write_state_file
 import areas as area_rules
 import candidates as cd
 import citation_closure as cc
@@ -404,7 +404,7 @@ def save_relation(from_identifier, to_identifier, relation_type, note, path=None
                (from_identifier, to_identifier, relation_type) for r in relations):
         relations.append({"from_identifier": from_identifier, "to_identifier": to_identifier,
                           "relation_type": relation_type, "note": note})
-        path.write_text(json.dumps(relations, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_state_file(path, json.dumps(relations, ensure_ascii=False, indent=2) + "\n")
 
 
 def link_language_versions(cur, doc_id, identifier, language):
@@ -455,8 +455,8 @@ def link_repealing_acts(cur, doc_id, candidate, evidence):
     if own.split(":", 1)[0] in ("CZ", "EU") and own not in cache and validity.get("status") == "zrušený":
         cache[own] = {**validity, "checked_at": validity.get("checked_at") or datetime.date.today().isoformat()}
         # the format of check_validity.py, so that its next run changes only what it re-checks
-        pathlib.Path(VALIDITY_CACHE_PATH).write_text(json.dumps(dict(sorted(cache.items())), ensure_ascii=False,
-                                                                indent=1) + "\n", encoding="utf-8")
+        write_state_file(VALIDITY_CACHE_PATH, json.dumps(dict(sorted(cache.items())), ensure_ascii=False,
+                                                         indent=1) + "\n")
     return keys
 
 
@@ -478,7 +478,7 @@ def save_accepted(key, record, path=None):
     path = pathlib.Path(path or ACCEPTED_PATH)
     accepted = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     accepted[key] = record
-    path.write_text(json.dumps(accepted, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_state_file(path, json.dumps(accepted, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
 
 
 def _confirm(cur, candidate, bulk=False):
@@ -521,6 +521,7 @@ def candidate_confirm(candidate_id):
     key = candidate["candidate_key"] or f"manual:{candidate_id}"
     save_accepted(key, pipeline_record(candidate, session.get("username")))
     flash("Kandidát přijat a dokument založen.", "success")
+    flash_state_write_failures()
     return redirect(url_for("admin.candidate_detail", candidate_id=candidate_id))
 
 
@@ -577,6 +578,7 @@ def candidate_bulk():
     flash(f"Hromadně {BULK_ACTIONS[action]}: {done}." + (f" Přeskočeno (stav to nedovoluje nebo jde o vlastní návrh): "
                                                          f"{', '.join(skipped[:10])}{' …' if len(skipped) > 10 else ''}."
                                                          if skipped else ""), "success" if done else "error")
+    flash_state_write_failures()
     return redirect(back)
 
 

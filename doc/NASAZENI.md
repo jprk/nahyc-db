@@ -63,7 +63,9 @@ Na produkci je dnes vše v pracovním stromu `/home/prikryl/DEVEL/nahyc-h2db` ú
 - Aplikace, plánovač i kopie na testovací web běží pod účtem `prikryl` (démon mod_wsgi
   s `user=prikryl`, jednotky systemd s `User=prikryl`).
 - `/home/prikryl/DEVEL/nahyc-h2db` — pracovní strom gitu; `/home/prikryl/DEVEL/nahyc-h2db-state` —
-  stavové soubory (`H2DB_STATE_DIR`), mimo pracovní strom gitu.
+  stavové soubory (`H2DB_STATE_DIR`), mimo pracovní strom gitu. Do tohoto adresáře musí smět zapisovat
+  účet, pod nímž běží démon mod_wsgi (na vývojovém stroji právě chybějící právo zápisu způsobilo chybu
+  opravenou v PR #34).
 - SSH klíč účtu `prikryl` na produkci přidáme na vývojovém stroji do `~laborator/.ssh/authorized_keys`
   (s omezením `from="147.228.82.118"`): přes něj produkce stahuje balík a posílá kopii.
 

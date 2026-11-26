@@ -30,7 +30,7 @@ import pathlib
 import sys
 
 import pymysql
-from flask import Blueprint, abort, flash, g, redirect, render_template, request, session, url_for
+from flask import Blueprint, abort, current_app, flash, g, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -223,9 +223,36 @@ def load_manual_corrections():
     return {}
 
 
+def write_state_file(path, text):
+    """Writes a file that the editors' actions keep for the next rebuild of the database
+    (manual corrections, accepted candidates, relations, the validity cache). The change
+    is already in the database when this runs, so a failed write (the web server may lack
+    the right to write the file) must not turn the editor's action into an error page:
+    the failure is logged and remembered for flash_state_write_failures(). True when written."""
+    path = pathlib.Path(path)
+    try:
+        path.write_text(text, encoding="utf-8")
+        return True
+    except OSError as error:
+        current_app.logger.error("state file %s not written: %s", path, error)
+        if "state_write_failures" not in g:
+            g.state_write_failures = []
+        g.state_write_failures.append(path.name)
+        return False
+
+
+def flash_state_write_failures():
+    """A warning for the editor when a state file of this request could not be written."""
+    failed = sorted(set(g.pop("state_write_failures", [])))
+    if failed:
+        flash("Změna je uložena v databázi, ale nepodařilo se ji zapsat do souboru "
+              + ", ".join(failed) + ", z něhož se databáze obnovuje při přestavbě. "
+              "Dejte prosím vědět správci databáze.", "error")
+    return bool(failed)
+
+
 def save_manual_corrections(corrections):
-    with open(MANUAL_CORRECTIONS_PATH, "w", encoding="utf-8") as f:
-        json.dump(corrections, f, ensure_ascii=False, indent=2, sort_keys=True)
+    write_state_file(MANUAL_CORRECTIONS_PATH, json.dumps(corrections, ensure_ascii=False, indent=2, sort_keys=True))
 
 
 def recompute_needs_review(identifier, title, description):
@@ -324,6 +351,7 @@ def confirm(review_item_id):
         save_manual_corrections(corrections)
 
     flash("Oprava potvrzena a zapsána.", "success")
+    flash_state_write_failures()
     return redirect(url_for("admin.review_list"))
 
 
