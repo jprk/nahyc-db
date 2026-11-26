@@ -91,16 +91,30 @@
             </div>
 
             {% if logged_in %}
-            {# doc/MPO_PRIPOMINKY.md, odstavec 4.3: Slovak documents are hidden
-               from the public catalogue; only an editor may include them. #}
-            <div class="filter-group filter-switch">
-                <label class="switch-label">
-                    <input type="checkbox" name="sk" value="1" {% if include_sk %}checked{% endif %}
-                           onchange="this.form.submit()">
-                    <span>Zahrnout i slovenskou legislativu</span>
-                </label>
-                <p class="switch-note"><i class="ph ph-lock-simple"></i> Jen pro přihlášené editory; veřejnost
-                    slovenské dokumenty (normy STN, slovenské předpisy a slovenská znění aktů EU) v katalogu nevidí.</p>
+            {# Editors only: the "Ke kontrole" filter (Document.needs_review by the reason
+               of the flag) and the Slovak switch (doc/MPO_PRIPOMINKY.md, odstavec 4.3).
+               A visitor gets neither, and the server ignores both parameters for him. #}
+            <div class="editor-filters">
+                <p class="editor-filters-title"><i class="ph ph-lock-simple"></i> Jen pro přihlášené editory</p>
+                <div class="editor-filters-row">
+                    <div class="filter-group review-filter">
+                        <label for="filter-review">Ke kontrole</label>
+                        <select name="kontrola" id="filter-review" class="filter-select" onchange="this.form.submit()">
+                            {% for value, label, count in review_options %}
+                            <option value="{{ value }}" {% if selected_review==value %}selected{% endif %}>{% if not value %}-- {{ label }} --{% else %}{{ label }} ({{ count }}){% endif %}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="filter-group filter-switch">
+                        <label class="switch-label">
+                            <input type="checkbox" name="sk" value="1" {% if include_sk %}checked{% endif %}
+                                   onchange="this.form.submit()">
+                            <span>Zahrnout i slovenskou legislativu</span>
+                        </label>
+                    </div>
+                </div>
+                <p class="switch-note">Veřejnost tyto volby nevidí: slovenské dokumenty (normy STN, slovenské
+                    předpisy a slovenská znění aktů EU) v katalogu nemá a export pro ni neobsahuje důvody kontroly.</p>
             </div>
             {% endif %}
 
