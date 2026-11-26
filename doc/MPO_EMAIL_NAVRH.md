@@ -2,13 +2,14 @@
 
 > Historie dokumentu:  
 > 2026-11-19 jprk Návrh první verze  
-> 2026-11-21 jprk Sladěno se stavem po nasazení 20. 11. 2026 (strategie, fronta kandidátů, připravované předpisy)
+> 2026-11-21 jprk Sladěno se stavem po nasazení 20. 11. 2026 (strategie, fronta kandidátů, připravované předpisy)  
+> 2026-11-26 jprk Sladěno se stavem po nasazení 26. 11. 2026 (kontrola záznamů, klíčová slova, oblasti, RFNBO)
 
 Návrh e-mailu, jímž odešleme Ing. Petru Mervartovi (MPO) vypořádání
-připomínek k výsledku V01. Odeslání plánujeme do 27. 11. 2026; úpravy jsou
-do veřejné verze aplikace nasazeny od 20. 11. 2026 (`doc/MPO_VYPORADANI.md`,
-odstavec 6) a veřejnou verzi jsme proti vypořádání ověřili 21. 11. 2026
-(`doc/MPO_OVERENI_WEBU.md`). Před odesláním je třeba ověřit, že navržené
+připomínek k výsledku V01. Odeslání plánujeme do 27. 11. 2026; úpravy jsme
+do veřejné verze aplikace nasadili 20. a 26. 11. 2026 (`doc/MPO_VYPORADANI.md`,
+odstavec 6) a veřejnou verzi jsme proti vypořádání naposledy ověřili
+26. 11. 2026 (`doc/MPO_OVERENI_WEBU.md`). Před odesláním je třeba ověřit, že navržené
 termíny jednání jsou stále volné, a vyřešit otevřený bod k editorským
 účtům (komentáře OTEVŘENO níže a ve vypořádání).
 
@@ -37,12 +38,21 @@ Připomínky považujeme za oprávněné. Stručně ke stavu:
 
 * Duplicitní záznamy jsou odstraněny, každý předpis je ve výsledcích
   vyhledávání zobrazen jedním řádkem se štítky jazykových verzí a dotaz
-  „RFNBO“ nyní najde akty v přenesené pravomoci i směrnice o obnovitelných
-  zdrojích (a strategie, jež pojem uvádějí), každý dokument jednou.
+  „RFNBO“ nyní najde 12 dokumentů, každý jednou: akty v přenesené
+  pravomoci, směrnice o obnovitelných zdrojích a další akty EU, české
+  zákony, jež pojem používají, a strategie. Akty k RFNBO, jež v databázi
+  chyběly, jsme zapsali do fronty kandidátů.
 * Odpovědné instituce jsme opravili (zákony o dráhách mají Ministerstvo
   dopravy, slovenské předpisy slovenské orgány), zastaralá hláška
   a interní poznámky z vývoje jsou z veřejných popisů odstraněny a akty
   v přenesené pravomoci lze vybrat samostatným filtrem.
+* Všechny záznamy databáze jsme porovnali s úředními rejstříky (EUR-Lex,
+  otevřená data ISO) a navzájem. Chybné názvy a popisy jsme podle zdroje
+  opravili, popisy bez doloženého zdroje odstranili, duplicity sloučili
+  a akty EU, jež s vodíkovými technologiemi nesouvisejí, vyřadili. Dokumenty
+  nově nesou klíčová slova (u aktů EU deskriptory EuroVoc, u norem třídník
+  ICS) a filtr oblastí nabízí 29 českých oblastí místo kategorií převzatých
+  z podkladových rešerší.
 * Obě tabulky předpisů, jež kolegyně zpracovaly, jsme porovnali s databází
   řádek po řádku. Chybějící předpisy, včetně vyhlášek Energetického
   regulačního úřadu a předpisů báňské bezpečnosti, jsou zapsány ve frontě
@@ -56,12 +66,12 @@ Připomínky považujeme za oprávněné. Stručně ke stavu:
 * Databáze nově sleduje připravované předpisy (VeKLEP, Poslanecká sněmovna
   a Senát, legislativní postupy EU); první sběr 20. 11. 2026 zachytil mimo
   jiné 35 sněmovních tisků a 9 legislativních postupů EU, jež posoudí
-editoři. Stránka každého dokumentu uvádí, kdy a v jakém zdroji
+  editoři. Stránka každého dokumentu uvádí, kdy a v jakém zdroji
   byl jeho stav naposledy ověřen. Kontroly zatím spouštíme ručně;
   pravidelné automatické spouštění zavedeme do konce roku.
 
-Úpravy jsou od 20. 11. 2026 nasazeny ve veřejné verzi aplikace na adrese
-https://nahyc.fd.cvut.cz/h2db/. Co ještě zbývá a v jakých termínech, uvádí
+Úpravy jsou nasazeny ve veřejné verzi aplikace (naposledy 26. 11. 2026)
+na adrese https://nahyc.fd.cvut.cz/h2db/. Co ještě zbývá a v jakých termínech, uvádí
 odstavec 6 vypořádání; opětovné předání výsledku V01 navrhujeme na 22. 12. 2026.
 
 Rád bych vypořádání s Vámi a s kolegyněmi projednal. Navrhuji jednání

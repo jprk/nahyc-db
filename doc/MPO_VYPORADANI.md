@@ -3,7 +3,8 @@
 > Historie dokumentu:  
 > 2026-11-19 jprk Návrh první verze jako podklad k jednání s MPO  
 > 2026-11-19 jprk Doplněn stav etap 1 až 3, harmonogram s termíny, nabídka editorského přístupu pro MPO  
-> 2026-11-21 jprk Stav po nasazení úprav 20. 11. 2026, automatické předtřídění fronty kandidátů, čísla ověřená nad provozní databází a veřejnou verzí aplikace
+> 2026-11-21 jprk Stav po nasazení úprav 20. 11. 2026, automatické předtřídění fronty kandidátů, čísla ověřená nad provozní databází a veřejnou verzí aplikace  
+> 2026-11-26 jprk Stav po nasazení 26. 11. 2026: kontrola záznamů proti úředním rejstříkům, klíčová slova, oblasti katalogu, opravené vady webu, pokrytí RFNBO; čísla ověřená nad provozní databází a veřejnou verzí aplikace
 
 Dokument shrnuje vypořádání připomínek, jež Ing. Petr Mervart, aplikační
 garant dílčího projektu DP004 za Ministerstvo průmyslu a obchodu, vznesl
@@ -17,15 +18,21 @@ při rozboru nalezli sami, a v odstavci 6 harmonogram dalšího postupu.
 Dokument končí otevřenými otázkami k jednání (odstavec 7) a přílohou A se
 seznamem strategických dokumentů z rešerše, jež jsme do databáze doplnili.
 
-Stav databáze a webové aplikace uvádíme k 20. 11. 2026, kdy jsme všechny
-úpravy popsané v tomto dokumentu nasadili do veřejné verze aplikace
-(<https://nahyc.fd.cvut.cz/h2db/>) a zapsali do provozní databáze. Čísla
-o obsahu databáze jsme ověřili dotazem nad provozní databází a popsané chování
-aplikace prohlídkou její veřejné verze 21. 11. 2026. Veřejný katalog nyní
-nabízí 1038 předpisů a norem (jazykové verze téhož předpisu a skryté
-slovenské dokumenty se nepočítají), z nichž 857 je platných, 145
-připravovaných, 34 zrušených a 2 nahrazené; provozní databáze vede včetně
-jazykových verzí a slovenských dokumentů celkem 1506 záznamů.
+Stav databáze a webové aplikace uvádíme k 26. 11. 2026. Úpravy popsané
+v tomto dokumentu jsme nasadili do veřejné verze aplikace
+(<https://nahyc.fd.cvut.cz/h2db/>) a zapsali do provozní databáze ve třech
+krocích: 20. 11. 2026 opravy a úpravy rozhraní podle připomínek,
+23. 11. 2026 opravy z kontroly záznamů proti úředním rejstříkům
+a 26. 11. 2026 klíčová slova dokumentů, oblasti katalogu a opravy vad, jež
+jsme zjistili prohlídkou veřejné verze aplikace 21. 11. 2026. Čísla o obsahu
+databáze jsme ověřili dotazem nad provozní databází a popsané chování
+aplikace prohlídkou její veřejné verze 26. 11. 2026. Veřejný katalog nyní
+nabízí 967 předpisů a norem (jazykové verze téhož předpisu a skryté
+slovenské dokumenty se nepočítají), z nichž 825 je platných, 116
+připravovaných, 24 zrušených a 2 nahrazené; provozní databáze vede včetně
+jazykových verzí a slovenských dokumentů celkem 1432 záznamů. K 20. 11. 2026
+to bylo 1038 předpisů a norem v katalogu a 1506 záznamů; úbytek vysvětluje
+kontrola záznamů (odstavec 5, bod 9).
 
 ## 1. Podklady
 
@@ -56,18 +63,18 @@ nezávislého měření úplnosti. Obojí nyní napravujeme (odstavec 6).
 
 ## 2. Přehled stavu připomínek
 
-| # | Připomínka (zkráceně) | Stav k 20. 11. 2026 | Zbývá |
+| # | Připomínka (zkráceně) | Stav k 26. 11. 2026 | Zbývá |
 |---|---|---|---|
 | 1 | Dokument se ve výsledcích zobrazí dvakrát česky a dvakrát anglicky. | Duplicity odstraněny; dotčený dokument (rozhodnutí ECB) z databáze vyřazen jako nesouvisející. Jazykové verze předpisu se zobrazují v jednom řádku se štítky jazyků (nasazeno 20. 11. 2026). | Vysvětlit uživatelům, u kterých dokumentů vedeme anglickou verzi (etapa 1). |
-| 2 | Dotaz „RFNBO“ vrací čtyřikrát týž dokument. | Duplicity odstraněny; vyhledávání podle zkratek a synonym nasazeno 20. 11. 2026. Dotaz vrací čtyři předpisy a tři strategie, každý dokument jednou. | — |
+| 2 | Dotaz „RFNBO“ vrací čtyřikrát týž dokument. | Duplicity odstraněny; vyhledávání podle zkratek a synonym nasazeno 20. 11. 2026, rozšířeno 26. 11. 2026. Dotaz vrací 12 dokumentů (šest aktů EU, tři české zákony, tři strategie), každý jednou. Pokrytí tématu RFNBO porovnáno s referenčním seznamem; chybějící akty jsou ve frontě kandidátů. | Potvrdit přijetí chybějících aktů editorem. |
 | 3 | V databázi chybějí akty v přenesené pravomoci. | Pět aktů v databázi je; nařízení (EU) 2023/1185 má český název. Filtr podle podtypu aktů EU nasazen 20. 11. 2026. Chybějící (EU) 2025/2359 je ve frontě kandidátů navrženo k přijetí. | Potvrdit přijetí chybějících aktů editorem (etapa 1, do 11. 12. 2026). |
 | 4 | Současně „MD“ i „Ministerstvo dopravy“. | Vyřešeno; zkratky nahrazeny plnými názvy. | — |
-| 5 | MPO je uvedeno jako odpovědné za zákon o dráhách. | Vyřešeno; opraveny i další chybně přiřazené instituce. Nabídka institucí rozdělená podle jurisdikce a filtr jurisdikce nasazeny 20. 11. 2026. | — |
-| 6 | U energetického zákona se zobrazuje zastaralá hláška. | Vyřešeno; hláška i interní poznámky z vývoje odstraněny z veřejných popisů. | Doplnit popisy dokumentům, jež po odstranění poznámek popis nemají (průběžně). |
-| 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů a převod návrhu na vyhlášený předpis nasazeny; první běh sběru nad provozní databází 20. 11. 2026 zapsal do fronty kandidátů 242 nálezů, mezi nimi 35 sněmovních tisků a 9 legislativních postupů EU. | Posouzení nálezů editory (do 18. 12. 2026, ostatní do 15. 1. 2027). |
+| 5 | MPO je uvedeno jako odpovědné za zákon o dráhách. | Vyřešeno; opraveny i další chybně přiřazené instituce. Nabídka institucí rozdělená podle jurisdikce a filtr jurisdikce nasazeny 20. 11. 2026; názvy a popisy dalších záznamů opraveny po kontrole proti úředním rejstříkům 23. 11. 2026. | — |
+| 6 | U energetického zákona se zobrazuje zastaralá hláška. | Vyřešeno; hláška i interní poznámky z vývoje odstraněny z veřejných popisů, popisy bez doloženého zdroje odstraněny 23. 11. 2026. | Doplnit popisy dokumentům, jež po odstranění poznámek popis nemají (průběžně). |
+| 7 | Databáze neobsahuje připravované předpisy. | Sběr návrhů předpisů a převod návrhu na vyhlášený předpis nasazeny; první běh sběru nad provozní databází 20. 11. 2026 zapsal do fronty kandidátů 242 nálezů, mezi nimi 35 sněmovních tisků a 9 legislativních postupů EU. Katalog vede 116 připravovaných dokumentů (převážně návrhy norem). | Posouzení nálezů editory (do 18. 12. 2026, ostatní do 15. 1. 2027). |
 | 8 | Chybějí i existující předpisy (tabulky MPO a CDV). | Rozbor proveden: z 42 českých předpisů tabulky MPO je v databázi 12. Kandidáti pro chybějící předpisy, další části norem a novely LEX OZE jsou od 20. 11. 2026 ve frontě kandidátů a automatický navrhovatel je navrhl k přijetí; automatický test pokrytí obou tabulek zaveden. <!-- OTEVŘENO bod 3: editorské účty --> | Potvrzení přijetí editory (etapa 1, do 11. 12. 2026). |
 | 9 | Nová kategorie „Strategie“. | Kategorie „Strategie“ zavedena (přejmenováním dosavadního typu), doplněno 18 strategií podle přílohy A a dvě připravované aktualizace strategií, celkem 32 dokumentů (nasazeno 20. 11. 2026). | Pravidelně kontrolovat aktuálnost strategií (etapa 3). |
-| 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; datum poslední kontroly stavu se na stránce dokumentu zobrazuje od 20. 11. 2026 (u 233 dokumentů); postup popsán v provozním dokumentu. | Zavést pravidelné automatické spouštění kontrol (do konce prosince 2026); do té doby je spouštíme ručně. |
+| 10 | Jak bude zajištěna aktuálnost předpisů. | Kontrola platnosti a stavy dokumentů zavedeny; datum poslední kontroly stavu se na stránce dokumentu zobrazuje od 20. 11. 2026 (k 26. 11. 2026 u 205 dokumentů); záznamy zkontrolovány proti úředním rejstříkům 23. 11. 2026; postup popsán v provozním dokumentu. | Zavést pravidelné automatické spouštění kontrol (do konce prosince 2026); do té doby je spouštíme ručně. |
 
 ## 3. Vypořádání jednotlivých připomínek
 
@@ -124,14 +131,35 @@ a využívá slovník zkratek a ustálených názvů (RFNBO, AFIR, AFID, RED I
 RED III, LEX OZE, TEN-E, ReFuelEU, ATEX, PED a další), takže dotaz na zkratku
 najde i dokumenty, jež ji v názvu nemají. Zkratka se hledá jako celé slovo
 (dotaz „RED II“ tedy nenajde RED III) a pod výsledky se zobrazí, která
-synonyma byla použita. Dotaz „RFNBO“ ve veřejné verzi aplikace vrací sedm
-dokumentů, každý jednou: čtyři předpisy (nařízení v přenesené pravomoci (EU)
-2023/1184 a 2023/1185 a směrnice RED II a RED III) a tři strategie, jež
-pojem RFNBO uvádějí (sdělení „Fit for 55“ a AccelerateEU a Vnitrostátní plán
-České republiky v oblasti energetiky a klimatu). Jazykové verze jsou
-zobrazeny podle odstavce 3.1.
+synonyma byla použita.
 
-**Co ještě uděláme:** Slovník budeme rozšiřovat podle dotazů uživatelů;
+**Nasazeno 26. 11. 2026:** Slovník jsme rozšířili o předpisy, jež pojem
+RFNBO používají ve svém textu, a vyhledávání prochází i klíčová slova
+dokumentů (odstavec 5, bod 11). Dotaz „RFNBO“ ve veřejné verzi aplikace nyní
+vrací 12 dokumentů, každý jednou (20. 11. 2026 jich bylo sedm): šest aktů EU
+(nařízení v přenesené pravomoci (EU) 2023/1184 a 2023/1185, směrnice RED II
+a RED III, nařízení ReFuelEU Aviation (EU) 2023/2405 a směrnice (EU)
+2024/1788 o společných pravidlech pro vnitřní trh s plynem z obnovitelných
+zdrojů, se zemním plynem a s vodíkem), tři české zákony (č. 165/2012 Sb.
+o podporovaných zdrojích energie, č. 201/2012 Sb. o ochraně ovzduší
+a č. 458/2000 Sb., energetický zákon) a tři strategie, jež pojem RFNBO
+uvádějí (sdělení „Fit for 55“ a AccelerateEU a Vnitrostátní plán České
+republiky v oblasti energetiky a klimatu). Jazykové verze jsou zobrazeny
+podle odstavce 3.1.
+
+Pokrytí tématu RFNBO jsme 22. 11. 2026 porovnali s referenčním seznamem
+předpisů, jejichž existenci a číslo jsme ověřili v databázi Úřadu pro
+publikace EU. Pět chybějících aktů jsme zapsali do fronty kandidátů: pokyny
+Komise k cílům spotřeby RFNBO v průmyslu a dopravě (C/2025/2983) a čtyři
+prováděcí rozhodnutí Komise o uznání nepovinných certifikačních režimů pro
+RFNBO ((EU) 2024/3176, 2024/3180, 2024/3194 a 2026/2316). Ve frontě již
+čekají na potvrzení prováděcí nařízení (EU) 2022/996 o pravidlech pro
+ověřování, nařízení FuelEU Maritime (EU) 2023/1805 a nařízení v přenesené
+pravomoci (EU) 2025/2359. Referenční seznam hlídá automatický test stejně
+jako tabulky MPO a CDV (odstavec 3.8).
+
+**Co ještě uděláme:** Přijetí chybějících aktů potvrdí editor (etapa 1,
+do 11. 12. 2026). Slovník budeme rozšiřovat podle dotazů uživatelů;
 pojem „LEX vodík“ do něj zařadíme, jakmile bude příslušný návrh zákona
 v databázi (odstavec 3.7).
 
@@ -204,7 +232,8 @@ neshoda než u zákona č. 250/2021 Sb. se nevyskytla.
 **Nasazeno 20. 11. 2026:** Filtr odpovědných institucí dříve míchal česká
 ministerstva, orgány EU a normalizační orgány. Nyní je rozdělen do skupin
 podle jurisdikce (ve veřejném katalogu Česká republika, Evropská unie,
-mezinárodní organizace a normalizační a odborné organizace) a nabízí jen
+mezinárodní organizace, normalizační a odborné organizace a zahraniční
+státní orgány) a nabízí jen
 instituce, k nimž katalog obsahuje alespoň jeden dokument. Přibyl filtr
 jurisdikce (Česká republika, Evropská unie, mezinárodní, ostatní státy
 a neurčené). Slovenské dokumenty a slovenské orgány se ve veřejném katalogu
@@ -264,8 +293,11 @@ a potvrzuje ji jiný. První běh sběru nad provozní databází 20. 11. 2026
 zapsal do fronty 242 nových kandidátů ze všech sledovaných zdrojů, mezi nimi
 35 sněmovních tisků, 9 legislativních postupů EU a 74 předpisů z otevřených
 dat e-Sbírky. Připravované dokumenty jsou na stránce dokumentu
-označeny stavem „připravovaný“; veřejný katalog jich nyní obsahuje 145,
-převážně návrhy norem a dvě připravované aktualizace strategií. Návrhy
+označeny stavem „připravovaný“; veřejný katalog jich k 26. 11. 2026
+obsahuje 116, převážně návrhy norem a dvě připravované aktualizace
+strategií (20. 11. 2026 jich bylo 145; návrhy norem, jež ISO mezitím vydala,
+jsme při kontrole záznamů převedli na vydanou normu a starší fáze téhož
+projektu normy sloučili, odstavec 5, bod 9). Návrhy
 předpisů z prvního sběru se mezi ně dostanou až po přijetí editory.
 
 **Co ještě uděláme:** Nálezy přímo související s databází posoudí editoři
@@ -360,8 +392,11 @@ Automatický navrhovatel (odstavec 4.3, bod 3) navrhl k přijetí všech
 LEX OZE. Ze tří kandidátů, kteří ve frontě již byli, navrhl k přijetí
 zákon č. 108/2011 Sb., u vyhlášky č. 345/2002 Sb. ponechal editorům
 doporučení k přijetí a zákon č. 586/1992 Sb. zamítl; toto zamítnutí je
-vratné a editoři je přezkoumají. Žádný z návrhů dosud nepotvrdil editor,
-takže předpisy z tabulek zatím ve veřejném katalogu nejsou.
+vratné a editoři je přezkoumají. Žádný z návrhů dosud (k 26. 11. 2026)
+nepotvrdil editor, takže předpisy z tabulek zatím ve veřejném katalogu
+nejsou. Porovnání tabulek s databází jsme po kontrole záznamů zopakovali
+26. 11. 2026 se stejným výsledkem: 51 řádků je v databázi, 31 ve frontě
+kandidátů a 8 řádků neoznačuje dokumenty.
 <!-- OTEVŘENO bod 3: editorské účty -->
 
 **Co ještě uděláme:** Návrhy přijetí zkontroluje a potvrdí editor do 11. 12. 2026 (etapa 1, odstavec 4.3); každý přijatý předpis se tím stane
@@ -403,7 +438,12 @@ filtrem, že nabídka institucí neobsahuje holé zkratky, že zákony o dráh�
 mají jako odpovědnou instituci Ministerstvo dopravy, že žádná stránka
 neobsahuje zastaralou hlášku ani interní poznámky a že stránky lze
 používat na telefonu. Tytéž scénáře jsme 21. 11. 2026 ověřili prohlídkou
-veřejné verze aplikace.
+veřejné verze aplikace; pět vad, jež jsme při ní zjistili (mimo jiné
+nesprávné rozdělení počtu dokumentů na úvodní stránce, ikona lupy na
+telefonu mimo vyhledávací pole, údaje o fázi návrhu normy v poli „Platnost
+od“, neúřední názvy směrnic RED II, RED III, ATEX a PED a neposunuté datum
+kontroly u nařízení CLP a REACH), jsme opravili, nasadili 26. 11. 2026
+a opravu ověřili novou prohlídkou téhož dne.
 
 **Co ještě uděláme:** Testy doplníme o scénáře připomínek 7 až 10
 (připravované předpisy, předpisy z tabulek MPO a CDV, kategorie
@@ -425,23 +465,23 @@ týká jen část, a zařazení komise jako celku by tedy o vodíkových norm�
 mnoho neřeklo.
 
 Místo komisí proto nabízíme přehled norem, jež tyto komise vydaly a jež
-databáze obsahuje. Pro představu uvádíme vybrané řady (počty zahrnují
-i česká a slovenská převzetí téže normy):
+databáze obsahuje. Pro představu uvádíme vybrané řady (počty
+k 26. 11. 2026 zahrnují i česká a slovenská převzetí a návrhy téže normy):
 
 | Komise | Zaměření | Vybrané řady norem | Záznamů v databázi |
 |---|---|---|---|
-| IEC/TC 105 | technologie palivových článků | IEC 62282 | 30 |
+| IEC/TC 105 | technologie palivových článků | IEC 62282 | 29 |
 | ISO/TC 22 | silniční vozidla | ISO 6469, ISO 23273, ISO 12619, ISO 15500, ISO 21266 | 19 |
 | ISO/TC 193 | zemní plyn | ISO 6974, ISO 6976, ISO 13686 | 4 |
-| CEN/TC 234 | plynárenská infrastruktura | EN 1594, EN 12007, EN 1918 | 12 |
+| CEN/TC 234 | plynárenská infrastruktura | EN 1594, EN 12007, EN 1918 | 13 |
 | CEN/TC 235 | regulátory tlaku plynu a bezpečnostní zařízení | EN 334, EN 14382 | 2 |
 | CEN/TC 268 | kryogenní nádoby a specifické vodíkové technologie | EN 17124, EN 17127 | 5 |
 
 Upozorňujeme, že ISO/TC 268 se zabývá udržitelnými městy a obcemi, nikoli
 vodíkem; v tabulce CDV jde patrně o záměnu s CEN/TC 268. Naopak v tabulce
 chybí patrně nejdůležitější komise, **ISO/TC 197 Vodíkové technologie**
-(normy ISO 14687, ISO 19880, ISO 19881, ISO 19882 a další); z jejích řad
-eviduje databáze 30 záznamů.
+(normy ISO 14687, ISO 17268, ISO 19880 až ISO 19887, ISO 22734 a další);
+z jejích řad eviduje databáze 52 záznamů včetně převzetí a návrhů norem.
 
 Navrhujeme na stránce dokumentu normy uvádět, kterou komisí byla připravena,
 a umožnit podle komise filtrovat. Tím by se požadavek, jenž za položkami
@@ -540,14 +580,18 @@ aktuálnosti databáze“, jejž přikládáme. Stručně:
    a lze je vrátit. Z 592 kandidátů ve frontě automat 20. 11. 2026 navrhl
    k přijetí 242 (spolu s jedním dříve navrženým je tedy k přijetí navrženo
    243), zamítl 163 a odložil 46; u zbylých 140 ponechal editorům
-   doporučení modelu se zdůvodněním. Přijetí žádného kandidáta dosud editor
-   nepotvrdil. <!-- OTEVŘENO bod 3: editorské účty -->
+   doporučení modelu se zdůvodněním. Dne 26. 11. 2026 přibylo pět kandidátů
+   z porovnání pokrytí tématu RFNBO (odstavec 3.2); fronta tak obsahuje 597
+   kandidátů, z nich 145 neposouzených. Přijetí žádného kandidáta dosud
+   editor nepotvrdil. <!-- OTEVŘENO bod 3: editorské účty -->
 4. **Kontrola platnosti.** U předpisů ČR a EU ověřujeme v e-Sbírce
    a v databázi Úřadu pro publikace EU, zda jsou účinné, dosud neúčinné, nebo
    zrušené; zrušený předpis zůstává v databázi s vazbou na předpis, jenž jej
    zrušil. Poslední kontrola 27. 10. 2026 ověřila 747 předpisů ČR a EU
-   (předpisy v databázi i kandidáty na doplnění); databáze nyní vede 35
-   dokumentů jako zrušené. U českých norem ověřujeme v katalogu České
+   (předpisy v databázi i kandidáty na doplnění); databáze nyní vede 25
+   dokumentů jako zrušené (20. 11. 2026 jich bylo 35; deset z nich bylo
+   mezi akty EU, jež jsme při kontrole záznamů vyřadili jako akty mimo rozsah
+   databáze). U českých norem ověřujeme v katalogu České
    agentury pro standardizaci platné vydání a vydání vydané s pozdějším
    datem účinnosti. Nové vydání vede databáze u normy jako vyhlášené, dosud
    neúčinné a v den jeho účinnosti je sama převede na aktuální; dosavadní
@@ -556,9 +600,21 @@ aktuálnosti databáze“, jejž přikládáme. Stručně:
 5. **Datum poslední kontroly.** Od 20. 11. 2026 uvádí stránka každého
    dokumentu údaj „Poslední kontrola stavu“ s datem a zdrojem kontroly
    (například „27. 10. 2026 (e-Sbírka)“), u dokumentu dosud neověřeného
-   text „dosud neověřeno“. Datum kontroly je nyní uvedeno u 233 dokumentů
-   (předpisy ověřené kontrolou platnosti a normy ověřené v katalozích
-   norem); s každým dalším během kontrol se bude rozšiřovat.
+   text „dosud neověřeno“. Datum kontroly je k 26. 11. 2026 uvedeno
+   u 205 dokumentů (předpisy ověřené kontrolou platnosti a normy ověřené
+   v katalozích norem; 20. 11. 2026 to bylo 233 dokumentů, rozdíl připadá
+   převážně na 28 vyřazených aktů EU); s každým dalším během kontrol se bude
+   rozšiřovat. Obnova konsolidovaného znění aktu EU se od 26. 11. 2026
+   počítá jako kontrola stavu, takže nařízení CLP a REACH uvádějí datum
+   kontroly 20. 11. 2026.
+6. **Kontrola záznamů.** Údaje dokumentů (označení, název, popis) jsme
+   23. 11. 2026 porovnali s úředními rejstříky a mezi sebou (odstavec 5,
+   bod 9). Kontrolu budeme opakovat po každém přijetí kandidátů a spolu
+   s týdenní kontrolou platnosti; nálezy předáváme editorům jako položky ke
+   kontrole. Jazykový model nesmí dodávat název ani popis dokumentu bez
+   podkladu: název přebíráme z úředního rejstříku, popis z anotace zdroje
+   nebo z textu dokumentu, a co model odvodí (například klíčová slova),
+   označujeme jako neověřené.
 
 Otevřeně upozorňujeme, že kontroly zatím spouštíme ručně. Pravidelné
 automatické spouštění na serveru (plánovač) máme připraveno, nainstalováno
@@ -581,7 +637,7 @@ Připravované předpisy budeme zachycovat z těchto zdrojů:
 | Senát (sněmovní otevřená data) | senátní tisky navázané na sněmovní tisky | v provozu |
 | Legislativní observatoř Evropského parlamentu | legislativní postupy EU týkající se vodíku | v provozu; 20. 11. 2026 9 postupů |
 | Rejstříky Evropské komise (akty v přenesené pravomoci, komitologie, dokumenty Komise) | návrhy aktů v přenesené pravomoci a prováděcích aktů, návrhy Komise (COM) | v provozu; 20. 11. 2026 jeden návrh aktu v přenesené pravomoci |
-| CEN, ISO, IEC a Věstník ÚNMZ | návrhy norem (prEN, DIS) | v provozu; v databázi je 151 návrhů norem, 20. 11. 2026 přibylo 22 kandidátů z Věstníku ÚNMZ |
+| CEN, ISO, IEC a Věstník ÚNMZ | návrhy norem (prEN, DIS) | v provozu; v databázi je 122 návrhů norem (k 26. 11. 2026), 20. 11. 2026 přibylo 22 kandidátů z Věstníku ÚNMZ |
 | e-Legislativa (nástupce VeKLEPu) | návrhy v novém systému | vyžaduje registraci u Ministerstva vnitra; dosud neprovedena |
 
 Návrh předpisu, jenž se databáze týká (mění předpis, jejž databáze obsahuje,
@@ -632,9 +688,9 @@ patrně také uvidí. Uvádíme je kvůli úplnosti:
 2. **Interní poznámky ve veřejných popisech** — Opraveno, viz odstavec 3.6.
 3. **Chybné názvy záznamů** — Dva záznamy nesly místo názvu předpisu název
    webu „Slov-Lex“; opraveno.
-4. **Dokumenty bez popisu** — Ke kontrole editorem je označeno 557 dokumentů,
-   z toho 539 nemá popis (406 z nich jsou normy, u nichž popis nelze převzít
-   z chráněného textu).
+4. **Dokumenty bez popisu** — Ke kontrole editorem je k 26. 11. 2026
+   označeno 524 dokumentů, z toho 491 nemá popis (360 z nich jsou normy,
+   u nichž popis nelze převzít z chráněného textu).
 5. **Další chybné záznamy** — Záznam s označením (EU) 2014/1302 nesl název
    prováděcího nařízení (EU) 2019/776 a působil jako duplicita; předpis
    EHK OSN č. 134 byl v databázi dvakrát; záznam s označením 98/2004 Z. z.
@@ -651,16 +707,52 @@ patrně také uvidí. Uvádíme je kvůli úplnosti:
    vozidel) nesl název publikace EIGA o vodíkových lahvích a byl s ní
    sloučen a týž název dostalo i pravidlo DVGW G 100. Opraveno 20. 11. 2026;
    publikace EIGA je opět samostatným dokumentem.
-8. **Slovenské normy a předpisy** — Databáze obsahuje 443 slovenských
+8. **Slovenské normy a předpisy** — Databáze obsahuje 440 slovenských
    dokumentů, převážně normy STN, jež mohou českého uživatele mást. Od
    20. 11. 2026 jsou ve veřejném katalogu skryty; zobrazit je může jen
    přihlášený editor přepínačem. Bude-li MPO považovat za vhodné slovenské
    dokumenty veřejnosti nabízet, lze výchozí zobrazení změnit.
+9. **Názvy a popisy převzaté z jiného dokumentu** — Při přiřazování
+   klíčových slov jsme zjistili, že dva akty EU nesly název a popis jiného
+   předpisu; k holému číslu aktu je při zpracování rešerše doplnil jazykový
+   model. Proto jsme 23. 11. 2026 zkontrolovali všech 1506 záznamů:
+   porovnáním s úředními rejstříky (databáze Úřadu pro publikace EU,
+   otevřená data ISO), vzájemným porovnáním záznamů (duplicity, useknuté
+   názvy, úlomky řádků podkladových tabulek) a posouzením jazykovým
+   modelem, zda název a popis odpovídají dokumentu. Nález mělo 151 dokumentů,
+   z toho 47 chyb. Každou opravu jsme ověřili ve zdroji: názvy a anotace
+   norem ISO jsme převzali z otevřených dat ISO, popisy bez doloženého zdroje
+   (14) jsme odstranili, duplicity a úlomky záznamů sloučili, návrhy norem,
+   jež ISO mezitím vydala, převedli na vydanou normu a 28 aktů EU mimo rozsah
+   databáze (cíle transpozice bez vztahu k vodíku, například pracovní právo
+   nebo veterinární předpisy) vyřadili. Opravili jsme 60 dokumentů, 74 jsme
+   sloučili nebo vyřadili a provozní databáze klesla z 1506 na 1432 záznamů.
+   Zbylé nálezy u 36 dokumentů (mimo jiné 13 norem, jejichž poslední vydání
+   ISO zrušila, a 18 dokumentů se sporným vztahem k vodíku) posoudí editoři.
+10. **Oblasti katalogu** — Filtr „Oblast“ nabízel 238 hodnot převzatých
+   z podkladových rešerší: převážně německé a slovenské názvy skupin,
+   vydavatele, technické komise a stavy norem. Od 26. 11. 2026 nabízí
+   29 českých oblastí navázaných na věcné okruhy databáze (například
+   Elektrolýza, Plnicí stanice, Tlakové nádoby a lahve, Ochrana před
+   výbuchem, Energetika a trh s plynem a vodíkem). Oblast určujeme podle
+   názvu a označení dokumentu, třídy ČSN, technické komise a typu
+   dokumentu; 39 dokumentům ji zatím přiřadit neumíme a editoři je vedou
+   jako pracovní seznam, jenž se veřejně nezobrazuje.
+11. **Klíčová slova** — Dokumenty dosud neměly klíčová slova, jež by
+   popisovala jejich obsah. Od 26. 11. 2026 je mají všechny dokumenty: akty
+   EU deskriptory tezauru EuroVoc, jež jim přiděluje Úřad pro publikace EU
+   (146 dokumentů), normy třídník ICS (705 dokumentů) a deskriptory
+   z katalogu České agentury pro standardizaci (31 dokumentů) a ostatní
+   dokumenty česká klíčová slova odvozená jazykovým modelem z názvu, anotace
+   a textu dokumentu (1287 dokumentů). Stránka dokumentu u každé skupiny
+   uvádí její původ a slova odvozená modelem označuje jako neověřená.
+   Klíčová slova prohledává i vyhledávání, takže dotaz najde dokument i podle
+   pojmu, jenž není v jeho názvu ani popisu.
 
 ## 6. Harmonogram
 
-Úpravy popsané v odstavcích 3 až 5 jsme 20. 11. 2026 nasadili do veřejné
-verze aplikace a zapsali do provozní databáze. Současně jsme předem
+Úpravy popsané v odstavcích 3 až 5 jsme 20., 23. a 26. 11. 2026 nasadili
+do veřejné verze aplikace a zapsali do provozní databáze. Současně jsme předem
 provedli část etapy 1: zavedli jsme kategorii „Strategie“ s 18 strategiemi
 z přílohy A a dvěma připravovanými aktualizacemi strategií a zapsali jsme
 do fronty kandidátů předpisy z tabulek MPO a CDV, další části řad norem
@@ -673,6 +765,8 @@ termínu uvádíme podmínku, na níž jeho dodržení závisí.
 | 19. 11. 2026 (provedeno) | Etapa 0, první část | Opravy údajů v provozní databázi: odpovědné instituce, zastaralá hláška, interní poznámky, chybné názvy, vyřazení rozhodnutí ECB (odstavce 3.1 až 3.6). | — |
 | 20. 11. 2026 (provedeno) | Nasazení etap 0 až 3 a části etapy 1 | Zbylé opravy etapy 0 (odstavec 5, body 5 až 7); úpravy rozhraní etapy 2 (jeden řádek na předpis, filtr institucí a jurisdikce, skrytí slovenských dokumentů, podtyp aktů EU, vyhledávání podle synonym); etapa 3 (první běh sběru zdrojů a návrhů předpisů, datum poslední kontroly u dokumentu, rozhraní pro připravované předpisy); z etapy 1 kategorie „Strategie“ (32 dokumentů), zápis kandidátů z tabulek MPO a CDV, dalších částí norem a novel LEX OZE do fronty kandidátů a oprava označení norem ČSN ISO 19880-1 a ČSN EN 1717+A1. | Splněno: automatické testy nad kopií provozní databáze, záloha provozní databáze před zápisem. |
 | 20. 11. 2026 (provedeno) | Předtřídění fronty kandidátů | Automatický navrhovatel navrhl k přijetí 242 kandidátů, zamítl 163, odložil 46; u 140 ponechal doporučení (odstavec 4.3, bod 3). | — |
+| 23. 11. 2026 (provedeno) | Kontrola záznamů | Porovnání všech 1506 záznamů s úředními rejstříky a mezi sebou; opravy ověřené ve zdroji, sloučení duplicit, vyřazení 28 aktů EU mimo rozsah (1506 → 1432 záznamů); zbylé nálezy u 36 dokumentů předány editorům; přiřazení klíčových slov všem dokumentům (odstavec 5, body 9 a 11). | Splněno: záloha provozní databáze před zápisem. |
+| 26. 11. 2026 (provedeno) | Nasazení oprav po prohlídce webu | Oblasti katalogu místo kategorií z rešerší, zobrazení klíčových slov a vyhledávání podle nich, opravy pěti vad zjištěných prohlídkou veřejné verze 21. 11. 2026, rozšíření vyhledávání RFNBO a pět kandidátů z porovnání pokrytí tématu RFNBO (odstavce 3.2, 3.11 a 5, body 10 a 11). | Splněno: automatické testy nad kopií provozní databáze, záloha provozní databáze před zápisem. |
 | do 27. 11. 2026 | Odeslání vypořádání | Tento dokument a provozní dokument „Provoz a udržování aktuálnosti databáze“ odešleme MPO. | — |
 | 1. až 4. 12. 2026 | Jednání s MPO | Projednání vypořádání a otevřených otázek (odstavec 7); dohoda o postupu opětovného schválení výsledku V01; případné založení editorských účtů pro pracovníky MPO a úvodní seznámení s editorskou částí. Navrhujeme úterý 1. 12., středu 2. 12. nebo čtvrtek 3. 12. 2026, online nebo osobně. | Časové možnosti MPO; dohodne-li se pozdější termín, posouvá se o stejnou dobu i termín opětovného předání. |
 | do 11. 12. 2026 | Etapa 1, zbytek | Kontrola a potvrzení návrhů přijetí kandidátů z tabulek MPO a CDV, dalších částí norem a novel LEX OZE editory (54 návrhů) a přezkoumání tří kandidátů, o nichž automat přijetí nenavrhl; vysvětlení jazykových verzí na stránce aplikace. | Dva funkční editorské účty a editoři s dostatečnou časovou kapacitou. <!-- OTEVŘENO bod 3: editorské účty --> |
