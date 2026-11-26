@@ -76,6 +76,9 @@ EXPORT_FORMATS = {"csv", "json", "xml"}
 # called "keywords"), `keywords` the keywords of the document (doc/KLICOVA_SLOVA.md)
 EXPORT_FIELDS = ["title", "description", "type_name", "source_name",
                  "language", "effective_date", "url", "source_categories", "keywords"]
+# A logged-in editor's export is a work list (the "Ke kontrole" filter): it adds
+# the designation, the address of the record and the reasons of the review flag.
+EDITOR_EXPORT_FIELDS = ["identifier"] + EXPORT_FIELDS + ["record_url", "needs_review", "review_reason"]
 
 
 def get_db():
@@ -152,6 +155,13 @@ def include_slovak(args=None):
     who turned it on; for everybody else they are left out of the catalogue,
     the search, the exports, the menus and the counts."""
     return catalog_filters.wants_slovak(request.args if args is None else args,
+                                        session.get('user_id'))
+
+
+def review_filter(args=None):
+    """The "Ke kontrole" filter key (catalog_filters.REVIEW_FILTERS) of a
+    logged-in editor, "" for everybody else and for no or an unknown value."""
+    return catalog_filters.wants_review(request.args if args is None else args,
                                         session.get('user_id'))
 
 
@@ -411,11 +421,8 @@ def page_url(page):
 # currently produces (src/tools/init_db.py:281-285, backfill_eu_gestor.py's
 # UNRESOLVED_REVIEW_REASON) — matched by substring, not equality, because
 # the EU-gestor and language reasons carry a dynamic "(...)" suffix.
-_DEFECT_REASON_MARKERS = (
-    "značka není platné označení dokumentu",
-    "název vypadá jako useknutý fragment textu",
-    "autoritativní gestor",
-)
+# The list lives in catalog_filters, which the "Ke kontrole" filter shares.
+_DEFECT_REASON_MARKERS = catalog_filters.DEFECT_REASON_MARKERS
 
 REVIEW_SEVERITY = {
     "defect": {"label": "Vyžaduje opravu", "icon": "ph-warning"},
@@ -458,7 +465,7 @@ def review_badge(doc):
     return {'severity': severity, **REVIEW_SEVERITY[severity]}
 
 
-def parse_filters(args, include_sk=False):
+def parse_filters(args, include_sk=False, review=""):
     """doc/REQUIREMENTS.md R2.3/R2.5, 2026-09-11: extracts the recognized
     search/filter query params into a plain dict, shared by index() and
     /export/<fmt> so both apply identical filtering.
@@ -468,7 +475,9 @@ def parse_filters(args, include_sk=False):
     default, catalog_filters.DEFAULT_JURISDICTION), and the synonym entries
     the query triggers (data/search_synonyms.json) are resolved here.
     `include_sk` is the Slovak switch (include_slovak()); without it Slovak
-    documents are filtered out and "Slovensko" is not a valid jurisdiction."""
+    documents are filtered out and "Slovensko" is not a valid jurisdiction.
+    `review` is the editors' "Ke kontrole" filter (review_filter()); the
+    caller resolves it, so a visitor's parameter never gets here."""
     q = args.get('q', '').strip()
     type_id, eu_subtype = catalog_filters.split_type_filter(args.get('type_id', ''))
     return {
@@ -482,6 +491,7 @@ def parse_filters(args, include_sk=False):
         'jurisdiction': catalog_filters.resolve_jurisdiction(args.get('jurisdikce', ''),
                                                              include_slovak=include_sk),
         'include_sk': include_sk,
+        'review': review,
         'synonyms': catalog_filters.match_synonyms(q, catalog_filters.load_synonyms()) if q else [],
     }
 
@@ -549,6 +559,11 @@ def build_filter_clause(filters):
 
     condition, condition_params = catalog_filters.jurisdiction_condition(
         filters.get('jurisdiction') or 'vse')
+    if condition:
+        clause += f" AND {condition}"
+        params.extend(condition_params)
+
+    condition, condition_params = catalog_filters.review_condition(filters.get('review') or '')
     if condition:
         clause += f" AND {condition}"
         params.extend(condition_params)
@@ -733,6 +748,24 @@ def type_menu(types, with_subtype):
     return types, subtypes
 
 
+def review_menu(db, filters):
+    """[(value, label, count)] for the editors' "Ke kontrole" menu: each
+    choice with the number of rows (acts) it would list together with the
+    other active filters; None for "Bez omezení" (that is the result count
+    of the page itself without the filter, not worth a query)."""
+    options = []
+    with db.cursor() as cur:
+        for value, label in catalog_filters.review_options():
+            if not value:
+                options.append((value, label, None))
+                continue
+            query, params = build_count_query({**filters, 'review': value}, group_variants=True)
+            cur.execute(query, params)
+            row = cur.fetchone()
+            options.append((value, label, row['c'] if row else 0))
+    return options
+
+
 @app.route('/')
 def index():
     db = get_db()
@@ -742,7 +775,8 @@ def index():
         keyword_id = args.pop('keyword_id')
         args.setdefault('category_id', keyword_id)
         return redirect(url_for('index', **args), code=301)
-    filters = apply_vocab(parse_filters(request.args, include_sk=include_sk), db)
+    review = review_filter()
+    filters = apply_vocab(parse_filters(request.args, include_sk=include_sk, review=review), db)
     with_subtype = has_column(db, 'Document', 'eu_act_subtype')
     if not with_subtype:
         filters['eu_subtype'] = ''
@@ -757,6 +791,7 @@ def index():
         cur.execute(count_query, count_params)
         row = cur.fetchone()
     result_count = row['c'] if row else 0
+    review_options = review_menu(db, filters) if session.get('user_id') else []
 
     page_count = max(1, math.ceil(result_count / PAGE_SIZE))
     page = parse_page(request.args, page_count)
@@ -793,6 +828,8 @@ def index():
                            selected_jurisdiction=request.args.get('jurisdikce', ''),
                            logged_in=bool(session.get('user_id')),
                            include_sk=include_sk,
+                           review_options=review_options,
+                           selected_review=review,
                            synonyms=filters['synonyms'],
                            categories=categories,
                            areas=areas,
@@ -1316,14 +1353,16 @@ def fulltext(doc_id):
     return with_noindex(response, noindex_for(row))
 
 
-def _rows_for_export(documents, doc_tags, doc_terms=None):
+def _rows_for_export(documents, doc_tags, doc_terms=None, editor=False):
     """doc/REQUIREMENTS.md R2.5/R4.1, 2026-09-11: projects each document
     row down to exactly EXPORT_FIELDS — deliberately excludes file_path/
     restricted_fulltext/id, which must never leave via bulk export (see
-    /fulltext/<id> above for that separate, gated channel)."""
+    /fulltext/<id> above for that separate, gated channel). With `editor`
+    (a logged-in editor) the rows carry EDITOR_EXPORT_FIELDS: the export
+    then serves as a work list of what to check."""
     rows = []
     for doc in documents:
-        rows.append({
+        row = {
             'title': doc['title'] or '',
             'description': doc['description'] or '',
             'type_name': doc['type_name'] or '',
@@ -1333,13 +1372,20 @@ def _rows_for_export(documents, doc_tags, doc_terms=None):
             'url': doc['url'] or '',
             'source_categories': ', '.join(doc_tags.get(doc['id'], [])),
             'keywords': ', '.join((doc_terms or {}).get(doc['id'], [])),
-        })
+        }
+        if editor:
+            row = {'identifier': doc.get('identifier') or '', **row,
+                   'record_url': url_for('document_detail', slug=doc['slug'], _external=True)
+                   if doc.get('slug') else '',
+                   'needs_review': '1' if doc.get('needs_review') else '0',
+                   'review_reason': doc.get('review_reason') or ''}
+        rows.append(row)
     return rows
 
 
-def _export_csv(rows):
+def _export_csv(rows, fields=EXPORT_FIELDS):
     buf = io.StringIO()
-    writer = csv.DictWriter(buf, fieldnames=EXPORT_FIELDS)
+    writer = csv.DictWriter(buf, fieldnames=fields)
     writer.writeheader()
     writer.writerows(rows)
     return Response(
@@ -1354,11 +1400,11 @@ def _export_json(rows):
         headers={'Content-Disposition': 'attachment; filename=dokumenty.json'})
 
 
-def _export_xml(rows):
+def _export_xml(rows, fields=EXPORT_FIELDS):
     root = Element('documents')
     for row in rows:
         doc_el = SubElement(root, 'document')
-        for field in EXPORT_FIELDS:
+        for field in fields:
             SubElement(doc_el, field).text = row[field]
     body = tostring(root, encoding='unicode')
     return Response(
@@ -1378,17 +1424,21 @@ def export(fmt):
         abort(400)
 
     db = get_db()
-    filters = apply_vocab(parse_filters(request.args, include_sk=include_slovak()), db)
+    filters = apply_vocab(parse_filters(request.args, include_sk=include_slovak(),
+                                        review=review_filter()), db)
     if not has_column(db, 'Document', 'eu_act_subtype'):
         filters['eu_subtype'] = ''
+    editor = bool(session.get('user_id'))
     documents, doc_tags = fetch_documents_with_tags(db, filters, limit=None)
-    rows = _rows_for_export(documents, doc_tags, fetch_document_terms(db, [doc['id'] for doc in documents]))
+    rows = _rows_for_export(documents, doc_tags, fetch_document_terms(db, [doc['id'] for doc in documents]),
+                            editor=editor)
+    fields = EDITOR_EXPORT_FIELDS if editor else EXPORT_FIELDS
 
     if fmt == 'csv':
-        return _export_csv(rows)
+        return _export_csv(rows, fields)
     if fmt == 'json':
         return _export_json(rows)
-    return _export_xml(rows)
+    return _export_xml(rows, fields)
 
 
 if __name__ == '__main__':

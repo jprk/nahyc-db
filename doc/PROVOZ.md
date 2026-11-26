@@ -260,6 +260,26 @@ potvrdí. Dokumenty s pravděpodobnou vadou údajů nesou příznak ke kontrole
 s důvodem; k 26. 11. 2026 jich je 524, převážně jde o chybějící popis (491).
 Dalších 36 navržených oprav předala editorům kontrola záznamů (odstavec 4.7).
 
+Přihlášený editor najde tyto dokumenty v katalogu filtrem „Ke kontrole“
+(parametr `kontrola`), který nabízí volby podle druhu důvodu, u každé
+s počtem dokumentů (stav k 26. 11. 2026, celá databáze včetně slovenských
+dokumentů):
+
+| Volba | Hodnota parametru | Důvod obsahuje | Dokumentů |
+|---|---|---|---|
+| Vše ke kontrole | `vse` | jakýkoli důvod | 524 |
+| Vyžaduje opravu (vady) | `oprava` | useknutý název, neplatná značka, nedohledaný gestor aktu EU | 5 |
+| Nálezy kontroly záznamů | `kontrola-zaznamu` | „Kontrola záznamů: …“ | 36 |
+| Odhadnutý jazyk | `jazyk` | „jazyk dokumentu byl automaticky odhadnut“ | 52 |
+| Chybí popis | `popis` | „chybí popis/anotace dokumentu“ | 491 |
+
+Dokument s více důvody spadá do více voleb. Filtr kombinujeme s typem,
+jurisdikcí, oblastí i hledáním; export CSV, JSON nebo XML zúženého seznamu
+slouží editorovi jako pracovní seznam, protože pro přihlášeného navíc
+obsahuje označení, adresu záznamu a důvody kontroly. Katalog počítá řádky
+předpisů (jazykové verze v jednom řádku), export jednotlivé dokumenty.
+Návštěvníkovi se volba nezobrazí a parametr pro něj nic nemění.
+
 ### 4.7 Kontrola záznamů
 
 Údaje dokumentů (označení, název, popis) kontrolujeme ve dvou vrstvách:
