@@ -1671,3 +1671,11 @@ main {
 .candidate-table .triage-rec, .candidate-table .triage-rule { white-space: normal; }
 .candidate-table td { overflow-wrap: anywhere; }
 .candidate-table td.candidate-open { overflow-wrap: normal; }
+
+/* The state of a candidate: the state on one line, who proposed or decided it on the next
+   (the automat badge as a component of its own, not inside brackets broken across lines). */
+.candidate-table td.candidate-col-state { overflow-wrap: normal; }
+.candidate-table .candidate-state { white-space: nowrap; }
+.candidate-table .candidate-state-by { display: block; margin-top: 0.2rem; }
+/* The source label breaks between words only ("MPO/CDV 30. 4. 2026", not "MPO/CD V"). */
+.candidate-table td.candidate-col-source { overflow-wrap: normal; }
