@@ -533,18 +533,19 @@ def write_candidates(cursor, found, snapshot=None):
         if ids:
             evidence_new["amends_ids"] = ids
         evidence_new["puvodce_navrh"] = c["puvodce"]  # tells a later run whether an editor changed the issuer
-        cursor.execute("SELECT id, source, status, evidence_json, puvodce, validity_status, `signal` "
+        cursor.execute("SELECT id, source, status, evidence_json, puvodce, validity_status, `signal`, tier "
                        "FROM DocumentCandidate WHERE candidate_key = %s", (c["candidate_key"],))
         row = cursor.fetchone()
         action = planned_outcome(c, row)
         if action == "inserted":
             cursor.execute("""INSERT INTO DocumentCandidate
                 (candidate_key, source, `signal`, designation, title, document_type, url, language, jurisdikce,
-                 scope_area, validity_status, evidence_json, cited_by, puvodce)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, %s)""",
+                 scope_area, validity_status, evidence_json, cited_by, puvodce, tier)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, %s, %s)""",
                            (c["candidate_key"], SOURCE, c.get("signal"), c["designation"], c["title"],
                             c["document_type"], c["url"], c["language"], c["jurisdikce"], c["scope_area"],
-                            c["validity_status"], json.dumps(evidence_new, ensure_ascii=False), c["puvodce"]))
+                            c["validity_status"], json.dumps(evidence_new, ensure_ascii=False), c["puvodce"],
+                            cd.MPO_TIER))
         elif action == "refreshed":
             old = json.loads(row["evidence_json"] or "{}")
             # what other tools added (findings of monitored sources) stays; the editor's issuer stays
@@ -555,12 +556,12 @@ def write_candidates(cursor, found, snapshot=None):
             editor_changed = row["puvodce"] not in (None, old.get("puvodce_navrh"))
             puvodce = row["puvodce"] if editor_changed else c["puvodce"]
             values = (json.dumps(evidence, ensure_ascii=False), c["validity_status"], puvodce,
-                      c.get("signal") or row["signal"])
-            if values == (row["evidence_json"], row["validity_status"], row["puvodce"], row["signal"]):
+                      c.get("signal") or row["signal"], cd.MPO_TIER)
+            if values == (row["evidence_json"], row["validity_status"], row["puvodce"], row["signal"], row.get("tier")):
                 action = "kept"
             else:
                 cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, validity_status = %s, puvodce = %s, "
-                               "`signal` = %s WHERE id = %s", values + (row["id"],))
+                               "`signal` = %s, tier = %s WHERE id = %s", values + (row["id"],))
         elif action == "evidence":
             evidence = json.loads(row["evidence_json"] or "{}")
             before = json.dumps(evidence, ensure_ascii=False, sort_keys=True)
@@ -568,11 +569,12 @@ def write_candidates(cursor, found, snapshot=None):
             if ids:
                 evidence["amends_ids"] = sorted(set(evidence.get("amends_ids", [])) | set(ids))
             if (json.dumps(evidence, ensure_ascii=False, sort_keys=True) == before
-                    and (row["puvodce"] or c["puvodce"]) == row["puvodce"]):
+                    and (row["puvodce"] or c["puvodce"]) == row["puvodce"] and row.get("tier") == cd.MPO_TIER):
                 action = "kept"
             else:
-                cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = COALESCE(puvodce, %s) "
-                               "WHERE id = %s", (json.dumps(evidence, ensure_ascii=False), c["puvodce"], row["id"]))
+                cursor.execute("UPDATE DocumentCandidate SET evidence_json = %s, puvodce = COALESCE(puvodce, %s), "
+                               "tier = %s WHERE id = %s",
+                               (json.dumps(evidence, ensure_ascii=False), c["puvodce"], cd.MPO_TIER, row["id"]))
         outcome[c["candidate_key"]] = action
     return outcome
 
