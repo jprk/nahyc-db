@@ -6,6 +6,9 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Poznámky z rešerší u předpisů vyřazeny (PR #41).** Krátké poznámky autorů rešerší („Transpozice provedena – …“) už jako
+  popis předpisu nezobrazujeme; transpozici zaznamenávají vazby `IMPLEMENTS` (105 vazeb ke 77 aktům EU). Předpis
+  bez úvodního ustanovení čeká na popis od editora (`doc/ANOTACE_PREDPISU.md`, odstavec 2).
 - **Jeden původce pro Evropský parlament a Radu.** Přijímání kandidátů založilo vedle původce „Evropský
   parlament a Rada Evropské unie“ druhého s názvem „Evropský parlament a Rada“. Oba jsme v provozní databázi
   sloučili (19 dokumentů, 35 kandidátů, záznamy přijatých kandidátů); aplikace i automatický navrhovatel

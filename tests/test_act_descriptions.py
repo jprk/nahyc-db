@@ -124,7 +124,9 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual(changes["A"]["popis_zdroj"], "§ 1, doslova z textu předpisu")
         self.assertEqual((changes["B"]["description"], changes["B"]["popis_priblizny"], changes["B"]["manual"]),
                          (None, "Zákon mění zákon o ovzduší.", True))
-        self.assertNotIn("C", changes)  # a note of the survey stays when nothing better is found
+        # a note of the source survey goes too (decided 2026-11-27), the act waits for an editor
+        self.assertEqual((changes["C"]["description"], changes["C"]["popis_priblizny"], changes["C"]["manual"]),
+                         (None, None, True))
         self.assertNotIn("D", changes)  # an editor's description is never touched
 
     def test_review_reason(self):
@@ -193,6 +195,11 @@ class RebuildTestCase(unittest.TestCase):
         self.assertEqual(law["popis_priblizny"], "Zákon mění …")
         self.assertEqual(init_db.resolve_description(law), "")  # the annotation only restated the title
         self.assertIn("popis je třeba doplnit ručně", init_db.detect_data_quality_issues(law))
+        self.assertEqual(law["anotace_poznamka"], "")
+        note = {"znacka": "1/2000 Sb.", "typ_dokumentu": "Zákon", "nazev_cz": "Zákon o x",
+                "anotace_poznamka": "Transpozice provedena nařízením vlády č. 1/2001 Sb."}
+        bud.apply_act_description(note, descriptions)
+        self.assertEqual(init_db.resolve_description(note), "")
         self.assertFalse(bud.apply_act_description(norm, descriptions))
         protected = {"znacka": "(EU) 2018/2001", "typ_dokumentu": "Směrnice EU", "jazyk": "čeština"}
         self.assertFalse(bud.apply_act_description(protected, descriptions, protected={"(EU) 2018/2001"}))
