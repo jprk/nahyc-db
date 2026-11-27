@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
-- **Popis právních předpisů z jejich textu (issue #37, `doc/ANOTACE_PREDPISU.md`).** Místo popisu, který jen opakoval
+- **Popis právních předpisů z jejich textu (issue #37, PR #40, `doc/ANOTACE_PREDPISU.md`).** Místo popisu, který jen opakoval
   název, ukazuje stránka zákona, vyhlášky, nařízení či aktu EU doslovné úvodní ustanovení („§ 1 Předmět úpravy“,
   „Článek 1 Předmět“) s uvedením zdroje (173 předpisů). Kde úvodní ustanovení předmět nepopisuje (hlavně novely),
   napsal jazykový model krátké shrnutí, které jiný model zkontroloval; web ho označuje jako přibližné a neověřené
