@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
-- **Směrnice 2010/75/EU má zase své označení.** Oprava slovenského záznamu rešerše, který pod číslem
+- **Směrnice 2010/75/EU má zase své označení (PR #45).** Oprava slovenského záznamu rešerše, který pod číslem
   směrnice uváděl rozhodnutí (EU) 2013/732, zasáhla i samotnou směrnici o průmyslových emisích. Ta tak
   zůstala bez označení, textu a popisu, a vazby národních předpisů, které ji provádějí, vedly na
   rozhodnutí. Opravu jsme omezili na záznam rešerše. Směrnice má označení, plný text, popis podle čl. 1
