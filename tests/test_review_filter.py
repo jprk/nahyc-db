@@ -31,6 +31,7 @@ BASE = {'q': '', 'type_id': '', 'eu_subtype': '', 'source_id': '', 'category_id'
 
 # The reasons as the pipeline writes them (see the live database, 2026-11-26).
 MISSING = "chybí popis/anotace dokumentu"
+MANUAL = "popis je třeba doplnit ručně"  # src/tools/act_provisions.py
 LANGUAGE = "jazyk dokumentu byl automaticky odhadnut, ověřte (EN)"
 RECORDS = "Kontrola záznamů: ISO poslední vydání zrušila"
 FRAGMENT = "název vypadá jako useknutý fragment textu"
@@ -42,7 +43,7 @@ def kinds(reason):
     parts = [p.strip() for p in (reason or "").split(";") if p.strip()]
     found = {"vse"}
     for part in parts:
-        if part.startswith(MISSING):
+        if part.startswith(MISSING) or part.startswith(MANUAL):
             found.add("popis")
         if part.startswith("jazyk dokumentu byl automaticky odhadnut"):
             found.add("jazyk")
@@ -93,7 +94,8 @@ class ReviewConditionTestCase(unittest.TestCase):
     def test_single_marker_choices(self):
         self.assertEqual(cf.review_condition("kontrola-zaznamu")[1], ["%Kontrola záznamů%"])
         self.assertEqual(cf.review_condition("jazyk")[1], ["%jazyk dokumentu byl automaticky odhadnut%"])
-        self.assertEqual(cf.review_condition("popis")[1], ["%chybí popis/anotace dokumentu%"])
+        self.assertEqual(cf.review_condition("popis")[1], ["%chybí popis/anotace dokumentu%",
+                                                           "%popis je třeba doplnit ručně%"])
 
     def test_alias(self):
         self.assertTrue(cf.review_condition("popis", alias="x")[0].startswith("x.needs_review = 1 AND (x."))
@@ -105,6 +107,7 @@ class ReviewConditionTestCase(unittest.TestCase):
         self.assertEqual(kinds(f"{FRAGMENT}; {MISSING}; {RECORDS}"), {"vse", "oprava", "popis", "kontrola-zaznamu"})
         self.assertEqual(kinds(f"{MISSING}; {GESTOR}"), {"vse", "popis", "oprava"})
         self.assertEqual(kinds(f"{LANGUAGE}; {MISSING}"), {"vse", "jazyk", "popis"})
+        self.assertEqual(kinds(MANUAL), {"vse", "popis"})
 
 
 class FilterClauseTestCase(unittest.TestCase):

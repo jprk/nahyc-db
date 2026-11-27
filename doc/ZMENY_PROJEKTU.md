@@ -6,6 +6,10 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Katalog po přijetí kandidátů z tabulek MPO.** Nabídka původců řadí nové instituce do správných skupin
+  (Český báňský úřad a Energetický regulační úřad mezi české orgány, Evropský parlament a Rada mezi orgány
+  EU). Filtr „Ke kontrole“ zařazuje dokumenty s důvodem „popis je třeba doplnit ručně“ pod volbu „Chybí
+  popis“. Testy počítají s tím, že dotaz na energetický zákon vrací vedle zákona i jeho přijaté novely.
 - **Seznam kandidátů si pamatuje filtr (#39).** Odkaz zpět z detailu kandidáta i přesměrování po návrhu,
   zamítnutí nebo odložení vedou na seznam se stejným filtrem a stránkou, jaké editor nastavil. Odkaz zpět
   má kratší tučnou šipku zarovnanou s textem, menší písmo a větší odstup od označení kandidáta; seznam

@@ -11,6 +11,8 @@
   ],
   "jurisdiction_fallback": {"CZ": "cz", "SK": "sk", "EU": "eu", "mezinárodní": "int"},
   "sources": {
+    "Český báňský úřad": "cz",
+    "Energetický regulační úřad": "cz",
     "Ministerstvo dopravy": "cz",
     "Ministerstvo financí": "cz",
     "Ministerstvo práce a sociálních věcí": "cz",
@@ -32,6 +34,7 @@
 
     "Evropská centrální banka": "eu",
     "Evropská komise": "eu",
+    "Evropský parlament a Rada": "eu",
     "Evropský parlament a Rada Evropské unie": "eu",
     "Rada Evropské unie": "eu",
     "Generální ředitelství pro energetiku": "eu",
