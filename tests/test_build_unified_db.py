@@ -969,6 +969,29 @@ class TitleKeyAndMergeTestCase(unittest.TestCase):
         self.assertEqual(b.rename_relation_ends(relations, renamed),
                          [{"from_identifier": "cz", "to_identifier": "new", "relation_type": "R"}])
 
+    def test_a_source_qualified_rename_moves_only_that_sources_relations(self):
+        """Sinay listed (EU) 2013/732 [SK] under 2010/75/EU; the directive 2010/75/EU of
+        EU_Transposition_Targets keeps its designation and its IMPLEMENTS (issue #37)."""
+        import build_unified_db as b
+        corrections = {"2010/75/EU @Sinay_Zakony": {"changes": {"znacka": "(EU) 2013/732 [SK]"}}}
+        self.assertEqual(b.renamed_designations(corrections), {})
+        self.assertEqual(b.renamed_designations(corrections, "Sinay_Zakony"), {"2010/75/EU": "(EU) 2013/732 [SK]"})
+        directive = {"zdroj_dat": "EU_Transposition_Targets", "znacka": "2010/75/EU", "nazev_cz": "Směrnice"}
+        sinay = {"zdroj_dat": "Sinay_Zakony", "znacka": "2010/75/EU", "nazev_cz": "Vykonávacie rozhodnutie"}
+        b.apply_manual_corrections(directive, corrections)
+        b.apply_manual_corrections(sinay, corrections)
+        self.assertEqual((directive["znacka"], sinay["znacka"]), ("2010/75/EU", "(EU) 2013/732 [SK]"))
+
+    def test_committed_relations_keep_the_directive_2010_75(self):
+        import build_unified_db as b
+        import load_document_relations as ldr
+        corrections = json.loads((b.REPO_ROOT / "data" / "manual_corrections.json").read_text(encoding="utf-8"))
+        pairs = {(r["from_identifier"], r["relation_type"], r["to_identifier"])
+                 for r in ldr.load_relation_sources(corrections)}
+        self.assertIn(("541/2020 Sb.", "IMPLEMENTS", "2010/75/EU"), pairs)
+        self.assertIn(("201/2012 Sb.", "NATIONAL_EQUIVALENT", "(EU) 2013/732 [SK]"), pairs)
+        self.assertNotIn(("541/2020 Sb.", "IMPLEMENTS", "(EU) 2013/732 [SK]"), pairs)
+
 
 class CommittedKrok0RestTestCase(unittest.TestCase):
     """data/manual_corrections.json and the committed pipeline outputs: the rest

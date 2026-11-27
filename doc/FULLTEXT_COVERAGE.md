@@ -91,7 +91,9 @@ Adresy jsou **stažitelné a vedou na správný předpis** (ověřeno názvem st
   slovenského oznámení by dal Slov-Lex `…/SK/ZZ/2010/75/`.
 * **#1222** — směrnice 2010/75/EU o průmyslových emisích (CS, bez označení). Adresa
   `eli/dir/2010/75/oj` je stažitelná (1,8 MB). Doporučení: dát záznamu označení
-  `2010/75/EU` (teď ho nese #62) a text mu přiřadit.
+  `2010/75/EU` (teď ho nese #62) a text mu přiřadit. **Vyřešeno 27. 11. 2026:** #62 je
+  (EU) 2013/732 [SK], #1222 má označení `2010/75/EU`, text a popis (`doc/ANOTACE_PREDPISU.md`,
+  odstavec 3).
 * **#92 `(EHK OSN) č. 134`** — duplicita záznamu #139 `[2019/795]` (předpis EHK OSN
   č. 134, `doc/PLAN.md` §13); #139 už má stažený PDF. Adresa z EUR-Lexu
   (`CELEX:42019X0795`) je sama stažitelná (2,6 MB). Doporučení: sloučit záznamy, nebo

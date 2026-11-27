@@ -82,15 +82,18 @@ def load_relation_sources(corrections=None):
     data/manual_corrections.json followed (`corrections`, read from the file
     when not given)."""
     from build_unified_db import load_manual_corrections, rename_relation_ends, renamed_designations
+    if corrections is None:
+        corrections = load_manual_corrections()
     relations = []
     for path in (RELATIONS_PATH, AUTO_RELATIONS_PATH, SPLIT_RELATIONS_PATH, VARIANTS_RELATIONS_PATH,
                  VALIDITY_RELATIONS_PATH, EDITOR_RELATIONS_PATH):
         if path.exists():
             with open(path, "r", encoding="utf-8") as f:
-                relations.extend(json.load(f))
-    if corrections is None:
-        corrections = load_manual_corrections()
-    return rename_relation_ends(relations, renamed_designations(corrections))
+                # the split pairs come from the Sinay_Zakony rows: a correction of that
+                # source's record renames them, not the relations of other records
+                source = "Sinay_Zakony" if path == SPLIT_RELATIONS_PATH else None
+                relations.extend(rename_relation_ends(json.load(f), renamed_designations(corrections, source)))
+    return relations
 
 
 def fetch_document_identifier_map(cursor):
