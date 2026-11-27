@@ -79,8 +79,13 @@ rozhodnutí (EU) 2013/732 [SK] a směrnice 2010/75/EU. U prvních 53 jsme texty 
 - U vyhlášky č. 104/1988 Sb. model vybral § 5 (povolování hornické činnosti). Ten ale popisuje jen
   jednu ze tří částí vyhlášky (§ 1 je zrušen), proto jsme ho v mezipaměti ručně odmítli.
 - Modelové kroky stály 0,63 USD.
-- Bez textu zůstává směrnice 2010/75/EU (dokument 1222). V databázi nemá označení, takže k ní
-  `sync_fulltext_paths.py` text nepřiřadí; doplníme ho opravou záznamu.
+- Směrnice 2010/75/EU (dokument 1222) neměla označení. Oprava záznamu ze 23. 11. 2026 přejmenovala
+  slovenský záznam rešerše Sinay vedený pod číslem 2010/75/EU na (EU) 2013/732 [SK], klíč opravy
+  (`2010/75/EU`) ale zasáhl i záznam směrnice se stejným číslem. Klíč jsme omezili na záznam Sinay
+  (`2010/75/EU @Sinay_Zakony`), směrnice tak má zase označení 2010/75/EU, text a popis podle čl. 1
+  (větev `feature/smernice-2010-75`). Přejmenování podle klíče se zdrojem se týká jen vazeb, které dal
+  tentýž zdroj (`build_unified_db.renamed_designations()`): vazby IMPLEMENTS národních předpisů, které
+  směrnici citují (201/2012 Sb., 541/2020 Sb., 146/2023 Z. z., 248/2023 Z. z.), vedou zase na směrnici.
 
 Zkontrolovali jsme vzorky: u novel model nejdřív vybíral výčty změn, definice, úvodní věty vyhlášek
 nebo body odůvodnění o měněném předpisu. Proto citaci ověřujeme stejnými pravidly jako vzor

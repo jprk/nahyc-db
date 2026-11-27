@@ -1083,7 +1083,7 @@
     "confirmed_by": "jprk",
     "reason": "Popis patřil jiné normě; nahrazen anotací ISO 14001:2026 z otevřených dat ISO (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
   },
-  "2010/75/EU": {
+  "2010/75/EU @Sinay_Zakony": {
     "changes": {
       "znacka": "(EU) 2013/732 [SK]",
       "nazev_cz": "Vykonávacie rozhodnutie Komisie z 9. decembra 2013, ktorým sa podľa smernice Európskeho parlamentu a Rady 2010/75/EÚ o priemyselných emisiách stanovujú závery o najlepších dostupných technikách (BAT) na výrobu chlóru a lúhov [oznámené pod číslom C(2013) 8589] (Text s významom pre EHP)",
@@ -1096,7 +1096,7 @@
     },
     "confirmed_at": "2026-11-23",
     "confirmed_by": "jprk",
-    "reason": "Rešerše Sinay uvádí pod číslem 2010/75/EU slovenský název prováděcího rozhodnutí o závěrech BAT pro výrobu chloru a alkálií, tj. (EU) 2013/732 (české znění je dokument (EU) 2013/732); autoritativní název ze Slov-Lexu (oznámení o zdravotní způsobilosti posádek plavidel) patřil jinému předpisu se stejným číslem. Úřední slovenský název z Cellaru (CELEX 32013D0732). (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23)"
+    "reason": "Rešerše Sinay uvádí pod číslem 2010/75/EU slovenský název prováděcího rozhodnutí o závěrech BAT pro výrobu chloru a alkálií, tj. (EU) 2013/732 (české znění je dokument (EU) 2013/732); autoritativní název ze Slov-Lexu (oznámení o zdravotní způsobilosti posádek plavidel) patřil jinému předpisu se stejným číslem. Úřední slovenský název z Cellaru (CELEX 32013D0732). (doc/KONTROLA_ZAZNAMU.md; rozhodl uživatel 2026-11-23) Klíč omezen na záznam rešerše Sinay (`@Sinay_Zakony`): stejné číslo nese i záznam směrnice 2010/75/EU z EU_Transposition_Targets, který oprava měnit nemá (rozhodl uživatel 2026-11-27, issue #37)."
   },
   "STN EN ISO 11114-1/Zmena": {
     "changes": {

@@ -6,6 +6,11 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Směrnice 2010/75/EU má zase své označení.** Oprava slovenského záznamu rešerše, který pod číslem
+  směrnice uváděl rozhodnutí (EU) 2013/732, zasáhla i samotnou směrnici o průmyslových emisích. Ta tak
+  zůstala bez označení, textu a popisu, a vazby národních předpisů, které ji provádějí, vedly na
+  rozhodnutí. Opravu jsme omezili na záznam rešerše. Směrnice má označení, plný text, popis podle čl. 1
+  a čtyři vazby IMPLEMENTS (`doc/ANOTACE_PREDPISU.md`, odstavec 3).
 - **Popisy předpisů přidaných z fronty kandidátů (PR #43).** U 53 předpisů bez plného textu jsme texty stáhli,
   vyčistili a odvodili z nich popis: 47 má doslovné úvodní ustanovení, 6 zkontrolované přibližné shrnutí
   a čeká na editora (`doc/ANOTACE_PREDPISU.md`, odstavec 3). Nový krok nasazení `state_paths.py --seed`

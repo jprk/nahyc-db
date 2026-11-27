@@ -457,13 +457,23 @@ def correction_entry(record, corrections):
     return key, corrections.get(key) if key else None
 
 
-def renamed_designations(corrections):
+def renamed_designations(corrections, source=None):
     """{old designation: new one} for the corrections that change a record's
     `znacka` or merge it into another record (`"merged_into"`): relations stored
     by designation (data/document_relations_split.json) must follow them. The
-    names in `renamed_from` follow too."""
+    names in `renamed_from` follow too.
+
+    A correction keyed by one source's record ("2010/75/EU @Sinay_Zakony") renames
+    only the relations that source gave (`source`: the NATIONAL_EQUIVALENT pairs of
+    the split Sinay_Zakony rows); the relations of the other records with the same
+    designation keep it. Sinay listed the Slovak title of (EU) 2013/732 under
+    2010/75/EU, and the national laws citing the directive 2010/75/EU must keep
+    their IMPLEMENTS relations to the directive (2026-11-27)."""
     renamed = {}
     for key, entry in corrections.items():
+        key, qualified, key_source = key.partition(SOURCE_SEPARATOR)
+        if qualified and key_source != source:
+            continue
         target = entry.get("merged_into") or (entry.get("changes") or {}).get("znacka")
         if target and target != key:
             renamed[key] = target
@@ -1335,11 +1345,11 @@ def build_unified_db():
             manual_correction_count += 1
     excluded_count = len(unified_db) - len(kept)
     unified_db = kept
-    split_relations = rename_relation_ends(split_relations, renamed_designations(manual_corrections))
+    split_relations = rename_relation_ends(split_relations, renamed_designations(manual_corrections, "Sinay_Zakony"))
     if manual_correction_count or excluded_count:
         print(f"Applied {manual_correction_count} editor-confirmed correction(s) and excluded "
               f"{excluded_count} record(s) out of scope or merged into another from "
-              f"{MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)} (doc/PLAN.md §42).")
+              f"{MANUAL_CORRECTIONS_PATH} (doc/PLAN.md §42).")
 
     # 8. Save combined to JSON
     with open(output_file, 'w', encoding='utf-8') as f:
