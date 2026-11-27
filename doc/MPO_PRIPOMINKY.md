@@ -1,6 +1,6 @@
 # Připomínky MPO k výsledku V01 a jejich vypořádání
 
-Stav k 19. 11. 2026 (doplněno o harmonogram a rozhodnutí z téhož dne). Dokument porovnává připomínky Ing. Petra Mervarta
+Stav k 19.11.2026 (doplněno o harmonogram a rozhodnutí z téhož dne). Dokument porovnává připomínky Ing. Petra Mervarta
 (Ministerstvo průmyslu a obchodu, aplikační garant dílčího projektu DP004)
 k výsledku V01 „Databáze regulačních předpisů a předrealizačních procesů“
 se současným stavem databáze a webové aplikace a navrhuje postup jejich
@@ -10,17 +10,17 @@ vypořádání.
 
 Připomínky jsou uloženy jako e-maily v adresáři `doc/mail/`:
 
-* e-mail ze 17. 4. 2026 (soubor `… 01.eml`) — šest konkrétních výhrad
+* e-mail ze 17.04.2026 (soubor `… 01.eml`) — šest konkrétních výhrad
   doložených snímky obrazovky a obecné hodnocení („v této podobě to rozhodně
   nemůžeme schválit“, „aplikační garant a Ministerstvo průmyslu a obchodu
   nejsou beta-testeři aplikací“);
-* e-mail z 22. 5. 2026 (soubor `… 00.eml`) — dvě tabulky předpisů, jež by
+* e-mail z 22.05.2026 (soubor `… 00.eml`) — dvě tabulky předpisů, jež by
   podle MPO měly být v databázi, návrh nové kategorie „Strategie“, dotaz na
   způsob udržování aktuálnosti a návrh telekonference začátkem června 2026:
-  * `Předpisy CZ - vodík_MPO.xlsx` (list „Předpisy (30.4.2026)“, 50 řádků;
+  * `Předpisy CZ - vodík_MPO.xlsx` (list „Předpisy (30.04.2026)“, 50 řádků;
     zdroje VS = vodíková strategie, ZPL = Zákony pro lidi, AI = dotaz přes AI;
     žlutě označené položky byly podle MPO v databázi již v dubnu 2026),
-  * `CDV - evropské právní předpisy_v01.xlsx` (list „Databáze EU (30.4.2026)“,
+  * `CDV - evropské právní předpisy_v01.xlsx` (list „Databáze EU (30.04.2026)“,
     40 řádků; zdroje „Databáze CDV“ a „AI – Copilot“).
 
 Současný stav jsme ověřovali v živé databázi `h2regdocs` (pouze čtení)
@@ -36,7 +36,7 @@ dokumentů v textu (#83 apod.) jsou hodnoty `Document.id`.
 | 3 | V databázi chybějí akty v přenesené pravomoci. | částečně vyřešeno | Databáze obsahuje (EU) 2023/1184, 2023/1185 (jen s anglickým názvem), 2018/674, 2019/1745 a 2025/656. Chybí (EU) 2025/2359 (metodika nízkouhlíkového vodíku). Filtr typu dokumentu nemá kategorii „akt v přenesené pravomoci / prováděcí akt“; tyto akty jsou zařazeny pod „Nařízení EU“ a dotaz „delegovan“ najde jen jeden z nich. |
 | 4 | V nabídce původců je současně „MD“ i „Ministerstvo dopravy“. | vyřešeno | Zkratky byly nahrazeny plnými názvy institucí. S připomínkou však souvisí systémová chyba přiřazení původců popsaná v odstavci 3. |
 | 5 | MPO je uvedeno jako odpovědné za zákon o dráhách. | trvá | #144 (266/1994 Sb.) i #145 (426/2021 Sb.) mají jako původce stále MPO; věcně příslušné je Ministerstvo dopravy. Podle tabulky MPO je chybně přiřazen i zákon č. 250/2021 Sb. (v databázi MPO, v tabulce MPSV). |
-| 6 | U energetického zákona se zobrazuje zastaralá hláška („Stav ke dni 30.6.2025 – čeká se na podpis presidenta“). | trvá | Text je v popisu směrnice RED III (#83), na niž se uživatel patrně dostal z vazeb energetického zákona; popis energetického zákona (#72) je již v pořádku. Obdobný problém je rozsáhlejší: 231 popisů dokumentů obsahuje veřejně viditelné interní poznámky z vývoje (např. „Nalezeno screeningem EUR-Lex Cellar (klíčové slovo 'hydrogen', doc/PLAN.md §28) …“), mimo jiné i oba záznamy Vodíkové strategie ČR (#1240, #1241). |
+| 6 | U energetického zákona se zobrazuje zastaralá hláška („Stav ke dni 30.06.2025 – čeká se na podpis presidenta“). | trvá | Text je v popisu směrnice RED III (#83), na niž se uživatel patrně dostal z vazeb energetického zákona; popis energetického zákona (#72) je již v pořádku. Obdobný problém je rozsáhlejší: 231 popisů dokumentů obsahuje veřejně viditelné interní poznámky z vývoje (např. „Nalezeno screeningem EUR-Lex Cellar (klíčové slovo 'hydrogen', doc/PLAN.md §28) …“), mimo jiné i oba záznamy Vodíkové strategie ČR (#1240, #1241). |
 | 7 | Databáze neobsahuje připravované předpisy (např. připravovanou aktualizaci LEX vodík). | na `master` trvá | Sběr návrhů předpisů (VeKLEP, Poslanecká sněmovna, Senát, návrhy Komise, návrhy norem prEN) je hotov na větvi `feature/h2db-sources` (etapa E2, `src/tools/harvest_drafts.py`). Byl však vyzkoušen jen na testovací databázi `h2regdocs_test`, do `master` zatím nebyl sloučen a nad živou databází dosud neběžel. Chybí rovněž editorské rozhraní pro převod návrhu na vyhlášený předpis. |
 | 8 | „Nejsou tam ani ty existující“ předpisy; tabulky MPO a CDV s předpisy, jež by v databázi měly být. | trvá, patrně nejzávažnější | Podrobně v odstavci 2.1. |
 | 9 | Nová kategorie „Strategie“. | převážně vyřešeno | Typ „Strategický dokument“ obsahuje 10 dokumentů, mimo jiné Vodíkovou strategii ČR (2021), její aktualizaci (2024) a Vodíkovou strategii EU (2020). Zbývá zvážit přejmenování typu na „Strategie“ podle návrhu MPO, vyčistit popisy (bod 6) a doplnit další národní a evropské strategie (Vnitrostátní plán ČR v oblasti energetiky a klimatu, Státní energetická koncepce, REPowerEU). |
@@ -117,7 +117,7 @@ IMO CCC8/WP.3 Annex 2 (#770).
   databáze z JSON; u dokumentů bez označení to dosud nejde (stejný problém
   jako u štítků jazyka), a bude proto potřeba korekce klíčovat jinak.
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok0`, živá DB zapsána):**
+**Stav k 19.11.2026 (větev `feature/mpo-krok0`, živá DB zapsána):**
 Před zápisem jsme pořídili zálohu
 `backups/h2regdocs_20261119_170137_before_mpo_krok0.sql.gz`.
 
@@ -161,7 +161,7 @@ Zbývá z kroku 0:
   tabulky MPO: z předpisů, které tabulka i databáze obsahují, se liší jen
   zákon č. 250/2021 Sb. (opraveno).
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok0-zbytek`, živá DB zatím
+**Stav k 19.11.2026 (větev `feature/mpo-krok0-zbytek`, živá DB zatím
 nezapsána):** Zbylé opravy kroku 0 jsou v `data/manual_corrections.json`
 a v commitnutých výstupech pipeline, plné texty jsou stažené a zkouška
 proběhla na `h2regdocs_test`. Do živé databáze je promítne
@@ -180,7 +180,7 @@ databáze tyto opravy nemá.
 * *#130 a #1466.* Obě jazykové varianty `(EU) 2014/1302` nesou úřední
   název nařízení Komise (EU) č. 1302/2014 o TSI LOC&PAS (CELEX 32014R1302,
   český a anglický název z Cellaru), jeho adresu v EUR-Lexu, datum účinnosti
-  1. 1. 2015 a nový popis; plné texty jsme stáhli znovu. Prováděcí nařízení
+  01.01.2015 a nový popis; plné texty jsme stáhli znovu. Prováděcí nařízení
   (EU) 2019/776 zůstává samostatně jako #129.
 * *#92 a #139.* Předpis EHK OSN č. 134 je jeden dokument: záznam
   `(EHK OSN) č. 134` (zdroj Sinay_Zakony, s adresou nesouvisejícího
@@ -202,7 +202,7 @@ databáze tyto opravy nemá.
   zůstal název „Slov-Lex“ a adresa Slov-Lexu), tedy na stav, který dá
   přestavba.
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-data-opravy`, krok 1 – opravy dat
+**Stav k 19.11.2026 (větev `feature/mpo-data-opravy`, krok 1 – opravy dat
 a strategie podle rozhodnutí uživatele; živá DB zatím nezapsána):** Opravy
 jsou v `data/manual_corrections.json`, nové strategie v
 `data/strategy_documents.json` (čte je `build_unified_db.py`). Commitnuté
@@ -241,7 +241,7 @@ vazby, stavy).
   útvarem obou variant je podle Cellaru GŘ pro životní prostředí (dosud
   převzato od ATEX: GŘ pro vnitřní trh; opraveno v `data/eu_gestor_cache.json`).
 * *#3.* Označení `ČSN ISO 19880-1` (katalog ČAS: vydání 8/2025, katalogové
-  číslo 522022, účinnost 1. 9. 2025, nahradilo vydání 9/2020), platnost
+  číslo 522022, účinnost 01.09.2025, nahradilo vydání 9/2020), platnost
   „od 9/2025“.
 * *#140.* Záznam ze zdroje Haltuf_Dokumenty je předpis EHK OSN č. 100
   (revize 2, elektrické hnací ústrojí vozidel; adresa UNECE). Název a popis
@@ -284,7 +284,7 @@ vazby, stavy).
   CELEX z Cellaru Úřadu pro publikace (`sites/eurlex.py`), bez prohlížeče.
   Nové soubory (21) jsou ve worktree v `data/fulltext_mpo_data_opravy/`;
   po mergi je zkopírovat `cp -n` do `data/fulltext/` hlavního stromu.
-* *Strategie s prioritou C* (rozhodnutí z 20. 11. 2026, větev
+* *Strategie s prioritou C* (rozhodnutí z 20.11.2026, větev
   `feature/mpo-strategie-c`) jsou dokumenty stejně jako priority A a B:
   COM(2023) 634 (revize plánu SET), COM(2024) 63 (klimatický cíl 2040),
   COM(2025) 79 (Akční plán pro cenově dostupnou energii), COM(2025) 95
@@ -295,9 +295,9 @@ vazby, stavy).
 * *Neschválené aktualizace strategií* jsou připravované dokumenty
   (`stav_dokumentu: draft` v `data/strategy_documents.json`, typ Strategie):
   „Politika ochrany klimatu v České republice. Aktualizace pro období 2025
-  až 2050“ (MŽP, verze z července 2025 zveřejněná 6. 11. 2025, plný text
+  až 2050“ (MŽP, verze z července 2025 zveřejněná 06.11.2025, plný text
   PDF) a „Aktualizace Státní energetické koncepce České republiky (návrh)“
-  (MPO, meziresortní připomínkové řízení od 7. 2. 2024; text návrhu není
+  (MPO, meziresortní připomínkové řízení od 07.02.2024; text návrhu není
   zveřejněn, adresou je stránka MPO s Východisky aktualizace). Obě mají vazbu
   `REPEALS` na platnou strategii, již mají nahradit (Politika ochrany klimatu
   2017, Státní energetická koncepce 2015); stránka dokumentu ji u
@@ -330,7 +330,7 @@ promítnuty dřív nebo spolu s nimi, jinak #84 nemá označení `[SK]`):
 ```
 
 `backfill_strategies.py` vloží i strategie s prioritou C a obě připravované
-aktualizace s vazbami (suchý běh nad živou DB 20. 11. 2026: 22 nových
+aktualizace s vazbami (suchý běh nad živou DB 20.11.2026: 22 nových
 dokumentů, z toho 7 této větve, 4 vazby, 2 stavy; vazby slovenských znění
 se vyřeší až po korekcích kroku 0-zbytek). Pro větev `feature/mpo-strategie-c`
 je před ním třeba zkopírovat plné texty z `data/fulltext_mpo_strategie_c/`.
@@ -341,13 +341,13 @@ typem.
 
 ### 4.2 Krok 1: Doplnění obsahu podle tabulek MPO a CDV (1–2 týdny)
 
-* obě tabulky naimportovat jako zdroj „MPO/CDV 30. 4. 2026“ do fronty
+* obě tabulky naimportovat jako zdroj „MPO/CDV 30.04.2026“ do fronty
   kandidátů a nechat je posoudit editory;
 * doplnit chybějící instituce (ERÚ, ČBÚ);
 * obě tabulky převzít jako zlatou sadu a jejich pokrytí hlídat automatickým
   testem, aby se případná ztráta dokumentu projevila hned.
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok1`, živá DB dosud nezapsána):**
+**Stav k 19.11.2026 (větev `feature/mpo-krok1`, živá DB dosud nezapsána):**
 Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
 
 * *Strojový tvar.* Obě tabulky jsou v `data/20260430_MPO/raw/`; skript
@@ -365,7 +365,7 @@ Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
   je vyhláška č. 508/2025 Sb. o regulačním výkaznictví; databáze vede
   ČSN ISO 19880-1 pod neexistujícím označením ČSN EN ISO 19880-1 (#3;
   opraveno v kroku 1 – opravy dat).
-* *Fronta kandidátů.* Pro zdroj „MPO/CDV 30. 4. 2026“ je připraveno 57
+* *Fronta kandidátů.* Pro zdroj „MPO/CDV 30.04.2026“ je připraveno 57
   kandidátů s úředním názvem, adresou a platností (zakonyprolidi.cz, e-Sbírka,
   EUR-Lex, katalog ČAS): 31 českých předpisů, 2 akty EU, 21 norem ČSN
   a 3 kandidáti z uzávěru citací, jimž se jen doplní řádky tabulky do podkladů.
@@ -380,7 +380,7 @@ Podrobnosti uvádíme v dokumentu `doc/MPO_TABULKY.md`.
   nad `h2regdocs_test`, že každý řádek obou tabulek je dokumentem, kandidátem,
   nebo má uveden důvod, a že žádný dokument z tabulek z databáze nezmizel.
 
-**Doplnění k 19. 11. 2026 (větev `feature/mpo-kandidati-doplnit`, živá DB
+**Doplnění k 19.11.2026 (větev `feature/mpo-kandidati-doplnit`, živá DB
 dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
 (podrobně `doc/MPO_TABULKY.md`, odstavec 3.1):
 
@@ -403,22 +403,22 @@ dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
   v českém převzetí nemá; ČSN EN ISO/IEC 80079-20-1, náhradu zrušené
   ČSN EN 60079-20-1, databáze již obsahuje. Jsou zdrojem `mpo` s řádky MPO-48
   a MPO-49 v podkladech, takže je hlídá i zlatý test.
-* *Vydání ČSN EN 13445* (rozhodnutí z 20. 11. 2026): kandidáti nesou vydání
+* *Vydání ČSN EN 13445* (rozhodnutí z 20.11.2026): kandidáti nesou vydání
   platné a účinné dnes: části 1, 6, 8 a 10 vydání 11/2021, část 11 vydání
   2/2025, části 2, 3 a 4 konsolidované vydání se změnou A1 (označení
   `ČSN EN 13445-2+A1` 1/2024, `-3+A1` 9/2026, `-4+A1` 7/2026; vydání 2021
   bez změny je u nich již zrušené). Nové vydání všech částí s datem vydání
-  1. 12. 2026 (Věstník 12/26) nabývá podle katalogu ČAS účinnosti
-  **1. 1. 2027** (pole „Datum účinnosti“ na stránce normy), nikoli v prosinci
+  01.12.2026 (Věstník 12/26) nabývá podle katalogu ČAS účinnosti
+  **01.01.2027** (pole „Datum účinnosti“ na stránce normy), nikoli v prosinci
   2026; kandidát je nese v podkladech jako `upcoming_edition`. Totéž nové
   vydání má i ČSN EN 13445-5 (v databázi `ČSN EN 13445-5+A1`, #37) a nové
   vydání ČSN EN 1717+A1 z 12/2026 (#1456, označení opraveno z `ČSN EN 1717`,
-  odstavec 5.1), obojí s účinností 1. 1. 2027.
+  odstavec 5.1), obojí s účinností 01.01.2027.
   Z ostatních kandidátských norem má budoucí účinnost jen ČSN EN IEC
-  60079-29-0 (nová norma, vydána 11/2026, účinná od 1. 12. 2026): kandidát
+  60079-29-0 (nová norma, vydána 11/2026, účinná od 01.12.2026): kandidát
   je „dosud neúčinný“ a po přijetí bude dokument ve stavu „vyhlášený, dosud
   neúčinný“. Ostatní části ČSN EN 60079 a ČSN EN ISO 11114-4 novější vydání
-  nemají (kontrola 20. 11. 2026, `check_csn_validity.py --editions`).
+  nemají (kontrola 20.11.2026, `check_csn_validity.py --editions`).
 * *Přepnutí na nové vydání* (`src/tools/norm_editions.py`): nové vydání je
   další, neaktuální verzí dokumentu ve stavu `promulgated` s datem účinnosti
   a označením vydání. Kontrola stavu ČSN (`harvest_adapters.csn_state`,
@@ -432,7 +432,7 @@ dosud nezapsána):** Podle rozhodnutí z téhož dne jsme frontu rozšířili
   states`; zatím neinstalováno, `doc/PROVOZ.md`, odstavec 5.2). Liší-li se
   označení nového vydání od označení dokumentu, změní se v den účinnosti
   i označení dokumentu; trvalá adresa (slug) zůstává (rozhodnutí
-  z 20. 11. 2026, odstavec 5.1).
+  z 20.11.2026, odstavec 5.1).
   Kandidáty v živé DB obnoví `mpo_tables.py import --apply` (nerozhodnutý
   kandidát zdroje `mpo` dostane nové podklady); `mpo_tables.py lookup
   --refresh-norms` je znovu zjistí z katalogu.
@@ -453,7 +453,7 @@ komisí MPO.
 * ve vyhledávání využít klíčová slova a synonyma (RFNBO, AFIR, RED III,
   LEX OZE apod.).
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok2`, živá DB zatím beze změny):**
+**Stav k 19.11.2026 (větev `feature/mpo-krok2`, živá DB zatím beze změny):**
 
 * *Jeden řádek na předpis.* Katalog zobrazuje jazykové varianty jednoho aktu
   (vazba `TRANSLATION_OF`, anglická varianta s označením `<značka> [EN]`)
@@ -531,7 +531,7 @@ komisí MPO.
   a ustáleným názvům hledané výrazy a označení dokumentů: RFNBO
   (2023/1184, 2023/1185, 2018/2001, 2023/2413 a výraz „nebiologického
   původu“), AFIR (2023/1804), AFID, RED II, RED III (2023/2413), LEX OZE
-  (165/2012 Sb. a 458/2000 Sb., od 19. 11. 2026 i novely LEX OZE I–III,
+  (165/2012 Sb. a 458/2000 Sb., od 19.11.2026 i novely LEX OZE I–III,
   odstavec 4.2), TEN-E, plynárenský balíček, ReFuelEU, ATEX a PED. Zkratka se hledá jako celé slovo („RED II“ nenajde RED III).
   Pod výsledky se zobrazí, která synonyma byla použita. Vyhledávání nově
   prochází i označení dokumentu. Dotaz „RFNBO“ tak vrací 4 řádky (oba akty
@@ -562,7 +562,7 @@ odstavec 4.1.)
 * sepsat pro garanta krátký provozní dokument: kdo frontu kandidátů
   posuzuje, jak často a podle jakých zdrojů.
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok3`, živá DB jen čtena):**
+**Stav k 19.11.2026 (větev `feature/mpo-krok3`, živá DB jen čtena):**
 větev obsahuje sběr zdrojů (`feature/h2db-sources`) i krok 0 a je připravena
 k žádosti o sloučení do `master`. Přibyla stránka *Připravované dokumenty*
 (`/admin/drafts`) pro převod návrhu na vyhlášený předpis se schválením dvěma
@@ -582,7 +582,7 @@ otevřené.
 * připravit pro MPO přehled vypořádání jednotlivých připomínek
   (tento dokument v upravené podobě) jako podklad k telekonferenci.
 
-**Stav k 19. 11. 2026 (větev `feature/mpo-krok2`):** scénáře připomínek 1–6
+**Stav k 19.11.2026 (větev `feature/mpo-krok2`):** scénáře připomínek 1–6
 jsou v `tests/e2e/test_mpo_comments.py` a běží v rámci
 `src/tools/run_tests.py` nad kopií živé databáze (s opravami kroku 0):
 
@@ -593,7 +593,7 @@ jsou v `tests/e2e/test_mpo_comments.py` a běží v rámci
 | 3 | v nabídce typů lze vybrat „Akt v přenesené pravomoci (EU)“ | `…-filter-delegated.png` |
 | 4 (MD) | nabídka původců je seskupená, bez holé zkratky („MD“ apod.), Ministerstvo dopravy je mezi českými orgány | `…-filters.png` |
 | 5 (dráhy) | zákony 266/1994 Sb. a 426/2021 Sb. mají původce Ministerstvo dopravy, v řádku i na stránce dokumentu | `…-railway-act.png`, `…-railway-act-page.png` |
-| 6 (hláška) | stránky energetického zákona a RED III (obě jazykové verze) neobsahují „Stav ke dni 30.6.2025“ | `…-stale-note-*.png` |
+| 6 (hláška) | stránky energetického zákona a RED III (obě jazykové verze) neobsahují „Stav ke dni 30.06.2025“ | `…-stale-note-*.png` |
 | 6 (obecně) | žádný popis, název ani export neobsahuje „doc/PLAN.md“; stránky vodíkových strategií | `…-strategy-*.png` |
 | — | filtr jurisdikce; telefon 390 px bez vodorovného posuvníku | `…-jurisdiction-cz.png`, `…-rfnbo-phone.png` |
 
@@ -614,28 +614,28 @@ v podobě pro MPO (bez interních údajů) je v `doc/MPO_VYPORADANI.md`,
 odstavec 6.
 
 > **Plánovač je třeba nainstalovat do konce prosince 2026** (řádek „do
-> 31. 12. 2026“ v tabulce). Na něm závisí přepnutí norem ČSN EN 13445
+> 31.12.2026“ v tabulce). Na něm závisí přepnutí norem ČSN EN 13445
 > a ČSN EN 1717+A1 na vydání 12/2026, přechod nařízení CLP na konsolidované
-> znění k 1. 1. 2027 a další nová konsolidovaná znění CLP a REACH. Není-li
-> nainstalován, provede správce 2. 1. 2027 nouzový postup (`doc/PROVOZ.md`,
+> znění k 01.01.2027 a další nová konsolidovaná znění CLP a REACH. Není-li
+> nainstalován, provede správce 02.01.2027 nouzový postup (`doc/PROVOZ.md`,
 > odstavec 5.4): záloha, `backfill_document_states.py --apply`
 > a `refresh_eu_consolidations.py --apply` v hlavním stromu.
 
 | Termín | Krok | Obsah | Podmínka |
 |---|---|---|---|
-| 19. 11. 2026 (provedeno) | krok 0, první část | opravy v živé DB (záloha `before_mpo_krok0`) | — |
-| do 25. 11. 2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; konsolidovaná znění CLP a REACH (`cp -n` textů z `data/fulltext_mpo_konsolidace/`, `refresh_eu_consolidations.py --apply`, `extract_fulltext.py --apply`; `doc/CELLAR_FULLTEXT.md`, odstavec 6); první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
-| do 27. 11. 2026 (pá) | odeslání vypořádání | `MPO_VYPORADANI.md` a `PROVOZ.md` (případně převedené do DOCX podle `TEXT_STYLE.md`) s průvodním e-mailem (`doc/MPO_EMAIL_NAVRH.md`) | nasazení podle předchozího řádku; jména garanta a editorů doplněna |
-| 1.–4. 12. 2026 | jednání s MPO | vypořádání, otázky z odst. 7 vypořádání, dohoda o postupu opětovného schválení V01, editorské účty pro MPO; navrženo út 1. 12., st 2. 12. nebo čt 3. 12. | časové možnosti MPO (posun jednání posouvá i předání) |
-| do 11. 12. 2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 13 strategií A a B (připraveno); části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
-| do 18. 12. 2026 (pá) | krok 4 | posouzení 112 nálezů sběru v pásmu 1; e2e scénáře připomínek 7–10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání | osoba pro akceptaci k dispozici 14.–18. 12.; závěry jednání bez rozsáhlých úprav |
-| 22. 12. 2026 (út) | opětovné předání V01 | předání MPO postupem dohodnutým na jednání, s výsledky akceptace | akceptace bez závažných nálezů; dohoda o postupu schválení |
-| **do 31. 12. 2026** | **instalace plánovače** | **časovače z `deploy/scheduler/` (nebo crontab), včetně `h2db-states-monthly.timer` a `h2db-consolidations-daily.timer`; jinak nouzový postup 2. 1. 2027 (`doc/PROVOZ.md`, odstavec 5.4)** | rozhodnutí o serveru a mechanismu (odstavec 5.2) |
-| do 15. 1. 2027 (pá) | provoz | posouzení zbylých nálezů sběru (pásmo 2, odhadem 140) | předání na něm nezávisí |
+| 19.11.2026 (provedeno) | krok 0, první část | opravy v živé DB (záloha `before_mpo_krok0`) | — |
+| do 25.11.2026 (st) | sloučení a nasazení | PR integrační větve (kroky 0-zbytek, 1, 2, 3 a souběžné větve: skrytí SK, strategie, opravy dat) do `master`; `git pull` v hlavním stromu; záloha; `apply_manual_corrections.py --apply`; `backfill_eu_act_subtype.py --apply`; schéma a stavy podle `doc/DATA_SOURCES.md`, odst. 8.17, kroky 2–3; `mpo_tables.py import --apply`; konsolidovaná znění CLP a REACH (`cp -n` textů z `data/fulltext_mpo_konsolidace/`, `refresh_eu_consolidations.py --apply`, `extract_fulltext.py --apply`; `doc/CELLAR_FULLTEXT.md`, odstavec 6); první ostrý běh sběru (kroky 5–8) | `run_tests.py` zelený nad sloučenou verzí; záloha živé DB před každým zápisem; oba editorské účty se přihlásí |
+| do 27.11.2026 (pá) | odeslání vypořádání | `MPO_VYPORADANI.md` a `PROVOZ.md` (případně převedené do DOCX podle `TEXT_STYLE.md`) s průvodním e-mailem (`doc/MPO_EMAIL_NAVRH.md`) | nasazení podle předchozího řádku; jména garanta a editorů doplněna |
+| 1.–04.12.2026 | jednání s MPO | vypořádání, otázky z odst. 7 vypořádání, dohoda o postupu opětovného schválení V01, editorské účty pro MPO; navrženo út 1. 12., st 2. 12. nebo čt 3. 12. | časové možnosti MPO (posun jednání posouvá i předání) |
+| do 11.12.2026 (pá) | krok 1 dokončení | posouzení 34 kandidátů MPO/CDV dvěma editory; přejmenování typu na „Strategie“ a 13 strategií A a B (připraveno); části ČSN EN 60079 a 13445; novely LEX OZE; oprava #110 a #140; vysvětlení jazykových verzí v aplikaci | dva editoři s kapacitou; posouzení nečeká na výklad MPO-27 a MPO-42 (odloženo) |
+| do 18.12.2026 (pá) | krok 4 | posouzení 112 nálezů sběru v pásmu 1; e2e scénáře připomínek 7–10; interní akceptace osobou mimo vývojový tým; zapracování závěrů jednání | osoba pro akceptaci k dispozici 14.–18. 12.; závěry jednání bez rozsáhlých úprav |
+| 22.12.2026 (út) | opětovné předání V01 | předání MPO postupem dohodnutým na jednání, s výsledky akceptace | akceptace bez závažných nálezů; dohoda o postupu schválení |
+| **do 31.12.2026** | **instalace plánovače** | **časovače z `deploy/scheduler/` (nebo crontab), včetně `h2db-states-monthly.timer` a `h2db-consolidations-daily.timer`; jinak nouzový postup 02.01.2027 (`doc/PROVOZ.md`, odstavec 5.4)** | rozhodnutí o serveru a mechanismu (odstavec 5.2) |
+| do 15.01.2027 (pá) | provoz | posouzení zbylých nálezů sběru (pásmo 2, odhadem 140) | předání na něm nezávisí |
 
 ## 5. Rozhodnutí a otevřené otázky
 
-Stav k 19. 11. 2026. Rozhodnutí uživatele z tohoto dne; jejich provedení
+Stav k 19.11.2026. Rozhodnutí uživatele z tohoto dne; jejich provedení
 běží souběžně na samostatných větvích, a kde text na výsledku závisí, je
 psán jako plán.
 
@@ -648,7 +648,7 @@ psán jako plán.
 * **Postup opětovného schválení V01** stanovíme až po vypořádání
   připomínek: po odeslání vypořádání požádáme MPO o dohodu na postupu
   a podkladech schválení (včetně potvrzení pro TAČR, o něž žádal e-mail
-  z 26. 2. 2026).
+  z 26.02.2026).
 * **Editorská práva pro MPO.** Pracovníci MPO mohou na vyžádání
   aplikačního garanta dostat editorský účet se stejnými oprávněními jako
   editoři řešitele, při zachování potvrzování každé změny druhým editorem
@@ -670,19 +670,19 @@ psán jako plán.
   „Strategie“ a doplněno 13 strategií s prioritou A a B (příloha A
   `doc/MPO_VYPORADANI.md` jich uvádí 13, nikoli 11); kategorie má
   25 dokumentů (provedeno, odstavec 4.1).
-* **Strategie s prioritou C** (20. 11. 2026): zařadit; doplněno pět sdělení
+* **Strategie s prioritou C** (20.11.2026): zařadit; doplněno pět sdělení
   Komise (příloha A jich s prioritou C uvádí pět, nikoli šest), kategorie má
   32 dokumentů (provedeno, odstavec 4.1).
-* **Neschválené aktualizace strategií** (20. 11. 2026): Politika ochrany
+* **Neschválené aktualizace strategií** (20.11.2026): Politika ochrany
   klimatu 2025–2050 a aktualizace Státní energetické koncepce jsou vedeny
   jako připravované dokumenty s vazbou na strategii, již mají nahradit
   (provedeno, odstavec 4.1).
-* **Vydání ČSN EN 13445** (20. 11. 2026): kandidáti nesou platné vydání
+* **Vydání ČSN EN 13445** (20.11.2026): kandidáti nesou platné vydání
   (2021, u částí 2–4 se změnou A1; část 11 vydání 2025), nové vydání 12/2026
   je v podkladech a databáze se na ně sama přepne dnem jeho účinnosti
-  1. 1. 2027 (provedeno, odstavec 4.2; plánovač zatím neinstalován).
+  01.01.2027 (provedeno, odstavec 4.2; plánovač zatím neinstalován).
 * **Termíny etap** podle odstavce 4.6.
-* **Označení normy po přepnutí na nové vydání** (20. 11. 2026): mění se
+* **Označení normy po přepnutí na nové vydání** (20.11.2026): mění se
   automaticky. Liší-li se označení vydání, jež nabývá účinnosti, od označení
   dokumentu (`ČSN EN 13445-2+A1` → `ČSN EN 13445-2`, nebo přibude `+A1`),
   `norm_editions.py` v den účinnosti změní `Document.identifier` i označení
@@ -696,16 +696,16 @@ psán jako plán.
   v `data/fulltext_manifest.json` se přejmenují a záznam
   v `data/norm_validity_cache.json` se přesune pod nové označení
   (provedeno; `doc/PROVOZ.md`, odstavec 5.2). Zkouška na testovací
-  databázi s datem 1. 1. 2027: #37 `ČSN EN 13445-5+A1` → `ČSN EN 13445-5`
+  databázi s datem 01.01.2027: #37 `ČSN EN 13445-5+A1` → `ČSN EN 13445-5`
   (slug `csn-en-13445-5-a1`), #1456 bez změny označení.
-* **Označení #1456** (20. 11. 2026): `ČSN EN 1717` opraveno na platné
+* **Označení #1456** (20.11.2026): `ČSN EN 1717` opraveno na platné
   `ČSN EN 1717+A1` (katalog ČSN online: vydání 9/2026, účinné od
-  1. 10. 2026; vydání ČSN EN 1717 z 11/2025, na něž vedl odkaz, bylo
-  zrušeno 1. 10. 2026). Oprava je v `data/manual_corrections.json` (označení,
+  01.10.2026; vydání ČSN EN 1717 z 11/2025, na něž vedl odkaz, bylo
+  zrušeno 01.10.2026). Oprava je v `data/manual_corrections.json` (označení,
   odkaz na stránku vydání 9/2026, slug `csn-en-1717` zůstává). Nové vydání
-  12/2026 má stejné označení `ČSN EN 1717+A1`; 1. 1. 2027 se na ně dokument
+  12/2026 má stejné označení `ČSN EN 1717+A1`; 01.01.2027 se na ně dokument
   přepne bez další změny označení (ověřeno na testovací databázi).
-* **Nařízení CLP (ES) č. 1272/2008** (20. 11. 2026): doplněno české XHTML
+* **Nařízení CLP (ES) č. 1272/2008** (20.11.2026): doplněno české XHTML
   z Cellaru (23 MB); čitelný text dokumentu (stránka „text“ a vyhledávání)
   se nově tvoří z něj, PDF zůstává staženým originálem dokumentu
   (`Document.file_path`), stejně jako u ostatních aktů EU s PDF a HTML.
@@ -713,7 +713,7 @@ psán jako plán.
   Od rozhodnutí o konsolidovaných zněních (níže) jde o text původního
   znění, jenž zůstává u nahrazené verze.
 
-* **Konsolidovaná znění CLP a REACH** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`,
+* **Konsolidovaná znění CLP a REACH** (20.11.2026, `doc/CELLAR_FULLTEXT.md`,
   odstavec 7; `doc/PROVOZ.md`, odstavec 5.3): U nařízení CLP (ES)
   č. 1272/2008 a REACH (ES) č. 1907/2006 zobrazujeme aktuální konsolidované
   znění a obnovujeme je při každé změně (rozhodnutí uživatele); otázka
@@ -722,7 +722,7 @@ psán jako plán.
   `02006R1907-20260622`) je aktuální verzí a jeho text (české XHTML
   z Cellaru, ověřené přílohy) se zobrazuje; původní znění z roku 2008/2006
   a starší konsolidovaná znění jsou nahrazené verze (původní znění si
-  ponechává uložený text), znění CLP k 1. 1. 2027 je vyhlášené, dosud
+  ponechává uložený text), znění CLP k 01.01.2027 je vyhlášené, dosud
   neúčinné. Stránka dokumentu uvádí zobrazené znění a odkazy do EUR-Lexu
   u všech verzí. Denní kontrola (`refresh_eu_consolidations.py`, plánovač
   `daily`) zjistí nové znění v Cellaru, v den účinnosti je učiní aktuálním
@@ -731,9 +731,9 @@ psán jako plán.
   `data/eu_consolidation_cache.json`, manifest). Mechanismus je obecný,
   zapnutý jen pro CLP a REACH; návrh dalších aktů (RED II, AFIR, TEN-E,
   (EU) 2018/858, Seveso III) je k rozhodnutí v odstavci 5.3. Zkouška na
-  testovací databázi s datem 1. 1. 2027: CLP přešlo na znění k 1. 1. 2027,
-  zobrazený text zůstal u znění k 1. 7. 2026 do stažení nového.
-* **Plné texty z EUR-Lexu jen z Cellaru** (20. 11. 2026, `doc/CELLAR_FULLTEXT.md`):
+  testovací databázi s datem 01.01.2027: CLP přešlo na znění k 01.01.2027,
+  zobrazený text zůstal u znění k 01.07.2026 do stažení nového.
+* **Plné texty z EUR-Lexu jen z Cellaru** (20.11.2026, `doc/CELLAR_FULLTEXT.md`):
   `fetch_fulltext.py` už EUR-Lex neotevírá v prohlížeči ani se na něj
   neobrací; adresy ELI a adresy Úředního věstníku (`?uri=OJ:L_…`) se
   dotazem SPARQL přeloží na číslo CELEX a text se stáhne z Cellaru. Úplnost
@@ -744,7 +744,7 @@ psán jako plán.
   505 stažených položek. Současně opravena chyba extraktoru, jenž
   u 33 souborů (21 aktů) vynechával přílohy (podrobně
   v `doc/CELLAR_FULLTEXT.md`).
-* **Stránky slovenských dokumentů a vyhledávače** (20. 11. 2026): stránka
+* **Stránky slovenských dokumentů a vyhledávače** (20.11.2026): stránka
   slovenského dokumentu, jeho čitelný text i stažený soubor nesou pro
   nepřihlášeného návštěvníka `<meta name="robots" content="noindex">`
   a hlavičku `X-Robots-Tag: noindex`. Aplikace nemá mapu webu, `robots.txt`
@@ -755,7 +755,7 @@ psán jako plán.
   veřejně uvedené až do nasazení kroku 2. Pojistka `noindex` pokryje i tento
   případ (již zaindexovaná stránka vypadne při příštím průchodu robota).
 
-* **Rozhodnutí z 20. 11. 2026:**
+* **Rozhodnutí z 20.11.2026:**
   * e-mail MPO půjde v kopii Ing. M. Revíkové, L. Svobodové (titul neznáme,
     neuvádíme) a P. Polanskému a T. Matochové z CDV (`doc/MPO_EMAIL_NAVRH.md`);
   * skripty pro ISO (`add_missing_iso_parents.py`), IEC, EIGA a DVGW zůstávají,
@@ -778,7 +778,7 @@ psán jako plán.
   `doc/PROVOZ.md`, odstavec 9.3):
   * plánovač (časovač systemd, nebo crontab; na kterém serveru) —
     **nainstalovat do konce prosince 2026** (odstavec 4.6; `doc/PROVOZ.md`,
-    odstavec 5.4), jinak se 1. 1. 2027 nepřepnou normy ani znění CLP;
+    odstavec 5.4), jinak se 01.01.2027 nepřepnou normy ani znění CLP;
   * zapisování datových souborů měněných běhy v hlavním stromu do
     repozitáře, nebo jejich přesun mimo správu verzí;
   * zdroje IEC, EIGA a DVGW, jejichž skripty obcházejí ochranu proti

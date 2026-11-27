@@ -6,6 +6,9 @@ přidáváme po každém dokončeném kroku.
 
 ## 27.11.2026
 
+- **Formát data v dokumentech.** Všechna data v dokumentaci projektu (`doc/`) jsme převedli na tvar `dd.mm.yyyy`
+  bez mezer (476 výskytů ve 20 dokumentech, mezi nimi `MPO_VYPORADANI.md` a `PROVOZ.md`). Odeslané přílohy
+  v `doc/mpo_odeslani/` jsme nechali beze změny.
 - **Vydání a platnost verzí právních předpisů (issue #38, PR #44, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
   vyhlášek, nařízení vlády a aktů EU uvádí, které znění databáze má, od kdy je účinné, a odkazuje na ně
   v e-Sbírce nebo EUR-Lexu. Verze vedeme od vložení dokumentu do databáze. Nové znění, které e-Sbírka nebo

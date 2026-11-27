@@ -4,7 +4,7 @@ Stav k 23.11.2026, názvy tabulek a klíčů `data/areas.json` k 25.11.2026 (ods
 Filtr „Oblast“ v katalogu a štítky u dokumentů v seznamu a na stránce dokumentu
 nově ukazují **oblasti**: 30 českých hodnot (27 věcných, strategie, dokumenty obecné povahy
 a pracovní „Oblast dosud neurčena“) navázaných na věcné okruhy `doc/DATABASE_SCOPE.md` (tento dokument, odstavec 3).
-Dosud v nich byly kategorie převzaté ze zdrojových rešerší (do 25. 11. 2026 vedené jako
+Dosud v nich byly kategorie převzaté ze zdrojových rešerší (do 25.11.2026 vedené jako
 „klíčová slova“ v tabulce `Keyword`), které nedávaly moc smysl.
 
 ## 1. Proč
@@ -114,7 +114,7 @@ prof. Sinaye a sekce rešerší doc. Prokopa / dr. Haltufa (např. „Schienenfa
 „Verflüssigung“, „A - výroba“, „Využití - ŽD“) jsou **kategorie celých skupin dokumentů**,
 ne vlastnosti dokumentu: „Schienenfahrzeuge“ nesly i normy plnicích stanic, měděných armatur nebo
 hořáků, „Untertage Gasspeicher“ i normy ocelových trubek, „A - výroba“ i směrnice o tlakových
-zařízeních. Tyto hodnoty (61) proto vedeme v seznamu `group_categories` (do 25. 11. 2026 `source_categories`)
+zařízeních. Tyto hodnoty (61) proto vedeme v seznamu `group_categories` (do 25.11.2026 `source_categories`)
 a oblast z nich neurčujeme.
 Pravidla přiřazení píšeme tak, aby oblast seděla s obsahem dokumentu. Dnes obsah poznáváme hlavně
 z názvu, protože anotace a plné texty máme jen u části dokumentů a pravidla nad nimi zatím přidávají
@@ -123,7 +123,7 @@ na dokument).
 
 Oblast určujeme v tomto pořadí:
 
-1. **Kategorie zdrojových rešerší jen tam, kde popisují samotný dokument** — `categories` (do 25. 11. 2026
+1. **Kategorie zdrojových rešerší jen tam, kde popisují samotný dokument** — `categories` (do 25.11.2026
    `keywords`): třídy ČSN („6972 - Kryogenické
    nádoby“), okruhy, které editor zvolí při přijetí kandidáta (`app/candidates_admin.py`), několik vydavatelů
    s jednoznačným zaměřením (OIML → metrologie, IMO a CESNI → lodní doprava, DGUV/BAuA/OSHA → BOZP);
@@ -142,20 +142,20 @@ Oblast určujeme v tomto pořadí:
 ## 4. Co se stalo s kategoriemi zdrojových rešerší
 
 Hodnoty, které pole „Oblast (klíčové slovo)“ dosud nabízelo, nejsou klíčová slova dokumentu, ale kategorie
-převzaté ze zdrojových rešerší. Proto jsme 25. 11. 2026 přejmenovali tabulky `Keyword` a `DocumentKeyword` na
+převzaté ze zdrojových rešerší. Proto jsme 25.11.2026 přejmenovali tabulky `Keyword` a `DocumentKeyword` na
 **`SourceCategory`** a **`DocumentSourceCategory`** (sloupce `name` a `category_id`; řádky i jejich id zůstaly,
 převod dělá `src/tools/migrate_vocabulary.py`, doc/KLICOVA_SLOVA.md odstavec 4). Klíčová slova dokumentu
 vedeme odděleně v tabulkách `Term` a `DocumentTerm`.
 
 Kategorie **nemažeme**: prohledává je vyhledávání v katalogu (dotaz „Befüllungsanlagen“ dál najde příslušné
-normy) a obsahují je exporty CSV/JSON/XML (pole `source_categories`, do 25. 11. 2026 `keywords`). Jen je
+normy) a obsahují je exporty CSV/JSON/XML (pole `source_categories`, do 25.11.2026 `keywords`). Jen je
 nenabízíme ve filtru a nezobrazujeme ve štítcích. *Důvod:* nesou informaci ze zdrojových rešerší (vydavatel,
 technická komise, stav STN), kterou oblasti nenahrazují, a mapování z nich můžeme kdykoli přepočítat.
 Filtr podle kategorie má parametr `?category_id=…`; starý odkaz `?keyword_id=…` aplikace přesměruje
 na `?category_id=…` se stejným číslem (export parametr přijme přímo).
 
 Oblasti ukládáme do tabulek `Area` (kód, název, okruh, pořadí, veřejná ano/ne) a `DocumentArea` (dokument,
-oblast, původ: `category`, `identifier`, `type`, `title`, `fallback`; původ `category` se do 25. 11. 2026
+oblast, původ: `category`, `identifier`, `type`, `title`, `fallback`; původ `category` se do 25.11.2026
 jmenoval `keyword` a `assign_areas.py --apply` ho přepíše). Dokud v databázi nejsou, aplikace ukazuje
 kategorie zdrojových rešerší.
 
@@ -258,7 +258,7 @@ zařadíme ručně.
 | 1453 | 2006/865/ES | Nařízení Komise (ES) č. 865/2006 ze dne 4. května 2006 o prováděcích pravidlech k nařízení Rady | mimo rozsah (pracovní právo, zdraví, nemoci) — k posouzení vyřazení |
 | 1455 | 1998/2119/ES | Rozhodnutí Evropského parlamentu a Rady č. 2119/98/ES ze dne 24. září 1998 o zřízení sítě epide | mimo rozsah (pracovní právo, zdraví, nemoci) — k posouzení vyřazení |
 
-## 7. Elektrolýza, plnicí stanice, doprava vodíku (23. 11. 2026)
+## 7. Elektrolýza, plnicí stanice, doprava vodíku (23.11.2026)
 
 Ověřili jsme, zda dokážeme spolehlivě poznat tři oblasti, které uživatel navrhl. Pravidla jsme testovali na
 názvech; technické komise ISO/TC 197 (vodíkové technologie obecně) a IEC/TC 105 (palivové články) oblast
@@ -296,7 +296,7 @@ zmapujeme EuroVoc a ICS na oblasti (strukturované, s malým šumem), potom vyzk
 s přísnějšími výrazy a s vyšší vahou výskytu v úvodní větě anotace, každou novou vazbu označíme původem
 (`annotation`, `eurovoc`, `ics`) a vzorek zkontrolujeme dřív, než pravidla zapneme.
 
-**Měření (23. 11. 2026, jen běh nanečisto, pravidla jsme nezměnili):** stávající pravidla názvu jsme pustili i na
+**Měření (23.11.2026, jen běh nanečisto, pravidla jsme nezměnili):** stávající pravidla názvu jsme pustili i na
 anotaci (`description`, `popis_autoritativni`). Ze 967 dokumentů s anotací přibude oblast u 418 dokumentů
 (672 nových vazeb; nejvíc Materiály 75, Komponenty 64, Životní prostředí 58, Kvalita a měření 40, Doprava vodíku 37,
 Tlakové nádoby 37); z oblasti dosud neurčené zařadí 16 dokumentů. Ve vzorku 10 dokumentů (17 nových vazeb)

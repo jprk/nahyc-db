@@ -6,12 +6,12 @@
 > 2026-11-20 Rozhodnutí uživatele o akcích modelu (odstavec 3.3), vztah k vodíku, kategorie `fondy_zakazky` a `obecne_vyrobky`, pokyny verze 3, souhlas zapsán
 
 Fronta kandidátů na nové dokumenty (`doc/PROVOZ.md`, odstavec 4) obsahovala
-20. 11. 2026 v živé databázi 591 nových kandidátů. Jejich ruční posouzení by
+20.11.2026 v živé databázi 591 nových kandidátů. Jejich ruční posouzení by
 editory zaměstnalo na týdny, přičemž značnou část z nich lze rozhodnout podle
 jednoduchých pravidel nebo s pomocí jazykového modelu. Tento dokument popisuje
 automatické předtřídění fronty, předkládá k odsouhlasení seznam pravidel
 (odstavec 2) a výsledky ukázkového posouzení modelem (odstavec 5). Pravidla ani
-model nad živou databází zatím ostře **neběžely**. Uživatel 20. 11. 2026
+model nad živou databází zatím ostře **neběžely**. Uživatel 20.11.2026
 pravidla (odstavec 2) i akce modelu (odstavec 3.3) odsouhlasil a souhlas je
 zapsán v `data/triage_rules.json`; ostrý běh nad živou databází proběhne až
 po sloučení větve (odstavec 7).
@@ -45,17 +45,17 @@ Pravidla jsou zapsána jako data v souboru `data/triage_rules.json`, nikoli
 v kódu; jejich změna tedy nevyžaduje zásah do programu. Zkoušejí se
 v pořadí uvedeném v tabulce (ne podle čísla) a o kandidátovi rozhoduje první
 pravidlo, jehož podmínka platí. Počty v posledním sloupci jsme zjistili suchým
-během nad živou databází 20. 11. 2026 (`triage_candidates.py --rules-only`) ze
+během nad živou databází 20.11.2026 (`triage_candidates.py --rules-only`) ze
 591 nových kandidátů.
 
 | Pořadí | Pravidlo | Podmínka | Akce | Zdůvodnění | Zasáhne v živé DB |
 |---|---|---|---|---|---|
 | 1 | R1-duplicita | týž předpis (shodný klíč českého předpisu nebo aktu EU) už je v databázi **ve stejném jazyce**; u norem a technických pravidel shodné označení | zamítnout s odkazem na dokument | tentýž dokument nemá být v databázi dvakrát | 0 |
-| 2 | R7-jazykova-verze (nové) | týž předpis je v databázi, ale jen v **jiném jazyce** (jazyk kandidáta CS, EN nebo SK) | navrhnout přijetí jako jazykovou verzi | znění v jiném jazyce je samostatný dokument propojený s ostatními verzemi (rozhodnutí uživatele z 20. 11. 2026) | 0 |
-| 3 | R8-zruseny (nové, nahrazuje R2) | platnost podle kontroly platnosti „zrušený“ | navrhnout přijetí se stavem „zrušený“ | zrušený předpis se nezamítá; databáze jej vede se stavem a vazbou na předpis, který jej zrušil (rozhodnutí uživatele z 20. 11. 2026) | 1 (vyhláška č. 513/2021 Sb. z tabulek MPO, zrušená k 1. 1. 2026 vyhláškou č. 508/2025 Sb., jež čeká ve frontě) |
+| 2 | R7-jazykova-verze (nové) | týž předpis je v databázi, ale jen v **jiném jazyce** (jazyk kandidáta CS, EN nebo SK) | navrhnout přijetí jako jazykovou verzi | znění v jiném jazyce je samostatný dokument propojený s ostatními verzemi (rozhodnutí uživatele z 20.11.2026) | 0 |
+| 3 | R8-zruseny (nové, nahrazuje R2) | platnost podle kontroly platnosti „zrušený“ | navrhnout přijetí se stavem „zrušený“ | zrušený předpis se nezamítá; databáze jej vede se stavem a vazbou na předpis, který jej zrušil (rozhodnutí uživatele z 20.11.2026) | 1 (vyhláška č. 513/2021 Sb. z tabulek MPO, zrušená k 01.01.2026 vyhláškou č. 508/2025 Sb., jež čeká ve frontě) |
 | 4 | R3-novinka | adresa novinky (`/news/`, `aktuality`) nebo název obsahuje webinář, factsheet, round table, newsletter, tiskovou zprávu | odložit | novinky nejsou regulační dokumenty; mohou však odkazovat na dokument, který do databáze patří, proto odložit, ne zamítnout | 6 (2× ACER, webinář a factsheet EHSP, kulatý stůl OTIF, aktualita TIČR) |
-| 5 | R4-tpg | zdroj `cps-tpg` (katalog technických pravidel TPG) | navrhnout přijetí | rozhodnutí uživatele z 20. 11. 2026 zařadit všechna TPG; jen metadata a odkaz | 69 |
-| 6 | R5-mpo | zdroj `mpo` (tabulky předpisů MPO/CDV z 30. 4. 2026) | navrhnout přijetí | referenční soubor objednatele (`doc/MPO_TABULKY.md`); typ a původce jsou u kandidátů již ověřené | 53 |
+| 5 | R4-tpg | zdroj `cps-tpg` (katalog technických pravidel TPG) | navrhnout přijetí | rozhodnutí uživatele z 20.11.2026 zařadit všechna TPG; jen metadata a odkaz | 69 |
+| 6 | R5-mpo | zdroj `mpo` (tabulky předpisů MPO/CDV z 30.04.2026) | navrhnout přijetí | referenční soubor objednatele (`doc/MPO_TABULKY.md`); typ a původce jsou u kandidátů již ověřené | 53 |
 | 7 | R6-navrh-vodik | návrh předpisu nebo normy (signál `draft`) se známým typem dokumentu a s vodíkem, RFNBO nebo palivovými články v názvu | navrhnout přijetí jako připravovaný dokument | návrh výslovně o vodíku do rozsahu patří vždy | 3 (směrnice Komise v přenesené pravomoci o emisních hodnotách RFNBO, návrhy ČSN o armaturách pro vodíkové aplikace a o malých stacionárních napájecích systémech s palivovými články) |
 | 8 | R9-model | všichni ostatní | posouzení jazykovým modelem (odstavec 2.3) | bez deterministického pravidla | 459 |
 
@@ -153,7 +153,7 @@ posoudí je proto jazykový model OpenAI GPT (`gpt-4o-mini`), a to takto:
 Model tedy sám nic do databáze nepřidá; jeho výsledkem je návrh k potvrzení,
 vratné zamítnutí či odložení, nebo doporučení editorovi.
 
-### 2.4 Rozhodnutí uživatele z 20. 11. 2026
+### 2.4 Rozhodnutí uživatele z 20.11.2026
 
 1. Pravidla R1, R3 až R8 odsouhlasena (R1, R7 a R8 ve znění podle úprav
    uživatele, R2 zrušeno).
@@ -411,7 +411,7 @@ znovu posoudil všech 459 kandidátů živé fronty, o nichž rozhoduje (suchý 
 do živé databáze se nic nezapsalo). Odhad skriptu byl 0,47 USD, skutečná cena
 podle spotřeby vrácené rozhraním **0,31 USD** (2,84 milionu vstupních tokenů,
 z toho 82 % z mezipaměti poskytovatele, 98 tisíc výstupních). Za ukázku,
-zkoušky a obě úplná posouzení jsme 20. 11. 2026 utratili celkem přibližně
+zkoušky a obě úplná posouzení jsme 20.11.2026 utratili celkem přibližně
 **0,66 USD**. Mezipaměť `data/triage_model_cache.json` nyní obsahuje odpovědi
 verze 3 pro celou živou frontu, ostrý běh tedy model volat nebude.
 

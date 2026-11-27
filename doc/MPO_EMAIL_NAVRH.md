@@ -2,14 +2,14 @@
 
 > Historie dokumentu:  
 > 2026-11-19 jprk Návrh první verze  
-> 2026-11-21 jprk Sladěno se stavem po nasazení 20. 11. 2026 (strategie, fronta kandidátů, připravované předpisy)  
-> 2026-11-26 jprk Sladěno se stavem po nasazení 26. 11. 2026 (kontrola záznamů, klíčová slova, oblasti, RFNBO)
+> 2026-11-21 jprk Sladěno se stavem po nasazení 20.11.2026 (strategie, fronta kandidátů, připravované předpisy)  
+> 2026-11-26 jprk Sladěno se stavem po nasazení 26.11.2026 (kontrola záznamů, klíčová slova, oblasti, RFNBO)
 
 Návrh e-mailu, jímž odešleme Ing. Petru Mervartovi (MPO) vypořádání
-připomínek k výsledku V01. Odeslání plánujeme do 27. 11. 2026; úpravy jsme
-do veřejné verze aplikace nasadili 20. a 26. 11. 2026 (`doc/MPO_VYPORADANI.md`,
+připomínek k výsledku V01. Odeslání plánujeme do 27.11.2026; úpravy jsme
+do veřejné verze aplikace nasadili 20. a 26.11.2026 (`doc/MPO_VYPORADANI.md`,
 odstavec 6) a veřejnou verzi jsme proti vypořádání naposledy ověřili
-26. 11. 2026 (`doc/MPO_OVERENI_WEBU.md`). Před odesláním je třeba ověřit, že navržené
+26.11.2026 (`doc/MPO_OVERENI_WEBU.md`). Před odesláním je třeba ověřit, že navržené
 termíny jednání jsou stále volné, a vyřešit otevřený bod k editorským
 účtům (komentáře OTEVŘENO níže a ve vypořádání).
 
@@ -26,7 +26,7 @@ Vážený pane inženýre,
 
 v příloze Vám zasílám vypořádání připomínek, jež jste spolu s kolegyněmi
 vznesl k výsledku V01 „Databáze regulačních předpisů a předrealizačních
-procesů“ v e-mailech ze 17. 4. a 22. 5. 2026, a provozní dokument, jenž
+procesů“ v e-mailech ze 17. 4. a 22.05.2026, a provozní dokument, jenž
 popisuje, jak budeme udržovat aktuálnost databáze.
 
 Vypořádání Vám zasílám se zpožděním několika měsíců a telekonferenci, již
@@ -57,29 +57,29 @@ Připomínky považujeme za oprávněné. Stručně ke stavu:
   řádek po řádku. Chybějící předpisy, včetně vyhlášek Energetického
   regulačního úřadu a předpisů báňské bezpečnosti, jsou zapsány ve frontě
   kandidátů a navrženy k přijetí; do veřejného katalogu přibudou, jakmile
-  přijetí potvrdí editoři (do 11. 12. 2026). Tabulky jsme převzali jako
+  přijetí potvrdí editoři (do 11.12.2026). Tabulky jsme převzali jako
   referenční soubor, jehož pokrytí hlídá automatický test.
   <!-- OTEVŘENO bod 3: editorské účty -->
 * Kategorii „Strategie“ jsme podle Vašeho návrhu zavedli a doplnili o další
   národní a evropské strategie; obsahuje 32 dokumentů a seznam doplněných
   je v příloze A vypořádání.
 * Databáze nově sleduje připravované předpisy (VeKLEP, Poslanecká sněmovna
-  a Senát, legislativní postupy EU); první sběr 20. 11. 2026 zachytil mimo
+  a Senát, legislativní postupy EU); první sběr 20.11.2026 zachytil mimo
   jiné 35 sněmovních tisků a 9 legislativních postupů EU, jež posoudí
   editoři. Stránka každého dokumentu uvádí, kdy a v jakém zdroji
   byl jeho stav naposledy ověřen. Kontroly zatím spouštíme ručně;
   pravidelné automatické spouštění zavedeme do konce roku.
 
-Úpravy jsou nasazeny ve veřejné verzi aplikace (naposledy 26. 11. 2026)
+Úpravy jsou nasazeny ve veřejné verzi aplikace (naposledy 26.11.2026)
 na adrese https://nahyc.fd.cvut.cz/h2db/. Co ještě zbývá a v jakých termínech, uvádí
-odstavec 6 vypořádání; opětovné předání výsledku V01 navrhujeme na 22. 12. 2026.
+odstavec 6 vypořádání; opětovné předání výsledku V01 navrhujeme na 22.12.2026.
 
 Rád bych vypořádání s Vámi a s kolegyněmi projednal. Navrhuji jednání
 online nebo osobně v některém z těchto termínů:
 
-* úterý 1. 12. 2026,
-* středa 2. 12. 2026,
-* čtvrtek 3. 12. 2026,
+* úterý 01.12.2026,
+* středa 02.12.2026,
+* čtvrtek 03.12.2026,
 
 v čase, jenž Vám bude vyhovovat. Na jednání bych rád dohodl zejména
 postup, jímž MPO výsledek V01 po vypořádání připomínek znovu posoudí

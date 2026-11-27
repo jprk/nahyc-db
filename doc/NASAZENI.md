@@ -1,12 +1,12 @@
 # Nasazení databáze na produkční server
 
-Stav k 26. 11. 2026, větev `feature/nasazeni`; produkce je v `/home/prikryl/DEVEL/nahyc-h2db`.
+Stav k 26.11.2026, větev `feature/nasazeni`; produkce je v `/home/prikryl/DEVEL/nahyc-h2db`.
 
 ## 1. Rozhodnutí
 
 Vývojová verze běží na stroji `labauto.fd.cvut.cz` (web `https://nahyc.fd.cvut.cz/h2db/`). Produkce
 poběží na `vm-nahyc.fel.zcu.cz` (web `https://nahyc.fel.zcu.cz/h2db/`). Uživatel rozhodl
-(26. 11. 2026):
+(26.11.2026):
 
 1. Na produkci se dostane jen uživatel, a to jen ze sítě ZČU. Vývojový stroj produkci nevidí
    (port 22 neodpovídá), produkce naopak vývojový stroj ze sítě ČVUT vidí. **Spojení proto vždy
@@ -58,7 +58,7 @@ a do jednotek systemd ve `deploy/production/`.
 ### 3.2 Účet a adresáře
 
 Na produkci je dnes vše v pracovním stromu `/home/prikryl/DEVEL/nahyc-h2db` účtu `prikryl`
-(26. 11. 2026). Postup s tím počítá:
+(26.11.2026). Postup s tím počítá:
 
 - Aplikace, plánovač i kopie na testovací web běží pod účtem `prikryl` (démon mod_wsgi
   s `user=prikryl`, jednotky systemd s `User=prikryl`).
@@ -135,13 +135,13 @@ setfacl -R -m u:www-data:rwX /home/laborator/nahyc-h2db/.local-test-state
 setfacl -d -m u:www-data:rwX -m u:laborator:rwX /home/laborator/nahyc-h2db/.local-test-state
 ```
 
-Stav k 26. 11. 2026: proměnné jsou v `.env` nastavené, adresář existuje a obsahuje kopii
+Stav k 26.11.2026: proměnné jsou v `.env` nastavené, adresář existuje a obsahuje kopii
 stavových souborů z `data/` s uvedenými právy.
 
 Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
 úvodní stránka pak nad nadpisem a každá stránka v patičce ukazují upozornění „Testovací verze“
 s odkazem na produkční web. Produkce proměnnou nenastavuje. `H2DB_INSTANCE=test` platí na testovacím webu
-už od 26. 11. 2026.
+už od 26.11.2026.
 
 **Po každé změně `.env` aplikaci znovu načteme:**
 
@@ -150,7 +150,7 @@ touch /home/laborator/DEVEL/nahyc-h2db/wsgi.py      # na produkci /home/prikryl/
 ```
 
 Aplikace čte `.env` jen při startu procesu. Démon mod_wsgi při dalším požadavku zjistí změnu času
-`wsgi.py` a aplikaci načte znovu. Bez toho běžící web novou hodnotu nevidí (26. 11. 2026 se tak
+`wsgi.py` a aplikaci načte znovu. Bez toho běžící web novou hodnotu nevidí (26.11.2026 se tak
 upozornění „Testovací verze“ neobjevilo, dokud jsme `wsgi.py` neaktualizovali). Plánovač a skripty
 z příkazové řádky čtou `.env` při každém spuštění, ty se znovu načítat nemusí.
 
@@ -160,7 +160,7 @@ přímo ze souborů `.git`.
 
 ### 4.6 Kontrola po nasazení
 
-- `https://nahyc.fel.zcu.cz/h2db/`: katalog ukazuje 1432 dokumentů (stav k 26. 11. 2026), filtry
+- `https://nahyc.fel.zcu.cz/h2db/`: katalog ukazuje 1432 dokumentů (stav k 26.11.2026), filtry
   a vyhledávání fungují (např. „svazek lahví“ najde ISO 11114-2 přes klíčová slova).
 - Stránka dokumentu (`/dokument/eu-2021-535`): popis, klíčová slova, verze, odkaz „Číst text“.
 - Přihlášení editora, fronta kandidátů a fronta oprav (36 položek „Kontrola záznamů“).
@@ -184,7 +184,7 @@ touch wsgi.py
 `state_paths.py --seed` zkopíruje do stavového adresáře stavové soubory, které nová verze přidala do
 `STATE_FILES` a které tam ještě nejsou; existující soubor nikdy nepřepíše. Bez přepínače jen vypíše,
 které chybí. Krok potřebujeme proto, že jinak skripty nový soubor hledají ve stavovém adresáři
-a nenajdou ho: 27. 11. 2026 tam takto chyběl `act_descriptions.json` z PR #40 a přestavba
+a nenajdou ho: 27.11.2026 tam takto chyběl `act_descriptions.json` z PR #40 a přestavba
 databáze by přišla o popisy předpisů. Na testovacím webu krok spustíme po každém `git pull`
 v hlavním stromu také.
 

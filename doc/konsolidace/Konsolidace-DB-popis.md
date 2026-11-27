@@ -122,7 +122,7 @@ DDL skript pro MariaDB: `Konsolidace-DB-schema.sql`.
 
 ## 4. Vrstva A — regulatorní (změny oproti V01)
 
-Tabulky V01 `Keyword` a `DocumentKeyword` jsme 25. 11. 2026 přejmenovali na `SourceCategory`
+Tabulky V01 `Keyword` a `DocumentKeyword` jsme 25.11.2026 přejmenovali na `SourceCategory`
 a `DocumentSourceCategory` (sloupce `name` a `category_id`): nenesou klíčová slova, ale kategorie
 převzaté ze zdrojových rešerší. Klíčová slova dokumentů vedeme v tabulkách `Term` a `DocumentTerm`
 (doc/KLICOVA_SLOVA.md, odstavec 4). `DocumentType` získalo rozšíření per R4.1 — viz §4.5 níže.
