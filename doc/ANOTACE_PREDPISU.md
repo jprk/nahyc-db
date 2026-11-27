@@ -41,8 +41,11 @@ nařízení a rozhodnutí EU, k nimž máme vyčištěný text (`data/fulltext_c
    úvodní ustanovení nezablokuje.
 
 Poznámky autorů rešerší, které nejsou přepisem názvu („Transpozice provedena – nařízení vlády
-č. 406/2004 Sb.“, „aplikovatelná jen vybraná ustanovení“), zůstávají jako popis jen tam, kde úvodní
-ustanovení nenajdeme; jinak je nahradí ustanovení (v datech rešerše zůstávají, odstavec 6).
+č. 406/2004 Sb.“, „aplikovatelná jen vybraná ustanovení“), **vyřazujeme** (rozhodnutí uživatele
+z 27. 11. 2026): jsou to jen krátké informační texty a transpozici zaznamenávají vazby `IMPLEMENTS`
+(105 vazeb ke 77 aktům EU, mimo jiné 1999/92/ES ← nařízení vlády č. 406/2004 Sb., 2014/34/EU ← nařízení
+vlády č. 116/2016 Sb., 2012/18/EU ← zákon č. 224/2015 Sb.). Předpis, u něhož úvodní ustanovení nenajdeme,
+proto nemá popis vůbec, nanejvýš přibližné shrnutí, a čeká na editora.
 
 ## 3. Výsledek (kopie provozní databáze k 27. 11. 2026)
 
@@ -88,10 +91,7 @@ cd src/tools
 ../../.venv/bin/python annotate_acts.py --apply --env-file <.env>   # zápis do databáze (předtím záloha)
 ```
 
-## 6. Otevřené otázky
+## 6. Rozhodnutí z 27. 11. 2026
 
-1. Poznámky autorů rešerší o transpozici a použitelnosti ustanovení (např. „Transpozice provedena –
-   nařízení vlády č. 406/2004 Sb.“) úvodní ustanovení z popisu vytlačí. Máme je na stránce dokumentu
-   ukázat zvlášť jako „Poznámku z rešerše“? Vyžaduje to další sloupec.
-2. Zápis do provozní databáze: po mergi `annotate_acts.py --apply` se zálohou (odstavec 5).
-3. Tři předpisy bez popisu a 23 přibližných shrnutí čekají na editora ve frontě oprav.
+1. Poznámky z rešerší vyřazujeme, další sloupec nepřidáváme (odstavec 2).
+2. Popisy zapíšeme do provozní databáze: záloha, pak `annotate_acts.py --apply` (odstavec 5).

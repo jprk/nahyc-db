@@ -22,7 +22,9 @@ with a clean full text (data/fulltext_clean/):
    goes to `popis_priblizny` (shown as "Přibližné shrnutí, neověřeno"), the record is
    flagged "popis je třeba doplnit ručně".
 
-A description that only restates the title (`restates_title()`) is dropped; a
+Without a provision, the act's previous description goes — the title restated
+(`restates_title()`) or a note of the source survey ("Transpozice provedena …"; the user
+decided 2026-11-27 that the notes go: the IMPLEMENTS relations record transposition); a
 description an editor set (data/manual_corrections.json) is never touched. The results
 are cached in data/act_descriptions.json (keyed like document_terms.document_keys());
 build_unified_db.py applies them on every rebuild, `--apply` writes them to a database.
@@ -241,15 +243,15 @@ def plan(documents, cache, protected, keys=None):
         if not entry or key in protected:
             continue
         description, source, approximate = outcome(entry)
-        current = (doc.get("description") or "").strip()
         if description:
             change = {"description": description, "popis_autoritativni": description, "popis_zdroj": source,
                       "popis_priblizny": None, "manual": False}
-        elif not current or restates_title(current, doc["title"], doc.get("nazev_autoritativni")):
+        else:
+            # no provision serves: the title restated, a note of the source survey ("Transpozice
+            # provedena …", decided 2026-11-27: the notes go, transposition has its IMPLEMENTS
+            # relations) or nothing — the description stays empty for an editor to write
             change = {"description": None, "popis_autoritativni": None, "popis_zdroj": None,
                       "popis_priblizny": approximate, "manual": True}
-        else:
-            continue  # a real annotation or a note of the survey stays
         out.append((doc, change))
     return out
 
@@ -343,7 +345,7 @@ def main(argv=None):
             tokens = sum(min(len(acts[k][1]), EXCERPT) // 3 for k in (need_locate if args.locate else []))
             tokens += sum(2 * min(len(acts[k][1]), EXCERPT) // 3 for k in (need_summary if args.summarize else []))
             print(f"model steps: locate {len(need_locate)}, summaries {len(need_summary)}, about {tokens} input tokens, "
-                  f"about {tokens * 5 / 1_000_000 + 0.5:.2f} USD (gpt-5.5); nothing sent (--run)")
+                  f"about {tokens * 5 / 1_000_000 * 1.3:.2f} USD (gpt-5.5, input with a margin for the output); nothing sent (--run)")
         changes = plan(documents, cache, protected)
         counts = collections.Counter("provision" if c["description"] else ("summary" if c["popis_priblizny"] else "manual")
                                      for _, c in changes)

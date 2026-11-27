@@ -543,8 +543,9 @@ def act_description_editor_keys(corrections):
 def apply_act_description(record, descriptions, protected=frozenset()):
     """issue #37: the description of a legal act from data/act_descriptions.json —
     mutates `record`, returns whether it applied anything. The opening provision goes to
-    popis_autoritativni with its source (popis_zdroj); without one the checked approximate
-    summary goes to popis_priblizny and the record is marked `popis_doplnit`. The English
+    popis_autoritativni with its source (popis_zdroj); without one the annotation of the
+    source survey goes, the checked approximate summary goes to popis_priblizny and the
+    record is marked `popis_doplnit`. The English
     or Slovak row of an act is found under "<znacka> [EN]" / "[SK]" like a correction. A
     description an editor wrote (`protected`) is left alone."""
     if record.get("typ_dokumentu") not in act_provisions.LEGAL_TYPES:
@@ -562,6 +563,10 @@ def apply_act_description(record, descriptions, protected=frozenset()):
         record["popis_autoritativni"] = description
         record["popis_zdroj"] = source
     else:
+        # no provision serves: the annotation of the source survey (the title restated or a
+        # short note such as "Transpozice provedena …") goes, decided 2026-11-27
+        record["anotace_poznamka"] = ""
+        record["popis_autoritativni"] = ""
         if approximate:
             record["popis_priblizny"] = approximate
         record["popis_doplnit"] = True
