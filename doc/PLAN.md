@@ -397,7 +397,7 @@ Original plan (executed as amended above):
   - **Confirmed against the registry** for all 3 pending groups: `ISO
     14687` → only `"ČSN ISO 14687"` exists (no EN variant at all,
     currently valid); `ISO 19880-1` → only `"ČSN ISO 19880-1"` exists (2
-    editions: 2020 withdrawn 1.9.2025, 2025 currently valid); `ISO
+    editions: 2020 withdrawn 01.09.2025, 2025 currently valid); `ISO
     11114-1` → only `"ČSN EN ISO 11114-1"` exists (currently valid
     edition from 6.2021, several older withdrawn editions). **In all 3
     cases, the "ČSN EN ISO X" variant our data claimed to have doesn't
@@ -2718,7 +2718,7 @@ from — this is the one where the input was empty, and it shows).
 
 **Verified independently, twice**: this is UN/ECE Regulation No. 134
 (hydrogen-fuelled vehicle safety), incorporated into EU law as CELEX
-`42019X0795` (OJ L 129, 17.5.2019) — confirmed both via `WebFetch`
+`42019X0795` (OJ L 129, 17.05.2019) — confirmed both via `WebFetch`
 against the real `eur-lex.europa.eu` Czech-language page and,
 separately, by querying `src/sites/eurlex.py`'s own Cellar SPARQL for
 that CELEX directly (same title both times): *"Předpis Evropské

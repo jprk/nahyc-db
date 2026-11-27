@@ -1,24 +1,24 @@
 # Plné texty z EUR-Lexu přes Cellar
 
-Stav k 20. 11. 2026, větev `feature/mpo-cellar`. Dokument popisuje převod
+Stav k 20.11.2026, větev `feature/mpo-cellar`. Dokument popisuje převod
 stahování plných textů aktů EU z webu EUR-Lex na úložiště Cellar Úřadu pro
 publikace EU, ověření úplnosti textů z Cellaru a stav po převodu.
 
 ## 1. Výchozí stav a důvod změny
 
 EUR-Lex odpovídá automatizovaným klientům výzvou firewallu (HTTP 202
-s prázdným tělem). Skript `src/tools/fetch_fulltext.py` ji od 25. 10. 2026
+s prázdným tělem). Skript `src/tools/fetch_fulltext.py` ji od 25.10.2026
 obcházel: stránku otevřel v headless prohlížeči Chromium (Playwright,
 `fetch_with_browser`) a PDF stahoval kontextem prohlížeče poté, co
 načetl úvodní stránku webu (`_fetch_eurlex_pdf_with_browser`). Takové
-obcházení ochrany proti robotům je nepřípustné. Od 19. 11. 2026 se
+obcházení ochrany proti robotům je nepřípustné. Od 19.11.2026 se
 z Cellaru stahovaly adresy s číslem CELEX; adresy ELI (`/eli/…`)
 a adresy Úředního věstníku (`?uri=OJ:L_…`) dál šly přes prohlížeč.
 
-Manifest `data/fulltext_manifest.json` k 20. 11. 2026 obsahoval
+Manifest `data/fulltext_manifest.json` k 20.11.2026 obsahoval
 505 stažených položek z EUR-Lexu (288 různých souborů). Z nich
-266 souborů (476 položek) bylo staženo před 19. 11. 2026 přímo z EUR-Lexu,
-tedy prostým HTTP, nebo — od 25. 10. 2026 při výzvě firewallu — prohlížečem;
+266 souborů (476 položek) bylo staženo před 19.11.2026 přímo z EUR-Lexu,
+tedy prostým HTTP, nebo — od 25.10.2026 při výzvě firewallu — prohlížečem;
 manifest nezaznamenává, kterou cestou. Zbylých 22 souborů (29 položek) již
 pochází z Cellaru. Podle tvaru adresy jde o 151 souborů z adres ELI,
 123 z adres s číslem CELEX a 14 z adres Úředního věstníku.
@@ -53,7 +53,7 @@ Soubor `data/fulltext_url_overrides.json` měl 11 přepsání adres na EUR-Lex.
 Pro každý z 288 uložených souborů jsme skriptem
 `src/tools/compare_cellar_fulltext.py` stáhli verzi z Cellaru (do
 `data/fulltext_mpo_cellar/` ve worktree) a porovnali ji se souborem
-v `data/fulltext/` hlavního stromu (u 22 souborů z 19. 11. 2026, jež
+v `data/fulltext/` hlavního stromu (u 22 souborů z 19.11.2026, jež
 v hlavním stromu ještě nejsou, s kopií v jiném worktree):
 
 * **jazyk** vytěženého textu (langdetect na jeho začátku);
@@ -120,10 +120,10 @@ CELEX. Adresy (`url`) se nemění, s výjimkou 2014/34/EU.
 
 * **Selhané položky** (bez souboru, dokument má text z jiné položky); ze čtyř zbývají dvě:
   * nařízení CLP (ES) 1272/2008, `odkaz_eu` (ELI) a dvojče HTML: doplněno
-    20. 11. 2026, odstavec 5.1.
+    20.11.2026, odstavec 5.1.
   * REACH (ES) 1907/2006, dvě dvojčata HTML: Cellar české HTML původního
     znění nemá; text původního znění je z PDF (834 tis. znaků, 21 příloh).
-    Od 20. 11. 2026 dokument zobrazuje konsolidované znění z HTML
+    Od 20.11.2026 dokument zobrazuje konsolidované znění z HTML
     (odstavec 7), takže řešení není potřeba.
 * **Soubory PDF bez varianty v Cellaru** nezůstal žádný.
 * **Jiné weby s prohlížečem nebo s identitou prohlížeče** (mimo rozsah této
@@ -140,7 +140,7 @@ CELEX. Adresy (`url`) se nemění, s výjimkou 2014/34/EU.
     skript jej obchází headless prohlížečem s User-Agentem prohlížeče;
     navrhujeme jej zařadit k IEC, EIGA a DVGW a vypnout.
 
-### 5.1 Nařízení CLP (20. 11. 2026, větev `feature/mpo-normy-clp`)
+### 5.1 Nařízení CLP (20.11.2026, větev `feature/mpo-normy-clp`)
 
 Obě položky jsme stáhli z Cellaru (`fetch_fulltext.py --only … --out-dir
 data/fulltext_mpo_normy_clp`): `odkaz_hlavni_html`
@@ -151,12 +151,12 @@ týž soubor `ES_1272_2008__b8cbcaee.html` (české XHTML Úředního věstníku
 jej vede jako `data/fulltext/<název>`, kam se po mergi zkopíruje.
 
 **Které znění.** Adresy záznamu (PDF, HTML i ELI `…/oj`) vedou na původní
-znění nařízení vyhlášené v Úředním věstníku L 353 z 31. 12. 2008 (CELEX
+znění nařízení vyhlášené v Úředním věstníku L 353 z 31.12.2008 (CELEX
 `32008R1272`), nikoli na konsolidované znění. Stažený text tedy neobsahuje
 pozdější změny (adaptace na technický pokrok a další novely). Cellar vede
-konsolidovaná znění `02008R1272-<datum>`; ke 20. 11. 2026 je účinné znění
-ze 1. 7. 2026 (`02008R1272-20260701`) a připraveno je znění k 1. 1. 2027.
-Uživatel 20. 11. 2026 rozhodl zobrazovat aktuální konsolidované znění
+konsolidovaná znění `02008R1272-<datum>`; ke 20.11.2026 je účinné znění
+ze 01.07.2026 (`02008R1272-20260701`) a připraveno je znění k 01.01.2027.
+Uživatel 20.11.2026 rozhodl zobrazovat aktuální konsolidované znění
 a původní znění ponechat jako nahrazenou verzi (odstavec 7).
 
 **Převod extraktorem.** `extract_fulltext.py` převede XHTML na čitelný text
@@ -228,12 +228,12 @@ cp -n .claude/worktrees/mpo-konsolidace/data/fulltext_mpo_konsolidace/*.html dat
 .venv/bin/python src/tools/refresh_eu_consolidations.py --apply
 ```
 
-## 7. Konsolidovaná znění (CLP, REACH; 20. 11. 2026, větev `feature/mpo-konsolidace`)
+## 7. Konsolidovaná znění (CLP, REACH; 20.11.2026, větev `feature/mpo-konsolidace`)
 
 **Rozhodnutí.** U nařízení CLP (ES) č. 1272/2008 a REACH (ES) č. 1907/2006
 zobrazujeme aktuální konsolidované znění a obnovujeme je při každé změně;
 původní znění nemažeme, zůstává u dokumentu jako nahrazená verze
-(rozhodnutí uživatele z 20. 11. 2026, `doc/MPO_PRIPOMINKY.md`, odstavec 5.1).
+(rozhodnutí uživatele z 20.11.2026, `doc/MPO_PRIPOMINKY.md`, odstavec 5.1).
 
 **Zjištění v Cellaru.** Konsolidované znění je v Cellaru samostatné dílo
 (typ `CONS_TEXT`, CELEX sektoru 0 s datem, například `02008R1272-20260701`),
@@ -241,12 +241,12 @@ s původním aktem je spojeno vlastností `act_consolidated_based_on_resource_le
 a den, od něhož se znění použije, nese `act_consolidated_date`. Dotaz SPARQL
 (`src/sites/eurlex.py: consolidated_versions`) vrací znění, jež má Cellar
 v jazyce dokumentu, včetně znění připravených s budoucí účinností.
-Ke 20. 11. 2026:
+Ke 20.11.2026:
 
-| Akt | Původní znění | Konsolidovaných znění v češtině | Účinné k 20. 11. 2026 | Budoucí |
+| Akt | Původní znění | Konsolidovaných znění v češtině | Účinné k 20.11.2026 | Budoucí |
 |---|---|--:|---|---|
-| CLP | `32008R1272`, Úř. věst. L 353, 31. 12. 2008, účinnost 20. 1. 2009 | 31 (1. 12. 2010 až 1. 1. 2027) | `02008R1272-20260701` | `02008R1272-20270101` |
-| REACH | `32006R1907`, Úř. věst. L 396, 30. 12. 2006, účinnost 1. 6. 2007 | 69 (23. 11. 2007 až 22. 6. 2026) | `02006R1907-20260622` | žádné |
+| CLP | `32008R1272`, Úř. věst. L 353, 31.12.2008, účinnost 20.01.2009 | 31 (01.12.2010 až 01.01.2027) | `02008R1272-20260701` | `02008R1272-20270101` |
+| REACH | `32006R1907`, Úř. věst. L 396, 30.12.2006, účinnost 01.06.2007 | 69 (23.11.2007 až 22.06.2026) | `02006R1907-20260622` | žádné |
 
 Znění CLP `02008R1272-20090120` (ke dni účinnosti původního znění) Cellar
 v češtině nemá; jde o obsah původního znění, a proto je nevedeme.
@@ -255,11 +255,11 @@ v češtině nemá; jde o obsah původního znění, a proto je nevedeme.
 dokumentu aktu; dokument, jeho označení a trvalá adresa se nemění:
 
 * **Původní znění** — verze 1 s označením „původní znění (Úř. věst. L 353,
-  31. 12. 2008)“, dnem účinnosti, uloženým textem (`file_path`: PDF, jehož
+  31.12.2008)“, dnem účinnosti, uloženým textem (`file_path`: PDF, jehož
   čitelný text je u CLP z HTML) a odkazem na stránku aktu v EUR-Lexu
   (`DocumentVersion.url`); stav „nahrazený“.
 * **Konsolidovaná znění** — verze 2 a další v pořadí dat, s označením
-  „konsolidované znění ke dni 1. 7. 2026“, datem a odkazem na stránku
+  „konsolidované znění ke dni 01.07.2026“, datem a odkazem na stránku
   znění v EUR-Lexu (`…/legal-content/CS/TXT/?uri=CELEX:02008R1272-20260701`).
   Znění účinné k danému dni je aktuální verzí (stav „účinný“), starší znění
   jsou „nahrazená“, znění s budoucím datem „vyhlášené, dosud neúčinné“.
@@ -276,7 +276,7 @@ nahrazená vydání jako verze; odlišný je jen zdroj (Cellar místo katalogu
 REACH 70); stránka dokumentu proto starší nahrazená znění sbaluje.
 
 **Stránka dokumentu.** Panel „Verze“ uvádí, které znění se zobrazuje
-(„Zobrazený text: konsolidované znění ke dni 1. 7. 2026“), u každé verze
+(„Zobrazený text: konsolidované znění ke dni 01.07.2026“), u každé verze
 odkaz do EUR-Lexu a u verzí s uloženým textem odkaz „náš text“
 (`/dokument/<slug>/verze/<číslo>/text`). Původní, aktuální a budoucí znění
 jsou vidět vždy, ostatní znění jsou v rozbalovacím seznamu „Starší znění“.

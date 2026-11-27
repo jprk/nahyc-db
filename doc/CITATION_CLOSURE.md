@@ -36,7 +36,7 @@ zákona cituje desítky obecných předpisů (správní řád, zákon o obcích)
 proto není verdikt, ale **pořadí kandidátů podle počtu citujících dokumentů**;
 předpis citovaný mnoha dokumenty databáze do ní s větší pravděpodobností patří.
 
-## 2. Výsledky (27. 10. 2026)
+## 2. Výsledky (27.10.2026)
 
 Databáze obsahuje 1488 dokumentů, z nichž 257 má čistý plný text (normy plný
 text nemají, viz požadavek R4.1). Tyto texty citují celkem 4039 různých dokumentů.
@@ -194,7 +194,7 @@ Z 183 českých předpisů a aktů EU, které databáze obsahuje, je **34 zruše
 
 1. **Stavy dokumentů v databázi.** Označit 34 zrušených předpisů jako zrušené
    s vazbou na nástupce (vazba `REPEALS`); stavy jsou rozšířeny
-   (`src/tools/backfill_document_states.py`, 27. 10. 2026): 35 aktuálních verzí
+   (`src/tools/backfill_document_states.py`, 27.10.2026): 35 aktuálních verzí
    (34 předpisů a jedna jazyková varianta) a 20 vazeb `REPEALS`.
 2. **Chybějící nástupci.** Doplnit 8 předpisů, které zrušily předpisy
    v databázi, pokud do rozsahu patří.

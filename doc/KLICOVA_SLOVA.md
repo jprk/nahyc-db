@@ -1,6 +1,6 @@
 # Klíčová slova dokumentů
 
-Stav k 23. 11. 2026, větev `feature/keywords`; uložení (odstavec 4) k 25. 11. 2026, větev `feature/mpo-sjednoceni`.
+Stav k 23.11.2026, větev `feature/keywords`; uložení (odstavec 4) k 25.11.2026, větev `feature/mpo-sjednoceni`.
 
 ## 1. Výchozí stav
 
@@ -9,8 +9,8 @@ Tabulka `Keyword`/`DocumentKeyword` (1163 dokumentů) nese kategorie převzaté 
 rešerší: u rešerše Sinay jde o 264 názvů skupin typu „Verflüssigung“ nebo „Untertage Gasspeicher“,
 rešerše Prokop má v poli všude „-“ a rešerše Haltuf toto pole nemá. Anotace norem (838 z 1226)
 obsahují úvodní větu normy z katalogu, klíčová slova v nich nejsou. Kategorie proto ponecháváme
-(slouží k vyhledávání a do 23. 11. 2026 sloužily jako filtr „štítků“ v katalogu) a klíčová slova
-vedeme odděleně. Od 25. 11. 2026 se tabulky kategorií jmenují podle obsahu `SourceCategory` a
+(slouží k vyhledávání a do 23.11.2026 sloužily jako filtr „štítků“ v katalogu) a klíčová slova
+vedeme odděleně. Od 25.11.2026 se tabulky kategorií jmenují podle obsahu `SourceCategory` a
 `DocumentSourceCategory` (odstavec 4.1).
 
 ## 2. Zdroje klíčových slov
@@ -38,7 +38,7 @@ téže normy shodný, proto ho z ČSN přebíráme i ke slovenskému, německém
 Národní normy bez evropského či mezinárodního protějšku (DVGW, DIN, VDI, ASTM, SAE, EIGA, CGA)
 v katalogu ČAS nejsou a třídník ICS z něj nedostanou.
 
-## 3. Výsledky (23. 11. 2026, živá databáze 1506 dokumentů)
+## 3. Výsledky (23.11.2026, živá databáze 1506 dokumentů)
 
 | Původ | Dokumenty | Poznámka |
 |---|---|---|
@@ -73,7 +73,7 @@ U dvou dokumentů název neodpovídá číslu aktu:
 
 Obě chyby vznikly stejně: tabulka rešerše Sinay uvádí jen číslo aktu („(EÚ) 2021/535 | áno | MD SR“)
 a český název s popisem k němu doplnil jazykový model (`process_laws.py`). Opravy podle rozhodnutí
-uživatele (23. 11. 2026) jsou v `data/manual_corrections.json`: #86 slučujeme do (EU) 2024/1789 (#105),
+uživatele (23.11.2026) jsou v `data/manual_corrections.json`: #86 slučujeme do (EU) 2024/1789 (#105),
 #91 dostal úřední název z Cellaru a nový popis (akt obsahuje požadavky na vozidla s vodíkovým pohonem,
 příloha XIV). Systematickou kontrolu dalších záznamů popisuje `doc/KONTROLA_ZAZNAMU.md`.
 
@@ -81,7 +81,7 @@ příloha XIV). Systematickou kontrolu dalších záznamů popisuje `doc/KONTROL
 
 Klíčová slova má po nahrání všech zdrojů všech 1506 dokumentů (zkušebně v `h2regdocs_test`).
 
-Od 25. 11. 2026 vedeme klíčová slova v **centrální tabulce `Term`** a dokumenty na ně odkazují
+Od 25.11.2026 vedeme klíčová slova v **centrální tabulce `Term`** a dokumenty na ně odkazují
 **vazební tabulkou `DocumentTerm`**. Dřívější `DocumentTerm` nesla text klíčového slova u každého
 dokumentu zvlášť (12 206 řádků pro 5 247 různých klíčových slov). Jedna tabulka klíčových slov
 umožní našeptávač při ruční úpravě, hledání podobných klíčových slov a kontrolu duplicit; editor pak
@@ -150,7 +150,7 @@ podobných klíčových slov) přejmenuje tabulky kategorií i s jejich sloupci,
 každou vazbu (dokument, původ, klíč, pořadí) se starými řádky a starou tabulku smaže, až když souhlasí.
 Vypíše počty před a po. Skript je idempotentní, převedenou databázi nechá beze změny.
 
-Běh nanečisto nad živou databází (25. 11. 2026):
+Běh nanečisto nad živou databází (25.11.2026):
 
 | | Před | Po (plán) |
 |---|---|---|

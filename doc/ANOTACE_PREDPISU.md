@@ -1,6 +1,6 @@
 # Popis právních předpisů z jejich textu
 
-Stav k 27. 11. 2026, větev `feature/anotace-predpisu`, issue #37.
+Stav k 27.11.2026, větev `feature/anotace-predpisu`, issue #37.
 
 ## 1. Problém
 
@@ -37,17 +37,17 @@ nařízení a rozhodnutí EU, k nimž máme vyčištěný text (`data/fulltext_c
 4. **Popis, který jen opakuje název, vyprázdníme** (`act_provisions.restates_title()`; při přestavbě
    `init_db.resolve_description()`). Dokument pak má příznak „chybí popis/anotace dokumentu“.
 5. **Popis od editora nepřepíšeme.** Oprava v `data/manual_corrections.json`, která popis zadává,
-   má přednost; oprava, která popis bez podkladu jen odstranila (kontrola záznamů z 23. 11. 2026),
+   má přednost; oprava, která popis bez podkladu jen odstranila (kontrola záznamů z 23.11.2026),
    úvodní ustanovení nezablokuje.
 
 Poznámky autorů rešerší, které nejsou přepisem názvu („Transpozice provedena – nařízení vlády
 č. 406/2004 Sb.“, „aplikovatelná jen vybraná ustanovení“), **vyřazujeme** (rozhodnutí uživatele
-z 27. 11. 2026): jsou to jen krátké informační texty a transpozici zaznamenávají vazby `IMPLEMENTS`
+z 27.11.2026): jsou to jen krátké informační texty a transpozici zaznamenávají vazby `IMPLEMENTS`
 (105 vazeb ke 77 aktům EU, mimo jiné 1999/92/ES ← nařízení vlády č. 406/2004 Sb., 2014/34/EU ← nařízení
 vlády č. 116/2016 Sb., 2012/18/EU ← zákon č. 224/2015 Sb.). Předpis, u něhož úvodní ustanovení nenajdeme,
 proto nemá popis vůbec, nanejvýš přibližné shrnutí, a čeká na editora.
 
-## 3. Výsledek (kopie provozní databáze k 27. 11. 2026)
+## 3. Výsledek (kopie provozní databáze k 27.11.2026)
 
 | Typ | celkem | bez textu | popis editora | ustanovení (vzor) | ustanovení (model) | shrnutí | ručně |
 |---|---|---|---|---|---|---|---|
@@ -66,7 +66,7 @@ proto nemá popis vůbec, nanejvýš přibližné shrnutí, a čeká na editora.
 - Modelové kroky stály asi 4,15 USD (gpt-5.5 a gpt-5.4, včetně opakování s upřesněnými pokyny);
   odpovědi jsou v mezipaměti, další běh volá model jen u předpisu, jehož text se změnil.
 
-### Doplnění plných textů (27. 11. 2026)
+### Doplnění plných textů (27.11.2026)
 
 V provozní databázi zbylo 54 předpisů bez plného textu, a proto bez popisu: 52 předpisů přidaných
 z fronty kandidátů (22 vyhlášek, 12 zákonů, 2 nařízení vlády, 9 nařízení EU, 7 směrnic EU),
@@ -79,7 +79,7 @@ rozhodnutí (EU) 2013/732 [SK] a směrnice 2010/75/EU. U prvních 53 jsme texty 
 - U vyhlášky č. 104/1988 Sb. model vybral § 5 (povolování hornické činnosti). Ten ale popisuje jen
   jednu ze tří částí vyhlášky (§ 1 je zrušen), proto jsme ho v mezipaměti ručně odmítli.
 - Modelové kroky stály 0,63 USD.
-- Směrnice 2010/75/EU (dokument 1222) neměla označení. Oprava záznamu ze 23. 11. 2026 přejmenovala
+- Směrnice 2010/75/EU (dokument 1222) neměla označení. Oprava záznamu ze 23.11.2026 přejmenovala
   slovenský záznam rešerše Sinay vedený pod číslem 2010/75/EU na (EU) 2013/732 [SK], klíč opravy
   (`2010/75/EU`) ale zasáhl i záznam směrnice se stejným číslem. Klíč jsme omezili na záznam Sinay
   (`2010/75/EU @Sinay_Zakony`), směrnice tak má zase označení 2010/75/EU, text a popis podle čl. 1
@@ -112,7 +112,7 @@ cd src/tools
 ../../.venv/bin/python annotate_acts.py --apply --env-file <.env>   # zápis do databáze (předtím záloha)
 ```
 
-## 6. Rozhodnutí z 27. 11. 2026
+## 6. Rozhodnutí z 27.11.2026
 
 1. Poznámky z rešerší vyřazujeme, další sloupec nepřidáváme (odstavec 2).
 2. Popisy zapíšeme do provozní databáze: záloha, pak `annotate_acts.py --apply` (odstavec 5).

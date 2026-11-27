@@ -68,7 +68,7 @@ Pole `status` nabývá sedmi hodnot:
 | `blocked` | Technická překážka (ochrana proti robotům, aplikace vykreslovaná až v prohlížeči, rozhraní dostupné jen po registraci). | 2 |
 | `rejected` | Ověřeno a zavrženo pro nedostatek užitečného signálu. | 1 |
 
-Počty odpovídají stavu po etapě E6 (5. 11. 2026). Stav `automated` mají zdroje,
+Počty odpovídají stavu po etapě E6 (05.11.2026). Stav `automated` mají zdroje,
 jež čte spouštěč (pole `screener` uvádí adaptéry), a pět zdrojů se starším
 vlastním skriptem, jež spouštěč záměrně nevolá (odstavec 8.7). Stavy `ready`
 a `needs_work` mají zdroje sloužící k dohledání na vyžádání a podklady
@@ -185,7 +185,7 @@ jsou bez placeného přístupu uzavřené. Obdobně platí pro všechny sekundá
 zdroje (role S): odborný komentář, metodika nebo prezentace nemusí odrážet
 nejnovější právní stav a nemají účinky právního předpisu.
 
-### 3.1 Doplnění podle návrhu katalogu (28. 10. 2026)
+### 3.1 Doplnění podle návrhu katalogu (28.10.2026)
 
 Návrh katalogu informačních zdrojů uváděl 55 zdrojů v sedmi oblastech.
 Osmnáct z nich registr již obsahoval; zbylých 37 jsme doplnili jako 36 nových
@@ -226,8 +226,8 @@ Ověření v několika bodech vyvrátilo nebo upřesnilo údaje návrhu:
    do datové schránky Ministerstva vnitra s posouzením předpokládaného objemu
    dotazů. Registrace je společná pro oba systémy; dokud neproběhne, vedeme
    e-Legislativu jako `blocked`. Povinné použití e-Legislativy platí pro zákony
-   od 15. 1. 2026, pro novely zákonů je zákonem č. 583/2025 Sb. odloženo na
-   15. 1. 2027 a rozpracované návrhy se dokončují dosavadním postupem; VeKLEP
+   od 15.01.2026, pro novely zákonů je zákonem č. 583/2025 Sb. odloženo na
+   15.01.2027 a rozpracované návrhy se dokončují dosavadním postupem; VeKLEP
    proto patrně bude potřeba sledovat i nadále.
 2. **Senát** — `robots.txt` webu `senat.cz` zapovídá veškerý automatizovaný
    přístup, a to i ke kanálům RSS, jež Senát nabízí. Senátní tisky však
@@ -382,10 +382,10 @@ jednotný tvar nálezu; zápis do fronty kandidátů s identifikátorem zdroje
 a s druhem `draft`; záznam o každém běhu; **kontrola dostupnosti** všech
 78 adres registru (`url`, `access.endpoint`), jež hlásí změněné a nefunkční
 adresy a aktualizuje `verified_at`. Kontrola dostupnosti je levná, týká se
-i ručně kontrolovaných zdrojů a ověření z 28. 10. 2026 ukázalo, že ji
+i ručně kontrolovaných zdrojů a ověření z 28.10.2026 ukázalo, že ji
 potřebujeme (odstavec 3.1).
 
-*Stav 29. 10. 2026: provedeno.* Spouštěč `src/tools/harvest_sources.py`,
+*Stav 29.10.2026: provedeno.* Spouštěč `src/tools/harvest_sources.py`,
 knihovna `harvest.py` (tvar nálezu, zápis do fronty, záznam běhů
 `data/source_checks.jsonl`), modul registru `source_registry.py` a kontrola
 dostupnosti `check_sources.py`; fronta kandidátů má sloupec `signal`, ukazuje
@@ -413,7 +413,7 @@ však již nepřibudou. Nálezy e-Sbírky, jež nelze přiřadit předpisu
 (`doc/AUTOMATION.md`, odstavec 4.1), půjdou do fronty s příznakem k ručnímu
 doplnění.
 
-*Stav 4. 11. 2026: provedeno s výhradami.* Adaptéry pěti zdrojů
+*Stav 04.11.2026: provedeno s výhradami.* Adaptéry pěti zdrojů
 (`src/tools/harvest_adapters.py`: EUR-Lex, e-Sbírka, katalog ČSN, registr STN,
 HYTEP) spouštěč volá; zakonyprolidi.cz je obsažen v kontrole platnosti
 e-Sbírky. Čtyři zdroje spouštěč výslovně odkládá, protože jejich stávající
@@ -427,7 +427,7 @@ do živé fronty zatím nevstoupil. Podrobně odstavec 8.7.
 strojově čitelnou cestu (JSON, RSS, hromadná otevřená data). Zavádí do
 databáze připravované předpisy a jejich převod na vyhlášené.
 
-*Stav 4. 11. 2026: provedeno pro čtyři zdroje.* VeKLEP (přes kanál RSS, jeho
+*Stav 04.11.2026: provedeno pro čtyři zdroje.* VeKLEP (přes kanál RSS, jeho
 rozhraní JSON robota blokuje), sněmovní a senátní tisky a Legislative
 Observatory spouštěč volá (`src/tools/harvest_drafts.py`); Slov-Lex
 legislatívny proces odkládá, protože web robota odmítá. Návrh, který najde více
@@ -440,7 +440,7 @@ zatím proveden není. Podrobně odstavec 8.10.
 nahradí dotazování po jednotlivých označeních; souhrnné seznamy
 harmonizovaných norem doplní vazbu norma → směrnice.
 
-*Stav 5. 11. 2026: provedeno pro pět zdrojů.* Věstník ÚNMZ, novinky ÚNMZ,
+*Stav 05.11.2026: provedeno pro pět zdrojů.* Věstník ÚNMZ, novinky ÚNMZ,
 souhrnné seznamy harmonizovaných norem, katalog TPG a normy SAE (přes Crossref)
 spouštěč volá (`src/tools/harvest_standards.py`); ASTM, ASME a Věstník ÚNMS SR
 odkládá. Normy, jež databáze má, dostávají změny stavu (nové vydání, nahrazení,
@@ -454,7 +454,7 @@ nepromítají. Podrobně odstavec 8.12.
 výrazů (odstavec 6); kanály nesou obecné zprávy úřadů, takže přínos závisí
 na kvalitě filtru, již bude třeba vyhodnotit na prvních během.
 
-*Stav 5. 11. 2026: provedeno pro 12 zdrojů.* Kanály čte společný adaptér
+*Stav 05.11.2026: provedeno pro 12 zdrojů.* Kanály čte společný adaptér
 (`harvest_standards.rss_items`), u OTIF, Drážního úřadu a SÚIP i s rozšiřujícími
 výrazy; dokumenty EHSP a změnu stránky RID Drážního úřadu čtou vlastní adaptéry
 (`src/tools/harvest_feeds.py`). Šest kanálů s krátkým oknem se čte týdně.
@@ -469,13 +469,13 @@ vyžádání: `sbirka-pp-usc`, `is-eia`, `echa-chem`, `data-europa-search`,
 `gesetze-im-internet` — pro ně postačí funkce dohledání volaná z editorského
 rozhraní nebo z příkazové řádky, nikoli pravidelný běh.
 
-*Stav 5. 11. 2026: provedeno.* Pravidelně se procházejí TIČR, HZS ČR, ČMI, MD (ADR)
+*Stav 05.11.2026: provedeno.* Pravidelně se procházejí TIČR, HZS ČR, ČMI, MD (ADR)
 a Have Your Say (`src/tools/harvest_pages.py`); pět zdrojů k dohledání nabízí
 spouštěč volbou `--lookup` (`src/tools/harvest_lookups.py`). TRIS server pro
 roboty uzavřel a vede se nově jako zakázaný zdroj; NFPA 2 je odložena; podklady
 DG ENER a Observatory (signál `context`) spouštěč nevolá. Podrobně odstavec 8.14.
 
-*Stav 5. 11. 2026: provedeno.* Tři registry Komise (komitologie, akty
+*Stav 05.11.2026: provedeno.* Tři registry Komise (komitologie, akty
 v přenesené pravomoci, dokumenty Komise) čte spouštěč přes rozhraní, jež
 používají samy aplikace (`src/tools/harvest_eu_registers.py`); e-Legislativa čeká
 na registraci; UNECE, registr Rady EU a BAuA zůstaly za ochranou proti robotům
@@ -727,9 +727,9 @@ v poli `verified_at` dnešní datum; hodnotu `null` (zdroj v aktivním použív�
 kontrola ponechá. Jiné pole registru nemění: přesunutou nebo nefunkční adresu
 má opravit člověk.
 
-### 8.5 Výsledek první kontroly (28. 10. 2026)
+### 8.5 Výsledek první kontroly (28.10.2026)
 
-Kontrola proběhla 28. 10. 2026 mezi 22:55 a 22:57 UTC nad 73 zdroji a 113
+Kontrola proběhla 28.10.2026 mezi 22:55 a 22:57 UTC nad 73 zdroji a 113
 adresami; pět zakázaných zdrojů jsme nestahovali. Výsledky adres: 99 `ok`,
 11 `blocked`, po jedné `reachable`, `auth` a `unreachable`. Verdikty zdrojů:
 
@@ -745,7 +745,7 @@ Kontrola obnovila datum `verified_at` u 23 zdrojů. Ze šesti zdrojů, jež nov�
 odmítají robota, je ochrana u IEC (AWS WAF, kvůli němuž stávající sklizeň
 `harvest_iec_publications.py` používá headless prohlížeč) a u EIGA (stávající
 modul `src/sites/eiga.py` volí upravený dotaz) známá a v registru popsaná; u Slov-Lexu a ASTM jde o změnu
-proti ověření z 20. 9. 2026, kdy oba zdroje strojově čitelný přístup nabízely.
+proti ověření z 20.09.2026, kdy oba zdroje strojově čitelný přístup nabízely.
 Zjištění jsme u všech šesti připsali do pole `constraints`, stav jsme však
 nezměnili; rozhodneme o něm při zapojení zdroje. Zvlášť se to týká zdroje
 `slovlex-legislativny-proces`, jenž má prioritu A a patří do etapy E2. Jinou
@@ -769,12 +769,12 @@ registr je konzistentní a zapisuje se beze změny), `tests/test_harvest.py`,
 `tests/test_harvest_sources.py`, `tests/test_check_sources.py` a nový scénář
 v `tests/test_candidates_admin.py` (návrh předpisu nalezený zdrojem až po
 dokument ve stavu „připravovaný“, nad databází `h2regdocs_test`). Testy se obejdou
-bez síťového přístupu. Celý běh `src/tools/run_tests.py` 29. 10. 2026 prošel
+bez síťového přístupu. Celý běh `src/tools/run_tests.py` 29.10.2026 prošel
 (unit, integrační, smoke a prohlížečové testy). Vzhled nového bloku s nálezy
 v detailu kandidáta ověřuje jen test obsahu stránky; snímek obrazovky jsme
 nepořídili.
 
-### 8.7 Etapa E1 (4. 11. 2026)
+### 8.7 Etapa E1 (04.11.2026)
 
 Etapa převedla stávající automatizaci pod spouštěč. Adaptéry jsou v modulu
 `src/tools/harvest_adapters.py` a používají funkce skriptů, jež nahrazují;
@@ -802,7 +802,7 @@ a pravidelný běh je nevolá; volba `--limit N` omezí zkušební běh na N dok
 
 **Odložené zdroje.** Spouštěč je vynechá a důvod ohlásí (tabulka `DEFERRED`):
 
-1. `slovlex-linkcheck` — Web od 28. 10. 2026 odmítá poctivě identifikovaného
+1. `slovlex-linkcheck` — Web od 28.10.2026 odmítá poctivě identifikovaného
    robota kódem 403 (odstavec 8.5).
 2. `iec-catalogue` — Stávající sklizeň prochází ochranou AWS WAF Bot Control
    pomocí headless prohlížeče.
@@ -830,13 +830,13 @@ u předpisů, jež databáze nemá, zjistí jejich poslední znění a konec jeh
 a dosud platí. Dosavadní screening měl navíc limit 100 výsledků a odpověď
 ořezával, aniž by to ohlásil; adaptér oříznutí odpovědi považuje za chybu.
 
-**První běhy (4. 11. 2026).** Suché běhy nad živou databází a ostrý běh nad
+**První běhy (04.11.2026).** Suché běhy nad živou databází a ostrý běh nad
 `h2regdocs_test`:
 
 | Adaptér | Výsledek |
 |---|---|
 | `eurlex_new` | 15 závazných aktů, všechny již v databázi. |
-| `validity_eu`, `validity_cz` | Žádný dokument ke kontrole (mezipaměť z 27. 10. 2026 je mladší než 30 dní). |
+| `validity_eu`, `validity_cz` | Žádný dokument ke kontrole (mezipaměť z 27.10.2026 je mladší než 30 dní). |
 | `esbirka_new` | Slovo „vodík“ obsahuje 364 předpisů (8 411 míst v textu ve všech zněních); z nich 185 předpisů databáze nemá a jejich poslední znění je účinné. Ostrý běh vložil 177 kandidátů a u 8 kandidátů, jež již ohlásil uzávěr citací, nález připsal k dokladům. |
 | `hytep_new` | 19 dokumentů, z toho 1 nový („Politicko-strategický, legislativní a nelegislativní rámec EU pro rozvoj…“). |
 | `csn_state` | 39 norem ČSN v databázi: 7 zrušených (mj. ČSN EN 1717, ČSN EN 50128, ČSN EN 50129, ČSN EN 62282-3-200), ostatní platné. |
@@ -881,7 +881,7 @@ a návrh, jak šum omezit, uvádíme v odstavci 8.8.
 
 ### 8.8 Šum v nálezech e-Sbírky a návrh jeho omezení
 
-Všech 185 předpisů, jež adaptér `esbirka_new` 4. 11. 2026 nalezl, jsme
+Všech 185 předpisů, jež adaptér `esbirka_new` 04.11.2026 nalezl, jsme
 roztřídili; rozbor je v souboru `data/esbirka_candidates_20261104.csv` (klíč,
 název ze zakonyprolidi.cz, rok, druh, počet výskytů v posledním znění, z toho
 v novelizačních bodech a v přílohách, měněný předpis a pásmo). Pro třídění
@@ -941,7 +941,7 @@ nezahodí:
 5. **Řadit podle pásma a počtu výskytů.** Ve frontě uvést nejprve pásmo 1,
    v něm předpisy s více výskyty v posledním znění.
 
-Výsledek na dávce ze 4. 11. 2026 by byl tento: 28 kandidátů v pásmu 1,
+Výsledek na dávce ze 04.11.2026 by byl tento: 28 kandidátů v pásmu 1,
 51 v pásmu 2 (z toho 16 historických k ověření), 76 nálezů připojených
 k jiným předpisům a 30 předpisů vyřazených se záznamem. Editor by tak místo
 185 kandidátů nejprve posuzoval 28.
@@ -953,7 +953,7 @@ týdnech provozu je bude třeba ověřit podle toho, jak editoři kandidáty
 skutečně rozhodnou. Stejný postup se patrně uplatní i u kanálů RSS etapy E4,
 jež nesou obecné zprávy úřadů.
 
-### 8.9 Omezení šumu: provedení (4. 11. 2026)
+### 8.9 Omezení šumu: provedení (04.11.2026)
 
 Návrh z odstavce 8.8 je proveden v adaptéru `esbirka_new`
 (`src/tools/harvest_adapters.py`, funkce `classify_act()`), v zápisu nálezů
@@ -1021,7 +1021,7 @@ připojené novely a u novely dokumentu v databázi měněné dokumenty. Opakova
 běh obnoví pásmo a počet výskytů a zástupný název („N/RRRR Sb.“) nahradí
 skutečným; název, jejž upravil editor, ponechá.
 
-**Výsledek (4. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (04.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test` dávají shodný výsledek. Ze 185 předpisů:
 
 | Výsledek | Počet |
@@ -1045,7 +1045,7 @@ přílohy RID (29/1998 Sb., 60/1999 Sb.), 146/2024 Sb. (požadavky na výstavbu)
 328/2022 Sb. (záruky původu energie), 488/2021 Sb. (připojení k plynárenské
 soustavě) a 361/2007 Sb. (ochrana zdraví při práci, s osmi připojenými
 novelami). Z 16 historických předpisů se zrušení potvrdilo u jediného
-(103/1949 Sb., zrušen 1. 9. 1953); ostatní jsou v pásmu 2.
+(103/1949 Sb., zrušen 01.09.1953); ostatní jsou v pásmu 2.
 
 **Omezení.** Vzory i slovník okruhů jsou odvozeny z jediné dávky a pásmo 1
 zahrnuje i předpisy, jež název řadí do okruhů jen volně (například předpisy
@@ -1053,7 +1053,7 @@ o mírovém využívání jaderné energie podle výrazu „energ“). Po první
 provozu je bude třeba porovnat s rozhodnutími editorů a upravit. Do živé
 fronty dosud nic nevstoupilo (odstavec 8.7, otevřené body).
 
-### 8.10 Etapa E2 (4. 11. 2026)
+### 8.10 Etapa E2 (04.11.2026)
 
 Etapa přinesla do fronty kandidátů **návrhy předpisů v legislativním procesu**
 (signál `draft`), tedy včasný signál o tom, co se teprve připravuje. Adaptéry
@@ -1095,7 +1095,7 @@ metodiky RFNBO, z nichž vzešla nařízení (EU) 2023/1184 a 2023/1185, jež da
 obsahuje. Postupy z vlastního podnětu Parlamentu (INI) a další nelegislativní
 druhy adaptér vynechává.
 
-**Výsledek (4. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (04.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test`:
 
 | Zdroj | Nálezy | Výsledek zápisu |
@@ -1143,7 +1143,7 @@ vodíku mezi referenční paliva nesilničních mobilních strojů (2026/0294(CO
    editorů posoudit, zda je neodsunout do pásma 2, pokud jejich název ani text
    vodík nezmiňuje.
 
-### 8.11 Souhrn stavu a postup prvního ostrého běhu (4. 11. 2026)
+### 8.11 Souhrn stavu a postup prvního ostrého běhu (04.11.2026)
 
 | Etapa | Stav | Zdroje ve spouštěči | Odloženo |
 |---|---|---|---|
@@ -1195,7 +1195,7 @@ Rozhodnutí, jež zůstávají otevřená: zapojení zdrojů IEC, EIGA a DVGW
 registrace k REST API e-Sbírky a e-Legislativy (odstavec 8.15), žádost
 o přístup k TRIS (odstavec 8.14) a plánovač (odstavec 4.5).
 
-### 8.12 Etapa E3 (5. 11. 2026)
+### 8.12 Etapa E3 (05.11.2026)
 
 Etapa přinesla do fronty kandidátů normy a technická pravidla, výhradně jako
 metadata (označení, název, vydání, vazby); chráněné plné texty nikdy.
@@ -1253,7 +1253,7 @@ sdílejí jeden klíč.
    rozšiřující výraz „metrologie“ by propustil většinu zpráv úřadu, jehož je
    metrologie agendou.
 
-**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (05.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test`:
 
 | Zdroj | Výsledek |
@@ -1301,7 +1301,7 @@ Celkem 102 kandidátů (24 v pásmu 1) a 107 záznamů v mezipaměti norem (14 n
 4. **Katalog TPG v pásmu 2** — 66 pravidel bez vodíku v názvu; po prvních
    rozhodnutích editorů posoudit, zda je nezařadit hromadně.
 
-### 8.13 Etapa E4 (5. 11. 2026)
+### 8.13 Etapa E4 (05.11.2026)
 
 Etapa zapojila kanály zpráv ministerstev, úřadů a agentur. Kanály čte společný
 adaptér `harvest_standards.rss_items` (zavedený v etapě E3 pro novinky ÚNMZ),
@@ -1338,7 +1338,7 @@ u novinek ÚNMZ s výrazem „metrologie“ (odstavec 8.12).
 Kandidáti z kanálů nemají označení předpisu; databáze je pozná podle adresy
 (`url:` v `harvest.known_keys()`).
 
-**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (05.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test`: 10 kandidátů — 1 z ACER (pásmo 1), 8 dokumentů EHSP (5 v pásmu
 1, mj. „Hydrogen Safety. Regulations, codes, and standards (RCS)“ a „EHSP Guidance
 on Hydrogen Safety Engineering“ ve vydání 2026) a 1 z OTIF (pásmo 2: „Dangerous
@@ -1370,7 +1370,7 @@ RID dostala výchozí stav.
 2. **Strategie MH SR** (`mhsr-vodikova-strategia`) — slovenská vodíková strategie
    je podkladem (`context`), sleduje se v rámci čtvrtletní ruční kontroly.
 
-### 8.14 Etapa E5 (5. 11. 2026)
+### 8.14 Etapa E5 (05.11.2026)
 
 Etapa zapojila stránky bez kanálu a bez rozhraní, čtené jako HTML, a dohledání na
 vyžádání. Pravidelné adaptéry jsou v modulu `src/tools/harvest_pages.py`, dohledání
@@ -1395,7 +1395,7 @@ vypíší, nic se nezapisuje:
 .venv/bin/python src/tools/harvest_sources.py --lookup gesetze-im-internet "Wasserstoff"
 ```
 
-| Zdroj | Dohledání | Ověřeno 5. 11. 2026 |
+| Zdroj | Dohledání | Ověřeno 05.11.2026 |
 |---|---|---|
 | `is-eia` | záměry v informačním systému EIA podle rychlého hledání (první strana výsledků) | „vodík“: 25 záměrů, mj. MSK2453 Výroba vodíku z obnovitelných zdrojů v Teplárně Krnov, ULK1291 ORLEN Unipetrol RPA |
 | `sbirka-pp-usc` | předpisy krajů a obcí podle názvu, od nejnovějších | „požár“: požární řády obcí a poplachové plány krajů; „vodík“: 0 |
@@ -1406,7 +1406,7 @@ vypíší, nic se nezapisuje:
 Dohledání v editorském rozhraní (například při posuzování kandidáta nebo záměru)
 zatím zapojeno není; funkce jsou na to připraveny (`harvest_lookups.LOOKUPS`).
 
-**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (05.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test`: 6 kandidátů — 3 iniciativy Have Your Say v pásmu 1 (nová
 vodíková strategie, revize kritérií pro výrobu RFNBO, revize síťového kodexu
 o přidělování kapacity v plynárenských přepravních soustavách), 1 aktualita TIČR
@@ -1427,7 +1427,7 @@ rozcestník ADR dostal výchozí stav.
    v říjnu nenašlo; zdroj je nově ve stavu `ready`. Rozhraní nese fázi iniciativy,
    což umožňuje vynechat iniciativy, jež už jsou návrhem Komise.
 3. **Aktuality TIČR** jsou bloky oddělené nezalomitelnými mezerami; datum uvnitř
-   textu zprávy („ze dne 13. 2. 2026“) blok nezačíná.
+   textu zprávy („ze dne 13.02.2026“) blok nezačíná.
 4. **IS EIA** vyžaduje relaci a všechna pole formuláře; bez nich vrací jen
    formulář.
 5. **HZS ČR** je web Next.js, články jsou však v odkazech serverem vykreslené
@@ -1442,10 +1442,10 @@ rozcestník ADR dostal výchozí stav.
 3. **Podklady DG ENER a European Hydrogen Observatory** (`context`) — sledovat
    v rámci čtvrtletní ruční kontroly.
 
-### 8.15 Etapa E6 (5. 11. 2026) a dokončení plánu
+### 8.15 Etapa E6 (05.11.2026) a dokončení plánu
 
 Etapa se týkala zdrojů, jež v plánu čekaly na správní krok nebo na rozhodnutí.
-Kontrola dostupnosti 5. 11. 2026 potvrdila stav z října: UNECE (oba zdroje),
+Kontrola dostupnosti 05.11.2026 potvrdila stav z října: UNECE (oba zdroje),
 veřejný registr Rady EU a BAuA vracejí poctivě identifikovanému robotu HTTP 403
 (ochrana proti robotům), ostatní odpovídají obalem aplikace vykreslované
 v prohlížeči.
@@ -1481,7 +1481,7 @@ oficiální cesta s registrací existuje. Zdroj spouštěč do registrace odklá
 **NANDO** (oznámené subjekty) zůstává zdrojem k dohledání ve webovém rozhraní;
 pro databázi má nízkou prioritu.
 
-**Výsledek (5. 11. 2026).** Suchý běh nad živou databází a ostrý běh nad
+**Výsledek (05.11.2026).** Suchý běh nad živou databází a ostrý běh nad
 `h2regdocs_test`: 2 kandidáti v pásmu 1 — návrh nařízení Komise, jímž se mění
 příloha XVII nařízení REACH (rejstřík komitologie; dva odklady schválení biocidů
 s peroxidem vodíku vzory vyřadily), a dosud nevyhlášená směrnice Komise
@@ -1510,7 +1510,7 @@ zdroj sleduje (odstavec 2 a souhrn v odstavci 8.11).
    dohledání v editorském rozhraní (odstavec 8.14).
 
 
-### 8.16 Zkouška nanečisto na vývojové instalaci a prohlížečový test (5. 11. 2026)
+### 8.16 Zkouška nanečisto na vývojové instalaci a prohlížečový test (05.11.2026)
 
 Řetěz *zdroj → nález → fronta kandidátů → dva editoři → dokument* jsme ověřili
 na vlastní vývojové instalaci dvakrát: trvalým prohlížečovým testem bez sítě
@@ -1590,7 +1590,7 @@ databází navazování živých běhů neovlivní a první živý běh začne o
 Testovací databázi lze pro další zkoušku obnovit příkazem
 `run_tests.py` (bez `--no-refresh`); zkouška se tím smaže.
 
-**Doplněno 5. 11. 2026 (fronta kandidátů po prohlídce editorem).** Návrh přijetí
+**Doplněno 05.11.2026 (fronta kandidátů po prohlídce editorem).** Návrh přijetí
 nese jeden nebo více věcných okruhů (sloupec `scope_areas`); kandidát z citací
 ukazuje kontext citace v každém citujícím dokumentu (až tři místa, přibližně 300
 znaků před citací a 400 po ní, označení vyznačeno). Před nasazením na živou
@@ -1598,7 +1598,7 @@ databázi je proto třeba doplnit schéma (`candidates.ensure_schema()`, jež vo
 `import_candidates.py --apply` i `harvest_sources.py --apply`) a kontexty
 otevřených kandidátů obnovit během `import_candidates.py --apply`.
 
-### 8.17 První ostrý běh nad živou databází a plánovač (19. 11. 2026)
+### 8.17 První ostrý běh nad živou databází a plánovač (19.11.2026)
 
 Ministerstvo průmyslu a obchodu se v připomínkách k výsledku V01 ptá, jak se
 zajistí aktuálnost databáze a kde jsou připravované předpisy
@@ -1634,8 +1634,8 @@ mezipaměti jej nevrací. Návrh bez označení i adresy změnu přestavbou nep�
 stránka na to editora upozorní.
 
 **Datum poslední kontroly.** Stránka dokumentu uvádí v metadatech „Poslední
-kontrola stavu“ s datem a zdrojem (např. „27. 10. 2026 (e-Sbírka)“, „5. 11. 2026
-(ČSN online)“, „19. 11. 2026 (editor Jan Novák)“), u dokumentu bez kontroly
+kontrola stavu“ s datem a zdrojem (např. „27.10.2026 (e-Sbírka)“, „05.11.2026
+(ČSN online)“, „19.11.2026 (editor Jan Novák)“), u dokumentu bez kontroly
 „dosud neověřeno“. Údaj je uložen ve sloupcích `Document.status_checked_at`
 a `status_checked_by` (`src/tools/status_checks.py`): vychází z mezipamětí
 kontrol `data/validity_cache.json` (předpisy, e-Sbírka a Cellar)
@@ -1647,19 +1647,19 @@ výsledku („nezjištěno“, samotný výskyt v seznamu harmonizovaných norem
 nikoli jednotlivé dokumenty. Toto řešení jsme zvolili jako nejjednodušší
 spolehlivé — údaj se zapisuje v témže kroku, v němž se z mezipamětí promítají
 stavy dokumentů, a datum se nikdy neposouvá zpět. Nanečisto nad živou
-databází (19. 11. 2026): datum dostane 226 dokumentů (Cellar 167, e-Sbírka 37,
+databází (19.11.2026): datum dostane 226 dokumentů (Cellar 167, e-Sbírka 37,
 Věstník ÚNMZ 13, seznamy harmonizovaných norem 7, ČSN online 1, Normoff 1);
 ostatní zůstanou „dosud neověřeno“, mezi nimi 395 norem, u nichž Normoff stav
 nezjistil.
 
-**Stav živé databáze (čteno 19. 11. 2026).** 1486 dokumentů (1300 účinných,
+**Stav živé databáze (čteno 19.11.2026).** 1486 dokumentů (1300 účinných,
 151 připravovaných, 35 zrušených), ve frontě 296 kandidátů z citací a kontroly
 platnosti (295 nových, 1 navržený), dva aktivní editorské účty (`prikryl`,
 `vahalik`). Tabulka `DocumentCandidate` dosud nemá sloupce `signal`, `tier`,
 `occurrences` a `scope_areas`, chybí tabulka `DocumentStateChange`, typ vazby
 `ENACTED_AS` a sloupce `status_checked_*`.
 
-**Odhad prvního běhu nanečisto nad živou databází (19. 11. 2026).** Všechny
+**Odhad prvního běhu nanečisto nad živou databází (19.11.2026).** Všechny
 adaptéry spouštěče jsme spustili tak jako při prvním běhu (bez data posledního
 běhu) a nálezy porovnali s dokumenty i s frontou živé databáze, aniž by se
 cokoli zapsalo (spojení jen pro čtení, bez záznamu do `data/source_checks.jsonl`):
@@ -1668,8 +1668,8 @@ e-Sbírky se týká kandidátů, kteří už ve frontě jsou (jen se doplní jej
 doklady), 18 dokumentů HYTEP databáze už má. Kontroly stavu norem vrátily 112
 nálezů (13 platných norem z Věstníku ÚNMZ, 99 záznamů seznamů harmonizovaných
 norem); kontroly platnosti předpisů a stav ČSN/STN nic neprověřovaly, protože
-jejich mezipaměti jsou mladší než 30 dní. Proběhne-li ostrý běh po 26. 11. 2026,
-kontrola platnosti předpisů (záznamy z 27. 10. 2026) je prověří znovu a běh se
+jejich mezipaměti jsou mladší než 30 dní. Proběhne-li ostrý běh po 26.11.2026,
+kontrola platnosti předpisů (záznamy z 27.10.2026) je prověří znovu a běh se
 o tuto dobu prodlouží. Žádný adaptér neskončil chybou.
 
 | Zdroj | Nových kandidátů | Z toho pásmo 1 |
@@ -1684,7 +1684,7 @@ o tuto dobu prodlouží. Žádný adaptér neskončil chybou.
 | ostatní (HYTEP, VeKLEP, ACER, OTIF, Have Your Say, TIČR, ČMI, akty v přenesené pravomoci) | 12 | 7 |
 | **celkem** | **252** | **112** |
 
-Odhad se od zkoušky z 5. 11. 2026 (odstavec 8.16; 247 a 111) liší jen
+Odhad se od zkoušky z 05.11.2026 (odstavec 8.16; 247 a 111) liší jen
 nepatrně; přesné počty budou záviset na stavu zdrojů v den běhu.
 
 **Postup prvního ostrého běhu.** Příkazy se spouštějí v hlavním stromu

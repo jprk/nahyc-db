@@ -1,6 +1,6 @@
 # Kontrola záznamů databáze
 
-Stav k 23. 11. 2026, větve `feature/record-checks` (kontrola) a `feature/record-fixes` (opravy, odstavec 7). Kontrolu jsme spustili nad živou databází
+Stav k 23.11.2026, větve `feature/record-checks` (kontrola) a `feature/record-fixes` (opravy, odstavec 7). Kontrolu jsme spustili nad živou databází
 `h2regdocs` (1506 dokumentů), jen pro čtení.
 
 ## 1. Proč kontrolujeme
@@ -128,9 +128,9 @@ cd src/tools
 
 Oba skripty databázi jen čtou (`--env-file` vybere jinou než živou).
 
-## 7. Provedené opravy (23. 11. 2026)
+## 7. Provedené opravy (23.11.2026)
 
-Uživatel rozhodl (23. 11. 2026): opravit 47 chyb s ověřením každého dokumentu ve zdroji, popis
+Uživatel rozhodl (23.11.2026): opravit 47 chyb s ověřením každého dokumentu ve zdroji, popis
 převzít z anotace ISO, ČAS nebo z textu a nejistý popis odstranit; duplicity sloučit; vydané návrhy
 převést na vydanou normu; 28 aktů EU mimo rozsah vyřadit z katalogu; zapsat opravy a klíčová slova
 do živé databáze a zbylé nálezy předat editorům. Opravy jsou v `data/manual_corrections.json` (tak
@@ -175,7 +175,7 @@ Odkazy přejmenovaných norem ISO zůstaly.
 ## Příloha A: dokumenty s nálezem
 
 Závažnost `error` = záznam jmenuje nebo popisuje jiný dokument; `warning` = posoudí editor;
-`info` = pro informaci. Stav živé databáze k 23. 11. 2026, před opravou #86 a #91.
+`info` = pro informaci. Stav živé databáze k 23.11.2026, před opravou #86 a #91.
 
 | # | Označení | Závažnost | Kontroly | Nález |
 |---|---|---|---|---|

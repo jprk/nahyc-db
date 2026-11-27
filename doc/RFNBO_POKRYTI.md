@@ -1,6 +1,6 @@
 # Pokrytí tématu RFNBO v databázi h2db
 
-Stav k 22. 11. 2026, živá databáze `h2regdocs` (jen čtení: 1506 dokumentů, 592 kandidátů ve frontě).
+Stav k 22.11.2026, živá databáze `h2regdocs` (jen čtení: 1506 dokumentů, 592 kandidátů ve frontě).
 RFNBO = obnovitelná paliva nebiologického původu (renewable fuels of non-biological origin), tj. především
 obnovitelný vodík a paliva z něj. Úrovně priority A/B/C podle `doc/DATABASE_SCOPE.md` odstavec 2.
 

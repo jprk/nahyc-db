@@ -63,7 +63,7 @@ záměru mohou být rozhodující. Pro jejich dohledání patrně nebude potřeb
 weby jednotlivých obcí a u předpisů krajů a obcí půjde tento krok patrně
 automatizovat (odstavec 8, otázka O1):
 
-* Od 1. 1. 2022 existuje centrální **Sbírka právních předpisů územních
+* Od 01.01.2022 existuje centrální **Sbírka právních předpisů územních
   samosprávných celků a některých správních úřadů** (zákon č. 35/2021 Sb.,
   správcem je Ministerstvo vnitra, `https://sbirkapp.gov.cz/`). Má být veřejně
   přístupnou databází platných a účinných předpisů krajů a obcí; vyhlášení ve
@@ -73,7 +73,7 @@ automatizovat (odstavec 8, otázka O1):
   záměru je přitom patrně důležitější než obecně závazné vyhlášky. Nový stavební
   zákon (č. 283/2021 Sb.) zavádí **Národní geoportál územního plánování**
   (`https://uzemniplanovani.gov.cz/`) jako centrální místo pro zveřejňování
-  územně plánovací dokumentace, s účinností od 1. 7. 2023.
+  územně plánovací dokumentace, s účinností od 01.07.2023.
 
 Obě zjištění pocházejí z veřejně dostupných informací Ministerstva vnitra
 a Ministerstva pro místní rozvoj. Ani jeden ze systémů nemá dokumentované
@@ -223,7 +223,7 @@ Pro jednotlivé typy dokumentů stavy upřesňujeme:
 Zrušené a nahrazené dokumenty v databázi ponecháváme kvůli souvislostem
 (procesní vrstva, historie změn) a propojujeme je s nástupcem (vazby `REPEALS`
 a `AMENDS`). Původní návrh databáze rozlišoval jen stavy `active`, `draft`
-a `superseded` (`DocumentVersion.lifecycle_state`). Od 27. 10. 2026 přibyly stavy
+a `superseded` (`DocumentVersion.lifecycle_state`). Od 27.10.2026 přibyly stavy
 `promulgated` (vyhlášený, dosud neúčinný) a `repealed` (zrušený); u aktuální verze
 dokumentu je nastavuje kontrola platnosti (`src/tools/check_validity.py`
 a `src/tools/document_states.py`), zrušený dokument je vazbou `REPEALS` propojen
@@ -316,7 +316,7 @@ Otázky položené v předešlých verzích dokumentu a jejich řešení:
 - **O1: Strojové rozhraní Sbírky právních předpisů ÚSC a Národního geoportálu
   územního plánování.** Sbírka právních předpisů územních samosprávných celků
   dokumentované rozhraní ani kanál RSS nemá. Původní zjištění, že jde o webovou
-  aplikaci vykreslovanou až v prohlížeči, ověření z 28. 10. 2026 vyvrátilo:
+  aplikaci vykreslovanou až v prohlížeči, ověření z 28.10.2026 vyvrátilo:
   výsledky vyhledávání vrací server jako HTML tabulku řazenou od nejnovějších
   předpisů (adresa `/vyhledavani/vysledek?hlavni_typ=pp`, s filtry podle
   publikujícího, kraje a data zveřejnění), takže je lze procházet bez
