@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
-- **Popisy předpisů přidaných z fronty kandidátů.** U 53 předpisů bez plného textu jsme texty stáhli,
+- **Popisy předpisů přidaných z fronty kandidátů (PR #43).** U 53 předpisů bez plného textu jsme texty stáhli,
   vyčistili a odvodili z nich popis: 47 má doslovné úvodní ustanovení, 6 zkontrolované přibližné shrnutí
   a čeká na editora (`doc/ANOTACE_PREDPISU.md`, odstavec 3). Nový krok nasazení `state_paths.py --seed`
   doplní do stavového adresáře stavové soubory, které přibyly v nové verzi (`doc/NASAZENI.md`, odstavec 5);
