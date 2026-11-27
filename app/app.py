@@ -919,6 +919,13 @@ def fetch_document_detail(db, slug):
                 raise
             document.update(status_checked_at=None, status_checked_by=None)
 
+        # issue #37: where the description of a legal act comes from ("§ 1 Předmět úpravy, doslova
+        # z textu předpisu"); a database without the column yet shows none
+        document['popis_zdroj'] = None
+        if has_column(db, 'Document', 'popis_zdroj'):
+            cur.execute('SELECT popis_zdroj FROM Document WHERE id = %s', (document['id'],))
+            document['popis_zdroj'] = cur.fetchone()['popis_zdroj']
+
         cat = vocab(db)['categories']
         tags = []  # the tags of the page: the source categories, or the areas once there are some
         if cat is not None:

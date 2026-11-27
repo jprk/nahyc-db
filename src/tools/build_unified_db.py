@@ -2,6 +2,7 @@ import json
 import pathlib
 import re
 import sys
+import act_provisions
 import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -525,6 +526,45 @@ def apply_manual_corrections(record, corrections):
         return True
     for field, value in entry.get("changes", {}).items():
         record[field] = value
+    return True
+
+
+def load_act_descriptions():
+    path = state_paths.data_file("act_descriptions.json")
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def act_description_editor_keys(corrections):
+    """Keys whose description an editor wrote (annotate_acts.editor_keys())."""
+    return {key for key, entry in corrections.items()
+            if any((entry.get("changes") or {}).get(f, "").strip() for f in ("anotace_poznamka", "popis_autoritativni"))}
+
+
+def apply_act_description(record, descriptions, protected=frozenset()):
+    """issue #37: the description of a legal act from data/act_descriptions.json —
+    mutates `record`, returns whether it applied anything. The opening provision goes to
+    popis_autoritativni with its source (popis_zdroj); without one the checked approximate
+    summary goes to popis_priblizny and the record is marked `popis_doplnit`. The English
+    or Slovak row of an act is found under "<znacka> [EN]" / "[SK]" like a correction. A
+    description an editor wrote (`protected`) is left alone."""
+    if record.get("typ_dokumentu") not in act_provisions.LEGAL_TYPES:
+        return False
+    key = correction_key(record)
+    if not key:
+        return False
+    language = row_language(record)
+    candidates = ([f"{key} [{language}]"] if language in ("EN", "SK") else []) + [key]
+    found = next((k for k in candidates if k in descriptions), None)
+    if found is None or found in protected or key in protected:
+        return False
+    description, source, approximate = act_provisions.description_of(descriptions[found])
+    if description:
+        record["popis_autoritativni"] = description
+        record["popis_zdroj"] = source
+    else:
+        if approximate:
+            record["popis_priblizny"] = approximate
+        record["popis_doplnit"] = True
     return True
 
 
@@ -1231,6 +1271,14 @@ def build_unified_db():
     if authoritative_count:
         print(f"Applied authoritative title/description to {authoritative_count} record(s) "
               f"from {SITE_METADATA_CACHE_PATH.relative_to(REPO_ROOT)}.")
+
+    # issue #37 (doc/ANOTACE_PREDPISU.md): the opening provision of a legal act, word for word
+    # from its text, or a checked approximate summary — data/act_descriptions.json
+    act_descriptions = load_act_descriptions()
+    protected = act_description_editor_keys(load_manual_corrections())
+    act_count = sum(apply_act_description(record, act_descriptions, protected) for record in unified_db)
+    if act_count:
+        print(f"Applied the opening provision or an approximate summary to {act_count} legal act(s).")
 
     synthesized_summaries = load_synthesized_summaries()
     approximate_count = 0

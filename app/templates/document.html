@@ -48,13 +48,17 @@
         <section class="doc-panel">
             <h2>Popis</h2>
             {% if document.description %}
-            <p>{{ document.description }}</p>
+            <p class="doc-description">{{ document.description }}</p>
+            {% if document.popis_zdroj %}
+            {# issue #37: the opening provision of the act, word for word, with where it comes from #}
+            <p class="description-source"><i class="ph ph-quotes"></i> Úvodní ustanovení: {{ document.popis_zdroj }}</p>
+            {% endif %}
             {% elif document.popis_priblizny %}
             {# doc/PLAN.md §17: a title-derived restatement, not the publisher's
                own scope text — labelled so a reader is never left guessing which
                of the two they are reading. #}
             <p class="approximate-label"><i class="ph ph-info"></i> Přibližné shrnutí, neověřeno</p>
-            <p>{{ document.popis_priblizny }}</p>
+            <p class="doc-description">{{ document.popis_priblizny }}</p>
             {% else %}
             <p>Žádná bližší specifikace není k dispozici.</p>
             {% endif %}
