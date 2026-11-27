@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="admin-card" style="max-width: 860px;">
+<div class="admin-card admin-card-wide">
     <p><a href="{{ url_for('admin.candidate_list') }}">&larr; Kandidáti</a></p>
     <h2 style="margin-bottom: 0.5rem;">{{ c.designation or c.candidate_key or 'Kandidát' }}</h2>
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">
@@ -130,7 +130,7 @@
         {% if c.proposed_by_user_id == session.get('user_id') %}
         <p class="flash flash-success">Váš návrh čeká na potvrzení jiným editorem.</p>
         {% else %}
-        <form method="POST" action="{{ url_for('admin.candidate_confirm', candidate_id=c.id) }}" style="margin-bottom: 1rem;">
+        <form method="POST" action="{{ url_for('admin.candidate_confirm', candidate_id=c.id) }}" class="admin-action">
             <button type="submit" class="btn-primary">Potvrdit přijetí a založit dokument</button>
         </form>
         {% endif %}

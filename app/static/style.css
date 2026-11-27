@@ -1713,3 +1713,14 @@ main {
 @media (max-width: 768px) {
     .candidate-table td.candidate-col-title { min-width: 0; }
 }
+
+/* Issue #39: the candidate detail is as wide as the page header (the 480 px of .admin-card are
+   for the login form), the row labels of its tables do not break inside a word, and a notice
+   and the action button under it share the radius and the spacing. */
+.admin-card.admin-card-wide { max-width: none; margin: 2rem 0; }
+.admin-card .admin-table th { white-space: nowrap; width: 1%; }
+.admin-card .flash { border-radius: var(--radius-md); margin: 0 0 1rem; }
+.admin-card .admin-action { margin: 0 0 1rem; }
+@media (max-width: 768px) {
+    .admin-card .admin-table th { white-space: normal; width: auto; }
+}

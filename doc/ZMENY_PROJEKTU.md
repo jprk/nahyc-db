@@ -4,6 +4,12 @@ Krátké záznamy o tom, co jsme v databázi a aplikaci změnili, v pořadí od 
 pro zprávy MPO a TAČR. Každý záznam uvádí datum, co jsme udělali a kde je podrobný popis. Záznam
 přidáváme po každém dokončeném kroku.
 
+## 27. 11. 2026
+
+- **Úpravy rozhraní detailu kandidáta (#39).** Detail kandidáta je stejně široký jako hlavička stránky
+  a popisky řádků v jeho tabulkách (například „Doporučení automatu“) se na počítači nelámou uprostřed slova.
+  Upozornění a tlačítko pod ním mají stejné zaoblení rohů i odsazení podle společného pravidla ve stylech.
+
 ## 26. 11. 2026
 
 - **Testovací web ukládá stavové soubory mimo git.** Soubory, které se mění za provozu (přijaté kandidáty,
