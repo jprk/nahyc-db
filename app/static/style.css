@@ -1724,3 +1724,14 @@ main {
 @media (max-width: 768px) {
     .admin-card .admin-table th { white-space: normal; width: auto; }
 }
+
+/* issue #37: the opening provision keeps its paragraphs; its source under it */
+.doc-description {
+    white-space: pre-line;
+}
+
+.description-source {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
