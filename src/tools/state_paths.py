@@ -42,6 +42,7 @@ STATE_FILES = frozenset({
     "record_check_model_cache.json",
     "record_checks.json",
     "record_checks_model.json",
+    "act_descriptions.json",            # descriptions of the legal acts (issue #37, doc/ANOTACE_PREDPISU.md)
 })
 
 

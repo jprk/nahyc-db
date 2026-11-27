@@ -17,6 +17,7 @@ import status_checks
 import fulltext_keys
 from puvodce import load_eu_gestor_cache, resolve_gestor, resolve_puvodce
 from slug import assign_slugs
+import act_provisions
 import state_paths
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
@@ -85,6 +86,8 @@ def reset_tables(cursor):
         if cursor.fetchone():
             cursor.execute(f"TRUNCATE TABLE {table}")
     cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
+    # issue #37: where the description of a legal act comes from (annotate_acts.ensure_schema())
+    cursor.execute("ALTER TABLE Document ADD COLUMN IF NOT EXISTS popis_zdroj VARCHAR(255) NULL AFTER popis_autoritativni")
 
 
 def get_or_create(cursor, table, val_dict, extra_insert_cols=None, return_col="id"):
@@ -285,7 +288,13 @@ def resolve_description(item):
     if description:
         return description
     description = (item.get("anotace_poznamka") or "").strip()
-    return "" if is_placeholder_description(description) else description
+    if is_placeholder_description(description):
+        return ""
+    # issue #37: a legal act's "annotation" that only restates its title is no description
+    if item.get("typ_dokumentu") in act_provisions.LEGAL_TYPES and act_provisions.restates_title(
+            description, resolve_title(item), item.get("nazev_cz"), item.get("nazev_autoritativni")):
+        return ""
+    return description
 
 
 # doc/MPO_OVERENI_WEBU.md Z3, 2026-11-21: the Sinay standards spreadsheet's
@@ -367,6 +376,8 @@ def detect_data_quality_issues(item):
         reasons.append("název vypadá jako useknutý fragment textu")
     if not resolve_description(item):
         reasons.append("chybí popis/anotace dokumentu")
+        if item.get("popis_doplnit"):
+            reasons.append(act_provisions.MANUAL_REASON)
     return reasons
 
 
@@ -653,8 +664,8 @@ def import_json_data(db_conn):
              needs_review, review_reason,
              zdroj_dat, nazev_autoritativni, popis_autoritativni,
              zdroj_autoritativni_url, jurisdikce_puvodni, popis_priblizny,
-             provenance, eu_act_subtype)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             provenance, eu_act_subtype, popis_zdroj)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (title, description, type_id, source_id, language, url,
               effective_date, identifier, jurisdikce, file_path,
               needs_review, review_reason,
@@ -669,7 +680,9 @@ def import_json_data(db_conn):
               # record — internal, never rendered on the public pages.
               (item.get("provenance") or "").strip() or None,
               # doc/MPO_PRIPOMINKY.md, krok 2: delegated / implementing EU act.
-              eu_act_subtype.classify(title, url, jurisdikce)))
+              eu_act_subtype.classify(title, url, jurisdikce),
+              # issue #37: where the description of a legal act comes from ("§ 1 Předmět úpravy, …")
+              item.get("popis_zdroj") or None))
 
         doc_id = cursor.lastrowid
 
