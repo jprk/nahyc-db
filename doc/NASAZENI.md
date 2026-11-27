@@ -136,7 +136,9 @@ setfacl -d -m u:www-data:rwX -m u:laborator:rwX /home/laborator/nahyc-h2db/.loca
 ```
 
 Stav k 26. 11. 2026: proměnné jsou v `.env` nastavené, adresář existuje a obsahuje kopii
-stavových souborů z `data/` s uvedenými právy. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
+stavových souborů z `data/` s uvedenými právy.
+
+Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
 úvodní stránka pak nad nadpisem a každá stránka v patičce ukazují upozornění „Testovací verze“
 s odkazem na produkční web. Produkce proměnnou nenastavuje. `H2DB_INSTANCE=test` platí na testovacím webu
 už od 26. 11. 2026.
