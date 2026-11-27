@@ -124,9 +124,19 @@ a po přepnutí ho tam nezapínáme: dva sběry by zapisovaly do dvou různých 
 
 ### 4.5 Přepnutí testovacího webu
 
-Na vývojovém stroji nastavíme v `.env` hlavního stromu `H2DB_STATE_DIR=/home/laborator/h2db-test-state`.
-Kopie produkce pak ukládá stavové soubory tam a nepřepisuje soubory v `data/` pracovního stromu
-gitu, se kterými pracuje vývoj. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
+Na vývojovém stroji nastavíme v `.env` hlavního stromu
+`H2DB_STATE_DIR=/home/laborator/nahyc-h2db/.local-test-state`. Kopie produkce pak ukládá stavové
+soubory tam a nepřepisuje soubory v `data/` pracovního stromu gitu, se kterými pracuje vývoj.
+Webový server běží pod účtem `www-data`, který do adresáře musí smět zapisovat; nastavíme mu proto
+práva i výchozí práva pro nově vznikající soubory:
+
+```
+setfacl -R -m u:www-data:rwX /home/laborator/nahyc-h2db/.local-test-state
+setfacl -d -m u:www-data:rwX -m u:laborator:rwX /home/laborator/nahyc-h2db/.local-test-state
+```
+
+Stav k 26. 11. 2026: proměnné jsou v `.env` nastavené, adresář existuje a obsahuje kopii
+stavových souborů z `data/` s uvedenými právy. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
 úvodní stránka pak nad nadpisem a každá stránka v patičce ukazují upozornění „Testovací verze“
 s odkazem na produkční web. Produkce proměnnou nenastavuje.
 

@@ -1704,3 +1704,12 @@ main {
     font-size: 0.85rem;
     margin: 0.5rem 0;
 }
+
+/* The title column keeps a readable width: `overflow-wrap: anywhere` let the automatic table
+   layout squeeze it to a few letters and broke words in the middle (26. 11. 2026). In the title a long
+   word still breaks (break-word); the source column wraps instead of taking the room. */
+.candidate-table td.candidate-col-title { min-width: 12rem; overflow-wrap: break-word; }
+.candidate-table td.candidate-col-source { max-width: 9rem; }
+@media (max-width: 768px) {
+    .candidate-table td.candidate-col-title { min-width: 0; }
+}

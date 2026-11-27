@@ -6,6 +6,14 @@ přidáváme po každém dokončeném kroku.
 
 ## 26. 11. 2026
 
+- **Testovací web ukládá stavové soubory mimo git.** Soubory, které se mění za provozu (přijaté kandidáty,
+  opravy záznamů, mezipaměti kontrol), ukládá testovací web do adresáře z proměnné `H2DB_STATE_DIR`
+  (`/home/laborator/nahyc-h2db/.local-test-state`), ne do `data/` pracovního stromu gitu. Adresář jsme
+  založili, zkopírovali do něj stavové soubory z `data/` a webovému serveru jsme v něm povolili zápis včetně
+  výchozích práv pro nové soubory; doplnili jsme také záznam přijatého kandidáta 87/2025 Sb., který se
+  předtím nezapsal (`doc/NASAZENI.md`, odstavec 4.5).
+- **Oprava rozvržení seznamu kandidátů.** Sloupec s názvem kandidáta má nejmenší čitelnou šířku a slova se
+  v něm nelámou uprostřed; sloupec se zdrojem se zalamuje dřív, takže se tabulka dál vejde do rámečku.
 - **Příprava nasazení na produkční server (PR #35, `doc/NASAZENI.md`).** Soubory, které se mění za provozu (opravy a
   rozhodnutí editorů, mezipaměti plánovače, manifest plných textů), aplikace a skripty nově hledají v adresáři
   z `.env` (`H2DB_STATE_DIR`, `src/tools/state_paths.py`), na produkci tedy mimo pracovní strom gitu. Nástroj

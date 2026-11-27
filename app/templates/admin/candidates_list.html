@@ -95,7 +95,7 @@
                 <tr>
                     <td class="candidate-pick">{% if c.status in ('new', 'proposed', 'deferred') %}<input type="checkbox" name="ids" value="{{ c.id }}" aria-label="Vybrat {{ c.designation or c.candidate_key or c.id }}">{% endif %}</td>
                     <td class="candidate-designation">{% if c.designation %}{{ c.designation }}{% else %}<span class="candidate-key">{{ c.candidate_key or '—' }}</span>{% endif %}</td>
-                    <td><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="candidate-title">{{ (c.title or '—')|truncate(140) }}</a>
+                    <td class="candidate-col-title"><a href="{{ url_for('admin.candidate_detail', candidate_id=c.id) }}" class="candidate-title">{{ (c.title or '—')|truncate(140) }}</a>
                         {%- if c.url %} <a href="{{ c.url }}" target="_blank" rel="noopener" class="candidate-source" title="Dokument ve zdroji (nové okno)" aria-label="Dokument ve zdroji"><i class="ph ph-arrow-square-out"></i></a>{% endif %}
                         {%- if c.tier == 2 %} <span class="badge" title="Nepřímý vztah k databázi (pásmo 2)">nepřímý vztah</span>{% endif %}</td>
                     <td class="candidate-col-source">{{ sources.get(c.source, c.source) }}</td>
