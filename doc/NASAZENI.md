@@ -128,7 +128,19 @@ Na vývojovém stroji nastavíme v `.env` hlavního stromu `H2DB_STATE_DIR=/home
 Kopie produkce pak ukládá stavové soubory tam a nepřepisuje soubory v `data/` pracovního stromu
 gitu, se kterými pracuje vývoj. Testovací web zůstává na `nahyc.fd.cvut.cz/h2db`. Do téhož `.env` přidáme `H2DB_INSTANCE=test`:
 úvodní stránka pak nad nadpisem a každá stránka v patičce ukazují upozornění „Testovací verze“
-s odkazem na produkční web. Produkce proměnnou nenastavuje.
+s odkazem na produkční web. Produkce proměnnou nenastavuje. `H2DB_INSTANCE=test` platí na testovacím webu
+už od 26. 11. 2026.
+
+**Po každé změně `.env` aplikaci znovu načteme:**
+
+```
+touch /home/laborator/DEVEL/nahyc-h2db/wsgi.py      # na produkci /home/prikryl/DEVEL/nahyc-h2db/wsgi.py
+```
+
+Aplikace čte `.env` jen při startu procesu. Démon mod_wsgi při dalším požadavku zjistí změnu času
+`wsgi.py` a aplikaci načte znovu. Bez toho běžící web novou hodnotu nevidí (26. 11. 2026 se tak
+upozornění „Testovací verze“ neobjevilo, dokud jsme `wsgi.py` neaktualizovali). Plánovač a skripty
+z příkazové řádky čtou `.env` při každém spuštění, ty se znovu načítat nemusí.
 
 Patička na obou strojích uvádí „Verze webu (git)“: popis commitu (`git describe`), a když proces
 webového serveru git spustit nesmí (repozitář patří jinému uživateli), commit a větev přečtené
