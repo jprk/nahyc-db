@@ -27,7 +27,7 @@ import citation_closure as cc
 STATES = ("new", "proposed", "accepted", "rejected", "deferred")
 OPEN_STATES = ("new", "proposed", "deferred")
 SOURCES = {"citation": "citace v textech databáze", "validity": "nástupce zrušeného dokumentu",
-           "mpo": "MPO/CDV 30. 4. 2026", "manual": "ruční návrh",
+           "mpo": "MPO/CDV 30.04.2026", "manual": "ruční návrh",
            "audit-rfnbo": "tematický audit RFNBO (doc/RFNBO_POKRYTI.md)"}
 # Subject areas of doc/DATABASE_SCOPE.md odstavec 3.
 SCOPE_AREAS = {1: "Výroba vodíku", 2: "Skladování", 3: "Přeprava", 4: "Plnění do vozidel",

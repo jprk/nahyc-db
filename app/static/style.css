@@ -1677,7 +1677,7 @@ main {
 .candidate-table td.candidate-col-state { overflow-wrap: normal; }
 .candidate-table .candidate-state { white-space: nowrap; }
 .candidate-table .candidate-state-by { display: block; margin-top: 0.2rem; }
-/* The source label breaks between words only ("MPO/CDV 30. 4. 2026", not "MPO/CD V"). */
+/* The source label breaks between words only ("MPO/CDV 30.04.2026", not "MPO/CD V"). */
 .candidate-table td.candidate-col-source { overflow-wrap: normal; }
 
 /* doc/NASAZENI.md, odstavec 4.5: the test web (H2DB_INSTANCE=test) says it is one */

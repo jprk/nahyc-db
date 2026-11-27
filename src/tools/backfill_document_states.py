@@ -43,6 +43,7 @@ import pymysql
 
 import document_states as ds
 import eu_consolidations
+import act_versions
 import norm_editions
 import state_changes
 import status_checks
@@ -125,6 +126,9 @@ def main(argv=None):
         consolidations = eu_consolidations.apply(cur, today, write=False)
         for action in consolidations:
             print(eu_consolidations.describe(action))
+        act_changes = act_versions.apply(cur, today, write=False)
+        for action in act_changes:
+            print(act_versions.describe(action))
         print(f"last check of the state: {len(checks)} documents get a newer date "
               + (", ".join(f"{label} {n}" for label, n in sorted(by_source.items())) or "—"))
         if args.apply:
@@ -141,6 +145,7 @@ def main(argv=None):
                 cur.execute("UPDATE DocumentVersion SET lifecycle_state = %s WHERE id = %s", (new, version_id))
             norm_editions.execute(cur, editions)
             eu_consolidations.execute(cur, consolidations)
+            act_versions.execute(cur, act_changes)
             for r in new_relations:
                 cur.execute("INSERT INTO document_relation (from_document_id, to_document_id, relation_type, note) "
                             "VALUES (%s, %s, 'REPEALS', %s)", (ids[r["from_identifier"]], ids[r["to_identifier"]], r["note"]))

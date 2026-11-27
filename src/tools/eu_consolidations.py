@@ -85,9 +85,9 @@ def load_manifest(path=MANIFEST_PATH):
 
 
 def czech_date(iso):
-    """"2026-07-01" -> "1. 7. 2026"."""
+    """"2026-07-01" -> "01.07.2026" (dd.mm.yyyy, the project's date format)."""
     year, month, day = iso.split("-")
-    return f"{int(day)}. {int(month)}. {year}"
+    return f"{int(day):02d}.{int(month):02d}.{year}"
 
 
 def edition_label(iso):

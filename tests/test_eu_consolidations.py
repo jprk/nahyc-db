@@ -1,7 +1,7 @@
 """Consolidated versions of EU acts (src/tools/eu_consolidations.py,
 refresh_eu_consolidations.py, src/sites/eurlex.consolidated_versions; doc/CELLAR_FULLTEXT.md,
-odstavec 7): CLP shows its consolidated version of 1. 7. 2026 and switches to the one
-of 1. 1. 2027 on that day; the original text stays a superseded version. No network;
+odstavec 7): CLP shows its consolidated version of 01.07.2026 and switches to the one
+of 01.01.2027 on that day; the original text stays a superseded version. No network;
 the database part runs against fakes, the live/test database is not touched."""
 import json
 import pathlib
@@ -19,7 +19,7 @@ import refresh_eu_consolidations as rc  # noqa: E402
 from sites import eurlex  # noqa: E402
 
 ACT = {"celex": "32008R1272", "identifier": "(ES) 1272/2008", "name": "CLP", "language": "CS",
-       "original": {"label": "původní znění (Úř. věst. L 353, 31. 12. 2008)", "effective_date": "2009-01-20"}}
+       "original": {"label": "původní znění (Úř. věst. L 353, 31.12.2008)", "effective_date": "2009-01-20"}}
 CONFIG = [ACT]
 CACHE = {"32008R1272": {"identifier": "(ES) 1272/2008", "language": "ces", "checked_at": "2026-11-20",
                         "consolidations": [{"celex": "02008R1272-20090120", "date": "2009-01-20"},
@@ -59,7 +59,7 @@ def state_after(actions, versions, file_path=ORIGINAL_PDF):
 
 class HelpersTestCase(unittest.TestCase):
     def test_labels_and_addresses(self):
-        self.assertEqual(ec.edition_label("2026-07-01"), "konsolidované znění ke dni 1. 7. 2026")
+        self.assertEqual(ec.edition_label("2026-07-01"), "konsolidované znění ke dni 01.07.2026")
         self.assertEqual(ec.field_of({"date": "2026-07-01"}), "konsolidace_20260701")
         self.assertEqual(ec.eurlex_page("02008R1272-20260701"),
                          "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02008R1272-20260701")
@@ -81,7 +81,7 @@ class HelpersTestCase(unittest.TestCase):
 
     def test_the_document_shows_the_newest_text_in_effect(self):
         self.assertEqual(ec.displayed_file("(ES) 1272/2008", MANIFEST, "2026-11-20", CONFIG, CACHE), CONSOLIDATED)
-        # 1. 1. 2027 before the new text is downloaded: still the text of 1. 7. 2026
+        # 01.01.2027 before the new text is downloaded: still the text of 01.07.2026
         self.assertEqual(ec.displayed_file("(ES) 1272/2008", MANIFEST, "2027-01-01", CONFIG, CACHE), CONSOLIDATED)
         self.assertIsNone(ec.displayed_file("(ES) 1907/2006", MANIFEST, "2026-11-20", CONFIG, CACHE))
         self.assertEqual(ec.original_file(MANIFEST, "(ES) 1272/2008"), ORIGINAL_PDF)
@@ -105,10 +105,10 @@ class PlanTestCase(unittest.TestCase):
         actions = ec.plan(db_doc([original_row()]), CONFIG, CACHE, MANIFEST, "2026-11-20")
         versions, shown = state_after(actions, [original_row()])
         self.assertEqual([(v["version"], v["edition_label"], v["lifecycle_state"], v["is_current"]) for v in versions], [
-            (1, "původní znění (Úř. věst. L 353, 31. 12. 2008)", "superseded", False),
-            (2, "konsolidované znění ke dni 1. 5. 2026", "superseded", False),
-            (3, "konsolidované znění ke dni 1. 7. 2026", "active", True),
-            (4, "konsolidované znění ke dni 1. 1. 2027", "promulgated", False)])
+            (1, "původní znění (Úř. věst. L 353, 31.12.2008)", "superseded", False),
+            (2, "konsolidované znění ke dni 01.05.2026", "superseded", False),
+            (3, "konsolidované znění ke dni 01.07.2026", "active", True),
+            (4, "konsolidované znění ke dni 01.01.2027", "promulgated", False)])
         self.assertEqual(versions[0]["file_path"], ORIGINAL_PDF)  # the original text is kept
         self.assertEqual(versions[0]["url"], "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32008R1272")
         self.assertEqual(versions[2]["file_path"], CONSOLIDATED)
