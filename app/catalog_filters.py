@@ -126,6 +126,8 @@ DEFECT_REASON_MARKERS = (
 RECORD_CHECK_MARKER = "Kontrola záznamů"
 LANGUAGE_GUESS_MARKER = "jazyk dokumentu byl automaticky odhadnut"
 MISSING_DESCRIPTION_MARKER = "chybí popis/anotace dokumentu"
+# src/tools/act_provisions.py: an act whose opening provision does not give a description
+MANUAL_DESCRIPTION_MARKER = "popis je třeba doplnit ručně"
 
 # key -> (label, markers any of which the reason contains; () = any flagged document)
 REVIEW_FILTERS = {
@@ -133,7 +135,7 @@ REVIEW_FILTERS = {
     "oprava": ("Vyžaduje opravu (vady)", DEFECT_REASON_MARKERS),
     "kontrola-zaznamu": ("Nálezy kontroly záznamů", (RECORD_CHECK_MARKER,)),
     "jazyk": ("Odhadnutý jazyk", (LANGUAGE_GUESS_MARKER,)),
-    "popis": ("Chybí popis", (MISSING_DESCRIPTION_MARKER,)),
+    "popis": ("Chybí popis", (MISSING_DESCRIPTION_MARKER, MANUAL_DESCRIPTION_MARKER)),
 }
 
 

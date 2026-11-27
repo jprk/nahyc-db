@@ -120,6 +120,18 @@ def ensure_schema(cursor):
     cursor.execute("ALTER TABLE DocumentCandidate ADD COLUMN IF NOT EXISTS puvodce VARCHAR(768) NULL AFTER document_id")
 
 
+# Other spellings of an issuing institution that would otherwise create a second
+# DocumentSource (the triage model writes "Evropský parlament a Rada"); merged in the
+# live database on 27. 11. 2026.
+SOURCE_ALIASES = {"Evropský parlament a Rada": "Evropský parlament a Rada Evropské unie"}
+
+
+def canonical_source(name):
+    """The name of an issuing institution as the database keeps it."""
+    name = (name or "").strip()
+    return SOURCE_ALIASES.get(name, name)
+
+
 def source_labels(registry=None):
     """{source: label} for the candidate pages: the three checks above and the
     monitored sources of the registry by their names."""

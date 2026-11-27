@@ -252,7 +252,7 @@ def proposal_metadata(candidate, rule, config, model=None, index=None):
         "url": candidate.get("url") or "",
         "language": defaults.get("language") or candidate.get("language") or guess_language(title),
         "jurisdikce": defaults.get("jurisdikce") or candidate.get("jurisdikce") or guess_jurisdiction(candidate) or "",
-        "puvodce": defaults.get("puvodce") or candidate.get("puvodce") or model.get("puvodce") or "",
+        "puvodce": cd.canonical_source(defaults.get("puvodce") or candidate.get("puvodce") or model.get("puvodce")),
     }
     return metadata, own_areas or proposal_areas(candidate, rule, config, model)
 

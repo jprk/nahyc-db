@@ -127,7 +127,8 @@ class MpoCommentsTestCase(BrowserTestCase):
             self.assertIn(wanted, groups)
         czech = select.locator('optgroup[label="Česká republika"] option').all_inner_texts()
         self.assertIn("Ministerstvo dopravy", [o.strip() for o in czech])
-        self.assertTrue(all(o.strip().startswith("Ministerstvo") for o in czech), czech)
+        # full names of Czech authorities (ministries, ERÚ, ČBÚ …), never an abbreviation
+        self.assertTrue(all(" " in o.strip() for o in czech), czech)
         self.shot_element(page.locator(".search-glass-panel"), "filters")
 
     def test_jurisdiction_filter(self):

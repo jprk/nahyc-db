@@ -36,6 +36,16 @@ ROW = {"key": "EU:2003/87", "family": "EU", "in_database": False, "cited_by": 15
        "kind": "directive", "citing_ids": [1, 2], "context": "…směrnice 2003/87/ES…"}
 
 
+class CanonicalSourceTestCase(unittest.TestCase):
+    def test_alias_of_an_institution(self):
+        self.assertEqual(cd.canonical_source("Evropský parlament a Rada"), "Evropský parlament a Rada Evropské unie")
+        self.assertEqual(cd.canonical_source(" Evropský parlament a Rada "), "Evropský parlament a Rada Evropské unie")
+
+    def test_other_names_unchanged(self):
+        self.assertEqual(cd.canonical_source("Ministerstvo dopravy"), "Ministerstvo dopravy")
+        self.assertEqual(cd.canonical_source(None), "")
+
+
 class FromChecksTestCase(unittest.TestCase):
     def test_closure_candidates_are_missing_cited_enough_not_amendments_and_not_repealed(self):
         cache = {"EU:2003/87": {"status": "účinný", "celex": "32003L0087"}, "EU:1994/9": {"status": "zrušený"}}

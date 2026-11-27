@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="admin-card admin-card-wide">
-    <p><a href="{{ url_for('admin.candidate_list') }}">&larr; Kandidáti</a></p>
+    <p class="admin-back"><a href="{{ candidate_list_url() }}"><i class="ph-bold ph-caret-left" aria-hidden="true"></i>Kandidáti</a></p>
     <h2 style="margin-bottom: 0.5rem;">{{ c.designation or c.candidate_key or 'Kandidát' }}</h2>
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Stav: <strong>{{ state_labels.get(c.status, c.status) }}</strong> &middot; zdroj: {{ sources.get(c.source, c.source) }}

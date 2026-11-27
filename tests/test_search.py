@@ -32,7 +32,9 @@ class SearchTestCase(unittest.TestCase):
         # nyní tento záznam slučuje napříč zdroji (Sinay_Zakony +
         # Haltuf_Dokumenty) a vybírá nejúplnější dostupný název, takže
         # přesný text titulku se může v čase měnit (viz doc/PLAN.md Step 1).
-        titles = re.findall(r'<div class="doc-title">([^<]*458/2000 Sb\.[^<]*)</div>', clean_html)
+        # Novely zákona („Zákon, kterým se mění zákon č. 458/2000 Sb. …“) jsou samostatné
+        # dokumenty a ve výsledku být smějí; počítáme jen řádek zákona samotného.
+        titles = re.findall(r'<div class="doc-title">\s*(458/2000 Sb\.[^<]*)</div>', clean_html)
 
         self.assertEqual(len(titles), 1,
                           f"Očekával se právě jeden výskyt zákona 458/2000 Sb., ale bylo jich nalezeno {len(titles)}: {titles}")

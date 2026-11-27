@@ -1735,3 +1735,12 @@ main {
     font-size: 0.8rem;
     color: var(--text-secondary);
 }
+
+/* Issue #39: the way back to the list above a card: a short bold caret aligned with the text,
+   a smaller font and more room before the heading. */
+.admin-back { margin: 0 0 1.25rem; font-size: 0.9rem; }
+.admin-back a { display: inline-flex; align-items: center; gap: 0.3rem; text-decoration: none; }
+.admin-back a:hover { text-decoration: underline; }
+.admin-back i { font-size: 0.85em; }
+/* Issue #39: a list of related documents keeps a gap to whatever follows it (a notice, a form). */
+.admin-card .doc-relations { margin-bottom: 1.5rem; }
