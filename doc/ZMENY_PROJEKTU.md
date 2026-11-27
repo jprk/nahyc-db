@@ -7,8 +7,13 @@ přidáváme po každém dokončeném kroku.
 ## 27.11.2026
 
 - **Formát data v dokumentech.** Všechna data v dokumentaci projektu (`doc/`) jsme převedli na tvar `dd.mm.yyyy`
-  bez mezer (476 výskytů ve 20 dokumentech, mezi nimi `MPO_VYPORADANI.md` a `PROVOZ.md`). Odeslané přílohy
-  v `doc/mpo_odeslani/` jsme nechali beze změny.
+  bez mezer (478 výskytů ve 21 dokumentech, mezi nimi `MPO_VYPORADANI.md` a `PROVOZ.md`). Odeslané přílohy
+  v `doc/mpo_odeslani/` jsme nechali beze změny. Data ve tvaru ISO (`2026-11-27`) zůstávají.
+- **Směrnice 2010/75/EU má zase své označení (PR #45).** Oprava slovenského záznamu rešerše, který pod číslem
+  směrnice uváděl rozhodnutí (EU) 2013/732, zasáhla i samotnou směrnici o průmyslových emisích. Ta tak
+  zůstala bez označení, textu a popisu, a vazby národních předpisů, které ji provádějí, vedly na
+  rozhodnutí. Opravu jsme omezili na záznam rešerše. Směrnice má označení, plný text, popis podle čl. 1
+  a čtyři vazby IMPLEMENTS (`doc/ANOTACE_PREDPISU.md`, odstavec 3).
 - **Vydání a platnost verzí právních předpisů (issue #38, PR #44, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
   vyhlášek, nařízení vlády a aktů EU uvádí, které znění databáze má, od kdy je účinné, a odkazuje na ně
   v e-Sbírce nebo EUR-Lexu. Verze vedeme od vložení dokumentu do databáze. Nové znění, které e-Sbírka nebo
