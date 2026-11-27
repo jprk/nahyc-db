@@ -237,7 +237,7 @@ def candidate_detail(candidate_id):
 def _model_fields(triage):
     """The metadata the model suggested (official title, type, issuer, subject areas)."""
     model = triage.get("model") or {}
-    fields = {"document_type": model.get("document_type"), "puvodce": model.get("puvodce")}
+    fields = {"document_type": model.get("document_type"), "puvodce": cd.canonical_source(model.get("puvodce")) or None}
     if model.get("scope_areas") and model.get("recommendation") == "accept":
         fields["scope_areas"] = ",".join(str(n) for n in model["scope_areas"])
     return fields
@@ -330,6 +330,7 @@ def source_id(cur, name, jurisdikce=None):
     """The DocumentSource of the issuing institution `name`, created with the first
     document that has it (so the public filter never lists an institution without
     documents); None without a name."""
+    name = cd.canonical_source(name)
     if not name:
         return None
     cur.execute("SELECT id FROM DocumentSource WHERE name = %s", (name,))
@@ -478,7 +479,7 @@ def pipeline_record(candidate, confirmed_by):
             "typ_dokumentu": candidate["document_type"], "sekce": "", "kategorie_trida": "",
             "klicova_slova": [cd.SCOPE_AREAS[n] for n in cd.scope_areas(candidate) if n in cd.SCOPE_AREAS],
             "odkaz_hlavni": candidate["url"] or "", "nazev_eu": "", "odkaz_eu": "", "nazev_sk": "", "odkaz_sk": "",
-            "platnost": "", "ratifikovan": "", "gestor": [candidate["puvodce"]] if candidate.get("puvodce") else [],
+            "platnost": "", "ratifikovan": "", "gestor": [cd.canonical_source(candidate["puvodce"])] if candidate.get("puvodce") else [],
             "jazyk": candidate["language"] or "",
             "anotace_poznamka": "", "jurisdikce": candidate["jurisdikce"] or "",
             "candidate_source": candidate["source"], "accepted_by": confirmed_by,

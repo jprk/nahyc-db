@@ -6,6 +6,10 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Jeden původce pro Evropský parlament a Radu.** Přijímání kandidátů založilo vedle původce „Evropský
+  parlament a Rada Evropské unie“ druhého s názvem „Evropský parlament a Rada“. Oba jsme v provozní databázi
+  sloučili (19 dokumentů, 35 kandidátů, záznamy přijatých kandidátů); aplikace i automatický navrhovatel
+  nově zkrácený název převádějí na úplný, takže duplikát znovu nevznikne.
 - **Katalog po přijetí kandidátů z tabulek MPO.** Nabídka původců řadí nové instituce do správných skupin
   (Český báňský úřad a Energetický regulační úřad mezi české orgány, Evropský parlament a Rada mezi orgány
   EU). Filtr „Ke kontrole“ zařazuje dokumenty s důvodem „popis je třeba doplnit ručně“ pod volbu „Chybí
