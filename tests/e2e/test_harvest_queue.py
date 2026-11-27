@@ -186,7 +186,7 @@ class HarvestQueueTestCase(BrowserTestCase):
         alice.check("input[name=scope_area][value='4']")
         self.shot(alice, "05-draft-detail")
         alice.click("button:has-text('Navrhnout přijetí')")
-        alice.wait_for_url(re.compile(r"/admin/candidates$"))
+        alice.wait_for_url(re.compile(r"/admin/candidates(\?|$)"))
 
         # Bob confirms: the document exists as a draft amending the database document.
         bob = self.new_page()

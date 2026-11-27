@@ -6,6 +6,10 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Seznam kandidátů si pamatuje filtr (#39).** Odkaz zpět z detailu kandidáta i přesměrování po návrhu,
+  zamítnutí nebo odložení vedou na seznam se stejným filtrem a stránkou, jaké editor nastavil. Odkaz zpět
+  má kratší tučnou šipku zarovnanou s textem, menší písmo a větší odstup od označení kandidáta; seznam
+  souvisejících dokumentů má odstup od upozornění pod ním.
 - **Úpravy rozhraní detailu kandidáta (#39).** Detail kandidáta je stejně široký jako hlavička stránky
   a popisky řádků v jeho tabulkách (například „Doporučení automatu“) se na počítači nelámou uprostřed slova.
   Upozornění a tlačítko pod ním mají stejné zaoblení rohů i odsazení podle společného pravidla ve stylech.

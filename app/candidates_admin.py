@@ -111,10 +111,21 @@ def audit(cur, candidate_id, action, old, new):
     cd.audit(cur, candidate_id, action, old, new, session["user_id"])
 
 
+LIST_ARGS_KEY = "candidate_list_args"
+
+
+@admin_bp.app_template_global("candidate_list_url")
+def candidate_list_url():
+    """The list of candidates with the filter and page the editor last set (issue #39):
+    the way back from a candidate and the redirect after a decision keep them."""
+    return url_for("admin.candidate_list", **session.get(LIST_ARGS_KEY, {}))
+
+
 @admin_bp.route("/candidates")
 @login_required
 def candidate_list():
     db = get_db()
+    session[LIST_ARGS_KEY] = request.args.to_dict(flat=False)
     state = request.args.get("stav", "open")
     states = FILTER_STATES.get(state, cd.OPEN_STATES)
     source = request.args.get("zdroj", "")
@@ -263,7 +274,7 @@ def candidate_propose(candidate_id):
         audit(cur, candidate_id, "PROPOSE", {"status": candidate["status"]}, {"status": "proposed", **metadata})
     db.commit()
     flash("Přijetí navrženo — čeká na potvrzení jiným editorem.", "success")
-    return redirect(url_for("admin.candidate_list"))
+    return redirect(candidate_list_url())
 
 
 def _single_editor_decision(candidate_id, new_status, allowed, message, action):
@@ -283,7 +294,7 @@ def _single_editor_decision(candidate_id, new_status, allowed, message, action):
         audit(cur, candidate_id, action, {"status": candidate["status"]}, {"status": new_status, "note": note})
     db.commit()
     flash(message, "success")
-    return redirect(url_for("admin.candidate_list"))
+    return redirect(candidate_list_url())
 
 
 @admin_bp.route("/candidates/<int:candidate_id>/reject", methods=["POST"])
@@ -615,4 +626,4 @@ def candidate_new():
         audit(cur, candidate_id, "PROPOSE", {}, {"status": "proposed", "manual": True, **metadata})
     db.commit()
     flash("Návrh dokumentu uložen — čeká na potvrzení jiným editorem.", "success")
-    return redirect(url_for("admin.candidate_list"))
+    return redirect(candidate_list_url())
