@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 27.11.2026
 
-- **Kandidáti z tabulek MPO a CDV vždy v pásmu 1.** Norma ČSN EN IEC 60079-29-0 z tabulky MPO se v seznamu
+- **Kandidáti z tabulek MPO a CDV vždy v pásmu 1 (PR #48).** Norma ČSN EN IEC 60079-29-0 z tabulky MPO se v seznamu
   kandidátů nezobrazovala: nález ve Věstníku ÚNMZ ji přesunul do pásma 2 („nepřímý vztah“), které seznam ve
   výchozím stavu skrývá. Kandidát, kterého tabulky MPO a CDV uvádějí, nyní zůstává v pásmu 1 bez ohledu na to,
   který zdroj ho najde později. V provozní databázi jsme pásmo opravili u dvou kandidátů (norma ČSN EN IEC 60079-29-0
