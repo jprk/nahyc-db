@@ -6,7 +6,7 @@ přidáváme po každém dokončeném kroku.
 
 ## 27.11.2026
 
-- **Vydání a platnost verzí právních předpisů (issue #38, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
+- **Vydání a platnost verzí právních předpisů (issue #38, PR #44, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
   vyhlášek, nařízení vlády a aktů EU uvádí, které znění databáze má, od kdy je účinné, a odkazuje na ně
   v e-Sbírce nebo EUR-Lexu. Verze vedeme od vložení dokumentu do databáze. Nové znění, které e-Sbírka nebo
   Cellar zveřejní později, nástroj zapíše jako novou verzi a v den účinnosti stáhne jeho text. Nástroj
