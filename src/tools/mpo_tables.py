@@ -21,7 +21,7 @@ Three steps, each its own subcommand:
   still missing (zakonyprolidi.cz and e-Sbírka for Czech acts, EUR-Lex/Cellar for
   EU acts, the ČAS catalogue for ČSN standards) and writes the candidates to
   data/20260430_MPO/mpo_candidates.json; `import` writes them into the queue
-  (source `mpo`, "MPO/CDV 30. 4. 2026"). A row already in the queue from another
+  (source `mpo`, "MPO/CDV 30.04.2026"). A row already in the queue from another
   source keeps its source and gets the MPO row added to its evidence. Dry run
   unless --apply; `import` needs no network.
 
@@ -69,7 +69,7 @@ WORKBOOKS = {"MPO": "Předpisy CZ - vodík_MPO.xlsx", "CDV": "CDV - evropské pr
 COLUMNS = ("zdroj", "cislo", "nazev", "nositel", "zarazeni", "poznamka")
 YELLOW = "FFFFFF00"
 SOURCE = "mpo"
-SOURCE_LABEL = "MPO/CDV 30. 4. 2026"
+SOURCE_LABEL = "MPO/CDV 30.04.2026"
 STATUSES = {"database": "v databázi", "queue": "ve frontě kandidátů", "reason": "s důvodem, proč chybí"}
 
 # Abbreviations of the column "Nositel" for the institutions that issue the Czech acts.

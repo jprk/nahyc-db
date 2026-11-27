@@ -20,7 +20,7 @@
         <p class="fulltext-version"><i class="ph ph-clock-counter-clockwise"></i>
             Znění: <strong>{{ version.edition_label }}</strong>
             {%- if version.lifecycle_state != 'active' %} ({{ lifecycle_labels.get(version.lifecycle_state, version.lifecycle_state) }}){% endif %}
-            {%- if version.url %} — <a href="{{ version.url }}" target="_blank" rel="noopener">v EUR-Lexu</a>{% endif %}</p>
+            {%- if version.url %} — <a href="{{ version.url }}" target="_blank" rel="noopener">{{ version.link_label }}</a>{% endif %}</p>
         {% endif %}
         <p class="fulltext-notice"><i class="ph ph-info"></i>
             Text je strojově převzatý ze zdrojového webu a slouží jen pro orientaci. Závazné znění je vždy na

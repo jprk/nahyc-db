@@ -62,7 +62,7 @@
                 <a href="https://nahyc.fel.zcu.cz/h2db/">nahyc.fel.zcu.cz/h2db</a>.</p>
             {%- endif %}
             {%- if db_last_updated or git_version %}
-            <p class="footer-meta">{%- if db_last_updated %}Databáze aktualizována: {{ db_last_updated.strftime('%Y-%m-%d %H:%M') }}{%- endif -%}
+            <p class="footer-meta">{%- if db_last_updated %}Databáze aktualizována: {{ db_last_updated.strftime('%d.%m.%Y %H:%M') }}{%- endif -%}
                 {%- if db_last_updated and git_version %} &middot; {% endif -%}
                 {%- if git_version %}Verze webu (git): {{ git_version }}{%- endif -%}</p>
             {%- endif %}
