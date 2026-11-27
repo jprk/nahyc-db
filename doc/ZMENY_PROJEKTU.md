@@ -4,14 +4,17 @@ Krátké záznamy o tom, co jsme v databázi a aplikaci změnili, v pořadí od 
 pro zprávy MPO a TAČR. Každý záznam uvádí datum, co jsme udělali a kde je podrobný popis. Záznam
 přidáváme po každém dokončeném kroku.
 
-## 27. 11. 2026
+## 27.11.2026
 
 - **Vydání a platnost verzí právních předpisů (issue #38, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
   vyhlášek, nařízení vlády a aktů EU uvádí, které znění databáze má, od kdy je účinné, a odkazuje na ně
   v e-Sbírce nebo EUR-Lexu. Verze vedeme od vložení dokumentu do databáze. Nové znění, které e-Sbírka nebo
   Cellar zveřejní později, nástroj zapíše jako novou verzi a v den účinnosti stáhne jeho text. Nástroj
   pokrývá 226 předpisů. Šest zákonů (například energetický zákon č. 458/2000 Sb.) už má nové znění, účinné
-  od 1. 11. 2026. První běh doplní prázdné pole „Platnost od“ u 164 předpisů. Plánovač nástroj spouští denně.
+  od 01.11.2026. První běh doplní prázdné pole „Platnost od“ u 164 předpisů. Plánovač nástroj spouští denně.
+- **Jednotný formát data.** Web uvádí všechna data ve tvaru `dd.mm.yyyy` bez mezer (například „01.11.2026“):
+  štítky verzí předpisů a konsolidovaných znění, „Platnost od“, poslední kontrolu stavu, čas aktualizace databáze
+  a zdroj kandidátů „MPO/CDV 30.04.2026“. Stejný formát používáme v dokumentech projektu.
 - **Poznámky z rešerší u předpisů vyřazeny (PR #41).** Krátké poznámky autorů rešerší („Transpozice provedena – …“) už jako
   popis předpisu nezobrazujeme; transpozici zaznamenávají vazby `IMPLEMENTS` (105 vazeb ke 77 aktům EU). Předpis
   bez úvodního ustanovení čeká na popis od editora (`doc/ANOTACE_PREDPISU.md`, odstavec 2).
@@ -36,7 +39,7 @@ přidáváme po každém dokončeném kroku.
   napsal jazykový model krátké shrnutí, které jiný model zkontroloval; web ho označuje jako přibližné a neověřené
   (23 předpisů) a dokument čeká na doplnění popisu editorem. Zatím v testovací kopii databáze.
 
-## 26. 11. 2026
+## 26.11.2026
 
 - **Testovací web ukládá stavové soubory mimo git.** Soubory, které se mění za provozu (přijaté kandidáty,
   opravy záznamů, mezipaměti kontrol), ukládá testovací web do adresáře z proměnné `H2DB_STATE_DIR`
@@ -87,13 +90,13 @@ přidáváme po každém dokončeném kroku.
   (EU) 2013/732 s českým, přidali pět kandidátů k RFNBO a všem 1432 dokumentům přiřadili oblasti
   (`doc/OBLASTI.md`, `doc/KLICOVA_SLOVA.md`).
 
-## 25. 11. 2026
+## 25.11.2026
 
 - **Sloučení rozpracovaných větví (PR #29).** Klíčová slova, kontrolu a opravy záznamů, opravy vad webu,
   RFNBO, oblasti katalogu a dokumenty pro MPO jsme spojili do jedné změny a celou sadu testů spustili nad
   kopií provozní databáze.
 
-## 23. 11. 2026
+## 23.11.2026
 
 - **Kontrola a opravy záznamů.** Záznamy jsme porovnali s úředními rejstříky (Cellar, otevřená data ISO)
   a mezi sebou a nechali je posoudit jazykovým modelem (`doc/KONTROLA_ZAZNAMU.md`). Opravili jsme názvy
@@ -103,7 +106,7 @@ přidáváme po každém dokončeném kroku.
 - **Klíčová slova dokumentů.** Akty EU mají deskriptory EuroVoc, normy třídy ICS a deskriptory ČSN,
   všechny dokumenty česká klíčová slova odvozená jazykovým modelem (`doc/KLICOVA_SLOVA.md`).
 
-## 21. až 22. 11. 2026
+## 21. až 22.11.2026
 
 - **Prohlídka veřejného webu proti připomínkám MPO.** Připomínky 1 až 10 web potvrdil; našli jsme pět
   dalších vad (počty na úvodní stránce, lupa na telefonu, pole „Platnost od“ u norem, neúřední názvy
@@ -114,7 +117,7 @@ přidáváme po každém dokončeném kroku.
 - **Oblasti katalogu.** Filtr „Oblast“ ukazuje 29 veřejných českých oblastí navázaných na věcné okruhy
   databáze místo 238 kategorií převzatých ze zdrojových rešerší (`doc/OBLASTI.md`).
 
-## 20. 11. 2026
+## 20.11.2026
 
 - **Nasazení vypořádání připomínek MPO (PR #26 až #28).** Jeden řádek na předpis se štítky jazykových
   verzí, filtr institucí a jurisdikce, podtyp aktů EU, vyhledávání podle zkratek a synonym, kategorie
@@ -123,8 +126,8 @@ přidáváme po každém dokončeném kroku.
 - **Automatické předtřídění fronty kandidátů.** Z 592 kandidátů automat navrhl k přijetí 242, zamítl 163
   a odložil 46; každé přijetí potvrzuje editor (`doc/FRONTA_AUTOMAT.md`).
 
-## 19. 11. 2026
+## 19.11.2026
 
-- **Rozbor připomínek MPO a první opravy dat.** Připomínky z e-mailů ze 17. 4. a 22. 5. 2026 jsme porovnali
+- **Rozbor připomínek MPO a první opravy dat.** Připomínky z e-mailů ze 17. 4. a 22.05.2026 jsme porovnali
   se stavem aplikace a navrhli postup vypořádání (`doc/MPO_PRIPOMINKY.md`). Opravili jsme odpovědné
   instituce, zastaralou hlášku, interní poznámky a chybné názvy a vyřadili nesouvisející rozhodnutí ECB.

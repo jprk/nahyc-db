@@ -96,7 +96,7 @@
                     {%- if document.jurisdikce_uroven %} ({{ document.jurisdikce_uroven }}){% endif %}
                 </dd>
                 <dt>Poslední kontrola stavu</dt>
-                <dd>{% if document.status_checked_at %}{{ document.status_checked_at.strftime('%-d. %-m. %Y') if document.status_checked_at.strftime is defined else document.status_checked_at }}
+                <dd>{% if document.status_checked_at %}{{ document.status_checked_at.strftime('%d.%m.%Y') if document.status_checked_at.strftime is defined else document.status_checked_at }}
                     {%- if document.status_checked_by %} ({{ document.status_checked_by }}){% endif %}
                     {%- else %}dosud neověřeno{% endif %}</dd>
                 <dt>Označení</dt>

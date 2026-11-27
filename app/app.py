@@ -1046,12 +1046,12 @@ def version_link_label(url):
 
 
 def czech_iso_date(value):
-    """"2025-08-01" -> "1. 8. 2025" (no-break spaces: a date is not split over lines);
-    any other text is returned as it is."""
+    """"2025-08-01" -> "01.08.2025" (dd.mm.yyyy, the project's date format); any other
+    text is returned as it is."""
     text = str(value or "")
     if len(text) == 10 and text[4] == "-" and text[7] == "-" and text.replace("-", "").isdigit():
         year, month, day = text.split("-")
-        return f"{int(day)}.\u00a0{int(month)}.\u00a0{year}"
+        return f"{int(day):02d}.{int(month):02d}.{year}"
     return text
 
 

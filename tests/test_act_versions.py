@@ -102,7 +102,7 @@ class PlanTestCase(unittest.TestCase):
     def test_first_run(self):
         actions = av.plan(cz_doc(), cz_cache(), MANIFEST, "2026-11-27")
         base = next(a for a in actions if a["action"] == "update")
-        self.assertEqual(base["changes"]["edition_label"], (None, "znění účinné od 1. 8. 2026"))
+        self.assertEqual(base["changes"]["edition_label"], (None, "znění účinné od 01.08.2026"))
         self.assertEqual(base["changes"]["url"], (None, "https://e-sbirka.gov.cz/sb/2000/458/2026-08-01"))
         self.assertEqual(base["changes"]["file_path"], (None, STORED))
         self.assertEqual(base["changes"]["lifecycle_state"], ("active", "superseded"))
@@ -110,7 +110,7 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual([(a["version"], a["lifecycle_state"], a["is_current"]) for a in added],
                          [(2, "active", True), (3, "promulgated", False)])
         effective = next(a for a in actions if a["action"] == "effective")
-        self.assertEqual(effective["new"], "1. 1. 2001 (účinnost)")
+        self.assertEqual(effective["new"], "01.01.2001 (účinnost)")
         self.assertFalse([a for a in actions if a["action"] == "file"])  # no newer text yet
 
     def test_second_run_changes_nothing(self):
@@ -134,9 +134,9 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual(states, {2: ("active", "superseded"), 3: ("promulgated", "active")})
 
     def test_editor_values_are_kept(self):
-        versions = [{"id": 72, "version": 1, "edition_label": "úplné znění 2026", "effective_date": "1. 8. 2026",
+        versions = [{"id": 72, "version": 1, "edition_label": "úplné znění 2026", "effective_date": "01.08.2026",
                      "url": None, "file_path": STORED, "is_current": True, "lifecycle_state": "active"}]
-        actions = av.plan(cz_doc(versions, effective="1. 1. 2001"), cz_cache(), MANIFEST, "2026-09-10")
+        actions = av.plan(cz_doc(versions, effective="01.01.2001"), cz_cache(), MANIFEST, "2026-09-10")
         self.assertEqual([sorted(a["changes"]) for a in actions if a["action"] == "update"], [["url"]])
         self.assertFalse([a for a in actions if a["action"] == "effective"])
 
@@ -162,10 +162,10 @@ class PlanTestCase(unittest.TestCase):
         self.assertEqual(base["edition_label"], (None, "původní znění"))
         self.assertEqual(base["effective_date"], (None, "2018-12-24"))
         self.assertEqual(base["url"][1], "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32018L2001")
-        self.assertNotIn("lifecycle_state", base)  # stays current until 1. 1. 2027
+        self.assertNotIn("lifecycle_state", base)  # stays current until 01.01.2027
         added = next(a for a in actions if a["action"] == "add")
         self.assertEqual((added["edition_label"], added["lifecycle_state"]),
-                         ("konsolidované znění ke dni 1. 1. 2027", "promulgated"))
+                         ("konsolidované znění ke dni 01.01.2027", "promulgated"))
         self.assertFalse([a for a in actions if a["action"] == "effective"])  # not empty: kept
 
     def test_rebuild_keeps_the_stored_text_on_the_baseline(self):
@@ -250,7 +250,7 @@ class DisplayTestCase(unittest.TestCase):
         import app.app as webapp
         self.assertEqual(webapp.version_link_label("https://e-sbirka.gov.cz/sb/2001/100/2025-08-01"), "e-Sbírka")
         self.assertEqual(webapp.version_link_label("https://eur-lex.europa.eu/legal-content/CS/TXT/"), "EUR-Lex")
-        self.assertEqual(webapp.czech_iso_date("2025-08-01"), "1.\u00a08.\u00a02025")
+        self.assertEqual(webapp.czech_iso_date("2025-08-01"), "01.08.2025")
         self.assertEqual(webapp.czech_iso_date("Platnost od 12 října 2023"), "Platnost od 12 října 2023")
 
 

@@ -4,15 +4,15 @@ Every Czech act (`N/RRRR Sb.`) and EU act (directive, regulation, decision) in t
 database gets, on its versions (`DocumentVersion`):
 
 * `edition_label` — which text the version is: "původní znění", "znění účinné od
-  1. 8. 2025" (a Czech consolidated version), "konsolidované znění ke dni 1. 7. 2026"
+  01.08.2025" (a Czech consolidated version), "konsolidované znění ke dni 01.07.2026"
   (an EU one);
 * `effective_date` — the day the version takes effect (ISO date);
 * `url` — the version's page at the publisher: e-Sbírka for a Czech act
   (`https://e-sbirka.gov.cz/sb/2001/100/2025-08-01`), EUR-Lex for an EU one.
 
 `Document.effective_date` ("Platnost od"), when empty, gets the day an EU act entered
-into force (Cellar: "24. 12. 2018") or the day a Czech act took effect, marked so
-("20. 3. 2001 (účinnost)": e-Sbírka's open data do not give the day of promulgation).
+into force (Cellar: "24.12.2018") or the day a Czech act took effect, marked so
+("20.03.2001 (účinnost)": e-Sbírka's open data do not give the day of promulgation).
 
 **Versions from the day the document came into the database** (decision of the
 garant, issue #38): the history of an act before that day is in its sources and
