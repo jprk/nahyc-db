@@ -176,9 +176,17 @@ přímo ze souborů `.git`.
 cd /home/prikryl/DEVEL/nahyc-h2db
 .venv/bin/python src/tools/backup_db.py --reason before_update
 git pull && .venv/bin/pip install -r requirements.txt
+.venv/bin/python src/tools/state_paths.py --seed
 # migrace, které nová verze uvádí v popisu PR (stejné jako TEST_DB_MIGRATIONS v run_tests.py)
 touch wsgi.py
 ```
+
+`state_paths.py --seed` zkopíruje do stavového adresáře stavové soubory, které nová verze přidala do
+`STATE_FILES` a které tam ještě nejsou; existující soubor nikdy nepřepíše. Bez přepínače jen vypíše,
+které chybí. Krok potřebujeme proto, že jinak skripty nový soubor hledají ve stavovém adresáři
+a nenajdou ho: 27. 11. 2026 tam takto chyběl `act_descriptions.json` z PR #40 a přestavba
+databáze by přišla o popisy předpisů. Na testovacím webu krok spustíme po každém `git pull`
+v hlavním stromu také.
 
 Změny dat (opravy záznamů) děláme na produkci: editorským rozhraním, nebo souborem oprav a
 `apply_manual_corrections.py --apply` se zálohou. Výpis databáze z vývoje na produkci už nepřenášíme.
@@ -223,3 +231,4 @@ nevedl přímo do `data/`.
 | `triage_model_cache.json` | automatické třídění fronty |
 | `eurovoc_cache.json`, `ics_cache.json`, `keyword_model_cache.json` | klíčová slova nových dokumentů |
 | `official_titles_cache.json`, `record_check_model_cache.json`, `record_checks.json`, `record_checks_model.json` | kontrola záznamů |
+| `act_descriptions.json` | popisy právních předpisů (`annotate_acts.py`, `doc/ANOTACE_PREDPISU.md`) |
