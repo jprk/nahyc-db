@@ -30,7 +30,10 @@ poslední kontroly). Ručně jej lze spustit i nanečisto (`--dry-run`).
   nové znění zjištěné v Cellaru se v den své účinnosti stane aktuální verzí
   dokumentu, jeho text se stáhne z Cellaru a vyčistí (`doc/CELLAR_FULLTEXT.md`,
   odstavec 7). Záloha databáze jen před změnou. Nové konsolidované znění CLP
-  nabývá účinnosti 1. 1. 2027.
+  nabývá účinnosti 1. 1. 2027. Potom verze ostatních českých předpisů a aktů EU
+  (`refresh_act_versions.py --apply --backup`, issue #38, `doc/VERZE_PREDPISU.md`):
+  nové znění v e-Sbírce nebo Cellaru se stane verzí dokumentu a v den účinnosti
+  aktuální, jeho text se stáhne a vyčistí.
 * `h2db-harvest.crontab` — tytéž běhy jako řádky crontabu (varianta bez systemd).
 
 **Plánovač je třeba nainstalovat do konce prosince 2026.** Závisí na něm

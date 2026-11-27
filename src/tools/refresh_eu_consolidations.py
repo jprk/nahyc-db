@@ -45,13 +45,14 @@ import fetch_fulltext as ff
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 
 
-def missing_texts(targets, manifest, repo_root=ff.REPO_ROOT, out_dir=None):
+def missing_texts(targets, manifest, repo_root=ff.REPO_ROOT, out_dir=None, prefixes=(ec.FIELD_PREFIX,)):
     """[(record, field, url, key)] of the consolidated versions in effect (fetch
-    targets of the field `konsolidace_*`) whose text the manifest lacks — no fetched
-    entry, another address, or the file is in neither data/fulltext/ nor `out_dir`."""
+    targets of the field `konsolidace_*`, or another of `prefixes`) whose text the
+    manifest lacks — no fetched entry, another address, or the file is in neither
+    data/fulltext/ nor `out_dir`."""
     missing = []
     for record, field, url in targets:
-        if not field.startswith(ec.FIELD_PREFIX):
+        if not field.startswith(tuple(prefixes)):
             continue
         key = ff.manifest_key(record["zdroj_dat"], record["znacka"].strip(), field)
         entry = manifest.get(key) or {}

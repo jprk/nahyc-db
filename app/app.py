@@ -1037,6 +1037,24 @@ def fetch_versions(cur, document_id):
     return cur.fetchall()
 
 
+VERSION_PUBLISHERS = (("e-sbirka.gov.cz", "e-Sbírka"), ("eur-lex.europa.eu", "EUR-Lex"))
+
+
+def version_link_label(url):
+    """The publisher a version's page belongs to ("e-Sbírka", "EUR-Lex"), else "zdroj"."""
+    return next((label for host, label in VERSION_PUBLISHERS if host in (url or "")), "zdroj")
+
+
+def czech_iso_date(value):
+    """"2025-08-01" -> "1. 8. 2025" (no-break spaces: a date is not split over lines);
+    any other text is returned as it is."""
+    text = str(value or "")
+    if len(text) == 10 and text[4] == "-" and text[7] == "-" and text.replace("-", "").isdigit():
+        year, month, day = text.split("-")
+        return f"{int(day)}.\u00a0{int(month)}.\u00a0{year}"
+    return text
+
+
 def annotate_versions(document, versions):
     """Marks the version whose text the document shows (`is_shown`: its file is the
     document's `file_path`) and the versions with a readable text of their own
@@ -1047,6 +1065,8 @@ def annotate_versions(document, versions):
     # versions folded; the first (original) version stays in view
     fold = len(versions) > 8
     for i, v in enumerate(versions):
+        v['link_label'] = version_link_label(v.get('url'))
+        v['effective_label'] = czech_iso_date(v.get('effective_date'))
         v['is_folded'] = fold and i > 0 and v['lifecycle_state'] == 'superseded' and not v['is_current']
         v['has_text'] = (not document['restricted_fulltext']
                          and clean_text_path(v.get('file_path')) is not None)
@@ -1177,6 +1197,7 @@ def version_text(slug, version):
     path = clean_text_path(chosen['file_path']) if chosen else None
     if path is None:
         abort(404)
+    chosen['link_label'] = version_link_label(chosen.get('url'))
     noindex = noindex_for(document)
     return with_noindex(make_response(render_template('fulltext.html', document=document, noindex=noindex,
                                                       version=chosen,

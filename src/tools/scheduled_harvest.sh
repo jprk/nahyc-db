@@ -19,7 +19,9 @@
 # daily     only the consolidated versions of the EU acts of data/eu_consolidated_acts.json
 #           (CLP, REACH; refresh_eu_consolidations.py): a new one found in Cellar, the one
 #           in effect made current on its day, its text downloaded from Cellar and cleaned;
-#           a backup is taken only when the database is to change (CLP 1. 1. 2027)
+#           a backup is taken only when the database is to change (CLP 1. 1. 2027);
+#           then the versions of the other Czech and EU acts (refresh_act_versions.py,
+#           issue #38): e-Sbírka and Cellar, a version in effect added with its text
 #
 # Runs one at a time (flock on .harvest.lock, waiting up to 2 hours), logs to
 # logs/harvest_YYYYMM.log of the working tree. Exit status 1 when an adapter failed
@@ -47,6 +49,8 @@ status=0
 if [ "$CADENCE" = daily ]; then
     # consolidated versions of EU acts; backs up the database itself, and only before a change
     "$PY" src/tools/refresh_eu_consolidations.py $APPLY ${APPLY:+--backup} || status=1
+    # versions of the other Czech and EU acts (issue #38); the same backup rule
+    "$PY" src/tools/refresh_act_versions.py $APPLY ${APPLY:+--backup} || status=1
     echo "=== $(date -Is) $CADENCE finished, status $status"
     exit $status
 fi
@@ -65,6 +69,7 @@ fi
 if [ "$CADENCE" = states ]; then
     # consolidated versions of EU acts (Cellar, text of the version in effect); the backup is above
     "$PY" src/tools/refresh_eu_consolidations.py $APPLY || status=1
+    "$PY" src/tools/refresh_act_versions.py $APPLY || status=1
 fi
 echo "=== $(date -Is) $CADENCE finished, status $status"
 exit $status

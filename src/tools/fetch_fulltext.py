@@ -204,12 +204,16 @@ def iter_fetch_targets(raw_data, overrides=None, consolidations=None):
 
     An act listed in data/eu_consolidated_acts.json (eu_consolidations.py) also
     yields its consolidated version in effect today, under the field
-    `konsolidace_<YYYYMMDD>`, once per designation. `consolidations` =
+    `konsolidace_<YYYYMMDD>`, once per designation; any other Czech or EU act whose
+    source has a version newer than the stored text (act_versions.py) yields it
+    under `zneni_<YYYYMMDD>` or `konsolidace_<YYYYMMDD>`. `consolidations` =
     {designation: (field, address)}; None reads the data files."""
     overrides = overrides or {}
     if consolidations is None:
+        import act_versions
         import eu_consolidations
-        consolidations = eu_consolidations.fetch_targets()
+        # issue #38: the later version in effect of any other Czech or EU act (act_versions.py)
+        consolidations = {**act_versions.fetch_targets(), **eu_consolidations.fetch_targets()}
     consolidations = dict(consolidations)
     pairs = language_variants.variant_pairs(raw_data)
     for raw_record in raw_data:

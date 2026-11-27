@@ -11,6 +11,7 @@ from language import detect_language, normalize_raw_language, resolve_domain_lan
 from norm_title import format_norm_title
 import document_states
 import eu_consolidations
+import act_versions
 import norm_editions
 import eu_act_subtype
 import status_checks
@@ -189,6 +190,11 @@ def resolve_file_path(item, manifest):
     # consolidated version in effect, once its text is downloaded
     shown = eu_consolidations.displayed_file((item.get("znacka") or "").strip(), manifest,
                                              datetime.date.today().isoformat(), *_consolidation_data())
+    if shown:
+        return shown
+    # act_versions.py (issue #38): a version of a Czech or EU act newer than the stored text
+    shown = act_versions.displayed_file((item.get("znacka") or "").strip(), manifest,
+                                        datetime.date.today().isoformat())
     if shown:
         return shown
     sources = [s for s in (item.get("zdroj_dat") or "").split(", ") if s]
@@ -756,6 +762,10 @@ def import_json_data(db_conn):
     consolidations = eu_consolidations.apply(cursor, datetime.date.today().isoformat())
     if consolidations:
         print(f"{len(consolidations)} changes of consolidated versions of EU acts (eu_consolidations.py)")
+    # act_versions.py (issue #38): edition and effect of the versions of the other Czech and EU acts
+    versions = act_versions.apply(cursor, datetime.date.today().isoformat())
+    if versions:
+        print(f"{len(versions)} changes of the versions of legal acts (act_versions.py)")
 
     db_conn.commit()
 

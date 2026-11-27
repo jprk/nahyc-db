@@ -6,6 +6,12 @@ přidáváme po každém dokončeném kroku.
 
 ## 27. 11. 2026
 
+- **Vydání a platnost verzí právních předpisů (issue #38, `doc/VERZE_PREDPISU.md`).** Tabulka verzí u zákonů,
+  vyhlášek, nařízení vlády a aktů EU uvádí, které znění databáze má, od kdy je účinné, a odkazuje na ně
+  v e-Sbírce nebo EUR-Lexu. Verze vedeme od vložení dokumentu do databáze. Nové znění, které e-Sbírka nebo
+  Cellar zveřejní později, nástroj zapíše jako novou verzi a v den účinnosti stáhne jeho text. Nástroj
+  pokrývá 226 předpisů. Šest zákonů (například energetický zákon č. 458/2000 Sb.) už má nové znění, účinné
+  od 1. 11. 2026. První běh doplní prázdné pole „Platnost od“ u 164 předpisů. Plánovač nástroj spouští denně.
 - **Poznámky z rešerší u předpisů vyřazeny (PR #41).** Krátké poznámky autorů rešerší („Transpozice provedena – …“) už jako
   popis předpisu nezobrazujeme; transpozici zaznamenávají vazby `IMPLEMENTS` (105 vazeb ke 77 aktům EU). Předpis
   bez úvodního ustanovení čeká na popis od editora (`doc/ANOTACE_PREDPISU.md`, odstavec 2).
