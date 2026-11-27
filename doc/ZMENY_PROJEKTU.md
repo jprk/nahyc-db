@@ -15,6 +15,11 @@ přidáváme po každém dokončeném kroku.
 - **Jednotný formát data.** Web uvádí všechna data ve tvaru `dd.mm.yyyy` bez mezer (například „01.11.2026“):
   štítky verzí předpisů a konsolidovaných znění, „Platnost od“, poslední kontrolu stavu, čas aktualizace databáze
   a zdroj kandidátů „MPO/CDV 30.04.2026“. Stejný formát používáme v dokumentech projektu.
+- **Popisy předpisů přidaných z fronty kandidátů (PR #43).** U 53 předpisů bez plného textu jsme texty stáhli,
+  vyčistili a odvodili z nich popis: 47 má doslovné úvodní ustanovení, 6 zkontrolované přibližné shrnutí
+  a čeká na editora (`doc/ANOTACE_PREDPISU.md`, odstavec 3). Nový krok nasazení `state_paths.py --seed`
+  doplní do stavového adresáře stavové soubory, které přibyly v nové verzi (`doc/NASAZENI.md`, odstavec 5);
+  `act_descriptions.json` tam dosud chyběl.
 - **Poznámky z rešerší u předpisů vyřazeny (PR #41).** Krátké poznámky autorů rešerší („Transpozice provedena – …“) už jako
   popis předpisu nezobrazujeme; transpozici zaznamenávají vazby `IMPLEMENTS` (105 vazeb ke 77 aktům EU). Předpis
   bez úvodního ustanovení čeká na popis od editora (`doc/ANOTACE_PREDPISU.md`, odstavec 2).

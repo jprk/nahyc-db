@@ -81,3 +81,24 @@ def seed(target=None, overwrite=False):
             shutil.copy2(source, destination)
             copied.append(name)
     return copied
+
+
+def main(argv=None):
+    """`state_paths.py --seed`: copies into the state directory the state files it does
+    not have yet — after a `git pull` that added a file to STATE_FILES (act_descriptions.json
+    came with PR #40, after the state directories were set up). Never overwrites."""
+    import argparse
+    parser = argparse.ArgumentParser(description=main.__doc__.split("\n")[0])
+    parser.add_argument("--seed", action="store_true", help="copy the missing state files from data/")
+    args = parser.parse_args(argv)
+    print(f"state directory: {state_dir()}")
+    if args.seed:
+        copied = seed()
+        print("copied: " + (", ".join(copied) if copied else "nothing (all present)"))
+    else:
+        missing = [name for name in sorted(STATE_FILES) if (DATA_DIR / name).is_file() and not (state_dir() / name).exists()]
+        print("missing: " + (", ".join(missing) if missing else "none") + ("; add --seed to copy them" if missing else ""))
+
+
+if __name__ == "__main__":
+    main()

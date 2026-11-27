@@ -311,7 +311,7 @@ def main(argv=None):
             conn.rollback()
         print(f"{changed} documents corrected, {deleted} deleted or merged "
               + (f"in {env['DB_NAME']}" if args.apply else "(dry run — add --apply)")
-              + f"; corrections from {MANUAL_CORRECTIONS_PATH.relative_to(REPO_ROOT)}")
+              + f"; corrections from {MANUAL_CORRECTIONS_PATH}")
     except Exception:
         conn.rollback()
         raise

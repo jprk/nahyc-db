@@ -32,6 +32,17 @@ class StatePathsTestCase(unittest.TestCase):
             self.assertNotIn("manual_corrections.json", state_paths.seed(tmp))
             self.assertEqual((pathlib.Path(tmp) / "manual_corrections.json").read_text(encoding="utf-8"), "{}")
 
+    def test_seed_command_adds_only_the_missing_file(self):
+        """`state_paths.py --seed` after a pull that added a state file (act_descriptions.json, PR #40)."""
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {"H2DB_STATE_DIR": tmp}):
+            state_paths.seed(tmp)
+            (pathlib.Path(tmp) / "act_descriptions.json").unlink()
+            (pathlib.Path(tmp) / "manual_corrections.json").write_text("{}", encoding="utf-8")
+            with mock.patch("builtins.print"):
+                state_paths.main(["--seed"])
+            self.assertTrue((pathlib.Path(tmp) / "act_descriptions.json").is_file())
+            self.assertEqual((pathlib.Path(tmp) / "manual_corrections.json").read_text(encoding="utf-8"), "{}")
+
     def test_no_state_file_is_addressed_in_data_directly(self):
         """Every path of a state file goes through state_paths.data_file()."""
         names = "|".join(re.escape(n) for n in state_paths.STATE_FILES)

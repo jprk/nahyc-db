@@ -66,6 +66,22 @@ proto nemá popis vůbec, nanejvýš přibližné shrnutí, a čeká na editora.
 - Modelové kroky stály asi 4,15 USD (gpt-5.5 a gpt-5.4, včetně opakování s upřesněnými pokyny);
   odpovědi jsou v mezipaměti, další běh volá model jen u předpisu, jehož text se změnil.
 
+### Doplnění plných textů (27. 11. 2026)
+
+V provozní databázi zbylo 54 předpisů bez plného textu, a proto bez popisu: 52 předpisů přidaných
+z fronty kandidátů (22 vyhlášek, 12 zákonů, 2 nařízení vlády, 9 nařízení EU, 7 směrnic EU),
+rozhodnutí (EU) 2013/732 [SK] a směrnice 2010/75/EU. U prvních 53 jsme texty stáhli (`fetch_fulltext.py`), vyčistili
+(`extract_fulltext.py`) a pustili na ně `annotate_acts.py`:
+
+- 47 předpisů má doslovné úvodní ustanovení, 46 podle vzoru, u zákona č. 44/1988 Sb. ho vyhledal model.
+- 6 předpisů má zkontrolované přibližné shrnutí a čeká na editora: novely 87/2025 Sb., 469/2023 Sb.,
+  19/2023 Sb. a 513/2021 Sb., vyhláška č. 401/2010 Sb. a vyhláška č. 104/1988 Sb.
+- U vyhlášky č. 104/1988 Sb. model vybral § 5 (povolování hornické činnosti). Ten ale popisuje jen
+  jednu ze tří částí vyhlášky (§ 1 je zrušen), proto jsme ho v mezipaměti ručně odmítli.
+- Modelové kroky stály 0,63 USD.
+- Bez textu zůstává směrnice 2010/75/EU (dokument 1222). V databázi nemá označení, takže k ní
+  `sync_fulltext_paths.py` text nepřiřadí; doplníme ho opravou záznamu.
+
 Zkontrolovali jsme vzorky: u novel model nejdřív vybíral výčty změn, definice, úvodní věty vyhlášek
 nebo body odůvodnění o měněném předpisu. Proto citaci ověřujeme stejnými pravidly jako vzor
 (`act_provisions.describes()`) a body odůvodnění přijímáme, jen když mluví o tomto předpisu.

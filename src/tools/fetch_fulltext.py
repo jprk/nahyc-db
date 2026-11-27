@@ -609,7 +609,7 @@ def main():
         save_manifest(manifest)
 
     print(f"\nDone. {fetched_count} URLs fetched this run. "
-          f"Manifest: {MANIFEST_PATH.relative_to(REPO_ROOT)} ({len(manifest)} entries total).")
+          f"Manifest: {MANIFEST_PATH} ({len(manifest)} entries total).")
 
 
 if __name__ == "__main__":
