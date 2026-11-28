@@ -331,6 +331,11 @@ def complete(candidate, titles):
 
 # --- writing ----------------------------------------------------------------
 
+# The tier of a candidate the MPO/CDV tables ask for (mpo_tables.py, `evidence.mpo_rows`): the ministry
+# wants it in the database, so it is listed by default (tier 1), never in the indirect tier 2.
+MPO_TIER = 1
+
+
 def upsert(cursor, candidate):
     """Inserts a candidate, or refreshes the evidence of one already reported. The
     decision and the metadata an editor may have changed are never touched; a
@@ -408,6 +413,8 @@ def upsert_finding(cursor, candidate, finding):
                         candidate.get("occurrences")))
         return "inserted"
     row_id = row["id"] if isinstance(row, dict) else row[0]
+    # a row of the MPO/CDV tables (mpo_tables.py) stays in tier 1, whatever source finds it later
+    tier = MPO_TIER if "mpo_rows" in evidence else candidate.get("tier")
     # The tier and the count follow the latest finding; a placeholder title (the designation itself, or none)
     # gives way to a real one, a title an editor may have written is kept; so is a type, a missing one is filled.
     cursor.execute("""UPDATE DocumentCandidate SET evidence_json = %s, tier = COALESCE(%s, tier),
@@ -415,7 +422,7 @@ def upsert_finding(cursor, candidate, finding):
                           title = CASE WHEN title IS NULL OR title = designation THEN COALESCE(%s, title) ELSE title END,
                           document_type = COALESCE(NULLIF(document_type, ''), %s)
                       WHERE id = %s""",
-                   (payload, candidate.get("tier"), candidate.get("occurrences"), candidate.get("title"),
+                   (payload, tier, candidate.get("occurrences"), candidate.get("title"),
                     candidate.get("document_type"), row_id))
     return "updated"
 

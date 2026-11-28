@@ -109,5 +109,34 @@ class UpsertTestCase(unittest.TestCase):
             self.assertEqual(len(cursor.sql), 1)
 
 
+class MpoTierTestCase(unittest.TestCase):
+    """A candidate the MPO/CDV tables ask for stays in tier 1 when another source finds it
+    later (ČSN EN IEC 60079-29-0 fell to tier 2 after a find in Věstník ÚNMZ)."""
+
+    class Cursor:
+        def __init__(self, evidence):
+            self.row = {"id": 349, "status": "proposed", "evidence_json": json.dumps(evidence)}
+            self.updates = []
+
+        def execute(self, sql, params=None):
+            if sql.lstrip().startswith("UPDATE"):
+                self.updates.append(params)
+
+        def fetchone(self):
+            return self.row
+
+    def finding(self, cursor):
+        candidate = {"candidate_key": "NORM:CSN-EN-IEC-60079-29-0", "tier": 2, "title": "Výbušné atmosféry"}
+        finding = {"source": "vestnik-unmz", "signal": "new_document", "seen": "2026-11-20"}
+        self.assertEqual(cd.upsert_finding(cursor, candidate, finding), "updated")
+        return cursor.updates[0][1]
+
+    def test_mpo_candidate_stays_in_tier_1(self):
+        self.assertEqual(self.finding(self.Cursor({"mpo_rows": [{"table": "MPO", "row": 12}]})), cd.MPO_TIER)
+
+    def test_other_candidate_follows_the_finding(self):
+        self.assertEqual(self.finding(self.Cursor({})), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
